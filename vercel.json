@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "dist/underagegiant-travelbestie-frontend/browser",
+  "framework": null,
+  "rewrites": [
+    { "source": "/((?!assets|favicon).*)", "destination": "/index.html" }
+  ]
+}
