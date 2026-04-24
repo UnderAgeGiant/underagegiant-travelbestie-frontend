@@ -9,7 +9,7 @@ const config: Config = {
       'jest-preset-angular',
       {
         tsconfig: '<rootDir>/tsconfig.spec.json',
-        stringifyContentPathRegex: /\.html$/,
+        stringifyContentPathRegex: '\\.html$',
       },
     ],
   },
