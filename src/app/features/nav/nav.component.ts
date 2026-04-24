@@ -49,7 +49,7 @@ import { City } from '../../core/models/city.model';
           <button class="btn-pill btn-ghost" (click)="showLogin.set(true)">Sign In</button>
         } @else {
           <div style="position:relative">
-            <button class="user-btn" (click)="userMenuOpen.update(v => !v)">
+            <button class="user-btn" (click)="toggleUserMenu()">
               <div class="user-avatar">{{ initials() }}</div>
               <span class="user-btn-name">{{ auth.currentUser()?.name }}</span>
               <span style="font-size:10px;color:var(--t3)">▾</span>
@@ -158,6 +158,7 @@ export class NavComponent {
     return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
   });
 
+  toggleUserMenu() { this.userMenuOpen.update(v => !v); }
   scheduleClose() { setTimeout(() => this.searchOpen.set(false), 160); }
 
   quickAdd(city: City): void {

@@ -32,7 +32,7 @@ export const SLIDES: Slide[] = [
           <div class="bg-overlay"></div>
         </div>
       }
-      <div class="bg-caption" [key]="activeIdx()">
+      <div class="bg-caption">
         <div class="bg-caption-attr">{{ slides[activeIdx()].attr }}</div>
         <div class="bg-caption-city">{{ slides[activeIdx()].city }}</div>
         <div class="bg-caption-country">{{ slides[activeIdx()].country }}</div>

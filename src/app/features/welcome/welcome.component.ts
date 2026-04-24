@@ -8,8 +8,8 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
   template: `
     <app-background-slider
       [activeIdx]="slideIdx()"
-      (prev)="slideIdx.update(i => (i - 1 + slides.length) % slides.length)"
-      (next)="slideIdx.update(i => (i + 1) % slides.length)"
+      (prev)="prevSlide()"
+      (next)="nextSlide()"
       (dotClick)="slideIdx.set($event)" />
 
     <div class="welcome-overlay">
@@ -46,6 +46,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     { n: 2, t: 'Explore attractions', d: 'Curated spots to see & do' },
     { n: 3, t: 'Collect comments', d: 'Friends leave tips on each stop' },
   ];
+
+  prevSlide() { this.slideIdx.update(i => (i - 1 + this.slides.length) % this.slides.length); }
+  nextSlide() { this.slideIdx.update(i => (i + 1) % this.slides.length); }
 
   ngOnInit() {
     this.timer = setInterval(() => this.slideIdx.update(i => (i + 1) % this.slides.length), 5000);

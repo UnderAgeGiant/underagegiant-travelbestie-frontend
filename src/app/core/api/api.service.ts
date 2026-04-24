@@ -28,9 +28,10 @@ const MOCK_COMMENTS: Record<string, Comment[]> = {
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly http = inject(HttpClient);
-  private readonly env = (this.injectedEnv ?? environment) as typeof environment;
 
   constructor(@Optional() @Inject('ENV') private injectedEnv: typeof environment | null) {}
+
+  private get env(): typeof environment { return (this.injectedEnv ?? environment) as typeof environment; }
 
   private get useMocks(): boolean { return this.env.useMocks; }
   private get base(): string { return this.env.apiUrl; }
