@@ -13,20 +13,21 @@ import { WORLD_CITIES } from '../../data/cities.data';
           <span style="font-weight:500">{{ selected()!.name }}</span>
           <span style="color:var(--t3);font-size:12px">{{ selected()!.country }}</span>
         } @else {
-          <span class="combo-placeholder">Search city or country…</span>
+          <span class="combo-placeholder" i18n="@@combobox.placeholder">Buscar ciudad o país…</span>
         }
         <span style="margin-left:auto;color:var(--t3);font-size:11px">▾</span>
       </div>
 
       @if (open()) {
         <div class="combo-dropdown">
-          <input class="combo-search" placeholder="Type to search…"
+          <input class="combo-search"
+                 i18n-placeholder="@@combobox.searchPlaceholder" placeholder="Escribe para buscar…"
                  [value]="query()"
                  (input)="query.set($any($event.target).value)"
                  (click)="$event.stopPropagation()" />
           <div class="combo-list">
             @if (groupedEntries().length === 0) {
-              <div class="combo-empty">No cities found</div>
+              <div class="combo-empty" i18n="@@combobox.noCities">No se encontraron ciudades</div>
             }
             @for (entry of groupedEntries(); track entry.region) {
               <div class="combo-group-label">{{ regionLabel(entry.region) }}</div>

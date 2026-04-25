@@ -24,11 +24,21 @@ import { ApiService } from '../../core/api/api.service';
                 {{ regionLabel() }}
               </span>
               <span class="badge" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
-                {{ attractions().length }} attractions
+                {{ attractions().length }}
+                @if (attractions().length === 1) {
+                  <ng-container i18n="@@dest.oneAttraction">atracción</ng-container>
+                } @else {
+                  <ng-container i18n="@@dest.manyAttractions">atracciones</ng-container>
+                }
               </span>
               @if (totalComments() > 0) {
                 <span class="badge" style="background:var(--blush);color:var(--peach-d)">
-                  💬 {{ totalComments() }} comment{{ totalComments() > 1 ? 's' : '' }}
+                  💬 {{ totalComments() }}
+                  @if (totalComments() === 1) {
+                    <ng-container i18n="@@dest.oneComment">comentario</ng-container>
+                  } @else {
+                    <ng-container i18n="@@dest.manyComments">comentarios</ng-container>
+                  }
                 </span>
               }
               @if (activeStop()?.checkIn && activeStop()?.checkOut) {
@@ -41,8 +51,15 @@ import { ApiService } from '../../core/api/api.service';
         </div>
         <div class="attractions-area">
           <div class="attractions-top">
-            <div class="attractions-label">Explore Attractions</div>
-            <span class="att-count">{{ attractions().length }} places</span>
+            <div class="attractions-label" i18n="@@dest.exploreTitle">Explorar atracciones</div>
+            <span class="att-count">
+              {{ attractions().length }}
+              @if (attractions().length === 1) {
+                <ng-container i18n="@@dest.onePlace">lugar</ng-container>
+              } @else {
+                <ng-container i18n="@@dest.manyPlaces">lugares</ng-container>
+              }
+            </span>
           </div>
           <div class="att-grid">
             @for (att of attractions(); track att.id) {

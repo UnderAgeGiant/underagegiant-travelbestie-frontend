@@ -1,27 +1,84 @@
-# UnderagegiantTravelbestieFrontend
+# TravelingBestie — Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+Angular 18 standalone SPA for planning multi-destination trips. Users build an itinerary, explore curated attractions per city, and leave comments on every stop. Connects to the [travelbestie-manager](https://github.com/UnderAgeGiant/underagegiant-travelbestie-manager) REST API via JWT auth.
+
+## Tech stack
+
+- Angular 18 · standalone components · Signal-based state
+- `@angular/localize` for i18n (es-CL default, en-US supported)
+- Angular HttpClient + JWT interceptor
+- Deployed on Vercel (static output)
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+ng serve                        # Spanish — http://localhost:4200 (default)
+ng serve --configuration=en-US  # English — http://localhost:4200
+```
 
-## Code scaffolding
+The app reloads automatically on file changes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## i18n — locales
+
+| Locale | Language | Command |
+|--------|----------|---------|
+| `es-CL` | Spanish (Chile) — **default** | `ng serve` |
+| `en-US` | English (US) | `ng serve --configuration=en-US` |
+
+Translatable strings are marked with `i18n="@@id"` in templates and `$localize` in TypeScript. English translations live in `src/locale/messages.en-US.xlf`.
+
+After adding new strings to a template, regenerate the source file:
+
+```bash
+ng extract-i18n --output-path src/locale
+```
+
+Then add the corresponding `<trans-unit>` entries to `src/locale/messages.en-US.xlf`.
+
+Date format for es-CL is `dd/MM/yyyy` (e.g. `25/04/2026`).
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng build --configuration=es-CL  # Spanish production build → dist/
+ng build --configuration=en-US  # English production build → dist/
+```
 
-## Running unit tests
+## Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+ng test      # Karma unit tests
+npx jest     # Jest unit tests
+```
 
-## Running end-to-end tests
+## Code scaffolding
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+ng generate component features/<name>/<name>
+ng generate service core/<name>/<name>
+```
 
-## Further help
+## Project structure
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```
+src/
+├── app/
+│   ├── core/
+│   │   ├── models/          # City, Trip, Comment interfaces
+│   │   ├── auth/            # AuthService, AuthInterceptor, AuthGuard
+│   │   └── api/             # ApiService (real + mock)
+│   ├── data/
+│   │   ├── cities.data.ts   # 120+ world cities
+│   │   └── attractions.data.ts
+│   ├── shared/              # Toast, BackgroundSlider, CityCombobox
+│   ├── features/
+│   │   ├── nav/
+│   │   ├── welcome/
+│   │   ├── trip/            # StopList, AddStopModal, TripService
+│   │   └── destination/     # DestinationView, AttractionCard, CommentModal
+│   ├── app.component.ts
+│   ├── app.config.ts        # Locale registration (es-CL, en-US)
+│   └── app.routes.ts
+└── locale/
+    └── messages.en-US.xlf   # English translations
+```

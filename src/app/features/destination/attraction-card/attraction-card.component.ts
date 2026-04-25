@@ -22,7 +22,7 @@ import { ApiService } from '../../../core/api/api.service';
       </div>
       <div class="att-card-bottom">
         @if (comments().length === 0) {
-          <div class="no-comments">No comments yet — be the first! 💬</div>
+          <div class="no-comments" i18n="@@attCard.noComments">¡Sin comentarios aún — sé el primero! 💬</div>
         } @else {
           <div class="comments-list">
             @for (c of comments().slice(-2); track $index) {
@@ -35,11 +35,11 @@ import { ApiService } from '../../../core/api/api.service';
               </div>
             }
             @if (comments().length > 2) {
-              <div class="c-more">+{{ comments().length - 2 }} more</div>
+              <div class="c-more">+{{ comments().length - 2 }} <ng-container i18n="@@attCard.more">más</ng-container></div>
             }
           </div>
         }
-        <button class="add-c-btn" (click)="showModal.set(true)">💌 Add a comment</button>
+        <button class="add-c-btn" (click)="showModal.set(true)" i18n="@@attCard.addComment">💌 Agregar comentario</button>
       </div>
     </div>
 

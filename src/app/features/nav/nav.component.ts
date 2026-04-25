@@ -14,7 +14,7 @@ import { City } from '../../core/models/city.model';
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
           <span style="color:var(--t3);font-size:15px">🔍</span>
-          <input placeholder="Quick-add a city…"
+          <input i18n-placeholder="@@nav.searchPlaceholder" placeholder="Agregar ciudad…"
                  [value]="navQuery()"
                  (input)="navQuery.set($any($event.target).value); searchOpen.set(true)"
                  (focus)="searchOpen.set(true)"
@@ -30,7 +30,7 @@ import { City } from '../../core/models/city.model';
                     <div class="combo-item-city">{{ city.name }}</div>
                     <div class="combo-item-country">{{ city.country }}</div>
                   </div>
-                  <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600">+ Add</span>
+                  <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600" i18n="@@nav.quickAdd">+ Agregar</span>
                 </div>
               }
             </div>
@@ -41,12 +41,17 @@ import { City } from '../../core/models/city.model';
       <div class="nav-right">
         @if (trip.stops().length > 0) {
           <span style="font-size:12px;color:var(--t3)">
-            {{ trip.stops().length }} stop{{ trip.stops().length > 1 ? 's' : '' }}
+            {{ trip.stops().length }}
+            @if (trip.stops().length === 1) {
+              <ng-container i18n="@@nav.oneStop">parada</ng-container>
+            } @else {
+              <ng-container i18n="@@nav.manyStops">paradas</ng-container>
+            }
           </span>
         }
 
         @if (!auth.isLoggedIn()) {
-          <button class="btn-pill btn-ghost" (click)="showLogin.set(true)">Sign In</button>
+          <button class="btn-pill btn-ghost" (click)="showLogin.set(true)" i18n="@@nav.signInBtn">Iniciar sesión</button>
         } @else {
           <div style="position:relative">
             <button class="user-btn" (click)="toggleUserMenu()">
@@ -57,7 +62,7 @@ import { City } from '../../core/models/city.model';
             @if (userMenuOpen()) {
               <div class="user-panel" style="position:absolute;top:calc(100% + 10px);right:0;min-width:200px">
                 <div class="user-panel-head">
-                  <div class="up-title">My Account</div>
+                  <div class="up-title" i18n="@@nav.myAccount">Mi cuenta</div>
                   <div class="up-sub">{{ auth.currentUser()?.email }}</div>
                 </div>
                 <div class="up-body">
@@ -68,7 +73,7 @@ import { City } from '../../core/models/city.model';
                       <div class="profile-email">{{ auth.currentUser()?.email }}</div>
                     </div>
                   </div>
-                  <button class="signout-btn" (click)="auth.logout(); userMenuOpen.set(false)">Sign out</button>
+                  <button class="signout-btn" (click)="auth.logout(); userMenuOpen.set(false)" i18n="@@nav.signOut">Cerrar sesión</button>
                 </div>
               </div>
             }
@@ -84,26 +89,33 @@ import { City } from '../../core/models/city.model';
                [style.background]="loginMode() === 'login'
                  ? 'linear-gradient(135deg,var(--lav),var(--peach))'
                  : 'linear-gradient(135deg,var(--mint),var(--sky))'">
-            <div class="modal-title">{{ loginMode() === 'login' ? 'Welcome back 👋' : 'Create account ✨' }}</div>
-            <div class="modal-sub">{{ loginMode() === 'login' ? 'Sign in to save your trips' : 'Join to plan trips with besties' }}</div>
+            @if (loginMode() === 'login') {
+              <div class="modal-title" i18n="@@nav.loginTitle">¡Bienvenido de vuelta! 👋</div>
+              <div class="modal-sub" i18n="@@nav.loginSubtitle">Inicia sesión para guardar tus viajes</div>
+            } @else {
+              <div class="modal-title" i18n="@@nav.registerTitle">Crear cuenta ✨</div>
+              <div class="modal-sub" i18n="@@nav.registerSubtitle">Únete y planifica viajes con tus amigos</div>
+            }
           </div>
           <div class="modal-body">
             @if (loginMode() === 'register') {
               <div class="form-group">
-                <label class="form-label">Your name</label>
-                <input class="form-input" placeholder="Sofia García"
+                <label class="form-label" i18n="@@nav.nameLabel">Tu nombre</label>
+                <input class="form-input"
+                       i18n-placeholder="@@nav.namePlaceholder" placeholder="Sofía García"
                        [value]="loginName()"
                        (input)="loginName.set($any($event.target).value)" />
               </div>
             }
             <div class="form-group">
-              <label class="form-label">Email</label>
-              <input class="form-input" type="email" placeholder="you@email.com"
+              <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
+              <input class="form-input" type="email"
+                     i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
                      [value]="loginEmail()"
                      (input)="loginEmail.set($any($event.target).value)" />
             </div>
             <div class="form-group" style="margin-bottom:0">
-              <label class="form-label">Password</label>
+              <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
               <input class="form-input" type="password" placeholder="••••••••"
                      [value]="loginPassword()"
                      (input)="loginPassword.set($any($event.target).value)" />
@@ -111,16 +123,18 @@ import { City } from '../../core/models/city.model';
           </div>
           <div class="modal-foot" style="flex-direction:column;gap:8px">
             <div style="display:flex;gap:8px;width:100%">
-              <button class="btn-pill btn-outline" (click)="showLogin.set(false)" style="flex:1">Cancel</button>
-              <button class="btn-pill btn-primary" (click)="doAuth()" style="flex:2">
-                {{ loginMode() === 'login' ? 'Sign In →' : 'Create Account →' }}
-              </button>
+              <button class="btn-pill btn-outline" (click)="showLogin.set(false)" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
+              @if (loginMode() === 'login') {
+                <button class="btn-pill btn-primary" (click)="doAuth()" style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
+              } @else {
+                <button class="btn-pill btn-primary" (click)="doAuth()" style="flex:2" i18n="@@nav.registerSubmit">Crear cuenta →</button>
+              }
             </div>
             <div class="auth-toggle">
               @if (loginMode() === 'login') {
-                No account? <span (click)="loginMode.set('register')">Sign up free</span>
+                <span i18n="@@nav.authToggleLogin">¿Sin cuenta? <span (click)="loginMode.set('register')">Regístrate gratis</span></span>
               } @else {
-                Already have one? <span (click)="loginMode.set('login')">Sign in</span>
+                <span i18n="@@nav.authToggleRegister">¿Ya tienes una? <span (click)="loginMode.set('login')">Inicia sesión</span></span>
               }
             </div>
           </div>
