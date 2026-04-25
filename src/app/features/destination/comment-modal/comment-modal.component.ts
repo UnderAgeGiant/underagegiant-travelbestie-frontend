@@ -1,4 +1,5 @@
 import { Component, input, output, signal, inject, LOCALE_ID } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 
 const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','#818CF8','#4ADE80'];
@@ -75,6 +76,7 @@ export class CommentModalComponent {
   readonly colors = AV_COLORS;
   readonly stars = [1, 2, 3, 4, 5];
   private readonly locale = inject(LOCALE_ID);
+  private readonly datePipe = new DatePipe(this.locale);
 
   isValid() { return this.name().trim() && this.text().trim() && this.rating() > 0; }
 
@@ -86,7 +88,7 @@ export class CommentModalComponent {
       text: this.text().trim(),
       rating: this.rating(),
       color: AV_COLORS[this.avIdx()],
-      date: new Date().toLocaleDateString(this.locale, { month: 'short', day: 'numeric' }),
+      date: this.datePipe.transform(new Date(), 'dd/MM/yyyy') ?? '',
     });
   }
 }
