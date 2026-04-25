@@ -178,6 +178,22 @@
         <source>Salida</source>
         <target>Out</target>
       </trans-unit>
+      <trans-unit id="stopList.plannedLabel" datatype="html">
+        <source>Planificado</source>
+        <target>Planned</target>
+      </trans-unit>
+      <trans-unit id="stopList.removeAttTitle" datatype="html">
+        <source>Quitar del plan</source>
+        <target>Remove from plan</target>
+      </trans-unit>
+      <trans-unit id="stopList.oneAttraction" datatype="html">
+        <source>atracción</source>
+        <target>attraction</target>
+      </trans-unit>
+      <trans-unit id="stopList.manyAttractionsPlanned" datatype="html">
+        <source>atracciones planificadas</source>
+        <target>planned attractions</target>
+      </trans-unit>
       <trans-unit id="stopList.addBtn" datatype="html">
         <source>+ Agregar destino</source>
         <target>+ Add Destination</target>
@@ -248,6 +264,14 @@
       </trans-unit>
 
       <!-- ── attraction-card.component ── -->
+      <trans-unit id="attCard.addToPlan" datatype="html">
+        <source>Planificar</source>
+        <target>Add to plan</target>
+      </trans-unit>
+      <trans-unit id="attCard.inPlan" datatype="html">
+        <source>En plan</source>
+        <target>In plan</target>
+      </trans-unit>
       <trans-unit id="attCard.noComments" datatype="html">
         <source>¡Sin comentarios aún — sé el primero! 💬</source>
         <target>No comments yet — be the first! 💬</target>
@@ -297,6 +321,32 @@
       <trans-unit id="commentModal.submitBtn" datatype="html">
         <source>Publicar comentario 💌</source>
         <target>Post Comment 💌</target>
+      </trans-unit>
+
+      <!-- ── plan-time-modal.component ── -->
+      <trans-unit id="planModal.title" datatype="html">
+        <source>¿A qué hora? ⏰</source>
+        <target>What time? ⏰</target>
+      </trans-unit>
+      <trans-unit id="planModal.timeLabel" datatype="html">
+        <source>Hora de inicio</source>
+        <target>Start time</target>
+      </trans-unit>
+      <trans-unit id="planModal.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="planModal.confirmBtn" datatype="html">
+        <source>Confirmar</source>
+        <target>Confirm</target>
+      </trans-unit>
+      <trans-unit id="planModal.scheduleLabel" datatype="html">
+        <source>Ya planificado en esta ciudad</source>
+        <target>Already planned in this city</target>
+      </trans-unit>
+      <trans-unit id="planModal.removeBtn" datatype="html">
+        <source>Quitar del plan</source>
+        <target>Remove from plan</target>
       </trans-unit>
 
       <!-- ── date-range.component ── -->

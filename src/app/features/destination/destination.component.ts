@@ -66,6 +66,7 @@ import { ApiService } from '../../core/api/api.service';
               <app-attraction-card
                 [attraction]="att"
                 [cityName]="city()!.name"
+                [cityId]="city()!.id"
                 [comments]="commentsFor(att.id)"
                 (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
             }

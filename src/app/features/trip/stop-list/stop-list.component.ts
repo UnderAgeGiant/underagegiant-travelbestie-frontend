@@ -1,10 +1,34 @@
 import { Component, inject, output } from '@angular/core';
 import { TripService } from '../trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
+import { getAttractions } from '../../../data/attractions.data';
+import { Attraction } from '../../../core/models/comment.model';
+import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 
 @Component({
   selector: 'app-stop-list',
   standalone: true,
+  imports: [DurationPipe],
+  styles: [`
+    .att-plan-row {
+      display: flex; align-items: center; gap: 6px;
+      padding: 4px 2px; border-radius: 8px;
+      transition: background .12s;
+    }
+    .att-plan-row:hover { background: oklch(0% 0 0/.04); }
+    .att-plan-icon { font-size: 14px; flex-shrink: 0; }
+    .att-plan-name {
+      flex: 1; font-size: 11px; color: var(--t2);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .att-plan-del {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--blush); color: var(--peach-d);
+      font-size: 11px; display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .15s; flex-shrink: 0; cursor: pointer;
+    }
+    .att-plan-row:hover .att-plan-del { opacity: 1; }
+  `],
   template: `
     <div class="left-panel">
       <div class="panel-head">
@@ -45,10 +69,34 @@ import { WORLD_CITIES } from '../../../data/cities.data';
                 <button class="stop-del"
                         (click)="$event.stopPropagation(); trip.removeStop(stop.cityId)">×</button>
               </div>
+
               @if (stop.checkIn || stop.checkOut) {
                 <div class="stop-dates">
                   <div class="date-chip"><label i18n="@@stopList.checkInLabel">Llegada</label>{{ stop.checkIn || '—' }}</div>
                   <div class="date-chip"><label i18n="@@stopList.checkOutLabel">Salida</label>{{ stop.checkOut || '—' }}</div>
+                </div>
+              }
+
+              @if (stop.selectedAttractions.length > 0) {
+                <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
+                  <div style="font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--t3);margin-bottom:4px"
+                       i18n="@@stopList.plannedLabel">Planificado</div>
+                  @for (planned of stop.selectedAttractions; track planned.attractionId) {
+                    @let att = attractionFor(stop.cityId, planned.attractionId);
+                    @if (att) {
+                      <div class="att-plan-row" (click)="$event.stopPropagation()">
+                        <span class="att-plan-icon">{{ att.icon }}</span>
+                        <span class="att-plan-name">{{ att.name }}</span>
+                        <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
+                          {{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                        </span>
+                        <button class="att-plan-del"
+                                (click)="trip.removeAttraction(stop.cityId, planned.attractionId)"
+                                i18n-title="@@stopList.removeAttTitle"
+                                title="Quitar del plan">×</button>
+                      </div>
+                    }
+                  }
                 </div>
               }
             </div>
@@ -75,5 +123,11 @@ export class StopListComponent {
 
   cityFor(cityId: string) {
     return WORLD_CITIES.find(c => c.id === cityId) ?? null;
+  }
+
+  attractionFor(cityId: string, attractionId: string): Attraction | null {
+    const city = this.cityFor(cityId);
+    if (!city) return null;
+    return getAttractions(city).find(a => a.id === attractionId) ?? null;
   }
 }
