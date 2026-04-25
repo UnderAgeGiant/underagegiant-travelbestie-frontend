@@ -1,6 +1,6 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { City } from '../../core/models/city.model';
-import { TripStop, Planification } from '../../core/models/trip.model';
+import { TripStop, PlannedAttraction, Planification } from '../../core/models/trip.model';
 
 @Injectable({ providedIn: 'root' })
 export class TripService {
@@ -38,10 +38,10 @@ export class TripService {
     this._activeId.set(cityId);
   }
 
-  addAttraction(cityId: string, attractionId: string): void {
+  addAttraction(cityId: string, attractionId: string, startTime: string): void {
     this._stops.update(stops => stops.map(s =>
-      s.cityId === cityId
-        ? { ...s, selectedAttractions: [...new Set([...s.selectedAttractions, attractionId])] }
+      s.cityId === cityId && !s.selectedAttractions.some(a => a.attractionId === attractionId)
+        ? { ...s, selectedAttractions: [...s.selectedAttractions, { attractionId, startTime }] }
         : s
     ));
   }
@@ -49,17 +49,32 @@ export class TripService {
   removeAttraction(cityId: string, attractionId: string): void {
     this._stops.update(stops => stops.map(s =>
       s.cityId === cityId
-        ? { ...s, selectedAttractions: s.selectedAttractions.filter(id => id !== attractionId) }
+        ? { ...s, selectedAttractions: s.selectedAttractions.filter(a => a.attractionId !== attractionId) }
+        : s
+    ));
+  }
+
+  updateStartTime(cityId: string, attractionId: string, startTime: string): void {
+    this._stops.update(stops => stops.map(s =>
+      s.cityId === cityId
+        ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
+            a.attractionId === attractionId ? { ...a, startTime } : a
+          )}
         : s
     ));
   }
 
   isAttractionSelected(cityId: string, attractionId: string): boolean {
     return this._stops().find(s => s.cityId === cityId)
-      ?.selectedAttractions.includes(attractionId) ?? false;
+      ?.selectedAttractions.some(a => a.attractionId === attractionId) ?? false;
   }
 
-  selectedAttractionsFor(cityId: string): string[] {
+  getPlannedAttraction(cityId: string, attractionId: string): PlannedAttraction | null {
+    return this._stops().find(s => s.cityId === cityId)
+      ?.selectedAttractions.find(a => a.attractionId === attractionId) ?? null;
+  }
+
+  selectedAttractionsFor(cityId: string): PlannedAttraction[] {
     return this._stops().find(s => s.cityId === cityId)?.selectedAttractions ?? [];
   }
 }

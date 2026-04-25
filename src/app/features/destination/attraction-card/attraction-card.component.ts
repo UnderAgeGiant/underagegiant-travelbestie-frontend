@@ -1,23 +1,26 @@
 import { Component, input, output, signal, inject, computed } from '@angular/core';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
+import { PlanTimeModalComponent } from '../plan-time-modal/plan-time-modal.component';
+import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { ApiService } from '../../../core/api/api.service';
 import { TripService } from '../../trip/trip.service';
 
 @Component({
   selector: 'app-attraction-card',
   standalone: true,
-  imports: [CommentModalComponent],
+  imports: [CommentModalComponent, PlanTimeModalComponent, DurationPipe],
   styles: [`
     .plan-btn {
       display: flex; align-items: center; gap: 5px;
       padding: 5px 11px; border-radius: 99px; font-size: 11px; font-weight: 600;
       border: 1.5px solid var(--border); background: #fff; color: var(--t2);
-      cursor: pointer; transition: all .18s; white-space: nowrap;
+      cursor: pointer; transition: all .18s; white-space: nowrap; flex-shrink: 0;
     }
     .plan-btn:hover { border-color: var(--lav-d); color: var(--lav-d); background: var(--lav); }
     .plan-btn.planned { background: var(--lav-d); color: #fff; border-color: var(--lav-d); }
     .plan-btn.planned:hover { filter: brightness(1.1); }
+    .est-time { font-size: 10px; color: var(--t3); margin-top: 3px; }
   `],
   template: `
     <div class="att-card">
@@ -30,13 +33,16 @@ import { TripService } from '../../trip/trip.service';
             <span class="stars">{{ starStr() }}</span>
             <span class="rating-val">{{ attraction().rating }}</span>
           </div>
+          <div class="est-time">⏱ {{ attraction().estimatedMinutes | duration }}</div>
         </div>
         <button [class]="'plan-btn' + (inPlan() ? ' planned' : '')"
-                (click)="togglePlan()">
+                (click)="openPlanModal()">
           @if (inPlan()) {
-            <span>📌</span><span i18n="@@attCard.inPlan">En plan</span>
+            <span>📌</span>
+            <span>{{ plannedEntry()?.startTime }}</span>
           } @else {
-            <span>🔖</span><span i18n="@@attCard.addToPlan">Planificar</span>
+            <span>🔖</span>
+            <span i18n="@@attCard.addToPlan">Planificar</span>
           }
         </button>
       </div>
@@ -59,15 +65,24 @@ import { TripService } from '../../trip/trip.service';
             }
           </div>
         }
-        <button class="add-c-btn" (click)="showModal.set(true)" i18n="@@attCard.addComment">💌 Agregar comentario</button>
+        <button class="add-c-btn" (click)="showCommentModal.set(true)" i18n="@@attCard.addComment">💌 Agregar comentario</button>
       </div>
     </div>
 
-    @if (showModal()) {
+    @if (showPlanModal()) {
+      <app-plan-time-modal
+        [attraction]="attraction()"
+        [initialTime]="plannedEntry()?.startTime ?? ''"
+        (cancel)="showPlanModal.set(false)"
+        (confirmed)="onPlanConfirmed($event)"
+        (remove)="onPlanRemoved()" />
+    }
+
+    @if (showCommentModal()) {
       <app-comment-modal
         [attraction]="attraction()"
         [cityName]="cityName()"
-        (close)="showModal.set(false)"
+        (close)="showCommentModal.set(false)"
         (submitted)="onCommentSubmitted($event)" />
     }
   `,
@@ -79,7 +94,8 @@ export class AttractionCardComponent {
   comments = input<Comment[]>([]);
   commentAdded = output<{ attractionId: string; comment: Omit<Comment, 'id'> }>();
 
-  showModal = signal(false);
+  showPlanModal = signal(false);
+  showCommentModal = signal(false);
   private readonly api = inject(ApiService);
   private readonly trip = inject(TripService);
 
@@ -87,12 +103,24 @@ export class AttractionCardComponent {
     this.trip.isAttractionSelected(this.cityId(), this.attraction().id)
   );
 
-  togglePlan(): void {
+  readonly plannedEntry = computed(() =>
+    this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
+  );
+
+  openPlanModal(): void { this.showPlanModal.set(true); }
+
+  onPlanConfirmed(startTime: string): void {
     if (this.inPlan()) {
-      this.trip.removeAttraction(this.cityId(), this.attraction().id);
+      this.trip.updateStartTime(this.cityId(), this.attraction().id, startTime);
     } else {
-      this.trip.addAttraction(this.cityId(), this.attraction().id);
+      this.trip.addAttraction(this.cityId(), this.attraction().id, startTime);
     }
+    this.showPlanModal.set(false);
+  }
+
+  onPlanRemoved(): void {
+    this.trip.removeAttraction(this.cityId(), this.attraction().id);
+    this.showPlanModal.set(false);
   }
 
   starStr() {
@@ -103,7 +131,7 @@ export class AttractionCardComponent {
   onCommentSubmitted(comment: Omit<Comment, 'id'>): void {
     this.api.addComment(comment).subscribe(() => {
       this.commentAdded.emit({ attractionId: this.attraction().id, comment });
-      this.showModal.set(false);
+      this.showCommentModal.set(false);
     });
   }
 }

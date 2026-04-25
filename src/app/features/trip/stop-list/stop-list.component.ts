@@ -3,10 +3,12 @@ import { TripService } from '../trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { Attraction } from '../../../core/models/comment.model';
+import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 
 @Component({
   selector: 'app-stop-list',
   standalone: true,
+  imports: [DurationPipe],
   styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -79,14 +81,17 @@ import { Attraction } from '../../../core/models/comment.model';
                 <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
                   <div style="font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--t3);margin-bottom:4px"
                        i18n="@@stopList.plannedLabel">Planificado</div>
-                  @for (attId of stop.selectedAttractions; track attId) {
-                    @let att = attractionFor(stop.cityId, attId);
+                  @for (planned of stop.selectedAttractions; track planned.attractionId) {
+                    @let att = attractionFor(stop.cityId, planned.attractionId);
                     @if (att) {
                       <div class="att-plan-row" (click)="$event.stopPropagation()">
                         <span class="att-plan-icon">{{ att.icon }}</span>
                         <span class="att-plan-name">{{ att.name }}</span>
+                        <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
+                          {{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                        </span>
                         <button class="att-plan-del"
-                                (click)="trip.removeAttraction(stop.cityId, attId)"
+                                (click)="trip.removeAttraction(stop.cityId, planned.attractionId)"
                                 i18n-title="@@stopList.removeAttTitle"
                                 title="Quitar del plan">×</button>
                       </div>

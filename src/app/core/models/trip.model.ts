@@ -1,8 +1,13 @@
+export interface PlannedAttraction {
+  attractionId: string;
+  startTime: string; // "HH:mm"
+}
+
 export interface TripStop {
   cityId: string;
   checkIn: string;
   checkOut: string;
-  selectedAttractions: string[];
+  selectedAttractions: PlannedAttraction[];
 }
 
 export interface Planification {

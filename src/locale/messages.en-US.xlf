@@ -323,6 +323,28 @@
         <target>Post Comment 💌</target>
       </trans-unit>
 
+      <!-- ── plan-time-modal.component ── -->
+      <trans-unit id="planModal.title" datatype="html">
+        <source>¿A qué hora? ⏰</source>
+        <target>What time? ⏰</target>
+      </trans-unit>
+      <trans-unit id="planModal.timeLabel" datatype="html">
+        <source>Hora de inicio</source>
+        <target>Start time</target>
+      </trans-unit>
+      <trans-unit id="planModal.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="planModal.confirmBtn" datatype="html">
+        <source>Confirmar</source>
+        <target>Confirm</target>
+      </trans-unit>
+      <trans-unit id="planModal.removeBtn" datatype="html">
+        <source>Quitar del plan</source>
+        <target>Remove from plan</target>
+      </trans-unit>
+
       <!-- ── date-range.component ── -->
       <trans-unit id="datePicker.fromPlaceholder" datatype="html">
         <source>dd/mm/aaaa</source>
