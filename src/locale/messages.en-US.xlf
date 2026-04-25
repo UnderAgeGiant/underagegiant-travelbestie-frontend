@@ -178,6 +178,14 @@
         <source>Salida</source>
         <target>Out</target>
       </trans-unit>
+      <trans-unit id="stopList.plannedLabel" datatype="html">
+        <source>Planificado</source>
+        <target>Planned</target>
+      </trans-unit>
+      <trans-unit id="stopList.removeAttTitle" datatype="html">
+        <source>Quitar del plan</source>
+        <target>Remove from plan</target>
+      </trans-unit>
       <trans-unit id="stopList.oneAttraction" datatype="html">
         <source>atracción</source>
         <target>attraction</target>
