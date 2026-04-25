@@ -1,4 +1,4 @@
-import { Component, output, signal, inject } from '@angular/core';
+import { Component, output, signal, inject, LOCALE_ID } from '@angular/core';
 import { CityComboboxComponent } from '../../../shared/city-combobox/city-combobox.component';
 import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
@@ -9,12 +9,12 @@ import { City } from '../../../core/models/city.model';
   imports: [CityComboboxComponent],
   template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
-      <div class="modal" style="max-width:480px">
-        <div class="modal-head" style="background:linear-gradient(135deg,var(--mint),var(--sky))">
+      <div class="modal" style="max-width:560px;overflow:visible">
+        <div class="modal-head" style="background:linear-gradient(135deg,var(--mint),var(--sky));border-radius:22px 22px 0 0;overflow:hidden">
           <div class="modal-title" i18n="@@addStop.title">Agregar destino ✈️</div>
           <div class="modal-sub" i18n="@@addStop.subtitle">Busca entre 120+ ciudades del mundo</div>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="min-height:320px">
           <div class="form-group">
             <label class="form-label" i18n="@@addStop.cityLabel">Ciudad</label>
             <app-city-combobox [excludeIds]="trip.existingCityIds()"
@@ -24,18 +24,18 @@ import { City } from '../../../core/models/city.model';
             <div style="display:flex;gap:10px">
               <div class="form-group" style="flex:1;margin-bottom:0">
                 <label class="form-label" i18n="@@addStop.checkInLabel">Entrada</label>
-                <input type="date" class="form-input"
+                <input type="date" class="form-input" [lang]="locale"
                        (change)="checkIn.set($any($event.target).value)" />
               </div>
               <div class="form-group" style="flex:1;margin-bottom:0">
                 <label class="form-label" i18n="@@addStop.checkOutLabel">Salida</label>
-                <input type="date" class="form-input"
+                <input type="date" class="form-input" [lang]="locale"
                        (change)="checkOut.set($any($event.target).value)" />
               </div>
             </div>
           }
         </div>
-        <div class="modal-foot">
+        <div class="modal-foot" style="border-radius:0 0 22px 22px;overflow:hidden">
           <button class="btn-pill btn-outline" (click)="close.emit()" style="flex:1" i18n="@@addStop.cancelBtn">Cancelar</button>
           <button class="btn-pill btn-primary"
                   [disabled]="!selectedCity()"
@@ -50,6 +50,7 @@ import { City } from '../../../core/models/city.model';
 })
 export class AddStopModalComponent {
   readonly trip = inject(TripService);
+  readonly locale = inject(LOCALE_ID);
   close = output<void>();
 
   selectedCity = signal<City | null>(null);
