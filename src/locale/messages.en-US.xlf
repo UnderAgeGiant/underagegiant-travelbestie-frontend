@@ -299,6 +299,16 @@
         <target>Post Comment 💌</target>
       </trans-unit>
 
+      <!-- ── date-range.component ── -->
+      <trans-unit id="datePicker.fromPlaceholder" datatype="html">
+        <source>dd/mm/aaaa</source>
+        <target>mm/dd/yyyy</target>
+      </trans-unit>
+      <trans-unit id="datePicker.toPlaceholder" datatype="html">
+        <source>dd/mm/aaaa</source>
+        <target>mm/dd/yyyy</target>
+      </trans-unit>
+
       <!-- ── city-combobox.component ── -->
       <trans-unit id="combobox.placeholder" datatype="html">
         <source>Buscar ciudad o país…</source>
