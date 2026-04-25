@@ -1,12 +1,24 @@
-import { Component, input, output, signal, inject } from '@angular/core';
+import { Component, input, output, signal, inject, computed } from '@angular/core';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
 import { ApiService } from '../../../core/api/api.service';
+import { TripService } from '../../trip/trip.service';
 
 @Component({
   selector: 'app-attraction-card',
   standalone: true,
   imports: [CommentModalComponent],
+  styles: [`
+    .plan-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 5px 11px; border-radius: 99px; font-size: 11px; font-weight: 600;
+      border: 1.5px solid var(--border); background: #fff; color: var(--t2);
+      cursor: pointer; transition: all .18s; white-space: nowrap;
+    }
+    .plan-btn:hover { border-color: var(--lav-d); color: var(--lav-d); background: var(--lav); }
+    .plan-btn.planned { background: var(--lav-d); color: #fff; border-color: var(--lav-d); }
+    .plan-btn.planned:hover { filter: brightness(1.1); }
+  `],
   template: `
     <div class="att-card">
       <div class="att-card-top">
@@ -19,6 +31,14 @@ import { ApiService } from '../../../core/api/api.service';
             <span class="rating-val">{{ attraction().rating }}</span>
           </div>
         </div>
+        <button [class]="'plan-btn' + (inPlan() ? ' planned' : '')"
+                (click)="togglePlan()">
+          @if (inPlan()) {
+            <span>📌</span><span i18n="@@attCard.inPlan">En plan</span>
+          } @else {
+            <span>🔖</span><span i18n="@@attCard.addToPlan">Planificar</span>
+          }
+        </button>
       </div>
       <div class="att-card-bottom">
         @if (comments().length === 0) {
@@ -55,11 +75,25 @@ import { ApiService } from '../../../core/api/api.service';
 export class AttractionCardComponent {
   attraction = input.required<Attraction>();
   cityName = input.required<string>();
+  cityId = input.required<string>();
   comments = input<Comment[]>([]);
   commentAdded = output<{ attractionId: string; comment: Omit<Comment, 'id'> }>();
 
   showModal = signal(false);
   private readonly api = inject(ApiService);
+  private readonly trip = inject(TripService);
+
+  readonly inPlan = computed(() =>
+    this.trip.isAttractionSelected(this.cityId(), this.attraction().id)
+  );
+
+  togglePlan(): void {
+    if (this.inPlan()) {
+      this.trip.removeAttraction(this.cityId(), this.attraction().id);
+    } else {
+      this.trip.addAttraction(this.cityId(), this.attraction().id);
+    }
+  }
 
   starStr() {
     const r = Math.round(this.attraction().rating);

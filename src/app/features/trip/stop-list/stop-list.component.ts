@@ -41,6 +41,16 @@ import { WORLD_CITIES } from '../../../data/cities.data';
                 <div class="stop-info">
                   <div class="stop-name">{{ city.name }}</div>
                   <div class="stop-country">{{ city.country }}</div>
+                  @if (stop.selectedAttractions.length > 0) {
+                    <div class="stop-comments">
+                      📌 {{ stop.selectedAttractions.length }}
+                      @if (stop.selectedAttractions.length === 1) {
+                        <ng-container i18n="@@stopList.oneAttraction">atracción</ng-container>
+                      } @else {
+                        <ng-container i18n="@@stopList.manyAttractionsPlanned">atracciones planificadas</ng-container>
+                      }
+                    </div>
+                  }
                 </div>
                 <button class="stop-del"
                         (click)="$event.stopPropagation(); trip.removeStop(stop.cityId)">×</button>

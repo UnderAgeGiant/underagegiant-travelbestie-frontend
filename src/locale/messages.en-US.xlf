@@ -178,6 +178,14 @@
         <source>Salida</source>
         <target>Out</target>
       </trans-unit>
+      <trans-unit id="stopList.oneAttraction" datatype="html">
+        <source>atracción</source>
+        <target>attraction</target>
+      </trans-unit>
+      <trans-unit id="stopList.manyAttractionsPlanned" datatype="html">
+        <source>atracciones planificadas</source>
+        <target>planned attractions</target>
+      </trans-unit>
       <trans-unit id="stopList.addBtn" datatype="html">
         <source>+ Agregar destino</source>
         <target>+ Add Destination</target>
@@ -248,6 +256,14 @@
       </trans-unit>
 
       <!-- ── attraction-card.component ── -->
+      <trans-unit id="attCard.addToPlan" datatype="html">
+        <source>Planificar</source>
+        <target>Add to plan</target>
+      </trans-unit>
+      <trans-unit id="attCard.inPlan" datatype="html">
+        <source>En plan</source>
+        <target>In plan</target>
+      </trans-unit>
       <trans-unit id="attCard.noComments" datatype="html">
         <source>¡Sin comentarios aún — sé el primero! 💬</source>
         <target>No comments yet — be the first! 💬</target>

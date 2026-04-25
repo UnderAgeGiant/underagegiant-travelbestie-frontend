@@ -2,6 +2,12 @@ export interface TripStop {
   cityId: string;
   checkIn: string;
   checkOut: string;
+  selectedAttractions: string[];
+}
+
+export interface Planification {
+  stops: TripStop[];
+  totalAttractions: number;
 }
 
 export interface Trip {
