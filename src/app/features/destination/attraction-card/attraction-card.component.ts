@@ -1,10 +1,12 @@
 import { Component, input, output, signal, inject, computed } from '@angular/core';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
-import { PlanTimeModalComponent } from '../plan-time-modal/plan-time-modal.component';
+import { PlanTimeModalComponent, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { ApiService } from '../../../core/api/api.service';
 import { TripService } from '../../trip/trip.service';
+import { WORLD_CITIES } from '../../../data/cities.data';
+import { getAttractions } from '../../../data/attractions.data';
 
 @Component({
   selector: 'app-attraction-card',
@@ -46,6 +48,7 @@ import { TripService } from '../../trip/trip.service';
           }
         </button>
       </div>
+
       <div class="att-card-bottom">
         @if (comments().length === 0) {
           <div class="no-comments" i18n="@@attCard.noComments">¡Sin comentarios aún — sé el primero! 💬</div>
@@ -73,6 +76,7 @@ import { TripService } from '../../trip/trip.service';
       <app-plan-time-modal
         [attraction]="attraction()"
         [initialTime]="plannedEntry()?.startTime ?? ''"
+        [existingPlanned]="scheduleEntries()"
         (cancel)="showPlanModal.set(false)"
         (confirmed)="onPlanConfirmed($event)"
         (remove)="onPlanRemoved()" />
@@ -89,14 +93,15 @@ import { TripService } from '../../trip/trip.service';
 })
 export class AttractionCardComponent {
   attraction = input.required<Attraction>();
-  cityName = input.required<string>();
-  cityId = input.required<string>();
-  comments = input<Comment[]>([]);
+  cityName   = input.required<string>();
+  cityId     = input.required<string>();
+  comments   = input<Comment[]>([]);
   commentAdded = output<{ attractionId: string; comment: Omit<Comment, 'id'> }>();
 
-  showPlanModal = signal(false);
+  showPlanModal    = signal(false);
   showCommentModal = signal(false);
-  private readonly api = inject(ApiService);
+
+  private readonly api  = inject(ApiService);
   private readonly trip = inject(TripService);
 
   readonly inPlan = computed(() =>
@@ -106,6 +111,20 @@ export class AttractionCardComponent {
   readonly plannedEntry = computed(() =>
     this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
   );
+
+  /** All OTHER planned attractions for this city, to show in the schedule. */
+  readonly scheduleEntries = computed((): ScheduleEntry[] => {
+    const city = WORLD_CITIES.find(c => c.id === this.cityId());
+    if (!city) return [];
+    const allAttractions = getAttractions(city);
+    return this.trip.selectedAttractionsFor(this.cityId())
+      .filter(p => p.attractionId !== this.attraction().id)
+      .map(p => ({
+        startTime: p.startTime,
+        attraction: allAttractions.find(a => a.id === p.attractionId)!,
+      }))
+      .filter(e => e.attraction != null);
+  });
 
   openPlanModal(): void { this.showPlanModal.set(true); }
 

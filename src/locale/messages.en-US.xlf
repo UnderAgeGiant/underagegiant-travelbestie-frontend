@@ -340,6 +340,10 @@
         <source>Confirmar</source>
         <target>Confirm</target>
       </trans-unit>
+      <trans-unit id="planModal.scheduleLabel" datatype="html">
+        <source>Ya planificado en esta ciudad</source>
+        <target>Already planned in this city</target>
+      </trans-unit>
       <trans-unit id="planModal.removeBtn" datatype="html">
         <source>Quitar del plan</source>
         <target>Remove from plan</target>
