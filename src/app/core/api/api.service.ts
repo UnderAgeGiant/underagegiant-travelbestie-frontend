@@ -10,8 +10,8 @@ const MOCK_TRIPS: Trip[] = [
     id: 'mock-1',
     title: 'Europe 2026',
     stops: [
-      { cityId: 'paris', checkIn: '2026-06-01', checkOut: '2026-06-05' },
-      { cityId: 'rome', checkIn: '2026-06-06', checkOut: '2026-06-10' },
+      { cityId: 'paris', checkIn: '2026-06-01', checkOut: '2026-06-05', selectedAttractions: [] },
+      { cityId: 'rome', checkIn: '2026-06-06', checkOut: '2026-06-10', selectedAttractions: [] },
     ],
   },
 ];
