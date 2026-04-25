@@ -1,4 +1,4 @@
-import { Component, input, output, signal, OnInit } from '@angular/core';
+import { Component, input, output, signal, computed, OnInit } from '@angular/core';
 import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 
@@ -99,10 +99,11 @@ export class PlanTimeModalComponent implements OnInit {
 
   time = signal('09:00');
 
-  readonly schedule = () =>
-    [...this.existingPlanned()].sort((a, b) => a.startTime.localeCompare(b.startTime));
+  readonly isEditing = computed(() => this.initialTime() !== '');
 
-  get isEditing(): boolean { return this.initialTime() !== ''; }
+  readonly schedule = computed(() =>
+    [...this.existingPlanned()].sort((a, b) => a.startTime.localeCompare(b.startTime))
+  );
 
   ngOnInit() {
     if (this.initialTime()) this.time.set(this.initialTime());
