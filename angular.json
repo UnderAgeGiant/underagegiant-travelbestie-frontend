@@ -49,11 +49,6 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "favicon.svg",
-                "input": "src",
-                "output": "/"
               }
             ],
             "styles": [
