@@ -34,6 +34,14 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "es-CL",
+        "locales": {
+          "en-US": {
+            "translation": "src/locale/messages.en-US.xlf"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -42,7 +50,8 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -57,6 +66,12 @@
             "scripts": []
           },
           "configurations": {
+            "es-CL": {
+              "localize": ["es-CL"]
+            },
+            "en-US": {
+              "localize": ["en-US"]
+            },
             "production": {
               "budgets": [
                 {
@@ -88,6 +103,9 @@
             },
             "development": {
               "buildTarget": "underagegiant-travelbestie-frontend:build:development"
+            },
+            "en-US": {
+              "buildTarget": "underagegiant-travelbestie-frontend:build:en-US"
             }
           },
           "defaultConfiguration": "development"

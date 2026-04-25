@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es-CL" target-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+
+      <!-- ── app.component ── -->
+      <trans-unit id="app.selectStop" datatype="html">
+        <source>Selecciona una parada</source>
+        <target>Select a stop</target>
+      </trans-unit>
+      <trans-unit id="app.selectStopDesc" datatype="html">
+        <source>Haz clic en un destino del panel para explorar sus atracciones</source>
+        <target>Click any destination in the panel to explore its attractions</target>
+      </trans-unit>
+
+      <!-- ── nav.component ── -->
+      <trans-unit id="nav.searchPlaceholder" datatype="html">
+        <source>Agregar ciudad…</source>
+        <target>Quick-add a city…</target>
+      </trans-unit>
+      <trans-unit id="nav.quickAdd" datatype="html">
+        <source>+ Agregar</source>
+        <target>+ Add</target>
+      </trans-unit>
+      <trans-unit id="nav.oneStop" datatype="html">
+        <source>parada</source>
+        <target>stop</target>
+      </trans-unit>
+      <trans-unit id="nav.manyStops" datatype="html">
+        <source>paradas</source>
+        <target>stops</target>
+      </trans-unit>
+      <trans-unit id="nav.signInBtn" datatype="html">
+        <source>Iniciar sesión</source>
+        <target>Sign In</target>
+      </trans-unit>
+      <trans-unit id="nav.myAccount" datatype="html">
+        <source>Mi cuenta</source>
+        <target>My Account</target>
+      </trans-unit>
+      <trans-unit id="nav.signOut" datatype="html">
+        <source>Cerrar sesión</source>
+        <target>Sign out</target>
+      </trans-unit>
+      <trans-unit id="nav.loginTitle" datatype="html">
+        <source>¡Bienvenido de vuelta! 👋</source>
+        <target>Welcome back 👋</target>
+      </trans-unit>
+      <trans-unit id="nav.loginSubtitle" datatype="html">
+        <source>Inicia sesión para guardar tus viajes</source>
+        <target>Sign in to save your trips</target>
+      </trans-unit>
+      <trans-unit id="nav.registerTitle" datatype="html">
+        <source>Crear cuenta ✨</source>
+        <target>Create account ✨</target>
+      </trans-unit>
+      <trans-unit id="nav.registerSubtitle" datatype="html">
+        <source>Únete y planifica viajes con tus amigos</source>
+        <target>Join to plan trips with besties</target>
+      </trans-unit>
+      <trans-unit id="nav.nameLabel" datatype="html">
+        <source>Tu nombre</source>
+        <target>Your name</target>
+      </trans-unit>
+      <trans-unit id="nav.namePlaceholder" datatype="html">
+        <source>Sofía García</source>
+        <target>Sofia García</target>
+      </trans-unit>
+      <trans-unit id="nav.emailLabel" datatype="html">
+        <source>Correo electrónico</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="nav.emailPlaceholder" datatype="html">
+        <source>tú@correo.com</source>
+        <target>you@email.com</target>
+      </trans-unit>
+      <trans-unit id="nav.passwordLabel" datatype="html">
+        <source>Contraseña</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="nav.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="nav.signInSubmit" datatype="html">
+        <source>Iniciar sesión →</source>
+        <target>Sign In →</target>
+      </trans-unit>
+      <trans-unit id="nav.registerSubmit" datatype="html">
+        <source>Crear cuenta →</source>
+        <target>Create Account →</target>
+      </trans-unit>
+      <trans-unit id="nav.authToggleLogin" datatype="html">
+        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+      </trans-unit>
+      <trans-unit id="nav.authToggleRegister" datatype="html">
+        <source>¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span"/>Inicia sesión<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target>Already have one? <x id="START_TAG_SPAN" ctype="x-span"/>Sign in<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+      </trans-unit>
+
+      <!-- ── welcome.component ── -->
+      <trans-unit id="welcome.eyebrow" datatype="html">
+        <source>Planifica · Comparte · Explora</source>
+        <target>Plan · Share · Explore</target>
+      </trans-unit>
+      <trans-unit id="welcome.title" datatype="html">
+        <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb"/><x id="START_TAG_EM" ctype="x-em"/>mejor amig@<x id="CLOSE_TAG_EM" ctype="x-em"/></source>
+        <target>Travel with your<x id="LINE_BREAK" ctype="lb"/><x id="START_TAG_EM" ctype="x-em"/>bestie<x id="CLOSE_TAG_EM" ctype="x-em"/> in mind</target>
+      </trans-unit>
+      <trans-unit id="welcome.subtitle" datatype="html">
+        <source>Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>
+        <target>Build multi-destination trips, discover local attractions, and let your friends leave comments on every stop.</target>
+      </trans-unit>
+      <trans-unit id="welcome.addBtn" datatype="html">
+        <source>+ Agregar destino</source>
+        <target>+ Add Destination</target>
+      </trans-unit>
+      <trans-unit id="welcome.step1Title" datatype="html">
+        <source>Elige una ciudad</source>
+        <target>Choose a city</target>
+      </trans-unit>
+      <trans-unit id="welcome.step1Desc" datatype="html">
+        <source>120+ destinos en el mundo</source>
+        <target>120+ destinations worldwide</target>
+      </trans-unit>
+      <trans-unit id="welcome.step2Title" datatype="html">
+        <source>Explorar atracciones</source>
+        <target>Explore attractions</target>
+      </trans-unit>
+      <trans-unit id="welcome.step2Desc" datatype="html">
+        <source>Lugares seleccionados para ver y hacer</source>
+        <target>Curated spots to see &amp; do</target>
+      </trans-unit>
+      <trans-unit id="welcome.step3Title" datatype="html">
+        <source>Recopilar comentarios</source>
+        <target>Collect comments</target>
+      </trans-unit>
+      <trans-unit id="welcome.step3Desc" datatype="html">
+        <source>Tus amigos dejan consejos en cada parada</source>
+        <target>Friends leave tips on each stop</target>
+      </trans-unit>
+
+      <!-- ── stop-list.component ── -->
+      <trans-unit id="stopList.title" datatype="html">
+        <source>Mi viaje ✈️</source>
+        <target>My Trip ✈️</target>
+      </trans-unit>
+      <trans-unit id="stopList.noStops" datatype="html">
+        <source>Agrega tu primer destino</source>
+        <target>Add your first destination</target>
+      </trans-unit>
+      <trans-unit id="stopList.oneStopPlanned" datatype="html">
+        <source>destino planificado</source>
+        <target>destination planned</target>
+      </trans-unit>
+      <trans-unit id="stopList.manyStopsPlanned" datatype="html">
+        <source>destinos planificados</source>
+        <target>destinations planned</target>
+      </trans-unit>
+      <trans-unit id="stopList.emptyLine1" datatype="html">
+        <source>Busca una ciudad arriba</source>
+        <target>Search a city above</target>
+      </trans-unit>
+      <trans-unit id="stopList.emptyOr" datatype="html">
+        <source>o haz clic en</source>
+        <target>or click</target>
+      </trans-unit>
+      <trans-unit id="stopList.emptyAddBtn" datatype="html">
+        <source>+ Agregar destino</source>
+        <target>+ Add Destination</target>
+      </trans-unit>
+      <trans-unit id="stopList.checkInLabel" datatype="html">
+        <source>Llegada</source>
+        <target>In</target>
+      </trans-unit>
+      <trans-unit id="stopList.checkOutLabel" datatype="html">
+        <source>Salida</source>
+        <target>Out</target>
+      </trans-unit>
+      <trans-unit id="stopList.addBtn" datatype="html">
+        <source>+ Agregar destino</source>
+        <target>+ Add Destination</target>
+      </trans-unit>
+      <trans-unit id="stopList.bookBtn" datatype="html">
+        <source>Reservar viaje 🎉</source>
+        <target>Book Trip 🎉</target>
+      </trans-unit>
+
+      <!-- ── add-stop-modal.component ── -->
+      <trans-unit id="addStop.title" datatype="html">
+        <source>Agregar destino ✈️</source>
+        <target>Add a Destination ✈️</target>
+      </trans-unit>
+      <trans-unit id="addStop.subtitle" datatype="html">
+        <source>Busca entre 120+ ciudades del mundo</source>
+        <target>Search from 120+ cities worldwide</target>
+      </trans-unit>
+      <trans-unit id="addStop.cityLabel" datatype="html">
+        <source>Ciudad</source>
+        <target>City</target>
+      </trans-unit>
+      <trans-unit id="addStop.checkInLabel" datatype="html">
+        <source>Entrada</source>
+        <target>Check-in</target>
+      </trans-unit>
+      <trans-unit id="addStop.checkOutLabel" datatype="html">
+        <source>Salida</source>
+        <target>Check-out</target>
+      </trans-unit>
+      <trans-unit id="addStop.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="addStop.addBtn" datatype="html">
+        <source>Agregar al viaje ✈️</source>
+        <target>Add to Trip ✈️</target>
+      </trans-unit>
+
+      <!-- ── destination.component ── -->
+      <trans-unit id="dest.oneAttraction" datatype="html">
+        <source>atracción</source>
+        <target>attraction</target>
+      </trans-unit>
+      <trans-unit id="dest.manyAttractions" datatype="html">
+        <source>atracciones</source>
+        <target>attractions</target>
+      </trans-unit>
+      <trans-unit id="dest.oneComment" datatype="html">
+        <source>comentario</source>
+        <target>comment</target>
+      </trans-unit>
+      <trans-unit id="dest.manyComments" datatype="html">
+        <source>comentarios</source>
+        <target>comments</target>
+      </trans-unit>
+      <trans-unit id="dest.exploreTitle" datatype="html">
+        <source>Explorar atracciones</source>
+        <target>Explore Attractions</target>
+      </trans-unit>
+      <trans-unit id="dest.onePlace" datatype="html">
+        <source>lugar</source>
+        <target>place</target>
+      </trans-unit>
+      <trans-unit id="dest.manyPlaces" datatype="html">
+        <source>lugares</source>
+        <target>places</target>
+      </trans-unit>
+
+      <!-- ── attraction-card.component ── -->
+      <trans-unit id="attCard.noComments" datatype="html">
+        <source>¡Sin comentarios aún — sé el primero! 💬</source>
+        <target>No comments yet — be the first! 💬</target>
+      </trans-unit>
+      <trans-unit id="attCard.more" datatype="html">
+        <source>más</source>
+        <target>more</target>
+      </trans-unit>
+      <trans-unit id="attCard.addComment" datatype="html">
+        <source>💌 Agregar comentario</source>
+        <target>💌 Add a comment</target>
+      </trans-unit>
+
+      <!-- ── comment-modal.component ── -->
+      <trans-unit id="commentModal.title" datatype="html">
+        <source>Dejar un comentario</source>
+        <target>Leave a Comment</target>
+      </trans-unit>
+      <trans-unit id="commentModal.nameLabel" datatype="html">
+        <source>Tu nombre</source>
+        <target>Your name</target>
+      </trans-unit>
+      <trans-unit id="commentModal.namePlaceholder" datatype="html">
+        <source>ej. Sofía</source>
+        <target>e.g. Sofia</target>
+      </trans-unit>
+      <trans-unit id="commentModal.avatarLabel" datatype="html">
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </trans-unit>
+      <trans-unit id="commentModal.ratingLabel" datatype="html">
+        <source>Calificación</source>
+        <target>Rating</target>
+      </trans-unit>
+      <trans-unit id="commentModal.expLabel" datatype="html">
+        <source>Tu experiencia</source>
+        <target>Your experience</target>
+      </trans-unit>
+      <trans-unit id="commentModal.expPlaceholder" datatype="html">
+        <source>¿Qué te encantó? ¿Algún consejo para tu amig&#64;?</source>
+        <target>What did you love? Any tips for your bestie?</target>
+      </trans-unit>
+      <trans-unit id="commentModal.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="commentModal.submitBtn" datatype="html">
+        <source>Publicar comentario 💌</source>
+        <target>Post Comment 💌</target>
+      </trans-unit>
+
+      <!-- ── city-combobox.component ── -->
+      <trans-unit id="combobox.placeholder" datatype="html">
+        <source>Buscar ciudad o país…</source>
+        <target>Search city or country…</target>
+      </trans-unit>
+      <trans-unit id="combobox.searchPlaceholder" datatype="html">
+        <source>Escribe para buscar…</source>
+        <target>Type to search…</target>
+      </trans-unit>
+      <trans-unit id="combobox.noCities" datatype="html">
+        <source>No se encontraron ciudades</source>
+        <target>No cities found</target>
+      </trans-unit>
+
+      <!-- ── region labels (city.model.ts via $localize) ── -->
+      <trans-unit id="region.europe" datatype="html">
+        <source>Europa</source>
+        <target>Europe</target>
+      </trans-unit>
+      <trans-unit id="region.asia" datatype="html">
+        <source>Asia</source>
+        <target>Asia</target>
+      </trans-unit>
+      <trans-unit id="region.americas" datatype="html">
+        <source>América</source>
+        <target>Americas</target>
+      </trans-unit>
+      <trans-unit id="region.africa" datatype="html">
+        <source>África</source>
+        <target>Africa</target>
+      </trans-unit>
+      <trans-unit id="region.oceania" datatype="html">
+        <source>Oceanía</source>
+        <target>Oceania</target>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>

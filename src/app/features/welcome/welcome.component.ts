@@ -14,13 +14,14 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
 
     <div class="welcome-overlay">
       <div class="welcome-content">
-        <div class="welcome-eyebrow">Plan · Share · Explore</div>
-        <h1 class="welcome-title">Travel with your<br/><em>bestie</em> in mind</h1>
-        <p class="welcome-sub">Build multi-destination trips, discover local attractions, and let your friends leave comments on every stop.</p>
+        <div class="welcome-eyebrow" i18n="@@welcome.eyebrow">Planifica · Comparte · Explora</div>
+        <h1 class="welcome-title" i18n="@@welcome.title">Viaja pensando en tu<br/><em>mejor amig&#64;</em></h1>
+        <p class="welcome-sub" i18n="@@welcome.subtitle">Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</p>
         <div class="welcome-actions">
           <button class="btn-pill btn-primary"
                   style="padding:11px 24px;font-size:14px"
-                  (click)="addDestination.emit()">+ Add Destination</button>
+                  (click)="addDestination.emit()"
+                  i18n="@@welcome.addBtn">+ Agregar destino</button>
         </div>
         <div class="welcome-steps">
           @for (step of steps; track step.n) {
@@ -42,9 +43,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   private timer?: ReturnType<typeof setInterval>;
 
   readonly steps = [
-    { n: 1, t: 'Choose a city', d: '120+ destinations worldwide' },
-    { n: 2, t: 'Explore attractions', d: 'Curated spots to see & do' },
-    { n: 3, t: 'Collect comments', d: 'Friends leave tips on each stop' },
+    { n: 1, t: $localize`:@@welcome.step1Title:Elige una ciudad`, d: $localize`:@@welcome.step1Desc:120+ destinos en el mundo` },
+    { n: 2, t: $localize`:@@welcome.step2Title:Explorar atracciones`, d: $localize`:@@welcome.step2Desc:Lugares seleccionados para ver y hacer` },
+    { n: 3, t: $localize`:@@welcome.step3Title:Recopilar comentarios`, d: $localize`:@@welcome.step3Desc:Tus amigos dejan consejos en cada parada` },
   ];
 
   prevSlide() { this.slideIdx.update(i => (i - 1 + this.slides.length) % this.slides.length); }

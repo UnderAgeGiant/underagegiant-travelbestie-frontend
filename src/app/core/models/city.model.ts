@@ -9,9 +9,9 @@ export interface City {
 }
 
 export const REGION_LABELS: Record<Region, string> = {
-  europe: 'Europe',
-  asia: 'Asia',
-  americas: 'Americas',
-  africa: 'Africa',
-  oceania: 'Oceania',
+  europe: $localize`:@@region.europe:Europa`,
+  asia: $localize`:@@region.asia:Asia`,
+  americas: $localize`:@@region.americas:América`,
+  africa: $localize`:@@region.africa:África`,
+  oceania: $localize`:@@region.oceania:Oceanía`,
 };

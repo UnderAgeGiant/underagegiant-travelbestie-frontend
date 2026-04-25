@@ -30,12 +30,10 @@ import { ToastComponent } from './shared/toast/toast.component';
         } @else if (!trip.activeStop()) {
           <div class="empty-stop">
             <div class="empty-stop-icon">👆</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:6px">
-              Select a stop
-            </div>
-            <div style="font-size:13px;color:var(--t3);max-width:240px;line-height:1.5;text-align:center">
-              Click any destination in the panel to explore its attractions
-            </div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:6px"
+                 i18n="@@app.selectStop">Selecciona una parada</div>
+            <div style="font-size:13px;color:var(--t3);max-width:240px;line-height:1.5;text-align:center"
+                 i18n="@@app.selectStopDesc">Haz clic en un destino del panel para explorar sus atracciones</div>
           </div>
         } @else {
           <app-destination />

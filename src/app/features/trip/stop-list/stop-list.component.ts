@@ -1,7 +1,6 @@
 import { Component, inject, output } from '@angular/core';
 import { TripService } from '../trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
 
 @Component({
   selector: 'app-stop-list',
@@ -9,11 +8,15 @@ import { getAttractions } from '../../../data/attractions.data';
   template: `
     <div class="left-panel">
       <div class="panel-head">
-        <div class="panel-head-title">My Trip ✈️</div>
+        <div class="panel-head-title" i18n="@@stopList.title">Mi viaje ✈️</div>
         <div class="panel-head-sub">
-          {{ trip.stops().length === 0
-            ? 'Add your first destination'
-            : trip.stops().length + ' stop' + (trip.stops().length > 1 ? 's' : '') + ' planned' }}
+          @if (trip.stops().length === 0) {
+            <ng-container i18n="@@stopList.noStops">Agrega tu primer destino</ng-container>
+          } @else if (trip.stops().length === 1) {
+            1 <ng-container i18n="@@stopList.oneStopPlanned">destino planificado</ng-container>
+          } @else {
+            {{ trip.stops().length }} <ng-container i18n="@@stopList.manyStopsPlanned">destinos planificados</ng-container>
+          }
         </div>
       </div>
 
@@ -22,7 +25,8 @@ import { getAttractions } from '../../../data/attractions.data';
           <div style="padding:24px 8px;text-align:center">
             <div style="font-size:34px;margin-bottom:10px;animation:float 3s ease-in-out infinite">🗺️</div>
             <div style="font-size:12px;color:var(--t3);line-height:1.6">
-              Search a city above<br/>or click <strong>+ Add Destination</strong>
+              <span i18n="@@stopList.emptyLine1">Busca una ciudad arriba</span><br/>
+              <span i18n="@@stopList.emptyOr">o haz clic en</span> <strong i18n="@@stopList.emptyAddBtn">+ Agregar destino</strong>
             </div>
           </div>
         }
@@ -43,8 +47,8 @@ import { getAttractions } from '../../../data/attractions.data';
               </div>
               @if (stop.checkIn || stop.checkOut) {
                 <div class="stop-dates">
-                  <div class="date-chip"><label>In</label>{{ stop.checkIn || '—' }}</div>
-                  <div class="date-chip"><label>Out</label>{{ stop.checkOut || '—' }}</div>
+                  <div class="date-chip"><label i18n="@@stopList.checkInLabel">Llegada</label>{{ stop.checkIn || '—' }}</div>
+                  <div class="date-chip"><label i18n="@@stopList.checkOutLabel">Salida</label>{{ stop.checkOut || '—' }}</div>
                 </div>
               }
             </div>
@@ -54,10 +58,12 @@ import { getAttractions } from '../../../data/attractions.data';
 
       <div class="panel-footer">
         <button class="btn-pill btn-ghost" style="width:100%;justify-content:center"
-                (click)="addDestination.emit()">+ Add Destination</button>
+                (click)="addDestination.emit()"
+                i18n="@@stopList.addBtn">+ Agregar destino</button>
         @if (trip.stops().length > 0) {
           <button class="btn-pill btn-primary"
-                  style="width:100%;justify-content:center;margin-top:8px">Book Trip 🎉</button>
+                  style="width:100%;justify-content:center;margin-top:8px"
+                  i18n="@@stopList.bookBtn">Reservar viaje 🎉</button>
         }
       </div>
     </div>
