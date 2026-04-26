@@ -1,5 +1,8 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, signal, computed, output } from '@angular/core';
 import { TripService } from '../trip.service';
+import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
+import { AuthService } from '../../../core/auth/auth.service';
+import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { Attraction } from '../../../core/models/comment.model';
@@ -32,7 +35,13 @@ import { DurationPipe } from '../../../shared/pipes/duration.pipe';
   template: `
     <div class="left-panel">
       <div class="panel-head">
-        <div class="panel-head-title" i18n="@@stopList.title">Mi viaje ✈️</div>
+        <div class="panel-head-title">
+          @if (activeTripName()) {
+            {{ activeTripName() }}
+          } @else {
+            <ng-container i18n="@@stopList.title">Mi viaje ✈️</ng-container>
+          }
+        </div>
         <div class="panel-head-sub">
           @if (trip.stops().length === 0) {
             <ng-container i18n="@@stopList.noStops">Agrega tu primer destino</ng-container>
@@ -109,17 +118,88 @@ import { DurationPipe } from '../../../shared/pipes/duration.pipe';
                 (click)="addDestination.emit()"
                 i18n="@@stopList.addBtn">+ Agregar destino</button>
         @if (trip.stops().length > 0) {
-          <button class="btn-pill btn-primary"
-                  style="width:100%;justify-content:center;margin-top:8px"
-                  i18n="@@stopList.bookBtn">Reservar viaje 🎉</button>
+          @if (!bookOpen()) {
+            <button class="btn-pill btn-primary"
+                    style="width:100%;justify-content:center;margin-top:8px"
+                    (click)="doBook()"
+                    i18n="@@stopList.bookBtn">Reservar viaje 🎉</button>
+          } @else {
+            <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">
+              <input class="form-input"
+                     [value]="bookName()"
+                     (input)="bookName.set($any($event.target).value)"
+                     i18n-placeholder="@@stopList.bookNamePlaceholder" placeholder="Nombre del viaje…"
+                     (keydown.enter)="doBookSave()" />
+              <div style="display:flex;gap:6px">
+                <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
+                        (click)="doBookSave()"
+                        i18n="@@stopList.bookSaveBtn">Guardar ✓</button>
+                <button class="btn-pill btn-outline" style="padding:0 14px"
+                        (click)="bookOpen.set(false)">✕</button>
+              </div>
+            </div>
+          }
+          @if (bookSaved()) {
+            <div style="text-align:center;font-size:11px;color:oklch(42% 0.15 145);font-weight:700;margin-top:6px">
+              ✓ <ng-container i18n="@@stopList.bookSavedMsg">Viaje guardado</ng-container>
+            </div>
+          }
         }
       </div>
     </div>
   `,
 })
 export class StopListComponent {
-  readonly trip = inject(TripService);
+  readonly trip       = inject(TripService);
+  readonly savedPlans = inject(SavedPlansService);
+  private readonly auth      = inject(AuthService);
+  private readonly authModal = inject(AuthModalService);
   addDestination = output<void>();
+
+  readonly activeTripName = computed(() => {
+    const id = this.trip.loadedPlanId();
+    if (!id) return null;
+    return this.savedPlans.plans().find(p => p.id === id)?.name ?? null;
+  });
+
+  bookOpen  = signal(false);
+  bookName  = signal('');
+  bookSaved = signal(false);
+
+  doBook(): void {
+    if (!this.auth.isLoggedIn()) {
+      this.authModal.openLogin(() => this.doBook());
+      return;
+    }
+    const existingName = this.activeTripName();
+    if (this.trip.loadedPlanId() && existingName) {
+      // Already named — save silently
+      const email = this.auth.currentUser()?.email;
+      if (!email) return;
+      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops());
+      this.flashSaved();
+    } else {
+      this.bookName.set('');
+      this.bookOpen.set(true);
+    }
+  }
+
+  doBookSave(): void {
+    const name = this.bookName().trim();
+    if (!name) return;
+    const email = this.auth.currentUser()?.email;
+    if (!email) return;
+    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops());
+    this.trip.markAsLoadedPlan(newId);
+    this.bookOpen.set(false);
+    this.bookName.set('');
+    this.flashSaved();
+  }
+
+  private flashSaved(): void {
+    this.bookSaved.set(true);
+    setTimeout(() => this.bookSaved.set(false), 2500);
+  }
 
   cityFor(cityId: string) {
     return WORLD_CITIES.find(c => c.id === cityId) ?? null;

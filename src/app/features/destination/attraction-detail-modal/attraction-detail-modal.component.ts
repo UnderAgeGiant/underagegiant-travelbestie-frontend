@@ -2,6 +2,7 @@ import { Component, computed, inject, input, output, signal } from '@angular/cor
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { TripService } from '../../trip/trip.service';
 import { ApiService } from '../../../core/api/api.service';
+import { KarmaService } from '../../../core/karma/karma.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
@@ -200,8 +201,9 @@ export class AttractionDetailModalComponent {
   showPlanModal    = signal(false);
   showCommentModal = signal(false);
 
-  private readonly trip = inject(TripService);
-  private readonly api  = inject(ApiService);
+  private readonly trip  = inject(TripService);
+  private readonly api   = inject(ApiService);
+  private readonly karma = inject(KarmaService);
 
   readonly inPlan = computed(() =>
     this.trip.isAttractionSelected(this.cityId(), this.attraction().id)
@@ -247,6 +249,7 @@ export class AttractionDetailModalComponent {
 
   onCommentSubmitted(comment: Omit<Comment, 'id'>): void {
     this.api.addComment(comment).subscribe(() => {
+      this.karma.gain();
       this.commentAdded.emit({ attractionId: this.attraction().id, comment });
       this.showCommentModal.set(false);
     });
