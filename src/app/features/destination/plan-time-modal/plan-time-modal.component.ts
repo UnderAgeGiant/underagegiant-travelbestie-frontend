@@ -14,9 +14,15 @@ export interface ScheduleEntry {
   styles: [`
     .schedule-row {
       display: flex; align-items: center; gap: 10px;
-      padding: 7px 0; border-bottom: 1px solid var(--border);
+      padding: 7px 4px; border-bottom: 1px solid var(--border);
+      border-left: 3px solid transparent; border-radius: 0 4px 4px 0;
+      transition: border-color .15s, background .15s;
     }
     .schedule-row:last-child { border-bottom: none; }
+    .schedule-row.conflict {
+      border-left-color: oklch(62% 0.18 25);
+      background: oklch(98% 0.03 25);
+    }
     .schedule-time {
       font-size: 12px; font-weight: 700; color: var(--lav-d);
       font-variant-numeric: tabular-nums; min-width: 40px;
@@ -27,6 +33,14 @@ export interface ScheduleEntry {
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .schedule-dur { font-size: 11px; color: var(--t3); white-space: nowrap; }
+    .conflict-badge { font-size: 12px; flex-shrink: 0; }
+    .overlap-warn {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; color: oklch(48% 0.16 25);
+      margin-top: 6px; padding: 5px 9px;
+      background: oklch(97% 0.03 25); border-radius: 8px;
+      border: 1px solid oklch(88% 0.07 25);
+    }
   `],
   template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && cancel.emit()">
@@ -47,6 +61,12 @@ export interface ScheduleEntry {
             <input type="time" class="form-input"
                    [value]="time()"
                    (change)="time.set($any($event.target).value)" />
+            @if (hasOverlap()) {
+              <div class="overlap-warn">
+                <span>⚠</span>
+                <span i18n="@@planModal.overlapWarn">Se superpone con otra atracción planificada</span>
+              </div>
+            }
           </div>
 
           <!-- Existing schedule for this city -->
@@ -57,7 +77,10 @@ export interface ScheduleEntry {
               </div>
               <div style="max-height:200px;overflow-y:auto">
                 @for (entry of schedule(); track entry.attraction.id) {
-                  <div class="schedule-row">
+                  <div [class]="'schedule-row' + (overlappingIds().has(entry.attraction.id) ? ' conflict' : '')">
+                    @if (overlappingIds().has(entry.attraction.id)) {
+                      <span class="conflict-badge">⚠</span>
+                    }
                     <span class="schedule-time">{{ entry.startTime }}</span>
                     <span class="schedule-icon">{{ entry.attraction.icon }}</span>
                     <span class="schedule-name">{{ entry.attraction.name }}</span>
@@ -105,9 +128,30 @@ export class PlanTimeModalComponent implements OnInit {
     [...this.existingPlanned()].sort((a, b) => a.startTime.localeCompare(b.startTime))
   );
 
+  readonly overlappingIds = computed(() => {
+    const currentStart = this.toMinutes(this.time());
+    const currentEnd = currentStart + this.attraction().estimatedMinutes;
+    const ids = new Set<string>();
+    for (const entry of this.schedule()) {
+      const entryStart = this.toMinutes(entry.startTime);
+      const entryEnd = entryStart + entry.attraction.estimatedMinutes;
+      if (currentStart < entryEnd && entryStart < currentEnd) {
+        ids.add(entry.attraction.id);
+      }
+    }
+    return ids;
+  });
+
+  readonly hasOverlap = computed(() => this.overlappingIds().size > 0);
+
   ngOnInit() {
     if (this.initialTime()) this.time.set(this.initialTime());
   }
 
   confirm(): void { this.confirmed.emit(this.time()); }
+
+  private toMinutes(t: string): number {
+    const [h, m] = t.split(':').map(Number);
+    return h * 60 + m;
+  }
 }

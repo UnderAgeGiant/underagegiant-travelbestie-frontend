@@ -16,4 +16,5 @@ export interface Attraction {
   bg: string;
   rating: number;
   estimatedMinutes: number;
+  imageUrl?: string;
 }
