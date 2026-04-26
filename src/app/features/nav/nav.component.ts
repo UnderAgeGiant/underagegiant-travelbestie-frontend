@@ -4,6 +4,7 @@ import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 
@@ -174,6 +175,7 @@ import { City } from '../../core/models/city.model';
                       <div class="profile-email">{{ auth.currentUser()?.email }}</div>
                     </div>
                   </div>
+<<<<<<< HEAD
 
                   <!-- Saved plans toggle -->
                   <button class="up-plans-btn" (click)="togglePlans()" type="button">
@@ -254,6 +256,12 @@ import { City } from '../../core/models/city.model';
                     </div>
                   }
 
+=======
+                  <button class="btn-pill btn-ghost"
+                          style="width:100%;justify-content:center;margin-bottom:8px"
+                          (click)="openProfile()" type="button"
+                          i18n="@@nav.myProfile">👤 Mi perfil</button>
+>>>>>>> 4d676df (feat(profile): profile page with trip summary and interactive visited-places world map)
                   <button class="signout-btn" (click)="doLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
                 </div>
               </div>
@@ -335,13 +343,15 @@ import { City } from '../../core/models/city.model';
   `,
 })
 export class NavComponent {
-  readonly auth        = inject(AuthService);
-  readonly authModal   = inject(AuthModalService);
-  readonly trip        = inject(TripService);
-  readonly karma       = inject(KarmaService);
-  readonly savedPlans  = inject(SavedPlansService);
+  readonly auth          = inject(AuthService);
+  readonly authModal     = inject(AuthModalService);
+  readonly trip          = inject(TripService);
+  readonly karma         = inject(KarmaService);
+  readonly savedPlans    = inject(SavedPlansService);
+  private readonly visited = inject(VisitedPlacesService);
 
-  logoClick = output<void>();
+  logoClick    = output<void>();
+  profileClick = output<void>();
 
   navQuery      = signal('');
   searchOpen    = signal(false);
@@ -423,6 +433,11 @@ export class NavComponent {
 
   scheduleClose(): void { setTimeout(() => this.searchOpen.set(false), 160); }
 
+  openProfile(): void {
+    this.userMenuOpen.set(false);
+    this.profileClick.emit();
+  }
+
   quickAdd(city: City): void {
     this.trip.addStop(city, '', '');
     this.navQuery.set('');
@@ -486,6 +501,7 @@ export class NavComponent {
           this.trip.loadForUser(res.user.email);
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
+          this.visited.loadForUser(res.user.email);
           this.loginEmail.set('');
           this.loginPassword.set('');
           this.authModal.executePostLogin();
@@ -498,6 +514,7 @@ export class NavComponent {
           this.trip.loadForUser(res.user.email);
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
+          this.visited.loadForUser(res.user.email);
           this.loginName.set('');
           this.loginEmail.set('');
           this.loginPassword.set('');
@@ -513,6 +530,7 @@ export class NavComponent {
     this.trip.clearPlan();
     this.karma.clear();
     this.savedPlans.clear();
+    this.visited.clear();
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
   }
