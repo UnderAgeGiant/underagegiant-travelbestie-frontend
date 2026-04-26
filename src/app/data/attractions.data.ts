@@ -1,80 +1,84 @@
 import { Attraction } from '../core/models/comment.model';
+import { CuratedMap } from '../core/models/curated.model';
 import { City } from '../core/models/city.model';
+import { CURATED_ALL } from './attractions-curated';
 
-type CuratedMap = Record<string, Omit<Attraction, 'id'>[]>;
+const U = (q: string) => `https://source.unsplash.com/featured/600x400?${q}`;
 
-const CURATED: CuratedMap = {
+let CURATED: CuratedMap = {
   paris: [
-    { name: 'Torre Eiffel',      type: 'Atractivo',  icon: '🗼', bg: '#FDE8F5', rating: 4.9, estimatedMinutes: 120 },
-    { name: 'El Louvre',         type: 'Museo',       icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 180 },
-    { name: 'Montmartre',        type: 'Barrio',      icon: '🎨', bg: '#FDF5E8', rating: 4.7, estimatedMinutes: 90  },
-    { name: "Musée d'Orsay",     type: 'Museo',       icon: '🖼️', bg: '#E8FDF0', rating: 4.8, estimatedMinutes: 150 },
-    { name: 'Sainte-Chapelle',   type: 'Histórico',   icon: '⛪', bg: '#EEE8FD', rating: 4.7, estimatedMinutes: 60  },
+    { name: 'Torre Eiffel',      type: 'Atractivo',  icon: '🗼', bg: '#FDE8F5', rating: 4.9, estimatedMinutes: 120, imageUrl: U('eiffel,tower,paris') },
+    { name: 'El Louvre',         type: 'Museo',       icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 180, imageUrl: U('louvre,museum,paris') },
+    { name: 'Montmartre',        type: 'Barrio',      icon: '🎨', bg: '#FDF5E8', rating: 4.7, estimatedMinutes: 90,  imageUrl: U('montmartre,paris,street') },
+    { name: "Musée d'Orsay",     type: 'Museo',       icon: '🖼️', bg: '#E8FDF0', rating: 4.8, estimatedMinutes: 150, imageUrl: U('musee,orsay,paris') },
+    { name: 'Sainte-Chapelle',   type: 'Histórico',   icon: '⛪', bg: '#EEE8FD', rating: 4.7, estimatedMinutes: 60,  imageUrl: U('sainte,chapelle,paris') },
   ],
   london: [
-    { name: 'Torre de Londres',     type: 'Histórico',       icon: '🏰', bg: '#FDE8E8', rating: 4.8, estimatedMinutes: 120 },
-    { name: 'Museo Británico',      type: 'Museo',           icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 150 },
-    { name: 'Palacio de Buckingham',type: 'Atractivo',       icon: '👑', bg: '#FDF5E8', rating: 4.6, estimatedMinutes: 60  },
-    { name: 'Camden Market',        type: 'Mercado',         icon: '🎪', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 90  },
-    { name: 'Tate Modern',          type: 'Museo',           icon: '🖼️', bg: '#E8FDE8', rating: 4.7, estimatedMinutes: 120 },
+    { name: 'Torre de Londres',      type: 'Histórico',        icon: '🏰', bg: '#FDE8E8', rating: 4.8, estimatedMinutes: 120, imageUrl: U('tower,london,castle') },
+    { name: 'Museo Británico',       type: 'Museo',            icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 150, imageUrl: U('british,museum,london') },
+    { name: 'Palacio de Buckingham', type: 'Atractivo',        icon: '👑', bg: '#FDF5E8', rating: 4.6, estimatedMinutes: 60,  imageUrl: U('buckingham,palace,london') },
+    { name: 'Camden Market',         type: 'Mercado',          icon: '🎪', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 90,  imageUrl: U('camden,market,london') },
+    { name: 'Tate Modern',           type: 'Museo',            icon: '🖼️', bg: '#E8FDE8', rating: 4.7, estimatedMinutes: 120, imageUrl: U('tate,modern,art,london') },
   ],
   tokyo: [
-    { name: 'Templo Senso-ji',      type: 'Templo',    icon: '⛩️', bg: '#FDE8E8', rating: 4.8, estimatedMinutes: 60  },
-    { name: 'Cruce de Shibuya',     type: 'Atractivo', icon: '🚦', bg: '#E8F5FD', rating: 4.6, estimatedMinutes: 30  },
-    { name: 'Jardín Shinjuku',      type: 'Parque',    icon: '🌸', bg: '#FDE8F5', rating: 4.8, estimatedMinutes: 90  },
-    { name: 'Akihabara',            type: 'Distrito',  icon: '🎮', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 120 },
-    { name: 'teamLab Borderless',   type: 'Arte',      icon: '✨', bg: '#E8FDF5', rating: 4.9, estimatedMinutes: 120 },
+    { name: 'Templo Senso-ji',    type: 'Templo',    icon: '⛩️', bg: '#FDE8E8', rating: 4.8, estimatedMinutes: 60,  imageUrl: U('senso-ji,temple,tokyo') },
+    { name: 'Cruce de Shibuya',   type: 'Atractivo', icon: '🚦', bg: '#E8F5FD', rating: 4.6, estimatedMinutes: 30,  imageUrl: U('shibuya,crossing,tokyo') },
+    { name: 'Jardín Shinjuku',    type: 'Parque',    icon: '🌸', bg: '#FDE8F5', rating: 4.8, estimatedMinutes: 90,  imageUrl: U('shinjuku,garden,tokyo,cherry') },
+    { name: 'Akihabara',          type: 'Distrito',  icon: '🎮', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 120, imageUrl: U('akihabara,tokyo,neon') },
+    { name: 'teamLab Borderless', type: 'Arte',      icon: '✨', bg: '#E8FDF5', rating: 4.9, estimatedMinutes: 120, imageUrl: U('digital,art,installation,light') },
   ],
   rome: [
-    { name: 'Coliseo',             type: 'Histórico', icon: '🏟️', bg: '#FDF5E8', rating: 4.9, estimatedMinutes: 120 },
-    { name: 'Museos Vaticanos',    type: 'Museo',     icon: '🏛️', bg: '#E8F0FD', rating: 4.8, estimatedMinutes: 180 },
-    { name: 'Fontana di Trevi',    type: 'Atractivo', icon: '⛲', bg: '#E8FDF5', rating: 4.7, estimatedMinutes: 30  },
-    { name: 'Panteón',             type: 'Histórico', icon: '🏺', bg: '#EEE8FD', rating: 4.8, estimatedMinutes: 60  },
-    { name: 'Trastevere',          type: 'Barrio',    icon: '🍝', bg: '#FDE8F5', rating: 4.6, estimatedMinutes: 90  },
+    { name: 'Coliseo',          type: 'Histórico', icon: '🏟️', bg: '#FDF5E8', rating: 4.9, estimatedMinutes: 120, imageUrl: U('colosseum,rome,italy') },
+    { name: 'Museos Vaticanos', type: 'Museo',     icon: '🏛️', bg: '#E8F0FD', rating: 4.8, estimatedMinutes: 180, imageUrl: U('vatican,museum,rome') },
+    { name: 'Fontana di Trevi', type: 'Atractivo', icon: '⛲', bg: '#E8FDF5', rating: 4.7, estimatedMinutes: 30,  imageUrl: U('trevi,fountain,rome') },
+    { name: 'Panteón',          type: 'Histórico', icon: '🏺', bg: '#EEE8FD', rating: 4.8, estimatedMinutes: 60,  imageUrl: U('pantheon,rome,italy') },
+    { name: 'Trastevere',       type: 'Barrio',    icon: '🍝', bg: '#FDE8F5', rating: 4.6, estimatedMinutes: 90,  imageUrl: U('trastevere,rome,cobblestone') },
   ],
   barcelona: [
-    { name: 'Sagrada Família',  type: 'Atractivo', icon: '⛪', bg: '#FDE8F5', rating: 4.9, estimatedMinutes: 120 },
-    { name: 'Park Güell',       type: 'Parque',    icon: '🌈', bg: '#E8FDF0', rating: 4.7, estimatedMinutes: 90  },
-    { name: 'Las Ramblas',      type: 'Bulevar',   icon: '🌺', bg: '#FDF5E8', rating: 4.4, estimatedMinutes: 60  },
-    { name: 'Barrio Gótico',    type: 'Barrio',    icon: '🏰', bg: '#EEE8FD', rating: 4.7, estimatedMinutes: 90  },
-    { name: 'Camp Nou',         type: 'Estadio',   icon: '⚽', bg: '#E8F0FD', rating: 4.6, estimatedMinutes: 120 },
+    { name: 'Sagrada Família', type: 'Atractivo', icon: '⛪', bg: '#FDE8F5', rating: 4.9, estimatedMinutes: 120, imageUrl: U('sagrada,familia,barcelona') },
+    { name: 'Park Güell',      type: 'Parque',    icon: '🌈', bg: '#E8FDF0', rating: 4.7, estimatedMinutes: 90,  imageUrl: U('park,guell,barcelona') },
+    { name: 'Las Ramblas',     type: 'Bulevar',   icon: '🌺', bg: '#FDF5E8', rating: 4.4, estimatedMinutes: 60,  imageUrl: U('las,ramblas,barcelona') },
+    { name: 'Barrio Gótico',   type: 'Barrio',    icon: '🏰', bg: '#EEE8FD', rating: 4.7, estimatedMinutes: 90,  imageUrl: U('gothic,quarter,barcelona') },
+    { name: 'Camp Nou',        type: 'Estadio',   icon: '⚽', bg: '#E8F0FD', rating: 4.6, estimatedMinutes: 120, imageUrl: U('camp,nou,football,stadium') },
   ],
   amsterdam: [
-    { name: 'Rijksmuseum',            type: 'Museo',     icon: '🖼️', bg: '#E8F0FD', rating: 4.8, estimatedMinutes: 150 },
-    { name: 'Museo Van Gogh',         type: 'Museo',     icon: '🌻', bg: '#FDF5E8', rating: 4.8, estimatedMinutes: 120 },
-    { name: 'Casa de Ana Frank',      type: 'Histórico', icon: '📖', bg: '#FDE8E8', rating: 4.7, estimatedMinutes: 90  },
-    { name: 'Barrio Jordaan',         type: 'Barrio',    icon: '🚲', bg: '#E8FDF5', rating: 4.6, estimatedMinutes: 90  },
-    { name: 'Jardines de Keukenhof',  type: 'Jardín',    icon: '🌷', bg: '#FDE8F5', rating: 4.8, estimatedMinutes: 120 },
+    { name: 'Rijksmuseum',           type: 'Museo',     icon: '🖼️', bg: '#E8F0FD', rating: 4.8, estimatedMinutes: 150, imageUrl: U('rijksmuseum,amsterdam') },
+    { name: 'Museo Van Gogh',        type: 'Museo',     icon: '🌻', bg: '#FDF5E8', rating: 4.8, estimatedMinutes: 120, imageUrl: U('van,gogh,museum,amsterdam') },
+    { name: 'Casa de Ana Frank',     type: 'Histórico', icon: '📖', bg: '#FDE8E8', rating: 4.7, estimatedMinutes: 90,  imageUrl: U('anne,frank,amsterdam,canal') },
+    { name: 'Barrio Jordaan',        type: 'Barrio',    icon: '🚲', bg: '#E8FDF5', rating: 4.6, estimatedMinutes: 90,  imageUrl: U('jordaan,canal,amsterdam,bicycle') },
+    { name: 'Jardines de Keukenhof', type: 'Jardín',    icon: '🌷', bg: '#FDE8F5', rating: 4.8, estimatedMinutes: 120, imageUrl: U('keukenhof,tulips,netherlands') },
   ],
   newyork: [
-    { name: 'Central Park',     type: 'Parque',    icon: '🌳', bg: '#E8FDE8', rating: 4.8, estimatedMinutes: 90  },
-    { name: 'MoMA',             type: 'Museo',     icon: '🖼️', bg: '#EEE8FD', rating: 4.8, estimatedMinutes: 120 },
-    { name: 'Puente de Brooklyn', type: 'Atractivo', icon: '🌉', bg: '#E8F5FD', rating: 4.7, estimatedMinutes: 60  },
-    { name: 'The High Line',    type: 'Parque',    icon: '🌿', bg: '#E8FDF0', rating: 4.6, estimatedMinutes: 60  },
-    { name: 'Times Square',     type: 'Atractivo', icon: '🗽', bg: '#FDE8F5', rating: 4.3, estimatedMinutes: 45  },
+    { name: 'Central Park',       type: 'Parque',    icon: '🌳', bg: '#E8FDE8', rating: 4.8, estimatedMinutes: 90,  imageUrl: U('central,park,new,york') },
+    { name: 'MoMA',               type: 'Museo',     icon: '🖼️', bg: '#EEE8FD', rating: 4.8, estimatedMinutes: 120, imageUrl: U('moma,art,museum,new,york') },
+    { name: 'Puente de Brooklyn', type: 'Atractivo', icon: '🌉', bg: '#E8F5FD', rating: 4.7, estimatedMinutes: 60,  imageUrl: U('brooklyn,bridge,new,york') },
+    { name: 'The High Line',      type: 'Parque',    icon: '🌿', bg: '#E8FDF0', rating: 4.6, estimatedMinutes: 60,  imageUrl: U('high,line,new,york,park') },
+    { name: 'Times Square',       type: 'Atractivo', icon: '🗽', bg: '#FDE8F5', rating: 4.3, estimatedMinutes: 45,  imageUrl: U('times,square,new,york,night') },
   ],
   dubai: [
-    { name: 'Burj Khalifa',     type: 'Atractivo',       icon: '🏙️', bg: '#E8F5FD', rating: 4.8, estimatedMinutes: 90  },
-    { name: 'Dubai Mall',       type: 'Centro Comercial', icon: '🛍️', bg: '#FDE8F5', rating: 4.5, estimatedMinutes: 120 },
-    { name: 'Palm Jumeirah',    type: 'Atractivo',        icon: '🌴', bg: '#E8FDE8', rating: 4.6, estimatedMinutes: 60  },
-    { name: 'Museo de Dubái',   type: 'Museo',            icon: '🏛️', bg: '#FDF5E8', rating: 4.4, estimatedMinutes: 60  },
-    { name: 'Dubai Creek',      type: 'Histórico',        icon: '⛵', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 60  },
+    { name: 'Burj Khalifa',   type: 'Atractivo',        icon: '🏙️', bg: '#E8F5FD', rating: 4.8, estimatedMinutes: 90,  imageUrl: U('burj,khalifa,dubai') },
+    { name: 'Dubai Mall',     type: 'Centro Comercial',  icon: '🛍️', bg: '#FDE8F5', rating: 4.5, estimatedMinutes: 120, imageUrl: U('dubai,mall,luxury,shopping') },
+    { name: 'Palm Jumeirah',  type: 'Atractivo',         icon: '🌴', bg: '#E8FDE8', rating: 4.6, estimatedMinutes: 60,  imageUrl: U('palm,jumeirah,dubai,aerial') },
+    { name: 'Museo de Dubái', type: 'Museo',             icon: '🏛️', bg: '#FDF5E8', rating: 4.4, estimatedMinutes: 60,  imageUrl: U('dubai,museum,heritage,historic') },
+    { name: 'Dubai Creek',    type: 'Histórico',         icon: '⛵', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 60,  imageUrl: U('dubai,creek,boat,waterway') },
   ],
   marrakech: [
-    { name: 'Djemaa el-Fna',    type: 'Plaza',     icon: '🎭', bg: '#FDE8E8', rating: 4.7, estimatedMinutes: 90  },
-    { name: 'Jardín Majorelle', type: 'Jardín',    icon: '🪴', bg: '#E8FDF5', rating: 4.8, estimatedMinutes: 60  },
-    { name: 'La Medina',        type: 'Histórico', icon: '🕌', bg: '#FDF5E8', rating: 4.6, estimatedMinutes: 120 },
-    { name: 'Palacio Bahia',    type: 'Palacio',   icon: '👑', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 60  },
-    { name: 'Los Zocos',        type: 'Mercado',   icon: '🧿', bg: '#FDE8F5', rating: 4.6, estimatedMinutes: 90  },
+    { name: 'Djemaa el-Fna',    type: 'Plaza',     icon: '🎭', bg: '#FDE8E8', rating: 4.7, estimatedMinutes: 90,  imageUrl: U('marrakech,square,market,morocco') },
+    { name: 'Jardín Majorelle', type: 'Jardín',    icon: '🪴', bg: '#E8FDF5', rating: 4.8, estimatedMinutes: 60,  imageUrl: U('majorelle,garden,blue,marrakech') },
+    { name: 'La Medina',        type: 'Histórico', icon: '🕌', bg: '#FDF5E8', rating: 4.6, estimatedMinutes: 120, imageUrl: U('medina,marrakech,morocco,historic') },
+    { name: 'Palacio Bahia',    type: 'Palacio',   icon: '👑', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 60,  imageUrl: U('bahia,palace,marrakech,ornate') },
+    { name: 'Los Zocos',        type: 'Mercado',   icon: '🧿', bg: '#FDE8F5', rating: 4.6, estimatedMinutes: 90,  imageUrl: U('souk,spices,marrakech,market') },
   ],
   sydney: [
-    { name: 'Casa de la Ópera',    type: 'Atractivo', icon: '🎭', bg: '#E8F5FD', rating: 4.9, estimatedMinutes: 90  },
-    { name: 'Playa de Bondi',      type: 'Playa',     icon: '🏄', bg: '#FDE8E8', rating: 4.7, estimatedMinutes: 120 },
-    { name: 'Puente del Puerto',   type: 'Atractivo', icon: '🌉', bg: '#E8FDE8', rating: 4.8, estimatedMinutes: 60  },
-    { name: 'Jardín Botánico Real',type: 'Jardín',    icon: '🌿', bg: '#E8FDF0', rating: 4.6, estimatedMinutes: 90  },
-    { name: 'Darling Harbour',     type: 'Malecón',   icon: '⛵', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 90  },
+    { name: 'Casa de la Ópera',     type: 'Atractivo', icon: '🎭', bg: '#E8F5FD', rating: 4.9, estimatedMinutes: 90,  imageUrl: U('sydney,opera,house,harbour') },
+    { name: 'Playa de Bondi',       type: 'Playa',     icon: '🏄', bg: '#FDE8E8', rating: 4.7, estimatedMinutes: 120, imageUrl: U('bondi,beach,sydney,waves') },
+    { name: 'Puente del Puerto',    type: 'Atractivo', icon: '🌉', bg: '#E8FDE8', rating: 4.8, estimatedMinutes: 60,  imageUrl: U('sydney,harbour,bridge,city') },
+    { name: 'Jardín Botánico Real', type: 'Jardín',    icon: '🌿', bg: '#E8FDF0', rating: 4.6, estimatedMinutes: 90,  imageUrl: U('royal,botanic,garden,sydney') },
+    { name: 'Darling Harbour',      type: 'Malecón',   icon: '⛵', bg: '#EEE8FD', rating: 4.5, estimatedMinutes: 90,  imageUrl: U('darling,harbour,sydney,waterfront') },
   ],
 };
+
+CURATED = Object.assign(CURATED, CURATED_ALL);
 
 type RegionTemplate = { n: (c: City) => string; t: string; i: string; bg: string; e: number }[];
 const REGION_TMPL: Record<string, RegionTemplate> = {

@@ -348,6 +348,16 @@
         <source>Quitar del plan</source>
         <target>Remove from plan</target>
       </trans-unit>
+      <!-- ── attraction-detail-modal ── -->
+      <trans-unit id="detailModal.durationLabel" datatype="html">
+        <source>⏱ Duración estimada</source>
+        <target>⏱ Estimated duration</target>
+      </trans-unit>
+      <trans-unit id="detailModal.commentsTitle" datatype="html">
+        <source>💬 Comentarios</source>
+        <target>💬 Comments</target>
+      </trans-unit>
+
       <trans-unit id="planModal.overlapWarn" datatype="html">
         <source>Se superpone con otra atracción planificada</source>
         <target>Overlaps with another planned attraction</target>

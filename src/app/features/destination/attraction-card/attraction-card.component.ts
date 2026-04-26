@@ -1,107 +1,142 @@
 import { Component, input, output, signal, inject, computed } from '@angular/core';
 import { Attraction, Comment } from '../../../core/models/comment.model';
-import { CommentModalComponent } from '../comment-modal/comment-modal.component';
-import { PlanTimeModalComponent, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
-import { ApiService } from '../../../core/api/api.service';
 import { TripService } from '../../trip/trip.service';
-import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { AttractionDetailModalComponent } from '../attraction-detail-modal/attraction-detail-modal.component';
 
 @Component({
   selector: 'app-attraction-card',
   standalone: true,
-  imports: [CommentModalComponent, PlanTimeModalComponent, DurationPipe],
+  imports: [DurationPipe, AttractionDetailModalComponent],
   styles: [`
-    .plan-btn {
-      display: flex; align-items: center; gap: 5px;
-      padding: 5px 11px; border-radius: 99px; font-size: 11px; font-weight: 600;
-      border: 1.5px solid var(--border); background: #fff; color: var(--t2);
-      cursor: pointer; transition: all .18s; white-space: nowrap; flex-shrink: 0;
+    .att-card {
+      padding: 0 !important;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .22s ease, box-shadow .22s ease;
     }
-    .plan-btn:hover { border-color: var(--lav-d); color: var(--lav-d); background: var(--lav); }
-    .plan-btn.planned { background: var(--lav-d); color: #fff; border-color: var(--lav-d); }
-    .plan-btn.planned:hover { filter: brightness(1.1); }
-    .est-time { font-size: 10px; color: var(--t3); margin-top: 3px; }
+    .att-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(0,0,0,.15);
+    }
+    /* ── Image area ── */
+    .card-visual {
+      position: relative;
+      height: 160px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5);
+    }
+    .card-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .38s ease;
+    }
+    .att-card:hover .card-img { transform: scale(1.06); }
+    .card-fallback-icon {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 38px; opacity: .5; pointer-events: none;
+    }
+    .card-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 28%, rgba(0,0,0,0.66) 100%);
+      pointer-events: none;
+    }
+    /* White inset border frame (the subtle white border) */
+    .card-frame {
+      position: absolute; inset: 0;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.55);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+    .card-plan-badge {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(255,255,255,.92);
+      font-size: 10px; font-weight: 700;
+      padding: 3px 8px; border-radius: 99px;
+      color: var(--lav-d);
+      backdrop-filter: blur(4px);
+    }
+    .card-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 10px 12px; pointer-events: none;
+    }
+    .card-caption-name {
+      font-size: 13px; font-weight: 700; color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,.5);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .card-caption-meta {
+      font-size: 10px; color: rgba(255,255,255,.82); margin-top: 2px;
+    }
+    /* ── Footer ── */
+    .card-footer {
+      display: flex; align-items: center; gap: 2px;
+      padding: 7px 12px;
+      background: #fff;
+    }
+    .card-footer .stars { font-size: 11px; }
+    .card-footer .rating-val { font-size: 11px; font-weight: 700; color: var(--t2); }
+    .card-cmnt-count {
+      margin-left: auto; font-size: 11px; color: var(--t3);
+    }
   `],
   template: `
-    <div class="att-card">
-      <div class="att-card-top">
-        <div class="att-icon-wrap" [style.background]="attraction().bg">{{ attraction().icon }}</div>
-        <div class="att-info">
-          <div class="att-name">{{ attraction().name }}</div>
-          <div class="att-type">{{ attraction().type }}</div>
-          <div class="att-rating">
-            <span class="stars">{{ starStr() }}</span>
-            <span class="rating-val">{{ attraction().rating }}</span>
-          </div>
-          <div class="est-time">⏱ {{ attraction().estimatedMinutes | duration }}</div>
+    <div class="att-card" (click)="showDetailModal.set(true)">
+      <!-- Image / visual area -->
+      <div class="card-visual" [style.background-color]="attraction().bg">
+        @if (attraction().imageUrl && !imgError()) {
+          <img class="card-img"
+               [src]="attraction().imageUrl"
+               [alt]="attraction().name"
+               loading="lazy"
+               (error)="imgError.set(true)">
+        } @else {
+          <div class="card-fallback-icon">{{ attraction().icon }}</div>
+        }
+        <div class="card-gradient"></div>
+        <div class="card-frame"></div>
+        @if (inPlan()) {
+          <div class="card-plan-badge">📌 {{ plannedEntry()?.startTime }}</div>
+        }
+        <div class="card-caption">
+          <div class="card-caption-name">{{ attraction().icon }} {{ attraction().name }}</div>
+          <div class="card-caption-meta">{{ attraction().type }} · ⏱ {{ attraction().estimatedMinutes | duration }}</div>
         </div>
-        <button [class]="'plan-btn' + (inPlan() ? ' planned' : '')"
-                (click)="openPlanModal()">
-          @if (inPlan()) {
-            <span>📌</span>
-            <span>{{ plannedEntry()?.startTime }}</span>
-          } @else {
-            <span>🔖</span>
-            <span i18n="@@attCard.addToPlan">Planificar</span>
-          }
-        </button>
       </div>
 
-      <div class="att-card-bottom">
-        @if (comments().length === 0) {
-          <div class="no-comments" i18n="@@attCard.noComments">¡Sin comentarios aún — sé el primero! 💬</div>
-        } @else {
-          <div class="comments-list">
-            @for (c of comments().slice(-2); track $index) {
-              <div class="comment-row">
-                <div class="c-avatar" [style.background]="c.color">{{ c.name[0].toUpperCase() }}</div>
-                <div class="c-bubble">
-                  <strong>{{ c.name }} {{ '⭐'.repeat(c.rating) }} · {{ c.date }}</strong>
-                  {{ c.text }}
-                </div>
-              </div>
-            }
-            @if (comments().length > 2) {
-              <div class="c-more">+{{ comments().length - 2 }} <ng-container i18n="@@attCard.more">más</ng-container></div>
-            }
-          </div>
+      <!-- Footer row -->
+      <div class="card-footer">
+        <span class="stars">{{ starStr() }}</span>
+        <span class="rating-val">{{ attraction().rating }}</span>
+        @if (comments().length > 0) {
+          <span class="card-cmnt-count">💬 {{ comments().length }}</span>
         }
-        <button class="add-c-btn" (click)="showCommentModal.set(true)" i18n="@@attCard.addComment">💌 Agregar comentario</button>
       </div>
     </div>
 
-    @if (showPlanModal()) {
-      <app-plan-time-modal
+    @if (showDetailModal()) {
+      <app-attraction-detail-modal
         [attraction]="attraction()"
-        [initialTime]="plannedEntry()?.startTime ?? ''"
-        [existingPlanned]="scheduleEntries()"
-        (cancel)="showPlanModal.set(false)"
-        (confirmed)="onPlanConfirmed($event)"
-        (remove)="onPlanRemoved()" />
-    }
-
-    @if (showCommentModal()) {
-      <app-comment-modal
-        [attraction]="attraction()"
+        [cityId]="cityId()"
         [cityName]="cityName()"
-        (close)="showCommentModal.set(false)"
-        (submitted)="onCommentSubmitted($event)" />
+        [comments]="comments()"
+        (close)="showDetailModal.set(false)"
+        (commentAdded)="commentAdded.emit($event)" />
     }
   `,
 })
 export class AttractionCardComponent {
-  attraction = input.required<Attraction>();
-  cityName   = input.required<string>();
-  cityId     = input.required<string>();
-  comments   = input<Comment[]>([]);
+  attraction   = input.required<Attraction>();
+  cityName     = input.required<string>();
+  cityId       = input.required<string>();
+  comments     = input<Comment[]>([]);
   commentAdded = output<{ attractionId: string; comment: Omit<Comment, 'id'> }>();
 
-  showPlanModal    = signal(false);
-  showCommentModal = signal(false);
+  showDetailModal = signal(false);
+  imgError        = signal(false);
 
-  private readonly api  = inject(ApiService);
   private readonly trip = inject(TripService);
 
   readonly inPlan = computed(() =>
@@ -112,45 +147,8 @@ export class AttractionCardComponent {
     this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
   );
 
-  /** All OTHER planned attractions for this city, to show in the schedule. */
-  readonly scheduleEntries = computed((): ScheduleEntry[] => {
-    const city = WORLD_CITIES.find(c => c.id === this.cityId());
-    if (!city) return [];
-    const allAttractions = getAttractions(city);
-    return this.trip.selectedAttractionsFor(this.cityId())
-      .filter(p => p.attractionId !== this.attraction().id)
-      .map(p => ({
-        startTime: p.startTime,
-        attraction: allAttractions.find(a => a.id === p.attractionId)!,
-      }))
-      .filter(e => e.attraction != null);
-  });
-
-  openPlanModal(): void { this.showPlanModal.set(true); }
-
-  onPlanConfirmed(startTime: string): void {
-    if (this.inPlan()) {
-      this.trip.updateStartTime(this.cityId(), this.attraction().id, startTime);
-    } else {
-      this.trip.addAttraction(this.cityId(), this.attraction().id, startTime);
-    }
-    this.showPlanModal.set(false);
-  }
-
-  onPlanRemoved(): void {
-    this.trip.removeAttraction(this.cityId(), this.attraction().id);
-    this.showPlanModal.set(false);
-  }
-
-  starStr() {
+  starStr(): string {
     const r = Math.round(this.attraction().rating);
     return '★'.repeat(r) + '☆'.repeat(5 - r);
-  }
-
-  onCommentSubmitted(comment: Omit<Comment, 'id'>): void {
-    this.api.addComment(comment).subscribe(() => {
-      this.commentAdded.emit({ attractionId: this.attraction().id, comment });
-      this.showCommentModal.set(false);
-    });
   }
 }
