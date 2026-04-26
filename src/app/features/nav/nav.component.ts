@@ -73,7 +73,7 @@ import { City } from '../../core/models/city.model';
                       <div class="profile-email">{{ auth.currentUser()?.email }}</div>
                     </div>
                   </div>
-                  <button class="signout-btn" (click)="auth.logout(); userMenuOpen.set(false)" i18n="@@nav.signOut">Cerrar sesión</button>
+                  <button class="signout-btn" (click)="doLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
                 </div>
               </div>
             }
@@ -130,13 +130,23 @@ import { City } from '../../core/models/city.model';
                 <button class="btn-pill btn-primary" (click)="doAuth()" style="flex:2" i18n="@@nav.registerSubmit">Crear cuenta →</button>
               }
             </div>
+            @if (loginError()) {
+              <div style="font-size:11px;color:oklch(50% 0.18 25);text-align:center;padding:4px 8px;background:oklch(97% 0.03 25);border-radius:8px">
+                ⚠ {{ loginError() }}
+              </div>
+            }
             <div class="auth-toggle">
               @if (loginMode() === 'login') {
-                <span i18n="@@nav.authToggleLogin">¿Sin cuenta? <span (click)="loginMode.set('register')">Regístrate gratis</span></span>
+                <span i18n="@@nav.authToggleLogin">¿Sin cuenta? <span (click)="loginMode.set('register'); loginError.set('')">Regístrate gratis</span></span>
               } @else {
-                <span i18n="@@nav.authToggleRegister">¿Ya tienes una? <span (click)="loginMode.set('login')">Inicia sesión</span></span>
+                <span i18n="@@nav.authToggleRegister">¿Ya tienes una? <span (click)="loginMode.set('login'); loginError.set('')">Inicia sesión</span></span>
               }
             </div>
+            @if (loginMode() === 'login') {
+              <div style="font-size:10px;color:var(--t3);text-align:center;opacity:.7">
+                Demo: sofia&#64;demo.com / demo1234
+              </div>
+            }
           </div>
         </div>
       </div>
@@ -149,14 +159,15 @@ export class NavComponent {
 
   logoClick = output<void>();
 
-  navQuery = signal('');
-  searchOpen = signal(false);
-  userMenuOpen = signal(false);
-  showLogin = signal(false);
-  loginMode = signal<'login' | 'register'>('login');
-  loginName = signal('');
-  loginEmail = signal('');
+  navQuery      = signal('');
+  searchOpen    = signal(false);
+  userMenuOpen  = signal(false);
+  showLogin     = signal(false);
+  loginMode     = signal<'login' | 'register'>('login');
+  loginName     = signal('');
+  loginEmail    = signal('');
   loginPassword = signal('');
+  loginError    = signal('');
 
   readonly navFiltered = computed(() => {
     const q = this.navQuery().toLowerCase();
@@ -182,16 +193,34 @@ export class NavComponent {
   }
 
   doAuth(): void {
+    this.loginError.set('');
     if (this.loginMode() === 'login') {
       this.auth.login(this.loginEmail(), this.loginPassword()).subscribe({
-        next: () => this.showLogin.set(false),
-        error: () => {},
+        next: res => {
+          this.trip.loadForUser(res.user.email);
+          this.showLogin.set(false);
+          this.loginEmail.set('');
+          this.loginPassword.set('');
+        },
+        error: (err: Error) => this.loginError.set(err.message),
       });
     } else {
       this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword()).subscribe({
-        next: () => this.showLogin.set(false),
-        error: () => {},
+        next: res => {
+          this.trip.loadForUser(res.user.email);
+          this.showLogin.set(false);
+          this.loginName.set('');
+          this.loginEmail.set('');
+          this.loginPassword.set('');
+        },
+        error: (err: Error) => this.loginError.set(err.message),
       });
     }
+  }
+
+  doLogout(): void {
+    this.trip.clearPlan();
+    this.auth.logout();
+    this.userMenuOpen.set(false);
   }
 }
