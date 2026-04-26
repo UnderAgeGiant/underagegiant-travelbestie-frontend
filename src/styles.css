@@ -239,3 +239,100 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .auth-toggle { font-size: 12px; color: var(--t3); text-align: center; margin-top: 10px; }
 .auth-toggle span { color: var(--lav-d); cursor: pointer; font-weight: 600; }
 .auth-toggle span:hover { text-decoration: underline; }
+
+/* ─────────────────────────────────────────────────
+   TABLET  769 – 1024 px
+───────────────────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .left-panel { width: 240px; }
+  .att-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .attractions-area { padding: 16px 18px; }
+  .welcome-overlay { padding: 40px 28px 28px; }
+}
+
+/* ─────────────────────────────────────────────────
+   MOBILE  ≤ 768 px
+───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Allow the page to scroll vertically */
+  html, body { height: auto; overflow-y: auto; overflow-x: hidden; }
+
+  /* ── Nav: logo + auth only ── */
+  .nav { padding: 0 14px; gap: 0; }
+  .nav-logo { margin-right: auto; font-size: 20px; }
+  .nav-search-wrap { display: none; }
+  .nav-right { padding-left: 0; }
+
+  /* User dropdown: constrain to viewport */
+  .user-panel {
+    right: 0;
+    width: min(300px, calc(100vw - 28px));
+  }
+
+  /* ── Layout: vertical stack ── */
+  .layout {
+    flex-direction: column;
+    height: auto;
+    margin-top: 58px;
+    overflow: visible;
+  }
+
+  /* ── Left panel: full-width, expands to content ── */
+  .left-panel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1.5px solid var(--border);
+    overflow: visible;
+    flex-shrink: 0;
+  }
+  .panel-body {
+    flex: none;
+    height: auto;
+    overflow-y: visible;
+  }
+  .panel-head { padding: 14px 16px 10px; }
+  .panel-head-title { font-size: 20px; }
+  .panel-footer { border-top: 1.5px solid var(--border); background: #fff; }
+
+  /* ── Right panel: full-width below stop list ── */
+  .right-panel {
+    flex: none;
+    width: 100%;
+    overflow: visible;
+    min-height: 80vh;
+  }
+
+  /* ── Destination ── */
+  .dest-banner { position: relative; top: auto; padding: 16px 16px 12px; gap: 12px; }
+  .dest-banner-flag { font-size: 32px; }
+  .dest-banner-name { font-size: 22px; }
+  .dest-banner-country { font-size: 11px; }
+  .attractions-area { padding: 14px; }
+  .att-grid { grid-template-columns: 1fr; }
+
+  /* ── Welcome screen ── */
+  .welcome-overlay { padding: 28px 18px 28px; min-height: 80vh; }
+  .welcome-title { font-size: clamp(28px, 9vw, 44px); }
+  .welcome-sub { font-size: 14px; }
+  .welcome-steps { flex-direction: column; gap: 8px; }
+  .step-card { width: 100%; }
+
+  /* ── Empty stop ── */
+  .empty-stop { height: auto; min-height: 50vh; }
+
+  /* ── Modals: sheet from bottom on mobile ── */
+  .modal-backdrop { padding: 0; align-items: flex-end; }
+  .modal {
+    border-radius: 22px 22px 0 0;
+    max-width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+
+  /* ── Combo dropdown: account for narrow viewport ── */
+  .combo-dropdown { left: 0; right: 0; }
+
+  /* ── Stop items: slightly tighter ── */
+  .stop-item { padding: 10px 12px; }
+  .stop-flag { font-size: 20px; }
+}
