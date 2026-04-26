@@ -2,12 +2,15 @@ import { Component, input, output, signal, inject, computed } from '@angular/cor
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { TripService } from '../../trip/trip.service';
+import { WORLD_CITIES } from '../../../data/cities.data';
+import { getAttractions } from '../../../data/attractions.data';
 import { AttractionDetailModalComponent } from '../attraction-detail-modal/attraction-detail-modal.component';
+import { PlanTimeModalComponent, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 
 @Component({
   selector: 'app-attraction-card',
   standalone: true,
-  imports: [DurationPipe, AttractionDetailModalComponent],
+  imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent],
   styles: [`
     .att-card {
       padding: 0 !important;
@@ -24,7 +27,6 @@ import { AttractionDetailModalComponent } from '../attraction-detail-modal/attra
       position: relative;
       height: 160px;
       overflow: hidden;
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5);
     }
     .card-img {
       position: absolute; inset: 0;
@@ -43,21 +45,36 @@ import { AttractionDetailModalComponent } from '../attraction-detail-modal/attra
       background: linear-gradient(to bottom, transparent 28%, rgba(0,0,0,0.66) 100%);
       pointer-events: none;
     }
-    /* White inset border frame (the subtle white border) */
+    /* White inset border frame */
     .card-frame {
       position: absolute; inset: 0;
       box-shadow: inset 0 0 0 2px rgba(255,255,255,.55);
       border-radius: inherit;
       pointer-events: none;
     }
-    .card-plan-badge {
+    /* ── Plan button ── */
+    .card-plan-btn {
       position: absolute; top: 8px; right: 8px;
-      background: rgba(255,255,255,.92);
+      display: flex; align-items: center; gap: 4px;
+      padding: 4px 9px; border-radius: 99px;
       font-size: 10px; font-weight: 700;
-      padding: 3px 8px; border-radius: 99px;
-      color: var(--lav-d);
-      backdrop-filter: blur(4px);
+      border: none; cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background .15s, transform .15s;
+      z-index: 1;
     }
+    .card-plan-btn.idle {
+      background: rgba(255,255,255,.72); color: var(--t2);
+      opacity: 0;
+      transition: opacity .15s, background .15s, transform .15s;
+    }
+    .att-card:hover .card-plan-btn.idle { opacity: 1; }
+    .card-plan-btn.idle:hover { background: rgba(255,255,255,.95); transform: scale(1.05); }
+    .card-plan-btn.planned {
+      background: rgba(255,255,255,.92); color: var(--lav-d);
+    }
+    .card-plan-btn.planned:hover { background: #fff; transform: scale(1.05); }
+    /* ── Caption ── */
     .card-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: 10px 12px; pointer-events: none;
@@ -78,9 +95,7 @@ import { AttractionDetailModalComponent } from '../attraction-detail-modal/attra
     }
     .card-footer .stars { font-size: 11px; }
     .card-footer .rating-val { font-size: 11px; font-weight: 700; color: var(--t2); }
-    .card-cmnt-count {
-      margin-left: auto; font-size: 11px; color: var(--t3);
-    }
+    .card-cmnt-count { margin-left: auto; font-size: 11px; color: var(--t3); }
   `],
   template: `
     <div class="att-card" (click)="showDetailModal.set(true)">
@@ -97,9 +112,18 @@ import { AttractionDetailModalComponent } from '../attraction-detail-modal/attra
         }
         <div class="card-gradient"></div>
         <div class="card-frame"></div>
-        @if (inPlan()) {
-          <div class="card-plan-badge">📌 {{ plannedEntry()?.startTime }}</div>
-        }
+
+        <!-- Plan button — always in top-right, stops propagation to card click -->
+        <button [class]="'card-plan-btn ' + (inPlan() ? 'planned' : 'idle')"
+                (click)="$event.stopPropagation(); showPlanModal.set(true)"
+                type="button">
+          @if (inPlan()) {
+            <span>📌</span><span>{{ plannedEntry()?.startTime }}</span>
+          } @else {
+            <span>🔖</span><span i18n="@@attCard.addToPlan">Planificar</span>
+          }
+        </button>
+
         <div class="card-caption">
           <div class="card-caption-name">{{ attraction().icon }} {{ attraction().name }}</div>
           <div class="card-caption-meta">{{ attraction().type }} · ⏱ {{ attraction().estimatedMinutes | duration }}</div>
@@ -116,6 +140,18 @@ import { AttractionDetailModalComponent } from '../attraction-detail-modal/attra
       </div>
     </div>
 
+    <!-- Plan-time modal (direct from card, no detail modal needed) -->
+    @if (showPlanModal()) {
+      <app-plan-time-modal
+        [attraction]="attraction()"
+        [initialTime]="plannedEntry()?.startTime ?? ''"
+        [existingPlanned]="scheduleEntries()"
+        (cancel)="showPlanModal.set(false)"
+        (confirmed)="onPlanConfirmed($event)"
+        (remove)="onPlanRemoved()" />
+    }
+
+    <!-- Detail modal (full info) -->
     @if (showDetailModal()) {
       <app-attraction-detail-modal
         [attraction]="attraction()"
@@ -135,6 +171,7 @@ export class AttractionCardComponent {
   commentAdded = output<{ attractionId: string; comment: Omit<Comment, 'id'> }>();
 
   showDetailModal = signal(false);
+  showPlanModal   = signal(false);
   imgError        = signal(false);
 
   private readonly trip = inject(TripService);
@@ -147,8 +184,35 @@ export class AttractionCardComponent {
     this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
   );
 
+  readonly scheduleEntries = computed((): ScheduleEntry[] => {
+    const city = WORLD_CITIES.find(c => c.id === this.cityId());
+    if (!city) return [];
+    const allAttractions = getAttractions(city);
+    return this.trip.selectedAttractionsFor(this.cityId())
+      .filter(p => p.attractionId !== this.attraction().id)
+      .map(p => ({
+        startTime: p.startTime,
+        attraction: allAttractions.find(a => a.id === p.attractionId)!,
+      }))
+      .filter(e => e.attraction != null);
+  });
+
   starStr(): string {
     const r = Math.round(this.attraction().rating);
     return '★'.repeat(r) + '☆'.repeat(5 - r);
+  }
+
+  onPlanConfirmed(startTime: string): void {
+    if (this.inPlan()) {
+      this.trip.updateStartTime(this.cityId(), this.attraction().id, startTime);
+    } else {
+      this.trip.addAttraction(this.cityId(), this.attraction().id, startTime);
+    }
+    this.showPlanModal.set(false);
+  }
+
+  onPlanRemoved(): void {
+    this.trip.removeAttraction(this.cityId(), this.attraction().id);
+    this.showPlanModal.set(false);
   }
 }
