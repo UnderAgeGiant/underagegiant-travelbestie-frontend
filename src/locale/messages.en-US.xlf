@@ -348,6 +348,10 @@
         <source>Quitar del plan</source>
         <target>Remove from plan</target>
       </trans-unit>
+      <trans-unit id="planModal.overlapWarn" datatype="html">
+        <source>Se superpone con otra atracción planificada</source>
+        <target>Overlaps with another planned attraction</target>
+      </trans-unit>
 
       <!-- ── date-range.component ── -->
       <trans-unit id="datePicker.fromPlaceholder" datatype="html">
