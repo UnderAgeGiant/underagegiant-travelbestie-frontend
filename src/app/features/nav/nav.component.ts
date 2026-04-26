@@ -1,12 +1,111 @@
 import { Component, inject, signal, computed, output } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
+import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
+import { KarmaService } from '../../core/karma/karma.service';
+import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
+  styles: [`
+    /* ── Saved-plans toggle button ── */
+    .up-plans-btn {
+      display: flex; align-items: center; gap: 7px;
+      width: 100%; padding: 9px 14px;
+      background: none; border: none; border-radius: 10px;
+      font-size: 12px; font-weight: 600; color: var(--t2);
+      cursor: pointer; text-align: left;
+      transition: background .12s;
+    }
+    .up-plans-btn:hover { background: var(--cream); }
+    .up-plans-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 18px; height: 18px; border-radius: 99px; padding: 0 5px;
+      background: var(--lav); color: var(--lav-d);
+      font-size: 10px; font-weight: 700;
+    }
+    /* ── Plans panel ── */
+    .up-plans-panel {
+      margin: 0 8px 4px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .up-plans-empty {
+      padding: 14px 12px;
+      font-size: 11px; color: var(--t3); text-align: center;
+    }
+    /* ── Plan row ── */
+    .up-plan-row {
+      display: flex; align-items: stretch;
+      border-bottom: 1px solid var(--border);
+      transition: background .1s;
+    }
+    .up-plan-row:last-of-type { border-bottom: none; }
+    .up-plan-row:hover { background: rgba(0,0,0,.03); }
+    .up-plan-row.active { background: oklch(95% 0.04 280); }
+    .up-plan-load {
+      flex: 1; background: none; border: none;
+      padding: 9px 12px; cursor: pointer; text-align: left;
+    }
+    .up-plan-name { font-size: 12px; font-weight: 700; color: var(--t1); }
+    .up-plan-date { font-size: 10px; color: var(--t3); margin-top: 2px; }
+    .up-plan-del {
+      background: none; border: none; border-left: 1px solid var(--border);
+      padding: 0 11px; font-size: 11px; color: var(--t3);
+      cursor: pointer; flex-shrink: 0;
+      transition: color .12s, background .12s;
+    }
+    .up-plan-del:hover { color: oklch(48% 0.18 25); background: oklch(97% 0.03 25); }
+    /* ── Delete confirmation ── */
+    .up-plan-confirm {
+      display: flex; align-items: center; gap: 8px;
+      width: 100%; padding: 8px 12px;
+      background: oklch(98% 0.02 25);
+    }
+    .up-plan-confirm-text {
+      flex: 1; font-size: 11px; font-weight: 600; color: oklch(45% 0.18 25);
+    }
+    .up-plan-confirm-yes {
+      padding: 3px 11px; border-radius: 99px; border: none;
+      background: oklch(45% 0.18 25); color: #fff;
+      font-size: 11px; font-weight: 700; cursor: pointer;
+      transition: opacity .12s;
+    }
+    .up-plan-confirm-yes:hover { opacity: .85; }
+    .up-plan-confirm-no {
+      padding: 3px 11px; border-radius: 99px;
+      border: 1px solid var(--border); background: none;
+      font-size: 11px; color: var(--t2); cursor: pointer;
+      transition: background .12s;
+    }
+    .up-plan-confirm-no:hover { background: var(--cream); }
+    /* ── Save form ── */
+    .up-plans-sep { height: 1px; background: var(--border); }
+    .up-save-btn {
+      display: flex; align-items: center; gap: 6px;
+      width: 100%; padding: 9px 12px;
+      background: none; border: none;
+      font-size: 11px; font-weight: 600; color: var(--lav-d);
+      cursor: pointer; text-align: left;
+      transition: background .12s;
+    }
+    .up-save-btn:hover { background: var(--lav); }
+    .up-save-form { padding: 10px 12px; }
+    .up-save-input {
+      width: 100%; box-sizing: border-box;
+      padding: 7px 10px; border-radius: 8px;
+      border: 1.5px solid var(--border);
+      font-size: 12px; color: var(--t1); background: #fff;
+      outline: none; transition: border-color .12s;
+    }
+    .up-save-input:focus { border-color: var(--lav-d); }
+    .up-save-actions { display: flex; gap: 6px; margin-top: 8px; }
+  `],
   template: `
     <nav class="nav">
       <div class="nav-logo" (click)="logoClick.emit()">Traveling<em>Bestie</em></div>
@@ -39,19 +138,18 @@ import { City } from '../../core/models/city.model';
       </div>
 
       <div class="nav-right">
-        @if (trip.stops().length > 0) {
-          <span style="font-size:12px;color:var(--t3)">
-            {{ trip.stops().length }}
-            @if (trip.stops().length === 1) {
-              <ng-container i18n="@@nav.oneStop">parada</ng-container>
-            } @else {
-              <ng-container i18n="@@nav.manyStops">paradas</ng-container>
-            }
-          </span>
+        @if (auth.isLoggedIn() && karma.karma() !== null) {
+          <div [style]="karmaPillStyle()"
+               style="display:flex;align-items:center;gap:5px;padding:4px 11px;border-radius:99px;font-size:12px;font-weight:700;transition:background .35s,color .35s"
+               title="Good Karma">
+            <span style="font-size:14px">{{ karmaIcon() }}</span>
+            <span>{{ karma.karma() }}</span>
+            <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
+          </div>
         }
 
         @if (!auth.isLoggedIn()) {
-          <button class="btn-pill btn-ghost" (click)="showLogin.set(true)" i18n="@@nav.signInBtn">Iniciar sesión</button>
+          <button class="btn-pill btn-ghost" (click)="authModal.openLogin()" i18n="@@nav.signInBtn">Iniciar sesión</button>
         } @else {
           <div style="position:relative">
             <button class="user-btn" (click)="toggleUserMenu()">
@@ -59,13 +157,16 @@ import { City } from '../../core/models/city.model';
               <span class="user-btn-name">{{ auth.currentUser()?.name }}</span>
               <span style="font-size:10px;color:var(--t3)">▾</span>
             </button>
+
             @if (userMenuOpen()) {
-              <div class="user-panel" style="position:absolute;top:calc(100% + 10px);right:0;min-width:200px">
+              <div class="user-panel" style="position:absolute;top:calc(100% + 10px);right:0;min-width:270px">
                 <div class="user-panel-head">
                   <div class="up-title" i18n="@@nav.myAccount">Mi cuenta</div>
                   <div class="up-sub">{{ auth.currentUser()?.email }}</div>
                 </div>
                 <div class="up-body">
+
+                  <!-- Profile card -->
                   <div class="profile-card">
                     <div class="profile-av">{{ initials() }}</div>
                     <div>
@@ -73,6 +174,86 @@ import { City } from '../../core/models/city.model';
                       <div class="profile-email">{{ auth.currentUser()?.email }}</div>
                     </div>
                   </div>
+
+                  <!-- Saved plans toggle -->
+                  <button class="up-plans-btn" (click)="togglePlans()" type="button">
+                    <span>🗺</span>
+                    <span i18n="@@nav.myPlans">Mis viajes guardados</span>
+                    @if (savedPlans.plans().length > 0) {
+                      <span class="up-plans-badge">{{ savedPlans.plans().length }}</span>
+                    }
+                    <span style="margin-left:auto;font-size:10px;opacity:.6">{{ plansOpen() ? '▴' : '▾' }}</span>
+                  </button>
+
+                  <!-- Saved plans panel -->
+                  @if (plansOpen()) {
+                    <div class="up-plans-panel">
+
+                      @if (savedPlans.plans().length === 0) {
+                        <div class="up-plans-empty" i18n="@@nav.noSavedPlans">Sin viajes guardados aún ✈️</div>
+                      } @else {
+                        @for (plan of savedPlans.plans(); track plan.id) {
+                          <div class="up-plan-row" [class.active]="trip.loadedPlanId() === plan.id">
+                            @if (deletingPlanId() === plan.id) {
+                              <div class="up-plan-confirm">
+                                <span class="up-plan-confirm-text" i18n="@@nav.deletePlanConfirm">¿Eliminar viaje?</span>
+                                <button class="up-plan-confirm-yes" (click)="confirmDeletePlan(plan.id)" type="button"
+                                        i18n="@@nav.deletePlanYes">Sí</button>
+                                <button class="up-plan-confirm-no" (click)="deletingPlanId.set(null)" type="button"
+                                        i18n="@@nav.deletePlanNo">No</button>
+                              </div>
+                            } @else {
+                              <button class="up-plan-load" (click)="doLoadPlan(plan)" type="button">
+                                <div class="up-plan-name">{{ plan.name }}</div>
+                                <div class="up-plan-date">{{ planDate(plan.savedAt) }}</div>
+                              </button>
+                              <button class="up-plan-del" (click)="doDeletePlan(plan.id)" type="button"
+                                      title="Eliminar">✕</button>
+                            }
+                          </div>
+                        }
+                      }
+
+                      <div class="up-plans-sep"></div>
+
+                      @if (trip.stops().length > 0) {
+                        @if (!savePlanOpen()) {
+                          <button class="up-save-btn" (click)="openSaveForm()" type="button">
+                            <span>💾</span>
+                            <span>
+                              @if (trip.loadedPlanId()) {
+                                <ng-container i18n="@@nav.updatePlan">Actualizar viaje</ng-container>
+                              } @else {
+                                <ng-container i18n="@@nav.savePlan">Guardar como nuevo viaje</ng-container>
+                              }
+                            </span>
+                          </button>
+                        } @else {
+                          <div class="up-save-form">
+                            <input class="up-save-input"
+                                   [value]="savePlanName()"
+                                   (input)="savePlanName.set($any($event.target).value)"
+                                   i18n-placeholder="@@nav.savePlanPlaceholder" placeholder="Nombre del viaje…"
+                                   (keydown.enter)="doSavePlan()" />
+                            <div class="up-save-actions">
+                              <button class="btn-pill btn-primary" style="flex:1;font-size:11px;padding:6px 0"
+                                      (click)="doSavePlan()" type="button" i18n="@@nav.savePlanConfirm">Guardar</button>
+                              <button class="btn-pill btn-outline" style="font-size:11px;padding:6px 12px"
+                                      (click)="savePlanOpen.set(false)" type="button">✕</button>
+                            </div>
+                          </div>
+                        }
+                      }
+
+                      <button class="up-save-btn" style="color:var(--t3)"
+                              (click)="doNewTrip()" type="button">
+                        <span>＋</span>
+                        <span i18n="@@nav.newTrip">Nuevo viaje en blanco</span>
+                      </button>
+
+                    </div>
+                  }
+
                   <button class="signout-btn" (click)="doLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
                 </div>
               </div>
@@ -82,8 +263,8 @@ import { City } from '../../core/models/city.model';
       </div>
     </nav>
 
-    @if (showLogin()) {
-      <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && showLogin.set(false)">
+    @if (authModal.isOpen()) {
+      <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && authModal.close()">
         <div class="modal">
           <div class="modal-head"
                [style.background]="loginMode() === 'login'
@@ -123,7 +304,7 @@ import { City } from '../../core/models/city.model';
           </div>
           <div class="modal-foot" style="flex-direction:column;gap:8px">
             <div style="display:flex;gap:8px;width:100%">
-              <button class="btn-pill btn-outline" (click)="showLogin.set(false)" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
+              <button class="btn-pill btn-outline" (click)="authModal.close()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
               @if (loginMode() === 'login') {
                 <button class="btn-pill btn-primary" (click)="doAuth()" style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
               } @else {
@@ -144,7 +325,7 @@ import { City } from '../../core/models/city.model';
             </div>
             @if (loginMode() === 'login') {
               <div style="font-size:10px;color:var(--t3);text-align:center;opacity:.7">
-                Demo: sofia&#64;demo.com / demo1234
+                Demo: matias&#64;demo.com / demo1234
               </div>
             }
           </div>
@@ -154,20 +335,27 @@ import { City } from '../../core/models/city.model';
   `,
 })
 export class NavComponent {
-  readonly auth = inject(AuthService);
-  readonly trip = inject(TripService);
+  readonly auth        = inject(AuthService);
+  readonly authModal   = inject(AuthModalService);
+  readonly trip        = inject(TripService);
+  readonly karma       = inject(KarmaService);
+  readonly savedPlans  = inject(SavedPlansService);
 
   logoClick = output<void>();
 
   navQuery      = signal('');
   searchOpen    = signal(false);
   userMenuOpen  = signal(false);
-  showLogin     = signal(false);
   loginMode     = signal<'login' | 'register'>('login');
   loginName     = signal('');
   loginEmail    = signal('');
   loginPassword = signal('');
   loginError    = signal('');
+
+  plansOpen      = signal(false);
+  savePlanOpen   = signal(false);
+  savePlanName   = signal('');
+  deletingPlanId = signal<string | null>(null);
 
   readonly navFiltered = computed(() => {
     const q = this.navQuery().toLowerCase();
@@ -183,13 +371,111 @@ export class NavComponent {
     return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
   });
 
-  toggleUserMenu() { this.userMenuOpen.update(v => !v); }
-  scheduleClose() { setTimeout(() => this.searchOpen.set(false), 160); }
+  readonly activeTripName = computed(() => {
+    const id = this.trip.loadedPlanId();
+    if (!id) return null;
+    return this.savedPlans.plans().find(p => p.id === id)?.name ?? null;
+  });
+
+  private autoSaveCurrentTrip(): void {
+    const email     = this.auth.currentUser()?.email;
+    const currentId = this.trip.loadedPlanId();
+    if (!email || !currentId || this.trip.stops().length === 0) return;
+    const name = this.savedPlans.plans().find(p => p.id === currentId)?.name;
+    if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops());
+  }
+
+  karmaIcon(): string {
+    const k = this.karma.karma() ?? 0;
+    if (k <= 0) return '💀';
+    if (k <= 2) return '🌱';
+    if (k <= 5) return '✨';
+    return '🌟';
+  }
+
+  karmaPillStyle(): string {
+    const k = this.karma.karma() ?? 0;
+    if (k <= 0) return 'background:oklch(94% 0.06 25);color:oklch(45% 0.18 25)';
+    if (k <= 2) return 'background:oklch(95% 0.08 75);color:oklch(50% 0.15 75)';
+    if (k <= 5) return 'background:var(--lav);color:var(--lav-d)';
+    return 'background:oklch(93% 0.10 145);color:oklch(42% 0.15 145)';
+  }
+
+  planDate(iso: string): string {
+    return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  toggleUserMenu(): void {
+    this.userMenuOpen.update(v => !v);
+    if (!this.userMenuOpen()) {
+      this.plansOpen.set(false);
+      this.savePlanOpen.set(false);
+    }
+  }
+
+  togglePlans(): void {
+    this.plansOpen.update(v => !v);
+    if (!this.plansOpen()) {
+      this.savePlanOpen.set(false);
+      this.deletingPlanId.set(null);
+    }
+  }
+
+  scheduleClose(): void { setTimeout(() => this.searchOpen.set(false), 160); }
 
   quickAdd(city: City): void {
     this.trip.addStop(city, '', '');
     this.navQuery.set('');
     this.searchOpen.set(false);
+  }
+
+  openSaveForm(): void {
+    const loaded = this.trip.loadedPlanId();
+    if (loaded) {
+      const current = this.savedPlans.plans().find(p => p.id === loaded);
+      this.savePlanName.set(current?.name ?? '');
+    } else {
+      this.savePlanName.set('');
+    }
+    this.savePlanOpen.set(true);
+  }
+
+  doSavePlan(): void {
+    const name = this.savePlanName().trim();
+    if (!name) return;
+    const email = this.auth.currentUser()?.email;
+    if (!email) return;
+    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops());
+    this.trip.markAsLoadedPlan(newId);
+    this.savePlanOpen.set(false);
+    this.savePlanName.set('');
+  }
+
+  doLoadPlan(plan: SavedPlan): void {
+    this.autoSaveCurrentTrip();
+    this.trip.restoreStops(plan.stops, plan.id);
+    this.userMenuOpen.set(false);
+    this.plansOpen.set(false);
+  }
+
+  doNewTrip(): void {
+    this.autoSaveCurrentTrip();
+    this.karma.spend();
+    this.trip.restoreStops([], null);
+    this.userMenuOpen.set(false);
+    this.plansOpen.set(false);
+  }
+
+  doDeletePlan(id: string): void {
+    this.deletingPlanId.set(id);
+  }
+
+  confirmDeletePlan(id: string): void {
+    const email = this.auth.currentUser()?.email;
+    if (!email) return;
+    this.savedPlans.remove(email, id);
+    if (this.trip.loadedPlanId() === id) this.trip.markAsLoadedPlan(null);
+    this.deletingPlanId.set(null);
   }
 
   doAuth(): void {
@@ -198,9 +484,11 @@ export class NavComponent {
       this.auth.login(this.loginEmail(), this.loginPassword()).subscribe({
         next: res => {
           this.trip.loadForUser(res.user.email);
-          this.showLogin.set(false);
+          this.karma.loadForUser(res.user.email);
+          this.savedPlans.loadForUser(res.user.email);
           this.loginEmail.set('');
           this.loginPassword.set('');
+          this.authModal.executePostLogin();
         },
         error: (err: Error) => this.loginError.set(err.message),
       });
@@ -208,10 +496,12 @@ export class NavComponent {
       this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword()).subscribe({
         next: res => {
           this.trip.loadForUser(res.user.email);
-          this.showLogin.set(false);
+          this.karma.loadForUser(res.user.email);
+          this.savedPlans.loadForUser(res.user.email);
           this.loginName.set('');
           this.loginEmail.set('');
           this.loginPassword.set('');
+          this.authModal.executePostLogin();
         },
         error: (err: Error) => this.loginError.set(err.message),
       });
@@ -219,8 +509,11 @@ export class NavComponent {
   }
 
   doLogout(): void {
+    this.auth.logout();        // clear auth first so auto-save effect sees null user
     this.trip.clearPlan();
-    this.auth.logout();
+    this.karma.clear();
+    this.savedPlans.clear();
     this.userMenuOpen.set(false);
+    this.plansOpen.set(false);
   }
 }

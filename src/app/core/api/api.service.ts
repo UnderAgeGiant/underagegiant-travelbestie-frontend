@@ -60,4 +60,26 @@ export class ApiService {
     if (this.useMocks) return of({ id: `mock-c-${Date.now()}`, ...comment });
     return this.http.post<Comment>(`${this.base}/comments/${comment.attractionId}`, comment);
   }
+
+  getKarma(email: string): Observable<{ karma: number }> {
+    if (this.useMocks) {
+      const key = `tb_karma_${email}`;
+      const stored = localStorage.getItem(key);
+      const karma = stored !== null ? parseInt(stored, 10) : 3;
+      if (stored === null) localStorage.setItem(key, '3');
+      return of({ karma });
+    }
+    return this.http.get<{ karma: number }>(`${this.base}/karma`);
+  }
+
+  updateKarma(email: string, delta: number): Observable<{ karma: number }> {
+    if (this.useMocks) {
+      const key = `tb_karma_${email}`;
+      const current = parseInt(localStorage.getItem(key) ?? '3', 10);
+      const next = current + delta;
+      localStorage.setItem(key, String(next));
+      return of({ karma: next });
+    }
+    return this.http.patch<{ karma: number }>(`${this.base}/karma`, { delta });
+  }
 }

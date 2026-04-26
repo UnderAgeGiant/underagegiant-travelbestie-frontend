@@ -22,13 +22,9 @@
         <source>+ Agregar</source>
         <target>+ Add</target>
       </trans-unit>
-      <trans-unit id="nav.oneStop" datatype="html">
-        <source>parada</source>
-        <target>stop</target>
-      </trans-unit>
-      <trans-unit id="nav.manyStops" datatype="html">
-        <source>paradas</source>
-        <target>stops</target>
+      <trans-unit id="nav.karma" datatype="html">
+        <source>karma</source>
+        <target>karma</target>
       </trans-unit>
       <trans-unit id="nav.signInBtn" datatype="html">
         <source>Iniciar sesión</source>
@@ -41,6 +37,60 @@
       <trans-unit id="nav.signOut" datatype="html">
         <source>Cerrar sesión</source>
         <target>Sign out</target>
+      </trans-unit>
+      <trans-unit id="nav.myPlans" datatype="html">
+        <source>Mis viajes guardados</source>
+        <target>My saved trips</target>
+      </trans-unit>
+      <trans-unit id="nav.noSavedPlans" datatype="html">
+        <source>Sin viajes guardados aún ✈️</source>
+        <target>No saved trips yet ✈️</target>
+      </trans-unit>
+      <trans-unit id="nav.updatePlan" datatype="html">
+        <source>Actualizar viaje</source>
+        <target>Update trip</target>
+      </trans-unit>
+      <trans-unit id="nav.savePlan" datatype="html">
+        <source>Guardar como nuevo viaje</source>
+        <target>Save as new trip</target>
+      </trans-unit>
+      <trans-unit id="nav.savePlanPlaceholder" datatype="html">
+        <source>Nombre del viaje…</source>
+        <target>Trip name…</target>
+      </trans-unit>
+      <trans-unit id="nav.savePlanConfirm" datatype="html">
+        <source>Guardar</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="nav.newTrip" datatype="html">
+        <source>Nuevo viaje en blanco</source>
+        <target>Start a new blank trip</target>
+      </trans-unit>
+      <trans-unit id="nav.deletePlanConfirm" datatype="html">
+        <source>¿Eliminar viaje?</source>
+        <target>Delete trip?</target>
+      </trans-unit>
+      <trans-unit id="nav.deletePlanYes" datatype="html">
+        <source>Sí</source>
+        <target>Yes</target>
+      </trans-unit>
+      <trans-unit id="nav.deletePlanNo" datatype="html">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+
+      <!-- ── stop-list: book / save ── -->
+      <trans-unit id="stopList.bookNamePlaceholder" datatype="html">
+        <source>Nombre del viaje…</source>
+        <target>Trip name…</target>
+      </trans-unit>
+      <trans-unit id="stopList.bookSaveBtn" datatype="html">
+        <source>Guardar ✓</source>
+        <target>Save ✓</target>
+      </trans-unit>
+      <trans-unit id="stopList.bookSavedMsg" datatype="html">
+        <source>Viaje guardado</source>
+        <target>Trip saved</target>
       </trans-unit>
       <trans-unit id="nav.loginTitle" datatype="html">
         <source>¡Bienvenido de vuelta! 👋</source>
