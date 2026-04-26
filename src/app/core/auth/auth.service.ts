@@ -16,7 +16,6 @@ interface MockUser {
 }
 
 const DEMO_USERS: MockUser[] = [
-  { name: 'Sofía García',   email: 'sofia@demo.com',   password: 'demo1234' },
   { name: 'Matías Fuentes', email: 'matias@demo.com',  password: 'demo1234' },
 ];
 
