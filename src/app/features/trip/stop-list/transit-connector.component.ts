@@ -209,7 +209,6 @@ export class TransitConnectorComponent {
   readonly pendingDuration = computed(() => {
     if (!this.canAddSeg()) return 0;
     return this.computeMins({
-      mode: this.tMode(), notes: '',
       departureDate: this.tDepDate(), departureTime: this.tDepTime(),
       arrivalDate:   this.tArrDate(), arrivalTime:   this.tArrTime(),
     });
