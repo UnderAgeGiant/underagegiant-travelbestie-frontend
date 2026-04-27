@@ -109,6 +109,12 @@ import { City } from '../../core/models/city.model';
     .up-save-actions { display: flex; gap: 6px; margin-top: 8px; }
     .combo-section-sep { height: 1px; background: var(--border); margin: 4px 0; }
     .combo-section-header { padding: 5px 14px 3px; font-size: 10px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--t3); }
+    .up-shared-trip-row { display: block; width: 100%; padding: 9px 12px; background: none; border: none; border-bottom: 1px solid var(--border); cursor: pointer; text-align: left; transition: background .1s; }
+    .up-shared-trip-row:last-child { border-bottom: none; }
+    .up-shared-trip-row:hover { background: var(--lav); }
+    .up-shared-trip-name { font-size: 12px; font-weight: 700; color: var(--t1); }
+    .up-shared-trip-meta { font-size: 10px; color: var(--t3); margin-top: 2px; }
+    .up-shared-trip-cmts { color: var(--lav-d); font-weight: 600; }
   `],
   template: `
     <nav class="nav">
@@ -272,6 +278,32 @@ import { City } from '../../core/models/city.model';
                     </div>
                   }
 
+                  <!-- My shared trips -->
+                  @if (mySharedTrips().length > 0) {
+                    <button class="up-plans-btn" (click)="myTripsOpen.update(v => !v)" type="button">
+                      <span>🔗</span>
+                      <span>Mis viajes compartidos</span>
+                      <span class="up-plans-badge">{{ mySharedTrips().length }}</span>
+                      <span style="margin-left:auto;font-size:10px;opacity:.6">{{ myTripsOpen() ? '▴' : '▾' }}</span>
+                    </button>
+                    @if (myTripsOpen()) {
+                      <div class="up-plans-panel">
+                        @for (t of mySharedTrips(); track t.id) {
+                          @let cmts = commentCount(t.id);
+                          <button class="up-shared-trip-row" (click)="goToSharedTrip(t.id)" type="button">
+                            <div class="up-shared-trip-name">{{ t.tripName }}</div>
+                            <div class="up-shared-trip-meta">
+                              {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}
+                              @if (cmts > 0) {
+                                · <span class="up-shared-trip-cmts">{{ cmts }} comentario{{ cmts !== 1 ? 's' : '' }}</span>
+                              }
+                            </div>
+                          </button>
+                        }
+                      </div>
+                    }
+                  }
+
                   <button class="btn-pill btn-ghost"
                           style="width:100%;justify-content:center;margin-bottom:8px"
                           (click)="openProfile()" type="button"
@@ -381,6 +413,12 @@ export class NavComponent {
   savePlanOpen   = signal(false);
   savePlanName   = signal('');
   deletingPlanId = signal<string | null>(null);
+  myTripsOpen    = signal(false);
+
+  readonly mySharedTrips = computed(() => {
+    const email = this.auth.currentUser()?.email;
+    return email ? this.sharedTrips.getMyTrips(email) : [];
+  });
 
   readonly navSharedTrips = computed(() => this.sharedTrips.search(this.navQuery()));
 
@@ -455,9 +493,9 @@ export class NavComponent {
     this.profileClick.emit();
   }
 
-  openSharedTrip(id: string): void {
-    window.location.href = `/?share=${id}`;
-  }
+  openSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
+  goToSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
+  commentCount(tripId: string): number { return this.sharedTrips.getCommentCount(tripId); }
 
   quickAdd(city: City): void {
     this.trip.addStop(city, '', '');

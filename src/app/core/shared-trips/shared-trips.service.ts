@@ -39,6 +39,14 @@ export class SharedTripsService {
     return this.allTrips().find(t => t.id === id) ?? null;
   }
 
+  getMyTrips(email: string): SharedTrip[] {
+    return this.allTrips().filter(t => t.ownerEmail === email);
+  }
+
+  getCommentCount(tripId: string): number {
+    return this.allComments(tripId).length;
+  }
+
   search(query: string): SharedTrip[] {
     if (!query.trim()) return [];
     const q = query.toLowerCase();
