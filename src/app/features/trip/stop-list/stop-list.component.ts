@@ -7,11 +7,12 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
+import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 
 @Component({
   selector: 'app-stop-list',
   standalone: true,
-  imports: [DurationPipe],
+  imports: [DurationPipe, DateRangeComponent],
   styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -79,12 +80,37 @@ import { DurationPipe } from '../../../shared/pipes/duration.pipe';
                         (click)="$event.stopPropagation(); trip.removeStop(stop.cityId)">×</button>
               </div>
 
-              @if (stop.checkIn || stop.checkOut) {
-                <div class="stop-dates">
-                  <div class="date-chip"><label i18n="@@stopList.checkInLabel">Llegada</label>{{ stop.checkIn || '—' }}</div>
-                  <div class="date-chip"><label i18n="@@stopList.checkOutLabel">Salida</label>{{ stop.checkOut || '—' }}</div>
-                </div>
-              }
+              <div class="stop-dates" (click)="$event.stopPropagation()">
+                @if (editingDatesCityId() === stop.cityId) {
+                  <div style="width:100%;padding-top:4px">
+                    <app-date-range
+                      [initialCheckIn]="editCheckIn()"
+                      [initialCheckOut]="editCheckOut()"
+                      (checkIn)="editCheckIn.set($event)"
+                      (checkOut)="editCheckOut.set($event)" />
+                    <div style="display:flex;gap:6px;margin-top:8px">
+                      <button class="btn-pill btn-primary"
+                              style="flex:1;justify-content:center;font-size:11px;padding:5px 8px"
+                              (click)="commitDateEdit(stop.cityId)"
+                              i18n="@@stopList.saveDatesBtn">✓ Guardar</button>
+                      <button class="btn-pill btn-outline"
+                              style="padding:5px 10px;font-size:11px"
+                              (click)="editingDatesCityId.set(null)">✕</button>
+                    </div>
+                  </div>
+                } @else {
+                  <div class="date-chip date-chip-edit"
+                       title="Editar fechas"
+                       (click)="openDateEdit(stop.cityId, stop.checkIn, stop.checkOut)">
+                    <label i18n="@@stopList.checkInLabel">Llegada</label>{{ stop.checkIn || '—' }}
+                  </div>
+                  <div class="date-chip date-chip-edit"
+                       title="Editar fechas"
+                       (click)="openDateEdit(stop.cityId, stop.checkIn, stop.checkOut)">
+                    <label i18n="@@stopList.checkOutLabel">Salida</label>{{ stop.checkOut || '—' }}
+                  </div>
+                }
+              </div>
 
               @if (stop.selectedAttractions.length > 0) {
                 <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
@@ -166,6 +192,10 @@ export class StopListComponent {
   bookName  = signal('');
   bookSaved = signal(false);
 
+  editingDatesCityId = signal<string | null>(null);
+  editCheckIn        = signal('');
+  editCheckOut       = signal('');
+
   doBook(): void {
     if (!this.auth.isLoggedIn()) {
       this.authModal.openLogin(() => this.doBook());
@@ -199,6 +229,18 @@ export class StopListComponent {
   private flashSaved(): void {
     this.bookSaved.set(true);
     setTimeout(() => this.bookSaved.set(false), 2500);
+  }
+
+  openDateEdit(cityId: string, checkIn: string, checkOut: string): void {
+    this.editCheckIn.set(checkIn);
+    this.editCheckOut.set(checkOut);
+    this.editingDatesCityId.set(cityId);
+  }
+
+  commitDateEdit(cityId: string): void {
+    if (!this.editCheckIn() || !this.editCheckOut()) return;
+    this.trip.updateDates(cityId, this.editCheckIn(), this.editCheckOut());
+    this.editingDatesCityId.set(null);
   }
 
   cityFor(cityId: string) {

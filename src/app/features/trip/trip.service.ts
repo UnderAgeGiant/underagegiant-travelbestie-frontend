@@ -97,8 +97,33 @@ export class TripService {
   }
 
   addStop(city: City, checkIn: string, checkOut: string): void {
-    this._stops.update(prev => [...prev, { cityId: city.id, checkIn, checkOut, selectedAttractions: [] }]);
+    this._stops.update(prev =>
+      this.sortByCheckIn([...prev, { cityId: city.id, checkIn, checkOut, selectedAttractions: [] }])
+    );
     this._activeId.set(city.id);
+  }
+
+  updateDates(cityId: string, checkIn: string, checkOut: string): void {
+    this._stops.update(stops =>
+      this.sortByCheckIn(stops.map(s => s.cityId === cityId ? { ...s, checkIn, checkOut } : s))
+    );
+  }
+
+  private sortByCheckIn(stops: TripStop[]): TripStop[] {
+    return [...stops].sort((a, b) => {
+      const ta = this.parseDateMs(a.checkIn);
+      const tb = this.parseDateMs(b.checkIn);
+      if (ta === null) return 1;
+      if (tb === null) return -1;
+      return ta - tb;
+    });
+  }
+
+  private parseDateMs(s: string): number | null {
+    if (!s) return null;
+    const [dd, mm, yyyy] = s.split('/').map(Number);
+    if (!dd || !mm || !yyyy) return null;
+    return new Date(yyyy, mm - 1, dd).getTime();
   }
 
   removeStop(cityId: string): void {

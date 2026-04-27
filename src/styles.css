@@ -98,6 +98,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .stop-dates { display: flex; gap: 6px; margin-top: 8px; }
 .date-chip { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 5px 8px; font-size: 11px; color: var(--t2); }
 .date-chip label { display: block; font-size: 10px; font-weight: 600; color: var(--t1); margin-bottom: 2px; text-transform: uppercase; letter-spacing: .3px; }
+.date-chip-edit { cursor: pointer; transition: border-color .15s, background .15s; }
+.date-chip-edit:hover { border-color: var(--mint); background: oklch(97% 0.02 180); }
 
 /* BACKGROUND SLIDER */
 .bg-slider { position: absolute; inset: 0; overflow: hidden; z-index: 0; }

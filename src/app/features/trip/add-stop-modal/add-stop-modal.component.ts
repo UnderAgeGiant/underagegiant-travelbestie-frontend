@@ -26,12 +26,16 @@ import { City } from '../../../core/models/city.model';
               (checkIn)="checkIn.set($event)"
               (checkOut)="checkOut.set($event)" />
           }
+          @if (selectedCity() && (!checkIn() || !checkOut())) {
+            <div style="font-size:11px;color:var(--peach-d);margin-top:8px"
+                 i18n="@@addStop.datesRequired">Las fechas de entrada y salida son obligatorias.</div>
+          }
         </div>
         <div class="modal-foot" style="border-radius:0 0 22px 22px;overflow:hidden">
           <button class="btn-pill btn-outline" (click)="close.emit()" style="flex:1" i18n="@@addStop.cancelBtn">Cancelar</button>
           <button class="btn-pill btn-primary"
-                  [disabled]="!selectedCity()"
-                  [style.opacity]="selectedCity() ? 1 : 0.45"
+                  [disabled]="!selectedCity() || !checkIn() || !checkOut()"
+                  [style.opacity]="selectedCity() && checkIn() && checkOut() ? 1 : 0.45"
                   (click)="add()"
                   style="flex:2"
                   i18n="@@addStop.addBtn">Agregar al viaje ✈️</button>

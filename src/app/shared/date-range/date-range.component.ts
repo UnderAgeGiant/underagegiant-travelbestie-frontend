@@ -1,6 +1,6 @@
 import {
   Component, output, AfterViewInit, OnDestroy,
-  ViewChild, ElementRef, inject, LOCALE_ID,
+  ViewChild, ElementRef, inject, LOCALE_ID, Input,
 } from '@angular/core';
 import flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es';
@@ -29,10 +29,13 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('inEl') private inEl!: ElementRef<HTMLInputElement>;
   @ViewChild('outEl') private outEl!: ElementRef<HTMLInputElement>;
 
-  checkIn = output<string>();
+  @Input() initialCheckIn  = '';
+  @Input() initialCheckOut = '';
+
+  checkIn  = output<string>();
   checkOut = output<string>();
 
-  private fpIn?: flatpickr.Instance;
+  private fpIn?:  flatpickr.Instance;
   private fpOut?: flatpickr.Instance;
   private readonly locale = inject(LOCALE_ID);
 
@@ -44,8 +47,16 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
       disableMobile: true,
     };
 
+    const parseInitial = (s: string): Date | undefined => {
+      if (!s) return undefined;
+      const [dd, mm, yyyy] = s.split('/').map(Number);
+      if (!dd || !mm || !yyyy) return undefined;
+      return new Date(yyyy, mm - 1, dd);
+    };
+
     this.fpIn = flatpickr(this.inEl.nativeElement, {
       ...base,
+      defaultDate: parseInitial(this.initialCheckIn),
       onChange: ([date]) => {
         if (!date) return;
         this.checkIn.emit(this.fmt(date));
@@ -55,6 +66,7 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
 
     this.fpOut = flatpickr(this.outEl.nativeElement, {
       ...base,
+      defaultDate: parseInitial(this.initialCheckOut),
       onChange: ([date]) => {
         if (!date) return;
         this.checkOut.emit(this.fmt(date));
