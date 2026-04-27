@@ -280,7 +280,7 @@ import { City } from '../../core/models/city.model';
 
                   <!-- My shared trips -->
                   @if (mySharedTrips().length > 0) {
-                    <button class="up-plans-btn" (click)="myTripsOpen.update(v => !v)" type="button">
+                    <button class="up-plans-btn" (click)="toggleMyTrips()" type="button">
                       <span>🔗</span>
                       <span>Mis viajes compartidos</span>
                       <span class="up-plans-badge">{{ mySharedTrips().length }}</span>
@@ -493,6 +493,7 @@ export class NavComponent {
     this.profileClick.emit();
   }
 
+  toggleMyTrips(): void { this.myTripsOpen.update(v => !v); }
   openSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
   goToSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
   commentCount(tripId: string): number { return this.sharedTrips.getCommentCount(tripId); }
