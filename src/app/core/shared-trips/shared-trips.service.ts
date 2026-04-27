@@ -39,6 +39,14 @@ export class SharedTripsService {
     return this.allTrips().find(t => t.id === id) ?? null;
   }
 
+  search(query: string): SharedTrip[] {
+    if (!query.trim()) return [];
+    const q = query.toLowerCase();
+    return this.allTrips()
+      .filter(t => t.tripName.toLowerCase().includes(q) || t.ownerName.toLowerCase().includes(q))
+      .slice(0, 5);
+  }
+
   getComments(tripId: string, stepKey: string): StepComment[] {
     return this.allComments(tripId).filter(c => c.stepKey === stepKey);
   }

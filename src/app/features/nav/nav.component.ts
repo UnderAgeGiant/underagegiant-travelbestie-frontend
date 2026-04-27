@@ -4,6 +4,7 @@ import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
@@ -106,6 +107,8 @@ import { City } from '../../core/models/city.model';
     }
     .up-save-input:focus { border-color: var(--lav-d); }
     .up-save-actions { display: flex; gap: 6px; margin-top: 8px; }
+    .combo-section-sep { height: 1px; background: var(--border); margin: 4px 0; }
+    .combo-section-header { padding: 5px 14px 3px; font-size: 10px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--t3); }
   `],
   template: `
     <nav class="nav">
@@ -120,7 +123,7 @@ import { City } from '../../core/models/city.model';
                  (focus)="searchOpen.set(true)"
                  (blur)="scheduleClose()" />
         </div>
-        @if (searchOpen() && navFiltered().length > 0) {
+        @if (searchOpen() && (navFiltered().length > 0 || navSharedTrips().length > 0)) {
           <div class="combo-dropdown" style="top:calc(100% + 6px)">
             <div class="combo-list">
               @for (city of navFiltered(); track city.id) {
@@ -132,6 +135,20 @@ import { City } from '../../core/models/city.model';
                   </div>
                   <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600" i18n="@@nav.quickAdd">+ Agregar</span>
                 </div>
+              }
+              @if (navSharedTrips().length > 0) {
+                @if (navFiltered().length > 0) { <div class="combo-section-sep"></div> }
+                <div class="combo-section-header">✈️ Viajes compartidos</div>
+                @for (t of navSharedTrips(); track t.id) {
+                  <div class="combo-item" (mousedown)="openSharedTrip(t.id)">
+                    <span class="combo-item-flag">🗺️</span>
+                    <div>
+                      <div class="combo-item-city">{{ t.tripName }}</div>
+                      <div class="combo-item-country">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}</div>
+                    </div>
+                    <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600">Ver →</span>
+                  </div>
+                }
               }
             </div>
           </div>
@@ -340,12 +357,13 @@ import { City } from '../../core/models/city.model';
   `,
 })
 export class NavComponent {
-  readonly auth          = inject(AuthService);
-  readonly authModal     = inject(AuthModalService);
-  readonly trip          = inject(TripService);
-  readonly karma         = inject(KarmaService);
-  readonly savedPlans    = inject(SavedPlansService);
-  private readonly visited = inject(VisitedPlacesService);
+  readonly auth             = inject(AuthService);
+  readonly authModal        = inject(AuthModalService);
+  readonly trip             = inject(TripService);
+  readonly karma            = inject(KarmaService);
+  readonly savedPlans       = inject(SavedPlansService);
+  private readonly visited      = inject(VisitedPlacesService);
+  private readonly sharedTrips  = inject(SharedTripsService);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -363,6 +381,8 @@ export class NavComponent {
   savePlanOpen   = signal(false);
   savePlanName   = signal('');
   deletingPlanId = signal<string | null>(null);
+
+  readonly navSharedTrips = computed(() => this.sharedTrips.search(this.navQuery()));
 
   readonly navFiltered = computed(() => {
     const q = this.navQuery().toLowerCase();
@@ -433,6 +453,10 @@ export class NavComponent {
   openProfile(): void {
     this.userMenuOpen.set(false);
     this.profileClick.emit();
+  }
+
+  openSharedTrip(id: string): void {
+    window.location.href = `/?share=${id}`;
   }
 
   quickAdd(city: City): void {
