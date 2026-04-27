@@ -236,6 +236,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .step-comment-input { flex: 1; padding: 6px 10px; border: 1.5px solid var(--border); border-radius: 20px; font-size: 12px; outline: none; font-family: inherit; background: var(--cream); color: var(--t1); transition: border-color .15s; }
 .step-comment-input:focus { border-color: var(--lav-d); background: #fff; }
 .step-comment-login { font-size: 11px; color: var(--t3); font-style: italic; padding-top: 6px; }
+.step-comment-hint { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
 .karma-flash { font-size: 12px; font-weight: 700; color: oklch(57% .13 160); animation: fadeIn .3s ease; white-space: nowrap; }
 
 /* BACKGROUND SLIDER */

@@ -28,10 +28,14 @@ import { KarmaService } from '../../core/karma/karma.service';
                  (input)="newText.set($any($event.target).value)"
                  placeholder="Agrega tu comentario…"
                  (keydown.enter)="submit()" />
+          @let remaining = 50 - newText().trim().length;
+          @if (remaining > 0 && newText().trim().length > 0) {
+            <span class="step-comment-hint">{{ remaining }} más</span>
+          }
           <button class="btn-pill btn-primary"
                   style="padding:5px 14px;font-size:11px;flex-shrink:0"
-                  [disabled]="!newText().trim()"
-                  [style.opacity]="newText().trim() ? 1 : 0.45"
+                  [disabled]="newText().trim().length < 50"
+                  [style.opacity]="newText().trim().length >= 50 ? 1 : 0.45"
                   (click)="submit()">Comentar</button>
           @if (karmaFlash()) {
             <span class="karma-flash">+1 ⭐</span>
@@ -63,7 +67,7 @@ export class StepCommentsComponent implements OnInit {
   submit(): void {
     const text = this.newText().trim();
     const user = this.auth.currentUser();
-    if (!text || !user) return;
+    if (!text || text.length < 50 || !user) return;
 
     this.svc.addComment({
       tripId:      this.tripId(),
