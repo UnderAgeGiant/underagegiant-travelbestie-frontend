@@ -130,6 +130,21 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .transit-mode-btn.active { border-color: var(--lav-d); background: var(--lav); color: var(--t1); font-weight: 600; }
 .transit-duration-row { display: flex; align-items: center; gap: 5px; }
 .transit-dur-lbl { font-size: 11px; color: var(--t2); white-space: nowrap; }
+
+/* LODGING */
+.lodging-connector { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+.lodging-empty { display: inline-flex; cursor: pointer; }
+.lodging-add-label { font-size: 10px; color: var(--t3); padding: 2px 8px; border-radius: 8px; border: 1px dashed var(--border); transition: all .15s; white-space: nowrap; }
+.lodging-empty:hover .lodging-add-label { color: var(--peach-d); border-color: var(--peach-d); background: var(--blush); }
+.lodging-badge { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; font-size: 11px; color: var(--t2); background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 4px 9px; max-width: 100%; transition: border-color .15s, background .15s; }
+.lodging-badge:hover { border-color: var(--peach-d); background: var(--blush); }
+.lodging-icon { font-size: 13px; flex-shrink: 0; }
+.lodging-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lodging-link { font-size: 11px; flex-shrink: 0; text-decoration: none; opacity: 0.7; transition: opacity .15s; }
+.lodging-link:hover { opacity: 1; }
+.lodging-edit-hint { font-size: 10px; opacity: 0; transition: opacity .15s; flex-shrink: 0; }
+.lodging-badge:hover .lodging-edit-hint { opacity: 1; }
+.lodging-form { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; }
 .transit-num-input { width: 46px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; text-align: center; outline: none; font-family: inherit; }
 .transit-num-input:focus { border-color: var(--lav-d); }
 

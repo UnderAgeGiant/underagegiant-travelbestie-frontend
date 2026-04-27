@@ -3,11 +3,17 @@ export interface PlannedAttraction {
   startTime: string; // "HH:mm"
 }
 
+export interface Lodging {
+  name: string;
+  url:  string;
+}
+
 export interface TripStop {
   cityId: string;
   checkIn: string;
   checkOut: string;
   selectedAttractions: PlannedAttraction[];
+  lodging?: Lodging;
 }
 
 export type TransitMode = 'flight' | 'train' | 'boat' | 'bus' | 'car';

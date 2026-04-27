@@ -1,6 +1,6 @@
 import { Injectable, signal, computed, inject, effect } from '@angular/core';
 import { City } from '../../core/models/city.model';
-import { TripStop, PlannedAttraction, Planification, TransitLeg } from '../../core/models/trip.model';
+import { TripStop, PlannedAttraction, Planification, TransitLeg, Lodging } from '../../core/models/trip.model';
 import { AuthService } from '../../core/auth/auth.service';
 
 function migrateTransitLeg(raw: any): TransitLeg {
@@ -160,6 +160,14 @@ export class TripService {
     if (this._activeId() === cityId) {
       this._activeId.set(remaining[0]?.cityId ?? null);
     }
+  }
+
+  setLodging(cityId: string, lodging: Lodging): void {
+    this._stops.update(stops => stops.map(s => s.cityId === cityId ? { ...s, lodging } : s));
+  }
+
+  removeLodging(cityId: string): void {
+    this._stops.update(stops => stops.map(s => s.cityId === cityId ? { ...s, lodging: undefined } : s));
   }
 
   setTransit(leg: TransitLeg): void {

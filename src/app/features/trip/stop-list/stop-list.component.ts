@@ -9,11 +9,12 @@ import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TransitConnectorComponent } from './transit-connector.component';
+import { LodgingComponent } from './lodging.component';
 
 @Component({
   selector: 'app-stop-list',
   standalone: true,
-  imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent],
+  imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent],
   styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -123,6 +124,8 @@ import { TransitConnectorComponent } from './transit-connector.component';
                     </div>
                   }
                 </div>
+
+                <app-lodging [cityId]="stop.cityId" />
 
                 @if (stop.selectedAttractions.length > 0) {
                   <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
