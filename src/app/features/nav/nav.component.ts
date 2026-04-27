@@ -175,7 +175,6 @@ import { City } from '../../core/models/city.model';
                       <div class="profile-email">{{ auth.currentUser()?.email }}</div>
                     </div>
                   </div>
-<<<<<<< HEAD
 
                   <!-- Saved plans toggle -->
                   <button class="up-plans-btn" (click)="togglePlans()" type="button">
@@ -256,12 +255,10 @@ import { City } from '../../core/models/city.model';
                     </div>
                   }
 
-=======
                   <button class="btn-pill btn-ghost"
                           style="width:100%;justify-content:center;margin-bottom:8px"
                           (click)="openProfile()" type="button"
                           i18n="@@nav.myProfile">👤 Mi perfil</button>
->>>>>>> 4d676df (feat(profile): profile page with trip summary and interactive visited-places world map)
                   <button class="signout-btn" (click)="doLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
                 </div>
               </div>
