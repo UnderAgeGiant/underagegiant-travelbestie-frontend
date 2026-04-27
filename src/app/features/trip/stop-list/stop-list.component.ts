@@ -140,7 +140,8 @@ import { LodgingComponent } from './lodging.component';
                           <span class="att-plan-icon">{{ att.icon }}</span>
                           <span class="att-plan-name">{{ att.name }}</span>
                           <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
-                            @if (stop.checkIn) { {{ shortDate(stop.checkIn) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                            @let d = planned.date || stop.checkIn;
+                            @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                           </span>
                           @if (collision) {
                             <span title="Conflicto de horario" style="font-size:11px;flex-shrink:0">⚠️</span>
@@ -300,12 +301,15 @@ export class StopListComponent {
   hasTimeCollision(stop: { cityId: string; selectedAttractions: import('../../../core/models/trip.model').PlannedAttraction[] }, targetId: string): boolean {
     const target = stop.selectedAttractions.find(a => a.attractionId === targetId);
     if (!target?.startTime) return false;
-    const tAtt = this.attractionFor(stop.cityId, targetId);
+    const tAtt  = this.attractionFor(stop.cityId, targetId);
     if (!tAtt) return false;
     const tStart = this.toMins(target.startTime);
     const tEnd   = tStart + tAtt.estimatedMinutes;
+    const tDate  = target.date ?? '';
     return stop.selectedAttractions.some(other => {
       if (other.attractionId === targetId || !other.startTime) return false;
+      const oDate = other.date ?? '';
+      if (tDate && oDate && tDate !== oDate) return false;
       const oAtt = this.attractionFor(stop.cityId, other.attractionId);
       if (!oAtt) return false;
       const oStart = this.toMins(other.startTime);

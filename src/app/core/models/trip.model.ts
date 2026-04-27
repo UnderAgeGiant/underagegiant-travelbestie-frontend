@@ -1,6 +1,7 @@
 export interface PlannedAttraction {
   attractionId: string;
-  startTime: string; // "HH:mm"
+  startTime:    string;  // "HH:mm"
+  date?:        string;  // "dd/mm/yyyy" — which day within the stop
 }
 
 export interface Lodging {

@@ -185,10 +185,10 @@ export class TripService {
     this._activeId.set(cityId);
   }
 
-  addAttraction(cityId: string, attractionId: string, startTime: string): void {
+  addAttraction(cityId: string, attractionId: string, startTime: string, date?: string): void {
     this._stops.update(stops => stops.map(s =>
       s.cityId === cityId && !s.selectedAttractions.some(a => a.attractionId === attractionId)
-        ? { ...s, selectedAttractions: [...s.selectedAttractions, { attractionId, startTime }] }
+        ? { ...s, selectedAttractions: [...s.selectedAttractions, { attractionId, startTime, date }] }
         : s
     ));
   }
@@ -201,11 +201,13 @@ export class TripService {
     ));
   }
 
-  updateStartTime(cityId: string, attractionId: string, startTime: string): void {
+  updateStartTime(cityId: string, attractionId: string, startTime: string, date?: string): void {
     this._stops.update(stops => stops.map(s =>
       s.cityId === cityId
         ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
-            a.attractionId === attractionId ? { ...a, startTime } : a
+            a.attractionId === attractionId
+              ? { ...a, startTime, date: date ?? a.date }
+              : a
           )}
         : s
     ));
