@@ -3,11 +3,12 @@ import { AuthService } from '../auth/auth.service';
 import { TripStop, TransitLeg } from '../models/trip.model';
 
 export interface SavedPlan {
-  id: string;
-  name: string;
-  savedAt: string;
-  stops: TripStop[];
+  id:        string;
+  name:      string;
+  savedAt:   string;
+  stops:     TripStop[];
   transits?: TransitLeg[];
+  shareId?:  string;
 }
 
 const key = (email: string) => `tb_saved_plans_${email}`;
@@ -48,6 +49,12 @@ export class SavedPlansService {
     this._plans.set(updated);
     localStorage.setItem(key(email), JSON.stringify(updated));
     return plan.id;
+  }
+
+  setShareId(email: string, planId: string, shareId: string): void {
+    const updated = this._plans().map(p => p.id === planId ? { ...p, shareId } : p);
+    this._plans.set(updated);
+    localStorage.setItem(key(email), JSON.stringify(updated));
   }
 
   remove(email: string, id: string): void {

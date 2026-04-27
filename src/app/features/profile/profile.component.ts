@@ -1,8 +1,10 @@
 import { Component, inject, signal, computed, output } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
-import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
+import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { HomeAddressService } from '../../core/home-address/home-address.service';
+import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
+import { KarmaService } from '../../core/karma/karma.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
@@ -116,6 +118,18 @@ import { TripItineraryComponent } from './trip-itinerary.component';
                       · {{ fmtDate(plan.savedAt) }}
                     </div>
                   </div>
+                  <button class="saved-plan-share-btn"
+                          [title]="plan.shareId ? 'Copiar enlace' : 'Compartir viaje (1 karma)'"
+                          (click)="$event.stopPropagation(); sharePlan(plan)"
+                          type="button">
+                    {{ plan.shareId ? '🔗' : '📤' }}
+                  </button>
+                  @if (shareFlash() === plan.id) {
+                    <span class="share-copied">¡Enlace copiado!</span>
+                  }
+                  @if (shareError() === plan.id) {
+                    <span class="share-error">Karma insuficiente</span>
+                  }
                   <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
                 </div>
                 @if (selectedPlanId() === plan.id) {
@@ -197,10 +211,14 @@ export class ProfileComponent {
   readonly savedPlans    = inject(SavedPlansService);
   readonly homeAddress   = inject(HomeAddressService);
   readonly visitedPlaces = inject(VisitedPlacesService);
+  private readonly sharedTrips = inject(SharedTripsService);
+  private readonly karma       = inject(KarmaService);
 
   close = output<void>();
 
   selectedPlanId = signal<string | null>(null);
+  shareFlash     = signal<string | null>(null);
+  shareError     = signal<string | null>(null);
   editingHome    = signal(false);
   homeInput      = signal('');
   pendingPin     = signal<{ x: number; y: number } | null>(null);
@@ -232,6 +250,41 @@ export class ProfileComponent {
     if (!email) return;
     this.homeAddress.save(email, this.homeInput());
     this.editingHome.set(false);
+  }
+
+  sharePlan(plan: SavedPlan): void {
+    const user = this.auth.currentUser();
+    if (!user) return;
+
+    if (plan.shareId) {
+      this.copyLink(plan.shareId, plan.id);
+      return;
+    }
+
+    if ((this.karma.karma() ?? 0) < 1) {
+      this.shareError.set(plan.id);
+      setTimeout(() => this.shareError.set(null), 2000);
+      return;
+    }
+
+    this.karma.spend();
+    const shareId = this.sharedTrips.createShare({
+      ownerEmail: user.email,
+      ownerName:  user.name,
+      tripName:   plan.name,
+      stops:      plan.stops,
+      transits:   plan.transits ?? [],
+    });
+    this.savedPlans.setShareId(user.email, plan.id, shareId);
+    this.copyLink(shareId, plan.id);
+  }
+
+  private copyLink(shareId: string, planId: string): void {
+    const url = `${window.location.origin}/?share=${shareId}`;
+    navigator.clipboard.writeText(url).then(() => {
+      this.shareFlash.set(planId);
+      setTimeout(() => this.shareFlash.set(null), 2000);
+    });
   }
 
   togglePlan(id: string): void {
