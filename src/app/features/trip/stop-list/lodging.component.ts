@@ -1,0 +1,98 @@
+import { Component, inject, signal, computed, input } from '@angular/core';
+import { TripService } from '../trip.service';
+import { Lodging } from '../../../core/models/trip.model';
+
+@Component({
+  selector: 'app-lodging',
+  standalone: true,
+  template: `
+    <div class="lodging-connector" (click)="$event.stopPropagation()">
+      @if (editOpen()) {
+        <div class="lodging-form">
+          <input class="form-input"
+                 style="font-size:11px;padding:5px 8px;width:100%;box-sizing:border-box"
+                 [value]="lName()"
+                 (input)="lName.set($any($event.target).value)"
+                 i18n-placeholder="@@lodging.namePlaceholder"
+                 placeholder="Hotel, Airbnb, hostal…"
+                 (keydown.enter)="save()" />
+          <input class="form-input"
+                 style="font-size:11px;padding:5px 8px;margin-top:6px;width:100%;box-sizing:border-box"
+                 [value]="lUrl()"
+                 (input)="lUrl.set($any($event.target).value)"
+                 i18n-placeholder="@@lodging.urlPlaceholder"
+                 placeholder="Link de reserva (opcional)"
+                 (keydown.enter)="save()" />
+          <div style="display:flex;gap:6px;margin-top:8px">
+            <button class="btn-pill btn-primary"
+                    style="flex:1;justify-content:center;font-size:11px;padding:5px 8px"
+                    [disabled]="!lName().trim()"
+                    [style.opacity]="lName().trim() ? 1 : 0.45"
+                    (click)="save()" type="button"
+                    i18n="@@lodging.saveBtn">✓ Guardar</button>
+            @if (lodging()) {
+              <button class="btn-pill btn-outline"
+                      style="padding:5px 10px;font-size:11px;color:var(--peach-d)"
+                      (click)="clear()" type="button">🗑</button>
+            }
+            <button class="btn-pill btn-outline"
+                    style="padding:5px 10px;font-size:11px"
+                    (click)="editOpen.set(false)">✕</button>
+          </div>
+        </div>
+
+      } @else if (lodging()) {
+        <div class="lodging-badge" (click)="openEdit()">
+          <span class="lodging-icon">🏨</span>
+          <span class="lodging-name">{{ lodging()!.name }}</span>
+          @if (lodging()!.url) {
+            <a class="lodging-link"
+               [href]="lodging()!.url"
+               target="_blank" rel="noopener noreferrer"
+               (click)="$event.stopPropagation()"
+               i18n-title="@@lodging.linkTitle" title="Abrir reserva">🔗</a>
+          }
+          <span class="lodging-edit-hint">✏️</span>
+        </div>
+
+      } @else {
+        <div class="lodging-empty" (click)="openEdit()">
+          <span class="lodging-add-label" i18n="@@lodging.addBtn">🏨 + Alojamiento</span>
+        </div>
+      }
+    </div>
+  `,
+})
+export class LodgingComponent {
+  readonly cityId = input('');
+
+  private readonly trip = inject(TripService);
+
+  readonly lodging = computed(() =>
+    this.trip.stops().find(s => s.cityId === this.cityId())?.lodging ?? null
+  );
+
+  editOpen = signal(false);
+  lName    = signal('');
+  lUrl     = signal('');
+
+  openEdit(): void {
+    const l = this.lodging();
+    this.lName.set(l?.name ?? '');
+    this.lUrl.set(l?.url ?? '');
+    this.editOpen.set(true);
+  }
+
+  save(): void {
+    const name = this.lName().trim();
+    if (!name) return;
+    const url = this.lUrl().trim();
+    this.trip.setLodging(this.cityId(), { name, url });
+    this.editOpen.set(false);
+  }
+
+  clear(): void {
+    this.trip.removeLodging(this.cityId());
+    this.editOpen.set(false);
+  }
+}

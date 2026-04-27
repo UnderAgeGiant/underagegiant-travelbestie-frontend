@@ -389,7 +389,7 @@ export class NavComponent {
     const currentId = this.trip.loadedPlanId();
     if (!email || !currentId || this.trip.stops().length === 0) return;
     const name = this.savedPlans.plans().find(p => p.id === currentId)?.name;
-    if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops());
+    if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops(), this.trip.transits());
   }
 
   karmaIcon(): string {
@@ -457,7 +457,7 @@ export class NavComponent {
     if (!name) return;
     const email = this.auth.currentUser()?.email;
     if (!email) return;
-    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops());
+    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits());
     this.trip.markAsLoadedPlan(newId);
     this.savePlanOpen.set(false);
     this.savePlanName.set('');
@@ -465,7 +465,7 @@ export class NavComponent {
 
   doLoadPlan(plan: SavedPlan): void {
     this.autoSaveCurrentTrip();
-    this.trip.restoreStops(plan.stops, plan.id);
+    this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? []);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
   }

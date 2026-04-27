@@ -1,12 +1,13 @@
 import { Injectable, signal, inject } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { TripStop } from '../models/trip.model';
+import { TripStop, TransitLeg } from '../models/trip.model';
 
 export interface SavedPlan {
   id: string;
   name: string;
   savedAt: string;
   stops: TripStop[];
+  transits?: TransitLeg[];
 }
 
 const key = (email: string) => `tb_saved_plans_${email}`;
@@ -32,17 +33,17 @@ export class SavedPlansService {
   }
 
   /** Create a new plan or update an existing one in-place. Returns the final id. */
-  upsert(email: string, id: string | null, name: string, stops: TripStop[]): string {
+  upsert(email: string, id: string | null, name: string, stops: TripStop[], transits: TransitLeg[] = []): string {
     const now = new Date().toISOString();
     if (id) {
       const updated = this._plans().map(p =>
-        p.id === id ? { ...p, name, stops, savedAt: now } : p
+        p.id === id ? { ...p, name, stops, transits, savedAt: now } : p
       );
       this._plans.set(updated);
       localStorage.setItem(key(email), JSON.stringify(updated));
       return id;
     }
-    const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops };
+    const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits };
     const updated = [...this._plans(), plan];
     this._plans.set(updated);
     localStorage.setItem(key(email), JSON.stringify(updated));
