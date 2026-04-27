@@ -6,7 +6,7 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { Attraction } from '../../../core/models/comment.model';
-import { TransitMode } from '../../../core/models/trip.model';
+import { TransitMode, TransitSegment, TransitLeg } from '../../../core/models/trip.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 
@@ -73,6 +73,26 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
             <div class="transit-connector" (click)="$event.stopPropagation()">
               @if (transitEditKey() === tKey) {
                 <div class="transit-form">
+
+                  <!-- Added segments list -->
+                  @for (seg of transitSegments(); track $index) {
+                    <div class="transit-seg-row">
+                      <span class="transit-seg-icon">{{ modeIcon(seg.mode) }}</span>
+                      <span class="transit-seg-info">
+                        <span>{{ modeLabel(seg.mode) }}</span>
+                        <span style="color:var(--t3)">{{ fmtTransitDuration(seg.durationMinutes) }}</span>
+                        @if (seg.notes) { <span style="color:var(--t3)">· {{ seg.notes }}</span> }
+                      </span>
+                      <button class="transit-seg-del" (click)="removeTransitSegment($index)" type="button">×</button>
+                    </div>
+                  }
+
+                  <!-- "Add connection" divider — only visible after ≥1 segment -->
+                  @if (transitSegments().length > 0) {
+                    <div class="transit-seg-divider" i18n="@@transit.addConnection">+ Agregar conexión</div>
+                  }
+
+                  <!-- Mini-form for next segment -->
                   <div class="transit-modes">
                     @for (m of transitModes; track m.value) {
                       <button class="transit-mode-btn" [class.active]="tMode() === m.value"
@@ -99,14 +119,29 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
                          (input)="tNotes.set($any($event.target).value)"
                          i18n-placeholder="@@transit.notesPlaceholder"
                          placeholder="Nro. de vuelo, notas… (opcional)" />
+
+                  <!-- Action buttons -->
                   <div style="display:flex;gap:6px;margin-top:8px">
+                    <!-- "✓ Guardar" — saves committed segments + current mini-form if filled -->
                     <button class="btn-pill btn-primary"
                             style="flex:1;justify-content:center;font-size:11px;padding:5px 8px"
-                            [disabled]="tHours() === 0 && tMins() === 0"
-                            [style.opacity]="tHours() > 0 || tMins() > 0 ? 1 : 0.45"
+                            [disabled]="transitSegments().length === 0 && tHours() === 0 && tMins() === 0"
+                            [style.opacity]="transitSegments().length > 0 || tHours() > 0 || tMins() > 0 ? 1 : 0.45"
                             (click)="saveTransit(prevStop.cityId, stop.cityId)"
                             type="button"
                             i18n="@@transit.saveBtn">✓ Guardar</button>
+
+                    <!-- "+ Tramo" — commits mini-form to list so user can add another -->
+                    @if (transitSegments().length > 0) {
+                      <button class="btn-pill btn-outline"
+                              style="padding:5px 10px;font-size:11px;white-space:nowrap"
+                              [disabled]="tHours() === 0 && tMins() === 0"
+                              [style.opacity]="tHours() > 0 || tMins() > 0 ? 1 : 0.45"
+                              (click)="addTransitSegment()"
+                              type="button"
+                              i18n="@@transit.addSegBtn">+ Tramo</button>
+                    }
+
                     @if (transit) {
                       <button class="btn-pill btn-outline"
                               style="padding:5px 10px;font-size:11px;color:var(--peach-d)"
@@ -120,10 +155,13 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
                 </div>
               } @else if (transit) {
                 <div class="transit-badge" (click)="openTransitEdit(prevStop.cityId, stop.cityId)">
-                  <span>{{ modeIcon(transit.mode) }}</span>
-                  <span>{{ fmtTransitDuration(transit.durationMinutes) }}</span>
-                  @if (transit.notes) {
-                    <span class="transit-badge-notes">{{ transit.notes }}</span>
+                  @for (seg of transit.segments; track $index; let last = $last) {
+                    <span>{{ modeIcon(seg.mode) }}</span>
+                    <span>{{ fmtTransitDuration(seg.durationMinutes) }}</span>
+                    @if (!last) { <span class="transit-seg-arrow">→</span> }
+                  }
+                  @if (transit.segments.length > 1) {
+                    <span class="transit-badge-total">({{ fmtTransitDuration(totalTransitDuration(transit)) }})</span>
                   }
                   <span class="transit-edit-hint">✏️</span>
                 </div>
@@ -266,7 +304,8 @@ export class StopListComponent {
   editCheckIn        = signal('');
   editCheckOut       = signal('');
 
-  transitEditKey = signal<string | null>(null);
+  transitEditKey  = signal<string | null>(null);
+  transitSegments = signal<TransitSegment[]>([]);
   tMode  = signal<TransitMode>('flight');
   tHours = signal(0);
   tMins  = signal(0);
@@ -317,30 +356,39 @@ export class StopListComponent {
 
   openTransitEdit(fromId: string, toId: string): void {
     const existing = this.trip.transitMap().get(`${fromId}|${toId}`);
-    if (existing) {
-      this.tMode.set(existing.mode);
-      this.tHours.set(Math.floor(existing.durationMinutes / 60));
-      this.tMins.set(existing.durationMinutes % 60);
-      this.tNotes.set(existing.notes ?? '');
-    } else {
-      this.tMode.set('flight');
-      this.tHours.set(0);
-      this.tMins.set(0);
-      this.tNotes.set('');
-    }
+    this.transitSegments.set(existing ? [...existing.segments] : []);
+    this.tMode.set('flight');
+    this.tHours.set(0);
+    this.tMins.set(0);
+    this.tNotes.set('');
     this.transitEditKey.set(`${fromId}|${toId}`);
+  }
+
+  addTransitSegment(): void {
+    const total = this.tHours() * 60 + this.tMins();
+    if (total === 0) return;
+    this.transitSegments.update(segs => [
+      ...segs,
+      { mode: this.tMode(), durationMinutes: total, notes: this.tNotes().trim() },
+    ]);
+    this.tMode.set('flight');
+    this.tHours.set(0);
+    this.tMins.set(0);
+    this.tNotes.set('');
+  }
+
+  removeTransitSegment(idx: number): void {
+    this.transitSegments.update(segs => segs.filter((_, i) => i !== idx));
   }
 
   saveTransit(fromId: string, toId: string): void {
     const total = this.tHours() * 60 + this.tMins();
-    if (total === 0) return;
-    this.trip.setTransit({
-      fromCityId: fromId,
-      toCityId:   toId,
-      mode:       this.tMode(),
-      durationMinutes: total,
-      notes:      this.tNotes().trim(),
-    });
+    const pending: TransitSegment[] = total > 0
+      ? [{ mode: this.tMode(), durationMinutes: total, notes: this.tNotes().trim() }]
+      : [];
+    const segs = [...this.transitSegments(), ...pending];
+    if (segs.length === 0) return;
+    this.trip.setTransit({ fromCityId: fromId, toCityId: toId, segments: segs });
     this.transitEditKey.set(null);
   }
 
@@ -350,10 +398,11 @@ export class StopListComponent {
   }
 
   modeIcon(mode: TransitMode): string {
-    const icons: Record<TransitMode, string> = {
-      flight: '✈️', train: '🚂', boat: '🚢', bus: '🚌', car: '🚗',
-    };
-    return icons[mode];
+    return this.transitModes.find(m => m.value === mode)?.icon ?? '🚀';
+  }
+
+  modeLabel(mode: TransitMode): string {
+    return this.transitModes.find(m => m.value === mode)?.label ?? mode;
   }
 
   fmtTransitDuration(mins: number): string {
@@ -362,6 +411,10 @@ export class StopListComponent {
     if (h > 0 && m > 0) return `${h}h ${m}m`;
     if (h > 0) return `${h}h`;
     return `${m}m`;
+  }
+
+  totalTransitDuration(leg: TransitLeg): number {
+    return leg.segments.reduce((sum, s) => sum + s.durationMinutes, 0);
   }
 
   openDateEdit(cityId: string, checkIn: string, checkOut: string): void {

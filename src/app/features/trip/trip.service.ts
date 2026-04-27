@@ -3,6 +3,15 @@ import { City } from '../../core/models/city.model';
 import { TripStop, PlannedAttraction, Planification, TransitLeg } from '../../core/models/trip.model';
 import { AuthService } from '../../core/auth/auth.service';
 
+function migrateTransitLeg(raw: any): TransitLeg {
+  if (raw && Array.isArray(raw.segments)) return raw as TransitLeg;
+  return {
+    fromCityId: raw.fromCityId,
+    toCityId:   raw.toCityId,
+    segments:   [{ mode: raw.mode ?? 'flight', durationMinutes: raw.durationMinutes ?? 0, notes: raw.notes ?? '' }],
+  };
+}
+
 const planKey       = (email: string) => `tb_plan_${email}`;
 const activePlanKey = (email: string) => `tb_active_plan_${email}`;
 
@@ -71,7 +80,7 @@ export class TripService {
       try {
         const parsed   = JSON.parse(raw);
         const stops: TripStop[]     = Array.isArray(parsed) ? parsed : (parsed.stops    ?? []);
-        const transits: TransitLeg[] = Array.isArray(parsed) ? []     : (parsed.transits ?? []);
+        const transits: TransitLeg[] = Array.isArray(parsed) ? []     : (parsed.transits ?? []).map(migrateTransitLeg);
         this._stops.set(stops);
         this._transits.set(transits);
         this._activeId.set(stops[0]?.cityId ?? null);
@@ -103,7 +112,7 @@ export class TripService {
   restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = []): void {
     this._saving = true;
     this._stops.set(stops);
-    this._transits.set(transits);
+    this._transits.set(transits.map(migrateTransitLeg));
     this._activeId.set(stops[0]?.cityId ?? null);
     this._loadedPlanId.set(planId);
     this._saving = false;

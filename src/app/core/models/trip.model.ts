@@ -12,12 +12,16 @@ export interface TripStop {
 
 export type TransitMode = 'flight' | 'train' | 'boat' | 'bus' | 'car';
 
-export interface TransitLeg {
-  fromCityId:      string;
-  toCityId:        string;
+export interface TransitSegment {
   mode:            TransitMode;
   durationMinutes: number;
   notes:           string;
+}
+
+export interface TransitLeg {
+  fromCityId: string;
+  toCityId:   string;
+  segments:   TransitSegment[];
 }
 
 export interface Planification {
