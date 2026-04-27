@@ -44,7 +44,7 @@ import { getAttractions } from '../../data/attractions.data';
                 </div>
                 <div>
                   <div class="trip-stat-val">{{ totalPlanned() }}</div>
-                  <div class="trip-stat-lbl">Planificadas</div>
+                  <div class="trip-stat-lbl">Atracciones</div>
                 </div>
                 <div>
                   <div class="trip-stat-val">{{ totalAvailable() }}</div>
