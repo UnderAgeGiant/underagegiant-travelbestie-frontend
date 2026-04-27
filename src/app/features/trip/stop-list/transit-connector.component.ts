@@ -1,5 +1,6 @@
 import { Component, inject, signal, computed, input } from '@angular/core';
 import { TripService } from '../trip.service';
+import { HomeAddressService } from '../../../core/home-address/home-address.service';
 import { TransitMode, TransitSegment, TransitLeg } from '../../../core/models/trip.model';
 
 export type TransitConnectorType = 'default' | 'departure' | 'arrival';
@@ -82,12 +83,15 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
 
       } @else if (transit()) {
         <div class="transit-badge" (click)="openEdit()">
-          @if (type() === 'departure' && cityLabel()) {
-            <div class="transit-edge-ctx">🏠 ✈️ {{ cityLabel() }}</div>
-          } @else if (type() === 'arrival' && cityLabel()) {
-            <div class="transit-edge-ctx">{{ cityLabel() }} ✈️ 🏠</div>
+          @if (type() === 'departure') {
+            <div class="transit-edge-ctx">{{ homeLabel() }} ✈️ {{ cityLabel() }}</div>
+          } @else if (type() === 'arrival') {
+            <div class="transit-edge-ctx">{{ cityLabel() }} ✈️ {{ homeLabel() }}</div>
           }
           <div class="transit-badge-body">
+            @if (departureDate()) {
+              <div class="transit-badge-date">📅 {{ departureDate() }}</div>
+            }
             @for (seg of transit()!.segments; track $index; let last = $last) {
               <div class="transit-badge-seg">
                 <span>{{ icon(seg.mode) }}</span>
@@ -108,11 +112,11 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
           <div class="transit-line"></div>
           @if (type() === 'departure') {
             <span class="transit-add-label transit-edge-label">
-              🏠 ✈️ {{ cityLabel() || '+ Vuelo de ida' }}
+              {{ homeLabel() }} ✈️ {{ cityLabel() || '+ Vuelo de ida' }}
             </span>
           } @else if (type() === 'arrival') {
             <span class="transit-add-label transit-edge-label">
-              {{ cityLabel() || '+ Vuelo de vuelta' }} ✈️ 🏠
+              {{ cityLabel() || '+ Vuelo de vuelta' }} ✈️ {{ homeLabel() }}
             </span>
           } @else {
             <span class="transit-add-label" i18n="@@transit.addBtn">+ Transporte</span>
@@ -129,11 +133,25 @@ export class TransitConnectorComponent {
   readonly type      = input<TransitConnectorType>('default');
   readonly cityLabel = input('');
 
-  private readonly trip = inject(TripService);
+  private readonly trip        = inject(TripService);
+  private readonly homeService = inject(HomeAddressService);
 
   readonly transit = computed(() =>
     this.trip.transitMap().get(`${this.fromId()}|${this.toId()}`) ?? null
   );
+
+  /** Home city/address label, falling back to 🏠 emoji. */
+  readonly homeLabel = computed(() => this.homeService.address() || '🏠');
+
+  /** Date when this transport departs, derived from the adjacent stops. */
+  readonly departureDate = computed(() => {
+    const from  = this.fromId();
+    const stops = this.trip.stops();
+    if (!stops.length) return null;
+    if (from === '__start__') return stops[0].checkIn    || null;
+    if (from === '__end__')   return stops[stops.length - 1].checkOut || null;
+    return stops.find(s => s.cityId === from)?.checkOut ?? null;
+  });
 
   editOpen = signal(false);
   segs     = signal<TransitSegment[]>([]);

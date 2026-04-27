@@ -2,6 +2,7 @@ import { Component, inject, signal, computed, output } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
+import { HomeAddressService } from '../../core/home-address/home-address.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
@@ -31,6 +32,31 @@ import { TripItineraryComponent } from './trip-itinerary.component';
             <div class="prof-email">{{ auth.currentUser()?.email }}</div>
           </div>
         </div>
+
+        <!-- Home address -->
+        @if (auth.isLoggedIn()) {
+          <div class="home-address-row">
+            <span class="home-address-icon">🏠</span>
+            @if (editingHome()) {
+              <input class="form-input home-address-input"
+                     [value]="homeInput()"
+                     (input)="homeInput.set($any($event.target).value)"
+                     placeholder="Ciudad o dirección de inicio…"
+                     (keydown.enter)="saveHome()"
+                     (keydown.escape)="editingHome.set(false)" />
+              <button class="btn-pill btn-primary" style="padding:4px 12px;font-size:11px"
+                      (click)="saveHome()">✓</button>
+              <button class="btn-pill btn-outline" style="padding:4px 8px;font-size:11px"
+                      (click)="editingHome.set(false)">✕</button>
+            } @else {
+              <span class="home-address-label"
+                    (click)="openHomeEdit()">
+                {{ homeAddress.address() || 'Agrega tu ciudad de origen…' }}
+              </span>
+              <button class="home-address-edit" (click)="openHomeEdit()" type="button">✏️</button>
+            }
+          </div>
+        }
 
         <!-- Trip summary -->
         <section>
@@ -169,11 +195,14 @@ export class ProfileComponent {
   readonly auth          = inject(AuthService);
   readonly trip          = inject(TripService);
   readonly savedPlans    = inject(SavedPlansService);
+  readonly homeAddress   = inject(HomeAddressService);
   readonly visitedPlaces = inject(VisitedPlacesService);
 
   close = output<void>();
 
   selectedPlanId = signal<string | null>(null);
+  editingHome    = signal(false);
+  homeInput      = signal('');
   pendingPin     = signal<{ x: number; y: number } | null>(null);
   pendingLabel   = signal('');
 
@@ -192,6 +221,18 @@ export class ProfileComponent {
       return sum + (city ? getAttractions(city).length : 0);
     }, 0)
   );
+
+  openHomeEdit(): void {
+    this.homeInput.set(this.homeAddress.address());
+    this.editingHome.set(true);
+  }
+
+  saveHome(): void {
+    const email = this.auth.currentUser()?.email;
+    if (!email) return;
+    this.homeAddress.save(email, this.homeInput());
+    this.editingHome.set(false);
+  }
 
   togglePlan(id: string): void {
     this.selectedPlanId.update(cur => cur === id ? null : id);

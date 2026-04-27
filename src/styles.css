@@ -147,6 +147,19 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .lodging-form { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; }
 .transit-num-input { width: 46px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; text-align: center; outline: none; font-family: inherit; }
 .transit-num-input:focus { border-color: var(--lav-d); }
+.transit-badge-date { font-size: 10px; color: var(--t3); margin-bottom: 3px; }
+
+/* HOME ADDRESS (profile) */
+.home-address-row { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px; margin-bottom: 16px; }
+.home-address-icon { font-size: 16px; flex-shrink: 0; }
+.home-address-label { flex: 1; font-size: 12px; color: var(--t2); cursor: pointer; }
+.home-address-label:hover { color: var(--lav-d); }
+.home-address-input { flex: 1; font-size: 12px; padding: 4px 8px; margin: 0; }
+.home-address-edit { font-size: 11px; opacity: 0; transition: opacity .15s; flex-shrink: 0; }
+.home-address-row:hover .home-address-edit { opacity: 1; }
+
+/* ATTRACTION COLLISION */
+.att-collision { background: oklch(91% .06 10 / .35) !important; border-radius: 6px; }
 
 /* SAVED PLAN CARDS (profile) */
 .saved-plan-card { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; transition: border-color .15s; }
