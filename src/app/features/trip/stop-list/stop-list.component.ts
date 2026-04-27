@@ -134,12 +134,18 @@ import { LodgingComponent } from './lodging.component';
                     @for (planned of stop.selectedAttractions; track planned.attractionId) {
                       @let att = attractionFor(stop.cityId, planned.attractionId);
                       @if (att) {
-                        <div class="att-plan-row" (click)="$event.stopPropagation()">
+                        @let collision = hasTimeCollision(stop, planned.attractionId);
+                        <div class="att-plan-row" [class.att-collision]="collision"
+                             (click)="$event.stopPropagation()">
                           <span class="att-plan-icon">{{ att.icon }}</span>
                           <span class="att-plan-name">{{ att.name }}</span>
                           <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
-                            {{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                            @let d = planned.date || stop.checkIn;
+                            @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                           </span>
+                          @if (collision) {
+                            <span title="Conflicto de horario" style="font-size:11px;flex-shrink:0">⚠️</span>
+                          }
                           <button class="att-plan-del"
                                   (click)="trip.removeAttraction(stop.cityId, planned.attractionId)"
                                   i18n-title="@@stopList.removeAttTitle"
@@ -285,5 +291,35 @@ export class StopListComponent {
     const city = this.cityFor(cityId);
     if (!city) return null;
     return getAttractions(city).find(a => a.id === attractionId) ?? null;
+  }
+
+  shortDate(s: string): string {
+    const p = s.split('/');
+    return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
+  }
+
+  hasTimeCollision(stop: { cityId: string; selectedAttractions: import('../../../core/models/trip.model').PlannedAttraction[] }, targetId: string): boolean {
+    const target = stop.selectedAttractions.find(a => a.attractionId === targetId);
+    if (!target?.startTime) return false;
+    const tAtt  = this.attractionFor(stop.cityId, targetId);
+    if (!tAtt) return false;
+    const tStart = this.toMins(target.startTime);
+    const tEnd   = tStart + tAtt.estimatedMinutes;
+    const tDate  = target.date ?? '';
+    return stop.selectedAttractions.some(other => {
+      if (other.attractionId === targetId || !other.startTime) return false;
+      const oDate = other.date ?? '';
+      if (tDate && oDate && tDate !== oDate) return false;
+      const oAtt = this.attractionFor(stop.cityId, other.attractionId);
+      if (!oAtt) return false;
+      const oStart = this.toMins(other.startTime);
+      const oEnd   = oStart + oAtt.estimatedMinutes;
+      return tStart < oEnd && tEnd > oStart;
+    });
+  }
+
+  private toMins(time: string): number {
+    const [h, m] = time.split(':').map(Number);
+    return (h ?? 0) * 60 + (m ?? 0);
   }
 }

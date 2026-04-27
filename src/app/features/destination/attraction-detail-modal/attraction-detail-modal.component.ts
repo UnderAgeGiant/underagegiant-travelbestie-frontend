@@ -6,7 +6,7 @@ import { KarmaService } from '../../../core/karma/karma.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
-import { PlanTimeModalComponent, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
+import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
 
 @Component({
@@ -173,6 +173,9 @@ import { CommentModalComponent } from '../comment-modal/comment-modal.component'
         <app-plan-time-modal
           [attraction]="attraction()"
           [initialTime]="plannedEntry()?.startTime ?? ''"
+          [initialDate]="plannedEntry()?.date ?? ''"
+          [stopCheckIn]="activeStop()?.checkIn ?? ''"
+          [stopCheckOut]="activeStop()?.checkOut ?? ''"
           [existingPlanned]="scheduleEntries()"
           (cancel)="showPlanModal.set(false)"
           (confirmed)="onPlanConfirmed($event)"
@@ -213,6 +216,8 @@ export class AttractionDetailModalComponent {
     this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
   );
 
+  readonly activeStop = computed(() => this.trip.activeStop());
+
   readonly scheduleEntries = computed((): ScheduleEntry[] => {
     const city = WORLD_CITIES.find(c => c.id === this.cityId());
     if (!city) return [];
@@ -220,7 +225,8 @@ export class AttractionDetailModalComponent {
     return this.trip.selectedAttractionsFor(this.cityId())
       .filter(p => p.attractionId !== this.attraction().id)
       .map(p => ({
-        startTime: p.startTime,
+        startTime:  p.startTime,
+        date:       p.date,
         attraction: allAttractions.find(a => a.id === p.attractionId)!,
       }))
       .filter(e => e.attraction != null);
@@ -233,11 +239,12 @@ export class AttractionDetailModalComponent {
 
   openPlanModal(): void { this.showPlanModal.set(true); }
 
-  onPlanConfirmed(startTime: string): void {
+  onPlanConfirmed(entry: PlanEntry): void {
+    const date = entry.date || undefined;
     if (this.inPlan()) {
-      this.trip.updateStartTime(this.cityId(), this.attraction().id, startTime);
+      this.trip.updateStartTime(this.cityId(), this.attraction().id, entry.startTime, date);
     } else {
-      this.trip.addAttraction(this.cityId(), this.attraction().id, startTime);
+      this.trip.addAttraction(this.cityId(), this.attraction().id, entry.startTime, date);
     }
     this.showPlanModal.set(false);
   }

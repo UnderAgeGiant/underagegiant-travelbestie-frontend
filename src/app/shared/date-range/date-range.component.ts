@@ -54,19 +54,29 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
       return new Date(yyyy, mm - 1, dd);
     };
 
+    const checkInDefault = parseInitial(this.initialCheckIn);
+
     this.fpIn = flatpickr(this.inEl.nativeElement, {
       ...base,
-      defaultDate: parseInitial(this.initialCheckIn),
+      defaultDate: checkInDefault,
       onChange: ([date]) => {
         if (!date) return;
         this.checkIn.emit(this.fmt(date));
         this.fpOut?.set('minDate', date);
+        // If no checkout chosen yet, jump the checkout calendar to the same month
+        if (!this.fpOut?.selectedDates.length) {
+          this.fpOut?.jumpToDate(date, false);
+        }
       },
     }) as flatpickr.Instance;
 
     this.fpOut = flatpickr(this.outEl.nativeElement, {
       ...base,
       defaultDate: parseInitial(this.initialCheckOut),
+      // When there is a check-in but no check-out, open the calendar at the check-in month
+      onOpen: checkInDefault && !this.initialCheckOut
+        ? () => this.fpOut?.jumpToDate(checkInDefault!, false)
+        : undefined,
       onChange: ([date]) => {
         if (!date) return;
         this.checkOut.emit(this.fmt(date));

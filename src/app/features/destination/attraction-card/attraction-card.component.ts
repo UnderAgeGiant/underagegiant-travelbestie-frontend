@@ -5,7 +5,7 @@ import { TripService } from '../../trip/trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { AttractionDetailModalComponent } from '../attraction-detail-modal/attraction-detail-modal.component';
-import { PlanTimeModalComponent, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
+import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 
 @Component({
   selector: 'app-attraction-card',
@@ -118,7 +118,8 @@ import { PlanTimeModalComponent, ScheduleEntry } from '../plan-time-modal/plan-t
                 (click)="$event.stopPropagation(); showPlanModal.set(true)"
                 type="button">
           @if (inPlan()) {
-            <span>📌</span><span>{{ plannedEntry()?.startTime }}</span>
+            <span>📌</span>
+            <span>{{ plannedEntry()?.date ? shortDate(plannedEntry()!.date!) + ' ' : '' }}{{ plannedEntry()?.startTime }}</span>
           } @else {
             <span>🔖</span><span i18n="@@attCard.addToPlan">Planificar</span>
           }
@@ -145,6 +146,9 @@ import { PlanTimeModalComponent, ScheduleEntry } from '../plan-time-modal/plan-t
       <app-plan-time-modal
         [attraction]="attraction()"
         [initialTime]="plannedEntry()?.startTime ?? ''"
+        [initialDate]="plannedEntry()?.date ?? ''"
+        [stopCheckIn]="activeStop()?.checkIn ?? ''"
+        [stopCheckOut]="activeStop()?.checkOut ?? ''"
         [existingPlanned]="scheduleEntries()"
         (cancel)="showPlanModal.set(false)"
         (confirmed)="onPlanConfirmed($event)"
@@ -184,6 +188,8 @@ export class AttractionCardComponent {
     this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
   );
 
+  readonly activeStop = computed(() => this.trip.activeStop());
+
   readonly scheduleEntries = computed((): ScheduleEntry[] => {
     const city = WORLD_CITIES.find(c => c.id === this.cityId());
     if (!city) return [];
@@ -191,7 +197,8 @@ export class AttractionCardComponent {
     return this.trip.selectedAttractionsFor(this.cityId())
       .filter(p => p.attractionId !== this.attraction().id)
       .map(p => ({
-        startTime: p.startTime,
+        startTime:  p.startTime,
+        date:       p.date,
         attraction: allAttractions.find(a => a.id === p.attractionId)!,
       }))
       .filter(e => e.attraction != null);
@@ -202,11 +209,17 @@ export class AttractionCardComponent {
     return '★'.repeat(r) + '☆'.repeat(5 - r);
   }
 
-  onPlanConfirmed(startTime: string): void {
+  shortDate(s: string): string {
+    const p = s.split('/');
+    return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
+  }
+
+  onPlanConfirmed(entry: PlanEntry): void {
+    const date = entry.date || undefined;
     if (this.inPlan()) {
-      this.trip.updateStartTime(this.cityId(), this.attraction().id, startTime);
+      this.trip.updateStartTime(this.cityId(), this.attraction().id, entry.startTime, date);
     } else {
-      this.trip.addAttraction(this.cityId(), this.attraction().id, startTime);
+      this.trip.addAttraction(this.cityId(), this.attraction().id, entry.startTime, date);
     }
     this.showPlanModal.set(false);
   }
