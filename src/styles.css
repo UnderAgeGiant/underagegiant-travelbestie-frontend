@@ -214,7 +214,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 /* SHARED TRIP PAGE */
 .shared-nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 14px; padding: 10px 20px; background: #fff; border-bottom: 1px solid var(--border); box-shadow: var(--sh); }
 .shared-nav-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--t1); }
-.shared-body { max-width: 680px; margin: 0 auto; padding: 24px 20px 60px; }
+.shared-body { max-width: 680px; margin: 58px auto 0; padding: 24px 20px 60px; }
 .shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .shared-header-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--t1); margin-bottom: 4px; }
 .shared-header-owner { font-size: 13px; color: var(--t2); margin-bottom: 10px; }

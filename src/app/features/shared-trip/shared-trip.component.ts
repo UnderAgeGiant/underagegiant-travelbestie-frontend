@@ -1,7 +1,9 @@
-import { Component, inject, input, computed } from '@angular/core';
+import { Component, inject, input, computed, signal } from '@angular/core';
 import { SharedTripsService, SharedTrip } from '../../core/shared-trips/shared-trips.service';
 import { StepCommentsComponent } from './step-comments.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
+import { NavComponent } from '../nav/nav.component';
+import { ProfileComponent } from '../profile/profile.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
@@ -9,14 +11,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 @Component({
   selector: 'app-shared-trip',
   standalone: true,
-  imports: [StepCommentsComponent, DurationPipe],
+  imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent],
   template: `
-    <!-- Nav bar -->
-    <div class="shared-nav">
-      <button class="btn-pill btn-outline" style="font-size:12px;padding:6px 16px"
-              (click)="goHome()">← Inicio</button>
-      <span class="shared-nav-title">✈️ Traveling Bestie</span>
-    </div>
+    <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
+
+    @if (showProfile()) {
+      <app-profile (close)="showProfile.set(false)" />
+    }
 
     @if (trip()) {
       <div class="shared-body">
@@ -182,6 +183,8 @@ export class SharedTripComponent {
   readonly tripId = input.required<string>();
 
   private readonly svc = inject(SharedTripsService);
+
+  showProfile = signal(false);
 
   readonly trip = computed(() => this.svc.getTrip(this.tripId()));
 
