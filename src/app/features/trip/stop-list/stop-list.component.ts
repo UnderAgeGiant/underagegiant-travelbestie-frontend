@@ -6,6 +6,7 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { Attraction } from '../../../core/models/comment.model';
+import { TransitMode } from '../../../core/models/trip.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 
@@ -65,7 +66,76 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
           </div>
         }
         @for (stop of trip.stops(); track stop.cityId; let i = $index) {
-          @if (i > 0) { <div class="stop-connector"></div> }
+          @if (i > 0) {
+            @let prevStop = trip.stops()[i - 1];
+            @let tKey = prevStop.cityId + '|' + stop.cityId;
+            @let transit = trip.transitMap().get(tKey);
+            <div class="transit-connector" (click)="$event.stopPropagation()">
+              @if (transitEditKey() === tKey) {
+                <div class="transit-form">
+                  <div class="transit-modes">
+                    @for (m of transitModes; track m.value) {
+                      <button class="transit-mode-btn" [class.active]="tMode() === m.value"
+                              (click)="tMode.set(m.value)" type="button">
+                        <span>{{ m.icon }}</span>
+                        <span>{{ m.label }}</span>
+                      </button>
+                    }
+                  </div>
+                  <div class="transit-duration-row">
+                    <span class="transit-dur-lbl" i18n="@@transit.durLabel">Duración:</span>
+                    <input type="number" min="0" max="99" class="transit-num-input"
+                           [value]="tHours()"
+                           (input)="tHours.set(+$any($event.target).value || 0)" />
+                    <span class="transit-dur-lbl">h</span>
+                    <input type="number" min="0" max="59" class="transit-num-input"
+                           [value]="tMins()"
+                           (input)="tMins.set(+$any($event.target).value || 0)" />
+                    <span class="transit-dur-lbl">min</span>
+                  </div>
+                  <input class="form-input"
+                         style="font-size:11px;padding:5px 8px;margin-top:6px;width:100%;box-sizing:border-box"
+                         [value]="tNotes()"
+                         (input)="tNotes.set($any($event.target).value)"
+                         i18n-placeholder="@@transit.notesPlaceholder"
+                         placeholder="Nro. de vuelo, notas… (opcional)" />
+                  <div style="display:flex;gap:6px;margin-top:8px">
+                    <button class="btn-pill btn-primary"
+                            style="flex:1;justify-content:center;font-size:11px;padding:5px 8px"
+                            [disabled]="tHours() === 0 && tMins() === 0"
+                            [style.opacity]="tHours() > 0 || tMins() > 0 ? 1 : 0.45"
+                            (click)="saveTransit(prevStop.cityId, stop.cityId)"
+                            type="button"
+                            i18n="@@transit.saveBtn">✓ Guardar</button>
+                    @if (transit) {
+                      <button class="btn-pill btn-outline"
+                              style="padding:5px 10px;font-size:11px;color:var(--peach-d)"
+                              (click)="removeTransit(prevStop.cityId, stop.cityId)"
+                              type="button">🗑</button>
+                    }
+                    <button class="btn-pill btn-outline"
+                            style="padding:5px 10px;font-size:11px"
+                            (click)="transitEditKey.set(null)">✕</button>
+                  </div>
+                </div>
+              } @else if (transit) {
+                <div class="transit-badge" (click)="openTransitEdit(prevStop.cityId, stop.cityId)">
+                  <span>{{ modeIcon(transit.mode) }}</span>
+                  <span>{{ fmtTransitDuration(transit.durationMinutes) }}</span>
+                  @if (transit.notes) {
+                    <span class="transit-badge-notes">{{ transit.notes }}</span>
+                  }
+                  <span class="transit-edit-hint">✏️</span>
+                </div>
+              } @else {
+                <div class="transit-empty" (click)="openTransitEdit(prevStop.cityId, stop.cityId)">
+                  <div class="transit-line"></div>
+                  <span class="transit-add-label" i18n="@@transit.addBtn">+ Transporte</span>
+                  <div class="transit-line"></div>
+                </div>
+              }
+            </div>
+          }
           @let city = cityFor(stop.cityId);
           @if (city) {
             <div [class]="'stop-item' + (trip.activeId() === stop.cityId ? ' active' : '')"
@@ -196,6 +266,20 @@ export class StopListComponent {
   editCheckIn        = signal('');
   editCheckOut       = signal('');
 
+  transitEditKey = signal<string | null>(null);
+  tMode  = signal<TransitMode>('flight');
+  tHours = signal(0);
+  tMins  = signal(0);
+  tNotes = signal('');
+
+  readonly transitModes: Array<{ value: TransitMode; icon: string; label: string }> = [
+    { value: 'flight', icon: '✈️', label: 'Avión'  },
+    { value: 'train',  icon: '🚂', label: 'Tren'   },
+    { value: 'boat',   icon: '🚢', label: 'Barco'  },
+    { value: 'bus',    icon: '🚌', label: 'Bus'    },
+    { value: 'car',    icon: '🚗', label: 'Auto'   },
+  ];
+
   doBook(): void {
     if (!this.auth.isLoggedIn()) {
       this.authModal.openLogin(() => this.doBook());
@@ -206,7 +290,7 @@ export class StopListComponent {
       // Already named — save silently
       const email = this.auth.currentUser()?.email;
       if (!email) return;
-      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops());
+      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits());
       this.flashSaved();
     } else {
       this.bookName.set('');
@@ -219,7 +303,7 @@ export class StopListComponent {
     if (!name) return;
     const email = this.auth.currentUser()?.email;
     if (!email) return;
-    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops());
+    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits());
     this.trip.markAsLoadedPlan(newId);
     this.bookOpen.set(false);
     this.bookName.set('');
@@ -229,6 +313,55 @@ export class StopListComponent {
   private flashSaved(): void {
     this.bookSaved.set(true);
     setTimeout(() => this.bookSaved.set(false), 2500);
+  }
+
+  openTransitEdit(fromId: string, toId: string): void {
+    const existing = this.trip.transitMap().get(`${fromId}|${toId}`);
+    if (existing) {
+      this.tMode.set(existing.mode);
+      this.tHours.set(Math.floor(existing.durationMinutes / 60));
+      this.tMins.set(existing.durationMinutes % 60);
+      this.tNotes.set(existing.notes ?? '');
+    } else {
+      this.tMode.set('flight');
+      this.tHours.set(0);
+      this.tMins.set(0);
+      this.tNotes.set('');
+    }
+    this.transitEditKey.set(`${fromId}|${toId}`);
+  }
+
+  saveTransit(fromId: string, toId: string): void {
+    const total = this.tHours() * 60 + this.tMins();
+    if (total === 0) return;
+    this.trip.setTransit({
+      fromCityId: fromId,
+      toCityId:   toId,
+      mode:       this.tMode(),
+      durationMinutes: total,
+      notes:      this.tNotes().trim(),
+    });
+    this.transitEditKey.set(null);
+  }
+
+  removeTransit(fromId: string, toId: string): void {
+    this.trip.removeTransit(fromId, toId);
+    this.transitEditKey.set(null);
+  }
+
+  modeIcon(mode: TransitMode): string {
+    const icons: Record<TransitMode, string> = {
+      flight: '✈️', train: '🚂', boat: '🚢', bus: '🚌', car: '🚗',
+    };
+    return icons[mode];
+  }
+
+  fmtTransitDuration(mins: number): string {
+    const h = Math.floor(mins / 60);
+    const m = mins % 60;
+    if (h > 0 && m > 0) return `${h}h ${m}m`;
+    if (h > 0) return `${h}h`;
+    return `${m}m`;
   }
 
   openDateEdit(cityId: string, checkIn: string, checkOut: string): void {

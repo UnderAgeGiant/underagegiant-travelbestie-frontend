@@ -1,6 +1,6 @@
 import { Injectable, signal, computed, inject, effect } from '@angular/core';
 import { City } from '../../core/models/city.model';
-import { TripStop, PlannedAttraction, Planification } from '../../core/models/trip.model';
+import { TripStop, PlannedAttraction, Planification, TransitLeg } from '../../core/models/trip.model';
 import { AuthService } from '../../core/auth/auth.service';
 
 const planKey       = (email: string) => `tb_plan_${email}`;
@@ -11,15 +11,25 @@ export class TripService {
   private readonly auth = inject(AuthService);
 
   private _stops        = signal<TripStop[]>([]);
+  private _transits     = signal<TransitLeg[]>([]);
   private _activeId     = signal<string | null>(null);
   private _loadedPlanId = signal<string | null>(null);
   private _saving       = false;
 
   readonly stops        = this._stops.asReadonly();
+  readonly transits     = this._transits.asReadonly();
   readonly activeId     = this._activeId.asReadonly();
   readonly loadedPlanId = this._loadedPlanId.asReadonly();
   readonly existingCityIds = computed(() => this._stops().map(s => s.cityId));
   readonly activeStop      = computed(() => this._stops().find(s => s.cityId === this._activeId()) ?? null);
+
+  readonly transitMap = computed(() => {
+    const map = new Map<string, TransitLeg>();
+    for (const t of this._transits()) {
+      map.set(`${t.fromCityId}|${t.toCityId}`, t);
+    }
+    return map;
+  });
 
   readonly planification = computed((): Planification | null => {
     const stops = this._stops();
@@ -35,13 +45,14 @@ export class TripService {
     const user = this.auth.currentUser();
     if (user?.email) this.loadForUser(user.email);
 
-    // Auto-save on every stops/loadedPlanId mutation (skip during bulk restore)
+    // Auto-save on every stops/transits/loadedPlanId mutation (skip during bulk restore)
     effect(() => {
       const user     = this.auth.currentUser();
       const stops    = this._stops();
+      const transits = this._transits();
       const loadedId = this._loadedPlanId();
       if (user?.email && !this._saving) {
-        localStorage.setItem(planKey(user.email), JSON.stringify(stops));
+        localStorage.setItem(planKey(user.email), JSON.stringify({ stops, transits }));
         if (loadedId) {
           localStorage.setItem(activePlanKey(user.email), loadedId);
         } else {
@@ -58,15 +69,20 @@ export class TripService {
     const activeId = localStorage.getItem(activePlanKey(email));
     if (raw) {
       try {
-        const stops = JSON.parse(raw) as TripStop[];
+        const parsed   = JSON.parse(raw);
+        const stops: TripStop[]     = Array.isArray(parsed) ? parsed : (parsed.stops    ?? []);
+        const transits: TransitLeg[] = Array.isArray(parsed) ? []     : (parsed.transits ?? []);
         this._stops.set(stops);
+        this._transits.set(transits);
         this._activeId.set(stops[0]?.cityId ?? null);
       } catch {
         this._stops.set([]);
+        this._transits.set([]);
         this._activeId.set(null);
       }
     } else {
       this._stops.set([]);
+      this._transits.set([]);
       this._activeId.set(null);
     }
     this._loadedPlanId.set(activeId ?? null);
@@ -77,15 +93,17 @@ export class TripService {
   clearPlan(): void {
     this._saving = true;
     this._stops.set([]);
+    this._transits.set([]);
     this._activeId.set(null);
     this._loadedPlanId.set(null);
     this._saving = false;
   }
 
   /** Load a named saved plan as the active working plan. */
-  restoreStops(stops: TripStop[], planId: string | null = null): void {
+  restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = []): void {
     this._saving = true;
     this._stops.set(stops);
+    this._transits.set(transits);
     this._activeId.set(stops[0]?.cityId ?? null);
     this._loadedPlanId.set(planId);
     this._saving = false;
@@ -129,9 +147,21 @@ export class TripService {
   removeStop(cityId: string): void {
     const remaining = this._stops().filter(s => s.cityId !== cityId);
     this._stops.set(remaining);
+    this._transits.update(ts => ts.filter(t => t.fromCityId !== cityId && t.toCityId !== cityId));
     if (this._activeId() === cityId) {
       this._activeId.set(remaining[0]?.cityId ?? null);
     }
+  }
+
+  setTransit(leg: TransitLeg): void {
+    this._transits.update(ts => {
+      const without = ts.filter(t => !(t.fromCityId === leg.fromCityId && t.toCityId === leg.toCityId));
+      return [...without, leg];
+    });
+  }
+
+  removeTransit(fromCityId: string, toCityId: string): void {
+    this._transits.update(ts => ts.filter(t => !(t.fromCityId === fromCityId && t.toCityId === toCityId)));
   }
 
   setActive(cityId: string): void {

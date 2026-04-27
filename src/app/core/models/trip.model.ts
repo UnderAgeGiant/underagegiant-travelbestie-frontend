@@ -10,6 +10,16 @@ export interface TripStop {
   selectedAttractions: PlannedAttraction[];
 }
 
+export type TransitMode = 'flight' | 'train' | 'boat' | 'bus' | 'car';
+
+export interface TransitLeg {
+  fromCityId:      string;
+  toCityId:        string;
+  mode:            TransitMode;
+  durationMinutes: number;
+  notes:           string;
+}
+
 export interface Planification {
   stops: TripStop[];
   totalAttractions: number;
