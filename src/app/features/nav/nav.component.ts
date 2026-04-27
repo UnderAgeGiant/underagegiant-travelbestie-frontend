@@ -117,7 +117,7 @@ import { City } from '../../core/models/city.model';
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
           <span style="color:var(--t3);font-size:15px">🔍</span>
-          <input i18n-placeholder="@@nav.searchPlaceholder" placeholder="Agregar ciudad…"
+          <input i18n-placeholder="@@nav.searchPlaceholder" placeholder="Agregar ciudad o buscar viajes públicos…"
                  [value]="navQuery()"
                  (input)="navQuery.set($any($event.target).value); searchOpen.set(true)"
                  (focus)="searchOpen.set(true)"
