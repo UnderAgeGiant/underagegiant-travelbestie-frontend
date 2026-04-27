@@ -116,6 +116,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .transit-badge-total { font-size: 10px; color: var(--t3); margin-top: 1px; }
 .transit-edit-hint { font-size: 10px; opacity: 0; transition: opacity .15s; margin-top: 1px; }
 .transit-badge:hover .transit-edit-hint { opacity: 1; }
+.transit-edge-label { font-size: 10px !important; }
+.transit-edge-ctx { font-size: 10px; color: var(--t3); font-weight: 600; margin-bottom: 4px; }
 .transit-seg-row { display: flex; align-items: center; gap: 6px; padding: 4px 6px; background: oklch(97% 0.005 250); border-radius: 8px; margin-bottom: 4px; }
 .transit-seg-icon { font-size: 14px; flex-shrink: 0; }
 .transit-seg-info { flex: 1; display: flex; gap: 5px; align-items: baseline; flex-wrap: wrap; font-size: 11px; color: var(--t2); min-width: 0; }
