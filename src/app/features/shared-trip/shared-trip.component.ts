@@ -85,6 +85,9 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                              (click)="$event.stopPropagation()">🔗</a>
                         }
                       </div>
+                      <app-step-comments [tripId]="trip()!.id"
+                                         [stepKey]="'lodge:' + stop.cityId"
+                                         [ownerEmail]="trip()!.ownerEmail" />
                     }
 
                     @for (planned of stop.selectedAttractions; track planned.attractionId) {
@@ -98,6 +101,9 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                           </span>
                         </div>
+                        <app-step-comments [tripId]="trip()!.id"
+                                           [stepKey]="'att:' + stop.cityId + ':' + planned.attractionId"
+                                           [ownerEmail]="trip()!.ownerEmail" />
                       }
                     }
 
