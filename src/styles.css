@@ -176,6 +176,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .saved-plan-name { font-size: 13px; font-weight: 600; color: var(--t1); }
 .saved-plan-meta { font-size: 11px; color: var(--t3); margin-top: 2px; }
 .saved-plan-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
+.saved-plan-actions { display: flex; align-items: center; gap: 8px; padding: 0 14px 14px; }
 .saved-plan-itin { padding: 0 16px 16px; border-top: 1px solid var(--border); padding-top: 14px; }
 
 /* TRIP ITINERARY */

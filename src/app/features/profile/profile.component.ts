@@ -118,20 +118,28 @@ import { TripItineraryComponent } from './trip-itinerary.component';
                       · {{ fmtDate(plan.savedAt) }}
                     </div>
                   </div>
-                  <button class="saved-plan-share-btn"
-                          [title]="plan.shareId ? 'Copiar enlace' : 'Compartir viaje (1 karma)'"
-                          (click)="$event.stopPropagation(); sharePlan(plan)"
-                          type="button">
-                    {{ plan.shareId ? '🔗' : '📤' }}
-                  </button>
-                  @if (shareFlash() === plan.id) {
-                    <span class="share-copied">¡Enlace copiado!</span>
+                  <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
+                </div>
+
+                <div class="saved-plan-actions">
+                  @if (plan.shareId) {
+                    <button class="btn-pill btn-ghost"
+                            style="flex:1;justify-content:center;gap:7px"
+                            (click)="sharePlan(plan)" type="button">
+                      🔗 Ver viaje compartido
+                    </button>
+                  } @else {
+                    <button class="btn-pill btn-primary"
+                            style="flex:1;justify-content:center;gap:7px"
+                            (click)="sharePlan(plan)" type="button">
+                      📤 Compartir viaje <span style="opacity:.75;font-size:11px">(1 karma)</span>
+                    </button>
                   }
                   @if (shareError() === plan.id) {
                     <span class="share-error">Karma insuficiente</span>
                   }
-                  <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
                 </div>
+
                 @if (selectedPlanId() === plan.id) {
                   <div class="saved-plan-itin">
                     <app-trip-itinerary [stops]="plan.stops" [transits]="plan.transits ?? []" />
@@ -217,7 +225,6 @@ export class ProfileComponent {
   close = output<void>();
 
   selectedPlanId = signal<string | null>(null);
-  shareFlash     = signal<string | null>(null);
   shareError     = signal<string | null>(null);
   editingHome    = signal(false);
   homeInput      = signal('');
@@ -279,12 +286,10 @@ export class ProfileComponent {
     this.copyLink(shareId, plan.id);
   }
 
-  private copyLink(shareId: string, planId: string): void {
+  private copyLink(shareId: string, _planId: string): void {
     const url = `${window.location.origin}/?share=${shareId}`;
-    navigator.clipboard.writeText(url).then(() => {
-      this.shareFlash.set(planId);
-      setTimeout(() => this.shareFlash.set(null), 2000);
-    });
+    navigator.clipboard.writeText(url).catch(() => {});
+    window.location.href = url;
   }
 
   togglePlan(id: string): void {
