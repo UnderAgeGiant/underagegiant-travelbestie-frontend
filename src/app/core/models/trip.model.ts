@@ -28,6 +28,7 @@ export interface TransitLeg {
   fromCityId: string;
   toCityId:   string;
   segments:   TransitSegment[];
+  date?:      string; // dd/mm/yyyy — departure date set by the user
 }
 
 export interface Planification {

@@ -48,6 +48,14 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
                    (input)="tMins.set(+$any($event.target).value || 0)" />
             <span class="transit-dur-lbl">min</span>
           </div>
+          <div class="transit-duration-row" style="margin-top:6px">
+            <span class="transit-dur-lbl">📅</span>
+            <input type="text" class="transit-date-input"
+                   [value]="tDate()"
+                   (input)="tDate.set($any($event.target).value)"
+                   i18n-placeholder="@@transit.datePlaceholder"
+                   placeholder="dd/mm/aaaa" />
+          </div>
           <input class="form-input"
                  style="font-size:11px;padding:5px 8px;margin-top:6px;width:100%;box-sizing:border-box"
                  [value]="tNotes()"
@@ -89,8 +97,8 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
             <div class="transit-edge-ctx">{{ cityLabel() }} ✈️ {{ homeLabel() }}</div>
           }
           <div class="transit-badge-body">
-            @if (departureDate()) {
-              <div class="transit-badge-date">📅 {{ departureDate() }}</div>
+            @if (displayDate()) {
+              <div class="transit-badge-date">📅 {{ displayDate() }}</div>
             }
             @for (seg of transit()!.segments; track $index; let last = $last) {
               <div class="transit-badge-seg">
@@ -144,7 +152,7 @@ export class TransitConnectorComponent {
   readonly homeLabel = computed(() => this.homeService.address() || '🏠');
 
   /** Date when this transport departs, derived from the adjacent stops. */
-  readonly departureDate = computed(() => {
+  readonly departureDate = computed((): string | null => {
     const from  = this.fromId();
     const stops = this.trip.stops();
     if (!stops.length) return null;
@@ -153,11 +161,17 @@ export class TransitConnectorComponent {
     return stops.find(s => s.cityId === from)?.checkOut ?? null;
   });
 
+  /** Stored date wins; falls back to the auto-derived departure date. */
+  readonly displayDate = computed(() =>
+    this.transit()?.date || this.departureDate()
+  );
+
   editOpen = signal(false);
   segs     = signal<TransitSegment[]>([]);
   tMode    = signal<TransitMode>('flight');
   tHours   = signal(0);
   tMins    = signal(0);
+  tDate    = signal('');
   tNotes   = signal('');
 
   readonly modes: Array<{ value: TransitMode; icon: string; label: string }> = [
@@ -171,7 +185,11 @@ export class TransitConnectorComponent {
   openEdit(): void {
     const existing = this.transit();
     this.segs.set(existing ? [...existing.segments] : []);
-    this.tMode.set('flight'); this.tHours.set(0); this.tMins.set(0); this.tNotes.set('');
+    this.tMode.set('flight');
+    this.tHours.set(0);
+    this.tMins.set(0);
+    this.tDate.set(existing?.date ?? this.departureDate() ?? '');
+    this.tNotes.set('');
     this.editOpen.set(true);
   }
 
@@ -193,7 +211,8 @@ export class TransitConnectorComponent {
       : [];
     const all = [...this.segs(), ...pending];
     if (all.length === 0) return;
-    this.trip.setTransit({ fromCityId: this.fromId(), toCityId: this.toId(), segments: all });
+    const date = this.tDate().trim() || undefined;
+    this.trip.setTransit({ fromCityId: this.fromId(), toCityId: this.toId(), segments: all, date });
     this.editOpen.set(false);
   }
 

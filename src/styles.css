@@ -147,6 +147,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .lodging-form { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; }
 .transit-num-input { width: 46px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; text-align: center; outline: none; font-family: inherit; }
 .transit-num-input:focus { border-color: var(--lav-d); }
+.transit-date-input { flex: 1; padding: 4px 8px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; outline: none; font-family: inherit; color: var(--t1); background: var(--cream); }
+.transit-date-input:focus { border-color: var(--lav-d); background: #fff; }
 .transit-badge-date { font-size: 10px; color: var(--t3); margin-bottom: 3px; }
 
 /* HOME ADDRESS (profile) */
