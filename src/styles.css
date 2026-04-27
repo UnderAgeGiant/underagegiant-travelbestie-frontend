@@ -188,6 +188,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .itin-notes { color: var(--t3); font-style: italic; font-size: 10px; }
 .itin-chain { color: var(--t3); }
 .itin-no-transit { color: var(--t3); font-style: italic; }
+.itin-transit-total { font-size: 10px; color: var(--t3); font-weight: 600; margin-left: 4px; }
 .itin-transit-dest { margin-left: 4px; font-weight: 600; color: var(--t1); white-space: nowrap; }
 .itin-city { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; }
 .itin-city-head { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 4px; }

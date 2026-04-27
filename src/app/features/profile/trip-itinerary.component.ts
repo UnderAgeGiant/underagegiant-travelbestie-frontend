@@ -18,8 +18,10 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
           <span class="itin-transit-tag">Salida 🏠</span>
           @for (seg of dep.segments; track $index; let segLast = $last) {
             <span class="itin-seg">{{ fmtSeg(seg) }}</span>
-            @if (seg.notes) { <span class="itin-notes">· {{ seg.notes }}</span> }
             @if (!segLast) { <span class="itin-chain">↓</span> }
+          }
+          @if (dep.segments.length > 1) {
+            <span class="itin-transit-total">Total: {{ fmtDur(totalDuration(dep)) }}</span>
           }
         </div>
         <div class="itin-line"></div>
@@ -61,11 +63,12 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
                 @for (planned of stop.selectedAttractions; track planned.attractionId) {
                   @let att = attFor(stop.cityId, planned.attractionId);
                   @if (att) {
+                    @let attDate = planned.date || stop.checkIn;
                     <div class="itin-item">
                       <span class="itin-item-icon">{{ att.icon }}</span>
                       <span class="itin-item-label">{{ att.name }}</span>
                       <span class="itin-item-meta">
-                        {{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                        @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                       </span>
                     </div>
                   }
@@ -85,8 +88,10 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
               @if (leg) {
                 @for (seg of leg.segments; track $index; let segLast = $last) {
                   <span class="itin-seg">{{ fmtSeg(seg) }}</span>
-                  @if (seg.notes) { <span class="itin-notes">· {{ seg.notes }}</span> }
                   @if (!segLast) { <span class="itin-chain">↓</span> }
+                }
+                @if (leg.segments.length > 1) {
+                  <span class="itin-transit-total">Total: {{ fmtDur(totalDuration(leg)) }}</span>
                 }
               } @else {
                 <span class="itin-no-transit">Sin transporte definido</span>
@@ -104,8 +109,10 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
                 <span class="itin-transit-tag">Vuelta 🏠</span>
                 @for (seg of ret.segments; track $index; let segLast = $last) {
                   <span class="itin-seg">{{ fmtSeg(seg) }}</span>
-                  @if (seg.notes) { <span class="itin-notes">· {{ seg.notes }}</span> }
                   @if (!segLast) { <span class="itin-chain">↓</span> }
+                }
+                @if (ret.segments.length > 1) {
+                  <span class="itin-transit-total">Total: {{ fmtDur(totalDuration(ret)) }}</span>
                 }
               </div>
             }
@@ -169,12 +176,20 @@ export class TripItineraryComponent {
 
   fmtSeg(seg: TransitSegment): string {
     const icon = this.modeIcon(seg.mode);
+    let display: string;
     if (seg.departureDate && seg.departureTime && seg.arrivalDate && seg.arrivalTime) {
       const sameDay = seg.departureDate === seg.arrivalDate;
       const arr     = sameDay ? seg.arrivalTime : `${seg.arrivalDate} ${seg.arrivalTime}`;
-      return `${icon} ${seg.departureDate} ${seg.departureTime} → ${arr} (${this.fmtDur(this.computeMins(seg))})`;
+      display = `${icon} ${seg.departureDate} ${seg.departureTime} → ${arr} (${this.fmtDur(this.computeMins(seg))})`;
+    } else {
+      display = `${icon} ${this.fmtDur(seg.durationMinutes ?? 0)}`;
     }
-    return `${icon} ${this.fmtDur(seg.durationMinutes ?? 0)}`;
+    return seg.notes ? `${display} · ${seg.notes}` : display;
+  }
+
+  shortDate(s: string): string {
+    const p = s.split('/');
+    return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
   }
 
   totalDuration(leg: TransitLeg): number {
