@@ -155,15 +155,19 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
                 </div>
               } @else if (transit) {
                 <div class="transit-badge" (click)="openTransitEdit(prevStop.cityId, stop.cityId)">
-                  @for (seg of transit.segments; track $index; let last = $last) {
-                    <span>{{ modeIcon(seg.mode) }}</span>
-                    <span>{{ fmtTransitDuration(seg.durationMinutes) }}</span>
-                    @if (seg.notes) { <span class="transit-badge-notes">· {{ seg.notes }}</span> }
-                    @if (!last) { <span class="transit-seg-arrow">→</span> }
-                  }
-                  @if (transit.segments.length > 1) {
-                    <span class="transit-badge-total">({{ fmtTransitDuration(totalTransitDuration(transit)) }})</span>
-                  }
+                  <div class="transit-badge-body">
+                    @for (seg of transit.segments; track $index; let last = $last) {
+                      <div class="transit-badge-seg">
+                        <span>{{ modeIcon(seg.mode) }}</span>
+                        <span>{{ fmtTransitDuration(seg.durationMinutes) }}</span>
+                        @if (seg.notes) { <span class="transit-badge-notes">· {{ seg.notes }}</span> }
+                      </div>
+                      @if (!last) { <div class="transit-seg-arrow">↓</div> }
+                    }
+                    @if (transit.segments.length > 1) {
+                      <div class="transit-badge-total">Total: {{ fmtTransitDuration(totalTransitDuration(transit)) }}</div>
+                    }
+                  </div>
                   <span class="transit-edit-hint">✏️</span>
                 </div>
               } @else {
