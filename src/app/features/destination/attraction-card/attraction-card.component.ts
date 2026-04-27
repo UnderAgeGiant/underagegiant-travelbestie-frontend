@@ -148,6 +148,7 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
         [initialTime]="plannedEntry()?.startTime ?? ''"
         [initialDate]="plannedEntry()?.date ?? ''"
         [stopCheckIn]="activeStop()?.checkIn ?? ''"
+        [stopCheckOut]="activeStop()?.checkOut ?? ''"
         [existingPlanned]="scheduleEntries()"
         (cancel)="showPlanModal.set(false)"
         (confirmed)="onPlanConfirmed($event)"

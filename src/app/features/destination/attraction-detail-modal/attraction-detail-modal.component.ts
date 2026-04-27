@@ -175,6 +175,7 @@ import { CommentModalComponent } from '../comment-modal/comment-modal.component'
           [initialTime]="plannedEntry()?.startTime ?? ''"
           [initialDate]="plannedEntry()?.date ?? ''"
           [stopCheckIn]="activeStop()?.checkIn ?? ''"
+          [stopCheckOut]="activeStop()?.checkOut ?? ''"
           [existingPlanned]="scheduleEntries()"
           (cancel)="showPlanModal.set(false)"
           (confirmed)="onPlanConfirmed($event)"

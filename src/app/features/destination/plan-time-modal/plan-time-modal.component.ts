@@ -1,6 +1,7 @@
 import { Component, input, output, signal, computed, OnInit } from '@angular/core';
 import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
+import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
 
 export interface ScheduleEntry {
   attraction: Attraction;
@@ -16,7 +17,7 @@ export interface PlanEntry {
 @Component({
   selector: 'app-plan-time-modal',
   standalone: true,
-  imports: [DurationPipe],
+  imports: [DurationPipe, DatePickerComponent],
   styles: [`
     .schedule-row {
       display: flex; align-items: center; gap: 10px;
@@ -65,10 +66,11 @@ export interface PlanEntry {
           <div style="display:flex;gap:10px;margin-bottom:12px">
             <div class="form-group" style="flex:1;margin-bottom:0">
               <label class="form-label" i18n="@@planModal.dateLabel">Fecha</label>
-              <input type="text" class="form-input"
-                     [value]="date()"
-                     (input)="date.set($any($event.target).value)"
-                     placeholder="dd/mm/aaaa" />
+              <app-date-picker
+                [initialDate]="initialDate() || stopCheckIn()"
+                [minDate]="stopCheckIn()"
+                [maxDate]="stopCheckOut()"
+                (dateChange)="date.set($event)" />
             </div>
             <div class="form-group" style="flex:1;margin-bottom:0">
               <label class="form-label" i18n="@@planModal.timeLabel">Hora de inicio</label>
@@ -131,6 +133,7 @@ export class PlanTimeModalComponent implements OnInit {
   initialTime     = input('');
   initialDate     = input('');
   stopCheckIn     = input('');
+  stopCheckOut    = input('');
   existingPlanned = input<ScheduleEntry[]>([]);
 
   cancel    = output<void>();
