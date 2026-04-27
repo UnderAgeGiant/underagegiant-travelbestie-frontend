@@ -158,6 +158,7 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
                   @for (seg of transit.segments; track $index; let last = $last) {
                     <span>{{ modeIcon(seg.mode) }}</span>
                     <span>{{ fmtTransitDuration(seg.durationMinutes) }}</span>
+                    @if (seg.notes) { <span class="transit-badge-notes">· {{ seg.notes }}</span> }
                     @if (!last) { <span class="transit-seg-arrow">→</span> }
                   }
                   @if (transit.segments.length > 1) {
