@@ -531,6 +531,13 @@ export class NavComponent {
     this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? []);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
+
+    // If we're not already on the main page, flush state and navigate there
+    if (window.location.search) {
+      const email = this.auth.currentUser()?.email;
+      if (email) this.trip.persistNow(email);
+      window.location.href = '/';
+    }
   }
 
   doNewTrip(): void {
