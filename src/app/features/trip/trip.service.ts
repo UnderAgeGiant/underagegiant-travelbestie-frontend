@@ -4,11 +4,31 @@ import { TripStop, PlannedAttraction, Planification, TransitLeg, Lodging } from 
 import { AuthService } from '../../core/auth/auth.service';
 
 function migrateTransitLeg(raw: any): TransitLeg {
-  if (raw && Array.isArray(raw.segments)) return raw as TransitLeg;
+  if (raw && Array.isArray(raw.segments)) {
+    // Ensure every segment has the new fields (in case they were saved before this model change)
+    const segments = raw.segments.map((s: any) => ({
+      mode:            s.mode ?? 'flight',
+      departureDate:   s.departureDate ?? '',
+      departureTime:   s.departureTime ?? '',
+      arrivalDate:     s.arrivalDate ?? '',
+      arrivalTime:     s.arrivalTime ?? '',
+      notes:           s.notes ?? '',
+      durationMinutes: s.durationMinutes,
+    }));
+    return { ...raw, segments };
+  }
   return {
     fromCityId: raw.fromCityId,
     toCityId:   raw.toCityId,
-    segments:   [{ mode: raw.mode ?? 'flight', durationMinutes: raw.durationMinutes ?? 0, notes: raw.notes ?? '' }],
+    segments: [{
+      mode:           raw.mode ?? 'flight',
+      departureDate:  '',
+      departureTime:  '',
+      arrivalDate:    '',
+      arrivalTime:    '',
+      notes:          raw.notes ?? '',
+      durationMinutes: raw.durationMinutes ?? 0,
+    }],
   };
 }
 

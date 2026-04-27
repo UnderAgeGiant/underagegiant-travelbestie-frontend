@@ -21,8 +21,12 @@ export type TransitMode = 'flight' | 'train' | 'boat' | 'bus' | 'car';
 
 export interface TransitSegment {
   mode:            TransitMode;
-  durationMinutes: number;
+  departureDate:   string;  // dd/mm/yyyy
+  departureTime:   string;  // HH:mm
+  arrivalDate:     string;  // dd/mm/yyyy
+  arrivalTime:     string;  // HH:mm
   notes:           string;
+  durationMinutes?: number; // legacy — kept for backward compat with saved data
 }
 
 export interface TransitLeg {
