@@ -148,6 +148,42 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .transit-num-input { width: 46px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; text-align: center; outline: none; font-family: inherit; }
 .transit-num-input:focus { border-color: var(--lav-d); }
 
+/* SAVED PLAN CARDS (profile) */
+.saved-plan-card { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; transition: border-color .15s; }
+.saved-plan-card:hover { border-color: var(--lav-d); }
+.saved-plan-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; cursor: pointer; user-select: none; }
+.saved-plan-info { flex: 1; min-width: 0; }
+.saved-plan-name { font-size: 13px; font-weight: 600; color: var(--t1); }
+.saved-plan-meta { font-size: 11px; color: var(--t3); margin-top: 2px; }
+.saved-plan-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
+.saved-plan-itin { padding: 0 16px 16px; border-top: 1px solid var(--border); padding-top: 14px; }
+
+/* TRIP ITINERARY */
+.itin { display: flex; flex-direction: column; }
+.itin-line { width: 2px; height: 16px; background: var(--border); border-radius: 99px; margin: 2px 0 2px 15px; }
+.itin-transit { display: flex; align-items: center; gap: 6px; padding: 5px 10px; background: var(--cream); border: 1px solid var(--border); border-radius: 99px; font-size: 11px; color: var(--t2); flex-wrap: wrap; width: fit-content; max-width: 100%; }
+.itin-edge-transit { background: var(--lav); border-color: var(--lav-d); color: var(--lav-d); }
+.itin-transit-tag { font-size: 10px; font-weight: 700; color: inherit; text-transform: uppercase; letter-spacing: .4px; }
+.itin-seg { white-space: nowrap; font-weight: 500; }
+.itin-notes { color: var(--t3); font-style: italic; font-size: 10px; }
+.itin-chain { color: var(--t3); }
+.itin-no-transit { color: var(--t3); font-style: italic; }
+.itin-transit-dest { margin-left: 4px; font-weight: 600; color: var(--t1); white-space: nowrap; }
+.itin-city { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; }
+.itin-city-head { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 4px; }
+.itin-city-flag { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+.itin-city-name { font-size: 15px; font-weight: 700; color: var(--t1); font-family: 'Cormorant Garamond', serif; }
+.itin-city-country { font-size: 11px; color: var(--t3); }
+.itin-city-dates { font-size: 11px; color: var(--lav-d); font-weight: 600; margin-top: 2px; }
+.itin-items { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 1px; }
+.itin-item { display: flex; align-items: center; gap: 7px; padding: 4px 0; font-size: 12px; color: var(--t2); }
+.itin-item-lodging { color: var(--t1); font-weight: 500; }
+.itin-item-icon { font-size: 14px; flex-shrink: 0; width: 20px; text-align: center; }
+.itin-item-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.itin-item-meta { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
+.itin-link { font-size: 12px; text-decoration: none; flex-shrink: 0; opacity: .7; transition: opacity .15s; }
+.itin-link:hover { opacity: 1; }
+
 /* BACKGROUND SLIDER */
 .bg-slider { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
 .bg-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s cubic-bezier(.4,0,.2,1); }

@@ -1,13 +1,16 @@
 import { Component, inject, signal, computed, output } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
+import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
+import { TripItineraryComponent } from './trip-itinerary.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
+  imports: [TripItineraryComponent],
   template: `
     <div class="profile-page">
 
@@ -66,6 +69,36 @@ import { getAttractions } from '../../data/attractions.data';
                 }
               </div>
             </div>
+          }
+        </section>
+
+        <!-- Saved trips with itinerary -->
+        <section>
+          <div class="section-head">Viajes guardados 🗺️</div>
+          @if (!auth.isLoggedIn()) {
+            <div class="section-empty">Inicia sesión para ver tus viajes guardados.</div>
+          } @else if (savedPlans.plans().length === 0) {
+            <div class="section-empty">Aún no tienes viajes guardados. Usa el botón "Reservar viaje 🎉" para guardar uno.</div>
+          } @else {
+            @for (plan of savedPlans.plans(); track plan.id) {
+              <div class="saved-plan-card">
+                <div class="saved-plan-header" (click)="togglePlan(plan.id)">
+                  <div class="saved-plan-info">
+                    <div class="saved-plan-name">{{ plan.name }}</div>
+                    <div class="saved-plan-meta">
+                      {{ plan.stops.length }} ciudad{{ plan.stops.length !== 1 ? 'es' : '' }}
+                      · {{ fmtDate(plan.savedAt) }}
+                    </div>
+                  </div>
+                  <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
+                </div>
+                @if (selectedPlanId() === plan.id) {
+                  <div class="saved-plan-itin">
+                    <app-trip-itinerary [stops]="plan.stops" [transits]="plan.transits ?? []" />
+                  </div>
+                }
+              </div>
+            }
           }
         </section>
 
@@ -135,12 +168,14 @@ import { getAttractions } from '../../data/attractions.data';
 export class ProfileComponent {
   readonly auth          = inject(AuthService);
   readonly trip          = inject(TripService);
+  readonly savedPlans    = inject(SavedPlansService);
   readonly visitedPlaces = inject(VisitedPlacesService);
 
   close = output<void>();
 
-  pendingPin   = signal<{ x: number; y: number } | null>(null);
-  pendingLabel = signal('');
+  selectedPlanId = signal<string | null>(null);
+  pendingPin     = signal<{ x: number; y: number } | null>(null);
+  pendingLabel   = signal('');
 
   readonly initials = computed(() => {
     const name = this.auth.currentUser()?.name ?? '';
@@ -157,6 +192,16 @@ export class ProfileComponent {
       return sum + (city ? getAttractions(city).length : 0);
     }, 0)
   );
+
+  togglePlan(id: string): void {
+    this.selectedPlanId.update(cur => cur === id ? null : id);
+  }
+
+  fmtDate(iso: string): string {
+    try {
+      return new Date(iso).toLocaleDateString('es-CL', { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch { return iso; }
+  }
 
   cityFor(cityId: string) {
     return WORLD_CITIES.find(c => c.id === cityId) ?? null;
