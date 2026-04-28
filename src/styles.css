@@ -265,7 +265,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .welcome-title em { font-style: italic; color: var(--lav); }
 .welcome-sub { font-size: 15px; color: oklch(100% 0 0/.72); line-height: 1.65; margin-bottom: 28px; animation: fadeUp .6s .26s ease both; max-width: 380px; }
 .welcome-actions { display: flex; gap: 10px; flex-wrap: wrap; animation: fadeUp .6s .34s ease both; }
-.welcome-steps { display: flex; gap: 12px; margin-top: 32px; flex-wrap: nowrap; animation: fadeUp .6s .42s ease both; }
+.welcome-steps { display: flex; gap: 12px; margin-top: 28px; flex-wrap: nowrap; animation: fadeUp .6s .42s ease both; max-width: 820px; }
 .step-card { background: oklch(100% 0 0/.12); backdrop-filter: blur(12px); border: 1px solid oklch(100% 0 0/.2); border-radius: 14px; padding: 14px 16px; flex: 1; min-width: 0; }
 .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--lav); color: var(--lav-d); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
 .step-title { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 3px; }

@@ -23,15 +23,16 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
                   (click)="addDestination.emit()"
                   i18n="@@welcome.addBtn">+ Agregar destino</button>
         </div>
-        <div class="welcome-steps">
-          @for (step of steps; track step.n) {
-            <div class="step-card">
-              <div class="step-num">{{ step.n }}</div>
-              <div class="step-title">{{ step.t }}</div>
-              <div class="step-desc">{{ step.d }}</div>
-            </div>
-          }
-        </div>
+      </div>
+
+      <div class="welcome-steps">
+        @for (step of steps; track step.n) {
+          <div class="step-card">
+            <div class="step-num">{{ step.n }}</div>
+            <div class="step-title">{{ step.t }}</div>
+            <div class="step-desc">{{ step.d }}</div>
+          </div>
+        }
       </div>
     </div>
   `,
