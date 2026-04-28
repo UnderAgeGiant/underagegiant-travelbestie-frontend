@@ -45,6 +45,7 @@ export interface Trip {
   id?: string;
   title: string;
   stops: TripStop[];
+  transits?: TransitLeg[];
   ownerId?: string;
   createdAt?: string;
 }

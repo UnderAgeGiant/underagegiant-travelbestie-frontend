@@ -1,23 +1,14 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, of, throwError, from } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { MockUser, DEMO_USERS } from '../../mock/users.mock';
 
 export interface AuthUser {
   name: string;
   email: string;
 }
-
-interface MockUser {
-  name: string;
-  email: string;
-  password: string;
-}
-
-const DEMO_USERS: MockUser[] = [
-  { name: 'Matías Fuentes', email: 'matias@demo.com',  password: 'demo1234' },
-];
 
 const USERS_KEY   = 'tb_mock_users';
 const TOKEN_KEY   = 'tb_token';
@@ -35,13 +26,11 @@ export class AuthService {
   readonly isLoggedIn  = computed(() => this._token() !== null);
 
   constructor() {
-    // Restore session user on page refresh
     const raw = localStorage.getItem(SESSION_KEY);
     if (raw && this._token()) {
       try { this._user.set(JSON.parse(raw)); } catch { /* ignore */ }
     }
 
-    // Seed demo users if not yet stored
     if (!localStorage.getItem(USERS_KEY)) {
       localStorage.setItem(USERS_KEY, JSON.stringify(DEMO_USERS));
     }
@@ -54,9 +43,12 @@ export class AuthService {
       if (!match) return throwError(() => new Error('Correo o contraseña incorrectos'));
       return of(this.mockSession(match.name, match.email));
     }
-    return this.http.post<{ token: string; user: AuthUser }>(
-      `${environment.apiUrl}/auth/login`, { email, password }
-    ).pipe(tap(res => this.persistSession(res.token, res.user)));
+    return from(this.encryptPayload({ email, password })).pipe(
+      switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
+        `${environment.apiUrl}/auth/login`, body
+      )),
+      tap(res => this.persistSession(res.token, res.user))
+    );
   }
 
   register(name: string, email: string, password: string): Observable<{ token: string; user: AuthUser }> {
@@ -69,9 +61,12 @@ export class AuthService {
       localStorage.setItem(USERS_KEY, JSON.stringify(users));
       return of(this.mockSession(name, email));
     }
-    return this.http.post<{ token: string; user: AuthUser }>(
-      `${environment.apiUrl}/auth/register`, { name, email, password }
-    ).pipe(tap(res => this.persistSession(res.token, res.user)));
+    return from(this.encryptPayload({ name, email, password })).pipe(
+      switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
+        `${environment.apiUrl}/auth/register`, body
+      )),
+      tap(res => this.persistSession(res.token, res.user))
+    );
   }
 
   logout(): void {
@@ -79,6 +74,23 @@ export class AuthService {
     localStorage.removeItem(SESSION_KEY);
     this._token.set(null);
     this._user.set(null);
+  }
+
+  // Encrypts plaintext credentials with the RSA public key (JWK) stored in environment.
+  // Returns { encryptedPayload: base64 } — the shape expected by /auth/login and /auth/register.
+  private async encryptPayload(plaintext: object): Promise<{ encryptedPayload: string }> {
+    const jwk = JSON.parse(environment.rsaPublicKey) as JsonWebKey;
+    const key = await crypto.subtle.importKey(
+      'jwk', jwk,
+      { name: 'RSA-OAEP', hash: 'SHA-256' },
+      false, ['encrypt']
+    );
+    const buf = await crypto.subtle.encrypt(
+      { name: 'RSA-OAEP' },
+      key,
+      new TextEncoder().encode(JSON.stringify(plaintext))
+    );
+    return { encryptedPayload: btoa(String.fromCharCode(...new Uint8Array(buf))) };
   }
 
   private mockSession(name: string, email: string): { token: string; user: AuthUser } {

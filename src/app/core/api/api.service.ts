@@ -4,26 +4,8 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Trip } from '../models/trip.model';
 import { Comment } from '../models/comment.model';
-
-const MOCK_TRIPS: Trip[] = [
-  {
-    id: 'mock-1',
-    title: 'Europe 2026',
-    stops: [
-      { cityId: 'paris', checkIn: '2026-06-01', checkOut: '2026-06-05', selectedAttractions: [] },
-      { cityId: 'rome', checkIn: '2026-06-06', checkOut: '2026-06-10', selectedAttractions: [] },
-    ],
-  },
-];
-
-const MOCK_COMMENTS: Record<string, Comment[]> = {
-  paris_0: [
-    { id: 'mc1', attractionId: 'paris_0', name: 'Sofia', text: 'Breathtaking at sunset!', rating: 5, color: '#A78BFA', date: 'Apr 22' },
-  ],
-  rome_0: [
-    { id: 'mc2', attractionId: 'rome_0', name: 'Mia', text: 'Absolutely unmissable!', rating: 5, color: '#34D399', date: 'Mar 15' },
-  ],
-};
+import { MOCK_TRIPS } from '../../mock/trips.mock';
+import { MOCK_COMMENTS } from '../../mock/comments.mock';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -56,6 +38,7 @@ export class ApiService {
     return this.http.get<Comment[]>(`${this.base}/comments/${attractionId}`);
   }
 
+  // Auth interceptor automatically attaches the Bearer token for logged-in users.
   addComment(comment: Omit<Comment, 'id'>): Observable<Comment> {
     if (this.useMocks) return of({ id: `mock-c-${Date.now()}`, ...comment });
     return this.http.post<Comment>(`${this.base}/comments/${comment.attractionId}`, comment);
@@ -72,14 +55,11 @@ export class ApiService {
     return this.http.get<{ karma: number }>(`${this.base}/karma`);
   }
 
-  updateKarma(email: string, delta: number): Observable<{ karma: number }> {
-    if (this.useMocks) {
-      const key = `tb_karma_${email}`;
-      const current = parseInt(localStorage.getItem(key) ?? '3', 10);
-      const next = current + delta;
-      localStorage.setItem(key, String(next));
-      return of({ karma: next });
-    }
-    return this.http.patch<{ karma: number }>(`${this.base}/karma`, { delta });
+  // Mock only — karma mutations happen server-side in real mode as a side effect
+  // of POST /trips and POST /comments. No PATCH /karma endpoint exists.
+  updateKarmaMock(email: string, delta: number): void {
+    const key = `tb_karma_${email}`;
+    const current = parseInt(localStorage.getItem(key) ?? '3', 10);
+    localStorage.setItem(key, String(current + delta));
   }
 }
