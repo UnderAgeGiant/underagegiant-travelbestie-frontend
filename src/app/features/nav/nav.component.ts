@@ -4,6 +4,7 @@ import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
@@ -106,6 +107,14 @@ import { City } from '../../core/models/city.model';
     }
     .up-save-input:focus { border-color: var(--lav-d); }
     .up-save-actions { display: flex; gap: 6px; margin-top: 8px; }
+    .combo-section-sep { height: 1px; background: var(--border); margin: 4px 0; }
+    .combo-section-header { padding: 5px 14px 3px; font-size: 10px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--t3); }
+    .up-shared-trip-row { display: block; width: 100%; padding: 9px 12px; background: none; border: none; border-bottom: 1px solid var(--border); cursor: pointer; text-align: left; transition: background .1s; }
+    .up-shared-trip-row:last-child { border-bottom: none; }
+    .up-shared-trip-row:hover { background: var(--lav); }
+    .up-shared-trip-name { font-size: 12px; font-weight: 700; color: var(--t1); }
+    .up-shared-trip-meta { font-size: 10px; color: var(--t3); margin-top: 2px; }
+    .up-shared-trip-cmts { color: var(--lav-d); font-weight: 600; }
   `],
   template: `
     <nav class="nav">
@@ -114,13 +123,13 @@ import { City } from '../../core/models/city.model';
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
           <span style="color:var(--t3);font-size:15px">🔍</span>
-          <input i18n-placeholder="@@nav.searchPlaceholder" placeholder="Agregar ciudad…"
+          <input i18n-placeholder="@@nav.searchPlaceholder" placeholder="Agregar ciudad o buscar viajes públicos…"
                  [value]="navQuery()"
                  (input)="navQuery.set($any($event.target).value); searchOpen.set(true)"
                  (focus)="searchOpen.set(true)"
                  (blur)="scheduleClose()" />
         </div>
-        @if (searchOpen() && navFiltered().length > 0) {
+        @if (searchOpen() && (navFiltered().length > 0 || navSharedTrips().length > 0)) {
           <div class="combo-dropdown" style="top:calc(100% + 6px)">
             <div class="combo-list">
               @for (city of navFiltered(); track city.id) {
@@ -132,6 +141,20 @@ import { City } from '../../core/models/city.model';
                   </div>
                   <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600" i18n="@@nav.quickAdd">+ Agregar</span>
                 </div>
+              }
+              @if (navSharedTrips().length > 0) {
+                @if (navFiltered().length > 0) { <div class="combo-section-sep"></div> }
+                <div class="combo-section-header">✈️ Viajes compartidos</div>
+                @for (t of navSharedTrips(); track t.id) {
+                  <div class="combo-item" (mousedown)="openSharedTrip(t.id)">
+                    <span class="combo-item-flag">🗺️</span>
+                    <div>
+                      <div class="combo-item-city">{{ t.tripName }}</div>
+                      <div class="combo-item-country">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}</div>
+                    </div>
+                    <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600">Ver →</span>
+                  </div>
+                }
               }
             </div>
           </div>
@@ -255,6 +278,32 @@ import { City } from '../../core/models/city.model';
                     </div>
                   }
 
+                  <!-- My shared trips -->
+                  @if (mySharedTrips().length > 0) {
+                    <button class="up-plans-btn" (click)="toggleMyTrips()" type="button">
+                      <span>🔗</span>
+                      <span>Mis viajes compartidos</span>
+                      <span class="up-plans-badge">{{ mySharedTrips().length }}</span>
+                      <span style="margin-left:auto;font-size:10px;opacity:.6">{{ myTripsOpen() ? '▴' : '▾' }}</span>
+                    </button>
+                    @if (myTripsOpen()) {
+                      <div class="up-plans-panel">
+                        @for (t of mySharedTrips(); track t.id) {
+                          @let cmts = commentCount(t.id);
+                          <button class="up-shared-trip-row" (click)="goToSharedTrip(t.id)" type="button">
+                            <div class="up-shared-trip-name">{{ t.tripName }}</div>
+                            <div class="up-shared-trip-meta">
+                              {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}
+                              @if (cmts > 0) {
+                                · <span class="up-shared-trip-cmts">{{ cmts }} comentario{{ cmts !== 1 ? 's' : '' }}</span>
+                              }
+                            </div>
+                          </button>
+                        }
+                      </div>
+                    }
+                  }
+
                   <button class="btn-pill btn-ghost"
                           style="width:100%;justify-content:center;margin-bottom:8px"
                           (click)="openProfile()" type="button"
@@ -340,12 +389,13 @@ import { City } from '../../core/models/city.model';
   `,
 })
 export class NavComponent {
-  readonly auth          = inject(AuthService);
-  readonly authModal     = inject(AuthModalService);
-  readonly trip          = inject(TripService);
-  readonly karma         = inject(KarmaService);
-  readonly savedPlans    = inject(SavedPlansService);
-  private readonly visited = inject(VisitedPlacesService);
+  readonly auth             = inject(AuthService);
+  readonly authModal        = inject(AuthModalService);
+  readonly trip             = inject(TripService);
+  readonly karma            = inject(KarmaService);
+  readonly savedPlans       = inject(SavedPlansService);
+  private readonly visited      = inject(VisitedPlacesService);
+  private readonly sharedTrips  = inject(SharedTripsService);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -363,6 +413,14 @@ export class NavComponent {
   savePlanOpen   = signal(false);
   savePlanName   = signal('');
   deletingPlanId = signal<string | null>(null);
+  myTripsOpen    = signal(false);
+
+  readonly mySharedTrips = computed(() => {
+    const email = this.auth.currentUser()?.email;
+    return email ? this.sharedTrips.getMyTrips(email) : [];
+  });
+
+  readonly navSharedTrips = computed(() => this.sharedTrips.search(this.navQuery()));
 
   readonly navFiltered = computed(() => {
     const q = this.navQuery().toLowerCase();
@@ -435,6 +493,11 @@ export class NavComponent {
     this.profileClick.emit();
   }
 
+  toggleMyTrips(): void { this.myTripsOpen.update(v => !v); }
+  openSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
+  goToSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
+  commentCount(tripId: string): number { return this.sharedTrips.getCommentCount(tripId); }
+
   quickAdd(city: City): void {
     this.trip.addStop(city, '', '');
     this.navQuery.set('');
@@ -468,6 +531,13 @@ export class NavComponent {
     this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? []);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
+
+    // If we're not already on the main page, flush state and navigate there
+    if (window.location.search) {
+      const email = this.auth.currentUser()?.email;
+      if (email) this.trip.persistNow(email);
+      window.location.href = '/';
+    }
   }
 
   doNewTrip(): void {

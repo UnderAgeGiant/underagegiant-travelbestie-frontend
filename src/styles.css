@@ -176,6 +176,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .saved-plan-name { font-size: 13px; font-weight: 600; color: var(--t1); }
 .saved-plan-meta { font-size: 11px; color: var(--t3); margin-top: 2px; }
 .saved-plan-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
+.saved-plan-actions { display: flex; align-items: center; gap: 8px; padding: 0 14px 14px; }
 .saved-plan-itin { padding: 0 16px 16px; border-top: 1px solid var(--border); padding-top: 14px; }
 
 /* TRIP ITINERARY */
@@ -204,6 +205,40 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .itin-item-meta { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
 .itin-link { font-size: 12px; text-decoration: none; flex-shrink: 0; opacity: .7; transition: opacity .15s; }
 .itin-link:hover { opacity: 1; }
+
+/* SHARE BUTTON (profile) */
+.saved-plan-share-btn { font-size: 14px; padding: 2px 6px; border-radius: 8px; background: none; border: none; cursor: pointer; opacity: .65; transition: opacity .15s, background .15s; flex-shrink: 0; }
+.saved-plan-share-btn:hover { opacity: 1; background: var(--lav); }
+.share-copied { font-size: 10px; color: var(--mint-d); font-weight: 700; white-space: nowrap; }
+.share-error  { font-size: 10px; color: var(--peach-d); font-weight: 700; white-space: nowrap; }
+
+/* SHARED TRIP PAGE */
+.shared-nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 14px; padding: 10px 20px; background: #fff; border-bottom: 1px solid var(--border); box-shadow: var(--sh); }
+.shared-nav-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--t1); }
+.shared-body { max-width: 680px; margin: 58px auto 0; padding: 24px 20px 60px; }
+.shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
+.shared-header-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--t1); margin-bottom: 4px; }
+.shared-header-owner { font-size: 13px; color: var(--t2); margin-bottom: 10px; }
+.shared-header-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
+.shared-header-flag { font-size: 22px; }
+.shared-not-found { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; text-align: center; }
+
+/* STEP COMMENTS */
+.step-comments { padding: 8px 0 4px; }
+.step-comment { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.step-comment:last-of-type { border-bottom: none; }
+.step-comment-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--lav); color: var(--lav-d); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-comment-body { flex: 1; min-width: 0; }
+.step-comment-meta { display: flex; gap: 8px; align-items: baseline; margin-bottom: 2px; }
+.step-comment-author { font-size: 12px; font-weight: 600; color: var(--t1); }
+.step-comment-date { font-size: 10px; color: var(--t3); }
+.step-comment-text { font-size: 12px; color: var(--t2); line-height: 1.5; }
+.step-comment-form { display: flex; gap: 6px; align-items: center; padding-top: 8px; }
+.step-comment-input { flex: 1; padding: 6px 10px; border: 1.5px solid var(--border); border-radius: 20px; font-size: 12px; outline: none; font-family: inherit; background: var(--cream); color: var(--t1); transition: border-color .15s; }
+.step-comment-input:focus { border-color: var(--lav-d); background: #fff; }
+.step-comment-login { font-size: 11px; color: var(--t3); font-style: italic; padding-top: 6px; }
+.step-comment-hint { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
+.karma-flash { font-size: 12px; font-weight: 700; color: oklch(57% .13 160); animation: fadeIn .3s ease; white-space: nowrap; }
 
 /* BACKGROUND SLIDER */
 .bg-slider { position: absolute; inset: 0; overflow: hidden; z-index: 0; }

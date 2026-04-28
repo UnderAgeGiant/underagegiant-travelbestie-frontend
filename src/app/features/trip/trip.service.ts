@@ -118,6 +118,14 @@ export class TripService {
     this._saving = false;
   }
 
+  /** Flush current in-memory state to localStorage immediately (call before a programmatic navigation). */
+  persistNow(email: string): void {
+    localStorage.setItem(planKey(email), JSON.stringify({ stops: this._stops(), transits: this._transits() }));
+    const id = this._loadedPlanId();
+    if (id) { localStorage.setItem(activePlanKey(email), id); }
+    else     { localStorage.removeItem(activePlanKey(email)); }
+  }
+
   /** Wipe in-memory plan without touching localStorage (called on logout). */
   clearPlan(): void {
     this._saving = true;

@@ -7,6 +7,7 @@ import { DestinationComponent } from './features/destination/destination.compone
 import { AddStopModalComponent } from './features/trip/add-stop-modal/add-stop-modal.component';
 import { ToastComponent } from './shared/toast/toast.component';
 import { ProfileComponent } from './features/profile/profile.component';
+import { SharedTripComponent } from './features/shared-trip/shared-trip.component';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,12 @@ import { ProfileComponent } from './features/profile/profile.component';
     AddStopModalComponent,
     ToastComponent,
     ProfileComponent,
+    SharedTripComponent,
   ],
   template: `
+    @if (sharedTripId()) {
+      <app-shared-trip [tripId]="sharedTripId()!" />
+    } @else {
     <app-nav (logoClick)="trip.setActive(trip.stops()[0]?.cityId ?? '')"
              (profileClick)="showProfile.set(true)" />
 
@@ -55,11 +60,16 @@ import { ProfileComponent } from './features/profile/profile.component';
     @if (showProfile()) {
       <app-profile (close)="showProfile.set(false)" />
     }
+    }
   `,
 })
 export class AppComponent {
   readonly trip = inject(TripService);
-  showAddModal = signal(false);
-  showProfile  = signal(false);
-  toast        = signal<string | null>(null);
+  showAddModal  = signal(false);
+  showProfile   = signal(false);
+  toast         = signal<string | null>(null);
+
+  readonly sharedTripId = signal<string | null>(
+    new URLSearchParams(window.location.search).get('share')
+  );
 }
