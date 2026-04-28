@@ -3,21 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, throwError, from } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { MockUser, DEMO_USERS } from '../../mock/users.mock';
 
 export interface AuthUser {
   name: string;
   email: string;
 }
-
-interface MockUser {
-  name: string;
-  email: string;
-  password: string;
-}
-
-const DEMO_USERS: MockUser[] = [
-  { name: 'Matías Fuentes', email: 'matias@demo.com',  password: 'demo1234' },
-];
 
 const USERS_KEY   = 'tb_mock_users';
 const TOKEN_KEY   = 'tb_token';
