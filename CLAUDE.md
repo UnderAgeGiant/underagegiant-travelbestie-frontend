@@ -25,11 +25,13 @@ All mutable state lives in **Signal-based injectable services** (`providedIn: 'r
 
 | Service | Responsibility |
 |---|---|
-| `TripService` | In-memory trip state (stops, transits, active stop). Auto-saves to localStorage on every mutation via an `effect()`. Sorts stops by check-in date automatically. |
-| `SavedPlansService` | Named saved trips per user stored in `localStorage` under `tb_saved_plans_<email>`. |
-| `AuthService` | JWT token + current user stored in `localStorage`. Exposes `isLoggedIn` computed signal. |
+| `TripService` | In-memory trip state (stops, transits, active stop). Auto-saves to localStorage on every mutation via an `effect()`. Sorts stops by check-in date. `persistNow(email)` flushes state synchronously before programmatic navigation. |
+| `SavedPlansService` | Named saved trips per user in `tb_saved_plans_<email>`. Each plan can have a `shareId?` linking it to a `SharedTrip`. |
+| `AuthService` | JWT token + current user in `localStorage`. Exposes `isLoggedIn` computed signal. |
 | `AuthModalService` | Controls login modal visibility; supports a post-login callback pattern. |
-| `KarmaService` | Per-user karma score, loaded from API/mock on login. |
+| `KarmaService` | Per-user karma score. **Earn**: commenting on someone else's shared trip. **Spend**: sharing a trip (−1), creating a new blank trip (−1). |
+| `HomeAddressService` | Stores the user's home city/address in `tb_home_<email>`. Loaded reactively via `effect()` on auth changes. |
+| `SharedTripsService` | Public shared trips in `tb_shared_trips`. Per-step comments in `tb_step_comments_<tripId>`. Karma eligibility in `tb_seen_steps_<email>_<tripId>`. `getTrip()` always merges the latest live plan data via `planId`. |
 | `VisitedPlacesService` | Map pins for visited places stored in `localStorage` per user. |
 
 ### Mock vs real API
@@ -40,34 +42,66 @@ All mutable state lives in **Signal-based injectable services** (`providedIn: 'r
 
 ```
 AppComponent
-├── NavComponent            — auth modal trigger, profile button
-├── StopListComponent       — left panel: trip stops + transit connectors
-│   ├── TransitConnectorComponent  — between stops, and departure/arrival edges
-│   └── DateRangeComponent  — flatpickr wrapper, emits dd/mm/yyyy strings
-├── DestinationComponent    — right panel: attraction grid for active stop
+├── SharedTripComponent         — rendered instead of normal app when ?share=<id> in URL
+│   ├── NavComponent
+│   ├── ProfileComponent        — (modal)
+│   └── StepCommentsComponent   — per step: city, transit, lodging, attraction
+├── NavComponent                — auth, saved plans, own shared trips, city+trip search
+├── StopListComponent           — left panel (scrollable via min-height:0 + overflow-y:auto)
+│   ├── TransitConnectorComponent  — between stops and departure/arrival edges
+│   ├── LodgingComponent           — per-stop lodging with optional booking link
+│   └── DateRangeComponent         — flatpickr 2-date wrapper, emits dd/mm/yyyy
+├── DestinationComponent        — right panel: attraction grid for active stop
 │   ├── AttractionCardComponent
 │   ├── AttractionDetailModalComponent
 │   ├── CommentModalComponent
-│   └── PlanTimeModalComponent
-├── AddStopModalComponent   — city search + date picker
-├── WelcomeComponent        — shown when no stops exist
-├── ProfileComponent        — saved plans + visited places map
+│   └── PlanTimeModalComponent  — date (flatpickr) + time picker, date-aware collision
+├── AddStopModalComponent       — city search + date picker
+├── WelcomeComponent            — shown when no stops; 5 horizontal step cards
+├── ProfileComponent            — saved plans, shared trip itinerary, home address, map
+│   └── TripItineraryComponent  — read-only vertical timeline with fmtSeg()
 └── ToastComponent
 ```
 
+### Shared trips (`?share=<id>`)
+
+`AppComponent` reads `new URLSearchParams(window.location.search).get('share')` at startup. If present, it renders `SharedTripComponent` instead of the normal app.
+
+`SharedTripsService.getTrip(id)` always looks up `tb_saved_plans_<ownerEmail>` and merges the **live** plan data (stops, transits, name) via `planId` — so the shared page always reflects the latest version of the trip. Falls back to the stored snapshot if the plan was deleted.
+
+Each step in the shared trip itinerary has a `StepCommentsComponent`. Step key format:
+- City: `stop:<cityId>`
+- Transit: `transit:<fromId>:<toId>` (edges use `transit:__start__` and `transit:__end__`)
+- Lodging: `lodge:<cityId>`
+- Attraction: `att:<cityId>:<attractionId>`
+
+Comments require **≥ 50 characters**. First comment on a step earns **+1 karma** unless the commenter owns the trip.
+
 ### Transit legs
 
-Transit data is stored as `TransitLeg[]` in `TripService._transits`. The key pattern is `fromCityId|toCityId`.
+`TransitLeg` stores `segments: TransitSegment[]`. Each segment now has `departureDate`, `departureTime`, `arrivalDate`, `arrivalTime` (all `dd/mm/yyyy` / `HH:mm`). Duration is computed on the fly via `computeMins(seg)`. Legacy segments with only `durationMinutes` still render correctly.
 
 - Between two stops: key is `cityA|cityB`
-- **Departure flight** (before first stop): key is `__start__|__start__`
-- **Return flight** (after last stop): key is `__end__|__end__`
+- **Departure** (before first stop): key is `__start__|__start__`
+- **Return** (after last stop): key is `__end__|__end__`
 
-`TransitConnectorComponent` accepts `type` (`'default' | 'departure' | 'arrival'`) and `cityLabel` inputs to visually distinguish edge connectors from between-stop connectors.
+`TransitConnectorComponent` uses `type` (`'default' | 'departure' | 'arrival'`), `cityLabel`, and `HomeAddressService` to show the home city in edge connector labels.
+
+### Planned attractions
+
+`PlannedAttraction` has `attractionId`, `startTime` (HH:mm), and optional `date` (dd/mm/yyyy). The plan-time modal uses `DatePickerComponent` (single-date flatpickr, bounded by stop checkIn/checkOut). Collision detection is date-aware — attractions on different days never conflict.
 
 ### Date format
 
-Dates throughout the app are `dd/mm/yyyy` strings (not `Date` objects or ISO strings). `TripService` parses these when sorting stops by check-in date. `DateRangeComponent` (flatpickr wrapper) always emits in this format.
+All dates are `dd/mm/yyyy` strings throughout the app. `TripService` parses these for sorting. Both `DateRangeComponent` (2-date) and `DatePickerComponent` (single-date) are flatpickr wrappers that always emit in this format.
+
+### Karma rules
+
+| Action | Effect |
+|---|---|
+| Comment on someone else's shared trip (first time per step) | **+1** |
+| Share a trip | **−1** |
+| Create a new blank trip | **−1** |
 
 ### Data files
 
@@ -76,15 +110,23 @@ Dates throughout the app are `dd/mm/yyyy` strings (not `Date` objects or ISO str
 
 ### CSS
 
-All design tokens (colors, shadows, layout) are CSS custom properties in `src/styles.css` using `oklch()`. The prototype `TravelingBestie.html` at the repo root is the UI/UX reference. Transit connector styles (`.transit-*`) are global in `src/styles.css` since the component has no local `styles` array.
+All design tokens (colors, shadows, layout) are CSS custom properties in `src/styles.css` using `oklch()`. The prototype `TravelingBestie.html` at the repo root is the UI/UX reference. Component-specific styles for transit, lodging, itinerary, shared trip, and step comments are all global in `src/styles.css`.
+
+**Left panel scroll**: `.panel-body` uses `flex: 1; min-height: 0; overflow-y: auto` — the `min-height: 0` is required to allow a flex child to shrink below its content height and actually scroll.
 
 ### i18n
 
 Source locale is `es-CL` (all templates written in Spanish). After adding new `i18n="@@id"` or `i18n-<attr>="@@id"` attributes, run `ng extract-i18n` to regenerate `messages.xlf`, then add the matching `<trans-unit>` to `src/locale/messages.en-US.xlf`. TypeScript strings use `` $localize`...` ``.
 
+**Angular template constraint**: arrow functions (`=>`) are not allowed in template event bindings. Always extract them into class methods.
+
 ## Git workflow
 
-Work on `claude-dev` branch. Every task ends with a commit and PR opened against `main` using:
+Active feature branches:
+- `claude-dev-bugfixing` — bug fixes, date/time pickers, home address, collision detection
+- `claude-dev-recommendations` — sharing, comments, karma, welcome steps
+
+Every task ends with a commit and PR opened against `main`:
 ```bash
-gh pr create --base main --head claude-dev --title "feat(<scope>): <what>"
+gh pr create --base main --head <branch> --title "feat(<scope>): <what>"
 ```
