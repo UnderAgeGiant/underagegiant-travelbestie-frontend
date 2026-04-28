@@ -281,6 +281,7 @@ export class ProfileComponent {
       tripName:   plan.name,
       stops:      plan.stops,
       transits:   plan.transits ?? [],
+      planId:     plan.id,
     });
     this.savedPlans.setShareId(user.email, plan.id, shareId);
     this.copyLink(shareId, plan.id);

@@ -213,9 +213,12 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .share-error  { font-size: 10px; color: var(--peach-d); font-weight: 700; white-space: nowrap; }
 
 /* SHARED TRIP PAGE */
-.shared-nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 14px; padding: 10px 20px; background: #fff; border-bottom: 1px solid var(--border); box-shadow: var(--sh); }
-.shared-nav-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--t1); }
-.shared-body { max-width: 680px; margin: 58px auto 0; padding: 24px 20px 60px; }
+.shared-page { position: relative; min-height: 100vh; }
+.shared-bg { position: fixed; inset: 0; z-index: 0; filter: blur(16px); transform: scale(1.1); overflow: hidden; pointer-events: none; }
+.shared-bg .bg-caption, .shared-bg .slider-dots, .shared-bg .slider-arrows { display: none; }
+.shared-bg-frost { position: fixed; inset: 0; z-index: 1; background: oklch(98% .01 80 / .82); pointer-events: none; }
+.shared-body { max-width: 680px; margin: 58px auto 0; padding: 24px 20px 60px; position: relative; z-index: 2; }
+.shared-not-found { position: relative; z-index: 2; }
 .shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .shared-header-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--t1); margin-bottom: 4px; }
 .shared-header-owner { font-size: 13px; color: var(--t2); margin-bottom: 10px; }
@@ -265,8 +268,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .welcome-title em { font-style: italic; color: var(--lav); }
 .welcome-sub { font-size: 15px; color: oklch(100% 0 0/.72); line-height: 1.65; margin-bottom: 28px; animation: fadeUp .6s .26s ease both; max-width: 380px; }
 .welcome-actions { display: flex; gap: 10px; flex-wrap: wrap; animation: fadeUp .6s .34s ease both; }
-.welcome-steps { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; animation: fadeUp .6s .42s ease both; }
-.step-card { background: oklch(100% 0 0/.12); backdrop-filter: blur(12px); border: 1px solid oklch(100% 0 0/.2); border-radius: 14px; padding: 14px 16px; width: 140px; }
+.welcome-steps { display: flex; gap: 12px; margin-top: 28px; flex-wrap: nowrap; animation: fadeUp .6s .42s ease both; max-width: 820px; }
+.step-card { background: oklch(100% 0 0/.12); backdrop-filter: blur(12px); border: 1px solid oklch(100% 0 0/.2); border-radius: 14px; padding: 14px 16px; flex: 1; min-width: 0; }
 .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--lav); color: var(--lav-d); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
 .step-title { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 3px; }
 .step-desc { font-size: 11px; color: oklch(100% 0 0/.6); line-height: 1.4; }
@@ -574,8 +577,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .welcome-overlay { padding: 28px 18px 28px; min-height: 80vh; }
   .welcome-title { font-size: clamp(28px, 9vw, 44px); }
   .welcome-sub { font-size: 14px; }
-  .welcome-steps { flex-direction: column; gap: 8px; }
-  .step-card { width: 100%; }
+  .welcome-steps { gap: 6px; }
+  .step-card { padding: 10px 10px; }
 
   /* ── Empty stop ── */
   .empty-stop { height: auto; min-height: 50vh; }
