@@ -1,9 +1,10 @@
-import { Component, inject, input, computed, signal } from '@angular/core';
+import { Component, inject, input, computed, signal, OnInit, OnDestroy } from '@angular/core';
 import { SharedTripsService, SharedTrip } from '../../core/shared-trips/shared-trips.service';
 import { StepCommentsComponent } from './step-comments.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavComponent } from '../nav/nav.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
@@ -11,8 +12,17 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 @Component({
   selector: 'app-shared-trip',
   standalone: true,
-  imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent],
+  imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent, BackgroundSliderComponent],
   template: `
+    <div class="shared-page">
+
+    <!-- Blurred background slideshow -->
+    <div class="shared-bg">
+      <app-background-slider [activeIdx]="slideIdx()"
+        (prev)="prevSlide()" (next)="nextSlide()" (dotClick)="slideIdx.set($event)" />
+    </div>
+    <div class="shared-bg-frost"></div>
+
     <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
 
     @if (showProfile()) {
@@ -177,14 +187,26 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
         <button class="btn-pill btn-primary" style="margin-top:20px" (click)="goHome()">Ir al inicio</button>
       </div>
     }
+
+    </div>
   `,
 })
-export class SharedTripComponent {
+export class SharedTripComponent implements OnInit, OnDestroy {
   readonly tripId = input.required<string>();
 
   private readonly svc = inject(SharedTripsService);
 
   showProfile = signal(false);
+  slideIdx    = signal(0);
+  private timer?: ReturnType<typeof setInterval>;
+
+  readonly slides = SLIDES;
+
+  ngOnInit()    { this.timer = setInterval(() => this.slideIdx.update(i => (i + 1) % this.slides.length), 5000); }
+  ngOnDestroy() { clearInterval(this.timer); }
+
+  prevSlide() { this.slideIdx.update(i => (i - 1 + this.slides.length) % this.slides.length); }
+  nextSlide() { this.slideIdx.update(i => (i + 1) % this.slides.length); }
 
   readonly trip = computed(() => this.svc.getTrip(this.tripId()));
 
