@@ -9,6 +9,7 @@ export interface SharedTrip {
   createdAt:  string;
   stops:      TripStop[];
   transits:   TransitLeg[];
+  planId?:    string; // reference to the SavedPlan — used to load live data
 }
 
 export interface StepComment {
@@ -35,8 +36,21 @@ export class SharedTripsService {
     return id;
   }
 
+  /** Returns the shared trip, always merging the latest plan data if a planId is stored. */
   getTrip(id: string): SharedTrip | null {
-    return this.allTrips().find(t => t.id === id) ?? null;
+    const trip = this.allTrips().find(t => t.id === id) ?? null;
+    if (!trip?.planId) return trip;
+    try {
+      const raw = localStorage.getItem(`tb_saved_plans_${trip.ownerEmail}`);
+      if (raw) {
+        const plans: Array<{ id: string; name: string; stops: TripStop[]; transits?: TransitLeg[] }> = JSON.parse(raw);
+        const live = plans.find(p => p.id === trip.planId);
+        if (live) {
+          return { ...trip, tripName: live.name, stops: live.stops, transits: live.transits ?? [] };
+        }
+      }
+    } catch { /* fall back to snapshot */ }
+    return trip;
   }
 
   getMyTrips(email: string): SharedTrip[] {
