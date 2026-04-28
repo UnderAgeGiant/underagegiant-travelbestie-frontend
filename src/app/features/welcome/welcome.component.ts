@@ -43,9 +43,10 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   private timer?: ReturnType<typeof setInterval>;
 
   readonly steps = [
-    { n: 1, t: $localize`:@@welcome.step1Title:Elige una ciudad`, d: $localize`:@@welcome.step1Desc:120+ destinos en el mundo` },
-    { n: 2, t: $localize`:@@welcome.step2Title:Explorar atracciones`, d: $localize`:@@welcome.step2Desc:Lugares seleccionados para ver y hacer` },
-    { n: 3, t: $localize`:@@welcome.step3Title:Recopilar comentarios`, d: $localize`:@@welcome.step3Desc:Tus amigos dejan consejos en cada parada` },
+    { n: 1, t: $localize`:@@welcome.step1Title:Elige una ciudad`,       d: $localize`:@@welcome.step1Desc:120+ destinos en el mundo` },
+    { n: 2, t: $localize`:@@welcome.step2Title:Explorar atracciones`,    d: $localize`:@@welcome.step2Desc:Lugares seleccionados para ver y hacer` },
+    { n: 3, t: $localize`:@@welcome.step3Title:Recopilar comentarios`,   d: $localize`:@@welcome.step3Desc:Tus amigos dejan consejos en cada parada` },
+    { n: 4, t: $localize`:@@welcome.step4Title:Comparte tu viaje 🔗`,    d: $localize`:@@welcome.step4Desc:Comparte tu plan con un enlace y gana Karma cuando tus amigos comenten cada parada` },
   ];
 
   prevSlide() { this.slideIdx.update(i => (i - 1 + this.slides.length) % this.slides.length); }
