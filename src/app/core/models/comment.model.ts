@@ -6,6 +6,7 @@ export interface Comment {
   rating: number;
   color: string;
   date: string;
+  createdAt?: string;
 }
 
 export interface Attraction {

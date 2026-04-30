@@ -79,9 +79,9 @@ export class AuthService {
   // Encrypts plaintext credentials with the RSA public key (JWK) stored in environment.
   // Returns { encryptedPayload: base64 } — the shape expected by /auth/login and /auth/register.
   private async encryptPayload(plaintext: object): Promise<{ encryptedPayload: string }> {
-    const jwk = JSON.parse(environment.rsaPublicKey) as JsonWebKey;
+    const spkiDer = Uint8Array.from(atob(environment.rsaPublicKey), c => c.charCodeAt(0));
     const key = await crypto.subtle.importKey(
-      'jwk', jwk,
+      'spki', spkiDer,
       { name: 'RSA-OAEP', hash: 'SHA-256' },
       false, ['encrypt']
     );
