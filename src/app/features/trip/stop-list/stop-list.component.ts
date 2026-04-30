@@ -246,7 +246,7 @@ export class StopListComponent {
     if (this.trip.loadedPlanId() && existingName) {
       const email = this.auth.currentUser()?.email;
       if (!email) return;
-      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits());
+      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits()).subscribe();
       this.flashSaved();
     } else {
       this.bookName.set('');
@@ -259,11 +259,12 @@ export class StopListComponent {
     if (!name) return;
     const email = this.auth.currentUser()?.email;
     if (!email) return;
-    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits());
-    this.trip.markAsLoadedPlan(newId);
-    this.bookOpen.set(false);
-    this.bookName.set('');
-    this.flashSaved();
+    this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits()).subscribe(newId => {
+      this.trip.markAsLoadedPlan(newId);
+      this.bookOpen.set(false);
+      this.bookName.set('');
+      this.flashSaved();
+    });
   }
 
   private flashSaved(): void {

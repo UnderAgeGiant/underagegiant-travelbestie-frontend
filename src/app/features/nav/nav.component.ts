@@ -447,7 +447,7 @@ export class NavComponent {
     const currentId = this.trip.loadedPlanId();
     if (!email || !currentId || this.trip.stops().length === 0) return;
     const name = this.savedPlans.plans().find(p => p.id === currentId)?.name;
-    if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops(), this.trip.transits());
+    if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops(), this.trip.transits()).subscribe();
   }
 
   karmaIcon(): string {
@@ -520,10 +520,11 @@ export class NavComponent {
     if (!name) return;
     const email = this.auth.currentUser()?.email;
     if (!email) return;
-    const newId = this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits());
-    this.trip.markAsLoadedPlan(newId);
-    this.savePlanOpen.set(false);
-    this.savePlanName.set('');
+    this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits()).subscribe(newId => {
+      this.trip.markAsLoadedPlan(newId);
+      this.savePlanOpen.set(false);
+      this.savePlanName.set('');
+    });
   }
 
   doLoadPlan(plan: SavedPlan): void {

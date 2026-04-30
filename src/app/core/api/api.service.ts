@@ -55,6 +55,11 @@ export class ApiService {
     return this.http.get<{ karma: number }>(`${this.base}/karma`);
   }
 
+  deleteTrip(id: string): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.delete<void>(`${this.base}/trips/${id}`);
+  }
+
   // Mock only — karma mutations happen server-side in real mode as a side effect
   // of POST /trips and POST /comments. No PATCH /karma endpoint exists.
   updateKarmaMock(email: string, delta: number): void {
