@@ -1,5 +1,8 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# env
+*.env
+
 # Compiled output
 /dist
 /tmp
@@ -19,6 +22,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+.claude/settings.local.json
 
 # Visual Studio Code
 .vscode/*
@@ -40,3 +44,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
