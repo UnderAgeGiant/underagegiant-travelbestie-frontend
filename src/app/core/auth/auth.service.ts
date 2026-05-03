@@ -79,18 +79,23 @@ export class AuthService {
   // Encrypts plaintext credentials with the RSA public key (JWK) stored in environment.
   // Returns { encryptedPayload: base64 } — the shape expected by /auth/login and /auth/register.
   private async encryptPayload(plaintext: object): Promise<{ encryptedPayload: string }> {
-    const spkiDer = Uint8Array.from(atob(environment.rsaPublicKey), c => c.charCodeAt(0));
-    const key = await crypto.subtle.importKey(
-      'spki', spkiDer,
-      { name: 'RSA-OAEP', hash: 'SHA-256' },
-      false, ['encrypt']
-    );
-    const buf = await crypto.subtle.encrypt(
-      { name: 'RSA-OAEP' },
-      key,
-      new TextEncoder().encode(JSON.stringify(plaintext))
-    );
-    return { encryptedPayload: btoa(String.fromCharCode(...new Uint8Array(buf))) };
+    try {
+      const spkiDer = Uint8Array.from(atob(environment.rsaPublicKey), c => c.charCodeAt(0));
+      const key = await crypto.subtle.importKey(
+        'spki', spkiDer,
+        { name: 'RSA-OAEP', hash: 'SHA-256' },
+        false, ['encrypt']
+      );
+      const buf = await crypto.subtle.encrypt(
+        { name: 'RSA-OAEP' },
+        key,
+        new TextEncoder().encode(JSON.stringify(plaintext))
+      );
+      return { encryptedPayload: btoa(String.fromCharCode(...new Uint8Array(buf))) };
+    } catch (error) {
+      console.error('Encryption error:', error);
+      throw new Error('Error al encriptar las credenciales');
+    }
   }
 
   private mockSession(name: string, email: string): { token: string; user: AuthUser } {
