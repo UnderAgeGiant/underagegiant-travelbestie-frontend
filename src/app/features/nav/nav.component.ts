@@ -562,8 +562,10 @@ export class NavComponent {
   }
 
   doAuth(): void {
+    console.log('Attempting auth with', this.loginEmail(), this.loginPassword());
     this.loginError.set('');
     if (this.loginMode() === 'login') {
+      console.log('login mode, calling auth service');
       this.auth.login(this.loginEmail(), this.loginPassword()).subscribe({
         next: res => {
           this.trip.loadForUser(res.user.email);
@@ -574,7 +576,10 @@ export class NavComponent {
           this.loginPassword.set('');
           this.authModal.executePostLogin();
         },
-        error: (err: Error) => this.loginError.set(err.message),
+        error: (err: Error) => {
+          console.error('Auth error:', err);
+          this.loginError.set(err.message);
+        },
       });
     } else {
       this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword()).subscribe({
