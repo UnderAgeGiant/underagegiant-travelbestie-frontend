@@ -16,7 +16,7 @@ function replace(src, placeholder, value) {
 
 content = replace(content, 'BACKEND_API_URL_PLACEHOLDER', apiUrl);
 content = replace(content, 'RSA_PUBLIC_KEY_PLACEHOLDER',  rsaPublicKey);
-content = content.replace('useMocks: false', `useMocks: ${useMocks}`);
+content = replace(content, 'useMocks: false',              `useMocks: ${useMocks}`);
 
 writeFileSync(filePath, content, 'utf8');
 console.log(`patch-env: apiUrl=${apiUrl}, useMocks=${useMocks}, rsaPublicKey=${rsaPublicKey ? '[set]' : '[EMPTY — set BACKEND_RSA_PUBLIC_KEY in Vercel]'}`);
