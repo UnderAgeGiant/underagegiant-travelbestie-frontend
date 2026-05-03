@@ -2,6 +2,6 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:3000',
   useMocks: false,
-  // Populated once backend is built and key is known; unused in mock mode
-  rsaPublicKey: '',
+  rsaPublicKey: 'MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAv/Qu6kIdy5+fH/y9hryXvfx65oF4sJ3+NO9wshvmHUh1W+mHpTnnKKXOTZwozYLI6aNteCqV9M7rlUfw+COoIieRxMmQUJuWccy9p6tc2CkUh3Dy8ZuVTVwNBY75nKeROsFZ+KQp8gadRqmIQG8CL96MNkPN5x80nYn095vmw+f7j/lXNlxKHEf8U3c0o29xPefQfRLljZfTY1VT676Pb4rg2lcuIWouPG6UZ/l8F+WZNUD7lXddU3SnwUtz+BC+caxrjOOelI0xIgPyjFt68nB+GWHlOIxM+DcpPf6Blbhsy8BsFjo2uI6ZA/Mhn6nzyQxkFGdUtswTM3umjuzyzuCaEhUPrmaKjXI5HhRqOMo73XJyawuzeg95iUZuXe3iWQy4lDqTxomXjQZgXDKcZF0DykAuoUzb/aOmgyvsZJ3CDSPTDbr4YdY970ecQhGXFIx08kpEwYm8GDI/lasohhLLKS7n8IZZLwH2u6Wl1wlBh+AuV9IPPoMiHtCrtJVRDhBb8lXarLkziVQZWeDxExuPdDr2SBzcGX5IO3XrX1W8KW6NMiNPJPswJe4nb2qq1mzRrLgeIHTe4A3scjiHD0ZGiTPlaebB7PXbMYKdH2DIorqdIgrk9KetKpX4kApsc6c29O0M8yDqjSZtyDQQKT7nmcUhzaF+48djXyf3XFkCAwEAAQ==',
+  turnstileSiteKey: '1x00000000000000000000AA',
 };

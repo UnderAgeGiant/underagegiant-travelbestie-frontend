@@ -67,6 +67,7 @@ import { ApiService } from '../../core/api/api.service';
                 [attraction]="att"
                 [cityName]="city()!.name"
                 [cityId]="city()!.id"
+                [stopId]="activeStop()!.stopId"
                 [comments]="commentsFor(att.id)"
                 (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
             }
@@ -83,8 +84,8 @@ export class DestinationComponent implements OnInit {
   private allComments = signal<Record<string, Comment[]>>({});
 
   readonly city = computed(() => {
-    const id = this.trip.activeId();
-    return id ? WORLD_CITIES.find(c => c.id === id) ?? null : null;
+    const stop = this.trip.activeStop();
+    return stop ? WORLD_CITIES.find(c => c.id === stop.cityId) ?? null : null;
   });
 
   readonly activeStop = computed(() => this.trip.activeStop());

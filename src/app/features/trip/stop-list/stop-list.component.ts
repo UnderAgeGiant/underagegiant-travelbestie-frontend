@@ -71,7 +71,7 @@ import { LodgingComponent } from './lodging.component';
           <app-transit-connector fromId="__start__" toId="__start__"
             type="departure" [cityLabel]="firstCityLabel()" />
 
-          @for (stop of trip.stops(); track stop.cityId; let i = $index) {
+          @for (stop of trip.stops(); track stop.stopId; let i = $index) {
 
             <!-- Transport connector between stops -->
             @if (i > 0) {
@@ -81,8 +81,8 @@ import { LodgingComponent } from './lodging.component';
 
             @let city = cityFor(stop.cityId);
             @if (city) {
-              <div [class]="'stop-item' + (trip.activeId() === stop.cityId ? ' active' : '')"
-                   (click)="trip.setActive(stop.cityId)">
+              <div [class]="'stop-item' + (trip.activeId() === stop.stopId ? ' active' : '')"
+                   (click)="trip.setActive(stop.stopId)">
                 <div class="stop-row">
                   <span class="stop-flag">{{ city.flag }}</span>
                   <div class="stop-info">
@@ -90,11 +90,11 @@ import { LodgingComponent } from './lodging.component';
                     <div class="stop-country">{{ city.country }}</div>
                   </div>
                   <button class="stop-del"
-                          (click)="$event.stopPropagation(); trip.removeStop(stop.cityId)">×</button>
+                          (click)="$event.stopPropagation(); trip.removeStop(stop.stopId)">×</button>
                 </div>
 
                 <div class="stop-dates" (click)="$event.stopPropagation()">
-                  @if (editingDatesCityId() === stop.cityId) {
+                  @if (editingDatesStopId() === stop.stopId) {
                     <div style="width:100%;padding-top:4px">
                       <app-date-range
                         [initialCheckIn]="editCheckIn()"
@@ -104,28 +104,28 @@ import { LodgingComponent } from './lodging.component';
                       <div style="display:flex;gap:6px;margin-top:8px">
                         <button class="btn-pill btn-primary"
                                 style="flex:1;justify-content:center;font-size:11px;padding:5px 8px"
-                                (click)="commitDateEdit(stop.cityId)"
+                                (click)="commitDateEdit(stop.stopId)"
                                 i18n="@@stopList.saveDatesBtn">✓ Guardar</button>
                         <button class="btn-pill btn-outline"
                                 style="padding:5px 10px;font-size:11px"
-                                (click)="editingDatesCityId.set(null)">✕</button>
+                                (click)="editingDatesStopId.set(null)">✕</button>
                       </div>
                     </div>
                   } @else {
                     <div class="date-chip date-chip-edit"
                          title="Editar fechas"
-                         (click)="openDateEdit(stop.cityId, stop.checkIn, stop.checkOut)">
+                         (click)="openDateEdit(stop.stopId, stop.checkIn, stop.checkOut)">
                       <label i18n="@@stopList.checkInLabel">Llegada</label>{{ stop.checkIn || '—' }}
                     </div>
                     <div class="date-chip date-chip-edit"
                          title="Editar fechas"
-                         (click)="openDateEdit(stop.cityId, stop.checkIn, stop.checkOut)">
+                         (click)="openDateEdit(stop.stopId, stop.checkIn, stop.checkOut)">
                       <label i18n="@@stopList.checkOutLabel">Salida</label>{{ stop.checkOut || '—' }}
                     </div>
                   }
                 </div>
 
-                <app-lodging [cityId]="stop.cityId" />
+                <app-lodging [stopId]="stop.stopId" />
 
                 @if (stop.selectedAttractions.length > 0) {
                   <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
@@ -134,7 +134,7 @@ import { LodgingComponent } from './lodging.component';
                     @for (planned of stop.selectedAttractions; track planned.attractionId) {
                       @let att = attractionFor(stop.cityId, planned.attractionId);
                       @if (att) {
-                        @let collision = hasTimeCollision(stop, planned.attractionId);
+                        @let collision = hasTimeCollision(stop, planned.entryId);
                         <div class="att-plan-row" [class.att-collision]="collision"
                              (click)="$event.stopPropagation()">
                           <span class="att-plan-icon">{{ att.icon }}</span>
@@ -147,7 +147,7 @@ import { LodgingComponent } from './lodging.component';
                             <span title="Conflicto de horario" style="font-size:11px;flex-shrink:0">⚠️</span>
                           }
                           <button class="att-plan-del"
-                                  (click)="trip.removeAttraction(stop.cityId, planned.attractionId)"
+                                  (click)="trip.removeAttraction(stop.stopId, planned.entryId)"
                                   i18n-title="@@stopList.removeAttTitle"
                                   title="Quitar del plan">×</button>
                         </div>
@@ -175,7 +175,7 @@ import { LodgingComponent } from './lodging.component';
             <button class="btn-pill btn-primary"
                     style="width:100%;justify-content:center;margin-top:8px"
                     (click)="doBook()"
-                    i18n="@@stopList.bookBtn">Reservar viaje 🎉</button>
+                    i18n="@@stopList.bookBtn">Guardar viaje 🎉</button>
           } @else {
             <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">
               <input class="form-input"
@@ -233,7 +233,7 @@ export class StopListComponent {
   bookName  = signal('');
   bookSaved = signal(false);
 
-  editingDatesCityId = signal<string | null>(null);
+  editingDatesStopId = signal<string | null>(null);
   editCheckIn        = signal('');
   editCheckOut       = signal('');
 
@@ -272,16 +272,16 @@ export class StopListComponent {
     setTimeout(() => this.bookSaved.set(false), 2500);
   }
 
-  openDateEdit(cityId: string, checkIn: string, checkOut: string): void {
+  openDateEdit(stopId: string, checkIn: string, checkOut: string): void {
     this.editCheckIn.set(checkIn);
     this.editCheckOut.set(checkOut);
-    this.editingDatesCityId.set(cityId);
+    this.editingDatesStopId.set(stopId);
   }
 
-  commitDateEdit(cityId: string): void {
+  commitDateEdit(stopId: string): void {
     if (!this.editCheckIn() || !this.editCheckOut()) return;
-    this.trip.updateDates(cityId, this.editCheckIn(), this.editCheckOut());
-    this.editingDatesCityId.set(null);
+    this.trip.updateDates(stopId, this.editCheckIn(), this.editCheckOut());
+    this.editingDatesStopId.set(null);
   }
 
   cityFor(cityId: string) {
@@ -299,16 +299,16 @@ export class StopListComponent {
     return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
   }
 
-  hasTimeCollision(stop: { cityId: string; selectedAttractions: import('../../../core/models/trip.model').PlannedAttraction[] }, targetId: string): boolean {
-    const target = stop.selectedAttractions.find(a => a.attractionId === targetId);
+  hasTimeCollision(stop: import('../../../core/models/trip.model').TripStop, targetEntryId: string): boolean {
+    const target = stop.selectedAttractions.find(a => a.entryId === targetEntryId);
     if (!target?.startTime) return false;
-    const tAtt  = this.attractionFor(stop.cityId, targetId);
+    const tAtt  = this.attractionFor(stop.cityId, target.attractionId);
     if (!tAtt) return false;
     const tStart = this.toMins(target.startTime);
     const tEnd   = tStart + tAtt.estimatedMinutes;
     const tDate  = target.date ?? '';
     return stop.selectedAttractions.some(other => {
-      if (other.attractionId === targetId || !other.startTime) return false;
+      if (other.entryId === targetEntryId || !other.startTime) return false;
       const oDate = other.date ?? '';
       if (tDate && oDate && tDate !== oDate) return false;
       const oAtt = this.attractionFor(stop.cityId, other.attractionId);

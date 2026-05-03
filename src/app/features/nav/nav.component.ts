@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, output } from '@angular/core';
+import { Component, inject, signal, computed, output, effect } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
@@ -8,6 +8,7 @@ import { SharedTripsService } from '../../core/shared-trips/shared-trips.service
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-nav',
@@ -357,12 +358,21 @@ import { City } from '../../core/models/city.model';
             </div>
           </div>
           <div class="modal-foot" style="flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:center;padding-bottom:4px">
+              <div id="tb-turnstile"></div>
+            </div>
             <div style="display:flex;gap:8px;width:100%">
               <button class="btn-pill btn-outline" (click)="authModal.close()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
               @if (loginMode() === 'login') {
-                <button class="btn-pill btn-primary" (click)="doAuth()" style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
+                <button class="btn-pill btn-primary" (click)="doAuth()"
+                        [disabled]="!captchaToken()"
+                        [style.opacity]="captchaToken() ? '1' : '0.5'"
+                        style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
               } @else {
-                <button class="btn-pill btn-primary" (click)="doAuth()" style="flex:2" i18n="@@nav.registerSubmit">Crear cuenta →</button>
+                <button class="btn-pill btn-primary" (click)="doAuth()"
+                        [disabled]="!captchaToken()"
+                        [style.opacity]="captchaToken() ? '1' : '0.5'"
+                        style="flex:2" i18n="@@nav.registerSubmit">Crear cuenta →</button>
               }
             </div>
             @if (loginError()) {
@@ -415,6 +425,21 @@ export class NavComponent {
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
 
+  captchaToken = signal('');
+  private readonly turnstileWidgetId = signal<string | null>(null);
+  private initAttempts = 0;
+
+  constructor() {
+    effect(() => {
+      if (this.authModal.isOpen()) {
+        this.initAttempts = 0;
+        setTimeout(() => this.renderTurnstile(), 0);
+      } else {
+        this.destroyTurnstile();
+      }
+    });
+  }
+
   readonly mySharedTrips = computed(() => {
     const email = this.auth.currentUser()?.email;
     return email ? this.sharedTrips.getMyTrips(email) : [];
@@ -448,6 +473,43 @@ export class NavComponent {
     if (!email || !currentId || this.trip.stops().length === 0) return;
     const name = this.savedPlans.plans().find(p => p.id === currentId)?.name;
     if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops(), this.trip.transits()).subscribe();
+  }
+
+  private renderTurnstile(): void {
+    const container = document.getElementById('tb-turnstile');
+    const ts = (window as any).turnstile;
+    if (!container) return;
+    if (!ts) {
+      if (this.initAttempts < 15) {
+        this.initAttempts++;
+        setTimeout(() => this.renderTurnstile(), 200);
+      }
+      return;
+    }
+    if (this.turnstileWidgetId() !== null) return;
+    const id: string = ts.render(container, {
+      sitekey: environment.turnstileSiteKey,
+      callback: (token: string) => this.captchaToken.set(token),
+      'error-callback': () => this.captchaToken.set(''),
+      'expired-callback': () => this.captchaToken.set(''),
+      theme: 'light',
+    });
+    this.turnstileWidgetId.set(id);
+  }
+
+  private destroyTurnstile(): void {
+    const id = this.turnstileWidgetId();
+    const ts = (window as any).turnstile;
+    if (id !== null && ts) ts.remove(id);
+    this.turnstileWidgetId.set(null);
+    this.captchaToken.set('');
+  }
+
+  private resetTurnstile(): void {
+    const id = this.turnstileWidgetId();
+    const ts = (window as any).turnstile;
+    if (id !== null && ts) ts.reset(id);
+    this.captchaToken.set('');
   }
 
   karmaIcon(): string {
@@ -563,6 +625,10 @@ export class NavComponent {
 
   doAuth(): void {
     this.loginError.set('');
+    if (!this.captchaToken()) {
+      this.loginError.set('Por favor completa la verificación de seguridad');
+      return;
+    }
     if (this.loginMode() === 'login') {
       this.auth.login(this.loginEmail(), this.loginPassword()).subscribe({
         next: res => {
@@ -574,7 +640,10 @@ export class NavComponent {
           this.loginPassword.set('');
           this.authModal.executePostLogin();
         },
-        error: (err: Error) => this.loginError.set(err.message),
+        error: (err: Error) => {
+          this.loginError.set(err.message);
+          this.resetTurnstile();
+        },
       });
     } else {
       this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword()).subscribe({
@@ -588,18 +657,20 @@ export class NavComponent {
           this.loginPassword.set('');
           this.authModal.executePostLogin();
         },
-        error: (err: Error) => this.loginError.set(err.message),
+        error: (err: Error) => {
+          this.loginError.set(err.message);
+          this.resetTurnstile();
+        },
       });
     }
   }
 
   doLogout(): void {
-    this.auth.logout();        // clear auth first so auto-save effect sees null user
+    this.auth.logout();
     this.trip.clearPlan();
     this.karma.clear();
     this.savedPlans.clear();
     this.visited.clear();
-    this.userMenuOpen.set(false);
-    this.plansOpen.set(false);
+    window.location.href = '/';
   }
 }
