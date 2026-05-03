@@ -291,6 +291,12 @@
         <target>This city is already in the adjacent destination. Are you sure you want to add it again?</target>
       </trans-unit>
 
+      <!-- ── transit-connector.component ── -->
+      <trans-unit id="transit.arrBeforeDepWarn" datatype="html">
+        <source>⚠ La llegada no puede ser antes que la salida.</source>
+        <target>⚠ Arrival cannot be before departure.</target>
+      </trans-unit>
+
       <!-- ── destination.component ── -->
       <trans-unit id="dest.oneAttraction" datatype="html">
         <source>atracción</source>
