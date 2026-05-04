@@ -213,10 +213,9 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .share-error  { font-size: 10px; color: var(--peach-d); font-weight: 700; white-space: nowrap; }
 
 /* SHARED TRIP PAGE */
-.shared-page { position: relative; min-height: 100vh; }
-.shared-bg { position: fixed; inset: 0; z-index: 0; filter: blur(16px); transform: scale(1.1); overflow: hidden; pointer-events: none; }
-.shared-bg .bg-caption, .shared-bg .slider-dots, .shared-bg .slider-arrows { display: none; }
-.shared-bg-frost { position: fixed; inset: 0; z-index: 1; background: oklch(98% .01 80 / .82); pointer-events: none; }
+.shared-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }
+.shared-bg { position: fixed; inset: 0; z-index: 0; background: url('/paper-planes.webp') repeat center center / 380px auto; filter: blur(1px); transform: scale(1.04); pointer-events: none; }
+.shared-bg-frost { position: fixed; inset: 0; z-index: 1; background: rgba(255,255,255,.45); pointer-events: none; }
 .shared-body { max-width: 680px; margin: 58px auto 0; padding: 24px 20px 60px; position: relative; z-index: 2; }
 .shared-not-found { position: relative; z-index: 2; }
 .shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
