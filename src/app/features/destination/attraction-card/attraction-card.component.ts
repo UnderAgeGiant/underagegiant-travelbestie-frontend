@@ -95,7 +95,26 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
     }
     .card-footer .stars { font-size: 11px; }
     .card-footer .rating-val { font-size: 11px; font-weight: 700; color: var(--t2); }
-    .card-cmnt-count { margin-left: auto; font-size: 11px; color: var(--t3); }
+    .card-cmnt-count { font-size: 11px; color: var(--t3); }
+    /* ── Planned entry chips ── */
+    .card-entries {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      padding: 5px 12px 8px; background: #fff;
+      border-top: 1px solid var(--border);
+    }
+    .entry-chip {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 2px 9px; border-radius: 99px; font-size: 10px; font-weight: 700;
+      background: var(--lav); color: var(--lav-d);
+      border: none; cursor: pointer; transition: background .12s, color .12s;
+      white-space: nowrap;
+    }
+    .entry-chip:hover { background: var(--lav-d); color: #fff; }
+    .entry-chip-add {
+      background: none; color: var(--lav-d);
+      border: 1.5px dashed var(--lav-d);
+    }
+    .entry-chip-add:hover { background: var(--lav); }
   `],
   template: `
     <div class="att-card" (click)="showDetailModal.set(true)">
@@ -113,13 +132,17 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
         <div class="card-gradient"></div>
         <div class="card-frame"></div>
 
-        <!-- Plan button — always in top-right, stops propagation to card click -->
+        <!-- Plan button — top-right; opens edit when single entry, add when none/multiple -->
         <button [class]="'card-plan-btn ' + (inPlan() ? 'planned' : 'idle')"
-                (click)="$event.stopPropagation(); showPlanModal.set(true)"
+                (click)="$event.stopPropagation(); openPlanAction()"
                 type="button">
           @if (inPlan()) {
             <span>📌</span>
-            <span>{{ plannedEntry()?.date ? shortDate(plannedEntry()!.date!) + ' ' : '' }}{{ plannedEntry()?.startTime }}</span>
+            @if (plannedEntries().length === 1) {
+              <span>{{ plannedEntries()[0].date ? shortDate(plannedEntries()[0].date!) + ' ' : '' }}{{ plannedEntries()[0].startTime }}</span>
+            } @else {
+              <span>×{{ plannedEntries().length }}</span>
+            }
           } @else {
             <span>🔖</span><span i18n="@@attCard.addToPlan">Planificar</span>
           }
@@ -136,23 +159,55 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
         <span class="stars">{{ starStr() }}</span>
         <span class="rating-val">{{ attraction().rating }}</span>
         @if (comments().length > 0) {
-          <span class="card-cmnt-count">💬 {{ comments().length }}</span>
+          <span class="card-cmnt-count" style="margin-left:4px">💬 {{ comments().length }}</span>
         }
       </div>
+
+      <!-- Planned entry chips — one per scheduled visit -->
+      @if (plannedEntries().length > 0) {
+        <div class="card-entries">
+          @for (entry of plannedEntries(); track entry.entryId) {
+            <button class="entry-chip"
+                    (click)="$event.stopPropagation(); editingEntry.set(entry)"
+                    type="button">
+              📌 {{ entry.date ? shortDate(entry.date) + ' ' : '' }}{{ entry.startTime }}
+            </button>
+          }
+          <button class="entry-chip entry-chip-add"
+                  (click)="$event.stopPropagation(); showPlanModal.set(true)"
+                  type="button">
+            + visita
+          </button>
+        </div>
+      }
     </div>
 
-    <!-- Plan-time modal (direct from card, no detail modal needed) -->
+    <!-- Add new visit modal -->
     @if (showPlanModal()) {
       <app-plan-time-modal
         [attraction]="attraction()"
-        [initialTime]="plannedEntry()?.startTime ?? ''"
-        [initialDate]="plannedEntry()?.date ?? ''"
+        [initialTime]="''"
+        [initialDate]="''"
         [stopCheckIn]="activeStop()?.checkIn ?? ''"
         [stopCheckOut]="activeStop()?.checkOut ?? ''"
         [existingPlanned]="scheduleEntries()"
         (cancel)="showPlanModal.set(false)"
         (confirmed)="onPlanConfirmed($event)"
-        (remove)="onPlanRemoved()" />
+        (remove)="showPlanModal.set(false)" />
+    }
+
+    <!-- Edit existing visit modal -->
+    @if (editingEntry()) {
+      <app-plan-time-modal
+        [attraction]="attraction()"
+        [initialTime]="editingEntry()!.startTime"
+        [initialDate]="editingEntry()!.date ?? ''"
+        [stopCheckIn]="activeStop()?.checkIn ?? ''"
+        [stopCheckOut]="activeStop()?.checkOut ?? ''"
+        [existingPlanned]="editScheduleEntries()"
+        (cancel)="editingEntry.set(null)"
+        (confirmed)="onEditConfirmed($event)"
+        (remove)="onRemoveEntry()" />
     }
 
     <!-- Detail modal (full info) -->
@@ -160,6 +215,7 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
       <app-attraction-detail-modal
         [attraction]="attraction()"
         [cityId]="cityId()"
+        [stopId]="stopId()"
         [cityName]="cityName()"
         [comments]="comments()"
         (close)="showDetailModal.set(false)"
@@ -171,32 +227,50 @@ export class AttractionCardComponent {
   attraction   = input.required<Attraction>();
   cityName     = input.required<string>();
   cityId       = input.required<string>();
+  stopId       = input.required<string>();
   comments     = input<Comment[]>([]);
   commentAdded = output<{ attractionId: string; comment: Omit<Comment, 'id'> }>();
 
   showDetailModal = signal(false);
   showPlanModal   = signal(false);
+  editingEntry    = signal<import('../../../core/models/trip.model').PlannedAttraction | null>(null);
   imgError        = signal(false);
 
   private readonly trip = inject(TripService);
 
-  readonly inPlan = computed(() =>
-    this.trip.isAttractionSelected(this.cityId(), this.attraction().id)
+  readonly plannedEntries = computed(() =>
+    this.trip.getAllPlannedEntries(this.stopId(), this.attraction().id)
   );
 
-  readonly plannedEntry = computed(() =>
-    this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
-  );
+  readonly inPlan = computed(() => this.plannedEntries().length > 0);
 
   readonly activeStop = computed(() => this.trip.activeStop());
 
+  // For the ADD modal: show all existing entries including sibling visits of this attraction
   readonly scheduleEntries = computed((): ScheduleEntry[] => {
     const city = WORLD_CITIES.find(c => c.id === this.cityId());
     if (!city) return [];
     const allAttractions = getAttractions(city);
-    return this.trip.selectedAttractionsFor(this.cityId())
-      .filter(p => p.attractionId !== this.attraction().id)
+    return this.trip.selectedAttractionsFor(this.stopId())
       .map(p => ({
+        entryId:    p.entryId,
+        startTime:  p.startTime,
+        date:       p.date,
+        attraction: allAttractions.find(a => a.id === p.attractionId)!,
+      }))
+      .filter(e => e.attraction != null);
+  });
+
+  // For the EDIT modal: exclude only the entry being edited (shows sibling visits as potential conflicts)
+  readonly editScheduleEntries = computed((): ScheduleEntry[] => {
+    const city = WORLD_CITIES.find(c => c.id === this.cityId());
+    if (!city) return [];
+    const allAttractions = getAttractions(city);
+    const editId = this.editingEntry()?.entryId;
+    return this.trip.selectedAttractionsFor(this.stopId())
+      .filter(p => p.entryId !== editId)
+      .map(p => ({
+        entryId:    p.entryId,
         startTime:  p.startTime,
         date:       p.date,
         attraction: allAttractions.find(a => a.id === p.attractionId)!,
@@ -214,18 +288,31 @@ export class AttractionCardComponent {
     return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
   }
 
-  onPlanConfirmed(entry: PlanEntry): void {
-    const date = entry.date || undefined;
-    if (this.inPlan()) {
-      this.trip.updateStartTime(this.cityId(), this.attraction().id, entry.startTime, date);
+  // Single entry → edit it; none or multiple → add new
+  openPlanAction(): void {
+    if (this.plannedEntries().length === 1) {
+      this.editingEntry.set(this.plannedEntries()[0]);
     } else {
-      this.trip.addAttraction(this.cityId(), this.attraction().id, entry.startTime, date);
+      this.showPlanModal.set(true);
     }
+  }
+
+  onPlanConfirmed(entry: PlanEntry): void {
+    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined);
     this.showPlanModal.set(false);
   }
 
-  onPlanRemoved(): void {
-    this.trip.removeAttraction(this.cityId(), this.attraction().id);
-    this.showPlanModal.set(false);
+  onEditConfirmed(entry: PlanEntry): void {
+    const editId = this.editingEntry()?.entryId;
+    if (!editId) return;
+    this.trip.updateStartTime(this.stopId(), editId, entry.startTime, entry.date || undefined);
+    this.editingEntry.set(null);
+  }
+
+  onRemoveEntry(): void {
+    const editId = this.editingEntry()?.entryId;
+    if (!editId) return;
+    this.trip.removeAttraction(this.stopId(), editId);
+    this.editingEntry.set(null);
   }
 }

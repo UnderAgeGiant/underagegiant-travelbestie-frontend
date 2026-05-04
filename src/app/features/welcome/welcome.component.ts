@@ -21,7 +21,7 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
           <button class="btn-pill btn-primary"
                   style="padding:11px 24px;font-size:14px"
                   (click)="addDestination.emit()"
-                  i18n="@@welcome.addBtn">+ Agregar destino</button>
+                  i18n="@@welcome.addBtn">Comienza a crear tu plan</button>
         </div>
       </div>
 

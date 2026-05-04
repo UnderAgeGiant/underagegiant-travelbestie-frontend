@@ -69,12 +69,22 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
             <div class="transit-datetime-row">
               <app-date-picker style="flex:1"
                 [initialDate]="tArrDate()"
+                [minDate]="tDepDate()"
                 (dateChange)="tArrDate.set($event)" />
               <input type="time" class="transit-time-input"
                      [value]="tArrTime()"
+                     [min]="tArrDate() === tDepDate() ? tDepTime() : ''"
                      (change)="tArrTime.set($any($event.target).value)" />
             </div>
           </div>
+
+          <!-- Arrival-before-departure warning -->
+          @if (arrivalBeforeDep()) {
+            <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:oklch(48% 0.16 25);margin-top:4px;padding:5px 9px;background:oklch(97% 0.03 25);border-radius:8px;border:1px solid oklch(88% 0.07 25)"
+                 i18n="@@transit.arrBeforeDepWarn">
+              ⚠ La llegada no puede ser antes que la salida.
+            </div>
+          }
 
           <!-- Computed duration hint -->
           @if (pendingDuration() > 0) {
@@ -200,8 +210,21 @@ export class TransitConnectorComponent {
   tArrTime  = signal('');
   tNotes    = signal('');
 
+  readonly arrivalBeforeDep = computed(() => {
+    const dd = this.tDepDate(), dt = this.tDepTime();
+    const ad = this.tArrDate(), at = this.tArrTime();
+    if (!dd || !dt || !ad || !at) return false;
+    const parse = (d: string, t: string) => {
+      const [day, mo, yr] = d.split('/').map(Number);
+      const [hh, mi]      = t.split(':').map(Number);
+      return new Date(yr, mo - 1, day, hh ?? 0, mi ?? 0).getTime();
+    };
+    return parse(ad, at) <= parse(dd, dt);
+  });
+
   readonly canAddSeg = computed(() =>
-    !!(this.tDepDate() && this.tDepTime() && this.tArrDate() && this.tArrTime())
+    !!(this.tDepDate() && this.tDepTime() && this.tArrDate() && this.tArrTime()) &&
+    !this.arrivalBeforeDep()
   );
 
   readonly canSave = computed(() => this.segs().length > 0 || this.canAddSeg());
