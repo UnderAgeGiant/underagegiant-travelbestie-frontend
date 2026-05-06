@@ -54,12 +54,18 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
           <div class="transit-datetime-section">
             <div class="transit-datetime-lbl" i18n="@@transit.depLabel">Salida</div>
             <div class="transit-datetime-row">
-              <app-date-picker style="flex:1"
-                [initialDate]="tDepDate()"
-                (dateChange)="onDepDateChange($event)" />
-              <input type="time" class="transit-time-input"
-                     [value]="tDepTime()"
-                     (change)="tDepTime.set($any($event.target).value)" />
+              <div class="transit-field-col" style="flex:1">
+                <div class="transit-datetime-lbl" i18n="@@transit.dateLabel">Fecha</div>
+                <app-date-picker
+                  [initialDate]="tDepDate()"
+                  (dateChange)="onDepDateChange($event)" />
+              </div>
+              <div class="transit-field-col">
+                <div class="transit-datetime-lbl" i18n="@@transit.timeLabel">Hora</div>
+                <input type="time" class="transit-time-input"
+                       [value]="tDepTime()"
+                       (change)="tDepTime.set($any($event.target).value)" />
+              </div>
             </div>
           </div>
 
@@ -67,14 +73,20 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
           <div class="transit-datetime-section">
             <div class="transit-datetime-lbl" i18n="@@transit.arrLabel">Llegada</div>
             <div class="transit-datetime-row">
-              <app-date-picker style="flex:1"
-                [initialDate]="tArrDate()"
-                [minDate]="tDepDate()"
-                (dateChange)="tArrDate.set($event)" />
-              <input type="time" class="transit-time-input"
-                     [value]="tArrTime()"
-                     [min]="tArrDate() === tDepDate() ? tDepTime() : ''"
-                     (change)="tArrTime.set($any($event.target).value)" />
+              <div class="transit-field-col" style="flex:1">
+                <div class="transit-datetime-lbl" i18n="@@transit.dateLabel">Fecha</div>
+                <app-date-picker
+                  [initialDate]="tArrDate()"
+                  [minDate]="tDepDate()"
+                  (dateChange)="tArrDate.set($event)" />
+              </div>
+              <div class="transit-field-col">
+                <div class="transit-datetime-lbl" i18n="@@transit.timeLabel">Hora</div>
+                <input type="time" class="transit-time-input"
+                       [value]="tArrTime()"
+                       [min]="tArrDate() === tDepDate() ? tDepTime() : ''"
+                       (change)="tArrTime.set($any($event.target).value)" />
+              </div>
             </div>
           </div>
 

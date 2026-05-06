@@ -60,6 +60,19 @@ export class ApiService {
     return this.http.delete<void>(`${this.base}/trips/${id}`);
   }
 
+  exportItinerary(
+    id: string,
+    cityNames: Record<string, string>,
+    attractionNames: Record<string, string>,
+  ): Observable<Blob> {
+    if (this.useMocks) return of(new Blob());
+    return this.http.post(
+      `${this.base}/trips/${id}/itinerary`,
+      { cityNames, attractionNames },
+      { responseType: 'blob' },
+    );
+  }
+
   // Mock only — karma mutations happen server-side in real mode as a side effect
   // of POST /trips and POST /comments. No PATCH /karma endpoint exists.
   updateKarmaMock(email: string, delta: number): void {

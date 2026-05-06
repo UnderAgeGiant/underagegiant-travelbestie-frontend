@@ -252,6 +252,9 @@ import { environment } from '../../../environments/environment';
                                 <ng-container i18n="@@nav.savePlan">Guardar como nuevo viaje</ng-container>
                               }
                             </span>
+                            @if (!trip.loadedPlanId()) {
+                              <span class="karma-cost" style="margin-left:auto">−1 ✨ karma</span>
+                            }
                           </button>
                         } @else {
                           <div class="up-save-form">
@@ -274,6 +277,7 @@ import { environment } from '../../../environments/environment';
                               (click)="doNewTrip()" type="button">
                         <span>＋</span>
                         <span i18n="@@nav.newTrip">Nuevo viaje en blanco</span>
+                        <span class="karma-cost" style="margin-left:auto">−1 ✨ karma</span>
                       </button>
 
                     </div>

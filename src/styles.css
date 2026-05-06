@@ -48,6 +48,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .btn-outline { background: #fff; color: var(--t1); border: 1.5px solid var(--border); }
 .btn-outline:hover { border-color: var(--lav-d); color: var(--lav-d); }
 .badge { padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; }
+.karma-cost { display: inline-flex; align-items: center; gap: 2px; font-size: 10px; font-weight: 700; opacity: .65; background: oklch(90% .06 290 / .35); color: var(--lav-d); border-radius: 6px; padding: 1px 5px; letter-spacing: .2px; }
 .form-group { margin-bottom: 14px; }
 .form-label { display: block; font-size: 11px; font-weight: 600; color: var(--t1); margin-bottom: 6px; letter-spacing: .3px; text-transform: uppercase; }
 .form-input { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; padding: 9px 13px; font-size: 13px; color: var(--t1); outline: none; background: var(--cream); transition: border-color .2s; }
@@ -149,7 +150,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .transit-num-input:focus { border-color: var(--lav-d); }
 .transit-datetime-section { margin-bottom: 8px; }
 .transit-datetime-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--t3); margin-bottom: 4px; }
-.transit-datetime-row { display: flex; gap: 6px; align-items: center; }
+.transit-datetime-row { display: flex; gap: 6px; align-items: flex-end; }
+.transit-field-col { display: flex; flex-direction: column; gap: 3px; }
 .transit-time-input { width: 90px; flex-shrink: 0; padding: 4px 8px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; outline: none; font-family: inherit; color: var(--t1); background: var(--cream); }
 .transit-time-input:focus { border-color: var(--lav-d); background: #fff; }
 .transit-duration-hint { font-size: 11px; color: var(--lav-d); font-weight: 600; margin: 0 0 6px; }
