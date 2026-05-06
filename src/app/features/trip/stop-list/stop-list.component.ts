@@ -175,7 +175,11 @@ import { LodgingComponent } from './lodging.component';
             <button class="btn-pill btn-primary"
                     style="width:100%;justify-content:center;margin-top:8px"
                     (click)="doBook()"
-                    i18n="@@stopList.bookBtn">Guardar viaje 🎉</button>
+                    i18n="@@stopList.bookBtn">Guardar viaje 🎉
+              @if (!trip.loadedPlanId()) {
+                <span class="karma-cost">−1 ✨ karma</span>
+              }
+            </button>
           } @else {
             <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">
               <input class="form-input"
@@ -186,7 +190,7 @@ import { LodgingComponent } from './lodging.component';
               <div style="display:flex;gap:6px">
                 <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
                         (click)="doBookSave()"
-                        i18n="@@stopList.bookSaveBtn">Guardar ✓</button>
+                        i18n="@@stopList.bookSaveBtn">Guardar ✓ <span class="karma-cost">−1 ✨ karma</span></button>
                 <button class="btn-pill btn-outline" style="padding:0 14px"
                         (click)="bookOpen.set(false)">✕</button>
               </div>
