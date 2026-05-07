@@ -64,12 +64,12 @@ import { Lodging } from '../../../core/models/trip.model';
   `,
 })
 export class LodgingComponent {
-  readonly cityId = input('');
+  readonly stopId = input('');
 
   private readonly trip = inject(TripService);
 
   readonly lodging = computed(() =>
-    this.trip.stops().find(s => s.cityId === this.cityId())?.lodging ?? null
+    this.trip.stops().find(s => s.stopId === this.stopId())?.lodging ?? null
   );
 
   editOpen = signal(false);
@@ -87,12 +87,12 @@ export class LodgingComponent {
     const name = this.lName().trim();
     if (!name) return;
     const url = this.lUrl().trim();
-    this.trip.setLodging(this.cityId(), { name, url });
+    this.trip.setLodging(this.stopId(), { name, url });
     this.editOpen.set(false);
   }
 
   clear(): void {
-    this.trip.removeLodging(this.cityId());
+    this.trip.removeLodging(this.stopId());
     this.editOpen.set(false);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, output, signal, inject } from '@angular/core';
+import { Component, output, signal, inject, computed } from '@angular/core';
 import { CityComboboxComponent } from '../../../shared/city-combobox/city-combobox.component';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TripService } from '../trip.service';
@@ -18,8 +18,7 @@ import { City } from '../../../core/models/city.model';
         <div class="modal-body" style="min-height:320px">
           <div class="form-group">
             <label class="form-label" i18n="@@addStop.cityLabel">Ciudad</label>
-            <app-city-combobox [excludeIds]="trip.existingCityIds()"
-                               (cityChange)="selectedCity.set($event)" />
+            <app-city-combobox (cityChange)="selectedCity.set($event)" />
           </div>
           @if (selectedCity()) {
             <app-date-range
@@ -29,6 +28,12 @@ import { City } from '../../../core/models/city.model';
           @if (selectedCity() && (!checkIn() || !checkOut())) {
             <div style="font-size:11px;color:var(--peach-d);margin-top:8px"
                  i18n="@@addStop.datesRequired">Las fechas de entrada y salida son obligatorias.</div>
+          }
+          @if (consecutiveWarning()) {
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:oklch(48% 0.16 60);margin-top:8px;padding:6px 10px;background:oklch(97% 0.04 85);border-radius:8px;border:1px solid oklch(88% 0.08 85)">
+              <span>⚠</span>
+              <span i18n="@@addStop.consecutiveWarning">Esta ciudad ya está en el destino adyacente. ¿Seguro que querés agregarla de nuevo?</span>
+            </div>
           }
         </div>
         <div class="modal-foot" style="border-radius:0 0 22px 22px;overflow:hidden">
@@ -51,6 +56,27 @@ export class AddStopModalComponent {
   selectedCity = signal<City | null>(null);
   checkIn = signal('');
   checkOut = signal('');
+
+  readonly consecutiveWarning = computed(() => {
+    const city = this.selectedCity();
+    const ci   = this.checkIn();
+    if (!city || !ci) return false;
+    const stops = this.trip.stops();
+    if (stops.length === 0) return false;
+    const parseMs = (s: string): number => {
+      const [dd, mm, yyyy] = s.split('/').map(Number);
+      return new Date(yyyy, mm - 1, dd).getTime();
+    };
+    const newMs = parseMs(ci);
+    const sorted = [...stops].sort((a, b) => parseMs(a.checkIn) - parseMs(b.checkIn));
+    let insertIdx = sorted.length;
+    for (let i = 0; i < sorted.length; i++) {
+      if (newMs < parseMs(sorted[i].checkIn)) { insertIdx = i; break; }
+    }
+    const before = sorted[insertIdx - 1];
+    const after  = sorted[insertIdx];
+    return before?.cityId === city.id || after?.cityId === city.id;
+  });
 
   add(): void {
     const city = this.selectedCity();

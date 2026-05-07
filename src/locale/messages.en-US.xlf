@@ -163,8 +163,8 @@
         <target>Build multi-destination trips, discover local attractions, and let your friends leave comments on every stop.</target>
       </trans-unit>
       <trans-unit id="welcome.addBtn" datatype="html">
-        <source>+ Agregar destino</source>
-        <target>+ Add Destination</target>
+        <source>Comienza a crear tu plan</source>
+        <target>Start Creating Your Plan</target>
       </trans-unit>
       <trans-unit id="welcome.step1Title" datatype="html">
         <source>Elige una ciudad</source>
@@ -249,8 +249,8 @@
         <target>+ Add Destination</target>
       </trans-unit>
       <trans-unit id="stopList.bookBtn" datatype="html">
-        <source>Reservar viaje 🎉</source>
-        <target>Book Trip 🎉</target>
+        <source>Guardar viaje 🎉</source>
+        <target>Save Trip 🎉</target>
       </trans-unit>
 
       <!-- ── add-stop-modal.component ── -->
@@ -281,6 +281,20 @@
       <trans-unit id="addStop.addBtn" datatype="html">
         <source>Agregar al viaje ✈️</source>
         <target>Add to Trip ✈️</target>
+      </trans-unit>
+      <trans-unit id="addStop.datesRequired" datatype="html">
+        <source>Las fechas de entrada y salida son obligatorias.</source>
+        <target>Check-in and check-out dates are required.</target>
+      </trans-unit>
+      <trans-unit id="addStop.consecutiveWarning" datatype="html">
+        <source>Esta ciudad ya está en el destino adyacente. ¿Seguro que querés agregarla de nuevo?</source>
+        <target>This city is already in the adjacent destination. Are you sure you want to add it again?</target>
+      </trans-unit>
+
+      <!-- ── transit-connector.component ── -->
+      <trans-unit id="transit.arrBeforeDepWarn" datatype="html">
+        <source>⚠ La llegada no puede ser antes que la salida.</source>
+        <target>⚠ Arrival cannot be before departure.</target>
       </trans-unit>
 
       <!-- ── destination.component ── -->

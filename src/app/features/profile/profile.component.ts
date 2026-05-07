@@ -6,14 +6,17 @@ import { HomeAddressService } from '../../core/home-address/home-address.service
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
+import { ApiService } from '../../core/api/api.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TripItineraryComponent } from './trip-itinerary.component';
+import { ToastComponent } from '../../shared/toast/toast.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [TripItineraryComponent],
+  imports: [TripItineraryComponent, ToastComponent],
   template: `
     <div class="profile-page">
 
@@ -132,9 +135,15 @@ import { TripItineraryComponent } from './trip-itinerary.component';
                     <button class="btn-pill btn-primary"
                             style="flex:1;justify-content:center;gap:7px"
                             (click)="sharePlan(plan)" type="button">
-                      📤 Compartir viaje <span style="opacity:.75;font-size:11px">(1 karma)</span>
+                      📤 Compartir viaje <span class="karma-cost">−1 ✨ karma</span>
                     </button>
                   }
+                  <button class="btn-pill btn-outline"
+                          style="justify-content:center;gap:6px;white-space:nowrap"
+                          [disabled]="exportingPlanId() === plan.id"
+                          (click)="downloadItinerary(plan)" type="button">
+                    {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel <span class="karma-cost">−1 ✨ karma</span>
+                  </button>
                   @if (shareError() === plan.id) {
                     <span class="share-error">Karma insuficiente</span>
                   }
@@ -211,6 +220,10 @@ import { TripItineraryComponent } from './trip-itinerary.component';
 
       </div>
     </div>
+
+    @if (toast()) {
+      <app-toast [message]="toast()!" (done)="toast.set(null)" />
+    }
   `,
 })
 export class ProfileComponent {
@@ -219,17 +232,20 @@ export class ProfileComponent {
   readonly savedPlans    = inject(SavedPlansService);
   readonly homeAddress   = inject(HomeAddressService);
   readonly visitedPlaces = inject(VisitedPlacesService);
-  private readonly sharedTrips = inject(SharedTripsService);
-  private readonly karma       = inject(KarmaService);
+  private readonly sharedTrips   = inject(SharedTripsService);
+  private readonly karma         = inject(KarmaService);
+  private readonly api           = inject(ApiService);
 
   close = output<void>();
 
-  selectedPlanId = signal<string | null>(null);
-  shareError     = signal<string | null>(null);
-  editingHome    = signal(false);
-  homeInput      = signal('');
-  pendingPin     = signal<{ x: number; y: number } | null>(null);
-  pendingLabel   = signal('');
+  selectedPlanId  = signal<string | null>(null);
+  shareError      = signal<string | null>(null);
+  exportingPlanId = signal<string | null>(null);
+  toast           = signal<string | null>(null);
+  editingHome     = signal(false);
+  homeInput       = signal('');
+  pendingPin      = signal<{ x: number; y: number } | null>(null);
+  pendingLabel    = signal('');
 
   readonly initials = computed(() => {
     const name = this.auth.currentUser()?.name ?? '';
@@ -285,6 +301,44 @@ export class ProfileComponent {
     });
     this.savedPlans.setShareId(user.email, plan.id, shareId);
     this.copyLink(shareId, plan.id);
+  }
+
+  downloadItinerary(plan: SavedPlan): void {
+    if (environment.useMocks) {
+      this.toast.set('La exportación Excel requiere el backend activo');
+      return;
+    }
+
+    const cityNames: Record<string, string> = {};
+    const attractionNames: Record<string, string> = {};
+
+    for (const stop of plan.stops) {
+      const city = WORLD_CITIES.find(c => c.id === stop.cityId);
+      if (!city) continue;
+      cityNames[stop.cityId] = city.name;
+      for (const att of getAttractions(city)) {
+        attractionNames[att.id] = att.name;
+      }
+    }
+
+    this.exportingPlanId.set(plan.id);
+    this.api.exportItinerary(plan.id, cityNames, attractionNames).subscribe({
+      next: (blob) => {
+        const slug = plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `itinerario-${slug}.xlsx`;
+        a.click();
+        URL.revokeObjectURL(url);
+        this.exportingPlanId.set(null);
+        this.toast.set('Itinerario descargado');
+      },
+      error: () => {
+        this.exportingPlanId.set(null);
+        this.toast.set('Error al descargar el itinerario');
+      },
+    });
   }
 
   private copyLink(shareId: string, _planId: string): void {

@@ -193,6 +193,7 @@ import { CommentModalComponent } from '../comment-modal/comment-modal.component'
 export class AttractionDetailModalComponent {
   attraction = input.required<Attraction>();
   cityId     = input.required<string>();
+  stopId     = input.required<string>();
   cityName   = input.required<string>();
   comments   = input<Comment[]>([]);
 
@@ -207,11 +208,11 @@ export class AttractionDetailModalComponent {
   private readonly api   = inject(ApiService);
 
   readonly inPlan = computed(() =>
-    this.trip.isAttractionSelected(this.cityId(), this.attraction().id)
+    this.trip.isAttractionSelected(this.stopId(), this.attraction().id)
   );
 
   readonly plannedEntry = computed(() =>
-    this.trip.getPlannedAttraction(this.cityId(), this.attraction().id)
+    this.trip.getPlannedAttraction(this.stopId(), this.attraction().id)
   );
 
   readonly activeStop = computed(() => this.trip.activeStop());
@@ -220,9 +221,10 @@ export class AttractionDetailModalComponent {
     const city = WORLD_CITIES.find(c => c.id === this.cityId());
     if (!city) return [];
     const allAttractions = getAttractions(city);
-    return this.trip.selectedAttractionsFor(this.cityId())
+    return this.trip.selectedAttractionsFor(this.stopId())
       .filter(p => p.attractionId !== this.attraction().id)
       .map(p => ({
+        entryId:    p.entryId,
         startTime:  p.startTime,
         date:       p.date,
         attraction: allAttractions.find(a => a.id === p.attractionId)!,
@@ -240,15 +242,17 @@ export class AttractionDetailModalComponent {
   onPlanConfirmed(entry: PlanEntry): void {
     const date = entry.date || undefined;
     if (this.inPlan()) {
-      this.trip.updateStartTime(this.cityId(), this.attraction().id, entry.startTime, date);
+      this.trip.updateStartTime(this.stopId(), this.plannedEntry()!.entryId, entry.startTime, date);
     } else {
-      this.trip.addAttraction(this.cityId(), this.attraction().id, entry.startTime, date);
+      this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, date);
     }
     this.showPlanModal.set(false);
   }
 
   onPlanRemoved(): void {
-    this.trip.removeAttraction(this.cityId(), this.attraction().id);
+    const entryId = this.plannedEntry()?.entryId;
+    if (!entryId) return;
+    this.trip.removeAttraction(this.stopId(), entryId);
     this.showPlanModal.set(false);
   }
 

@@ -79,18 +79,38 @@ export class AuthService {
   // Encrypts plaintext credentials with the RSA public key (JWK) stored in environment.
   // Returns { encryptedPayload: base64 } — the shape expected by /auth/login and /auth/register.
   private async encryptPayload(plaintext: object): Promise<{ encryptedPayload: string }> {
-    const spkiDer = Uint8Array.from(atob(environment.rsaPublicKey), c => c.charCodeAt(0));
-    const key = await crypto.subtle.importKey(
-      'spki', spkiDer,
-      { name: 'RSA-OAEP', hash: 'SHA-256' },
-      false, ['encrypt']
-    );
-    const buf = await crypto.subtle.encrypt(
-      { name: 'RSA-OAEP' },
-      key,
-      new TextEncoder().encode(JSON.stringify(plaintext))
-    );
-    return { encryptedPayload: btoa(String.fromCharCode(...new Uint8Array(buf))) };
+    if (!environment.rsaPublicKey) {
+      throw new Error('La clave pública RSA no está configurada. Contacta al administrador.');
+    }
+
+    let spkiDer: Uint8Array;
+    try {
+      spkiDer = Uint8Array.from(atob(environment.rsaPublicKey), c => c.charCodeAt(0));
+    } catch {
+      throw new Error('La clave pública RSA tiene un formato inválido.');
+    }
+
+    let key: CryptoKey;
+    try {
+      key = await crypto.subtle.importKey(
+        'spki', spkiDer,
+        { name: 'RSA-OAEP', hash: 'SHA-256' },
+        false, ['encrypt']
+      );
+    } catch {
+      throw new Error('No se pudo importar la clave pública RSA. Verifica que sea SPKI/base64.');
+    }
+
+    try {
+      const buf = await crypto.subtle.encrypt(
+        { name: 'RSA-OAEP' },
+        key,
+        new TextEncoder().encode(JSON.stringify(plaintext))
+      );
+      return { encryptedPayload: btoa(String.fromCharCode(...new Uint8Array(buf))) };
+    } catch {
+      throw new Error('Error al cifrar las credenciales. Intenta de nuevo.');
+    }
   }
 
   private mockSession(name: string, email: string): { token: string; user: AuthUser } {
