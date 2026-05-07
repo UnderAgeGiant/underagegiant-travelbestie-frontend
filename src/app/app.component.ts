@@ -26,7 +26,7 @@ import { SharedTripComponent } from './features/shared-trip/shared-trip.componen
     @if (sharedTripId()) {
       <app-shared-trip [tripId]="sharedTripId()!" />
     } @else {
-    <app-nav (logoClick)="trip.setActive(trip.stops()[0]?.cityId ?? '')"
+    <app-nav (logoClick)="trip.setActive(trip.stops()[0]?.stopId ?? '')"
              (profileClick)="showProfile.set(true)" />
 
     <div class="layout">

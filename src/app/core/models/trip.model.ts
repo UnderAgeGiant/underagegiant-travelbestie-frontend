@@ -1,4 +1,5 @@
 export interface PlannedAttraction {
+  entryId:      string;  // unique per scheduled occurrence (allows same attraction multiple times)
   attractionId: string;
   startTime:    string;  // "HH:mm"
   date?:        string;  // "dd/mm/yyyy" — which day within the stop
@@ -10,7 +11,8 @@ export interface Lodging {
 }
 
 export interface TripStop {
-  cityId: string;
+  stopId:  string;  // UUID — unique per stop instance (allows same city multiple times)
+  cityId:  string;
   checkIn: string;
   checkOut: string;
   selectedAttractions: PlannedAttraction[];

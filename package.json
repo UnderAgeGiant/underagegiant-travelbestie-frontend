@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "node scripts/start-dev.mjs",
+    "dev:en": "node scripts/start-dev.mjs --configuration=en-US",
     "build": "ng build",
     "build:vercel": "node scripts/patch-env.mjs && ng build --configuration production",
     "watch": "ng build --watch --configuration development",

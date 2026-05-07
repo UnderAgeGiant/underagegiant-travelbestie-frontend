@@ -3,9 +3,25 @@ import { City } from '../../core/models/city.model';
 import { TripStop, PlannedAttraction, Planification, TransitLeg, Lodging } from '../../core/models/trip.model';
 import { AuthService } from '../../core/auth/auth.service';
 
+function migrateAttraction(raw: any): PlannedAttraction {
+  return {
+    entryId:      raw.entryId ?? crypto.randomUUID(),
+    attractionId: raw.attractionId,
+    startTime:    raw.startTime,
+    date:         raw.date,
+  };
+}
+
+function migrateStop(raw: any): TripStop {
+  return {
+    ...raw,
+    stopId:               raw.stopId ?? crypto.randomUUID(),
+    selectedAttractions:  (raw.selectedAttractions ?? []).map(migrateAttraction),
+  };
+}
+
 function migrateTransitLeg(raw: any): TransitLeg {
   if (raw && Array.isArray(raw.segments)) {
-    // Ensure every segment has the new fields (in case they were saved before this model change)
     const segments = raw.segments.map((s: any) => ({
       mode:            s.mode ?? 'flight',
       departureDate:   s.departureDate ?? '',
@@ -41,7 +57,7 @@ export class TripService {
 
   private _stops        = signal<TripStop[]>([]);
   private _transits     = signal<TransitLeg[]>([]);
-  private _activeId     = signal<string | null>(null);
+  private _activeId     = signal<string | null>(null);  // tracks stopId
   private _loadedPlanId = signal<string | null>(null);
   private _saving       = false;
 
@@ -50,7 +66,7 @@ export class TripService {
   readonly activeId     = this._activeId.asReadonly();
   readonly loadedPlanId = this._loadedPlanId.asReadonly();
   readonly existingCityIds = computed(() => this._stops().map(s => s.cityId));
-  readonly activeStop      = computed(() => this._stops().find(s => s.cityId === this._activeId()) ?? null);
+  readonly activeStop      = computed(() => this._stops().find(s => s.stopId === this._activeId()) ?? null);
 
   readonly transitMap = computed(() => {
     const map = new Map<string, TransitLeg>();
@@ -70,11 +86,9 @@ export class TripService {
   });
 
   constructor() {
-    // Restore plan synchronously if user is already logged in (page refresh)
     const user = this.auth.currentUser();
     if (user?.email) this.loadForUser(user.email);
 
-    // Auto-save on every stops/transits/loadedPlanId mutation (skip during bulk restore)
     effect(() => {
       const user     = this.auth.currentUser();
       const stops    = this._stops();
@@ -91,7 +105,6 @@ export class TripService {
     });
   }
 
-  /** Load the saved plan for a user and enable auto-save. */
   loadForUser(email: string): void {
     this._saving = true;
     const raw      = localStorage.getItem(planKey(email));
@@ -99,11 +112,11 @@ export class TripService {
     if (raw) {
       try {
         const parsed   = JSON.parse(raw);
-        const stops: TripStop[]     = Array.isArray(parsed) ? parsed : (parsed.stops    ?? []);
+        const stops: TripStop[]      = (Array.isArray(parsed) ? parsed : (parsed.stops ?? [])).map(migrateStop);
         const transits: TransitLeg[] = Array.isArray(parsed) ? []     : (parsed.transits ?? []).map(migrateTransitLeg);
         this._stops.set(stops);
         this._transits.set(transits);
-        this._activeId.set(stops[0]?.cityId ?? null);
+        this._activeId.set(stops[0]?.stopId ?? null);
       } catch {
         this._stops.set([]);
         this._transits.set([]);
@@ -118,7 +131,6 @@ export class TripService {
     this._saving = false;
   }
 
-  /** Flush current in-memory state to localStorage immediately (call before a programmatic navigation). */
   persistNow(email: string): void {
     localStorage.setItem(planKey(email), JSON.stringify({ stops: this._stops(), transits: this._transits() }));
     const id = this._loadedPlanId();
@@ -126,7 +138,6 @@ export class TripService {
     else     { localStorage.removeItem(activePlanKey(email)); }
   }
 
-  /** Wipe in-memory plan without touching localStorage (called on logout). */
   clearPlan(): void {
     this._saving = true;
     this._stops.set([]);
@@ -136,31 +147,30 @@ export class TripService {
     this._saving = false;
   }
 
-  /** Load a named saved plan as the active working plan. */
   restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = []): void {
     this._saving = true;
-    this._stops.set(stops);
+    this._stops.set(stops.map(migrateStop));
     this._transits.set(transits.map(migrateTransitLeg));
-    this._activeId.set(stops[0]?.cityId ?? null);
+    this._activeId.set(stops[0]?.stopId ?? null);
     this._loadedPlanId.set(planId);
     this._saving = false;
   }
 
-  /** Update which saved-plan id is currently active (called after upsert). */
   markAsLoadedPlan(id: string | null): void {
     this._loadedPlanId.set(id);
   }
 
   addStop(city: City, checkIn: string, checkOut: string): void {
+    const stopId = crypto.randomUUID();
     this._stops.update(prev =>
-      this.sortByCheckIn([...prev, { cityId: city.id, checkIn, checkOut, selectedAttractions: [] }])
+      this.sortByCheckIn([...prev, { stopId, cityId: city.id, checkIn, checkOut, selectedAttractions: [] }])
     );
-    this._activeId.set(city.id);
+    this._activeId.set(stopId);
   }
 
-  updateDates(cityId: string, checkIn: string, checkOut: string): void {
+  updateDates(stopId: string, checkIn: string, checkOut: string): void {
     this._stops.update(stops =>
-      this.sortByCheckIn(stops.map(s => s.cityId === cityId ? { ...s, checkIn, checkOut } : s))
+      this.sortByCheckIn(stops.map(s => s.stopId === stopId ? { ...s, checkIn, checkOut } : s))
     );
   }
 
@@ -181,21 +191,26 @@ export class TripService {
     return new Date(yyyy, mm - 1, dd).getTime();
   }
 
-  removeStop(cityId: string): void {
-    const remaining = this._stops().filter(s => s.cityId !== cityId);
+  removeStop(stopId: string): void {
+    const all  = this._stops();
+    const stop = all.find(s => s.stopId === stopId);
+    const remaining = all.filter(s => s.stopId !== stopId);
     this._stops.set(remaining);
-    this._transits.update(ts => ts.filter(t => t.fromCityId !== cityId && t.toCityId !== cityId));
-    if (this._activeId() === cityId) {
-      this._activeId.set(remaining[0]?.cityId ?? null);
+    // Remove transits for this city only if no other stop for this city remains
+    if (stop && !remaining.some(s => s.cityId === stop.cityId)) {
+      this._transits.update(ts => ts.filter(t => t.fromCityId !== stop.cityId && t.toCityId !== stop.cityId));
+    }
+    if (this._activeId() === stopId) {
+      this._activeId.set(remaining[0]?.stopId ?? null);
     }
   }
 
-  setLodging(cityId: string, lodging: Lodging): void {
-    this._stops.update(stops => stops.map(s => s.cityId === cityId ? { ...s, lodging } : s));
+  setLodging(stopId: string, lodging: Lodging): void {
+    this._stops.update(stops => stops.map(s => s.stopId === stopId ? { ...s, lodging } : s));
   }
 
-  removeLodging(cityId: string): void {
-    this._stops.update(stops => stops.map(s => s.cityId === cityId ? { ...s, lodging: undefined } : s));
+  removeLodging(stopId: string): void {
+    this._stops.update(stops => stops.map(s => s.stopId === stopId ? { ...s, lodging: undefined } : s));
   }
 
   setTransit(leg: TransitLeg): void {
@@ -209,31 +224,32 @@ export class TripService {
     this._transits.update(ts => ts.filter(t => !(t.fromCityId === fromCityId && t.toCityId === toCityId)));
   }
 
-  setActive(cityId: string): void {
-    this._activeId.set(cityId);
+  setActive(stopId: string): void {
+    this._activeId.set(stopId);
   }
 
-  addAttraction(cityId: string, attractionId: string, startTime: string, date?: string): void {
+  addAttraction(stopId: string, attractionId: string, startTime: string, date?: string): void {
+    const entryId = crypto.randomUUID();
     this._stops.update(stops => stops.map(s =>
-      s.cityId === cityId && !s.selectedAttractions.some(a => a.attractionId === attractionId)
-        ? { ...s, selectedAttractions: [...s.selectedAttractions, { attractionId, startTime, date }] }
+      s.stopId === stopId
+        ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, date }] }
         : s
     ));
   }
 
-  removeAttraction(cityId: string, attractionId: string): void {
+  removeAttraction(stopId: string, entryId: string): void {
     this._stops.update(stops => stops.map(s =>
-      s.cityId === cityId
-        ? { ...s, selectedAttractions: s.selectedAttractions.filter(a => a.attractionId !== attractionId) }
+      s.stopId === stopId
+        ? { ...s, selectedAttractions: s.selectedAttractions.filter(a => a.entryId !== entryId) }
         : s
     ));
   }
 
-  updateStartTime(cityId: string, attractionId: string, startTime: string, date?: string): void {
+  updateStartTime(stopId: string, entryId: string, startTime: string, date?: string): void {
     this._stops.update(stops => stops.map(s =>
-      s.cityId === cityId
+      s.stopId === stopId
         ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
-            a.attractionId === attractionId
+            a.entryId === entryId
               ? { ...a, startTime, date: date ?? a.date }
               : a
           )}
@@ -241,17 +257,21 @@ export class TripService {
     ));
   }
 
-  isAttractionSelected(cityId: string, attractionId: string): boolean {
-    return this._stops().find(s => s.cityId === cityId)
+  isAttractionSelected(stopId: string, attractionId: string): boolean {
+    return this._stops().find(s => s.stopId === stopId)
       ?.selectedAttractions.some(a => a.attractionId === attractionId) ?? false;
   }
 
-  getPlannedAttraction(cityId: string, attractionId: string): PlannedAttraction | null {
-    return this._stops().find(s => s.cityId === cityId)
-      ?.selectedAttractions.find(a => a.attractionId === attractionId) ?? null;
+  getAllPlannedEntries(stopId: string, attractionId: string): PlannedAttraction[] {
+    return this._stops().find(s => s.stopId === stopId)
+      ?.selectedAttractions.filter(a => a.attractionId === attractionId) ?? [];
   }
 
-  selectedAttractionsFor(cityId: string): PlannedAttraction[] {
-    return this._stops().find(s => s.cityId === cityId)?.selectedAttractions ?? [];
+  getPlannedAttraction(stopId: string, attractionId: string): PlannedAttraction | null {
+    return this.getAllPlannedEntries(stopId, attractionId)[0] ?? null;
+  }
+
+  selectedAttractionsFor(stopId: string): PlannedAttraction[] {
+    return this._stops().find(s => s.stopId === stopId)?.selectedAttractions ?? [];
   }
 }

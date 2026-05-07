@@ -4,6 +4,7 @@ import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
 
 export interface ScheduleEntry {
+  entryId:    string;
   attraction: Attraction;
   startTime:  string;
   date?:      string;
@@ -93,7 +94,7 @@ export interface PlanEntry {
                 Ya planificado en esta ciudad
               </div>
               <div style="max-height:200px;overflow-y:auto">
-                @for (entry of schedule(); track entry.attraction.id) {
+                @for (entry of schedule(); track entry.entryId) {
                   <div [class]="'schedule-row' + (overlappingIds().has(entry.attraction.id) ? ' conflict' : '')">
                     @if (overlappingIds().has(entry.attraction.id)) {
                       <span class="conflict-badge">⚠</span>
@@ -170,7 +171,14 @@ export class PlanTimeModalComponent implements OnInit {
   readonly hasOverlap = computed(() => this.overlappingIds().size > 0);
 
   ngOnInit() {
-    if (this.initialTime()) this.time.set(this.initialTime());
+    if (this.initialTime()) {
+      this.time.set(this.initialTime());
+    } else {
+      const now = new Date();
+      const hh = now.getHours().toString().padStart(2, '0');
+      const mm = now.getMinutes().toString().padStart(2, '0');
+      this.time.set(`${hh}:${mm}`);
+    }
     this.date.set(this.initialDate() || this.stopCheckIn() || '');
   }
 
