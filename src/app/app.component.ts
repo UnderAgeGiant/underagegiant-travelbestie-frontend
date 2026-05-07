@@ -8,7 +8,6 @@ import { AddStopModalComponent } from './features/trip/add-stop-modal/add-stop-m
 import { ToastComponent } from './shared/toast/toast.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { SharedTripComponent } from './features/shared-trip/shared-trip.component';
-import { AdBannerComponent } from './shared/ad-banner/ad-banner.component';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +21,6 @@ import { AdBannerComponent } from './shared/ad-banner/ad-banner.component';
     ToastComponent,
     ProfileComponent,
     SharedTripComponent,
-    AdBannerComponent,
   ],
   template: `
     @if (sharedTripId()) {
@@ -63,8 +61,6 @@ import { AdBannerComponent } from './shared/ad-banner/ad-banner.component';
       <app-profile (close)="showProfile.set(false)" />
     }
     }
-
-    <app-ad-banner />
   `,
 })
 export class AppComponent {

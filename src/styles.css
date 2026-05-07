@@ -56,8 +56,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .form-textarea:focus { border-color: var(--lav-d); background: #fff; }
 .divider { display: flex; align-items: center; gap: 10px; margin: 14px 0; color: var(--t3); font-size: 11px; font-weight: 500; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.layout { display: flex; height: calc(100vh - 58px - 60px); margin-top: 58px; overflow: hidden; }
-@media (min-width: 768px) { .layout { height: calc(100vh - 58px - 90px); } }
+.layout { display: flex; height: calc(100vh - 58px); margin-top: 58px; overflow: hidden; }
 
 /* NAV */
 .nav { position: fixed; inset: 0 0 auto; height: 58px; z-index: 200; background: oklch(99% .008 80/.96); backdrop-filter: blur(18px); border-bottom: 1.5px solid var(--border); display: flex; align-items: center; gap: 0; padding: 0 20px; }
