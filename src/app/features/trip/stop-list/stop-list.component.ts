@@ -259,7 +259,9 @@ export class StopListComponent {
     if (!name) return;
     const email = this.auth.currentUser()?.email;
     if (!email) return;
-    this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits()).subscribe(newId => {
+    // Always null: the form only shows when activeTripName() was null, meaning the stale
+    // loadedPlanId doesn't resolve to a known plan — passing it would PUT a ghost trip and fail silently.
+    this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits()).subscribe(newId => {
       this.trip.markAsLoadedPlan(newId);
       this.bookOpen.set(false);
       this.bookName.set('');
