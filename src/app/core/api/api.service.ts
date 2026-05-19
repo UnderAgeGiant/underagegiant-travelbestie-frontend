@@ -4,8 +4,15 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Trip } from '../models/trip.model';
 import { Comment } from '../models/comment.model';
+import { CityCatalog, PlanTripRequest, SuggestTripsResponse } from '../models/ai.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
+import { WORLD_CITIES } from '../../data/cities.data';
+import { getAttractions } from '../../data/attractions.data';
+
+const CITY_CATALOG: CityCatalog = Object.fromEntries(
+  WORLD_CITIES.map(city => [city.id, getAttractions(city).map(a => ({ id: a.id, name: a.name }))])
+);
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -79,5 +86,28 @@ export class ApiService {
     const key = `tb_karma_${email}`;
     const current = parseInt(localStorage.getItem(key) ?? '3', 10);
     localStorage.setItem(key, String(current + delta));
+  }
+
+  suggestTrips(preferences: string, duration?: number, budget?: string): Observable<SuggestTripsResponse> {
+    if (this.useMocks) {
+      return of({
+        options: [
+          { id: 1, title: 'Clásicos de Europa', summary: 'París, Roma y Barcelona en un viaje lleno de arte, historia y gastronomía.', highlights: ['París, Francia', 'Roma, Italia', 'Barcelona, España'] },
+          { id: 2, title: 'Asia Oriental',       summary: 'Tokio, Kioto y Seúl: tradición y modernidad en perfecta armonía.',          highlights: ['Tokio, Japón',   'Kioto, Japón',   'Seúl, Corea del Sur'] },
+        ],
+      });
+    }
+    return this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget });
+  }
+
+  planTrip(req: PlanTripRequest): Observable<Trip> {
+    if (this.useMocks) {
+      return of({
+        title: req.selectedOption.title,
+        stops: [{ cityId: 'paris', checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [{ attractionId: 'paris_0', startTime: '09:00' }] }],
+        transits: [],
+      });
+    }
+    return this.http.post<Trip>(`${this.base}/ai/plan`, { ...req, cityCatalog: CITY_CATALOG });
   }
 }
