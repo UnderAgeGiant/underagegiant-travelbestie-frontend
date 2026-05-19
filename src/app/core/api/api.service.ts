@@ -104,7 +104,7 @@ export class ApiService {
     if (this.useMocks) {
       return of({
         title: req.selectedOption.title,
-        stops: [{ cityId: 'paris', checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [{ attractionId: 'paris_0', startTime: '09:00' }] }],
+        stops: [{ stopId: 'mock-ai-stop-paris', cityId: 'paris', checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [{ entryId: 'mock-ai-paris-att-0', attractionId: 'paris_0', startTime: '09:00' }] }],
         transits: [],
       });
     }
