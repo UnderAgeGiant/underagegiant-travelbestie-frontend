@@ -608,3 +608,49 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .trip-stats { gap: 16px; }
   .trip-stat-val { font-size: 22px; }
 }
+
+/* ── AI Planning ── */
+.ai-plan-page .shared-bg { background: url('/ai-plannification.jpeg') center center / cover no-repeat; filter: blur(2px); }
+.ai-loading-overlay { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.4); backdrop-filter: blur(6px); }
+.ai-loading-card { background: #fff; border-radius: 20px; padding: 36px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: var(--sh-lg); max-width: 300px; width: 90%; animation: scaleIn .2s ease; }
+.ai-loading-spinner { width: 52px; height: 52px; border: 3px solid var(--lav); border-top-color: var(--lav-d); border-radius: 50%; animation: spin .75s linear infinite; }
+.ai-loading-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--t1); }
+.ai-loading-sub { font-size: 12px; color: var(--t3); }
+.ai-plan-karma-note { display: inline-block; margin-top: 8px; padding: 4px 14px; background: var(--butter); border-radius: 99px; font-size: 11px; font-weight: 600; color: var(--peach-d); }
+.ai-plan-steps { display: flex; align-items: center; gap: 0; margin-bottom: 20px; }
+.ai-plan-step { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--t3); }
+.ai-plan-step.active { color: var(--lav-d); }
+.ai-plan-step.done { color: var(--mint-d); }
+.ai-plan-step-n { width: 22px; height: 22px; border-radius: 50%; background: var(--border); color: var(--t2); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.ai-plan-step.active .ai-plan-step-n { background: var(--lav-d); color: #fff; }
+.ai-plan-step.done .ai-plan-step-n { background: var(--mint-d); color: #fff; }
+.ai-plan-step-line { flex: 1; height: 2px; background: var(--border); margin: 0 8px; }
+.ai-plan-card { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 22px 20px; margin-bottom: 16px; box-shadow: var(--sh); }
+.ai-plan-card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--t1); margin-bottom: 16px; }
+.ai-plan-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+.ai-plan-label { font-size: 12px; font-weight: 600; color: var(--t2); }
+.ai-plan-textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--t1); resize: vertical; outline: none; transition: border-color .2s; }
+.ai-plan-textarea:focus { border-color: var(--lav-d); }
+.ai-plan-row { display: flex; gap: 12px; }
+.ai-plan-row .ai-plan-field { flex: 1; }
+.ai-plan-submit { width: 100%; justify-content: center; padding: 12px; font-size: 14px; margin-top: 4px; }
+.ai-plan-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.ai-plan-error { background: oklch(95% .06 20); border: 1.5px solid oklch(75% .12 20); border-radius: 10px; padding: 10px 14px; font-size: 12px; color: oklch(40% .15 20); margin-bottom: 14px; }
+.ai-options { display: flex; gap: 12px; margin-bottom: 18px; }
+.ai-option-card { flex: 1; border: 2px solid var(--border); border-radius: 14px; padding: 16px 14px; cursor: pointer; transition: all .2s; display: flex; flex-direction: column; gap: 8px; }
+.ai-option-card:hover { border-color: var(--lav-d); box-shadow: var(--sh); transform: translateY(-2px); }
+.ai-option-selected { border-color: var(--lav-d) !important; background: var(--lav); box-shadow: var(--sh-md); }
+.ai-option-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--t1); }
+.ai-option-summary { font-size: 12px; color: var(--t2); line-height: 1.5; }
+.ai-option-highlights { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.ai-option-hl { background: var(--mint); color: var(--mint-d); padding: 2px 10px; border-radius: 99px; font-size: 10px; font-weight: 600; }
+.ai-plan-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.ai-plan-result-header { text-align: center; margin-bottom: 20px; padding: 20px 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
+.ai-plan-result-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: var(--t1); margin-bottom: 8px; }
+.ai-plan-result-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
+.ai-plan-gate { text-align: center; padding: 60px 20px; }
+.ai-plan-page { position: fixed; inset: 0; z-index: 200; overflow-y: auto; overflow-x: hidden; }
+@media (max-width: 600px) {
+  .ai-options { flex-direction: column; }
+  .ai-plan-row { flex-direction: column; }
+}

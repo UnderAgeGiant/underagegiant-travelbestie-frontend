@@ -22,6 +22,10 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
                   style="padding:11px 24px;font-size:14px"
                   (click)="addDestination.emit()"
                   i18n="@@welcome.addBtn">Comienza a crear tu plan</button>
+          <button class="btn-pill btn-outline"
+                  style="padding:11px 24px;font-size:14px"
+                  (click)="openAiPlanning.emit()"
+                  i18n="@@welcome.aiBtn">✨ Planificar con IA</button>
         </div>
       </div>
 
@@ -39,6 +43,7 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
   addDestination = output<void>();
+  openAiPlanning = output<void>();
   slideIdx = signal(0);
   readonly slides = SLIDES;
   private timer?: ReturnType<typeof setInterval>;

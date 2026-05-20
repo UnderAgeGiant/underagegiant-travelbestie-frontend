@@ -65,7 +65,12 @@ import { environment } from '../../../environments/environment';
 
         <!-- Trip summary -->
         <section>
-          <div class="section-head">Mis planificaciones ✈️</div>
+          <div class="section-head" style="display:flex;align-items:center;justify-content:space-between">
+            <span>Mis planificaciones ✈️</span>
+            <button class="btn-pill btn-outline" style="font-size:12px;padding:5px 14px"
+                    (click)="openAiPlanning.emit()" type="button"
+                    i18n="@@profile.aiBtn">✨ Nuevo viaje con IA</button>
+          </div>
           @if (trip.stops().length === 0) {
             <div class="section-empty">Aún no tienes destinos planificados. ¡Agrega tu primera ciudad!</div>
           } @else {
@@ -236,7 +241,8 @@ export class ProfileComponent {
   private readonly karma         = inject(KarmaService);
   private readonly api           = inject(ApiService);
 
-  close = output<void>();
+  close          = output<void>();
+  openAiPlanning = output<void>();
 
   selectedPlanId  = signal<string | null>(null);
   shareError      = signal<string | null>(null);
