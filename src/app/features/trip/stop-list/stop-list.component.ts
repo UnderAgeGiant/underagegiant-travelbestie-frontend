@@ -196,6 +196,11 @@ import { LodgingComponent } from './lodging.component';
               </div>
             </div>
           }
+          @if (bookError()) {
+            <div style="font-size:11px;color:oklch(48% 0.16 50);margin-top:4px;text-align:center">
+              ⭐ {{ bookError() }}
+            </div>
+          }
           @if (bookSaved()) {
             <div style="text-align:center;font-size:11px;color:oklch(42% 0.15 145);font-weight:700;margin-top:6px">
               ✓ <ng-container i18n="@@stopList.bookSavedMsg">Viaje guardado</ng-container>
@@ -236,6 +241,7 @@ export class StopListComponent {
   bookOpen  = signal(false);
   bookName  = signal('');
   bookSaved = signal(false);
+  bookError = signal('');
 
   editingDatesStopId = signal<string | null>(null);
   editCheckIn        = signal('');
@@ -263,13 +269,19 @@ export class StopListComponent {
     if (!name) return;
     const email = this.auth.currentUser()?.email;
     if (!email) return;
+    this.bookError.set('');
     // Always null: the form only shows when activeTripName() was null, meaning the stale
     // loadedPlanId doesn't resolve to a known plan — passing it would PUT a ghost trip and fail silently.
-    this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits()).subscribe(newId => {
-      this.trip.markAsLoadedPlan(newId);
-      this.bookOpen.set(false);
-      this.bookName.set('');
-      this.flashSaved();
+    this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits()).subscribe({
+      next: newId => {
+        this.trip.markAsLoadedPlan(newId);
+        this.bookOpen.set(false);
+        this.bookName.set('');
+        this.flashSaved();
+      },
+      error: err => {
+        if (err?.status === 402) this.bookError.set($localize`:@@stopList.bookKarmaErr:Karma insuficiente para guardar el viaje (necesitas al menos 1 ⭐)`);
+      },
     });
   }
 

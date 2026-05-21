@@ -435,7 +435,13 @@ export class AiPlanningComponent {
     if (!trip || !email) return;
     this.tripSvc.restoreStops(trip.stops, null, trip.transits ?? []);
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [])
-      .subscribe(() => this.planSaved.emit());
+      .subscribe({
+        next: () => this.planSaved.emit(),
+        error: err => {
+          const k = this.parseKarmaError(err);
+          if (k) this.karmaError.set(k);
+        },
+      });
   }
 
   reset(): void {
