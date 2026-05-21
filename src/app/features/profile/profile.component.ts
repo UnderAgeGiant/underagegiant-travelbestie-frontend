@@ -125,7 +125,7 @@ import { environment } from '../../../environments/environment';
                 </div>
 
                 <div class="saved-plan-actions">
-                  @if (plan.shareId) {
+                  @if (planShareId(plan)) {
                     <button class="btn-pill btn-ghost"
                             style="flex:1;justify-content:center;gap:7px"
                             (click)="sharePlan(plan)" type="button">
@@ -275,12 +275,20 @@ export class ProfileComponent {
     this.editingHome.set(false);
   }
 
+  planShareId(plan: SavedPlan): string | undefined {
+    if (plan.shareId) return plan.shareId;
+    const email = this.auth.currentUser()?.email;
+    if (!email) return undefined;
+    return this.sharedTrips.getMyTrips(email).find(t => t.planId === plan.id)?.id;
+  }
+
   sharePlan(plan: SavedPlan): void {
     const user = this.auth.currentUser();
     if (!user) return;
 
-    if (plan.shareId) {
-      this.copyLink(plan.shareId, plan.id);
+    const existingShareId = this.planShareId(plan);
+    if (existingShareId) {
+      this.copyLink(existingShareId, plan.id);
       return;
     }
 
