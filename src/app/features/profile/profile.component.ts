@@ -340,9 +340,13 @@ export class ProfileComponent {
         this.exportingPlanId.set(null);
         this.toast.set('Itinerario descargado');
       },
-      error: () => {
+      error: (err) => {
         this.exportingPlanId.set(null);
-        this.toast.set('Error al descargar el itinerario');
+        if (err?.status === 402) {
+          this.toast.set('Karma insuficiente para exportar el itinerario (necesitas al menos 1 ⭐)');
+        } else {
+          this.toast.set('Error al descargar el itinerario');
+        }
       },
     });
   }
