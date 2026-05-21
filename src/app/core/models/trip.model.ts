@@ -50,4 +50,5 @@ export interface Trip {
   transits?: TransitLeg[];
   ownerId?: string;
   createdAt?: string;
+  shareId?: string;
 }

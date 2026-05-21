@@ -292,23 +292,37 @@ export class ProfileComponent {
       return;
     }
 
-    if ((this.karma.karma() ?? 0) < 1) {
-      this.shareError.set(plan.id);
-      setTimeout(() => this.shareError.set(null), 2000);
-      return;
+    if (environment.useMocks) {
+      if ((this.karma.karma() ?? 0) < 1) {
+        this.shareError.set(plan.id);
+        setTimeout(() => this.shareError.set(null), 2000);
+        return;
+      }
+      this.karma.spend();
+      const shareId = this.sharedTrips.createShare({
+        ownerEmail: user.email,
+        ownerName:  user.name,
+        tripName:   plan.name,
+        stops:      plan.stops,
+        transits:   plan.transits ?? [],
+        planId:     plan.id,
+      });
+      this.savedPlans.setShareId(user.email, plan.id, shareId);
+      this.copyLink(shareId, plan.id);
+    } else {
+      this.api.shareTrip(plan.id).subscribe({
+        next: ({ shareId }) => {
+          this.savedPlans.setShareId(user.email, plan.id, shareId);
+          this.copyLink(shareId, plan.id);
+        },
+        error: err => {
+          if (err?.status === 402) {
+            this.shareError.set(plan.id);
+            setTimeout(() => this.shareError.set(null), 2000);
+          }
+        },
+      });
     }
-
-    this.karma.spend();
-    const shareId = this.sharedTrips.createShare({
-      ownerEmail: user.email,
-      ownerName:  user.name,
-      tripName:   plan.name,
-      stops:      plan.stops,
-      transits:   plan.transits ?? [],
-      planId:     plan.id,
-    });
-    this.savedPlans.setShareId(user.email, plan.id, shareId);
-    this.copyLink(shareId, plan.id);
   }
 
   downloadItinerary(plan: SavedPlan): void {

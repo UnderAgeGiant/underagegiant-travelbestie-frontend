@@ -46,6 +46,7 @@ export class SavedPlansService {
         savedAt:  t.createdAt ?? new Date().toISOString(),
         stops:    t.stops,
         transits: t.transits ?? [],
+        ...(t.shareId ? { shareId: t.shareId } : {}),
       })));
     });
   }
