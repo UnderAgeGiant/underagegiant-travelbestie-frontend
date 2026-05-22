@@ -8,6 +8,7 @@ import { AddStopModalComponent } from './features/trip/add-stop-modal/add-stop-m
 import { ToastComponent } from './shared/toast/toast.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { SharedTripComponent } from './features/shared-trip/shared-trip.component';
+import { AiPlanningComponent } from './features/ai-planning/ai-planning.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ import { SharedTripComponent } from './features/shared-trip/shared-trip.componen
     ToastComponent,
     ProfileComponent,
     SharedTripComponent,
+    AiPlanningComponent,
   ],
   template: `
     @if (sharedTripId()) {
@@ -34,7 +36,8 @@ import { SharedTripComponent } from './features/shared-trip/shared-trip.componen
 
       <div class="right-panel">
         @if (trip.stops().length === 0) {
-          <app-welcome (addDestination)="showAddModal.set(true)" />
+          <app-welcome (addDestination)="showAddModal.set(true)"
+                       (openAiPlanning)="showAiPlanning.set(true)" />
         } @else if (!trip.activeStop()) {
           <div class="empty-stop">
             <div class="empty-stop-icon">👆</div>
@@ -58,7 +61,13 @@ import { SharedTripComponent } from './features/shared-trip/shared-trip.componen
     }
 
     @if (showProfile()) {
-      <app-profile (close)="showProfile.set(false)" />
+      <app-profile (close)="showProfile.set(false)"
+                   (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)" />
+    }
+
+    @if (showAiPlanning()) {
+      <app-ai-planning (close)="showAiPlanning.set(false)"
+                       (planSaved)="showAiPlanning.set(false); toast.set('Plan guardado')" />
     }
     }
   `,
@@ -67,6 +76,7 @@ export class AppComponent {
   readonly trip = inject(TripService);
   showAddModal  = signal(false);
   showProfile   = signal(false);
+  showAiPlanning = signal(false);
   toast         = signal<string | null>(null);
 
   readonly sharedTripId = signal<string | null>(
