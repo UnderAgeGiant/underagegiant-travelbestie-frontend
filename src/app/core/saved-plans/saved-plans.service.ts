@@ -7,12 +7,13 @@ import { TripStop, TransitLeg } from '../models/trip.model';
 import { environment } from '../../../environments/environment';
 
 export interface SavedPlan {
-  id:        string;
-  name:      string;
-  savedAt:   string;
-  stops:     TripStop[];
-  transits?: TransitLeg[];
-  shareId?:  string;
+  id:         string;
+  name:       string;
+  savedAt:    string;
+  stops:      TripStop[];
+  transits?:  TransitLeg[];
+  shareId?:   string;
+  exportedAt?: string;
 }
 
 const key = (email: string) => `tb_saved_plans_${email}`;
@@ -47,6 +48,7 @@ export class SavedPlansService {
         stops:    t.stops,
         transits: t.transits ?? [],
         ...(t.shareId ? { shareId: t.shareId } : {}),
+        ...(t.itineraryExportedAt ? { exportedAt: t.itineraryExportedAt } : {}),
       })));
     });
   }
@@ -94,6 +96,15 @@ export class SavedPlansService {
       }),
       map(trip => trip.id!)
     );
+  }
+
+  markExported(email: string, planId: string): void {
+    const now = new Date().toISOString();
+    const updated = this._plans().map(p => p.id === planId ? { ...p, exportedAt: now } : p);
+    this._plans.set(updated);
+    if (environment.useMocks) {
+      localStorage.setItem(key(email), JSON.stringify(updated));
+    }
   }
 
   setShareId(email: string, planId: string, shareId: string): void {

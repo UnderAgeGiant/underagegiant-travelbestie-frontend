@@ -51,4 +51,5 @@ export interface Trip {
   ownerId?: string;
   createdAt?: string;
   shareId?: string;
+  itineraryExportedAt?: string;
 }

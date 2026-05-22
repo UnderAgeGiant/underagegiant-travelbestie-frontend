@@ -147,7 +147,10 @@ import { environment } from '../../../environments/environment';
                           style="justify-content:center;gap:6px;white-space:nowrap"
                           [disabled]="exportingPlanId() === plan.id"
                           (click)="downloadItinerary(plan)" type="button">
-                    {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel <span class="karma-cost">−1 ✨ karma</span>
+                    {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
+                    @if (!plan.exportedAt) {
+                      <span class="karma-cost">−1 ✨ karma</span>
+                    }
                   </button>
                   @if (shareError() === plan.id) {
                     <span class="share-error">Karma insuficiente</span>
@@ -333,6 +336,16 @@ export class ProfileComponent {
 
   downloadItinerary(plan: SavedPlan): void {
     if (environment.useMocks) {
+      if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {
+        this.shareError.set(plan.id);
+        setTimeout(() => this.shareError.set(null), 2000);
+        return;
+      }
+      const user = this.auth.currentUser();
+      if (!plan.exportedAt && user) {
+        this.karma.spend();
+        this.savedPlans.markExported(user.email, plan.id);
+      }
       this.toast.set('La exportación Excel requiere el backend activo');
       return;
     }
@@ -361,11 +374,19 @@ export class ProfileComponent {
         URL.revokeObjectURL(url);
         this.exportingPlanId.set(null);
         this.toast.set('Itinerario descargado');
+        if (!plan.exportedAt) {
+          const user = this.auth.currentUser();
+          if (user) {
+            this.karma.spend();
+            this.savedPlans.markExported(user.email, plan.id);
+          }
+        }
       },
       error: (err) => {
         this.exportingPlanId.set(null);
         if (err?.status === 402) {
-          this.toast.set('Karma insuficiente para exportar el itinerario (necesitas al menos 1 ⭐)');
+          this.shareError.set(plan.id);
+          setTimeout(() => this.shareError.set(null), 2000);
         } else {
           this.toast.set('Error al descargar el itinerario');
         }
