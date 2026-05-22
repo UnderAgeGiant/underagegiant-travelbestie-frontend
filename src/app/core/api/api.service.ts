@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
 import { Trip } from '../models/trip.model';
 import { Comment } from '../models/comment.model';
 import { CityCatalog, PlanTripRequest, SuggestTripsResponse } from '../models/ai.model';
+import { SharedTrip } from '../shared-trips/shared-trips.service';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -98,6 +99,16 @@ export class ApiService {
       });
     }
     return this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget });
+  }
+
+  shareTrip(tripId: string): Observable<{ shareId: string }> {
+    if (this.useMocks) return of({ shareId: crypto.randomUUID() });
+    return this.http.post<{ shareId: string }>(`${this.base}/trips/${tripId}/share`, {});
+  }
+
+  getSharedTrip(shareId: string): Observable<SharedTrip> {
+    if (this.useMocks) return of(null as unknown as SharedTrip);
+    return this.http.get<SharedTrip>(`${this.base}/shared/${shareId}`);
   }
 
   planTrip(req: PlanTripRequest): Observable<Trip> {

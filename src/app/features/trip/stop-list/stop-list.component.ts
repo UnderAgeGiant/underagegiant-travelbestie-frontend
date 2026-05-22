@@ -174,6 +174,7 @@ import { LodgingComponent } from './lodging.component';
           @if (!bookOpen()) {
             <button class="btn-pill btn-primary"
                     style="width:100%;justify-content:center;margin-top:8px"
+                    [disabled]="bookSaving()"
                     (click)="doBook()"
                     i18n="@@stopList.bookBtn">Guardar viaje 🎉
               @if (!trip.loadedPlanId()) {
@@ -189,9 +190,11 @@ import { LodgingComponent } from './lodging.component';
                      (keydown.enter)="doBookSave()" />
               <div style="display:flex;gap:6px">
                 <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
+                        [disabled]="bookSaving()"
                         (click)="doBookSave()"
                         i18n="@@stopList.bookSaveBtn">Guardar ✓ <span class="karma-cost">−1 ✨ karma</span></button>
                 <button class="btn-pill btn-outline" style="padding:0 14px"
+                        [disabled]="bookSaving()"
                         (click)="bookOpen.set(false)">✕</button>
               </div>
             </div>
@@ -201,11 +204,26 @@ import { LodgingComponent } from './lodging.component';
               ⭐ {{ bookError() }}
             </div>
           }
-          @if (bookSaved()) {
-            <div style="text-align:center;font-size:11px;color:oklch(42% 0.15 145);font-weight:700;margin-top:6px">
-              ✓ <ng-container i18n="@@stopList.bookSavedMsg">Viaje guardado</ng-container>
+        }
+
+        <!-- Saving popup -->
+        @if (bookSaving()) {
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:oklch(100% 0 0/.7);border-radius:inherit;z-index:10;backdrop-filter:blur(2px)">
+            <div style="background:white;border-radius:16px;padding:20px 28px;display:flex;flex-direction:column;align-items:center;gap:10px;box-shadow:0 4px 24px oklch(0% 0 0/.12)">
+              <div style="width:32px;height:32px;border:3px solid var(--peach-d);border-top-color:transparent;border-radius:50%;animation:spin 0.7s linear infinite"></div>
+              <span style="font-size:13px;font-weight:600;color:var(--t1)" i18n="@@stopList.savingMsg">Guardando…</span>
             </div>
-          }
+          </div>
+        }
+
+        <!-- Success popup -->
+        @if (bookSaved()) {
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:oklch(100% 0 0/.7);border-radius:inherit;z-index:10;backdrop-filter:blur(2px);pointer-events:none">
+            <div style="background:white;border-radius:16px;padding:20px 28px;display:flex;flex-direction:column;align-items:center;gap:10px;box-shadow:0 4px 24px oklch(0% 0 0/.12);animation:pop-in .2s ease">
+              <div style="width:40px;height:40px;border-radius:50%;background:oklch(88% 0.15 145);display:flex;align-items:center;justify-content:center;font-size:20px">✓</div>
+              <span style="font-size:13px;font-weight:600;color:oklch(42% 0.15 145)" i18n="@@stopList.bookSavedMsg">Viaje guardado</span>
+            </div>
+          </div>
         }
       </div>
     </div>
@@ -238,10 +256,11 @@ export class StopListComponent {
     return this.savedPlans.plans().find(p => p.id === id)?.name ?? null;
   });
 
-  bookOpen  = signal(false);
-  bookName  = signal('');
-  bookSaved = signal(false);
-  bookError = signal('');
+  bookOpen   = signal(false);
+  bookName   = signal('');
+  bookSaved  = signal(false);
+  bookSaving = signal(false);
+  bookError  = signal('');
 
   editingDatesStopId = signal<string | null>(null);
   editCheckIn        = signal('');
@@ -256,8 +275,11 @@ export class StopListComponent {
     if (this.trip.loadedPlanId() && existingName) {
       const email = this.auth.currentUser()?.email;
       if (!email) return;
-      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits()).subscribe();
-      this.flashSaved();
+      this.bookSaving.set(true);
+      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits()).subscribe({
+        next: () => { this.bookSaving.set(false); this.flashSaved(); },
+        error: () => { this.bookSaving.set(false); },
+      });
     } else {
       this.bookName.set('');
       this.bookOpen.set(true);
@@ -270,16 +292,19 @@ export class StopListComponent {
     const email = this.auth.currentUser()?.email;
     if (!email) return;
     this.bookError.set('');
+    this.bookSaving.set(true);
     // Always null: the form only shows when activeTripName() was null, meaning the stale
     // loadedPlanId doesn't resolve to a known plan — passing it would PUT a ghost trip and fail silently.
     this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits()).subscribe({
       next: newId => {
+        this.bookSaving.set(false);
         this.trip.markAsLoadedPlan(newId);
         this.bookOpen.set(false);
         this.bookName.set('');
         this.flashSaved();
       },
       error: err => {
+        this.bookSaving.set(false);
         if (err?.status === 402) this.bookError.set($localize`:@@stopList.bookKarmaErr:Karma insuficiente para guardar el viaje (necesitas al menos 1 ⭐)`);
       },
     });
