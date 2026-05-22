@@ -269,6 +269,11 @@ import { environment } from '../../../environments/environment';
                               <button class="btn-pill btn-outline" style="font-size:11px;padding:6px 12px"
                                       (click)="savePlanOpen.set(false)" type="button">✕</button>
                             </div>
+                            @if (savePlanError()) {
+                              <div style="font-size:11px;color:oklch(48% 0.16 50);text-align:center;margin-top:4px">
+                                ⭐ {{ savePlanError() }}
+                              </div>
+                            }
                           </div>
                         }
                       }
@@ -426,6 +431,7 @@ export class NavComponent {
   plansOpen      = signal(false);
   savePlanOpen   = signal(false);
   savePlanName   = signal('');
+  savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
 
@@ -586,10 +592,18 @@ export class NavComponent {
     if (!name) return;
     const email = this.auth.currentUser()?.email;
     if (!email) return;
-    this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits()).subscribe(newId => {
-      this.trip.markAsLoadedPlan(newId);
-      this.savePlanOpen.set(false);
-      this.savePlanName.set('');
+    this.savePlanError.set('');
+    this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits()).subscribe({
+      next: newId => {
+        this.trip.markAsLoadedPlan(newId);
+        this.savePlanOpen.set(false);
+        this.savePlanName.set('');
+      },
+      error: err => {
+        if (err?.status === 402) {
+          this.savePlanError.set($localize`:@@nav.savePlanKarmaErr:Karma insuficiente para guardar el viaje (necesitas al menos 1 ⭐)`);
+        }
+      },
     });
   }
 
