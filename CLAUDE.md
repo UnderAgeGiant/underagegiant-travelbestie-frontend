@@ -9,6 +9,7 @@ ng serve                               # dev server → http://localhost:4200 (e
 ng serve --configuration=en-US         # dev server in English
 ng build --configuration=es-CL         # production build in Spanish
 ng build --configuration=en-US         # production build in English
+npm run build:vercel                   # patch env vars then ng build --configuration production (used by Vercel CI)
 ng test                                # Karma unit tests (all)
 ng extract-i18n --output-path src/locale  # regenerate messages.xlf after template changes
 ng generate component path/name        # new standalone component (skipTests=true by default)
@@ -26,10 +27,10 @@ All mutable state lives in **Signal-based injectable services** (`providedIn: 'r
 | Service | Responsibility |
 |---|---|
 | `TripService` | In-memory trip state (stops, transits, active stop). Auto-saves to localStorage on every mutation via an `effect()`. Sorts stops by check-in date. `persistNow(email)` flushes state synchronously before programmatic navigation. |
-| `SavedPlansService` | Named saved trips per user in `tb_saved_plans_<email>`. Each plan can have a `shareId?` linking it to a `SharedTrip`. |
+| `SavedPlansService` | Named saved trips per user in `tb_saved_plans_<email>`. Each plan can have a `shareId?` (set on first share) and `exportedAt?` (set on first itinerary export). `markExported(email, planId)` stamps the local signal and persists to localStorage in mock mode. |
 | `AuthService` | JWT token + current user in `localStorage`. Exposes `isLoggedIn` computed signal. |
 | `AuthModalService` | Controls login modal visibility; supports a post-login callback pattern. |
-| `KarmaService` | Per-user karma score. **Earn**: commenting on someone else's shared trip. **Spend**: sharing a trip (−1), creating a new blank trip (−1). |
+| `KarmaService` | Per-user karma score. **Earn**: commenting on someone else's shared trip (+1). **Spend**: sharing a trip (−1), creating a new blank trip (−1), exporting an itinerary for the first time (−1). **Purchase**: `purchaseComplete(karmaAdded)` credits the signal and persists to localStorage in mock mode; re-fetches from the backend in real mode. |
 | `HomeAddressService` | Stores the user's home city/address in `tb_home_<email>`. Loaded reactively via `effect()` on auth changes. |
 | `SharedTripsService` | Public shared trips in `tb_shared_trips`. Per-step comments in `tb_step_comments_<tripId>`. Karma eligibility in `tb_seen_steps_<email>_<tripId>`. `getTrip()` always merges the latest live plan data via `planId`. |
 | `VisitedPlacesService` | Map pins for visited places stored in `localStorage` per user. |
@@ -46,7 +47,8 @@ AppComponent
 │   ├── NavComponent
 │   ├── ProfileComponent        — (modal)
 │   └── StepCommentsComponent   — per step: city, transit, lodging, attraction
-├── NavComponent                — auth, saved plans, own shared trips, city+trip search
+├── NavComponent                — auth, saved plans, own shared trips, city+trip search, karma pill + Buy button
+│   └── BuyKarmaModalComponent  — package selector, PayPal button (or demo button), success/error states
 ├── StopListComponent           — left panel (scrollable via min-height:0 + overflow-y:auto)
 │   ├── TransitConnectorComponent  — between stops and departure/arrival edges
 │   ├── LodgingComponent           — per-stop lodging with optional booking link
@@ -62,6 +64,16 @@ AppComponent
 │   └── TripItineraryComponent  — read-only vertical timeline with fmtSeg()
 └── ToastComponent
 ```
+
+### Karma purchase flow (`BuyKarmaModalComponent`)
+
+Opened from the "Comprar" button next to the karma pill in `NavComponent`.
+
+- Fetches packages via `ApiService.getKarmaPackages()` on mount.
+- In **real mode**: lazily loads the PayPal JS SDK using `environment.paypalClientId`, renders the official PayPal button into `#paypal-btn-container`. A `ResizeObserver` watches the container and auto-scrolls it into view within the modal body once PayPal's async render completes.
+- In **mock mode**: shows a "Simular compra" button that calls `createKarmaOrder` + `captureKarmaOrder` against the localStorage-backed stubs.
+- On success: calls `KarmaService.purchaseComplete(karmaAdded)` to update the karma signal, emits `karmaGained` to `NavComponent` for immediate display.
+- The modal card is `max-height: 90vh` with a flex-column layout — header and footer are pinned (`flex-shrink: 0`); the body is `overflow-y: auto` so it scrolls independently of the page if PayPal renders a lot of UI.
 
 ### Shared trips (`?share=<id>`)
 
@@ -102,6 +114,8 @@ All dates are `dd/mm/yyyy` strings throughout the app. `TripService` parses thes
 | Comment on someone else's shared trip (first time per step) | **+1** |
 | Share a trip | **−1** |
 | Create a new blank trip | **−1** |
+| Export trip itinerary to `.xlsx` (first time only; free on repeats) | **−1** |
+| Purchase a karma package | **+purchased amount** (via PayPal or other provider) |
 
 ### Data files
 
@@ -114,17 +128,32 @@ All design tokens (colors, shadows, layout) are CSS custom properties in `src/st
 
 **Left panel scroll**: `.panel-body` uses `flex: 1; min-height: 0; overflow-y: auto` — the `min-height: 0` is required to allow a flex child to shrink below its content height and actually scroll.
 
+**Modal scroll pattern**: modals that contain third-party rendered content (e.g. PayPal buttons) use `max-height: 90vh` on the card + `overflow-y: auto; flex: 1` on the body div, with header/footer set to `flex-shrink: 0`. This keeps header and footer pinned while only the body scrolls.
+
 ### i18n
 
 Source locale is `es-CL` (all templates written in Spanish). After adding new `i18n="@@id"` or `i18n-<attr>="@@id"` attributes, run `ng extract-i18n` to regenerate `messages.xlf`, then add the matching `<trans-unit>` to `src/locale/messages.en-US.xlf`. TypeScript strings use `` $localize`...` ``.
 
 **Angular template constraint**: arrow functions (`=>`) are not allowed in template event bindings. Always extract them into class methods.
 
+## Environment variables (build-time injection)
+
+`scripts/patch-env.mjs` runs before `ng build --configuration production` (via the `build:vercel` npm script). It reads environment variables and replaces named placeholders in `src/environments/environment.production.ts` before Angular compiles them into the bundle.
+
+| Env var | Placeholder in `environment.production.ts` | Purpose |
+|---|---|---|
+| `BACKEND_API_URL` | `BACKEND_API_URL_PLACEHOLDER` | Backend Vercel URL |
+| `BACKEND_RSA_PUBLIC_KEY` | `RSA_PUBLIC_KEY_PLACEHOLDER` | RSA public key for encrypting login/register payloads |
+| `TURNSTILE_SITE_KEY` | `TURNSTILE_SITE_KEY_PLACEHOLDER` | Cloudflare Turnstile site key |
+| `PAYPAL_CLIENT_ID` | `PAYPAL_CLIENT_ID_PLACEHOLDER` | PayPal JS SDK client ID (used to load the PayPal button) |
+| `BACKEND_USE_MOCKS` | replaces `useMocks: false` | Set to `'true'` to force mock mode in production |
+
+Set all of these in the Vercel project's **Environment Variables** dashboard. The `build:vercel` script runs automatically in Vercel CI.
+
 ## Git workflow
 
 Active feature branches:
-- `claude-dev-bugfixing` — bug fixes, date/time pickers, home address, collision detection
-- `claude-dev-recommendations` — sharing, comments, karma, welcome steps
+- `feat/paypal_integration` — karma purchase via PayPal (PRs open against `main` in both repos)
 
 Every task ends with a commit and PR opened against `main`:
 ```bash
