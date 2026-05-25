@@ -12,16 +12,16 @@ import { environment } from '../../../environments/environment';
   standalone: true,
   template: `
     <div class="modal-backdrop" (click)="onBackdropClick($event)">
-      <div class="modal" style="max-width:460px">
+      <div class="modal" style="max-width:460px;display:flex;flex-direction:column;max-height:90vh">
 
         <!-- Header -->
         <div class="modal-head"
-             style="background:linear-gradient(135deg,var(--lav),var(--peach))">
+             style="background:linear-gradient(135deg,var(--lav),var(--peach));flex-shrink:0">
           <div class="modal-title" i18n="@@buyKarma.title">Comprar Karma ✨</div>
           <div class="modal-sub" i18n="@@buyKarma.subtitle">Elige un paquete y completa el pago</div>
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body" style="overflow-y:auto;flex:1;scroll-behavior:smooth">
 
           <!-- Loading packages -->
           @if (loading()) {
@@ -89,7 +89,7 @@ import { environment } from '../../../environments/environment';
 
         </div>
 
-        <div class="modal-foot" style="flex-direction:column;gap:8px">
+        <div class="modal-foot" style="flex-direction:column;gap:8px;flex-shrink:0">
           @if (step() !== 'success') {
             <button class="btn-pill btn-outline"
                     style="width:100%;justify-content:center"
@@ -125,6 +125,8 @@ export class BuyKarmaModalComponent implements OnDestroy {
 
   // PayPal-specific: lazily-injected SDK script element
   private paypalScriptEl: HTMLScriptElement | null = null;
+  // Watches #paypal-btn-container growth and scrolls it into view once rendered
+  private paypalResizeObserver: ResizeObserver | null = null;
 
   constructor() {
     this.api.getKarmaPackages().subscribe(res => {
@@ -195,6 +197,20 @@ export class BuyKarmaModalComponent implements OnDestroy {
         this.step.set('error');
       },
     }).render('#paypal-btn-container');
+
+    // Auto-scroll the modal body to reveal PayPal's UI as it renders.
+    // PayPal injects buttons and optional Pay Later / credit messaging
+    // asynchronously, so we watch the container's height with a ResizeObserver
+    // and scroll it into view the moment it gains content.
+    this.paypalResizeObserver?.disconnect();
+    this.paypalResizeObserver = new ResizeObserver(entries => {
+      if ((entries[0]?.contentRect.height ?? 0) > 0) {
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        this.paypalResizeObserver?.disconnect();
+        this.paypalResizeObserver = null;
+      }
+    });
+    this.paypalResizeObserver.observe(container);
   }
 
   simulatePurchase(): void {
@@ -221,6 +237,8 @@ export class BuyKarmaModalComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.paypalResizeObserver?.disconnect();
+    this.paypalResizeObserver = null;
     // Clean up dynamically injected PayPal script only if SDK hasn't loaded yet
     const win = window as unknown as Record<string, unknown>;
     if (this.paypalScriptEl && !win['paypal']) {
