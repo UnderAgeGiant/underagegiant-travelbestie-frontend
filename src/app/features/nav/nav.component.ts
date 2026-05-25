@@ -6,6 +6,7 @@ import { KarmaService } from '../../core/karma/karma.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
+import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 import { environment } from '../../../environments/environment';
@@ -13,6 +14,7 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-nav',
   standalone: true,
+  imports: [BuyKarmaModalComponent],
   styles: [`
     /* ── Saved-plans toggle button ── */
     .up-plans-btn {
@@ -164,12 +166,20 @@ import { environment } from '../../../environments/environment';
 
       <div class="nav-right">
         @if (auth.isLoggedIn() && karma.karma() !== null) {
-          <div [style]="karmaPillStyle()"
-               style="display:flex;align-items:center;gap:5px;padding:4px 11px;border-radius:99px;font-size:12px;font-weight:700;transition:background .35s,color .35s"
-               title="Good Karma">
-            <span style="font-size:14px">{{ karmaIcon() }}</span>
-            <span>{{ karma.karma() }}</span>
-            <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
+          <div style="display:flex;align-items:center;gap:6px">
+            <div [style]="karmaPillStyle()"
+                 style="display:flex;align-items:center;gap:5px;padding:4px 11px;border-radius:99px;font-size:12px;font-weight:700;transition:background .35s,color .35s"
+                 title="Good Karma">
+              <span style="font-size:14px">{{ karmaIcon() }}</span>
+              <span>{{ karma.karma() }}</span>
+              <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
+            </div>
+            <button class="btn-pill btn-primary"
+                    style="padding:4px 10px;font-size:11px;font-weight:700"
+                    (click)="openBuyKarma()"
+                    i18n="@@nav.buyKarmaBtn">
+              + Comprar
+            </button>
           </div>
         }
 
@@ -327,6 +337,13 @@ import { environment } from '../../../environments/environment';
       </div>
     </nav>
 
+    @if (buyKarmaOpen()) {
+      <app-buy-karma-modal
+        (closed)="buyKarmaOpen.set(false)"
+        (karmaGained)="buyKarmaOpen.set(false)">
+      </app-buy-karma-modal>
+    }
+
     @if (authModal.isOpen()) {
       <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && authModal.close()">
         <div class="modal">
@@ -434,6 +451,7 @@ export class NavComponent {
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
+  buyKarmaOpen   = signal(false);
 
   captchaToken = signal('');
   private readonly turnstileWidgetId = signal<string | null>(null);
@@ -563,6 +581,11 @@ export class NavComponent {
   openProfile(): void {
     this.userMenuOpen.set(false);
     this.profileClick.emit();
+  }
+
+  openBuyKarma(): void {
+    this.userMenuOpen.set(false);
+    this.buyKarmaOpen.set(true);
   }
 
   toggleMyTrips(): void { this.myTripsOpen.update(v => !v); }
