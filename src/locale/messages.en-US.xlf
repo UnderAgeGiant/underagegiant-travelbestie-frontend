@@ -155,8 +155,8 @@
         <target>Plan · Share · Explore</target>
       </trans-unit>
       <trans-unit id="welcome.title" datatype="html">
-        <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb"/><x id="START_TAG_EM" ctype="x-em"/>mejor amig@<x id="CLOSE_TAG_EM" ctype="x-em"/></source>
-        <target>Travel with your<x id="LINE_BREAK" ctype="lb"/><x id="START_TAG_EM" ctype="x-em"/>bestie<x id="CLOSE_TAG_EM" ctype="x-em"/> in mind</target>
+        <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb"/><x id="START_EMPHASISED_TEXT" ctype="x-em"/>mejor amig@<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em"/></source>
+        <target>Travel with your<x id="LINE_BREAK" ctype="lb"/><x id="START_EMPHASISED_TEXT" ctype="x-em"/>bestie<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em"/> in mind</target>
       </trans-unit>
       <trans-unit id="welcome.subtitle" datatype="html">
         <source>Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>
@@ -471,6 +471,68 @@
       <trans-unit id="region.oceania" datatype="html">
         <source>Oceanía</source>
         <target>Oceania</target>
+      </trans-unit>
+
+      <!-- ── buy-karma-modal ── -->
+      <trans-unit id="buyKarma.title" datatype="html">
+        <source>Comprar Karma ✨</source>
+        <target>Buy Karma ✨</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.subtitle" datatype="html">
+        <source>Elige un paquete y completa el pago</source>
+        <target>Choose a pack and complete the payment</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.loading" datatype="html">
+        <source>Cargando paquetes…</source>
+        <target>Loading packages…</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.karma" datatype="html">
+        <source>karma</source>
+        <target>karma</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.simulateBtn" datatype="html">
+        <source>🎮 Simular compra (modo demo)</source>
+        <target>🎮 Simulate purchase (demo mode)</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.successTitle" datatype="html">
+        <source>¡Karma añadido!</source>
+        <target>Karma added!</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.successMsg" datatype="html">
+        <source>Tu cuenta fue acreditada con</source>
+        <target>Your account was credited with</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.retryBtn" datatype="html">
+        <source>Reintentar</source>
+        <target>Try again</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.doneBtn" datatype="html">
+        <source>¡Listo!</source>
+        <target>Done!</target>
+      </trans-unit>
+
+      <!-- ── nav ── -->
+      <trans-unit id="nav.buyKarmaBtn" datatype="html">
+        <source>+ Comprar</source>
+        <target>+ Buy</target>
+      </trans-unit>
+
+      <!-- ── ai-planning.component ── -->
+      <trans-unit id="aiplan.noTransit" datatype="html">
+        <source>Sin transporte definido</source>
+        <target>No transport defined</target>
+      </trans-unit>
+      <trans-unit id="aiplan.return" datatype="html">
+        <source>Vuelta 🏠</source>
+        <target>Return 🏠</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingSub" datatype="html">
+        <source>Esto puede tardar unos segundos…</source>
+        <target>This may take a few seconds…</target>
       </trans-unit>
 
     </body>
