@@ -17,7 +17,7 @@ export class HomeAddressService {
       } else {
         this._address.set('');
       }
-    });
+    }, { allowSignalWrites: true });
   }
 
   save(email: string, address: string): void {

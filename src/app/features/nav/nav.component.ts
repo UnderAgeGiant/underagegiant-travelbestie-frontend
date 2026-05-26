@@ -122,7 +122,7 @@ import { environment } from '../../../environments/environment';
   `],
   template: `
     <nav class="nav">
-      <div class="nav-logo" (click)="logoClick.emit()">Traveling<em>Bestie</em></div>
+      <div class="nav-logo" (click)="onLogoClick()">Traveling<em>Bestie</em></div>
 
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
@@ -487,7 +487,7 @@ export class NavComponent {
       } else {
         this.destroyTurnstile();
       }
-    });
+    }, { allowSignalWrites: true });
   }
 
   readonly mySharedTrips = computed(() => {
@@ -685,6 +685,14 @@ export class NavComponent {
       if (email) this.trip.persistNow(email);
       window.location.href = '/';
     }
+  }
+
+  onLogoClick(): void {
+    this.autoSaveCurrentTrip();          // persist changes if a named plan is loaded
+    this.trip.restoreStops([], null);    // clear stops → welcome page shows automatically
+    this.userMenuOpen.set(false);
+    this.plansOpen.set(false);
+    this.logoClick.emit();               // let AppComponent know (its handler is now a no-op)
   }
 
   doNewTrip(): void {

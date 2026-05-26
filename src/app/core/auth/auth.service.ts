@@ -18,7 +18,7 @@ const SESSION_KEY = 'tb_session_user';
 export class AuthService {
   private readonly http = inject(HttpClient);
 
-  private _token = signal<string | null>(localStorage.getItem(TOKEN_KEY));
+  private _token = signal<string | null>(sessionStorage.getItem(TOKEN_KEY));
   private _user  = signal<AuthUser | null>(null);
 
   readonly token      = this._token.asReadonly();
@@ -26,7 +26,13 @@ export class AuthService {
   readonly isLoggedIn  = computed(() => this._token() !== null);
 
   constructor() {
-    const raw = localStorage.getItem(SESSION_KEY);
+    // Purge any stale localStorage session data left from before this change.
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(SESSION_KEY);
+
+    // Token and user now live in sessionStorage — auto-cleared when the tab closes,
+    // so every new browser session starts logged out.
+    const raw = sessionStorage.getItem(SESSION_KEY);
     if (raw && this._token()) {
       try { this._user.set(JSON.parse(raw)); } catch { /* ignore */ }
     }
@@ -70,8 +76,8 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.removeItem(SESSION_KEY);
+    sessionStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(SESSION_KEY);
     this._token.set(null);
     this._user.set(null);
   }
@@ -121,8 +127,8 @@ export class AuthService {
   }
 
   private persistSession(token: string, user: AuthUser): void {
-    localStorage.setItem(TOKEN_KEY, token);
-    localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+    sessionStorage.setItem(TOKEN_KEY, token);
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(user));
     this._token.set(token);
     this._user.set(user);
   }
