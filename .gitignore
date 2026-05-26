@@ -14,6 +14,9 @@
 npm-debug.log
 yarn-error.log
 
+# Claude Code
+CLAUDE.md
+
 # IDEs and editors
 .idea/
 .project
