@@ -487,7 +487,7 @@ export class NavComponent {
       } else {
         this.destroyTurnstile();
       }
-    });
+    }, { allowSignalWrites: true });
   }
 
   readonly mySharedTrips = computed(() => {
