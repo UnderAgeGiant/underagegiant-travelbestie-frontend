@@ -119,40 +119,6 @@ import { environment } from '../../../environments/environment';
     .up-shared-trip-name { font-size: 12px; font-weight: 700; color: var(--t1); }
     .up-shared-trip-meta { font-size: 10px; color: var(--t3); margin-top: 2px; }
     .up-shared-trip-cmts { color: var(--lav-d); font-weight: 600; }
-    /* ── Karma purchase celebration ── */
-    @keyframes karma-badge-drop {
-      0%   { transform: translateX(-50%) translateY(0);    opacity: 0; }
-      12%  { transform: translateX(-50%) translateY(6px);  opacity: 1; }
-      65%  { transform: translateX(-50%) translateY(6px);  opacity: 1; }
-      100% { transform: translateX(-50%) translateY(22px); opacity: 0; }
-    }
-    @keyframes karma-pulse {
-      0%   { transform: scale(1); }
-      20%  { transform: scale(1.18); }
-      45%  { transform: scale(0.96); }
-      65%  { transform: scale(1.07); }
-      85%  { transform: scale(0.99); }
-      100% { transform: scale(1); }
-    }
-    @keyframes karma-icon-sparkle {
-      0%   { transform: rotate(0deg)   scale(1);   }
-      25%  { transform: rotate(22deg)  scale(1.45); }
-      55%  { transform: rotate(-12deg) scale(1.25); }
-      80%  { transform: rotate(8deg)   scale(1.1);  }
-      100% { transform: rotate(0deg)   scale(1);   }
-    }
-    .karma-gain-badge {
-      position: absolute; top: calc(100% + 5px); left: 50%;
-      transform: translateX(-50%);
-      background: oklch(42% 0.18 145); color: #fff;
-      font-size: 12px; font-weight: 800;
-      padding: 3px 10px; border-radius: 99px;
-      white-space: nowrap; pointer-events: none; z-index: 200;
-      box-shadow: 0 2px 10px oklch(42% 0.18 145 / 45%);
-      animation: karma-badge-drop 2.1s ease-out forwards;
-    }
-    .karma-pill-pulse { animation: karma-pulse 0.55s ease-out; }
-    .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
   `],
   template: `
     <nav class="nav">
