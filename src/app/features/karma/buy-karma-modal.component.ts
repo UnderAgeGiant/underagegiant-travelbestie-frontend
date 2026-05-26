@@ -78,7 +78,9 @@ import { environment } from '../../../environments/environment';
                     <div style="font-size:11px;color:var(--t3)" i18n="@@buyKarma.paypalLoading">Cargando botón de pago…</div>
                   </div>
                 }
-                <div id="paypal-btn-container" [style.display]="paypalLoading() ? 'none' : 'block'" style="min-height:48px"></div>
+                <!-- Container must always be in the layout (never display:none) so the
+                     ResizeObserver can detect when PayPal renders content into it. -->
+                <div id="paypal-btn-container" style="min-height:48px"></div>
               }
 
               <!-- Demo buy button (mock mode) -->
