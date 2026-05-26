@@ -199,19 +199,24 @@ export class BuyKarmaModalComponent implements OnDestroy {
     };
 
     paypal.Buttons({
-      createOrder: () => {
-        this.paying.set(true); // show spinner while server creates the order
-        return firstValueFrom(this.api.createKarmaOrder(pkg.id).pipe(map(r => r.orderID)));
-      },
+      // During createOrder, PayPal is showing its own payment popup — we must
+      // NOT set paying=true here because that collapses @if(!paying()), removes
+      // #paypal-btn-container from the DOM, and breaks the PayPal SDK flow.
+      createOrder: () =>
+        firstValueFrom(this.api.createKarmaOrder(pkg.id).pipe(map(r => r.orderID))),
 
-      onApprove: (data: { orderID: string }) =>
-        firstValueFrom(this.api.captureKarmaOrder(data.orderID)).then(res => {
+      // onApprove fires after PayPal closes its UI and the user has approved.
+      // Only NOW is it safe to show our spinner (container no longer needed).
+      onApprove: (data: { orderID: string }) => {
+        this.paying.set(true);
+        return firstValueFrom(this.api.captureKarmaOrder(data.orderID)).then(res => {
           this.paying.set(false);
           this.karmaAdded.set(res.karmaAdded);
           this.karma.purchaseComplete(res.karmaAdded);
           this.karmaGained.emit(res.karmaAdded);
           this.step.set('success');
-        }),
+        });
+      },
 
       onError: () => {
         this.paying.set(false);
