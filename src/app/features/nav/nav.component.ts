@@ -7,6 +7,7 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
+import { KarmaSuccessOverlayComponent } from '../karma/karma-success-overlay.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 import { environment } from '../../../environments/environment';
@@ -14,7 +15,7 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [BuyKarmaModalComponent],
+  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent],
   styles: [`
     /* ── Saved-plans toggle button ── */
     .up-plans-btn {
@@ -386,6 +387,14 @@ import { environment } from '../../../environments/environment';
       </app-buy-karma-modal>
     }
 
+    @if (karmaSuccessOpen()) {
+      <app-karma-success-overlay
+        [amount]="karmaSuccessAmount()"
+        [newTotal]="karma.karma() ?? 0"
+        (dismissed)="dismissKarmaSuccess()">
+      </app-karma-success-overlay>
+    }
+
     @if (authModal.isOpen()) {
       <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && authModal.close()">
         <div class="modal">
@@ -493,8 +502,10 @@ export class NavComponent {
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
-  buyKarmaOpen   = signal(false);
-  karmaGainAnim  = signal(0);   // >0 while the post-purchase celebration plays
+  buyKarmaOpen        = signal(false);
+  karmaSuccessOpen    = signal(false);   // fullscreen celebration overlay
+  karmaSuccessAmount  = signal(0);       // karma units added in last purchase
+  karmaGainAnim       = signal(0);       // >0 while counter sparkle animation plays
 
   private karmaAnimTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -633,16 +644,23 @@ export class NavComponent {
     this.buyKarmaOpen.set(true);
   }
 
+  /** Step 1 — called immediately after PayPal captures the payment. */
   onKarmaGained(amount: number): void {
-    this.buyKarmaOpen.set(false);
-    // Clear any in-progress animation so Angular re-adds the badge element
-    // (gives CSS animation a fresh start even on rapid successive purchases)
+    this.buyKarmaOpen.set(false);        // close the buy modal
+    this.karmaSuccessAmount.set(amount);
+    this.karmaSuccessOpen.set(true);     // show fullscreen celebration overlay
+  }
+
+  /** Step 2 — called when user dismisses the celebration overlay. */
+  dismissKarmaSuccess(): void {
+    this.karmaSuccessOpen.set(false);
+    // Trigger the karma counter sparkle animation.
+    // Reset to 0 first so Angular removes the badge node, giving CSS
+    // a clean start even if the user somehow triggers this twice quickly.
     this.karmaGainAnim.set(0);
     if (this.karmaAnimTimer) clearTimeout(this.karmaAnimTimer);
-    // One tick later — lets Angular remove the badge DOM node before re-adding it
     this.karmaAnimTimer = setTimeout(() => {
-      this.karmaGainAnim.set(amount);
-      // Reset after the CSS animation finishes (2.1 s + small buffer)
+      this.karmaGainAnim.set(this.karmaSuccessAmount());
       this.karmaAnimTimer = setTimeout(() => this.karmaGainAnim.set(0), 2300);
     }, 20);
   }

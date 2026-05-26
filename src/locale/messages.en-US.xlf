@@ -515,6 +515,20 @@
         <target>Done!</target>
       </trans-unit>
 
+      <!-- ── karma-success-overlay ── -->
+      <trans-unit id="karmaSuccess.title" datatype="html">
+        <source>¡Karma añadido!</source>
+        <target>Karma added!</target>
+      </trans-unit>
+      <trans-unit id="karmaSuccess.sub" datatype="html">
+        <source>Tu karma ahora es</source>
+        <target>Your karma is now</target>
+      </trans-unit>
+      <trans-unit id="karmaSuccess.btn" datatype="html">
+        <source>¡Increíble! →</source>
+        <target>Awesome! →</target>
+      </trans-unit>
+
       <!-- ── nav ── -->
       <trans-unit id="nav.buyKarmaBtn" datatype="html">
         <source>+ Comprar</source>
