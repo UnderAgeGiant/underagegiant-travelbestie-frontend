@@ -13,6 +13,7 @@ export interface SavedPlan {
   stops:     TripStop[];
   transits?: TransitLeg[];
   shareId?:  string;
+  itineraryExportedAt?: string;
 }
 
 const key = (email: string) => `tb_saved_plans_${email}`;
@@ -41,11 +42,13 @@ export class SavedPlansService {
     }
     this.api.getTrips().subscribe(trips => {
       this._plans.set(trips.map(t => ({
-        id:       t.id!,
-        name:     t.title,
-        savedAt:  t.createdAt ?? new Date().toISOString(),
-        stops:    t.stops,
-        transits: t.transits ?? [],
+        id:                  t.id!,
+        name:                t.title,
+        savedAt:             t.createdAt ?? new Date().toISOString(),
+        stops:               t.stops,
+        transits:            t.transits ?? [],
+        shareId:             t.shareId,
+        itineraryExportedAt: t.itineraryExportedAt,
       })));
     });
   }

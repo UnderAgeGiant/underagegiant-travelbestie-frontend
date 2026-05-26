@@ -147,7 +147,10 @@ import { environment } from '../../../environments/environment';
                           style="justify-content:center;gap:6px;white-space:nowrap"
                           [disabled]="exportingPlanId() === plan.id"
                           (click)="downloadItinerary(plan)" type="button">
-                    {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel <span class="karma-cost">−1 ✨ karma</span>
+                    {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
+                    @if (!plan.itineraryExportedAt) {
+                      <span class="karma-cost">−1 ✨ karma</span>
+                    }
                   </button>
                   @if (shareError() === plan.id) {
                     <span class="share-error">Karma insuficiente</span>
@@ -337,6 +340,8 @@ export class ProfileComponent {
         a.download = `itinerario-${slug}.xlsx`;
         a.click();
         URL.revokeObjectURL(url);
+        // Mark as exported so the karma cost badge disappears on subsequent exports
+        plan.itineraryExportedAt = new Date().toISOString();
         this.exportingPlanId.set(null);
         this.toast.set('Itinerario descargado');
       },
