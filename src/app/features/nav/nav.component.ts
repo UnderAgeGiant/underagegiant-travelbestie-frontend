@@ -118,6 +118,40 @@ import { environment } from '../../../environments/environment';
     .up-shared-trip-name { font-size: 12px; font-weight: 700; color: var(--t1); }
     .up-shared-trip-meta { font-size: 10px; color: var(--t3); margin-top: 2px; }
     .up-shared-trip-cmts { color: var(--lav-d); font-weight: 600; }
+    /* ── Karma purchase celebration ── */
+    @keyframes karma-badge-drop {
+      0%   { transform: translateX(-50%) translateY(0);    opacity: 0; }
+      12%  { transform: translateX(-50%) translateY(6px);  opacity: 1; }
+      65%  { transform: translateX(-50%) translateY(6px);  opacity: 1; }
+      100% { transform: translateX(-50%) translateY(22px); opacity: 0; }
+    }
+    @keyframes karma-pulse {
+      0%   { transform: scale(1); }
+      20%  { transform: scale(1.18); }
+      45%  { transform: scale(0.96); }
+      65%  { transform: scale(1.07); }
+      85%  { transform: scale(0.99); }
+      100% { transform: scale(1); }
+    }
+    @keyframes karma-icon-sparkle {
+      0%   { transform: rotate(0deg)   scale(1);   }
+      25%  { transform: rotate(22deg)  scale(1.45); }
+      55%  { transform: rotate(-12deg) scale(1.25); }
+      80%  { transform: rotate(8deg)   scale(1.1);  }
+      100% { transform: rotate(0deg)   scale(1);   }
+    }
+    .karma-gain-badge {
+      position: absolute; top: calc(100% + 5px); left: 50%;
+      transform: translateX(-50%);
+      background: oklch(42% 0.18 145); color: #fff;
+      font-size: 12px; font-weight: 800;
+      padding: 3px 10px; border-radius: 99px;
+      white-space: nowrap; pointer-events: none; z-index: 200;
+      box-shadow: 0 2px 10px oklch(42% 0.18 145 / 45%);
+      animation: karma-badge-drop 2.1s ease-out forwards;
+    }
+    .karma-pill-pulse { animation: karma-pulse 0.55s ease-out; }
+    .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
   `],
   template: `
     <nav class="nav">
@@ -167,12 +201,20 @@ import { environment } from '../../../environments/environment';
       <div class="nav-right">
         @if (auth.isLoggedIn() && karma.karma() !== null) {
           <div style="display:flex;align-items:center;gap:6px">
-            <div [style]="karmaPillStyle()"
-                 style="display:flex;align-items:center;gap:5px;padding:4px 11px;border-radius:99px;font-size:12px;font-weight:700;transition:background .35s,color .35s"
-                 title="Good Karma">
-              <span style="font-size:14px">{{ karmaIcon() }}</span>
-              <span>{{ karma.karma() }}</span>
-              <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
+            <!-- karma pill wrapper — position:relative anchors the floating badge -->
+            <div style="position:relative">
+              @if (karmaGainAnim() > 0) {
+                <div class="karma-gain-badge">+{{ karmaGainAnim() }} ✨</div>
+              }
+              <div [style]="karmaPillStyle()"
+                   [class.karma-pill-pulse]="karmaGainAnim() > 0"
+                   style="display:flex;align-items:center;gap:5px;padding:4px 11px;border-radius:99px;font-size:12px;font-weight:700;transition:background .35s,color .35s"
+                   title="Good Karma">
+                <span [class.karma-icon-sparkle]="karmaGainAnim() > 0"
+                      style="font-size:14px">{{ karmaIcon() }}</span>
+                <span>{{ karma.karma() }}</span>
+                <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
+              </div>
             </div>
             <button class="btn-pill btn-primary"
                     style="padding:4px 10px;font-size:11px;font-weight:700"
@@ -340,7 +382,7 @@ import { environment } from '../../../environments/environment';
     @if (buyKarmaOpen()) {
       <app-buy-karma-modal
         (closed)="buyKarmaOpen.set(false)"
-        (karmaGained)="buyKarmaOpen.set(false)">
+        (karmaGained)="onKarmaGained($event)">
       </app-buy-karma-modal>
     }
 
@@ -452,6 +494,9 @@ export class NavComponent {
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
   buyKarmaOpen   = signal(false);
+  karmaGainAnim  = signal(0);   // >0 while the post-purchase celebration plays
+
+  private karmaAnimTimer: ReturnType<typeof setTimeout> | null = null;
 
   captchaToken = signal('');
   private readonly turnstileWidgetId = signal<string | null>(null);
@@ -586,6 +631,20 @@ export class NavComponent {
   openBuyKarma(): void {
     this.userMenuOpen.set(false);
     this.buyKarmaOpen.set(true);
+  }
+
+  onKarmaGained(amount: number): void {
+    this.buyKarmaOpen.set(false);
+    // Clear any in-progress animation so Angular re-adds the badge element
+    // (gives CSS animation a fresh start even on rapid successive purchases)
+    this.karmaGainAnim.set(0);
+    if (this.karmaAnimTimer) clearTimeout(this.karmaAnimTimer);
+    // One tick later — lets Angular remove the badge DOM node before re-adding it
+    this.karmaAnimTimer = setTimeout(() => {
+      this.karmaGainAnim.set(amount);
+      // Reset after the CSS animation finishes (2.1 s + small buffer)
+      this.karmaAnimTimer = setTimeout(() => this.karmaGainAnim.set(0), 2300);
+    }, 20);
   }
 
   toggleMyTrips(): void { this.myTripsOpen.update(v => !v); }
