@@ -4,4 +4,5 @@ export const environment = {
   useMocks: false,
   rsaPublicKey: 'RSA_PUBLIC_KEY_PLACEHOLDER',
   turnstileSiteKey: 'TURNSTILE_SITE_KEY_PLACEHOLDER',
+  paypalClientId: 'PAYPAL_CLIENT_ID_PLACEHOLDER',
 };

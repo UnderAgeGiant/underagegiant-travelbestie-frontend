@@ -130,7 +130,7 @@ import { environment } from '../../../environments/environment';
                 </div>
 
                 <div class="saved-plan-actions">
-                  @if (plan.shareId) {
+                  @if (planShareId(plan)) {
                     <button class="btn-pill btn-ghost"
                             style="flex:1;justify-content:center;gap:7px"
                             (click)="sharePlan(plan)" type="button">
@@ -148,7 +148,7 @@ import { environment } from '../../../environments/environment';
                           [disabled]="exportingPlanId() === plan.id"
                           (click)="downloadItinerary(plan)" type="button">
                     {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
-                    @if (!plan.itineraryExportedAt) {
+                    @if (!plan.exportedAt) {
                       <span class="karma-cost">−1 ✨ karma</span>
                     }
                   </button>
@@ -284,36 +284,68 @@ export class ProfileComponent {
     this.editingHome.set(false);
   }
 
+  planShareId(plan: SavedPlan): string | undefined {
+    if (plan.shareId) return plan.shareId;
+    const email = this.auth.currentUser()?.email;
+    if (!email) return undefined;
+    return this.sharedTrips.getMyTrips(email).find(t => t.planId === plan.id)?.id;
+  }
+
   sharePlan(plan: SavedPlan): void {
     const user = this.auth.currentUser();
     if (!user) return;
 
-    if (plan.shareId) {
-      this.copyLink(plan.shareId, plan.id);
+    const existingShareId = this.planShareId(plan);
+    if (existingShareId) {
+      this.copyLink(existingShareId, plan.id);
       return;
     }
 
-    if ((this.karma.karma() ?? 0) < 1) {
-      this.shareError.set(plan.id);
-      setTimeout(() => this.shareError.set(null), 2000);
-      return;
+    if (environment.useMocks) {
+      if ((this.karma.karma() ?? 0) < 1) {
+        this.shareError.set(plan.id);
+        setTimeout(() => this.shareError.set(null), 2000);
+        return;
+      }
+      this.karma.spend();
+      const shareId = this.sharedTrips.createShare({
+        ownerEmail: user.email,
+        ownerName:  user.name,
+        tripName:   plan.name,
+        stops:      plan.stops,
+        transits:   plan.transits ?? [],
+        planId:     plan.id,
+      });
+      this.savedPlans.setShareId(user.email, plan.id, shareId);
+      this.copyLink(shareId, plan.id);
+    } else {
+      this.api.shareTrip(plan.id).subscribe({
+        next: ({ shareId }) => {
+          this.savedPlans.setShareId(user.email, plan.id, shareId);
+          this.copyLink(shareId, plan.id);
+        },
+        error: err => {
+          if (err?.status === 402) {
+            this.shareError.set(plan.id);
+            setTimeout(() => this.shareError.set(null), 2000);
+          }
+        },
+      });
     }
-
-    this.karma.spend();
-    const shareId = this.sharedTrips.createShare({
-      ownerEmail: user.email,
-      ownerName:  user.name,
-      tripName:   plan.name,
-      stops:      plan.stops,
-      transits:   plan.transits ?? [],
-      planId:     plan.id,
-    });
-    this.savedPlans.setShareId(user.email, plan.id, shareId);
-    this.copyLink(shareId, plan.id);
   }
 
   downloadItinerary(plan: SavedPlan): void {
     if (environment.useMocks) {
+      if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {
+        this.shareError.set(plan.id);
+        setTimeout(() => this.shareError.set(null), 2000);
+        return;
+      }
+      const user = this.auth.currentUser();
+      if (!plan.exportedAt && user) {
+        this.karma.spend();
+        this.savedPlans.markExported(user.email, plan.id);
+      }
       this.toast.set('La exportación Excel requiere el backend activo');
       return;
     }
@@ -340,15 +372,21 @@ export class ProfileComponent {
         a.download = `itinerario-${slug}.xlsx`;
         a.click();
         URL.revokeObjectURL(url);
-        // Mark as exported so the karma cost badge disappears on subsequent exports
-        plan.itineraryExportedAt = new Date().toISOString();
         this.exportingPlanId.set(null);
         this.toast.set('Itinerario descargado');
+        if (!plan.exportedAt) {
+          const user = this.auth.currentUser();
+          if (user) {
+            this.karma.spend();
+            this.savedPlans.markExported(user.email, plan.id);
+          }
+        }
       },
       error: (err) => {
         this.exportingPlanId.set(null);
         if (err?.status === 402) {
-          this.toast.set('Karma insuficiente para exportar el itinerario (necesitas al menos 1 ⭐)');
+          this.shareError.set(plan.id);
+          setTimeout(() => this.shareError.set(null), 2000);
         } else {
           this.toast.set('Error al descargar el itinerario');
         }

@@ -28,7 +28,7 @@ import { AiPlanningComponent } from './features/ai-planning/ai-planning.componen
     @if (sharedTripId()) {
       <app-shared-trip [tripId]="sharedTripId()!" />
     } @else {
-    <app-nav (logoClick)="trip.setActive(trip.stops()[0]?.stopId ?? '')"
+    <app-nav (logoClick)="null"
              (profileClick)="showProfile.set(true)" />
 
     <div class="layout">
