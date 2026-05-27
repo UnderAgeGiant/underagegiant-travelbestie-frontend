@@ -233,14 +233,19 @@ type Step = 'preferences' | 'options' | 'result';
                   <span i18n="@@aiplan.previewFreeLeft">cambio(s) gratuito(s) restante(s) para el plan</span>
                 </div>
               }
-              @if (planChangePreview() === 'major_change') {
-                <div class="ai-change-preview ai-change-preview-charged">
-                  <span i18n="@@aiplan.previewMajorHint">⚠️ Cambio significativo (&gt;20%) — el próximo plan costará 1 karma ⭐</span>
-                </div>
-              }
-              @if (planChangePreview() === 'limit_reached') {
-                <div class="ai-change-preview ai-change-preview-charged">
-                  <span i18n="@@aiplan.previewLimitHint">⚠️ Límite de 3 cambios gratuitos alcanzado — el próximo plan costará 1 karma ⭐</span>
+              @if (planChangePreview() === 'major_change' || planChangePreview() === 'limit_reached') {
+                <div class="ai-change-charged-card" style="margin-bottom:4px">
+                  <div class="ai-change-charged-icon">💸</div>
+                  <div class="ai-change-charged-title">
+                    @if (planChangePreview() === 'major_change') {
+                      <span i18n="@@aiplan.majorChangeTitle">Cambio significativo (>20%)</span>
+                    } @else {
+                      <span i18n="@@aiplan.limitReachedTitle">Límite de cambios gratuitos alcanzado</span>
+                    }
+                  </div>
+                  <div class="ai-change-charged-body" i18n="@@aiplan.previewChargedBody">
+                    El plan se generará como nueva sesión y costará 1 karma ⭐.
+                  </div>
                 </div>
               }
 

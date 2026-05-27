@@ -612,14 +612,6 @@
         <source>cambio(s) gratuito(s) restante(s) para el plan</source>
         <target>free change(s) remaining for the plan</target>
       </trans-unit>
-      <trans-unit id="aiplan.previewMajorHint" datatype="html">
-        <source>⚠️ Cambio significativo (&gt;20%) — el próximo plan costará 1 karma ⭐</source>
-        <target>⚠️ Significant change (&gt;20%) — the next plan will cost 1 karma ⭐</target>
-      </trans-unit>
-      <trans-unit id="aiplan.previewLimitHint" datatype="html">
-        <source>⚠️ Límite de 3 cambios gratuitos alcanzado — el próximo plan costará 1 karma ⭐</source>
-        <target>⚠️ 3 free-change limit reached — the next plan will cost 1 karma ⭐</target>
-      </trans-unit>
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
         <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?</source>
         <target>If you regenerate options with this adjustment, the resulting plan will cost 1 karma ⭐. Do you want to continue?</target>
@@ -627,6 +619,10 @@
       <trans-unit id="aiplan.suggestConfirmProceed" datatype="html">
         <source>Sí, regenerar opciones</source>
         <target>Yes, regenerate options</target>
+      </trans-unit>
+      <trans-unit id="aiplan.previewChargedBody" datatype="html">
+        <source>El plan se generará como nueva sesión y costará 1 karma ⭐.</source>
+        <target>The plan will be generated as a new session and will cost 1 karma ⭐.</target>
       </trans-unit>
 
     </body>
