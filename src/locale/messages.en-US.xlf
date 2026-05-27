@@ -473,6 +473,138 @@
         <target>Oceania</target>
       </trans-unit>
 
+      <!-- ── buy-karma-modal ── -->
+      <trans-unit id="buyKarma.title" datatype="html">
+        <source>Comprar Karma ✨</source>
+        <target>Buy Karma ✨</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.subtitle" datatype="html">
+        <source>Elige un paquete y completa el pago</source>
+        <target>Choose a pack and complete the payment</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.loading" datatype="html">
+        <source>Cargando paquetes…</source>
+        <target>Loading packages…</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.karma" datatype="html">
+        <source>karma</source>
+        <target>karma</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.simulateBtn" datatype="html">
+        <source>🎮 Simular compra (modo demo)</source>
+        <target>🎮 Simulate purchase (demo mode)</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.successTitle" datatype="html">
+        <source>¡Karma añadido!</source>
+        <target>Karma added!</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.successMsg" datatype="html">
+        <source>Tu cuenta fue acreditada con</source>
+        <target>Your account was credited with</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.retryBtn" datatype="html">
+        <source>Reintentar</source>
+        <target>Try again</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.doneBtn" datatype="html">
+        <source>¡Listo!</source>
+        <target>Done!</target>
+      </trans-unit>
+
+      <!-- ── karma-success-overlay ── -->
+      <trans-unit id="karmaSuccess.title" datatype="html">
+        <source>¡Karma añadido!</source>
+        <target>Karma added!</target>
+      </trans-unit>
+      <trans-unit id="karmaSuccess.sub" datatype="html">
+        <source>Tu karma ahora es</source>
+        <target>Your karma is now</target>
+      </trans-unit>
+      <trans-unit id="karmaSuccess.btn" datatype="html">
+        <source>¡Increíble! →</source>
+        <target>Awesome! →</target>
+      </trans-unit>
+
+      <!-- ── nav ── -->
+      <trans-unit id="nav.buyKarmaBtn" datatype="html">
+        <source>+ Comprar</source>
+        <target>+ Buy</target>
+      </trans-unit>
+
+      <!-- ── ai-planning.component ── -->
+      <trans-unit id="aiplan.noTransit" datatype="html">
+        <source>Sin transporte definido</source>
+        <target>No transport defined</target>
+      </trans-unit>
+      <trans-unit id="aiplan.return" datatype="html">
+        <source>Vuelta 🏠</source>
+        <target>Return 🏠</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingSub" datatype="html">
+        <source>Esto puede tardar unos segundos…</source>
+        <target>This may take a few seconds…</target>
+      </trans-unit>
+      <trans-unit id="aiplan.minorChangeTitle" datatype="html">
+        <source>Cambio menor detectado</source>
+        <target>Minor change detected</target>
+      </trans-unit>
+      <trans-unit id="aiplan.minorChangeBody" datatype="html">
+        <source>Esta modificación es ≤20% del plan original.</source>
+        <target>This modification is ≤20% of the original plan.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.minorChangeFreeLeft" datatype="html">
+        <source>cambios gratuitos restantes.</source>
+        <target>free changes remaining.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.changeWarnDismiss" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
+      </trans-unit>
+      <trans-unit id="aiplan.majorChangeTitle" datatype="html">
+        <source>Cambio significativo (&gt;20%)</source>
+        <target>Significant change (&gt;20%)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.limitReachedTitle" datatype="html">
+        <source>Límite de cambios gratuitos alcanzado</source>
+        <target>Free change limit reached</target>
+      </trans-unit>
+      <trans-unit id="aiplan.changeChargedBody" datatype="html">
+        <source>Se descontó 1 karma ⭐ por este cambio.</source>
+        <target>1 karma ⭐ was deducted for this change.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.changeChargedDismiss" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmMajorTitle" datatype="html">
+        <source>Cambio mayor al 20% detectado</source>
+        <target>Change exceeds 20% threshold</target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmLimitTitle" datatype="html">
+        <source>Has usado tus 3 cambios gratuitos</source>
+        <target>You've used all 3 free changes</target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmChargeBody" datatype="html">
+        <source>Esta acción costará 1 karma ⭐. ¿Deseas continuar?</source>
+        <target>This action will cost 1 karma ⭐. Do you want to continue?</target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmCancel" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmProceed" datatype="html">
+        <source>Sí, continuar (−1 karma)</source>
+        <target>Yes, continue (−1 karma)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.adjustBtn" datatype="html">
+        <source>✏️ Ajustar opciones</source>
+        <target>✏️ Adjust options</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

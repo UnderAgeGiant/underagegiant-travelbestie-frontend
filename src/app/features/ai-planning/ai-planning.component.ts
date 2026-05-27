@@ -3,8 +3,9 @@ import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
-import { TripSuggestion, SuggestTripsResponse } from '../../core/models/ai.model';
+import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions } from '../../core/models/ai.model';
 import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
+import { isMinorChange, toSessionOptions, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
@@ -90,6 +91,64 @@ type Step = 'preferences' | 'options' | 'result';
                       (click)="karmaError.set(null)"
                       type="button"
                       i18n="@@aiplan.karmaErrDismiss">Entendido</button>
+            </div>
+          }
+
+          <!-- ── Change info banners ── -->
+          @if (changeWarning()) {
+            <div class="ai-change-warn-card">
+              <div class="ai-change-warn-icon">🔄</div>
+              <div class="ai-change-warn-title" i18n="@@aiplan.minorChangeTitle">Cambio menor detectado</div>
+              <div class="ai-change-warn-body">
+                <span i18n="@@aiplan.minorChangeBody">Esta modificación es ≤20% del plan original.</span>
+                <strong> {{ changeWarning()!.freeChangesRemaining }} </strong>
+                <span i18n="@@aiplan.minorChangeFreeLeft">cambios gratuitos restantes.</span>
+              </div>
+              <button class="btn-pill btn-outline" style="margin-top:8px"
+                      (click)="changeWarning.set(null)" type="button"
+                      i18n="@@aiplan.changeWarnDismiss">Entendido</button>
+            </div>
+          }
+
+          @if (changeCharged()) {
+            <div class="ai-change-charged-card">
+              <div class="ai-change-charged-icon">⭐</div>
+              <div class="ai-change-charged-title">
+                @if (changeCharged()!.reason === 'major_change') {
+                  <span i18n="@@aiplan.majorChangeTitle">Cambio significativo (>20%)</span>
+                } @else {
+                  <span i18n="@@aiplan.limitReachedTitle">Límite de cambios gratuitos alcanzado</span>
+                }
+              </div>
+              <div class="ai-change-charged-body" i18n="@@aiplan.changeChargedBody">Se descontó 1 karma ⭐ por este cambio.</div>
+              <button class="btn-pill btn-outline" style="margin-top:8px"
+                      (click)="changeCharged.set(null)" type="button"
+                      i18n="@@aiplan.changeChargedDismiss">Entendido</button>
+            </div>
+          }
+
+          <!-- ── Pre-call change confirmation ── -->
+          @if (planConfirmPending()) {
+            <div class="ai-confirm-charge-card">
+              <div class="ai-confirm-charge-icon">💸</div>
+              <div class="ai-confirm-charge-title">
+                @if (planConfirmPending()!.reason === 'major_change') {
+                  <span i18n="@@aiplan.confirmMajorTitle">Cambio mayor al 20% detectado</span>
+                } @else {
+                  <span i18n="@@aiplan.confirmLimitTitle">Has usado tus 3 cambios gratuitos</span>
+                }
+              </div>
+              <div class="ai-confirm-charge-body" i18n="@@aiplan.confirmChargeBody">
+                Esta acción costará 1 karma ⭐. ¿Deseas continuar?
+              </div>
+              <div class="ai-plan-actions">
+                <button class="btn-pill btn-outline"
+                        (click)="planConfirmPending.set(null)" type="button"
+                        i18n="@@aiplan.confirmCancel">Cancelar</button>
+                <button class="btn-pill btn-primary"
+                        (click)="executePlan()" type="button"
+                        i18n="@@aiplan.confirmProceed">Sí, continuar (−1 karma)</button>
+              </div>
             </div>
           }
 
@@ -310,6 +369,10 @@ type Step = 'preferences' | 'options' | 'result';
                       (click)="reset()"
                       type="button"
                       i18n="@@aiplan.restartBtn">↩ Volver a empezar</button>
+              <button class="btn-pill btn-outline"
+                      (click)="adjustOptions()"
+                      type="button"
+                      i18n="@@aiplan.adjustBtn">✏️ Ajustar opciones</button>
               <button class="btn-pill btn-primary"
                       (click)="save()"
                       type="button"
@@ -347,15 +410,29 @@ export class AiPlanningComponent {
   loading         = signal(false);
   loadingMessage  = signal('');
   karmaError      = signal<{ need: number; have: number } | null>(null);
-  error          = signal<string | null>(null);
-  suggestions    = signal<SuggestTripsResponse | null>(null);
-  selectedOption = signal<TripSuggestion | null>(null);
-  generatedTrip  = signal<Trip | null>(null);
+  error           = signal<string | null>(null);
+  suggestions     = signal<SuggestTripsResponse | null>(null);
+  selectedOption  = signal<TripSuggestion | null>(null);
+  generatedTrip   = signal<Trip | null>(null);
 
   preferences = signal('');
   duration    = signal<number | undefined>(undefined);
   budget      = signal('');
   startDate   = signal('');
+
+  // ── Session management ────────────────────────────────────────────────────
+  /** UUID generated on each new suggest call; ties plan calls into a session. */
+  planSessionId       = signal<string | null>(null);
+  /** Options from the last PAID plan call — baseline for 20% comparison. */
+  originalPlanOptions = signal<PlanSessionOptions | null>(null);
+  /** Number of free changes used so far in this session. */
+  freeChangesUsed     = signal(0);
+
+  // ── Post-plan change feedback ─────────────────────────────────────────────
+  changeWarning   = signal<PlanChangeInfo | null>(null);
+  changeCharged   = signal<PlanChangeInfo | null>(null);
+  /** Pending confirmation: user must confirm a charged re-plan. */
+  planConfirmPending = signal<{ reason: 'major_change' | 'limit_reached' } | null>(null);
 
   private readonly transitMap = computed(() => {
     const map = new Map<string, TransitLeg>();
@@ -372,6 +449,11 @@ export class AiPlanningComponent {
 
   suggest(): void {
     if (!this.preferences().trim()) return;
+    // Generate a new session ID for this suggest+plan sequence
+    this.planSessionId.set(crypto.randomUUID());
+    this.originalPlanOptions.set(null);
+    this.freeChangesUsed.set(0);
+
     this.loadingMessage.set($localize`:@@aiplan.loadingSuggest:Generando sugerencias ✨`);
     this.loading.set(true);
     this.error.set(null);
@@ -393,24 +475,76 @@ export class AiPlanningComponent {
       });
   }
 
+  /**
+   * Called when user clicks "Generar plan completo".
+   * Pre-validates the 20% threshold on the frontend for UX, then either:
+   * - Proceeds directly for new sessions or free minor changes.
+   * - Shows a confirmation dialog for changes that will cost karma.
+   */
   plan(): void {
     const opt = this.selectedOption();
     if (!opt) return;
+
+    const originalOpts = this.originalPlanOptions();
+    if (originalOpts) {
+      const currentOpts = toSessionOptions({
+        selectedOption: opt,
+        preferences:    this.preferences(),
+        duration:       this.duration(),
+        budget:         this.budget() || undefined,
+        startDate:      this.startDate() || undefined,
+      });
+
+      const minor = isMinorChange(originalOpts, currentOpts);
+      const freeLeft = this.freeChangesUsed() < FREE_CHANGE_LIMIT;
+
+      if (!minor) {
+        // Major change — will be charged; ask for confirmation
+        this.planConfirmPending.set({ reason: 'major_change' });
+        return;
+      }
+      if (!freeLeft) {
+        // Free limit exhausted — will be charged; ask for confirmation
+        this.planConfirmPending.set({ reason: 'limit_reached' });
+        return;
+      }
+      // Minor change within free limit — proceed without confirmation
+    }
+
+    this.executePlan();
+  }
+
+  /** Executes the actual /ai/plan API call. Called from plan() or confirm dialog. */
+  executePlan(): void {
+    const opt = this.selectedOption();
+    if (!opt) return;
+
+    this.planConfirmPending.set(null);
+    this.changeWarning.set(null);
+    this.changeCharged.set(null);
+
     this.loadingMessage.set($localize`:@@aiplan.loadingPlan:Creando tu plan de viaje 🗺️`);
     this.loading.set(true);
     this.error.set(null);
     this.karmaError.set(null);
+
     this.api.planTrip({
       selectedOption: opt,
       preferences:    this.preferences(),
       duration:       this.duration(),
       budget:         this.budget() || undefined,
       startDate:      this.startDate() || undefined,
+      planSessionId:  this.planSessionId() ?? undefined,
     }).subscribe({
-      next: trip => {
-        this.generatedTrip.set(trip);
+      next: response => {
+        const { changeInfo, ...tripData } = response;
+        this.generatedTrip.set(tripData as Trip);
         this.loading.set(false);
         this.step.set('result');
+
+        if (changeInfo) {
+          this.handleChangeInfo(changeInfo);
+        }
       },
       error: err => {
         this.loading.set(false);
@@ -419,6 +553,39 @@ export class AiPlanningComponent {
         else this.error.set(err?.error?.error ?? 'Error al generar el plan');
       },
     });
+  }
+
+  /** Updates local session state from the backend's changeInfo response. */
+  private handleChangeInfo(info: PlanChangeInfo): void {
+    const currentOpt = this.selectedOption();
+    if (info.type === 'new_session' || info.type === 'charged_change') {
+      // Record new baseline and reset free counter
+      if (currentOpt) {
+        this.originalPlanOptions.set(toSessionOptions({
+          selectedOption: currentOpt,
+          preferences:    this.preferences(),
+          duration:       this.duration(),
+          budget:         this.budget() || undefined,
+          startDate:      this.startDate() || undefined,
+        }));
+      }
+      this.freeChangesUsed.set(0);
+      if (info.type === 'charged_change') {
+        this.changeCharged.set(info);
+      }
+    } else if (info.type === 'free_change') {
+      this.freeChangesUsed.set(info.freeChangesUsed);
+      this.changeWarning.set(info);
+    }
+  }
+
+  /** Goes back to Step 2 (options) without resetting the session. */
+  adjustOptions(): void {
+    this.step.set('options');
+    this.generatedTrip.set(null);
+    this.changeWarning.set(null);
+    this.changeCharged.set(null);
+    this.planConfirmPending.set(null);
   }
 
   private parseKarmaError(err: any): { need: number; have: number } | null {
@@ -451,6 +618,12 @@ export class AiPlanningComponent {
     this.selectedOption.set(null);
     this.error.set(null);
     this.karmaError.set(null);
+    this.planSessionId.set(null);
+    this.originalPlanOptions.set(null);
+    this.freeChangesUsed.set(0);
+    this.changeWarning.set(null);
+    this.changeCharged.set(null);
+    this.planConfirmPending.set(null);
   }
 
   legFor(from: string, to: string): TransitLeg | null {
