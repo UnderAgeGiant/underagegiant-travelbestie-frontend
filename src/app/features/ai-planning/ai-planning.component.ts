@@ -171,7 +171,7 @@ type Step = 'preferences' | 'options' | 'result';
                         (click)="suggestConfirmPending.set(null)" type="button"
                         i18n="@@aiplan.confirmCancel">Cancelar</button>
                 <button class="btn-pill btn-primary"
-                        (click)="executeSuggest()" type="button"
+                        (click)="confirmSuggest()" type="button"
                         i18n="@@aiplan.suggestConfirmProceed">Sí, regenerar opciones</button>
               </div>
             </div>
@@ -492,7 +492,13 @@ export class AiPlanningComponent {
   // ── Session management ────────────────────────────────────────────────────
   /** UUID generated on each new suggest call; ties plan calls into a session. */
   planSessionId       = signal<string | null>(null);
-  /** Options from the last PAID plan call — baseline for 20% comparison. */
+  /**
+   * Baseline from the last /suggest call (form values + first returned option).
+   * Active from the very first suggest so the Step 1 bar is reactive immediately.
+   * Replaced by originalPlanOptions once a plan is generated.
+   */
+  suggestBaseline     = signal<PlanSessionOptions | null>(null);
+  /** Options from the last PAID plan call — authoritative baseline for plan 20% comparison. */
   originalPlanOptions = signal<PlanSessionOptions | null>(null);
   /** Number of free changes used so far in this session. */
   freeChangesUsed     = signal(0);
@@ -513,11 +519,14 @@ export class AiPlanningComponent {
 
   /**
    * Combined analysis for Step 1: actual change ratio + free changes remaining
-   * + qualitative preview state. Always non-null — shown from the very first
-   * visit so the user knows upfront how many free re-plans they have.
-   * When no baseline exists yet (no prior plan call), ratio is 0 and all
-   * FREE_CHANGE_LIMIT slots are available.
-   * Uses the original selected option as proxy (actual option chosen in Step 2).
+   * + qualitative preview state. Always non-null — shown from the very first visit.
+   *
+   * Baseline priority: originalPlanOptions (post-plan, authoritative) →
+   *                    suggestBaseline (post-suggest, set after first /suggest) →
+   *                    null (no suggest yet → ratio 0, all slots free).
+   *
+   * Uses the stored selectedOption fields as a proxy so the comparison is driven
+   * only by the editable form fields (preferences / duration / budget / startDate).
    */
   readonly planChangeAnalysis = computed<{
     ratio: number;
@@ -525,9 +534,9 @@ export class AiPlanningComponent {
     preview: 'free' | 'major_change' | 'limit_reached';
   }>(() => {
     const freeRemaining = Math.max(0, FREE_CHANGE_LIMIT - this.freeChangesUsed());
-    const original = this.originalPlanOptions();
+    const original = this.originalPlanOptions() ?? this.suggestBaseline();
     if (!original) {
-      // No baseline yet — fresh state, 0% change, all slots available
+      // No suggest yet — fresh state, 0% change, all slots available
       return { ratio: 0, freeRemaining, preview: 'free' };
     }
     const cur: PlanSessionOptions = {
@@ -567,18 +576,17 @@ export class AiPlanningComponent {
 
   /**
    * Called when user clicks "Generar opciones".
-   * When an active session exists (originalPlanOptions set), pre-validates
-   * the 20% threshold against the original options — same logic as plan() —
-   * and blocks with a confirmation dialog when the eventual plan call will be charged.
-   * On a fresh start (no session) a new planSessionId is generated.
+   * Validates the 20% change threshold against whichever baseline exists
+   * (suggestBaseline after the first suggest, originalPlanOptions after a plan).
+   * On a completely fresh start a new planSessionId is generated.
    */
   suggest(): void {
     if (!this.preferences().trim()) return;
 
-    const original = this.originalPlanOptions();
-    if (original) {
+    const hasBaseline = !!(this.originalPlanOptions() ?? this.suggestBaseline());
+    if (hasBaseline) {
       // Active session: validate change before re-suggesting (reuse computed)
-      const preview = this.planChangeAnalysis()?.preview;
+      const preview = this.planChangeAnalysis().preview;
       if (preview === 'major_change') {
         this.suggestConfirmPending.set({ reason: 'major_change' });
         return;
@@ -588,17 +596,23 @@ export class AiPlanningComponent {
         return;
       }
       // Minor change within free limit — proceed without confirmation
+      this.executeSuggest('free');
     } else {
       // Fresh start: generate new session ID
       this.planSessionId.set(crypto.randomUUID());
       this.freeChangesUsed.set(0);
+      this.executeSuggest('fresh');
     }
-
-    this.executeSuggest();
   }
 
-  /** Executes the actual /ai/suggest API call. Called from suggest() or the confirm dialog. */
-  executeSuggest(): void {
+  /**
+   * Executes the actual /ai/suggest API call.
+   * changeType drives how the suggest baseline and free-change counter are updated:
+   *   'fresh'   — first suggest; counter was already reset; baseline is set for the first time
+   *   'free'    — minor re-suggest; counter increments; baseline advances to new params
+   *   'charged' — major/limit re-suggest confirmed by user; counter resets; baseline resets
+   */
+  executeSuggest(changeType: 'fresh' | 'free' | 'charged' = 'fresh'): void {
     this.suggestConfirmPending.set(null);
     this.loadingMessage.set($localize`:@@aiplan.loadingSuggest:Generando sugerencias ✨`);
     this.loading.set(true);
@@ -611,6 +625,22 @@ export class AiPlanningComponent {
           this.selectedOption.set(res.options[0]);
           this.loading.set(false);
           this.step.set('options');
+          // Update suggest baseline so bar is reactive when user adjusts for re-suggest
+          const firstOpt = res.options[0];
+          if (firstOpt) {
+            this.suggestBaseline.set({
+              selectedOptionTitle:      firstOpt.title,
+              selectedOptionSummary:    firstOpt.summary,
+              selectedOptionHighlights: firstOpt.highlights,
+              preferences:              this.preferences(),
+              duration:                 this.duration() ?? 0,
+              budget:                   this.budget(),
+              startDate:                this.startDate(),
+            });
+          }
+          // Update free-change counter
+          if (changeType === 'free')    this.freeChangesUsed.update(n => n + 1);
+          if (changeType === 'charged') this.freeChangesUsed.set(0);
         },
         error: err => {
           this.loading.set(false);
@@ -619,6 +649,11 @@ export class AiPlanningComponent {
           else this.error.set(err?.error?.error ?? 'Error al generar sugerencias');
         },
       });
+  }
+
+  /** Called from the suggest confirm dialog — user accepted a charged re-suggest. */
+  confirmSuggest(): void {
+    this.executeSuggest('charged');
   }
 
   /**
@@ -765,6 +800,7 @@ export class AiPlanningComponent {
     this.error.set(null);
     this.karmaError.set(null);
     this.planSessionId.set(null);
+    this.suggestBaseline.set(null);
     this.originalPlanOptions.set(null);
     this.freeChangesUsed.set(0);
     this.changeWarning.set(null);
