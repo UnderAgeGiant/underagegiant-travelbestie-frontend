@@ -234,6 +234,10 @@ type Step = 'preferences' | 'options' | 'result';
                         (click)="step.set('preferences')"
                         type="button"
                         i18n="@@aiplan.backBtn">← Volver</button>
+                <button class="btn-pill btn-outline"
+                        (click)="adjustOptions()"
+                        type="button"
+                        i18n="@@aiplan.adjustBtn">✏️ Ajustar opciones</button>
                 <button class="btn-pill btn-primary"
                         [disabled]="loading() || !selectedOption()"
                         (click)="plan()"
@@ -369,10 +373,6 @@ type Step = 'preferences' | 'options' | 'result';
                       (click)="reset()"
                       type="button"
                       i18n="@@aiplan.restartBtn">↩ Volver a empezar</button>
-              <button class="btn-pill btn-outline"
-                      (click)="adjustOptions()"
-                      type="button"
-                      i18n="@@aiplan.adjustBtn">✏️ Ajustar opciones</button>
               <button class="btn-pill btn-primary"
                       (click)="save()"
                       type="button"
@@ -579,10 +579,9 @@ export class AiPlanningComponent {
     }
   }
 
-  /** Goes back to Step 2 (options) without resetting the session. */
+  /** Goes back to Step 1 (preferences) without resetting the session. */
   adjustOptions(): void {
-    this.step.set('options');
-    this.generatedTrip.set(null);
+    this.step.set('preferences');
     this.changeWarning.set(null);
     this.changeCharged.set(null);
     this.planConfirmPending.set(null);
