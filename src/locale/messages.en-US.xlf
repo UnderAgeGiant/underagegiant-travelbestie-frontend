@@ -155,8 +155,8 @@
         <target>Plan · Share · Explore</target>
       </trans-unit>
       <trans-unit id="welcome.title" datatype="html">
-        <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb"/><x id="START_TAG_EM" ctype="x-em"/>mejor amig@<x id="CLOSE_TAG_EM" ctype="x-em"/></source>
-        <target>Travel with your<x id="LINE_BREAK" ctype="lb"/><x id="START_TAG_EM" ctype="x-em"/>bestie<x id="CLOSE_TAG_EM" ctype="x-em"/> in mind</target>
+        <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb"/><x id="START_EMPHASISED_TEXT" ctype="x-em"/>mejor amig@<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em"/></source>
+        <target>Travel with your<x id="LINE_BREAK" ctype="lb"/><x id="START_EMPHASISED_TEXT" ctype="x-em"/>bestie<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em"/> in mind</target>
       </trans-unit>
       <trans-unit id="welcome.subtitle" datatype="html">
         <source>Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>

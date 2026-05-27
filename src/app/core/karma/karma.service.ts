@@ -51,4 +51,18 @@ export class KarmaService {
       this.loadForUser(user.email);
     }
   }
+
+  // Called after a successful karma purchase (any payment provider).
+  // In real mode re-fetches the authoritative balance from the backend.
+  // In mock mode updates local signal + localStorage so the display refreshes immediately.
+  purchaseComplete(karmaAdded: number): void {
+    const user = this.auth.currentUser();
+    if (!user) return;
+    if (environment.useMocks) {
+      this._karma.update(k => (k ?? 0) + karmaAdded);
+      this.api.updateKarmaMock(user.email, karmaAdded);
+    } else {
+      this.loadForUser(user.email);
+    }
+  }
 }
