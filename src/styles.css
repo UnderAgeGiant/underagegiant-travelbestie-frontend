@@ -662,6 +662,26 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .ai-plan-row { flex-direction: column; }
 }
 
+/* ── AI Plan Change Management ────────────────────────────────────────────── */
+.ai-change-warn-card { background: oklch(96% .06 160); border: 1.5px solid oklch(75% .12 160); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 14px; text-align: center; animation: scaleIn .2s ease; }
+.ai-change-warn-icon { font-size: 28px; }
+.ai-change-warn-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: oklch(40% .14 160); }
+.ai-change-warn-body { font-size: 13px; color: var(--t2); line-height: 1.5; }
+.ai-change-charged-card { background: oklch(97% .05 50); border: 1.5px solid oklch(78% .13 50); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 14px; text-align: center; animation: scaleIn .2s ease; }
+.ai-change-charged-icon { font-size: 28px; }
+.ai-change-charged-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: oklch(48% .16 50); }
+.ai-change-charged-body { font-size: 13px; color: var(--t2); line-height: 1.5; }
+.ai-confirm-charge-card { background: oklch(97% .04 290); border: 1.5px solid oklch(78% .1 290); border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 16px; text-align: center; animation: scaleIn .2s ease; }
+.ai-confirm-charge-icon { font-size: 34px; }
+.ai-confirm-charge-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--lav-d); }
+.ai-confirm-charge-body { font-size: 13px; color: var(--t2); line-height: 1.6; max-width: 320px; }
+/* Step 1 live stats row */
+.ai-change-stats { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 4px; font-size: 13px; color: var(--t2); flex-wrap: wrap; }
+/* Progress bar */
+.ai-change-bar-track { height: 6px; background: #e2e8f0; border-radius: 3px; margin: 4px 0 10px; position: relative; overflow: visible; }
+.ai-change-bar-fill { height: 100%; border-radius: 3px; transition: width .3s ease, background .3s ease; }
+.ai-change-bar-marker { position: absolute; top: -3px; transform: translateX(-50%); width: 2px; height: 12px; background: #718096; border-radius: 1px; }
+
 /* ── Karma purchase celebration (NavComponent) ── */
 @keyframes karma-badge-drop {
   0%   { transform: translateX(-50%) translateY(0);    opacity: 0; }

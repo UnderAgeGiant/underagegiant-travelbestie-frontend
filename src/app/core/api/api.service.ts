@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Trip } from '../models/trip.model';
 import { Comment } from '../models/comment.model';
-import { CityCatalog, PlanTripRequest, SuggestTripsResponse } from '../models/ai.model';
+import { CityCatalog, PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip } from '../shared-trips/shared-trips.service';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
@@ -119,15 +119,19 @@ export class ApiService {
     return this.http.get<SharedTrip>(`${this.base}/shared/${shareId}`);
   }
 
-  planTrip(req: PlanTripRequest): Observable<Trip> {
+  planTrip(req: PlanTripRequest): Observable<PlanTripResponse> {
     if (this.useMocks) {
       return of({
-        title: req.selectedOption.title,
-        stops: [{ stopId: 'mock-ai-stop-paris', cityId: 'paris', checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [{ entryId: 'mock-ai-paris-att-0', attractionId: 'paris_0', startTime: '09:00' }] }],
+        title:    req.selectedOption.title,
+        stops:    [{ stopId: 'mock-ai-stop-paris', cityId: 'paris', checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [{ entryId: 'mock-ai-paris-att-0', attractionId: 'paris_0', startTime: '09:00' }] }],
         transits: [],
+        // No changeInfo in mock mode — component handles undefined gracefully
       });
     }
-    return this.http.post<Trip>(`${this.base}/ai/plan`, { ...req, cityCatalog: CITY_CATALOG });
+    return this.http.post<PlanTripResponse>(
+      `${this.base}/ai/plan`,
+      { ...req, cityCatalog: CITY_CATALOG },
+    );
   }
 
   getKarmaPackages(): Observable<{ packages: KarmaPackage[] }> {
