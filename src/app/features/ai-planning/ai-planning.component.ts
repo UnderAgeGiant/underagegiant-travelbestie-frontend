@@ -127,7 +127,7 @@ type Step = 'preferences' | 'options' | 'result';
             </div>
           }
 
-          <!-- ── Pre-call change confirmation ── -->
+          <!-- ── Pre-call change confirmation (plan) ── -->
           @if (planConfirmPending()) {
             <div class="ai-confirm-charge-card">
               <div class="ai-confirm-charge-icon">💸</div>
@@ -148,6 +148,31 @@ type Step = 'preferences' | 'options' | 'result';
                 <button class="btn-pill btn-primary"
                         (click)="executePlan()" type="button"
                         i18n="@@aiplan.confirmProceed">Sí, continuar (−1 karma)</button>
+              </div>
+            </div>
+          }
+
+          <!-- ── Pre-suggest change confirmation ── -->
+          @if (suggestConfirmPending()) {
+            <div class="ai-confirm-charge-card">
+              <div class="ai-confirm-charge-icon">💸</div>
+              <div class="ai-confirm-charge-title">
+                @if (suggestConfirmPending()!.reason === 'major_change') {
+                  <span i18n="@@aiplan.confirmMajorTitle">Cambio mayor al 20% detectado</span>
+                } @else {
+                  <span i18n="@@aiplan.confirmLimitTitle">Has usado tus 3 cambios gratuitos</span>
+                }
+              </div>
+              <div class="ai-confirm-charge-body" i18n="@@aiplan.suggestConfirmBody">
+                Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?
+              </div>
+              <div class="ai-plan-actions">
+                <button class="btn-pill btn-outline"
+                        (click)="suggestConfirmPending.set(null)" type="button"
+                        i18n="@@aiplan.confirmCancel">Cancelar</button>
+                <button class="btn-pill btn-primary"
+                        (click)="executeSuggest()" type="button"
+                        i18n="@@aiplan.suggestConfirmProceed">Sí, regenerar opciones</button>
               </div>
             </div>
           }
@@ -198,6 +223,26 @@ type Step = 'preferences' | 'options' | 'result';
                        i18n-placeholder="@@aiplan.startDatePlaceholder"
                        placeholder="Ej: 15/07/2026" />
               </div>
+
+              <!-- ── Live 20% change preview (shown when adjusting an active session) ── -->
+              @if (planChangePreview() === 'free') {
+                <div class="ai-change-preview ai-change-preview-minor">
+                  <span>🔄 </span>
+                  <span i18n="@@aiplan.previewFreeHint">Ajuste menor —</span>
+                  <strong> {{ freeChangesRemaining() }} </strong>
+                  <span i18n="@@aiplan.previewFreeLeft">cambio(s) gratuito(s) restante(s) para el plan</span>
+                </div>
+              }
+              @if (planChangePreview() === 'major_change') {
+                <div class="ai-change-preview ai-change-preview-charged">
+                  <span i18n="@@aiplan.previewMajorHint">⚠️ Cambio significativo (&gt;20%) — el próximo plan costará 1 karma ⭐</span>
+                </div>
+              }
+              @if (planChangePreview() === 'limit_reached') {
+                <div class="ai-change-preview ai-change-preview-charged">
+                  <span i18n="@@aiplan.previewLimitHint">⚠️ Límite de 3 cambios gratuitos alcanzado — el próximo plan costará 1 karma ⭐</span>
+                </div>
+              }
 
               <button class="btn-pill btn-primary ai-plan-submit"
                       [disabled]="loading() || !preferences().trim()"
@@ -433,6 +478,36 @@ export class AiPlanningComponent {
   changeCharged   = signal<PlanChangeInfo | null>(null);
   /** Pending confirmation: user must confirm a charged re-plan. */
   planConfirmPending = signal<{ reason: 'major_change' | 'limit_reached' } | null>(null);
+  /** Pending confirmation: user must confirm re-suggest when plan will be charged. */
+  suggestConfirmPending = signal<{ reason: 'major_change' | 'limit_reached' } | null>(null);
+
+  // ── Step 1 live change preview ────────────────────────────────────────────
+  /**
+   * Shows estimated change type in Step 1 while the user edits preferences.
+   * Uses the original selected option as proxy (actual option chosen in Step 2).
+   * null when there is no active session to compare against.
+   */
+  readonly planChangePreview = computed<'free' | 'major_change' | 'limit_reached' | null>(() => {
+    const original = this.originalPlanOptions();
+    if (!original) return null;
+    const cur: PlanSessionOptions = {
+      selectedOptionTitle:      original.selectedOptionTitle,
+      selectedOptionSummary:    original.selectedOptionSummary,
+      selectedOptionHighlights: original.selectedOptionHighlights,
+      preferences:              this.preferences(),
+      duration:                 this.duration() ?? 0,
+      budget:                   this.budget(),
+      startDate:                this.startDate(),
+    };
+    if (!isMinorChange(original, cur)) return 'major_change';
+    if (this.freeChangesUsed() >= FREE_CHANGE_LIMIT) return 'limit_reached';
+    return 'free';
+  });
+
+  /** How many free plan-changes remain in the current session. */
+  readonly freeChangesRemaining = computed(() =>
+    Math.max(0, FREE_CHANGE_LIMIT - this.freeChangesUsed()),
+  );
 
   private readonly transitMap = computed(() => {
     const map = new Map<string, TransitLeg>();
@@ -447,13 +522,52 @@ export class AiPlanningComponent {
     this.duration.set(isNaN(n) ? undefined : n);
   }
 
+  /**
+   * Called when user clicks "Generar opciones".
+   * When an active session exists (originalPlanOptions set), pre-validates
+   * the 20% threshold against the original options — same logic as plan() —
+   * and blocks with a confirmation dialog when the eventual plan call will be charged.
+   * On a fresh start (no session) a new planSessionId is generated.
+   */
   suggest(): void {
     if (!this.preferences().trim()) return;
-    // Generate a new session ID for this suggest+plan sequence
-    this.planSessionId.set(crypto.randomUUID());
-    this.originalPlanOptions.set(null);
-    this.freeChangesUsed.set(0);
 
+    const original = this.originalPlanOptions();
+    if (original) {
+      // Active session: validate change before re-suggesting
+      const cur: PlanSessionOptions = {
+        selectedOptionTitle:      original.selectedOptionTitle,
+        selectedOptionSummary:    original.selectedOptionSummary,
+        selectedOptionHighlights: original.selectedOptionHighlights,
+        preferences:              this.preferences(),
+        duration:                 this.duration() ?? 0,
+        budget:                   this.budget(),
+        startDate:                this.startDate(),
+      };
+      const minor   = isMinorChange(original, cur);
+      const freeLeft = this.freeChangesUsed() < FREE_CHANGE_LIMIT;
+
+      if (!minor) {
+        this.suggestConfirmPending.set({ reason: 'major_change' });
+        return;
+      }
+      if (!freeLeft) {
+        this.suggestConfirmPending.set({ reason: 'limit_reached' });
+        return;
+      }
+      // Minor change within free limit — proceed without confirmation
+    } else {
+      // Fresh start: generate new session ID
+      this.planSessionId.set(crypto.randomUUID());
+      this.freeChangesUsed.set(0);
+    }
+
+    this.executeSuggest();
+  }
+
+  /** Executes the actual /ai/suggest API call. Called from suggest() or the confirm dialog. */
+  executeSuggest(): void {
+    this.suggestConfirmPending.set(null);
     this.loadingMessage.set($localize`:@@aiplan.loadingSuggest:Generando sugerencias ✨`);
     this.loading.set(true);
     this.error.set(null);
@@ -585,6 +699,7 @@ export class AiPlanningComponent {
     this.changeWarning.set(null);
     this.changeCharged.set(null);
     this.planConfirmPending.set(null);
+    this.suggestConfirmPending.set(null);
   }
 
   private parseKarmaError(err: any): { need: number; have: number } | null {
@@ -623,6 +738,7 @@ export class AiPlanningComponent {
     this.changeWarning.set(null);
     this.changeCharged.set(null);
     this.planConfirmPending.set(null);
+    this.suggestConfirmPending.set(null);
   }
 
   legFor(from: string, to: string): TransitLeg | null {
