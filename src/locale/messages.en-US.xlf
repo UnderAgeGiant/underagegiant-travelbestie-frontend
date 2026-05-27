@@ -604,14 +604,7 @@
         <source>✏️ Ajustar opciones</source>
         <target>✏️ Adjust options</target>
       </trans-unit>
-      <trans-unit id="aiplan.previewFreeHint" datatype="html">
-        <source>Ajuste menor —</source>
-        <target>Minor adjustment —</target>
-      </trans-unit>
-      <trans-unit id="aiplan.previewFreeLeft" datatype="html">
-        <source>cambio(s) gratuito(s) restante(s) para el plan</source>
-        <target>free change(s) remaining for the plan</target>
-      </trans-unit>
+
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
         <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?</source>
         <target>If you regenerate options with this adjustment, the resulting plan will cost 1 karma ⭐. Do you want to continue?</target>
@@ -623,6 +616,18 @@
       <trans-unit id="aiplan.previewChargedBody" datatype="html">
         <source>El plan se generará como nueva sesión y costará 1 karma ⭐.</source>
         <target>The plan will be generated as a new session and will cost 1 karma ⭐.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.statsFreeLabel" datatype="html">
+        <source>Cambios gratuitos:</source>
+        <target>Free changes:</target>
+      </trans-unit>
+      <trans-unit id="aiplan.statsChangeLabel" datatype="html">
+        <source>Cambio actual:</source>
+        <target>Current change:</target>
+      </trans-unit>
+      <trans-unit id="aiplan.statsThreshold" datatype="html">
+        <source> / <x id="INTERPOLATION" equiv-text="{{ CHANGE_THRESHOLD_PCT }}"/>% libre</source>
+        <target> / <x id="INTERPOLATION" equiv-text="{{ CHANGE_THRESHOLD_PCT }}"/>% free</target>
       </trans-unit>
 
     </body>
