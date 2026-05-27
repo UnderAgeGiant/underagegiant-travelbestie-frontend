@@ -224,49 +224,48 @@ type Step = 'preferences' | 'options' | 'result';
                        placeholder="Ej: 15/07/2026" />
               </div>
 
-              <!-- ── Live change analysis (shown when adjusting an active session) ── -->
-              @if (planChangeAnalysis(); as analysis) {
-                <!-- Stats row -->
-                <div class="ai-change-stats">
-                  <span>
-                    <span i18n="@@aiplan.statsFreeLabel">Cambios gratuitos:</span>
-                    <strong [style.color]="analysis.freeRemaining === 0 ? '#e53e3e' : '#38a169'">
-                      {{ analysis.freeRemaining }} / {{ FREE_CHANGE_LIMIT }}
-                    </strong>
-                  </span>
-                  <span>
-                    <span i18n="@@aiplan.statsChangeLabel">Cambio actual:</span>
-                    <strong [style.color]="analysis.ratio > CHANGE_THRESHOLD_PCT ? '#e53e3e' : '#38a169'">
-                      {{ analysis.ratio }}%
-                    </strong>
-                    <span i18n="@@aiplan.statsThreshold"> / {{ CHANGE_THRESHOLD_PCT }}% libre</span>
-                  </span>
+              <!-- ── Live change analysis (always visible on Step 1) ── -->
+              @let analysis = planChangeAnalysis();
+              <!-- Stats row -->
+              <div class="ai-change-stats">
+                <span>
+                  <span i18n="@@aiplan.statsFreeLabel">Cambios gratuitos:</span>
+                  <strong [style.color]="analysis.freeRemaining === 0 ? '#e53e3e' : '#38a169'">
+                    {{ analysis.freeRemaining }} / {{ FREE_CHANGE_LIMIT }}
+                  </strong>
+                </span>
+                <span>
+                  <span i18n="@@aiplan.statsChangeLabel">Cambio actual:</span>
+                  <strong [style.color]="analysis.ratio > CHANGE_THRESHOLD_PCT ? '#e53e3e' : '#38a169'">
+                    {{ analysis.ratio }}%
+                  </strong>
+                  <span i18n="@@aiplan.statsThreshold"> / {{ CHANGE_THRESHOLD_PCT }}% libre</span>
+                </span>
+              </div>
+              <!-- Progress bar -->
+              <div class="ai-change-bar-track">
+                <div class="ai-change-bar-fill"
+                     [style.width]="planChangeBarWidth() + '%'"
+                     [style.background]="analysis.ratio > CHANGE_THRESHOLD_PCT ? '#e53e3e' : '#48bb78'">
                 </div>
-                <!-- Progress bar -->
-                <div class="ai-change-bar-track">
-                  <div class="ai-change-bar-fill"
-                       [style.width]="planChangeBarWidth() + '%'"
-                       [style.background]="analysis.ratio > CHANGE_THRESHOLD_PCT ? '#e53e3e' : '#48bb78'">
+                <!-- 20% threshold marker -->
+                <div class="ai-change-bar-marker" [style.left]="CHANGE_THRESHOLD_PCT + '%'"></div>
+              </div>
+              <!-- Charged card (only shown when will cost karma) -->
+              @if (analysis.preview === 'major_change' || analysis.preview === 'limit_reached') {
+                <div class="ai-change-charged-card" style="margin-bottom:4px">
+                  <div class="ai-change-charged-icon">💸</div>
+                  <div class="ai-change-charged-title">
+                    @if (analysis.preview === 'major_change') {
+                      <span i18n="@@aiplan.majorChangeTitle">Cambio significativo (>20%)</span>
+                    } @else {
+                      <span i18n="@@aiplan.limitReachedTitle">Límite de cambios gratuitos alcanzado</span>
+                    }
                   </div>
-                  <!-- 20% threshold marker -->
-                  <div class="ai-change-bar-marker" [style.left]="CHANGE_THRESHOLD_PCT + '%'"></div>
+                  <div class="ai-change-charged-body" i18n="@@aiplan.previewChargedBody">
+                    El plan se generará como nueva sesión y costará 1 karma ⭐.
+                  </div>
                 </div>
-                <!-- Charged card (only shown when will cost karma) -->
-                @if (analysis.preview === 'major_change' || analysis.preview === 'limit_reached') {
-                  <div class="ai-change-charged-card" style="margin-bottom:4px">
-                    <div class="ai-change-charged-icon">💸</div>
-                    <div class="ai-change-charged-title">
-                      @if (analysis.preview === 'major_change') {
-                        <span i18n="@@aiplan.majorChangeTitle">Cambio significativo (>20%)</span>
-                      } @else {
-                        <span i18n="@@aiplan.limitReachedTitle">Límite de cambios gratuitos alcanzado</span>
-                      }
-                    </div>
-                    <div class="ai-change-charged-body" i18n="@@aiplan.previewChargedBody">
-                      El plan se generará como nueva sesión y costará 1 karma ⭐.
-                    </div>
-                  </div>
-                }
               }
 
               <button class="btn-pill btn-primary ai-plan-submit"
@@ -513,17 +512,24 @@ export class AiPlanningComponent {
   protected readonly CHANGE_THRESHOLD_PCT = Math.round(CHANGE_THRESHOLD * 100);
 
   /**
-   * Combined analysis for Step 1 preview: actual change ratio + free changes
-   * remaining + qualitative preview state. null when no active session exists.
+   * Combined analysis for Step 1: actual change ratio + free changes remaining
+   * + qualitative preview state. Always non-null — shown from the very first
+   * visit so the user knows upfront how many free re-plans they have.
+   * When no baseline exists yet (no prior plan call), ratio is 0 and all
+   * FREE_CHANGE_LIMIT slots are available.
    * Uses the original selected option as proxy (actual option chosen in Step 2).
    */
   readonly planChangeAnalysis = computed<{
     ratio: number;
     freeRemaining: number;
     preview: 'free' | 'major_change' | 'limit_reached';
-  } | null>(() => {
+  }>(() => {
+    const freeRemaining = Math.max(0, FREE_CHANGE_LIMIT - this.freeChangesUsed());
     const original = this.originalPlanOptions();
-    if (!original) return null;
+    if (!original) {
+      // No baseline yet — fresh state, 0% change, all slots available
+      return { ratio: 0, freeRemaining, preview: 'free' };
+    }
     const cur: PlanSessionOptions = {
       selectedOptionTitle:      original.selectedOptionTitle,
       selectedOptionSummary:    original.selectedOptionSummary,
@@ -533,20 +539,18 @@ export class AiPlanningComponent {
       budget:                   this.budget(),
       startDate:                this.startDate(),
     };
-    const ratio        = Math.round(computeChangeRatio(original, cur) * 100);
-    const freeRemaining = Math.max(0, FREE_CHANGE_LIMIT - this.freeChangesUsed());
+    const ratio = Math.round(computeChangeRatio(original, cur) * 100);
     let preview: 'free' | 'major_change' | 'limit_reached';
-    if (!isMinorChange(original, cur))     preview = 'major_change';
+    if (!isMinorChange(original, cur))                    preview = 'major_change';
     else if (this.freeChangesUsed() >= FREE_CHANGE_LIMIT) preview = 'limit_reached';
-    else                                   preview = 'free';
+    else                                                  preview = 'free';
     return { ratio, freeRemaining, preview };
   });
 
   /** Width (0–100) for the change progress bar, capped at 100%. */
-  readonly planChangeBarWidth = computed(() => {
-    const a = this.planChangeAnalysis();
-    return a ? Math.min(a.ratio, 100) : 0;
-  });
+  readonly planChangeBarWidth = computed(() =>
+    Math.min(this.planChangeAnalysis().ratio, 100),
+  );
 
   private readonly transitMap = computed(() => {
     const map = new Map<string, TransitLeg>();
