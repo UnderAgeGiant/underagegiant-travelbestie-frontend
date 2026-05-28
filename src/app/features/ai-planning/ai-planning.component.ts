@@ -11,13 +11,14 @@ import { getAttractions } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavComponent } from '../nav/nav.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { DatePickerComponent } from '../../shared/date-picker/date-picker.component';
 
 type Step = 'preferences' | 'options' | 'result';
 
 @Component({
   selector: 'app-ai-planning',
   standalone: true,
-  imports: [DurationPipe, NavComponent, ProfileComponent],
+  imports: [DurationPipe, NavComponent, ProfileComponent, DatePickerComponent],
   template: `
     <div class="ai-plan-page">
 
@@ -215,13 +216,9 @@ type Step = 'preferences' | 'options' | 'result';
               </div>
 
               <div class="ai-plan-field">
-                <label class="ai-plan-label" i18n="@@aiplan.startDateLabel">Fecha de inicio (dd/mm/aaaa)</label>
-                <input class="form-input"
-                       type="text" maxlength="10"
-                       [value]="startDate()"
-                       (input)="startDate.set($any($event.target).value)"
-                       i18n-placeholder="@@aiplan.startDatePlaceholder"
-                       placeholder="Ej: 15/07/2026" />
+                <label class="ai-plan-label" i18n="@@aiplan.startDateLabel">Fecha de inicio</label>
+                <app-date-picker [initialDate]="startDate()"
+                                 (dateChange)="startDate.set($event)" />
               </div>
 
               <!-- ── Live change analysis (always visible on Step 1) ── -->
