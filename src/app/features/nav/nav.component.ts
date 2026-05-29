@@ -362,12 +362,15 @@ import { environment } from '../../../environments/environment';
     }
 
     @if (authModal.isOpen()) {
-      <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && authModal.close()">
+      <div class="modal-backdrop" (click)="onBackdropClick($event)">
         <div class="modal">
-          <div class="modal-head"
+          <div class="modal-head" style="position:relative"
                [style.background]="loginMode() === 'login'
                  ? 'linear-gradient(135deg,var(--lav),var(--peach))'
                  : 'linear-gradient(135deg,var(--mint),var(--sky))'">
+            <button type="button"
+                    style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:16px;line-height:1;padding:5px 8px;border-radius:8px;cursor:pointer;transition:background .12s"
+                    (click)="authModal.close()">✕</button>
             @if (loginMode() === 'login') {
               <div class="modal-title" i18n="@@nav.loginTitle">¡Bienvenido de vuelta! 👋</div>
               <div class="modal-sub" i18n="@@nav.loginSubtitle">Inicia sesión para guardar tus viajes</div>
@@ -377,32 +380,77 @@ import { environment } from '../../../environments/environment';
             }
           </div>
           <div class="modal-body">
-            @if (loginMode() === 'register') {
+            @if (loginMode() === 'login') {
               <div class="form-group">
-                <label class="form-label" i18n="@@nav.nameLabel">Tu nombre</label>
-                <input class="form-input"
-                       i18n-placeholder="@@nav.namePlaceholder" placeholder="Sofía García"
-                       [value]="loginName()"
-                       (input)="loginName.set($any($event.target).value)" />
+                <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
+                <input class="form-input" type="email"
+                       i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
+                       [value]="loginEmail()"
+                       (input)="loginEmail.set($any($event.target).value)" />
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
+                <input class="form-input" type="password" placeholder="••••••••"
+                       [value]="loginPassword()"
+                       (input)="loginPassword.set($any($event.target).value)" />
               </div>
             }
-            <div class="form-group">
-              <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
-              <input class="form-input" type="email"
-                     i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
-                     [value]="loginEmail()"
-                     (input)="loginEmail.set($any($event.target).value)" />
-            </div>
-            <div class="form-group" style="margin-bottom:0">
-              <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
-              <input class="form-input" type="password" placeholder="••••••••"
-                     [value]="loginPassword()"
-                     (input)="loginPassword.set($any($event.target).value)" />
-            </div>
+            @if (loginMode() === 'register') {
+              @if (!otpStep()) {
+                <div class="form-group">
+                  <label class="form-label" i18n="@@nav.nameLabel">Tu nombre</label>
+                  <input class="form-input"
+                         i18n-placeholder="@@nav.namePlaceholder" placeholder="Sofía García"
+                         [value]="loginName()"
+                         (input)="loginName.set($any($event.target).value)" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
+                  <input class="form-input" type="email"
+                         i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
+                         [value]="loginEmail()"
+                         (input)="loginEmail.set($any($event.target).value)" />
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
+                  <input class="form-input" type="password" placeholder="••••••••"
+                         [value]="loginPassword()"
+                         (input)="loginPassword.set($any($event.target).value)" />
+                </div>
+              } @else {
+                <div style="text-align:center;padding:8px 0 4px">
+                  <div style="font-size:28px">📧</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--t1);margin-top:6px"
+                       i18n="@@nav.otpSentTitle">Revisa tu correo</div>
+                  <div style="font-size:12px;color:var(--t3);margin-top:3px">
+                    <ng-container i18n="@@nav.otpSentTo">Código enviado a </ng-container>
+                    <strong>{{ loginEmail() }}</strong>
+                  </div>
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" i18n="@@nav.otpLabel">Código de verificación</label>
+                  <input class="form-input"
+                         type="text" inputmode="numeric" maxlength="6"
+                         i18n-placeholder="@@nav.otpPlaceholder" placeholder="000000"
+                         [value]="otpCode()"
+                         (input)="otpCode.set($any($event.target).value)" />
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px">
+                  <span style="color:var(--lav-d);cursor:pointer" (click)="goBackFromOtp()"
+                        i18n="@@nav.otpBack">← Cambiar email</span>
+                  <span style="color:var(--lav-d);cursor:pointer" (click)="resendOtp()"
+                        i18n="@@nav.otpResend">
+                    {{ otpLoading() ? 'Enviando…' : 'Reenviar código' }}
+                  </span>
+                </div>
+              }
+            }
           </div>
           <div class="modal-foot" style="flex-direction:column;gap:8px">
             <div style="display:flex;justify-content:center;padding-bottom:4px">
-              <div id="tb-turnstile"></div>
+              @if (loginMode() !== 'register' || !otpStep()) {
+                <div id="tb-turnstile"></div>
+              }
             </div>
             <div style="display:flex;gap:8px;width:100%">
               <button class="btn-pill btn-outline" (click)="authModal.close()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
@@ -411,10 +459,17 @@ import { environment } from '../../../environments/environment';
                         [disabled]="!captchaToken()"
                         [style.opacity]="captchaToken() ? '1' : '0.5'"
                         style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
+              } @else if (!otpStep()) {
+                <button class="btn-pill btn-primary" (click)="sendOtp()"
+                        [disabled]="otpLoading() || !captchaToken()"
+                        [style.opacity]="(otpLoading() || !captchaToken()) ? '0.5' : '1'"
+                        style="flex:2" i18n="@@nav.sendOtpBtn">
+                  {{ otpLoading() ? 'Enviando…' : 'Enviar código →' }}
+                </button>
               } @else {
                 <button class="btn-pill btn-primary" (click)="doAuth()"
-                        [disabled]="!captchaToken()"
-                        [style.opacity]="captchaToken() ? '1' : '0.5'"
+                        [disabled]="otpCode().length < 6"
+                        [style.opacity]="otpCode().length >= 6 ? '1' : '0.5'"
                         style="flex:2" i18n="@@nav.registerSubmit">Crear cuenta →</button>
               }
             </div>
@@ -425,9 +480,13 @@ import { environment } from '../../../environments/environment';
             }
             <div class="auth-toggle">
               @if (loginMode() === 'login') {
-                <span i18n="@@nav.authToggleLogin">¿Sin cuenta? <span (click)="loginMode.set('register'); loginError.set('')">Regístrate gratis</span></span>
+                <span i18n="@@nav.authToggleLogin">¿Sin cuenta?
+                  <span (click)="switchToRegister()">Regístrate gratis</span>
+                </span>
               } @else {
-                <span i18n="@@nav.authToggleRegister">¿Ya tienes una? <span (click)="loginMode.set('login'); loginError.set('')">Inicia sesión</span></span>
+                <span i18n="@@nav.authToggleRegister">¿Ya tienes una?
+                  <span (click)="switchToLogin()">Inicia sesión</span>
+                </span>
               }
             </div>
             @if (loginMode() === 'login') {
@@ -476,6 +535,10 @@ export class NavComponent {
   private karmaAnimTimer: ReturnType<typeof setTimeout> | null = null;
 
   captchaToken = signal('');
+  otpStep    = signal(false);
+  otpCode    = signal('');
+  otpLoading = signal(false);
+
   private readonly turnstileWidgetId = signal<string | null>(null);
   private initAttempts = 0;
 
@@ -486,6 +549,9 @@ export class NavComponent {
         setTimeout(() => this.renderTurnstile(), 0);
       } else {
         this.destroyTurnstile();
+        this.otpStep.set(false);
+        this.otpCode.set('');
+        this.loginError.set('');
       }
     }, { allowSignalWrites: true });
   }
@@ -560,6 +626,68 @@ export class NavComponent {
     const ts = (window as any).turnstile;
     if (id !== null && ts) ts.reset(id);
     this.captchaToken.set('');
+  }
+
+  switchToRegister(): void {
+    this.loginMode.set('register');
+    this.loginError.set('');
+    this.otpStep.set(false);
+    this.otpCode.set('');
+  }
+
+  switchToLogin(): void {
+    this.loginMode.set('login');
+    this.loginError.set('');
+    this.otpStep.set(false);
+    this.otpCode.set('');
+  }
+
+  goBackFromOtp(): void {
+    this.otpStep.set(false);
+    this.otpCode.set('');
+    this.loginError.set('');
+    setTimeout(() => this.renderTurnstile(), 0);
+  }
+
+  sendOtp(): void {
+    if (!this.captchaToken()) {
+      this.loginError.set('Por favor completa la verificación de seguridad');
+      return;
+    }
+    this.otpLoading.set(true);
+    this.loginError.set('');
+    this.auth.requestOtp(this.loginEmail()).subscribe({
+      next: () => {
+        this.otpStep.set(true);
+        this.otpLoading.set(false);
+        this.destroyTurnstile();
+      },
+      error: (err: Error) => {
+        this.loginError.set(err.message ?? 'No se pudo enviar el código. Intenta de nuevo.');
+        this.otpLoading.set(false);
+        this.resetTurnstile();
+      },
+    });
+  }
+
+  resendOtp(): void {
+    this.otpLoading.set(true);
+    this.loginError.set('');
+    this.auth.requestOtp(this.loginEmail()).subscribe({
+      next: () => {
+        this.otpLoading.set(false);
+      },
+      error: (err: Error) => {
+        this.loginError.set(err.message ?? 'No se pudo reenviar el código.');
+        this.otpLoading.set(false);
+      },
+    });
+  }
+
+  onBackdropClick(event: MouseEvent): void {
+    if (event.target !== event.currentTarget) return;
+    if (this.loginMode() === 'register') return;
+    this.authModal.close();
   }
 
   karmaIcon(): string {
@@ -738,7 +866,7 @@ export class NavComponent {
         },
       });
     } else {
-      this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword()).subscribe({
+      this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword(), this.otpCode()).subscribe({
         next: res => {
           this.trip.loadForUser(res.user.email);
           this.karma.loadForUser(res.user.email);
@@ -747,11 +875,12 @@ export class NavComponent {
           this.loginName.set('');
           this.loginEmail.set('');
           this.loginPassword.set('');
+          this.otpCode.set('');
+          this.otpStep.set(false);
           this.authModal.executePostLogin();
         },
         error: (err: Error) => {
           this.loginError.set(err.message);
-          this.resetTurnstile();
         },
       });
     }

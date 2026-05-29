@@ -140,6 +140,34 @@
         <source>Crear cuenta →</source>
         <target>Create Account →</target>
       </trans-unit>
+      <trans-unit id="nav.sendOtpBtn" datatype="html">
+        <source>Enviar código →</source>
+        <target>Send code →</target>
+      </trans-unit>
+      <trans-unit id="nav.otpSentTitle" datatype="html">
+        <source>Revisa tu correo</source>
+        <target>Check your email</target>
+      </trans-unit>
+      <trans-unit id="nav.otpSentTo" datatype="html">
+        <source>Código enviado a </source>
+        <target>Code sent to </target>
+      </trans-unit>
+      <trans-unit id="nav.otpLabel" datatype="html">
+        <source>Código de verificación</source>
+        <target>Verification code</target>
+      </trans-unit>
+      <trans-unit id="nav.otpPlaceholder" datatype="html">
+        <source>000000</source>
+        <target>000000</target>
+      </trans-unit>
+      <trans-unit id="nav.otpBack" datatype="html">
+        <source>← Cambiar email</source>
+        <target>← Change email</target>
+      </trans-unit>
+      <trans-unit id="nav.otpResend" datatype="html">
+        <source>Reenviar código</source>
+        <target>Resend code</target>
+      </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
         <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
