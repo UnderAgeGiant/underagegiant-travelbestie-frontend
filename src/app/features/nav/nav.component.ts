@@ -495,7 +495,7 @@ import { environment } from '../../../environments/environment';
           </div>
           <div class="modal-foot" style="flex-direction:column;gap:8px">
             <div style="display:flex;justify-content:center;padding-bottom:4px">
-              @if (loginMode() !== 'register' || !otpStep()) {
+              @if (loginMode() === 'login') {
                 <div id="tb-turnstile"></div>
               }
             </div>
@@ -508,8 +508,8 @@ import { environment } from '../../../environments/environment';
                         style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
               } @else if (!otpStep()) {
                 <button class="btn-pill btn-primary" (click)="sendOtp()"
-                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()"
-                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()) ? '0.5' : '1'"
+                        [disabled]="otpLoading() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()"
+                        [style.opacity]="(otpLoading() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()) ? '0.5' : '1'"
                         style="flex:2" i18n="@@nav.sendOtpBtn">
                   {{ otpLoading() ? 'Enviando…' : 'Enviar código →' }}
                 </button>
@@ -758,10 +758,6 @@ export class NavComponent {
   }
 
   sendOtp(): void {
-    if (!this.captchaToken()) {
-      this.loginError.set('Por favor completa la verificación de seguridad');
-      return;
-    }
     this.otpLoading.set(true);
     this.loginError.set('');
     this.auth.requestOtp(this.loginEmail()).subscribe({
