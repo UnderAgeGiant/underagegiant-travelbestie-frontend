@@ -433,7 +433,7 @@ import { environment } from '../../../environments/environment';
                          type="text" inputmode="numeric" maxlength="6"
                          i18n-placeholder="@@nav.otpPlaceholder" placeholder="000000"
                          [value]="otpCode()"
-                         (input)="otpCode.set($any($event.target).value)" />
+                         (input)="onOtpInput($any($event.target).value)" />
                 </div>
                 <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px">
                   <span style="color:var(--lav-d);cursor:pointer" (click)="goBackFromOtp()"
@@ -461,8 +461,8 @@ import { environment } from '../../../environments/environment';
                         style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
               } @else if (!otpStep()) {
                 <button class="btn-pill btn-primary" (click)="sendOtp()"
-                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !loginEmail().trim() || !loginPassword().trim()"
-                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !loginEmail().trim() || !loginPassword().trim()) ? '0.5' : '1'"
+                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim()"
+                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim()) ? '0.5' : '1'"
                         style="flex:2" i18n="@@nav.sendOtpBtn">
                   {{ otpLoading() ? 'Enviando…' : 'Enviar código →' }}
                 </button>
@@ -538,6 +538,8 @@ export class NavComponent {
   otpStep    = signal(false);
   otpCode    = signal('');
   otpLoading = signal(false);
+
+  readonly isEmailValid = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.loginEmail().trim()));
 
   private readonly turnstileWidgetId = signal<string | null>(null);
   private initAttempts = 0;
@@ -682,6 +684,14 @@ export class NavComponent {
         this.otpLoading.set(false);
       },
     });
+  }
+
+  onOtpInput(value: string): void {
+    const digits = value.replace(/\D/g, '').slice(0, 6);
+    this.otpCode.set(digits);
+    if (digits.length === 6) {
+      this.doAuth();
+    }
   }
 
   onBackdropClick(event: MouseEvent): void {
