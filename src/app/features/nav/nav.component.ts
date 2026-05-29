@@ -361,6 +361,29 @@ import { environment } from '../../../environments/environment';
       </app-karma-success-overlay>
     }
 
+    @if (registerSuccessOpen()) {
+      <div style="position:fixed;inset:0;z-index:1000;background:rgba(15,10,30,0.72);display:flex;align-items:center;justify-content:center;padding:16px">
+        <div style="background:#fff;border-radius:24px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.28)">
+          <div style="background:linear-gradient(135deg,var(--mint),var(--sky));padding:40px 32px 32px;text-align:center">
+            <div style="font-size:52px;margin-bottom:14px">🎉</div>
+            <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:500;color:#fff;line-height:1.15;letter-spacing:-0.5px">
+              ¡Bienvenido,<br><em>{{ registerSuccessName() }}</em>!
+            </div>
+          </div>
+          <div style="padding:28px 32px 32px;text-align:center">
+            <p style="font-size:14px;color:var(--t2);line-height:1.7;margin:0 0 24px">
+              Tu cuenta ha sido creada exitosamente. ¡Ya puedes empezar a planear tus aventuras y compartirlas con tus amigos!
+            </p>
+            <button class="btn-pill btn-primary"
+                    style="width:100%;justify-content:center;font-size:14px"
+                    (click)="dismissRegisterSuccess()">
+              ¡Empezar a planear! ✈️
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+
     @if (authModal.isOpen()) {
       <div class="modal-backdrop" (click)="onBackdropClick($event)">
         <div class="modal">
@@ -578,7 +601,9 @@ export class NavComponent {
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
-  buyKarmaOpen        = signal(false);
+  buyKarmaOpen           = signal(false);
+  registerSuccessOpen    = signal(false);
+  registerSuccessName    = signal('');
   karmaSuccessOpen    = signal(false);   // fullscreen celebration overlay
   karmaSuccessAmount  = signal(0);       // karma units added in last purchase
   karmaGainAnim       = signal(0);       // >0 while counter sparkle animation plays
@@ -861,6 +886,10 @@ export class NavComponent {
     this.karmaSuccessOpen.set(true);     // show fullscreen celebration overlay
   }
 
+  dismissRegisterSuccess(): void {
+    this.registerSuccessOpen.set(false);
+  }
+
   /** Step 2 — called when user dismisses the celebration overlay. */
   dismissKarmaSuccess(): void {
     this.karmaSuccessOpen.set(false);
@@ -989,6 +1018,7 @@ export class NavComponent {
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
+          this.registerSuccessName.set(res.user.name);
           this.loginName.set('');
           this.loginEmail.set('');
           this.loginPassword.set('');
@@ -996,6 +1026,7 @@ export class NavComponent {
           this.otpCode.set('');
           this.otpStep.set(false);
           this.authModal.executePostLogin();
+          this.registerSuccessOpen.set(true);
         },
         error: (err: Error) => {
           this.loginError.set(err.message);
