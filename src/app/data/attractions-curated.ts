@@ -381,4 +381,339 @@ export const CURATED_ALL: CuratedMap = {
     { name: 'Swiss Tectonic Arena Sardona', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1179_0001-750-0-20090923181913.jpg' },
     { name: 'Prehistoric Pile dwellings around the Alps', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1363_0001-750-0-20110524153819.jpg' },
   ],
+  accra: [
+    { name: 'Forts and Castles, Volta, Greater Accra, Central and Western Regions', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0034_0001-750-0-20090925171445.jpg' },
+  ],
+  addisababa: [
+    { name: 'Tiya', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0012_0001-750-0-20090917172935.jpg' },
+  ],
+  agrigento: [
+    { name: 'Archaeological Area of Agrigento', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0831_0001-750-0-20110920202831.jpg' },
+    { name: 'Villa Romana del Casale', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0832_0001-750-0-20070419165416.jpg' },
+  ],
+  aksum: [
+    { name: 'Aksum', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0015_0001-750-0-20110920195409.jpg' },
+  ],
+  algiers: [
+    { name: 'Kasbah of Algiers', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0565_0011-750-0-20121206120235.jpg' },
+    { name: 'Tipasa', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0193_0001-750-0-20110920200132.jpg' },
+  ],
+  amsterdam: [
+    { name: 'Defence Line of Amsterdam', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0759_0001-750-0-20090924115626.jpg' },
+    { name: 'Seventeenth-Century Canal Ring Area of Amsterdam inside the Singelgracht', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1349_0002-750-0-20100730121627.jpg' },
+    { name: 'Droogmakerij de Beemster (Beemster Polder)', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0899_0001-750-0-20090922142742.jpg' },
+    { name: 'Rietveld Schroderhuis (Rietveld Schroder House)', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0965_0001-750-0-20090922143811.jpg' },
+    { name: 'Mill Network at Kinderdijk-Elshout', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0818_0006-750-0-20150518200215.jpg' },
+    { name: 'Van Nellefabriek', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1441_0007-750-0-20140622074147.jpg' },
+    { name: 'Schokland and Surroundings', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0739_0001-750-0-20090929114517.jpg' },
+    { name: 'Ir.D.F. Woudagemaal (D.F. Wouda Steam Pumping Station)', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0867_0001-750-0-20090922141932.jpg' },
+  ],
+  anuradhapura: [
+    { name: 'Sacred City of Anuradhapura', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0200_0001-750-0-20150608110546.jpg' },
+    { name: 'Ancient City of Sigiriya', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0202_0010-750-0-20121130111249.jpg' },
+    { name: 'Golden Temple of Dambulla', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0561_0001-750-0-20121130111704.jpg' },
+    { name: 'Ancient City of Polonnaruwa', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0201_0001-750-0-20100122164442.jpg' },
+  ],
+  assisi: [
+    { name: 'Assisi, the Basilica of San Francesco and Other Franciscan Sites', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0990_0001-750-0-20110920203511.jpg' },
+    { name: 'Historic Centre of Urbino', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0828_0001-750-0-20090924113118.jpg' },
+    { name: 'Historic Centre of the City of Pienza', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0789_0001-750-0-20081009144415.jpg' },
+    { name: 'San Marino Historic Centre and Mount Titano', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1245_0001-750-0-20090923153732.jpg' },
+  ],
+  aurangabad: [
+    { name: 'Ellora Caves', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0243_0001-750-0-20110415171918.jpg' },
+    { name: 'Ajanta Caves', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0242_0001-750-0-20110415171012.jpg' },
+  ],
+  avignon: [
+    { name: 'Historic Centre of Avignon: Papal Palace, Episcopal Ensemble and Avignon Bridge', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0228_0001-750-0-20090506094440.jpg' },
+    { name: 'Roman Theatre and its Surroundings and the "Triumphal Arch" of Orange', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0163_0001-750-0-20090506121652.jpg' },
+    { name: 'Decorated Cave of Pont dArc, known as Grotte Chauvet-Pont dArc, Ardeche', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1426_0003-750-0-20140622160347.jpg' },
+  ],
+  bamberg: [
+    { name: 'Town of Bamberg', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0624_0002-750-0-20130812150856.jpg' },
+    { name: 'Margravial Opera House Bayreuth', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1379_0012-750-0-20120618183850.jpg' },
+    { name: 'Wurzburg Residence with the Court Gardens and Residence Square', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0169_0001-750-0-20100201180143.jpg' },
+  ],
+  barcelona: [
+    { name: 'Palau de la Musica Catalana and Hospital de Sant Pau, Barcelona', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0804_0001-750-0-20090828154740.jpg' },
+    { name: 'Works of Antoni Gaudi', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0320_0001-750-0-20090828152832.jpg' },
+    { name: 'Archaeological Ensemble of Tarraco', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0875_0009-750-0-20140212113510.jpg' },
+    { name: 'Poblet Monastery', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0518_0001-750-0-20090924134955.jpg' },
+  ],
+  bath: [
+    { name: 'City of Bath', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0428_0001-750-0-20100510122518.jpg' },
+    { name: 'Stonehenge, Avebury and Associated Sites', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0373_0001-750-0-20100608164902.jpg' },
+    { name: 'Blenheim Palace', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0425_0001-750-0-20090915122907.jpg' },
+    { name: 'Dorset and East Devon Coast', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1029_0001-750-0-20110920203704.jpg' },
+  ],
+  bergen: [
+    { name: 'Bryggen', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0059_0001-750-0-20090914151456.jpg' },
+  ],
+  berlin: [
+    { name: 'Museumsinsel (Museum Island), Berlin', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0896_0030-750-0-20140708152542.jpg' },
+    { name: 'Berlin Modernism Housing Estates', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1239_0001-750-0-20090918115422.jpg' },
+    { name: 'Palaces and Parks of Potsdam and Berlin', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0532_0015-750-0-20121119165256.jpg' },
+    { name: 'Luther Memorials in Eisleben and Wittenberg', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0783_0001-750-0-20090918100643.jpg' },
+  ],
+  bhopal: [
+    { name: 'Rock Shelters of Bhimbetka', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0925_0001-750-0-20090918194407.jpg' },
+    { name: 'Buddhist Monuments at Sanchi', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0524_0001-750-0-20090918192408.jpg' },
+  ],
+  bilbao: [
+    { name: 'Vizcaya Bridge', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1217_0001-750-0-20091028121453.jpg' },
+    { name: 'Cave of Altamira and Paleolithic Cave Art of Northern Spain', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0310_0001-750-0-20090924132936.jpg' },
+  ],
+  brasilia: [
+    { name: 'Brasilia', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0445_0007-750-0-20121115151235.jpg' },
+  ],
+  burgos: [
+    { name: 'Burgos Cathedral', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0316_0011-750-0-20130221165152.jpg' },
+    { name: 'Archaeological Site of Atapuerca', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0989_0013-750-0-20140611153730.jpg' },
+    { name: 'San Millan Yuso and Suso Monasteries', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0805_0001-750-0-20090924140554.jpg' },
+  ],
+  caen: [
+    { name: 'Le Havre, the City Rebuilt by Auguste Perret', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1181_0001-750-0-20061215135920.jpg' },
+  ],
+  cappadocia: [
+    { name: 'Goreme National Park and the Rock Sites of Cappadocia', type: 'Patrimonio', icon: '✨', bg: '#FDE8F5', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0357_0034-750-0-20140708121108.jpg' },
+  ],
+  carcassonne: [
+    { name: 'Historic Fortified City of Carcassonne', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0345_0001-750-0-20090506135230.jpg' },
+    { name: 'Episcopal City of Albi', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1337_0003-750-0-20100801105041.jpg' },
+    { name: 'Canal du Midi', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0770_0001-750-0-20090423154204.jpg' },
+  ],
+  cardiff: [
+    { name: 'Blaenavon Industrial Landscape', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0984_0001-750-0-20090929155701.jpg' },
+  ],
+  chongqing: [
+    { name: 'Dazu Rock Carvings', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0912_0017-750-0-20140707152758.jpg' },
+  ],
+  compostela: [
+    { name: 'Santiago de Compostela (Old Town)', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0347_0006-750-0-20130221170250.jpg' },
+    { name: 'Tower of Hercules', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1312_0001-750-0-20100218105007.jpg' },
+    { name: 'Roman Walls of Lugo', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0987_0001-750-0-20090610105819.jpg' },
+  ],
+  cordoba: [
+    { name: 'Historic Centre of Cordoba', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0313_0001-750-0-20090929160107.jpg' },
+    { name: 'Heritage of Mercury. Almaden and Idrija', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1313_0002-750-0-20120625105452.jpg' },
+    { name: 'Heritage of Mercury. Almaden and Idrija', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1313_0002-750-0-20120625105452.jpg' },
+  ],
+  delphi: [
+    { name: 'Archaeological Site of Delphi', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0393_0001-750-0-20140612150806.jpg' },
+    { name: 'Monasteries of Daphni, Hosios Loukas and Nea Moni of Chios', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0537_0001-750-0-20100609175100.jpg' },
+    { name: 'Archaeological Sites of Mycenae and Tiryns', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0941_0001-750-0-20110920203245.jpg' },
+  ],
+  dijon: [
+    { name: 'Climats, terroirs of Burgundy', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1425_0053-750-0-20150623104510.jpg' },
+    { name: 'Cistercian Abbey of Fontenay', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0165_0001-750-0-20090421152711.jpg' },
+    { name: 'From the Great Saltworks of Salins-les-Bains to the Royal Saltworks of Arc-et-Senans, the Production of Open-pan Salt', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0203_0001-750-0-20090506110238.jpg' },
+    { name: 'Vezelay, Church and Hill', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0084_0064-750-0-20130114173907.jpg' },
+  ],
+  dresden: [
+    { name: 'Dresden Elbe Valley', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1156_0013-750-0-20130801163627.jpg' },
+    { name: 'Muskauer Park / Park Muzakowski', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1127_0017-750-0-20140415145604.jpg' },
+    { name: 'Muskauer Park / Park Muzakowski', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1127_0017-750-0-20140415145604.jpg' },
+  ],
+  goa: [
+    { name: 'Churches and Convents of Goa', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0234_0001-750-0-20110920200359.jpg' },
+  ],
+  gondar: [
+    { name: 'Fasil Ghebbi, Gondar Region', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0019_0001-750-0-20061213164028.jpg' },
+    { name: 'Simien National Park', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0009_0001-750-0-20100409095011.jpg' },
+  ],
+  goteborg: [
+    { name: 'Grimeton Radio Station, Varberg', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1134_0001-750-0-20090923171510.jpg' },
+  ],
+  guadalajara: [
+    { name: 'Hospicio Cabanas, Guadalajara', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0815_0001-750-0-20090930172101.jpg' },
+    { name: 'Agave Landscape and Ancient Industrial Facilities of Tequila', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1209_0001-750-0-20150529101246.jpg' },
+  ],
+  guanajuato: [
+    { name: 'Historic Town of Guanajuato and Adjacent Mines', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0482_0001-750-0-20110920201129.jpg' },
+    { name: 'Protective town of San Miguel and the Sanctuary of Jesus Nazareno de Atotonilco', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1274_0004-750-0-20121204122635.jpg' },
+  ],
+  guilin: [
+    { name: 'South China Karst', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1248_0019-750-0-20140623160446.jpg' },
+  ],
+  gyeongju: [
+    { name: 'Gyeongju Historic Areas', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0976_0022-750-0-20140721141800.jpg' },
+    { name: 'Seokguram Grotto and Bulguksa Temple', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0736_0014-750-0-20150518200407.jpg' },
+    { name: 'Historic Villages of Korea: Hahoe and Yangdong', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1324_0001-750-0-20100805164021.jpg' },
+  ],
+  hampi: [
+    { name: 'Group of Monuments at Hampi', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0241_0001-750-0-20121026111655.jpg' },
+    { name: 'Group of Monuments at Pattadakal', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0239_0001-750-0-20090918174041.jpg' },
+  ],
+  iguazu: [
+    { name: 'Iguacu National Park', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0355_0001-750-0-20090923182516.jpg' },
+    { name: 'Iguazu National Park', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0303_0010-750-0-20130207121737.jpg' },
+  ],
+  isfahan: [
+    { name: 'Meidan Emam, Esfahan', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0115_0001-750-0-20070104125415.jpg' },
+    { name: 'Masjed-e Jame of Isfahan', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1397_0003-750-0-20120621165307.jpg' },
+  ],
+  izmir: [
+    { name: 'Ephesus', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1018_0016-750-0-20150610152534.jpg' },
+    { name: 'Pergamon and its Multi-Layered Cultural Landscape', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1457_0003-750-0-20140622194919.jpg' },
+    { name: 'Pythagoreion and Heraion of Samos', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0595_0001-750-0-20090918155534.jpg' },
+  ],
+  kandy: [
+    { name: 'Sacred City of Kandy', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0450_0020-750-0-20140613112534.jpg' },
+    { name: 'Central Highlands of Sri Lanka', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1203_0001-750-0-20100730121713.jpg' },
+    { name: 'Sinharaja Forest Reserve', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0405_0001-750-0-20150608104702.jpg' },
+  ],
+  kolkata: [
+    { name: 'Sundarbans National Park', type: 'Parque Natural', icon: '🌿', bg: '#E8FDE8', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org/' },
+  ],
+  lalibela: [
+    { name: 'Rock-Hewn Churches, Lalibela', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0018_0016-750-0-20131216151810.jpg' },
+  ],
+  lijiang: [
+    { name: 'Old Town of Lijiang', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0811_0001-750-0-20121026111608.jpg' },
+  ],
+  london: [
+    { name: 'Maritime Greenwich', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0795_0007-750-0-20110805144555.jpg' },
+    { name: 'Tower of London', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0488_0026-750-0-20140214153431.jpg' },
+    { name: 'Palace of Westminster and Westminster Abbey including Saint Margarets Church', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0426_0004-750-0-20110805164029.jpg' },
+    { name: 'Royal Botanic Gardens, Kew', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1084_0026-750-0-20140109125421.jpg' },
+    { name: 'Canterbury Cathedral, St Augustine\'s Abbey, and St Martin\'s Church', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0496_0001-750-0-20090923140329.jpg' },
+  ],
+  luoyang: [
+    { name: 'The Grand Canal', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1443_0001-750-0-20140622124244.jpg' },
+    { name: 'Longmen Grottoes', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1003_0020-750-0-20140707153417.jpg' },
+    { name: 'Historic Monuments of Dengfeng in The Centre of Heaven and Earth', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1305_0001-750-0-20100728180405.jpg' },
+  ],
+  mahabalipuram: [
+    { name: 'Group of Monuments at Mahabalipuram', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0249_0001-750-0-20090918173439.jpg' },
+  ],
+  mandalay: [
+    { name: 'Pyu Ancient Cities', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1444_0014-750-0-20150108165229.jpg' },
+  ],
+  marrakech: [
+    { name: 'Medina of Marrakesh', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0331_0007-750-0-20121206115918.jpg' },
+  ],
+  matera: [
+    { name: 'The Sassi and the Park of the Rupestrian Churches of Matera', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0670_0001-750-0-20090924111548.jpg' },
+    { name: 'Castel del Monte', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0398_0001-750-0-20100114131145.jpg' },
+    { name: 'The Trulli of Alberobello', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0787_0001-750-0-20090924112231.jpg' },
+  ],
+  meteora: [
+    { name: 'Meteora', type: 'Patrimonio', icon: '✨', bg: '#FDE8F5', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0455_0001-750-0-20090923171805.jpg' },
+  ],
+  newyork: [
+    { name: 'Statue of Liberty', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0307_0001-750-0-20110920201028.jpg' },
+  ],
+  nikko: [
+    { name: 'Shrines and Temples of Nikko', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0913_0004-750-0-20150518200158.jpg' },
+    { name: 'Tomioka Silk Mill and Related Sites', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1449_0007-750-0-20140622140906.jpg' },
+  ],
+  nimes: [
+    { name: 'Pont du Gard (Roman Aqueduct)', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0344_0021-750-0-20140707173016.jpg' },
+    { name: 'Arles, Roman and Romanesque Monuments', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0164_0016-750-0-20131106100701.jpg' },
+    { name: 'The Causses and the Cevennes, Mediterranean agro-pastoral Cultural Landscape', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1153_0003-750-0-20110630162423.jpg' },
+  ],
+  nuremberg: [
+    { name: 'Old town of Regensburg with Stadtamhof', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1155_0001-750-0-20090918114519.jpg' },
+  ],
+  olomouc: [
+    { name: 'Holy Trinity Column in Olomouc', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0859_0001-750-0-20090917165114.jpg' },
+    { name: 'Gardens and Castle at Kromeriz', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0860_0001-750-0-20090917210244.jpg' },
+    { name: 'Tugendhat Villa in Brno', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1052_0004-750-0-20100802164322.jpg' },
+    { name: 'Litomysl Castle', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0901_0001-750-0-20090917164544.jpg' },
+    { name: 'Pilgrimage Church of St John of Nepomuk at Zelena Hora', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0690_0003-750-0-20150518200756.jpg' },
+  ],
+  ouropreto: [
+    { name: 'Historic Town of Ouro Preto', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0124_0006-750-0-20121218171636.jpg' },
+    { name: 'Sanctuary of Bom Jesus do Congonhas', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0334_0001-750-0-20110920201250.jpg' },
+  ],
+  paris: [
+    { name: 'Paris, Banks of the Seine', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0600_0001-750-0-20110920201837.jpg' },
+    { name: 'Palace and Park of Versailles', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0083_0019-750-0-20130523172531.jpg' },
+    { name: 'Palace and Park of Fontainebleau', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0160_0001-750-0-20090505174849.jpg' },
+    { name: 'Provins, Town of Medieval Fairs', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0873_0011-750-0-20121115154404.jpg' },
+    { name: 'Chartres Cathedral', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0081_0001-750-0-20061213122149.jpg' },
+  ],
+  petra: [
+    { name: 'Petra', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0326_0044-750-0-20130219143242.jpg' },
+    { name: 'Incense Route - Desert Cities in the Negev', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1107_0005-750-0-20131029154618.jpg' },
+    { name: 'Wadi Rum Protected Area', type: 'Patrimonio', icon: '✨', bg: '#FDE8F5', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1377_0024-750-0-20121121145353.jpg' },
+  ],
+  philadelphia: [
+    { name: 'Independence Hall', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0078_0003-750-0-20150518200853.jpg' },
+  ],
+  pisa: [
+    { name: 'Piazza del Duomo, Pisa', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0395_0013-750-0-20131014172705.jpg' },
+    { name: 'Portovenere, Cinque Terre, and the Islands (Palmaria, Tino and Tinetto)', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0826_0004-750-0-20131014173745.jpg' },
+  ],
+  puebla: [
+    { name: 'Historic Centre of Puebla', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0416_0006-750-0-20121204120916.jpg' },
+  ],
+  quebeccity: [
+    { name: 'Historic District of Old Quebec', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0300_0017-750-0-20130108180939.jpg' },
+  ],
+  recife: [
+    { name: 'Historic Centre of the Town of Olinda', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0189_0017-750-0-20131015143928.jpg' },
+  ],
+  rome: [
+    { name: 'Historic Centre of Rome, the Properties of the Holy See in that City Enjoying Extraterritorial Rights and San Paolo Fuori le Mura', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0091_0061-750-0-20140709164150.jpg' },
+    { name: 'Historic Centre of Rome, the Properties of the Holy See in that City Enjoying Extraterritorial Rights and San Paolo Fuori le Mura', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0091_0061-750-0-20140709164150.jpg' },
+    { name: 'Vatican City', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0286_0004-750-0-20101025105041.jpg' },
+    { name: 'Villa Adriana (Tivoli)', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0907_0005-750-0-20140623115543.jpg' },
+    { name: 'Villa d\'Este, Tivoli', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1025_0006-750-0-20140623115319.jpg' },
+    { name: 'Etruscan Necropolises of Cerveteri and Tarquinia', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1158_0001-750-0-20130912132554.jpg' },
+  ],
+  saintpetersburg: [
+    { name: 'Historic Centre of Saint Petersburg and Related Groups of Monuments', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0540_0031-750-0-20131014172851.jpg' },
+  ],
+  salamanca: [
+    { name: 'Old City of Salamanca', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0381_0001-750-0-20090924134700.jpg' },
+    { name: 'Old Town of Avila with its Extra-Muros Churches', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0348_0001-750-0-20090924134052.jpg' },
+    { name: 'Prehistoric Rock Art Sites in the Coa Valley and Siega Verde', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0866_0001-750-0-20090428160955.jpg' },
+    { name: 'Prehistoric Rock Art Sites in the Coa Valley and Siega Verde', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0866_0001-750-0-20090428160955.jpg' },
+  ],
+  salvador: [
+    { name: 'Historic Centre of Salvador de Bahia', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0309_0029-750-0-20131015103954.jpg' },
+  ],
+  santafe: [
+    { name: 'Taos Pueblo', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0492_0001-750-0-20090925163723.jpg' },
+  ],
+  shiraz: [
+    { name: 'Persepolis', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0114_0001-750-0-20061213182447.jpg' },
+    { name: 'The Persian Garden', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1372_0002-750-0-20120828155258.jpg' },
+    { name: 'Pasargadae', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1106_0019-750-0-20130717145323.jpg' },
+  ],
+  sofia: [
+    { name: 'Boyana Church', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0042_0005-750-0-20130419121325.jpg' },
+    { name: 'Rila Monastery', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0216_0001-750-0-20090924174836.jpg' },
+  ],
+  sydney: [
+    { name: 'Sydney Opera House', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0166_0001-750-0-20110920195854.jpg' },
+    { name: 'Australian Convict Sites', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1306_0001-750-0-20100730121123.jpg' },
+  ],
+  tabriz: [
+    { name: 'Tabriz Historic Bazaar Complex', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1346_0007-750-0-20130717151033.jpg' },
+  ],
+  tours: [
+    { name: 'The Loire Valley between Sully-sur-Loire and Chalonnes', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0933_0015-750-0-20130918165741.jpg' },
+    { name: 'Abbey Church of Saint-Savin sur Gartempe', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0230_0001-750-0-20090421150752.jpg' },
+  ],
+  trinidadcuba: [
+    { name: 'Trinidad and the Valley de los Ingenios', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0460_0015-750-0-20121119170720.jpg' },
+    { name: 'Urban Historic Centre of Cienfuegos', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1202_0001-750-0-20110519174254.jpg' },
+  ],
+  vientiane: [
+    { name: 'Ban Chiang Archaeological Site', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0575_0001-750-0-20090923175410.jpg' },
+  ],
+  weimar: [
+    { name: 'Classical Weimar', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0846_0001-750-0-20100526163450.jpg' },
+    { name: 'Bauhaus and its Sites in Weimar and Dessau', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0729_0001-750-0-20090917194506.jpg' },
+    { name: 'Wartburg Castle', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0897_0013-750-0-20140708154053.jpg' },
+    { name: 'Collegiate Church, Castle and Old Town of Quedlinburg', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0535_0017-750-0-20140613104914.jpg' },
+  ],
+  york: [
+    { name: 'Studley Royal Park including the Ruins of Fountains Abbey', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0372_0001-750-0-20131014172358.jpg' },
+    { name: 'Saltaire', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_1028_0001-750-0-20090923143911.jpg' },
+    { name: 'Durham Castle and Cathedral', type: 'Histórico', icon: '🏛️', bg: '#E8F0FD', rating: 4.9, estimatedMinutes: 120, imageUrl: 'http://whc.unesco.org//uploads/thumbs/site_0370_0004-750-0-20101006163513.jpg' },
+  ],
+
 };
