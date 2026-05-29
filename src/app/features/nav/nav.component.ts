@@ -390,9 +390,17 @@ import { environment } from '../../../environments/environment';
               </div>
               <div class="form-group" style="margin-bottom:0">
                 <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
-                <input class="form-input" type="password" placeholder="••••••••"
-                       [value]="loginPassword()"
-                       (input)="loginPassword.set($any($event.target).value)" />
+                <div style="position:relative">
+                  <input class="form-input" style="padding-right:72px"
+                         [type]="showPassword() ? 'text' : 'password'" placeholder="••••••••"
+                         [value]="loginPassword()"
+                         (input)="loginPassword.set($any($event.target).value)" />
+                  <button type="button"
+                          style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                          (click)="showPassword.set(!showPassword())">
+                    {{ showPassword() ? 'Ocultar' : 'Ver' }}
+                  </button>
+                </div>
               </div>
             }
             @if (loginMode() === 'register') {
@@ -413,9 +421,17 @@ import { environment } from '../../../environments/environment';
                 </div>
                 <div class="form-group">
                   <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
-                  <input class="form-input" type="password" placeholder="••••••••"
-                         [value]="loginPassword()"
-                         (input)="loginPassword.set($any($event.target).value)" />
+                  <div style="position:relative">
+                    <input class="form-input" style="padding-right:72px"
+                           [type]="showPassword() ? 'text' : 'password'" placeholder="••••••••"
+                           [value]="loginPassword()"
+                           (input)="loginPassword.set($any($event.target).value)" />
+                    <button type="button"
+                            style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                            (click)="showPassword.set(!showPassword())">
+                      {{ showPassword() ? 'Ocultar' : 'Ver' }}
+                    </button>
+                  </div>
                   @if (loginPassword()) {
                     <div style="margin-top:7px">
                       <div style="display:flex;gap:3px;margin-bottom:4px">
@@ -431,10 +447,18 @@ import { environment } from '../../../environments/environment';
                 </div>
                 <div class="form-group" style="margin-bottom:0">
                   <label class="form-label" i18n="@@nav.confirmPasswordLabel">Confirmar contraseña</label>
-                  <input class="form-input" type="password" placeholder="••••••••"
-                         [value]="loginConfirmPassword()"
-                         (input)="loginConfirmPassword.set($any($event.target).value)"
-                         [style.border-color]="loginConfirmPassword() && !passwordsMatch() ? 'oklch(55% 0.22 25)' : ''" />
+                  <div style="position:relative">
+                    <input class="form-input" style="padding-right:72px"
+                           [type]="showConfirmPassword() ? 'text' : 'password'" placeholder="••••••••"
+                           [value]="loginConfirmPassword()"
+                           (input)="loginConfirmPassword.set($any($event.target).value)"
+                           [style.border-color]="loginConfirmPassword() && !passwordsMatch() ? 'oklch(55% 0.22 25)' : ''" />
+                    <button type="button"
+                            style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                            (click)="showConfirmPassword.set(!showConfirmPassword())">
+                      {{ showConfirmPassword() ? 'Ocultar' : 'Ver' }}
+                    </button>
+                  </div>
                   @if (loginConfirmPassword() && !passwordsMatch()) {
                     <div style="font-size:11px;color:oklch(55% 0.22 25);margin-top:4px"
                          i18n="@@nav.confirmPasswordMismatch">Las contraseñas no coinciden</div>
@@ -545,6 +569,9 @@ export class NavComponent {
   loginConfirmPassword = signal('');
   loginError           = signal('');
 
+  showPassword        = signal(false);
+  showConfirmPassword = signal(false);
+
   plansOpen      = signal(false);
   savePlanOpen   = signal(false);
   savePlanName   = signal('');
@@ -624,6 +651,8 @@ export class NavComponent {
         this.otpCode.set('');
         this.loginPassword.set('');
         this.loginConfirmPassword.set('');
+        this.showPassword.set(false);
+        this.showConfirmPassword.set(false);
         this.loginError.set('');
       }
     }, { allowSignalWrites: true });
@@ -707,6 +736,8 @@ export class NavComponent {
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginConfirmPassword.set('');
+    this.showPassword.set(false);
+    this.showConfirmPassword.set(false);
   }
 
   switchToLogin(): void {
@@ -715,6 +746,8 @@ export class NavComponent {
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginConfirmPassword.set('');
+    this.showPassword.set(false);
+    this.showConfirmPassword.set(false);
   }
 
   goBackFromOtp(): void {
