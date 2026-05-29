@@ -550,13 +550,9 @@ import { environment } from '../../../environments/environment';
             }
             <div class="auth-toggle">
               @if (loginMode() === 'login') {
-                <span i18n="@@nav.authToggleLogin">¿Sin cuenta?
-                  <span (click)="switchToRegister()">Regístrate gratis</span>
-                </span>
+                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>Regístrate gratis</span></span>
               } @else {
-                <span i18n="@@nav.authToggleRegister">¿Ya tienes una?
-                  <span (click)="switchToLogin()">Inicia sesión</span>
-                </span>
+                <span style="cursor:pointer" (click)="switchToLogin()" i18n="@@nav.authToggleRegister">¿Ya tienes una? <span>Inicia sesión</span></span>
               }
             </div>
             @if (loginMode() === 'login') {
