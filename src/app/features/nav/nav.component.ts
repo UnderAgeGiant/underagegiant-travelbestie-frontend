@@ -538,9 +538,11 @@ import { environment } from '../../../environments/environment';
                 </button>
               } @else {
                 <button class="btn-pill btn-primary" (click)="doAuth()"
-                        [disabled]="otpCode().length < 6"
-                        [style.opacity]="otpCode().length >= 6 ? '1' : '0.5'"
-                        style="flex:2" i18n="@@nav.registerSubmit">Crear cuenta →</button>
+                        [disabled]="otpCode().length < 6 || registerLoading()"
+                        [style.opacity]="otpCode().length >= 6 && !registerLoading() ? '1' : '0.5'"
+                        style="flex:2" i18n="@@nav.registerSubmit">
+                  {{ registerLoading() ? 'Verificando…' : 'Crear cuenta →' }}
+                </button>
               }
             </div>
             @if (loginError()) {
@@ -607,9 +609,10 @@ export class NavComponent {
   private karmaAnimTimer: ReturnType<typeof setTimeout> | null = null;
 
   captchaToken = signal('');
-  otpStep    = signal(false);
-  otpCode    = signal('');
-  otpLoading = signal(false);
+  otpStep        = signal(false);
+  otpCode        = signal('');
+  otpLoading     = signal(false);
+  registerLoading = signal(false);
 
   readonly isEmailValid    = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.loginEmail().trim()));
   readonly passwordsMatch  = computed(() =>
@@ -674,6 +677,7 @@ export class NavComponent {
         this.loginConfirmPassword.set('');
         this.showPassword.set(false);
         this.showConfirmPassword.set(false);
+        this.registerLoading.set(false);
         this.loginError.set('');
       }
     }, { allowSignalWrites: true });
@@ -1008,8 +1012,10 @@ export class NavComponent {
         },
       });
     } else {
+      this.registerLoading.set(true);
       this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword(), this.otpCode()).subscribe({
         next: res => {
+          this.registerLoading.set(false);
           this.trip.loadForUser(res.user.email);
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
@@ -1025,6 +1031,7 @@ export class NavComponent {
           this.registerSuccessOpen.set(true);
         },
         error: (err: Error) => {
+          this.registerLoading.set(false);
           this.loginError.set(err.message);
         },
       });
