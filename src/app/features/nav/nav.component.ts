@@ -416,6 +416,18 @@ import { environment } from '../../../environments/environment';
                   <input class="form-input" type="password" placeholder="••••••••"
                          [value]="loginPassword()"
                          (input)="loginPassword.set($any($event.target).value)" />
+                  @if (loginPassword()) {
+                    <div style="margin-top:7px">
+                      <div style="display:flex;gap:3px;margin-bottom:4px">
+                        @for (i of [0, 1, 2]; track i) {
+                          <div style="flex:1;height:3px;border-radius:99px;transition:background .25s"
+                               [style.background]="strengthBarActive(i) ? strengthColor() : 'oklch(92% 0.02 280)'"></div>
+                        }
+                      </div>
+                      <span style="font-size:11px;font-weight:600;transition:color .25s"
+                            [style.color]="strengthColor()">{{ strengthLabel() }}</span>
+                    </div>
+                  }
                 </div>
               } @else {
                 <div style="text-align:center;padding:8px 0 4px">
@@ -540,6 +552,48 @@ export class NavComponent {
   otpLoading = signal(false);
 
   readonly isEmailValid = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.loginEmail().trim()));
+
+  readonly passwordStrength = computed((): 'none' | 'vulnerable' | 'light' | 'strong' => {
+    const p = this.loginPassword();
+    if (!p) return 'none';
+    let score = 0;
+    if (p.length >= 8)          score++;
+    if (/[A-Z]/.test(p))        score++;
+    if (/[a-z]/.test(p))        score++;
+    if (/\d/.test(p))           score++;
+    if (/[^A-Za-z0-9]/.test(p)) score++;
+    if (p.length < 6)  return 'vulnerable';
+    if (score <= 2)    return 'vulnerable';
+    if (score === 3)   return 'light';
+    return 'strong';
+  });
+
+  readonly strengthColor = computed((): string => {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return 'oklch(55% 0.22 25)';
+      case 'light':      return 'oklch(62% 0.14 60)';
+      case 'strong':     return 'oklch(50% 0.16 145)';
+      default:           return 'var(--t3)';
+    }
+  });
+
+  strengthBarActive(index: number): boolean {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return index === 0;
+      case 'light':      return index <= 1;
+      case 'strong':     return true;
+      default:           return false;
+    }
+  }
+
+  strengthLabel(): string {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return 'Vulnerable';
+      case 'light':      return 'Moderada';
+      case 'strong':     return 'Fuerte';
+      default:           return '';
+    }
+  }
 
   private readonly turnstileWidgetId = signal<string | null>(null);
   private initAttempts = 0;
