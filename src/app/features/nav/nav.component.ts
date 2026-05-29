@@ -461,8 +461,8 @@ import { environment } from '../../../environments/environment';
                         style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
               } @else if (!otpStep()) {
                 <button class="btn-pill btn-primary" (click)="sendOtp()"
-                        [disabled]="otpLoading() || !captchaToken()"
-                        [style.opacity]="(otpLoading() || !captchaToken()) ? '0.5' : '1'"
+                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !loginEmail().trim() || !loginPassword().trim()"
+                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !loginEmail().trim() || !loginPassword().trim()) ? '0.5' : '1'"
                         style="flex:2" i18n="@@nav.sendOtpBtn">
                   {{ otpLoading() ? 'Enviando…' : 'Enviar código →' }}
                 </button>
