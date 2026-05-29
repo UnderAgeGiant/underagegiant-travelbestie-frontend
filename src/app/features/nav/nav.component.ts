@@ -961,7 +961,7 @@ export class NavComponent {
 
   doAuth(): void {
     this.loginError.set('');
-    if (!this.captchaToken()) {
+    if (!this.otpStep() && !this.captchaToken()) {
       this.loginError.set('Por favor completa la verificación de seguridad');
       return;
     }
