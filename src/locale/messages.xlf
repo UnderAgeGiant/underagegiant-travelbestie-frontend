@@ -955,95 +955,109 @@
           <context context-type="linenumber">403,404</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.confirmPasswordLabel" datatype="html">
+        <source>Confirmar contraseña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">433,434</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.confirmPasswordMismatch" datatype="html">
+        <source>Las contraseñas no coinciden</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">440,442</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.otpSentTitle" datatype="html">
         <source>Revisa tu correo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">424,425</context>
+          <context context-type="linenumber">447,448</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpSentTo" datatype="html">
         <source>Código enviado a </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">426,427</context>
+          <context context-type="linenumber">449,450</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpLabel" datatype="html">
         <source>Código de verificación</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">431,432</context>
+          <context context-type="linenumber">454,455</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpPlaceholder" datatype="html">
         <source>000000</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">435</context>
+          <context context-type="linenumber">458</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpBack" datatype="html">
         <source>← Cambiar email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">440,441</context>
+          <context context-type="linenumber">463,464</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpResend" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ otpLoading() ? &apos;Enviando…&apos; : &apos;Reenviar código&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">443,444</context>
+          <context context-type="linenumber">466,467</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.cancelBtn" datatype="html">
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">456,457</context>
+          <context context-type="linenumber">479,480</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.signInSubmit" datatype="html">
         <source>Iniciar sesión →</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">461,462</context>
+          <context context-type="linenumber">484,485</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.sendOtpBtn" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ otpLoading() ? &apos;Enviando…&apos; : &apos;Enviar código →&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">467,468</context>
+          <context context-type="linenumber">490,491</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerSubmit" datatype="html">
         <source>Crear cuenta →</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">473,475</context>
+          <context context-type="linenumber">496,498</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
         <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span (click)=&quot;switchToRegister()&quot;&gt;"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">483,485</context>
+          <context context-type="linenumber">506,508</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.authToggleRegister" datatype="html">
         <source>¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span (click)=&quot;switchToLogin()&quot;&gt;"/>Inicia sesión<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">487,489</context>
+          <context context-type="linenumber">510,512</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.savePlanKarmaErr" datatype="html">
         <source>Karma insuficiente para guardar el viaje (necesitas al menos 1 ⭐)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">798</context>
+          <context context-type="linenumber">881</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.aiBtn" datatype="html">

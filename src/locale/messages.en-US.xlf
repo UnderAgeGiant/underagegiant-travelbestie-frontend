@@ -168,6 +168,14 @@
         <source>Reenviar código</source>
         <target>Resend code</target>
       </trans-unit>
+      <trans-unit id="nav.confirmPasswordLabel" datatype="html">
+        <source>Confirmar contraseña</source>
+        <target>Confirm password</target>
+      </trans-unit>
+      <trans-unit id="nav.confirmPasswordMismatch" datatype="html">
+        <source>Las contraseñas no coinciden</source>
+        <target>Passwords don't match</target>
+      </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
         <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>

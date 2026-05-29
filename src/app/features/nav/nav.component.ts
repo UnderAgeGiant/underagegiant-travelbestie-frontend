@@ -411,7 +411,7 @@ import { environment } from '../../../environments/environment';
                          [value]="loginEmail()"
                          (input)="loginEmail.set($any($event.target).value)" />
                 </div>
-                <div class="form-group" style="margin-bottom:0">
+                <div class="form-group">
                   <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
                   <input class="form-input" type="password" placeholder="••••••••"
                          [value]="loginPassword()"
@@ -427,6 +427,17 @@ import { environment } from '../../../environments/environment';
                       <span style="font-size:11px;font-weight:600;transition:color .25s"
                             [style.color]="strengthColor()">{{ strengthLabel() }}</span>
                     </div>
+                  }
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" i18n="@@nav.confirmPasswordLabel">Confirmar contraseña</label>
+                  <input class="form-input" type="password" placeholder="••••••••"
+                         [value]="loginConfirmPassword()"
+                         (input)="loginConfirmPassword.set($any($event.target).value)"
+                         [style.border-color]="loginConfirmPassword() && !passwordsMatch() ? 'oklch(55% 0.22 25)' : ''" />
+                  @if (loginConfirmPassword() && !passwordsMatch()) {
+                    <div style="font-size:11px;color:oklch(55% 0.22 25);margin-top:4px"
+                         i18n="@@nav.confirmPasswordMismatch">Las contraseñas no coinciden</div>
                   }
                 </div>
               } @else {
@@ -473,8 +484,8 @@ import { environment } from '../../../environments/environment';
                         style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
               } @else if (!otpStep()) {
                 <button class="btn-pill btn-primary" (click)="sendOtp()"
-                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim()"
-                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim()) ? '0.5' : '1'"
+                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()"
+                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()) ? '0.5' : '1'"
                         style="flex:2" i18n="@@nav.sendOtpBtn">
                   {{ otpLoading() ? 'Enviando…' : 'Enviar código →' }}
                 </button>
@@ -530,8 +541,9 @@ export class NavComponent {
   loginMode     = signal<'login' | 'register'>('login');
   loginName     = signal('');
   loginEmail    = signal('');
-  loginPassword = signal('');
-  loginError    = signal('');
+  loginPassword        = signal('');
+  loginConfirmPassword = signal('');
+  loginError           = signal('');
 
   plansOpen      = signal(false);
   savePlanOpen   = signal(false);
@@ -551,7 +563,10 @@ export class NavComponent {
   otpCode    = signal('');
   otpLoading = signal(false);
 
-  readonly isEmailValid = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.loginEmail().trim()));
+  readonly isEmailValid    = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.loginEmail().trim()));
+  readonly passwordsMatch  = computed(() =>
+    !this.loginConfirmPassword() || this.loginPassword() === this.loginConfirmPassword()
+  );
 
   readonly passwordStrength = computed((): 'none' | 'vulnerable' | 'light' | 'strong' => {
     const p = this.loginPassword();
@@ -607,6 +622,8 @@ export class NavComponent {
         this.destroyTurnstile();
         this.otpStep.set(false);
         this.otpCode.set('');
+        this.loginPassword.set('');
+        this.loginConfirmPassword.set('');
         this.loginError.set('');
       }
     }, { allowSignalWrites: true });
@@ -689,6 +706,7 @@ export class NavComponent {
     this.loginError.set('');
     this.otpStep.set(false);
     this.otpCode.set('');
+    this.loginConfirmPassword.set('');
   }
 
   switchToLogin(): void {
@@ -696,6 +714,7 @@ export class NavComponent {
     this.loginError.set('');
     this.otpStep.set(false);
     this.otpCode.set('');
+    this.loginConfirmPassword.set('');
   }
 
   goBackFromOtp(): void {
@@ -922,6 +941,7 @@ export class NavComponent {
           this.visited.loadForUser(res.user.email);
           this.loginEmail.set('');
           this.loginPassword.set('');
+          this.loginConfirmPassword.set('');
           this.authModal.executePostLogin();
         },
         error: (err: Error) => {
@@ -939,6 +959,7 @@ export class NavComponent {
           this.loginName.set('');
           this.loginEmail.set('');
           this.loginPassword.set('');
+          this.loginConfirmPassword.set('');
           this.otpCode.set('');
           this.otpStep.set(false);
           this.authModal.executePostLogin();
