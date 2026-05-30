@@ -57,7 +57,12 @@ export class AuthService {
     );
   }
 
-  register(name: string, email: string, password: string): Observable<{ token: string; user: AuthUser }> {
+  requestOtp(email: string): Observable<void> {
+    if (environment.useMocks) return of(undefined);
+    return this.http.post<void>(`${environment.apiUrl}/auth/request-otp`, { email });
+  }
+
+  register(name: string, email: string, password: string, otp: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
       const users = this.getStoredUsers();
       if (users.some(u => u.email === email)) {
@@ -67,7 +72,7 @@ export class AuthService {
       localStorage.setItem(USERS_KEY, JSON.stringify(users));
       return of(this.mockSession(name, email));
     }
-    return from(this.encryptPayload({ name, email, password })).pipe(
+    return from(this.encryptPayload({ name, email, password, otp })).pipe(
       switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
         `${environment.apiUrl}/auth/register`, body
       )),

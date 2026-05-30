@@ -361,13 +361,39 @@ import { environment } from '../../../environments/environment';
       </app-karma-success-overlay>
     }
 
+    @if (registerSuccessOpen()) {
+      <div style="position:fixed;inset:0;z-index:1000;background:rgba(15,10,30,0.72);display:flex;align-items:center;justify-content:center;padding:16px">
+        <div style="background:#fff;border-radius:24px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.28)">
+          <div style="background:linear-gradient(135deg,var(--mint),var(--sky));padding:40px 32px 32px;text-align:center">
+            <div style="font-size:52px;margin-bottom:14px">🎉</div>
+            <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:500;color:#fff;line-height:1.15;letter-spacing:-0.5px">
+              ¡Bienvenido,<br><em>{{ registerSuccessName() }}</em>!
+            </div>
+          </div>
+          <div style="padding:28px 32px 32px;text-align:center">
+            <p style="font-size:14px;color:var(--t2);line-height:1.7;margin:0 0 24px">
+              Tu cuenta ha sido creada exitosamente. ¡Ya puedes empezar a planear tus aventuras y compartirlas con tus amigos!
+            </p>
+            <button class="btn-pill btn-primary"
+                    style="width:100%;justify-content:center;font-size:14px"
+                    (click)="dismissRegisterSuccess()">
+              ¡Empezar a planear! ✈️
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+
     @if (authModal.isOpen()) {
-      <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && authModal.close()">
+      <div class="modal-backdrop" (click)="onBackdropClick($event)">
         <div class="modal">
-          <div class="modal-head"
+          <div class="modal-head" style="position:relative"
                [style.background]="loginMode() === 'login'
                  ? 'linear-gradient(135deg,var(--lav),var(--peach))'
                  : 'linear-gradient(135deg,var(--mint),var(--sky))'">
+            <button type="button"
+                    style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:16px;line-height:1;padding:5px 8px;border-radius:8px;cursor:pointer;transition:background .12s"
+                    (click)="authModal.close()">✕</button>
             @if (loginMode() === 'login') {
               <div class="modal-title" i18n="@@nav.loginTitle">¡Bienvenido de vuelta! 👋</div>
               <div class="modal-sub" i18n="@@nav.loginSubtitle">Inicia sesión para guardar tus viajes</div>
@@ -377,32 +403,124 @@ import { environment } from '../../../environments/environment';
             }
           </div>
           <div class="modal-body">
-            @if (loginMode() === 'register') {
+            @if (loginMode() === 'login') {
               <div class="form-group">
-                <label class="form-label" i18n="@@nav.nameLabel">Tu nombre</label>
-                <input class="form-input"
-                       i18n-placeholder="@@nav.namePlaceholder" placeholder="Sofía García"
-                       [value]="loginName()"
-                       (input)="loginName.set($any($event.target).value)" />
+                <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
+                <input class="form-input" type="email"
+                       i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
+                       [value]="loginEmail()"
+                       (input)="loginEmail.set($any($event.target).value)" />
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
+                <div style="position:relative">
+                  <input class="form-input" style="padding-right:72px"
+                         [type]="showPassword() ? 'text' : 'password'" placeholder="••••••••"
+                         [value]="loginPassword()"
+                         (input)="loginPassword.set($any($event.target).value)" />
+                  <button type="button"
+                          style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                          (click)="showPassword.set(!showPassword())">
+                    {{ showPassword() ? 'Ocultar' : 'Ver' }}
+                  </button>
+                </div>
               </div>
             }
-            <div class="form-group">
-              <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
-              <input class="form-input" type="email"
-                     i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
-                     [value]="loginEmail()"
-                     (input)="loginEmail.set($any($event.target).value)" />
-            </div>
-            <div class="form-group" style="margin-bottom:0">
-              <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
-              <input class="form-input" type="password" placeholder="••••••••"
-                     [value]="loginPassword()"
-                     (input)="loginPassword.set($any($event.target).value)" />
-            </div>
+            @if (loginMode() === 'register') {
+              @if (!otpStep()) {
+                <div class="form-group">
+                  <label class="form-label" i18n="@@nav.nameLabel">Tu nombre</label>
+                  <input class="form-input"
+                         i18n-placeholder="@@nav.namePlaceholder" placeholder="Sofía García"
+                         [value]="loginName()"
+                         (input)="loginName.set($any($event.target).value)" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
+                  <input class="form-input" type="email"
+                         i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
+                         [value]="loginEmail()"
+                         (input)="loginEmail.set($any($event.target).value)" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" i18n="@@nav.passwordLabel">Contraseña</label>
+                  <div style="position:relative">
+                    <input class="form-input" style="padding-right:72px"
+                           [type]="showPassword() ? 'text' : 'password'" placeholder="••••••••"
+                           [value]="loginPassword()"
+                           (input)="loginPassword.set($any($event.target).value)" />
+                    <button type="button"
+                            style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                            (click)="showPassword.set(!showPassword())">
+                      {{ showPassword() ? 'Ocultar' : 'Ver' }}
+                    </button>
+                  </div>
+                  @if (loginPassword()) {
+                    <div style="margin-top:7px">
+                      <div style="display:flex;gap:3px;margin-bottom:4px">
+                        @for (i of [0, 1, 2]; track i) {
+                          <div style="flex:1;height:3px;border-radius:99px;transition:background .25s"
+                               [style.background]="strengthBarActive(i) ? strengthColor() : 'oklch(92% 0.02 280)'"></div>
+                        }
+                      </div>
+                      <span style="font-size:11px;font-weight:600;transition:color .25s"
+                            [style.color]="strengthColor()">{{ strengthLabel() }}</span>
+                    </div>
+                  }
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" i18n="@@nav.confirmPasswordLabel">Confirmar contraseña</label>
+                  <div style="position:relative">
+                    <input class="form-input" style="padding-right:72px"
+                           [type]="showConfirmPassword() ? 'text' : 'password'" placeholder="••••••••"
+                           [value]="loginConfirmPassword()"
+                           (input)="loginConfirmPassword.set($any($event.target).value)"
+                           [style.border-color]="loginConfirmPassword() && !passwordsMatch() ? 'oklch(55% 0.22 25)' : ''" />
+                    <button type="button"
+                            style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                            (click)="showConfirmPassword.set(!showConfirmPassword())">
+                      {{ showConfirmPassword() ? 'Ocultar' : 'Ver' }}
+                    </button>
+                  </div>
+                  @if (loginConfirmPassword() && !passwordsMatch()) {
+                    <div style="font-size:11px;color:oklch(55% 0.22 25);margin-top:4px"
+                         i18n="@@nav.confirmPasswordMismatch">Las contraseñas no coinciden</div>
+                  }
+                </div>
+              } @else {
+                <div style="text-align:center;padding:8px 0 4px">
+                  <div style="font-size:28px">📧</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--t1);margin-top:6px"
+                       i18n="@@nav.otpSentTitle">Revisa tu correo</div>
+                  <div style="font-size:12px;color:var(--t3);margin-top:3px">
+                    <ng-container i18n="@@nav.otpSentTo">Código enviado a </ng-container>
+                    <strong>{{ loginEmail() }}</strong>
+                  </div>
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" i18n="@@nav.otpLabel">Código de verificación</label>
+                  <input class="form-input"
+                         type="text" inputmode="numeric" maxlength="6"
+                         i18n-placeholder="@@nav.otpPlaceholder" placeholder="000000"
+                         [value]="otpCode()"
+                         (input)="onOtpInput($any($event.target).value)" />
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px">
+                  <span style="color:var(--lav-d);cursor:pointer" (click)="goBackFromOtp()"
+                        i18n="@@nav.otpBack">← Cambiar email</span>
+                  <span style="color:var(--lav-d);cursor:pointer" (click)="resendOtp()"
+                        i18n="@@nav.otpResend">
+                    {{ otpLoading() ? 'Enviando…' : 'Reenviar código' }}
+                  </span>
+                </div>
+              }
+            }
           </div>
           <div class="modal-foot" style="flex-direction:column;gap:8px">
             <div style="display:flex;justify-content:center;padding-bottom:4px">
-              <div id="tb-turnstile"></div>
+              @if (loginMode() !== 'register' || !otpStep()) {
+                <div id="tb-turnstile"></div>
+              }
             </div>
             <div style="display:flex;gap:8px;width:100%">
               <button class="btn-pill btn-outline" (click)="authModal.close()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
@@ -411,11 +529,20 @@ import { environment } from '../../../environments/environment';
                         [disabled]="!captchaToken()"
                         [style.opacity]="captchaToken() ? '1' : '0.5'"
                         style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
+              } @else if (!otpStep()) {
+                <button class="btn-pill btn-primary" (click)="sendOtp()"
+                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()"
+                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()) ? '0.5' : '1'"
+                        style="flex:2" i18n="@@nav.sendOtpBtn">
+                  {{ otpLoading() ? 'Enviando…' : 'Enviar código →' }}
+                </button>
               } @else {
                 <button class="btn-pill btn-primary" (click)="doAuth()"
-                        [disabled]="!captchaToken()"
-                        [style.opacity]="captchaToken() ? '1' : '0.5'"
-                        style="flex:2" i18n="@@nav.registerSubmit">Crear cuenta →</button>
+                        [disabled]="otpCode().length < 6 || registerLoading()"
+                        [style.opacity]="otpCode().length >= 6 && !registerLoading() ? '1' : '0.5'"
+                        style="flex:2" i18n="@@nav.registerSubmit">
+                  {{ registerLoading() ? 'Verificando…' : 'Crear cuenta →' }}
+                </button>
               }
             </div>
             @if (loginError()) {
@@ -425,9 +552,9 @@ import { environment } from '../../../environments/environment';
             }
             <div class="auth-toggle">
               @if (loginMode() === 'login') {
-                <span i18n="@@nav.authToggleLogin">¿Sin cuenta? <span (click)="loginMode.set('register'); loginError.set('')">Regístrate gratis</span></span>
+                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>Regístrate gratis</span></span>
               } @else {
-                <span i18n="@@nav.authToggleRegister">¿Ya tienes una? <span (click)="loginMode.set('login'); loginError.set('')">Inicia sesión</span></span>
+                <span style="cursor:pointer" (click)="switchToLogin()" i18n="@@nav.authToggleRegister">¿Ya tienes una? <span>Inicia sesión</span></span>
               }
             </div>
             @if (loginMode() === 'login') {
@@ -459,8 +586,12 @@ export class NavComponent {
   loginMode     = signal<'login' | 'register'>('login');
   loginName     = signal('');
   loginEmail    = signal('');
-  loginPassword = signal('');
-  loginError    = signal('');
+  loginPassword        = signal('');
+  loginConfirmPassword = signal('');
+  loginError           = signal('');
+
+  showPassword        = signal(false);
+  showConfirmPassword = signal(false);
 
   plansOpen      = signal(false);
   savePlanOpen   = signal(false);
@@ -468,7 +599,9 @@ export class NavComponent {
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
-  buyKarmaOpen        = signal(false);
+  buyKarmaOpen           = signal(false);
+  registerSuccessOpen    = signal(false);
+  registerSuccessName    = signal('');
   karmaSuccessOpen    = signal(false);   // fullscreen celebration overlay
   karmaSuccessAmount  = signal(0);       // karma units added in last purchase
   karmaGainAnim       = signal(0);       // >0 while counter sparkle animation plays
@@ -476,6 +609,58 @@ export class NavComponent {
   private karmaAnimTimer: ReturnType<typeof setTimeout> | null = null;
 
   captchaToken = signal('');
+  otpStep        = signal(false);
+  otpCode        = signal('');
+  otpLoading     = signal(false);
+  registerLoading = signal(false);
+
+  readonly isEmailValid    = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.loginEmail().trim()));
+  readonly passwordsMatch  = computed(() =>
+    !this.loginConfirmPassword() || this.loginPassword() === this.loginConfirmPassword()
+  );
+
+  readonly passwordStrength = computed((): 'none' | 'vulnerable' | 'light' | 'strong' => {
+    const p = this.loginPassword();
+    if (!p) return 'none';
+    let score = 0;
+    if (p.length >= 8)          score++;
+    if (/[A-Z]/.test(p))        score++;
+    if (/[a-z]/.test(p))        score++;
+    if (/\d/.test(p))           score++;
+    if (/[^A-Za-z0-9]/.test(p)) score++;
+    if (p.length < 6)  return 'vulnerable';
+    if (score <= 2)    return 'vulnerable';
+    if (score === 3)   return 'light';
+    return 'strong';
+  });
+
+  readonly strengthColor = computed((): string => {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return 'oklch(55% 0.22 25)';
+      case 'light':      return 'oklch(62% 0.14 60)';
+      case 'strong':     return 'oklch(50% 0.16 145)';
+      default:           return 'var(--t3)';
+    }
+  });
+
+  strengthBarActive(index: number): boolean {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return index === 0;
+      case 'light':      return index <= 1;
+      case 'strong':     return true;
+      default:           return false;
+    }
+  }
+
+  strengthLabel(): string {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return 'Vulnerable';
+      case 'light':      return 'Moderada';
+      case 'strong':     return 'Fuerte';
+      default:           return '';
+    }
+  }
+
   private readonly turnstileWidgetId = signal<string | null>(null);
   private initAttempts = 0;
 
@@ -486,6 +671,14 @@ export class NavComponent {
         setTimeout(() => this.renderTurnstile(), 0);
       } else {
         this.destroyTurnstile();
+        this.otpStep.set(false);
+        this.otpCode.set('');
+        this.loginPassword.set('');
+        this.loginConfirmPassword.set('');
+        this.showPassword.set(false);
+        this.showConfirmPassword.set(false);
+        this.registerLoading.set(false);
+        this.loginError.set('');
       }
     }, { allowSignalWrites: true });
   }
@@ -562,6 +755,82 @@ export class NavComponent {
     this.captchaToken.set('');
   }
 
+  switchToRegister(): void {
+    this.loginMode.set('register');
+    this.loginError.set('');
+    this.otpStep.set(false);
+    this.otpCode.set('');
+    this.loginConfirmPassword.set('');
+    this.showPassword.set(false);
+    this.showConfirmPassword.set(false);
+  }
+
+  switchToLogin(): void {
+    this.loginMode.set('login');
+    this.loginError.set('');
+    this.otpStep.set(false);
+    this.otpCode.set('');
+    this.loginConfirmPassword.set('');
+    this.showPassword.set(false);
+    this.showConfirmPassword.set(false);
+  }
+
+  goBackFromOtp(): void {
+    this.otpStep.set(false);
+    this.otpCode.set('');
+    this.loginError.set('');
+    setTimeout(() => this.renderTurnstile(), 0);
+  }
+
+  sendOtp(): void {
+    if (!this.captchaToken()) {
+      this.loginError.set('Por favor completa la verificación de seguridad');
+      return;
+    }
+    this.otpLoading.set(true);
+    this.loginError.set('');
+    this.auth.requestOtp(this.loginEmail()).subscribe({
+      next: () => {
+        this.otpStep.set(true);
+        this.otpLoading.set(false);
+        this.destroyTurnstile();
+      },
+      error: (err: Error) => {
+        this.loginError.set(err.message ?? 'No se pudo enviar el código. Intenta de nuevo.');
+        this.otpLoading.set(false);
+        this.resetTurnstile();
+      },
+    });
+  }
+
+  resendOtp(): void {
+    this.otpLoading.set(true);
+    this.loginError.set('');
+    this.auth.requestOtp(this.loginEmail()).subscribe({
+      next: () => {
+        this.otpLoading.set(false);
+      },
+      error: (err: Error) => {
+        this.loginError.set(err.message ?? 'No se pudo reenviar el código.');
+        this.otpLoading.set(false);
+      },
+    });
+  }
+
+  onOtpInput(value: string): void {
+    const digits = value.replace(/\D/g, '').slice(0, 6);
+    this.otpCode.set(digits);
+    if (digits.length === 6) {
+      this.doAuth();
+    }
+  }
+
+  onBackdropClick(event: MouseEvent): void {
+    if (event.target !== event.currentTarget) return;
+    if (this.loginMode() === 'register') return;
+    this.authModal.close();
+  }
+
   karmaIcon(): string {
     const k = this.karma.karma() ?? 0;
     if (k <= 0) return '💀';
@@ -615,6 +884,10 @@ export class NavComponent {
     this.buyKarmaOpen.set(false);        // close the buy modal
     this.karmaSuccessAmount.set(amount);
     this.karmaSuccessOpen.set(true);     // show fullscreen celebration overlay
+  }
+
+  dismissRegisterSuccess(): void {
+    this.registerSuccessOpen.set(false);
   }
 
   /** Step 2 — called when user dismisses the celebration overlay. */
@@ -717,7 +990,7 @@ export class NavComponent {
 
   doAuth(): void {
     this.loginError.set('');
-    if (!this.captchaToken()) {
+    if (!this.otpStep() && !this.captchaToken()) {
       this.loginError.set('Por favor completa la verificación de seguridad');
       return;
     }
@@ -730,6 +1003,7 @@ export class NavComponent {
           this.visited.loadForUser(res.user.email);
           this.loginEmail.set('');
           this.loginPassword.set('');
+          this.loginConfirmPassword.set('');
           this.authModal.executePostLogin();
         },
         error: (err: Error) => {
@@ -738,20 +1012,27 @@ export class NavComponent {
         },
       });
     } else {
-      this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword()).subscribe({
+      this.registerLoading.set(true);
+      this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword(), this.otpCode()).subscribe({
         next: res => {
+          this.registerLoading.set(false);
           this.trip.loadForUser(res.user.email);
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
+          this.registerSuccessName.set(res.user.name);
           this.loginName.set('');
           this.loginEmail.set('');
           this.loginPassword.set('');
+          this.loginConfirmPassword.set('');
+          this.otpCode.set('');
+          this.otpStep.set(false);
           this.authModal.executePostLogin();
+          this.registerSuccessOpen.set(true);
         },
         error: (err: Error) => {
+          this.registerLoading.set(false);
           this.loginError.set(err.message);
-          this.resetTurnstile();
         },
       });
     }
