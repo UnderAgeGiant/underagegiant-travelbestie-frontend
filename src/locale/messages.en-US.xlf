@@ -551,6 +551,48 @@
         <target>Done!</target>
       </trans-unit>
 
+      <!-- ── insufficient-karma-modal ── -->
+      <trans-unit id="kim.title" datatype="html">
+        <source>Karma insuficiente</source>
+        <target>Insufficient karma</target>
+      </trans-unit>
+      <trans-unit id="kim.subtitle" datatype="html">
+        <source>Necesitas más karma para completar esta acción.</source>
+        <target>You need more karma to complete this action.</target>
+      </trans-unit>
+      <trans-unit id="kim.have" datatype="html">
+        <source>Tienes</source>
+        <target>You have</target>
+      </trans-unit>
+      <trans-unit id="kim.need" datatype="html">
+        <source>Necesitas</source>
+        <target>You need</target>
+      </trans-unit>
+      <trans-unit id="kim.shortfallPre" datatype="html">
+        <source>Te faltan</source>
+        <target>You are missing</target>
+      </trans-unit>
+      <trans-unit id="kim.shortfallPost" datatype="html">
+        <source> para esta acción.</source>
+        <target> karma for this action.</target>
+      </trans-unit>
+      <trans-unit id="kim.buyBtn" datatype="html">
+        <source>Comprar karma</source>
+        <target>Buy karma</target>
+      </trans-unit>
+      <trans-unit id="kim.earnTitle" datatype="html">
+        <source>¿Prefieres ganar karma gratis?</source>
+        <target>Prefer to earn karma for free?</target>
+      </trans-unit>
+      <trans-unit id="kim.earnBody" datatype="html">
+        <source>Busca un plan público en la barra de búsqueda, visita el enlace, deja un comentario en cualquier parada → +1 karma por comentario nuevo.</source>
+        <target>Search for a public plan in the search bar, visit the link, leave a comment on any stop → +1 karma per new comment.</target>
+      </trans-unit>
+      <trans-unit id="kim.earnDismiss" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
+      </trans-unit>
+
       <!-- ── karma-success-overlay ── -->
       <trans-unit id="karmaSuccess.title" datatype="html">
         <source>¡Karma añadido!</source>

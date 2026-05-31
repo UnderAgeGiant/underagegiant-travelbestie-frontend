@@ -3,11 +3,13 @@ import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
 import { KarmaService } from '../../core/karma/karma.service';
+import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
 import { KarmaSuccessOverlayComponent } from '../karma/karma-success-overlay.component';
+import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-modal.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 import { environment } from '../../../environments/environment';
@@ -15,7 +17,7 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent],
+  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent, InsufficientKarmaModalComponent],
   styles: [`
     /* ── Saved-plans toggle button ── */
     .up-plans-btn {
@@ -348,9 +350,13 @@ import { environment } from '../../../environments/environment';
 
     @if (buyKarmaOpen()) {
       <app-buy-karma-modal
-        (closed)="buyKarmaOpen.set(false)"
+        (closed)="karmaModal.closeBuy()"
         (karmaGained)="onKarmaGained($event)">
       </app-buy-karma-modal>
+    }
+
+    @if (karmaModal.insufficientOpen()) {
+      <app-insufficient-karma-modal />
     }
 
     @if (karmaSuccessOpen()) {
@@ -573,6 +579,7 @@ export class NavComponent {
   readonly authModal        = inject(AuthModalService);
   readonly trip             = inject(TripService);
   readonly karma            = inject(KarmaService);
+  readonly karmaModal       = inject(KarmaModalService);
   readonly savedPlans       = inject(SavedPlansService);
   private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
@@ -599,7 +606,7 @@ export class NavComponent {
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
-  buyKarmaOpen           = signal(false);
+  readonly buyKarmaOpen  = this.karmaModal.buyOpen;
   registerSuccessOpen    = signal(false);
   registerSuccessName    = signal('');
   karmaSuccessOpen    = signal(false);   // fullscreen celebration overlay
@@ -876,12 +883,12 @@ export class NavComponent {
 
   openBuyKarma(): void {
     this.userMenuOpen.set(false);
-    this.buyKarmaOpen.set(true);
+    this.karmaModal.open();
   }
 
   /** Step 1 — called immediately after PayPal captures the payment. */
   onKarmaGained(amount: number): void {
-    this.buyKarmaOpen.set(false);        // close the buy modal
+    this.karmaModal.closeBuy();          // close the buy modal
     this.karmaSuccessAmount.set(amount);
     this.karmaSuccessOpen.set(true);     // show fullscreen celebration overlay
   }
@@ -939,8 +946,8 @@ export class NavComponent {
         this.savePlanName.set('');
       },
       error: err => {
-        if (err?.status === 402) {
-          this.savePlanError.set($localize`:@@nav.savePlanKarmaErr:Karma insuficiente para guardar el viaje (necesitas al menos 1 ⭐)`);
+        if (this.karmaModal.handleKarmaError(err)) {
+          this.savePlanOpen.set(false);
         }
       },
     });

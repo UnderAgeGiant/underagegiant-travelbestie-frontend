@@ -3,6 +3,7 @@ import { TripService } from '../trip.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
+import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { Attraction } from '../../../core/models/comment.model';
@@ -232,8 +233,9 @@ import { LodgingComponent } from './lodging.component';
 export class StopListComponent {
   readonly trip       = inject(TripService);
   readonly savedPlans = inject(SavedPlansService);
-  private readonly auth      = inject(AuthService);
-  private readonly authModal = inject(AuthModalService);
+  private readonly auth       = inject(AuthService);
+  private readonly authModal  = inject(AuthModalService);
+  private readonly karmaModal = inject(KarmaModalService);
   addDestination = output<void>();
 
   readonly firstCityLabel = computed(() => {
@@ -305,7 +307,9 @@ export class StopListComponent {
       },
       error: err => {
         this.bookSaving.set(false);
-        if (err?.status === 402) this.bookError.set($localize`:@@stopList.bookKarmaErr:Karma insuficiente para guardar el viaje (necesitas al menos 1 ⭐)`);
+        if (this.karmaModal.handleKarmaError(err)) {
+          this.bookOpen.set(false);
+        }
       },
     });
   }

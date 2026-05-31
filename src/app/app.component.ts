@@ -73,11 +73,11 @@ import { AiPlanningComponent } from './features/ai-planning/ai-planning.componen
   `,
 })
 export class AppComponent {
-  readonly trip = inject(TripService);
-  showAddModal  = signal(false);
-  showProfile   = signal(false);
+  readonly trip  = inject(TripService);
+  showAddModal   = signal(false);
+  showProfile    = signal(false);
   showAiPlanning = signal(false);
-  toast         = signal<string | null>(null);
+  toast          = signal<string | null>(null);
 
   readonly sharedTripId = signal<string | null>(
     new URLSearchParams(window.location.search).get('share')
