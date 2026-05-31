@@ -1,5 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { TripService } from './features/trip/trip.service';
+import { KarmaModalService } from './core/karma/karma-modal.service';
 import { NavComponent } from './features/nav/nav.component';
 import { WelcomeComponent } from './features/welcome/welcome.component';
 import { StopListComponent } from './features/trip/stop-list/stop-list.component';
@@ -73,13 +74,27 @@ import { AiPlanningComponent } from './features/ai-planning/ai-planning.componen
   `,
 })
 export class AppComponent {
-  readonly trip = inject(TripService);
-  showAddModal  = signal(false);
-  showProfile   = signal(false);
+  readonly trip       = inject(TripService);
+  private readonly karmaModal = inject(KarmaModalService);
+
+  showAddModal   = signal(false);
+  showProfile    = signal(false);
   showAiPlanning = signal(false);
-  toast         = signal<string | null>(null);
+  toast          = signal<string | null>(null);
 
   readonly sharedTripId = signal<string | null>(
     new URLSearchParams(window.location.search).get('share')
   );
+
+  constructor() {
+    // When the user clicks "earn karma by commenting", close any overlay
+    // so the main app + nav search are visible.
+    effect(() => {
+      if (this.karmaModal.searchTrigger() > 0) {
+        this.showAiPlanning.set(false);
+        this.showProfile.set(false);
+        this.showAddModal.set(false);
+      }
+    }, { allowSignalWrites: true });
+  }
 }
