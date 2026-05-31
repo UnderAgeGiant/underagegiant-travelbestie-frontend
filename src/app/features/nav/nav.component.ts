@@ -3,6 +3,7 @@ import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
 import { KarmaService } from '../../core/karma/karma.service';
+import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
@@ -348,7 +349,7 @@ import { environment } from '../../../environments/environment';
 
     @if (buyKarmaOpen()) {
       <app-buy-karma-modal
-        (closed)="buyKarmaOpen.set(false)"
+        (closed)="karmaModal.close()"
         (karmaGained)="onKarmaGained($event)">
       </app-buy-karma-modal>
     }
@@ -573,6 +574,7 @@ export class NavComponent {
   readonly authModal        = inject(AuthModalService);
   readonly trip             = inject(TripService);
   readonly karma            = inject(KarmaService);
+  readonly karmaModal       = inject(KarmaModalService);
   readonly savedPlans       = inject(SavedPlansService);
   private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
@@ -599,7 +601,7 @@ export class NavComponent {
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
-  buyKarmaOpen           = signal(false);
+  readonly buyKarmaOpen  = this.karmaModal.isOpen;
   registerSuccessOpen    = signal(false);
   registerSuccessName    = signal('');
   karmaSuccessOpen    = signal(false);   // fullscreen celebration overlay
@@ -876,12 +878,12 @@ export class NavComponent {
 
   openBuyKarma(): void {
     this.userMenuOpen.set(false);
-    this.buyKarmaOpen.set(true);
+    this.karmaModal.open();
   }
 
   /** Step 1 — called immediately after PayPal captures the payment. */
   onKarmaGained(amount: number): void {
-    this.buyKarmaOpen.set(false);        // close the buy modal
+    this.karmaModal.close();             // close the buy modal
     this.karmaSuccessAmount.set(amount);
     this.karmaSuccessOpen.set(true);     // show fullscreen celebration overlay
   }
@@ -940,7 +942,8 @@ export class NavComponent {
       },
       error: err => {
         if (err?.status === 402) {
-          this.savePlanError.set($localize`:@@nav.savePlanKarmaErr:Karma insuficiente para guardar el viaje (necesitas al menos 1 ⭐)`);
+          this.savePlanOpen.set(false);
+          this.karmaModal.open();
         }
       },
     });

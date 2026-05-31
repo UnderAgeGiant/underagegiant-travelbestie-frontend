@@ -5,6 +5,7 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
 import { HomeAddressService } from '../../core/home-address/home-address.service';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
+import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { ApiService } from '../../core/api/api.service';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -242,6 +243,7 @@ export class ProfileComponent {
   readonly visitedPlaces = inject(VisitedPlacesService);
   private readonly sharedTrips   = inject(SharedTripsService);
   private readonly karma         = inject(KarmaService);
+  private readonly karmaModal    = inject(KarmaModalService);
   private readonly api           = inject(ApiService);
 
   close          = output<void>();
@@ -303,8 +305,7 @@ export class ProfileComponent {
 
     if (environment.useMocks) {
       if ((this.karma.karma() ?? 0) < 1) {
-        this.shareError.set(plan.id);
-        setTimeout(() => this.shareError.set(null), 2000);
+        this.karmaModal.open();
         return;
       }
       this.karma.spend();
@@ -326,8 +327,7 @@ export class ProfileComponent {
         },
         error: err => {
           if (err?.status === 402) {
-            this.shareError.set(plan.id);
-            setTimeout(() => this.shareError.set(null), 2000);
+            this.karmaModal.open();
           }
         },
       });
@@ -337,8 +337,7 @@ export class ProfileComponent {
   downloadItinerary(plan: SavedPlan): void {
     if (environment.useMocks) {
       if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {
-        this.shareError.set(plan.id);
-        setTimeout(() => this.shareError.set(null), 2000);
+        this.karmaModal.open();
         return;
       }
       const user = this.auth.currentUser();
@@ -385,8 +384,7 @@ export class ProfileComponent {
       error: (err) => {
         this.exportingPlanId.set(null);
         if (err?.status === 402) {
-          this.shareError.set(plan.id);
-          setTimeout(() => this.shareError.set(null), 2000);
+          this.karmaModal.open();
         } else {
           this.toast.set('Error al descargar el itinerario');
         }

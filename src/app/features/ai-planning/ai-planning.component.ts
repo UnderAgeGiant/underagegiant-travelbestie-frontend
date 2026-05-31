@@ -3,6 +3,7 @@ import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
+import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions } from '../../core/models/ai.model';
 import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
@@ -470,6 +471,7 @@ export class AiPlanningComponent {
   private readonly api        = inject(ApiService);
   private readonly tripSvc    = inject(TripService);
   private readonly savedPlans = inject(SavedPlansService);
+  private readonly karmaModal = inject(KarmaModalService);
 
   showProfile     = signal(false);
   step            = signal<Step>('preferences');
@@ -642,7 +644,7 @@ export class AiPlanningComponent {
         error: err => {
           this.loading.set(false);
           const karma = this.parseKarmaError(err);
-          if (karma) this.karmaError.set(karma);
+          if (karma) { this.karmaModal.open(); this.karmaError.set(karma); }
           else this.error.set(err?.error?.error ?? 'Error al generar sugerencias');
         },
       });
@@ -727,7 +729,7 @@ export class AiPlanningComponent {
       error: err => {
         this.loading.set(false);
         const karma = this.parseKarmaError(err);
-        if (karma) this.karmaError.set(karma);
+        if (karma) { this.karmaModal.open(); this.karmaError.set(karma); }
         else this.error.set(err?.error?.error ?? 'Error al generar el plan');
       },
     });
@@ -784,7 +786,7 @@ export class AiPlanningComponent {
         next: () => this.planSaved.emit(),
         error: err => {
           const k = this.parseKarmaError(err);
-          if (k) this.karmaError.set(k);
+          if (k) { this.karmaModal.open(); this.karmaError.set(k); }
         },
       });
   }
