@@ -580,13 +580,17 @@
         <source>Comprar karma</source>
         <target>Buy karma</target>
       </trans-unit>
-      <trans-unit id="kim.earnBtn" datatype="html">
-        <source>Comentar en viajes de otros</source>
-        <target>Comment on other people's trips</target>
+      <trans-unit id="kim.earnTitle" datatype="html">
+        <source>¿Prefieres ganar karma gratis?</source>
+        <target>Prefer to earn karma for free?</target>
       </trans-unit>
-      <trans-unit id="kim.earnTip" datatype="html">
-        <source>Busca un viaje compartido y deja un comentario → +1 karma gratis</source>
-        <target>Find a shared trip and leave a comment → +1 karma for free</target>
+      <trans-unit id="kim.earnBody" datatype="html">
+        <source>Pide a alguien que comparta su viaje contigo. Visita el enlace y deja un comentario en cualquier parada → +1 karma por comentario nuevo.</source>
+        <target>Ask someone to share their trip with you. Visit the link and leave a comment on any stop → +1 karma per new comment.</target>
+      </trans-unit>
+      <trans-unit id="kim.earnDismiss" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
       </trans-unit>
 
       <!-- ── karma-success-overlay ── -->

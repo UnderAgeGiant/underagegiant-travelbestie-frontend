@@ -4,12 +4,10 @@ import { Injectable, signal, computed } from '@angular/core';
 export class KarmaModalService {
   private readonly _buyOpen          = signal(false);
   private readonly _insufficientData = signal<{ need: number; have: number } | null>(null);
-  private readonly _searchTrigger    = signal(0);
 
   readonly buyOpen          = this._buyOpen.asReadonly();
   readonly insufficientData = this._insufficientData.asReadonly();
   readonly insufficientOpen = computed(() => this._insufficientData() !== null);
-  readonly searchTrigger    = this._searchTrigger.asReadonly();
 
   /** Open the direct buy-karma modal (nav button). */
   open(): void     { this._buyOpen.set(true); }
@@ -26,12 +24,6 @@ export class KarmaModalService {
   goToBuy(): void {
     this._insufficientData.set(null);
     this._buyOpen.set(true);
-  }
-
-  /** Close the insufficient modal and signal NavComponent to open the search panel. */
-  requestSearch(): void {
-    this._insufficientData.set(null);
-    this._searchTrigger.update(n => n + 1);
   }
 
   /**

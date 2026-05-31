@@ -44,20 +44,27 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
         </div>
 
         <!-- Actions -->
-        <div class="modal-foot" style="flex-direction:column;gap:10px">
-          <button class="btn-pill btn-primary" style="width:100%;padding:12px;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px"
+        <div class="modal-foot" style="flex-direction:column;gap:12px">
+          <button class="btn-pill btn-primary"
+                  style="width:100%;padding:12px;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px"
                   (click)="karmaModal.goToBuy()" type="button">
             💳 <span i18n="@@kim.buyBtn">Comprar karma</span>
           </button>
-          <button class="kim-earn-btn"
-                  (click)="karmaModal.requestSearch()" type="button">
-            <span class="kim-earn-top">
-              💬 <span i18n="@@kim.earnBtn">Comentar en viajes de otros</span>
-            </span>
-            <span class="kim-earn-tip" i18n="@@kim.earnTip">
-              Busca un viaje compartido y deja un comentario → +1 karma gratis
-            </span>
-          </button>
+
+          <!-- Free karma tip -->
+          <div class="kim-tip">
+            <div class="kim-tip-title" i18n="@@kim.earnTitle">¿Prefieres ganar karma gratis?</div>
+            <p class="kim-tip-body" i18n="@@kim.earnBody">
+              Pide a alguien que comparta su viaje contigo.
+              Visita el enlace y deja un comentario en cualquier parada
+              → <strong>+1 karma</strong> por comentario nuevo.
+            </p>
+            <button class="btn-pill btn-outline kim-tip-dismiss"
+                    (click)="karmaModal.closeInsufficient()" type="button"
+                    i18n="@@kim.earnDismiss">
+              Entendido
+            </button>
+          </div>
         </div>
 
       </div>
@@ -77,19 +84,19 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
     }
     .kim-arrow { font-size: 22px; color: var(--t3); font-weight: 300; }
     .kim-shortfall { font-size: 13px; color: var(--t2); margin: 0; text-align: center; }
-    .kim-earn-btn {
-      width: 100%; padding: 11px 16px;
-      background: #fff; border: 1.5px solid var(--border);
-      border-radius: 12px; cursor: pointer;
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      transition: background .14s;
+    .kim-tip {
+      background: var(--lav); border-radius: 12px;
+      padding: 14px 16px; text-align: left;
     }
-    .kim-earn-btn:hover { background: var(--cream); }
-    .kim-earn-top {
-      display: flex; align-items: center; gap: 7px;
-      font-size: 14px; font-weight: 600; color: var(--t1);
+    .kim-tip-title {
+      font-size: 13px; font-weight: 700; color: var(--lav-d);
+      margin-bottom: 6px;
     }
-    .kim-earn-tip { font-size: 11px; color: var(--t3); line-height: 1.4; }
+    .kim-tip-body {
+      font-size: 12px; color: var(--t2); line-height: 1.55;
+      margin: 0 0 12px;
+    }
+    .kim-tip-dismiss { font-size: 12px; padding: 5px 14px; }
   `]
 })
 export class InsufficientKarmaModalComponent {

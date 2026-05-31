@@ -672,13 +672,6 @@ export class NavComponent {
   private initAttempts = 0;
 
   constructor() {
-    // Open the nav search when the insufficient-karma modal's "earn karma" button is clicked
-    effect(() => {
-      if (this.karmaModal.searchTrigger() > 0) {
-        this.searchOpen.set(true);
-      }
-    }, { allowSignalWrites: true });
-
     effect(() => {
       if (this.authModal.isOpen()) {
         this.initAttempts = 0;
