@@ -55,8 +55,8 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
           <div class="kim-tip">
             <div class="kim-tip-title" i18n="@@kim.earnTitle">¿Prefieres ganar karma gratis?</div>
             <p class="kim-tip-body" i18n="@@kim.earnBody">
-              Pide a alguien que comparta su viaje contigo.
-              Visita el enlace y deja un comentario en cualquier parada
+              Busca un plan público en la barra de búsqueda, visita el enlace,
+              deja un comentario en cualquier parada
               → <strong>+1 karma</strong> por comentario nuevo.
             </p>
             <button class="btn-pill btn-outline kim-tip-dismiss"

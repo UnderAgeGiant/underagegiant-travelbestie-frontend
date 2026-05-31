@@ -585,8 +585,8 @@
         <target>Prefer to earn karma for free?</target>
       </trans-unit>
       <trans-unit id="kim.earnBody" datatype="html">
-        <source>Pide a alguien que comparta su viaje contigo. Visita el enlace y deja un comentario en cualquier parada → +1 karma por comentario nuevo.</source>
-        <target>Ask someone to share their trip with you. Visit the link and leave a comment on any stop → +1 karma per new comment.</target>
+        <source>Busca un plan público en la barra de búsqueda, visita el enlace, deja un comentario en cualquier parada → +1 karma por comentario nuevo.</source>
+        <target>Search for a public plan in the search bar, visit the link, leave a comment on any stop → +1 karma per new comment.</target>
       </trans-unit>
       <trans-unit id="kim.earnDismiss" datatype="html">
         <source>Entendido</source>
