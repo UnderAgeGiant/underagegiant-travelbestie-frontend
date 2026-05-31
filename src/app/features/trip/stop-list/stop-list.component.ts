@@ -307,9 +307,8 @@ export class StopListComponent {
       },
       error: err => {
         this.bookSaving.set(false);
-        if (err?.status === 402) {
+        if (this.karmaModal.handleKarmaError(err)) {
           this.bookOpen.set(false);
-          this.karmaModal.open();
         }
       },
     });

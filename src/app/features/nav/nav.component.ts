@@ -9,6 +9,7 @@ import { SharedTripsService } from '../../core/shared-trips/shared-trips.service
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
 import { KarmaSuccessOverlayComponent } from '../karma/karma-success-overlay.component';
+import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-modal.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 import { environment } from '../../../environments/environment';
@@ -16,7 +17,7 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent],
+  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent, InsufficientKarmaModalComponent],
   styles: [`
     /* ── Saved-plans toggle button ── */
     .up-plans-btn {
@@ -349,9 +350,13 @@ import { environment } from '../../../environments/environment';
 
     @if (buyKarmaOpen()) {
       <app-buy-karma-modal
-        (closed)="karmaModal.close()"
+        (closed)="karmaModal.closeBuy()"
         (karmaGained)="onKarmaGained($event)">
       </app-buy-karma-modal>
+    }
+
+    @if (karmaModal.insufficientOpen()) {
+      <app-insufficient-karma-modal />
     }
 
     @if (karmaSuccessOpen()) {
@@ -601,7 +606,7 @@ export class NavComponent {
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
   myTripsOpen    = signal(false);
-  readonly buyKarmaOpen  = this.karmaModal.isOpen;
+  readonly buyKarmaOpen  = this.karmaModal.buyOpen;
   registerSuccessOpen    = signal(false);
   registerSuccessName    = signal('');
   karmaSuccessOpen    = signal(false);   // fullscreen celebration overlay
@@ -667,6 +672,13 @@ export class NavComponent {
   private initAttempts = 0;
 
   constructor() {
+    // Open the nav search when the insufficient-karma modal's "earn karma" button is clicked
+    effect(() => {
+      if (this.karmaModal.searchTrigger() > 0) {
+        this.searchOpen.set(true);
+      }
+    }, { allowSignalWrites: true });
+
     effect(() => {
       if (this.authModal.isOpen()) {
         this.initAttempts = 0;
@@ -883,7 +895,7 @@ export class NavComponent {
 
   /** Step 1 — called immediately after PayPal captures the payment. */
   onKarmaGained(amount: number): void {
-    this.karmaModal.close();             // close the buy modal
+    this.karmaModal.closeBuy();          // close the buy modal
     this.karmaSuccessAmount.set(amount);
     this.karmaSuccessOpen.set(true);     // show fullscreen celebration overlay
   }
@@ -941,9 +953,8 @@ export class NavComponent {
         this.savePlanName.set('');
       },
       error: err => {
-        if (err?.status === 402) {
+        if (this.karmaModal.handleKarmaError(err)) {
           this.savePlanOpen.set(false);
-          this.karmaModal.open();
         }
       },
     });

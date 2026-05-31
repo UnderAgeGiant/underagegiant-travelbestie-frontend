@@ -551,6 +551,44 @@
         <target>Done!</target>
       </trans-unit>
 
+      <!-- ── insufficient-karma-modal ── -->
+      <trans-unit id="kim.title" datatype="html">
+        <source>Karma insuficiente</source>
+        <target>Insufficient karma</target>
+      </trans-unit>
+      <trans-unit id="kim.subtitle" datatype="html">
+        <source>Necesitas más karma para completar esta acción.</source>
+        <target>You need more karma to complete this action.</target>
+      </trans-unit>
+      <trans-unit id="kim.have" datatype="html">
+        <source>Tienes</source>
+        <target>You have</target>
+      </trans-unit>
+      <trans-unit id="kim.need" datatype="html">
+        <source>Necesitas</source>
+        <target>You need</target>
+      </trans-unit>
+      <trans-unit id="kim.shortfallPre" datatype="html">
+        <source>Te faltan</source>
+        <target>You are missing</target>
+      </trans-unit>
+      <trans-unit id="kim.shortfallPost" datatype="html">
+        <source> para esta acción.</source>
+        <target> karma for this action.</target>
+      </trans-unit>
+      <trans-unit id="kim.buyBtn" datatype="html">
+        <source>Comprar karma</source>
+        <target>Buy karma</target>
+      </trans-unit>
+      <trans-unit id="kim.earnBtn" datatype="html">
+        <source>Comentar en viajes de otros</source>
+        <target>Comment on other people's trips</target>
+      </trans-unit>
+      <trans-unit id="kim.earnTip" datatype="html">
+        <source>Busca un viaje compartido y deja un comentario → +1 karma gratis</source>
+        <target>Find a shared trip and leave a comment → +1 karma for free</target>
+      </trans-unit>
+
       <!-- ── karma-success-overlay ── -->
       <trans-unit id="karmaSuccess.title" datatype="html">
         <source>¡Karma añadido!</source>

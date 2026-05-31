@@ -76,26 +76,6 @@ type Step = 'preferences' | 'options' | 'result';
             <div class="ai-plan-error">⚠️ {{ error() }}</div>
           }
 
-          @if (karmaError()) {
-            <div class="ai-karma-error-card">
-              <div class="ai-karma-error-icon">⭐</div>
-              <div class="ai-karma-error-title" i18n="@@aiplan.karmaErrTitle">Karma insuficiente</div>
-              <div class="ai-karma-error-body">
-                <span i18n="@@aiplan.karmaErrNeed">Necesitas</span>
-                <strong> {{ karmaError()!.need }} karma </strong>
-                <span i18n="@@aiplan.karmaErrHave">para esta acción, pero tienes</span>
-                <strong> {{ karmaError()!.have }}</strong>.
-              </div>
-              <div class="ai-karma-error-tip" i18n="@@aiplan.karmaErrTip">
-                💡 Comenta en viajes compartidos de otros usuarios para ganar +1 karma por parada comentada.
-              </div>
-              <button class="btn-pill btn-outline"
-                      (click)="karmaError.set(null)"
-                      type="button"
-                      i18n="@@aiplan.karmaErrDismiss">Entendido</button>
-            </div>
-          }
-
           <!-- ── Change info banners ── -->
           @if (changeWarning()) {
             <div class="ai-change-warn-card">
@@ -477,7 +457,6 @@ export class AiPlanningComponent {
   step            = signal<Step>('preferences');
   loading         = signal(false);
   loadingMessage  = signal('');
-  karmaError      = signal<{ need: number; have: number } | null>(null);
   error           = signal<string | null>(null);
   suggestions     = signal<SuggestTripsResponse | null>(null);
   selectedOption  = signal<TripSuggestion | null>(null);
@@ -616,7 +595,6 @@ export class AiPlanningComponent {
     this.loadingMessage.set($localize`:@@aiplan.loadingSuggest:Generando sugerencias ✨`);
     this.loading.set(true);
     this.error.set(null);
-    this.karmaError.set(null);
     this.api.suggestTrips(this.preferences(), this.duration(), this.budget() || undefined)
       .subscribe({
         next: res => {
@@ -643,9 +621,9 @@ export class AiPlanningComponent {
         },
         error: err => {
           this.loading.set(false);
-          const karma = this.parseKarmaError(err);
-          if (karma) { this.karmaModal.open(); this.karmaError.set(karma); }
-          else this.error.set(err?.error?.error ?? 'Error al generar sugerencias');
+          if (!this.karmaModal.handleKarmaError(err)) {
+            this.error.set(err?.error?.error ?? 'Error al generar sugerencias');
+          }
         },
       });
   }
@@ -706,7 +684,6 @@ export class AiPlanningComponent {
     this.loadingMessage.set($localize`:@@aiplan.loadingPlan:Creando tu plan de viaje 🗺️`);
     this.loading.set(true);
     this.error.set(null);
-    this.karmaError.set(null);
 
     this.api.planTrip({
       selectedOption: opt,
@@ -728,9 +705,9 @@ export class AiPlanningComponent {
       },
       error: err => {
         this.loading.set(false);
-        const karma = this.parseKarmaError(err);
-        if (karma) { this.karmaModal.open(); this.karmaError.set(karma); }
-        else this.error.set(err?.error?.error ?? 'Error al generar el plan');
+        if (!this.karmaModal.handleKarmaError(err)) {
+          this.error.set(err?.error?.error ?? 'Error al generar el plan');
+        }
       },
     });
   }
@@ -768,14 +745,6 @@ export class AiPlanningComponent {
     this.suggestConfirmPending.set(null);
   }
 
-  private parseKarmaError(err: any): { need: number; have: number } | null {
-    if (err?.status !== 402) return null;
-    const msg: string = err?.error?.error ?? '';
-    const match = msg.match(/need (\d+), have (-?\d+)/);
-    if (!match) return null;
-    return { need: +match[1], have: +match[2] };
-  }
-
   save(): void {
     const trip  = this.generatedTrip();
     const email = this.auth.currentUser()?.email;
@@ -784,10 +753,7 @@ export class AiPlanningComponent {
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [])
       .subscribe({
         next: () => this.planSaved.emit(),
-        error: err => {
-          const k = this.parseKarmaError(err);
-          if (k) { this.karmaModal.open(); this.karmaError.set(k); }
-        },
+        error: err => { this.karmaModal.handleKarmaError(err); },
       });
   }
 
@@ -797,7 +763,6 @@ export class AiPlanningComponent {
     this.suggestions.set(null);
     this.selectedOption.set(null);
     this.error.set(null);
-    this.karmaError.set(null);
     this.planSessionId.set(null);
     this.suggestBaseline.set(null);
     this.originalPlanOptions.set(null);
