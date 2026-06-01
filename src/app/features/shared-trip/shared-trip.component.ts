@@ -1,7 +1,6 @@
 import { Component, inject, input, computed, signal, effect } from '@angular/core';
-import { SharedTripsService, SharedTrip } from '../../core/shared-trips/shared-trips.service';
+import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
-import { environment } from '../../../environments/environment';
 import { StepCommentsComponent } from './step-comments.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavComponent } from '../nav/nav.component';
@@ -14,6 +13,16 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
   selector: 'app-shared-trip',
   standalone: true,
   imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent],
+  styles: [`
+    .step-comments-toggle {
+      display: inline-flex; align-items: center; gap: 3px;
+      background: none; border: none; cursor: pointer;
+      font-size: 13px; padding: 0 4px; margin-left: 6px;
+      opacity: 0.35; transition: opacity .15s; vertical-align: middle;
+    }
+    .step-comments-toggle:hover { opacity: 1; }
+    .step-comments-label { font-size: 11px; font-weight: 500; }
+  `],
   template: `
     <div class="shared-page">
 
@@ -34,10 +43,17 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
           <div class="shared-header-owner">Viaje de {{ trip()!.ownerName }}</div>
           <div class="shared-header-stops">
-            @for (stop of trip()!.stops; track stop.cityId) {
+            @for (stop of trip()!.stops; track stop.cityId; let i = $index; let last = $last) {
               @let city = cityFor(stop.cityId);
               @if (city) {
                 <span class="shared-header-flag" [title]="city.name">{{ city.flag }}</span>
+              }
+              @if (!last) {
+                @let nextStop = trip()!.stops[i + 1];
+                @let leg = legFor(stop.cityId, nextStop.cityId);
+                @if (leg && leg.segments.length > 0) {
+                  <span class="shared-header-mode" [title]="leg.segments[0].mode">{{ modeIcon(leg.segments[0].mode) }}</span>
+                }
               }
             }
           </div>
@@ -50,7 +66,11 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
           @let dep = legFor('__start__', '__start__');
           @if (dep) {
             <div class="itin-transit itin-edge-transit">
-              <span class="itin-transit-tag">Salida 🏠</span>
+              <span class="itin-transit-tag">Salida 🏠
+                @if (!shouldShowComments('transit:__start__')) {
+                  <button class="step-comments-toggle" (click)="expandStep('transit:__start__')"><span class="step-comments-label">comment</span> ✍️</button>
+                }
+              </span>
               @for (seg of dep.segments; track $index; let sl = $last) {
                 <span class="itin-seg">{{ fmtSeg(seg) }}</span>
                 @if (!sl) { <span class="itin-chain">↓</span> }
@@ -59,20 +79,27 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                 <span class="itin-transit-total">Total: {{ fmtDur(totalMins(dep)) }}</span>
               }
             </div>
-            <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" />
+            @if (shouldShowComments('transit:__start__')) {
+              <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep('transit:__start__')" />
+            }
             <div class="itin-line"></div>
           }
 
           @for (stop of trip()!.stops; track stop.cityId; let i = $index; let last = $last) {
             @let city = cityFor(stop.cityId);
             @if (city) {
+              @let stopKey = 'stop:' + stop.cityId;
 
               <!-- City card -->
               <div class="itin-city">
                 <div class="itin-city-head">
                   <span class="itin-city-flag">{{ city.flag }}</span>
                   <div>
-                    <div class="itin-city-name">{{ city.name }}</div>
+                    <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
+                      @if (!shouldShowComments(stopKey)) {
+                        <button class="step-comments-toggle" (click)="expandStep(stopKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                      }
+                    </div>
                     <div class="itin-city-country">{{ city.country }}</div>
                     @if (stop.checkIn) {
                       <div class="itin-city-dates">{{ stop.checkIn }} → {{ stop.checkOut }}</div>
@@ -84,34 +111,42 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                   <div class="itin-items">
 
                     @if (stop.lodging) {
+                      @let lodgeKey = 'lodge:' + stop.cityId;
                       <div class="itin-item itin-item-lodging">
                         <span class="itin-item-icon">🏨</span>
                         <span class="itin-item-label">{{ stop.lodging.name }}</span>
+                        @if (!shouldShowComments(lodgeKey)) {
+                          <button class="step-comments-toggle" (click)="expandStep(lodgeKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                        }
                         @if (stop.lodging.url) {
                           <a class="itin-link" [href]="stop.lodging.url"
                              target="_blank" rel="noopener noreferrer"
                              (click)="$event.stopPropagation()">🔗</a>
                         }
                       </div>
-                      <app-step-comments [tripId]="trip()!.id"
-                                         [stepKey]="'lodge:' + stop.cityId"
-                                         [ownerEmail]="trip()!.ownerEmail" />
+                      @if (shouldShowComments(lodgeKey)) {
+                        <app-step-comments [tripId]="trip()!.id" [stepKey]="lodgeKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(lodgeKey)" />
+                      }
                     }
 
                     @for (planned of stop.selectedAttractions; track planned.attractionId) {
                       @let att = attFor(stop.cityId, planned.attractionId);
                       @if (att) {
+                        @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
                         @let attDate = planned.date || stop.checkIn;
                         <div class="itin-item">
                           <span class="itin-item-icon">{{ att.icon }}</span>
                           <span class="itin-item-label">{{ att.name }}</span>
+                          @if (!shouldShowComments(attKey)) {
+                            <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                          }
                           <span class="itin-item-meta">
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                           </span>
                         </div>
-                        <app-step-comments [tripId]="trip()!.id"
-                                           [stepKey]="'att:' + stop.cityId + ':' + planned.attractionId"
-                                           [ownerEmail]="trip()!.ownerEmail" />
+                        @if (shouldShowComments(attKey)) {
+                          <app-step-comments [tripId]="trip()!.id" [stepKey]="attKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(attKey)" />
+                        }
                       }
                     }
 
@@ -120,13 +155,14 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
               </div>
 
               <!-- City-level comments -->
-              <app-step-comments [tripId]="trip()!.id"
-                                 [stepKey]="'stop:' + stop.cityId"
-                                 [ownerEmail]="trip()!.ownerEmail" />
+              @if (shouldShowComments(stopKey)) {
+                <app-step-comments [tripId]="trip()!.id" [stepKey]="stopKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(stopKey)" />
+              }
 
               <!-- Transit to next city or return flight -->
               @if (!last) {
                 @let nextStop = trip()!.stops[i + 1];
+                @let legKey = 'transit:' + stop.cityId + ':' + nextStop.cityId;
                 @let leg = legFor(stop.cityId, nextStop.cityId);
                 @let nextCity = cityFor(nextStop.cityId);
                 <div class="itin-line"></div>
@@ -143,12 +179,16 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                     <span class="itin-no-transit">Sin transporte definido</span>
                   }
                   @if (nextCity) {
-                    <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}</span>
+                    <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}
+                      @if (!shouldShowComments(legKey)) {
+                        <button class="step-comments-toggle" (click)="expandStep(legKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                      }
+                    </span>
                   }
                 </div>
-                <app-step-comments [tripId]="trip()!.id"
-                                   [stepKey]="'transit:' + stop.cityId + ':' + nextStop.cityId"
-                                   [ownerEmail]="trip()!.ownerEmail" />
+                @if (shouldShowComments(legKey)) {
+                  <app-step-comments [tripId]="trip()!.id" [stepKey]="legKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(legKey)" />
+                }
                 <div class="itin-line"></div>
 
               } @else {
@@ -157,7 +197,11 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                 @if (ret) {
                   <div class="itin-line"></div>
                   <div class="itin-transit itin-edge-transit">
-                    <span class="itin-transit-tag">Vuelta 🏠</span>
+                    <span class="itin-transit-tag">Vuelta 🏠
+                      @if (!shouldShowComments('transit:__end__')) {
+                        <button class="step-comments-toggle" (click)="expandStep('transit:__end__')"><span class="step-comments-label">comment</span> ✍️</button>
+                      }
+                    </span>
                     @for (seg of ret.segments; track $index; let sl = $last) {
                       <span class="itin-seg">{{ fmtSeg(seg) }}</span>
                       @if (!sl) { <span class="itin-chain">↓</span> }
@@ -166,7 +210,9 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                       <span class="itin-transit-total">Total: {{ fmtDur(totalMins(ret)) }}</span>
                     }
                   </div>
-                  <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" />
+                  @if (shouldShowComments('transit:__end__')) {
+                    <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep('transit:__end__')" />
+                  }
                 }
               }
 
@@ -176,6 +222,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
       </div>
 
+    } @else if (rateLimited()) {
+      <div class="shared-not-found">
+        <div style="font-size:52px;margin-bottom:12px">⏳</div>
+        <div style="font-size:18px;font-weight:600;color:var(--t1)">Demasiadas solicitudes</div>
+        <div style="font-size:13px;color:var(--t3);margin-top:6px">Espera un momento e intenta de nuevo.</div>
+        <button class="btn-pill btn-primary" style="margin-top:20px" (click)="retry()">Intentar de nuevo</button>
+      </div>
     } @else {
       <div class="shared-not-found">
         <div style="font-size:52px;margin-bottom:12px">🗺️</div>
@@ -191,10 +244,27 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 export class SharedTripComponent {
   readonly tripId = input.required<string>();
 
-  private readonly svc = inject(SharedTripsService);
   private readonly api = inject(ApiService);
+  private readonly svc = inject(SharedTripsService);
 
-  showProfile = signal(false);
+  showProfile    = signal(false);
+  rateLimited    = signal(false);
+  expandedSteps  = signal(new Set<string>());
+
+  shouldShowComments(stepKey: string): boolean {
+    const tripId = this.trip()?.id;
+    if (!tripId) return false;
+    return this.expandedSteps().has(stepKey) ||
+           this.svc.getComments(tripId, stepKey).length > 0;
+  }
+
+  expandStep(stepKey: string): void {
+    this.expandedSteps.update(s => new Set(s).add(stepKey));
+  }
+
+  collapseStep(stepKey: string): void {
+    this.expandedSteps.update(s => { const n = new Set(s); n.delete(stepKey); return n; });
+  }
 
   private readonly _trip = signal<SharedTrip | null>(null);
   readonly trip = this._trip.asReadonly();
@@ -202,15 +272,24 @@ export class SharedTripComponent {
   constructor() {
     effect(() => {
       const id = this.tripId();
-      if (environment.useMocks) {
-        this._trip.set(this.svc.getTrip(id));
-      } else {
-        this.api.getSharedTrip(id).subscribe({
-          next: data => this._trip.set(data),
-          error: () => this._trip.set(null),
-        });
-      }
+      this.rateLimited.set(false);
+      this.fetchTrip(id);
+    }, { allowSignalWrites: true });
+  }
+
+  private fetchTrip(id: string): void {
+    this.api.getSharedTrip(id).subscribe({
+      next: data  => this._trip.set(data),
+      error: err  => {
+        if (err?.status === 429) this.rateLimited.set(true);
+        else this._trip.set(null);
+      },
     });
+  }
+
+  retry(): void {
+    this.rateLimited.set(false);
+    this.fetchTrip(this.tripId());
   }
 
   private readonly transitMap = computed(() => {
@@ -261,6 +340,11 @@ export class SharedTripComponent {
     const h = Math.floor(mins / 60), m = mins % 60;
     if (h > 0 && m > 0) return `${h}h ${m}m`;
     return h > 0 ? `${h}h` : `${m}m`;
+  }
+
+  modeIcon(mode: TransitMode): string {
+    const icons: Record<TransitMode, string> = { flight: '✈️', train: '🚂', boat: '🚢', bus: '🚌', car: '🚗' };
+    return icons[mode] ?? '→';
   }
 
   fmtSeg(seg: TransitSegment): string {

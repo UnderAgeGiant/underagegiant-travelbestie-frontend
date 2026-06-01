@@ -6,7 +6,7 @@ import { Trip } from '../models/trip.model';
 import { Comment } from '../models/comment.model';
 import { CityCatalog, PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
-import { SharedTrip } from '../shared-trips/shared-trips.service';
+import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -26,6 +26,7 @@ const CITY_CATALOG: CityCatalog = Object.fromEntries(
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly http = inject(HttpClient);
+  private readonly sharedTripsService = inject(SharedTripsService);
 
   constructor(@Optional() @Inject('ENV') private injectedEnv: typeof environment | null) {}
 
@@ -115,8 +116,16 @@ export class ApiService {
   }
 
   getSharedTrip(shareId: string): Observable<SharedTrip> {
-    if (this.useMocks) return of(null as unknown as SharedTrip);
+    if (this.useMocks) {
+      const trip = this.sharedTripsService.getTrip(shareId);
+      return trip ? of(trip) : new Observable(s => s.error({ status: 404 }));
+    }
     return this.http.get<SharedTrip>(`${this.base}/shared/${shareId}`);
+  }
+
+  searchSharedTrips(query: string): Observable<SharedTrip[]> {
+    if (this.useMocks) return of(this.sharedTripsService.search(query));
+    return this.http.get<SharedTrip[]>(`${this.base}/shared?q=${encodeURIComponent(query)}`);
   }
 
   planTrip(req: PlanTripRequest): Observable<PlanTripResponse> {
