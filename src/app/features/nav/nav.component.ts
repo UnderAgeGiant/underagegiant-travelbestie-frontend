@@ -1,6 +1,6 @@
 import { Component, inject, signal, computed, output, effect } from '@angular/core';
 import { toObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
@@ -680,7 +680,9 @@ export class NavComponent {
     toObservable(this.navQuery).pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(q => q.trim() ? this.api.searchSharedTrips(q) : of([])),
+      switchMap(q => q.trim()
+        ? this.api.searchSharedTrips(q).pipe(catchError(() => of([])))
+        : of([])),
       takeUntilDestroyed(),
     ).subscribe(trips => this.navSharedTrips.set(trips));
 
