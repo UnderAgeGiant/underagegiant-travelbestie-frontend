@@ -116,7 +116,10 @@ export class ApiService {
   }
 
   getSharedTrip(shareId: string): Observable<SharedTrip> {
-    if (this.useMocks) return of(null as unknown as SharedTrip);
+    if (this.useMocks) {
+      const trip = this.sharedTripsService.getTrip(shareId);
+      return trip ? of(trip) : new Observable(s => s.error({ status: 404 }));
+    }
     return this.http.get<SharedTrip>(`${this.base}/shared/${shareId}`);
   }
 

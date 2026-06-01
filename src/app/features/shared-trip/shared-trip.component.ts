@@ -1,7 +1,6 @@
 import { Component, inject, input, computed, signal, effect } from '@angular/core';
-import { SharedTripsService, SharedTrip } from '../../core/shared-trips/shared-trips.service';
+import { SharedTrip } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
-import { environment } from '../../../environments/environment';
 import { StepCommentsComponent } from './step-comments.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavComponent } from '../nav/nav.component';
@@ -198,7 +197,6 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 export class SharedTripComponent {
   readonly tripId = input.required<string>();
 
-  private readonly svc = inject(SharedTripsService);
   private readonly api = inject(ApiService);
 
   showProfile  = signal(false);
@@ -211,11 +209,7 @@ export class SharedTripComponent {
     effect(() => {
       const id = this.tripId();
       this.rateLimited.set(false);
-      if (environment.useMocks) {
-        this._trip.set(this.svc.getTrip(id));
-      } else {
-        this.fetchTrip(id);
-      }
+      this.fetchTrip(id);
     });
   }
 
