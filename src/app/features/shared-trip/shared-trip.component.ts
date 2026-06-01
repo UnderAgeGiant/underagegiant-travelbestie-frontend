@@ -1,5 +1,5 @@
 import { Component, inject, input, computed, signal, effect } from '@angular/core';
-import { SharedTrip } from '../../core/shared-trips/shared-trips.service';
+import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { StepCommentsComponent } from './step-comments.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
@@ -13,6 +13,14 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
   selector: 'app-shared-trip',
   standalone: true,
   imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent],
+  styles: [`
+    .step-comments-toggle {
+      background: none; border: none; cursor: pointer;
+      font-size: 15px; padding: 2px 4px; opacity: 0.35;
+      transition: opacity .15s; display: block;
+    }
+    .step-comments-toggle:hover { opacity: 1; }
+  `],
   template: `
     <div class="shared-page">
 
@@ -58,7 +66,11 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                 <span class="itin-transit-total">Total: {{ fmtDur(totalMins(dep)) }}</span>
               }
             </div>
-            <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" />
+            @if (shouldShowComments('transit:__start__')) {
+              <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" />
+            } @else {
+              <button class="step-comments-toggle" (click)="expandStep('transit:__start__')" title="Agregar comentario">✍️</button>
+            }
             <div class="itin-line"></div>
           }
 
@@ -92,9 +104,12 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                              (click)="$event.stopPropagation()">🔗</a>
                         }
                       </div>
-                      <app-step-comments [tripId]="trip()!.id"
-                                         [stepKey]="'lodge:' + stop.cityId"
-                                         [ownerEmail]="trip()!.ownerEmail" />
+                      @let lodgeKey = 'lodge:' + stop.cityId;
+                      @if (shouldShowComments(lodgeKey)) {
+                        <app-step-comments [tripId]="trip()!.id" [stepKey]="lodgeKey" [ownerEmail]="trip()!.ownerEmail" />
+                      } @else {
+                        <button class="step-comments-toggle" (click)="expandStep(lodgeKey)" title="Agregar comentario">✍️</button>
+                      }
                     }
 
                     @for (planned of stop.selectedAttractions; track planned.attractionId) {
@@ -108,9 +123,12 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                           </span>
                         </div>
-                        <app-step-comments [tripId]="trip()!.id"
-                                           [stepKey]="'att:' + stop.cityId + ':' + planned.attractionId"
-                                           [ownerEmail]="trip()!.ownerEmail" />
+                        @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
+                        @if (shouldShowComments(attKey)) {
+                          <app-step-comments [tripId]="trip()!.id" [stepKey]="attKey" [ownerEmail]="trip()!.ownerEmail" />
+                        } @else {
+                          <button class="step-comments-toggle" (click)="expandStep(attKey)" title="Agregar comentario">✍️</button>
+                        }
                       }
                     }
 
@@ -119,9 +137,12 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
               </div>
 
               <!-- City-level comments -->
-              <app-step-comments [tripId]="trip()!.id"
-                                 [stepKey]="'stop:' + stop.cityId"
-                                 [ownerEmail]="trip()!.ownerEmail" />
+              @let stopKey = 'stop:' + stop.cityId;
+              @if (shouldShowComments(stopKey)) {
+                <app-step-comments [tripId]="trip()!.id" [stepKey]="stopKey" [ownerEmail]="trip()!.ownerEmail" />
+              } @else {
+                <button class="step-comments-toggle" (click)="expandStep(stopKey)" title="Agregar comentario">✍️</button>
+              }
 
               <!-- Transit to next city or return flight -->
               @if (!last) {
@@ -145,9 +166,12 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                     <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}</span>
                   }
                 </div>
-                <app-step-comments [tripId]="trip()!.id"
-                                   [stepKey]="'transit:' + stop.cityId + ':' + nextStop.cityId"
-                                   [ownerEmail]="trip()!.ownerEmail" />
+                @let legKey = 'transit:' + stop.cityId + ':' + nextStop.cityId;
+                @if (shouldShowComments(legKey)) {
+                  <app-step-comments [tripId]="trip()!.id" [stepKey]="legKey" [ownerEmail]="trip()!.ownerEmail" />
+                } @else {
+                  <button class="step-comments-toggle" (click)="expandStep(legKey)" title="Agregar comentario">✍️</button>
+                }
                 <div class="itin-line"></div>
 
               } @else {
@@ -165,7 +189,11 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                       <span class="itin-transit-total">Total: {{ fmtDur(totalMins(ret)) }}</span>
                     }
                   </div>
-                  <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" />
+                  @if (shouldShowComments('transit:__end__')) {
+                    <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" />
+                  } @else {
+                    <button class="step-comments-toggle" (click)="expandStep('transit:__end__')" title="Agregar comentario">✍️</button>
+                  }
                 }
               }
 
@@ -198,9 +226,22 @@ export class SharedTripComponent {
   readonly tripId = input.required<string>();
 
   private readonly api = inject(ApiService);
+  private readonly svc = inject(SharedTripsService);
 
-  showProfile  = signal(false);
-  rateLimited  = signal(false);
+  showProfile    = signal(false);
+  rateLimited    = signal(false);
+  expandedSteps  = signal(new Set<string>());
+
+  shouldShowComments(stepKey: string): boolean {
+    const tripId = this.trip()?.id;
+    if (!tripId) return false;
+    return this.expandedSteps().has(stepKey) ||
+           this.svc.getComments(tripId, stepKey).length > 0;
+  }
+
+  expandStep(stepKey: string): void {
+    this.expandedSteps.update(s => new Set(s).add(stepKey));
+  }
 
   private readonly _trip = signal<SharedTrip | null>(null);
   readonly trip = this._trip.asReadonly();
