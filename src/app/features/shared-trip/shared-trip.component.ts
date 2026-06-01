@@ -176,6 +176,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
       </div>
 
+    } @else if (rateLimited()) {
+      <div class="shared-not-found">
+        <div style="font-size:52px;margin-bottom:12px">⏳</div>
+        <div style="font-size:18px;font-weight:600;color:var(--t1)">Demasiadas solicitudes</div>
+        <div style="font-size:13px;color:var(--t3);margin-top:6px">Espera un momento e intenta de nuevo.</div>
+        <button class="btn-pill btn-primary" style="margin-top:20px" (click)="retry()">Intentar de nuevo</button>
+      </div>
     } @else {
       <div class="shared-not-found">
         <div style="font-size:52px;margin-bottom:12px">🗺️</div>
@@ -194,7 +201,8 @@ export class SharedTripComponent {
   private readonly svc = inject(SharedTripsService);
   private readonly api = inject(ApiService);
 
-  showProfile = signal(false);
+  showProfile  = signal(false);
+  rateLimited  = signal(false);
 
   private readonly _trip = signal<SharedTrip | null>(null);
   readonly trip = this._trip.asReadonly();
@@ -202,15 +210,28 @@ export class SharedTripComponent {
   constructor() {
     effect(() => {
       const id = this.tripId();
+      this.rateLimited.set(false);
       if (environment.useMocks) {
         this._trip.set(this.svc.getTrip(id));
       } else {
-        this.api.getSharedTrip(id).subscribe({
-          next: data => this._trip.set(data),
-          error: () => this._trip.set(null),
-        });
+        this.fetchTrip(id);
       }
     });
+  }
+
+  private fetchTrip(id: string): void {
+    this.api.getSharedTrip(id).subscribe({
+      next: data  => this._trip.set(data),
+      error: err  => {
+        if (err?.status === 429) this.rateLimited.set(true);
+        else this._trip.set(null);
+      },
+    });
+  }
+
+  retry(): void {
+    this.rateLimited.set(false);
+    this.fetchTrip(this.tripId());
   }
 
   private readonly transitMap = computed(() => {
