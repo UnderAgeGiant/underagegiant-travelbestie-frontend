@@ -73,7 +73,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
               }
             </div>
             @if (shouldShowComments('transit:__start__')) {
-              <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" />
+              <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep('transit:__start__')" />
             }
             <div class="itin-line"></div>
           }
@@ -118,7 +118,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                         }
                       </div>
                       @if (shouldShowComments(lodgeKey)) {
-                        <app-step-comments [tripId]="trip()!.id" [stepKey]="lodgeKey" [ownerEmail]="trip()!.ownerEmail" />
+                        <app-step-comments [tripId]="trip()!.id" [stepKey]="lodgeKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(lodgeKey)" />
                       }
                     }
 
@@ -138,7 +138,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                           </span>
                         </div>
                         @if (shouldShowComments(attKey)) {
-                          <app-step-comments [tripId]="trip()!.id" [stepKey]="attKey" [ownerEmail]="trip()!.ownerEmail" />
+                          <app-step-comments [tripId]="trip()!.id" [stepKey]="attKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(attKey)" />
                         }
                       }
                     }
@@ -149,7 +149,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
               <!-- City-level comments -->
               @if (shouldShowComments(stopKey)) {
-                <app-step-comments [tripId]="trip()!.id" [stepKey]="stopKey" [ownerEmail]="trip()!.ownerEmail" />
+                <app-step-comments [tripId]="trip()!.id" [stepKey]="stopKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(stopKey)" />
               }
 
               <!-- Transit to next city or return flight -->
@@ -180,7 +180,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                   }
                 </div>
                 @if (shouldShowComments(legKey)) {
-                  <app-step-comments [tripId]="trip()!.id" [stepKey]="legKey" [ownerEmail]="trip()!.ownerEmail" />
+                  <app-step-comments [tripId]="trip()!.id" [stepKey]="legKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(legKey)" />
                 }
                 <div class="itin-line"></div>
 
@@ -204,7 +204,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                     }
                   </div>
                   @if (shouldShowComments('transit:__end__')) {
-                    <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" />
+                    <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep('transit:__end__')" />
                   }
                 }
               }
@@ -253,6 +253,10 @@ export class SharedTripComponent {
 
   expandStep(stepKey: string): void {
     this.expandedSteps.update(s => new Set(s).add(stepKey));
+  }
+
+  collapseStep(stepKey: string): void {
+    this.expandedSteps.update(s => { const n = new Set(s); n.delete(stepKey); return n; });
   }
 
   private readonly _trip = signal<SharedTrip | null>(null);

@@ -1,4 +1,4 @@
-import { Component, inject, input, signal, OnInit } from '@angular/core';
+import { Component, inject, input, output, signal, OnInit } from '@angular/core';
 import { SharedTripsService, StepComment } from '../../core/shared-trips/shared-trips.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { KarmaService } from '../../core/karma/karma.service';
@@ -22,7 +22,7 @@ import { KarmaService } from '../../core/karma/karma.service';
       }
 
       @if (auth.isLoggedIn()) {
-        <div class="step-comment-form">
+        <div class="step-comment-form" (focusout)="onFormFocusOut($event)">
           <input class="step-comment-input"
                  [value]="newText()"
                  (input)="newText.set($any($event.target).value)"
@@ -55,6 +55,8 @@ export class StepCommentsComponent implements OnInit {
   readonly auth        = inject(AuthService);
   private readonly svc   = inject(SharedTripsService);
   private readonly karma = inject(KarmaService);
+
+  focusLost = output<void>();
 
   newText       = signal('');
   karmaFlash    = signal(false);
@@ -89,6 +91,13 @@ export class StepCommentsComponent implements OnInit {
 
     this.newText.set('');
     this.reload();
+  }
+
+  onFormFocusOut(event: FocusEvent): void {
+    const related = event.relatedTarget as Node | null;
+    if (!related || !(event.currentTarget as HTMLElement).contains(related)) {
+      this.focusLost.emit();
+    }
   }
 
   private reload(): void {
