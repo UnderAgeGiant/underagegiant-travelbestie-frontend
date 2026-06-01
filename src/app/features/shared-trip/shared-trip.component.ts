@@ -15,11 +15,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
   imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent],
   styles: [`
     .step-comments-toggle {
+      display: inline-flex; align-items: center; gap: 3px;
       background: none; border: none; cursor: pointer;
-      font-size: 15px; padding: 2px 4px; opacity: 0.35;
-      transition: opacity .15s; display: block;
+      font-size: 13px; padding: 0 4px; margin-left: 6px;
+      opacity: 0.35; transition: opacity .15s; vertical-align: middle;
     }
     .step-comments-toggle:hover { opacity: 1; }
+    .step-comments-label { font-size: 11px; font-weight: 500; }
   `],
   template: `
     <div class="shared-page">
@@ -57,7 +59,11 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
           @let dep = legFor('__start__', '__start__');
           @if (dep) {
             <div class="itin-transit itin-edge-transit">
-              <span class="itin-transit-tag">Salida 🏠</span>
+              <span class="itin-transit-tag">Salida 🏠
+                @if (!shouldShowComments('transit:__start__')) {
+                  <button class="step-comments-toggle" (click)="expandStep('transit:__start__')"><span class="step-comments-label">comment</span> ✍️</button>
+                }
+              </span>
               @for (seg of dep.segments; track $index; let sl = $last) {
                 <span class="itin-seg">{{ fmtSeg(seg) }}</span>
                 @if (!sl) { <span class="itin-chain">↓</span> }
@@ -68,8 +74,6 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
             </div>
             @if (shouldShowComments('transit:__start__')) {
               <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" />
-            } @else {
-              <button class="step-comments-toggle" (click)="expandStep('transit:__start__')" title="Agregar comentario">✍️</button>
             }
             <div class="itin-line"></div>
           }
@@ -77,13 +81,18 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
           @for (stop of trip()!.stops; track stop.cityId; let i = $index; let last = $last) {
             @let city = cityFor(stop.cityId);
             @if (city) {
+              @let stopKey = 'stop:' + stop.cityId;
 
               <!-- City card -->
               <div class="itin-city">
                 <div class="itin-city-head">
                   <span class="itin-city-flag">{{ city.flag }}</span>
                   <div>
-                    <div class="itin-city-name">{{ city.name }}</div>
+                    <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
+                      @if (!shouldShowComments(stopKey)) {
+                        <button class="step-comments-toggle" (click)="expandStep(stopKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                      }
+                    </div>
                     <div class="itin-city-country">{{ city.country }}</div>
                     @if (stop.checkIn) {
                       <div class="itin-city-dates">{{ stop.checkIn }} → {{ stop.checkOut }}</div>
@@ -95,39 +104,41 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                   <div class="itin-items">
 
                     @if (stop.lodging) {
+                      @let lodgeKey = 'lodge:' + stop.cityId;
                       <div class="itin-item itin-item-lodging">
                         <span class="itin-item-icon">🏨</span>
                         <span class="itin-item-label">{{ stop.lodging.name }}</span>
+                        @if (!shouldShowComments(lodgeKey)) {
+                          <button class="step-comments-toggle" (click)="expandStep(lodgeKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                        }
                         @if (stop.lodging.url) {
                           <a class="itin-link" [href]="stop.lodging.url"
                              target="_blank" rel="noopener noreferrer"
                              (click)="$event.stopPropagation()">🔗</a>
                         }
                       </div>
-                      @let lodgeKey = 'lodge:' + stop.cityId;
                       @if (shouldShowComments(lodgeKey)) {
                         <app-step-comments [tripId]="trip()!.id" [stepKey]="lodgeKey" [ownerEmail]="trip()!.ownerEmail" />
-                      } @else {
-                        <button class="step-comments-toggle" (click)="expandStep(lodgeKey)" title="Agregar comentario">✍️</button>
                       }
                     }
 
                     @for (planned of stop.selectedAttractions; track planned.attractionId) {
                       @let att = attFor(stop.cityId, planned.attractionId);
                       @if (att) {
+                        @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
                         @let attDate = planned.date || stop.checkIn;
                         <div class="itin-item">
                           <span class="itin-item-icon">{{ att.icon }}</span>
                           <span class="itin-item-label">{{ att.name }}</span>
+                          @if (!shouldShowComments(attKey)) {
+                            <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                          }
                           <span class="itin-item-meta">
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                           </span>
                         </div>
-                        @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
                         @if (shouldShowComments(attKey)) {
                           <app-step-comments [tripId]="trip()!.id" [stepKey]="attKey" [ownerEmail]="trip()!.ownerEmail" />
-                        } @else {
-                          <button class="step-comments-toggle" (click)="expandStep(attKey)" title="Agregar comentario">✍️</button>
                         }
                       }
                     }
@@ -137,16 +148,14 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
               </div>
 
               <!-- City-level comments -->
-              @let stopKey = 'stop:' + stop.cityId;
               @if (shouldShowComments(stopKey)) {
                 <app-step-comments [tripId]="trip()!.id" [stepKey]="stopKey" [ownerEmail]="trip()!.ownerEmail" />
-              } @else {
-                <button class="step-comments-toggle" (click)="expandStep(stopKey)" title="Agregar comentario">✍️</button>
               }
 
               <!-- Transit to next city or return flight -->
               @if (!last) {
                 @let nextStop = trip()!.stops[i + 1];
+                @let legKey = 'transit:' + stop.cityId + ':' + nextStop.cityId;
                 @let leg = legFor(stop.cityId, nextStop.cityId);
                 @let nextCity = cityFor(nextStop.cityId);
                 <div class="itin-line"></div>
@@ -163,14 +172,15 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                     <span class="itin-no-transit">Sin transporte definido</span>
                   }
                   @if (nextCity) {
-                    <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}</span>
+                    <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}
+                      @if (!shouldShowComments(legKey)) {
+                        <button class="step-comments-toggle" (click)="expandStep(legKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                      }
+                    </span>
                   }
                 </div>
-                @let legKey = 'transit:' + stop.cityId + ':' + nextStop.cityId;
                 @if (shouldShowComments(legKey)) {
                   <app-step-comments [tripId]="trip()!.id" [stepKey]="legKey" [ownerEmail]="trip()!.ownerEmail" />
-                } @else {
-                  <button class="step-comments-toggle" (click)="expandStep(legKey)" title="Agregar comentario">✍️</button>
                 }
                 <div class="itin-line"></div>
 
@@ -180,7 +190,11 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                 @if (ret) {
                   <div class="itin-line"></div>
                   <div class="itin-transit itin-edge-transit">
-                    <span class="itin-transit-tag">Vuelta 🏠</span>
+                    <span class="itin-transit-tag">Vuelta 🏠
+                      @if (!shouldShowComments('transit:__end__')) {
+                        <button class="step-comments-toggle" (click)="expandStep('transit:__end__')"><span class="step-comments-label">comment</span> ✍️</button>
+                      }
+                    </span>
                     @for (seg of ret.segments; track $index; let sl = $last) {
                       <span class="itin-seg">{{ fmtSeg(seg) }}</span>
                       @if (!sl) { <span class="itin-chain">↓</span> }
@@ -191,8 +205,6 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                   </div>
                   @if (shouldShowComments('transit:__end__')) {
                     <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" />
-                  } @else {
-                    <button class="step-comments-toggle" (click)="expandStep('transit:__end__')" title="Agregar comentario">✍️</button>
                   }
                 }
               }
