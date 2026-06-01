@@ -43,10 +43,17 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
           <div class="shared-header-owner">Viaje de {{ trip()!.ownerName }}</div>
           <div class="shared-header-stops">
-            @for (stop of trip()!.stops; track stop.cityId) {
+            @for (stop of trip()!.stops; track stop.cityId; let i = $index; let last = $last) {
               @let city = cityFor(stop.cityId);
               @if (city) {
                 <span class="shared-header-flag" [title]="city.name">{{ city.flag }}</span>
+              }
+              @if (!last) {
+                @let nextStop = trip()!.stops[i + 1];
+                @let leg = legFor(stop.cityId, nextStop.cityId);
+                @if (leg && leg.segments.length > 0) {
+                  <span class="shared-header-mode" [title]="leg.segments[0].mode">{{ modeIcon(leg.segments[0].mode) }}</span>
+                }
               }
             }
           </div>
@@ -333,6 +340,11 @@ export class SharedTripComponent {
     const h = Math.floor(mins / 60), m = mins % 60;
     if (h > 0 && m > 0) return `${h}h ${m}m`;
     return h > 0 ? `${h}h` : `${m}m`;
+  }
+
+  modeIcon(mode: TransitMode): string {
+    const icons: Record<TransitMode, string> = { flight: '✈️', train: '🚂', boat: '🚢', bus: '🚌', car: '🚗' };
+    return icons[mode] ?? '→';
   }
 
   fmtSeg(seg: TransitSegment): string {
