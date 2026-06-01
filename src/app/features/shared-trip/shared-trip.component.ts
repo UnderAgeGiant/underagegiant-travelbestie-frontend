@@ -210,7 +210,7 @@ export class SharedTripComponent {
       const id = this.tripId();
       this.rateLimited.set(false);
       this.fetchTrip(id);
-    });
+    }, { allowSignalWrites: true });
   }
 
   private fetchTrip(id: string): void {
