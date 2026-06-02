@@ -222,6 +222,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
       </div>
 
+    } @else if (loading()) {
+      <div class="shared-not-found">
+        <img src="/Paper-Plane-Animation.gif" alt="Cargando…"
+             style="width:140px;height:140px;object-fit:cover;border-radius:32px;margin-bottom:16px;box-shadow:0 8px 32px rgba(0,0,0,.12)">
+        <div style="font-size:18px;font-weight:600;color:var(--t1)">Cargando viaje…</div>
+        <div style="font-size:13px;color:var(--t3);margin-top:6px">Un momento por favor.</div>
+      </div>
     } @else if (rateLimited()) {
       <div class="shared-not-found">
         <div style="font-size:52px;margin-bottom:12px">⏳</div>
@@ -249,6 +256,7 @@ export class SharedTripComponent {
 
   showProfile    = signal(false);
   rateLimited    = signal(false);
+  loading        = signal(true);
   expandedSteps  = signal(new Set<string>());
 
   shouldShowComments(stepKey: string): boolean {
@@ -273,22 +281,25 @@ export class SharedTripComponent {
     effect(() => {
       const id = this.tripId();
       this.rateLimited.set(false);
+      this.loading.set(true);
       this.fetchTrip(id);
     }, { allowSignalWrites: true });
   }
 
   private fetchTrip(id: string): void {
     this.api.getSharedTrip(id).subscribe({
-      next: data  => this._trip.set(data),
+      next: data  => { this._trip.set(data);   this.loading.set(false); },
       error: err  => {
         if (err?.status === 429) this.rateLimited.set(true);
         else this._trip.set(null);
+        this.loading.set(false);
       },
     });
   }
 
   retry(): void {
     this.rateLimited.set(false);
+    this.loading.set(true);
     this.fetchTrip(this.tripId());
   }
 
