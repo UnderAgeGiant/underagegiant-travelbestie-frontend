@@ -264,6 +264,13 @@ import { environment } from '../../../environments/environment';
                                 <div class="up-plan-name">{{ plan.name }}</div>
                                 <div class="up-plan-date">{{ planDate(plan.savedAt) }}</div>
                               </button>
+                              <button class="up-plan-del"
+                                      [disabled]="cloningPlanId() === plan.id"
+                                      (click)="doClonePlan(plan)"
+                                      type="button"
+                                      title="Duplicar">
+                                {{ cloningPlanId() === plan.id ? '…' : clonedPlanId() === plan.id ? '✓' : '⿻' }}
+                              </button>
                               <button class="up-plan-del" (click)="doDeletePlan(plan.id)" type="button"
                                       title="Eliminar">✕</button>
                             }
@@ -618,6 +625,8 @@ export class NavComponent {
   savePlanName   = signal('');
   savePlanError  = signal('');
   deletingPlanId = signal<string | null>(null);
+  cloningPlanId  = signal<string | null>(null);
+  clonedPlanId   = signal<string | null>(null);
   myTripsOpen    = signal(false);
   readonly buyKarmaOpen  = this.karmaModal.buyOpen;
   registerSuccessOpen    = signal(false);
@@ -1015,6 +1024,28 @@ export class NavComponent {
     this.savedPlans.remove(email, id);
     if (this.trip.loadedPlanId() === id) this.trip.markAsLoadedPlan(null);
     this.deletingPlanId.set(null);
+  }
+
+  doClonePlan(plan: SavedPlan): void {
+    this.cloningPlanId.set(plan.id);
+    this.api.cloneOwnTrip(plan.id).subscribe({
+      next: cloned => {
+        this.cloningPlanId.set(null);
+        this.savedPlans.register({
+          id:       cloned.id!,
+          name:     cloned.title,
+          savedAt:  cloned.createdAt ?? new Date().toISOString(),
+          stops:    cloned.stops,
+          transits: cloned.transits ?? [],
+        });
+        this.clonedPlanId.set(cloned.id!);
+        setTimeout(() => this.clonedPlanId.set(null), 2000);
+      },
+      error: err => {
+        this.cloningPlanId.set(null);
+        this.karmaModal.handleKarmaError(err);
+      },
+    });
   }
 
   doAuth(): void {

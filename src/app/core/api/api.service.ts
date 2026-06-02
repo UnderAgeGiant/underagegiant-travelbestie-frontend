@@ -173,6 +173,28 @@ export class ApiService {
     return this.http.post<CreateOrderResponse>(`${this.base}/karma/purchase/create-order`, { packageId });
   }
 
+  cloneSharedTrip(shareId: string): Observable<Trip> {
+    if (this.useMocks) {
+      return of({
+        id: crypto.randomUUID(), title: 'Copy of Mock Trip',
+        stops: [], transits: [], ownerId: 'mock',
+        createdAt: new Date().toISOString(),
+      } as Trip);
+    }
+    return this.http.post<Trip>(`${this.base}/shared/${shareId}/clone`, {});
+  }
+
+  cloneOwnTrip(tripId: string): Observable<Trip> {
+    if (this.useMocks) {
+      return of({
+        id: crypto.randomUUID(), title: 'Copy of Mock Trip',
+        stops: [], transits: [], ownerId: 'mock',
+        createdAt: new Date().toISOString(),
+      } as Trip);
+    }
+    return this.http.post<Trip>(`${this.base}/trips/${tripId}/clone`, {});
+  }
+
   captureKarmaOrder(orderID: string): Observable<CaptureOrderResponse> {
     if (this.useMocks) {
       // orderID format in mock mode: "mock-<packageId>-<timestamp>"
