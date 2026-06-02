@@ -708,6 +708,27 @@
         <target> / <x id="INTERPOLATION" equiv-text="{{ CHANGE_THRESHOLD_PCT }}"/>% free</target>
       </trans-unit>
 
+      <!-- ── comment-similar-modal ── -->
+      <trans-unit id="commentSimilar.title" datatype="html">
+        <source>Reformula tu comentario</source>
+        <target>Rephrase your comment</target>
+      </trans-unit>
+      <trans-unit id="commentSimilar.body" datatype="html">
+        <source>Tu comentario es muy similar al anterior. Reformúlalo y ayuda a los demás
+            a mejorar sus planes de viajes.</source>
+        <target>Your comment is very similar to your previous one. Rephrase it and help others improve their travel plans.</target>
+      </trans-unit>
+      <trans-unit id="commentSimilar.dismiss" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
+      </trans-unit>
+
+      <!-- ── nav cooldown banner ── -->
+      <trans-unit id="nav.commentCooldown" datatype="html">
+        <source>Validando tu comentario…</source>
+        <target>Validating your comment…</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

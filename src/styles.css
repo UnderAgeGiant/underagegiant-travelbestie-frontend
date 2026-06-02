@@ -715,4 +715,32 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   animation: karma-badge-drop 2.1s ease-out forwards;
 }
 .karma-pill-pulse { animation: karma-pulse 0.55s ease-out; }
+
+/* ── Comment cooldown banner ── */
+.comment-cooldown-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: oklch(95% 0.06 75);
+  color: oklch(48% 0.14 75);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: opacity .3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15%      { transform: translateX(-5px); }
+  30%      { transform: translateX(4px); }
+  45%      { transform: translateX(-4px); }
+  60%      { transform: translateX(3px); }
+  75%      { transform: translateX(-2px); }
+}
+
+.comment-cooldown-banner.shake {
+  animation: shake 0.55s ease;
+}
 .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
