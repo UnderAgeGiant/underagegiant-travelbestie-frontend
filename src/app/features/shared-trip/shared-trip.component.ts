@@ -1,11 +1,14 @@
 import { Component, inject, input, computed, signal, effect } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { forkJoin, of, switchMap, catchError } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { KarmaService } from '../../core/karma/karma.service';
+import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { StepComment } from '../../core/models/comment.model';
 import { StepCommentsComponent } from './step-comments.component';
+import { CommentSimilarModalComponent } from '../comments/comment-similar-modal.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavComponent } from '../nav/nav.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -16,7 +19,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 @Component({
   selector: 'app-shared-trip',
   standalone: true,
-  imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent],
+  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent],
   styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -37,6 +40,10 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
     @if (showProfile()) {
       <app-profile (close)="showProfile.set(false)" />
+    }
+
+    @if (showSimilarModal()) {
+      <app-comment-similar-modal (dismiss)="showSimilarModal.set(false)" />
     }
 
     @if (trip()) {
@@ -291,18 +298,20 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 export class SharedTripComponent {
   readonly tripId = input.required<string>();
 
-  private readonly api   = inject(ApiService);
-  private readonly svc   = inject(SharedTripsService);
-  readonly auth           = inject(AuthService);
-  private readonly karma  = inject(KarmaService);
+  private readonly api      = inject(ApiService);
+  private readonly svc      = inject(SharedTripsService);
+  readonly auth              = inject(AuthService);
+  private readonly karma     = inject(KarmaService);
+  private readonly cooldown  = inject(CommentCooldownService);
 
-  showProfile    = signal(false);
-  rateLimited    = signal(false);
-  loading        = signal(true);
-  expandedSteps  = signal(new Set<string>());
-  allComments    = signal<Partial<Record<string, StepComment[]>>>({});
-  submittingStep = signal<string | null>(null);
-  karmaFlashStep = signal<string | null>(null);
+  showProfile      = signal(false);
+  showSimilarModal = signal(false);
+  rateLimited      = signal(false);
+  loading          = signal(true);
+  expandedSteps    = signal(new Set<string>());
+  allComments      = signal<Partial<Record<string, StepComment[]>>>({});
+  submittingStep   = signal<string | null>(null);
+  karmaFlashStep   = signal<string | null>(null);
 
   shouldShowComments(stepKey: string): boolean {
     return this.expandedSteps().has(stepKey) ||
@@ -354,6 +363,7 @@ export class SharedTripComponent {
 
     this.api.addStepComment(shareId, stepKey, text).pipe(
       switchMap(result => {
+        this.cooldown.startCooldown(60);
         if (result.karmaAwarded) {
           this.karma.loadForUser(this.auth.currentUser()!.email);
           this.karmaFlashStep.set(stepKey);
@@ -363,7 +373,15 @@ export class SharedTripComponent {
       }),
     ).subscribe({
       next:  comments => { this.allComments.set(comments); this.submittingStep.set(null); },
-      error: ()       => this.submittingStep.set(null),
+      error: (err: HttpErrorResponse) => {
+        this.submittingStep.set(null);
+        if (err.status === 409) {
+          this.showSimilarModal.set(true);
+        } else if (err.status === 429) {
+          this.cooldown.startCooldown(err.error?.retryAfterSeconds ?? 60);
+          this.cooldown.triggerShake();
+        }
+      },
     });
   }
 
