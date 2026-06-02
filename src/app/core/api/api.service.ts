@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Trip } from '../models/trip.model';
-import { Comment } from '../models/comment.model';
+import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
 import { CityCatalog, PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip } from '../shared-trips/shared-trips.service';
@@ -119,6 +119,31 @@ export class ApiService {
     return this.http.get<SharedTrip>(`${this.base}/shared/${shareId}`);
   }
 
+  getStepComments(shareId: string): Observable<Record<string, StepComment[]>> {
+    if (this.useMocks) return of({});
+    return this.http.get<Record<string, StepComment[]>>(
+      `${this.base}/shared/${shareId}/comments`,
+    );
+  }
+
+  addStepComment(shareId: string, stepKey: string, text: string): Observable<StepCommentAddResult> {
+    if (this.useMocks) {
+      const comment: StepComment = {
+        id: `mock-${Date.now()}`, stepKey, authorName: 'Tú',
+        text, createdAt: new Date().toISOString(),
+      };
+      return of({ comment, karmaAwarded: false });
+    }
+    return this.http.post<StepCommentAddResult>(
+      `${this.base}/shared/${shareId}/comments/${encodeURIComponent(stepKey)}`,
+      { text },
+    );
+  }
+
+  searchSharedTrips(query: string): Observable<SharedTrip[]> {
+    if (this.useMocks) return of([]);
+    return this.http.get<SharedTrip[]>(`${this.base}/shared?q=${encodeURIComponent(query)}`);
+  }
   planTrip(req: PlanTripRequest): Observable<PlanTripResponse> {
     if (this.useMocks) {
       return of({
