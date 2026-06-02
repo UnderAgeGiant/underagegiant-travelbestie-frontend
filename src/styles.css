@@ -733,15 +733,18 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  15%      { transform: translateX(-5px); }
-  30%      { transform: translateX(4px); }
-  45%      { transform: translateX(-4px); }
-  60%      { transform: translateX(3px); }
-  75%      { transform: translateX(-2px); }
+  0%   { transform: translateX(0)     scale(1);    background: oklch(95% 0.06 75); }
+  10%  { transform: translateX(-9px)  scale(1.06); background: oklch(82% 0.18 48); }
+  22%  { transform: translateX(8px)   scale(1.04); background: oklch(80% 0.20 45); }
+  34%  { transform: translateX(-7px)  scale(1.03); background: oklch(83% 0.17 50); }
+  46%  { transform: translateX(6px)   scale(1.02); background: oklch(86% 0.14 55); }
+  58%  { transform: translateX(-4px)  scale(1.01); background: oklch(89% 0.11 62); }
+  70%  { transform: translateX(3px)   scale(1);    background: oklch(92% 0.08 68); }
+  85%  { transform: translateX(-2px)  scale(1);    background: oklch(94% 0.07 72); }
+  100% { transform: translateX(0)     scale(1);    background: oklch(95% 0.06 75); }
 }
 
 .comment-cooldown-banner.shake {
-  animation: shake 0.55s ease;
+  animation: shake 0.7s cubic-bezier(.36,.07,.19,.97);
 }
 .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
