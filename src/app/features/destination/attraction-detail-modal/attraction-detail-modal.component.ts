@@ -157,7 +157,7 @@ import { CommentSimilarModalComponent } from '../../comments/comment-similar-mod
                   <div class="c-avatar" [style.background]="c.color">{{ c.name[0].toUpperCase() }}</div>
                   <div class="c-bubble">
                     <strong>{{ c.name }} {{ '⭐'.repeat(c.rating) }} · {{ c.date }}</strong>
-                    {{ c.text }}
+                    <div class="c-text">{{ c.text }}</div>
                   </div>
                 </div>
               }
