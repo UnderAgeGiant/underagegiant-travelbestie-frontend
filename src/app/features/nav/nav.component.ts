@@ -1,12 +1,17 @@
 import { Component, inject, signal, computed, output, effect } from '@angular/core';
+import { toObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { TripService } from '../trip/trip.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
-import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
+import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
+import { ApiService } from '../../core/api/api.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
+import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
 import { KarmaSuccessOverlayComponent } from '../karma/karma-success-overlay.component';
 import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-modal.component';
@@ -185,6 +190,12 @@ import { environment } from '../../../environments/environment';
                 <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
               </div>
             </div>
+            @if (auth.isLoggedIn() && cooldown.cooldownSeconds() > 0) {
+              <div [class]="'comment-cooldown-banner' + (cooldown.shaking() ? ' shake' : '')">
+                🕐 <span i18n="@@nav.commentCooldown">Validando tu comentario…</span>
+                {{ cooldown.cooldownSeconds() }}s
+              </div>
+            }
             <button class="btn-pill btn-primary"
                     style="padding:4px 10px;font-size:11px;font-weight:700"
                     (click)="openBuyKarma()"
@@ -581,8 +592,10 @@ export class NavComponent {
   readonly karma            = inject(KarmaService);
   readonly karmaModal       = inject(KarmaModalService);
   readonly savedPlans       = inject(SavedPlansService);
+  readonly cooldown         = inject(CommentCooldownService);
   private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
+  private readonly api          = inject(ApiService);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -672,6 +685,15 @@ export class NavComponent {
   private initAttempts = 0;
 
   constructor() {
+    toObservable(this.navQuery).pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(q => q.trim()
+        ? this.api.searchSharedTrips(q).pipe(catchError(() => of([])))
+        : of([])),
+      takeUntilDestroyed(),
+    ).subscribe(trips => this.navSharedTrips.set(trips));
+
     effect(() => {
       if (this.authModal.isOpen()) {
         this.initAttempts = 0;
@@ -695,7 +717,7 @@ export class NavComponent {
     return email ? this.sharedTrips.getMyTrips(email) : [];
   });
 
-  readonly navSharedTrips = computed(() => this.sharedTrips.search(this.navQuery()));
+  navSharedTrips = signal<SharedTrip[]>([]);
 
   readonly navFiltered = computed(() => {
     const q = this.navQuery().toLowerCase();

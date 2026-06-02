@@ -1,4 +1,5 @@
 import { Component, computed, inject, input, output, signal } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { TripService } from '../../trip/trip.service';
 import { ApiService } from '../../../core/api/api.service';
@@ -7,11 +8,13 @@ import { getAttractions } from '../../../data/attractions.data';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
+import { CommentCooldownService } from '../../../core/comments/comment-cooldown.service';
+import { CommentSimilarModalComponent } from '../../comments/comment-similar-modal.component';
 
 @Component({
   selector: 'app-attraction-detail-modal',
   standalone: true,
-  imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent],
+  imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent],
   styles: [`
     .detail-modal {
       background: #fff;
@@ -154,7 +157,7 @@ import { CommentModalComponent } from '../comment-modal/comment-modal.component'
                   <div class="c-avatar" [style.background]="c.color">{{ c.name[0].toUpperCase() }}</div>
                   <div class="c-bubble">
                     <strong>{{ c.name }} {{ '⭐'.repeat(c.rating) }} · {{ c.date }}</strong>
-                    {{ c.text }}
+                    <div class="c-text">{{ c.text }}</div>
                   </div>
                 </div>
               }
@@ -187,6 +190,9 @@ import { CommentModalComponent } from '../comment-modal/comment-modal.component'
           (close)="showCommentModal.set(false)"
           (submitted)="onCommentSubmitted($event)" />
       }
+      @if (showSimilarModal()) {
+        <app-comment-similar-modal (dismiss)="showSimilarModal.set(false)" />
+      }
     </div>
   `,
 })
@@ -203,9 +209,11 @@ export class AttractionDetailModalComponent {
   imgError         = signal(false);
   showPlanModal    = signal(false);
   showCommentModal = signal(false);
+  showSimilarModal = signal(false);
 
-  private readonly trip  = inject(TripService);
-  private readonly api   = inject(ApiService);
+  private readonly trip     = inject(TripService);
+  private readonly api      = inject(ApiService);
+  private readonly cooldown = inject(CommentCooldownService);
 
   readonly inPlan = computed(() =>
     this.trip.isAttractionSelected(this.stopId(), this.attraction().id)
@@ -257,9 +265,22 @@ export class AttractionDetailModalComponent {
   }
 
   onCommentSubmitted(comment: Omit<Comment, 'id'>): void {
-    this.api.addComment(comment).subscribe(() => {
-      this.commentAdded.emit({ attractionId: this.attraction().id, comment });
-      this.showCommentModal.set(false);
+    this.api.addComment(comment).subscribe({
+      next: () => {
+        this.commentAdded.emit({ attractionId: this.attraction().id, comment });
+        this.showCommentModal.set(false);
+        this.cooldown.startCooldown(60);
+      },
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 409) {
+          this.showCommentModal.set(false);
+          this.showSimilarModal.set(true);
+        } else if (err.status === 429) {
+          this.showCommentModal.set(false);
+          this.cooldown.startCooldown(err.error?.retryAfterSeconds ?? 60);
+          this.cooldown.triggerShake();
+        }
+      },
     });
   }
 }
