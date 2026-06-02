@@ -259,6 +259,13 @@ import { environment } from '../../../environments/environment';
                                 <button class="up-plan-confirm-no" (click)="deletingPlanId.set(null)" type="button"
                                         i18n="@@nav.deletePlanNo">No</button>
                               </div>
+                            } @else if (cloningConfirmPlanId() === plan.id) {
+                              <div class="up-plan-confirm" style="background:var(--lav)">
+                                <span class="up-plan-confirm-text" style="color:var(--lav-d)">⿻ ¿Duplicar viaje? −1 ✨ karma</span>
+                                <button class="up-plan-confirm-yes" style="background:var(--lav-d)"
+                                        (click)="confirmClonePlan(plan)" type="button">Sí</button>
+                                <button class="up-plan-confirm-no" (click)="cloningConfirmPlanId.set(null)" type="button">No</button>
+                              </div>
                             } @else {
                               <button class="up-plan-load" (click)="doLoadPlan(plan)" type="button">
                                 <div class="up-plan-name">{{ plan.name }}</div>
@@ -266,7 +273,7 @@ import { environment } from '../../../environments/environment';
                               </button>
                               <button class="up-plan-del"
                                       [disabled]="cloningPlanId() === plan.id"
-                                      (click)="doClonePlan(plan)"
+                                      (click)="cloningConfirmPlanId.set(plan.id)"
                                       type="button"
                                       title="Duplicar">
                                 {{ cloningPlanId() === plan.id ? '…' : clonedPlanId() === plan.id ? '✓' : '⿻' }}
@@ -624,9 +631,10 @@ export class NavComponent {
   savePlanOpen   = signal(false);
   savePlanName   = signal('');
   savePlanError  = signal('');
-  deletingPlanId = signal<string | null>(null);
-  cloningPlanId  = signal<string | null>(null);
-  clonedPlanId   = signal<string | null>(null);
+  deletingPlanId      = signal<string | null>(null);
+  cloningConfirmPlanId = signal<string | null>(null);
+  cloningPlanId       = signal<string | null>(null);
+  clonedPlanId        = signal<string | null>(null);
   myTripsOpen    = signal(false);
   readonly buyKarmaOpen  = this.karmaModal.buyOpen;
   registerSuccessOpen    = signal(false);
@@ -902,6 +910,7 @@ export class NavComponent {
     if (!this.plansOpen()) {
       this.savePlanOpen.set(false);
       this.deletingPlanId.set(null);
+      this.cloningConfirmPlanId.set(null);
     }
   }
 
@@ -1024,6 +1033,11 @@ export class NavComponent {
     this.savedPlans.remove(email, id);
     if (this.trip.loadedPlanId() === id) this.trip.markAsLoadedPlan(null);
     this.deletingPlanId.set(null);
+  }
+
+  confirmClonePlan(plan: SavedPlan): void {
+    this.cloningConfirmPlanId.set(null);
+    this.doClonePlan(plan);
   }
 
   doClonePlan(plan: SavedPlan): void {
