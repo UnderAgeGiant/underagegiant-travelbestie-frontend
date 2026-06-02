@@ -41,7 +41,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
         <!-- Trip header -->
         <div class="shared-header">
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
-          <div class="shared-header-owner">Viaje de {{ trip()!.ownerName }}</div>
+          <div class="shared-header-owner" i18n="@@sharedTrip.tripBy">Viaje de {{ trip()!.ownerName }}</div>
           <div class="shared-header-stops">
             @for (stop of trip()!.stops; track stop.cityId; let i = $index; let last = $last) {
               @let city = cityFor(stop.cityId);
@@ -66,9 +66,9 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
           @let dep = legFor('__start__', '__start__');
           @if (dep) {
             <div class="itin-transit itin-edge-transit">
-              <span class="itin-transit-tag">Salida 🏠
+              <span class="itin-transit-tag"><span i18n="@@sharedTrip.departure">Salida 🏠</span>
                 @if (!shouldShowComments('transit:__start__')) {
-                  <button class="step-comments-toggle" (click)="expandStep('transit:__start__')"><span class="step-comments-label">comment</span> ✍️</button>
+                  <button class="step-comments-toggle" (click)="expandStep('transit:__start__')"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                 }
               </span>
               @for (seg of dep.segments; track $index; let sl = $last) {
@@ -76,7 +76,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                 @if (!sl) { <span class="itin-chain">↓</span> }
               }
               @if (dep.segments.length > 1) {
-                <span class="itin-transit-total">Total: {{ fmtDur(totalMins(dep)) }}</span>
+                <span class="itin-transit-total" i18n="@@sharedTrip.total">Total: {{ fmtDur(totalMins(dep)) }}</span>
               }
             </div>
             @if (shouldShowComments('transit:__start__')) {
@@ -97,7 +97,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                   <div>
                     <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
                       @if (!shouldShowComments(stopKey)) {
-                        <button class="step-comments-toggle" (click)="expandStep(stopKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                        <button class="step-comments-toggle" (click)="expandStep(stopKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                       }
                     </div>
                     <div class="itin-city-country">{{ city.country }}</div>
@@ -116,7 +116,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                         <span class="itin-item-icon">🏨</span>
                         <span class="itin-item-label">{{ stop.lodging.name }}</span>
                         @if (!shouldShowComments(lodgeKey)) {
-                          <button class="step-comments-toggle" (click)="expandStep(lodgeKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                          <button class="step-comments-toggle" (click)="expandStep(lodgeKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                         }
                         @if (stop.lodging.url) {
                           <a class="itin-link" [href]="stop.lodging.url"
@@ -138,7 +138,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                           <span class="itin-item-icon">{{ att.icon }}</span>
                           <span class="itin-item-label">{{ att.name }}</span>
                           @if (!shouldShowComments(attKey)) {
-                            <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                            <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
                           <span class="itin-item-meta">
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
@@ -173,15 +173,15 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                       @if (!sl) { <span class="itin-chain">↓</span> }
                     }
                     @if (leg.segments.length > 1) {
-                      <span class="itin-transit-total">Total: {{ fmtDur(totalMins(leg)) }}</span>
+                      <span class="itin-transit-total" i18n="@@sharedTrip.total">Total: {{ fmtDur(totalMins(leg)) }}</span>
                     }
                   } @else {
-                    <span class="itin-no-transit">Sin transporte definido</span>
+                    <span class="itin-no-transit" i18n="@@sharedTrip.noTransit">Sin transporte definido</span>
                   }
                   @if (nextCity) {
                     <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}
                       @if (!shouldShowComments(legKey)) {
-                        <button class="step-comments-toggle" (click)="expandStep(legKey)"><span class="step-comments-label">comment</span> ✍️</button>
+                        <button class="step-comments-toggle" (click)="expandStep(legKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                       }
                     </span>
                   }
@@ -197,9 +197,9 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                 @if (ret) {
                   <div class="itin-line"></div>
                   <div class="itin-transit itin-edge-transit">
-                    <span class="itin-transit-tag">Vuelta 🏠
+                    <span class="itin-transit-tag"><span i18n="@@sharedTrip.return">Vuelta 🏠</span>
                       @if (!shouldShowComments('transit:__end__')) {
-                        <button class="step-comments-toggle" (click)="expandStep('transit:__end__')"><span class="step-comments-label">comment</span> ✍️</button>
+                        <button class="step-comments-toggle" (click)="expandStep('transit:__end__')"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                       }
                     </span>
                     @for (seg of ret.segments; track $index; let sl = $last) {
@@ -207,7 +207,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                       @if (!sl) { <span class="itin-chain">↓</span> }
                     }
                     @if (ret.segments.length > 1) {
-                      <span class="itin-transit-total">Total: {{ fmtDur(totalMins(ret)) }}</span>
+                      <span class="itin-transit-total" i18n="@@sharedTrip.total">Total: {{ fmtDur(totalMins(ret)) }}</span>
                     }
                   </div>
                   @if (shouldShowComments('transit:__end__')) {
@@ -224,24 +224,24 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
     } @else if (loading()) {
       <div class="shared-not-found">
-        <img src="/Paper-Plane-Animation.gif" alt="Cargando…"
+        <img src="/Paper-Plane-Animation.gif" i18n-alt="@@sharedTrip.loadingAlt" alt="Cargando…"
              style="width:140px;height:140px;object-fit:cover;border-radius:32px;margin-bottom:16px;box-shadow:0 8px 32px rgba(0,0,0,.12)">
-        <div style="font-size:18px;font-weight:600;color:var(--t1)">Cargando viaje…</div>
-        <div style="font-size:13px;color:var(--t3);margin-top:6px">Un momento por favor.</div>
+        <div style="font-size:18px;font-weight:600;color:var(--t1)" i18n="@@sharedTrip.loadingTitle">Cargando viaje…</div>
+        <div style="font-size:13px;color:var(--t3);margin-top:6px" i18n="@@sharedTrip.loadingSub">Un momento por favor.</div>
       </div>
     } @else if (rateLimited()) {
       <div class="shared-not-found">
         <div style="font-size:52px;margin-bottom:12px">⏳</div>
-        <div style="font-size:18px;font-weight:600;color:var(--t1)">Demasiadas solicitudes</div>
-        <div style="font-size:13px;color:var(--t3);margin-top:6px">Espera un momento e intenta de nuevo.</div>
-        <button class="btn-pill btn-primary" style="margin-top:20px" (click)="retry()">Intentar de nuevo</button>
+        <div style="font-size:18px;font-weight:600;color:var(--t1)" i18n="@@sharedTrip.rateLimitedTitle">Demasiadas solicitudes</div>
+        <div style="font-size:13px;color:var(--t3);margin-top:6px" i18n="@@sharedTrip.rateLimitedSub">Espera un momento e intenta de nuevo.</div>
+        <button class="btn-pill btn-primary" style="margin-top:20px" (click)="retry()" i18n="@@sharedTrip.retryBtn">Intentar de nuevo</button>
       </div>
     } @else {
       <div class="shared-not-found">
         <div style="font-size:52px;margin-bottom:12px">🗺️</div>
-        <div style="font-size:18px;font-weight:600;color:var(--t1)">Viaje no encontrado</div>
-        <div style="font-size:13px;color:var(--t3);margin-top:6px">El enlace puede haber expirado o ser incorrecto.</div>
-        <button class="btn-pill btn-primary" style="margin-top:20px" (click)="goHome()">Ir al inicio</button>
+        <div style="font-size:18px;font-weight:600;color:var(--t1)" i18n="@@sharedTrip.notFoundTitle">Viaje no encontrado</div>
+        <div style="font-size:13px;color:var(--t3);margin-top:6px" i18n="@@sharedTrip.notFoundSub">El enlace puede haber expirado o ser incorrecto.</div>
+        <button class="btn-pill btn-primary" style="margin-top:20px" (click)="goHome()" i18n="@@sharedTrip.goHomeBtn">Ir al inicio</button>
       </div>
     }
 
