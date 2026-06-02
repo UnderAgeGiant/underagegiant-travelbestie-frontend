@@ -11,6 +11,7 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
+import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
 import { KarmaSuccessOverlayComponent } from '../karma/karma-success-overlay.component';
 import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-modal.component';
@@ -189,6 +190,12 @@ import { environment } from '../../../environments/environment';
                 <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
               </div>
             </div>
+            @if (auth.isLoggedIn() && cooldown.cooldownSeconds() > 0) {
+              <div [class]="'comment-cooldown-banner' + (cooldown.shaking() ? ' shake' : '')">
+                🕐 <span i18n="@@nav.commentCooldown">Validando tu comentario…</span>
+                {{ cooldown.cooldownSeconds() }}s
+              </div>
+            }
             <button class="btn-pill btn-primary"
                     style="padding:4px 10px;font-size:11px;font-weight:700"
                     (click)="openBuyKarma()"
@@ -585,6 +592,7 @@ export class NavComponent {
   readonly karma            = inject(KarmaService);
   readonly karmaModal       = inject(KarmaModalService);
   readonly savedPlans       = inject(SavedPlansService);
+  readonly cooldown         = inject(CommentCooldownService);
   private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);

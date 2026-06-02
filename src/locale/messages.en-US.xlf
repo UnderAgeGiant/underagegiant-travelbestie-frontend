@@ -708,6 +708,89 @@
         <target> / <x id="INTERPOLATION" equiv-text="{{ CHANGE_THRESHOLD_PCT }}"/>% free</target>
       </trans-unit>
 
+      <!-- ── shared-trip.component ── -->
+      <trans-unit id="sharedTrip.commentBtn" datatype="html">
+        <source>Comentar</source>
+        <target>Comment</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.tripBy" datatype="html">
+        <source>Viaje de <x id="INTERPOLATION" equiv-text="{{ trip()!.ownerName }}"/></source>
+        <target>Trip by <x id="INTERPOLATION" equiv-text="{{ trip()!.ownerName }}"/></target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.departure" datatype="html">
+        <source>Salida 🏠</source>
+        <target>Departure 🏠</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.return" datatype="html">
+        <source>Vuelta 🏠</source>
+        <target>Return 🏠</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.total" datatype="html">
+        <source>Total: <x id="INTERPOLATION" equiv-text="{{ fmtDur(totalMins(...)) }}"/></source>
+        <target>Total: <x id="INTERPOLATION" equiv-text="{{ fmtDur(totalMins(...)) }}"/></target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.noTransit" datatype="html">
+        <source>Sin transporte definido</source>
+        <target>No transport defined</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.loadingAlt" datatype="html">
+        <source>Cargando…</source>
+        <target>Loading…</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.loadingTitle" datatype="html">
+        <source>Cargando viaje…</source>
+        <target>Loading trip…</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.loadingSub" datatype="html">
+        <source>Un momento por favor.</source>
+        <target>One moment please.</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.rateLimitedTitle" datatype="html">
+        <source>Demasiadas solicitudes</source>
+        <target>Too many requests</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.rateLimitedSub" datatype="html">
+        <source>Espera un momento e intenta de nuevo.</source>
+        <target>Wait a moment and try again.</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.retryBtn" datatype="html">
+        <source>Intentar de nuevo</source>
+        <target>Try again</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.notFoundTitle" datatype="html">
+        <source>Viaje no encontrado</source>
+        <target>Trip not found</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.notFoundSub" datatype="html">
+        <source>El enlace puede haber expirado o ser incorrecto.</source>
+        <target>The link may have expired or be incorrect.</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.goHomeBtn" datatype="html">
+        <source>Ir al inicio</source>
+        <target>Go home</target>
+      </trans-unit>
+
+      <!-- ── comment-similar-modal ── -->
+      <trans-unit id="commentSimilar.title" datatype="html">
+        <source>Reformula tu comentario</source>
+        <target>Rephrase your comment</target>
+      </trans-unit>
+      <trans-unit id="commentSimilar.body" datatype="html">
+        <source>Tu comentario es muy similar al anterior. Reformúlalo y ayuda a los demás
+            a mejorar sus planes de viajes.</source>
+        <target>Your comment is very similar to your previous one. Rephrase it and help others improve their travel plans.</target>
+      </trans-unit>
+      <trans-unit id="commentSimilar.dismiss" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
+      </trans-unit>
+
+      <!-- ── nav cooldown banner ── -->
+      <trans-unit id="nav.commentCooldown" datatype="html">
+        <source>Validando tu comentario…</source>
+        <target>Validating your comment…</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
