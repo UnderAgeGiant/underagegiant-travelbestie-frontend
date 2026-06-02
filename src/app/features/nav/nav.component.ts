@@ -126,6 +126,19 @@ import { environment } from '../../../environments/environment';
     .up-shared-trip-name { font-size: 12px; font-weight: 700; color: var(--t1); }
     .up-shared-trip-meta { font-size: 10px; color: var(--t3); margin-top: 2px; }
     .up-shared-trip-cmts { color: var(--lav-d); font-weight: 600; }
+    /* ── Plans search + scrollable list ── */
+    .up-plans-search {
+      padding: 6px 8px; border-bottom: 1px solid var(--border);
+    }
+    .up-plans-search-input {
+      width: 100%; box-sizing: border-box;
+      padding: 5px 8px; border-radius: 6px;
+      border: 1.5px solid var(--border);
+      font-size: 11px; color: var(--t1); background: #fff;
+      outline: none; transition: border-color .12s;
+    }
+    .up-plans-search-input:focus { border-color: var(--lav-d); }
+    .up-plans-list { max-height: 240px; overflow-y: auto; }
   `],
   template: `
     <nav class="nav">
@@ -249,7 +262,15 @@ import { environment } from '../../../environments/environment';
                       @if (savedPlans.plans().length === 0) {
                         <div class="up-plans-empty" i18n="@@nav.noSavedPlans">Sin viajes guardados aún ✈️</div>
                       } @else {
-                        @for (plan of savedPlans.plans(); track plan.id) {
+                        <div class="up-plans-search">
+                          <input class="up-plans-search-input"
+                                 type="search"
+                                 placeholder="Buscar viaje…"
+                                 [value]="planSearch()"
+                                 (input)="planSearch.set($any($event.target).value)" />
+                        </div>
+                        <div class="up-plans-list">
+                        @for (plan of filteredPlans(); track plan.id) {
                           <div class="up-plan-row" [class.active]="trip.loadedPlanId() === plan.id">
                             @if (deletingPlanId() === plan.id) {
                               <div class="up-plan-confirm">
@@ -259,16 +280,34 @@ import { environment } from '../../../environments/environment';
                                 <button class="up-plan-confirm-no" (click)="deletingPlanId.set(null)" type="button"
                                         i18n="@@nav.deletePlanNo">No</button>
                               </div>
+                            } @else if (cloningConfirmPlanId() === plan.id) {
+                              <div class="up-plan-confirm" style="background:var(--lav)">
+                                <span class="up-plan-confirm-text" style="color:var(--lav-d)">⿻ ¿Duplicar viaje? −1 ✨ karma</span>
+                                <button class="up-plan-confirm-yes" style="background:var(--lav-d)"
+                                        (click)="confirmClonePlan(plan)" type="button">Sí</button>
+                                <button class="up-plan-confirm-no" (click)="cloningConfirmPlanId.set(null)" type="button">No</button>
+                              </div>
                             } @else {
                               <button class="up-plan-load" (click)="doLoadPlan(plan)" type="button">
                                 <div class="up-plan-name">{{ plan.name }}</div>
                                 <div class="up-plan-date">{{ planDate(plan.savedAt) }}</div>
+                              </button>
+                              <button class="up-plan-del"
+                                      [disabled]="cloningPlanId() === plan.id"
+                                      (click)="cloningConfirmPlanId.set(plan.id)"
+                                      type="button"
+                                      title="Duplicar">
+                                {{ cloningPlanId() === plan.id ? '…' : clonedPlanId() === plan.id ? '✓' : '⿻' }}
                               </button>
                               <button class="up-plan-del" (click)="doDeletePlan(plan.id)" type="button"
                                       title="Eliminar">✕</button>
                             }
                           </div>
                         }
+                        @if (filteredPlans().length === 0) {
+                          <div class="up-plans-empty">Sin resultados 🔍</div>
+                        }
+                        </div>
                       }
 
                       <div class="up-plans-sep"></div>
@@ -614,10 +653,14 @@ export class NavComponent {
   showConfirmPassword = signal(false);
 
   plansOpen      = signal(false);
+  planSearch     = signal('');
   savePlanOpen   = signal(false);
   savePlanName   = signal('');
   savePlanError  = signal('');
-  deletingPlanId = signal<string | null>(null);
+  deletingPlanId      = signal<string | null>(null);
+  cloningConfirmPlanId = signal<string | null>(null);
+  cloningPlanId       = signal<string | null>(null);
+  clonedPlanId        = signal<string | null>(null);
   myTripsOpen    = signal(false);
   readonly buyKarmaOpen  = this.karmaModal.buyOpen;
   registerSuccessOpen    = signal(false);
@@ -715,6 +758,12 @@ export class NavComponent {
   readonly mySharedTrips = computed(() => {
     const email = this.auth.currentUser()?.email;
     return email ? this.sharedTrips.getMyTrips(email) : [];
+  });
+
+  readonly filteredPlans = computed(() => {
+    const q = this.planSearch().toLowerCase().trim();
+    if (!q) return this.savedPlans.plans();
+    return this.savedPlans.plans().filter(p => p.name.toLowerCase().includes(q));
   });
 
   navSharedTrips = signal<SharedTrip[]>([]);
@@ -893,6 +942,8 @@ export class NavComponent {
     if (!this.plansOpen()) {
       this.savePlanOpen.set(false);
       this.deletingPlanId.set(null);
+      this.cloningConfirmPlanId.set(null);
+      this.planSearch.set('');
     }
   }
 
@@ -1015,6 +1066,33 @@ export class NavComponent {
     this.savedPlans.remove(email, id);
     if (this.trip.loadedPlanId() === id) this.trip.markAsLoadedPlan(null);
     this.deletingPlanId.set(null);
+  }
+
+  confirmClonePlan(plan: SavedPlan): void {
+    this.cloningConfirmPlanId.set(null);
+    this.doClonePlan(plan);
+  }
+
+  doClonePlan(plan: SavedPlan): void {
+    this.cloningPlanId.set(plan.id);
+    this.api.cloneOwnTrip(plan.id).subscribe({
+      next: cloned => {
+        this.cloningPlanId.set(null);
+        this.savedPlans.register({
+          id:       cloned.id!,
+          name:     cloned.title,
+          savedAt:  cloned.createdAt ?? new Date().toISOString(),
+          stops:    cloned.stops,
+          transits: cloned.transits ?? [],
+        });
+        this.clonedPlanId.set(cloned.id!);
+        setTimeout(() => this.clonedPlanId.set(null), 2000);
+      },
+      error: err => {
+        this.cloningPlanId.set(null);
+        this.karmaModal.handleKarmaError(err);
+      },
+    });
   }
 
   doAuth(): void {

@@ -117,7 +117,13 @@ import { environment } from '../../../environments/environment';
           } @else if (savedPlans.plans().length === 0) {
             <div class="section-empty">Aún no tienes viajes guardados. Usa el botón "Reservar viaje 🎉" para guardar uno.</div>
           } @else {
-            @for (plan of savedPlans.plans(); track plan.id) {
+            <input class="form-input"
+                   type="search"
+                   style="font-size:12px;padding:7px 10px;margin-bottom:12px"
+                   placeholder="Buscar viaje guardado…"
+                   [value]="planSearch()"
+                   (input)="planSearch.set($any($event.target).value)" />
+            @for (plan of filteredPlans(); track plan.id) {
               <div class="saved-plan-card">
                 <div class="saved-plan-header" (click)="togglePlan(plan.id)">
                   <div class="saved-plan-info">
@@ -127,7 +133,21 @@ import { environment } from '../../../environments/environment';
                       · {{ fmtDate(plan.savedAt) }}
                     </div>
                   </div>
-                  <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
+                  <div style="display:flex;align-items:center;gap:4px;margin-left:auto">
+                    <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s"
+                            [disabled]="cloningId() === plan.id"
+                            [style.opacity]="cloningId() === plan.id ? 0.4 : 0.7"
+                            (click)="$event.stopPropagation(); confirmCloneId.set(plan.id)"
+                            title="Clonar viaje">
+                      {{ cloningId() === plan.id ? '⏳' : '📋' }}
+                    </button>
+                    <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s,color .12s;color:inherit"
+                            (click)="$event.stopPropagation(); confirmDeleteId.set(plan.id)"
+                            title="Eliminar viaje">
+                      🗑️
+                    </button>
+                    <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
+                  </div>
                 </div>
 
                 <div class="saved-plan-actions">
@@ -164,6 +184,9 @@ import { environment } from '../../../environments/environment';
                   </div>
                 }
               </div>
+            }
+            @if (filteredPlans().length === 0) {
+              <div class="section-empty">Sin resultados para "{{ planSearch() }}" 🔍</div>
             }
           }
         </section>
@@ -233,6 +256,51 @@ import { environment } from '../../../environments/environment';
     @if (toast()) {
       <app-toast [message]="toast()!" (done)="toast.set(null)" />
     }
+
+    <!-- Clone confirmation modal -->
+    @if (confirmCloneId()) {
+      <div class="modal-backdrop" (click)="confirmCloneId.set(null)">
+        <div class="modal" (click)="$event.stopPropagation()" style="max-width:340px">
+          <div class="modal-head" style="background:linear-gradient(135deg,var(--lav),var(--peach))">
+            <div class="modal-title">📋 Clonar viaje</div>
+            <div class="modal-sub">{{ planName(confirmCloneId()!) }}</div>
+          </div>
+          <div class="modal-body" style="padding:20px 24px">
+            <p style="font-size:13px;color:var(--t2);margin:0;line-height:1.6">
+              Se creará una copia de este viaje en tu lista de guardados.<br>
+              Costo: <strong>−1 ✨ karma</strong>.
+            </p>
+          </div>
+          <div class="modal-foot" style="gap:8px">
+            <button class="btn-pill btn-outline" style="flex:1" (click)="confirmCloneId.set(null)" type="button">Cancelar</button>
+            <button class="btn-pill btn-primary" style="flex:1" (click)="confirmClonePlan()" type="button">📋 Clonar</button>
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Delete confirmation modal -->
+    @if (confirmDeleteId()) {
+      <div class="modal-backdrop" (click)="confirmDeleteId.set(null)">
+        <div class="modal" (click)="$event.stopPropagation()" style="max-width:340px">
+          <div class="modal-head" style="background:linear-gradient(135deg,oklch(58% 0.2 25),oklch(46% 0.16 25))">
+            <div class="modal-title">🗑️ Eliminar viaje</div>
+            <div class="modal-sub">Esta acción no se puede deshacer</div>
+          </div>
+          <div class="modal-body" style="padding:20px 24px">
+            <p style="font-size:13px;color:var(--t2);margin:0;line-height:1.6">
+              ¿Eliminar <strong>"{{ planName(confirmDeleteId()!) }}"</strong>?<br>
+              Perderás este viaje permanentemente.
+            </p>
+          </div>
+          <div class="modal-foot" style="gap:8px">
+            <button class="btn-pill btn-outline" style="flex:1" (click)="confirmDeleteId.set(null)" type="button">Cancelar</button>
+            <button class="btn-pill btn-primary" style="flex:1;background:oklch(48% 0.18 25);border-color:oklch(48% 0.18 25)"
+                    (click)="confirmDeletePlan()" type="button">🗑️ Eliminar</button>
+          </div>
+        </div>
+      </div>
+    }
   `,
 })
 export class ProfileComponent {
@@ -249,10 +317,14 @@ export class ProfileComponent {
   close          = output<void>();
   openAiPlanning = output<void>();
 
-  selectedPlanId  = signal<string | null>(null);
-  shareError      = signal<string | null>(null);
-  exportingPlanId = signal<string | null>(null);
-  toast           = signal<string | null>(null);
+  selectedPlanId   = signal<string | null>(null);
+  planSearch       = signal('');
+  shareError       = signal<string | null>(null);
+  exportingPlanId  = signal<string | null>(null);
+  toast            = signal<string | null>(null);
+  confirmCloneId   = signal<string | null>(null);
+  confirmDeleteId  = signal<string | null>(null);
+  cloningId        = signal<string | null>(null);
   editingHome     = signal(false);
   homeInput       = signal('');
   pendingPin      = signal<{ x: number; y: number } | null>(null);
@@ -261,6 +333,12 @@ export class ProfileComponent {
   readonly initials = computed(() => {
     const name = this.auth.currentUser()?.name ?? '';
     return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+  });
+
+  readonly filteredPlans = computed(() => {
+    const q = this.planSearch().toLowerCase().trim();
+    if (!q) return this.savedPlans.plans();
+    return this.savedPlans.plans().filter(p => p.name.toLowerCase().includes(q));
   });
 
   readonly totalPlanned = computed(() =>
@@ -394,6 +472,44 @@ export class ProfileComponent {
 
   togglePlan(id: string): void {
     this.selectedPlanId.update(cur => cur === id ? null : id);
+  }
+
+  planName(id: string): string {
+    return this.savedPlans.plans().find(p => p.id === id)?.name ?? '';
+  }
+
+  confirmClonePlan(): void {
+    const id = this.confirmCloneId();
+    if (!id) return;
+    this.confirmCloneId.set(null);
+    this.cloningId.set(id);
+    this.api.cloneOwnTrip(id).subscribe({
+      next: cloned => {
+        this.cloningId.set(null);
+        this.savedPlans.register({
+          id:       cloned.id!,
+          name:     cloned.title,
+          savedAt:  cloned.createdAt ?? new Date().toISOString(),
+          stops:    cloned.stops,
+          transits: cloned.transits ?? [],
+        });
+        this.toast.set(`"${cloned.title}" guardado`);
+      },
+      error: err => {
+        this.cloningId.set(null);
+        this.karmaModal.handleKarmaError(err);
+      },
+    });
+  }
+
+  confirmDeletePlan(): void {
+    const id = this.confirmDeleteId();
+    if (!id) return;
+    const email = this.auth.currentUser()?.email;
+    if (!email) return;
+    this.savedPlans.remove(email, id);
+    if (this.selectedPlanId() === id) this.selectedPlanId.set(null);
+    this.confirmDeleteId.set(null);
   }
 
   fmtDate(iso: string): string {

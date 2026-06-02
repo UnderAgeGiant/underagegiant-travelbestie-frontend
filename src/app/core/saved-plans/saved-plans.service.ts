@@ -126,6 +126,12 @@ export class SavedPlansService {
     this.api.deleteTrip(id).subscribe();
   }
 
+  /** Register a trip that already exists on the server into the local plans list. */
+  register(plan: SavedPlan): void {
+    if (this._plans().some(p => p.id === plan.id)) return;
+    this._plans.set([...this._plans(), plan]);
+  }
+
   clear(): void {
     this._plans.set([]);
   }

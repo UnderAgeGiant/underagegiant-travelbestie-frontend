@@ -4,9 +4,14 @@ import { forkJoin, of, switchMap, catchError } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
+import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { KarmaService } from '../../core/karma/karma.service';
+import { KarmaModalService } from '../../core/karma/karma-modal.service';
+import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { StepComment } from '../../core/models/comment.model';
+import { Trip, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
+import { TripService } from '../trip/trip.service';
 import { StepCommentsComponent } from './step-comments.component';
 import { CommentSimilarModalComponent } from '../comments/comment-similar-modal.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
@@ -14,7 +19,6 @@ import { NavComponent } from '../nav/nav.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
-import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 
 @Component({
   selector: 'app-shared-trip',
@@ -29,6 +33,12 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
     }
     .step-comments-toggle:hover { opacity: 1; }
     .step-comments-label { font-size: 11px; font-weight: 500; }
+    .clone-success-toast {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-top: 12px; padding: 10px 14px;
+      background: oklch(95% 0.06 145); color: oklch(38% 0.14 145);
+      border-radius: 12px; font-size: 13px;
+    }
   `],
   template: `
     <div class="shared-page">
@@ -53,6 +63,36 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
         <div class="shared-header">
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
           <div class="shared-header-owner" i18n="@@sharedTrip.tripBy">Viaje de {{ trip()!.ownerName }}</div>
+          <!-- Clone button -->
+          @if (!cloneResult()) {
+            <button class="btn-pill btn-outline"
+                    style="margin-top:12px;gap:6px"
+                    [disabled]="cloning()"
+                    [style.opacity]="cloning() ? 0.6 : 1"
+                    (click)="cloneTrip()"
+                    i18n="@@sharedTrip.cloneBtn">
+              {{ cloning() ? '…' : '📋 Clonar este viaje' }}
+              <span class="karma-cost">−1 ✨ karma</span>
+            </button>
+          }
+
+          <!-- Success toast -->
+          @if (cloneResult()) {
+            <div class="clone-success-toast">
+              <span i18n="@@sharedTrip.cloneSuccess">✅ Viaje clonado como</span>
+              <strong>{{ cloneResult()!.title }}</strong>
+              <button class="btn-pill btn-primary"
+                      style="padding:4px 12px;font-size:11px"
+                      (click)="openCloneInEditor()"
+                      i18n="@@sharedTrip.cloneOpenBtn">
+                Abrir en editor →
+              </button>
+              <button style="background:none;border:none;cursor:pointer;font-size:13px;color:var(--t3)"
+                      (click)="cloneResult.set(null)"
+                      aria-label="Cerrar">✕</button>
+            </div>
+          }
+
           <div class="shared-header-stops">
             @for (stop of trip()!.stops; track stop.cityId; let i = $index; let last = $last) {
               @let city = cityFor(stop.cityId);
@@ -298,11 +338,15 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 export class SharedTripComponent {
   readonly tripId = input.required<string>();
 
-  private readonly api      = inject(ApiService);
-  private readonly svc      = inject(SharedTripsService);
-  readonly auth              = inject(AuthService);
-  private readonly karma     = inject(KarmaService);
-  private readonly cooldown  = inject(CommentCooldownService);
+  private readonly api        = inject(ApiService);
+  private readonly svc        = inject(SharedTripsService);
+  readonly auth                = inject(AuthService);
+  private readonly authModal   = inject(AuthModalService);
+  private readonly karma       = inject(KarmaService);
+  private readonly karmaModal  = inject(KarmaModalService);
+  private readonly savedPlans  = inject(SavedPlansService);
+  private readonly tripService = inject(TripService);
+  private readonly cooldown    = inject(CommentCooldownService);
 
   showProfile      = signal(false);
   showSimilarModal = signal(false);
@@ -312,6 +356,8 @@ export class SharedTripComponent {
   allComments      = signal<Partial<Record<string, StepComment[]>>>({});
   submittingStep   = signal<string | null>(null);
   karmaFlashStep   = signal<string | null>(null);
+  cloning          = signal(false);
+  cloneResult      = signal<Trip | null>(null);
 
   shouldShowComments(stepKey: string): boolean {
     return this.expandedSteps().has(stepKey) ||
@@ -383,6 +429,42 @@ export class SharedTripComponent {
         }
       },
     });
+  }
+
+  cloneTrip(): void {
+    if (!this.auth.isLoggedIn()) {
+      this.authModal.openLogin(() => this.executeClone());
+      return;
+    }
+    this.executeClone();
+  }
+
+  private executeClone(): void {
+    this.cloning.set(true);
+    this.api.cloneSharedTrip(this.tripId()).subscribe({
+      next: cloned => {
+        this.cloning.set(false);
+        this.cloneResult.set(cloned);
+      },
+      error: err => {
+        this.cloning.set(false);
+        this.karmaModal.handleKarmaError(err);
+      },
+    });
+  }
+
+  openCloneInEditor(): void {
+    const cloned = this.cloneResult();
+    if (!cloned) return;
+    this.savedPlans.register({
+      id:       cloned.id!,
+      name:     cloned.title,
+      savedAt:  cloned.createdAt ?? new Date().toISOString(),
+      stops:    cloned.stops,
+      transits: cloned.transits ?? [],
+    });
+    this.tripService.restoreStops(cloned.stops, cloned.id!, cloned.transits ?? []);
+    window.location.href = '/';
   }
 
   retry(): void {
