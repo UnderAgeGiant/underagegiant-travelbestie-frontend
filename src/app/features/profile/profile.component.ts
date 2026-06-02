@@ -117,7 +117,13 @@ import { environment } from '../../../environments/environment';
           } @else if (savedPlans.plans().length === 0) {
             <div class="section-empty">Aún no tienes viajes guardados. Usa el botón "Reservar viaje 🎉" para guardar uno.</div>
           } @else {
-            @for (plan of savedPlans.plans(); track plan.id) {
+            <input class="form-input"
+                   type="search"
+                   style="font-size:12px;padding:7px 10px;margin-bottom:12px"
+                   placeholder="Buscar viaje guardado…"
+                   [value]="planSearch()"
+                   (input)="planSearch.set($any($event.target).value)" />
+            @for (plan of filteredPlans(); track plan.id) {
               <div class="saved-plan-card">
                 <div class="saved-plan-header" (click)="togglePlan(plan.id)">
                   <div class="saved-plan-info">
@@ -164,6 +170,9 @@ import { environment } from '../../../environments/environment';
                   </div>
                 }
               </div>
+            }
+            @if (filteredPlans().length === 0) {
+              <div class="section-empty">Sin resultados para "{{ planSearch() }}" 🔍</div>
             }
           }
         </section>
@@ -250,6 +259,7 @@ export class ProfileComponent {
   openAiPlanning = output<void>();
 
   selectedPlanId  = signal<string | null>(null);
+  planSearch      = signal('');
   shareError      = signal<string | null>(null);
   exportingPlanId = signal<string | null>(null);
   toast           = signal<string | null>(null);
@@ -261,6 +271,12 @@ export class ProfileComponent {
   readonly initials = computed(() => {
     const name = this.auth.currentUser()?.name ?? '';
     return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+  });
+
+  readonly filteredPlans = computed(() => {
+    const q = this.planSearch().toLowerCase().trim();
+    if (!q) return this.savedPlans.plans();
+    return this.savedPlans.plans().filter(p => p.name.toLowerCase().includes(q));
   });
 
   readonly totalPlanned = computed(() =>
