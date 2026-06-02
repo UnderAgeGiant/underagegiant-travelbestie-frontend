@@ -9,6 +9,19 @@ export interface Comment {
   createdAt?: string;
 }
 
+export interface StepComment {
+  id:         string;
+  stepKey:    string;
+  authorName: string;
+  text:       string;
+  createdAt:  string;
+}
+
+export interface StepCommentAddResult {
+  comment:      StepComment;
+  karmaAwarded: boolean;
+}
+
 export interface Attraction {
   id: string;
   name: string;

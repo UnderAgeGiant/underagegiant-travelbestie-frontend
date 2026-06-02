@@ -1,7 +1,14 @@
 import { Component, inject, input, computed, signal, effect } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { forkJoin, of, switchMap, catchError } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
+import { AuthService } from '../../core/auth/auth.service';
+import { KarmaService } from '../../core/karma/karma.service';
+import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
+import { StepComment } from '../../core/models/comment.model';
 import { StepCommentsComponent } from './step-comments.component';
+import { CommentSimilarModalComponent } from '../comments/comment-similar-modal.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavComponent } from '../nav/nav.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -12,7 +19,7 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 @Component({
   selector: 'app-shared-trip',
   standalone: true,
-  imports: [StepCommentsComponent, DurationPipe, NavComponent, ProfileComponent],
+  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent],
   styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -33,6 +40,10 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
     @if (showProfile()) {
       <app-profile (close)="showProfile.set(false)" />
+    }
+
+    @if (showSimilarModal()) {
+      <app-comment-similar-modal (dismiss)="showSimilarModal.set(false)" />
     }
 
     @if (trip()) {
@@ -80,7 +91,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
               }
             </div>
             @if (shouldShowComments('transit:__start__')) {
-              <app-step-comments [tripId]="trip()!.id" stepKey="transit:__start__" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep('transit:__start__')" />
+              <app-step-comments
+                [comments]="allComments()['transit:__start__'] ?? []"
+                [loggedIn]="auth.isLoggedIn()"
+                [submitting]="submittingStep() === 'transit:__start__'"
+                [karmaFlash]="karmaFlashStep() === 'transit:__start__'"
+                (commentSubmitted)="onStepCommentSubmitted('transit:__start__', $event)"
+                (focusLost)="collapseStep('transit:__start__')" />
             }
             <div class="itin-line"></div>
           }
@@ -125,7 +142,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                         }
                       </div>
                       @if (shouldShowComments(lodgeKey)) {
-                        <app-step-comments [tripId]="trip()!.id" [stepKey]="lodgeKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(lodgeKey)" />
+                        <app-step-comments
+                          [comments]="allComments()[lodgeKey] ?? []"
+                          [loggedIn]="auth.isLoggedIn()"
+                          [submitting]="submittingStep() === lodgeKey"
+                          [karmaFlash]="karmaFlashStep() === lodgeKey"
+                          (commentSubmitted)="onStepCommentSubmitted(lodgeKey, $event)"
+                          (focusLost)="collapseStep(lodgeKey)" />
                       }
                     }
 
@@ -145,7 +168,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                           </span>
                         </div>
                         @if (shouldShowComments(attKey)) {
-                          <app-step-comments [tripId]="trip()!.id" [stepKey]="attKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(attKey)" />
+                          <app-step-comments
+                            [comments]="allComments()[attKey] ?? []"
+                            [loggedIn]="auth.isLoggedIn()"
+                            [submitting]="submittingStep() === attKey"
+                            [karmaFlash]="karmaFlashStep() === attKey"
+                            (commentSubmitted)="onStepCommentSubmitted(attKey, $event)"
+                            (focusLost)="collapseStep(attKey)" />
                         }
                       }
                     }
@@ -156,7 +185,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 
               <!-- City-level comments -->
               @if (shouldShowComments(stopKey)) {
-                <app-step-comments [tripId]="trip()!.id" [stepKey]="stopKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(stopKey)" />
+                <app-step-comments
+                  [comments]="allComments()[stopKey] ?? []"
+                  [loggedIn]="auth.isLoggedIn()"
+                  [submitting]="submittingStep() === stopKey"
+                  [karmaFlash]="karmaFlashStep() === stopKey"
+                  (commentSubmitted)="onStepCommentSubmitted(stopKey, $event)"
+                  (focusLost)="collapseStep(stopKey)" />
               }
 
               <!-- Transit to next city or return flight -->
@@ -187,7 +222,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                   }
                 </div>
                 @if (shouldShowComments(legKey)) {
-                  <app-step-comments [tripId]="trip()!.id" [stepKey]="legKey" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep(legKey)" />
+                  <app-step-comments
+                    [comments]="allComments()[legKey] ?? []"
+                    [loggedIn]="auth.isLoggedIn()"
+                    [submitting]="submittingStep() === legKey"
+                    [karmaFlash]="karmaFlashStep() === legKey"
+                    (commentSubmitted)="onStepCommentSubmitted(legKey, $event)"
+                    (focusLost)="collapseStep(legKey)" />
                 }
                 <div class="itin-line"></div>
 
@@ -211,7 +252,13 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
                     }
                   </div>
                   @if (shouldShowComments('transit:__end__')) {
-                    <app-step-comments [tripId]="trip()!.id" stepKey="transit:__end__" [ownerEmail]="trip()!.ownerEmail" (focusLost)="collapseStep('transit:__end__')" />
+                    <app-step-comments
+                      [comments]="allComments()['transit:__end__'] ?? []"
+                      [loggedIn]="auth.isLoggedIn()"
+                      [submitting]="submittingStep() === 'transit:__end__'"
+                      [karmaFlash]="karmaFlashStep() === 'transit:__end__'"
+                      (commentSubmitted)="onStepCommentSubmitted('transit:__end__', $event)"
+                      (focusLost)="collapseStep('transit:__end__')" />
                   }
                 }
               }
@@ -251,19 +298,24 @@ import { TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.
 export class SharedTripComponent {
   readonly tripId = input.required<string>();
 
-  private readonly api = inject(ApiService);
-  private readonly svc = inject(SharedTripsService);
+  private readonly api      = inject(ApiService);
+  private readonly svc      = inject(SharedTripsService);
+  readonly auth              = inject(AuthService);
+  private readonly karma     = inject(KarmaService);
+  private readonly cooldown  = inject(CommentCooldownService);
 
-  showProfile    = signal(false);
-  rateLimited    = signal(false);
-  loading        = signal(true);
-  expandedSteps  = signal(new Set<string>());
+  showProfile      = signal(false);
+  showSimilarModal = signal(false);
+  rateLimited      = signal(false);
+  loading          = signal(true);
+  expandedSteps    = signal(new Set<string>());
+  allComments      = signal<Partial<Record<string, StepComment[]>>>({});
+  submittingStep   = signal<string | null>(null);
+  karmaFlashStep   = signal<string | null>(null);
 
   shouldShowComments(stepKey: string): boolean {
-    const tripId = this.trip()?.id;
-    if (!tripId) return false;
     return this.expandedSteps().has(stepKey) ||
-           this.svc.getComments(tripId, stepKey).length > 0;
+           (this.allComments()[stepKey]?.length ?? 0) > 0;
   }
 
   expandStep(stepKey: string): void {
@@ -282,17 +334,53 @@ export class SharedTripComponent {
       const id = this.tripId();
       this.rateLimited.set(false);
       this.loading.set(true);
+      this.allComments.set({});
       this.fetchTrip(id);
     }, { allowSignalWrites: true });
   }
 
   private fetchTrip(id: string): void {
-    this.api.getSharedTrip(id).subscribe({
-      next: data  => { this._trip.set(data);   this.loading.set(false); },
-      error: err  => {
+    forkJoin({
+      trip:     this.api.getSharedTrip(id),
+      comments: this.api.getStepComments(id).pipe(catchError(() => of({}))),
+    }).subscribe({
+      next: ({ trip, comments }) => {
+        this._trip.set(trip);
+        this.allComments.set(comments);
+        this.loading.set(false);
+      },
+      error: err => {
         if (err?.status === 429) this.rateLimited.set(true);
         else this._trip.set(null);
         this.loading.set(false);
+      },
+    });
+  }
+
+  onStepCommentSubmitted(stepKey: string, text: string): void {
+    const shareId = this.tripId();
+    this.submittingStep.set(stepKey);
+
+    this.api.addStepComment(shareId, stepKey, text).pipe(
+      switchMap(result => {
+        this.cooldown.startCooldown(60);
+        if (result.karmaAwarded) {
+          this.karma.loadForUser(this.auth.currentUser()!.email);
+          this.karmaFlashStep.set(stepKey);
+          setTimeout(() => this.karmaFlashStep.set(null), 1800);
+        }
+        return this.api.getStepComments(shareId).pipe(catchError(() => of(this.allComments() as Record<string, StepComment[]>)));
+      }),
+    ).subscribe({
+      next:  comments => { this.allComments.set(comments); this.submittingStep.set(null); },
+      error: (err: HttpErrorResponse) => {
+        this.submittingStep.set(null);
+        if (err.status === 409) {
+          this.showSimilarModal.set(true);
+        } else if (err.status === 429) {
+          this.cooldown.startCooldown(err.error?.retryAfterSeconds ?? 60);
+          this.cooldown.triggerShake();
+        }
       },
     });
   }

@@ -12,19 +12,7 @@ export interface SharedTrip {
   planId?:    string; // reference to the SavedPlan — used to load live data
 }
 
-export interface StepComment {
-  id:          string;
-  tripId:      string;
-  stepKey:     string;
-  authorEmail: string;
-  authorName:  string;
-  text:        string;
-  createdAt:   string;
-}
-
-const TRIPS_KEY       = 'tb_shared_trips';
-const commentsKey     = (tripId: string) => `tb_step_comments_${tripId}`;
-const seenStepsKey    = (email: string, tripId: string) => `tb_seen_steps_${email}_${tripId}`;
+const TRIPS_KEY = 'tb_shared_trips';
 
 @Injectable({ providedIn: 'root' })
 export class SharedTripsService {
@@ -57,8 +45,9 @@ export class SharedTripsService {
     return this.allTrips().filter(t => t.ownerEmail === email);
   }
 
-  getCommentCount(tripId: string): number {
-    return this.allComments(tripId).length;
+  // TODO: replace with API count
+  getCommentCount(_tripId: string): number {
+    return 0;
   }
 
   search(query: string): SharedTrip[] {
@@ -69,35 +58,7 @@ export class SharedTripsService {
       .slice(0, 5);
   }
 
-  getComments(tripId: string, stepKey: string): StepComment[] {
-    return this.allComments(tripId).filter(c => c.stepKey === stepKey);
-  }
-
-  addComment(comment: Omit<StepComment, 'id' | 'createdAt'>): void {
-    const entry: StepComment = { ...comment, id: crypto.randomUUID(), createdAt: new Date().toISOString() };
-    localStorage.setItem(commentsKey(comment.tripId), JSON.stringify([...this.allComments(comment.tripId), entry]));
-  }
-
-  hasCommentedOnStep(email: string, tripId: string, stepKey: string): boolean {
-    return this.seenSteps(email, tripId).includes(stepKey);
-  }
-
-  markStepCommented(email: string, tripId: string, stepKey: string): void {
-    const seen = this.seenSteps(email, tripId);
-    if (!seen.includes(stepKey)) {
-      localStorage.setItem(seenStepsKey(email, tripId), JSON.stringify([...seen, stepKey]));
-    }
-  }
-
   private allTrips(): SharedTrip[] {
     try { return JSON.parse(localStorage.getItem(TRIPS_KEY) ?? '[]'); } catch { return []; }
-  }
-
-  private allComments(tripId: string): StepComment[] {
-    try { return JSON.parse(localStorage.getItem(commentsKey(tripId)) ?? '[]'); } catch { return []; }
-  }
-
-  private seenSteps(email: string, tripId: string): string[] {
-    try { return JSON.parse(localStorage.getItem(seenStepsKey(email, tripId)) ?? '[]'); } catch { return []; }
   }
 }

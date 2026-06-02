@@ -1,14 +1,12 @@
-import { Component, inject, input, output, signal, OnInit } from '@angular/core';
-import { SharedTripsService, StepComment } from '../../core/shared-trips/shared-trips.service';
-import { AuthService } from '../../core/auth/auth.service';
-import { KarmaService } from '../../core/karma/karma.service';
+import { Component, input, output, signal } from '@angular/core';
+import { StepComment } from '../../core/models/comment.model';
 
 @Component({
   selector: 'app-step-comments',
   standalone: true,
   template: `
     <div class="step-comments">
-      @for (c of localComments(); track c.id) {
+      @for (c of comments(); track c.id) {
         <div class="step-comment">
           <div class="step-comment-avatar">{{ initials(c.authorName) }}</div>
           <div class="step-comment-body">
@@ -21,10 +19,11 @@ import { KarmaService } from '../../core/karma/karma.service';
         </div>
       }
 
-      @if (auth.isLoggedIn()) {
+      @if (loggedIn()) {
         <div class="step-comment-form" (focusout)="onFormFocusOut($event)">
           <input class="step-comment-input"
                  [value]="newText()"
+                 [disabled]="submitting()"
                  (input)="newText.set($any($event.target).value)"
                  placeholder="Agrega tu comentario…"
                  (keydown.enter)="submit()" />
@@ -34,9 +33,11 @@ import { KarmaService } from '../../core/karma/karma.service';
           }
           <button class="btn-pill btn-primary"
                   style="padding:5px 14px;font-size:11px;flex-shrink:0"
-                  [disabled]="newText().trim().length < 50"
-                  [style.opacity]="newText().trim().length >= 50 ? 1 : 0.45"
-                  (click)="submit()">Comentar</button>
+                  [disabled]="newText().trim().length < 50 || submitting()"
+                  [style.opacity]="newText().trim().length >= 50 && !submitting() ? 1 : 0.45"
+                  (click)="submit()">
+            {{ submitting() ? '…' : 'Comentar' }}
+          </button>
           @if (karmaFlash()) {
             <span class="karma-flash">+1 ⭐</span>
           }
@@ -47,50 +48,22 @@ import { KarmaService } from '../../core/karma/karma.service';
     </div>
   `,
 })
-export class StepCommentsComponent implements OnInit {
-  readonly tripId     = input.required<string>();
-  readonly stepKey    = input.required<string>();
-  readonly ownerEmail = input.required<string>();
+export class StepCommentsComponent {
+  comments   = input<StepComment[]>([]);
+  loggedIn   = input<boolean>(false);
+  submitting = input<boolean>(false);
+  karmaFlash = input<boolean>(false);
 
-  readonly auth        = inject(AuthService);
-  private readonly svc   = inject(SharedTripsService);
-  private readonly karma = inject(KarmaService);
+  commentSubmitted = output<string>();
+  focusLost        = output<void>();
 
-  focusLost = output<void>();
-
-  newText       = signal('');
-  karmaFlash    = signal(false);
-  localComments = signal<StepComment[]>([]);
-
-  ngOnInit(): void {
-    this.reload();
-  }
+  newText = signal('');
 
   submit(): void {
     const text = this.newText().trim();
-    const user = this.auth.currentUser();
-    if (!text || text.length < 50 || !user) return;
-
-    this.svc.addComment({
-      tripId:      this.tripId(),
-      stepKey:     this.stepKey(),
-      authorEmail: user.email,
-      authorName:  user.name,
-      text,
-    });
-
-    const isOwnTrip   = user.email === this.ownerEmail();
-    const alreadySeen = this.svc.hasCommentedOnStep(user.email, this.tripId(), this.stepKey());
-
-    if (!isOwnTrip && !alreadySeen) {
-      this.karma.gain();
-      this.svc.markStepCommented(user.email, this.tripId(), this.stepKey());
-      this.karmaFlash.set(true);
-      setTimeout(() => this.karmaFlash.set(false), 1800);
-    }
-
+    if (text.length < 50 || this.submitting()) return;
+    this.commentSubmitted.emit(text);
     this.newText.set('');
-    this.reload();
   }
 
   onFormFocusOut(event: FocusEvent): void {
@@ -100,17 +73,12 @@ export class StepCommentsComponent implements OnInit {
     }
   }
 
-  private reload(): void {
-    this.localComments.set(this.svc.getComments(this.tripId(), this.stepKey()));
-  }
-
   initials(name: string): string {
     return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
   }
 
   fmtDate(iso: string): string {
-    try {
-      return new Date(iso).toLocaleDateString('es-CL', { day: 'numeric', month: 'short' });
-    } catch { return ''; }
+    try { return new Date(iso).toLocaleDateString('es-CL', { day: 'numeric', month: 'short' }); }
+    catch { return ''; }
   }
 }
