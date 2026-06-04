@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy, Component, effect, inject, signal, untracked,
+  ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked,
 } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { ProfileModalService } from '../../core/profile/profile-modal.service';
@@ -92,21 +92,63 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
       @if (activeTab() === 'password') {
         <div class="form-group">
           <label class="form-label" i18n="@@profile.currentPasswordLabel">Contraseña actual</label>
-          <input class="form-input" type="password" placeholder="••••••••"
-                 [value]="currentPassword()"
-                 (input)="currentPassword.set($any($event.target).value)" />
+          <div style="position:relative">
+            <input class="form-input" style="padding-right:72px"
+                   [type]="showCurrentPassword() ? 'text' : 'password'" placeholder="••••••••"
+                   [value]="currentPassword()"
+                   (input)="currentPassword.set($any($event.target).value)" />
+            <button type="button"
+                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                    (click)="showCurrentPassword.set(!showCurrentPassword())">
+              {{ showCurrentPassword() ? 'Ocultar' : 'Ver' }}
+            </button>
+          </div>
         </div>
         <div class="form-group">
           <label class="form-label" i18n="@@profile.newPasswordLabel">Nueva contraseña</label>
-          <input class="form-input" type="password" placeholder="••••••••"
-                 [value]="newPassword()"
-                 (input)="newPassword.set($any($event.target).value)" />
+          <div style="position:relative">
+            <input class="form-input" style="padding-right:72px"
+                   [type]="showNewPassword() ? 'text' : 'password'" placeholder="••••••••"
+                   [value]="newPassword()"
+                   (input)="newPassword.set($any($event.target).value)" />
+            <button type="button"
+                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                    (click)="showNewPassword.set(!showNewPassword())">
+              {{ showNewPassword() ? 'Ocultar' : 'Ver' }}
+            </button>
+          </div>
+          @if (newPassword()) {
+            <div style="margin-top:7px">
+              <div style="display:flex;gap:3px;margin-bottom:4px">
+                @for (i of [0, 1, 2]; track i) {
+                  <div style="flex:1;height:3px;border-radius:99px;transition:background .25s"
+                       [style.background]="strengthBarActive(i) ? strengthColor() : 'oklch(92% 0.02 280)'"></div>
+                }
+              </div>
+              <span style="font-size:11px;font-weight:600;transition:color .25s"
+                    [style.color]="strengthColor()">{{ strengthLabel() }}</span>
+            </div>
+          }
         </div>
         <div class="form-group" style="margin-bottom:0">
           <label class="form-label" i18n="@@profile.confirmPasswordLabel">Confirmar contraseña</label>
-          <input class="form-input" type="password" placeholder="••••••••"
-                 [value]="confirmPassword()"
-                 (input)="confirmPassword.set($any($event.target).value)" />
+          <div style="position:relative">
+            <input class="form-input" style="padding-right:72px"
+                   [type]="showConfirmPassword() ? 'text' : 'password'" placeholder="••••••••"
+                   [value]="confirmPassword()"
+                   (input)="confirmPassword.set($any($event.target).value)"
+                   [style.border-color]="confirmPassword() && !passwordsMatch() ? 'oklch(55% 0.22 25)' : ''" />
+            <button type="button"
+                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                    (click)="showConfirmPassword.set(!showConfirmPassword())">
+              {{ showConfirmPassword() ? 'Ocultar' : 'Ver' }}
+            </button>
+          </div>
+          @if (confirmPassword() && !passwordsMatch()) {
+            <div style="font-size:11px;color:oklch(55% 0.22 25);margin-top:4px">
+              Las contraseñas no coinciden
+            </div>
+          }
         </div>
       }
 
@@ -205,9 +247,58 @@ export class ProfileModalComponent {
   protected readonly currentPassword = signal('');
   protected readonly newPassword     = signal('');
   protected readonly confirmPassword = signal('');
-  protected readonly loading         = signal(false);
-  protected readonly savedTab        = signal<SavedTab | null>(null);
-  protected readonly errorMessage    = signal('');
+  protected readonly loading              = signal(false);
+  protected readonly savedTab             = signal<SavedTab | null>(null);
+  protected readonly errorMessage         = signal('');
+  protected readonly showCurrentPassword  = signal(false);
+  protected readonly showNewPassword      = signal(false);
+  protected readonly showConfirmPassword  = signal(false);
+
+  protected readonly passwordsMatch = computed(() =>
+    !this.confirmPassword() || this.newPassword() === this.confirmPassword()
+  );
+
+  protected readonly passwordStrength = computed((): 'none' | 'vulnerable' | 'light' | 'strong' => {
+    const p = this.newPassword();
+    if (!p) return 'none';
+    let score = 0;
+    if (p.length >= 8)          score++;
+    if (/[A-Z]/.test(p))        score++;
+    if (/[a-z]/.test(p))        score++;
+    if (/\d/.test(p))           score++;
+    if (/[^A-Za-z0-9]/.test(p)) score++;
+    if (p.length < 6)  return 'vulnerable';
+    if (score <= 2)    return 'vulnerable';
+    if (score === 3)   return 'light';
+    return 'strong';
+  });
+
+  protected readonly strengthColor = computed((): string => {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return 'oklch(55% 0.22 25)';
+      case 'light':      return 'oklch(62% 0.14 60)';
+      case 'strong':     return 'oklch(50% 0.16 145)';
+      default:           return 'var(--t3)';
+    }
+  });
+
+  protected strengthBarActive(index: number): boolean {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return index === 0;
+      case 'light':      return index <= 1;
+      case 'strong':     return true;
+      default:           return false;
+    }
+  }
+
+  protected strengthLabel(): string {
+    switch (this.passwordStrength()) {
+      case 'vulnerable': return 'Vulnerable';
+      case 'light':      return 'Moderada';
+      case 'strong':     return 'Fuerte';
+      default:           return '';
+    }
+  }
 
   private savedTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -288,7 +379,7 @@ export class ProfileModalComponent {
   }
 
   protected updatePassword(): void {
-    if (this.newPassword() !== this.confirmPassword()) {
+    if (!this.passwordsMatch()) {
       this.errorMessage.set('Las contraseñas no coinciden.');
       return;
     }
@@ -338,6 +429,9 @@ export class ProfileModalComponent {
     this.currentPassword.set('');
     this.newPassword.set('');
     this.confirmPassword.set('');
+    this.showCurrentPassword.set(false);
+    this.showNewPassword.set(false);
+    this.showConfirmPassword.set(false);
     this.errorMessage.set('');
     this.savedTab.set(null);
     this.loading.set(false);
