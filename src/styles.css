@@ -831,20 +831,58 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 
 /* ── Landing page — scroll container ───────────────────────────────────── */
 .landing-scroll {
-  height: 100%;
+  height: calc(100vh - 58px);
+  margin-top: 58px;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.landing-scroll::-webkit-scrollbar { display: none; }
 .landing-snap-child {
   scroll-snap-align: start;
-  min-height: 100svh;
+  height: calc(100vh - 58px);
+  min-height: calc(100vh - 58px);
   position: relative;
   overflow: hidden;
 }
-.right-panel.landing-mode {
-  overflow: hidden;
+
+/* ── S1 shell: left panel + right panel side by side ───────────────────── */
+.s1-shell { display: flex; background: var(--cream); }
+.s1-shell > .right-panel { overflow: hidden; }
+
+/* ── Scroll hint ────────────────────────────────────────────────────────── */
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: oklch(100% 0 0/.5);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  pointer-events: none;
 }
+.scroll-arrow {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid oklch(100% 0 0/.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceDown .9s ease-in-out infinite alternate;
+}
+@keyframes bounceDown { from { transform: translateY(0) } to { transform: translateY(6px) } }
+@media (prefers-reduced-motion: reduce) { .scroll-arrow { animation: none; } }
 
 /* ── S2 — Cinematic full-page slideshow ─────────────────────────────────── */
 .featured-slideshow { background: oklch(12% .04 290); }
@@ -995,24 +1033,10 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 
 /* ── Entrance reveals (shared) ──────────────────────────────────────────── */
-.reveal {
-  transition: transform .55s ease-out, opacity .55s ease-out;
-}
-[tbInView] .reveal {
-  transform: translateY(14px);
-  opacity: .35;
-}
-[tbInView].in-view .reveal {
-  transform: translateY(0);
-  opacity: 1;
-}
+.reveal { transition: transform .55s ease-out, opacity .55s ease-out; }
+.reveal.hidden { transform: translateY(14px); opacity: .35; }
 @media (prefers-reduced-motion: reduce) {
-  [tbInView] .reveal,
-  [tbInView].in-view .reveal {
-    transform: none;
-    transition: none;
-    opacity: 1;
-  }
+  .reveal, .reveal.hidden { transform: none !important; transition: none !important; opacity: 1 !important; }
 }
 
 /* ── S4 — Footer ─────────────────────────────────────────────────────────── */

@@ -12,7 +12,11 @@ import { getAttractions } from '../../data/attractions.data';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass],
-  host: { class: 'landing-snap-child featured-slideshow' },
+  host: {
+    '[style.display]':           'hostDisplay',
+    '[class.landing-snap-child]': 'isVisible',
+    '[class.featured-slideshow]': 'isVisible',
+  },
   template: `
 @for (trip of trips(); track trip.id; let i = $index) {
   <div [ngClass]="['s2-slide', activeIdx() === i ? 'active' : '']">
@@ -59,6 +63,15 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
   protected readonly trips     = signal<FeaturedTrip[]>([]);
   protected readonly activeIdx = signal(0);
   protected readonly running   = signal(false);
+  private readonly loaded      = signal(false);
+
+  // Host binding helpers — start hidden until loaded with trips
+  get hostDisplay(): string | null {
+    return !this.loaded() || this.trips().length === 0 ? 'none' : null;
+  }
+  get isVisible(): boolean {
+    return this.loaded() && this.trips().length > 0;
+  }
 
   private readonly api = inject(ApiService);
   private timer?: ReturnType<typeof setInterval>;
@@ -68,9 +81,13 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
     this.api.getFeatured().subscribe({
       next: trips => {
         this.trips.set(trips);
+        this.loaded.set(true);
         if (trips.length > 1) this.startTimer();
       },
-      error: () => this.trips.set([]),
+      error: () => {
+        this.trips.set([]);
+        this.loaded.set(true);
+      },
     });
   }
 

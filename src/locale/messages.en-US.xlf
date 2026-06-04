@@ -904,6 +904,10 @@
       </trans-unit>
 
       <!-- ── landing sections ── -->
+      <trans-unit id="landing.scrollHint" datatype="html">
+        <source>Desliza para explorar</source>
+        <target>Scroll to explore</target>
+      </trans-unit>
       <trans-unit id="landing.cardBy" datatype="html">
         <source>por</source>
         <target>by</target>

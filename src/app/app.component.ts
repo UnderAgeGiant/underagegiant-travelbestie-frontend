@@ -37,34 +37,53 @@ import { AppFooterComponent }         from './features/landing/app-footer.compon
     <app-nav (logoClick)="null"
              (profileClick)="showProfile.set(true)" />
 
-    <div class="layout">
-      <app-stop-list (addDestination)="showAddModal.set(true)" />
+    @if (trip.stops().length === 0) {
+      <!-- ── LANDING MODE: scroll-snap container ── -->
+      <div class="landing-scroll">
 
-      <div class="right-panel" [class.landing-mode]="trip.stops().length === 0">
-        @if (trip.stops().length === 0) {
-          <div class="landing-scroll">
-            <!-- S1: existing app shell — WelcomeComponent IS the hero -->
-            <app-welcome class="landing-snap-child"
-                         (addDestination)="showAddModal.set(true)"
+        <!-- S1: full app shell (left panel + welcome) -->
+        <section class="landing-snap-child s1-shell">
+          <app-stop-list (addDestination)="showAddModal.set(true)" />
+          <div class="right-panel">
+            <app-welcome (addDestination)="showAddModal.set(true)"
                          (openAiPlanning)="showAiPlanning.set(true)" />
-            <!-- S2: cinematic slideshow — clone button navigates to share page -->
-            <tb-featured-slideshow />
-            <tb-landing-about />
-            <tb-app-footer />
           </div>
-        } @else if (!trip.activeStop()) {
-          <div class="empty-stop">
-            <div class="empty-stop-icon">👆</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:6px"
-                 i18n="@@app.selectStop">Selecciona una parada</div>
-            <div style="font-size:13px;color:var(--t3);max-width:240px;line-height:1.5;text-align:center"
-                 i18n="@@app.selectStopDesc">Haz clic en un destino del panel para explorar sus atracciones</div>
+          <!-- Scroll hint -->
+          <div class="scroll-hint">
+            <span i18n="@@landing.scrollHint">Desliza para explorar</span>
+            <div class="scroll-arrow">↓</div>
           </div>
-        } @else {
-          <app-destination />
-        }
+        </section>
+
+        <!-- S2: cinematic slideshow (hidden when no featured trips) -->
+        <tb-featured-slideshow />
+
+        <!-- S3: about -->
+        <tb-landing-about />
+
+        <!-- S4: footer -->
+        <tb-app-footer />
+
       </div>
-    </div>
+    } @else {
+      <!-- ── APP MODE: normal layout ── -->
+      <div class="layout">
+        <app-stop-list (addDestination)="showAddModal.set(true)" />
+        <div class="right-panel">
+          @if (!trip.activeStop()) {
+            <div class="empty-stop">
+              <div class="empty-stop-icon">👆</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:6px"
+                   i18n="@@app.selectStop">Selecciona una parada</div>
+              <div style="font-size:13px;color:var(--t3);max-width:240px;line-height:1.5;text-align:center"
+                   i18n="@@app.selectStopDesc">Haz clic en un destino del panel para explorar sus atracciones</div>
+            </div>
+          } @else {
+            <app-destination />
+          }
+        </div>
+      </div>
+    }
 
     @if (showAddModal()) {
       <app-add-stop-modal (close)="showAddModal.set(false)" />

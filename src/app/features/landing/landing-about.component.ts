@@ -2,7 +2,6 @@ import {
   AfterViewInit, ChangeDetectionStrategy, Component, ElementRef,
   inject, OnInit, QueryList, signal, ViewChildren,
 } from '@angular/core';
-import { InViewDirective } from '../../shared/directives/in-view.directive';
 import { ApiService } from '../../core/api/api.service';
 import { AppStats } from '../../core/models/featured-trip.model';
 
@@ -10,12 +9,12 @@ import { AppStats } from '../../core/models/featured-trip.model';
   selector: 'tb-landing-about',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [InViewDirective],
+  imports: [],
   host: { class: 'landing-snap-child landing-about' },
   template: `
-<div class="landing-about-inner" tbInView>
+<div class="landing-about-inner">
 
-  <div class="reveal landing-about-copy">
+  <div class="reveal hidden landing-about-copy">
     <h2 class="landing-about-heading" i18n="@@landing.aboutHeading">
       Planifica el viaje<br><em>que siempre soñaste</em>
     </h2>
@@ -26,7 +25,7 @@ import { AppStats } from '../../core/models/featured-trip.model';
     </p>
   </div>
 
-  <div class="reveal landing-about-stats" aria-label="Estadísticas">
+  <div class="reveal hidden landing-about-stats" aria-label="Estadísticas">
     @if (stats(); as s) {
       <div class="landing-stat">
         <span class="landing-stat-number" #statEl [attr.data-target]="s.cities">0</span>
@@ -66,11 +65,15 @@ export class LandingAboutComponent implements OnInit, AfterViewInit {
       ([entry]) => {
         if (entry.isIntersecting && !this.animated) {
           this.animated = true;
-          this.animateStats();
+          // Reveal entrance elements (mirrors demo pattern)
+          (this.host.nativeElement.querySelectorAll('.reveal.hidden') as NodeListOf<HTMLElement>).forEach(
+            (el: HTMLElement) => el.classList.remove('hidden')
+          );
+          setTimeout(() => this.animateStats(), 180);
           observer.disconnect();
         }
       },
-      { threshold: 0.4 },
+      { threshold: 0.3 },
     );
     observer.observe(this.host.nativeElement);
   }
