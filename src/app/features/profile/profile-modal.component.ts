@@ -4,7 +4,7 @@ import {
 import { AuthService } from '../../core/auth/auth.service';
 import { ProfileModalService } from '../../core/profile/profile-modal.service';
 
-type SavedTab = 'name' | 'email' | 'password';
+type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
 
 @Component({
   selector: 'tb-profile-modal',
@@ -137,11 +137,15 @@ type SavedTab = 'name' | 'email' | 'password';
 
         @if (activeTab() === 'email' && !emailOtpSent()) {
           <button class="btn-pill btn-primary" (click)="requestEmailOtp()"
-                  [disabled]="loading() || !newEmail()"
+                  [disabled]="loading() || (savedTab() !== 'email-otp' && !newEmail())"
                   style="flex:2"
-                  [style.opacity]="(loading() || !newEmail()) ? '0.5' : '1'">
+                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'email-otp' && !newEmail()) ? '0.5' : '1'"
+                  [style.background]="savedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''"
+                  [style.border-color]="savedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''">
             @if (loading()) {
               <span class="btn-spinner"></span> Enviando…
+            } @else if (savedTab() === 'email-otp') {
+              ✓ Enviado
             } @else {
               Enviar código →
             }
@@ -247,8 +251,9 @@ export class ProfileModalComponent {
     this.errorMessage.set('');
     this.auth.requestProfileOtp(email).subscribe({
       next: () => {
-        this.emailOtpSent.set(true);
         this.loading.set(false);
+        // Delay transition to OTP screen so the ✓ has time to render.
+        this.markSaved('email-otp', () => { this.emailOtpSent.set(true); });
       },
       error: (err: Error) => {
         this.errorMessage.set(err.message ?? 'Error al enviar el código. Intenta de nuevo.');
