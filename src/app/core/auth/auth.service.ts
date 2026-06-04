@@ -62,6 +62,40 @@ export class AuthService {
     return this.http.post<void>(`${environment.apiUrl}/auth/request-otp`, { email });
   }
 
+  requestProfileOtp(newEmail: string): Observable<void> {
+    if (environment.useMocks) return of(undefined);
+    return this.http.post<void>(`${environment.apiUrl}/auth/request-profile-otp`, { newEmail });
+  }
+
+  updateProfile(fields: {
+    name?: string;
+    newEmail?: string;
+    otp?: string;
+    currentPassword?: string;
+    newPassword?: string;
+  }): Observable<{ user: AuthUser }> {
+    if (environment.useMocks) {
+      const current = this._user();
+      if (!current) return throwError(() => new Error('No hay sesión activa'));
+      const updated: AuthUser = {
+        name:  fields.name     ?? current.name,
+        email: fields.newEmail ?? current.email,
+      };
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(updated));
+      this._user.set(updated);
+      return of({ user: updated });
+    }
+    return from(this.encryptPayload(fields)).pipe(
+      switchMap(body => this.http.put<{ user: AuthUser }>(
+        `${environment.apiUrl}/auth/profile`, body,
+      )),
+      tap(res => {
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(res.user));
+        this._user.set(res.user);
+      }),
+    );
+  }
+
   register(name: string, email: string, password: string, otp: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
       const users = this.getStoredUsers();
