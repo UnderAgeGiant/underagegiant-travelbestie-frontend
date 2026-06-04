@@ -67,6 +67,7 @@ import { getAttractions } from '../../data/attractions.data';
           @if (!cloneResult()) {
             <button class="btn-pill btn-outline"
                     style="margin-top:12px;gap:6px"
+                    [class.shake]="shakeClone()"
                     [disabled]="cloning()"
                     [style.opacity]="cloning() ? 0.6 : 1"
                     (click)="cloneTrip()"
@@ -358,6 +359,7 @@ export class SharedTripComponent {
   karmaFlashStep   = signal<string | null>(null);
   cloning          = signal(false);
   cloneResult      = signal<Trip | null>(null);
+  shakeClone       = signal(false);
 
   shouldShowComments(stepKey: string): boolean {
     return this.expandedSteps().has(stepKey) ||
@@ -383,6 +385,13 @@ export class SharedTripComponent {
       this.allComments.set({});
       this.fetchTrip(id);
     }, { allowSignalWrites: true });
+
+    if (new URLSearchParams(window.location.search).get('highlight') === 'clone') {
+      setTimeout(() => {
+        this.shakeClone.set(true);
+        setTimeout(() => this.shakeClone.set(false), 800);
+      }, 150);
+    }
   }
 
   private fetchTrip(id: string): void {
