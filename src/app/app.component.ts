@@ -9,6 +9,9 @@ import { ToastComponent } from './shared/toast/toast.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { SharedTripComponent } from './features/shared-trip/shared-trip.component';
 import { AiPlanningComponent } from './features/ai-planning/ai-planning.component';
+import { FeaturedSlideshowComponent } from './features/landing/featured-slideshow.component';
+import { LandingAboutComponent }      from './features/landing/landing-about.component';
+import { AppFooterComponent }         from './features/landing/app-footer.component';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +26,9 @@ import { AiPlanningComponent } from './features/ai-planning/ai-planning.componen
     ProfileComponent,
     SharedTripComponent,
     AiPlanningComponent,
+    FeaturedSlideshowComponent,
+    LandingAboutComponent,
+    AppFooterComponent,
   ],
   template: `
     @if (sharedTripId()) {
@@ -34,10 +40,18 @@ import { AiPlanningComponent } from './features/ai-planning/ai-planning.componen
     <div class="layout">
       <app-stop-list (addDestination)="showAddModal.set(true)" />
 
-      <div class="right-panel">
+      <div class="right-panel" [class.landing-mode]="trip.stops().length === 0">
         @if (trip.stops().length === 0) {
-          <app-welcome (addDestination)="showAddModal.set(true)"
-                       (openAiPlanning)="showAiPlanning.set(true)" />
+          <div class="landing-scroll">
+            <!-- S1: existing app shell — WelcomeComponent IS the hero -->
+            <app-welcome class="landing-snap-child"
+                         (addDestination)="showAddModal.set(true)"
+                         (openAiPlanning)="showAiPlanning.set(true)" />
+            <!-- S2: cinematic slideshow — clone button navigates to share page -->
+            <tb-featured-slideshow />
+            <tb-landing-about />
+            <tb-app-footer />
+          </div>
         } @else if (!trip.activeStop()) {
           <div class="empty-stop">
             <div class="empty-stop-icon">👆</div>
