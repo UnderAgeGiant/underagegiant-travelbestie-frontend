@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy, Component, effect, inject, signal,
+  ChangeDetectionStrategy, Component, effect, inject, signal, untracked,
 } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { ProfileModalService } from '../../core/profile/profile-modal.service';
@@ -214,7 +214,10 @@ export class ProfileModalComponent {
   constructor() {
     effect(() => {
       if (this.modal.isOpen()) {
-        this.displayName.set(this.auth.currentUser()?.name ?? '');
+        // untracked: reading currentUser must not make this effect re-run
+        // when a successful save updates the user signal — that would call
+        // resetState() and wipe savedTab before the ✓ ever renders.
+        this.displayName.set(untracked(() => this.auth.currentUser()?.name ?? ''));
         this.activeTab.set('name');
         this.resetState();
       }
