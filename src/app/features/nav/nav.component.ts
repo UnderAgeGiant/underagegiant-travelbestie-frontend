@@ -627,6 +627,7 @@ import { environment } from '../../../environments/environment';
 export class NavComponent {
   readonly auth             = inject(AuthService);
   readonly authModal        = inject(AuthModalService);
+
   readonly trip             = inject(TripService);
   readonly karma            = inject(KarmaService);
   readonly karmaModal       = inject(KarmaModalService);

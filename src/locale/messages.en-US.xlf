@@ -803,6 +803,106 @@
         <target>Validating your comment…</target>
       </trans-unit>
 
+      <!-- ── nav profile button ── -->
+      <trans-unit id="nav.profileBtnTitle" datatype="html">
+        <source>Editar perfil</source>
+        <target>Edit profile</target>
+      </trans-unit>
+
+      <!-- ── profile modal ── -->
+      <trans-unit id="profile.title" datatype="html">
+        <source>Editar perfil</source>
+        <target>Edit profile</target>
+      </trans-unit>
+      <trans-unit id="profile.subtitle" datatype="html">
+        <source>Actualiza tu información de cuenta</source>
+        <target>Update your account information</target>
+      </trans-unit>
+      <trans-unit id="profile.tabName" datatype="html">
+        <source>Nombre</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="profile.tabEmail" datatype="html">
+        <source>Correo</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="profile.tabPassword" datatype="html">
+        <source>Contraseña</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="profile.nameLabel" datatype="html">
+        <source>Nombre para mostrar</source>
+        <target>Display name</target>
+      </trans-unit>
+      <trans-unit id="profile.namePlaceholder" datatype="html">
+        <source>Tu nombre</source>
+        <target>Your name</target>
+      </trans-unit>
+      <trans-unit id="profile.newEmailLabel" datatype="html">
+        <source>Nueva dirección de correo</source>
+        <target>New email address</target>
+      </trans-unit>
+      <trans-unit id="profile.newEmailPlaceholder" datatype="html">
+        <source>nuevo@correo.com</source>
+        <target>new@email.com</target>
+      </trans-unit>
+      <trans-unit id="profile.otpSentTitle" datatype="html">
+        <source>Revisa tu correo</source>
+        <target>Check your email</target>
+      </trans-unit>
+      <trans-unit id="profile.otpSentTo" datatype="html">
+        <source>Código enviado a </source>
+        <target>Code sent to </target>
+      </trans-unit>
+      <trans-unit id="profile.otpLabel" datatype="html">
+        <source>Código de verificación</source>
+        <target>Verification code</target>
+      </trans-unit>
+      <trans-unit id="profile.otpPlaceholder" datatype="html">
+        <source>000000</source>
+        <target>000000</target>
+      </trans-unit>
+      <trans-unit id="profile.otpBack" datatype="html">
+        <source>← Cambiar correo</source>
+        <target>← Change email</target>
+      </trans-unit>
+      <trans-unit id="profile.otpResend" datatype="html">
+        <source>Reenviar código</source>
+        <target>Resend code</target>
+      </trans-unit>
+      <trans-unit id="profile.currentPasswordLabel" datatype="html">
+        <source>Contraseña actual</source>
+        <target>Current password</target>
+      </trans-unit>
+      <trans-unit id="profile.newPasswordLabel" datatype="html">
+        <source>Nueva contraseña</source>
+        <target>New password</target>
+      </trans-unit>
+      <trans-unit id="profile.confirmPasswordLabel" datatype="html">
+        <source>Confirmar contraseña</source>
+        <target>Confirm password</target>
+      </trans-unit>
+      <trans-unit id="profile.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="profile.saveNameBtn" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Guardando…' : 'Guardar nombre' }}"/> </source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Saving…' : 'Save name' }}"/> </target>
+      </trans-unit>
+      <trans-unit id="profile.sendOtpBtn" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Enviando…' : 'Enviar código →' }}"/> </source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Sending…' : 'Send code →' }}"/> </target>
+      </trans-unit>
+      <trans-unit id="profile.updateEmailBtn" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Verificando…' : 'Actualizar correo →' }}"/> </source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Verifying…' : 'Update email →' }}"/> </target>
+      </trans-unit>
+      <trans-unit id="profile.updatePasswordBtn" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Actualizando…' : 'Actualizar contraseña' }}"/> </source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Updating…' : 'Update password' }}"/> </target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

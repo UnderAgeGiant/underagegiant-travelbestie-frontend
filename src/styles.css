@@ -748,3 +748,83 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   animation: shake 0.7s cubic-bezier(.36,.07,.19,.97);
 }
 .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
+
+/* ── Profile modal ───────────────────────────────────────────── */
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--brd, #e8e0f0);
+  padding: 0 16px;
+  background: #fff;
+}
+.profile-tab {
+  flex: 1;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t3, #9c84c0);
+  cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.profile-tab.active {
+  color: var(--lav-d, #7C3AED);
+  border-bottom-color: var(--lav-d, #7C3AED);
+}
+.profile-success {
+  margin: 10px 16px 0;
+  padding: 10px 14px;
+  background: #e8fde8;
+  border: 1px solid #a8e6a8;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #2d7a2d;
+}
+.profile-error {
+  margin: 10px 16px 0;
+  padding: 10px 14px;
+  background: #fdecea;
+  border: 1px solid #f5a8a8;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #c0392b;
+}
+/* ── Profile accordion ──────────────────────────────────────── */
+.profile-accordion-hd {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 13px 20px;
+  background: none; border: none; cursor: pointer;
+  transition: background .12s;
+}
+.profile-accordion-hd:hover { background: var(--cream); }
+.profile-accordion-title {
+  font-size: 13px; font-weight: 600; color: var(--t1);
+}
+.profile-accordion-sub {
+  font-size: 11px; color: var(--t3); margin-top: 2px;
+  max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.profile-accordion-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
+.profile-accordion-check   { font-size: 13px; font-weight: 700; color: oklch(50% 0.16 145); flex-shrink: 0; }
+.profile-accordion-bd {
+  padding: 4px 20px 18px;
+  animation: fadeIn .15s ease;
+}
+.profile-accordion-sep { height: 1px; background: var(--border); }
+
+.btn-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btn-spin 0.65s linear infinite;
+  vertical-align: middle;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
