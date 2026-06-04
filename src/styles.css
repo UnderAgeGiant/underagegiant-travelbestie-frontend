@@ -748,3 +748,45 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   animation: shake 0.7s cubic-bezier(.36,.07,.19,.97);
 }
 .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
+
+/* ── Profile modal ───────────────────────────────────────────── */
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--brd, #e8e0f0);
+  padding: 0 16px;
+  background: #fff;
+}
+.profile-tab {
+  flex: 1;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t3, #9c84c0);
+  cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.profile-tab.active {
+  color: var(--lav-d, #7C3AED);
+  border-bottom-color: var(--lav-d, #7C3AED);
+}
+.profile-success {
+  margin: 10px 16px 0;
+  padding: 10px 14px;
+  background: #e8fde8;
+  border: 1px solid #a8e6a8;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #2d7a2d;
+}
+.profile-error {
+  margin: 10px 16px 0;
+  padding: 10px 14px;
+  background: #fdecea;
+  border: 1px solid #f5a8a8;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #c0392b;
+}
