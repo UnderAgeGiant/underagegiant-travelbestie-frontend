@@ -14,7 +14,7 @@
 npm-debug.log
 yarn-error.log
 
-# Claude Code
+# Local Claude instructions (keep machine-specific, never overwrite from remote)
 CLAUDE.md
 
 # IDEs and editors
