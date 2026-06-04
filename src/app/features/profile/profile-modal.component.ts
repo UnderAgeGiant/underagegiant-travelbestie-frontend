@@ -263,10 +263,14 @@ export class ProfileModalComponent {
     this.auth.updateProfile({ newEmail: this.newEmail().trim(), otp: this.emailOtp() }).subscribe({
       next: () => {
         this.loading.set(false);
-        this.emailOtpSent.set(false);
-        this.emailOtp.set('');
-        this.newEmail.set('');
-        this.markSaved('email');
+        // Clear OTP form fields only AFTER the success animation completes —
+        // doing it now would set emailOtpSent=false, collapsing the button
+        // before the ✓ ever renders.
+        this.markSaved('email', () => {
+          this.emailOtpSent.set(false);
+          this.emailOtp.set('');
+          this.newEmail.set('');
+        });
       },
       error: (err: Error) => {
         this.errorMessage.set(err.message ?? 'Código incorrecto. Intenta de nuevo.');
@@ -309,10 +313,13 @@ export class ProfileModalComponent {
     this.modal.close();
   }
 
-  private markSaved(tab: SavedTab): void {
+  private markSaved(tab: SavedTab, onComplete?: () => void): void {
     if (this.savedTimer) clearTimeout(this.savedTimer);
     this.savedTab.set(tab);
-    this.savedTimer = setTimeout(() => this.savedTab.set(null), 2500);
+    this.savedTimer = setTimeout(() => {
+      this.savedTab.set(null);
+      onComplete?.();
+    }, 2500);
   }
 
   private resetState(): void {
