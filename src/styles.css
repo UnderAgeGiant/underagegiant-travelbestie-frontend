@@ -790,3 +790,18 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   font-size: 13px;
   color: #c0392b;
 }
+.btn-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btn-spin 0.65s linear infinite;
+  vertical-align: middle;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}

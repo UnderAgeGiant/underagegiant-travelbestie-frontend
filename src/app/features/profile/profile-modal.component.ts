@@ -4,6 +4,8 @@ import {
 import { AuthService } from '../../core/auth/auth.service';
 import { ProfileModalService } from '../../core/profile/profile-modal.service';
 
+type SavedTab = 'name' | 'email' | 'password';
+
 @Component({
   selector: 'tb-profile-modal',
   standalone: true,
@@ -32,10 +34,7 @@ import { ProfileModalService } from '../../core/profile/profile-modal.service';
               (click)="selectTab('password')" i18n="@@profile.tabPassword">Contraseña</button>
     </div>
 
-    <!-- Feedback messages -->
-    @if (successMessage()) {
-      <div class="profile-success">{{ successMessage() }}</div>
-    }
+    <!-- Error banner -->
     @if (errorMessage()) {
       <div class="profile-error">{{ errorMessage() }}</div>
     }
@@ -122,36 +121,64 @@ import { ProfileModalService } from '../../core/profile/profile-modal.service';
         @if (activeTab() === 'name') {
           <button class="btn-pill btn-primary" (click)="saveName()"
                   [disabled]="loading()"
+                  style="flex:2"
                   [style.opacity]="loading() ? '0.5' : '1'"
-                  style="flex:2" i18n="@@profile.saveNameBtn">
-            {{ loading() ? 'Guardando…' : 'Guardar nombre' }}
+                  [style.background]="savedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''"
+                  [style.border-color]="savedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''">
+            @if (loading()) {
+              <span class="btn-spinner"></span> Guardando…
+            } @else if (savedTab() === 'name') {
+              ✓ Guardado
+            } @else {
+              Guardar nombre
+            }
           </button>
         }
 
         @if (activeTab() === 'email' && !emailOtpSent()) {
           <button class="btn-pill btn-primary" (click)="requestEmailOtp()"
                   [disabled]="loading() || !newEmail()"
-                  [style.opacity]="(loading() || !newEmail()) ? '0.5' : '1'"
-                  style="flex:2" i18n="@@profile.sendOtpBtn">
-            {{ loading() ? 'Enviando…' : 'Enviar código →' }}
+                  style="flex:2"
+                  [style.opacity]="(loading() || !newEmail()) ? '0.5' : '1'">
+            @if (loading()) {
+              <span class="btn-spinner"></span> Enviando…
+            } @else {
+              Enviar código →
+            }
           </button>
         }
 
         @if (activeTab() === 'email' && emailOtpSent()) {
           <button class="btn-pill btn-primary" (click)="updateEmail()"
-                  [disabled]="loading() || emailOtp().length < 6"
-                  [style.opacity]="(loading() || emailOtp().length < 6) ? '0.5' : '1'"
-                  style="flex:2" i18n="@@profile.updateEmailBtn">
-            {{ loading() ? 'Verificando…' : 'Actualizar correo →' }}
+                  [disabled]="loading() || (savedTab() !== 'email' && emailOtp().length < 6)"
+                  style="flex:2"
+                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'email' && emailOtp().length < 6) ? '0.5' : '1'"
+                  [style.background]="savedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''"
+                  [style.border-color]="savedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''">
+            @if (loading()) {
+              <span class="btn-spinner"></span> Verificando…
+            } @else if (savedTab() === 'email') {
+              ✓ Actualizado
+            } @else {
+              Actualizar correo →
+            }
           </button>
         }
 
         @if (activeTab() === 'password') {
           <button class="btn-pill btn-primary" (click)="updatePassword()"
-                  [disabled]="loading() || !currentPassword() || !newPassword() || !confirmPassword()"
-                  [style.opacity]="(loading() || !currentPassword() || !newPassword() || !confirmPassword()) ? '0.5' : '1'"
-                  style="flex:2" i18n="@@profile.updatePasswordBtn">
-            {{ loading() ? 'Actualizando…' : 'Actualizar contraseña' }}
+                  [disabled]="loading() || (savedTab() !== 'password' && (!currentPassword() || !newPassword() || !confirmPassword()))"
+                  style="flex:2"
+                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'password' && (!currentPassword() || !newPassword() || !confirmPassword())) ? '0.5' : '1'"
+                  [style.background]="savedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''"
+                  [style.border-color]="savedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''">
+            @if (loading()) {
+              <span class="btn-spinner"></span> Actualizando…
+            } @else if (savedTab() === 'password') {
+              ✓ Actualizada
+            } @else {
+              Actualizar contraseña
+            }
           </button>
         }
       </div>
@@ -175,8 +202,10 @@ export class ProfileModalComponent {
   protected readonly newPassword     = signal('');
   protected readonly confirmPassword = signal('');
   protected readonly loading         = signal(false);
-  protected readonly successMessage  = signal('');
+  protected readonly savedTab        = signal<SavedTab | null>(null);
   protected readonly errorMessage    = signal('');
+
+  private savedTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     effect(() => {
@@ -190,7 +219,7 @@ export class ProfileModalComponent {
 
   protected selectTab(tab: 'name' | 'email' | 'password'): void {
     this.activeTab.set(tab);
-    this.successMessage.set('');
+    this.savedTab.set(null);
     this.errorMessage.set('');
   }
 
@@ -201,8 +230,8 @@ export class ProfileModalComponent {
     this.errorMessage.set('');
     this.auth.updateProfile({ name }).subscribe({
       next: () => {
-        this.successMessage.set('Nombre actualizado correctamente.');
         this.loading.set(false);
+        this.markSaved('name');
       },
       error: (err: Error) => {
         this.errorMessage.set(err.message ?? 'Error al actualizar el nombre.');
@@ -233,11 +262,11 @@ export class ProfileModalComponent {
     this.errorMessage.set('');
     this.auth.updateProfile({ newEmail: this.newEmail().trim(), otp: this.emailOtp() }).subscribe({
       next: () => {
-        this.successMessage.set('Correo actualizado correctamente.');
+        this.loading.set(false);
         this.emailOtpSent.set(false);
         this.emailOtp.set('');
         this.newEmail.set('');
-        this.loading.set(false);
+        this.markSaved('email');
       },
       error: (err: Error) => {
         this.errorMessage.set(err.message ?? 'Código incorrecto. Intenta de nuevo.');
@@ -262,11 +291,11 @@ export class ProfileModalComponent {
       newPassword: this.newPassword(),
     }).subscribe({
       next: () => {
-        this.successMessage.set('Contraseña actualizada correctamente.');
+        this.loading.set(false);
         this.currentPassword.set('');
         this.newPassword.set('');
         this.confirmPassword.set('');
-        this.loading.set(false);
+        this.markSaved('password');
       },
       error: (err: Error) => {
         this.errorMessage.set(err.message ?? 'Error al actualizar la contraseña.');
@@ -280,15 +309,22 @@ export class ProfileModalComponent {
     this.modal.close();
   }
 
+  private markSaved(tab: SavedTab): void {
+    if (this.savedTimer) clearTimeout(this.savedTimer);
+    this.savedTab.set(tab);
+    this.savedTimer = setTimeout(() => this.savedTab.set(null), 2500);
+  }
+
   private resetState(): void {
+    if (this.savedTimer) { clearTimeout(this.savedTimer); this.savedTimer = null; }
     this.newEmail.set('');
     this.emailOtp.set('');
     this.emailOtpSent.set(false);
     this.currentPassword.set('');
     this.newPassword.set('');
     this.confirmPassword.set('');
-    this.successMessage.set('');
     this.errorMessage.set('');
+    this.savedTab.set(null);
     this.loading.set(false);
   }
 }
