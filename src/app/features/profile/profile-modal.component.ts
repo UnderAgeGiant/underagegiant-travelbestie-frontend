@@ -11,7 +11,7 @@ import { ProfileModalService } from '../../core/profile/profile-modal.service';
   template: `
 @if (modal.isOpen()) {
 <div class="modal-backdrop" (click)="onBackdropClick($event)">
-  <div class="modal-container" style="max-width:440px;width:100%">
+  <div class="modal" style="max-width:440px">
 
     <!-- Header -->
     <div class="modal-head" style="background:linear-gradient(135deg,var(--lav),var(--peach));position:relative">

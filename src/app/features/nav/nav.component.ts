@@ -223,10 +223,6 @@ import { environment } from '../../../environments/environment';
         @if (!auth.isLoggedIn()) {
           <button class="btn-pill btn-ghost" (click)="authModal.openLogin()" i18n="@@nav.signInBtn">Iniciar sesión</button>
         } @else {
-          <div style="display:flex;align-items:center;gap:4px">
-          <button style="font-size:16px;background:none;border:none;cursor:pointer;padding:4px 6px;border-radius:8px;color:var(--t1)"
-                  (click)="profileModal.open()"
-                  i18n-title="@@nav.profileBtnTitle" title="Editar perfil">⚙️</button>
           <div style="position:relative">
             <button class="user-btn" (click)="toggleUserMenu()">
               <div class="user-avatar">{{ initials() }}</div>
@@ -249,6 +245,13 @@ import { environment } from '../../../environments/environment';
                       <div class="profile-name">{{ auth.currentUser()?.name }}</div>
                       <div class="profile-email">{{ auth.currentUser()?.email }}</div>
                     </div>
+                    <button type="button"
+                            style="margin-left:auto;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--lav);border:none;border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--lav-d)"
+                            (click)="profileModal.open()"
+                            i18n-title="@@nav.profileBtnTitle" title="Editar perfil">
+                      <span style="font-size:15px">⚙️</span>
+                      <span style="font-size:9px;font-weight:700;white-space:nowrap">Editar perfil</span>
+                    </button>
                   </div>
 
                   <!-- Saved plans toggle -->
@@ -399,7 +402,6 @@ import { environment } from '../../../environments/environment';
                 </div>
               </div>
             }
-          </div>
           </div>
         }
       </div>
