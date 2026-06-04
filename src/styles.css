@@ -790,6 +790,29 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   font-size: 13px;
   color: #c0392b;
 }
+/* ── Profile accordion ──────────────────────────────────────── */
+.profile-accordion-hd {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 13px 20px;
+  background: none; border: none; cursor: pointer;
+  transition: background .12s;
+}
+.profile-accordion-hd:hover { background: var(--cream); }
+.profile-accordion-title {
+  font-size: 13px; font-weight: 600; color: var(--t1);
+}
+.profile-accordion-sub {
+  font-size: 11px; color: var(--t3); margin-top: 2px;
+  max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.profile-accordion-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
+.profile-accordion-check   { font-size: 13px; font-weight: 700; color: oklch(50% 0.16 145); flex-shrink: 0; }
+.profile-accordion-bd {
+  padding: 4px 20px 18px;
+  animation: fadeIn .15s ease;
+}
+.profile-accordion-sep { height: 1px; background: var(--border); }
+
 .btn-spinner {
   display: inline-block;
   width: 12px;

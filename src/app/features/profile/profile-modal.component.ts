@@ -4,7 +4,10 @@ import {
 import { AuthService } from '../../core/auth/auth.service';
 import { ProfileModalService } from '../../core/profile/profile-modal.service';
 
+type Section = 'name' | 'email' | 'password';
 type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
+
+const TOGGLE_BTN = 'position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1';
 
 @Component({
   selector: 'tb-profile-modal',
@@ -24,45 +27,98 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
       <div class="modal-sub" i18n="@@profile.subtitle">Actualiza tu información de cuenta</div>
     </div>
 
-    <!-- Tab selector -->
-    <div class="profile-tabs">
-      <button class="profile-tab" [class.active]="activeTab() === 'name'"
-              (click)="selectTab('name')" i18n="@@profile.tabName">Nombre</button>
-      <button class="profile-tab" [class.active]="activeTab() === 'email'"
-              (click)="selectTab('email')" i18n="@@profile.tabEmail">Correo</button>
-      <button class="profile-tab" [class.active]="activeTab() === 'password'"
-              (click)="selectTab('password')" i18n="@@profile.tabPassword">Contraseña</button>
-    </div>
-
     <!-- Error banner -->
     @if (errorMessage()) {
       <div class="profile-error">{{ errorMessage() }}</div>
     }
 
-    <!-- Body -->
-    <div class="modal-body">
+    <!-- ① Nombre ─────────────────────────────────── -->
+    <button class="profile-accordion-hd" (click)="toggleSection('name')" type="button">
+      <span style="font-size:17px">👤</span>
+      <div style="flex:1;text-align:left">
+        <div class="profile-accordion-title">Nombre</div>
+        @if (openSection() !== 'name') {
+          <div class="profile-accordion-sub">{{ auth.currentUser()?.name }}</div>
+        }
+      </div>
+      @if (savedTab() === 'name') {
+        <span class="profile-accordion-check">✓</span>
+      } @else {
+        <span class="profile-accordion-chevron">{{ openSection() === 'name' ? '▴' : '▾' }}</span>
+      }
+    </button>
 
-      @if (activeTab() === 'name') {
-        <div class="form-group" style="margin-bottom:0">
+    @if (openSection() === 'name') {
+      <div class="profile-accordion-bd">
+        <div class="form-group" style="margin-bottom:14px">
           <label class="form-label" i18n="@@profile.nameLabel">Nombre para mostrar</label>
           <input class="form-input"
                  i18n-placeholder="@@profile.namePlaceholder" placeholder="Tu nombre"
                  [value]="displayName()"
                  (input)="displayName.set($any($event.target).value)" />
         </div>
-      }
+        <button class="btn-pill btn-primary"
+                style="width:100%;justify-content:center"
+                (click)="saveName()" [disabled]="loading()"
+                [style.opacity]="loading() ? '0.5' : '1'"
+                [style.background]="savedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''"
+                [style.border-color]="savedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''">
+          @if (loading()) {
+            <span class="btn-spinner"></span> Guardando…
+          } @else if (savedTab() === 'name') {
+            ✓ Guardado
+          } @else {
+            Guardar nombre
+          }
+        </button>
+      </div>
+    }
 
-      @if (activeTab() === 'email') {
+    <div class="profile-accordion-sep"></div>
+
+    <!-- ② Correo ─────────────────────────────────── -->
+    <button class="profile-accordion-hd" (click)="toggleSection('email')" type="button">
+      <span style="font-size:17px">✉️</span>
+      <div style="flex:1;text-align:left">
+        <div class="profile-accordion-title">Correo electrónico</div>
+        @if (openSection() !== 'email') {
+          <div class="profile-accordion-sub">{{ auth.currentUser()?.email }}</div>
+        }
+      </div>
+      @if (savedTab() === 'email') {
+        <span class="profile-accordion-check">✓</span>
+      } @else {
+        <span class="profile-accordion-chevron">{{ openSection() === 'email' ? '▴' : '▾' }}</span>
+      }
+    </button>
+
+    @if (openSection() === 'email') {
+      <div class="profile-accordion-bd">
         @if (!emailOtpSent()) {
-          <div class="form-group" style="margin-bottom:0">
+          <div class="form-group" style="margin-bottom:14px">
             <label class="form-label" i18n="@@profile.newEmailLabel">Nueva dirección de correo</label>
             <input class="form-input" type="email"
                    i18n-placeholder="@@profile.newEmailPlaceholder" placeholder="nuevo@correo.com"
                    [value]="newEmail()"
                    (input)="newEmail.set($any($event.target).value)" />
           </div>
+          <button class="btn-pill btn-primary"
+                  style="width:100%;justify-content:center"
+                  (click)="requestEmailOtp()"
+                  [disabled]="loading() || (savedTab() !== 'email-otp' && !newEmail())"
+                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'email-otp' && !newEmail()) ? '0.5' : '1'"
+                  [style.background]="savedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''"
+                  [style.border-color]="savedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''">
+            @if (loading()) {
+              <span class="btn-spinner"></span> Enviando…
+            } @else if (savedTab() === 'email-otp') {
+              ✓ Enviado
+            } @else {
+              Enviar código →
+            }
+          </button>
         } @else {
-          <div style="text-align:center;padding:8px 0 4px">
+          <div style="text-align:center;padding:4px 0 12px">
             <div style="font-size:28px">📧</div>
             <div style="font-size:13px;font-weight:600;color:var(--t1);margin-top:6px"
                  i18n="@@profile.otpSentTitle">Revisa tu correo</div>
@@ -71,14 +127,14 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
               <strong>{{ newEmail() }}</strong>
             </div>
           </div>
-          <div class="form-group" style="margin-bottom:0">
+          <div class="form-group" style="margin-bottom:4px">
             <label class="form-label" i18n="@@profile.otpLabel">Código de verificación</label>
             <input class="form-input" type="text" inputmode="numeric" maxlength="6"
                    i18n-placeholder="@@profile.otpPlaceholder" placeholder="000000"
                    [value]="emailOtp()"
                    (input)="emailOtp.set($any($event.target).value)" />
           </div>
-          <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:14px;font-size:11px">
             <span style="color:var(--lav-d);cursor:pointer"
                   (click)="emailOtpSent.set(false)"
                   i18n="@@profile.otpBack">← Cambiar correo</span>
@@ -86,10 +142,45 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
                   (click)="requestEmailOtp()"
                   i18n="@@profile.otpResend">Reenviar código</span>
           </div>
+          <button class="btn-pill btn-primary"
+                  style="width:100%;justify-content:center"
+                  (click)="updateEmail()"
+                  [disabled]="loading() || (savedTab() !== 'email' && emailOtp().length < 6)"
+                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'email' && emailOtp().length < 6) ? '0.5' : '1'"
+                  [style.background]="savedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''"
+                  [style.border-color]="savedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''">
+            @if (loading()) {
+              <span class="btn-spinner"></span> Verificando…
+            } @else if (savedTab() === 'email') {
+              ✓ Actualizado
+            } @else {
+              Actualizar correo →
+            }
+          </button>
         }
-      }
+      </div>
+    }
 
-      @if (activeTab() === 'password') {
+    <div class="profile-accordion-sep"></div>
+
+    <!-- ③ Contraseña ─────────────────────────────── -->
+    <button class="profile-accordion-hd" (click)="toggleSection('password')" type="button">
+      <span style="font-size:17px">🔒</span>
+      <div style="flex:1;text-align:left">
+        <div class="profile-accordion-title">Contraseña</div>
+        @if (openSection() !== 'password') {
+          <div class="profile-accordion-sub">••••••••</div>
+        }
+      </div>
+      @if (savedTab() === 'password') {
+        <span class="profile-accordion-check">✓</span>
+      } @else {
+        <span class="profile-accordion-chevron">{{ openSection() === 'password' ? '▴' : '▾' }}</span>
+      }
+    </button>
+
+    @if (openSection() === 'password') {
+      <div class="profile-accordion-bd">
         <div class="form-group">
           <label class="form-label" i18n="@@profile.currentPasswordLabel">Contraseña actual</label>
           <div style="position:relative">
@@ -97,8 +188,7 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
                    [type]="showCurrentPassword() ? 'text' : 'password'" placeholder="••••••••"
                    [value]="currentPassword()"
                    (input)="currentPassword.set($any($event.target).value)" />
-            <button type="button"
-                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+            <button type="button" [style]="TOGGLE_BTN"
                     (click)="showCurrentPassword.set(!showCurrentPassword())">
               {{ showCurrentPassword() ? 'Ocultar' : 'Ver' }}
             </button>
@@ -111,8 +201,7 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
                    [type]="showNewPassword() ? 'text' : 'password'" placeholder="••••••••"
                    [value]="newPassword()"
                    (input)="newPassword.set($any($event.target).value)" />
-            <button type="button"
-                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+            <button type="button" [style]="TOGGLE_BTN"
                     (click)="showNewPassword.set(!showNewPassword())">
               {{ showNewPassword() ? 'Ocultar' : 'Ver' }}
             </button>
@@ -130,7 +219,7 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
             </div>
           }
         </div>
-        <div class="form-group" style="margin-bottom:0">
+        <div class="form-group" style="margin-bottom:14px">
           <label class="form-label" i18n="@@profile.confirmPasswordLabel">Confirmar contraseña</label>
           <div style="position:relative">
             <input class="form-input" style="padding-right:72px"
@@ -138,8 +227,7 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
                    [value]="confirmPassword()"
                    (input)="confirmPassword.set($any($event.target).value)"
                    [style.border-color]="confirmPassword() && !passwordsMatch() ? 'oklch(55% 0.22 25)' : ''" />
-            <button type="button"
-                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+            <button type="button" [style]="TOGGLE_BTN"
                     (click)="showConfirmPassword.set(!showConfirmPassword())">
               {{ showConfirmPassword() ? 'Ocultar' : 'Ver' }}
             </button>
@@ -150,85 +238,25 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
             </div>
           }
         </div>
-      }
-
-    </div>
-
-    <!-- Footer -->
-    <div class="modal-foot">
-      <div style="display:flex;gap:8px;width:100%">
-        <button class="btn-pill btn-outline" (click)="modal.close()" style="flex:1"
-                i18n="@@profile.cancelBtn">Cancelar</button>
-
-        @if (activeTab() === 'name') {
-          <button class="btn-pill btn-primary" (click)="saveName()"
-                  [disabled]="loading()"
-                  style="flex:2"
-                  [style.opacity]="loading() ? '0.5' : '1'"
-                  [style.background]="savedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''"
-                  [style.border-color]="savedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''">
-            @if (loading()) {
-              <span class="btn-spinner"></span> Guardando…
-            } @else if (savedTab() === 'name') {
-              ✓ Guardado
-            } @else {
-              Guardar nombre
-            }
-          </button>
-        }
-
-        @if (activeTab() === 'email' && !emailOtpSent()) {
-          <button class="btn-pill btn-primary" (click)="requestEmailOtp()"
-                  [disabled]="loading() || (savedTab() !== 'email-otp' && !newEmail())"
-                  style="flex:2"
-                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'email-otp' && !newEmail()) ? '0.5' : '1'"
-                  [style.background]="savedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''"
-                  [style.border-color]="savedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''">
-            @if (loading()) {
-              <span class="btn-spinner"></span> Enviando…
-            } @else if (savedTab() === 'email-otp') {
-              ✓ Enviado
-            } @else {
-              Enviar código →
-            }
-          </button>
-        }
-
-        @if (activeTab() === 'email' && emailOtpSent()) {
-          <button class="btn-pill btn-primary" (click)="updateEmail()"
-                  [disabled]="loading() || (savedTab() !== 'email' && emailOtp().length < 6)"
-                  style="flex:2"
-                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'email' && emailOtp().length < 6) ? '0.5' : '1'"
-                  [style.background]="savedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''"
-                  [style.border-color]="savedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''">
-            @if (loading()) {
-              <span class="btn-spinner"></span> Verificando…
-            } @else if (savedTab() === 'email') {
-              ✓ Actualizado
-            } @else {
-              Actualizar correo →
-            }
-          </button>
-        }
-
-        @if (activeTab() === 'password') {
-          <button class="btn-pill btn-primary" (click)="updatePassword()"
-                  [disabled]="loading() || (savedTab() !== 'password' && (!currentPassword() || !newPassword() || !confirmPassword()))"
-                  style="flex:2"
-                  [style.opacity]="loading() ? '0.5' : (savedTab() !== 'password' && (!currentPassword() || !newPassword() || !confirmPassword())) ? '0.5' : '1'"
-                  [style.background]="savedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''"
-                  [style.border-color]="savedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''">
-            @if (loading()) {
-              <span class="btn-spinner"></span> Actualizando…
-            } @else if (savedTab() === 'password') {
-              ✓ Actualizada
-            } @else {
-              Actualizar contraseña
-            }
-          </button>
-        }
+        <button class="btn-pill btn-primary"
+                style="width:100%;justify-content:center"
+                (click)="updatePassword()"
+                [disabled]="loading() || (savedTab() !== 'password' && (!currentPassword() || !newPassword() || !confirmPassword()))"
+                [style.opacity]="loading() ? '0.5' : (savedTab() !== 'password' && (!currentPassword() || !newPassword() || !confirmPassword())) ? '0.5' : '1'"
+                [style.background]="savedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''"
+                [style.border-color]="savedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''">
+          @if (loading()) {
+            <span class="btn-spinner"></span> Actualizando…
+          } @else if (savedTab() === 'password') {
+            ✓ Actualizada
+          } @else {
+            Actualizar contraseña
+          }
+        </button>
       </div>
-    </div>
+    }
+
+    <div style="height:8px"></div>
 
   </div>
 </div>
@@ -239,14 +267,16 @@ export class ProfileModalComponent {
   protected readonly modal = inject(ProfileModalService);
   protected readonly auth  = inject(AuthService);
 
-  protected readonly activeTab       = signal<'name' | 'email' | 'password'>('name');
-  protected readonly displayName     = signal('');
-  protected readonly newEmail        = signal('');
-  protected readonly emailOtp        = signal('');
-  protected readonly emailOtpSent    = signal(false);
-  protected readonly currentPassword = signal('');
-  protected readonly newPassword     = signal('');
-  protected readonly confirmPassword = signal('');
+  protected readonly TOGGLE_BTN = TOGGLE_BTN;
+
+  protected readonly openSection      = signal<Section | null>(null);
+  protected readonly displayName      = signal('');
+  protected readonly newEmail         = signal('');
+  protected readonly emailOtp         = signal('');
+  protected readonly emailOtpSent     = signal(false);
+  protected readonly currentPassword  = signal('');
+  protected readonly newPassword      = signal('');
+  protected readonly confirmPassword  = signal('');
   protected readonly loading              = signal(false);
   protected readonly savedTab             = signal<SavedTab | null>(null);
   protected readonly errorMessage         = signal('');
@@ -305,19 +335,14 @@ export class ProfileModalComponent {
   constructor() {
     effect(() => {
       if (this.modal.isOpen()) {
-        // untracked: reading currentUser must not make this effect re-run
-        // when a successful save updates the user signal — that would call
-        // resetState() and wipe savedTab before the ✓ ever renders.
         this.displayName.set(untracked(() => this.auth.currentUser()?.name ?? ''));
-        this.activeTab.set('name');
         this.resetState();
       }
     }, { allowSignalWrites: true });
   }
 
-  protected selectTab(tab: 'name' | 'email' | 'password'): void {
-    this.activeTab.set(tab);
-    this.savedTab.set(null);
+  protected toggleSection(section: Section): void {
+    this.openSection.update(cur => cur === section ? null : section);
     this.errorMessage.set('');
   }
 
@@ -327,10 +352,7 @@ export class ProfileModalComponent {
     this.loading.set(true);
     this.errorMessage.set('');
     this.auth.updateProfile({ name }).subscribe({
-      next: () => {
-        this.loading.set(false);
-        this.markSaved('name');
-      },
+      next: () => { this.loading.set(false); this.markSaved('name'); },
       error: (err: Error) => {
         this.errorMessage.set(err.message ?? 'Error al actualizar el nombre.');
         this.loading.set(false);
@@ -346,7 +368,6 @@ export class ProfileModalComponent {
     this.auth.requestProfileOtp(email).subscribe({
       next: () => {
         this.loading.set(false);
-        // Delay transition to OTP screen so the ✓ has time to render.
         this.markSaved('email-otp', () => { this.emailOtpSent.set(true); });
       },
       error: (err: Error) => {
@@ -362,9 +383,6 @@ export class ProfileModalComponent {
     this.auth.updateProfile({ newEmail: this.newEmail().trim(), otp: this.emailOtp() }).subscribe({
       next: () => {
         this.loading.set(false);
-        // Clear OTP form fields only AFTER the success animation completes —
-        // doing it now would set emailOtpSent=false, collapsing the button
-        // before the ✓ ever renders.
         this.markSaved('email', () => {
           this.emailOtpSent.set(false);
           this.emailOtp.set('');
@@ -379,14 +397,8 @@ export class ProfileModalComponent {
   }
 
   protected updatePassword(): void {
-    if (!this.passwordsMatch()) {
-      this.errorMessage.set('Las contraseñas no coinciden.');
-      return;
-    }
-    if (this.newPassword().length < 6) {
-      this.errorMessage.set('La contraseña debe tener al menos 6 caracteres.');
-      return;
-    }
+    if (!this.passwordsMatch()) { this.errorMessage.set('Las contraseñas no coinciden.'); return; }
+    if (this.newPassword().length < 6) { this.errorMessage.set('La contraseña debe tener al menos 6 caracteres.'); return; }
     this.loading.set(true);
     this.errorMessage.set('');
     this.auth.updateProfile({
@@ -418,6 +430,7 @@ export class ProfileModalComponent {
 
   private resetState(): void {
     if (this.savedTimer) { clearTimeout(this.savedTimer); this.savedTimer = null; }
+    this.openSection.set(null);
     this.newEmail.set('');
     this.emailOtp.set('');
     this.emailOtpSent.set(false);
