@@ -15,8 +15,6 @@ import { CommentCooldownService } from '../../core/comments/comment-cooldown.ser
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
 import { KarmaSuccessOverlayComponent } from '../karma/karma-success-overlay.component';
 import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-modal.component';
-import { ProfileModalService } from '../../core/profile/profile-modal.service';
-import { ProfileModalComponent } from '../profile/profile-modal.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 import { environment } from '../../../environments/environment';
@@ -24,7 +22,7 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent, InsufficientKarmaModalComponent, ProfileModalComponent],
+  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent, InsufficientKarmaModalComponent],
   styles: [`
     /* ── Saved-plans toggle button ── */
     .up-plans-btn {
@@ -245,13 +243,6 @@ import { environment } from '../../../environments/environment';
                       <div class="profile-name">{{ auth.currentUser()?.name }}</div>
                       <div class="profile-email">{{ auth.currentUser()?.email }}</div>
                     </div>
-                    <button type="button"
-                            style="margin-left:auto;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--lav);border:none;border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--lav-d)"
-                            (click)="profileModal.open()"
-                            i18n-title="@@nav.profileBtnTitle" title="Editar perfil">
-                      <span style="font-size:15px">⚙️</span>
-                      <span style="font-size:9px;font-weight:700;white-space:nowrap">Editar perfil</span>
-                    </button>
                   </div>
 
                   <!-- Saved plans toggle -->
@@ -449,8 +440,6 @@ import { environment } from '../../../environments/environment';
       </div>
     }
 
-    <tb-profile-modal />
-
     @if (authModal.isOpen()) {
       <div class="modal-backdrop" (click)="onBackdropClick($event)">
         <div class="modal">
@@ -638,7 +627,7 @@ import { environment } from '../../../environments/environment';
 export class NavComponent {
   readonly auth             = inject(AuthService);
   readonly authModal        = inject(AuthModalService);
-  readonly profileModal     = inject(ProfileModalService);
+
   readonly trip             = inject(TripService);
   readonly karma            = inject(KarmaService);
   readonly karmaModal       = inject(KarmaModalService);
