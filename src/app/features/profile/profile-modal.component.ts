@@ -12,7 +12,7 @@ type SavedTab = 'name' | 'email-otp' | 'email' | 'password';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
 @if (modal.isOpen()) {
-<div class="modal-backdrop" (click)="onBackdropClick($event)">
+<div class="modal-backdrop">
   <div class="modal" style="max-width:440px">
 
     <!-- Header -->
@@ -405,11 +405,6 @@ export class ProfileModalComponent {
         this.loading.set(false);
       },
     });
-  }
-
-  protected onBackdropClick(event: MouseEvent): void {
-    if (event.target !== event.currentTarget) return;
-    this.modal.close();
   }
 
   private markSaved(tab: SavedTab, onComplete?: () => void): void {
