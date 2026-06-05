@@ -903,6 +903,90 @@
         <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Updating…' : 'Update password' }}"/> </target>
       </trans-unit>
 
+      <!-- ── landing sections ── -->
+      <trans-unit id="landing.scrollHint" datatype="html">
+        <source>Desliza para explorar</source>
+        <target>Scroll to explore</target>
+      </trans-unit>
+      <trans-unit id="landing.cardBy" datatype="html">
+        <source>por</source>
+        <target>by</target>
+      </trans-unit>
+      <trans-unit id="landing.cloneBtn" datatype="html">
+        <source>⿻ Copia este viaje para ti</source>
+        <target>⿻ Copy this trip for yourself</target>
+      </trans-unit>
+      <trans-unit id="landing.aboutHeading" datatype="html">
+        <source>Planifica el viaje<x id="LINE_BREAK" equiv-text="&lt;br&gt;"/><x id="START_EMPHASISED_TEXT" equiv-text="&lt;em&gt;"/>que siempre soñaste<x id="CLOSE_EMPHASISED_TEXT" equiv-text="&lt;/em&gt;"/></source>
+        <target>Plan the trip<x id="LINE_BREAK" equiv-text="&lt;br&gt;"/><x id="START_EMPHASISED_TEXT" equiv-text="&lt;em&gt;"/>you've always dreamed of<x id="CLOSE_EMPHASISED_TEXT" equiv-text="&lt;/em&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="landing.aboutMission" datatype="html">
+        <source>
+      TravelingBestie reúne miles de atracciones turísticas en decenas
+      de ciudades para que armes tu itinerario perfecto, lo compartas con tus mejores
+      amigos y lo hagas realidad.
+    </source>
+        <target>TravelingBestie brings together thousands of tourist attractions across dozens of cities so you can build your perfect itinerary, share it with your best friends, and make it real.</target>
+      </trans-unit>
+      <trans-unit id="landing.statCities" datatype="html">
+        <source>ciudades</source>
+        <target>cities</target>
+      </trans-unit>
+      <trans-unit id="landing.statUsers" datatype="html">
+        <source>viajeros</source>
+        <target>travelers</target>
+      </trans-unit>
+      <trans-unit id="landing.statPlans" datatype="html">
+        <source>planes creados</source>
+        <target>trips created</target>
+      </trans-unit>
+      <trans-unit id="landing.footerTagline" datatype="html">
+        <source>
+      Planifica. Comparte. Explora.
+    </source>
+        <target>Plan. Share. Explore.</target>
+      </trans-unit>
+      <trans-unit id="landing.footerColApp" datatype="html">
+        <source>Aplicación</source>
+        <target>App</target>
+      </trans-unit>
+      <trans-unit id="landing.footerLinkExplore" datatype="html">
+        <source>Explorar</source>
+        <target>Explore</target>
+      </trans-unit>
+      <trans-unit id="landing.footerLinkMyTrips" datatype="html">
+        <source>Mis viajes</source>
+        <target>My trips</target>
+      </trans-unit>
+      <trans-unit id="landing.footerLinkShared" datatype="html">
+        <source>Compartidos</source>
+        <target>Shared</target>
+      </trans-unit>
+      <trans-unit id="landing.footerColAbout" datatype="html">
+        <source>Nosotros</source>
+        <target>About</target>
+      </trans-unit>
+      <trans-unit id="landing.footerLinkAbout" datatype="html">
+        <source>Sobre TravelingBestie</source>
+        <target>About TravelingBestie</target>
+      </trans-unit>
+      <trans-unit id="landing.footerColLegal" datatype="html">
+        <source>Legal</source>
+        <target>Legal</target>
+      </trans-unit>
+      <trans-unit id="landing.footerLinkPrivacy" datatype="html">
+        <source>Política de privacidad</source>
+        <target>Privacy policy</target>
+      </trans-unit>
+      <trans-unit id="landing.footerLinkTerms" datatype="html">
+        <source>Términos de servicio</source>
+        <target>Terms of service</target>
+      </trans-unit>
+      <trans-unit id="landing.footerCopy" datatype="html">
+        <source>© 2026 TravelingBestie. Hecho con 💜 para aventureros.</source>
+        <target>© 2026 TravelingBestie. Made with 💜 for adventurers.</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

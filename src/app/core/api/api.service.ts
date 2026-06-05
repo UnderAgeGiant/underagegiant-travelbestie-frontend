@@ -1,12 +1,14 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
 import { CityCatalog, PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
+import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -206,5 +208,36 @@ export class ApiService {
       `${this.base}/karma/purchase/capture-order`,
       { orderID },
     );
+  }
+
+  private readonly FEATURED_CACHE_KEY = 'tb:featured:cache';
+  private readonly FEATURED_CACHE_TTL = 86_400_000; // 24 h in ms
+
+  getFeatured(): Observable<FeaturedTrip[]> {
+    if (this.useMocks) return of([]);
+
+    try {
+      const raw = localStorage.getItem(this.FEATURED_CACHE_KEY);
+      if (raw) {
+        const { data, ts } = JSON.parse(raw) as { data: FeaturedTrip[]; ts: number };
+        if (Date.now() - ts < this.FEATURED_CACHE_TTL) return of(data);
+      }
+    } catch { /* non-fatal — fall through to network */ }
+
+    return this.http.get<FeaturedTrip[]>(`${this.base}/featured`).pipe(
+      tap(data => {
+        try {
+          localStorage.setItem(
+            this.FEATURED_CACHE_KEY,
+            JSON.stringify({ data, ts: Date.now() }),
+          );
+        } catch { /* non-fatal — storage may be full or blocked */ }
+      }),
+    );
+  }
+
+  getStats(): Observable<AppStats> {
+    if (this.useMocks) return of({ cities: 120, users: 1200, plans: 4800 });
+    return this.http.get<AppStats>(`${this.base}/stats`);
   }
 }
