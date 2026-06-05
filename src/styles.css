@@ -610,6 +610,29 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .prof-name { font-size: 18px; }
   .trip-stats { gap: 16px; }
   .trip-stat-val { font-size: 22px; }
+
+  /* ── Landing: disable scroll-snap, revert to natural page scroll ── */
+  .landing-scroll {
+    height: auto;
+    margin-top: 58px;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+  .landing-snap-child {
+    height: auto;
+    min-height: calc(100svh - 58px);
+    overflow: visible;
+    scroll-snap-align: none;
+  }
+  /* S1: stack left panel above welcome (mirrors .layout on mobile) */
+  .s1-shell { flex-direction: column; }
+  .s1-shell > .right-panel {
+    overflow: visible;
+    min-height: 80svh;
+    width: 100%;
+  }
+  /* S3 about: single column */
+  .landing-about { padding: clamp(2.5rem, 8vw, 4rem) 1.5rem; }
 }
 
 /* ── AI Planning ── */
