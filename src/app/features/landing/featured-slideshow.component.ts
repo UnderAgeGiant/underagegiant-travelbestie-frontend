@@ -107,8 +107,11 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
   protected coverUrl(trip: FeaturedTrip): string {
     const city = WORLD_CITIES.find(c => c.id === trip.stops[0]?.cityId);
     if (!city) return '';
+    const attrs  = getAttractions(city);
     const attrId = trip.stops[0]?.selectedAttractions[0]?.attractionId;
-    return getAttractions(city).find(a => a.id === attrId)?.imageUrl ?? '';
+    return attrs.find(a => a.id === attrId)?.imageUrl
+        ?? attrs.find(a => !!a.imageUrl)?.imageUrl
+        ?? '';
   }
 
   protected cityName(cityId: string): string {
