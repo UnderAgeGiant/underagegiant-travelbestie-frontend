@@ -359,7 +359,8 @@ export class SharedTripComponent {
   karmaFlashStep   = signal<string | null>(null);
   cloning          = signal(false);
   cloneResult      = signal<Trip | null>(null);
-  shakeClone       = signal(false);
+  shakeClone         = signal(false);
+  private shakeTriggered = false;
 
   shouldShowComments(stepKey: string): boolean {
     return this.expandedSteps().has(stepKey) ||
@@ -386,12 +387,7 @@ export class SharedTripComponent {
       this.fetchTrip(id);
     }, { allowSignalWrites: true });
 
-    if (new URLSearchParams(window.location.search).get('highlight') === 'clone') {
-      setTimeout(() => {
-        this.shakeClone.set(true);
-        setTimeout(() => this.shakeClone.set(false), 800);
-      }, 150);
-    }
+    // Shake is triggered in fetchTrip after the trip loads and the button renders
   }
 
   private fetchTrip(id: string): void {
@@ -403,6 +399,13 @@ export class SharedTripComponent {
         this._trip.set(trip);
         this.allComments.set(comments);
         this.loading.set(false);
+        if (!this.shakeTriggered && new URLSearchParams(window.location.search).get('highlight') === 'clone') {
+          this.shakeTriggered = true;
+          setTimeout(() => {
+            this.shakeClone.set(true);
+            setTimeout(() => this.shakeClone.set(false), 800);
+          }, 100);
+        }
       },
       error: err => {
         if (err?.status === 429) this.rateLimited.set(true);
