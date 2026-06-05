@@ -108,7 +108,8 @@ let CURATED: CuratedMap = {
   ],
 };
 
-CURATED = Object.assign(CURATED, CURATED_ALL);
+// CURATED_ALL fills in cities not hand-curated; hand-curated cities take priority
+CURATED = { ...CURATED_ALL, ...CURATED };
 
 type RegionTemplate = { n: (c: City) => string; t: string; i: string; bg: string; e: number }[];
 const REGION_TMPL: Record<string, RegionTemplate> = {
