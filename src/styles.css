@@ -842,6 +842,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 .landing-scroll::-webkit-scrollbar { display: none; }
 .landing-snap-child {
+  display: block; /* custom element hosts default to inline — must force block for height to apply */
   scroll-snap-align: start;
   height: calc(100vh - 58px);
   min-height: calc(100vh - 58px);
