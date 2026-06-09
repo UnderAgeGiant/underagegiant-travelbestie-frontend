@@ -987,6 +987,22 @@
         <target>© 2026 TravelingBestie. Made with 💜 for adventurers.</target>
       </trans-unit>
 
+      <!-- ── day-timeline.component ── -->
+      <trans-unit id="timeline.freeDay" datatype="html">
+        <source>Día libre — sin planes aún</source>
+        <target>Free day — no plans yet</target>
+      </trans-unit>
+
+      <!-- ── stop-list.component (timeline time inputs) ── -->
+      <trans-unit id="timeline.startTimePlaceholder" datatype="html">
+        <source>Inicio</source>
+        <target>Start</target>
+      </trans-unit>
+      <trans-unit id="timeline.endTimePlaceholder" datatype="html">
+        <source>Fin</source>
+        <target>End</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

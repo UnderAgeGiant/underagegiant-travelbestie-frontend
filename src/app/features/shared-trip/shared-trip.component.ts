@@ -10,20 +10,21 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { StepComment } from '../../core/models/comment.model';
-import { Trip, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
+import { Trip, TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { TripService } from '../trip/trip.service';
 import { StepCommentsComponent } from './step-comments.component';
 import { CommentSimilarModalComponent } from '../comments/comment-similar-modal.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavComponent } from '../nav/nav.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 
 @Component({
   selector: 'app-shared-trip',
   standalone: true,
-  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent],
+  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent, DayTimelineComponent],
   styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -58,6 +59,7 @@ import { getAttractions } from '../../data/attractions.data';
 
     @if (trip()) {
       <div class="shared-body">
+        <div class="shared-main">
 
         <!-- Trip header -->
         <div class="shared-header">
@@ -149,7 +151,10 @@ import { getAttractions } from '../../data/attractions.data';
               @let stopKey = 'stop:' + stop.cityId;
 
               <!-- City card -->
-              <div class="itin-city">
+              <div class="itin-city"
+                   [class.itin-city-selected]="selectedShareStop()?.cityId === stop.cityId"
+                   (click)="selectShareStop(stop)"
+                   style="cursor:pointer">
                 <div class="itin-city-head">
                   <span class="itin-city-flag">{{ city.flag }}</span>
                   <div>
@@ -308,6 +313,9 @@ import { getAttractions } from '../../data/attractions.data';
           }
         </div>
 
+        </div><!-- /shared-main -->
+        <tb-day-timeline [stop]="selectedShareStop()" />
+
       </div>
 
     } @else if (loading()) {
@@ -349,8 +357,9 @@ export class SharedTripComponent {
   private readonly tripService = inject(TripService);
   private readonly cooldown    = inject(CommentCooldownService);
 
-  showProfile      = signal(false);
-  showSimilarModal = signal(false);
+  showProfile        = signal(false);
+  showSimilarModal   = signal(false);
+  selectedShareStop  = signal<TripStop | null>(null);
   rateLimited      = signal(false);
   loading          = signal(true);
   expandedSteps    = signal(new Set<string>());
@@ -477,6 +486,12 @@ export class SharedTripComponent {
     });
     this.tripService.restoreStops(cloned.stops, cloned.id!, cloned.transits ?? []);
     window.location.href = '/';
+  }
+
+  selectShareStop(stop: TripStop): void {
+    this.selectedShareStop.set(
+      this.selectedShareStop()?.cityId === stop.cityId ? null : stop,
+    );
   }
 
   retry(): void {

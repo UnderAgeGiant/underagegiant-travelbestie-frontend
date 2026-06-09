@@ -6,7 +6,7 @@ import { DatePickerComponent } from '../../../shared/date-picker/date-picker.com
 export interface ScheduleEntry {
   entryId:    string;
   attraction: Attraction;
-  startTime:  string;
+  startTime:  string | null;
   date?:      string;
 }
 
@@ -147,7 +147,8 @@ export class PlanTimeModalComponent implements OnInit {
   readonly isEditing = computed(() => this.initialTime() !== '');
 
   readonly schedule = computed(() =>
-    [...this.existingPlanned()].sort((a, b) => a.startTime.localeCompare(b.startTime))
+    [...this.existingPlanned()].sort((a, b) =>
+      (a.startTime ?? '').localeCompare(b.startTime ?? ''))
   );
 
   readonly overlappingIds = computed(() => {
@@ -156,6 +157,7 @@ export class PlanTimeModalComponent implements OnInit {
     const currentDate  = this.date();
     const ids = new Set<string>();
     for (const entry of this.schedule()) {
+      if (!entry.startTime) continue;
       const entryDate = entry.date ?? '';
       // Skip overlap check if both have explicit dates and they differ
       if (currentDate && entryDate && currentDate !== entryDate) continue;

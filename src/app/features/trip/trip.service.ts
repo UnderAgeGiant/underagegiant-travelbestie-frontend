@@ -7,7 +7,8 @@ function migrateAttraction(raw: any): PlannedAttraction {
   return {
     entryId:      raw.entryId ?? crypto.randomUUID(),
     attractionId: raw.attractionId,
-    startTime:    raw.startTime,
+    startTime:    raw.startTime ?? null,
+    endTime:      raw.endTime   ?? null,
     date:         raw.date,
   };
 }
@@ -55,18 +56,20 @@ const activePlanKey = (email: string) => `tb_active_plan_${email}`;
 export class TripService {
   private readonly auth = inject(AuthService);
 
-  private _stops        = signal<TripStop[]>([]);
-  private _transits     = signal<TransitLeg[]>([]);
-  private _activeId     = signal<string | null>(null);  // tracks stopId
-  private _loadedPlanId = signal<string | null>(null);
-  private _saving       = false;
+  private _stops             = signal<TripStop[]>([]);
+  private _transits          = signal<TransitLeg[]>([]);
+  private _activeId          = signal<string | null>(null);  // tracks stopId
+  private _loadedPlanId      = signal<string | null>(null);
+  private _selectedTransitId = signal<string | null>(null);
+  private _saving            = false;
 
-  readonly stops        = this._stops.asReadonly();
-  readonly transits     = this._transits.asReadonly();
-  readonly activeId     = this._activeId.asReadonly();
-  readonly loadedPlanId = this._loadedPlanId.asReadonly();
-  readonly existingCityIds = computed(() => this._stops().map(s => s.cityId));
-  readonly activeStop      = computed(() => this._stops().find(s => s.stopId === this._activeId()) ?? null);
+  readonly stops             = this._stops.asReadonly();
+  readonly transits          = this._transits.asReadonly();
+  readonly activeId          = this._activeId.asReadonly();
+  readonly loadedPlanId      = this._loadedPlanId.asReadonly();
+  readonly selectedTransitId = this._selectedTransitId.asReadonly();
+  readonly existingCityIds   = computed(() => this._stops().map(s => s.cityId));
+  readonly activeStop        = computed(() => this._stops().find(s => s.stopId === this._activeId()) ?? null);
 
   readonly transitMap = computed(() => {
     const map = new Map<string, TransitLeg>();
@@ -226,13 +229,31 @@ export class TripService {
 
   setActive(stopId: string): void {
     this._activeId.set(stopId);
+    this._selectedTransitId.set(null);
+  }
+
+  selectTransit(transitId: string | null): void {
+    this._selectedTransitId.set(transitId);
+    if (transitId !== null) {
+      this._activeId.set(null);
+    }
   }
 
   addAttraction(stopId: string, attractionId: string, startTime: string, date?: string): void {
     const entryId = crypto.randomUUID();
     this._stops.update(stops => stops.map(s =>
       s.stopId === stopId
-        ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, date }] }
+        ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, endTime: null, date }] }
+        : s
+    ));
+  }
+
+  patchAttractionTime(stopId: string, entryId: string, field: 'startTime' | 'endTime', value: string | null): void {
+    this._stops.update(stops => stops.map(s =>
+      s.stopId === stopId
+        ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
+            a.entryId === entryId ? { ...a, [field]: value } : a
+          )}
         : s
     ));
   }

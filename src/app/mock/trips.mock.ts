@@ -11,8 +11,8 @@ export const MOCK_TRIPS: Trip[] = [
         checkIn: '01/06/2026',
         checkOut: '05/06/2026',
         selectedAttractions: [
-          { entryId: 'mock-paris-0', attractionId: 'paris_0', startTime: '10:00', date: '02/06/2026' },
-          { entryId: 'mock-paris-1', attractionId: 'paris_1', startTime: '14:30', date: '03/06/2026' },
+          { entryId: 'mock-paris-0', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '02/06/2026' },
+          { entryId: 'mock-paris-1', attractionId: 'paris_1', startTime: '14:30', endTime: null, date: '03/06/2026' },
         ],
         lodging: { name: 'Hôtel Le Marais', url: 'https://example.com/lemarais' },
       },
@@ -22,7 +22,7 @@ export const MOCK_TRIPS: Trip[] = [
         checkIn: '06/06/2026',
         checkOut: '10/06/2026',
         selectedAttractions: [
-          { entryId: 'mock-rome-0', attractionId: 'rome_0', startTime: '09:00', date: '07/06/2026' },
+          { entryId: 'mock-rome-0', attractionId: 'rome_0', startTime: '09:00', endTime: null, date: '07/06/2026' },
         ],
         lodging: { name: 'Hotel Pantheon', url: 'https://example.com/pantheon' },
       },
@@ -68,7 +68,7 @@ export const MOCK_TRIPS: Trip[] = [
         checkIn: '10/10/2026',
         checkOut: '16/10/2026',
         selectedAttractions: [
-          { entryId: 'mock-tokyo-0', attractionId: 'tokyo_0', startTime: '11:00', date: '11/10/2026' },
+          { entryId: 'mock-tokyo-0', attractionId: 'tokyo_0', startTime: '11:00', endTime: null, date: '11/10/2026' },
         ],
         lodging: { name: 'Shinjuku Granbell Hotel', url: 'https://example.com/granbell' },
       },
