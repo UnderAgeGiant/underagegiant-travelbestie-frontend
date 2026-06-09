@@ -12,6 +12,7 @@ import { AiPlanningComponent } from './features/ai-planning/ai-planning.componen
 import { FeaturedSlideshowComponent } from './features/landing/featured-slideshow.component';
 import { LandingAboutComponent }      from './features/landing/landing-about.component';
 import { AppFooterComponent }         from './features/landing/app-footer.component';
+import { DayTimelineComponent }       from './features/planning/day-timeline/day-timeline.component';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ import { AppFooterComponent }         from './features/landing/app-footer.compon
     FeaturedSlideshowComponent,
     LandingAboutComponent,
     AppFooterComponent,
+    DayTimelineComponent,
   ],
   template: `
     @if (sharedTripId()) {
@@ -69,6 +71,7 @@ import { AppFooterComponent }         from './features/landing/app-footer.compon
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
         <app-stop-list (addDestination)="showAddModal.set(true)" />
+        <tb-day-timeline />
         <div class="right-panel">
           @if (!trip.activeStop()) {
             <div class="empty-stop">

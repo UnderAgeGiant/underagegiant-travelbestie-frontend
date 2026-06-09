@@ -258,6 +258,9 @@ export class TransitConnectorComponent {
   ];
 
   openEdit(): void {
+    if (this.type() === 'default') {
+      this.trip.selectTransit(`${this.fromId()}_${this.toId()}`);
+    }
     const existing     = this.transit();
     const existingSegs = existing ? [...existing.segments] : [];
     this.segs.set(existingSegs);

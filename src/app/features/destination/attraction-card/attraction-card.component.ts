@@ -200,7 +200,7 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
     @if (editingEntry()) {
       <app-plan-time-modal
         [attraction]="attraction()"
-        [initialTime]="editingEntry()!.startTime"
+        [initialTime]="editingEntry()!.startTime ?? ''"
         [initialDate]="editingEntry()!.date ?? ''"
         [stopCheckIn]="activeStop()?.checkIn ?? ''"
         [stopCheckOut]="activeStop()?.checkOut ?? ''"

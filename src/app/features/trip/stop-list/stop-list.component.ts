@@ -21,6 +21,7 @@ import { LodgingComponent } from './lodging.component';
       display: flex; align-items: center; gap: 6px;
       padding: 4px 2px; border-radius: 8px;
       transition: background .12s;
+      flex-wrap: wrap;
     }
     .att-plan-row:hover { background: oklch(0% 0 0/.04); }
     .att-plan-icon { font-size: 14px; flex-shrink: 0; }
@@ -151,6 +152,20 @@ import { LodgingComponent } from './lodging.component';
                                   (click)="trip.removeAttraction(stop.stopId, planned.entryId)"
                                   i18n-title="@@stopList.removeAttTitle"
                                   title="Quitar del plan">×</button>
+                          <!-- Inline time inputs for timeline -->
+                          <div class="att-time-inputs">
+                            <input type="time" class="att-time-input"
+                                   [value]="planned.startTime ?? ''"
+                                   (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event)"
+                                   i18n-placeholder="@@timeline.startTimePlaceholder"
+                                   placeholder="Inicio" />
+                            <span class="att-time-sep">–</span>
+                            <input type="time" class="att-time-input"
+                                   [value]="planned.endTime ?? ''"
+                                   (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'endTime', $event)"
+                                   i18n-placeholder="@@timeline.endTimePlaceholder"
+                                   placeholder="Fin" />
+                          </div>
                         </div>
                       }
                     }
@@ -344,6 +359,11 @@ export class StopListComponent {
   shortDate(s: string): string {
     const p = s.split('/');
     return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
+  }
+
+  onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', event: Event): void {
+    const value = (event.target as HTMLInputElement).value || null;
+    this.trip.patchAttractionTime(stopId, entryId, field, value);
   }
 
   hasTimeCollision(stop: import('../../../core/models/trip.model').TripStop, targetEntryId: string): boolean {
