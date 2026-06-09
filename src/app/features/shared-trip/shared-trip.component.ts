@@ -314,7 +314,7 @@ import { getAttractions } from '../../data/attractions.data';
         </div>
 
         </div><!-- /shared-main -->
-        <tb-day-timeline [stop]="selectedShareStop()" />
+        <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" />
 
       </div>
 

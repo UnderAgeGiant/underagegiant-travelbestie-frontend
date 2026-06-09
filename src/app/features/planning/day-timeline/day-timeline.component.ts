@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
-import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
+import { TripStop, PlannedAttraction, TransitLeg } from '../../../core/models/trip.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 
@@ -19,7 +19,7 @@ interface DayTab {
   date: Date;
   dow:  string;
   num:  number;
-  key:  string;   // dd/mm — matches dd/mm slice of dd/mm/yyyy date
+  key:  string;
   hasEvents: boolean;
 }
 
@@ -60,6 +60,23 @@ function typeIcon(type: string): string {
     case 'Patrimonio':     return '✨';
     default:               return '🏛️';
   }
+}
+
+function transitModeColors(mode: string): [string, string] {
+  switch (mode) {
+    case 'train': return ['oklch(92% .07 150)', 'oklch(38% .17 150)'];
+    case 'boat':  return ['oklch(92% .07 200)', 'oklch(38% .17 200)'];
+    case 'bus':   return ['oklch(93% .07 70)',  'oklch(38% .17 70)'];
+    case 'car':   return ['oklch(93% .07 40)',  'oklch(38% .17 40)'];
+    default:      return ['oklch(92% .07 230)', 'oklch(38% .17 230)'];  // flight / default: sky blue
+  }
+}
+
+function transitIcon(mode: string): string {
+  const icons: Record<string, string> = {
+    flight: '✈️', train: '🚂', boat: '🚢', bus: '🚌', car: '🚗',
+  };
+  return icons[mode] ?? '🚀';
 }
 
 @Component({
@@ -107,7 +124,7 @@ function typeIcon(type: string): string {
             </div>
           }
 
-          <!-- Attraction blocks -->
+          <!-- All blocks (attractions + transits) -->
           @for (block of blocks(); track block.name + block.top) {
             <div class="tl-block"
                  [ngStyle]="{
@@ -153,7 +170,9 @@ export class DayTimelineComponent {
   protected readonly TL_H0 = TL_H0;
   protected readonly TL_RH = TL_RH;
 
-  readonly stop = input<TripStop | null>(null);
+  // Optional inputs for external data (used by share page)
+  readonly stop     = input<TripStop | null>(null);
+  readonly transits = input<TransitLeg[] | null>(null);
 
   protected readonly hours = Array.from(
     { length: TL_H1 - TL_H0 + 1 },
@@ -172,10 +191,15 @@ export class DayTimelineComponent {
   protected readonly collapsed = signal(false);
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
 
-  // ── Active stop (input override or service) ────────────────────────────────
-  private activeStop() {
+  // ── Active stop + transits (input override or service) ────────────────────
+  private activeStop(): TripStop | null {
     return this.stop() ?? this.trip.activeStop();
   }
+
+  // Prefer explicit input; fall back to TripService (planning page)
+  private readonly allTransits = computed<TransitLeg[]>(() =>
+    this.transits() ?? this.trip.transits(),
+  );
 
   // ── Visibility ────────────────────────────────────────────────────────────
   protected readonly visible = computed(() =>
@@ -200,17 +224,26 @@ export class DayTimelineComponent {
     const to   = new Date(yOut, mOut - 1, dOut);
     if (isNaN(from.getTime()) || isNaN(to.getTime())) return [];
 
+    const transits = this.allTransits();
+
     const tabs: DayTab[] = [];
     for (let d = new Date(from); d <= to; d = new Date(d.getTime() + 86_400_000)) {
       const key = dateKey(d);
+      const hasAtt = stop.selectedAttractions.some(
+        (a: PlannedAttraction) => !!a.startTime && (!a.date || a.date.slice(0, 5) === key),
+      );
+      const hasTransit = transits.some(leg =>
+        (leg.fromCityId === stop.cityId || leg.toCityId === stop.cityId) &&
+        leg.segments.some(seg =>
+          (seg.departureDate?.slice(0, 5) === key) || (seg.arrivalDate?.slice(0, 5) === key),
+        ),
+      );
       tabs.push({
         date: new Date(d),
         dow:  DOW_ES[d.getDay()],
         num:  d.getDate(),
         key,
-        hasEvents: stop.selectedAttractions.some(
-          (a: PlannedAttraction) => !!a.startTime && (!a.date || a.date.slice(0, 5) === key),
-        ),
+        hasEvents: hasAtt || hasTransit,
       });
     }
     return tabs;
@@ -257,14 +290,14 @@ export class DayTimelineComponent {
     if (!stop || !day) return '';
     const dayAtts = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime);
-    if (!dayAtts.length) return `${day} · sin actividades`;
-    const totalH = dayAtts.reduce((sum: number, a: PlannedAttraction) => {
-      const start = hmToMin(a.startTime!);
-      const end   = a.endTime ? hmToMin(a.endTime) : start + 60;
-      return sum + (end - start) / 60;
-    }, 0);
-    const n = dayAtts.length;
-    return `${day} · ${n} ${n === 1 ? 'actividad' : 'actividades'} · ${totalH}h`;
+    const totalBlocks = this.blocks().length;
+    if (!totalBlocks) return `${day} · sin actividades`;
+    const attCount = dayAtts.length;
+    const transitCount = totalBlocks - attCount;
+    const parts: string[] = [];
+    if (attCount)     parts.push(`${attCount} ${attCount === 1 ? 'actividad' : 'actividades'}`);
+    if (transitCount) parts.push(`${transitCount} ${transitCount === 1 ? 'transporte' : 'transportes'}`);
+    return `${day} · ${parts.join(' · ')}`;
   });
 
   // ── Block calculation ─────────────────────────────────────────────────────
@@ -276,23 +309,26 @@ export class DayTimelineComponent {
     const city = WORLD_CITIES.find(c => c.id === stop.cityId);
     const attractions = city ? getAttractions(city) : [];
 
-    const atts = this.attractionsForDay(stop.selectedAttractions, day)
-      .filter((a: PlannedAttraction) => !!a.startTime);
+    const attBlocks: TimeBlock[] = this.attractionsForDay(stop.selectedAttractions, day)
+      .filter((a: PlannedAttraction) => !!a.startTime)
+      .map((a: PlannedAttraction) => {
+        const att      = attractions.find(x => x.id === a.attractionId) ?? null;
+        const startMin = hmToMin(a.startTime!);
+        const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + (att?.estimatedMinutes ?? 60);
+        const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
+        const height   = Math.max(30, (endMin - startMin) / 60 * TL_RH - 4);
+        const [bg, fg] = typeColors(att?.type ?? '');
+        return {
+          top, height, bg, fg,
+          icon: typeIcon(att?.type ?? ''),
+          name: att?.name ?? a.attractionId,
+          time: `${a.startTime}–${minToHm(endMin)}`,
+        };
+      });
 
-    return atts.map((a: PlannedAttraction) => {
-      const att      = attractions.find(x => x.id === a.attractionId) ?? null;
-      const startMin = hmToMin(a.startTime!);
-      const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + 60;
-      const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
-      const height   = Math.max(30, (endMin - startMin) / 60 * TL_RH - 4);
-      const [bg, fg] = typeColors(att?.type ?? '');
-      return {
-        top, height, bg, fg,
-        icon: typeIcon(att?.type ?? ''),
-        name: att?.name ?? a.attractionId,
-        time: `${a.startTime}–${minToHm(endMin)}`,
-      };
-    });
+    const transitBlocks: TimeBlock[] = this.transitBlocksForDay(day, stop.cityId);
+
+    return [...attBlocks, ...transitBlocks].sort((a, b) => a.top - b.top);
   });
 
   // ── Helpers ───────────────────────────────────────────────────────────────
@@ -300,6 +336,71 @@ export class DayTimelineComponent {
     return atts.filter((a: PlannedAttraction) =>
       !a.date || a.date.slice(0, 5) === dayKey,
     );
+  }
+
+  private transitBlocksForDay(day: string, cityId: string): TimeBlock[] {
+    const blocks: TimeBlock[] = [];
+
+    for (const leg of this.allTransits()) {
+      const isOutgoing = leg.fromCityId === cityId;
+      const isIncoming = leg.toCityId   === cityId;
+      if (!isOutgoing && !isIncoming) continue;
+
+      for (const seg of leg.segments) {
+        if (!seg.departureDate || !seg.departureTime) continue;
+
+        const depKey    = seg.departureDate.slice(0, 5);  // dd/mm
+        const arrKey    = seg.arrivalDate ? seg.arrivalDate.slice(0, 5) : depKey;
+        const hasArrival = !!(seg.arrivalDate && seg.arrivalTime);
+
+        let startMin: number;
+        let endMin: number;
+        let timeStr: string;
+
+        if (depKey === day) {
+          startMin = hmToMin(seg.departureTime);
+          if (arrKey === day && hasArrival) {
+            endMin  = hmToMin(seg.arrivalTime);
+            timeStr = `${seg.departureTime}–${seg.arrivalTime}`;
+          } else {
+            endMin  = TL_H1 * 60;  // continues past midnight
+            timeStr = `${seg.departureTime}→`;
+          }
+        } else if (arrKey === day && hasArrival) {
+          startMin = TL_H0 * 60;   // started on a previous day
+          endMin   = hmToMin(seg.arrivalTime);
+          timeStr  = `→${seg.arrivalTime}`;
+        } else {
+          continue;
+        }
+
+        // Clip to grid bounds and skip zero-height blocks
+        const clippedStart  = Math.max(startMin, TL_H0 * 60);
+        const clippedEnd    = Math.min(endMin,   TL_H1 * 60);
+        if (clippedEnd <= clippedStart) continue;
+
+        const top    = (clippedStart - TL_H0 * 60) / 60 * TL_RH;
+        const height = Math.max(20, (clippedEnd - clippedStart) / 60 * TL_RH - 4);
+
+        const [bg, fg] = transitModeColors(seg.mode);
+        const fromLabel = this.cityLabel(leg.fromCityId);
+        const toLabel   = this.cityLabel(leg.toCityId);
+
+        blocks.push({
+          top, height, bg, fg,
+          icon: transitIcon(seg.mode),
+          name: `${fromLabel} → ${toLabel}`,
+          time: timeStr + (seg.notes ? ` · ${seg.notes}` : ''),
+        });
+      }
+    }
+
+    return blocks;
+  }
+
+  private cityLabel(cityId: string): string {
+    if (cityId === '__start__' || cityId === '__end__') return '🏠';
+    return WORLD_CITIES.find(c => c.id === cityId)?.name ?? cityId;
   }
 
   private scrollToFirstBlock(): void {
