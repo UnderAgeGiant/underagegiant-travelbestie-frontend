@@ -99,11 +99,11 @@ export class DestinationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    for (const att of this.attractions()) {
-      this.api.getComments(att.id).subscribe(comments => {
-        this.allComments.update(prev => ({ ...prev, [att.id]: comments }));
-      });
-    }
+    const ids = this.attractions().map(a => a.id);
+    if (ids.length === 0) return;
+    this.api.getCommentsBatch(ids).subscribe(map => {
+      this.allComments.set(map);
+    });
   }
 
   onCommentAdded(attractionId: string, comment: Omit<Comment, 'id'>): void {
