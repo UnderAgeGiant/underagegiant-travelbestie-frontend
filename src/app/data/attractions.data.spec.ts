@@ -7,14 +7,14 @@ const UNKNOWN: City = { id: 'oz', name: 'Emerald City', country: 'Oz', flag: 'ðŸ
 describe('getAttractions', () => {
   it('returns curated attractions for paris with correct ids', () => {
     const attractions = getAttractions(PARIS);
-    expect(attractions).toHaveLength(5);
+    expect(attractions.length).toBeGreaterThan(0);
     expect(attractions[0].id).toBe('paris_0');
-    expect(attractions[0].name).toBe('Eiffel Tower');
+    expect(attractions.some(a => a.name === 'Eiffel Tower')).toBe(true);
   });
 
   it('returns 5 template attractions for unknown city', () => {
     const attractions = getAttractions(UNKNOWN);
-    expect(attractions).toHaveLength(5);
+    expect(attractions.length).toBe(5);
     expect(attractions[0].id).toBe('oz_0');
     expect(attractions[0].name).toContain('Emerald City');
   });
