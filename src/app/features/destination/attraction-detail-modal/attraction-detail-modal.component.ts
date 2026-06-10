@@ -10,6 +10,7 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
 import { CommentCooldownService } from '../../../core/comments/comment-cooldown.service';
 import { CommentSimilarModalComponent } from '../../comments/comment-similar-modal.component';
+import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 
 @Component({
   selector: 'app-attraction-detail-modal',
@@ -187,7 +188,8 @@ import { CommentSimilarModalComponent } from '../../comments/comment-similar-mod
         <app-comment-modal
           [attraction]="attraction()"
           [cityName]="cityName()"
-          (close)="showCommentModal.set(false)"
+          [errorMessage]="commentError()"
+          (close)="showCommentModal.set(false); commentError.set(null)"
           (submitted)="onCommentSubmitted($event)" />
       }
       @if (showSimilarModal()) {
@@ -210,10 +212,12 @@ export class AttractionDetailModalComponent {
   showPlanModal    = signal(false);
   showCommentModal = signal(false);
   showSimilarModal = signal(false);
+  commentError     = signal<string | null>(null);
 
-  private readonly trip     = inject(TripService);
-  private readonly api      = inject(ApiService);
-  private readonly cooldown = inject(CommentCooldownService);
+  private readonly trip       = inject(TripService);
+  private readonly api        = inject(ApiService);
+  private readonly cooldown   = inject(CommentCooldownService);
+  private readonly karmaModal = inject(KarmaModalService);
 
   readonly inPlan = computed(() =>
     this.trip.isAttractionSelected(this.stopId(), this.attraction().id)
@@ -279,6 +283,11 @@ export class AttractionDetailModalComponent {
           this.showCommentModal.set(false);
           this.cooldown.startCooldown(err.error?.retryAfterSeconds ?? 60);
           this.cooldown.triggerShake();
+        } else if (this.karmaModal.handleKarmaError(err)) {
+          this.showCommentModal.set(false);
+        } else {
+          this.commentError.set('No se pudo enviar el comentario. Inténtalo de nuevo.');
+          setTimeout(() => this.commentError.set(null), 4000);
         }
       },
     });

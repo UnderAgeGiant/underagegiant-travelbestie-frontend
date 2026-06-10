@@ -310,6 +310,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .c-text { max-height: calc(1.4em * 3); overflow-y: auto; overflow-x: hidden; word-break: break-word; }
 .c-more { font-size: 11px; color: var(--t3); padding-left: 34px; margin-top: 2px; }
 .no-comments { font-size: 12px; color: var(--t3); font-style: italic; margin-bottom: 10px; padding: 2px 0; }
+.comment-error { margin: 0 20px 8px; padding: 8px 12px; border-radius: 10px; font-size: 12px; font-weight: 600; color: oklch(40% .18 25); background: oklch(96% .04 25); border: 1px solid oklch(88% .08 25); }
 .add-c-btn { width: 100%; padding: 9px; border-radius: 10px; background: var(--lav); color: var(--lav-d); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 5px; transition: all .2s; }
 .add-c-btn:hover { background: var(--lav-d); color: #fff; }
 

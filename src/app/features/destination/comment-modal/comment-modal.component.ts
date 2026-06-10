@@ -50,6 +50,9 @@ const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','
                       (input)="text.set($any($event.target).value)"></textarea>
           </div>
         </div>
+        @if (errorMessage()) {
+          <div class="comment-error" i18n="@@commentModal.error">{{ errorMessage() }}</div>
+        }
         <div class="modal-foot">
           <button class="btn-pill btn-outline" (click)="close.emit()" style="flex:1" i18n="@@commentModal.cancelBtn">Cancelar</button>
           <button class="btn-pill btn-primary"
@@ -64,10 +67,11 @@ const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','
   `,
 })
 export class CommentModalComponent {
-  attraction = input.required<Attraction>();
-  cityName = input.required<string>();
-  close = output<void>();
-  submitted = output<Omit<Comment, 'id'>>();
+  attraction    = input.required<Attraction>();
+  cityName      = input.required<string>();
+  errorMessage  = input<string | null>(null);
+  close         = output<void>();
+  submitted     = output<Omit<Comment, 'id'>>();
 
   name = signal('');
   text = signal('');
