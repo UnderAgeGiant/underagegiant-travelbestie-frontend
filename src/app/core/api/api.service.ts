@@ -57,6 +57,17 @@ export class ApiService {
     return this.http.get<Comment[]>(`${this.base}/comments/${attractionId}`);
   }
 
+  getCommentsBatch(attractionIds: string[]): Observable<Record<string, Comment[]>> {
+    if (this.useMocks) {
+      const result: Record<string, Comment[]> = {};
+      for (const id of attractionIds) result[id] = MOCK_COMMENTS[id] ?? [];
+      return of(result);
+    }
+    return this.http.get<Record<string, Comment[]>>(
+      `${this.base}/comments?ids=${attractionIds.join(',')}`,
+    );
+  }
+
   // Auth interceptor automatically attaches the Bearer token for logged-in users.
   addComment(comment: Omit<Comment, 'id'>): Observable<Comment> {
     if (this.useMocks) return of({ id: `mock-c-${Date.now()}`, ...comment });

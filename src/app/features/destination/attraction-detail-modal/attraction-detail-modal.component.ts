@@ -10,6 +10,9 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
 import { CommentCooldownService } from '../../../core/comments/comment-cooldown.service';
 import { CommentSimilarModalComponent } from '../../comments/comment-similar-modal.component';
+import { KarmaModalService } from '../../../core/karma/karma-modal.service';
+import { AuthService } from '../../../core/auth/auth.service';
+import { AuthModalService } from '../../../core/auth/auth-modal.service';
 
 @Component({
   selector: 'app-attraction-detail-modal',
@@ -165,7 +168,7 @@ import { CommentSimilarModalComponent } from '../../comments/comment-similar-mod
           }
 
           <button class="add-c-btn" style="margin-top:12px"
-                  (click)="showCommentModal.set(true)"
+                  (click)="openCommentModal()"
                   i18n="@@attCard.addComment">💌 Agregar comentario</button>
         </div>
       </div>
@@ -187,7 +190,9 @@ import { CommentSimilarModalComponent } from '../../comments/comment-similar-mod
         <app-comment-modal
           [attraction]="attraction()"
           [cityName]="cityName()"
-          (close)="showCommentModal.set(false)"
+          [userName]="auth.currentUser()!.name"
+          [errorMessage]="commentError()"
+          (close)="showCommentModal.set(false); commentError.set(null)"
           (submitted)="onCommentSubmitted($event)" />
       }
       @if (showSimilarModal()) {
@@ -210,10 +215,14 @@ export class AttractionDetailModalComponent {
   showPlanModal    = signal(false);
   showCommentModal = signal(false);
   showSimilarModal = signal(false);
+  commentError     = signal<string | null>(null);
 
-  private readonly trip     = inject(TripService);
-  private readonly api      = inject(ApiService);
-  private readonly cooldown = inject(CommentCooldownService);
+  private readonly trip       = inject(TripService);
+  private readonly api        = inject(ApiService);
+  private readonly cooldown   = inject(CommentCooldownService);
+  private readonly karmaModal = inject(KarmaModalService);
+  readonly auth              = inject(AuthService);
+  private readonly authModal = inject(AuthModalService);
 
   readonly inPlan = computed(() =>
     this.trip.isAttractionSelected(this.stopId(), this.attraction().id)
@@ -264,6 +273,14 @@ export class AttractionDetailModalComponent {
     this.showPlanModal.set(false);
   }
 
+  openCommentModal(): void {
+    if (this.auth.isLoggedIn()) {
+      this.showCommentModal.set(true);
+    } else {
+      this.authModal.openLogin(() => this.showCommentModal.set(true));
+    }
+  }
+
   onCommentSubmitted(comment: Omit<Comment, 'id'>): void {
     this.api.addComment(comment).subscribe({
       next: () => {
@@ -279,6 +296,11 @@ export class AttractionDetailModalComponent {
           this.showCommentModal.set(false);
           this.cooldown.startCooldown(err.error?.retryAfterSeconds ?? 60);
           this.cooldown.triggerShake();
+        } else if (this.karmaModal.handleKarmaError(err)) {
+          this.showCommentModal.set(false);
+        } else {
+          this.commentError.set('No se pudo enviar el comentario. Inténtalo de nuevo.');
+          setTimeout(() => this.commentError.set(null), 4000);
         }
       },
     });

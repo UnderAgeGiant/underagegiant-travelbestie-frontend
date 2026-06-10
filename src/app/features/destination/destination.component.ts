@@ -31,16 +31,7 @@ import { ApiService } from '../../core/api/api.service';
                   <ng-container i18n="@@dest.manyAttractions">atracciones</ng-container>
                 }
               </span>
-              @if (totalComments() > 0) {
-                <span class="badge" style="background:var(--blush);color:var(--peach-d)">
-                  💬 {{ totalComments() }}
-                  @if (totalComments() === 1) {
-                    <ng-container i18n="@@dest.oneComment">comentario</ng-container>
-                  } @else {
-                    <ng-container i18n="@@dest.manyComments">comentarios</ng-container>
-                  }
-                </span>
-              }
+
               @if (activeStop()?.checkIn && activeStop()?.checkOut) {
                 <span class="badge" style="background:var(--cream);color:var(--t3);border:1px solid var(--border);font-size:10px">
                   {{ activeStop()!.checkIn }} → {{ activeStop()!.checkOut }}
@@ -90,20 +81,16 @@ export class DestinationComponent implements OnInit {
 
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? getAttractions(this.city()!) : []);
-  readonly totalComments = computed(() =>
-    this.attractions().reduce((sum, a) => sum + (this.allComments()[a.id]?.length ?? 0), 0)
-  );
-
   commentsFor(attractionId: string): Comment[] {
     return this.allComments()[attractionId] ?? [];
   }
 
   ngOnInit(): void {
-    for (const att of this.attractions()) {
-      this.api.getComments(att.id).subscribe(comments => {
-        this.allComments.update(prev => ({ ...prev, [att.id]: comments }));
-      });
-    }
+    const ids = this.attractions().map(a => a.id);
+    if (ids.length === 0) return;
+    this.api.getCommentsBatch(ids).subscribe(map => {
+      this.allComments.set(map);
+    });
   }
 
   onCommentAdded(attractionId: string, comment: Omit<Comment, 'id'>): void {

@@ -1105,7 +1105,7 @@ export class NavComponent {
     if (this.loginMode() === 'login') {
       this.auth.login(this.loginEmail(), this.loginPassword()).subscribe({
         next: res => {
-          this.trip.loadForUser(res.user.email);
+          this.trip.loadForUserPreservingAnonymous(res.user.email);
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
@@ -1124,7 +1124,7 @@ export class NavComponent {
       this.auth.register(this.loginName(), this.loginEmail(), this.loginPassword(), this.otpCode()).subscribe({
         next: res => {
           this.registerLoading.set(false);
-          this.trip.loadForUser(res.user.email);
+          this.trip.loadForUserPreservingAnonymous(res.user.email);
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
