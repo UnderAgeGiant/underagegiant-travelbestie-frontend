@@ -351,6 +351,11 @@ import { environment } from '../../../environments/environment';
                     </div>
                   </div>
                   <div style="display:flex;align-items:center;gap:4px;margin-left:auto">
+                    <button style="background:none;border:none;cursor:pointer;font-size:12px;padding:4px 8px;border-radius:6px;opacity:.85;transition:opacity .12s;white-space:nowrap;font-weight:600;color:var(--lav-d)"
+                            (click)="$event.stopPropagation(); loadAndModify(plan)"
+                            title="Modificar plan">
+                      ✏️ Modificar plan
+                    </button>
                     <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s"
                             [disabled]="cloningId() === plan.id"
                             [style.opacity]="cloningId() === plan.id ? 0.4 : 0.7"
@@ -821,6 +826,11 @@ export class ProfileComponent {
 
   togglePlan(id: string): void {
     this.selectedPlanId.update(cur => cur === id ? null : id);
+  }
+
+  loadAndModify(plan: SavedPlan): void {
+    this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? []);
+    this.close.emit();
   }
 
   planName(id: string): string {
