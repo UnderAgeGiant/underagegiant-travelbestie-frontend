@@ -11,6 +11,8 @@ import { CommentModalComponent } from '../comment-modal/comment-modal.component'
 import { CommentCooldownService } from '../../../core/comments/comment-cooldown.service';
 import { CommentSimilarModalComponent } from '../../comments/comment-similar-modal.component';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
+import { AuthService } from '../../../core/auth/auth.service';
+import { AuthModalService } from '../../../core/auth/auth-modal.service';
 
 @Component({
   selector: 'app-attraction-detail-modal',
@@ -166,7 +168,7 @@ import { KarmaModalService } from '../../../core/karma/karma-modal.service';
           }
 
           <button class="add-c-btn" style="margin-top:12px"
-                  (click)="showCommentModal.set(true)"
+                  (click)="openCommentModal()"
                   i18n="@@attCard.addComment">💌 Agregar comentario</button>
         </div>
       </div>
@@ -188,6 +190,7 @@ import { KarmaModalService } from '../../../core/karma/karma-modal.service';
         <app-comment-modal
           [attraction]="attraction()"
           [cityName]="cityName()"
+          [userName]="auth.currentUser()!.name"
           [errorMessage]="commentError()"
           (close)="showCommentModal.set(false); commentError.set(null)"
           (submitted)="onCommentSubmitted($event)" />
@@ -218,6 +221,8 @@ export class AttractionDetailModalComponent {
   private readonly api        = inject(ApiService);
   private readonly cooldown   = inject(CommentCooldownService);
   private readonly karmaModal = inject(KarmaModalService);
+  readonly auth              = inject(AuthService);
+  private readonly authModal = inject(AuthModalService);
 
   readonly inPlan = computed(() =>
     this.trip.isAttractionSelected(this.stopId(), this.attraction().id)
@@ -266,6 +271,14 @@ export class AttractionDetailModalComponent {
     if (!entryId) return;
     this.trip.removeAttraction(this.stopId(), entryId);
     this.showPlanModal.set(false);
+  }
+
+  openCommentModal(): void {
+    if (this.auth.isLoggedIn()) {
+      this.showCommentModal.set(true);
+    } else {
+      this.authModal.openLogin(() => this.showCommentModal.set(true));
+    }
   }
 
   onCommentSubmitted(comment: Omit<Comment, 'id'>): void {

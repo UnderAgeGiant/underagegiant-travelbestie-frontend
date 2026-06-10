@@ -16,19 +16,12 @@ const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label class="form-label" i18n="@@commentModal.nameLabel">Tu nombre</label>
-            <input class="form-input"
-                   i18n-placeholder="@@commentModal.namePlaceholder" placeholder="ej. Sofía"
-                   [value]="name()"
-                   (input)="name.set($any($event.target).value)" />
-          </div>
-          <div class="form-group">
             <label class="form-label" i18n="@@commentModal.avatarLabel">Avatar</label>
             <div class="avatar-row">
               @for (color of colors; track $index) {
                 <div [class]="'av-opt' + (avIdx() === $index ? ' sel' : '')"
                      [style.background]="color"
-                     (click)="avIdx.set($index)">{{ (name() || '?')[0]?.toUpperCase() }}</div>
+                     (click)="avIdx.set($index)">{{ userName()[0]?.toUpperCase() }}</div>
               }
             </div>
           </div>
@@ -51,7 +44,7 @@ const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','
           </div>
         </div>
         @if (errorMessage()) {
-          <div class="comment-error" i18n="@@commentModal.error">{{ errorMessage() }}</div>
+          <div class="comment-error">{{ errorMessage() }}</div>
         }
         <div class="modal-foot">
           <button class="btn-pill btn-outline" (click)="close.emit()" style="flex:1" i18n="@@commentModal.cancelBtn">Cancelar</button>
@@ -67,32 +60,32 @@ const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','
   `,
 })
 export class CommentModalComponent {
-  attraction    = input.required<Attraction>();
-  cityName      = input.required<string>();
-  errorMessage  = input<string | null>(null);
-  close         = output<void>();
-  submitted     = output<Omit<Comment, 'id'>>();
+  attraction   = input.required<Attraction>();
+  cityName     = input.required<string>();
+  userName     = input.required<string>();
+  errorMessage = input<string | null>(null);
+  close        = output<void>();
+  submitted    = output<Omit<Comment, 'id'>>();
 
-  name = signal('');
-  text = signal('');
+  text   = signal('');
   rating = signal(0);
-  avIdx = signal(0);
+  avIdx  = signal(0);
   readonly colors = AV_COLORS;
-  readonly stars = [1, 2, 3, 4, 5];
-  private readonly locale = inject(LOCALE_ID);
+  readonly stars  = [1, 2, 3, 4, 5];
+  private readonly locale   = inject(LOCALE_ID);
   private readonly datePipe = new DatePipe(this.locale);
 
-  isValid() { return this.name().trim() && this.text().trim() && this.rating() > 0; }
+  isValid() { return this.text().trim() && this.rating() > 0; }
 
   submit(): void {
     if (!this.isValid()) return;
     this.submitted.emit({
       attractionId: this.attraction().id,
-      name: this.name().trim(),
-      text: this.text().trim(),
+      name:  this.userName(),
+      text:  this.text().trim(),
       rating: this.rating(),
-      color: AV_COLORS[this.avIdx()],
-      date: this.datePipe.transform(new Date(), 'dd/MM/yyyy') ?? '',
+      color:  AV_COLORS[this.avIdx()],
+      date:   this.datePipe.transform(new Date(), 'dd/MM/yyyy') ?? '',
     });
   }
 }
