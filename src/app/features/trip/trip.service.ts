@@ -134,6 +134,15 @@ export class TripService {
     this._saving = false;
   }
 
+  loadForUserPreservingAnonymous(email: string): void {
+    const preStops    = this._stops();
+    const preTransits = this._transits();
+    this.loadForUser(email);
+    if (this._stops().length === 0 && preStops.length > 0) {
+      this.restoreStops(preStops, null, preTransits);
+    }
+  }
+
   persistNow(email: string): void {
     localStorage.setItem(planKey(email), JSON.stringify({ stops: this._stops(), transits: this._transits() }));
     const id = this._loadedPlanId();
