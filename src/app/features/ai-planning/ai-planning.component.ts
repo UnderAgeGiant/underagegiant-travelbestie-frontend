@@ -47,6 +47,8 @@ type Step = 'preferences' | 'options' | 'result';
 
         } @else {
 
+          <div style="width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column">
+
           <!-- Header -->
           <div class="shared-header">
             <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
@@ -426,6 +428,8 @@ type Step = 'preferences' | 'options' | 'result';
                       i18n="@@aiplan.saveBtn">💾 Guardar plan</button>
             </div>
           }
+
+          </div>
 
         }
       </div>

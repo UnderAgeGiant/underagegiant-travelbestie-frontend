@@ -1,4 +1,4 @@
-import { Component, input, output, signal, computed, HostListener } from '@angular/core';
+import { Component, input, output, signal, computed, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { City, Region, REGION_LABELS } from '../../core/models/city.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 
@@ -20,7 +20,7 @@ import { WORLD_CITIES } from '../../data/cities.data';
 
       @if (open()) {
         <div class="combo-dropdown">
-          <input class="combo-search"
+          <input class="combo-search" #searchInput
                  i18n-placeholder="@@combobox.searchPlaceholder" placeholder="Escribe para buscar…"
                  [value]="query()"
                  (input)="query.set($any($event.target).value)"
@@ -51,6 +51,8 @@ export class CityComboboxComponent {
   excludeIds = input<string[]>([]);
   cityChange = output<City>();
 
+  @ViewChild('searchInput') private searchInput?: ElementRef<HTMLInputElement>;
+
   open = signal(false);
   query = signal('');
   private selectedCity = signal<City | null>(null);
@@ -74,7 +76,13 @@ export class CityComboboxComponent {
   });
 
   regionLabel(r: Region): string { return REGION_LABELS[r]; }
-  toggleOpen() { this.open.update(v => !v); }
+
+  toggleOpen() {
+    this.open.update(v => !v);
+    if (this.open()) {
+      setTimeout(() => this.searchInput?.nativeElement.focus(), 0);
+    }
+  }
 
   select(city: City) {
     this.selectedCity.set(city);
