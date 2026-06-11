@@ -922,11 +922,11 @@
       </trans-unit>
       <trans-unit id="landing.aboutMission" datatype="html">
         <source>
-      TravelingBestie reúne miles de atracciones turísticas en decenas
+      Tripilove reúne miles de atracciones turísticas en decenas
       de ciudades para que armes tu itinerario perfecto, lo compartas con tus mejores
       amigos y lo hagas realidad.
     </source>
-        <target>TravelingBestie brings together thousands of tourist attractions across dozens of cities so you can build your perfect itinerary, share it with your best friends, and make it real.</target>
+        <target>Tripilove brings together thousands of tourist attractions across dozens of cities so you can build your perfect itinerary, share it with your best friends, and make it real.</target>
       </trans-unit>
       <trans-unit id="landing.statCities" datatype="html">
         <source>ciudades</source>
@@ -967,8 +967,8 @@
         <target>About</target>
       </trans-unit>
       <trans-unit id="landing.footerLinkAbout" datatype="html">
-        <source>Sobre TravelingBestie</source>
-        <target>About TravelingBestie</target>
+        <source>Sobre Tripilove</source>
+        <target>About Tripilove</target>
       </trans-unit>
       <trans-unit id="landing.footerColLegal" datatype="html">
         <source>Legal</source>
@@ -983,8 +983,8 @@
         <target>Terms of service</target>
       </trans-unit>
       <trans-unit id="landing.footerCopy" datatype="html">
-        <source>© 2026 TravelingBestie. Hecho con 💜 para aventureros.</source>
-        <target>© 2026 TravelingBestie. Made with 💜 for adventurers.</target>
+        <source>© 2026 Tripilove. Hecho con 💜 para aventureros.</source>
+        <target>© 2026 Tripilove. Made with 💜 for adventurers.</target>
       </trans-unit>
 
       <!-- ── day-timeline.component ── -->

@@ -142,7 +142,7 @@ import { environment } from '../../../environments/environment';
   `],
   template: `
     <nav class="nav">
-      <div class="nav-logo" (click)="onLogoClick()">Traveling<em>Bestie</em></div>
+      <div class="nav-logo" (click)="onLogoClick()">Tripi<em>love</em></div>
 
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
