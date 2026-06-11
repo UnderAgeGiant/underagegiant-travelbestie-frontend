@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
   <div class="landing-footer-brand">
     <div class="landing-footer-logo">
-      Traveling<em>Bestie</em>
+      Tripi<em>love</em>
     </div>
     <p class="landing-footer-tagline" i18n="@@landing.footerTagline">
       Planifica. Comparte. Explora.
@@ -26,7 +26,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     </div>
     <div class="landing-footer-col">
       <h3 class="landing-footer-col-head" i18n="@@landing.footerColAbout">Nosotros</h3>
-      <a class="landing-footer-link" href="#about" i18n="@@landing.footerLinkAbout">Sobre TravelingBestie</a>
+      <a class="landing-footer-link" href="#about" i18n="@@landing.footerLinkAbout">Sobre Tripilove</a>
     </div>
     <div class="landing-footer-col">
       <h3 class="landing-footer-col-head" i18n="@@landing.footerColLegal">Legal</h3>
@@ -36,7 +36,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   </nav>
 
   <div class="landing-footer-copy">
-    <span i18n="@@landing.footerCopy">© 2026 TravelingBestie. Hecho con 💜 para aventureros.</span>
+    <span i18n="@@landing.footerCopy">© 2026 Tripilove. Hecho con 💜 para aventureros.</span>
   </div>
 
 </footer>

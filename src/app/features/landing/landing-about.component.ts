@@ -19,7 +19,7 @@ import { AppStats } from '../../core/models/featured-trip.model';
       Planifica el viaje<br><em>que siempre soñaste</em>
     </h2>
     <p class="landing-about-mission" i18n="@@landing.aboutMission">
-      TravelingBestie reúne miles de atracciones turísticas en decenas
+      Tripilove reúne miles de atracciones turísticas en decenas
       de ciudades para que armes tu itinerario perfecto, lo compartas con tus mejores
       amigos y lo hagas realidad.
     </p>
