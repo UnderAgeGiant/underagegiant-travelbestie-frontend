@@ -15,5 +15,5 @@
   <circle cx="80" cy="80" r="76" fill="url(#bgGrad)" filter="url(#soft)"></circle>
   <circle cx="80" cy="80" r="74" fill="none" stroke="url(#ringGrad)" stroke-width="2.5" opacity="0.35"></circle>
   <text x="32" y="104" font-family="Georgia, serif" font-size="82" font-weight="bold" font-style="italic" fill="#7C3AED" letter-spacing="-2">T</text>
-  <text x="74" y="104" font-family="Georgia, serif" font-size="82" font-weight="bold" font-style="italic" fill="#EA580C" letter-spacing="-2">B</text>
+  <text x="78" y="104" font-family="Georgia, serif" font-size="82" font-weight="bold" font-style="italic" fill="#EA580C" letter-spacing="-2">L</text>
 </svg>
