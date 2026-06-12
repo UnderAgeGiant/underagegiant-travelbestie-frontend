@@ -1556,6 +1556,9 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   inset: 0;
   z-index: 899;
 }
+@media (hover: hover) {
+  .att-preview-backdrop { display: none; }
+}
 .att-preview-card {
   position: fixed;
   z-index: 900;
