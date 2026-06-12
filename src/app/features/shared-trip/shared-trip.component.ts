@@ -597,11 +597,20 @@ export class SharedTripComponent {
   onAttHover(e: MouseEvent | FocusEvent, att: Attraction): void {
     if (this._hoverTimer) clearTimeout(this._hoverTimer);
     this._hoverTimer = setTimeout(() => {
-      const rect  = (e.target as HTMLElement).getBoundingClientRect();
       const cardW = 280;
-      let x = rect.right + 10;
-      if (x + cardW > window.innerWidth) x = rect.left - cardW - 10;
-      const y = Math.min(rect.top, window.innerHeight - 320);
+      const cardH = 320;
+      let x: number;
+      let y: number;
+      if (e instanceof MouseEvent) {
+        x = e.clientX + 14;
+        y = e.clientY + 14;
+      } else {
+        const rect = (e.target as HTMLElement).getBoundingClientRect();
+        x = rect.right + 10;
+        y = rect.top;
+      }
+      if (x + cardW > window.innerWidth) x -= cardW + 28;
+      y = Math.min(y, window.innerHeight - cardH);
       this.activePreview.set({ attraction: att, x, y });
     }, 150);
   }
