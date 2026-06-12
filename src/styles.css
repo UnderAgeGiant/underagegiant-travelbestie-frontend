@@ -1438,9 +1438,6 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .itin-item-meta { width: 100%; padding-left: 27px; margin-top: 1px; }
 }
 
-@media (hover: none) {
-  .att-preview-card { display: none; }
-}
 
 /* ── Favorites — heart button ───────────────────────────────────────────── */
 .fav-row {

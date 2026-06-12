@@ -233,7 +233,8 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
                                 (mouseenter)="onAttHover($event, att)"
                                 (mouseleave)="onAttHoverLeave()"
                                 (focus)="onAttHover($event, att)"
-                                (blur)="onAttHoverLeave()">{{ att.name }}</span>
+                                (blur)="onAttHoverLeave()"
+                                (click)="onAttClick($event, att)">{{ att.name }}</span>
                           @if (!shouldShowComments(attKey)) {
                             <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
@@ -619,6 +620,20 @@ export class SharedTripComponent {
     if (this._hoverTimer) clearTimeout(this._hoverTimer);
     this._hoverTimer = null;
     this.activePreview.set(null);
+  }
+
+  onAttClick(e: MouseEvent, att: Attraction): void {
+    if (!window.matchMedia('(hover: none)').matches) return;
+    e.stopPropagation();
+    if (this.activePreview()?.attraction === att) {
+      this.activePreview.set(null);
+      return;
+    }
+    const cardW = 280;
+    const cardH = 320;
+    const x = Math.max(12, Math.min(e.clientX - cardW / 2, window.innerWidth - cardW - 12));
+    const y = Math.min(e.clientY + 16, window.innerHeight - cardH - 12);
+    this.activePreview.set({ attraction: att, x, y });
   }
 
   goHome(): void { window.location.href = '/'; }
