@@ -1391,6 +1391,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 
 /* ── Share page — two-column layout with timeline ───────────────────────── */
+.itin-inline-timeline { display: none; }
+
 .itin-city-selected {
   outline: 2px solid var(--lav-d);
   outline-offset: -2px;
@@ -1417,14 +1419,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
     padding: 16px 16px 48px;
   }
   .shared-main { width: 100%; }
-  .shared-body > tb-day-timeline { margin-top: 24px; }
-  .shared-body > tb-day-timeline > .timeline-panel {
-    position: static;
-    height: auto;
-    width: 100%;
-    border-left: none;
-    border-top: 1.5px solid var(--border);
-  }
+  .shared-body > tb-day-timeline { display: none; }
+  .itin-inline-timeline { display: block; margin-top: 12px; }
 }
 
 @media (max-width: 480px) {

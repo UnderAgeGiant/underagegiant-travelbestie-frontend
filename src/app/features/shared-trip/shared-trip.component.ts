@@ -269,6 +269,13 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
                   (focusLost)="collapseStep(stopKey)" />
               }
 
+              <!-- Inline day timeline (mobile only) -->
+              @if (selectedShareStop()?.cityId === stop.cityId) {
+                <div class="itin-inline-timeline">
+                  <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" />
+                </div>
+              }
+
               <!-- Transit to next city or return flight -->
               @if (!last) {
                 @let nextStop = trip()!.stops[i + 1];
