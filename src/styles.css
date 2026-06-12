@@ -1411,7 +1411,12 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 
 @media (max-width: 768px) {
-  .shared-body { flex-direction: column; }
+  .shared-body {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 16px 48px;
+  }
+  .shared-main { width: 100%; }
   .shared-body > tb-day-timeline > .timeline-panel {
     position: static;
     height: auto;
@@ -1419,6 +1424,21 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
     border-left: none;
     border-top: 1.5px solid var(--border);
   }
+}
+
+@media (max-width: 480px) {
+  .shared-body { padding: 12px 12px 48px; }
+  .shared-header { padding: 16px 14px; margin-bottom: 20px; border-radius: 14px; }
+  .shared-header-name { font-size: 22px; }
+  .shared-header-owner { font-size: 12px; }
+  .itin-seg { white-space: normal; }
+  .itin-transit-dest { white-space: normal; }
+  .itin-item { flex-wrap: wrap; align-items: flex-start; }
+  .itin-item-meta { width: 100%; padding-left: 27px; margin-top: 1px; }
+}
+
+@media (hover: none) {
+  .att-preview-card { display: none; }
 }
 
 /* ── Favorites — heart button ───────────────────────────────────────────── */
