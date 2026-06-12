@@ -1417,6 +1417,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
     padding: 16px 16px 48px;
   }
   .shared-main { width: 100%; }
+  .shared-body > tb-day-timeline { margin-top: 24px; }
   .shared-body > tb-day-timeline > .timeline-panel {
     position: static;
     height: auto;
