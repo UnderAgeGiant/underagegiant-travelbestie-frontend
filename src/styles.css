@@ -1420,3 +1420,106 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
     border-top: 1.5px solid var(--border);
   }
 }
+
+/* ── Favorites — heart button ───────────────────────────────────────────── */
+.fav-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.fav-btn {
+  font-size: 22px;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: transform .15s, opacity .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fav-btn:hover:not(:disabled)   { transform: scale(1.2); }
+.fav-btn--pending                { opacity: .5; cursor: default; }
+.fav-count {
+  font-size: 13px;
+  color: var(--t2);
+}
+.fav-count--pulse { animation: favPulse .3s ease; }
+@keyframes favPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.fav-error {
+  font-size: 12px;
+  color: oklch(52% .18 25);
+}
+
+/* ── Profile page — tabs ────────────────────────────────────────────────── */
+.profile-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 0;
+}
+.profile-tab {
+  padding: 8px 18px;
+  background: none;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--t2);
+  transition: color .15s, border-color .15s;
+  margin-bottom: -1.5px;
+  font-family: 'DM Sans', sans-serif;
+}
+.profile-tab:hover  { color: var(--t1); }
+.profile-tab.active { color: var(--lav-d); border-bottom-color: var(--lav-d); }
+
+/* ── Profile page — favorites list ─────────────────────────────────────── */
+.fav-loading {
+  padding: 24px;
+  text-align: center;
+  color: var(--t3);
+  font-size: 13px;
+}
+.fav-empty {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--t3);
+}
+.fav-empty-icon { font-size: 36px; display: block; margin-bottom: 10px; }
+.fav-empty p    { font-size: 13px; margin: 4px 0; }
+
+.fav-list { display: flex; flex-direction: column; gap: 12px; }
+
+.fav-card {
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: var(--cream);
+  transition: border-color .15s, box-shadow .15s;
+}
+.fav-card:hover { border-color: var(--lav-d); box-shadow: var(--sh); }
+
+.fav-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.fav-card-name   { font-weight: 600; font-size: 15px; color: var(--t1); }
+.fav-card-owner  { font-size: 12px; color: var(--t3); }
+.fav-card-meta   { display: flex; gap: 12px; font-size: 12px; color: var(--t2); margin-bottom: 10px; }
+.fav-card-count  { color: oklch(52% .15 5); }
+
+.fav-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.fav-remove-btn   { color: var(--t3); font-size: 12px; }
+.fav-remove-btn:hover { color: oklch(52% .18 25); }

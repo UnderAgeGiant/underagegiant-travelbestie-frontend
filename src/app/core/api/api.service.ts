@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { Trip } from '../models/trip.model';
+import { Trip, FavoritedTrip } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
 import { CityCatalog, PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
@@ -250,5 +250,18 @@ export class ApiService {
   getStats(): Observable<AppStats> {
     if (this.useMocks) return of({ cities: 120, users: 1200, plans: 4800 });
     return this.http.get<AppStats>(`${this.base}/stats`);
+  }
+
+  toggleFavorite(shareId: string): Observable<{ favorited: boolean; favoriteCount: number }> {
+    if (this.useMocks) return of({ favorited: true, favoriteCount: 1 });
+    return this.http.post<{ favorited: boolean; favoriteCount: number }>(
+      `${this.base}/shared/${shareId}/favorite`,
+      {},
+    );
+  }
+
+  getFavorites(): Observable<FavoritedTrip[]> {
+    if (this.useMocks) return of([]);
+    return this.http.get<FavoritedTrip[]>(`${this.base}/favorites`);
   }
 }
