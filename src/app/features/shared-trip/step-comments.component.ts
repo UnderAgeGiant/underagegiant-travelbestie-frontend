@@ -1,4 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, output, signal, HostListener, ElementRef, inject, OnInit } from '@angular/core';
 import { StepComment } from '../../core/models/comment.model';
 
 @Component({
@@ -48,7 +48,7 @@ import { StepComment } from '../../core/models/comment.model';
     </div>
   `,
 })
-export class StepCommentsComponent {
+export class StepCommentsComponent implements OnInit {
   comments   = input<StepComment[]>([]);
   loggedIn   = input<boolean>(false);
   submitting = input<boolean>(false);
@@ -58,6 +58,21 @@ export class StepCommentsComponent {
   focusLost        = output<void>();
 
   newText = signal('');
+
+  private readonly el = inject(ElementRef);
+  private _ready = false;
+
+  ngOnInit(): void {
+    setTimeout(() => { this._ready = true; });
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(e: MouseEvent): void {
+    if (!this._ready || this.newText().trim()) return;
+    if (!(this.el.nativeElement as HTMLElement).contains(e.target as Node)) {
+      this.focusLost.emit();
+    }
+  }
 
   submit(): void {
     const text = this.newText().trim();
