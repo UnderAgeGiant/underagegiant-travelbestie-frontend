@@ -54,3 +54,15 @@ export interface Trip {
   shareId?: string;
   itineraryExportedAt?: string;
 }
+
+export interface FavoritedTrip {
+  shareId:         string;
+  tripId?:         string;
+  tripName:        string;
+  ownerName:       string;
+  stops:           TripStop[];
+  transits:        TransitLeg[];
+  favoriteCount?:  number;
+  isFavoritedByMe?: boolean;
+  favoritedAt:     string;
+}

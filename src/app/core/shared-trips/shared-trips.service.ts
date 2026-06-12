@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { TripStop, TransitLeg } from '../models/trip.model';
 
 export interface SharedTrip {
-  id:         string;
-  ownerEmail: string;
-  ownerName:  string;
-  tripName:   string;
-  createdAt:  string;
-  stops:      TripStop[];
-  transits:   TransitLeg[];
-  planId?:    string; // reference to the SavedPlan — used to load live data
+  id:              string;
+  ownerEmail:      string;
+  ownerName:       string;
+  tripName:        string;
+  createdAt:       string;
+  stops:           TripStop[];
+  transits:        TransitLeg[];
+  planId?:         string;
+  tripId?:         string;
+  favoriteCount?:  number;
+  isFavoritedByMe?: boolean;
 }
 
 const TRIPS_KEY = 'tb_shared_trips';

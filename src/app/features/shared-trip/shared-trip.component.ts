@@ -5,6 +5,7 @@ import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-t
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
+import { FavoritesService } from '../../core/favorites/favorites.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
@@ -65,6 +66,27 @@ import { getAttractions } from '../../data/attractions.data';
         <div class="shared-header">
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
           <div class="shared-header-owner" i18n="@@sharedTrip.tripBy">Viaje de {{ trip()!.ownerName }}</div>
+
+          <!-- Favorite toggle -->
+          <div class="fav-row">
+            <button
+              class="fav-btn"
+              [class.fav-btn--on]="isFavorited"
+              [class.fav-btn--pending]="favoritePending()"
+              [disabled]="favoritePending()"
+              (click)="toggleFavorite()"
+              [attr.aria-label]="isFavorited ? 'Quitar de favoritos' : 'Guardar como favorito'">
+              {{ isFavorited ? '❤️' : '🤍' }}
+            </button>
+            <span class="fav-count"
+                  [class.fav-count--pulse]="!favoritePending()">
+              {{ favoriteCount() }} {{ favoriteCount() === 1 ? 'persona guardó este plan' : 'personas guardaron este plan' }}
+            </span>
+            @if (favoriteError()) {
+              <span class="fav-error" i18n="@@sharedTrip.favError">Error al guardar — inténtalo de nuevo</span>
+            }
+          </div>
+
           <!-- Clone button -->
           @if (!cloneResult()) {
             <button class="btn-pill btn-outline"
@@ -351,6 +373,7 @@ export class SharedTripComponent {
   private readonly svc        = inject(SharedTripsService);
   readonly auth                = inject(AuthService);
   private readonly authModal   = inject(AuthModalService);
+  private readonly favorites   = inject(FavoritesService);
   private readonly karma       = inject(KarmaService);
   private readonly karmaModal  = inject(KarmaModalService);
   private readonly savedPlans  = inject(SavedPlansService);
@@ -359,6 +382,9 @@ export class SharedTripComponent {
 
   showProfile        = signal(false);
   showSimilarModal   = signal(false);
+  favoriteCount      = signal(0);
+  favoritePending    = signal(false);
+  favoriteError      = signal(false);
   selectedShareStop  = signal<TripStop | null>(null);
   rateLimited      = signal(false);
   loading          = signal(true);
@@ -407,6 +433,8 @@ export class SharedTripComponent {
       next: ({ trip, comments }) => {
         this._trip.set(trip);
         this.allComments.set(comments);
+        this.favoriteCount.set(trip.favoriteCount ?? 0);
+        this.favorites.seedFromPayload(id, trip.isFavoritedByMe ?? false);
         this.loading.set(false);
         if (!this.shakeTriggered && new URLSearchParams(window.location.search).get('highlight') === 'clone') {
           this.shakeTriggered = true;
@@ -450,6 +478,37 @@ export class SharedTripComponent {
         }
       },
     });
+  }
+
+  get isFavorited(): boolean {
+    return this.favorites.isFavorited(this.tripId());
+  }
+
+  toggleFavorite(): void {
+    if (!this.auth.isLoggedIn()) {
+      this.authModal.openLogin(() => this.toggleFavorite());
+      return;
+    }
+    if (this.favoritePending()) return;
+    this.favoritePending.set(true);
+    this.favoriteError.set(false);
+
+    const wasOn = this.isFavorited;
+    this.favoriteCount.update(n => wasOn ? n - 1 : n + 1);
+
+    this.favorites.toggle(
+      this.tripId(),
+      result => {
+        this.favoritePending.set(false);
+        this.favoriteCount.set(result.favoriteCount);
+      },
+      () => {
+        this.favoritePending.set(false);
+        this.favoriteError.set(true);
+        this.favoriteCount.update(n => wasOn ? n + 1 : n - 1);
+        setTimeout(() => this.favoriteError.set(false), 3000);
+      },
+    );
   }
 
   cloneTrip(): void {

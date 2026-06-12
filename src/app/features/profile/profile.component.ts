@@ -2,6 +2,8 @@ import { Component, computed, inject, signal, output } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { FavoritesService } from '../../core/favorites/favorites.service';
+import { FavoritedTrip } from '../../core/models/trip.model';
 import { HomeAddressService } from '../../core/home-address/home-address.service';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
@@ -331,84 +333,132 @@ import { environment } from '../../../environments/environment';
           <div class="section-head">Viajes guardados 🗺️</div>
           @if (!auth.isLoggedIn()) {
             <div class="section-empty">Inicia sesión para ver tus viajes guardados.</div>
-          } @else if (savedPlans.plans().length === 0) {
-            <div class="section-empty">Aún no tienes viajes guardados. Usa el botón "Reservar viaje 🎉" para guardar uno.</div>
           } @else {
-            <input class="form-input"
-                   type="search"
-                   style="font-size:12px;padding:7px 10px;margin-bottom:12px"
-                   placeholder="Buscar viaje guardado…"
-                   [value]="planSearch()"
-                   (input)="planSearch.set($any($event.target).value)" />
-            @for (plan of filteredPlans(); track plan.id) {
-              <div class="saved-plan-card">
-                <div class="saved-plan-header" (click)="togglePlan(plan.id)">
-                  <div class="saved-plan-info">
-                    <div class="saved-plan-name">{{ plan.name }}</div>
-                    <div class="saved-plan-meta">
-                      {{ plan.stops.length }} ciudad{{ plan.stops.length !== 1 ? 'es' : '' }}
-                      · {{ fmtDate(plan.savedAt) }}
+            <!-- Tab switcher -->
+            <div class="profile-tabs">
+              <button class="profile-tab" [class.active]="favTab() === 'trips'"
+                      (click)="favTab.set('trips')"
+                      i18n="@@profile.tabTrips">Mis viajes</button>
+              <button class="profile-tab" [class.active]="favTab() === 'favorites'"
+                      (click)="openFavTab()"
+                      i18n="@@profile.tabFavorites">Mis favoritos</button>
+            </div>
+
+            @if (favTab() === 'trips') {
+              @if (savedPlans.plans().length === 0) {
+                <div class="section-empty">Aún no tienes viajes guardados. Usa el botón "Reservar viaje 🎉" para guardar uno.</div>
+              } @else {
+                <input class="form-input"
+                       type="search"
+                       style="font-size:12px;padding:7px 10px;margin-bottom:12px"
+                       placeholder="Buscar viaje guardado…"
+                       [value]="planSearch()"
+                       (input)="planSearch.set($any($event.target).value)" />
+                @for (plan of filteredPlans(); track plan.id) {
+                  <div class="saved-plan-card">
+                    <div class="saved-plan-header" (click)="togglePlan(plan.id)">
+                      <div class="saved-plan-info">
+                        <div class="saved-plan-name">{{ plan.name }}</div>
+                        <div class="saved-plan-meta">
+                          {{ plan.stops.length }} ciudad{{ plan.stops.length !== 1 ? 'es' : '' }}
+                          · {{ fmtDate(plan.savedAt) }}
+                        </div>
+                      </div>
+                      <div style="display:flex;align-items:center;gap:4px;margin-left:auto">
+                        <button style="background:none;border:none;cursor:pointer;font-size:12px;padding:4px 8px;border-radius:6px;opacity:.85;transition:opacity .12s;white-space:nowrap;font-weight:600;color:var(--lav-d)"
+                                (click)="$event.stopPropagation(); loadAndModify(plan)"
+                                title="Modificar plan">
+                          ✏️ Modificar plan
+                        </button>
+                        <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s"
+                                [disabled]="cloningId() === plan.id"
+                                [style.opacity]="cloningId() === plan.id ? 0.4 : 0.7"
+                                (click)="$event.stopPropagation(); confirmCloneId.set(plan.id)"
+                                title="Clonar viaje">
+                          {{ cloningId() === plan.id ? '⏳' : '📋' }}
+                        </button>
+                        <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s,color .12s;color:inherit"
+                                (click)="$event.stopPropagation(); confirmDeleteId.set(plan.id)"
+                                title="Eliminar viaje">
+                          🗑️
+                        </button>
+                        <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
+                      </div>
                     </div>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:4px;margin-left:auto">
-                    <button style="background:none;border:none;cursor:pointer;font-size:12px;padding:4px 8px;border-radius:6px;opacity:.85;transition:opacity .12s;white-space:nowrap;font-weight:600;color:var(--lav-d)"
-                            (click)="$event.stopPropagation(); loadAndModify(plan)"
-                            title="Modificar plan">
-                      ✏️ Modificar plan
-                    </button>
-                    <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s"
-                            [disabled]="cloningId() === plan.id"
-                            [style.opacity]="cloningId() === plan.id ? 0.4 : 0.7"
-                            (click)="$event.stopPropagation(); confirmCloneId.set(plan.id)"
-                            title="Clonar viaje">
-                      {{ cloningId() === plan.id ? '⏳' : '📋' }}
-                    </button>
-                    <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s,color .12s;color:inherit"
-                            (click)="$event.stopPropagation(); confirmDeleteId.set(plan.id)"
-                            title="Eliminar viaje">
-                      🗑️
-                    </button>
-                    <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
-                  </div>
-                </div>
 
-                <div class="saved-plan-actions">
-                  @if (planShareId(plan)) {
-                    <button class="btn-pill btn-ghost"
-                            style="flex:1;justify-content:center;gap:7px"
-                            (click)="sharePlan(plan)" type="button">
-                      🔗 Ver viaje compartido
-                    </button>
-                  } @else {
-                    <button class="btn-pill btn-primary"
-                            style="flex:1;justify-content:center;gap:7px"
-                            (click)="sharePlan(plan)" type="button">
-                      📤 Compartir viaje <span class="karma-cost">−1 ✨ karma</span>
-                    </button>
-                  }
-                  <button class="btn-pill btn-outline"
-                          style="justify-content:center;gap:6px;white-space:nowrap"
-                          [disabled]="exportingPlanId() === plan.id"
-                          (click)="downloadItinerary(plan)" type="button">
-                    {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
-                    @if (!plan.exportedAt) {
-                      <span class="karma-cost">−1 ✨ karma</span>
+                    <div class="saved-plan-actions">
+                      @if (planShareId(plan)) {
+                        <button class="btn-pill btn-ghost"
+                                style="flex:1;justify-content:center;gap:7px"
+                                (click)="sharePlan(plan)" type="button">
+                          🔗 Ver viaje compartido
+                        </button>
+                      } @else {
+                        <button class="btn-pill btn-primary"
+                                style="flex:1;justify-content:center;gap:7px"
+                                (click)="sharePlan(plan)" type="button">
+                          📤 Compartir viaje <span class="karma-cost">−1 ✨ karma</span>
+                        </button>
+                      }
+                      <button class="btn-pill btn-outline"
+                              style="justify-content:center;gap:6px;white-space:nowrap"
+                              [disabled]="exportingPlanId() === plan.id"
+                              (click)="downloadItinerary(plan)" type="button">
+                        {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
+                        @if (!plan.exportedAt) {
+                          <span class="karma-cost">−1 ✨ karma</span>
+                        }
+                      </button>
+                      @if (shareError() === plan.id) {
+                        <span class="share-error">Karma insuficiente</span>
+                      }
+                    </div>
+
+                    @if (selectedPlanId() === plan.id) {
+                      <div class="saved-plan-itin">
+                        <app-trip-itinerary [stops]="plan.stops" [transits]="plan.transits ?? []" />
+                      </div>
                     }
-                  </button>
-                  @if (shareError() === plan.id) {
-                    <span class="share-error">Karma insuficiente</span>
-                  }
-                </div>
-
-                @if (selectedPlanId() === plan.id) {
-                  <div class="saved-plan-itin">
-                    <app-trip-itinerary [stops]="plan.stops" [transits]="plan.transits ?? []" />
                   </div>
                 }
-              </div>
+                @if (filteredPlans().length === 0) {
+                  <div class="section-empty">Sin resultados para "{{ planSearch() }}" 🔍</div>
+                }
+              }
             }
-            @if (filteredPlans().length === 0) {
-              <div class="section-empty">Sin resultados para "{{ planSearch() }}" 🔍</div>
+
+            @if (favTab() === 'favorites') {
+              @if (favLoading()) {
+                <div class="fav-loading" i18n="@@profile.favLoading">Cargando favoritos…</div>
+              } @else if (favoritedTrips().length === 0) {
+                <div class="fav-empty">
+                  <span class="fav-empty-icon">🤍</span>
+                  <p i18n="@@profile.favEmpty">Todavía no guardaste ningún plan como favorito.</p>
+                  <p i18n="@@profile.favEmptyHint">Explorá planes compartidos y presioná ❤️ para guardarlos aquí.</p>
+                </div>
+              } @else {
+                <div class="fav-list">
+                  @for (trip of favoritedTrips(); track trip.shareId) {
+                    <div class="fav-card">
+                      <div class="fav-card-header">
+                        <span class="fav-card-name">{{ trip.tripName }}</span>
+                        <span class="fav-card-owner" i18n="@@profile.favCardBy">por {{ trip.ownerName }}</span>
+                      </div>
+                      <div class="fav-card-meta">
+                        <span class="fav-card-count">❤️ {{ trip.favoriteCount }}</span>
+                        <span class="fav-card-date">{{ fmtDate(trip.favoritedAt) }}</span>
+                      </div>
+                      <div class="fav-card-actions">
+                        <a class="btn-pill btn-outline" [href]="'/?share=' + trip.shareId"
+                           i18n="@@profile.favCardOpen">Ver plan</a>
+                        <button class="btn-pill btn-ghost fav-remove-btn"
+                                (click)="removeFavorite(trip)"
+                                i18n="@@profile.favCardRemove">Quitar de favoritos</button>
+                      </div>
+                    </div>
+                  }
+                </div>
+              }
             }
           }
         </section>
@@ -535,6 +585,7 @@ export class ProfileComponent {
   private readonly karma         = inject(KarmaService);
   private readonly karmaModal    = inject(KarmaModalService);
   private readonly api           = inject(ApiService);
+  private readonly favorites     = inject(FavoritesService);
 
   close          = output<void>();
   openAiPlanning = output<void>();
@@ -668,6 +719,32 @@ export class ProfileComponent {
     if (this.editSavedTimer) clearTimeout(this.editSavedTimer);
     this.editSavedTab.set(tab);
     this.editSavedTimer = setTimeout(() => { this.editSavedTab.set(null); onComplete?.(); }, 2500);
+  }
+
+  // ── Favorites tab ───────────────────────────────────────────
+  favTab          = signal<'trips' | 'favorites'>('trips');
+  favoritedTrips  = signal<FavoritedTrip[]>([]);
+  favLoading      = signal(false);
+  favLoaded       = signal(false);
+
+  openFavTab(): void {
+    this.favTab.set('favorites');
+    if (this.favLoaded()) return;
+    this.favLoading.set(true);
+    this.favorites.getFavorites().subscribe({
+      next:  trips => { this.favoritedTrips.set(trips); this.favLoading.set(false); this.favLoaded.set(true); },
+      error: ()    => { this.favLoading.set(false); },
+    });
+  }
+
+  removeFavorite(trip: FavoritedTrip): void {
+    this.favorites.toggle(
+      trip.shareId,
+      () => {
+        this.favoritedTrips.update(list => list.filter(t => t.shareId !== trip.shareId));
+      },
+      () => { /* silent fail — the card stays */ },
+    );
   }
 
   // ── Saved plans ─────────────────────────────────────────────

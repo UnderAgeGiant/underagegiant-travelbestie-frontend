@@ -174,7 +174,7 @@ import { environment } from '../../../environments/environment';
                     <span class="combo-item-flag">🗺️</span>
                     <div>
                       <div class="combo-item-city">{{ t.tripName }}</div>
-                      <div class="combo-item-country">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}</div>
+                      <div class="combo-item-country">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}@if ((t.favoriteCount ?? 0) >= 1) { · ❤️ {{ t.favoriteCount }} }</div>
                     </div>
                     <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600">Ver →</span>
                   </div>

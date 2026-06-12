@@ -987,6 +987,46 @@
         <target>© 2026 Tripilove. Made with 💜 for adventurers.</target>
       </trans-unit>
 
+      <!-- ── shared-trip favorites ── -->
+      <trans-unit id="sharedTrip.favError" datatype="html">
+        <source>Error al guardar — inténtalo de nuevo</source>
+        <target>Error saving — please try again</target>
+      </trans-unit>
+
+      <!-- ── profile favorites tab ── -->
+      <trans-unit id="profile.tabTrips" datatype="html">
+        <source>Mis viajes</source>
+        <target>My trips</target>
+      </trans-unit>
+      <trans-unit id="profile.tabFavorites" datatype="html">
+        <source>Mis favoritos</source>
+        <target>My favorites</target>
+      </trans-unit>
+      <trans-unit id="profile.favLoading" datatype="html">
+        <source>Cargando favoritos…</source>
+        <target>Loading favorites…</target>
+      </trans-unit>
+      <trans-unit id="profile.favEmpty" datatype="html">
+        <source>Todavía no guardaste ningún plan como favorito.</source>
+        <target>You haven't saved any plan as a favorite yet.</target>
+      </trans-unit>
+      <trans-unit id="profile.favEmptyHint" datatype="html">
+        <source>Explorá planes compartidos y presioná ❤️ para guardarlos aquí.</source>
+        <target>Browse shared plans and press ❤️ to save them here.</target>
+      </trans-unit>
+      <trans-unit id="profile.favCardBy" datatype="html">
+        <source>por <x id="INTERPOLATION" equiv-text="{{ trip.ownerName }}"/></source>
+        <target>by <x id="INTERPOLATION" equiv-text="{{ trip.ownerName }}"/></target>
+      </trans-unit>
+      <trans-unit id="profile.favCardOpen" datatype="html">
+        <source>Ver plan</source>
+        <target>View plan</target>
+      </trans-unit>
+      <trans-unit id="profile.favCardRemove" datatype="html">
+        <source>Quitar de favoritos</source>
+        <target>Remove from favorites</target>
+      </trans-unit>
+
       <!-- ── day-timeline.component ── -->
       <trans-unit id="timeline.freeDay" datatype="html">
         <source>Día libre — sin planes aún</source>
