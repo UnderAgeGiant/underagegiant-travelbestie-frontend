@@ -183,7 +183,7 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
                   <div>
                     <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
                       @if (!shouldShowComments(stopKey)) {
-                        <button class="step-comments-toggle" (click)="expandStep(stopKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
+                        <button class="step-comments-toggle" (click)="expandStepInCity($event, stopKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                       }
                     </div>
                     <div class="itin-city-country">{{ city.country }}</div>
@@ -202,7 +202,7 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
                         <span class="itin-item-icon">🏨</span>
                         <span class="itin-item-label">{{ stop.lodging.name }}</span>
                         @if (!shouldShowComments(lodgeKey)) {
-                          <button class="step-comments-toggle" (click)="expandStep(lodgeKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
+                          <button class="step-comments-toggle" (click)="expandStepInCity($event, lodgeKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                         }
                         @if (stop.lodging.url) {
                           <a class="itin-link" [href]="stop.lodging.url"
@@ -236,7 +236,7 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
                                 (blur)="onAttHoverLeave()"
                                 (click)="onAttClick($event, att)">{{ att.name }}</span>
                           @if (!shouldShowComments(attKey)) {
-                            <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
+                            <button class="step-comments-toggle" (click)="expandStepInCity($event, attKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
                           <span class="itin-item-meta">
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
@@ -427,6 +427,12 @@ export class SharedTripComponent {
   }
 
   expandStep(stepKey: string): void {
+    this.expandedSteps.update(s => new Set(s).add(stepKey));
+  }
+
+  expandStepInCity(e: MouseEvent, stepKey: string, stop: TripStop): void {
+    e.stopPropagation();
+    this.selectedShareStop.set(stop);
     this.expandedSteps.update(s => new Set(s).add(stepKey));
   }
 
