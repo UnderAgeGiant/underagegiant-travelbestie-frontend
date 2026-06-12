@@ -10,7 +10,7 @@ import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
-import { StepComment } from '../../core/models/comment.model';
+import { StepComment, Attraction } from '../../core/models/comment.model';
 import { Trip, TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { TripService } from '../trip/trip.service';
 import { StepCommentsComponent } from './step-comments.component';
@@ -21,11 +21,12 @@ import { ProfileComponent } from '../profile/profile.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
+import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
 
 @Component({
   selector: 'app-shared-trip',
   standalone: true,
-  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent, DayTimelineComponent],
+  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent],
   styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -227,7 +228,12 @@ import { getAttractions } from '../../data/attractions.data';
                         @let attDate = planned.date || stop.checkIn;
                         <div class="itin-item">
                           <span class="itin-item-icon">{{ att.icon }}</span>
-                          <span class="itin-item-label">{{ att.name }}</span>
+                          <span class="itin-item-label"
+                                tabindex="0"
+                                (mouseenter)="onAttHover($event, att)"
+                                (mouseleave)="onAttHoverLeave()"
+                                (focus)="onAttHover($event, att)"
+                                (blur)="onAttHoverLeave()">{{ att.name }}</span>
                           @if (!shouldShowComments(attKey)) {
                             <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
@@ -363,6 +369,13 @@ import { getAttractions } from '../../data/attractions.data';
       </div>
     }
 
+    @if (activePreview()) {
+      <app-attraction-preview-popover
+        [attraction]="activePreview()!.attraction"
+        [x]="activePreview()!.x"
+        [y]="activePreview()!.y" />
+    }
+
     </div>
   `,
 })
@@ -396,6 +409,8 @@ export class SharedTripComponent {
   cloneResult      = signal<Trip | null>(null);
   shakeClone         = signal(false);
   private shakeTriggered = false;
+  activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);
+  private _hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
   shouldShowComments(stepKey: string): boolean {
     return this.expandedSteps().has(stepKey) ||
@@ -577,6 +592,24 @@ export class SharedTripComponent {
     const city = this.cityFor(cityId);
     if (!city) return null;
     return getAttractions(city).find(a => a.id === attractionId) ?? null;
+  }
+
+  onAttHover(e: MouseEvent | FocusEvent, att: Attraction): void {
+    if (this._hoverTimer) clearTimeout(this._hoverTimer);
+    this._hoverTimer = setTimeout(() => {
+      const rect  = (e.target as HTMLElement).getBoundingClientRect();
+      const cardW = 280;
+      let x = rect.right + 10;
+      if (x + cardW > window.innerWidth) x = rect.left - cardW - 10;
+      const y = Math.min(rect.top, window.innerHeight - 320);
+      this.activePreview.set({ attraction: att, x, y });
+    }, 150);
+  }
+
+  onAttHoverLeave(): void {
+    if (this._hoverTimer) clearTimeout(this._hoverTimer);
+    this._hoverTimer = null;
+    this.activePreview.set(null);
   }
 
   goHome(): void { window.location.href = '/'; }
