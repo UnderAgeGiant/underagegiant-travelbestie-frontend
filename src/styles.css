@@ -532,6 +532,10 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .nav-search-wrap { display: none; }
   .nav-right { padding-left: 0; }
 
+  /* User button: hide name on mobile, avatar only */
+  .user-btn-name { display: none; }
+  .user-btn { padding: 5px; }
+
   /* User dropdown: constrain to viewport */
   .user-panel {
     right: 0;
