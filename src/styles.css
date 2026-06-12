@@ -532,6 +532,10 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .nav-search-wrap { display: none; }
   .nav-right { padding-left: 0; }
 
+  /* User button: hide name on mobile, avatar only */
+  .user-btn-name { display: none; }
+  .user-btn { padding: 5px; }
+
   /* User dropdown: constrain to viewport */
   .user-panel {
     right: 0;
@@ -1391,6 +1395,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 
 /* ── Share page — two-column layout with timeline ───────────────────────── */
+.itin-inline-timeline { display: none; }
+
 .itin-city-selected {
   outline: 2px solid var(--lav-d);
   outline-offset: -2px;
@@ -1411,15 +1417,35 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 
 @media (max-width: 768px) {
-  .shared-body { flex-direction: column; }
-  .shared-body > tb-day-timeline > .timeline-panel {
-    position: static;
-    height: auto;
-    width: 100%;
-    border-left: none;
-    border-top: 1.5px solid var(--border);
+  .shared-body {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 16px 48px;
   }
+  .shared-main { width: 100%; }
+  .shared-body > tb-day-timeline { display: none; }
+  .itin-inline-timeline { display: block; margin-top: 12px; }
 }
+
+@media (max-width: 480px) {
+  .shared-body { padding: 12px 12px 48px; }
+  .shared-header { padding: 16px 14px; margin-bottom: 20px; border-radius: 14px; }
+  .shared-header-name { font-size: 22px; word-break: break-word; }
+  .shared-header-owner { font-size: 12px; }
+  .shared-header .fav-row { justify-content: center; }
+  .shared-header .btn-pill {
+    white-space: normal;
+    max-width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  .itin-seg { white-space: normal; }
+  .itin-transit-dest { white-space: normal; }
+  .itin-item { flex-wrap: wrap; align-items: flex-start; }
+  .itin-item-meta { width: 100%; padding-left: 27px; margin-top: 1px; }
+}
+
 
 /* ── Favorites — heart button ───────────────────────────────────────────── */
 .fav-row {
@@ -1523,3 +1549,76 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .fav-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .fav-remove-btn   { color: var(--t3); font-size: 12px; }
 .fav-remove-btn:hover { color: oklch(52% .18 25); }
+
+/* ── Attraction preview popover ─────────────────────────────────────────── */
+.att-preview-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 899;
+}
+.att-preview-card {
+  position: fixed;
+  z-index: 900;
+  width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--sh-lg);
+  overflow: hidden;
+  pointer-events: none;
+  animation: fadeInUp .15s ease;
+}
+.att-preview-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+.att-preview-img-fallback {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+}
+.att-preview-body {
+  padding: 12px 14px 14px;
+}
+.att-preview-type {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 20px;
+  margin-bottom: 7px;
+  color: var(--t1);
+}
+.att-preview-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 7px;
+  line-height: 1.35;
+}
+.att-preview-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--t3);
+}
+.att-preview-stars {
+  color: oklch(72% 0.16 80);
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+/* Hover cursor affordance on attraction name labels */
+.itin-item-label {
+  cursor: default;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

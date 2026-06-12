@@ -10,7 +10,7 @@ import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
-import { StepComment } from '../../core/models/comment.model';
+import { StepComment, Attraction } from '../../core/models/comment.model';
 import { Trip, TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { TripService } from '../trip/trip.service';
 import { StepCommentsComponent } from './step-comments.component';
@@ -21,11 +21,12 @@ import { ProfileComponent } from '../profile/profile.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
+import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
 
 @Component({
   selector: 'app-shared-trip',
   standalone: true,
-  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent, DayTimelineComponent],
+  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent],
   styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -182,7 +183,7 @@ import { getAttractions } from '../../data/attractions.data';
                   <div>
                     <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
                       @if (!shouldShowComments(stopKey)) {
-                        <button class="step-comments-toggle" (click)="expandStep(stopKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
+                        <button class="step-comments-toggle" (click)="expandStepInCity($event, stopKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                       }
                     </div>
                     <div class="itin-city-country">{{ city.country }}</div>
@@ -201,7 +202,7 @@ import { getAttractions } from '../../data/attractions.data';
                         <span class="itin-item-icon">🏨</span>
                         <span class="itin-item-label">{{ stop.lodging.name }}</span>
                         @if (!shouldShowComments(lodgeKey)) {
-                          <button class="step-comments-toggle" (click)="expandStep(lodgeKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
+                          <button class="step-comments-toggle" (click)="expandStepInCity($event, lodgeKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                         }
                         @if (stop.lodging.url) {
                           <a class="itin-link" [href]="stop.lodging.url"
@@ -227,9 +228,15 @@ import { getAttractions } from '../../data/attractions.data';
                         @let attDate = planned.date || stop.checkIn;
                         <div class="itin-item">
                           <span class="itin-item-icon">{{ att.icon }}</span>
-                          <span class="itin-item-label">{{ att.name }}</span>
+                          <span class="itin-item-label"
+                                tabindex="0"
+                                (mouseenter)="onAttHover($event, att)"
+                                (mouseleave)="onAttHoverLeave()"
+                                (focus)="onAttHover($event, att)"
+                                (blur)="onAttHoverLeave()"
+                                (click)="onAttClick($event, att)">{{ att.name }}</span>
                           @if (!shouldShowComments(attKey)) {
-                            <button class="step-comments-toggle" (click)="expandStep(attKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
+                            <button class="step-comments-toggle" (click)="expandStepInCity($event, attKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
                           <span class="itin-item-meta">
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
@@ -260,6 +267,13 @@ import { getAttractions } from '../../data/attractions.data';
                   [karmaFlash]="karmaFlashStep() === stopKey"
                   (commentSubmitted)="onStepCommentSubmitted(stopKey, $event)"
                   (focusLost)="collapseStep(stopKey)" />
+              }
+
+              <!-- Inline day timeline (mobile only) -->
+              @if (selectedShareStop()?.cityId === stop.cityId) {
+                <div class="itin-inline-timeline">
+                  <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" />
+                </div>
               }
 
               <!-- Transit to next city or return flight -->
@@ -363,6 +377,14 @@ import { getAttractions } from '../../data/attractions.data';
       </div>
     }
 
+    @if (activePreview()) {
+      <div class="att-preview-backdrop" (click)="onAttHoverLeave()"></div>
+      <app-attraction-preview-popover
+        [attraction]="activePreview()!.attraction"
+        [x]="activePreview()!.x"
+        [y]="activePreview()!.y" />
+    }
+
     </div>
   `,
 })
@@ -396,6 +418,8 @@ export class SharedTripComponent {
   cloneResult      = signal<Trip | null>(null);
   shakeClone         = signal(false);
   private shakeTriggered = false;
+  activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);
+  private _hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
   shouldShowComments(stepKey: string): boolean {
     return this.expandedSteps().has(stepKey) ||
@@ -403,6 +427,12 @@ export class SharedTripComponent {
   }
 
   expandStep(stepKey: string): void {
+    this.expandedSteps.update(s => new Set(s).add(stepKey));
+  }
+
+  expandStepInCity(e: MouseEvent, stepKey: string, stop: TripStop): void {
+    e.stopPropagation();
+    this.selectedShareStop.set(stop);
     this.expandedSteps.update(s => new Set(s).add(stepKey));
   }
 
@@ -577,6 +607,47 @@ export class SharedTripComponent {
     const city = this.cityFor(cityId);
     if (!city) return null;
     return getAttractions(city).find(a => a.id === attractionId) ?? null;
+  }
+
+  onAttHover(e: MouseEvent | FocusEvent, att: Attraction): void {
+    if (this._hoverTimer) clearTimeout(this._hoverTimer);
+    this._hoverTimer = setTimeout(() => {
+      const cardW = 280;
+      const cardH = 320;
+      let x: number;
+      let y: number;
+      if (e instanceof MouseEvent) {
+        x = e.clientX + 14;
+        y = e.clientY + 14;
+      } else {
+        const rect = (e.target as HTMLElement).getBoundingClientRect();
+        x = rect.right + 10;
+        y = rect.top;
+      }
+      if (x + cardW > window.innerWidth) x -= cardW + 28;
+      y = Math.min(y, window.innerHeight - cardH);
+      this.activePreview.set({ attraction: att, x, y });
+    }, 150);
+  }
+
+  onAttHoverLeave(): void {
+    if (this._hoverTimer) clearTimeout(this._hoverTimer);
+    this._hoverTimer = null;
+    this.activePreview.set(null);
+  }
+
+  onAttClick(e: MouseEvent, att: Attraction): void {
+    if (!window.matchMedia('(hover: none)').matches) return;
+    e.stopPropagation();
+    if (this.activePreview()?.attraction === att) {
+      this.activePreview.set(null);
+      return;
+    }
+    const cardW = 280;
+    const cardH = 320;
+    const x = Math.max(12, Math.min(e.clientX - cardW / 2, window.innerWidth - cardW - 12));
+    const y = Math.min(e.clientY + 16, window.innerHeight - cardH - 12);
+    this.activePreview.set({ attraction: att, x, y });
   }
 
   goHome(): void { window.location.href = '/'; }
