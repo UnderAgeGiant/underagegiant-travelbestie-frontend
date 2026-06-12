@@ -226,12 +226,12 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
                       @if (att) {
                         @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
                         @let attDate = planned.date || stop.checkIn;
-                        <div class="itin-item">
+                        <div class="itin-item"
+                             (mouseenter)="onAttHover($event, att)"
+                             (mouseleave)="onAttHoverLeave()">
                           <span class="itin-item-icon">{{ att.icon }}</span>
                           <span class="itin-item-label"
                                 tabindex="0"
-                                (mouseenter)="onAttHover($event, att)"
-                                (mouseleave)="onAttHoverLeave()"
                                 (focus)="onAttHover($event, att)"
                                 (blur)="onAttHoverLeave()"
                                 (click)="onAttClick($event, att)">{{ att.name }}</span>
