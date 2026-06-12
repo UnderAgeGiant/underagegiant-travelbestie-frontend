@@ -1543,6 +1543,11 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .fav-remove-btn:hover { color: oklch(52% .18 25); }
 
 /* ── Attraction preview popover ─────────────────────────────────────────── */
+.att-preview-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 899;
+}
 .att-preview-card {
   position: fixed;
   z-index: 900;

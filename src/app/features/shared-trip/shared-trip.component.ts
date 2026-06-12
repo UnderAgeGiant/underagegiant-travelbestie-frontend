@@ -371,6 +371,7 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
     }
 
     @if (activePreview()) {
+      <div class="att-preview-backdrop" (click)="onAttHoverLeave()"></div>
       <app-attraction-preview-popover
         [attraction]="activePreview()!.attraction"
         [x]="activePreview()!.x"
