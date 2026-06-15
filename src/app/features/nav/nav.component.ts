@@ -601,9 +601,17 @@ import { environment } from '../../../environments/environment';
                 </button>
               }
             </div>
-            @if (loginError()) {
+            @if (loginErrorCode() || loginError()) {
               <div style="font-size:11px;color:oklch(50% 0.18 25);text-align:center;padding:4px 8px;background:oklch(97% 0.03 25);border-radius:8px">
-                ⚠ {{ loginError() }}
+                @if (loginErrorCode() === 'USER_NOT_FOUND') {
+                  ⚠ <ng-container i18n="@@nav.loginErrNotFound">No encontramos una cuenta con ese correo electrónico.</ng-container>
+                } @else if (loginErrorCode() === 'WRONG_PASSWORD') {
+                  ⚠ <ng-container i18n="@@nav.loginErrWrongPassword">Contraseña incorrecta. Intenta de nuevo.</ng-container>
+                } @else if (loginErrorCode()) {
+                  ⚠ <ng-container i18n="@@nav.loginErrGeneric">Correo o contraseña incorrectos.</ng-container>
+                } @else {
+                  ⚠ {{ loginError() }}
+                }
               </div>
             }
             <div class="auth-toggle">
@@ -649,6 +657,7 @@ export class NavComponent {
   loginPassword        = signal('');
   loginConfirmPassword = signal('');
   loginError           = signal('');
+  loginErrorCode       = signal<string>('');
 
   showPassword        = signal(false);
   showConfirmPassword = signal(false);
@@ -752,6 +761,7 @@ export class NavComponent {
         this.showConfirmPassword.set(false);
         this.registerLoading.set(false);
         this.loginError.set('');
+        this.loginErrorCode.set('');
       }
     }, { allowSignalWrites: true });
   }
@@ -837,6 +847,7 @@ export class NavComponent {
   switchToRegister(): void {
     this.loginMode.set('register');
     this.loginError.set('');
+    this.loginErrorCode.set('');
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginConfirmPassword.set('');
@@ -847,6 +858,7 @@ export class NavComponent {
   switchToLogin(): void {
     this.loginMode.set('login');
     this.loginError.set('');
+    this.loginErrorCode.set('');
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginConfirmPassword.set('');
@@ -1098,6 +1110,7 @@ export class NavComponent {
 
   doAuth(): void {
     this.loginError.set('');
+    this.loginErrorCode.set('');
     if (!this.otpStep() && !this.captchaToken()) {
       this.loginError.set('Por favor completa la verificación de seguridad');
       return;
@@ -1114,8 +1127,8 @@ export class NavComponent {
           this.loginConfirmPassword.set('');
           this.authModal.executePostLogin();
         },
-        error: (err: Error) => {
-          this.loginError.set(err.message);
+        error: (err: unknown) => {
+          this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
           this.resetTurnstile();
         },
       });

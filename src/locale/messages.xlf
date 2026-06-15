@@ -1039,6 +1039,27 @@
           <context context-type="linenumber">552,554</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.loginErrNotFound" datatype="html">
+        <source>No encontramos una cuenta con ese correo electrónico.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">604</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.loginErrWrongPassword" datatype="html">
+        <source>Contraseña incorrecta. Intenta de nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">607</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.loginErrGeneric" datatype="html">
+        <source>Correo o contraseña incorrectos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">610</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.otpSentTitle" datatype="html">
         <source>Revisa tu correo</source>
         <context-group purpose="location">
