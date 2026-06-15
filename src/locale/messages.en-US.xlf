@@ -176,6 +176,18 @@
         <source>Las contraseñas no coinciden</source>
         <target>Passwords don't match</target>
       </trans-unit>
+      <trans-unit id="nav.loginErrNotFound" datatype="html">
+        <source>No encontramos una cuenta con ese correo electrónico.</source>
+        <target>We couldn't find an account with that email address.</target>
+      </trans-unit>
+      <trans-unit id="nav.loginErrWrongPassword" datatype="html">
+        <source>Contraseña incorrecta. Intenta de nuevo.</source>
+        <target>Incorrect password. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="nav.loginErrGeneric" datatype="html">
+        <source>Correo o contraseña incorrectos.</source>
+        <target>Incorrect email or password.</target>
+      </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
         <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>

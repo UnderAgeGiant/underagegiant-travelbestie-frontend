@@ -1,7 +1,7 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError, from } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap, switchMap, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { MockUser, DEMO_USERS } from '../../mock/users.mock';
 
@@ -45,15 +45,20 @@ export class AuthService {
   login(email: string, password: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
       const users = this.getStoredUsers();
-      const match = users.find(u => u.email === email && u.password === password);
-      if (!match) return throwError(() => new Error('Correo o contraseña incorrectos'));
-      return of(this.mockSession(match.name, match.email));
+      const byEmail = users.find(u => u.email === email);
+      if (!byEmail) return throwError(() => Object.assign(new Error('USER_NOT_FOUND'), { code: 'USER_NOT_FOUND' }));
+      if (byEmail.password !== password) return throwError(() => Object.assign(new Error('WRONG_PASSWORD'), { code: 'WRONG_PASSWORD' }));
+      return of(this.mockSession(byEmail.name, byEmail.email));
     }
     return from(this.encryptPayload({ email, password })).pipe(
       switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
         `${environment.apiUrl}/auth/login`, body
       )),
-      tap(res => this.persistSession(res.token, res.user))
+      tap(res => this.persistSession(res.token, res.user)),
+      catchError((err: unknown) => {
+        const code = err instanceof HttpErrorResponse ? (err.error?.code ?? 'UNKNOWN') : 'UNKNOWN';
+        return throwError(() => Object.assign(new Error(code), { code }));
+      })
     );
   }
 
