@@ -135,6 +135,36 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-QLFN2xpJM0U?auto=format&fit=crop&w=800&q=80",
+      schedule: {
+        mon: {
+          open: "07:00",
+          close: "18:00",
+        },
+        tue: {
+          open: "07:00",
+          close: "18:00",
+        },
+        wed: {
+          open: "07:00",
+          close: "18:00",
+        },
+        thu: {
+          open: "07:00",
+          close: "18:00",
+        },
+        fri: {
+          open: "07:00",
+          close: "18:00",
+        },
+        sat: {
+          open: "07:00",
+          close: "18:00",
+        },
+        sun: {
+          open: "07:00",
+          close: "18:00",
+        },
+      },
     },
     {
       name: "Sacred Monkey Forest Sanctuary",
@@ -144,6 +174,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-gWpGDVqvH7k?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.monkeyforestubud.com/",
     },
     {
       name: "Seminyak Beach",
@@ -168,6 +199,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-CRqFC5HohC8?auto=format&fit=crop&w=800&q=80",
+      website: "https://youtu.be/RQkVk2B0ujw",
     },
     {
       name: "Mount Batur Sunrise Trek",
@@ -302,6 +334,29 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1601224335112-b74158e231ec?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.chatuchakmarket.org/",
+      schedule: {
+        sat: {
+          open: "09:00",
+          close: "18:00",
+        },
+        sun: {
+          open: "09:00",
+          close: "18:00",
+        },
+        wed: {
+          open: "07:00",
+          close: "18:00",
+        },
+        thu: {
+          open: "07:00",
+          close: "18:00",
+        },
+        fri: {
+          open: "18:00",
+          close: "00:00",
+        },
+      },
     },
     {
       name: "Damnoen Saduak Floating Market",
@@ -844,6 +899,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=800&q=80",
+      website: "https://whc.unesco.org/en/list/273/",
     },
     {
       name: "Historic Sanctuary of Machu Picchu",
@@ -947,6 +1003,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1587474043843-d0c3cc087c29?auto=format&fit=crop&w=800&q=80",
+      website: "http://whc.unesco.org/en/list/232",
     },
     {
       name: "Red Fort Complex",
@@ -1162,6 +1219,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558370894-bde8d39395c0?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.theforthbridges.org/",
     },
     {
       name: "New Lanark",
@@ -1327,6 +1385,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1552070613-32f6a66dc9f5?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.dataport.de/",
     },
     {
       name: "Town Hall and Roland on the Marketplace of Bremen",
@@ -1459,6 +1518,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.itsukushimajinja.jp/",
     },
     {
       name: "Iwami Ginzan Silver Mine and its Cultural Landscape",
@@ -1593,6 +1653,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-EDaQMyZbVpI?auto=format&fit=crop&w=800&q=80",
+      website: "https://bcc.lib.hkbu.edu.hk/artcollection/kc81/",
+      schedule: {
+        mon: {
+          open: "07:00",
+          close: "17:00",
+        },
+        tue: {
+          open: "07:00",
+          close: "17:00",
+        },
+        wed: {
+          open: "07:00",
+          close: "17:00",
+        },
+        thu: {
+          open: "07:00",
+          close: "17:00",
+        },
+        fri: {
+          open: "07:00",
+          close: "17:00",
+        },
+        sat: {
+          open: "07:00",
+          close: "17:00",
+        },
+        sun: {
+          open: "07:00",
+          close: "17:00",
+        },
+      },
     },
     {
       name: "Lantau Island & Big Buddha",
@@ -1815,6 +1906,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-94iPKSnh34w?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.holidaystonepal.in",
+      schedule: {
+        mon: {
+          open: "10:00",
+          close: "18:00",
+        },
+        tue: {
+          open: "10:00",
+          close: "18:00",
+        },
+        wed: {
+          open: "10:00",
+          close: "18:00",
+        },
+        thu: {
+          open: "10:00",
+          close: "18:00",
+        },
+        fri: {
+          open: "10:00",
+          close: "18:00",
+        },
+        sun: {
+          open: "10:00",
+          close: "18:00",
+        },
+      },
+      ticketPrices: {
+        free: false,
+        notes: "$$$$",
+      },
     },
     {
       name: "Pashupatinath Temple",
@@ -1945,6 +2067,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-mZKEIRBStv4?auto=format&fit=crop&w=800&q=80",
+      website: "https://whc.unesco.org/en/list/500bis",
     },
     {
       name: "Miraflores",
@@ -1954,6 +2077,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-mZKEIRBStv4?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.mirafloresdelasierra.net/",
     },
     {
       name: "Larco Museum",
@@ -1992,6 +2116,36 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-SQhkQlmZ9Zw?auto=format&fit=crop&w=800&q=80",
+      schedule: {
+        mon: {
+          open: "06:00",
+          close: "20:00",
+        },
+        tue: {
+          open: "06:00",
+          close: "20:00",
+        },
+        wed: {
+          open: "06:00",
+          close: "20:00",
+        },
+        thu: {
+          open: "06:00",
+          close: "20:00",
+        },
+        fri: {
+          open: "06:00",
+          close: "20:00",
+        },
+        sat: {
+          open: "06:00",
+          close: "20:00",
+        },
+        sun: {
+          open: "06:00",
+          close: "20:00",
+        },
+      },
     },
   ],
   lisbon: [
@@ -2186,6 +2340,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1658922184767-d5335cb2a9d2?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.plazamayor.com.co",
     },
     {
       name: "Puerta del Sol",
@@ -2227,6 +2382,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.museodelprado.es/",
+      schedule: {
+        mon: {
+          open: "10:00",
+          close: "20:00",
+        },
+        tue: {
+          open: "10:00",
+          close: "20:00",
+        },
+        wed: {
+          open: "10:00",
+          close: "20:00",
+        },
+        thu: {
+          open: "10:00",
+          close: "20:00",
+        },
+        fri: {
+          open: "10:00",
+          close: "20:00",
+        },
+        sat: {
+          open: "10:00",
+          close: "20:00",
+        },
+        sun: {
+          open: "10:00",
+          close: "19:00",
+        },
+      },
     },
     {
       name: "Parque del Retiro",
@@ -2275,6 +2461,28 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1675671858948-93aca2f59973?auto=format&fit=crop&w=800&q=80",
+      schedule: {
+        mon: {
+          open: "10:00",
+          close: "24:00",
+        },
+        tue: {
+          open: "10:00",
+          close: "24:00",
+        },
+        wed: {
+          open: "10:00",
+          close: "24:00",
+        },
+        thu: {
+          open: "10:00",
+          close: "24:00",
+        },
+        sun: {
+          open: "10:00",
+          close: "24:00",
+        },
+      },
     },
     {
       name: "Templo de Debod",
@@ -2335,6 +2543,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-uVSSTAfe22A?auto=format&fit=crop&w=800&q=80",
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Santa Fe de Antioquia",
@@ -2424,6 +2635,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 240,
       imageUrl: "https://images.unsplash.com/photo-vlnSlZQRHDA?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.parks.vic.gov.au/places-to-see/parks/dandenong-ranges-national-park",
     },
   ],
   mexicocity: [
@@ -2478,6 +2690,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.casaluisbarragan.org",
     },
     {
       name: "Central University City Campus of the Universidad Nacional Autonoma de Mexico (UNAM)",
@@ -2530,6 +2743,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.teotihuacantours.com/plan-your-visit/",
+      ticketPrices: {
+        free: false,
+        currency: "USD",
+        adult: "USD undefined",
+      },
     },
     {
       name: "Earliest 16th-Century Monasteries on the Slopes of Popocatepetl",
@@ -2592,6 +2811,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1562517634-baa2da3acfbf?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.caron.org/locations/caron-florida",
+      schedule: {
+        mon: {
+          open: "00:00",
+          close: "23:30",
+        },
+        tue: {
+          open: "00:00",
+          close: "23:30",
+        },
+        wed: {
+          open: "00:00",
+          close: "23:30",
+        },
+        thu: {
+          open: "00:00",
+          close: "23:30",
+        },
+        fri: {
+          open: "00:00",
+          close: "23:30",
+        },
+        sat: {
+          open: "00:00",
+          close: "23:30",
+        },
+        sun: {
+          open: "00:00",
+          close: "23:30",
+        },
+      },
     },
     {
       name: "Wynwood Walls",
@@ -2635,6 +2885,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1512936702668-1ab037aced2a?auto=format&fit=crop&w=800&q=80",
+      website: "https://vizcaya.org/",
     },
     {
       name: "Brickell",
@@ -2670,6 +2921,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1571041804726-53e8bf082096?auto=format&fit=crop&w=800&q=80",
+      website: "https://shopdolphinmall.com/",
+      schedule: {
+        mon: {
+          open: "09:00",
+          close: "21:30",
+        },
+        tue: {
+          open: "09:00",
+          close: "21:30",
+        },
+        wed: {
+          open: "09:00",
+          close: "21:30",
+        },
+        thu: {
+          open: "09:00",
+          close: "21:30",
+        },
+        fri: {
+          open: "09:00",
+          close: "21:30",
+        },
+        sat: {
+          open: "09:00",
+          close: "21:30",
+        },
+        sun: {
+          open: "11:00",
+          close: "20:00",
+        },
+      },
     },
     {
       name: "Sawgrass Mills",
@@ -2767,6 +3049,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.wieskirche.de",
     },
   ],
   naples: [
@@ -2943,6 +3226,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=80",
+      website: "https://visitporto.travel/Visitar/Paginas/default.aspx",
     },
     {
       name: "Historic Centre of Guimaraes",
@@ -2952,6 +3236,13 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=80",
+      website: "http://motocidade.pt/",
+      schedule: {
+        sat: {
+          open: "10:00",
+          close: "13:00",
+        },
+      },
     },
     {
       name: "Alto Douro Wine Region",
@@ -2972,6 +3263,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.praguecastletickets.com/",
+      ticketPrices: {
+        free: false,
+        currency: "EUR",
+        adult: "EUR undefined",
+      },
     },
     {
       name: "Kutna Hora: Historical Town Centre with the Church of St Barbara and the Cathedral of Our Lady at Sedlec",
@@ -3104,6 +3401,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo--9-zh6WXGk8?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.mercadocentralvalencia.es/",
     },
     {
       name: "Ski Resort Valle Nevado",
@@ -3124,6 +3422,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Changdeokgung Palace Complex",
@@ -3293,6 +3594,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-McM5BW4jQHc?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.nparks.gov.sg/sbg/",
     },
     {
       name: "Gardens by the Bay",
@@ -3332,6 +3634,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 240,
       imageUrl: "https://images.unsplash.com/photo-jibSDCwWDx0?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.sentosa.com.sg",
     },
     {
       name: "Chinatown Food Street",
@@ -3451,6 +3754,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.sofitel.com/",
     },
     {
       name: "Maulbronn Monastery Complex",
@@ -3640,6 +3944,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1597435877886-5e23d2e10da6?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.ci.verona.wi.us",
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Mantua and Sabbioneta",
@@ -3828,6 +4136,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-DDBQWBv-nmk?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.originzanzibar.com/",
     },
     {
       name: "Jozani Chwaka Bay National Park",
@@ -3893,6 +4202,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1587583029793-8c73f61c9fcf?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.glarusoverthrust.org",
     },
     {
       name: "Prehistoric Pile dwellings around the Alps",
@@ -3993,6 +4303,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.aku.edu.et/",
     },
   ],
   algiers: [
@@ -4516,6 +4827,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1670085933747-2716ef10bf07?auto=format&fit=crop&w=800&q=80",
+      website: "https://ajuntament.barcelona.cat/ciutatvella/ca/el-districte-i-els-seus-barris/el-gotic",
     },
     {
       name: "Camp Nou",
@@ -4556,6 +4868,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1603097890522-f2e22aa08e35?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.mayorofbath.co.uk/",
     },
     {
       name: "Stonehenge, Avebury and Associated Sites",
@@ -4619,6 +4932,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1603097890522-f2e22aa08e35?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.jurassiccoast.com",
     },
   ],
   bergen: [
@@ -4733,6 +5047,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.brasilia.df.gov.br/",
     },
   ],
   burgos: [
@@ -4889,6 +5204,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1561464402-da6f729b09c9?auto=format&fit=crop&w=800&q=80",
+      website: "https://archicompostela.org/gl/",
     },
     {
       name: "Tower of Hercules",
@@ -4948,6 +5264,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Monasteries of Daphni, Hosios Loukas and Nea Moni of Chios",
@@ -5099,6 +5418,33 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "https://museocabanas.jalisco.gob.mx",
+      schedule: {
+        tue: {
+          open: "11:00",
+          close: "17:00",
+        },
+        wed: {
+          open: "11:00",
+          close: "17:00",
+        },
+        thu: {
+          open: "11:00",
+          close: "17:00",
+        },
+        fri: {
+          open: "11:00",
+          close: "17:00",
+        },
+        sat: {
+          open: "11:00",
+          close: "17:00",
+        },
+        sun: {
+          open: "11:00",
+          close: "17:00",
+        },
+      },
     },
     {
       name: "Agave Landscape and Ancient Industrial Facilities of Tequila",
@@ -5199,6 +5545,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.icmbio.gov.br/portal/biodiversidade/unidades-de-conservacao/biomas-brasileiros/mata-atlantica/unidades-de-conservacao-mata-atlantica/2204-parna-do-iguacu.html",
     },
     {
       name: "Iguazu National Park",
@@ -5546,6 +5893,20 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-1567942585146-33d62b775db0?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.britishmuseum.org",
+      schedule: {
+        sat: {
+          open: "10:00",
+          close: "17:00",
+        },
+        fri: {
+          open: "10:00",
+          close: "20:30",
+        },
+      },
+      ticketPrices: {
+        free: true,
+      },
     },
     {
       name: "Camden Market",
@@ -5555,6 +5916,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1504913659239-6abc87875a63?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.camdenmarket.com/",
     },
     {
       name: "Hyde Park",
@@ -5688,6 +6050,41 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1543349689-9a4d426bee8e?auto=format&fit=crop&w=800&q=80",
+      website: "https://e-services.minculture.gov.ma/fr/tickets/palais-bahia",
+      schedule: {
+        mon: {
+          open: "09:00",
+          close: "17:00",
+        },
+        tue: {
+          open: "09:00",
+          close: "17:00",
+        },
+        wed: {
+          open: "09:00",
+          close: "17:00",
+        },
+        thu: {
+          open: "09:00",
+          close: "17:00",
+        },
+        fri: {
+          open: "09:00",
+          close: "17:00",
+        },
+        sat: {
+          open: "09:00",
+          close: "17:00",
+        },
+        sun: {
+          open: "09:00",
+          close: "17:00",
+        },
+      },
+      ticketPrices: {
+        free: false,
+        notes: "Dh 100",
+      },
     },
     {
       name: "Souks of Marrakesh",
@@ -5706,6 +6103,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1543349689-9a4d426bee8e?auto=format&fit=crop&w=800&q=80",
+      website: "https://badipalace.com",
+      ticketPrices: {
+        free: false,
+      },
     },
   ],
   matera: [
@@ -5788,6 +6189,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.cityofsanmateo.org/index.aspx?NID=718",
     },
     {
       name: "Brooklyn Bridge",
@@ -5911,6 +6313,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "https://worldheritage.pref.gunma.jp/tomikinu/",
     },
   ],
   nimes: [
@@ -6072,6 +6475,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.cathedrale-chartres.org/",
     },
     {
       name: "Eiffel Tower",
@@ -6147,6 +6551,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1641503855609-5e28a1ed35a9?auto=format&fit=crop&w=800&q=80",
+      website: "https://en.parisinfo.com/transport/73130/Avenue-des-Champs-Elysees",
     },
     {
       name: "Notre-Dame de Paris",
@@ -6186,6 +6591,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 360,
       imageUrl: "https://images.unsplash.com/photo-1528041119984-da3a9f8d04d1?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.disneylandparis.com",
+      schedule: {
+        mon: {
+          open: "09:00",
+          close: "22:00",
+        },
+        tue: {
+          open: "09:00",
+          close: "22:00",
+        },
+        wed: {
+          open: "09:00",
+          close: "22:00",
+        },
+        thu: {
+          open: "09:00",
+          close: "22:00",
+        },
+        fri: {
+          open: "09:00",
+          close: "22:00",
+        },
+        sat: {
+          open: "09:00",
+          close: "22:00",
+        },
+        sun: {
+          open: "09:00",
+          close: "22:00",
+        },
+      },
     },
     {
       name: "Musée d'Orsay",
@@ -6195,6 +6631,36 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-1732841021162-b3c37f05e6eb?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.musee-orsay.fr/",
+      schedule: {
+        tue: {
+          open: "09:30",
+          close: "18:00",
+        },
+        wed: {
+          open: "09:30",
+          close: "18:00",
+        },
+        thu: {
+          open: "09:30",
+          close: "21:45",
+        },
+        fri: {
+          open: "09:30",
+          close: "18:00",
+        },
+        sat: {
+          open: "09:30",
+          close: "18:00",
+        },
+        sun: {
+          open: "09:30",
+          close: "18:00",
+        },
+      },
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Sainte-Chapelle",
@@ -6240,6 +6706,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1579606032821-31269d3a7bc2?auto=format&fit=crop&w=800&q=80",
+      website: "http://wadirum.jo/",
     },
   ],
   philadelphia: [
@@ -6316,6 +6783,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.coliseum.org.uk",
     },
     {
       name: "Vatican Museums & Sistine Chapel",
@@ -6389,6 +6857,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.levillae.com/",
     },
     {
       name: "Villa d'Este, Tivoli",
@@ -6520,6 +6989,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "https://whc.unesco.org/en/list/309/",
     },
   ],
   santafe: [
@@ -6543,6 +7013,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      website: "http://fc-perspolis.com",
     },
     {
       name: "The Persian Garden",
@@ -6621,6 +7092,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.rbge.org.uk",
+      ticketPrices: {
+        free: true,
+      },
     },
     {
       name: "Darling Harbour",
@@ -6737,6 +7212,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1520756396-5c18b7f81e8f?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.wartburg.de/de/",
     },
     {
       name: "Collegiate Church, Castle and Old Town of Quedlinburg",
@@ -6807,6 +7283,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 360,
       imageUrl: "https://images.unsplash.com/photo-1719941463960-f3310fe64e46?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.xcaret.com/es/",
+      ticketPrices: {
+        free: false,
+        notes: "$$$",
+      },
     },
     {
       name: "Xel-Há Park",
@@ -6825,6 +7306,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1561577101-aa749bffbb70?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.chichenitza.com/",
     },
     {
       name: "Tulum Archaeological Zone",
@@ -6957,6 +7439,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 360,
       imageUrl: "https://images.unsplash.com/photo-1524008279394-3aed4643b30b?auto=format&fit=crop&w=800&q=80",
+      website: "https://disneyworld.disney.go.com/destinations/epcot/",
     },
     {
       name: "Disney's Hollywood Studios",
@@ -7056,6 +7539,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 300,
       imageUrl: "https://images.unsplash.com/photo-1612404459571-ccef4b6588e7?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.universalorlando.com/Theme-Parks/Islands-of-Adventure.aspx",
     },
     {
       name: "The Wizarding World of Harry Potter",
@@ -7075,6 +7559,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 240,
       imageUrl: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?auto=format&fit=crop&w=800&q=80",
+      website: "https://seaworld.com/orlando/",
     },
     {
       name: "ICON Park",
@@ -7111,6 +7596,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 30,
       imageUrl: "https://images.unsplash.com/photo-1697442066898-fa88f11693d6?auto=format&fit=crop&w=800&q=80",
+      website: "https://youtu.be/0ONXRMlI8hw?si=jwgknPUNRCuK2koL",
     },
     {
       name: "Tokyo Tower",
@@ -7224,6 +7710,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1703443371292-0d9081cc4787?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.meijijingu.or.jp/",
+      ticketPrices: {
+        free: true,
+      },
     },
     {
       name: "teamLab Planets TOKYO",
@@ -7248,6 +7738,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
+      website: "http://www.env.go.jp/garden/shinjukugyoen/",
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "teamLab Borderless",
@@ -7257,6 +7751,40 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.teamlab.art/e/borderless-odaiba/",
+      schedule: {
+        mon: {
+          open: "10:00",
+          close: "21:00",
+        },
+        tue: {
+          open: "10:00",
+          close: "21:00",
+        },
+        wed: {
+          open: "10:00",
+          close: "21:00",
+        },
+        thu: {
+          open: "10:00",
+          close: "21:00",
+        },
+        fri: {
+          open: "10:00",
+          close: "21:00",
+        },
+        sat: {
+          open: "10:00",
+          close: "21:00",
+        },
+        sun: {
+          open: "10:00",
+          close: "21:00",
+        },
+      },
+      ticketPrices: {
+        free: false,
+      },
     },
   ],
   oslo: [
@@ -7402,6 +7930,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-XGKaRnWjv1c?auto=format&fit=crop&w=800&q=80",
+      ticketPrices: {
+        free: false,
+        notes: "20 EUR",
+      },
     },
     {
       name: "Red Beach",
@@ -7465,6 +7997,36 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-ZTcfIhTS31I?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.npm.gov.tw/",
+      schedule: {
+        tue: {
+          open: "09:00",
+          close: "17:00",
+        },
+        wed: {
+          open: "09:00",
+          close: "17:00",
+        },
+        thu: {
+          open: "09:00",
+          close: "17:00",
+        },
+        fri: {
+          open: "09:00",
+          close: "17:00",
+        },
+        sat: {
+          open: "09:00",
+          close: "17:00",
+        },
+        sun: {
+          open: "09:00",
+          close: "17:00",
+        },
+      },
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Shilin Night Market",
@@ -7572,6 +8134,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-i6mwttXNB8M?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.gangesgrand.in/",
     },
     {
       name: "Ganga Aarti Ceremony",
@@ -7734,6 +8297,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-i9QByv3MW-M?auto=format&fit=crop&w=800&q=80",
+      schedule: {
+        sun: {
+          open: "17:00",
+          close: "22:00",
+        },
+      },
     },
     {
       name: "Elephant Nature Park",
@@ -7753,6 +8322,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-olQa1IUPlPQ?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.artmaigalleryhotel.com/",
     },
     {
       name: "Thai Cooking Class",
@@ -7877,6 +8447,13 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-TDZKKlsJwCk?auto=format&fit=crop&w=800&q=80",
+      website: "https://my.trip.com/travel-guide/attraction/kuala-lumpur/kl-bird-park-77131/?locale=en-MY",
+      ticketUrl: "https://my.trip.com/travel-guide/attraction/kuala-lumpur/kl-bird-park-77131/?locale=en-MY",
+      ticketPrices: {
+        free: false,
+        currency: "MYR",
+        adult: "MYR 89.86",
+      },
     },
     {
       name: "Petaling Street (Chinatown)",
@@ -8085,6 +8662,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-GetoTc-09Ek?auto=format&fit=crop&w=800&q=80",
+      website: "https://benthanhmarket.vn/",
+      schedule: {
+        mon: {
+          open: "06:00",
+          close: "18:00",
+        },
+        tue: {
+          open: "06:00",
+          close: "18:00",
+        },
+        wed: {
+          open: "06:00",
+          close: "18:00",
+        },
+        thu: {
+          open: "06:00",
+          close: "18:00",
+        },
+        fri: {
+          open: "06:00",
+          close: "18:00",
+        },
+        sat: {
+          open: "06:00",
+          close: "18:00",
+        },
+        sun: {
+          open: "06:00",
+          close: "18:00",
+        },
+      },
     },
     {
       name: "Reunification Palace",
@@ -8458,6 +9066,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-bSoWbqTU_L8?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.bloomingdaletrail.org/",
     },
   ],
   sanfrancisco: [
@@ -8714,6 +9323,40 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-w6OHCCZsuAU?auto=format&fit=crop&w=800&q=80",
+      website: "https://casaloma.ca/",
+      schedule: {
+        mon: {
+          open: "09:30",
+          close: "17:00",
+        },
+        tue: {
+          open: "09:30",
+          close: "17:00",
+        },
+        wed: {
+          open: "09:30",
+          close: "17:00",
+        },
+        thu: {
+          open: "09:30",
+          close: "17:00",
+        },
+        fri: {
+          open: "09:30",
+          close: "17:00",
+        },
+        sat: {
+          open: "09:30",
+          close: "17:00",
+        },
+        sun: {
+          open: "09:30",
+          close: "17:00",
+        },
+      },
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Toronto Islands",
@@ -8744,6 +9387,29 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-g2FU3XHyONI?auto=format&fit=crop&w=800&q=80",
+      website: "https://vancouver.ca/parks-recreation-culture/stanley-park.aspx",
+      schedule: {
+        mon: {
+          open: "09:00",
+          close: "17:00",
+        },
+        tue: {
+          open: "09:00",
+          close: "17:00",
+        },
+        wed: {
+          open: "09:00",
+          close: "17:00",
+        },
+        thu: {
+          open: "09:00",
+          close: "17:00",
+        },
+        fri: {
+          open: "09:00",
+          close: "17:00",
+        },
+      },
     },
     {
       name: "Granville Island Public Market",
@@ -8870,6 +9536,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-AIELjly3D5w?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.basiliquenotredame.ca/",
     },
     {
       name: "Mount Royal Park",
@@ -8879,6 +9546,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-eSqwXkTsV1A?auto=format&fit=crop&w=800&q=80",
+      website: "https://montreal.ca/lieux/parc-du-mont-royal",
     },
     {
       name: "Jean-Talon Market",
@@ -8888,6 +9556,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-Uqd7VpA6peU?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.marchespublics-mtl.com/",
+      schedule: {
+        mon: {
+          open: "07:00",
+          close: "18:00",
+        },
+        tue: {
+          open: "07:00",
+          close: "18:00",
+        },
+        wed: {
+          open: "07:00",
+          close: "18:00",
+        },
+        thu: {
+          open: "07:00",
+          close: "20:00",
+        },
+        fri: {
+          open: "07:00",
+          close: "20:00",
+        },
+        sat: {
+          open: "07:00",
+          close: "18:00",
+        },
+        sun: {
+          open: "07:00",
+          close: "17:00",
+        },
+      },
     },
     {
       name: "Montreal Museum of Fine Arts",
@@ -8944,6 +9643,36 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-TGtwfFFE0Yk?auto=format&fit=crop&w=800&q=80",
+      website: "https://espacepourlavie.ca/biodome",
+      schedule: {
+        tue: {
+          open: "09:00",
+          close: "17:00",
+        },
+        wed: {
+          open: "09:00",
+          close: "17:00",
+        },
+        thu: {
+          open: "09:00",
+          close: "17:00",
+        },
+        fri: {
+          open: "09:00",
+          close: "17:00",
+        },
+        sat: {
+          open: "09:00",
+          close: "17:00",
+        },
+        sun: {
+          open: "09:00",
+          close: "17:00",
+        },
+      },
+      ticketPrices: {
+        free: false,
+      },
     },
   ],
   saopaulo: [
@@ -9039,6 +9768,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-469Rvb5h0fk?auto=format&fit=crop&w=800&q=80",
+      website: "https://monserrate.co/",
     },
     {
       name: "Usaquén",
@@ -9057,6 +9787,16 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-6HAzIKfCcaw?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.banrepcultural.org/bogota/museo-botero",
+      schedule: {
+        sun: {
+          open: "10:00",
+          close: "17:00",
+        },
+      },
+      ticketPrices: {
+        free: true,
+      },
     },
     {
       name: "Plaza de Bolívar",
@@ -9077,6 +9817,37 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 240,
       imageUrl: "https://images.unsplash.com/photo-Lrfeth2WaOo?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.kws.go.ke/nairobi-national-park",
+      schedule: {
+        mon: {
+          open: "06:00",
+          close: "18:00",
+        },
+        tue: {
+          open: "06:00",
+          close: "18:00",
+        },
+        wed: {
+          open: "06:00",
+          close: "18:00",
+        },
+        thu: {
+          open: "06:00",
+          close: "18:00",
+        },
+        fri: {
+          open: "06:00",
+          close: "18:00",
+        },
+        sat: {
+          open: "06:00",
+          close: "18:00",
+        },
+        sun: {
+          open: "06:00",
+          close: "18:00",
+        },
+      },
     },
     {
       name: "Giraffe Centre",
@@ -9096,6 +9867,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-LTh5pGyvKAM?auto=format&fit=crop&w=800&q=80",
+      website: "https://blixen.dk",
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Nairobi National Museum",
@@ -9125,6 +9900,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-eAAjjjNaO18?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.sheldrickwildlifetrust.org/",
     },
   ],
   lagos: [
@@ -9186,6 +9962,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-fA7Xd3dwkaQ?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.visitbrisbane.com.au/south-bank/destinations?sc_lang=en-au",
     },
     {
       name: "Gallery of Modern Art (GOMA)",
@@ -9298,6 +10075,16 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-MRH3c77m_2c?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.aucklandmuseum.com/",
+      schedule: {
+        tue: {
+          open: "10:00",
+          close: "20:30",
+        },
+      },
+      ticketPrices: {
+        free: false,
+      },
     },
     {
       name: "Rangitoto Island",
@@ -9325,6 +10112,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-cfkMUPaKvLY?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.viaduct.co.nz/",
     },
     {
       name: "One Tree Hill (Maungakiekie)",
@@ -9509,6 +10297,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-fA7Xd3dwkaQ?auto=format&fit=crop&w=800&q=80",
+      website: "https://www.ihg.com/holidayinn/hotels/us/en/cairns/cnshb/hoteldetail",
     },
     {
       name: "Tjapukai Aboriginal Cultural Park",
