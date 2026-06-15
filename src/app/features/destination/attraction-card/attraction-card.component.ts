@@ -6,6 +6,7 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { AttractionDetailModalComponent } from '../attraction-detail-modal/attraction-detail-modal.component';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
+import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
 
 @Component({
   selector: 'app-attraction-card',
@@ -115,6 +116,12 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
       border: 1.5px dashed var(--lav-d);
     }
     .entry-chip-add:hover { background: var(--lav); }
+    /* ── Enrichment strip ── */
+    .card-enrich {
+      padding: 4px 12px 8px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
   `],
   template: `
     <div class="att-card" (click)="showDetailModal.set(true)">
@@ -162,6 +169,34 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
           <span class="card-cmnt-count" style="margin-left:4px">💬 {{ comments().length }}</span>
         }
       </div>
+
+      <!-- Enrichment strip: hours / ticket / website -->
+      @if (todayHours() || ticketSummary() || websiteDomain()) {
+        <div class="card-enrich">
+          @if (todayHours()) {
+            <div class="att-preview-enrich">
+              <span class="att-enrich-icon">🕐</span>
+              <span class="att-enrich-value">{{ todayHours() }}</span>
+            </div>
+          }
+          @if (ticketSummary()) {
+            <div class="att-preview-enrich">
+              <span class="att-enrich-icon">🎟️</span>
+              <span class="att-enrich-value">{{ ticketSummary() }}</span>
+            </div>
+          }
+          @if (websiteDomain()) {
+            <div class="att-preview-enrich">
+              <span class="att-enrich-icon">🌐</span>
+              <a class="att-enrich-value att-enrich-link"
+                 [href]="attraction().website"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 (click)="$event.stopPropagation()">{{ websiteDomain() }}</a>
+            </div>
+          }
+        </div>
+      }
 
       <!-- Planned entry chips — one per scheduled visit -->
       @if (plannedEntries().length > 0) {
@@ -245,6 +280,26 @@ export class AttractionCardComponent {
   readonly inPlan = computed(() => this.plannedEntries().length > 0);
 
   readonly activeStop = computed(() => this.trip.activeStop());
+
+  readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
+
+  readonly websiteDomain = computed(() => {
+    const url = this.attraction().website;
+    if (!url) return null;
+    try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  });
+
+  readonly ticketSummary = computed((): string | null => {
+    const p = this.attraction().ticketPrices;
+    if (!p) return null;
+    if (p.free) return 'Free entry';
+    const parts: string[] = [];
+    if (p.adult)  parts.push(`Adult ${p.adult}`);
+    if (p.child)  parts.push(`Child ${p.child}`);
+    if (p.senior) parts.push(`Senior ${p.senior}`);
+    if (p.notes && !parts.length) return p.notes;
+    return parts.join(' · ') || null;
+  });
 
   // For the ADD modal: show all existing entries including sibling visits of this attraction
   readonly scheduleEntries = computed((): ScheduleEntry[] => {

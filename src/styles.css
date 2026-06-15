@@ -1634,6 +1634,13 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   white-space: nowrap;
   max-width: 200px;
 }
+.att-enrich-link {
+  color: var(--lav-d);
+  text-decoration: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.att-enrich-link:hover { text-decoration: underline; }
 
 /* Hover cursor affordance on attraction name labels */
 .itin-item-label {

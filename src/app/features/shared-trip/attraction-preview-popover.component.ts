@@ -39,7 +39,10 @@ import { formatTodayHours } from '../../core/utils/attraction-hours.util';
         @if (websiteDomain()) {
           <div class="att-preview-enrich">
             <span class="att-enrich-icon">🌐</span>
-            <span class="att-enrich-value">{{ websiteDomain() }}</span>
+            <a class="att-enrich-value att-enrich-link"
+               [href]="attraction().website"
+               target="_blank"
+               rel="noopener noreferrer">{{ websiteDomain() }}</a>
           </div>
         }
 

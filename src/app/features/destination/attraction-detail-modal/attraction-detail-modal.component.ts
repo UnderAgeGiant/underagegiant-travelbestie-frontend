@@ -7,6 +7,7 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
+import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
 import { CommentCooldownService } from '../../../core/comments/comment-cooldown.service';
 import { CommentSimilarModalComponent } from '../../comments/comment-similar-modal.component';
@@ -96,6 +97,12 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
       font-size: 11px; color: var(--t3);
       background: oklch(97% 0 0); padding: 2px 8px; border-radius: 99px;
     }
+    .detail-enrich {
+      display: flex; flex-wrap: wrap; gap: 4px 24px;
+    }
+    .detail-enrich .att-preview-enrich {
+      margin-top: 0; font-size: 12.5px;
+    }
   `],
   template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
@@ -142,6 +149,34 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
           </div>
 
           <hr class="divider">
+
+          <!-- Enrichment: hours / ticket / website -->
+          @if (todayHours() || ticketSummary() || websiteDomain()) {
+            <div class="detail-enrich">
+              @if (todayHours()) {
+                <div class="att-preview-enrich">
+                  <span class="att-enrich-icon">🕐</span>
+                  <span class="att-enrich-value">{{ todayHours() }}</span>
+                </div>
+              }
+              @if (ticketSummary()) {
+                <div class="att-preview-enrich">
+                  <span class="att-enrich-icon">🎟️</span>
+                  <span class="att-enrich-value">{{ ticketSummary() }}</span>
+                </div>
+              }
+              @if (websiteDomain()) {
+                <div class="att-preview-enrich">
+                  <span class="att-enrich-icon">🌐</span>
+                  <a class="att-enrich-value att-enrich-link"
+                     [href]="attraction().website"
+                     target="_blank"
+                     rel="noopener noreferrer">{{ websiteDomain() }}</a>
+                </div>
+              }
+            </div>
+            <hr class="divider">
+          }
 
           <!-- Comments -->
           <div class="comments-head">
@@ -233,6 +268,26 @@ export class AttractionDetailModalComponent {
   );
 
   readonly activeStop = computed(() => this.trip.activeStop());
+
+  readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
+
+  readonly websiteDomain = computed(() => {
+    const url = this.attraction().website;
+    if (!url) return null;
+    try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return null; }
+  });
+
+  readonly ticketSummary = computed((): string | null => {
+    const p = this.attraction().ticketPrices;
+    if (!p) return null;
+    if (p.free) return 'Free entry';
+    const parts: string[] = [];
+    if (p.adult)  parts.push(`Adult ${p.adult}`);
+    if (p.child)  parts.push(`Child ${p.child}`);
+    if (p.senior) parts.push(`Senior ${p.senior}`);
+    if (p.notes && !parts.length) return p.notes;
+    return parts.join(' · ') || null;
+  });
 
   readonly scheduleEntries = computed((): ScheduleEntry[] => {
     const city = WORLD_CITIES.find(c => c.id === this.cityId());
