@@ -24,6 +24,6 @@ export function formatHours(hours: DayHours): string {
 export function formatTodayHours(schedule: WeeklySchedule | null | undefined): string | null {
   const entry = getTodayHours(schedule);
   if (entry === null) return null;
-  if (entry === 'closed') return 'Closed today';
-  return `Open ${formatHours(entry)}`;
+  if (entry === 'closed') return 'Cerrado hoy';
+  return `Abierto ${formatHours(entry)}`;
 }

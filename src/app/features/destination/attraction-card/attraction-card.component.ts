@@ -292,11 +292,11 @@ export class AttractionCardComponent {
   readonly ticketSummary = computed((): string | null => {
     const p = this.attraction().ticketPrices;
     if (!p) return null;
-    if (p.free) return 'Free entry';
+    if (p.free) return 'Entrada gratuita';
     const parts: string[] = [];
-    if (p.adult)  parts.push(`Adult ${p.adult}`);
-    if (p.child)  parts.push(`Child ${p.child}`);
-    if (p.senior) parts.push(`Senior ${p.senior}`);
+    if (p.adult)  parts.push(`Adulto ${p.adult}`);
+    if (p.child)  parts.push(`Niño ${p.child}`);
+    if (p.senior) parts.push(`Adulto mayor ${p.senior}`);
     if (p.notes && !parts.length) return p.notes;
     return parts.join(' · ') || null;
   });

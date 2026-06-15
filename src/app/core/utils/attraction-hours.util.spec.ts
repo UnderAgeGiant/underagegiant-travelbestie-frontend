@@ -52,13 +52,13 @@ describe('formatTodayHours', () => {
 
   it('returns "Closed today" for a closed entry', () => {
     const daySpy = jest.spyOn(Date.prototype, 'getDay').mockReturnValue(0); // Sunday
-    expect(formatTodayHours(FULL_SCHEDULE)).toBe('Closed today');
+    expect(formatTodayHours(FULL_SCHEDULE)).toBe('Cerrado hoy');
     daySpy.mockRestore();
   });
 
   it('returns formatted string for an open day', () => {
     const daySpy = jest.spyOn(Date.prototype, 'getDay').mockReturnValue(6); // Saturday
-    expect(formatTodayHours(FULL_SCHEDULE)).toBe('Open 10:00 – 14:00');
+    expect(formatTodayHours(FULL_SCHEDULE)).toBe('Abierto 10:00 – 14:00');
     daySpy.mockRestore();
   });
 });
