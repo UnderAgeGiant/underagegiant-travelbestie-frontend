@@ -87,8 +87,10 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 
 /* STOPS */
 .stop-item { background: var(--cream); border: 1.5px solid var(--border); border-radius: 14px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; transition: all .22s cubic-bezier(.34,1.2,.64,1); animation: slideRight .3s ease both; position: relative; }
-.stop-item:hover, .stop-item.active { border-color: var(--lav-d); background: var(--lav); transform: translateX(3px); }
-.stop-item.active { box-shadow: 0 2px 12px oklch(55% .16 290/.18); }
+@media (hover: hover) {
+  .stop-item:hover { border-color: var(--lav-d); background: var(--lav); transform: translateX(3px); }
+}
+.stop-item.active { border-color: var(--lav-d); background: var(--lav); transform: translateX(3px); box-shadow: 0 2px 12px oklch(55% .16 290/.18); }
 .stop-connector { width: 2px; height: 14px; background: var(--border); margin: 0 0 8px 22px; border-radius: 99px; }
 .stop-row { display: flex; align-items: center; gap: 10px; }
 .stop-flag { font-size: 22px; line-height: 1; flex-shrink: 0; }
