@@ -10,6 +10,8 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
+import { FavoritesService } from '../../core/favorites/favorites.service';
+import { FavoritedTrip } from '../../core/models/trip.model';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
@@ -364,6 +366,32 @@ import { environment } from '../../../environments/environment';
                     </div>
                   }
 
+                  <!-- My favorites -->
+                  <button class="up-plans-btn" (click)="toggleFavorites()" type="button">
+                    <span>❤️</span>
+                    <span i18n="@@nav.myFavorites">Mis favoritos</span>
+                    @if (favoritedTrips().length > 0) {
+                      <span class="up-plans-badge">{{ favoritedTrips().length }}</span>
+                    }
+                    <span style="margin-left:auto;font-size:10px;opacity:.6">{{ favoritesOpen() ? '▴' : '▾' }}</span>
+                  </button>
+                  @if (favoritesOpen()) {
+                    <div class="up-plans-panel">
+                      @if (favLoading()) {
+                        <div class="up-plans-empty" i18n="@@nav.loadingFavorites">Cargando…</div>
+                      } @else if (favoritedTrips().length === 0) {
+                        <div class="up-plans-empty" i18n="@@nav.noFavorites">Sin favoritos aún ❤️</div>
+                      } @else {
+                        @for (t of favoritedTrips(); track t.shareId) {
+                          <button class="up-shared-trip-row" (click)="goToSharedTrip(t.shareId)" type="button">
+                            <div class="up-shared-trip-name">{{ t.tripName }}</div>
+                            <div class="up-shared-trip-meta">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}</div>
+                          </button>
+                        }
+                      }
+                    </div>
+                  }
+
                   <!-- My shared trips -->
                   @if (mySharedTrips().length > 0) {
                     <button class="up-plans-btn" (click)="toggleMyTrips()" type="button">
@@ -664,6 +692,7 @@ export class NavComponent {
   private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
+  private readonly favorites    = inject(FavoritesService);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -693,6 +722,10 @@ export class NavComponent {
   cloningPlanId       = signal<string | null>(null);
   clonedPlanId        = signal<string | null>(null);
   myTripsOpen    = signal(false);
+  favoritesOpen  = signal(false);
+  favoritedTrips = signal<FavoritedTrip[]>([]);
+  favLoading     = signal(false);
+  favLoaded      = signal(false);
   readonly buyKarmaOpen  = this.karmaModal.buyOpen;
   registerSuccessOpen    = signal(false);
   registerSuccessName    = signal('');
@@ -979,6 +1012,18 @@ export class NavComponent {
     if (!this.userMenuOpen()) {
       this.plansOpen.set(false);
       this.savePlanOpen.set(false);
+      this.favoritesOpen.set(false);
+    }
+  }
+
+  toggleFavorites(): void {
+    this.favoritesOpen.update(v => !v);
+    if (this.favoritesOpen() && !this.favLoaded()) {
+      this.favLoading.set(true);
+      this.favorites.getFavorites().subscribe({
+        next:  trips => { this.favoritedTrips.set(trips); this.favLoading.set(false); this.favLoaded.set(true); },
+        error: ()    => { this.favLoading.set(false); },
+      });
     }
   }
 
