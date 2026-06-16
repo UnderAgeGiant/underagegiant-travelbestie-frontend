@@ -526,6 +526,9 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   /* Allow the page to scroll vertically */
   html, body { height: auto; overflow-y: auto; overflow-x: hidden; }
 
+  /* ── Forms: 16px min font-size prevents iOS/Android auto-zoom-on-focus ── */
+  .form-input, .form-textarea { font-size: 16px; }
+
   /* ── Nav: logo + auth only ── */
   .nav { padding: 0 14px; gap: 0; height: 58px; }
   .nav-logo { margin-right: auto; font-size: 28px; }
