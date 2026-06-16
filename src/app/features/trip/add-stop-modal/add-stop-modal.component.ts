@@ -18,10 +18,11 @@ import { City } from '../../../core/models/city.model';
         <div class="modal-body" style="min-height:320px">
           <div class="form-group">
             <label class="form-label" i18n="@@addStop.cityLabel">Ciudad</label>
-            <app-city-combobox (cityChange)="selectedCity.set($event)" />
+            <app-city-combobox (cityChange)="onCityChange($event)" />
           </div>
           @if (selectedCity()) {
             <app-date-range
+              [initialCheckIn]="defaultCheckIn()"
               (checkIn)="checkIn.set($event)"
               (checkOut)="checkOut.set($event)" />
           }
@@ -57,26 +58,39 @@ export class AddStopModalComponent {
   checkIn = signal('');
   checkOut = signal('');
 
+  private parseMs(s: string): number {
+    const [dd, mm, yyyy] = s.split('/').map(Number);
+    return new Date(yyyy, mm - 1, dd).getTime();
+  }
+
+  readonly defaultCheckIn = computed(() => {
+    const stops = this.trip.stops();
+    if (!stops.length) return '';
+    const sorted = [...stops].sort((a, b) => this.parseMs(a.checkIn) - this.parseMs(b.checkIn));
+    return sorted[sorted.length - 1].checkOut;
+  });
+
   readonly consecutiveWarning = computed(() => {
     const city = this.selectedCity();
     const ci   = this.checkIn();
     if (!city || !ci) return false;
     const stops = this.trip.stops();
     if (stops.length === 0) return false;
-    const parseMs = (s: string): number => {
-      const [dd, mm, yyyy] = s.split('/').map(Number);
-      return new Date(yyyy, mm - 1, dd).getTime();
-    };
-    const newMs = parseMs(ci);
-    const sorted = [...stops].sort((a, b) => parseMs(a.checkIn) - parseMs(b.checkIn));
+    const newMs = this.parseMs(ci);
+    const sorted = [...stops].sort((a, b) => this.parseMs(a.checkIn) - this.parseMs(b.checkIn));
     let insertIdx = sorted.length;
     for (let i = 0; i < sorted.length; i++) {
-      if (newMs < parseMs(sorted[i].checkIn)) { insertIdx = i; break; }
+      if (newMs < this.parseMs(sorted[i].checkIn)) { insertIdx = i; break; }
     }
     const before = sorted[insertIdx - 1];
     const after  = sorted[insertIdx];
     return before?.cityId === city.id || after?.cityId === city.id;
   });
+
+  onCityChange(city: City): void {
+    this.selectedCity.set(city);
+    this.checkIn.set(this.defaultCheckIn());
+  }
 
   add(): void {
     const city = this.selectedCity();
