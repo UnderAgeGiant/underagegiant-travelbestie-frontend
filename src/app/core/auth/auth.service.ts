@@ -64,12 +64,22 @@ export class AuthService {
 
   requestOtp(email: string): Observable<void> {
     if (environment.useMocks) return of(undefined);
-    return this.http.post<void>(`${environment.apiUrl}/auth/request-otp`, { email });
+    return this.http.post<void>(`${environment.apiUrl}/auth/request-otp`, { email }).pipe(
+      catchError((err: unknown) => {
+        const code = this.classifyHttpStatus(err);
+        return throwError(() => Object.assign(new Error(code), { code }));
+      })
+    );
   }
 
   requestProfileOtp(newEmail: string): Observable<void> {
     if (environment.useMocks) return of(undefined);
-    return this.http.post<void>(`${environment.apiUrl}/auth/request-profile-otp`, { newEmail });
+    return this.http.post<void>(`${environment.apiUrl}/auth/request-profile-otp`, { newEmail }).pipe(
+      catchError((err: unknown) => {
+        const code = this.classifyHttpStatus(err);
+        return throwError(() => Object.assign(new Error(code), { code }));
+      })
+    );
   }
 
   updateProfile(fields: {
@@ -81,7 +91,7 @@ export class AuthService {
   }): Observable<{ user: AuthUser }> {
     if (environment.useMocks) {
       const current = this._user();
-      if (!current) return throwError(() => new Error('No hay sesión activa'));
+      if (!current) return throwError(() => Object.assign(new Error('UNAUTHORIZED'), { code: 'UNAUTHORIZED' }));
       const updated: AuthUser = {
         name:  fields.name     ?? current.name,
         email: fields.newEmail ?? current.email,
@@ -98,6 +108,10 @@ export class AuthService {
         sessionStorage.setItem(SESSION_KEY, JSON.stringify(res.user));
         this._user.set(res.user);
       }),
+      catchError((err: unknown) => {
+        const code = this.classifyHttpStatus(err);
+        return throwError(() => Object.assign(new Error(code), { code }));
+      })
     );
   }
 
@@ -105,7 +119,7 @@ export class AuthService {
     if (environment.useMocks) {
       const users = this.getStoredUsers();
       if (users.some(u => u.email === email)) {
-        return throwError(() => new Error('Ese correo ya está registrado'));
+        return throwError(() => Object.assign(new Error('BAD_REQUEST'), { code: 'BAD_REQUEST' }));
       }
       users.push({ name, email, password });
       localStorage.setItem(USERS_KEY, JSON.stringify(users));
@@ -115,7 +129,11 @@ export class AuthService {
       switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
         `${environment.apiUrl}/auth/register`, body
       )),
-      tap(res => this.persistSession(res.token, res.user))
+      tap(res => this.persistSession(res.token, res.user)),
+      catchError((err: unknown) => {
+        const code = this.classifyHttpStatus(err);
+        return throwError(() => Object.assign(new Error(code), { code }));
+      })
     );
   }
 
@@ -161,6 +179,15 @@ export class AuthService {
     } catch {
       throw new Error('Error al cifrar las credenciales. Intenta de nuevo.');
     }
+  }
+
+  private classifyHttpStatus(err: unknown): string {
+    if (err instanceof HttpErrorResponse) {
+      if (err.status === 429) return 'RATE_LIMITED';
+      if (err.status === 401) return 'UNAUTHORIZED';
+      if (err.status === 400) return 'BAD_REQUEST';
+    }
+    return 'UNKNOWN';
   }
 
   private mockSession(name: string, email: string): { token: string; user: AuthUser } {

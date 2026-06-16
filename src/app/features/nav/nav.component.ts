@@ -603,14 +603,33 @@ import { environment } from '../../../environments/environment';
             </div>
             @if (loginErrorCode() || loginError()) {
               <div style="font-size:11px;color:oklch(50% 0.18 25);text-align:center;padding:4px 8px;background:oklch(97% 0.03 25);border-radius:8px">
-                @if (loginErrorCode() === 'USER_NOT_FOUND') {
-                  ⚠ <ng-container i18n="@@nav.loginErrNotFound">No encontramos una cuenta con ese correo electrónico.</ng-container>
-                } @else if (loginErrorCode() === 'WRONG_PASSWORD') {
-                  ⚠ <ng-container i18n="@@nav.loginErrWrongPassword">Contraseña incorrecta. Intenta de nuevo.</ng-container>
-                } @else if (loginErrorCode()) {
-                  ⚠ <ng-container i18n="@@nav.loginErrGeneric">Correo o contraseña incorrectos.</ng-container>
-                } @else {
-                  ⚠ {{ loginError() }}
+                @switch (authErrorContext()) {
+                  @case ('login') {
+                    @if (loginErrorCode() === 'USER_NOT_FOUND') {
+                      ⚠ <ng-container i18n="@@nav.loginErrNotFound">No encontramos una cuenta con ese correo electrónico.</ng-container>
+                    } @else if (loginErrorCode() === 'WRONG_PASSWORD') {
+                      ⚠ <ng-container i18n="@@nav.loginErrWrongPassword">Contraseña incorrecta. Intenta de nuevo.</ng-container>
+                    } @else {
+                      ⚠ <ng-container i18n="@@nav.loginErrGeneric">Correo o contraseña incorrectos.</ng-container>
+                    }
+                  }
+                  @case ('send-otp') {
+                    @if (loginErrorCode() === 'RATE_LIMITED') {
+                      ⚠ <ng-container i18n="@@nav.errRateLimited">Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</ng-container>
+                    } @else {
+                      ⚠ <ng-container i18n="@@nav.sendOtpErr">No pudimos enviar el código. Es posible que ese correo ya tenga una cuenta.</ng-container>
+                    }
+                  }
+                  @case ('register') {
+                    @if (loginErrorCode() === 'RATE_LIMITED') {
+                      ⚠ <ng-container i18n="@@nav.errRateLimited">Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</ng-container>
+                    } @else {
+                      ⚠ <ng-container i18n="@@nav.registerOtpErr">Código incorrecto o vencido. Te enviamos uno nuevo, revisa tu correo.</ng-container>
+                    }
+                  }
+                  @default {
+                    ⚠ {{ loginError() }}
+                  }
                 }
               </div>
             }
@@ -658,6 +677,7 @@ export class NavComponent {
   loginConfirmPassword = signal('');
   loginError           = signal('');
   loginErrorCode       = signal<string>('');
+  authErrorContext     = signal<'login' | 'send-otp' | 'register' | ''>('');
 
   showPassword        = signal(false);
   showConfirmPassword = signal(false);
@@ -762,6 +782,7 @@ export class NavComponent {
         this.registerLoading.set(false);
         this.loginError.set('');
         this.loginErrorCode.set('');
+        this.authErrorContext.set('');
       }
     }, { allowSignalWrites: true });
   }
@@ -848,6 +869,7 @@ export class NavComponent {
     this.loginMode.set('register');
     this.loginError.set('');
     this.loginErrorCode.set('');
+    this.authErrorContext.set('');
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginConfirmPassword.set('');
@@ -859,6 +881,7 @@ export class NavComponent {
     this.loginMode.set('login');
     this.loginError.set('');
     this.loginErrorCode.set('');
+    this.authErrorContext.set('');
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginConfirmPassword.set('');
@@ -870,6 +893,8 @@ export class NavComponent {
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginError.set('');
+    this.loginErrorCode.set('');
+    this.authErrorContext.set('');
     setTimeout(() => this.renderTurnstile(), 0);
   }
 
@@ -880,14 +905,17 @@ export class NavComponent {
     }
     this.otpLoading.set(true);
     this.loginError.set('');
+    this.loginErrorCode.set('');
+    this.authErrorContext.set('');
     this.auth.requestOtp(this.loginEmail()).subscribe({
       next: () => {
         this.otpStep.set(true);
         this.otpLoading.set(false);
         this.destroyTurnstile();
       },
-      error: (err: Error) => {
-        this.loginError.set(err.message ?? 'No se pudo enviar el código. Intenta de nuevo.');
+      error: (err: unknown) => {
+        this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.authErrorContext.set('send-otp');
         this.otpLoading.set(false);
         this.resetTurnstile();
       },
@@ -897,12 +925,15 @@ export class NavComponent {
   resendOtp(): void {
     this.otpLoading.set(true);
     this.loginError.set('');
+    this.loginErrorCode.set('');
+    this.authErrorContext.set('');
     this.auth.requestOtp(this.loginEmail()).subscribe({
       next: () => {
         this.otpLoading.set(false);
       },
-      error: (err: Error) => {
-        this.loginError.set(err.message ?? 'No se pudo reenviar el código.');
+      error: (err: unknown) => {
+        this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.authErrorContext.set('send-otp');
         this.otpLoading.set(false);
       },
     });
@@ -1111,6 +1142,7 @@ export class NavComponent {
   doAuth(): void {
     this.loginError.set('');
     this.loginErrorCode.set('');
+    this.authErrorContext.set('');
     if (!this.otpStep() && !this.captchaToken()) {
       this.loginError.set('Por favor completa la verificación de seguridad');
       return;
@@ -1129,6 +1161,7 @@ export class NavComponent {
         },
         error: (err: unknown) => {
           this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+          this.authErrorContext.set('login');
           this.resetTurnstile();
         },
       });
@@ -1151,9 +1184,10 @@ export class NavComponent {
           this.authModal.executePostLogin();
           this.registerSuccessOpen.set(true);
         },
-        error: (err: Error) => {
+        error: (err: unknown) => {
           this.registerLoading.set(false);
-          this.loginError.set(err.message);
+          this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+          this.authErrorContext.set('register');
         },
       });
     }

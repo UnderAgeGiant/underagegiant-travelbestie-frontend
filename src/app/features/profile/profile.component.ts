@@ -69,8 +69,45 @@ import { environment } from '../../../environments/environment';
         <!-- Edit account accordion -->
         <section>
           <div class="section-head">Editar cuenta ✏️</div>
-          @if (editError()) {
-            <div class="profile-error" style="margin:0 0 10px">{{ editError() }}</div>
+          @if (editErrorCode() || editError()) {
+            <div class="profile-error" style="margin:0 0 10px">
+              @if (editErrorCode()) {
+                @switch (editErrorContext()) {
+                  @case ('name') {
+                    @if (editErrorCode() === 'UNAUTHORIZED') {
+                      <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
+                    } @else {
+                      <ng-container i18n="@@profile.errUpdateName">No se pudo actualizar tu nombre. Intenta de nuevo.</ng-container>
+                    }
+                  }
+                  @case ('email-otp') {
+                    @if (editErrorCode() === 'UNAUTHORIZED') {
+                      <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
+                    } @else if (editErrorCode() === 'RATE_LIMITED') {
+                      <ng-container i18n="@@profile.errRateLimited">Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</ng-container>
+                    } @else {
+                      <ng-container i18n="@@profile.errSendEmailOtp">No se pudo enviar el código. Verifica que el correo no esté ya registrado.</ng-container>
+                    }
+                  }
+                  @case ('email') {
+                    @if (editErrorCode() === 'UNAUTHORIZED') {
+                      <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
+                    } @else {
+                      <ng-container i18n="@@profile.errUpdateEmail">Código incorrecto o vencido. Solicita uno nuevo.</ng-container>
+                    }
+                  }
+                  @case ('password') {
+                    @if (editErrorCode() === 'UNAUTHORIZED') {
+                      <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
+                    } @else {
+                      <ng-container i18n="@@profile.errUpdatePassword">No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</ng-container>
+                    }
+                  }
+                }
+              } @else {
+                {{ editError() }}
+              }
+            </div>
           }
           <div style="border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff">
 
@@ -602,6 +639,8 @@ export class ProfileComponent {
   editLoading       = signal(false);
   editSavedTab      = signal<'name' | 'email-otp' | 'email' | 'password' | null>(null);
   editError         = signal('');
+  editErrorCode     = signal<string>('');
+  editErrorContext  = signal<'name' | 'email-otp' | 'email' | 'password' | ''>('');
   editShowCurrentPwd  = signal(false);
   editShowNewPwd      = signal(false);
   editShowConfirmPwd  = signal(false);
@@ -657,6 +696,8 @@ export class ProfileComponent {
   toggleEditSection(section: 'name' | 'email' | 'password'): void {
     this.editSection.update(cur => cur === section ? null : section);
     this.editError.set('');
+    this.editErrorCode.set('');
+    this.editErrorContext.set('');
   }
 
   editSaveName(): void {
@@ -664,9 +705,15 @@ export class ProfileComponent {
     if (!name) { this.editError.set('El nombre no puede estar vacío.'); return; }
     this.editLoading.set(true);
     this.editError.set('');
+    this.editErrorCode.set('');
+    this.editErrorContext.set('');
     this.auth.updateProfile({ name }).subscribe({
       next: () => { this.editLoading.set(false); this.editMarkSaved('name'); },
-      error: (err: Error) => { this.editError.set(err.message ?? 'Error al actualizar.'); this.editLoading.set(false); },
+      error: (err: unknown) => {
+        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.editErrorContext.set('name');
+        this.editLoading.set(false);
+      },
     });
   }
 
@@ -675,18 +722,26 @@ export class ProfileComponent {
     if (!email) { this.editError.set('Ingresa la nueva dirección de correo.'); return; }
     this.editLoading.set(true);
     this.editError.set('');
+    this.editErrorCode.set('');
+    this.editErrorContext.set('');
     this.auth.requestProfileOtp(email).subscribe({
       next: () => {
         this.editLoading.set(false);
         this.editMarkSaved('email-otp', () => { this.editEmailOtpSent.set(true); });
       },
-      error: (err: Error) => { this.editError.set(err.message ?? 'Error al enviar el código.'); this.editLoading.set(false); },
+      error: (err: unknown) => {
+        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.editErrorContext.set('email-otp');
+        this.editLoading.set(false);
+      },
     });
   }
 
   editUpdateEmail(): void {
     this.editLoading.set(true);
     this.editError.set('');
+    this.editErrorCode.set('');
+    this.editErrorContext.set('');
     this.auth.updateProfile({ newEmail: this.editNewEmail().trim(), otp: this.editEmailOtp() }).subscribe({
       next: () => {
         this.editLoading.set(false);
@@ -696,7 +751,11 @@ export class ProfileComponent {
           this.editNewEmail.set('');
         });
       },
-      error: (err: Error) => { this.editError.set(err.message ?? 'Código incorrecto.'); this.editLoading.set(false); },
+      error: (err: unknown) => {
+        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.editErrorContext.set('email');
+        this.editLoading.set(false);
+      },
     });
   }
 
@@ -705,13 +764,19 @@ export class ProfileComponent {
     if (this.editNewPwd().length < 6) { this.editError.set('La contraseña debe tener al menos 6 caracteres.'); return; }
     this.editLoading.set(true);
     this.editError.set('');
+    this.editErrorCode.set('');
+    this.editErrorContext.set('');
     this.auth.updateProfile({ currentPassword: this.editCurrentPwd(), newPassword: this.editNewPwd() }).subscribe({
       next: () => {
         this.editLoading.set(false);
         this.editCurrentPwd.set(''); this.editNewPwd.set(''); this.editConfirmPwd.set('');
         this.editMarkSaved('password');
       },
-      error: (err: Error) => { this.editError.set(err.message ?? 'Error al actualizar la contraseña.'); this.editLoading.set(false); },
+      error: (err: unknown) => {
+        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.editErrorContext.set('password');
+        this.editLoading.set(false);
+      },
     });
   }
 
