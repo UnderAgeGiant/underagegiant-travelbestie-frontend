@@ -245,6 +245,11 @@ import { environment } from '../../../environments/environment';
                     </div>
                   </div>
 
+                  <button class="btn-pill btn-ghost"
+                          style="width:100%;justify-content:center;margin-bottom:8px"
+                          (click)="openProfile()" type="button"
+                          i18n="@@nav.myProfile">👤 Mi perfil</button>
+
                   <!-- Saved plans toggle -->
                   <button class="up-plans-btn" (click)="togglePlans()" type="button">
                     <span>🗺</span>
@@ -385,10 +390,6 @@ import { environment } from '../../../environments/environment';
                     }
                   }
 
-                  <button class="btn-pill btn-ghost"
-                          style="width:100%;justify-content:center;margin-bottom:8px"
-                          (click)="openProfile()" type="button"
-                          i18n="@@nav.myProfile">👤 Mi perfil</button>
                   <button class="signout-btn" (click)="doLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
                 </div>
               </div>
