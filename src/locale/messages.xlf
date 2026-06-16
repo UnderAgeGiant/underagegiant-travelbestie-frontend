@@ -1060,6 +1060,27 @@
           <context context-type="linenumber">610</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.errRateLimited" datatype="html">
+        <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">618,633</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.sendOtpErr" datatype="html">
+        <source>No pudimos enviar el código. Es posible que ese correo ya tenga una cuenta.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">620</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.registerOtpErr" datatype="html">
+        <source>Código incorrecto o vencido. Te enviamos uno nuevo, revisa tu correo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">627</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.otpSentTitle" datatype="html">
         <source>Revisa tu correo</source>
         <context-group purpose="location">
@@ -1144,172 +1165,53 @@
           <context context-type="linenumber">622,623</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile.title" datatype="html">
-        <source>Editar perfil</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">21,22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.subtitle" datatype="html">
-        <source>Actualiza tu información de cuenta</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">22,25</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.tabName" datatype="html">
-        <source>Nombre</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">28,29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.tabEmail" datatype="html">
-        <source>Correo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">30,31</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.tabPassword" datatype="html">
-        <source>Contraseña</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">32,35</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.nameLabel" datatype="html">
-        <source>Nombre para mostrar</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">48,49</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.namePlaceholder" datatype="html">
-        <source>Tu nombre</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">50,51</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.newEmailLabel" datatype="html">
-        <source>Nueva dirección de correo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">59,60</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.newEmailPlaceholder" datatype="html">
-        <source>nuevo@correo.com</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">61,63</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.otpSentTitle" datatype="html">
-        <source>Revisa tu correo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">69,70</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.otpSentTo" datatype="html">
-        <source>Código enviado a </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">71,72</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.otpLabel" datatype="html">
-        <source>Código de verificación</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">76,77</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.otpPlaceholder" datatype="html">
-        <source>000000</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">79</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.otpBack" datatype="html">
-        <source>← Cambiar correo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">85,86</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.otpResend" datatype="html">
-        <source>Reenviar código</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">88,90</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.currentPasswordLabel" datatype="html">
-        <source>Contraseña actual</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">95,96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.newPasswordLabel" datatype="html">
-        <source>Nueva contraseña</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">101,102</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.confirmPasswordLabel" datatype="html">
-        <source>Confirmar contraseña</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">107,108</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.cancelBtn" datatype="html">
-        <source>Cancelar</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">120,122</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.saveNameBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? &apos;Guardando…&apos; : &apos;Guardar nombre&apos; }}"/> </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">127,128</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.sendOtpBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? &apos;Enviando…&apos; : &apos;Enviar código →&apos; }}"/> </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">136,137</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.updateEmailBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? &apos;Verificando…&apos; : &apos;Actualizar correo →&apos; }}"/> </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">145,146</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.updatePasswordBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? &apos;Actualizando…&apos; : &apos;Actualizar contraseña&apos; }}"/> </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile-modal.component.ts</context>
-          <context context-type="linenumber">154,155</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="profile.aiBtn" datatype="html">
         <source>✨ Nuevo viaje con IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
           <context context-type="linenumber">73,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.errSessionExpired" datatype="html">
+        <source>Tu sesión expiró. Vuelve a iniciar sesión.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">78,107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.errUpdateName" datatype="html">
+        <source>No se pudo actualizar tu nombre. Intenta de nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.errRateLimited" datatype="html">
+        <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.errSendEmailOtp" datatype="html">
+        <source>No se pudo enviar el código. Verifica que el correo no esté ya registrado.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.errUpdateEmail" datatype="html">
+        <source>Código incorrecto o vencido. Solicita uno nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.errUpdatePassword" datatype="html">
+        <source>No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="sharedTrip.tripBy" datatype="html">

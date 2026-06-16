@@ -188,6 +188,18 @@
         <source>Correo o contraseña incorrectos.</source>
         <target>Incorrect email or password.</target>
       </trans-unit>
+      <trans-unit id="nav.errRateLimited" datatype="html">
+        <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
+        <target>Too many attempts. Please wait a few minutes and try again.</target>
+      </trans-unit>
+      <trans-unit id="nav.sendOtpErr" datatype="html">
+        <source>No pudimos enviar el código. Es posible que ese correo ya tenga una cuenta.</source>
+        <target>We couldn't send the code. That email may already have an account.</target>
+      </trans-unit>
+      <trans-unit id="nav.registerOtpErr" datatype="html">
+        <source>Código incorrecto o vencido. Te enviamos uno nuevo, revisa tu correo.</source>
+        <target>Incorrect or expired code. We sent you a new one — check your email.</target>
+      </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
         <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
@@ -821,99 +833,6 @@
         <target>Edit profile</target>
       </trans-unit>
 
-      <!-- ── profile modal ── -->
-      <trans-unit id="profile.title" datatype="html">
-        <source>Editar perfil</source>
-        <target>Edit profile</target>
-      </trans-unit>
-      <trans-unit id="profile.subtitle" datatype="html">
-        <source>Actualiza tu información de cuenta</source>
-        <target>Update your account information</target>
-      </trans-unit>
-      <trans-unit id="profile.tabName" datatype="html">
-        <source>Nombre</source>
-        <target>Name</target>
-      </trans-unit>
-      <trans-unit id="profile.tabEmail" datatype="html">
-        <source>Correo</source>
-        <target>Email</target>
-      </trans-unit>
-      <trans-unit id="profile.tabPassword" datatype="html">
-        <source>Contraseña</source>
-        <target>Password</target>
-      </trans-unit>
-      <trans-unit id="profile.nameLabel" datatype="html">
-        <source>Nombre para mostrar</source>
-        <target>Display name</target>
-      </trans-unit>
-      <trans-unit id="profile.namePlaceholder" datatype="html">
-        <source>Tu nombre</source>
-        <target>Your name</target>
-      </trans-unit>
-      <trans-unit id="profile.newEmailLabel" datatype="html">
-        <source>Nueva dirección de correo</source>
-        <target>New email address</target>
-      </trans-unit>
-      <trans-unit id="profile.newEmailPlaceholder" datatype="html">
-        <source>nuevo@correo.com</source>
-        <target>new@email.com</target>
-      </trans-unit>
-      <trans-unit id="profile.otpSentTitle" datatype="html">
-        <source>Revisa tu correo</source>
-        <target>Check your email</target>
-      </trans-unit>
-      <trans-unit id="profile.otpSentTo" datatype="html">
-        <source>Código enviado a </source>
-        <target>Code sent to </target>
-      </trans-unit>
-      <trans-unit id="profile.otpLabel" datatype="html">
-        <source>Código de verificación</source>
-        <target>Verification code</target>
-      </trans-unit>
-      <trans-unit id="profile.otpPlaceholder" datatype="html">
-        <source>000000</source>
-        <target>000000</target>
-      </trans-unit>
-      <trans-unit id="profile.otpBack" datatype="html">
-        <source>← Cambiar correo</source>
-        <target>← Change email</target>
-      </trans-unit>
-      <trans-unit id="profile.otpResend" datatype="html">
-        <source>Reenviar código</source>
-        <target>Resend code</target>
-      </trans-unit>
-      <trans-unit id="profile.currentPasswordLabel" datatype="html">
-        <source>Contraseña actual</source>
-        <target>Current password</target>
-      </trans-unit>
-      <trans-unit id="profile.newPasswordLabel" datatype="html">
-        <source>Nueva contraseña</source>
-        <target>New password</target>
-      </trans-unit>
-      <trans-unit id="profile.confirmPasswordLabel" datatype="html">
-        <source>Confirmar contraseña</source>
-        <target>Confirm password</target>
-      </trans-unit>
-      <trans-unit id="profile.cancelBtn" datatype="html">
-        <source>Cancelar</source>
-        <target>Cancel</target>
-      </trans-unit>
-      <trans-unit id="profile.saveNameBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Guardando…' : 'Guardar nombre' }}"/> </source>
-        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Saving…' : 'Save name' }}"/> </target>
-      </trans-unit>
-      <trans-unit id="profile.sendOtpBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Enviando…' : 'Enviar código →' }}"/> </source>
-        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Sending…' : 'Send code →' }}"/> </target>
-      </trans-unit>
-      <trans-unit id="profile.updateEmailBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Verificando…' : 'Actualizar correo →' }}"/> </source>
-        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Verifying…' : 'Update email →' }}"/> </target>
-      </trans-unit>
-      <trans-unit id="profile.updatePasswordBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Actualizando…' : 'Actualizar contraseña' }}"/> </source>
-        <target> <x id="INTERPOLATION" equiv-text="{{ loading() ? 'Updating…' : 'Update password' }}"/> </target>
-      </trans-unit>
 
       <!-- ── landing sections ── -->
       <trans-unit id="landing.scrollHint" datatype="html">
@@ -1006,6 +925,30 @@
       </trans-unit>
 
       <!-- ── profile favorites tab ── -->
+      <trans-unit id="profile.errSessionExpired" datatype="html">
+        <source>Tu sesión expiró. Vuelve a iniciar sesión.</source>
+        <target>Your session expired. Please sign in again.</target>
+      </trans-unit>
+      <trans-unit id="profile.errUpdateName" datatype="html">
+        <source>No se pudo actualizar tu nombre. Intenta de nuevo.</source>
+        <target>We couldn't update your name. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="profile.errRateLimited" datatype="html">
+        <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
+        <target>Too many attempts. Please wait a few minutes and try again.</target>
+      </trans-unit>
+      <trans-unit id="profile.errSendEmailOtp" datatype="html">
+        <source>No se pudo enviar el código. Verifica que el correo no esté ya registrado.</source>
+        <target>We couldn't send the code. Make sure that email isn't already registered.</target>
+      </trans-unit>
+      <trans-unit id="profile.errUpdateEmail" datatype="html">
+        <source>Código incorrecto o vencido. Solicita uno nuevo.</source>
+        <target>Incorrect or expired code. Request a new one.</target>
+      </trans-unit>
+      <trans-unit id="profile.errUpdatePassword" datatype="html">
+        <source>No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</source>
+        <target>We couldn't update your password. Check your current password.</target>
+      </trans-unit>
       <trans-unit id="profile.tabTrips" datatype="html">
         <source>Mis viajes</source>
         <target>My trips</target>
