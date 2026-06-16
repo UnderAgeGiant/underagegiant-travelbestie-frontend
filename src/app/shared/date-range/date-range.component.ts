@@ -72,6 +72,7 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
 
     this.fpOut = flatpickr(this.outEl.nativeElement, {
       ...base,
+      position: 'auto right',
       defaultDate: parseInitial(this.initialCheckOut),
       // When there is a check-in but no check-out, open the calendar at the check-in month
       onOpen: checkInDefault && !this.initialCheckOut
