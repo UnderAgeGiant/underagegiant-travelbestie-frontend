@@ -1384,7 +1384,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .tl-free-text  { font-size: 12px; }
 
 @media (max-width: 768px) {
-  .timeline-panel {
+  .timeline-panel,
+  .timeline-panel.collapsed {
     width: 100%;
     min-width: unset;
     border-right: none;
