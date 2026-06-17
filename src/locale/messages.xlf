@@ -1055,230 +1055,244 @@
           <context context-type="linenumber">383,384</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.searchFavoritesPlaceholder" datatype="html">
+        <source>Buscar favorito…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">388,389</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.searchSharedTripsPlaceholder" datatype="html">
+        <source>Buscar viaje compartido…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
+          <context context-type="linenumber">420,421</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.signOut" datatype="html">
         <source>Cerrar sesión</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">421,422</context>
+          <context context-type="linenumber">445,446</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginTitle" datatype="html">
         <source>¡Bienvenido de vuelta! 👋</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">483,484</context>
+          <context context-type="linenumber">507,508</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginSubtitle" datatype="html">
         <source>Inicia sesión para guardar tus viajes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">484,486</context>
+          <context context-type="linenumber">508,510</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerTitle" datatype="html">
         <source>Crear cuenta ✨</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">486,487</context>
+          <context context-type="linenumber">510,511</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerSubtitle" datatype="html">
         <source>Únete y planifica viajes con tus amigos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">487,489</context>
+          <context context-type="linenumber">511,513</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.emailLabel" datatype="html">
         <source>Correo electrónico</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">493,494</context>
+          <context context-type="linenumber">517,518</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">524,525</context>
+          <context context-type="linenumber">548,549</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.emailPlaceholder" datatype="html">
         <source>tú@correo.com</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">495,496</context>
+          <context context-type="linenumber">519,520</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">526,527</context>
+          <context context-type="linenumber">550,551</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.passwordLabel" datatype="html">
         <source>Contraseña</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">500,501</context>
+          <context context-type="linenumber">524,525</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">531,532</context>
+          <context context-type="linenumber">555,556</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.nameLabel" datatype="html">
         <source>Tu nombre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">517,518</context>
+          <context context-type="linenumber">541,542</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.namePlaceholder" datatype="html">
         <source>Sofía García</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">519,520</context>
+          <context context-type="linenumber">543,544</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.confirmPasswordLabel" datatype="html">
         <source>Confirmar contraseña</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">557,558</context>
+          <context context-type="linenumber">581,582</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.confirmPasswordMismatch" datatype="html">
         <source>Las contraseñas no coinciden</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">572,574</context>
+          <context context-type="linenumber">596,598</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpSentTitle" datatype="html">
         <source>Revisa tu correo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">579,580</context>
+          <context context-type="linenumber">603,604</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpSentTo" datatype="html">
         <source>Código enviado a </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">581,582</context>
+          <context context-type="linenumber">605,606</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpLabel" datatype="html">
         <source>Código de verificación</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">586,587</context>
+          <context context-type="linenumber">610,611</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpPlaceholder" datatype="html">
         <source>000000</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">590</context>
+          <context context-type="linenumber">614</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpBack" datatype="html">
         <source>← Cambiar email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">595,596</context>
+          <context context-type="linenumber">619,620</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpResend" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ otpLoading() ? &apos;Enviando…&apos; : &apos;Reenviar código&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">598,599</context>
+          <context context-type="linenumber">622,623</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.cancelBtn" datatype="html">
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">611,612</context>
+          <context context-type="linenumber">635,636</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.signInSubmit" datatype="html">
         <source>Iniciar sesión →</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">616,617</context>
+          <context context-type="linenumber">640,641</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.sendOtpBtn" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ otpLoading() ? &apos;Enviando…&apos; : &apos;Enviar código →&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">622,623</context>
+          <context context-type="linenumber">646,647</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerSubmit" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ registerLoading() ? &apos;Verificando…&apos; : &apos;Crear cuenta →&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">629,630</context>
+          <context context-type="linenumber">653,654</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginErrNotFound" datatype="html">
         <source>No encontramos una cuenta con ese correo electrónico.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">638,639</context>
+          <context context-type="linenumber">662,663</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginErrWrongPassword" datatype="html">
         <source>Contraseña incorrecta. Intenta de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">640,641</context>
+          <context context-type="linenumber">664,665</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginErrGeneric" datatype="html">
         <source>Correo o contraseña incorrectos.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">642,643</context>
+          <context context-type="linenumber">666,667</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.errRateLimited" datatype="html">
         <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">647,648</context>
+          <context context-type="linenumber">671,672</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">654,655</context>
+          <context context-type="linenumber">678,679</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.sendOtpErr" datatype="html">
         <source>No pudimos enviar el código. Es posible que ese correo ya tenga una cuenta.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">649,650</context>
+          <context context-type="linenumber">673,674</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerOtpErr" datatype="html">
         <source>Código incorrecto o vencido. Te enviamos uno nuevo, revisa tu correo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">656,657</context>
+          <context context-type="linenumber">680,681</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
         <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">667,668</context>
+          <context context-type="linenumber">691,692</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.authToggleRegister" datatype="html">
         <source>¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Inicia sesión<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/nav.component.ts</context>
-          <context context-type="linenumber">669,670</context>
+          <context context-type="linenumber">693,694</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.freeDay" datatype="html">
