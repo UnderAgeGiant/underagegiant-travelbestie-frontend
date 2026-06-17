@@ -1,9 +1,12 @@
+import { AttractionCategory } from '../models/attraction-category';
+
 export interface PlannedAttraction {
-  entryId:      string;  // unique per scheduled occurrence (allows same attraction multiple times)
+  entryId:      string;
   attractionId: string;
-  startTime:    string | null;  // "HH:mm" — null when not yet assigned via the timeline panel
-  endTime:      string | null;  // "HH:mm" — null when not set; timeline defaults to startTime + 1h
-  date?:        string;  // "dd/mm/yyyy" — which day within the stop
+  startTime:    string | null;
+  endTime:      string | null;
+  date?:        string;
+  category?:    AttractionCategory;
 }
 
 export interface Lodging {

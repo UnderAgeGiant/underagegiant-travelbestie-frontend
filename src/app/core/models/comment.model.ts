@@ -1,3 +1,5 @@
+import { AttractionCategory } from './attraction-category';
+
 export interface Comment {
   id?: string;
   attractionId: string;
@@ -39,6 +41,8 @@ export interface Attraction {
   id:               string;
   name:             string;
   type:             string;
+  category:         AttractionCategory;
+  active:           boolean;
   icon:             string;
   bg:               string;
   rating:           number;

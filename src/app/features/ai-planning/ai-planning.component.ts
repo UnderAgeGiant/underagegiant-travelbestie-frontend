@@ -1,4 +1,5 @@
 import { Component, inject, signal, computed, output } from '@angular/core';
+import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
@@ -202,6 +203,21 @@ type Step = 'preferences' | 'options' | 'result';
                 <label class="ai-plan-label" i18n="@@aiplan.startDateLabel">Fecha de inicio</label>
                 <app-date-picker [initialDate]="startDate()"
                                  (dateChange)="startDate.set($event)" />
+              </div>
+
+              <div class="ai-plan-field">
+                <label class="ai-plan-label" i18n="@@aiplan.categoriesLabel">Tipos de experiencia (opcional)</label>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+                  @for (cat of allCategoryMeta; track cat.code) {
+                    <button type="button"
+                            class="att-filter-chip"
+                            [class.active]="selectedCategories().includes(cat.code)"
+                            [style.--chip-bg]="cat.bg"
+                            (click)="toggleCategory(cat.code)">
+                      {{ cat.icon }} {{ cat.label }}
+                    </button>
+                  }
+                </div>
               </div>
 
               <!-- ── Live change analysis (always visible on Step 1) ── -->
@@ -471,6 +487,23 @@ export class AiPlanningComponent {
   budget      = signal('');
   startDate   = signal('');
 
+  readonly selectedCategories = signal<AttractionCategory[]>([]);
+  readonly allCategoryMeta = ALL_CATEGORIES;
+
+  toggleCategory(code: AttractionCategory): void {
+    this.selectedCategories.update(prev =>
+      prev.includes(code) ? prev.filter(c => c !== code) : [...prev, code]
+    );
+  }
+
+  private buildPreferences(): string {
+    const base = this.preferences().trim();
+    const cats = this.selectedCategories();
+    if (cats.length === 0) return base;
+    const labels = cats.map(c => CATEGORY_META[c].label).join(', ');
+    return base ? `${base}\nTipos de experiencia preferidos: ${labels}` : `Tipos de experiencia preferidos: ${labels}`;
+  }
+
   // ── Session management ────────────────────────────────────────────────────
   /** UUID generated on each new suggest call; ties plan calls into a session. */
   planSessionId       = signal<string | null>(null);
@@ -599,7 +632,7 @@ export class AiPlanningComponent {
     this.loadingMessage.set($localize`:@@aiplan.loadingSuggest:Generando sugerencias ✨`);
     this.loading.set(true);
     this.error.set(null);
-    this.api.suggestTrips(this.preferences(), this.duration(), this.budget() || undefined)
+    this.api.suggestTrips(this.buildPreferences(), this.duration(), this.budget() || undefined)
       .subscribe({
         next: res => {
           this.suggestions.set(res);
@@ -691,7 +724,7 @@ export class AiPlanningComponent {
 
     this.api.planTrip({
       selectedOption: opt,
-      preferences:    this.preferences(),
+      preferences:    this.buildPreferences(),
       duration:       this.duration(),
       budget:         this.budget() || undefined,
       startDate:      this.startDate() || undefined,
@@ -775,6 +808,7 @@ export class AiPlanningComponent {
     this.changeCharged.set(null);
     this.planConfirmPending.set(null);
     this.suggestConfirmPending.set(null);
+    this.selectedCategories.set([]);
   }
 
   legFor(from: string, to: string): TransitLeg | null {

@@ -353,13 +353,12 @@ export class AttractionCardComponent {
   }
 
   onPlanConfirmed(entry: PlanEntry): void {
-    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined);
+    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined, this.attraction().category);
     this.showPlanModal.set(false);
   }
 
   onEditConfirmed(entry: PlanEntry): void {
-    const editId = this.editingEntry()?.entryId;
-    if (!editId) return;
+    const editId = this.editingEntry()!.entryId;
     this.trip.updateStartTime(this.stopId(), editId, entry.startTime, entry.date || undefined);
     this.editingEntry.set(null);
   }
