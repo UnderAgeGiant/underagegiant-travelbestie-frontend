@@ -2,6 +2,7 @@ import { Attraction } from '../core/models/comment.model';
 import { City } from '../core/models/city.model';
 import { AttractionCategory } from '../core/models/attraction-category';
 import { CURATED_ALL } from './attractions-curated';
+import { FREETOURS_CURATED } from './freetours-curated';
 
 type RegionTemplate = { n: (c: City) => string; t: string; c: AttractionCategory; i: string; bg: string; e: number }[];
 const REGION_TMPL: Record<string, RegionTemplate> = {
@@ -49,29 +50,38 @@ function hashRating(cityId: string, index: number): number {
 }
 
 export function getAttractions(city: City): Attraction[] {
+  let base: Attraction[];
+
   if (CURATED_ALL[city.id]) {
-    return CURATED_ALL[city.id]
+    base = CURATED_ALL[city.id]
       .filter(a => a.active)
       .map(a => ({
         ...a,
         imageUrl: a.imageUrl?.startsWith('http://') ? undefined : a.imageUrl,
       }));
+  } else {
+    const tmpl = REGION_TMPL[city.region] ?? REGION_TMPL['europe'];
+    base = tmpl.map((x, i) => ({
+      id: `${city.id}_${i}`,
+      name: x.n(city),
+      type: x.t,
+      category: x.c,
+      active: true,
+      icon: x.i,
+      bg: x.bg,
+      rating: parseFloat((4.0 + hashRating(city.id, i) / 10).toFixed(1)),
+      estimatedMinutes: x.e,
+    }));
   }
-  const tmpl = REGION_TMPL[city.region] ?? REGION_TMPL['europe'];
-  return tmpl.map((x, i) => ({
-    id: `${city.id}_${i}`,
-    name: x.n(city),
-    type: x.t,
-    category: x.c,
-    active: true,
-    icon: x.i,
-    bg: x.bg,
-    rating: parseFloat((4.0 + hashRating(city.id, i) / 10).toFixed(1)),
-    estimatedMinutes: x.e,
-  }));
+
+  const freetours = FREETOURS_CURATED[city.id];
+  if (freetours?.length) base = [...base, ...freetours];
+
+  return base;
 }
 
 /** Returns an attraction by id regardless of its active flag — use when rendering existing trip stops. */
 export function findCuratedAttraction(cityId: string, attractionId: string): Attraction | undefined {
-  return CURATED_ALL[cityId]?.find(a => a.id === attractionId);
+  return CURATED_ALL[cityId]?.find(a => a.id === attractionId)
+    ?? FREETOURS_CURATED[cityId]?.find(a => a.id === attractionId);
 }
