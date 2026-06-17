@@ -370,24 +370,36 @@ import { environment } from '../../../environments/environment';
                   <button class="up-plans-btn" (click)="toggleFavorites()" type="button">
                     <span>❤️</span>
                     <span i18n="@@nav.myFavorites">Mis favoritos</span>
-                    @if (favoritedTrips().length > 0) {
-                      <span class="up-plans-badge">{{ favoritedTrips().length }}</span>
+                    @if (favorites.favoritedTrips().length > 0) {
+                      <span class="up-plans-badge">{{ favorites.favoritedTrips().length }}</span>
                     }
                     <span style="margin-left:auto;font-size:10px;opacity:.6">{{ favoritesOpen() ? '▴' : '▾' }}</span>
                   </button>
                   @if (favoritesOpen()) {
                     <div class="up-plans-panel">
-                      @if (favLoading()) {
+                      @if (favorites.loading()) {
                         <div class="up-plans-empty" i18n="@@nav.loadingFavorites">Cargando…</div>
-                      } @else if (favoritedTrips().length === 0) {
+                      } @else if (favorites.favoritedTrips().length === 0) {
                         <div class="up-plans-empty" i18n="@@nav.noFavorites">Sin favoritos aún ❤️</div>
                       } @else {
-                        @for (t of favoritedTrips(); track t.shareId) {
-                          <button class="up-shared-trip-row" (click)="goToSharedTrip(t.shareId)" type="button">
-                            <div class="up-shared-trip-name">{{ t.tripName }}</div>
-                            <div class="up-shared-trip-meta">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}</div>
-                          </button>
-                        }
+                        <div class="up-plans-search">
+                          <input class="up-plans-search-input"
+                                 type="search"
+                                 i18n-placeholder="@@nav.searchFavoritesPlaceholder" placeholder="Buscar favorito…"
+                                 [value]="favoritesSearch()"
+                                 (input)="favoritesSearch.set($any($event.target).value)" />
+                        </div>
+                        <div class="up-plans-list">
+                          @for (t of filteredFavorites(); track t.shareId) {
+                            <button class="up-shared-trip-row" (click)="goToSharedTrip(t.shareId)" type="button">
+                              <div class="up-shared-trip-name">{{ t.tripName }}</div>
+                              <div class="up-shared-trip-meta">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}</div>
+                            </button>
+                          }
+                          @if (filteredFavorites().length === 0) {
+                            <div class="up-plans-empty">Sin resultados 🔍</div>
+                          }
+                        </div>
                       }
                     </div>
                   }
@@ -402,18 +414,30 @@ import { environment } from '../../../environments/environment';
                     </button>
                     @if (myTripsOpen()) {
                       <div class="up-plans-panel">
-                        @for (t of mySharedTrips(); track t.id) {
-                          @let cmts = commentCount(t.id);
-                          <button class="up-shared-trip-row" (click)="goToSharedTrip(t.id)" type="button">
-                            <div class="up-shared-trip-name">{{ t.tripName }}</div>
-                            <div class="up-shared-trip-meta">
-                              {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}
-                              @if (cmts > 0) {
-                                · <span class="up-shared-trip-cmts">{{ cmts }} comentario{{ cmts !== 1 ? 's' : '' }}</span>
-                              }
-                            </div>
-                          </button>
-                        }
+                        <div class="up-plans-search">
+                          <input class="up-plans-search-input"
+                                 type="search"
+                                 i18n-placeholder="@@nav.searchSharedTripsPlaceholder" placeholder="Buscar viaje compartido…"
+                                 [value]="sharedTripsSearch()"
+                                 (input)="sharedTripsSearch.set($any($event.target).value)" />
+                        </div>
+                        <div class="up-plans-list">
+                          @for (t of filteredSharedTrips(); track t.id) {
+                            @let cmts = commentCount(t.id);
+                            <button class="up-shared-trip-row" (click)="goToSharedTrip(t.id)" type="button">
+                              <div class="up-shared-trip-name">{{ t.tripName }}</div>
+                              <div class="up-shared-trip-meta">
+                                {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}
+                                @if (cmts > 0) {
+                                  · <span class="up-shared-trip-cmts">{{ cmts }} comentario{{ cmts !== 1 ? 's' : '' }}</span>
+                                }
+                              </div>
+                            </button>
+                          }
+                          @if (filteredSharedTrips().length === 0) {
+                            <div class="up-plans-empty">Sin resultados 🔍</div>
+                          }
+                        </div>
                       </div>
                     }
                   }
@@ -669,11 +693,6 @@ import { environment } from '../../../environments/environment';
                 <span style="cursor:pointer" (click)="switchToLogin()" i18n="@@nav.authToggleRegister">¿Ya tienes una? <span>Inicia sesión</span></span>
               }
             </div>
-            @if (loginMode() === 'login') {
-              <div style="font-size:10px;color:var(--t3);text-align:center;opacity:.7">
-                Demo: matias&#64;demo.com / demo1234
-              </div>
-            }
           </div>
         </div>
       </div>
@@ -692,7 +711,7 @@ export class NavComponent {
   private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
-  private readonly favorites    = inject(FavoritesService);
+  readonly favorites            = inject(FavoritesService);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -723,9 +742,8 @@ export class NavComponent {
   clonedPlanId        = signal<string | null>(null);
   myTripsOpen    = signal(false);
   favoritesOpen  = signal(false);
-  favoritedTrips = signal<FavoritedTrip[]>([]);
-  favLoading     = signal(false);
-  favLoaded      = signal(false);
+  favoritesSearch = signal('');
+  sharedTripsSearch = signal('');
   readonly buyKarmaOpen  = this.karmaModal.buyOpen;
   registerSuccessOpen    = signal(false);
   registerSuccessName    = signal('');
@@ -822,14 +840,27 @@ export class NavComponent {
   }
 
   readonly mySharedTrips = computed(() => {
-    const email = this.auth.currentUser()?.email;
-    return email ? this.sharedTrips.getMyTrips(email) : [];
+    return this.savedPlans.plans()
+      .filter((p): p is SavedPlan & { shareId: string } => !!p.shareId)
+      .map(p => ({ id: p.shareId, tripName: p.name, stops: p.stops }));
   });
 
   readonly filteredPlans = computed(() => {
     const q = this.planSearch().toLowerCase().trim();
     if (!q) return this.savedPlans.plans();
     return this.savedPlans.plans().filter(p => p.name.toLowerCase().includes(q));
+  });
+
+  readonly filteredFavorites = computed<FavoritedTrip[]>(() => {
+    const q = this.favoritesSearch().toLowerCase().trim();
+    if (!q) return this.favorites.favoritedTrips();
+    return this.favorites.favoritedTrips().filter(t => t.tripName.toLowerCase().includes(q));
+  });
+
+  readonly filteredSharedTrips = computed(() => {
+    const q = this.sharedTripsSearch().toLowerCase().trim();
+    if (!q) return this.mySharedTrips();
+    return this.mySharedTrips().filter(t => t.tripName.toLowerCase().includes(q));
   });
 
   navSharedTrips = signal<SharedTrip[]>([]);
@@ -1018,12 +1049,10 @@ export class NavComponent {
 
   toggleFavorites(): void {
     this.favoritesOpen.update(v => !v);
-    if (this.favoritesOpen() && !this.favLoaded()) {
-      this.favLoading.set(true);
-      this.favorites.getFavorites().subscribe({
-        next:  trips => { this.favoritedTrips.set(trips); this.favLoading.set(false); this.favLoaded.set(true); },
-        error: ()    => { this.favLoading.set(false); },
-      });
+    if (this.favoritesOpen()) {
+      this.favorites.loadFavorites();
+    } else {
+      this.favoritesSearch.set('');
     }
   }
 
@@ -1074,7 +1103,10 @@ export class NavComponent {
     }, 20);
   }
 
-  toggleMyTrips(): void { this.myTripsOpen.update(v => !v); }
+  toggleMyTrips(): void {
+    this.myTripsOpen.update(v => !v);
+    if (!this.myTripsOpen()) this.sharedTripsSearch.set('');
+  }
   openSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
   goToSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
   commentCount(tripId: string): number { return this.sharedTrips.getCommentCount(tripId); }
@@ -1245,6 +1277,7 @@ export class NavComponent {
     this.karma.clear();
     this.savedPlans.clear();
     this.visited.clear();
+    this.favorites.clear();
     window.location.href = '/';
   }
 }
