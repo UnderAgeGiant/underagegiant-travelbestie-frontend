@@ -161,7 +161,7 @@ import { LodgingComponent } from './lodging.component';
                                    placeholder="Inicio" />
                             <span class="att-time-sep">–</span>
                             <input type="time" class="att-time-input"
-                                   [value]="planned.endTime ?? ''"
+                                   [value]="planned.endTime || endTimeFor(planned.startTime, att.estimatedMinutes)"
                                    (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'endTime', $event)"
                                    i18n-placeholder="@@timeline.endTimePlaceholder"
                                    placeholder="Fin" />
@@ -384,6 +384,14 @@ export class StopListComponent {
       const oEnd   = oStart + oAtt.estimatedMinutes;
       return tStart < oEnd && tEnd > oStart;
     });
+  }
+
+  endTimeFor(startTime: string | null, estimatedMinutes: number): string {
+    if (!startTime) return '';
+    const total = this.toMins(startTime) + estimatedMinutes;
+    const h = Math.floor(total / 60) % 24;
+    const m = total % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
   }
 
   private toMins(time: string): number {
