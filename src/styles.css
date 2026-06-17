@@ -1687,3 +1687,34 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   background: var(--chip-bg, var(--lav)); border-color: transparent; color: var(--t1);
   font-weight: 700;
 }
+
+/* ── Attraction search bar ── */
+.att-search-row {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 0 10px;
+  margin-bottom: 10px;
+  transition: border-color .15s;
+}
+.att-search-row:focus-within {
+  border-color: var(--lav-d);
+}
+.att-search-icon { font-size: 14px; flex-shrink: 0; opacity: .5; }
+.att-search-input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-size: 13px; color: var(--t1); padding: 9px 0;
+  font-family: inherit;
+}
+.att-search-input::placeholder { color: var(--t3); }
+.att-search-clear {
+  background: none; border: none; cursor: pointer;
+  font-size: 11px; color: var(--t3); padding: 4px;
+  border-radius: 99px; line-height: 1;
+  transition: background .12s, color .12s;
+}
+.att-search-clear:hover { background: var(--cream); color: var(--t1); }
+.att-empty {
+  grid-column: 1 / -1;
+  text-align: center; padding: 32px 16px;
+  font-size: 13px; color: var(--t3);
+}

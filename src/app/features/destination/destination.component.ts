@@ -54,6 +54,19 @@ import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/mo
             </span>
           </div>
 
+          <div class="att-search-row">
+            <span class="att-search-icon">🔍</span>
+            <input class="att-search-input"
+                   type="text"
+                   [value]="searchQuery()"
+                   (input)="searchQuery.set($any($event.target).value)"
+                   i18n-placeholder="@@dest.searchPlaceholder"
+                   placeholder="Buscar atracción…" />
+            @if (searchQuery()) {
+              <button class="att-search-clear" type="button" (click)="searchQuery.set('')">✕</button>
+            }
+          </div>
+
           @if (availableCategories().length > 1) {
             <div class="att-filter-row">
               <button class="att-filter-chip" [class.active]="filterCategory() === null"
@@ -80,6 +93,9 @@ import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/mo
                 [comments]="commentsFor(att.id)"
                 (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
             }
+            @if (filteredAttractions().length === 0) {
+              <div class="att-empty" i18n="@@dest.searchEmpty">Sin resultados para tu búsqueda</div>
+            }
           </div>
         </div>
       }
@@ -101,20 +117,28 @@ export class DestinationComponent implements OnInit {
   readonly attractions = computed(() => this.city() ? getAttractions(this.city()!) : []);
 
   readonly filterCategory = signal<AttractionCategory | null>(null);
+  readonly searchQuery    = signal('');
 
   readonly availableCategories = computed(() =>
     ALL_CATEGORIES.filter(m => this.attractions().some(a => a.category === m.code))
   );
 
   readonly filteredAttractions = computed(() => {
-    const filter = this.filterCategory();
-    return filter ? this.attractions().filter(a => a.category === filter) : this.attractions();
+    let list = this.attractions();
+    const cat = this.filterCategory();
+    if (cat) list = list.filter(a => a.category === cat);
+    const q = this.searchQuery().trim().toLowerCase();
+    if (q) list = list.filter(a =>
+      a.name.toLowerCase().includes(q) || a.type.toLowerCase().includes(q)
+    );
+    return list;
   });
 
   constructor() {
     effect(() => {
       this.city();
       this.filterCategory.set(null);
+      this.searchQuery.set('');
     });
   }
 

@@ -410,6 +410,14 @@
         <source>Todos</source>
         <target>All</target>
       </trans-unit>
+      <trans-unit id="dest.searchPlaceholder" datatype="html">
+        <source>Buscar atracción…</source>
+        <target>Search attraction…</target>
+      </trans-unit>
+      <trans-unit id="dest.searchEmpty" datatype="html">
+        <source>Sin resultados para tu búsqueda</source>
+        <target>No results for your search</target>
+      </trans-unit>
 
       <!-- ── attraction-card.component ── -->
       <trans-unit id="attCard.addToPlan" datatype="html">
