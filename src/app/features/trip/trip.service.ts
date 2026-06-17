@@ -259,16 +259,6 @@ export class TripService {
     ));
   }
 
-  patchAttractionCategory(stopId: string, entryId: string, category: AttractionCategory): void {
-    this._stops.update(stops => stops.map(s =>
-      s.stopId === stopId
-        ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
-            a.entryId === entryId ? { ...a, category } : a
-          )}
-        : s
-    ));
-  }
-
   patchAttractionTime(stopId: string, entryId: string, field: 'startTime' | 'endTime', value: string | null): void {
     this._stops.update(stops => stops.map(s =>
       s.stopId === stopId

@@ -237,7 +237,6 @@ import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
         [attraction]="attraction()"
         [initialTime]="editingEntry()!.startTime ?? ''"
         [initialDate]="editingEntry()!.date ?? ''"
-        [initialCategory]="editingEntry()!.category ?? attraction().category"
         [stopCheckIn]="activeStop()?.checkIn ?? ''"
         [stopCheckOut]="activeStop()?.checkOut ?? ''"
         [existingPlanned]="editScheduleEntries()"
@@ -354,14 +353,13 @@ export class AttractionCardComponent {
   }
 
   onPlanConfirmed(entry: PlanEntry): void {
-    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined, entry.category);
+    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined, this.attraction().category);
     this.showPlanModal.set(false);
   }
 
   onEditConfirmed(entry: PlanEntry): void {
     const editId = this.editingEntry()!.entryId;
     this.trip.updateStartTime(this.stopId(), editId, entry.startTime, entry.date || undefined);
-    this.trip.patchAttractionCategory(this.stopId(), editId, entry.category);
     this.editingEntry.set(null);
   }
 
