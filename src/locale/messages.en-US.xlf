@@ -406,6 +406,10 @@
         <source>lugares</source>
         <target>places</target>
       </trans-unit>
+      <trans-unit id="dest.filterAll" datatype="html">
+        <source>Todos</source>
+        <target>All</target>
+      </trans-unit>
 
       <!-- ── attraction-card.component ── -->
       <trans-unit id="attCard.addToPlan" datatype="html">
@@ -491,6 +495,10 @@
       <trans-unit id="planModal.removeBtn" datatype="html">
         <source>Quitar del plan</source>
         <target>Remove from plan</target>
+      </trans-unit>
+      <trans-unit id="planModal.categoryLabel" datatype="html">
+        <source>Tipo de experiencia</source>
+        <target>Experience type</target>
       </trans-unit>
       <!-- ── attraction-detail-modal ── -->
       <trans-unit id="detailModal.durationLabel" datatype="html">
@@ -750,6 +758,10 @@
       <trans-unit id="aiplan.statsThreshold" datatype="html">
         <source> / <x id="INTERPOLATION" equiv-text="{{ CHANGE_THRESHOLD_PCT }}"/>% libre</source>
         <target> / <x id="INTERPOLATION" equiv-text="{{ CHANGE_THRESHOLD_PCT }}"/>% free</target>
+      </trans-unit>
+      <trans-unit id="aiplan.categoriesLabel" datatype="html">
+        <source>Tipos de experiencia (opcional)</source>
+        <target>Experience types (optional)</target>
       </trans-unit>
 
       <!-- ── shared-trip.component ── -->
