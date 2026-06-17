@@ -139,7 +139,7 @@ export class DestinationComponent implements OnInit {
       this.city();
       this.filterCategory.set(null);
       this.searchQuery.set('');
-    });
+    }, { allowSignalWrites: true });
   }
 
   commentsFor(attractionId: string): Comment[] {
