@@ -1,5 +1,6 @@
 import { Component, input, output, signal, computed, OnInit } from '@angular/core';
 import { Attraction } from '../../../core/models/comment.model';
+import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../../core/models/attraction-category';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
 
@@ -13,6 +14,7 @@ export interface ScheduleEntry {
 export interface PlanEntry {
   startTime: string;
   date:      string;
+  category:  AttractionCategory;
 }
 
 @Component({
@@ -87,6 +89,22 @@ export interface PlanEntry {
             </div>
           }
 
+          <!-- Category selector -->
+          <div class="form-group" style="margin-bottom:12px">
+            <label class="form-label" i18n="@@planModal.categoryLabel">Tipo de experiencia</label>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+              @for (cat of allCategories; track cat.code) {
+                <button type="button"
+                        class="att-filter-chip"
+                        [class.active]="category() === cat.code"
+                        [style.--chip-bg]="cat.bg"
+                        (click)="category.set(cat.code)">
+                  {{ cat.icon }} {{ cat.label }}
+                </button>
+              }
+            </div>
+          </div>
+
           <!-- Existing schedule for this city -->
           @if (schedule().length > 0) {
             <div>
@@ -137,12 +155,16 @@ export class PlanTimeModalComponent implements OnInit {
   stopCheckOut    = input('');
   existingPlanned = input<ScheduleEntry[]>([]);
 
+  initialCategory = input<AttractionCategory | undefined>(undefined);
+
   cancel    = output<void>();
   confirmed = output<PlanEntry>();
   remove    = output<void>();
 
   time = signal('09:00');
   date = signal('');
+  readonly allCategories = ALL_CATEGORIES;
+  readonly category = signal<AttractionCategory>('poi');
 
   readonly isEditing = computed(() => this.initialTime() !== '');
 
@@ -182,10 +204,11 @@ export class PlanTimeModalComponent implements OnInit {
       this.time.set(`${hh}:${mm}`);
     }
     this.date.set(this.initialDate() || this.stopCheckIn() || '');
+    this.category.set(this.initialCategory() ?? this.attraction().category);
   }
 
   confirm(): void {
-    this.confirmed.emit({ startTime: this.time(), date: this.date() });
+    this.confirmed.emit({ startTime: this.time(), date: this.date(), category: this.category() });
   }
 
   shortDate(s: string): string {

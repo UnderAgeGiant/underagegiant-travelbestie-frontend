@@ -1,6 +1,7 @@
 import { Injectable, signal, computed, inject, effect } from '@angular/core';
 import { City } from '../../core/models/city.model';
 import { TripStop, PlannedAttraction, Planification, TransitLeg, Lodging } from '../../core/models/trip.model';
+import { AttractionCategory } from '../../core/models/attraction-category';
 import { AuthService } from '../../core/auth/auth.service';
 
 function migrateAttraction(raw: any): PlannedAttraction {
@@ -10,6 +11,7 @@ function migrateAttraction(raw: any): PlannedAttraction {
     startTime:    raw.startTime ?? null,
     endTime:      raw.endTime   ?? null,
     date:         raw.date,
+    ...(raw.category ? { category: raw.category as AttractionCategory } : {}),
   };
 }
 
@@ -248,11 +250,21 @@ export class TripService {
     }
   }
 
-  addAttraction(stopId: string, attractionId: string, startTime: string, date?: string): void {
+  addAttraction(stopId: string, attractionId: string, startTime: string, date?: string, category?: AttractionCategory): void {
     const entryId = crypto.randomUUID();
     this._stops.update(stops => stops.map(s =>
       s.stopId === stopId
-        ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, endTime: null, date }] }
+        ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, endTime: null, date, ...(category ? { category } : {}) }] }
+        : s
+    ));
+  }
+
+  patchAttractionCategory(stopId: string, entryId: string, category: AttractionCategory): void {
+    this._stops.update(stops => stops.map(s =>
+      s.stopId === stopId
+        ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
+            a.entryId === entryId ? { ...a, category } : a
+          )}
         : s
     ));
   }
