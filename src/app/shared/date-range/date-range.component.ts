@@ -54,10 +54,39 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
       return new Date(yyyy, mm - 1, dd);
     };
 
+    // Custom positioner: viewport-clamped horizontal + reliable above/below detection.
+    // Replaces flatpickr's default which sums children.offsetHeight (can be 0 on first
+    // open inside a bottom-sheet modal) and uses body.offsetWidth (unreliable on mobile).
+    const makePosition =
+      (alignRight: boolean): flatpickr.Options.Options['position'] =>
+      (self, posEl) => {
+        const el   = (posEl ?? self.element) as HTMLElement;
+        const b    = el.getBoundingClientRect();
+        const calW = self.calendarContainer.offsetWidth  || 307;
+        const calH = self.calendarContainer.offsetHeight || 300;
+        const MARGIN = 8;
+
+        const idealLeft = alignRight ? b.right - calW : b.left;
+        const left = Math.max(MARGIN, Math.min(idealLeft, window.innerWidth - calW - MARGIN));
+
+        const above = window.innerHeight - b.bottom < calH + 4;
+        const top   = window.pageYOffset + (above ? b.top - calH - 2 : b.bottom + 2);
+
+        const c = self.calendarContainer;
+        c.classList.toggle('arrowTop',    !above);
+        c.classList.toggle('arrowBottom',  above);
+        c.classList.toggle('arrowLeft',   !alignRight);
+        c.classList.toggle('arrowRight',   alignRight);
+        c.style.top   = `${top}px`;
+        c.style.left  = `${left}px`;
+        c.style.right = 'auto';
+      };
+
     const checkInDefault = parseInitial(this.initialCheckIn);
 
     this.fpIn = flatpickr(this.inEl.nativeElement, {
       ...base,
+      position: makePosition(false),
       defaultDate: checkInDefault,
       onChange: ([date]) => {
         if (!date) return;
@@ -72,6 +101,7 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
 
     this.fpOut = flatpickr(this.outEl.nativeElement, {
       ...base,
+      position: makePosition(true),
       defaultDate: parseInitial(this.initialCheckOut),
       // When there is a check-in but no check-out, open the calendar at the check-in month
       onOpen: checkInDefault && !this.initialCheckOut

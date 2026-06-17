@@ -46,6 +46,26 @@
         <source>Sin viajes guardados aún ✈️</source>
         <target>No saved trips yet ✈️</target>
       </trans-unit>
+      <trans-unit id="nav.myFavorites" datatype="html">
+        <source>Mis favoritos</source>
+        <target>My favorites</target>
+      </trans-unit>
+      <trans-unit id="nav.loadingFavorites" datatype="html">
+        <source>Cargando…</source>
+        <target>Loading…</target>
+      </trans-unit>
+      <trans-unit id="nav.noFavorites" datatype="html">
+        <source>Sin favoritos aún ❤️</source>
+        <target>No favorites yet ❤️</target>
+      </trans-unit>
+      <trans-unit id="nav.searchFavoritesPlaceholder" datatype="html">
+        <source>Buscar favorito…</source>
+        <target>Search favorites…</target>
+      </trans-unit>
+      <trans-unit id="nav.searchSharedTripsPlaceholder" datatype="html">
+        <source>Buscar viaje compartido…</source>
+        <target>Search shared trips…</target>
+      </trans-unit>
       <trans-unit id="nav.updatePlan" datatype="html">
         <source>Actualizar viaje</source>
         <target>Update trip</target>
@@ -986,6 +1006,10 @@
       <trans-unit id="timeline.freeDay" datatype="html">
         <source>Día libre — sin planes aún</source>
         <target>Free day — no plans yet</target>
+      </trans-unit>
+      <trans-unit id="timeline.flapLabel" datatype="html">
+        <source>Ver horario del día</source>
+        <target>View day schedule</target>
       </trans-unit>
 
       <!-- ── stop-list.component (timeline time inputs) ── -->

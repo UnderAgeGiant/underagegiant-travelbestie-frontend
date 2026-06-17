@@ -9,7 +9,9 @@ import { City } from '../../../core/models/city.model';
   standalone: true,
   imports: [CityComboboxComponent, DateRangeComponent],
   template: `
-    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
+    <div class="modal-backdrop"
+         (mousedown)="onBackdropMouseDown($event)"
+         (click)="onBackdropClick($event)">
       <div class="modal" style="max-width:560px;overflow:visible">
         <div class="modal-head" style="background:linear-gradient(135deg,var(--mint),var(--sky));border-radius:22px 22px 0 0;overflow:hidden">
           <div class="modal-title" i18n="@@addStop.title">Agregar destino ✈️</div>
@@ -18,10 +20,11 @@ import { City } from '../../../core/models/city.model';
         <div class="modal-body" style="min-height:320px">
           <div class="form-group">
             <label class="form-label" i18n="@@addStop.cityLabel">Ciudad</label>
-            <app-city-combobox (cityChange)="selectedCity.set($event)" />
+            <app-city-combobox (cityChange)="onCityChange($event)" />
           </div>
           @if (selectedCity()) {
             <app-date-range
+              [initialCheckIn]="defaultCheckIn()"
               (checkIn)="checkIn.set($event)"
               (checkOut)="checkOut.set($event)" />
           }
@@ -57,26 +60,56 @@ export class AddStopModalComponent {
   checkIn = signal('');
   checkOut = signal('');
 
+  // Mobile browsers can fire a "ghost" click on the backdrop after the flatpickr
+  // calendar closes from the same tap that selected a date, instantly closing this
+  // modal. Requiring mousedown and click to both land on the backdrop itself
+  // filters that out, since the real press started on the calendar day cell.
+  private backdropMouseDownOnSelf = false;
+
+  onBackdropMouseDown(event: MouseEvent): void {
+    this.backdropMouseDownOnSelf = event.target === event.currentTarget;
+  }
+
+  onBackdropClick(event: MouseEvent): void {
+    if (this.backdropMouseDownOnSelf && event.target === event.currentTarget) {
+      this.close.emit();
+    }
+    this.backdropMouseDownOnSelf = false;
+  }
+
+  private parseMs(s: string): number {
+    const [dd, mm, yyyy] = s.split('/').map(Number);
+    return new Date(yyyy, mm - 1, dd).getTime();
+  }
+
+  readonly defaultCheckIn = computed(() => {
+    const stops = this.trip.stops();
+    if (!stops.length) return '';
+    const sorted = [...stops].sort((a, b) => this.parseMs(a.checkIn) - this.parseMs(b.checkIn));
+    return sorted[sorted.length - 1].checkOut;
+  });
+
   readonly consecutiveWarning = computed(() => {
     const city = this.selectedCity();
     const ci   = this.checkIn();
     if (!city || !ci) return false;
     const stops = this.trip.stops();
     if (stops.length === 0) return false;
-    const parseMs = (s: string): number => {
-      const [dd, mm, yyyy] = s.split('/').map(Number);
-      return new Date(yyyy, mm - 1, dd).getTime();
-    };
-    const newMs = parseMs(ci);
-    const sorted = [...stops].sort((a, b) => parseMs(a.checkIn) - parseMs(b.checkIn));
+    const newMs = this.parseMs(ci);
+    const sorted = [...stops].sort((a, b) => this.parseMs(a.checkIn) - this.parseMs(b.checkIn));
     let insertIdx = sorted.length;
     for (let i = 0; i < sorted.length; i++) {
-      if (newMs < parseMs(sorted[i].checkIn)) { insertIdx = i; break; }
+      if (newMs < this.parseMs(sorted[i].checkIn)) { insertIdx = i; break; }
     }
     const before = sorted[insertIdx - 1];
     const after  = sorted[insertIdx];
     return before?.cityId === city.id || after?.cityId === city.id;
   });
+
+  onCityChange(city: City): void {
+    this.selectedCity.set(city);
+    this.checkIn.set(this.defaultCheckIn());
+  }
 
   add(): void {
     const city = this.selectedCity();

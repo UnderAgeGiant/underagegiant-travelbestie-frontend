@@ -526,6 +526,7 @@ export class SharedTripComponent {
     const wasOn = this.isFavorited;
     this.favoriteCount.update(n => wasOn ? n - 1 : n + 1);
 
+    const trip = this.trip();
     this.favorites.toggle(
       this.tripId(),
       result => {
@@ -538,6 +539,7 @@ export class SharedTripComponent {
         this.favoriteCount.update(n => wasOn ? n + 1 : n - 1);
         setTimeout(() => this.favoriteError.set(false), 3000);
       },
+      trip ? { tripName: trip.tripName, ownerName: trip.ownerName, stops: trip.stops, transits: trip.transits } : undefined,
     );
   }
 

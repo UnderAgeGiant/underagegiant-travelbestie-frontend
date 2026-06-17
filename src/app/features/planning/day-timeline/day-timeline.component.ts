@@ -159,7 +159,8 @@ function transitIcon(mode: string): string {
     <button class="tl-flap"
             (click)="toggleCollapse()"
             [attr.aria-label]="collapsed() ? 'Expandir panel de horario' : 'Colapsar panel de horario'">
-      {{ collapsed() ? '›' : '‹' }}
+      <span class="tl-flap-chevron">{{ collapsed() ? '›' : '‹' }}</span>
+      <span class="tl-flap-label" i18n="@@timeline.flapLabel">Ver horario del día</span>
     </button>
 
   </div>
@@ -190,6 +191,11 @@ export class DayTimelineComponent {
   // ── Collapse / expand ─────────────────────────────────────────────────────
   protected readonly collapsed = signal(false);
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
+
+  private lastStopId: string | null = null;
+  private isMobileViewport(): boolean {
+    return window.innerWidth <= 768;
+  }
 
   // ── Active stop + transits (input override or service) ────────────────────
   private activeStop(): TripStop | null {
@@ -253,7 +259,13 @@ export class DayTimelineComponent {
   constructor() {
     effect(() => {
       const stop = this.activeStop();
-      if (!stop) { this.selectedDay.set(null); return; }
+      if (!stop) { this.selectedDay.set(null); this.lastStopId = null; return; }
+
+      if (stop.stopId !== this.lastStopId && this.isMobileViewport()) {
+        this.collapsed.set(true);
+      }
+      this.lastStopId = stop.stopId;
+
       const tabs = this.days();
       const firstWithEvents = tabs.find(t => t.hasEvents);
       this.selectedDay.set(firstWithEvents?.key ?? tabs[0]?.key ?? null);

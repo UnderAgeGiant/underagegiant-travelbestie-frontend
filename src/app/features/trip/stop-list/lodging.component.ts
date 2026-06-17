@@ -6,9 +6,9 @@ import { Lodging } from '../../../core/models/trip.model';
   selector: 'app-lodging',
   standalone: true,
   template: `
-    <div class="lodging-connector" (click)="$event.stopPropagation()">
+    <div class="lodging-connector">
       @if (editOpen()) {
-        <div class="lodging-form">
+        <div class="lodging-form" (click)="$event.stopPropagation()">
           <input class="form-input"
                  style="font-size:11px;padding:5px 8px;width:100%;box-sizing:border-box"
                  [value]="lName()"
@@ -42,7 +42,7 @@ import { Lodging } from '../../../core/models/trip.model';
         </div>
 
       } @else if (lodging()) {
-        <div class="lodging-badge" (click)="openEdit()">
+        <div class="lodging-badge" (click)="openEdit(); $event.stopPropagation()">
           <span class="lodging-icon">🏨</span>
           <span class="lodging-name">{{ lodging()!.name }}</span>
           @if (lodging()!.url) {
@@ -56,8 +56,9 @@ import { Lodging } from '../../../core/models/trip.model';
         </div>
 
       } @else {
-        <div class="lodging-empty" (click)="openEdit()">
-          <span class="lodging-add-label" i18n="@@lodging.addBtn">🏨 + Alojamiento</span>
+        <div class="lodging-empty">
+          <span class="lodging-add-label" (click)="openEdit(); $event.stopPropagation()"
+                i18n="@@lodging.addBtn">🏨 + Alojamiento</span>
         </div>
       }
     </div>
