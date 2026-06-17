@@ -9,7 +9,9 @@ import { City } from '../../../core/models/city.model';
   standalone: true,
   imports: [CityComboboxComponent, DateRangeComponent],
   template: `
-    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
+    <div class="modal-backdrop"
+         (mousedown)="onBackdropMouseDown($event)"
+         (click)="onBackdropClick($event)">
       <div class="modal" style="max-width:560px;overflow:visible">
         <div class="modal-head" style="background:linear-gradient(135deg,var(--mint),var(--sky));border-radius:22px 22px 0 0;overflow:hidden">
           <div class="modal-title" i18n="@@addStop.title">Agregar destino ✈️</div>
@@ -57,6 +59,23 @@ export class AddStopModalComponent {
   selectedCity = signal<City | null>(null);
   checkIn = signal('');
   checkOut = signal('');
+
+  // Mobile browsers can fire a "ghost" click on the backdrop after the flatpickr
+  // calendar closes from the same tap that selected a date, instantly closing this
+  // modal. Requiring mousedown and click to both land on the backdrop itself
+  // filters that out, since the real press started on the calendar day cell.
+  private backdropMouseDownOnSelf = false;
+
+  onBackdropMouseDown(event: MouseEvent): void {
+    this.backdropMouseDownOnSelf = event.target === event.currentTarget;
+  }
+
+  onBackdropClick(event: MouseEvent): void {
+    if (this.backdropMouseDownOnSelf && event.target === event.currentTarget) {
+      this.close.emit();
+    }
+    this.backdropMouseDownOnSelf = false;
+  }
 
   private parseMs(s: string): number {
     const [dd, mm, yyyy] = s.split('/').map(Number);
