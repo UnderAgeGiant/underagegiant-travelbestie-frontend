@@ -334,7 +334,7 @@ export class AttractionCardComponent {
   });
 
   starStr(): string {
-    const r = Math.round(this.attraction().rating);
+    const r = Math.min(5, Math.max(0, Math.round(this.attraction().rating)));
     return '★'.repeat(r) + '☆'.repeat(5 - r);
   }
 
