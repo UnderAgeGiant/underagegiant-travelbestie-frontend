@@ -1668,3 +1668,22 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Category filter chips ── */
+.att-filter-row {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 0 0 12px;
+}
+.att-filter-chip {
+  padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 600;
+  border: 1.5px solid var(--border); background: var(--cream); color: var(--t2);
+  cursor: pointer; transition: background .15s, border-color .15s, color .15s;
+  white-space: nowrap;
+}
+.att-filter-chip:hover {
+  background: var(--chip-bg, var(--lav)); border-color: transparent; color: var(--t1);
+}
+.att-filter-chip.active {
+  background: var(--chip-bg, var(--lav)); border-color: transparent; color: var(--t1);
+  font-weight: 700;
+}
