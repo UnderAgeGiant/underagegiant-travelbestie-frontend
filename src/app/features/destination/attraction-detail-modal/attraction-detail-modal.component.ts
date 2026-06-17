@@ -169,9 +169,10 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
                 <div class="att-preview-enrich">
                   <span class="att-enrich-icon">🌐</span>
                   <a class="att-enrich-value att-enrich-link"
-                     [href]="attraction().website"
+                     [attr.href]="attraction().website"
                      target="_blank"
-                     rel="noopener noreferrer">{{ websiteDomain() }}</a>
+                     rel="noopener noreferrer"
+                     (click)="openWebsite($event)">{{ websiteDomain() }}</a>
                 </div>
               }
             </div>
@@ -307,6 +308,13 @@ export class AttractionDetailModalComponent {
   starStr(): string {
     const r = Math.round(this.attraction().rating);
     return '★'.repeat(r) + '☆'.repeat(5 - r);
+  }
+
+  openWebsite(event: MouseEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    const url = this.attraction().website;
+    if (url) window.open(url, '_blank', 'noopener,noreferrer');
   }
 
   openPlanModal(): void { this.showPlanModal.set(true); }

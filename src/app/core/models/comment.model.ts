@@ -48,6 +48,7 @@ export interface Attraction {
   rating:           number;
   estimatedMinutes: number;
   imageUrl?:        string;
+  description?:     string;
   website?:         string | null;
   schedule?:        WeeklySchedule | null;
   ticketUrl?:       string | null;
