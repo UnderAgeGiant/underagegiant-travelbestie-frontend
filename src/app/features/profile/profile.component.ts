@@ -465,9 +465,9 @@ import { environment } from '../../../environments/environment';
             }
 
             @if (favTab() === 'favorites') {
-              @if (favLoading()) {
+              @if (favorites.loading()) {
                 <div class="fav-loading" i18n="@@profile.favLoading">Cargando favoritos…</div>
-              } @else if (favoritedTrips().length === 0) {
+              } @else if (favorites.favoritedTrips().length === 0) {
                 <div class="fav-empty">
                   <span class="fav-empty-icon">🤍</span>
                   <p i18n="@@profile.favEmpty">Todavía no guardaste ningún plan como favorito.</p>
@@ -475,7 +475,7 @@ import { environment } from '../../../environments/environment';
                 </div>
               } @else {
                 <div class="fav-list">
-                  @for (trip of favoritedTrips(); track trip.shareId) {
+                  @for (trip of favorites.favoritedTrips(); track trip.shareId) {
                     <div class="fav-card">
                       <div class="fav-card-header">
                         <span class="fav-card-name">{{ trip.tripName }}</span>
@@ -622,7 +622,7 @@ export class ProfileComponent {
   private readonly karma         = inject(KarmaService);
   private readonly karmaModal    = inject(KarmaModalService);
   private readonly api           = inject(ApiService);
-  private readonly favorites     = inject(FavoritesService);
+  readonly favorites             = inject(FavoritesService);
 
   close          = output<void>();
   openAiPlanning = output<void>();
@@ -787,27 +787,17 @@ export class ProfileComponent {
   }
 
   // ── Favorites tab ───────────────────────────────────────────
-  favTab          = signal<'trips' | 'favorites'>('trips');
-  favoritedTrips  = signal<FavoritedTrip[]>([]);
-  favLoading      = signal(false);
-  favLoaded       = signal(false);
+  favTab = signal<'trips' | 'favorites'>('trips');
 
   openFavTab(): void {
     this.favTab.set('favorites');
-    if (this.favLoaded()) return;
-    this.favLoading.set(true);
-    this.favorites.getFavorites().subscribe({
-      next:  trips => { this.favoritedTrips.set(trips); this.favLoading.set(false); this.favLoaded.set(true); },
-      error: ()    => { this.favLoading.set(false); },
-    });
+    this.favorites.loadFavorites();
   }
 
   removeFavorite(trip: FavoritedTrip): void {
     this.favorites.toggle(
       trip.shareId,
-      () => {
-        this.favoritedTrips.update(list => list.filter(t => t.shareId !== trip.shareId));
-      },
+      () => { /* cache already updated by the service */ },
       () => { /* silent fail — the card stays */ },
     );
   }
