@@ -3,6 +3,7 @@ import { City } from '../core/models/city.model';
 import { AttractionCategory } from '../core/models/attraction-category';
 import { CURATED_ALL } from './attractions-curated';
 import { FREETOURS_CURATED } from './freetours-curated';
+import { EVENTS_CURATED } from './events-curated';
 
 type RegionTemplate = { n: (c: City) => string; t: string; c: AttractionCategory; i: string; bg: string; e: number }[];
 const REGION_TMPL: Record<string, RegionTemplate> = {
@@ -77,11 +78,15 @@ export function getAttractions(city: City): Attraction[] {
   const freetours = FREETOURS_CURATED[city.id];
   if (freetours?.length) base = [...base, ...freetours];
 
+  const events = EVENTS_CURATED[city.id];
+  if (events?.length) base = [...base, ...events];
+
   return base;
 }
 
 /** Returns an attraction by id regardless of its active flag — use when rendering existing trip stops. */
 export function findCuratedAttraction(cityId: string, attractionId: string): Attraction | undefined {
   return CURATED_ALL[cityId]?.find(a => a.id === attractionId)
-    ?? FREETOURS_CURATED[cityId]?.find(a => a.id === attractionId);
+    ?? FREETOURS_CURATED[cityId]?.find(a => a.id === attractionId)
+    ?? EVENTS_CURATED[cityId]?.find(a => a.id === attractionId);
 }
