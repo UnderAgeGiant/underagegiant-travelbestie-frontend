@@ -11,7 +11,7 @@ describe('CityComboboxComponent', () => {
   });
 
   it('shows placeholder by default', () => {
-    expect(fixture.nativeElement.textContent).toContain('Search city');
+    expect(fixture.nativeElement.textContent).toContain('Buscar ciudad o país');
   });
 
   it('opens dropdown on click', () => {
