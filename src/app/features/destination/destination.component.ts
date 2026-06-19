@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, effect } from '@angular/core';
 import { TripService } from '../trip/trip.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { REGION_LABELS } from '../../core/models/city.model';
@@ -6,6 +6,7 @@ import { getAttractions } from '../../data/attractions.data';
 import { AttractionCardComponent } from './attraction-card/attraction-card.component';
 import { Comment } from '../../core/models/comment.model';
 import { ApiService } from '../../core/api/api.service';
+import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
 
 @Component({
   selector: 'app-destination',
@@ -44,16 +45,46 @@ import { ApiService } from '../../core/api/api.service';
           <div class="attractions-top">
             <div class="attractions-label" i18n="@@dest.exploreTitle">Explorar atracciones</div>
             <span class="att-count">
-              {{ attractions().length }}
-              @if (attractions().length === 1) {
+              {{ filteredAttractions().length }}
+              @if (filteredAttractions().length === 1) {
                 <ng-container i18n="@@dest.onePlace">lugar</ng-container>
               } @else {
                 <ng-container i18n="@@dest.manyPlaces">lugares</ng-container>
               }
             </span>
           </div>
+
+          <div class="att-search-row">
+            <span class="att-search-icon">🔍</span>
+            <input class="att-search-input"
+                   type="text"
+                   [value]="searchQuery()"
+                   (input)="searchQuery.set($any($event.target).value)"
+                   i18n-placeholder="@@dest.searchPlaceholder"
+                   placeholder="Buscar atracción…" />
+            @if (searchQuery()) {
+              <button class="att-search-clear" type="button" (click)="searchQuery.set('')">✕</button>
+            }
+          </div>
+
+          @if (availableCategories().length > 1) {
+            <div class="att-filter-row">
+              <button class="att-filter-chip" [class.active]="filterCategory() === null"
+                      (click)="filterCategory.set(null)" type="button"
+                      i18n="@@dest.filterAll">Todos</button>
+              @for (cat of availableCategories(); track cat.code) {
+                <button class="att-filter-chip" [class.active]="filterCategory() === cat.code"
+                        [style.--chip-bg]="cat.bg"
+                        (click)="filterCategory.set(filterCategory() === cat.code ? null : cat.code)"
+                        type="button">
+                  {{ cat.icon }} {{ cat.label }}
+                </button>
+              }
+            </div>
+          }
+
           <div class="att-grid">
-            @for (att of attractions(); track att.id) {
+            @for (att of filteredAttractions(); track att.id) {
               <app-attraction-card
                 [attraction]="att"
                 [cityName]="city()!.name"
@@ -61,6 +92,9 @@ import { ApiService } from '../../core/api/api.service';
                 [stopId]="activeStop()!.stopId"
                 [comments]="commentsFor(att.id)"
                 (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
+            }
+            @if (filteredAttractions().length === 0) {
+              <div class="att-empty" i18n="@@dest.searchEmpty">Sin resultados para tu búsqueda</div>
             }
           </div>
         </div>
@@ -81,6 +115,33 @@ export class DestinationComponent implements OnInit {
 
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? getAttractions(this.city()!) : []);
+
+  readonly filterCategory = signal<AttractionCategory | null>(null);
+  readonly searchQuery    = signal('');
+
+  readonly availableCategories = computed(() =>
+    ALL_CATEGORIES.filter(m => this.attractions().some(a => a.category === m.code))
+  );
+
+  readonly filteredAttractions = computed(() => {
+    let list = this.attractions();
+    const cat = this.filterCategory();
+    if (cat) list = list.filter(a => a.category === cat);
+    const q = this.searchQuery().trim().toLowerCase();
+    if (q) list = list.filter(a =>
+      a.name.toLowerCase().includes(q) || a.type.toLowerCase().includes(q)
+    );
+    return list;
+  });
+
+  constructor() {
+    effect(() => {
+      this.city();
+      this.filterCategory.set(null);
+      this.searchQuery.set('');
+    }, { allowSignalWrites: true });
+  }
+
   commentsFor(attractionId: string): Comment[] {
     return this.allComments()[attractionId] ?? [];
   }

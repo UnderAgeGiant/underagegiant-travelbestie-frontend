@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { of } from 'rxjs';
@@ -22,6 +22,8 @@ describe('AuthService', () => {
     });
     service = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
+    // jsdom does not implement crypto.subtle — mock it to allow HTTP path tests
+    (service as any)['encryptPayload'] = jest.fn().mockResolvedValue({ encryptedPayload: 'mock-encrypted' });
   });
 
   afterEach(() => http.verify());
@@ -32,11 +34,14 @@ describe('AuthService', () => {
     // call is available synchronously for http.expectOne().
     jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
     service.login('test@test.com', 'pass').subscribe();
+    flushMicrotasks(); // resolve encryptPayload Promise → HTTP call queued
+
     const req = http.expectOne(r => r.url.includes('/auth/login'));
-    req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
+    req.flush({ token: 'fake.jwt.token', refreshToken: 'fake-refresh-token', user: { name: 'Test', email: 'test@test.com' } });
+
     expect(service.token()).toBe('fake.jwt.token');
     expect(service.currentUser()?.name).toBe('Test');
-  });
+  }));
 
   it('isLoggedIn returns false when no token', () => {
     expect(service.isLoggedIn()).toBe(false);

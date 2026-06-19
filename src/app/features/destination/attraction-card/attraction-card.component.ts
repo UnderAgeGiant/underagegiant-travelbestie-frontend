@@ -7,6 +7,7 @@ import { getAttractions } from '../../../data/attractions.data';
 import { AttractionDetailModalComponent } from '../attraction-detail-modal/attraction-detail-modal.component';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
+import { CATEGORY_META } from '../../../core/models/attraction-category';
 
 @Component({
   selector: 'app-attraction-card',
@@ -92,7 +93,7 @@ import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
     .card-footer {
       display: flex; align-items: center; gap: 2px;
       padding: 7px 12px;
-      background: #fff;
+      background: transparent;
     }
     .card-footer .stars { font-size: 11px; }
     .card-footer .rating-val { font-size: 11px; font-weight: 700; color: var(--t2); }
@@ -100,7 +101,7 @@ import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
     /* ── Planned entry chips ── */
     .card-entries {
       display: flex; flex-wrap: wrap; gap: 4px;
-      padding: 5px 12px 8px; background: #fff;
+      padding: 5px 12px 8px; background: transparent;
       border-top: 1px solid var(--border);
     }
     .entry-chip {
@@ -119,12 +120,12 @@ import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
     /* ── Enrichment strip ── */
     .card-enrich {
       padding: 4px 12px 8px;
-      background: #fff;
+      background: transparent;
       border-top: 1px solid var(--border);
     }
   `],
   template: `
-    <div class="att-card" (click)="showDetailModal.set(true)">
+    <div class="att-card" [style.background-color]="categoryBg()" (click)="showDetailModal.set(true)">
       <!-- Image / visual area -->
       <div class="card-visual" [style.background-color]="attraction().bg">
         @if (attraction().imageUrl && !imgError()) {
@@ -189,7 +190,7 @@ import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
             <div class="att-preview-enrich">
               <span class="att-enrich-icon">🌐</span>
               <a class="att-enrich-value att-enrich-link"
-                 [href]="attraction().website"
+                 [attr.href]="attraction().website"
                  target="_blank"
                  rel="noopener noreferrer"
                  (click)="$event.stopPropagation()">{{ websiteDomain() }}</a>
@@ -279,7 +280,8 @@ export class AttractionCardComponent {
 
   readonly inPlan = computed(() => this.plannedEntries().length > 0);
 
-  readonly activeStop = computed(() => this.trip.activeStop());
+  readonly activeStop   = computed(() => this.trip.activeStop());
+  readonly categoryBg   = computed(() => CATEGORY_META[this.attraction().category]?.bg ?? '#E8F0FD');
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 
@@ -334,7 +336,7 @@ export class AttractionCardComponent {
   });
 
   starStr(): string {
-    const r = Math.round(this.attraction().rating);
+    const r = Math.min(5, Math.max(0, Math.round(this.attraction().rating)));
     return '★'.repeat(r) + '☆'.repeat(5 - r);
   }
 
@@ -353,13 +355,12 @@ export class AttractionCardComponent {
   }
 
   onPlanConfirmed(entry: PlanEntry): void {
-    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined);
+    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined, this.attraction().category);
     this.showPlanModal.set(false);
   }
 
   onEditConfirmed(entry: PlanEntry): void {
-    const editId = this.editingEntry()?.entryId;
-    if (!editId) return;
+    const editId = this.editingEntry()!.entryId;
     this.trip.updateStartTime(this.stopId(), editId, entry.startTime, entry.date || undefined);
     this.editingEntry.set(null);
   }
