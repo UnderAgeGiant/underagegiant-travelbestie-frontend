@@ -1,4 +1,4 @@
-import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { of } from 'rxjs';
@@ -34,14 +34,13 @@ describe('AuthService', () => {
     // call is available synchronously for http.expectOne().
     jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
     service.login('test@test.com', 'pass').subscribe();
-    flushMicrotasks(); // resolve encryptPayload Promise → HTTP call queued
 
     const req = http.expectOne(r => r.url.includes('/auth/login'));
     req.flush({ token: 'fake.jwt.token', refreshToken: 'fake-refresh-token', user: { name: 'Test', email: 'test@test.com' } });
 
     expect(service.token()).toBe('fake.jwt.token');
     expect(service.currentUser()?.name).toBe('Test');
-  }));
+  });
 
   it('isLoggedIn returns false when no token', () => {
     expect(service.isLoggedIn()).toBe(false);
