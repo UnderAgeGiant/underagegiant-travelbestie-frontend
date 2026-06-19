@@ -8,7 +8,11 @@ describe('ApiService (useMocks=true)', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: 'ENV', useValue: { useMocks: true, apiUrl: 'http://localhost:3000' } },
+      ],
     });
     service = TestBed.inject(ApiService);
   });

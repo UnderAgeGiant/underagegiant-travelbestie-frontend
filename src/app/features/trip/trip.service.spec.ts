@@ -1,4 +1,6 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TripService } from './trip.service';
 import { City } from '../../core/models/city.model';
 
@@ -9,8 +11,11 @@ describe('TripService', () => {
   let service: TripService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = new TripService();
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(TripService);
   });
 
   it('starts with no stops', () => {
