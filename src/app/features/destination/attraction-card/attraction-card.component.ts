@@ -8,6 +8,7 @@ import { AttractionDetailModalComponent } from '../attraction-detail-modal/attra
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
 import { CATEGORY_META } from '../../../core/models/attraction-category';
+import { formatEventChip } from '../../../core/utils/event-datetime.util';
 
 @Component({
   selector: 'app-attraction-card',
@@ -123,6 +124,17 @@ import { CATEGORY_META } from '../../../core/models/attraction-category';
       background: transparent;
       border-top: 1px solid var(--border);
     }
+    /* ── Fixed-event date/time chip ── */
+    .card-event-dt {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin: 0 12px 8px;
+      padding: 3px 10px; border-radius: 99px;
+      font-size: 11px; font-weight: 800;
+      color: var(--peach-d);
+      background: var(--butter);
+      border: 1px solid var(--peach);
+      font-variant-numeric: tabular-nums;
+    }
   `],
   template: `
     <div class="att-card" [style.background-color]="categoryBg()" (click)="showDetailModal.set(true)">
@@ -170,6 +182,12 @@ import { CATEGORY_META } from '../../../core/models/attraction-category';
           <span class="card-cmnt-count" style="margin-left:4px">💬 {{ comments().length }}</span>
         }
       </div>
+
+      <!-- Fixed event date/time (accent) -->
+      @if (eventDateTime()) {
+        <div class="card-event-dt" i18n-title="@@attCard.eventDateTime"
+             title="Fecha y hora del evento">{{ eventDateTime() }}</div>
+      }
 
       <!-- Enrichment strip: hours / ticket / website -->
       @if (todayHours() || ticketSummary() || websiteDomain()) {
@@ -227,6 +245,7 @@ import { CATEGORY_META } from '../../../core/models/attraction-category';
         [stopCheckIn]="activeStop()?.checkIn ?? ''"
         [stopCheckOut]="activeStop()?.checkOut ?? ''"
         [existingPlanned]="scheduleEntries()"
+        [cityName]="cityName()"
         (cancel)="showPlanModal.set(false)"
         (confirmed)="onPlanConfirmed($event)"
         (remove)="showPlanModal.set(false)" />
@@ -241,6 +260,7 @@ import { CATEGORY_META } from '../../../core/models/attraction-category';
         [stopCheckIn]="activeStop()?.checkIn ?? ''"
         [stopCheckOut]="activeStop()?.checkOut ?? ''"
         [existingPlanned]="editScheduleEntries()"
+        [cityName]="cityName()"
         (cancel)="editingEntry.set(null)"
         (confirmed)="onEditConfirmed($event)"
         (remove)="onRemoveEntry()" />
@@ -284,6 +304,10 @@ export class AttractionCardComponent {
   readonly categoryBg   = computed(() => CATEGORY_META[this.attraction().category]?.bg ?? '#E8F0FD');
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
+
+  readonly eventDateTime = computed(() =>
+    formatEventChip(this.attraction().date, this.attraction().time)
+  );
 
   readonly websiteDomain = computed(() => {
     const url = this.attraction().website;
