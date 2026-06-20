@@ -53,4 +53,6 @@ export interface Attraction {
   schedule?:        WeeklySchedule | null;
   ticketUrl?:       string | null;
   ticketPrices?:    TicketPrices | null;
+  date?:            string | null;   // dd/mm/yyyy — fixed event date; null for poi/foodie/freetour
+  time?:            string | null;   // HH:mm — fixed event start time; null when unknown or non-event
 }

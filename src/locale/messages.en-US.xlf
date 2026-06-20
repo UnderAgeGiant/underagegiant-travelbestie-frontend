@@ -1042,6 +1042,20 @@
         <target>End</target>
       </trans-unit>
 
+      <!-- ── event date/time ── -->
+      <trans-unit id="attCard.eventDateTime" datatype="html">
+        <source>Fecha y hora del evento</source>
+        <target>Event date &amp; time</target>
+      </trans-unit>
+      <trans-unit id="planModal.eventFixedNote" datatype="html">
+        <source> 🔒 La fecha y hora de este evento son fijas. </source>
+        <target> 🔒 This event's date and time are fixed. </target>
+      </trans-unit>
+      <trans-unit id="planModal.eventOutsideRange" datatype="html">
+        <source> No estarás en <x id="INTERPOLATION" equiv-text="{{ cityName() || &apos;esta ciudad&apos; }}"/> el <x id="INTERPOLATION_1" equiv-text="{{ attraction().date }}"/> del evento. Ajusta las fechas de tu parada para poder agregarlo. </source>
+        <target> You won't be in <x id="INTERPOLATION" equiv-text="{{ cityName() || &apos;esta ciudad&apos; }}"/> on the event date <x id="INTERPOLATION_1" equiv-text="{{ attraction().date }}"/>. Adjust your stop's dates to add it. </target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

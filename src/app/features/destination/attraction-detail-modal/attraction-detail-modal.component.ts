@@ -8,6 +8,7 @@ import { getAttractions } from '../../../data/attractions.data';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
+import { formatEventLong } from '../../../core/utils/event-datetime.util';
 import { CommentModalComponent } from '../comment-modal/comment-modal.component';
 import { CommentCooldownService } from '../../../core/comments/comment-cooldown.service';
 import { CommentSimilarModalComponent } from '../../comments/comment-similar-modal.component';
@@ -103,6 +104,16 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
     .detail-enrich .att-preview-enrich {
       margin-top: 0; font-size: 12.5px;
     }
+    .detail-event-dt {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 14px;
+      padding: 6px 12px; border-radius: 12px;
+      font-size: 14px; font-weight: 800;
+      color: var(--peach-d);
+      background: var(--butter);
+      border: 1px solid var(--peach);
+      font-variant-numeric: tabular-nums;
+    }
   `],
   template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
@@ -130,6 +141,10 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 
         <!-- Body -->
         <div class="detail-body">
+
+          @if (eventDateTime()) {
+            <div class="detail-event-dt">{{ eventDateTime() }}</div>
+          }
 
           <!-- Duration + plan button -->
           <div class="action-row">
@@ -218,6 +233,7 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
           [stopCheckIn]="activeStop()?.checkIn ?? ''"
           [stopCheckOut]="activeStop()?.checkOut ?? ''"
           [existingPlanned]="scheduleEntries()"
+          [cityName]="cityName()"
           (cancel)="showPlanModal.set(false)"
           (confirmed)="onPlanConfirmed($event)"
           (remove)="onPlanRemoved()" />
@@ -271,6 +287,10 @@ export class AttractionDetailModalComponent {
   readonly activeStop = computed(() => this.trip.activeStop());
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
+
+  readonly eventDateTime = computed(() =>
+    formatEventLong(this.attraction().date, this.attraction().time)
+  );
 
   readonly websiteDomain = computed(() => {
     const url = this.attraction().website;

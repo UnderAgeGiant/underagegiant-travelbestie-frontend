@@ -2,6 +2,7 @@ import { Component, input, output, signal, computed, OnInit } from '@angular/cor
 import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
+import { formatEventLong, isDateInRange } from '../../../core/utils/event-datetime.util';
 
 export interface ScheduleEntry {
   entryId:    string;
@@ -49,6 +50,15 @@ export interface PlanEntry {
       background: oklch(97% 0.03 25); border-radius: 8px;
       border: 1px solid oklch(88% 0.07 25);
     }
+    .event-locked {
+      padding: 10px 12px; border-radius: 12px;
+      background: var(--butter); border: 1px solid var(--peach);
+    }
+    .event-locked-value {
+      font-size: 15px; font-weight: 800; color: var(--peach-d);
+      font-variant-numeric: tabular-nums;
+    }
+    .event-locked-note { font-size: 11px; color: var(--t3); margin-top: 4px; }
   `],
   template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && cancel.emit()">
@@ -63,23 +73,41 @@ export interface PlanEntry {
         </div>
 
         <div class="modal-body">
-          <!-- Date + time pickers -->
-          <div style="display:flex;gap:10px;margin-bottom:12px">
-            <div class="form-group" style="flex:1;margin-bottom:0">
-              <label class="form-label" i18n="@@planModal.dateLabel">Fecha</label>
-              <app-date-picker
-                [initialDate]="initialDate() || stopCheckIn()"
-                [minDate]="stopCheckIn()"
-                [maxDate]="stopCheckOut()"
-                (dateChange)="date.set($event)" />
+          <!-- Date + time: locked for fixed events, editable otherwise -->
+          @if (isFixedEvent()) {
+            <div class="event-locked" style="margin-bottom:12px">
+              <div class="event-locked-value">{{ fixedLabel() }}</div>
+              <div class="event-locked-note" i18n="@@planModal.eventFixedNote">
+                🔒 La fecha y hora de este evento son fijas.
+              </div>
             </div>
-            <div class="form-group" style="flex:1;margin-bottom:0">
-              <label class="form-label" i18n="@@planModal.timeLabel">Hora de inicio</label>
-              <input type="time" class="form-input"
-                     [value]="time()"
-                     (change)="time.set($any($event.target).value)" />
+          } @else {
+            <div style="display:flex;gap:10px;margin-bottom:12px">
+              <div class="form-group" style="flex:1;margin-bottom:0">
+                <label class="form-label" i18n="@@planModal.dateLabel">Fecha</label>
+                <app-date-picker
+                  [initialDate]="initialDate() || stopCheckIn()"
+                  [minDate]="stopCheckIn()"
+                  [maxDate]="stopCheckOut()"
+                  (dateChange)="date.set($event)" />
+              </div>
+              <div class="form-group" style="flex:1;margin-bottom:0">
+                <label class="form-label" i18n="@@planModal.timeLabel">Hora de inicio</label>
+                <input type="time" class="form-input"
+                       [value]="time()"
+                       (change)="time.set($any($event.target).value)" />
+              </div>
             </div>
-          </div>
+          }
+          @if (outsideStopRange()) {
+            <div class="overlap-warn" style="margin-bottom:12px">
+              <span>⚠</span>
+              <span i18n="@@planModal.eventOutsideRange">
+                No estarás en {{ cityName() || 'esta ciudad' }} el {{ attraction().date }} del evento.
+                Ajusta las fechas de tu parada para poder agregarlo.
+              </span>
+            </div>
+          }
           @if (hasOverlap()) {
             <div class="overlap-warn" style="margin-bottom:12px">
               <span>⚠</span>
@@ -116,6 +144,7 @@ export interface PlanEntry {
             <button class="btn-pill btn-outline" (click)="cancel.emit()" style="flex:1"
                     i18n="@@planModal.cancelBtn">Cancelar</button>
             <button class="btn-pill btn-primary" (click)="confirm()" style="flex:2"
+                    [disabled]="outsideStopRange()"
                     i18n="@@planModal.confirmBtn">Confirmar</button>
           </div>
           @if (isEditing()) {
@@ -136,6 +165,7 @@ export class PlanTimeModalComponent implements OnInit {
   stopCheckIn     = input('');
   stopCheckOut    = input('');
   existingPlanned = input<ScheduleEntry[]>([]);
+  cityName        = input('');
 
   cancel    = output<void>();
   confirmed = output<PlanEntry>();
@@ -145,6 +175,19 @@ export class PlanTimeModalComponent implements OnInit {
   date = signal('');
 
   readonly isEditing = computed(() => this.initialTime() !== '');
+
+  readonly isFixedEvent = computed(() =>
+    this.attraction().category === 'event_party' && !!this.attraction().date
+  );
+
+  readonly fixedLabel = computed(() =>
+    formatEventLong(this.attraction().date, this.attraction().time)
+  );
+
+  readonly outsideStopRange = computed(() =>
+    this.isFixedEvent()
+    && !isDateInRange(this.attraction().date, this.stopCheckIn(), this.stopCheckOut())
+  );
 
   readonly schedule = computed(() =>
     [...this.existingPlanned()].sort((a, b) =>
@@ -173,6 +216,11 @@ export class PlanTimeModalComponent implements OnInit {
   readonly hasOverlap = computed(() => this.overlappingIds().size > 0);
 
   ngOnInit() {
+    if (this.isFixedEvent()) {
+      this.date.set(this.attraction().date!);
+      this.time.set(this.attraction().time ?? '');
+      return;
+    }
     if (this.initialTime()) {
       this.time.set(this.initialTime());
     } else {
@@ -185,6 +233,7 @@ export class PlanTimeModalComponent implements OnInit {
   }
 
   confirm(): void {
+    if (this.outsideStopRange()) return;
     this.confirmed.emit({ startTime: this.time(), date: this.date() });
   }
 

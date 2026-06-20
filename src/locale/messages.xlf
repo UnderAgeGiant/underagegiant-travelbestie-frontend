@@ -446,39 +446,46 @@
         <source>Planificar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">154,156</context>
+          <context context-type="linenumber">167,169</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">146,148</context>
+          <context context-type="linenumber">161,163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="attCard.eventDateTime" datatype="html">
+        <source>Fecha y hora del evento</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
+          <context context-type="linenumber">189,190</context>
         </context-group>
       </trans-unit>
       <trans-unit id="detailModal.durationLabel" datatype="html">
         <source>⏱ Duración estimada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">137,138</context>
+          <context context-type="linenumber">152,153</context>
         </context-group>
       </trans-unit>
       <trans-unit id="detailModal.commentsTitle" datatype="html">
         <source>💬 Comentarios</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">183,184</context>
+          <context context-type="linenumber">199,200</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.noComments" datatype="html">
         <source>¡Sin comentarios aún — sé el primero! 💬</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">190,192</context>
+          <context context-type="linenumber">206,208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.addComment" datatype="html">
         <source>💌 Agregar comentario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">207,209</context>
+          <context context-type="linenumber">223,225</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentModal.title" datatype="html">
@@ -558,74 +565,95 @@
           <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="dest.searchPlaceholder" datatype="html">
+        <source>Buscar atracción…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/destination.component.ts</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="dest.filterAll" datatype="html">
         <source>Todos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/destination.component.ts</context>
-          <context context-type="linenumber">61,62</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dest.searchEmpty" datatype="html">
+        <source>Sin resultados para tu búsqueda</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/destination.component.ts</context>
+          <context context-type="linenumber">97,99</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.title" datatype="html">
         <source>¿Cuándo y a qué hora? 📅</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">60,61</context>
+          <context context-type="linenumber">68,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planModal.eventFixedNote" datatype="html">
+        <source> 🔒 La fecha y hora de este evento son fijas. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
+          <context context-type="linenumber">81,82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.dateLabel" datatype="html">
         <source>Fecha</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">71,72</context>
+          <context context-type="linenumber">87,88</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.timeLabel" datatype="html">
         <source>Hora de inicio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">79,80</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planModal.eventOutsideRange" datatype="html">
+        <source> No estarás en <x id="INTERPOLATION" equiv-text="{{ cityName() || &apos;esta ciudad&apos; }}"/> el <x id="INTERPOLATION_1" equiv-text="{{ attraction().date }}"/> del evento. Ajusta las fechas de tu parada para poder agregarlo. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
+          <context context-type="linenumber">106,108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.overlapWarn" datatype="html">
         <source>Se superpone con otra atracción planificada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">88,90</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="planModal.categoryLabel" datatype="html">
-        <source>Tipo de experiencia</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">94,95</context>
+          <context context-type="linenumber">114,116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.scheduleLabel" datatype="html">
         <source> Ya planificado en esta ciudad </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">112,113</context>
+          <context context-type="linenumber">122,123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.cancelBtn" datatype="html">
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">135,136</context>
+          <context context-type="linenumber">145,146</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.confirmBtn" datatype="html">
         <source>Confirmar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">137,139</context>
+          <context context-type="linenumber">148,150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.removeBtn" datatype="html">
         <source>Quitar del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/plan-time-modal/plan-time-modal.component.ts</context>
-          <context context-type="linenumber">143,145</context>
+          <context context-type="linenumber">154,156</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.title" datatype="html">
