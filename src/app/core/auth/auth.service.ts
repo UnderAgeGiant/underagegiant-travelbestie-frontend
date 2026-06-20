@@ -143,7 +143,15 @@ export class AuthService {
     ).pipe(
       tap(res => this.setTokens(res.token, res.refreshToken, res.user)),
       map(() => true),
-      catchError(() => { this.clearTokens(); return of(false); }),
+      catchError((err: unknown) => {
+        // Only destroy the session when the server explicitly rejects the token (401).
+        // Network errors, 5xx, cold-start timeouts, etc. are transient — keep the
+        // refresh token in localStorage so the next page load can retry.
+        if (err instanceof HttpErrorResponse && err.status === 401) {
+          this.clearTokens();
+        }
+        return of(false);
+      }),
       finalize(() => { this._refreshInFlight = null; }),
       shareReplay(1),
     );

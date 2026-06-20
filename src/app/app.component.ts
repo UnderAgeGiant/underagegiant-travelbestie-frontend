@@ -111,11 +111,21 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
 export class AppComponent {
   readonly trip  = inject(TripService);
   showAddModal   = signal(false);
-  showProfile    = signal(false);
   showAiPlanning = signal(false);
   toast          = signal<string | null>(null);
 
   readonly sharedTripId = signal<string | null>(
     new URLSearchParams(window.location.search).get('share')
   );
+
+  // Restore the panel that was open when the user triggered a locale switch.
+  private readonly _restoredView = (() => {
+    try {
+      const v = sessionStorage.getItem('tb_restore_view');
+      if (v) sessionStorage.removeItem('tb_restore_view');
+      return v;
+    } catch { return null; }
+  })();
+
+  showProfile = signal(this._restoredView === 'profile');
 }

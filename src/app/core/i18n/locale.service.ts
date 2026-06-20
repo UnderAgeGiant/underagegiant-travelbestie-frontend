@@ -48,10 +48,15 @@ export class LocaleService {
     this.doc.cookie = `${LOCALE_STORAGE_KEY}=${target}; path=/; max-age=${ONE_YEAR_SECONDS}; samesite=lax`;
   }
 
-  /** Persist then reload into the other locale at the same view. */
-  switchTo(target: AppLocale): void {
+  /** Persist then reload into the other locale at the same view.
+   *  Callers can pass a `restoreView` key that AppComponent will read on
+   *  the next boot to re-open the correct panel after the locale reload. */
+  switchTo(target: AppLocale, restoreView?: string): void {
     if (target === this.current()) return;
     this.persist(target);
+    if (restoreView) {
+      try { this.doc.defaultView?.sessionStorage.setItem('tb_restore_view', restoreView); } catch {}
+    }
     const loc = this.doc.defaultView!.location;
     loc.assign(this.targetUrl(target, loc.pathname, loc.search, loc.hash));
   }

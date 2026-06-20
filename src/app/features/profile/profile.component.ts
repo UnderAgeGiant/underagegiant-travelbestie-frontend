@@ -326,7 +326,7 @@ import { environment } from '../../../environments/environment';
           <div class="section-head" i18n="@@profile.langSection">Idioma / Language</div>
           <div class="lang-picker">
             <button class="lang-option" [class.active]="locale.current() === 'es-CL'"
-                    (click)="locale.switchTo('es-CL')" type="button">
+                    (click)="locale.switchTo('es-CL', 'profile')" type="button">
               <img src="https://flagcdn.com/w40/cl.jpg" alt="Español" class="lang-flag" />
               <span class="lang-option-label">Español</span>
               @if (locale.current() === 'es-CL') {
@@ -334,7 +334,7 @@ import { environment } from '../../../environments/environment';
               }
             </button>
             <button class="lang-option" [class.active]="locale.current() === 'en-US'"
-                    (click)="locale.switchTo('en-US')" type="button">
+                    (click)="locale.switchTo('en-US', 'profile')" type="button">
               <img src="https://flagcdn.com/w40/us.jpg" alt="English" class="lang-flag" />
               <span class="lang-option-label">English</span>
               @if (locale.current() === 'en-US') {
