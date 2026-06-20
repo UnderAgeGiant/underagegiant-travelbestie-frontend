@@ -5,6 +5,7 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { FavoritedTrip } from '../../core/models/trip.model';
 import { HomeAddressService } from '../../core/home-address/home-address.service';
+import { LocaleService } from '../../core/i18n/locale.service';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
@@ -320,6 +321,29 @@ import { environment } from '../../../environments/environment';
           </div>
         </section>
 
+        <!-- Language -->
+        <section>
+          <div class="section-head" i18n="@@profile.langSection">Idioma / Language</div>
+          <div class="lang-picker">
+            <button class="lang-option" [class.active]="locale.current() === 'es-CL'"
+                    (click)="locale.switchTo('es-CL')" type="button">
+              <img src="https://flagcdn.com/w40/cl.jpg" alt="Español" class="lang-flag" />
+              <span class="lang-option-label">Español</span>
+              @if (locale.current() === 'es-CL') {
+                <span class="lang-check">✓</span>
+              }
+            </button>
+            <button class="lang-option" [class.active]="locale.current() === 'en-US'"
+                    (click)="locale.switchTo('en-US')" type="button">
+              <img src="https://flagcdn.com/w40/us.jpg" alt="English" class="lang-flag" />
+              <span class="lang-option-label">English</span>
+              @if (locale.current() === 'en-US') {
+                <span class="lang-check">✓</span>
+              }
+            </button>
+          </div>
+        </section>
+
         <!-- Trip summary -->
         <section>
           <div class="section-head" style="display:flex;align-items:center;justify-content:space-between">
@@ -614,6 +638,7 @@ import { environment } from '../../../environments/environment';
 })
 export class ProfileComponent {
   readonly auth          = inject(AuthService);
+  readonly locale        = inject(LocaleService);
   readonly trip          = inject(TripService);
   readonly savedPlans    = inject(SavedPlansService);
   readonly homeAddress   = inject(HomeAddressService);

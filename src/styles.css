@@ -847,6 +847,24 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 }
 .profile-accordion-sep { height: 1px; background: var(--border); }
 
+/* ── Profile language picker ─────────────────────────────────── */
+.lang-picker {
+  display: flex; gap: 10px;
+}
+.lang-option {
+  display: flex; align-items: center; gap: 10px;
+  flex: 1; padding: 12px 14px;
+  background: #fff; border: 1.5px solid var(--border); border-radius: 12px;
+  font-size: 13px; font-weight: 600; color: var(--t2);
+  cursor: pointer; text-align: left;
+  transition: border-color .12s, background .12s;
+}
+.lang-option:hover { background: var(--cream); border-color: var(--lav-d); }
+.lang-option.active { border-color: var(--lav-d); background: var(--lav); color: var(--lav-d); }
+.lang-flag { width: 28px; height: auto; border-radius: 3px; display: block; object-fit: cover; }
+.lang-option-label { flex: 1; }
+.lang-check { font-size: 13px; font-weight: 700; }
+
 .btn-spinner {
   display: inline-block;
   width: 12px;

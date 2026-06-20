@@ -14,7 +14,6 @@ import { FavoritesService } from '../../core/favorites/favorites.service';
 import { FavoritedTrip } from '../../core/models/trip.model';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
-import { LocaleService } from '../../core/i18n/locale.service';
 import { BuyKarmaModalComponent } from '../karma/buy-karma-modal.component';
 import { KarmaSuccessOverlayComponent } from '../karma/karma-success-overlay.component';
 import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-modal.component';
@@ -142,18 +141,6 @@ import { environment } from '../../../environments/environment';
     }
     .up-plans-search-input:focus { border-color: var(--lav-d); }
     .up-plans-list { max-height: 240px; overflow-y: auto; }
-    /* ── Language toggle ── */
-    .lang-toggle {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 4px 10px; border-radius: 99px;
-      border: 1px solid var(--border); background: #fff;
-      font-size: 11px; font-weight: 700; color: var(--t2);
-      cursor: pointer;
-      transition: background .12s, border-color .12s;
-    }
-    .lang-toggle:hover { background: var(--cream); border-color: var(--lav-d); }
-    .lang-toggle-flag { font-size: 14px; line-height: 1; }
-    .lang-toggle-code { letter-spacing: .04em; }
   `],
   template: `
     <nav class="nav">
@@ -201,14 +188,6 @@ import { environment } from '../../../environments/environment';
       </div>
 
       <div class="nav-right">
-        <button class="lang-toggle"
-                type="button"
-                (click)="locale.switchTo(locale.other())"
-                i18n-aria-label="@@nav.langToggleAria"
-                aria-label="Cambiar idioma">
-          <span class="lang-toggle-flag" aria-hidden="true">{{ locale.other() === 'en-US' ? '🇬🇧' : '🇪🇸' }}</span>
-          <span class="lang-toggle-code">{{ locale.other() === 'en-US' ? 'EN' : 'ES' }}</span>
-        </button>
         @if (auth.isLoggedIn() && karma.karma() !== null) {
           <div style="display:flex;align-items:center;gap:6px">
             <!-- karma pill wrapper — position:relative anchors the floating badge -->
@@ -729,7 +708,6 @@ export class NavComponent {
   readonly karmaModal       = inject(KarmaModalService);
   readonly savedPlans       = inject(SavedPlansService);
   readonly cooldown         = inject(CommentCooldownService);
-  readonly locale           = inject(LocaleService);
   private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
