@@ -270,6 +270,26 @@
         <source>Tus amigos dejan consejos en cada parada</source>
         <target>Friends leave tips on each stop</target>
       </trans-unit>
+      <trans-unit id="welcome.step4Title" datatype="html">
+        <source>Comparte tu viaje 🔗</source>
+        <target>Share your trip 🔗</target>
+      </trans-unit>
+      <trans-unit id="welcome.step4Desc" datatype="html">
+        <source>Genera un enlace público de tu plan y compártelo con tus amigos</source>
+        <target>Generate a public link to your plan and share it with your friends</target>
+      </trans-unit>
+      <trans-unit id="welcome.step5Title" datatype="html">
+        <source>Gana Karma ⭐</source>
+        <target>Earn Karma ⭐</target>
+      </trans-unit>
+      <trans-unit id="welcome.step5Desc" datatype="html">
+        <source>Cuando tus amigos comenten cada parada de tu viaje, ganas Karma</source>
+        <target>When your friends comment on each stop of your trip, you earn Karma</target>
+      </trans-unit>
+      <trans-unit id="welcome.aiBtn" datatype="html">
+        <source>✨ Planificar con IA</source>
+        <target>✨ Plan with AI</target>
+      </trans-unit>
 
       <!-- ── stop-list.component ── -->
       <trans-unit id="stopList.title" datatype="html">
@@ -332,6 +352,14 @@
         <source>Guardar viaje 🎉</source>
         <target>Save Trip 🎉</target>
       </trans-unit>
+      <trans-unit id="stopList.saveDatesBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="stopList.savingMsg" datatype="html">
+        <source>Guardando…</source>
+        <target>Saving…</target>
+      </trans-unit>
 
       <!-- ── add-stop-modal.component ── -->
       <trans-unit id="addStop.title" datatype="html">
@@ -375,6 +403,64 @@
       <trans-unit id="transit.arrBeforeDepWarn" datatype="html">
         <source>⚠ La llegada no puede ser antes que la salida.</source>
         <target>⚠ Arrival cannot be before departure.</target>
+      </trans-unit>
+      <trans-unit id="transit.notesPlaceholder" datatype="html">
+        <source>Nro. de vuelo, notas… (opcional)</source>
+        <target>Flight no., notes… (optional)</target>
+      </trans-unit>
+      <trans-unit id="transit.depLabel" datatype="html">
+        <source>Salida</source>
+        <target>Departure</target>
+      </trans-unit>
+      <trans-unit id="transit.dateLabel" datatype="html">
+        <source>Fecha</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="transit.timeLabel" datatype="html">
+        <source>Hora</source>
+        <target>Time</target>
+      </trans-unit>
+      <trans-unit id="transit.arrLabel" datatype="html">
+        <source>Llegada</source>
+        <target>Arrival</target>
+      </trans-unit>
+      <trans-unit id="transit.saveBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="transit.addConnection" datatype="html">
+        <source>+ Agregar conexión</source>
+        <target>+ Add connection</target>
+      </trans-unit>
+      <trans-unit id="transit.addSegBtn" datatype="html">
+        <source>+ Tramo</source>
+        <target>+ Leg</target>
+      </trans-unit>
+      <trans-unit id="transit.addBtn" datatype="html">
+        <source>+ Transporte</source>
+        <target>+ Transport</target>
+      </trans-unit>
+
+      <!-- ── lodging.component ── -->
+      <trans-unit id="lodging.namePlaceholder" datatype="html">
+        <source>Hotel, Airbnb, hostal…</source>
+        <target>Hotel, Airbnb, hostel…</target>
+      </trans-unit>
+      <trans-unit id="lodging.urlPlaceholder" datatype="html">
+        <source>Link de reserva (opcional)</source>
+        <target>Booking link (optional)</target>
+      </trans-unit>
+      <trans-unit id="lodging.saveBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="lodging.linkTitle" datatype="html">
+        <source>Abrir reserva</source>
+        <target>Open booking</target>
+      </trans-unit>
+      <trans-unit id="lodging.addBtn" datatype="html">
+        <source>🏨 + Alojamiento</source>
+        <target>🏨 + Lodging</target>
       </trans-unit>
 
       <!-- ── destination.component ── -->
@@ -518,6 +604,10 @@
         <target>💬 Comments</target>
       </trans-unit>
 
+      <trans-unit id="planModal.dateLabel" datatype="html">
+        <source>Fecha</source>
+        <target>Date</target>
+      </trans-unit>
       <trans-unit id="planModal.overlapWarn" datatype="html">
         <source>Se superpone con otra atracción planificada</source>
         <target>Overlaps with another planned attraction</target>
@@ -610,6 +700,22 @@
         <source>¡Listo!</source>
         <target>Done!</target>
       </trans-unit>
+      <trans-unit id="buyKarma.closeAriaLabel" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.processingPayment" datatype="html">
+        <source>Procesando pago…</source>
+        <target>Processing payment…</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.doNotClose" datatype="html">
+        <source>No cierres esta ventana</source>
+        <target>Do not close this window</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.paypalLoading" datatype="html">
+        <source>Cargando botón de pago…</source>
+        <target>Loading payment button…</target>
+      </trans-unit>
 
       <!-- ── insufficient-karma-modal ── -->
       <trans-unit id="kim.title" datatype="html">
@@ -671,6 +777,14 @@
       <trans-unit id="nav.buyKarmaBtn" datatype="html">
         <source>+ Comprar</source>
         <target>+ Buy</target>
+      </trans-unit>
+      <trans-unit id="nav.langToggleAria" datatype="html">
+        <source>Cambiar idioma</source>
+        <target>Switch language</target>
+      </trans-unit>
+      <trans-unit id="nav.myProfile" datatype="html">
+        <source>👤 Mi perfil</source>
+        <target>👤 My profile</target>
       </trans-unit>
 
       <!-- ── ai-planning.component ── -->
@@ -770,6 +884,106 @@
       <trans-unit id="aiplan.categoriesLabel" datatype="html">
         <source>Tipos de experiencia (opcional)</source>
         <target>Experience types (optional)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingSuggest" datatype="html">
+        <source>Generando sugerencias ✨</source>
+        <target>Generating suggestions ✨</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingPlan" datatype="html">
+        <source>Creando tu plan de viaje 🗺️</source>
+        <target>Creating your travel plan 🗺️</target>
+      </trans-unit>
+      <trans-unit id="aiplan.authTitle" datatype="html">
+        <source>Inicia sesión para continuar</source>
+        <target>Sign in to continue</target>
+      </trans-unit>
+      <trans-unit id="aiplan.authDesc" datatype="html">
+        <source>Debes iniciar sesión para usar el planificador IA.</source>
+        <target>You must sign in to use the AI planner.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.title" datatype="html">
+        <source>Tu próximo viaje, diseñado por IA</source>
+        <target>Your next trip, designed by AI</target>
+      </trans-unit>
+      <trans-unit id="aiplan.subtitle" datatype="html">
+        <source>Cuéntanos qué buscas y generamos opciones personalizadas para ti</source>
+        <target>Tell us what you're looking for and we'll generate personalised options for you</target>
+      </trans-unit>
+      <trans-unit id="aiplan.karmaCost" datatype="html">
+        <source>Esta acción cuesta 10 karma ⭐ en total</source>
+        <target>This action costs 10 karma ⭐ in total</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step1" datatype="html">
+        <source>Preferencias</source>
+        <target>Preferences</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step2" datatype="html">
+        <source>Elige opción</source>
+        <target>Choose option</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step3" datatype="html">
+        <source>Tu plan</source>
+        <target>Your plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefTitle" datatype="html">
+        <source>¿Qué tipo de viaje buscas?</source>
+        <target>What kind of trip are you looking for?</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefLabel" datatype="html">
+        <source>Describe tu viaje ideal</source>
+        <target>Describe your ideal trip</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefPlaceholder" datatype="html">
+        <source>Ej: quiero un viaje romántico con mi pareja, priorizando gastronomía y museos, sin demasiado transporte…</source>
+        <target>E.g. I want a romantic trip with my partner, focusing on food and museums, without too much travel…</target>
+      </trans-unit>
+      <trans-unit id="aiplan.durationLabel" datatype="html">
+        <source>Duración (días)</source>
+        <target>Duration (days)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.durationPlaceholder" datatype="html">
+        <source>Ej: 14</source>
+        <target>E.g. 14</target>
+      </trans-unit>
+      <trans-unit id="aiplan.budgetLabel" datatype="html">
+        <source>Presupuesto estimado</source>
+        <target>Estimated budget</target>
+      </trans-unit>
+      <trans-unit id="aiplan.budgetPlaceholder" datatype="html">
+        <source>Ej: 500-1000 USD</source>
+        <target>E.g. 500-1000 USD</target>
+      </trans-unit>
+      <trans-unit id="aiplan.startDateLabel" datatype="html">
+        <source>Fecha de inicio</source>
+        <target>Start date</target>
+      </trans-unit>
+      <trans-unit id="aiplan.suggestBtn" datatype="html">
+        <source>Generar opciones</source>
+        <target>Generate options</target>
+      </trans-unit>
+      <trans-unit id="aiplan.optTitle" datatype="html">
+        <source>Elige una opción</source>
+        <target>Choose an option</target>
+      </trans-unit>
+      <trans-unit id="aiplan.backBtn" datatype="html">
+        <source>← Volver</source>
+        <target>← Back</target>
+      </trans-unit>
+      <trans-unit id="aiplan.planBtn" datatype="html">
+        <source>Generar plan completo</source>
+        <target>Generate full plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.restartBtn" datatype="html">
+        <source>↩ Volver a empezar</source>
+        <target>↩ Start over</target>
+      </trans-unit>
+      <trans-unit id="aiplan.saveBtn" datatype="html">
+        <source>💾 Guardar plan</source>
+        <target>💾 Save plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.departure" datatype="html">
+        <source>Salida 🏠</source>
+        <target>Departure 🏠</target>
       </trans-unit>
 
       <!-- ── shared-trip.component ── -->
@@ -1020,6 +1234,10 @@
       <trans-unit id="profile.favCardRemove" datatype="html">
         <source>Quitar de favoritos</source>
         <target>Remove from favorites</target>
+      </trans-unit>
+      <trans-unit id="profile.aiBtn" datatype="html">
+        <source>✨ Nuevo viaje con IA</source>
+        <target>✨ New trip with AI</target>
       </trans-unit>
 
       <!-- ── day-timeline.component ── -->
