@@ -3,6 +3,8 @@
   "outputDirectory": "dist/underagegiant-travelbestie-frontend/browser",
   "framework": null,
   "rewrites": [
-    { "source": "/((?!assets|favicon).*)", "destination": "/index.html" }
+    { "source": "/es-CL/((?!assets|favicon).*)", "destination": "/es-CL/index.html" },
+    { "source": "/en-US/((?!assets|favicon).*)", "destination": "/en-US/index.html" },
+    { "source": "/", "destination": "/index.html" }
   ]
 }
