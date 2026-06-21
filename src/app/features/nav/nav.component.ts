@@ -894,6 +894,7 @@ export class NavComponent {
   }
 
   private renderTurnstile(): void {
+    if (environment.useMocks) { this.captchaToken.set('mock-captcha'); return; }
     const container = document.getElementById('tb-turnstile');
     const ts = (window as any).turnstile;
     if (!container) return;
