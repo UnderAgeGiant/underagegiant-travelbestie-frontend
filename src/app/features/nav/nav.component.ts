@@ -20,6 +20,7 @@ import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-mod
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 import { environment } from '../../../environments/environment';
+import { LocaleService } from '../../core/i18n/locale.service';
 
 @Component({
   selector: 'app-nav',
@@ -141,6 +142,31 @@ import { environment } from '../../../environments/environment';
     }
     .up-plans-search-input:focus { border-color: var(--lav-d); }
     .up-plans-list { max-height: 240px; overflow-y: auto; }
+    /* ── Language dropdown ── */
+    .lang-drop-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 9px; border-radius: 8px;
+      background: transparent; border: 1.5px solid var(--border);
+      font-size: 12px; font-weight: 600; color: var(--t2);
+      cursor: pointer; transition: background .12s, border-color .12s;
+      white-space: nowrap;
+    }
+    .lang-drop-btn:hover { background: var(--cream); border-color: var(--lav-d); }
+    .lang-nav-flag { width: 18px; height: auto; border-radius: 2px; display: block; flex-shrink: 0; }
+    .lang-drop-menu {
+      position: absolute; top: calc(100% + 6px); right: 0;
+      background: #fff; border: 1.5px solid var(--border); border-radius: 12px;
+      box-shadow: var(--sh-md); min-width: 130px; overflow: hidden; z-index: 200;
+    }
+    .lang-drop-item {
+      display: flex; align-items: center; gap: 8px;
+      width: 100%; padding: 9px 12px;
+      background: transparent; border: none;
+      font-size: 13px; font-weight: 500; color: var(--t2);
+      cursor: pointer; text-align: left; transition: background .1s;
+    }
+    .lang-drop-item:hover { background: var(--cream); }
+    .lang-drop-item.active { font-weight: 700; color: var(--lav-d); background: var(--lav); }
   `],
   template: `
     <nav class="nav">
@@ -219,6 +245,32 @@ import { environment } from '../../../environments/environment';
             </button>
           </div>
         }
+
+        <!-- Language switcher -->
+        <div style="position:relative">
+          <button class="lang-drop-btn" (click)="langOpen.set(!langOpen())" type="button">
+            <img [src]="locale.current() === 'es-CL' ? 'https://flagcdn.com/w20/cl.jpg' : 'https://flagcdn.com/w20/us.jpg'"
+                 [alt]="locale.current() === 'es-CL' ? 'ES' : 'EN'"
+                 class="lang-nav-flag" />
+            <span>{{ locale.current() === 'es-CL' ? 'ES' : 'EN' }}</span>
+            <span style="font-size:9px;opacity:.55">▾</span>
+          </button>
+          @if (langOpen()) {
+            <div style="position:fixed;inset:0;z-index:199" (click)="langOpen.set(false)"></div>
+            <div class="lang-drop-menu">
+              <button class="lang-drop-item" [class.active]="locale.current() === 'es-CL'"
+                      (click)="locale.switchTo('es-CL'); langOpen.set(false)" type="button">
+                <img src="https://flagcdn.com/w20/cl.jpg" alt="ES" class="lang-nav-flag" />
+                <span>Español</span>
+              </button>
+              <button class="lang-drop-item" [class.active]="locale.current() === 'en-US'"
+                      (click)="locale.switchTo('en-US'); langOpen.set(false)" type="button">
+                <img src="https://flagcdn.com/w20/us.jpg" alt="EN" class="lang-nav-flag" />
+                <span>English</span>
+              </button>
+            </div>
+          }
+        </div>
 
         @if (!auth.isLoggedIn()) {
           <button class="btn-pill btn-ghost" (click)="authModal.openLogin()" i18n="@@nav.signInBtn">Iniciar sesión</button>
@@ -712,6 +764,7 @@ export class NavComponent {
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
+  readonly locale               = inject(LocaleService);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -719,6 +772,7 @@ export class NavComponent {
   navQuery      = signal('');
   searchOpen    = signal(false);
   userMenuOpen  = signal(false);
+  langOpen      = signal(false);
   loginMode     = signal<'login' | 'register'>('login');
   loginName     = signal('');
   loginEmail    = signal('');

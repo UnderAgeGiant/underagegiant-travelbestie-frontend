@@ -1235,10 +1235,6 @@
         <source>Quitar de favoritos</source>
         <target>Remove from favorites</target>
       </trans-unit>
-      <trans-unit id="profile.langSection" datatype="html">
-        <source>Idioma / Language</source>
-        <target>Language</target>
-      </trans-unit>
       <trans-unit id="profile.aiBtn" datatype="html">
         <source>✨ Nuevo viaje con IA</source>
         <target>✨ New trip with AI</target>
