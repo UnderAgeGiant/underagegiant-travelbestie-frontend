@@ -1651,6 +1651,13 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   white-space: nowrap;
   max-width: 200px;
 }
+.detail-enrich .att-preview-enrich { align-items: flex-start; }
+.detail-enrich .att-enrich-value {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  max-width: none;
+}
 .att-enrich-link {
   color: var(--lav-d);
   text-decoration: none;
