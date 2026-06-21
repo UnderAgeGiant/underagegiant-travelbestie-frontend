@@ -3851,10 +3851,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-VAxCHgJvZ0g?auto=format&fit=crop&w=800&q=80",
       website: "https://www.nomads-travel-guide.com/places/plaza-de-las-armas/",
-      ticketPrices: {
-        free: false,
-        notes: "The Plaza de las Armas is part of the Alhambra Complex and access it you need to purchase [link_post post_id=\"3786\" type=\"link\"]Alhambra Tickets[/link_post] or a [link_post post_id=\"3796\" type=\"link\"]Alhambra Guided Tour[/link_post].",
-      },
     },
     {
       id: "santiago_3",
