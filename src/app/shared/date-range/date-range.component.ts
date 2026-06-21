@@ -42,7 +42,7 @@ export class DateRangeComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     const l10n = this.locale.startsWith('es') ? Spanish : undefined;
     const base: flatpickr.Options.Options = {
-      locale: l10n,
+      ...(l10n ? { locale: l10n } : {}),
       dateFormat: 'd/m/Y',
       disableMobile: true,
     };

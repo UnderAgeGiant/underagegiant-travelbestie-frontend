@@ -38,7 +38,7 @@ export class DatePickerComponent implements AfterViewInit, OnDestroy {
     const initialParsed = parse(this.initialDate);
 
     this.fp = flatpickr(this.el.nativeElement, {
-      locale:        l10n,
+      ...(l10n ? { locale: l10n } : {}),
       dateFormat:    'd/m/Y',
       disableMobile: true,
       defaultDate:   initialParsed,
