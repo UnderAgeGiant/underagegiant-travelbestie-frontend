@@ -3912,6 +3912,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "www.patrimoniodelasalud.cl",
+      imageUrl: "https://images.unsplash.com/Y9Wp5keJsn8?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_8",
@@ -3923,6 +3924,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://museo.precolombino.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Palacio_de_la_Real_Aduana%2C_Santiago_20231109.jpg/960px-Palacio_de_la_Real_Aduana%2C_Santiago_20231109.jpg",
     },
     {
       id: "santiago_9",
@@ -3934,6 +3936,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://museosanfrancisco.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Museo_Colonial_-_Santiago.jpg/960px-Museo_Colonial_-_Santiago.jpg",
     },
     {
       id: "santiago_10",
@@ -3945,6 +3948,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.mavi.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Museo_de_Artes_Visuales%2C_Santiago_20230815.jpg/960px-Museo_de_Artes_Visuales%2C_Santiago_20230815.jpg",
     },
     {
       id: "santiago_11",
@@ -3956,6 +3960,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.monumentos.gob.cl/monumentos/monumentos-historicos/edificio-palacio-tribunales-justicia",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/2017_Santiago_de_Chile_-_Edificio_de_los_Tribunales_de_Justicia.jpg/960px-2017_Santiago_de_Chile_-_Edificio_de_los_Tribunales_de_Justicia.jpg",
     },
     {
       id: "santiago_12",
@@ -3967,6 +3972,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.monumentos.gob.cl/monumentos/monumentos-historicos/edificio-congreso-nacional-jardines-le-rodean",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Palacio_del_ex_Congreso_Nacional_de_Chile_-_2020_-_03.jpg/960px-Palacio_del_ex_Congreso_Nacional_de_Chile_-_2020_-_03.jpg",
     },
     {
       id: "santiago_13",
@@ -3978,6 +3984,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://visitaspatrimonio.presidencia.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Palacio_de_La_Moneda_-_miguelreflex.jpg/960px-Palacio_de_La_Moneda_-_miguelreflex.jpg",
     },
     {
       id: "santiago_14",
@@ -3989,6 +3996,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.cerrosisla.cl/santalucia",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Vista_lateral_Cerro_Santa_Lucia.jpg/960px-Vista_lateral_Cerro_Santa_Lucia.jpg",
     },
     {
       id: "santiago_15",
@@ -4000,6 +4008,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.santuariocerrosancristobal.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Santuario_de_la_Inmaculada_Concepci%C3%B3n%2C_Cerro_San_Crist%C3%B3bal_%2825059260397%29.jpg/960px-Santuario_de_la_Inmaculada_Concepci%C3%B3n%2C_Cerro_San_Crist%C3%B3bal_%2825059260397%29.jpg",
     },
     {
       id: "santiago_16",
@@ -4011,6 +4020,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.parquemahuida.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Parque_Mahuida_20201011.jpg/960px-Parque_Mahuida_20201011.jpg",
     },
     {
       id: "santiago_17",
@@ -4022,6 +4032,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://lareconciliacion.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Congregaci%C3%B3n_Evang%C3%A9lica_Luterana_La_Reconciliaci%C3%B3n_de_Las_Condes.jpg/960px-Congregaci%C3%B3n_Evang%C3%A9lica_Luterana_La_Reconciliaci%C3%B3n_de_Las_Condes.jpg",
     },
     {
       id: "santiago_18",
@@ -4033,6 +4044,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.memoriaestadionacional.cl/graderias/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Universidad_de_Chile_-_Uni%C3%B3n_Espa%C3%B1ola_20190310_05.jpg/960px-Universidad_de_Chile_-_Uni%C3%B3n_Espa%C3%B1ola_20190310_05.jpg",
     },
     {
       id: "santiago_19",
@@ -4044,6 +4056,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.santiagoturismo.cl/parque-ohiggins/",
+      imageUrl: "https://images.unsplash.com/eXL2DYVmq-0?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_20",
@@ -4055,6 +4068,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://centroparque.cl/parque-araucano/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Parque_Araucano_%2839032558055%29.jpg/960px-Parque_Araucano_%2839032558055%29.jpg",
     },
     {
       id: "santiago_21",
@@ -4066,6 +4080,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.santiagoturismo.cl/parque-quinta-normal/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Laguna_del_Parque_Quinta_Normal%2C_Santiago_20230520_04.jpg/960px-Laguna_del_Parque_Quinta_Normal%2C_Santiago_20230520_04.jpg",
     },
     {
       id: "santiago_22",
@@ -4077,6 +4092,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "http://www.divinaprovidencia.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Iglesia_de_la_Divina_Providencia.14.01.2023.jpg/960px-Iglesia_de_la_Divina_Providencia.14.01.2023.jpg",
     },
     {
       id: "santiago_23",
@@ -4088,6 +4104,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.fantasilandia.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Fantasilandia_2016.jpg/960px-Fantasilandia_2016.jpg",
     },
     {
       id: "santiago_24",
@@ -4099,6 +4116,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://mercadolovalledor.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lo_Valledor.jpg/960px-Lo_Valledor.jpg",
     },
     {
       id: "santiago_25",
@@ -4110,6 +4128,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.monumentos.gob.cl/monumentos/monumentos-historicos/basilica-corazon-maria",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bas%C3%ADlica_del_Coraz%C3%B3n_de_Mar%C3%ADa%2C_Santiago_20230519_02.jpg/960px-Bas%C3%ADlica_del_Coraz%C3%B3n_de_Mar%C3%ADa%2C_Santiago_20230519_02.jpg",
     },
     {
       id: "santiago_26",
@@ -4121,6 +4140,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.iglesialuteranaelredentor.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Iglesia_Luterana_El_Redentor%2C_Providencia%2C_Santiago_20240807.jpg/960px-Iglesia_Luterana_El_Redentor%2C_Providencia%2C_Santiago_20240807.jpg",
     },
     {
       id: "santiago_27",
@@ -4132,6 +4152,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.churchofjesuschrist.org/temples/details/santiago-chile-temple",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Templo_de_Santiago%2C_Providencia_20220501_02.jpg/960px-Templo_de_Santiago%2C_Providencia_20220501_02.jpg",
     },
     {
       id: "santiago_28",
@@ -4143,6 +4164,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://parquemet.cl/zoologico-nacional/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Zool%C3%B3gico_Nacional_Chile.jpg/960px-Zool%C3%B3gico_Nacional_Chile.jpg",
     },
     {
       id: "santiago_29",
@@ -4153,6 +4175,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Servicio_Nacional_de_Turismo%2C_Providencia%2C_Santiago_20210905_49.jpg/960px-Servicio_Nacional_de_Turismo%2C_Providencia%2C_Santiago_20210905_49.jpg",
     },
     {
       id: "santiago_30",
@@ -4164,6 +4187,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.tmlascondes.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Teatro_Municipal_de_Las_Condes%2C_Santiago_20220619_02.jpg/960px-Teatro_Municipal_de_Las_Condes%2C_Santiago_20220619_02.jpg",
     },
     {
       id: "santiago_31",
@@ -4175,6 +4199,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://es.wikipedia.org/wiki/Plaza_Baquedano#Monumento_al_Genio_de_la_Libertad",
+      imageUrl: "https://images.unsplash.com/HDtqftPlT_Q?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_32",
@@ -4186,6 +4211,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.ceacuchile.cl/nueva-sala/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/OSCH_wiki.jpg/960px-OSCH_wiki.jpg",
     },
     {
       id: "santiago_33",
@@ -4196,6 +4222,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Vega_Central%2C_Santiago_20190715_07.jpg/960px-Vega_Central%2C_Santiago_20190715_07.jpg",
     },
     {
       id: "santiago_34",
@@ -4207,6 +4234,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://teatrouc.uc.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Teatro_UC_%2834828380215%29.jpg/960px-Teatro_UC_%2834828380215%29.jpg",
     },
   ],
   seoul: [
@@ -12151,6 +12179,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://museomaritimo.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Museonaval.JPG/960px-Museonaval.JPG",
     },
     {
       id: "valparaiso_1",
@@ -12162,6 +12191,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://museosregionvalparaiso.cl/museos/museo-organologic",
+      imageUrl: "https://images.unsplash.com/rjFJecVOnBA?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "valparaiso_2",
@@ -12173,6 +12203,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.iluterana.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Iglesia_luterana_-Valpo_fRF29.jpg/960px-Iglesia_luterana_-Valpo_fRF29.jpg",
     },
     {
       id: "valparaiso_3",
@@ -12183,6 +12214,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Palacio_Astoreca%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20201102_94.jpg/960px-Palacio_Astoreca%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20201102_94.jpg",
     },
     {
       id: "valparaiso_4",
@@ -12193,6 +12225,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Palacio_Baburizza_Valpara%C3%ADso.JPG/960px-Palacio_Baburizza_Valpara%C3%ADso.JPG",
     },
     {
       id: "valparaiso_5",
@@ -12204,6 +12237,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://pcdv.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Exterior_Parque_Cultural_de_Valpara%C3%ADso.jpg/960px-Exterior_Parque_Cultural_de_Valpara%C3%ADso.jpg",
     },
     {
       id: "valparaiso_6",
@@ -12214,6 +12248,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Iglesia_de_San_Luis_Gonzaga%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20230902.jpg/960px-Iglesia_de_San_Luis_Gonzaga%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20230902.jpg",
     },
     {
       id: "valparaiso_7",
@@ -12224,6 +12259,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Iglesia_de_San_Francisco%2C_Cerro_Bar%C3%B3n%2C_Valpara%C3%ADso_20240817_01.jpg/960px-Iglesia_de_San_Francisco%2C_Cerro_Bar%C3%B3n%2C_Valpara%C3%ADso_20240817_01.jpg",
     },
     {
       id: "valparaiso_8",
@@ -12234,6 +12270,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Cristo_Redentor_%28Valparaiso%29.jpg/960px-Cristo_Redentor_%28Valparaiso%29.jpg",
     },
     {
       id: "valparaiso_9",
@@ -12244,6 +12281,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Monumento_a_los_H%C3%A9roes_de_Iquique_%28Plaza_Sotomayor%29.jpg/960px-Monumento_a_los_H%C3%A9roes_de_Iquique_%28Plaza_Sotomayor%29.jpg",
     },
     {
       id: "valparaiso_10",
@@ -12254,6 +12292,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Torre_Reloj_Bar%C3%B3n%2C_Valpara%C3%ADso_20230901.jpg/960px-Torre_Reloj_Bar%C3%B3n%2C_Valpara%C3%ADso_20230901.jpg",
     },
     {
       id: "valparaiso_11",
@@ -12264,6 +12303,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Plaza_Echaurren-Pileta.JPG/960px-Plaza_Echaurren-Pileta.JPG",
     },
     {
       id: "valparaiso_12",
@@ -12274,6 +12314,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Mercado_Puerto%2C_Valpara%C3%ADso_20200207_63.jpg/960px-Mercado_Puerto%2C_Valpara%C3%ADso_20200207_63.jpg",
     },
     {
       id: "valparaiso_13",
@@ -12284,6 +12325,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Iglesia_Anglicana_de_San_Pablo.JPG/960px-Iglesia_Anglicana_de_San_Pablo.JPG",
     },
     {
       id: "valparaiso_14",
@@ -12294,6 +12336,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Plaza_Eleuterio_Ram%C3%ADrez%2C_Cerro_Cordillera%2C_Valpara%C3%ADso_20230902_02.jpg/960px-Plaza_Eleuterio_Ram%C3%ADrez%2C_Cerro_Cordillera%2C_Valpara%C3%ADso_20230902_02.jpg",
     },
     {
       id: "valparaiso_15",
@@ -12304,6 +12347,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/H6KJ2D0LphU?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "valparaiso_16",
@@ -12314,6 +12358,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Parque_Italia%2C_Valpara%C3%ADso_20230901_01.jpg/960px-Parque_Italia%2C_Valpara%C3%ADso_20230901_01.jpg",
     },
     {
       id: "valparaiso_17",
@@ -12325,6 +12370,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "http://www.munivalpo.cl/cultura/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Teatro_Municipal%2C_Valpara%C3%ADso_20230901_02.jpg/960px-Teatro_Municipal%2C_Valpara%C3%ADso_20230901_02.jpg",
     },
     {
       id: "valparaiso_18",
@@ -12335,6 +12381,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mercado_Cardonal%2C_Valpara%C3%ADso_20230704.jpg/960px-Mercado_Cardonal%2C_Valpara%C3%ADso_20230704.jpg",
     },
     {
       id: "valparaiso_19",
@@ -12345,6 +12392,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Capilla_del_Carmen%2C_Valpara%C3%ADso_20230902.jpg/960px-Capilla_del_Carmen%2C_Valpara%C3%ADso_20230902.jpg",
     },
     {
       id: "valparaiso_20",
@@ -12355,6 +12403,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Ascensor_Polanco_Superior.jpg/960px-Ascensor_Polanco_Superior.jpg",
     },
     {
       id: "valparaiso_21",
@@ -12365,6 +12414,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Reloj_Turri%2C_Valpara%C3%ADso_20211003.jpg/960px-Reloj_Turri%2C_Valpara%C3%ADso_20211003.jpg",
     },
     {
       id: "valparaiso_22",
@@ -12375,6 +12425,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Teatro_Mauri%2C_Valparaiso_20240214.jpg/960px-Teatro_Mauri%2C_Valparaiso_20240214.jpg",
     },
     {
       id: "valparaiso_23",
@@ -12385,6 +12436,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/Carlos_Condell.jpeg",
     },
     {
       id: "valparaiso_24",
@@ -12395,6 +12447,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Museo_a_Cielo_Abierto_de_Valpara%C3%ADso_01.jpg/960px-Museo_a_Cielo_Abierto_de_Valpara%C3%ADso_01.jpg",
     },
     {
       id: "valparaiso_25",
@@ -12405,6 +12458,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Muelle_Bar%C3%B3n%2C_Valpara%C3%ADso_20230903_02.jpg/960px-Muelle_Bar%C3%B3n%2C_Valpara%C3%ADso_20230903_02.jpg",
     },
     {
       id: "valparaiso_26",
@@ -12415,6 +12469,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Ascensor_Artiller%C3%ADa.jpg/960px-Ascensor_Artiller%C3%ADa.jpg",
     },
     {
       id: "valparaiso_27",
@@ -12425,6 +12480,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Central_square_valparaiso_%283048946621%29.jpg/960px-Central_square_valparaiso_%283048946621%29.jpg",
     },
     {
       id: "valparaiso_28",
@@ -12436,6 +12492,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://ssr.cl/home/museo/",
+      imageUrl: "https://images.unsplash.com/h3DugKnsSr0?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "valparaiso_29",
@@ -12447,6 +12504,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.mugupla.cl/",
+      imageUrl: "https://images.unsplash.com/c9FzXrPWc0c?auto=format&fit=crop&w=800&q=80",
     },
   ],
   vinadelmar: [
@@ -12460,6 +12518,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://artequinvina.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Artequinvina_cl.JPG/960px-Artequinvina_cl.JPG",
     },
     {
       id: "vinadelmar_1",
@@ -12470,6 +12529,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Castillo_Brunet%2C_Vi%C3%B1a_del_Mar_20230907.jpg/960px-Castillo_Brunet%2C_Vi%C3%B1a_del_Mar_20230907.jpg",
     },
     {
       id: "vinadelmar_2",
@@ -12480,6 +12540,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Palacio_Rioja%2C_Vi%C3%B1a_del_Mar_20230716_01.jpg/960px-Palacio_Rioja%2C_Vi%C3%B1a_del_Mar_20230716_01.jpg",
     },
     {
       id: "vinadelmar_3",
@@ -12490,6 +12551,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Castillo_Wulff%2C_Vi%C3%B1a_del_Mar_20230907.jpg/960px-Castillo_Wulff%2C_Vi%C3%B1a_del_Mar_20230907.jpg",
     },
     {
       id: "vinadelmar_4",
@@ -12500,6 +12562,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Palacio_de_Cerro_Castillo_-_frontis.jpg",
     },
     {
       id: "vinadelmar_5",
@@ -12510,6 +12573,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Palacio_Carrasco%2C_Vi%C3%B1a_del_Mar_20230716.jpg/960px-Palacio_Carrasco%2C_Vi%C3%B1a_del_Mar_20230716.jpg",
     },
     {
       id: "vinadelmar_6",
@@ -12520,6 +12584,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Palacio_Astoreca%2C_Vi%C3%B1a_del_Mar_20200206_08.jpg/960px-Palacio_Astoreca%2C_Vi%C3%B1a_del_Mar_20200206_08.jpg",
     },
     {
       id: "vinadelmar_7",
@@ -12530,6 +12595,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/7TYvsRe0G2A?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "vinadelmar_8",
@@ -12540,6 +12606,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Parque_Quinta_Vergara%2C_Vi%C3%B1a_del_Mar_-_%C3%A1rea_verde_02.JPG/960px-Parque_Quinta_Vergara%2C_Vi%C3%B1a_del_Mar_-_%C3%A1rea_verde_02.JPG",
     },
     {
       id: "vinadelmar_9",
@@ -12550,6 +12617,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mercado_Municipal%2C_Vi%C3%B1a_del_Mar_20230828.jpg/960px-Mercado_Municipal%2C_Vi%C3%B1a_del_Mar_20230828.jpg",
     },
     {
       id: "vinadelmar_10",
@@ -12560,6 +12628,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Plaza_Sucre%2C_Vi%C3%B1a_del_Mar_20201105.jpg/960px-Plaza_Sucre%2C_Vi%C3%B1a_del_Mar_20201105.jpg",
     },
     {
       id: "vinadelmar_11",
@@ -12570,6 +12639,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Alberto_Larraguibel%2C_Estadio%2C_1949-03-05_%28303%29.jpg",
     },
     {
       id: "vinadelmar_12",
@@ -12580,6 +12650,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Teatro_Municipal%2C_Vi%C3%B1a_del_Mar_20260129_01.jpg/960px-Teatro_Municipal%2C_Vi%C3%B1a_del_Mar_20260129_01.jpg",
     },
     {
       id: "vinadelmar_13",
@@ -12590,6 +12661,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Escenario_quinta.jpg",
     },
     {
       id: "vinadelmar_14",
@@ -12611,6 +12683,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/SnKFnVWa9FU?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "vinadelmar_16",
@@ -12641,6 +12714,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/7TYvsRe0G2A?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "vinadelmar_19",
@@ -12663,6 +12737,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Sairecabur_Westen_Chile.jpg/960px-Sairecabur_Westen_Chile.jpg",
     },
     {
       id: "sanpedroatacama_1",
@@ -12673,6 +12748,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/27/Volcan_Licancabur_Bolivia.jpg",
     },
     {
       id: "sanpedroatacama_2",
@@ -12683,6 +12759,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/50/Cerro_volcan_curiquinca.jpg",
     },
     {
       id: "sanpedroatacama_3",
@@ -12693,6 +12770,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/35/Putana_volcano_atacama_cl.jpg",
     },
     {
       id: "sanpedroatacama_4",
@@ -12703,6 +12781,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/Lascar_2.jpg",
     },
     {
       id: "sanpedroatacama_5",
@@ -12713,6 +12792,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Museo_del_Meteorito_%2849573887767%29.jpg/960px-Museo_del_Meteorito_%2849573887767%29.jpg",
     },
     {
       id: "sanpedroatacama_6",
@@ -12723,6 +12803,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/San-Pedro-de-Atacama_R-P-Gustavo_Le_Paige_Museum.JPG/960px-San-Pedro-de-Atacama_R-P-Gustavo_Le_Paige_Museum.JPG",
     },
     {
       id: "sanpedroatacama_7",
@@ -12733,6 +12814,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ToconaoChurch.jpg/960px-ToconaoChurch.jpg",
     },
     {
       id: "sanpedroatacama_8",
@@ -12743,6 +12825,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Iglesia_de_San_Francisco%2C_Chiu_Chiu%2C_Chile%2C_2016-02-01%2C_DD_88.jpg/960px-Iglesia_de_San_Francisco%2C_Chiu_Chiu%2C_Chile%2C_2016-02-01%2C_DD_88.jpg",
     },
     {
       id: "sanpedroatacama_9",
@@ -12753,6 +12836,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Pukar%C3%A1_de_Quitor_o_Pucar%C3%A1_de_Quitor_02.JPG/960px-Pukar%C3%A1_de_Quitor_o_Pucar%C3%A1_de_Quitor_02.JPG",
     },
     {
       id: "sanpedroatacama_10",
@@ -12763,6 +12847,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Iglesia_de_San_Pedro_de_Atacama_2013-09-21_12-03-13.jpg/960px-Iglesia_de_San_Pedro_de_Atacama_2013-09-21_12-03-13.jpg",
     },
     {
       id: "sanpedroatacama_11",
@@ -12774,6 +12859,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.almaobservatory.org/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/ALMA_Antennas_on_Chajnantor.jpg/960px-ALMA_Antennas_on_Chajnantor.jpg",
     },
     {
       id: "sanpedroatacama_12",
@@ -12784,6 +12870,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/nPHMhiwkgKI?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedroatacama_13",
@@ -12794,6 +12881,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Pucar%C3%A1_de_Lasana%2C_Chile%2C_2016-02-09%2C_DD_15.jpg/960px-Pucar%C3%A1_de_Lasana%2C_Chile%2C_2016-02-09%2C_DD_15.jpg",
     },
     {
       id: "sanpedroatacama_14",
@@ -12804,6 +12892,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Catedral_de_San_Juan_Bautista%2C_Calama.jpg",
     },
     {
       id: "sanpedroatacama_15",
@@ -12814,6 +12903,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pucar%C3%A1_de_Turi_%2836%29.jpg/960px-Pucar%C3%A1_de_Turi_%2836%29.jpg",
     },
     {
       id: "sanpedroatacama_16",
@@ -12824,6 +12914,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Salar_de_Tara.jpg/960px-Salar_de_Tara.jpg",
     },
     {
       id: "sanpedroatacama_17",
@@ -12834,6 +12925,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Laguna_Verde%2C_Bolivia.jpg/960px-Laguna_Verde%2C_Bolivia.jpg",
     },
     {
       id: "sanpedroatacama_18",
@@ -12844,6 +12936,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/El_Valle_de_la_Luna_%28Chile%29.jpg/960px-El_Valle_de_la_Luna_%28Chile%29.jpg",
     },
     {
       id: "sanpedroatacama_19",
@@ -12854,6 +12947,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/ElTatio-CerroSoquete-2004.jpg/960px-ElTatio-CerroSoquete-2004.jpg",
     },
     {
       id: "sanpedroatacama_20",
@@ -12864,6 +12958,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Laguna_Colorada%2C_Bolivia%2C_2016-02-02%2C_DD_66-70_PAN.JPG/960px-Laguna_Colorada%2C_Bolivia%2C_2016-02-02%2C_DD_66-70_PAN.JPG",
     },
     {
       id: "sanpedroatacama_21",
@@ -12874,6 +12969,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ruta_B-223_km_002-351_Guat%C3%ADn-R%C3%ADo_Puritama.jpg/960px-Ruta_B-223_km_002-351_Guat%C3%ADn-R%C3%ADo_Puritama.jpg",
     },
     {
       id: "sanpedroatacama_22",
@@ -12884,6 +12980,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Guayaques_volcanic_group_chile_ii_region.jpg/960px-Guayaques_volcanic_group_chile_ii_region.jpg",
     },
     {
       id: "sanpedroatacama_23",
@@ -12894,6 +12991,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/nPHMhiwkgKI?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedroatacama_24",
@@ -12904,6 +13002,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/nPHMhiwkgKI?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedroatacama_25",
@@ -12914,6 +13013,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Laguna_Verde_from_Licancabur.jpg/960px-Laguna_Verde_from_Licancabur.jpg",
     },
     {
       id: "sanpedroatacama_26",
@@ -12924,6 +13024,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Salar_de_Pujsa_con_Acamarachi.jpg/960px-Salar_de_Pujsa_con_Acamarachi.jpg",
     },
     {
       id: "sanpedroatacama_27",
@@ -12946,6 +13047,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.muhncal.cl/",
+      imageUrl: "https://images.unsplash.com/XpAFtjJEMeU?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedroatacama_29",
@@ -12956,6 +13058,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/QxjsOlFNr_4?auto=format&fit=crop&w=800&q=80",
     },
   ],
   laserena: [
@@ -12980,6 +13083,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://www.museohistoricolaserena.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Casa_Museo_G.G.Videla_00.jpg/960px-Casa_Museo_G.G.Videla_00.jpg",
     },
     {
       id: "laserena_2",
@@ -12991,6 +13095,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.museoarqueologicolaserena.gob.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Museo_Arqueol%C3%B3gico_de_La_Serena.jpg/960px-Museo_Arqueol%C3%B3gico_de_La_Serena.jpg",
     },
     {
       id: "laserena_3",
@@ -13001,6 +13106,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/0TshHecLBXI?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_4",
@@ -13012,6 +13118,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.facebook.com/jardinjaponeslaserena/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Parque_Japones_La_Serena1.jpg/960px-Parque_Japones_La_Serena1.jpg",
     },
     {
       id: "laserena_5",
@@ -13022,6 +13129,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Casa_que_fuera_de_Gabriela_Mistral%2C_vista_04.jpg/960px-Casa_que_fuera_de_Gabriela_Mistral%2C_vista_04.jpg",
     },
     {
       id: "laserena_6",
@@ -13032,6 +13140,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Avenida_Francisco_de_Aguirre.jpg/960px-Avenida_Francisco_de_Aguirre.jpg",
     },
     {
       id: "laserena_7",
@@ -13042,6 +13151,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Iglesia_San_Agust%C3%ADn%2C_La_Serena_-_panoramio.jpg/960px-Iglesia_San_Agust%C3%ADn%2C_La_Serena_-_panoramio.jpg",
     },
     {
       id: "laserena_8",
@@ -13052,6 +13162,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Iglesia_de_Santa_In%C3%A9s.JPG/960px-Iglesia_de_Santa_In%C3%A9s.JPG",
     },
     {
       id: "laserena_9",
@@ -13062,6 +13173,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Faro_Monumental_de_La_Serena._09.12.2022.jpg/960px-Faro_Monumental_de_La_Serena._09.12.2022.jpg",
     },
     {
       id: "laserena_10",
@@ -13072,6 +13184,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Iglesia_de_La_Merced_desde_calle_Balmaceda.JPG",
     },
     {
       id: "laserena_11",
@@ -13082,6 +13195,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Parque_Municipal_Gabriel_Coll_Dalmau.jpg",
     },
     {
       id: "laserena_12",
@@ -13092,6 +13206,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Vista_general_con_campanario_incluido.jpg/960px-Vista_general_con_campanario_incluido.jpg",
     },
     {
       id: "laserena_13",
@@ -13102,6 +13217,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Plaza_de_Armas_La_Serena.JPG/960px-Plaza_de_Armas_La_Serena.JPG",
     },
     {
       id: "laserena_14",
@@ -13112,6 +13228,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Iglesia_san_fco_la_serena.jpg/960px-Iglesia_san_fco_la_serena.jpg",
     },
     {
       id: "laserena_15",
@@ -13122,6 +13239,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Capilla_del_Hospital_San_Juan_de_Dios.JPG/960px-Capilla_del_Hospital_San_Juan_de_Dios.JPG",
     },
     {
       id: "laserena_16",
@@ -13132,6 +13250,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Su_uso_actual_es_de_Casa_de_estudio.jpg/960px-Su_uso_actual_es_de_Casa_de_estudio.jpg",
     },
     {
       id: "laserena_17",
@@ -13142,6 +13261,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/612hZnDoDE4?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_18",
@@ -13152,6 +13272,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Recova_La_Serena.JPG/960px-Recova_La_Serena.JPG",
     },
     {
       id: "laserena_19",
@@ -13162,6 +13283,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/HDtqftPlT_Q?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_20",
@@ -13172,6 +13294,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cerro_Grande_La_Serena.jpg/960px-Cerro_Grande_La_Serena.jpg",
     },
     {
       id: "laserena_21",
@@ -13182,6 +13305,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/A6byWGlCX4g?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_22",
@@ -13192,6 +13316,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/h6Z3-ptUZaY?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_23",
@@ -13223,6 +13348,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/H08DxLlP-uE?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_26",
@@ -13256,6 +13382,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.monumentos.gob.cl/monumentos/monumentos-monumentos/iglesia-guayacan",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6f/IglesiaGuayac%C3%A1n.jpg",
     },
     {
       id: "coquimbo_1",
@@ -13266,6 +13393,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Fuerte_Lambert.JPG/960px-Fuerte_Lambert.JPG",
     },
     {
       id: "coquimbo_2",
@@ -13277,6 +13405,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://monumentocruzdeltercermilenio.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wiki_Tour_-_Cruz_del_Tercer_Milenio_01.JPG/960px-Wiki_Tour_-_Cruz_del_Tercer_Milenio_01.JPG",
     },
     {
       id: "coquimbo_3",
@@ -13287,6 +13416,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Mezquita_de_Coquimbo_-_panoramio_%281%29.jpg/960px-Mezquita_de_Coquimbo_-_panoramio_%281%29.jpg",
     },
     {
       id: "coquimbo_4",
@@ -13297,6 +13427,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Cerro_Dominante_y_Mezquita_de_Coquimbo.jpg/960px-Cerro_Dominante_y_Mezquita_de_Coquimbo.jpg",
     },
     {
       id: "coquimbo_5",
@@ -13307,6 +13438,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/0Z3VbNWJj7U?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_6",
@@ -13318,6 +13450,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.museoovni.cl",
+      imageUrl: "https://images.unsplash.com/1NnY2ladObs?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_7",
@@ -13328,6 +13461,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/qds0EvUkXWw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_8",
@@ -13338,6 +13472,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/qds0EvUkXWw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_9",
@@ -13348,6 +13483,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/1NnY2ladObs?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_10",
@@ -13358,6 +13494,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/eXL2DYVmq-0?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_11",
@@ -13368,6 +13505,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/0Z3VbNWJj7U?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_12",
@@ -13378,6 +13516,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/1rhZicc4iQc?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_13",
@@ -13398,6 +13537,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/CO6QrNnfZLE?auto=format&fit=crop&w=800&q=80",
     },
   ],
   pucon: [
@@ -13410,6 +13550,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/651ztWEVOdw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_1",
@@ -13420,6 +13561,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pucon-y-su-Volcan.jpg/960px-Pucon-y-su-Volcan.jpg",
     },
     {
       id: "pucon_2",
@@ -13440,6 +13582,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Casa_Museo_Padre_Pancho.jpg/960px-Casa_Museo_Padre_Pancho.jpg",
     },
     {
       id: "pucon_4",
@@ -13450,6 +13593,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Catedral_de_Villarrica.JPG/960px-Catedral_de_Villarrica.JPG",
     },
     {
       id: "pucon_5",
@@ -13460,6 +13604,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Nevados_de_Sollipulli.jpg/960px-Nevados_de_Sollipulli.jpg",
     },
     {
       id: "pucon_6",
@@ -13470,6 +13615,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Casino%2C_Puc%C3%B3n_20230921.jpg/960px-Casino%2C_Puc%C3%B3n_20230921.jpg",
     },
     {
       id: "pucon_7",
@@ -13480,6 +13626,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_8",
@@ -13491,6 +13638,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://civur39.ufro.cl/",
+      imageUrl: "https://images.unsplash.com/612hZnDoDE4?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_9",
@@ -13501,6 +13649,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/kH6sSVkHk9Y?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_10",
@@ -13511,6 +13660,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/AeA6G37V1Bw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_11",
@@ -13522,6 +13672,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.rancho-carhuello.net/",
+      imageUrl: "https://images.unsplash.com/M6c_Kv5oBuo?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_12",
@@ -13533,6 +13684,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://aborigenturismo.cl/",
+      imageUrl: "https://images.unsplash.com/CXGgjHlt1jA?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_13",
@@ -13586,6 +13738,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/00_126_2680_Vulcano_Calbuco_-_Chile.jpg/960px-00_126_2680_Vulcano_Calbuco_-_Chile.jpg",
     },
     {
       id: "puertovaras_2",
@@ -13596,6 +13749,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/l6TfWDIsH4A?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_3",
@@ -13606,6 +13760,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Monte_Verde_3.JPG/960px-Monte_Verde_3.JPG",
     },
     {
       id: "puertovaras_4",
@@ -13616,6 +13771,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Capilla_Punta_Cruz_entre_Ensenda_y_Puerto_Varas%2C_2019.jpg/960px-Capilla_Punta_Cruz_entre_Ensenda_y_Puerto_Varas%2C_2019.jpg",
     },
     {
       id: "puertovaras_5",
@@ -13636,6 +13792,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Casa_Raddatz.JPG/960px-Casa_Raddatz.JPG",
     },
     {
       id: "puertovaras_7",
@@ -13646,6 +13803,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/00_1691_Church_of_Puerto_Varas_%28Chile%29.jpg/960px-00_1691_Church_of_Puerto_Varas_%28Chile%29.jpg",
     },
     {
       id: "puertovaras_8",
@@ -13656,6 +13814,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/Iglesia_Luterana_Natalia_Aceituno.JPG",
     },
     {
       id: "puertovaras_9",
@@ -13666,6 +13825,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Casa_Gotschlich.jpg/960px-Casa_Gotschlich.jpg",
     },
     {
       id: "puertovaras_10",
@@ -13676,6 +13836,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Casa_2_puerto_varas.jpg/960px-Casa_2_puerto_varas.jpg",
     },
     {
       id: "puertovaras_11",
@@ -13686,6 +13847,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Iglesia_de_los_Padres_Jesuitas_de_Puerto_Montt.jpg/960px-Iglesia_de_los_Padres_Jesuitas_de_Puerto_Montt.jpg",
     },
     {
       id: "puertovaras_12",
@@ -13696,6 +13858,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/27-nWcZ2HCQ?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_13",
@@ -13706,6 +13869,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Losmas_grandes_enamorados_del_mundo.JPG/960px-Losmas_grandes_enamorados_del_mundo.JPG",
     },
     {
       id: "puertovaras_14",
@@ -13716,6 +13880,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/GJIapjUdAgk?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_15",
@@ -13726,6 +13891,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Frutillar-Theatro-del-Lago-1030906-PSD.jpg/960px-Frutillar-Theatro-del-Lago-1030906-PSD.jpg",
     },
     {
       id: "puertovaras_16",
@@ -13736,6 +13902,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/exADwzAbmj4?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_17",
@@ -13746,6 +13913,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/GJYmeRcrK5Y?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_18",
@@ -13797,6 +13965,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/Q9jYJIupdkQ?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_23",
@@ -13807,6 +13976,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/GJYmeRcrK5Y?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_24",
@@ -13817,6 +13987,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/GJIapjUdAgk?auto=format&fit=crop&w=800&q=80",
     },
   ],
   puertonatales: [
@@ -13829,6 +14000,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5b/%D0%9C%D0%BE%D0%BD%D1%82%D0%B5_%D0%91%D1%91%D1%80%D0%BD%D0%B5%D0%B9.jpg",
     },
     {
       id: "puertonatales_1",
@@ -13839,6 +14011,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/17/Frigor%C3%ADfico_Bories.jpg",
     },
     {
       id: "puertonatales_2",
@@ -13850,6 +14023,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.conaf.cl/parques/parque-nacional-torres-del-paine/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Torres_del_Paine%2C_Laguna_Azul_09.jpg/960px-Torres_del_Paine%2C_Laguna_Azul_09.jpg",
     },
     {
       id: "puertonatales_3",
@@ -13861,6 +14035,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://simbio.mma.gob.cl/CbaAP/Details/2025",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Alacalufes_NR_Magallanes_Chile_Dec_2018_Ale_Gallo.jpg/960px-Alacalufes_NR_Magallanes_Chile_Dec_2018_Ale_Gallo.jpg",
     },
     {
       id: "puertonatales_4",
@@ -13882,6 +14057,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Torres_del_Paine%2C_Laguna_Azul_09.jpg/960px-Torres_del_Paine%2C_Laguna_Azul_09.jpg",
     },
     {
       id: "puertonatales_6",
@@ -13892,6 +14068,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Salto_Grande%2C_Torres_Del_Paine%2C_Chile_2.JPG/960px-Salto_Grande%2C_Torres_Del_Paine%2C_Chile_2.JPG",
     },
     {
       id: "puertonatales_7",
@@ -13902,6 +14079,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Milodon_cave.JPG/960px-Milodon_cave.JPG",
     },
     {
       id: "puertonatales_8",
@@ -13922,6 +14100,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Cuernos_del_Paine_2011.jpg/960px-Cuernos_del_Paine_2011.jpg",
     },
     {
       id: "puertonatales_10",
@@ -13932,6 +14111,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_11",
@@ -13942,6 +14122,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Cerro_Paine_Grande.jpg/960px-Cerro_Paine_Grande.jpg",
     },
     {
       id: "puertonatales_12",
@@ -13952,6 +14133,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Puerto_Natales%2C_2019_0613.jpg/960px-Puerto_Natales%2C_2019_0613.jpg",
     },
     {
       id: "puertonatales_13",
@@ -13963,6 +14145,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://parquetorresdelpaine.cl/",
+      imageUrl: "https://images.unsplash.com/vxmidIA0ZQE?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_14",
@@ -13973,6 +14156,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_15",
@@ -13983,6 +14167,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_16",
@@ -13993,6 +14178,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_17",
@@ -14004,6 +14190,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://estancialagunablanca.com/",
+      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_18",
@@ -14034,6 +14221,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_21",
@@ -14057,6 +14245,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.mhnrioseco.com/",
+      imageUrl: "https://images.unsplash.com/ZOa6NcAqGRE?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_1",
@@ -14067,6 +14256,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Casa_de_Mauricio_Braun_Men%C3%A9ndez.JPG/960px-Casa_de_Mauricio_Braun_Men%C3%A9ndez.JPG",
     },
     {
       id: "puntaarenas_2",
@@ -14078,6 +14268,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://www.naovictoria.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/ReplicaNaoVictoriaMagallanes.jpg",
     },
     {
       id: "puntaarenas_3",
@@ -14088,6 +14279,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Edificioplaza.JPG/960px-Edificioplaza.JPG",
     },
     {
       id: "puntaarenas_4",
@@ -14098,6 +14290,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Parque_Mar%C3%ADa_Behety_4.jpg/960px-Parque_Mar%C3%ADa_Behety_4.jpg",
     },
     {
       id: "puntaarenas_5",
@@ -14108,6 +14301,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/La_Catedral_del_Sagrado_Coraz%C3%B3n_de_Jes%C3%BAs%2C_Punta_Arenas_%2817118317426%29.jpg/960px-La_Catedral_del_Sagrado_Coraz%C3%B3n_de_Jes%C3%BAs%2C_Punta_Arenas_%2817118317426%29.jpg",
     },
     {
       id: "puntaarenas_6",
@@ -14118,6 +14312,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Residencia_Beaulier.jpg/960px-Residencia_Beaulier.jpg",
     },
     {
       id: "puntaarenas_7",
@@ -14128,6 +14323,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Punta_Arenas%2C_Magallanes_0802.jpg/960px-Punta_Arenas%2C_Magallanes_0802.jpg",
     },
     {
       id: "puntaarenas_8",
@@ -14138,6 +14334,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Penitencier%C3%ADa_%28ex_c%C3%A1rcel_Pta.Arenas%29.JPG/960px-Penitencier%C3%ADa_%28ex_c%C3%A1rcel_Pta.Arenas%29.JPG",
     },
     {
       id: "puntaarenas_9",
@@ -14148,6 +14345,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Antigua_Comisaria_y_Carcel_de_Punta_Arenas.JPG/960px-Antigua_Comisaria_y_Carcel_de_Punta_Arenas.JPG",
     },
     {
       id: "puntaarenas_10",
@@ -14158,6 +14356,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/%C3%81rboles_en_Punta_Arenas.jpg/960px-%C3%81rboles_en_Punta_Arenas.jpg",
     },
     {
       id: "puntaarenas_11",
@@ -14168,6 +14367,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Reserva_nacional_Magallanes%2C_Punta_Arenas%2C_2019_%2812%29.jpg/960px-Reserva_nacional_Magallanes%2C_Punta_Arenas%2C_2019_%2812%29.jpg",
     },
     {
       id: "puntaarenas_12",
@@ -14178,6 +14378,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/StateLibQld_1_148935_County_of_Peebles_%28ship%29.jpg/960px-StateLibQld_1_148935_County_of_Peebles_%28ship%29.jpg",
     },
     {
       id: "puntaarenas_13",
@@ -14188,6 +14389,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Camilo_Henriquez.png",
     },
     {
       id: "puntaarenas_14",
@@ -14198,6 +14400,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/aqgshrMVDm8?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_15",
@@ -14208,6 +14411,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/N4e_zwoVMSk?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_16",
@@ -14218,6 +14422,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/aqgshrMVDm8?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_17",
@@ -14228,6 +14433,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/vEDzCSqyzS0?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_18",
@@ -14239,6 +14445,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://museomaggiorinoborgatello.cl",
+      imageUrl: "https://images.unsplash.com/ZOa6NcAqGRE?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_19",
@@ -14249,6 +14456,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/365CsUAu4c0?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_20",
@@ -14259,6 +14467,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/ZOa6NcAqGRE?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_21",
@@ -14269,6 +14478,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/nBKe2apHlFw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_22",
@@ -14279,6 +14489,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/sROChHEQ0H4?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_23",
@@ -14301,6 +14512,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ma%CA%BBunga_Terevaka.jpg/960px-Ma%CA%BBunga_Terevaka.jpg",
     },
     {
       id: "hangaroa_1",
@@ -14311,6 +14523,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ma%CA%BBunga_Terevaka.jpg/960px-Ma%CA%BBunga_Terevaka.jpg",
     },
     {
       id: "hangaroa_2",
@@ -14321,6 +14534,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Chile-03400_-_Anthropological_Museum_%2849073330612%29.jpg/960px-Chile-03400_-_Anthropological_Museum_%2849073330612%29.jpg",
     },
     {
       id: "hangaroa_3",
@@ -14331,6 +14545,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chile-03344_-_Subdivision..._%2849073146321%29.jpg/960px-Chile-03344_-_Subdivision..._%2849073146321%29.jpg",
     },
     {
       id: "hangaroa_4",
@@ -14341,6 +14556,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Puna_Pau.jpg/960px-Puna_Pau.jpg",
     },
     {
       id: "hangaroa_5",
@@ -14351,6 +14567,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Wyspa_Wielkanocna_-_Ahu_a_Kivi.jpg/960px-Wyspa_Wielkanocna_-_Ahu_a_Kivi.jpg",
     },
     {
       id: "hangaroa_6",
@@ -14361,6 +14578,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hanga_Roa_Catholic_Church_exterior_2.JPG/960px-Hanga_Roa_Catholic_Church_exterior_2.JPG",
     },
     {
       id: "hangaroa_7",
@@ -14371,6 +14589,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Osterinsel_Krater-Rano_Kao.jpg/960px-Osterinsel_Krater-Rano_Kao.jpg",
     },
     {
       id: "hangaroa_8",
@@ -14381,6 +14600,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/ZgRBaYdvZpw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_9",
@@ -14391,6 +14611,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/651ztWEVOdw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_10",
@@ -14411,6 +14632,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/T5ETfrYBz3Q?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_12",
@@ -14431,6 +14653,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/ZgRBaYdvZpw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_14",
@@ -14441,6 +14664,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/akXi4v25wFw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_15",
@@ -14451,6 +14675,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/iv-sCFPVs5A?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_16",
