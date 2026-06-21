@@ -7,7 +7,7 @@
     "dev": "node scripts/start-dev.mjs",
     "dev:en": "node scripts/start-dev.mjs --configuration=en-US",
     "build": "ng build",
-    "build:vercel": "node scripts/patch-env.mjs && ng build --configuration production",
+    "build:vercel": "node scripts/patch-env.mjs && ng build --configuration production && node scripts/post-build.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch",
