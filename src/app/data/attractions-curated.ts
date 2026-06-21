@@ -3790,6 +3790,7 @@ export const CURATED_ALL: CuratedMap = {
         currency: "BRL",
         adult: "BRL undefined",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg/960px-Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg/960px-Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg",
       },
     },
   ],
@@ -6130,6 +6131,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
       website: "https://www.brasilia.df.gov.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Vista_do_Catetinho.jpg/960px-Vista_do_Catetinho.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Vista_do_Catetinho.jpg/960px-Vista_do_Catetinho.jpg",
     },
   ],
   burgos: [
@@ -7707,6 +7709,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/MuseuCasaGuignard.jpg/960px-MuseuCasaGuignard.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/MuseuCasaGuignard.jpg/960px-MuseuCasaGuignard.jpg",
     },
     {
       id: "ouropreto_1",
@@ -7718,6 +7721,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/72/Oratorio_de_viagem_-_museu_do_oratorio.jpg",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/72/Oratorio_de_viagem_-_museu_do_oratorio.jpg",
     },
   ],
@@ -8119,6 +8123,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fachada_do_Muhne.jpg/960px-Fachada_do_Muhne.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fachada_do_Muhne.jpg/960px-Fachada_do_Muhne.jpg",
     },
   ],
   rome: [
@@ -8377,6 +8382,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
       website: "https://whc.unesco.org/en/list/309/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Espa%C3%A7o_expositivo_do_MAM_-_Bahia_-_01.jpg/960px-Espa%C3%A7o_expositivo_do_MAM_-_Bahia_-_01.jpg",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Espa%C3%A7o_expositivo_do_MAM_-_Bahia_-_01.jpg/960px-Espa%C3%A7o_expositivo_do_MAM_-_Bahia_-_01.jpg",
     },
   ],
@@ -11396,6 +11402,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-BxoaHOKCD_Q?auto=format&fit=crop&w=800&q=80",
       website: "https://parqueibirapuera.org/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Est%C3%A1dio_do_Pacaembu_entrance-2007-10-02.jpg/960px-Est%C3%A1dio_do_Pacaembu_entrance-2007-10-02.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Est%C3%A1dio_do_Pacaembu_entrance-2007-10-02.jpg/960px-Est%C3%A1dio_do_Pacaembu_entrance-2007-10-02.jpg",
     },
     {
       id: "saopaulo_1",
@@ -11407,6 +11414,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-vgYyAFeaAg0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Museu_de_Arte_Moderna%2C_S%C3%A3o_Paulo_-_Fachada.jpg",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Museu_de_Arte_Moderna%2C_S%C3%A3o_Paulo_-_Fachada.jpg",
     },
     {
@@ -11420,6 +11428,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-GiTA965K380?auto=format&fit=crop&w=800&q=80",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/A_CASA_%E2%80%A2_Museu_do_objeto_brasileiro_04.jpg/960px-A_CASA_%E2%80%A2_Museu_do_objeto_brasileiro_04.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/A_CASA_%E2%80%A2_Museu_do_objeto_brasileiro_04.jpg/960px-A_CASA_%E2%80%A2_Museu_do_objeto_brasileiro_04.jpg",
     },
     {
       id: "saopaulo_3",
@@ -11431,6 +11440,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-uth095lCHdM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Casa_de_Vidro_13.jpg/960px-Casa_de_Vidro_13.jpg",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Casa_de_Vidro_13.jpg/960px-Casa_de_Vidro_13.jpg",
     },
     {
@@ -11444,6 +11454,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-2aSMGA5NTsA?auto=format&fit=crop&w=800&q=80",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2d/MAC-USP%2C_fachada_6.JPG",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2d/MAC-USP%2C_fachada_6.JPG",
     },
     {
       id: "saopaulo_5",
@@ -11456,6 +11467,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-Rp6EssAnQY0?auto=format&fit=crop&w=800&q=80",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Viaduto_do_Ch%C3%A1_%26_Shoping_Light%28By_Felipe_Mostarda%29.JPG/960px-Viaduto_do_Ch%C3%A1_%26_Shoping_Light%28By_Felipe_Mostarda%29.JPG",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Viaduto_do_Ch%C3%A1_%26_Shoping_Light%28By_Felipe_Mostarda%29.JPG/960px-Viaduto_do_Ch%C3%A1_%26_Shoping_Light%28By_Felipe_Mostarda%29.JPG",
     },
     {
       id: "saopaulo_6",
@@ -11467,6 +11479,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-kR5VQr3-L9w?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Est%C3%A1tua_de_Diana_a_Ca%C3%A7adora_01.jpg/960px-Est%C3%A1tua_de_Diana_a_Ca%C3%A7adora_01.jpg",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Est%C3%A1tua_de_Diana_a_Ca%C3%A7adora_01.jpg/960px-Est%C3%A1tua_de_Diana_a_Ca%C3%A7adora_01.jpg",
     },
   ],
@@ -14739,6 +14752,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://www.museu.cbmerj.rj.gov.br/",
+      imageUrl: "https://images.unsplash.com/3q0YQQJMkjw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_2",
@@ -14749,6 +14763,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/qUqIshTm0H0?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_3",
@@ -15075,6 +15090,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       website: "https://cristoredentor.com.br/",
+      imageUrl: "https://images.unsplash.com/CErddu-JwKw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_31",
@@ -15086,6 +15102,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       website: "https://bondinho.com.br/",
+      imageUrl: "https://images.unsplash.com/76L0Hup2Zyo?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_32",
@@ -15097,6 +15114,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       website: "https://www.jbrj.gov.br/",
+      imageUrl: "https://images.unsplash.com/OkiDIla7K8Q?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_33",
@@ -15107,6 +15125,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/mXpuTdf56FM?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_34",
@@ -15117,6 +15136,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/ue2yR0Mj2b4?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_35",
@@ -15128,6 +15148,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 240,
       website: "https://parquenacionaldatijuca.rio/",
+      imageUrl: "https://images.unsplash.com/OkiDIla7K8Q?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_36",
@@ -15138,6 +15159,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/OkiDIla7K8Q?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_37",
@@ -15171,6 +15193,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 480,
       website: "https://rockinrio.com/",
+      imageUrl: "https://images.unsplash.com/BVj6AnXs3TA?auto=format&fit=crop&w=800&q=80",
     },
   ],
   saopaulo: [
@@ -15369,6 +15392,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.centrocultural.sp.gov.br/",
+      imageUrl: "https://images.unsplash.com/f3ScaTh2mlc?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saopaulo_17",
@@ -15452,6 +15476,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.guarulhos.sp.gov.br/zoologico/",
+      imageUrl: "https://images.unsplash.com/RhEQTZ4jE4g?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saopaulo_24",
@@ -15535,6 +15560,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 90,
       website: "https://masp.org.br/",
+      imageUrl: "https://images.unsplash.com/TvCRYXwKhfQ?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saopaulo_31",
@@ -15546,6 +15572,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       website: "https://pinacoteca.org.br/",
+      imageUrl: "https://images.unsplash.com/TvCRYXwKhfQ?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saopaulo_32",
@@ -15556,6 +15583,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/TvCRYXwKhfQ?auto=format&fit=crop&w=800&q=80",
     },
   ],
   salvador: [
@@ -15765,6 +15793,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/Gisi_G8CXWI?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "salvador_18",
@@ -15957,6 +15986,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_5",
@@ -16015,6 +16045,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://portal.comunhaoespirita.org.br",
+      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_10",
@@ -16123,6 +16154,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_20",
@@ -16202,6 +16234,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_27",
@@ -16223,6 +16256,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/5S8eh79e6L8?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_29",
@@ -16431,6 +16465,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/mH3M22nkzZ4?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "recife_17",
@@ -16474,6 +16509,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/oz8UPlT-XYs?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "recife_21",
@@ -16517,6 +16553,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/PS8WeUyUfm8?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "recife_25",
@@ -16591,6 +16628,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/VYFhyu13vho?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_5",
@@ -16710,6 +16748,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "www.minaduveloso.blogspot.com",
+      imageUrl: "https://images.unsplash.com/VYFhyu13vho?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_16",
@@ -16730,6 +16769,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/VYFhyu13vho?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_18",
@@ -16740,6 +16780,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/1PO5sF80-YI?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_19",
@@ -16750,6 +16791,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/J2l01HcDICQ?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_20",
@@ -16760,6 +16802,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/dUEIX1yB3Cw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_21",
@@ -16783,6 +16826,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.turismoitaipu.com.br/pt/atracoes/ecomuseu",
+      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_1",
@@ -16793,6 +16837,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_2",
@@ -16827,6 +16872,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/JesYw3Z-vHk?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_5",
@@ -16838,6 +16884,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://dreamland.com.br/c/foz-do-iguacu",
+      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_6",
@@ -16870,6 +16917,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_9",
@@ -16880,6 +16928,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/ceiPc5lQYtE?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_10",
@@ -16890,6 +16939,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/4-upWM3Dfrg?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_11",
@@ -17391,6 +17441,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/j84HY1ZeNtE?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "manaus_11",
@@ -17411,6 +17462,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/bWyh1FC7JrI?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "manaus_13",
@@ -17535,6 +17587,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/8Ao1m1nNUxU?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_7",
@@ -17589,6 +17642,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/8Ao1m1nNUxU?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_12",
@@ -17645,6 +17699,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.institutodoceara.org.br/",
+      imageUrl: "https://images.unsplash.com/f3ArGBmAW7c?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_17",
@@ -17656,6 +17711,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://museudafotografia.com.br",
+      imageUrl: "https://images.unsplash.com/-PsJp0tzqcs?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_18",
@@ -17667,6 +17723,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.institutomirante.org/museu-ferroviario/",
+      imageUrl: "https://images.unsplash.com/f3ArGBmAW7c?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_19",
@@ -17677,6 +17734,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/KZVNwb7tqNs?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_20",
@@ -17707,6 +17765,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/KZVNwb7tqNs?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_23",
@@ -17727,6 +17786,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/GBcFCtqUkuI?auto=format&fit=crop&w=800&q=80",
     },
   ],
 
