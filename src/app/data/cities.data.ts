@@ -203,6 +203,10 @@ export const WORLD_CITIES: City[] = [
   { id: 'salvador',        name: 'Salvador',               country: 'Brazil',         flag: '🇧🇷', region: 'americas' },
   { id: 'brasilia',        name: 'Brasília',               country: 'Brazil',         flag: '🇧🇷', region: 'americas' },
   { id: 'recife',          name: 'Recife',                 country: 'Brazil',         flag: '🇧🇷', region: 'americas' },
+  { id: 'foziguacu',       name: 'Foz do Iguaçu',         country: 'Brazil',         flag: '🇧🇷', region: 'americas' },
+  { id: 'florianopolis',   name: 'Florianópolis',          country: 'Brazil',         flag: '🇧🇷', region: 'americas' },
+  { id: 'manaus',          name: 'Manaus',                 country: 'Brazil',         flag: '🇧🇷', region: 'americas' },
+  { id: 'fortaleza',       name: 'Fortaleza',              country: 'Brazil',         flag: '🇧🇷', region: 'americas' },
   { id: 'iguazu',          name: 'Puerto Iguazú',          country: 'Argentina',      flag: '🇦🇷', region: 'americas' },
   { id: 'trinidadcuba',    name: 'Trinidad',               country: 'Cuba',           flag: '🇨🇺', region: 'americas' },
 
