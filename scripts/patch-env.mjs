@@ -1,4 +1,18 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+
+// Load local.env as dotenv fallback (env vars always take precedence).
+// local.env is gitignored and never deployed — safe to keep real keys there.
+if (existsSync('local.env')) {
+  for (const line of readFileSync('local.env', 'utf8').split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq === -1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    const val = trimmed.slice(eq + 1).trim();
+    if (!(key in process.env)) process.env[key] = val;
+  }
+}
 
 const filePath = 'src/environments/environment.production.ts';
 let content = readFileSync(filePath, 'utf8');
