@@ -15008,7 +15008,7 @@ export const CURATED_ALL: CuratedMap = {
       ticketUrl: "https://www.ticketmaster.com.br/event/rockinrio",
       ticketPrices: { adult: "R$ 870", child: "R$ 435", free: false, currency: "BRL", notes: "Zona de Conforto: R$ 1.950 / R$ 975" },
       schedule: { notes: "4, 5, 6, 7, 11, 12 y 13 sep 2026" },
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Guns_N%27_Roses_at_Rock_in_Rio.jpg/800px-Guns_N%27_Roses_at_Rock_in_Rio.jpg",
+      imageUrl: "https://static-amplitur.s3.eu-central-1.amazonaws.com/images/thumbnail2x-61cdfe7a50b4e-rock-in-rio-brasil.webp",
     },
   ],
   saopaulo: [
