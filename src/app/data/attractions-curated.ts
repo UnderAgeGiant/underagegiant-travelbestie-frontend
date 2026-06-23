@@ -140,7 +140,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-QLFN2xpJM0U?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1767651811744-17370b913160?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdWJhayUyMEN1bHR1cmFsJTIwTGFuZHNjYXBlJTIwYmFsaXxlbnwxfDB8fHwxNzgyMTY5MTM4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bali_1",
@@ -151,7 +151,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-aVvckzTWWCc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1636619306699-2d27a100605e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxVbHV3YXR1JTIwVGVtcGxlJTIwYmFsaXxlbnwxfDB8fHwxNzgyMTY5MTQxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bali_2",
@@ -162,7 +162,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-QLFN2xpJM0U?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZWdhbGxhbGFuZyUyMFJpY2UlMjBUZXJyYWNlcyUyMGJhbGl8ZW58MXwwfHx8MTc4MjE2OTE0NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       schedule: {
         mon: {
           open: "07:00",
@@ -203,7 +203,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-gWpGDVqvH7k?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1471421455671-b9e8a4114185?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYWNyZWQlMjBNb25rZXklMjBGb3Jlc3QlMjBTYW5jdHVhcnklMjBiYWxpfGVufDF8MHx8fDE3ODIxNjkxNDZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.monkeyforestubud.com/",
     },
     {
@@ -215,7 +215,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-a46NVrs0xDE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1624033332671-136eedd571a8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTZW1pbnlhayUyMEJlYWNoJTIwYmFsaXxlbnwxfDB8fHwxNzgyMTY5MTQ4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://traveltriangle.com/indonesia-tourism/bali/places-to-visit/seminyak-beach/timings",
       ticketPrices: {
         free: false,
@@ -232,7 +232,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-CRqFC5HohC8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUYW5haCUyMExvdCUyMFRlbXBsZSUyMGJhbGl8ZW58MXwwfHx8MTc4MjE2OTE1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://youtu.be/RQkVk2B0ujw",
     },
     {
@@ -244,7 +244,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-ZyovTT4kt-g?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1611329532992-0b7ba27d85fb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb3VudCUyMEJhdHVyJTIwU3VucmlzZSUyMFRyZWslMjBiYWxpfGVufDF8MHx8fDE3ODIxNjkxNTJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.mt-batur.com/",
       ticketPrices: {
         free: false,
@@ -261,7 +261,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-uMyjkpXeECU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1506126944674-00c6c192e0a3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxVYnVkJTIwTW9ua2V5JTIwRm9yZXN0JTIwJTI2JTIwQXJ0JTIwTWFya2V0JTIwYmFsaXxlbnwxfDB8fHwxNzgyMTY5MTU0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   bangkok: [
@@ -1092,7 +1092,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-lnbR0E65Yn4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1758061290793-c8df7171bbb1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJc2xhbmQlMjBvZiUyMEdvcmVlJTIwZGFrYXJ8ZW58MXwwfHx8MTc4MjE2OTE1N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "dakar_1",
@@ -1103,7 +1103,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.3,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-IbhDrmssndU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1721013244188-5c4f4593ee72?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudCUyMGRlJTIwbGElMjBSZW5haXNzYW5jZSUyMEFmcmljYWluZSUyMGRha2FyfGVufDF8MHx8fDE3ODIxNjkxNTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "dakar_2",
@@ -1114,7 +1114,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.2,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-DTUFoTIhzgU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1569103470331-cc6bb58edb73?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxkYWthciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MTY0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "dakar_3",
@@ -1125,7 +1125,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-pt6h0w1fQBU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1721013244188-5c4f4593ee72?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJRkFOJTIwTXVzZXVtJTIwb2YlMjBBZnJpY2FuJTIwQXJ0cyUyMGRha2FyfGVufDF8MHx8fDE3ODIxNjkxNjZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://musee-monod.sn/",
     },
     {
@@ -1137,7 +1137,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-lnbR0E65Yn4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1569103470331-cc6bb58edb73?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxkYWthciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MTY0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   delhi: [
@@ -1676,7 +1676,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-cBzITTlDREg?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1748653756904-f446ab576d0b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxPbGQlMjBIYXZhbmElMjBhbmQlMjBpdHMlMjBGb3J0aWZpY2F0aW9uJTIwU3lzdGVtJTIwaGF2YW5hfGVufDF8MHx8fDE3ODIxNjkxNzF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "havana_1",
@@ -1687,7 +1687,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-mSoOUiaO8yo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1536687618274-01fcbe6ffd82?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYXZhbmElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE2OTE3NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "havana_2",
@@ -1698,7 +1698,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-cBzITTlDREg?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1581266148726-56611a910e4b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbCUyMENhcGl0b2xpbyUyMGhhdmFuYXxlbnwxfDB8fHwxNzgyMTY5MTc3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "havana_3",
@@ -1709,7 +1709,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-B4UsZdDOeXM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1552574033-ee3a9d757ba8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF6YSUyMGRlJTIwbGElMjBSZXZvbHVjaSVDMyVCM24lMjBoYXZhbmF8ZW58MXwwfHx8MTc4MjE2OTE3OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "havana_4",
@@ -1720,7 +1720,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-_Wcv9qWYCs0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1705782456491-76cf446b6539?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGbG9yaWRpdGElMjAlMjhIZW1pbmd3YXklMjBCYXIlMjklMjBoYXZhbmF8ZW58MXwwfHx8MTc4MjE2OTE4Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "havana_5",
@@ -1731,7 +1731,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-kI00pEcN4bg?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaSVDMyVCMWFsZXMlMjBWYWxsZXklMjBoYXZhbmF8ZW58MXwwfHx8MTc4MjE2OTE4NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   hiroshima: [
@@ -1850,7 +1850,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-O8WN-_cILV8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1553660148-d3ffd5cfe5a8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaXN0b3JpYyUyMENlbnRyZSUyMG9mJTIwTWFjYW8lMjBob25na29uZ3xlbnwxfDB8fHwxNzgyMTY5MTg2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hongkong_1",
@@ -1861,7 +1861,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-O8WN-_cILV8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1507941097613-9f2157b69235?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWN0b3JpYSUyMFBlYWslMjAlMjhUaGUlMjBQZWFrJTI5JTIwaG9uZ2tvbmd8ZW58MXwwfHx8MTc4MjE2OTE4OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://sg.trip.com/travel-guide/attraction/hong-kong/victoria-peak-76012/",
       ticketUrl: "https://sg.trip.com/travel-guide/attraction/hong-kong/victoria-peak-76012/",
       ticketPrices: {
@@ -1879,7 +1879,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-S3uDljONzGo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1580441610352-94ebf9707f39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUc2ltJTIwU2hhJTIwVHN1aSUyMFByb21lbmFkZSUyMGhvbmdrb25nfGVufDF8MHx8fDE3ODIxNjkxOTF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hongkong_3",
@@ -1890,7 +1890,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-V_nKGHsgo5A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1685448372730-d88a652af8b4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZW1wbGUlMjBTdHJlZXQlMjBOaWdodCUyME1hcmtldCUyMGhvbmdrb25nfGVufDF8MHx8fDE3ODIxNjkxOTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://us.trip.com/travel-guide/attraction/hong-kong/temple-street-night-market-20905878/",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/hong-kong/temple-street-night-market-20905878/",
       ticketPrices: {
@@ -1908,7 +1908,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-EDaQMyZbVpI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1508008964339-7405e10c99ef?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXb25nJTIwVGFpJTIwU2luJTIwVGVtcGxlJTIwaG9uZ2tvbmd8ZW58MXwwfHx8MTc4MjE2OTE5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://bcc.lib.hkbu.edu.hk/artcollection/kc81/",
       schedule: {
         mon: {
@@ -1992,7 +1992,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 30,
-      imageUrl: "https://images.unsplash.com/photo-sJimWorAIik?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1710431398794-f71752ffc90b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdGFyJTIwRmVycnklMjBob25na29uZ3xlbnwxfDB8fHwxNzgyMTY5MTk4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.starferry.com.hk/",
       ticketUrl: "https://www.trip.com/travel-guide/attraction/hong-kong/the-star-ferry-92178/",
       ticketPrices: {
@@ -2010,7 +2010,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-q1DrHkWrQDw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1701410478990-c44c24d9f6a1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIb25nJTIwS29uZyUyMERpc25leWxhbmQlMjBob25na29uZ3xlbnwxfDB8fHwxNzgyMTY5MjAxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.hongkongdisneyland.com/destinations/theme-park/",
       ticketPrices: {
         free: false,
@@ -2130,7 +2130,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-g4lJS_kiqRY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1653104626949-bc7f6413a5b7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLYXRobWFuZHUlMjBWYWxsZXklMjBrYXRobWFuZHV8ZW58MXwwfHx8MTc4MjE2OTIwNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://traveltriangle.com/nepal-tourism/kathmandu/places-to-visit/kathmandu-valley/timings",
       ticketPrices: {
         free: false,
@@ -2147,7 +2147,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-g4lJS_kiqRY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1699202700754-1e5cbf0f8660?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb3VkaGFuYXRoJTIwU3R1cGElMjBrYXRobWFuZHV8ZW58MXwwfHx8MTc4MjE2OTIwNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://boudhanath.com/",
       schedule: {
         mon: {
@@ -2231,7 +2231,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-lYkzooKZrPg?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1507743617593-0a422c9bb7f5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXNodXBhdGluYXRoJTIwVGVtcGxlJTIwa2F0aG1hbmR1fGVufDF8MHx8fDE3ODIxNjkyMTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.pashupati.org.np",
       ticketPrices: {
         free: false,
@@ -2248,7 +2248,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-_nAYHEFfUC0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1665435246390-4557a3112924?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXRhbiUyMER1cmJhciUyMFNxdWFyZSUyMGthdGhtYW5kdXxlbnwxfDB8fHwxNzgyMTY5MjEzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.holidaystonepal.in",
       schedule: {
         mon: {
@@ -2290,7 +2290,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.4,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-TulGin22lAk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1701255136115-1b7c094c2b9f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrYXRobWFuZHUlMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE2OTIxNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   krakow: [
@@ -2368,7 +2368,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-mZKEIRBStv4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1714876906025-77b148689e2c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaXN0b3JpYyUyMENlbnRyZSUyMG9mJTIwTGltYSUyMGxpbWF8ZW58MXwwfHx8MTc4MjE2OTIyMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://whc.unesco.org/en/list/500bis",
     },
     {
@@ -2380,7 +2380,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-mZKEIRBStv4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1577587230708-187fdbef4d91?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaXJhZmxvcmVzJTIwbGltYXxlbnwxfDB8fHwxNzgyMTY5MjIzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.mirafloresdelasierra.net/",
     },
     {
@@ -2392,7 +2392,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-zs8bpXW3OuM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1760726347919-bad0548803df?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYXJjbyUyME11c2V1bSUyMGxpbWF8ZW58MXwwfHx8MTc4MjE2OTIyNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.museolarco.org",
     },
     {
@@ -2404,7 +2404,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-XWFQZGCGGo4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1508958156594-61260a92449e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXJyYW5jbyUyMERpc3RyaWN0JTIwbGltYXxlbnwxfDB8fHwxNzgyMTY5MjI4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.munibarranco.gob.pe/",
     },
     {
@@ -2416,7 +2416,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-qfmXj-ceoLk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1687835073280-fd0f002062d2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIdWFjYSUyMFB1Y2xsYW5hJTIwbGltYXxlbnwxfDB8fHwxNzgyMTY5MjMxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lima_5",
@@ -2427,7 +2427,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-SQhkQlmZ9Zw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1666066984731-56deae1901c4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxsaW1hJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNjkyMzZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       schedule: {
         mon: {
           open: "06:00",
@@ -2862,7 +2862,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-PMYCnEgvPK0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1731560818821-a32d0042d6f6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb2ZmZWUlMjBDdWx0dXJhbCUyMExhbmRzY2FwZSUyMG9mJTIwQ29sb21iaWElMjBtZWRlbGxpbnxlbnwxfDB8fHwxNzgyMTY5MjM4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "medellin_1",
@@ -2873,7 +2873,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-PMYCnEgvPK0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1515366974328-f1181eb25189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtZWRlbGxpbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "medellin_2",
@@ -2884,7 +2884,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-x_3-flSAKS0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1515366974328-f1181eb25189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtZWRlbGxpbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "medellin_3",
@@ -2895,7 +2895,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-Iqa-WlbNjqs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1715503234327-b57d32e5da0f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbCUyMFBvYmxhZG8lMjBtZWRlbGxpbnxlbnwxfDB8fHwxNzgyMTY5MjQ4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "medellin_4",
@@ -2906,7 +2906,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-uVSSTAfe22A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1515366974328-f1181eb25189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtZWRlbGxpbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       ticketPrices: {
         free: false,
       },
@@ -2920,7 +2920,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-j_XTJ92oXjc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1532343158747-f777340f4b12?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYW50YSUyMEZlJTIwZGUlMjBBbnRpb3F1aWElMjBtZWRlbGxpbnxlbnwxfDB8fHwxNzgyMTY5MjU0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   melbourne: [
@@ -2933,7 +2933,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-v0Ovhad8NYk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1626166678509-bac29b800c64?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSb3lhbCUyMEV4aGliaXRpb24lMjBCdWlsZGluZyUyMGFuZCUyMENhcmx0b24lMjBHYXJkZW5zJTIwbWVsYm91cm5lfGVufDF8MHx8fDE3ODIxNjkyNTZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "melbourne_1",
@@ -2944,7 +2944,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-v0Ovhad8NYk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1648862459464-f465d8a4a484?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGZWRlcmF0aW9uJTIwU3F1YXJlJTIwbWVsYm91cm5lfGVufDF8MHx8fDE3ODIxNjkyNTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.federationsquaregoldcreek.com.au/",
     },
     {
@@ -2956,7 +2956,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-XYgTTbXCJ0M?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1663832886113-3d55ed62d1ca?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNZWxib3VybmUlMjBDcmlja2V0JTIwR3JvdW5kJTIwbWVsYm91cm5lfGVufDF8MHx8fDE3ODIxNjkyNjF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.mcg.org.au/",
     },
     {
@@ -2968,7 +2968,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.7,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-ktTc5Hz8-iA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1610183880962-dbc5e8ea2765?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRpb25hbCUyMEdhbGxlcnklMjBvZiUyMFZpY3RvcmlhJTIwbWVsYm91cm5lfGVufDF8MHx8fDE3ODIxNjkyNjR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.ngv.vic.gov.au/",
       ticketPrices: {
         free: false,
@@ -2985,7 +2985,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-TP501SPRzPY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1569846567041-789685cd9e90?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxRdWVlbiUyMFZpY3RvcmlhJTIwTWFya2V0JTIwbWVsYm91cm5lfGVufDF8MHx8fDE3ODIxNjkyNjd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://qvm.com.au/",
     },
     {
@@ -3014,7 +3014,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-vlnSlZQRHDA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1574662047065-d5bc87c94c73?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEYW5kZW5vbmclMjBSYW5nZXMlMjBtZWxib3VybmV8ZW58MXwwfHx8MTc4MjE2OTI2OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.parks.vic.gov.au/places-to-see/parks/dandenong-ranges-national-park",
     },
   ],
@@ -3378,6 +3378,136 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1557176529-ca2474ad7495?auto=format&fit=crop&w=800&q=80",
       website: "http://www.sawgrassmills.com/",
+    },
+    {
+      id: "miami_11",
+      active: true,
+      name: "Pérez Art Museum Miami",
+      category: 'poi', type: "Museo",
+      icon: "🖼️",
+      bg: "#E8F0FD",
+      rating: 4.6,
+      estimatedMinutes: 90,
+      website: "https://www.pamm.org/",
+      imageUrl: "https://images.unsplash.com/photo-1558951387-a66e89fbf8df?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQJUMzJUE5cmV6JTIwQXJ0JTIwTXVzZXVtJTIwTWlhbWklMjBtaWFtaXxlbnwxfDB8fHwxNzgyMTY5MjcxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_12",
+      active: true,
+      name: "Frost Museum of Science",
+      category: 'poi', type: "Museo",
+      icon: "🔭",
+      bg: "#E8F0FD",
+      rating: 4.6,
+      estimatedMinutes: 120,
+      website: "https://www.frostscience.org/",
+      imageUrl: "https://images.unsplash.com/photo-1688768501034-e0688bf6d379?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGcm9zdCUyME11c2V1bSUyMG9mJTIwU2NpZW5jZSUyMG1pYW1pfGVufDF8MHx8fDE3ODIxNjkyNzR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_13",
+      active: true,
+      name: "Zoo Miami",
+      category: 'poi', type: "Parque",
+      icon: "🦁",
+      bg: "#E8FDE8",
+      rating: 4.6,
+      estimatedMinutes: 240,
+      website: "https://www.miamidade.gov/zoomiami/",
+      imageUrl: "https://images.unsplash.com/photo-1604900108925-4097fc0edacb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxab28lMjBNaWFtaSUyMG1pYW1pfGVufDF8MHx8fDE3ODIxNjkyNzZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_14",
+      active: true,
+      name: "Bill Baggs Cape Florida State Park",
+      category: 'poi', type: "Parque Natural",
+      icon: "🏖️",
+      bg: "#E8FDE8",
+      rating: 4.8,
+      estimatedMinutes: 180,
+      website: "https://www.floridastateparks.org/parks-and-trails/bill-baggs-cape-florida-state-park",
+      imageUrl: "https://images.unsplash.com/photo-1589083130544-0d6a2926e519?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtaWFtaSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjgwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_15",
+      active: true,
+      name: "Coconut Grove",
+      category: 'poi', type: "Barrio",
+      icon: "🌴",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1595111571848-fdf33cfb6cff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb2NvbnV0JTIwR3JvdmUlMjBtaWFtaXxlbnwxfDB8fHwxNzgyMTY5MjgyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_16",
+      active: true,
+      name: "Fairchild Tropical Botanic Garden",
+      category: 'poi', type: "Parque",
+      icon: "🌺",
+      bg: "#E8FDE8",
+      rating: 4.7,
+      estimatedMinutes: 120,
+      website: "https://fairchildgarden.org/",
+      imageUrl: "https://images.unsplash.com/photo-1622554152470-0c505679e3a8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGYWlyY2hpbGQlMjBUcm9waWNhbCUyMEJvdGFuaWMlMjBHYXJkZW4lMjBtaWFtaXxlbnwxfDB8fHwxNzgyMTY5MjgzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_17",
+      active: true,
+      name: "Freedom Tower",
+      category: 'poi', type: "Histórico",
+      icon: "🏛️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      website: "https://mdcmuseum.org/visit-us/freedom-tower/",
+      imageUrl: "https://images.unsplash.com/photo-1589083130544-0d6a2926e519?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtaWFtaSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjgwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_18",
+      active: true,
+      name: "Aventura Mall",
+      category: 'poi', type: "Centro Comercial",
+      icon: "🛍️",
+      bg: "#EEE8FD",
+      rating: 4.6,
+      estimatedMinutes: 180,
+      website: "https://www.aventuramall.com/",
+      imageUrl: "https://images.unsplash.com/photo-1589083130544-0d6a2926e519?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtaWFtaSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjgwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_19",
+      active: true,
+      name: "Bal Harbour Shops",
+      category: 'poi', type: "Centro Comercial",
+      icon: "🛍️",
+      bg: "#EEE8FD",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      website: "https://www.balharbourshops.com/",
+      imageUrl: "https://images.unsplash.com/photo-1739139519685-9e9fb5f7b196?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYWwlMjBIYXJib3VyJTIwU2hvcHMlMjBtaWFtaXxlbnwxfDB8fHwxNzgyMTY5MjkyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_20",
+      active: true,
+      name: "Lincoln Road Mall",
+      category: 'poi', type: "Centro Comercial",
+      icon: "🌴",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1589083130544-0d6a2926e519?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtaWFtaSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjgwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "miami_21",
+      active: true,
+      name: "Brickell City Centre",
+      category: 'poi', type: "Centro Comercial",
+      icon: "🏙️",
+      bg: "#EEE8FD",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      website: "https://brickellcitycentre.com/",
+      imageUrl: "https://images.unsplash.com/photo-1579641665137-2037024da8a4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCcmlja2VsbCUyMENpdHklMjBDZW50cmUlMjBtaWFtaXxlbnwxfDB8fHwxNzgyMTY5Mjk4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   milan: [
@@ -3807,7 +3937,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo--CAG2SPVj24?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1598202290788-28cabb2da6a7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTZXdlbGwlMjBNaW5pbmclMjBUb3duJTIwc2FudGlhZ298ZW58MXwwfHx8MTc4MjE2OTMwMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_1",
@@ -3818,7 +3948,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo--CAG2SPVj24?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1557976255-e92a65789cb9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMFNhbiUyMENyaXN0JUMzJUIzYmFsJTIwc2FudGlhZ298ZW58MXwwfHx8MTc4MjE2OTMwNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.parquemet.cl/",
     },
     {
@@ -3830,7 +3960,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-VAxCHgJvZ0g?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.nomads-travel-guide.com/places/plaza-de-las-armas/",
     },
     {
@@ -3842,7 +3972,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.8,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-H6KJ2D0LphU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1566107236179-e64bb1e1963b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWYWxwYXJhJUMzJUFEc28lMjBzYW50aWFnb3xlbnwxfDB8fHwxNzgyMTY5MzEwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.municipalidaddevalparaiso.cl/",
     },
     {
@@ -3854,7 +3984,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-pZHeZnUtWes?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_5",
@@ -3865,7 +3995,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo--9-zh6WXGk8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1668616636312-351578780e0d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNZXJjYWRvJTIwQ2VudHJhbCUyMHNhbnRpYWdvfGVufDF8MHx8fDE3ODIxNjkzMTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.mercadocentralvalencia.es/",
     },
     {
@@ -3877,7 +4007,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-Io5of1uOtPY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
 {
       id: "santiago_7",
@@ -3889,7 +4019,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "www.patrimoniodelasalud.cl",
-      imageUrl: "https://images.unsplash.com/Y9Wp5keJsn8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1769720817816-21f64620cfe4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZW50cm8lMjBOYWNpb25hbCUyMGRlJTIwUmVjdXBlcmFjaSVDMyVCM24lMjBQYXRyaW1vbmlhbCUyME1JTlNBTCUyMHNhbnRpYWdvfGVufDF8MHx8fDE3ODIxNjkzMjF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_8",
@@ -4033,7 +4163,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.santiagoturismo.cl/parque-ohiggins/",
-      imageUrl: "https://images.unsplash.com/eXL2DYVmq-0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_20",
@@ -4176,7 +4306,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://es.wikipedia.org/wiki/Plaza_Baquedano#Monumento_al_Genio_de_la_Libertad",
-      imageUrl: "https://images.unsplash.com/HDtqftPlT_Q?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1558353093-5d0c837b61e7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudG8lMjBhbCUyMEdlbmlvJTIwZGUlMjBsYSUyMExpYmVydGFkJTIwc2FudGlhZ298ZW58MXwwfHx8MTc4MjE2OTMyNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiago_32",
@@ -4315,7 +4445,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-NldT0B6aKrI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1556383887-8b037df1ab1e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDbGFzc2ljYWwlMjBHYXJkZW5zJTIwb2YlMjBTdXpob3UlMjBzaGFuZ2hhaXxlbnwxfDB8fHwxNzgyMTcyOTI1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "shanghai_1",
@@ -4326,7 +4456,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-NldT0B6aKrI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjBCdW5kJTIwc2hhbmdoYWl8ZW58MXwwfHx8MTc4MjE3MjkzMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://us.trip.com/travel-guide/attraction/shanghai/the-bund-75611/",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/shanghai/the-bund-75611/",
       ticketPrices: {
@@ -4344,7 +4474,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-OH2SslaiaIQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1609088399054-7661a95fe0e2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxZdSUyMEdhcmRlbiUyMCUyOFl1eXVhbiUyOSUyMHNoYW5naGFpfGVufDF8MHx8fDE3ODIxNzI5MzR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.asiaodysseytravel.com/shanghai/yu-garden.html",
       ticketPrices: {
         free: true,
@@ -4359,7 +4489,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-GszVE92a5Rs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1627484986972-e544190b8abb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaGFuZ2hhaSUyMFRvd2VyJTIwT2JzZXJ2YXRpb24lMjBEZWNrJTIwc2hhbmdoYWl8ZW58MXwwfHx8MTc4MjE3MjkzN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://us.trip.com/guide/attraction/shanghai-tower-tickets.html",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/shanghai/shanghai-tower-24591219/",
       ticketPrices: {
@@ -4376,7 +4506,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-H23f-2byY_E?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxYaW50aWFuZGklMjBzaGFuZ2hhaXxlbnwxfDB8fHwxNzgyMTcyOTQxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "shanghai_5",
@@ -4387,7 +4517,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-CA2EddFH6SA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1713006947005-70c6b2796b68?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaGFuZ2hhaSUyME11c2V1bSUyMHNoYW5naGFpfGVufDF8MHx8fDE3ODIxNzI5NDN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.shanghaimuseum.net/mu/frontend/pg/en/index",
     },
     {
@@ -4399,7 +4529,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDF5",
       rating: 4.7,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-YDJ2-LiP8DE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1715905398791-771de97e6976?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxaaHVqaWFqaWFvJTIwV2F0ZXIlMjBUb3duJTIwc2hhbmdoYWl8ZW58MXwwfHx8MTc4MjE3Mjk0NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   siemreap: [
@@ -4426,7 +4556,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-McM5BW4jQHc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1546258608-68797ef96fc8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaW5nYXBvcmUlMjBCb3RhbmljYWwlMjBHYXJkZW5zJTIwc2luZ2Fwb3JlfGVufDF8MHx8fDE3ODIxNzI5NDh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.nparks.gov.sg/sbg/",
     },
     {
@@ -4438,7 +4568,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-McM5BW4jQHc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1552415274-73ad7198cb93?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHYXJkZW5zJTIwYnklMjB0aGUlMjBCYXklMjBzaW5nYXBvcmV8ZW58MXwwfHx8MTc4MjE3Mjk1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.gardensbythebay.com.sg/",
       ticketPrices: {
         free: false,
@@ -4455,7 +4585,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-CGlVQFXcJys?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNYXJpbmElMjBCYXklMjBTYW5kcyUyMFNreVBhcmslMjBzaW5nYXBvcmV8ZW58MXwwfHx8MTc4MjE3Mjk1Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.singapore-tickets.com/marina-bay-sands-skypark/opening-hours-timings/",
       ticketPrices: {
         free: false,
@@ -4472,7 +4602,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-jibSDCwWDx0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1662385834577-0c6628d57eab?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTZW50b3NhJTIwSXNsYW5kJTIwc2luZ2Fwb3JlfGVufDF8MHx8fDE3ODIxNzI5NTR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.sentosa.com.sg",
     },
     {
@@ -4484,7 +4614,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-mPznPgtXkEY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1536163713675-42cf53cbd4f5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaGluYXRvd24lMjBGb29kJTIwU3RyZWV0JTIwc2luZ2Fwb3JlfGVufDF8MHx8fDE3ODIxNzI5NTZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://chinatownfoodstreet.sg/",
     },
     {
@@ -4508,7 +4638,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.3,
       estimatedMinutes: 30,
-      imageUrl: "https://images.unsplash.com/photo-v0BgDZTJyPY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1600664356348-10686526af4f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNZXJsaW9uJTIwUGFyayUyMHNpbmdhcG9yZXxlbnwxfDB8fHwxNzgyMTcyOTU4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://forevervacation.com/singapore/merlion-park",
       schedule: {
         mon: {
@@ -5039,7 +5169,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-DDBQWBv-nmk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1572109063095-345e21078bd0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdG9uZSUyMFRvd24lMjBvZiUyMFphbnppYmFyJTIwemFuemliYXJ8ZW58MXwwfHx8MTc4MjE3Mjk2MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://altezzatravel.com",
       schedule: {
         mon: "closed",
@@ -5064,7 +5194,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-DDBQWBv-nmk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1731329571540-a1d6dfc902b8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOdW5nd2klMjBCZWFjaCUyMHphbnppYmFyfGVufDF8MHx8fDE3ODIxNzI5NjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.originzanzibar.com/",
     },
     {
@@ -5076,7 +5206,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-VkFlWMz2HaE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1646668352973-989182f03091?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKb3phbmklMjBDaHdha2ElMjBCYXklMjBOYXRpb25hbCUyMFBhcmslMjB6YW56aWJhcnxlbnwxfDB8fHwxNzgyMTcyOTY2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "zanzibar_3",
@@ -5098,7 +5228,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-Bu-fUI69fRo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1603728450199-fa59664ff482?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmlzb24lMjBJc2xhbmQlMjAlMjhDaGFuZ3V1JTI5JTIwemFuemliYXJ8ZW58MXwwfHx8MTc4MjE3Mjk2OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   zurich: [
@@ -8185,7 +8315,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-XJAGZNTbgcw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1656634035092-337923ad04e4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaXN0b3JpYyUyMENlbnRyZSUyMG9mJTIwU2FpbnQlMjBQZXRlcnNidXJnJTIwc2FpbnRwZXRlcnNidXJnfGVufDF8MHx8fDE3ODIxNzI5NzF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saintpetersburg_1",
@@ -8196,7 +8326,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.9,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-XJAGZNTbgcw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1652209860088-81de34f20b9d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjBIZXJtaXRhZ2UlMjBNdXNldW0lMjBzYWludHBldGVyc2J1cmd8ZW58MXwwfHx8MTc4MjE3Mjk3M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saintpetersburg_2",
@@ -8207,7 +8337,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-pX43I7JF3kI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1656705716574-e04f298f4f8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYWludHBldGVyc2J1cmclMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3Mjk3N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saintpetersburg_3",
@@ -8218,7 +8348,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-vPFAPO_OCyI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1656705716574-e04f298f4f8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaHVyY2glMjBvZiUyMHRoZSUyMFNhdmlvciUyMG9uJTIwU3BpbGxlZCUyMEJsb29kJTIwc2FpbnRwZXRlcnNidXJnfGVufDF8MHx8fDE3ODIxNzI5ODB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saintpetersburg_4",
@@ -8241,7 +8371,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-N5laAm-SIIk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1656705716574-e04f298f4f8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOZXZza3klMjBQcm9zcGVrdCUyMHNhaW50cGV0ZXJzYnVyZ3xlbnwxfDB8fHwxNzgyMTcyOTgxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   salamanca: [
@@ -8972,6 +9102,125 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1676074841885-98294f273ddb?auto=format&fit=crop&w=800&q=80",
       website: "https://www.disneysprings.com/",
     },
+    {
+      id: "orlando_11",
+      active: true,
+      name: "Kennedy Space Center Visitor Complex",
+      category: 'poi', type: "Histórico",
+      icon: "🚀",
+      bg: "#E8F0FD",
+      rating: 4.7,
+      estimatedMinutes: 360,
+      website: "https://www.kennedyspacecenter.com/",
+      imageUrl: "https://images.unsplash.com/photo-1584564928625-483c5be78288?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLZW5uZWR5JTIwU3BhY2UlMjBDZW50ZXIlMjBWaXNpdG9yJTIwQ29tcGxleCUyMG9ybGFuZG98ZW58MXwwfHx8MTc4MjE3Mjk4M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_12",
+      active: true,
+      name: "Gatorland",
+      category: 'poi', type: "Parque",
+      icon: "🐊",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 180,
+      website: "https://www.gatorland.com/",
+      imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_13",
+      active: true,
+      name: "Discovery Cove",
+      category: 'poi', type: "Parque Temático",
+      icon: "🐬",
+      bg: "#E8F5FD",
+      rating: 4.9,
+      estimatedMinutes: 480,
+      website: "https://www.discoverycove.com/",
+      imageUrl: "https://images.unsplash.com/photo-1618586280321-c43292d1e5c4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEaXNjb3ZlcnklMjBDb3ZlJTIwb3JsYW5kb3xlbnwxfDB8fHwxNzgyMTcyOTkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_14",
+      active: true,
+      name: "Volcano Bay",
+      category: 'poi', type: "Parque Acuático",
+      icon: "🌊",
+      bg: "#E8F5FD",
+      rating: 4.6,
+      estimatedMinutes: 300,
+      website: "https://www.universalorlando.com/web/en/us/theme-parks/volcano-bay",
+      imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_15",
+      active: true,
+      name: "Aquatica Orlando",
+      category: 'poi', type: "Parque Acuático",
+      icon: "🌊",
+      bg: "#E8FDE8",
+      rating: 4.6,
+      estimatedMinutes: 240,
+      website: "https://aquatica.com/orlando/",
+      imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_16",
+      active: true,
+      name: "Lake Eola Park",
+      category: 'poi', type: "Parque",
+      icon: "🦢",
+      bg: "#E8FDE8",
+      rating: 4.7,
+      estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1738683010297-375809e327b3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYWtlJTIwRW9sYSUyMFBhcmslMjBvcmxhbmRvfGVufDF8MHx8fDE3ODIxNzI5OTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_17",
+      active: true,
+      name: "LEGOLAND Florida",
+      category: 'poi', type: "Parque Temático",
+      icon: "🧱",
+      bg: "#FDE8F5",
+      rating: 4.5,
+      estimatedMinutes: 360,
+      website: "https://www.legoland.com/florida/",
+      imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_18",
+      active: true,
+      name: "Mall at Millenia",
+      category: 'poi', type: "Centro Comercial",
+      icon: "🛍️",
+      bg: "#EEE8FD",
+      rating: 4.5,
+      estimatedMinutes: 150,
+      website: "https://www.mallatmillenia.com/",
+      imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_19",
+      active: true,
+      name: "Florida Mall",
+      category: 'poi', type: "Centro Comercial",
+      icon: "🛍️",
+      bg: "#EEE8FD",
+      rating: 4.4,
+      estimatedMinutes: 180,
+      website: "https://www.simon.com/mall/the-florida-mall",
+      imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "orlando_20",
+      active: true,
+      name: "Orlando International Premium Outlets",
+      category: 'poi', type: "Centro Comercial",
+      icon: "🏷️",
+      bg: "#EEE8FD",
+      rating: 4.4,
+      estimatedMinutes: 180,
+      website: "https://www.premiumoutlets.com/outlet/orlando-international",
+      imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
   ],
   tokyo: [
     {
@@ -9205,7 +9454,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo--pG0RZ36pXE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1589110211335-319c28fe49e4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWdlbGFuZCUyMFNjdWxwdHVyZSUyMFBhcmslMjBvc2xvfGVufDF8MHx8fDE3ODIxNzMwMTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oslo_1",
@@ -9228,7 +9477,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 75,
-      imageUrl: "https://images.unsplash.com/photo-Bu7lSo75DjM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1694015806885-a91e6f3655e5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBa2Vyc2h1cyUyMEZvcnRyZXNzJTIwb3Nsb3xlbnwxfDB8fHwxNzgyMTczMDE2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.storyhunt.io/",
       ticketPrices: {
         free: true,
@@ -9243,7 +9492,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-mWNFfUOnu2E?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1501595148982-aec20c15a8be?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvc2xvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzMwMjB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.khm.uio.no/vikingskipshuset/",
     },
     {
@@ -9255,7 +9504,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-kmhZI_wVsPY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1690531069524-30eadeddf45d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIb2xtZW5rb2xsZW4lMjBTa2klMjBKdW1wJTIwb3Nsb3xlbnwxfDB8fHwxNzgyMTczMDIzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oslo_5",
@@ -9266,7 +9515,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-rbRa_Gs_mb0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1614517409437-2e25e4f5dbed?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRpb25hbCUyME11c2V1bSUyMG9mJTIwTm9yd2F5JTIwb3Nsb3xlbnwxfDB8fHwxNzgyMTczMDI1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.nasjonalmuseet.no/en/visit/locations/the-national-museum/",
       schedule: {
         mon: {
@@ -9319,7 +9568,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-E9fn6HVUWe8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1589110211335-319c28fe49e4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLYXJsJTIwSm9oYW5zJTIwR2F0ZSUyMG9zbG98ZW58MXwwfHx8MTc4MjE3MzAyN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   santorini: [
@@ -9332,7 +9581,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-kZat9Gzg5Uk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1554487124-13a9507a78a0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxPaWElMjBWaWxsYWdlJTIwc2FudG9yaW5pfGVufDF8MHx8fDE3ODIxNzMwMjl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santorini_1",
@@ -9343,7 +9592,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-_vA2q0-NroU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1696519669474-3001c0e2b548?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGaXJhJTIwc2FudG9yaW5pfGVufDF8MHx8fDE3ODIxNzMwMzJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.thira.gr/",
       ticketPrices: {
         free: false,
@@ -9359,7 +9608,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-XGKaRnWjv1c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1631261472967-f004702519f1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBa3JvdGlyaSUyMEFyY2hhZW9sb2dpY2FsJTIwU2l0ZSUyMHNhbnRvcmluaXxlbnwxfDB8fHwxNzgyMTczMDM0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       ticketPrices: {
         free: false,
         notes: "20 EUR",
@@ -9374,7 +9623,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-lRTCWItjUuI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1572164025411-8a045959bfe7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSZWQlMjBCZWFjaCUyMHNhbnRvcmluaXxlbnwxfDB8fHwxNzgyMTczMDM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santorini_4",
@@ -9385,7 +9634,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-YfkWxL4lZj8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50b3JpbmklMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3MzA0MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santorini_5",
@@ -9407,7 +9656,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-PRsCAYW_7Bg?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1654118890957-136cbada631e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYWxkZXJhJTIwVm9sY2FuaWMlMjBDcnVpc2UlMjBzYW50b3Jpbml8ZW58MXwwfHx8MTc4MjE3MzA0M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   taipei: [
@@ -9420,7 +9669,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-KOpjUzAQ9aQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1712774041688-3445454fe96f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUYWlwZWklMjAxMDElMjB0YWlwZWl8ZW58MXwwfHx8MTc4MjE3MzA0NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.taipei-101.com.tw/",
       ticketUrl: "https://101ob.welcometw.com/tour/Lyrg",
       ticketPrices: {
@@ -9438,7 +9687,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-ZTcfIhTS31I?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1574166178704-735099174353?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRpb25hbCUyMFBhbGFjZSUyME11c2V1bSUyMHRhaXBlaXxlbnwxfDB8fHwxNzgyMTczMDUyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.npm.gov.tw/",
       schedule: {
         tue: {
@@ -9479,7 +9728,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-OF8U3MRdFMU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1513599905629-ea22e6b4cb3a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaGlsaW4lMjBOaWdodCUyME1hcmtldCUyMHRhaXBlaXxlbnwxfDB8fHwxNzgyMTc2NDgxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.shilin-night-market.com/",
       schedule: {
         mon: {
@@ -9524,7 +9773,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-mEWgivbvldM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1591957772129-a35d09896f1c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMb25nc2hhbiUyMFRlbXBsZSUyMHRhaXBlaXxlbnwxfDB8fHwxNzgyMTc2NDg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "taipei_4",
@@ -9535,7 +9784,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-T2MgAeEM50A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1616523816559-5fbeba9c0133?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaGlhbmclMjBLYWktc2hlayUyME1lbW9yaWFsJTIwSGFsbCUyMHRhaXBlaXxlbnwxfDB8fHwxNzgyMTc2NDg2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.cksmh.gov.tw/",
     },
     {
@@ -9547,7 +9796,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-OXozt4OJy8g?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1728835804487-db019450bb07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKaXVmZW4lMjBPbGQlMjBTdHJlZXQlMjB0YWlwZWl8ZW58MXwwfHx8MTc4MjE3NjQ4OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.trip.com/travel-guide/attraction/new-taipei-city/jiufen-old-street-96936/",
       ticketUrl: "https://www.trip.com/travel-guide/attraction/new-taipei-city/jiufen-old-street-96936/",
       ticketPrices: {
@@ -9565,7 +9814,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-deCvIgBnPwo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1623067375368-356c275fb83e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbGVwaGFudCUyME1vdW50YWluJTIwJTI4WGlhbmdzaGFuJTI5JTIwdGFpcGVpfGVufDF8MHx8fDE3ODIxNzY0OTF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "taipei_7",
@@ -9576,7 +9825,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-G2CA-9qLG-w?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1583889659384-64d9df2347ba?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSYW9oZSUyMFN0cmVldCUyME5pZ2h0JTIwTWFya2V0JTIwdGFpcGVpfGVufDF8MHx8fDE3ODIxNzY0OTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   varanasi: [
@@ -9589,7 +9838,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-i6mwttXNB8M?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1627938823193-fd13c1c867dd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHYW5nZXMlMjBHaGF0cyUyMHZhcmFuYXNpfGVufDF8MHx8fDE3ODIxNzY0OTZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.gangesgrand.in/",
     },
     {
@@ -9601,7 +9850,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.9,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-Rn_GBQ7d5HE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1599831069477-b2acdc0bcb91?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHYW5nYSUyMEFhcnRpJTIwQ2VyZW1vbnklMjB2YXJhbmFzaXxlbnwxfDB8fHwxNzgyMTc2NDk4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varanasi_2",
@@ -9612,7 +9861,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-dz42hvd61BE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1710521282645-3f06663adb5e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEYXNoYXNod2FtZWRoJTIwR2hhdCUyMHZhcmFuYXNpfGVufDF8MHx8fDE3ODIxNzY1MDB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varanasi_3",
@@ -9623,7 +9872,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-i6mwttXNB8M?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1706187002438-f9ca336ad405?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLYXNoaSUyMFZpc2h3YW5hdGglMjBUZW1wbGUlMjB2YXJhbmFzaXxlbnwxfDB8fHwxNzgyMTc2NTAyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.shrikashivishwanath.org/",
     },
     {
@@ -9635,7 +9884,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-i6mwttXNB8M?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1726266140617-8497aecc7de4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYXJuYXRoJTIwdmFyYW5hc2l8ZW58MXwwfHx8MTc4MjE3NjUwNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.kashitaxi.in",
       schedule: {
         mon: {
@@ -9681,7 +9930,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.4,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-i6mwttXNB8M?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1706186829065-ede677efe384?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSYW1uYWdhciUyMEZvcnQlMjB2YXJhbmFzaXxlbnwxfDB8fHwxNzgyMTc2NTA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varanasi_6",
@@ -9692,7 +9941,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDF5",
       rating: 4.9,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-OPWM488DfeQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1676503441333-9cbb4b168ffc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb2F0JTIwUmlkZSUyMG9uJTIwdGhlJTIwR2FuZ2VzJTIwYXQlMjBEYXduJTIwdmFyYW5hc2l8ZW58MXwwfHx8MTc4MjE3NjUxMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   chiangmai: [
@@ -9705,7 +9954,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-w6c4B7ttd_0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1599667066004-b9f1c9c2ba2a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEb2klMjBTdXRoZXAlMjBUZW1wbGUlMjBjaGlhbmdtYWl8ZW58MXwwfHx8MTc4MjE3NjUxM3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "chiangmai_1",
@@ -9716,7 +9965,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-w6c4B7ttd_0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1512553353614-82a7370096dc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjaGlhbmdtYWklMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3NjUxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://us.trip.com/travel-guide/attraction/shanghai/shanghai-city-god-temple-tourist-area-10524093/",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/shanghai/shanghai-city-god-temple-tourist-area-10524093/",
       ticketPrices: {
@@ -9734,7 +9983,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-i9QByv3MW-M?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1646850150750-daa2ee138999?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaGlhbmclMjBNYWklMjBOaWdodCUyMEJhemFhciUyMGNoaWFuZ21haXxlbnwxfDB8fHwxNzgyMTc2NTE5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.bestpricetravel.com/",
       schedule: {
         mon: {
@@ -9772,7 +10021,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-i9QByv3MW-M?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1646850150750-daa2ee138999?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdW5kYXklMjBXYWxraW5nJTIwU3RyZWV0JTIwY2hpYW5nbWFpfGVufDF8MHx8fDE3ODIxNzY1MjJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       schedule: {
         sun: {
           open: "17:00",
@@ -9789,7 +10038,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-KDMBSLcDfy8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1512553353614-82a7370096dc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjaGlhbmdtYWklMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3NjUxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.elephantnaturepark.org",
     },
     {
@@ -9801,7 +10050,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-olQa1IUPlPQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1512553353614-82a7370096dc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjaGlhbmdtYWklMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3NjUxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.artmaigalleryhotel.com/",
     },
     {
@@ -9813,7 +10062,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-KDMBSLcDfy8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1585803303174-fd5a9e64db37?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGFpJTIwQ29va2luZyUyMENsYXNzJTIwY2hpYW5nbWFpfGVufDF8MHx8fDE3ODIxNzY1MzB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://bangkokthaicookingacademy.com/",
       schedule: {
         mon: {
@@ -9857,7 +10106,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-TDZKKlsJwCk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1553383398-c40c57291c60?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQZXRyb25hcyUyMFR3aW4lMjBUb3dlcnMlMjBrdWFsYWx1bXB1cnxlbnwxfDB8fHwxNzgyMTc2NTMyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.kuala-lumpur-tickets.com/petronas-twin-towers/",
       ticketPrices: {
         free: false,
@@ -9874,7 +10123,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-iTmhaDyV28A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1573827184973-dbfc051106f3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrdWFsYWx1bXB1ciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTc2NTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.batucaves.org/",
       ticketPrices: {
         free: false,
@@ -9891,7 +10140,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-N2SKNqLcgr0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1596375114312-c81839ec97ef?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLTENDJTIwUGFyayUyMGt1YWxhbHVtcHVyfGVufDF8MHx8fDE3ODIxNzY1Mzl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://forevervacation.com/kuala-lumpur/klcc-park",
       schedule: {
         mon: {
@@ -9936,7 +10185,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-TDZKKlsJwCk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1573827184973-dbfc051106f3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrdWFsYWx1bXB1ciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTc2NTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://my.trip.com/travel-guide/attraction/kuala-lumpur/kl-bird-park-77131/?locale=en-MY",
       ticketUrl: "https://my.trip.com/travel-guide/attraction/kuala-lumpur/kl-bird-park-77131/?locale=en-MY",
       ticketPrices: {
@@ -9954,7 +10203,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.4,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-GetoTc-09Ek?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1573827184973-dbfc051106f3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrdWFsYWx1bXB1ciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTc2NTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://forevervacation.com/kuala-lumpur/chinatown",
       schedule: {
         mon: {
@@ -9999,7 +10248,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-HN-7XQCKHZ4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1573827184973-dbfc051106f3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrdWFsYWx1bXB1ciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTc2NTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://forevervacation.com/kuala-lumpur/bukit-bintang",
       schedule: {
         mon: {
@@ -10044,7 +10293,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-bhZQwGRrfC4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1519834089823-08a494ba5a12?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRpb25hbCUyME1vc3F1ZSUyMG9mJTIwTWFsYXlzaWElMjBrdWFsYWx1bXB1cnxlbnwxfDB8fHwxNzgyMTc2NTUxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://masjidnegara.gov.my/ms/",
       schedule: {
         mon: {
@@ -10089,7 +10338,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-ftYRQlAiU4U?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1573827184973-dbfc051106f3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrdWFsYWx1bXB1ciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTc2NTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   hcmc: [
@@ -10102,7 +10351,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-XoV3gbkFzzw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1705733071594-688212dc28df?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXYXIlMjBSZW1uYW50cyUyME11c2V1bSUyMGhjbWN8ZW58MXwwfHx8MTc4MjE3NjU1Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://baotangchungtichchientranh.vn/",
       schedule: {
         mon: {
@@ -10148,7 +10397,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.7,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-WM8CFeJwSgs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1692449404338-4a1e60ae0263?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoY21jJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzY1NjF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://vietnamadventuretour.com.vn/cu-chi-tunnels-entrance-fee/",
       ticketPrices: {
         free: false,
@@ -10165,7 +10414,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.4,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-GetoTc-09Ek?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1680783307371-749c26e0f5c3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCZW4lMjBUaGFuaCUyME1hcmtldCUyMGhjbWN8ZW58MXwwfHx8MTc4MjE3NjU2NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://benthanhmarket.vn/",
       schedule: {
         mon: {
@@ -10207,7 +10456,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-i5jy3hkuGzU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1592114714621-ccc6cacad26b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSZXVuaWZpY2F0aW9uJTIwUGFsYWNlJTIwaGNtY3xlbnwxfDB8fHwxNzgyMTc2NTY2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://tiemgiat1988.com",
       schedule: {
         mon: {
@@ -10253,7 +10502,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-KQZRXIg4tik?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1662142063383-c183214d2147?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOb3RyZS1EYW1lJTIwQ2F0aGVkcmFsJTIwQmFzaWxpY2ElMjBvZiUyMFNhaWdvbiUyMGhjbWN8ZW58MXwwfHx8MTc4MjE3NjU2OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hcmc_5",
@@ -10264,7 +10513,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.3,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-CIMx-ymiuiI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1605575647327-3b1165850b04?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCdWklMjBWaWVuJTIwV2Fsa2luZyUyMFN0cmVldCUyMGhjbWN8ZW58MXwwfHx8MTc4MjE3NjU3MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.yourvietnamtravel.com/",
       schedule: {
         mon: {
@@ -10306,7 +10555,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-oNt_siJxtbs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1768217605398-53e317b43fd2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKYWRlJTIwRW1wZXJvciUyMFBhZ29kYSUyMGhjbWN8ZW58MXwwfHx8MTc4MjE3NjU3NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   losangeles: [
@@ -10319,7 +10568,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-R4Ve2q9MzkA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1603801871710-ff93666b6888?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcmlmZml0aCUyME9ic2VydmF0b3J5JTIwbG9zYW5nZWxlc3xlbnwxfDB8fHwxNzgyMTc2NTc3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.griffithobservatory.org",
       ticketPrices: {
         free: false,
@@ -10336,7 +10585,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-bpzoRCRTxBg?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1581852549708-72910bd52cff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjBHZXR0eSUyMENlbnRlciUyMGxvc2FuZ2VsZXN8ZW58MXwwfHx8MTc4MjE3NjU3OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "losangeles_2",
@@ -10347,7 +10596,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-YqGMrVXdQUA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1505869598013-e93d676a97b5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWZW5pY2UlMjBCZWFjaCUyMGxvc2FuZ2VsZXN8ZW58MXwwfHx8MTc4MjE3NjU4MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "losangeles_3",
@@ -10358,7 +10607,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.3,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-IRkBvlyK8P4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1460881680858-30d872d5b530?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIb2xseXdvb2QlMjBXYWxrJTIwb2YlMjBGYW1lJTIwbG9zYW5nZWxlc3xlbnwxfDB8fHwxNzgyMTc2NTgzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://us.trip.com/travel-guide/attraction/los-angeles/hollywood-walk-of-fame-10559066/",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/los-angeles/hollywood-walk-of-fame-10559066/",
       ticketPrices: {
@@ -10376,7 +10625,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-EILw-nEK46k?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1584702792844-389588c67373?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxsb3NhbmdlbGVzJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzY1ODd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.santamonicapier.org/",
     },
     {
@@ -10388,7 +10637,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.6,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-CEBy0DxnBXU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1584702792844-389588c67373?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxsb3NhbmdlbGVzJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzY1ODd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.universalstudioshollywood.com",
       ticketPrices: {
         free: false,
@@ -10417,7 +10666,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.4,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-MnBHyqlf-lw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1584702792844-389588c67373?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxsb3NhbmdlbGVzJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzY1ODd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://rodeodrive-bh.com",
     },
   ],
@@ -10431,7 +10680,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-_myhtSKr1ag?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1672686484696-56a945e5b008?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaWxsZW5uaXVtJTIwUGFyayUyMCUyNiUyMENsb3VkJTIwR2F0ZSUyMGNoaWNhZ298ZW58MXwwfHx8MTc4MjE3NjU5NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://forevervacation.com/chicago/cloud-gate",
       schedule: {
         mon: {
@@ -10476,7 +10725,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.9,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-Op2itCZ6ztc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1648307650152-cba55874a79d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBcnQlMjBJbnN0aXR1dGUlMjBvZiUyMENoaWNhZ28lMjBjaGljYWdvfGVufDF8MHx8fDE3ODIxNzY1OTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.artic.edu",
     },
     {
@@ -10488,7 +10737,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.4,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-Iss_olAjKr8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1576468700719-4cb4f2c9de8e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXZ5JTIwUGllciUyMGNoaWNhZ298ZW58MXwwfHx8MTc4MjE3NjYwMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.navypier.com/",
     },
     {
@@ -10500,7 +10749,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-e5lAxpsrYo0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1724320660920-b0d0a62b5155?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaGljYWdvJTIwUml2ZXJ3YWxrJTIwY2hpY2Fnb3xlbnwxfDB8fHwxNzgyMTc2NjAyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://loopchicago.com/listings/chicago-riverwalk",
       schedule: {
         mon: {
@@ -10542,7 +10791,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.6,
       estimatedMinutes: 75,
-      imageUrl: "https://images.unsplash.com/photo-AIwlyvpQJ18?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1558111115-0064a392a6b7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXaWxsaXMlMjBUb3dlciUyMFNreWRlY2slMjBjaGljYWdvfGVufDF8MHx8fDE3ODIyMTg5ODl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://theskydeck.com/plan-a-visit/",
       ticketPrices: {
         free: true,
@@ -10560,7 +10809,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-Ns0rFLTjLU4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1693072447452-2bfd2b3e1870?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMaW5jb2xuJTIwUGFyayUyMFpvbyUyMGNoaWNhZ298ZW58MXwwfHx8MTc4MjIxODk5NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.lpzoo.org",
       schedule: {
         mon: {
@@ -10597,7 +10846,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-Cisl86aU2n4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1519407451944-22e820099775?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXcmlnbGV5JTIwRmllbGQlMjBjaGljYWdvfGVufDF8MHx8fDE3ODIyMTg5OTd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.mlb.com/cubs/ballpark",
     },
     {
@@ -10609,7 +10858,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-bSoWbqTU_L8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1724320660920-b0d0a62b5155?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjA2MDYlMjBUcmFpbCUyMGNoaWNhZ298ZW58MXwwfHx8MTc4MjIxODk5OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.bloomingdaletrail.org/",
     },
   ],
@@ -10623,7 +10872,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.9,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-Sp3eNPAHB8c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1610312278520-bcc893a3ff1d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHb2xkZW4lMjBHYXRlJTIwQnJpZGdlJTIwc2FuZnJhbmNpc2NvfGVufDF8MHx8fDE3ODIyMTkwMDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.goldengate.org/bridge/",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/san-francisco/golden-gate-bridge-79069/",
       ticketPrices: {
@@ -10641,7 +10890,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.7,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-UIzZmlgR_bU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1618670708374-1a05d6c4b0b0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbGNhdHJheiUyMElzbGFuZCUyMHNhbmZyYW5jaXNjb3xlbnwxfDB8fHwxNzgyMjE5MDA0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.nps.gov/alca/index.htm",
     },
     {
@@ -10653,7 +10902,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.4,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-BA9xYupJ9d4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1685987091335-6d4f78318ecc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGaXNoZXJtYW4lMjBzYW5mcmFuY2lzY298ZW58MXwwfHx8MTc4MjIxOTAwNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanfrancisco_3",
@@ -10664,7 +10913,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-Kk7CeJXqU0Q?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1655564476277-d6c02a4dd924?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaGluYXRvd24lMjBzYW5mcmFuY2lzY298ZW58MXwwfHx8MTc4MjIxOTAwOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.explorechinatown.com",
     },
     {
@@ -10676,7 +10925,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-QfcGv7D3N9g?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1669206333066-1c858fbc7903?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIYWlnaHQtQXNoYnVyeSUyMHNhbmZyYW5jaXNjb3xlbnwxfDB8fHwxNzgyMjE5MDEyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanfrancisco_5",
@@ -10687,7 +10936,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.3,
       estimatedMinutes: 30,
-      imageUrl: "https://images.unsplash.com/photo-EMH7Y-S4y3k?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1564067123813-a6c958eaedd9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMb21iYXJkJTIwU3RyZWV0JTIwc2FuZnJhbmNpc2NvfGVufDF8MHx8fDE3ODIyMTkwMTR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanfrancisco_6",
@@ -10698,7 +10947,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-LEi6wr_HzyA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1562697445-84178bc6ea06?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYWJsZSUyMENhcnMlMjBzYW5mcmFuY2lzY298ZW58MXwwfHx8MTc4MjIxOTAxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://mightyargo.com",
       schedule: {
         mon: {
@@ -10744,7 +10993,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-fNfrGeNQm64?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1611588233730-6e47888e5ee2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxkZSUyMFlvdW5nJTIwTXVzZXVtJTIwc2FuZnJhbmNpc2NvfGVufDF8MHx8fDE3ODIyMTkwMjB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   lasvegas: [
@@ -10768,7 +11017,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.8,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-aHMc5GQbaqo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1578774246588-206a52dd6e9c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCZWxsYWdpbyUyMEZvdW50YWlucyUyMGxhc3ZlZ2FzfGVufDF8MHx8fDE3ODIyMTkwMjJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.storyhunt.io/",
       ticketPrices: {
         free: true,
@@ -10783,7 +11032,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-aZQl6O07P4c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1544059555-b72443125c9a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaWdoJTIwUm9sbGVyJTIwT2JzZXJ2YXRpb24lMjBXaGVlbCUyMGxhc3ZlZ2FzfGVufDF8MHx8fDE3ODIyMTkwMjV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.lasvegas-ticket.com/high-roller-observation-wheel/timings-opening-hours/",
       ticketPrices: {
         free: false,
@@ -10800,7 +11049,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-mC9wZIPlfWc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1536942367753-3bdb71b7bb1c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGcmVtb250JTIwU3RyZWV0JTIwRXhwZXJpZW5jZSUyMGxhc3ZlZ2FzfGVufDF8MHx8fDE3ODIyMTkwMjh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lasvegas_4",
@@ -10811,7 +11060,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-buAIRzmND44?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1497668319663-af2fa49df87e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIb292ZXIlMjBEYW0lMjBsYXN2ZWdhc3xlbnwxfDB8fHwxNzgyMjE5MDMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lasvegas_5",
@@ -10822,7 +11071,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.8,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-av_VodvhBmw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1516653980844-c68df1de5249?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSZWQlMjBSb2NrJTIwQ2FueW9uJTIwbGFzdmVnYXN8ZW58MXwwfHx8MTc4MjIxOTAzM3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lasvegas_6",
@@ -10833,7 +11082,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 75,
-      imageUrl: "https://images.unsplash.com/photo-Xzy8C-4BM08?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1583207884889-d79abf0d0aa3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxsYXN2ZWdhcyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjE5MDM3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.neonmuseum.org",
     },
   ],
@@ -10847,7 +11096,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-lw4Zhg5KGsI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1569982615761-66697da68502?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDTiUyMFRvd2VyJTIwdG9yb250b3xlbnwxfDB8fHwxNzgyMjE5MDM5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.cntower.ca/",
     },
     {
@@ -10859,7 +11108,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-ssoiVmGdzg4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1603466182843-75f713ba06b3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSb3lhbCUyME9udGFyaW8lMjBNdXNldW0lMjB0b3JvbnRvfGVufDF8MHx8fDE3ODIyMTkwNDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.rom.on.ca",
     },
     {
@@ -10882,7 +11131,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-hvl48bMIP4k?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1488331531757-77fd056ebe43?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEaXN0aWxsZXJ5JTIwRGlzdHJpY3QlMjB0b3JvbnRvfGVufDF8MHx8fDE3ODIyMTkwNDR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "toronto_4",
@@ -10893,7 +11142,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-D-GGJM-w2AE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1641255122178-a5aa1f828ca7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLZW5zaW5ndG9uJTIwTWFya2V0JTIwdG9yb250b3xlbnwxfDB8fHwxNzgyMjE5MDQ5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.destinationontario.com/en-ca/attractions/kensington-market",
       ticketPrices: {
         free: true,
@@ -10908,7 +11157,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-w6OHCCZsuAU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1667918177396-69a2be9b2fde?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNhJTIwTG9tYSUyMHRvcm9udG98ZW58MXwwfHx8MTc4MjIxOTA1MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://casaloma.ca/",
       schedule: {
         mon: {
@@ -10953,7 +11202,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-LrSJHGi0MfQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1603466182843-75f713ba06b3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUb3JvbnRvJTIwSXNsYW5kcyUyMHRvcm9udG98ZW58MXwwfHx8MTc4MjIxOTA1NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "toronto_7",
@@ -10964,7 +11213,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-BXhN9g58-Q0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1488331531757-77fd056ebe43?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdC4lMjBMYXdyZW5jZSUyME1hcmtldCUyMHRvcm9udG98ZW58MXwwfHx8MTc4MjIxOTA1NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.stlawrencemarket.com/",
     },
   ],
@@ -10978,7 +11227,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-g2FU3XHyONI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1592334754956-6642f89a6c00?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdGFubGV5JTIwUGFyayUyMHZhbmNvdXZlcnxlbnwxfDB8fHwxNzgyMjE5MDU3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://vancouver.ca/parks-recreation-culture/stanley-park.aspx",
       schedule: {
         mon: {
@@ -11012,7 +11261,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-fcMDSktNL3s?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1699421073998-541468d86551?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcmFudmlsbGUlMjBJc2xhbmQlMjBQdWJsaWMlMjBNYXJrZXQlMjB2YW5jb3V2ZXJ8ZW58MXwwfHx8MTc4MjIxOTA1OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://granvilleisland.com/public-market",
     },
     {
@@ -11024,7 +11273,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-oetz65e6Otc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1498593408306-b2d5e9a7ca2c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXBpbGFubyUyMFN1c3BlbnNpb24lMjBCcmlkZ2UlMjB2YW5jb3V2ZXJ8ZW58MXwwfHx8MTc4MjIxOTA2Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.capbridge.com/",
       schedule: {
         wed: "closed",
@@ -11101,7 +11350,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-xlIYDQ7-cUM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1660143158587-bddffa026e06?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcm91c2UlMjBNb3VudGFpbiUyMHZhbmNvdXZlcnxlbnwxfDB8fHwxNzgyMjE5MDY1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.grousemountain.com/",
     },
     {
@@ -11113,7 +11362,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-E_S71dc6Nm4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1559511260-66a654ae982a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXaGlzdGxlciUyMHZhbmNvdXZlcnxlbnwxfDB8fHwxNzgyMjE5MDY4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://members.whistler.com/inside-scoop/?occurrence=2026-06-17",
       ticketUrl: "https://members.whistler.com/inside-scoop/",
       ticketPrices: {
@@ -11131,7 +11380,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-kC9lCqEHWy4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1470181942237-78ce33fec141?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxPbGQlMjBNb250cmVhbCUyMG1vbnRyZWFsfGVufDF8MHx8fDE3ODIyMTkwNzB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.vieux.montreal.qc.ca/",
     },
     {
@@ -11143,7 +11392,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-AIELjly3D5w?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1621313414874-ebdd09ebe4ce?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOb3RyZS1EYW1lJTIwQmFzaWxpY2ElMjBvZiUyME1vbnRyZWFsJTIwbW9udHJlYWx8ZW58MXwwfHx8MTc4MjIxOTA3Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.basiliquenotredame.ca/",
     },
     {
@@ -11155,7 +11404,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-eSqwXkTsV1A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1577872133778-fd7638801be0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb3VudCUyMFJveWFsJTIwUGFyayUyMG1vbnRyZWFsfGVufDF8MHx8fDE3ODIyMTkwNzV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://montreal.ca/lieux/parc-du-mont-royal",
     },
     {
@@ -11167,7 +11416,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-Uqd7VpA6peU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1679055441347-f8f61888952f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtb250cmVhbCUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjE5MDc5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.marchespublics-mtl.com/",
       schedule: {
         mon: {
@@ -11209,7 +11458,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.7,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-VAxCHgJvZ0g?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1622617889195-248962c5af0c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb250cmVhbCUyME11c2V1bSUyMG9mJTIwRmluZSUyMEFydHMlMjBtb250cmVhbHxlbnwxfDB8fHwxNzgyMjE5MDgxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.mbam.qc.ca/fr/",
     },
     {
@@ -11221,7 +11470,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-x_CEJ7kn4w4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1723921027368-c19d7f757fbd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF0ZWF1LU1vbnQtUm95YWwlMjBtb250cmVhbHxlbnwxfDB8fHwxNzgyMjE5MDg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://montreal.ca/en/places/maison-de-la-culture-du-plateau-mont-royal",
       schedule: {
         mon: "closed",
@@ -11260,7 +11509,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-TGtwfFFE0Yk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1578494277722-4ebd3d3ab9b7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCaW9kb21lJTIwZGUlMjBNb250cmVhbCUyMG1vbnRyZWFsfGVufDF8MHx8fDE3ODIyMTkwODZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://espacepourlavie.ca/biodome",
       schedule: {
         tue: {
@@ -11303,7 +11552,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-PMYCnEgvPK0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1635079645011-eab879c84f59?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxib2dvdGElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIxOTA5MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bogota_1",
@@ -11314,7 +11563,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-uj_NYFysHpA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1664851490956-b45905d6ffba?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYSUyMENhbmRlbGFyaWElMjBib2dvdGF8ZW58MXwwfHx8MTc4MjIxOTA5NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bogota_2",
@@ -11337,7 +11586,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-Iqa-WlbNjqs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1651782979877-c42a879a55d7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxVc2FxdSVDMyVBOW4lMjBib2dvdGF8ZW58MXwwfHx8MTc4MjIxOTA5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bogota_4",
@@ -11382,7 +11631,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-Lrfeth2WaOo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1709136242318-937b7ae73073?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYWlyb2JpJTIwTmF0aW9uYWwlMjBQYXJrJTIwbmFpcm9iaXxlbnwxfDB8fHwxNzgyMjE5MDk5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.kws.go.ke/nairobi-national-park",
       schedule: {
         mon: {
@@ -11424,7 +11673,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-UwrdquEfJd4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1535082053798-fb8ec63df5c7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHaXJhZmZlJTIwQ2VudHJlJTIwbmFpcm9iaXxlbnwxfDB8fHwxNzgyMjE5MTAxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.giraffecenter.org",
     },
     {
@@ -11436,7 +11685,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-LTh5pGyvKAM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1635595358293-03620e36be48?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxuYWlyb2JpJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMTkxMDR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://blixen.dk",
       ticketPrices: {
         free: false,
@@ -11451,7 +11700,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-IaJm3mq0F5o?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1664384640013-29d36b4bf4ec?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYWlyb2JpJTIwTmF0aW9uYWwlMjBNdXNldW0lMjBuYWlyb2JpfGVufDF8MHx8fDE3ODIyMTkxMDd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.museums.or.ke/nairobi-national-museum/",
     },
     {
@@ -11463,7 +11712,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.4,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-H1Z6DxyVYbE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1643913224222-17cc6adb2dfc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb21hcyUyMG9mJTIwS2VueWElMjBuYWlyb2JpfGVufDF8MHx8fDE3ODIyMTkxMDl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.bomasofkenya.co.ke",
     },
     {
@@ -11475,7 +11724,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-eAAjjjNaO18?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1608462420763-e680c1078ca9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEYXZpZCUyMFNoZWxkcmljayUyMFdpbGRsaWZlJTIwVHJ1c3QlMjBuYWlyb2JpfGVufDF8MHx8fDE3ODIyMTkxMTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.sheldrickwildlifetrust.org/",
     },
   ],
@@ -11489,7 +11738,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-hbNlzEtn-CI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxsYWdvcyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIwMzU3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.ncfnigeria.org/projects/lekki-conservation-centre",
     },
     {
@@ -11501,7 +11750,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-fGd8paHzN98?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1553279398-4f3c0c997421?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOaWtlJTIwQXJ0JTIwR2FsbGVyeSUyMGxhZ29zfGVufDF8MHx8fDE3ODIyMjAzNTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.nikeart.com/",
     },
     {
@@ -11513,7 +11762,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.3,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-cFT_Xq4XyA0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRpb25hbCUyME11c2V1bSUyMExhZ29zJTIwbGFnb3N8ZW58MXwwfHx8MTc4MjIyMDM2MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lagos_3",
@@ -11524,7 +11773,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.5,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-bZC_VAVhoQE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1738369349907-be6290e624c7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUYXJrd2ElMjBCYXklMjBCZWFjaCUyMGxhZ29zfGVufDF8MHx8fDE3ODIyMjAzNjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lagos_4",
@@ -11549,7 +11798,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-fA7Xd3dwkaQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1589138114643-c082321a7186?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTb3V0aCUyMEJhbmslMjBQYXJrbGFuZHMlMjBicmlzYmFuZXxlbnwxfDB8fHwxNzgyMjIwMzY1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.visitbrisbane.com.au/south-bank/destinations?sc_lang=en-au",
     },
     {
@@ -11572,7 +11821,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-Xv8Hq1T66UY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1659563159297-6f724e125026?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdG9yeSUyMEJyaWRnZSUyMGJyaXNiYW5lfGVufDF8MHx8fDE3ODIyMjAzNjd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brisbane_3",
@@ -11583,7 +11832,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-RI2B9wdlxLA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1566734904496-9309bb1798ae?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmlzYmFuZSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIwMzcyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.koala.net",
     },
     {
@@ -11595,7 +11844,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-nZqrNLOpSkc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1694082404640-3e2b8f7cef4b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSb21hJTIwU3RyZWV0JTIwUGFya2xhbmQlMjBicmlzYmFuZXxlbnwxfDB8fHwxNzgyMjIwMzc0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brisbane_5",
@@ -11606,7 +11855,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-o5TTYcAlbHc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1691028355763-0c4144bf441b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHb2xkJTIwQ29hc3QlMjAlMjYlMjBTdXJmZXJzJTIwUGFyYWRpc2UlMjBicmlzYmFuZXxlbnwxfDB8fHwxNzgyMjIwMzc3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://us.trip.com/travel-guide/attraction/surfers-paradise/surfers-paradise-beach-79215/",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/surfers-paradise/surfers-paradise-beach-79215/",
       ticketPrices: {
@@ -11626,7 +11875,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.6,
       estimatedMinutes: 75,
-      imageUrl: "https://images.unsplash.com/photo-JUFwQIqIxcQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1595125990323-885cec5217ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTa3klMjBUb3dlciUyMGF1Y2tsYW5kfGVufDF8MHx8fDE3ODIyMjAzODB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://skycityauckland.co.nz/sky-tower/",
       schedule: {
         mon: {
@@ -11676,7 +11925,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-MRH3c77m_2c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1720009223236-41cc884f6082?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBdWNrbGFuZCUyMFdhciUyME1lbW9yaWFsJTIwTXVzZXVtJTIwYXVja2xhbmR8ZW58MXwwfHx8MTc4MjIyMDM4M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.aucklandmuseum.com/",
       schedule: {
         tue: {
@@ -11697,7 +11946,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-hIKVSVKH7No?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1595125990263-bedff96361a6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSYW5naXRvdG8lMjBJc2xhbmQlMjBhdWNrbGFuZHxlbnwxfDB8fHwxNzgyMjIwMzg1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "auckland_3",
@@ -11708,7 +11957,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.8,
       estimatedMinutes: 300,
-      imageUrl: "https://images.unsplash.com/photo-JC2k5kIJNns?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1710563447214-a856ea672171?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXYWloZWtlJTIwSXNsYW5kJTIwYXVja2xhbmR8ZW58MXwwfHx8MTc4MjIyMDM5MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "auckland_4",
@@ -11719,7 +11968,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-cfkMUPaKvLY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1584874828636-dcb9a20a300a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWFkdWN0JTIwSGFyYm91ciUyMGF1Y2tsYW5kfGVufDF8MHx8fDE3ODIyMjAzOTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.viaduct.co.nz/",
     },
     {
@@ -11731,7 +11980,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-z-7pAxyI9Og?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1632116549814-cc144aa31e1d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxPbmUlMjBUcmVlJTIwSGlsbCUyMCUyOE1hdW5nYWtpZWtpZSUyOSUyMGF1Y2tsYW5kfGVufDF8MHx8fDE3ODIyMjAzOTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   queenstown: [
@@ -11744,7 +11993,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-hIKVSVKH7No?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1600476018895-b66342d8592d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTa3lsaW5lJTIwR29uZG9sYSUyMCUyNiUyMEx1Z2UlMjBxdWVlbnN0b3dufGVufDF8MHx8fDE3ODIyMjAzOTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://helloqueenstown.nz/play/adventure/skyline-gondola-6-luge/",
       ticketUrl: "https://helloqueenstown.nz/play/adventure/skyline-gondola-6-luge/",
       ticketPrices: {
@@ -11762,7 +12011,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-fGpQnMxXlWY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1705927161510-0e84f8e1901e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYWtlJTIwV2FrYXRpcHUlMjBxdWVlbnN0b3dufGVufDF8MHx8fDE3ODIyMjA0MDB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://au.trip.com/travel-guide/attraction/walter-peak/lake-wakatipu-80890/",
       ticketUrl: "https://au.trip.com/travel-guide/attraction/walter-peak/lake-wakatipu-80890/",
       ticketPrices: {
@@ -11780,7 +12029,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-ZQsbJOWZ-R8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1512017615494-fdf6146235ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxxdWVlbnN0b3duJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0MDV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.trip.com/travel-guide/attraction/milford-sound/milford-sound-piopiotahi-94501/",
       ticketUrl: "https://www.trip.com/travel-guide/attraction/milford-sound/milford-sound-piopiotahi-94501/",
       ticketPrices: {
@@ -11809,7 +12058,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-kV-fAhqunbk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1529790882656-2c10ec666481?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUU1MlMjBFYXJuc2xhdyUyMFN0ZWFtc2hpcCUyMHF1ZWVuc3Rvd258ZW58MXwwfHx8MTc4MjIyMDQwOHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.queenstown-tickets.com/tss-earnslaw-cruises/timetable-schedule/",
       ticketPrices: {
         free: false,
@@ -11826,7 +12075,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-nClQtKEKyyM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1591639881238-db6d7f9ffe0e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHbGVub3JjaHklMjAlMjYlMjBQYXJhZGlzZSUyMHF1ZWVuc3Rvd258ZW58MXwwfHx8MTc4MjIyMDQxMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.trip.com/travel-guide/attraction/glenorchy/glenorchy-10522328/",
       ticketUrl: "https://www.trip.com/travel-guide/attraction/glenorchy/glenorchy-10522328/",
       ticketPrices: {
@@ -11846,7 +12095,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-xh6msjfRjmQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1587139223877-04cb899fa3e8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcmVhdCUyMEJhcnJpZXIlMjBSZWVmJTIwY2Fpcm5zfGVufDF8MHx8fDE3ODIyMjA0MTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://us.trip.com/travel-guide/attraction/cairns/great-barrier-reef-81297/",
       ticketUrl: "https://us.trip.com/travel-guide/attraction/cairns/great-barrier-reef-81297/",
       ticketPrices: {
@@ -11875,7 +12124,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-vlnSlZQRHDA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1659354985247-78fb5893c3d4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXBlJTIwVHJpYnVsYXRpb24lMjBjYWlybnN8ZW58MXwwfHx8MTc4MjIyMDQxNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cairns_3",
@@ -11886,7 +12135,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 240,
-      imageUrl: "https://images.unsplash.com/photo-h76yDIAoZoQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1745676540962-ed5b0f2514c2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLdXJhbmRhJTIwUmFpbmZvcmVzdCUyMFZpbGxhZ2UlMjBjYWlybnN8ZW58MXwwfHx8MTc4MjIyMDQxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.rainforest.com.au/",
       schedule: {
         mon: {
@@ -11928,7 +12177,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-fA7Xd3dwkaQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1508891957101-d10a38618180?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYWlybnMlMjBFc3BsYW5hZGUlMjBjYWlybnN8ZW58MXwwfHx8MTc4MjIyMDQyMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.ihg.com/holidayinn/hotels/us/en/cairns/cnshb/hoteldetail",
     },
     {
@@ -11940,7 +12189,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.5,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-jRF4UDDuzJc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1771085613088-dd436e17d75e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjYWlybnMlMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIyMDQyNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   alicesprings: [
@@ -11986,7 +12235,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-afu6-Vvun7w?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1532295039064-229629db1073?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbGljZSUyMFNwcmluZ3MlMjBEZXNlcnQlMjBQYXJrJTIwYWxpY2VzcHJpbmdzfGVufDF8MHx8fDE3ODIyMjA0MzB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "alicesprings_4",
@@ -12023,7 +12272,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://museosregionvalparaiso.cl/museos/museo-organologic",
-      imageUrl: "https://images.unsplash.com/rjFJecVOnBA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "valparaiso_2",
@@ -12179,7 +12428,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/H6KJ2D0LphU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "valparaiso_16",
@@ -12324,7 +12573,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://ssr.cl/home/museo/",
-      imageUrl: "https://images.unsplash.com/h3DugKnsSr0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "valparaiso_29",
@@ -12336,7 +12585,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.mugupla.cl/",
-      imageUrl: "https://images.unsplash.com/c9FzXrPWc0c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   vinadelmar: [
@@ -12427,7 +12676,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/7TYvsRe0G2A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1782177387300-b50be2ab7c89?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF6YSUyMERvY3RvciUyMEFuJUMzJUFEYmFsJTIwU2NhcmVsbGElMjB2aW5hZGVsbWFyfGVufDF8MHx8fDE3ODIyMjA0NTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "vinadelmar_8",
@@ -12546,7 +12795,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/7TYvsRe0G2A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1728571812263-770017729f48?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMGRlJTIwbG9zJTIwQXJ0aXN0YXMlMjB2aW5hZGVsbWFyfGVufDF8MHx8fDE3ODIyMjA0NTd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "vinadelmar_19",
@@ -12879,7 +13128,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.muhncal.cl/",
-      imageUrl: "https://images.unsplash.com/XpAFtjJEMeU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1510940402025-b2c518ff4085?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwSGlzdG9yaWElMjBOYXR1cmFsJTIweSUyMEN1bHR1cmFsJTIwZGVsJTIwRGVzaWVydG8lMjBkZSUyMEF0YWNhbWElMjBzYW5wZWRyb2F0YWNhbWF8ZW58MXwwfHx8MTc4MjIyMDQ2OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedroatacama_29",
@@ -12890,7 +13139,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/QxjsOlFNr_4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1659620703481-058f646e9181?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFc3BhY2lvJTIwQ3VsdHVyYWwlMjBGdW5kYWNpJUMzJUIzbiUyME1pbmVyYSUyMEVzY29uZGlkYSUyMHNhbnBlZHJvYXRhY2FtYXxlbnwxfDB8fHwxNzgyMjIwNDcxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   laserena: [
@@ -13093,7 +13342,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/612hZnDoDE4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1679015632691-f9e3ed595155?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaXRpbyUyMFBhbGVvaW5kaW8lMjBkZSUyMEFzZW50YW1pZW50byUyMHklMjBOZWNyJUMzJUIzcG9saXMlMjBFbCUyME9saXZhciUyMGxhc2VyZW5hfGVufDF8MHx8fDE3ODIyMjMzNjl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_18",
@@ -13137,7 +13386,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/A6byWGlCX4g?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1615378809683-6737a9e362f2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMExvcyUyMExvcm9zJTIwbGFzZXJlbmF8ZW58MXwwfHx8MTc4MjIyMzM3NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_22",
@@ -13148,7 +13397,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/h6Z3-ptUZaY?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1690967707362-96563aedb181?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMFBhJUMzJUIxdWVsbyUyMGxhc2VyZW5hfGVufDF8MHx8fDE3ODIyMjMzNzh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_23",
@@ -13180,7 +13429,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/H08DxLlP-uE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1604649419242-51926211e3fb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBkZSUyMERpdmVyc2lvbmVzJTIwU2VyZW5hJTIwQXZlbnR1cmElMjBsYXNlcmVuYXxlbnwxfDB8fHwxNzgyMjIzMzgwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laserena_26",
@@ -13270,7 +13519,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/0Z3VbNWJj7U?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_6",
@@ -13282,7 +13531,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.museoovni.cl",
-      imageUrl: "https://images.unsplash.com/1NnY2ladObs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_7",
@@ -13293,7 +13542,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/qds0EvUkXWw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1729711667600-b3f1e2839ab4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlby1BY3VhcmlvJTIwRkNNJTIwVS4lMjBDYXQlQzMlQjNsaWNhJTIwZGVsJTIwTm9ydGUlMjBjb3F1aW1ib3xlbnwxfDB8fHwxNzgyMjIzMzkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_8",
@@ -13304,7 +13553,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/qds0EvUkXWw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1729711667600-b3f1e2839ab4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMENhcmRlbmFsJTIwSm9yZ2UlMjBNZWRpbmElMjBFc3QlQzMlQTl2ZXolMjBjb3F1aW1ib3xlbnwxfDB8fHwxNzgyMjIzMzkzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_9",
@@ -13315,7 +13564,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/1NnY2ladObs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_10",
@@ -13326,7 +13575,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/eXL2DYVmq-0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_11",
@@ -13337,7 +13586,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/0Z3VbNWJj7U?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1729711666848-0ae04363d9b8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBY2Nlc28lMjBGdWVydGUlMjBMYW1iZXJ0JTIwY29xdWltYm98ZW58MXwwfHx8MTc4MjIyMzQwMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_12",
@@ -13348,7 +13597,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/1rhZicc4iQc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1729707015026-828db5c922ce?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNvbmElMjBBYmFuZG9uYWRhJTIwY29xdWltYm98ZW58MXwwfHx8MTc4MjIyMzQwM3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "coquimbo_13",
@@ -13369,7 +13618,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/CO6QrNnfZLE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1723897275347-624e147ba431?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXNlbyUyMEJhcmNvJTIwUGlyYXRhJTIwY29xdWltYm98ZW58MXwwfHx8MTc4MjIyMzQwNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   pucon: [
@@ -13382,7 +13631,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/651ztWEVOdw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_1",
@@ -13458,7 +13707,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_8",
@@ -13470,7 +13719,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://civur39.ufro.cl/",
-      imageUrl: "https://images.unsplash.com/612hZnDoDE4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_9",
@@ -13481,7 +13730,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/kH6sSVkHk9Y?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1766421687413-e350f7541524?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEludGVyYWN0aXZvJTIwUmVnaW9uYWwlMjBkZSUyMEFncm9lY29sb2clQzMlQURhJTIweSUyMFN1c3RlbnRhYmlsaWRhZCUyMHB1Y29ufGVufDF8MHx8fDE3ODIyMjM0MTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_10",
@@ -13492,7 +13741,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/AeA6G37V1Bw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1722239311715-90b2b89cfcbc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGZXJpYSUyMEFydGVzYW5hbCUyMFB1YyVDMyVCM24lMjBwdWNvbnxlbnwxfDB8fHwxNzgyMjIzNDIyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_11",
@@ -13504,7 +13753,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.rancho-carhuello.net/",
-      imageUrl: "https://images.unsplash.com/M6c_Kv5oBuo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_12",
@@ -13516,7 +13765,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://aborigenturismo.cl/",
-      imageUrl: "https://images.unsplash.com/CXGgjHlt1jA?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "pucon_13",
@@ -13581,7 +13830,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/l6TfWDIsH4A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1697816231182-5a1619dfebcf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEhpc3QlQzMlQjNyaWNvJTIwZGUlMjBQdWVydG8lMjBNb250dCUyMEp1YW4lMjBQYWJsbyUyMElJJTIwcHVlcnRvdmFyYXN8ZW58MXwwfHx8MTc4MjIyMzQzMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_3",
@@ -13712,7 +13961,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/GJIapjUdAgk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1565066019713-2886b345a96c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxab25hJTIwVCVDMyVBRHBpY2ElMjBkZSUyMFB1ZXJ0byUyME9jdGF5JTIwcHVlcnRvdmFyYXN8ZW58MXwwfHx8MTc4MjIyMzQzN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_15",
@@ -13745,7 +13994,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/GJYmeRcrK5Y?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1601325382888-155b67b7b82f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCaXNpZXN0byUyMENhc2ElMjBkZSUyMEFydGUlMjB5JTIwQ2FmJUMzJUE5JTIwcHVlcnRvdmFyYXN8ZW58MXwwfHx8MTc4MjIyMzQ0M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_18",
@@ -13797,7 +14046,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/Q9jYJIupdkQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1719141072378-ffbf93c99eb2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYSUyMElzbGElMjBNYWdpY2ElMjBkZWwlMjBTdXIlMjBwdWVydG92YXJhc3xlbnwxfDB8fHwxNzgyMjIzNDQ1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_23",
@@ -13808,7 +14057,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/GJYmeRcrK5Y?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1594493013710-3f8fcd6ea6ed?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ2xlc2lhJTIwUiVDMyVBRG8lMjBQZXNjYWRvJTIwcHVlcnRvdmFyYXN8ZW58MXwwfHx8MTc4MjIyMzQ0OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertovaras_24",
@@ -14010,7 +14259,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1659618801526-b3613e245a2c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb3JybyUyMENoaWNvJTIwcHVlcnRvbmF0YWxlc3xlbnwxfDB8fHwxNzgyMjIzNDY2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_17",
@@ -14022,7 +14271,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://estancialagunablanca.com/",
-      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1615384386728-a82cd8ddca0b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYWxhJTIwZGUlMjBFeHBvc2ljaSVDMyVCM24lMjBNdXNlb2dyJUMzJUExZmljYSUyMEVzdGFuY2lhJTIwTGFndW5hJTIwQmxhbmNhJTIwcHVlcnRvbmF0YWxlc3xlbnwxfDB8fHwxNzgyMjIzNDY5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertonatales_18",
@@ -14288,7 +14537,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/365CsUAu4c0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1690833047423-a11822e8735f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtdXNlbyUyMHRlbWF0aWNvJTIwTmFvJTIwVmljdG9yaWElMjBwdW50YWFyZW5hc3xlbnwxfDB8fHwxNzgyMjIzNDkzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puntaarenas_20",
@@ -14432,7 +14681,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/ZgRBaYdvZpw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1583813365826-eb578f8bd5a3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYW5nYXJvYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI2OTMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_9",
@@ -14443,7 +14692,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/651ztWEVOdw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1583813365826-eb578f8bd5a3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYW5nYXJvYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI2OTMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_10",
@@ -14464,7 +14713,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/T5ETfrYBz3Q?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1717506623681-38140efc55e9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQZXRyb2dseXBoJTIwUmFubyUyMEthdSUyMGhhbmdhcm9hfGVufDF8MHx8fDE3ODIyMjY5Mzh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_12",
@@ -14485,7 +14734,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/ZgRBaYdvZpw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1610413322878-ee8c50e10a82?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbmElMjBLYWtlJUM1JThCYSUyMGhhbmdhcm9hfGVufDF8MHx8fDE3ODIyMjY5NDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_14",
@@ -14496,7 +14745,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/akXi4v25wFw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1665904457714-df18e8c142a1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb2FpJTIwaGFuZ2Fyb2F8ZW58MXwwfHx8MTc4MjIyNjk0M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_15",
@@ -14507,7 +14756,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/iv-sCFPVs5A?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1583813365826-eb578f8bd5a3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYW5nYXJvYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI2OTMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "hangaroa_16",
@@ -14562,7 +14811,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://www.museu.cbmerj.rj.gov.br/",
-      imageUrl: "https://images.unsplash.com/3q0YQQJMkjw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxyaW8lMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIyNjk1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_2",
@@ -14573,7 +14822,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/qUqIshTm0H0?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxyaW8lMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIyNjk1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_3",
@@ -14900,7 +15149,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       website: "https://cristoredentor.com.br/",
-      imageUrl: "https://images.unsplash.com/CErddu-JwKw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1518639192441-8fce0a366e2e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDcmlzdG8lMjBSZWRlbnRvciUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTU1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_31",
@@ -14912,7 +15161,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       website: "https://bondinho.com.br/",
-      imageUrl: "https://images.unsplash.com/76L0Hup2Zyo?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1651776526733-6e0f98ad6e55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQJUMzJUEzbyUyMGRlJTIwQSVDMyVBNyVDMyVCQWNhciUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTYxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_32",
@@ -14924,7 +15173,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       website: "https://www.jbrj.gov.br/",
-      imageUrl: "https://images.unsplash.com/OkiDIla7K8Q?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKYXJkaW0lMjBCb3QlQzMlQTJuaWNvJTIwZG8lMjBSaW8lMjBkZSUyMEphbmVpcm8lMjByaW98ZW58MXwwfHx8MTc4MjIyNjk2NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_33",
@@ -14935,7 +15184,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/mXpuTdf56FM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1637876308735-74230b34461a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmFpYSUyMGRlJTIwQ29wYWNhYmFuYSUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTY2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_34",
@@ -14946,7 +15195,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/ue2yR0Mj2b4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1597928384490-3c67d7d17558?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmFpYSUyMGRlJTIwSXBhbmVtYSUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTY4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_35",
@@ -14958,7 +15207,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 240,
       website: "https://parquenacionaldatijuca.rio/",
-      imageUrl: "https://images.unsplash.com/OkiDIla7K8Q?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1568391224315-9e9e5d6c60f2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMGRhJTIwVGlqdWNhJTIwcmlvfGVufDF8MHx8fDE3ODIyMjY5NzF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_36",
@@ -14969,7 +15218,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/OkiDIla7K8Q?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1626568939799-7bfecb41b61c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBcmNvcyUyMGRhJTIwTGFwYSUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTc0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "rio_37",
@@ -15387,7 +15636,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       website: "https://pinacoteca.org.br/",
-      imageUrl: "https://images.unsplash.com/TvCRYXwKhfQ?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1554168848-228452c09d60?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQaW5hY290ZWNhJTIwZG8lMjBFc3RhZG8lMjBkZSUyMFMlQzMlQTNvJTIwUGF1bG8lMjBzYW9wYXVsb3xlbnwxfDB8fHwxNzgyMjI2OTg2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "saopaulo_32",
@@ -15608,7 +15857,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/Gisi_G8CXWI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1720610783369-8563e74b967c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYWx2YWRvciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI2OTkzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "salvador_18",
@@ -15801,7 +16050,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1625426078245-6911839409dd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNldSUyMEhpc3QlQzMlQjNyaWNvJTIwZGElMjBPQUIlMjBicmFzaWxpYXxlbnwxfDB8fHwxNzgyMjI2OTk2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_5",
@@ -15860,7 +16109,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://portal.comunhaoespirita.org.br",
-      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1641404073707-5dd3e01e1b8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmFzaWxpYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI3MDAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_10",
@@ -15969,7 +16218,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1641404073707-5dd3e01e1b8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmFzaWxpYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI3MDAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_20",
@@ -16049,7 +16298,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/qL4tAM6uLvc?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1641404073707-5dd3e01e1b8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmFzaWxpYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI3MDAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_27",
@@ -16071,7 +16320,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/5S8eh79e6L8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1625426078245-6911839409dd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGb250ZSUyMGRhJTIwVG9ycmUlMjBkZSUyMFRWJTIwYnJhc2lsaWF8ZW58MXwwfHx8MTc4MjIyNzAwOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "brasilia_29",
@@ -16280,7 +16529,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/mH3M22nkzZ4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1667316513434-3ffa25dbf437?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBGb3J0ZSUyMGRvJTIwQXJyYWlhbCUyME5vdm8lMjBkbyUyMEJvbSUyMEplc3VzJTIwcmVjaWZlfGVufDF8MHx8fDE3ODIyMjcwMTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "recife_17",
@@ -16324,7 +16573,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/oz8UPlT-XYs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1739370648149-d27c15c966f7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNZXJjYWRvJTIwZGElMjBCb2ElMjBWaXN0YSUyMHJlY2lmZXxlbnwxfDB8fHwxNzgyMjI3MDEzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "recife_21",
@@ -16368,7 +16617,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/PS8WeUyUfm8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1739370648342-34eac3f8f674?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ3JlamElMjBTJUMzJUEzbyUyMFNlYmFzdGklQzMlQTNvJTIwcmVjaWZlfGVufDF8MHx8fDE3ODIyMjcwMTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "recife_25",
@@ -16584,7 +16833,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/VYFhyu13vho?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1629729489415-5514d817e07a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaW5hJTIwZG8lMjBCaWpvY2ElMjBvdXJvcHJldG98ZW58MXwwfHx8MTc4MjIyNzAyNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_18",
@@ -16595,7 +16844,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/1PO5sF80-YI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1606225791862-6b106554ccaa?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBNdW5pY2lwYWwlMjBkbyUyME1vcnJvJTIwZGElMjBRdWVpbWFkYSUyMG91cm9wcmV0b3xlbnwxfDB8fHwxNzgyMjI3MDI3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ouropreto_19",
@@ -16641,7 +16890,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.turismoitaipu.com.br/pt/atracoes/ecomuseu",
-      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1762962052057-f0a52be60652?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFY29tdXNldSUyMGRlJTIwSXRhaXB1JTIwZm96aWd1YWN1fGVufDF8MHx8fDE3ODIyMjcwMzZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_1",
@@ -16652,7 +16901,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1746966752975-9990370030d6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEltJUMzJUExZ2VuZXMlMjBkZSUyMGxhJTIwc2VsdmElMjBmb3ppZ3VhY3V8ZW58MXwwfHx8MTc4MjIyNzAzOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_2",
@@ -16687,7 +16936,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/JesYw3Z-vHk?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1697139221462-99c7b40e3252?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcmFtYWQlQzMlQTNvJTIwZGElMjBWaWxhJTIwQSUyMGZvemlndWFjdXxlbnwxfDB8fHwxNzgyMjI3MDQyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_5",
@@ -16699,7 +16948,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://dreamland.com.br/c/foz-do-iguacu",
-      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1642523700208-f36d6ccf2e26?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEcmVhbWxhbmQlMjBmb3ppZ3VhY3V8ZW58MXwwfHx8MTc4MjIyNzA0NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_6",
@@ -16732,7 +16981,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/uJiSFH8sFtw?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1605651200211-71b7aacc29a9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYWx0byUyME1ib2NheSUyMGZvemlndWFjdXxlbnwxfDB8fHwxNzgyMjI3MDQ3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_9",
@@ -16743,7 +16992,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/ceiPc5lQYtE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1719297202885-9ae6ce5548d6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNhJTIwTXVzZW8lMjBFbCUyMCVDMyU4MW5nZWwlMjBkZSUyMGxhJTIwU2VsdmElMjBmb3ppZ3VhY3V8ZW58MXwwfHx8MTc4MjIyNzA1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_10",
@@ -16754,7 +17003,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/4-upWM3Dfrg?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxmb3ppZ3VhY3UlMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIyNzA1NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "foziguacu_11",
@@ -17256,7 +17505,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/j84HY1ZeNtE?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1624958650862-c5c951a66324?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdSVDMyVBRG5hcyUyMGRlJTIwUGFyaWNhdHViYSUyMG1hbmF1c3xlbnwxfDB8fHwxNzgyMjMwNDgxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "manaus_11",
@@ -17277,7 +17526,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/bWyh1FC7JrI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1585926494452-3bbf4064af50?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUcm9waWNhbCUyME1hbmF1cyUyMFpvbyUyMG1hbmF1c3xlbnwxfDB8fHwxNzgyMjMwNDgzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "manaus_13",
@@ -17402,7 +17651,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/8Ao1m1nNUxU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1589407270723-2d001c77f88c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmElQzMlQTdhJTIwSm8lQzMlQTNvJTIwR2VudGlsJTIwZm9ydGFsZXphfGVufDF8MHx8fDE3ODIyMzA0ODZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_7",
@@ -17457,7 +17706,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/8Ao1m1nNUxU?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1643286689796-229ebbc22e8e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmElQzMlQTdhJTIwVmFsZGlyJTIwQ2FtcG9zJTIwZGUlMjBWYXNjb25jZWxvcyUyMCUyOFBvbGFyJTI5JTIwZm9ydGFsZXphfGVufDF8MHx8fDE3ODIyMzA0ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_12",
@@ -17514,7 +17763,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.institutodoceara.org.br/",
-      imageUrl: "https://images.unsplash.com/f3ArGBmAW7c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1693954387508-81cb3e135b3d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJbnN0aXR1dG8lMjBkbyUyMENlYXIlQzMlQTElMjBmb3J0YWxlemF8ZW58MXwwfHx8MTc4MjIzMDQ5Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_17",
@@ -17526,7 +17775,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://museudafotografia.com.br",
-      imageUrl: "https://images.unsplash.com/-PsJp0tzqcs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1777734794841-915df822ef26?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxmb3J0YWxlemElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIzMDQ5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_18",
@@ -17538,7 +17787,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.institutomirante.org/museu-ferroviario/",
-      imageUrl: "https://images.unsplash.com/f3ArGBmAW7c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1589407270723-2d001c77f88c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNldSUyMEZlcnJvdmklQzMlQTFyaW8lMjBFc3RhJUMzJUE3JUMzJUEzbyUyMEpvJUMzJUEzbyUyMEZlbGlwZSUyMGZvcnRhbGV6YXxlbnwxfDB8fHwxNzgyMjMwNDk5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_19",
@@ -17549,7 +17798,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/KZVNwb7tqNs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1585610587871-4db706086148?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmltZWlybyUyMEVuZ2VuaG8lMjAlQzMlQTAlMjBWYXBvciUyMGRvJTIwRXN0YWRvJTIwZm9ydGFsZXphfGVufDF8MHx8fDE3ODIyMzA1MDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_20",
@@ -17580,7 +17829,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/KZVNwb7tqNs?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1643286689796-229ebbc22e8e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDcnV6ZWlybyUyMGRlJTIwU2FudGlhZ28lMjBmb3J0YWxlemF8ZW58MXwwfHx8MTc4MjIzMDUwNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "fortaleza_23",
@@ -17601,7 +17850,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/GBcFCtqUkuI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1777734794841-915df822ef26?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxmb3J0YWxlemElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIzMDQ5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
 
