@@ -13,10 +13,9 @@ import { TransitConnectorComponent } from './transit-connector.component';
 import { LodgingComponent } from './lodging.component';
 
 @Component({
-  selector: 'app-stop-list',
-  standalone: true,
-  imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent],
-  styles: [`
+    selector: 'app-stop-list',
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent],
+    styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
       padding: 4px 2px; border-radius: 8px;
@@ -37,7 +36,7 @@ import { LodgingComponent } from './lodging.component';
     }
     .att-plan-row:hover .att-plan-del { opacity: 1; }
   `],
-  template: `
+    template: `
     <div class="left-panel">
       <div class="panel-head">
         <div class="panel-head-title">
@@ -243,7 +242,7 @@ import { LodgingComponent } from './lodging.component';
         }
       </div>
     </div>
-  `,
+  `
 })
 export class StopListComponent {
   readonly trip       = inject(TripService);

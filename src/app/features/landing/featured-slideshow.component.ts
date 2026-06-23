@@ -65,16 +65,15 @@ const CITY_COVER_PHOTOS: Record<string, string> = {
 };
 
 @Component({
-  selector: 'tb-featured-slideshow',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass],
-  host: {
-    '[style.display]':           'hostDisplay',
-    '[class.landing-snap-child]': 'isVisible',
-    '[class.featured-slideshow]': 'isVisible',
-  },
-  template: `
+    selector: 'tb-featured-slideshow',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [NgClass],
+    host: {
+        '[style.display]': 'hostDisplay',
+        '[class.landing-snap-child]': 'isVisible',
+        '[class.featured-slideshow]': 'isVisible',
+    },
+    template: `
 @for (trip of trips(); track trip.id; let i = $index) {
   <div [ngClass]="['s2-slide', activeIdx() === i ? 'active' : '']">
     <img [src]="coverUrl(trip)" [alt]="trip.tripName" />
@@ -114,7 +113,7 @@ const CITY_COVER_PHOTOS: Record<string, string> = {
   </div>
   <div class="s2-progress" [class.running]="running()"></div>
 }
-  `,
+  `
 })
 export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
   protected readonly trips     = signal<FeaturedTrip[]>([]);

@@ -5,10 +5,9 @@ import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
 
 @Component({
-  selector: 'app-add-stop-modal',
-  standalone: true,
-  imports: [CityComboboxComponent, DateRangeComponent],
-  template: `
+    selector: 'app-add-stop-modal',
+    imports: [CityComboboxComponent, DateRangeComponent],
+    template: `
     <div class="modal-backdrop"
          (mousedown)="onBackdropMouseDown($event)"
          (click)="onBackdropClick($event)">
@@ -50,7 +49,7 @@ import { City } from '../../../core/models/city.model';
         </div>
       </div>
     </div>
-  `,
+  `
 })
 export class AddStopModalComponent {
   readonly trip = inject(TripService);

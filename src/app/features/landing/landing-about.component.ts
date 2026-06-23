@@ -6,12 +6,11 @@ import { ApiService } from '../../core/api/api.service';
 import { AppStats } from '../../core/models/featured-trip.model';
 
 @Component({
-  selector: 'tb-landing-about',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [],
-  host: { class: 'landing-snap-child landing-about' },
-  template: `
+    selector: 'tb-landing-about',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [],
+    host: { class: 'landing-snap-child landing-about' },
+    template: `
 <div class="landing-about-inner">
 
   <div class="reveal hidden landing-about-copy">
@@ -43,7 +42,7 @@ import { AppStats } from '../../core/models/featured-trip.model';
   </div>
 
 </div>
-  `,
+  `
 })
 export class LandingAboutComponent implements OnInit, AfterViewInit {
   @ViewChildren('statEl') statEls!: QueryList<ElementRef<HTMLSpanElement>>;

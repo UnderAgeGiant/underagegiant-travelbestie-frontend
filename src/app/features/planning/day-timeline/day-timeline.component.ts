@@ -80,11 +80,10 @@ function transitIcon(mode: string): string {
 }
 
 @Component({
-  selector: 'tb-day-timeline',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, NgStyle],
-  template: `
+    selector: 'tb-day-timeline',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [NgClass, NgStyle],
+    template: `
 @if (visible()) {
   <div class="timeline-panel" [class.collapsed]="collapsed()">
 
@@ -165,7 +164,7 @@ function transitIcon(mode: string): string {
 
   </div>
 }
-  `,
+  `
 })
 export class DayTimelineComponent {
   protected readonly TL_H0 = TL_H0;

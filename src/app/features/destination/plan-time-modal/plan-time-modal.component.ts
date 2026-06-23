@@ -17,10 +17,9 @@ export interface PlanEntry {
 }
 
 @Component({
-  selector: 'app-plan-time-modal',
-  standalone: true,
-  imports: [DurationPipe, DatePickerComponent],
-  styles: [`
+    selector: 'app-plan-time-modal',
+    imports: [DurationPipe, DatePickerComponent],
+    styles: [`
     .schedule-row {
       display: flex; align-items: center; gap: 10px;
       padding: 7px 4px; border-bottom: 1px solid var(--border);
@@ -60,7 +59,7 @@ export interface PlanEntry {
     }
     .event-locked-note { font-size: 11px; color: var(--t3); margin-top: 4px; }
   `],
-  template: `
+    template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && cancel.emit()">
       <div class="modal" style="max-width:420px;overflow:visible">
         <div class="modal-head"
@@ -156,7 +155,7 @@ export interface PlanEntry {
         </div>
       </div>
     </div>
-  `,
+  `
 })
 export class PlanTimeModalComponent implements OnInit {
   attraction      = input.required<Attraction>();
