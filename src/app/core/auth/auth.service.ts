@@ -12,7 +12,6 @@ export interface AuthUser {
 
 const USERS_KEY   = 'tb_mock_users';
 const SESSION_KEY = 'tb_session_user';
-const REFRESH_KEY = 'tb_refresh_token';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -45,13 +44,15 @@ export class AuthService {
       localStorage.setItem(USERS_KEY, JSON.stringify(DEMO_USERS));
     }
 
-    // Silent refresh: if a refresh token exists, restore the access token in the background.
-    if (localStorage.getItem(REFRESH_KEY)) {
+    // Silent refresh: the refresh token now lives in an HttpOnly cookie we cannot read.
+    // Use the non-sensitive session marker to decide whether a session may exist, then
+    // let the backend confirm via the cookie. A 401 simply leaves us logged out.
+    if (localStorage.getItem(SESSION_KEY)) {
       this.refreshAccessToken().subscribe();
     }
   }
 
-  login(email: string, password: string): Observable<{ token: string; refreshToken: string; user: AuthUser }> {
+  login(email: string, password: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
       const users = this.getStoredUsers();
       const byEmail = users.find(u => u.email === email);
@@ -60,10 +61,10 @@ export class AuthService {
       return of(this.mockSession(byEmail.name, byEmail.email));
     }
     return from(this.encryptPayload({ email, password })).pipe(
-      switchMap(body => this.http.post<{ token: string; refreshToken: string; user: AuthUser }>(
-        `${environment.apiUrl}/auth/login`, body,
+      switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
+        `${environment.apiUrl}/auth/login`, body, { withCredentials: true },
       )),
-      tap(res => this.setTokens(res.token, res.refreshToken, res.user)),
+      tap(res => this.setTokens(res.token, res.user)),
       catchError((err: unknown) => {
         const code = err instanceof HttpErrorResponse ? (err.error?.code ?? 'UNKNOWN') : 'UNKNOWN';
         return throwError(() => Object.assign(new Error(code), { code }));
@@ -71,7 +72,7 @@ export class AuthService {
     );
   }
 
-  register(name: string, email: string, password: string, otp: string): Observable<{ token: string; refreshToken: string; user: AuthUser }> {
+  register(name: string, email: string, password: string, otp: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
       const users = this.getStoredUsers();
       if (users.some(u => u.email === email)) {
@@ -82,10 +83,10 @@ export class AuthService {
       return of(this.mockSession(name, email));
     }
     return from(this.encryptPayload({ name, email, password, otp })).pipe(
-      switchMap(body => this.http.post<{ token: string; refreshToken: string; user: AuthUser }>(
-        `${environment.apiUrl}/auth/register`, body,
+      switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
+        `${environment.apiUrl}/auth/register`, body, { withCredentials: true },
       )),
-      tap(res => this.setTokens(res.token, res.refreshToken, res.user)),
+      tap(res => this.setTokens(res.token, res.user)),
       catchError((err: unknown) => {
         const code = this.classifyHttpStatus(err);
         return throwError(() => Object.assign(new Error(code), { code }));
@@ -126,22 +127,21 @@ export class AuthService {
     );
   }
 
-  /** Silently rotate the refresh token and restore the in-memory access token. */
+  /** Silently rotate the refresh token (HttpOnly cookie) and restore the in-memory access token. */
   refreshAccessToken(): Observable<boolean> {
     if (this._refreshInFlight) return this._refreshInFlight;
 
-    const raw = localStorage.getItem(REFRESH_KEY);
-    if (!raw) { this.clearTokens(); return of(false); }
-
     if (environment.useMocks) {
+      // Mock mode has no cookie — treat a present session marker as "still logged in".
+      if (!localStorage.getItem(SESSION_KEY)) { this.clearTokens(); return of(false); }
       this._token.set(`mock_refreshed_${Date.now()}`);
       return of(true);
     }
 
-    this._refreshInFlight = this.http.post<{ token: string; refreshToken: string; user: AuthUser }>(
-      `${environment.apiUrl}/auth/refresh`, { refreshToken: raw },
+    this._refreshInFlight = this.http.post<{ token: string; user: AuthUser }>(
+      `${environment.apiUrl}/auth/refresh`, {}, { withCredentials: true },
     ).pipe(
-      tap(res => this.setTokens(res.token, res.refreshToken, res.user)),
+      tap(res => this.setTokens(res.token, res.user)),
       map(() => true),
       catchError(() => { this.clearTokens(); return of(false); }),
       finalize(() => { this._refreshInFlight = null; }),
@@ -151,18 +151,16 @@ export class AuthService {
   }
 
   logout(): void {
-    const raw = localStorage.getItem(REFRESH_KEY);
-    if (raw && !environment.useMocks) {
-      // Fire-and-forget — don't block the UI on server confirmation.
-      this.http.post(`${environment.apiUrl}/auth/logout`, { refreshToken: raw }).subscribe();
+    if (!environment.useMocks && localStorage.getItem(SESSION_KEY)) {
+      // Fire-and-forget — the backend reads + clears the cookie; we don't block the UI.
+      this.http.post(`${environment.apiUrl}/auth/logout`, {}, { withCredentials: true }).subscribe();
     }
     this.clearTokens();
   }
 
-  setTokens(token: string, refreshToken: string, user: AuthUser): void {
+  setTokens(token: string, user: AuthUser): void {
     this._token.set(token);
     this._user.set(user);
-    localStorage.setItem(REFRESH_KEY, refreshToken);
     localStorage.setItem(SESSION_KEY, JSON.stringify(user));
     this.scheduleProactiveRefresh(token);
   }
@@ -170,7 +168,6 @@ export class AuthService {
   clearTokens(): void {
     this._token.set(null);
     this._user.set(null);
-    localStorage.removeItem(REFRESH_KEY);
     localStorage.removeItem(SESSION_KEY);
     if (this._proactiveTimer !== null) {
       clearTimeout(this._proactiveTimer);
@@ -197,12 +194,11 @@ export class AuthService {
     } catch { return null; }
   }
 
-  private mockSession(name: string, email: string): { token: string; refreshToken: string; user: AuthUser } {
-    const token        = `mock_${Date.now()}`;
-    const refreshToken = `mock_rt_${Date.now()}`;
+  private mockSession(name: string, email: string): { token: string; user: AuthUser } {
+    const token = `mock_${Date.now()}`;
     const user: AuthUser = { name, email };
-    this.setTokens(token, refreshToken, user);
-    return { token, refreshToken, user };
+    this.setTokens(token, user);
+    return { token, user };
   }
 
   private classifyHttpStatus(err: unknown): string {
