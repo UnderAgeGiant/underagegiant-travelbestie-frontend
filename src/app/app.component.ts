@@ -15,24 +15,23 @@ import { AppFooterComponent }         from './features/landing/app-footer.compon
 import { DayTimelineComponent }       from './features/planning/day-timeline/day-timeline.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    NavComponent,
-    WelcomeComponent,
-    StopListComponent,
-    DestinationComponent,
-    AddStopModalComponent,
-    ToastComponent,
-    ProfileComponent,
-    SharedTripComponent,
-    AiPlanningComponent,
-    FeaturedSlideshowComponent,
-    LandingAboutComponent,
-    AppFooterComponent,
-    DayTimelineComponent,
-  ],
-  template: `
+    selector: 'app-root',
+    imports: [
+        NavComponent,
+        WelcomeComponent,
+        StopListComponent,
+        DestinationComponent,
+        AddStopModalComponent,
+        ToastComponent,
+        ProfileComponent,
+        SharedTripComponent,
+        AiPlanningComponent,
+        FeaturedSlideshowComponent,
+        LandingAboutComponent,
+        AppFooterComponent,
+        DayTimelineComponent,
+    ],
+    template: `
     @if (sharedTripId()) {
       <app-shared-trip [tripId]="sharedTripId()!" />
     } @else {
@@ -106,7 +105,7 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
                        (planSaved)="showAiPlanning.set(false); toast.set('Plan guardado')" />
     }
     }
-  `,
+  `
 })
 export class AppComponent {
   readonly trip  = inject(TripService);

@@ -17,10 +17,9 @@ import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 
 @Component({
-  selector: 'app-attraction-detail-modal',
-  standalone: true,
-  imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent],
-  styles: [`
+    selector: 'app-attraction-detail-modal',
+    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent],
+    styles: [`
     .detail-modal {
       background: #fff;
       border-radius: 24px;
@@ -115,7 +114,7 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
       font-variant-numeric: tabular-nums;
     }
   `],
-  template: `
+    template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
       <div class="detail-modal">
 
@@ -251,7 +250,7 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
         <app-comment-similar-modal (dismiss)="showSimilarModal.set(false)" />
       }
     </div>
-  `,
+  `
 })
 export class AttractionDetailModalComponent {
   attraction = input.required<Attraction>();

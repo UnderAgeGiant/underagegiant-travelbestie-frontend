@@ -5,10 +5,9 @@ import { getAttractions } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 
 @Component({
-  selector: 'app-trip-itinerary',
-  standalone: true,
-  imports: [DurationPipe],
-  template: `
+    selector: 'app-trip-itinerary',
+    imports: [DurationPipe],
+    template: `
     <div class="itin">
 
       <!-- Departure flight -->
@@ -121,7 +120,7 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
         }
       }
     </div>
-  `,
+  `
 })
 export class TripItineraryComponent {
   readonly stops    = input<TripStop[]>([]);

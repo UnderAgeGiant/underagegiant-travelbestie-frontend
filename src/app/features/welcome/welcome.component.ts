@@ -2,10 +2,9 @@ import { Component, output, signal, OnInit, OnDestroy } from '@angular/core';
 import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
 
 @Component({
-  selector: 'app-welcome',
-  standalone: true,
-  imports: [BackgroundSliderComponent],
-  template: `
+    selector: 'app-welcome',
+    imports: [BackgroundSliderComponent],
+    template: `
     <app-background-slider
       [activeIdx]="slideIdx()"
       (prev)="prevSlide()"
@@ -39,7 +38,7 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
         }
       </div>
     </div>
-  `,
+  `
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
   addDestination = output<void>();

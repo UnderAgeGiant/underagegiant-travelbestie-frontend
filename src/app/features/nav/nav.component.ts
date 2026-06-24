@@ -22,10 +22,9 @@ import { City } from '../../core/models/city.model';
 import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-nav',
-  standalone: true,
-  imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent, InsufficientKarmaModalComponent],
-  styles: [`
+    selector: 'app-nav',
+    imports: [BuyKarmaModalComponent, KarmaSuccessOverlayComponent, InsufficientKarmaModalComponent],
+    styles: [`
     /* ── Saved-plans toggle button ── */
     .up-plans-btn {
       display: flex; align-items: center; gap: 7px;
@@ -142,7 +141,7 @@ import { environment } from '../../../environments/environment';
     .up-plans-search-input:focus { border-color: var(--lav-d); }
     .up-plans-list { max-height: 240px; overflow-y: auto; }
   `],
-  template: `
+    template: `
     <nav class="nav">
       <div class="nav-logo" (click)="onLogoClick()">Tripi<em>love</em></div>
 
@@ -697,7 +696,7 @@ import { environment } from '../../../environments/environment';
         </div>
       </div>
     }
-  `,
+  `
 })
 export class NavComponent {
   readonly auth             = inject(AuthService);

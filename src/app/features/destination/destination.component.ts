@@ -9,10 +9,9 @@ import { ApiService } from '../../core/api/api.service';
 import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
 
 @Component({
-  selector: 'app-destination',
-  standalone: true,
-  imports: [AttractionCardComponent],
-  template: `
+    selector: 'app-destination',
+    imports: [AttractionCardComponent],
+    template: `
     <div class="dest-view">
       @if (city()) {
         <div class="dest-banner">
@@ -100,7 +99,7 @@ import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/mo
         </div>
       }
     </div>
-  `,
+  `
 })
 export class DestinationComponent implements OnInit {
   private readonly trip = inject(TripService);

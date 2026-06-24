@@ -24,10 +24,9 @@ import { getAttractions } from '../../data/attractions.data';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
 
 @Component({
-  selector: 'app-shared-trip',
-  standalone: true,
-  imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent],
-  styles: [`
+    selector: 'app-shared-trip',
+    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent],
+    styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
       background: none; border: none; cursor: pointer;
@@ -43,7 +42,7 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
       border-radius: 12px; font-size: 13px;
     }
   `],
-  template: `
+    template: `
     <div class="shared-page">
 
     <div class="shared-bg"></div>
@@ -386,7 +385,7 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
     }
 
     </div>
-  `,
+  `
 })
 export class SharedTripComponent {
   readonly tripId = input.required<string>();

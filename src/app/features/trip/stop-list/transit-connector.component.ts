@@ -7,10 +7,9 @@ import { TransitMode, TransitSegment, TransitLeg } from '../../../core/models/tr
 export type TransitConnectorType = 'default' | 'departure' | 'arrival';
 
 @Component({
-  selector: 'app-transit-connector',
-  standalone: true,
-  imports: [DatePickerComponent],
-  template: `
+    selector: 'app-transit-connector',
+    imports: [DatePickerComponent],
+    template: `
     <div class="transit-connector" (click)="$event.stopPropagation()">
       @if (editOpen()) {
         <div class="transit-form">
@@ -187,7 +186,7 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
         </div>
       }
     </div>
-  `,
+  `
 })
 export class TransitConnectorComponent {
   readonly fromId    = input('');

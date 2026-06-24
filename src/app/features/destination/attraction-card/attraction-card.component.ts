@@ -11,10 +11,9 @@ import { CATEGORY_META } from '../../../core/models/attraction-category';
 import { formatEventChip } from '../../../core/utils/event-datetime.util';
 
 @Component({
-  selector: 'app-attraction-card',
-  standalone: true,
-  imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent],
-  styles: [`
+    selector: 'app-attraction-card',
+    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent],
+    styles: [`
     .att-card {
       padding: 0 !important;
       overflow: hidden;
@@ -136,7 +135,7 @@ import { formatEventChip } from '../../../core/utils/event-datetime.util';
       font-variant-numeric: tabular-nums;
     }
   `],
-  template: `
+    template: `
     <div class="att-card" [style.background-color]="categoryBg()" (click)="showDetailModal.set(true)">
       <!-- Image / visual area -->
       <div class="card-visual" [style.background-color]="attraction().bg">
@@ -277,7 +276,7 @@ import { formatEventChip } from '../../../core/utils/event-datetime.util';
         (close)="showDetailModal.set(false)"
         (commentAdded)="commentAdded.emit($event)" />
     }
-  `,
+  `
 })
 export class AttractionCardComponent {
   attraction   = input.required<Attraction>();

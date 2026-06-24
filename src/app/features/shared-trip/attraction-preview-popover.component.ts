@@ -4,10 +4,9 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { formatTodayHours } from '../../core/utils/attraction-hours.util';
 
 @Component({
-  selector: 'app-attraction-preview-popover',
-  standalone: true,
-  imports: [DurationPipe],
-  template: `
+    selector: 'app-attraction-preview-popover',
+    imports: [DurationPipe],
+    template: `
     <div class="att-preview-card"
          role="tooltip"
          [style.left.px]="x()"
@@ -62,7 +61,7 @@ import { formatTodayHours } from '../../core/utils/attraction-hours.util';
       </div>
 
     </div>
-  `,
+  `
 })
 export class AttractionPreviewPopoverComponent {
   readonly attraction = input.required<Attraction>();

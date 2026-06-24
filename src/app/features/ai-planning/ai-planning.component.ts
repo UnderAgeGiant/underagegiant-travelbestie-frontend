@@ -18,10 +18,9 @@ import { DatePickerComponent } from '../../shared/date-picker/date-picker.compon
 type Step = 'preferences' | 'options' | 'result';
 
 @Component({
-  selector: 'app-ai-planning',
-  standalone: true,
-  imports: [DurationPipe, NavComponent, ProfileComponent, DatePickerComponent],
-  template: `
+    selector: 'app-ai-planning',
+    imports: [DurationPipe, NavComponent, ProfileComponent, DatePickerComponent],
+    template: `
     <div class="ai-plan-page">
 
       <div class="shared-bg"></div>
@@ -461,7 +460,7 @@ type Step = 'preferences' | 'options' | 'result';
       }
 
     </div>
-  `,
+  `
 })
 export class AiPlanningComponent {
   close     = output<void>();

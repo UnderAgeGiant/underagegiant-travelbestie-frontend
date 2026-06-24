@@ -21,10 +21,9 @@ export const SLIDES: Slide[] = [
 ];
 
 @Component({
-  selector: 'app-background-slider',
-  standalone: true,
-  imports: [NgClass],
-  template: `
+    selector: 'app-background-slider',
+    imports: [NgClass],
+    template: `
     <div class="bg-slider">
       @for (slide of slides; track $index) {
         <div [ngClass]="['bg-slide', activeIdx() === $index ? 'active' : '']">
@@ -48,7 +47,7 @@ export const SLIDES: Slide[] = [
         <button class="slider-arrow" (click)="next.emit()">▼</button>
       </div>
     </div>
-  `,
+  `
 })
 export class BackgroundSliderComponent {
   activeIdx = input.required<number>();

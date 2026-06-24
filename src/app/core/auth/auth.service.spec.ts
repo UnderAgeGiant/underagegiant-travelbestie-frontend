@@ -36,10 +36,12 @@ describe('AuthService', () => {
     service.login('test@test.com', 'pass').subscribe();
 
     const req = http.expectOne(r => r.url.includes('/auth/login'));
-    req.flush({ token: 'fake.jwt.token', refreshToken: 'fake-refresh-token', user: { name: 'Test', email: 'test@test.com' } });
+    // The refresh token now arrives as an HttpOnly cookie the test backend does not model.
+    req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
 
     expect(service.token()).toBe('fake.jwt.token');
     expect(service.currentUser()?.name).toBe('Test');
+    expect(localStorage.getItem('tb_refresh_token')).toBeNull();
   });
 
   it('isLoggedIn returns false when no token', () => {

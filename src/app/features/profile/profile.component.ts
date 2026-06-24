@@ -17,10 +17,9 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [TripItineraryComponent, ToastComponent],
-  template: `
+    selector: 'app-profile',
+    imports: [TripItineraryComponent, ToastComponent],
+    template: `
     <div class="profile-page">
 
       <!-- Header bar -->
@@ -610,7 +609,7 @@ import { environment } from '../../../environments/environment';
         </div>
       </div>
     }
-  `,
+  `
 })
 export class ProfileComponent {
   readonly auth          = inject(AuthService);
