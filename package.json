@@ -42,7 +42,7 @@
     "jasmine-core": "~5.2.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
-    "jest-preset-angular": "^16.1.4",
+    "jest-preset-angular": "^17.0.0",
     "jwt-decode": "^4.0.0",
     "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
