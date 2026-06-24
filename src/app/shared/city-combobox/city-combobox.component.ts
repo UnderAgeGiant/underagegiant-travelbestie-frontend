@@ -1,10 +1,11 @@
-import { Component, input, output, signal, computed, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, input, output, signal, computed, HostListener, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { City, Region, REGION_LABELS } from '../../core/models/city.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 
 @Component({
   selector: 'app-city-combobox',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="combo-wrap">
       <div [class]="'combo-input' + (open() ? ' open' : '')" (click)="toggleOpen()">

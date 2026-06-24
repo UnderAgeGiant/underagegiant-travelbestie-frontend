@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AddStopModalComponent } from './add-stop-modal.component';
 import { TripService } from '../trip.service';
@@ -16,7 +16,7 @@ describe('AddStopModalComponent — default check-in date', () => {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AddStopModalComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
     trip = TestBed.inject(TripService);
     component = TestBed.createComponent(AddStopModalComponent).componentInstance;
@@ -48,7 +48,7 @@ describe('AddStopModalComponent — backdrop close guard', () => {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AddStopModalComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
     component = TestBed.createComponent(AddStopModalComponent).componentInstance;
   });

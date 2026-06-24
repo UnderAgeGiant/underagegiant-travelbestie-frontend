@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Full-screen celebration overlay shown after a successful karma purchase.
@@ -96,6 +96,7 @@ import { Component, input, output } from '@angular/core';
       animation: ks-fade-up 0.32s 0.58s ease-out both;
     }
   `],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="ks-backdrop" (click)="dismissed.emit()">
       <div class="ks-card" (click)="$event.stopPropagation()">

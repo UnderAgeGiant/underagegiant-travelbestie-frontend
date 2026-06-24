@@ -1,4 +1,4 @@
-import { Component, input, output, signal, computed, OnInit } from '@angular/core';
+import { Component, input, output, signal, computed, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
@@ -59,6 +59,7 @@ export interface PlanEntry {
     }
     .event-locked-note { font-size: 11px; color: var(--t3); margin-top: 4px; }
   `],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && cancel.emit()">
       <div class="modal" style="max-width:420px;overflow:visible">

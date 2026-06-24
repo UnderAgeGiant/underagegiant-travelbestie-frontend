@@ -1,4 +1,4 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 
 @Component({
@@ -70,6 +70,7 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
       </div>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [`
     .kim-balance {
       display: flex; align-items: center; justify-content: center; gap: 20px;

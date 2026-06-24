@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, output } from '@angular/core';
+import { Component, computed, inject, signal, output, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
@@ -19,6 +19,7 @@ import { environment } from '../../../environments/environment';
 @Component({
     selector: 'app-profile',
     imports: [TripItineraryComponent, ToastComponent],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
 

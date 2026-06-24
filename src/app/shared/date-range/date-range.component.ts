@@ -1,6 +1,7 @@
 import {
   Component, output, AfterViewInit, OnDestroy,
   ViewChild, ElementRef, inject, LOCALE_ID, Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es';
@@ -8,6 +9,7 @@ import { Spanish } from 'flatpickr/dist/l10n/es';
 @Component({
   selector: 'app-date-range',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div style="display:flex;gap:10px">
       <div class="form-group" style="flex:1;margin-bottom:0">

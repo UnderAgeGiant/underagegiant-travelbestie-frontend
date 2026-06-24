@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, output } from '@angular/core';
+import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
 import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -20,6 +20,7 @@ type Step = 'preferences' | 'options' | 'result';
 @Component({
     selector: 'app-ai-planning',
     imports: [DurationPipe, NavComponent, ProfileComponent, DatePickerComponent],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
 

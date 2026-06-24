@@ -425,21 +425,21 @@
         <source>Reformula tu comentario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/comments/comment-similar-modal.component.ts</context>
-          <context context-type="linenumber">13,15</context>
+          <context context-type="linenumber">14,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentSimilar.body" datatype="html">
         <source> Tu comentario es muy similar al anterior. Reformúlalo y ayuda a los demás a mejorar sus planes de viajes. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/comments/comment-similar-modal.component.ts</context>
-          <context context-type="linenumber">18,20</context>
+          <context context-type="linenumber">19,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentSimilar.dismiss" datatype="html">
         <source>Entendido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/comments/comment-similar-modal.component.ts</context>
-          <context context-type="linenumber">26,28</context>
+          <context context-type="linenumber">27,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.addToPlan" datatype="html">
@@ -492,42 +492,42 @@
         <source>Dejar un comentario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/comment-modal/comment-modal.component.ts</context>
-          <context context-type="linenumber">14,15</context>
+          <context context-type="linenumber">15,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentModal.ratingLabel" datatype="html">
         <source>Calificación</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/comment-modal/comment-modal.component.ts</context>
-          <context context-type="linenumber">19,20</context>
+          <context context-type="linenumber">20,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentModal.expLabel" datatype="html">
         <source>Tu experiencia</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/comment-modal/comment-modal.component.ts</context>
-          <context context-type="linenumber">28,29</context>
+          <context context-type="linenumber">29,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentModal.expPlaceholder" datatype="html">
         <source>¿Qué te encantó? ¿Algún consejo para tu amig@?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/comment-modal/comment-modal.component.ts</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentModal.cancelBtn" datatype="html">
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/comment-modal/comment-modal.component.ts</context>
-          <context context-type="linenumber">40,41</context>
+          <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentModal.submitBtn" datatype="html">
         <source>Publicar comentario 💌</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/comment-modal/comment-modal.component.ts</context>
-          <context context-type="linenumber">46,48</context>
+          <context context-type="linenumber">47,49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dest.oneAttraction" datatype="html">
@@ -660,84 +660,84 @@
         <source>Comprar Karma ✨</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">22,23</context>
+          <context context-type="linenumber">24,25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.subtitle" datatype="html">
         <source>Elige un paquete y completa el pago</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">23,25</context>
+          <context context-type="linenumber">25,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.closeAriaLabel" datatype="html">
         <source>Cerrar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">29,31</context>
+          <context context-type="linenumber">31,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.loading" datatype="html">
         <source>Cargando paquetes…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">41,43</context>
+          <context context-type="linenumber">43,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.processingPayment" datatype="html">
         <source>Procesando pago…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">49,50</context>
+          <context context-type="linenumber">51,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.doNotClose" datatype="html">
         <source>No cierres esta ventana</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">50,52</context>
+          <context context-type="linenumber">52,54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.karma" datatype="html">
         <source>karma</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">67,68</context>
+          <context context-type="linenumber">69,70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.paypalLoading" datatype="html">
         <source>Cargando botón de pago…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">78,80</context>
+          <context context-type="linenumber">80,82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.simulateBtn" datatype="html">
         <source> 🎮 Simular compra (modo demo) </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">92,93</context>
+          <context context-type="linenumber">94,95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.successTitle" datatype="html">
         <source>¡Karma añadido!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">102,103</context>
+          <context context-type="linenumber">104,105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.successMsg" datatype="html">
         <source>Tu cuenta fue acreditada con</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">104,105</context>
+          <context context-type="linenumber">106,107</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.retryBtn" datatype="html">
         <source>Reintentar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">117,118</context>
+          <context context-type="linenumber">119,120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="kim.title" datatype="html">
@@ -814,21 +814,21 @@
         <source>¡Karma añadido!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/karma-success-overlay.component.ts</context>
-          <context context-type="linenumber">115,117</context>
+          <context context-type="linenumber">116,118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaSuccess.sub" datatype="html">
         <source>Tu karma ahora es</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/karma-success-overlay.component.ts</context>
-          <context context-type="linenumber">118,119</context>
+          <context context-type="linenumber">119,120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaSuccess.btn" datatype="html">
         <source>¡Increíble! →</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/karma-success-overlay.component.ts</context>
-          <context context-type="linenumber">124,127</context>
+          <context context-type="linenumber">125,128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.footerTagline" datatype="html">
@@ -912,49 +912,49 @@
         <source>por</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/featured-slideshow.component.ts</context>
-          <context context-type="linenumber">90</context>
+          <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.cloneBtn" datatype="html">
         <source>⿻ Copia este viaje para ti</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/featured-slideshow.component.ts</context>
-          <context context-type="linenumber">93,95</context>
+          <context context-type="linenumber">92,94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.aboutHeading" datatype="html">
         <source> Planifica el viaje<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>que siempre soñaste<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">18,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.aboutMission" datatype="html">
         <source> Tripilove reúne miles de atracciones turísticas en decenas de ciudades para que armes tu itinerario perfecto, lo compartas con tus mejores amigos y lo hagas realidad. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">22,26</context>
+          <context context-type="linenumber">21,25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.statCities" datatype="html">
         <source>ciudades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">32,34</context>
+          <context context-type="linenumber">31,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.statUsers" datatype="html">
         <source>viajeros</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">36,38</context>
+          <context context-type="linenumber">35,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.statPlans" datatype="html">
         <source>planes creados</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">40,43</context>
+          <context context-type="linenumber">39,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.searchPlaceholder" datatype="html">
@@ -1348,14 +1348,14 @@
         <source>Día libre — sin planes aún</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">149,151</context>
+          <context context-type="linenumber">148,150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.flapLabel" datatype="html">
         <source>Ver horario del día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">163,166</context>
+          <context context-type="linenumber">162,165</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errSessionExpired" datatype="html">
@@ -1689,35 +1689,35 @@
         <source>Hotel, Airbnb, hostal…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/lodging.component.ts</context>
-          <context context-type="linenumber">17,18</context>
+          <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lodging.urlPlaceholder" datatype="html">
         <source>Link de reserva (opcional)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/lodging.component.ts</context>
-          <context context-type="linenumber">24,25</context>
+          <context context-type="linenumber">25,26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lodging.saveBtn" datatype="html">
         <source>✓ Guardar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/lodging.component.ts</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lodging.linkTitle" datatype="html">
         <source>Abrir reserva</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/lodging.component.ts</context>
-          <context context-type="linenumber">53,55</context>
+          <context context-type="linenumber">54,56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lodging.addBtn" datatype="html">
         <source>🏨 + Alojamiento</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/lodging.component.ts</context>
-          <context context-type="linenumber">61,63</context>
+          <context context-type="linenumber">62,64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.title" datatype="html">
@@ -2047,53 +2047,53 @@
         <source>Buscar ciudad o país…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/city-combobox/city-combobox.component.ts</context>
-          <context context-type="linenumber">16,18</context>
+          <context context-type="linenumber">17,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="combobox.searchPlaceholder" datatype="html">
         <source>Escribe para buscar…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/city-combobox/city-combobox.component.ts</context>
-          <context context-type="linenumber">24,26</context>
+          <context context-type="linenumber">25,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="combobox.noCities" datatype="html">
         <source>No se encontraron ciudades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/city-combobox/city-combobox.component.ts</context>
-          <context context-type="linenumber">30,32</context>
+          <context context-type="linenumber">31,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="datePicker.fromPlaceholder" datatype="html">
         <source>dd/mm/aaaa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/date-picker/date-picker.component.ts</context>
-          <context context-type="linenumber">13,17</context>
+          <context context-type="linenumber">15,19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/date-range/date-range.component.ts</context>
-          <context context-type="linenumber">16,18</context>
+          <context context-type="linenumber">18,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.checkInLabel" datatype="html">
         <source>Entrada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/date-range/date-range.component.ts</context>
-          <context context-type="linenumber">14,15</context>
+          <context context-type="linenumber">16,17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.checkOutLabel" datatype="html">
         <source>Salida</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/date-range/date-range.component.ts</context>
-          <context context-type="linenumber">20,21</context>
+          <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="datePicker.toPlaceholder" datatype="html">
         <source>dd/mm/aaaa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/date-range/date-range.component.ts</context>
-          <context context-type="linenumber">22,24</context>
+          <context context-type="linenumber">24,26</context>
         </context-group>
       </trans-unit>
     </body>

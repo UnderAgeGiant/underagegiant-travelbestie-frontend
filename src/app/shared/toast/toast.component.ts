@@ -1,8 +1,9 @@
-import { Component, input, output, OnInit, OnDestroy } from '@angular/core';
+import { Component, input, output, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-toast',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `<div class="toast">✓ {{ message() }}</div>`,
 })
 export class ToastComponent implements OnInit, OnDestroy {

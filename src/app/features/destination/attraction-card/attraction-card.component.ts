@@ -1,4 +1,4 @@
-import { Component, input, output, signal, inject, computed } from '@angular/core';
+import { Component, input, output, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { TripService } from '../../trip/trip.service';
@@ -135,6 +135,7 @@ import { formatEventChip } from '../../../core/utils/event-datetime.util';
       font-variant-numeric: tabular-nums;
     }
   `],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="att-card" [style.background-color]="categoryBg()" (click)="showDetailModal.set(true)">
       <!-- Image / visual area -->

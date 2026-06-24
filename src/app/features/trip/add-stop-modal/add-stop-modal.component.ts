@@ -1,4 +1,4 @@
-import { Component, output, signal, inject, computed } from '@angular/core';
+import { Component, output, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CityComboboxComponent } from '../../../shared/city-combobox/city-combobox.component';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TripService } from '../trip.service';
@@ -7,6 +7,7 @@ import { City } from '../../../core/models/city.model';
 @Component({
     selector: 'app-add-stop-modal',
     imports: [CityComboboxComponent, DateRangeComponent],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="modal-backdrop"
          (mousedown)="onBackdropMouseDown($event)"

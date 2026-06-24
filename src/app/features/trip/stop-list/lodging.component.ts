@@ -1,10 +1,11 @@
-import { Component, inject, signal, computed, input } from '@angular/core';
+import { Component, inject, signal, computed, input, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../trip.service';
 import { Lodging } from '../../../core/models/trip.model';
 
 @Component({
   selector: 'app-lodging',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="lodging-connector">
       @if (editOpen()) {

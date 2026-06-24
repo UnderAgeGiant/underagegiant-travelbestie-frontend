@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, output } from '@angular/core';
+import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../trip.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../../core/auth/auth.service';
@@ -36,6 +36,7 @@ import { LodgingComponent } from './lodging.component';
     }
     .att-plan-row:hover .att-plan-del { opacity: 1; }
   `],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="left-panel">
       <div class="panel-head">

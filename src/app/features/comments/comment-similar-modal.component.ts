@@ -1,8 +1,9 @@
-import { Component, output } from '@angular/core';
+import { Component, output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-comment-similar-modal',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="modal-backdrop" (click)="dismiss.emit()">
       <div class="modal">

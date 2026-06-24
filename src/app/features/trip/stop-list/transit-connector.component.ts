@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, input } from '@angular/core';
+import { Component, inject, signal, computed, input, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../trip.service';
 import { HomeAddressService } from '../../../core/home-address/home-address.service';
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
@@ -9,6 +9,7 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
 @Component({
     selector: 'app-transit-connector',
     imports: [DatePickerComponent],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="transit-connector" (click)="$event.stopPropagation()">
       @if (editOpen()) {

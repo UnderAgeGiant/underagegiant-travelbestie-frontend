@@ -212,8 +212,12 @@ export class AuthService {
 
   private async encryptPayload(plaintext: object): Promise<{ encryptedPayload: string }> {
     if (!environment.rsaPublicKey) throw new Error('La clave pública RSA no está configurada. Contacta al administrador.');
-    let spkiDer: Uint8Array;
-    try { spkiDer = Uint8Array.from(atob(environment.rsaPublicKey), c => c.charCodeAt(0)); }
+    let spkiDer: Uint8Array<ArrayBuffer>;
+    try {
+      const bin = atob(environment.rsaPublicKey);
+      spkiDer = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) spkiDer[i] = bin.charCodeAt(i);
+    }
     catch { throw new Error('La clave pública RSA tiene un formato inválido.'); }
     let key: CryptoKey;
     try { key = await crypto.subtle.importKey('spki', spkiDer, { name: 'RSA-OAEP', hash: 'SHA-256' }, false, ['encrypt']); }

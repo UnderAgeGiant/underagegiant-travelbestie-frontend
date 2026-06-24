@@ -1,9 +1,10 @@
-import { Component, input, output, signal, HostListener, ElementRef, inject, OnInit } from '@angular/core';
+import { Component, input, output, signal, HostListener, ElementRef, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { StepComment } from '../../core/models/comment.model';
 
 @Component({
   selector: 'app-step-comments',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="step-comments">
       @for (c of comments(); track c.id) {
