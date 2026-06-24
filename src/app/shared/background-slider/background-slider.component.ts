@@ -1,4 +1,4 @@
-import { Component, input, output, signal, OnInit, OnDestroy } from '@angular/core';
+import { Component, input, output, signal, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 export interface Slide {
@@ -23,6 +23,7 @@ export const SLIDES: Slide[] = [
 @Component({
     selector: 'app-background-slider',
     imports: [NgClass],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="bg-slider">
       @for (slide of slides; track $index) {

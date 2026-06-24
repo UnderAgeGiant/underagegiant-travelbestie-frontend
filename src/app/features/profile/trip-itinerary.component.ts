@@ -1,4 +1,4 @@
-import { Component, input, computed } from '@angular/core';
+import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
@@ -7,6 +7,7 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
 @Component({
     selector: 'app-trip-itinerary',
     imports: [DurationPipe],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="itin">
 

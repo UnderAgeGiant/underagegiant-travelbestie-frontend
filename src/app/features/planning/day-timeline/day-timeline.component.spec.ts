@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DayTimelineComponent } from './day-timeline.component';
 import { TripService } from '../../trip/trip.service';
@@ -17,7 +17,7 @@ describe('DayTimelineComponent — mobile collapse default', () => {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [DayTimelineComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
     trip = TestBed.inject(TripService);
     fixture = TestBed.createComponent(DayTimelineComponent);

@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, output, effect } from '@angular/core';
+import { Component, inject, signal, computed, output, effect, ChangeDetectionStrategy } from '@angular/core';
 import { toObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -141,6 +141,7 @@ import { environment } from '../../../environments/environment';
     .up-plans-search-input:focus { border-color: var(--lav-d); }
     .up-plans-list { max-height: 240px; overflow-y: auto; }
   `],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <nav class="nav">
       <div class="nav-logo" (click)="onLogoClick()">Tripi<em>love</em></div>

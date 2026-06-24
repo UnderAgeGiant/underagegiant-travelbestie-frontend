@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { NavComponent } from './nav.component';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
@@ -13,7 +13,7 @@ describe('NavComponent — favorites list', () => {
     sessionStorage.clear();
     TestBed.configureTestingModule({
       imports: [NavComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
     component = TestBed.createComponent(NavComponent).componentInstance;
     http = TestBed.inject(HttpTestingController);
@@ -86,7 +86,7 @@ describe('NavComponent — shared trips list', () => {
     sessionStorage.clear();
     TestBed.configureTestingModule({
       imports: [NavComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
     component = TestBed.createComponent(NavComponent).componentInstance;
     savedPlans = TestBed.inject(SavedPlansService);

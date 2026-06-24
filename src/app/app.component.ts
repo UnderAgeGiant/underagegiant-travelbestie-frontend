@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from './features/trip/trip.service';
 import { NavComponent } from './features/nav/nav.component';
 import { WelcomeComponent } from './features/welcome/welcome.component';
@@ -31,6 +31,7 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
         AppFooterComponent,
         DayTimelineComponent,
     ],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     @if (sharedTripId()) {
       <app-shared-trip [tripId]="sharedTripId()!" />

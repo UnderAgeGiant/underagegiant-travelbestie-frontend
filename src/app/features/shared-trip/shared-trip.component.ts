@@ -1,4 +1,4 @@
-import { Component, inject, input, computed, signal, effect } from '@angular/core';
+import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { forkJoin, of, switchMap, catchError } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
@@ -42,6 +42,7 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
       border-radius: 12px; font-size: 13px;
     }
   `],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="shared-page">
 

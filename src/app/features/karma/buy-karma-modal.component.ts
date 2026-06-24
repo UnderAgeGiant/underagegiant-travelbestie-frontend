@@ -1,5 +1,6 @@
 import {
   Component, inject, signal, output, OnDestroy,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { firstValueFrom, map } from 'rxjs';
 import { ApiService } from '../../core/api/api.service';
@@ -10,6 +11,7 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-buy-karma-modal',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="modal-backdrop">
       <div class="modal" style="max-width:460px;display:flex;flex-direction:column;max-height:90vh">

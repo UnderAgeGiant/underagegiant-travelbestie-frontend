@@ -1,9 +1,10 @@
-import { Component, output, signal, OnInit, OnDestroy } from '@angular/core';
+import { Component, output, signal, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
 
 @Component({
     selector: 'app-welcome',
     imports: [BackgroundSliderComponent],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <app-background-slider
       [activeIdx]="slideIdx()"

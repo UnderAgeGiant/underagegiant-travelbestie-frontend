@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, output, signal } from '@angular/core';
+import { Component, computed, inject, input, output, signal, ChangeDetectionStrategy } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { TripService } from '../../trip/trip.service';
@@ -114,6 +114,7 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
       font-variant-numeric: tabular-nums;
     }
   `],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
       <div class="detail-modal">

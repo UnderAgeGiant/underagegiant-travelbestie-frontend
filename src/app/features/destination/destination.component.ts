@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, OnInit, effect } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, effect, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../trip/trip.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { REGION_LABELS } from '../../core/models/city.model';
@@ -11,6 +11,7 @@ import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/mo
 @Component({
     selector: 'app-destination',
     imports: [AttractionCardComponent],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="dest-view">
       @if (city()) {

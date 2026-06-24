@@ -1,6 +1,7 @@
 import {
   Component, Input, output, AfterViewInit, OnDestroy,
   ViewChild, ElementRef, inject, LOCALE_ID,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es';
@@ -8,6 +9,7 @@ import { Spanish } from 'flatpickr/dist/l10n/es';
 @Component({
   selector: 'app-date-picker',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <input #el class="form-input"
            i18n-placeholder="@@datePicker.fromPlaceholder" placeholder="dd/mm/aaaa"

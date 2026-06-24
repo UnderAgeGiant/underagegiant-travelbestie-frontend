@@ -1,4 +1,4 @@
-import { Component, input, computed } from '@angular/core';
+import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction } from '../../core/models/comment.model';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { formatTodayHours } from '../../core/utils/attraction-hours.util';
@@ -6,6 +6,7 @@ import { formatTodayHours } from '../../core/utils/attraction-hours.util';
 @Component({
     selector: 'app-attraction-preview-popover',
     imports: [DurationPipe],
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="att-preview-card"
          role="tooltip"
