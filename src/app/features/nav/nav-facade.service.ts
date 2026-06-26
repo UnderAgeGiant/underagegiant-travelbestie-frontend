@@ -1,4 +1,6 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { openWhatsappShare } from '../../core/share/share-url.util';
 import { toObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -312,6 +314,34 @@ export class NavFacadeService {
         this.karmaModal.handleKarmaError(err);
       },
     });
+  }
+
+  sharePlan(plan: SavedPlan): void {
+    const user = this.auth.currentUser();
+    if (!user) return;
+
+    if (plan.shareId) { this.goToSharedTrip(plan.shareId); return; }
+
+    if (environment.useMocks) {
+      const shareId = this.sharedTrips.createShare({
+        ownerEmail: user.email, ownerName: user.name, tripName: plan.name,
+        stops: plan.stops, transits: plan.transits ?? [], planId: plan.id,
+      });
+      this.savedPlans.setShareId(user.email, plan.id, shareId);
+      this.goToSharedTrip(shareId);
+    } else {
+      this.api.shareTrip(plan.id).subscribe({
+        next: ({ shareId }) => {
+          this.savedPlans.setShareId(user.email, plan.id, shareId);
+          this.goToSharedTrip(shareId);
+        },
+        error: err => { this.karmaModal.handleKarmaError(err); },
+      });
+    }
+  }
+
+  shareWhatsapp(plan: SavedPlan): void {
+    if (plan.shareId) openWhatsappShare(plan.name, plan.shareId);
   }
 
   doLogout(): void {

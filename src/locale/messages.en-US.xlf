@@ -395,8 +395,8 @@
         <target>comments</target>
       </trans-unit>
       <trans-unit id="dest.exploreTitle" datatype="html">
-        <source>Explorar atracciones</source>
-        <target>Explore Attractions</target>
+        <source>Agregar atracciones a mi itinerario</source>
+        <target>Add Attractions to My Itinerary</target>
       </trans-unit>
       <trans-unit id="dest.onePlace" datatype="html">
         <source>lugar</source>
@@ -1067,6 +1067,64 @@
       <trans-unit id="nav.mobileClose" datatype="html">
         <source>Cerrar menú</source>
         <target>Close menu</target>
+      </trans-unit>
+
+      <!-- ── Feature 42: UX improvements ── -->
+      <trans-unit id="plan.viewCityItinerary" datatype="html">
+        <source>📅 Ver itinerario de la ciudad</source>
+        <target>📅 View city itinerary</target>
+      </trans-unit>
+      <trans-unit id="plan.exportItinerary" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Exportar</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Export</target>
+      </trans-unit>
+      <trans-unit id="plan.scrollToTop" datatype="html">
+        <source>Ir arriba</source>
+        <target>Scroll to top</target>
+      </trans-unit>
+      <trans-unit id="dest.addAttractionsBtn" datatype="html">
+        <source>➕ Agregar atracciones</source>
+        <target>➕ Add attractions</target>
+      </trans-unit>
+      <trans-unit id="dest.addAttractionsClose" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="nav.sharePlan" datatype="html">
+        <source>Compartir</source>
+        <target>Share</target>
+      </trans-unit>
+      <trans-unit id="nav.myTripsPage" datatype="html">
+        <source>🗺 Mis viajes</source>
+        <target>🗺 My trips</target>
+      </trans-unit>
+      <trans-unit id="share.whatsappBtn" datatype="html">
+        <source>📤 WhatsApp</source>
+        <target>📤 WhatsApp</target>
+      </trans-unit>
+      <trans-unit id="welcome.ctaCreatePlan" datatype="html">
+        <source>Crear Plan</source>
+        <target>Create Plan</target>
+      </trans-unit>
+      <trans-unit id="welcome.ctaCreateAi" datatype="html">
+        <source>✨ Crear con IA</source>
+        <target>✨ Create with AI</target>
+      </trans-unit>
+      <trans-unit id="welcome.ctaHowKarma" datatype="html">
+        <source>⭐ Cómo ganar Karma</source>
+        <target>⭐ How to earn Karma</target>
+      </trans-unit>
+      <trans-unit id="welcome.karmaTitle" datatype="html">
+        <source>Cómo ganar Karma ⭐</source>
+        <target>How to earn Karma ⭐</target>
+      </trans-unit>
+      <trans-unit id="welcome.karmaBody" datatype="html">
+        <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
+        <target>Earn Karma when your friends comment on the stops of your shared trips. Use it to clone trips, export itineraries, and plan with AI.</target>
+      </trans-unit>
+      <trans-unit id="welcome.karmaClose" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
       </trans-unit>
 
     </body>

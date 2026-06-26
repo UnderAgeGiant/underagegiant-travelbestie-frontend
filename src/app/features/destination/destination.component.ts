@@ -1,4 +1,5 @@
-import { Component, inject, signal, computed, OnInit, effect, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, effect, ChangeDetectionStrategy, output } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { TripService } from '../trip/trip.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { REGION_LABELS } from '../../core/models/city.model';
@@ -7,10 +8,11 @@ import { AttractionCardComponent } from './attraction-card/attraction-card.compo
 import { Comment } from '../../core/models/comment.model';
 import { ApiService } from '../../core/api/api.service';
 import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
+import { DeviceService } from '../../core/device/device.service';
 
 @Component({
     selector: 'app-destination',
-    imports: [AttractionCardComponent],
+    imports: [AttractionCardComponent, NgTemplateOutlet],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="dest-view">
@@ -41,63 +43,89 @@ import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/mo
             </div>
           </div>
         </div>
-        <div class="attractions-area">
-          <div class="attractions-top">
-            <div class="attractions-label" i18n="@@dest.exploreTitle">Explorar atracciones</div>
-            <span class="att-count">
-              {{ filteredAttractions().length }}
-              @if (filteredAttractions().length === 1) {
-                <ng-container i18n="@@dest.onePlace">lugar</ng-container>
-              } @else {
-                <ng-container i18n="@@dest.manyPlaces">lugares</ng-container>
-              }
-            </span>
-          </div>
+        @if (device.isMobile()) {
+          <button class="btn-pill btn-outline" style="width:100%;justify-content:center;margin:8px 0"
+                  (click)="viewItinerary.emit()" type="button"
+                  i18n="@@plan.viewCityItinerary">📅 Ver itinerario de la ciudad</button>
+        }
 
-          <div class="att-search-row">
-            <span class="att-search-icon">🔍</span>
-            <input class="att-search-input"
-                   type="text"
-                   [value]="searchQuery()"
-                   (input)="searchQuery.set($any($event.target).value)"
-                   i18n-placeholder="@@dest.searchPlaceholder"
-                   placeholder="Buscar atracción…" />
-            @if (searchQuery()) {
-              <button class="att-search-clear" type="button" (click)="searchQuery.set('')">✕</button>
-            }
-          </div>
+        <ng-template #attList>
+          <div class="attractions-area">
+            <div class="attractions-top">
+              <div class="attractions-label" i18n="@@dest.exploreTitle">Agregar atracciones a mi itinerario</div>
+              <span class="att-count">
+                {{ filteredAttractions().length }}
+                @if (filteredAttractions().length === 1) {
+                  <ng-container i18n="@@dest.onePlace">lugar</ng-container>
+                } @else {
+                  <ng-container i18n="@@dest.manyPlaces">lugares</ng-container>
+                }
+              </span>
+            </div>
 
-          @if (availableCategories().length > 1) {
-            <div class="att-filter-row">
-              <button class="att-filter-chip" [class.active]="filterCategory() === null"
-                      (click)="filterCategory.set(null)" type="button"
-                      i18n="@@dest.filterAll">Todos</button>
-              @for (cat of availableCategories(); track cat.code) {
-                <button class="att-filter-chip" [class.active]="filterCategory() === cat.code"
-                        [style.--chip-bg]="cat.bg"
-                        (click)="filterCategory.set(filterCategory() === cat.code ? null : cat.code)"
-                        type="button">
-                  {{ cat.icon }} {{ cat.label }}
-                </button>
+            <div class="att-search-row">
+              <span class="att-search-icon">🔍</span>
+              <input class="att-search-input"
+                     type="text"
+                     [value]="searchQuery()"
+                     (input)="searchQuery.set($any($event.target).value)"
+                     i18n-placeholder="@@dest.searchPlaceholder"
+                     placeholder="Buscar atracción…" />
+              @if (searchQuery()) {
+                <button class="att-search-clear" type="button" (click)="searchQuery.set('')">✕</button>
               }
             </div>
-          }
 
-          <div class="att-grid">
-            @for (att of filteredAttractions(); track att.id) {
-              <app-attraction-card
-                [attraction]="att"
-                [cityName]="city()!.name"
-                [cityId]="city()!.id"
-                [stopId]="activeStop()!.stopId"
-                [comments]="commentsFor(att.id)"
-                (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
+            @if (availableCategories().length > 1) {
+              <div class="att-filter-row">
+                <button class="att-filter-chip" [class.active]="filterCategory() === null"
+                        (click)="filterCategory.set(null)" type="button"
+                        i18n="@@dest.filterAll">Todos</button>
+                @for (cat of availableCategories(); track cat.code) {
+                  <button class="att-filter-chip" [class.active]="filterCategory() === cat.code"
+                          [style.--chip-bg]="cat.bg"
+                          (click)="filterCategory.set(filterCategory() === cat.code ? null : cat.code)"
+                          type="button">
+                    {{ cat.icon }} {{ cat.label }}
+                  </button>
+                }
+              </div>
             }
-            @if (filteredAttractions().length === 0) {
-              <div class="att-empty" i18n="@@dest.searchEmpty">Sin resultados para tu búsqueda</div>
-            }
+
+            <div class="att-grid">
+              @for (att of filteredAttractions(); track att.id) {
+                <app-attraction-card
+                  [attraction]="att"
+                  [cityName]="city()!.name"
+                  [cityId]="city()!.id"
+                  [stopId]="activeStop()!.stopId"
+                  [comments]="commentsFor(att.id)"
+                  (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
+              }
+              @if (filteredAttractions().length === 0) {
+                <div class="att-empty" i18n="@@dest.searchEmpty">Sin resultados para tu búsqueda</div>
+              }
+            </div>
           </div>
-        </div>
+        </ng-template>
+
+        @if (!device.isMobile()) {
+          <ng-container [ngTemplateOutlet]="attList" />
+        } @else {
+          <button class="btn-pill btn-primary" style="width:100%;justify-content:center;margin:8px 0"
+                  (click)="attractionsModalOpen.set(true)" type="button"
+                  i18n="@@dest.addAttractionsBtn">➕ Agregar atracciones</button>
+
+          @if (attractionsModalOpen()) {
+            <div class="att-modal-backdrop" (click)="attractionsModalOpen.set(false)">
+              <div class="att-modal" (click)="$event.stopPropagation()">
+                <button class="att-modal-close" (click)="attractionsModalOpen.set(false)"
+                        i18n-aria-label="@@dest.addAttractionsClose" aria-label="Cerrar">✕</button>
+                <ng-container [ngTemplateOutlet]="attList" />
+              </div>
+            </div>
+          }
+        }
       }
     </div>
   `
@@ -105,6 +133,10 @@ import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/mo
 export class DestinationComponent implements OnInit {
   private readonly trip = inject(TripService);
   private readonly api = inject(ApiService);
+  protected readonly device = inject(DeviceService);
+
+  readonly viewItinerary = output<void>();
+  protected readonly attractionsModalOpen = signal(false);
 
   private allComments = signal<Record<string, Comment[]>>({});
 

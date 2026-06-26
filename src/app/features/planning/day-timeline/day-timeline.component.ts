@@ -2,11 +2,14 @@ import {
   ChangeDetectionStrategy, Component, computed, effect, ElementRef,
   inject, input, signal, ViewChild,
 } from '@angular/core';
+import { DeviceService } from '../../../core/device/device.service';
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
 import { TripStop, PlannedAttraction, TransitLeg } from '../../../core/models/trip.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
+import { ApiService } from '../../../core/api/api.service';
+import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 7;   // first hour rendered (07:00)
@@ -21,6 +24,8 @@ interface DayTab {
   num:  number;
   key:  string;
   hasEvents: boolean;
+  cityId:    string;
+  cityFlag:  string;
 }
 
 interface TimeBlock {
@@ -85,7 +90,7 @@ function transitIcon(mode: string): string {
     imports: [NgClass, NgStyle],
     template: `
 @if (visible()) {
-  <div class="timeline-panel" [class.collapsed]="collapsed()">
+  <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()">
 
     <div class="tl-body">
 
@@ -94,6 +99,11 @@ function transitIcon(mode: string): string {
         <div class="tl-head-eyebrow">{{ eyebrow() }}</div>
         <div class="tl-head-title">{{ title() }}</div>
         <div class="tl-head-sub">{{ subtitle() }}</div>
+        @if (trip.loadedPlanId()) {
+          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
+                  [disabled]="exporting()" (click)="exportItinerary()" type="button"
+                  i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
+        }
       </div>
 
       <!-- Day tabs (hidden in transport mode) -->
@@ -102,6 +112,7 @@ function transitIcon(mode: string): string {
           @for (day of days(); track day.key) {
             <button [ngClass]="['tl-day', day.key === selectedDay() ? 'active' : '']"
                     (click)="selectDay(day.key)">
+              <div class="tl-day-city">{{ day.cityFlag }}</div>
               <div class="tl-day-dow">{{ day.dow }}</div>
               <div class="tl-day-num">{{ day.num }}</div>
               <div [ngClass]="['tl-day-dot', day.hasEvents ? '' : 'empty']"></div>
@@ -185,16 +196,19 @@ export class DayTimelineComponent {
   @ViewChild('tlGridWrap') private tlGridWrap?: ElementRef<HTMLElement>;
   @ViewChild('tlDaysEl')   private tlDaysEl?:   ElementRef<HTMLElement>;
 
-  private readonly trip = inject(TripService);
+  protected readonly trip   = inject(TripService);
+  private  readonly device  = inject(DeviceService);
+  private  readonly api     = inject(ApiService);
+  private  readonly karmaModal = inject(KarmaModalService);
+  protected readonly exporting = signal(false);
 
   // ── Collapse / expand ─────────────────────────────────────────────────────
   protected readonly collapsed = signal(false);
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
+  /** Public: open the timeline (used by the mobile 'Ver itinerario' button). */
+  expand(): void { this.collapsed.set(false); }
 
   private lastStopId: string | null = null;
-  private isMobileViewport(): boolean {
-    return window.innerWidth <= 768;
-  }
 
   // ── Active stop + transits (input override or service) ────────────────────
   private activeStop(): TripStop | null {
@@ -218,40 +232,51 @@ export class DayTimelineComponent {
   // ── Selected day (reset on stop change) ───────────────────────────────────
   protected readonly selectedDay = signal<string | null>(null);
 
-  // ── Day tabs for current stop ─────────────────────────────────────────────
+  // ── Day tabs — trip-wide when no explicit stop input ─────────────────────
   protected readonly days = computed<DayTab[]>(() => {
-    const stop = this.activeStop();
-    if (!stop || !stop.checkIn || !stop.checkOut) return [];
-
-    const [dIn,  mIn,  yIn]  = stop.checkIn.split('/').map(Number);
-    const [dOut, mOut, yOut] = stop.checkOut.split('/').map(Number);
-    const from = new Date(yIn,  mIn  - 1, dIn);
-    const to   = new Date(yOut, mOut - 1, dOut);
-    if (isNaN(from.getTime()) || isNaN(to.getTime())) return [];
-
+    const stops    = this.stop() ? [this.stop()!] : this.trip.stops();
     const transits = this.allTransits();
-
     const tabs: DayTab[] = [];
-    for (let d = new Date(from); d <= to; d = new Date(d.getTime() + 86_400_000)) {
-      const key = dateKey(d);
-      const hasAtt = stop.selectedAttractions.some(
-        (a: PlannedAttraction) => !!a.startTime && (!a.date || a.date.slice(0, 5) === key),
-      );
-      const hasTransit = transits.some(leg =>
-        (leg.fromCityId === stop.cityId || leg.toCityId === stop.cityId) &&
-        leg.segments.some(seg =>
-          (seg.departureDate?.slice(0, 5) === key) || (seg.arrivalDate?.slice(0, 5) === key),
-        ),
-      );
-      tabs.push({
-        date: new Date(d),
-        dow:  DOW_ES[d.getDay()],
-        num:  d.getDate(),
-        key,
-        hasEvents: hasAtt || hasTransit,
-      });
+
+    for (const stop of stops) {
+      if (!stop?.checkIn || !stop?.checkOut) continue;
+      const [dIn,  mIn,  yIn]  = stop.checkIn.split('/').map(Number);
+      const [dOut, mOut, yOut] = stop.checkOut.split('/').map(Number);
+      const from = new Date(yIn,  mIn  - 1, dIn);
+      const to   = new Date(yOut, mOut - 1, dOut);
+      if (isNaN(from.getTime()) || isNaN(to.getTime())) continue;
+
+      const city     = WORLD_CITIES.find(c => c.id === stop.cityId);
+      const cityFlag = city?.flag ?? '📍';
+
+      for (let d = new Date(from); d <= to; d = new Date(d.getTime() + 86_400_000)) {
+        const key = dateKey(d);
+        const hasAtt = stop.selectedAttractions.some(
+          (a: PlannedAttraction) => !!a.startTime && (!a.date || a.date.slice(0, 5) === key),
+        );
+        const hasTransit = transits.some(leg =>
+          (leg.fromCityId === stop.cityId || leg.toCityId === stop.cityId) &&
+          leg.segments.some(seg =>
+            (seg.departureDate?.slice(0, 5) === key) || (seg.arrivalDate?.slice(0, 5) === key),
+          ),
+        );
+        tabs.push({
+          date: new Date(d), dow: DOW_ES[d.getDay()], num: d.getDate(), key,
+          hasEvents: hasAtt || hasTransit, cityId: stop.cityId, cityFlag,
+        });
+      }
     }
     return tabs;
+  });
+
+  // The stop that owns the currently-selected day (for trip-wide tabs).
+  private readonly selectedStopForDay = computed<TripStop | null>(() => {
+    const key   = this.selectedDay();
+    const stops = this.stop() ? [this.stop()!] : this.trip.stops();
+    if (!key) return this.stop() ?? this.trip.activeStop();
+    const tab = this.days().find(t => t.key === key);
+    if (!tab) return this.stop() ?? this.trip.activeStop();
+    return stops.find(s => s.cityId === (tab as any).cityId) ?? this.trip.activeStop();
   });
 
   // ── Auto-select first day with events on stop change ──────────────────────
@@ -260,7 +285,7 @@ export class DayTimelineComponent {
       const stop = this.activeStop();
       if (!stop) { this.selectedDay.set(null); this.lastStopId = null; return; }
 
-      if (stop.stopId !== this.lastStopId && this.isMobileViewport()) {
+      if (stop.stopId !== this.lastStopId && this.device.isMobile()) {
         this.collapsed.set(true);
       }
       this.lastStopId = stop.stopId;
@@ -288,7 +313,7 @@ export class DayTimelineComponent {
 
   protected readonly title = computed<string>(() => {
     if (this.transportMode()) return 'Transporte';
-    const stop = this.activeStop();
+    const stop = this.selectedStopForDay();
     if (!stop) return '';
     const city = WORLD_CITIES.find(c => c.id === stop.cityId);
     return city ? `${city.flag} ${city.name}` : stop.cityId;
@@ -296,7 +321,7 @@ export class DayTimelineComponent {
 
   protected readonly subtitle = computed<string>(() => {
     if (this.transportMode()) return '';
-    const stop = this.activeStop();
+    const stop = this.selectedStopForDay();
     const day  = this.selectedDay();
     if (!stop || !day) return '';
     const dayAtts = this.attractionsForDay(stop.selectedAttractions, day)
@@ -313,7 +338,7 @@ export class DayTimelineComponent {
 
   // ── Block calculation ─────────────────────────────────────────────────────
   protected readonly blocks = computed<TimeBlock[]>(() => {
-    const stop = this.activeStop();
+    const stop = this.selectedStopForDay();
     const day  = this.selectedDay();
     if (!stop || !day) return [];
 
@@ -412,6 +437,30 @@ export class DayTimelineComponent {
   private cityLabel(cityId: string): string {
     if (cityId === '__start__' || cityId === '__end__') return '🏠';
     return WORLD_CITIES.find(c => c.id === cityId)?.name ?? cityId;
+  }
+
+  protected exportItinerary(): void {
+    const planId = this.trip.loadedPlanId();
+    if (!planId) return;
+    const cityNames: Record<string, string> = {};
+    const attractionNames: Record<string, string> = {};
+    for (const stop of this.trip.stops()) {
+      const city = WORLD_CITIES.find(c => c.id === stop.cityId);
+      if (!city) continue;
+      cityNames[stop.cityId] = city.name;
+      for (const att of getAttractions(city)) attractionNames[att.id] = att.name;
+    }
+    this.exporting.set(true);
+    this.api.exportItinerary(planId, cityNames, attractionNames).subscribe({
+      next: blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'itinerario.xlsx'; a.click();
+        URL.revokeObjectURL(url);
+        this.exporting.set(false);
+      },
+      error: err => { this.exporting.set(false); this.karmaModal.handleKarmaError(err); },
+    });
   }
 
   private scrollToFirstBlock(): void {

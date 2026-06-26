@@ -1,4 +1,4 @@
-import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from './features/trip/trip.service';
 import { NavShellComponent } from './features/nav/nav-shell.component';
 import { WelcomeComponent } from './features/welcome/welcome.component';
@@ -13,6 +13,7 @@ import { FeaturedSlideshowComponent } from './features/landing/featured-slidesho
 import { LandingAboutComponent }      from './features/landing/landing-about.component';
 import { AppFooterComponent }         from './features/landing/app-footer.component';
 import { DayTimelineComponent }       from './features/planning/day-timeline/day-timeline.component';
+import { MyTripsComponent }           from './features/my-trips/my-trips.component';
 
 @Component({
     selector: 'app-root',
@@ -30,6 +31,7 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
         LandingAboutComponent,
         AppFooterComponent,
         DayTimelineComponent,
+        MyTripsComponent,
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -37,7 +39,8 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
       <app-shared-trip [tripId]="sharedTripId()!" />
     } @else {
     <app-nav (logoClick)="null"
-             (profileClick)="showProfile.set(true)" />
+             (profileClick)="showProfile.set(true)"
+             (myTripsClick)="showMyTrips.set(true)" />
 
     @if (trip.stops().length === 0) {
       <!-- ── LANDING MODE: scroll-snap container ── -->
@@ -71,7 +74,7 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
         <app-stop-list (addDestination)="showAddModal.set(true)" />
-        <tb-day-timeline />
+        <tb-day-timeline #timeline />
         <div class="right-panel">
           @if (!trip.activeStop()) {
             <div class="empty-stop">
@@ -82,7 +85,7 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
                    i18n="@@app.selectStopDesc">Haz clic en un destino del panel para explorar sus atracciones</div>
             </div>
           } @else {
-            <app-destination />
+            <app-destination (viewItinerary)="timeline.expand()" />
           }
         </div>
       </div>
@@ -101,6 +104,11 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
                    (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)" />
     }
 
+    @if (showMyTrips()) {
+      <app-my-trips (close)="showMyTrips.set(false)"
+                    (openAiPlanning)="showMyTrips.set(false); showAiPlanning.set(true)" />
+    }
+
     @if (showAiPlanning()) {
       <app-ai-planning (close)="showAiPlanning.set(false)"
                        (planSaved)="showAiPlanning.set(false); toast.set('Plan guardado')" />
@@ -113,6 +121,7 @@ export class AppComponent {
   showAddModal   = signal(false);
   showProfile    = signal(false);
   showAiPlanning = signal(false);
+  showMyTrips    = signal(false);
   toast          = signal<string | null>(null);
 
   readonly sharedTripId = signal<string | null>(

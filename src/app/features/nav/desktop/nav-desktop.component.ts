@@ -110,9 +110,13 @@ import { NavFacadeService } from '../nav-facade.service';
                   </div>
 
                   <button class="btn-pill btn-ghost"
-                          style="width:100%;justify-content:center;margin-bottom:8px"
+                          style="width:100%;justify-content:center;margin-bottom:4px"
                           (click)="onProfile()" type="button"
                           i18n="@@nav.myProfile">👤 Mi perfil</button>
+                  <button class="btn-pill btn-ghost"
+                          style="width:100%;justify-content:center;margin-bottom:8px"
+                          (click)="onMyTrips()" type="button"
+                          i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
 
                   <!-- Saved plans toggle -->
                   <button class="up-plans-btn" (click)="facade.togglePlans()" type="button">
@@ -161,6 +165,12 @@ import { NavFacadeService } from '../nav-facade.service';
                                 <div class="up-plan-name">{{ plan.name }}</div>
                                 <div class="up-plan-date">{{ facade.planDate(plan.savedAt) }}</div>
                               </button>
+                              <button class="up-plan-del" (click)="facade.sharePlan(plan)" type="button"
+                                      i18n-title="@@nav.sharePlan" title="Compartir">🔗</button>
+                              @if (plan.shareId) {
+                                <button class="up-plan-del" (click)="facade.shareWhatsapp(plan)" type="button"
+                                        i18n-title="@@share.whatsappBtn" title="📤 WhatsApp">📤</button>
+                              }
                               <button class="up-plan-del"
                                       [disabled]="facade.cloningPlanId() === plan.id"
                                       (click)="facade.cloningConfirmPlanId.set(plan.id)"
@@ -319,7 +329,9 @@ export class NavDesktopComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
+  myTripsClick = output<void>();
 
   onLogo(): void { this.facade.onLogoClick(); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.profileClick.emit(); }
+  onMyTrips(): void { this.facade.userMenuOpen.set(false); this.myTripsClick.emit(); }
 }
