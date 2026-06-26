@@ -1,6 +1,6 @@
 import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from './features/trip/trip.service';
-import { NavComponent } from './features/nav/nav.component';
+import { NavShellComponent } from './features/nav/nav-shell.component';
 import { WelcomeComponent } from './features/welcome/welcome.component';
 import { StopListComponent } from './features/trip/stop-list/stop-list.component';
 import { DestinationComponent } from './features/destination/destination.component';
@@ -17,7 +17,7 @@ import { DayTimelineComponent }       from './features/planning/day-timeline/day
 @Component({
     selector: 'app-root',
     imports: [
-        NavComponent,
+        NavShellComponent,
         WelcomeComponent,
         StopListComponent,
         DestinationComponent,

@@ -11,7 +11,7 @@ import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, 
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
-import { NavComponent } from '../nav/nav.component';
+import { NavShellComponent } from '../nav/nav-shell.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { DatePickerComponent } from '../../shared/date-picker/date-picker.component';
 
@@ -19,7 +19,7 @@ type Step = 'preferences' | 'options' | 'result';
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [DurationPipe, NavComponent, ProfileComponent, DatePickerComponent],
+    imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
