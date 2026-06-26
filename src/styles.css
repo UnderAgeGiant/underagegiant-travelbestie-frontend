@@ -62,6 +62,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .layout { display: flex; height: calc(100vh - 72px); margin-top: 72px; overflow: hidden; }
 
 /* NAV */
+/* custom element hosts default to inline — block needed so sticky nav-m-bar height counts in flow */
+app-nav { display: block; }
 .nav { position: fixed; inset: 0 0 auto; height: 72px; z-index: 200; background: oklch(99% .008 80/.96); backdrop-filter: blur(18px); border-bottom: 1.5px solid var(--border); display: flex; align-items: center; gap: 0; padding: 0 20px; }
 .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 500; color: var(--lav-d); letter-spacing: -.5px; cursor: pointer; white-space: nowrap; margin-right: 16px; user-select: none; }
 .nav-logo em { font-style: italic; color: var(--peach-d); }
@@ -622,19 +624,6 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
   .trip-stats { gap: 16px; }
   .trip-stat-val { font-size: 22px; }
 
-  /* ── Landing: disable scroll-snap, revert to natural page scroll ── */
-  .landing-scroll {
-    height: auto;
-    margin-top: 58px;
-    overflow-y: visible;
-    scroll-snap-type: none;
-  }
-  .landing-snap-child {
-    height: auto;
-    min-height: calc(100svh - 58px);
-    overflow: visible;
-    scroll-snap-align: none;
-  }
   /* S1: stack left panel above welcome (mirrors .layout on mobile) */
   .s1-shell { flex-direction: column; }
   .s1-shell > .right-panel {
@@ -865,8 +854,8 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 
 /* ── Landing page — scroll container ───────────────────────────────────── */
 .landing-scroll {
-  height: calc(100vh - 58px);
-  margin-top: 58px;
+  height: calc(100vh - 72px);
+  margin-top: 72px;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
@@ -878,10 +867,25 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .landing-snap-child {
   display: block; /* custom element hosts default to inline — must force block for height to apply */
   scroll-snap-align: start;
-  height: calc(100vh - 58px);
-  min-height: calc(100vh - 58px);
+  height: calc(100vh - 72px);
+  min-height: calc(100vh - 72px);
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  /* sticky mobile nav is in normal flow — no offset needed; disable snap */
+  .landing-scroll {
+    height: auto;
+    margin-top: 0;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+  .landing-snap-child {
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    scroll-snap-align: none;
+  }
 }
 
 /* ── S1 shell: left panel + right panel side by side ───────────────────── */
