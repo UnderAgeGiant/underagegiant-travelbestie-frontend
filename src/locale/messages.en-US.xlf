@@ -1056,6 +1056,19 @@
         <target> You won't be in <x id="INTERPOLATION" equiv-text="{{ cityName() || &apos;esta ciudad&apos; }}"/> on the event date <x id="INTERPOLATION_1" equiv-text="{{ attraction().date }}"/>. Adjust your stop's dates to add it. </target>
       </trans-unit>
 
+      <trans-unit id="nav.mobileMenuOpen" datatype="html">
+        <source>Abrir menú</source>
+        <target>Open menu</target>
+      </trans-unit>
+      <trans-unit id="nav.mobileMenuTitle" datatype="html">
+        <source>Menú</source>
+        <target>Menu</target>
+      </trans-unit>
+      <trans-unit id="nav.mobileClose" datatype="html">
+        <source>Cerrar menú</source>
+        <target>Close menu</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
