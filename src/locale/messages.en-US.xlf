@@ -246,30 +246,6 @@
         <source>Comienza a crear tu plan</source>
         <target>Start Creating Your Plan</target>
       </trans-unit>
-      <trans-unit id="welcome.step1Title" datatype="html">
-        <source>Elige una ciudad</source>
-        <target>Choose a city</target>
-      </trans-unit>
-      <trans-unit id="welcome.step1Desc" datatype="html">
-        <source>120+ destinos en el mundo</source>
-        <target>120+ destinations worldwide</target>
-      </trans-unit>
-      <trans-unit id="welcome.step2Title" datatype="html">
-        <source>Explorar atracciones</source>
-        <target>Explore attractions</target>
-      </trans-unit>
-      <trans-unit id="welcome.step2Desc" datatype="html">
-        <source>Lugares seleccionados para ver y hacer</source>
-        <target>Curated spots to see &amp; do</target>
-      </trans-unit>
-      <trans-unit id="welcome.step3Title" datatype="html">
-        <source>Recopilar comentarios</source>
-        <target>Collect comments</target>
-      </trans-unit>
-      <trans-unit id="welcome.step3Desc" datatype="html">
-        <source>Tus amigos dejan consejos en cada parada</source>
-        <target>Friends leave tips on each stop</target>
-      </trans-unit>
 
       <!-- ── stop-list.component ── -->
       <trans-unit id="stopList.title" datatype="html">
@@ -1101,6 +1077,10 @@
       <trans-unit id="share.whatsappBtn" datatype="html">
         <source>📤 WhatsApp</source>
         <target>📤 WhatsApp</target>
+      </trans-unit>
+      <trans-unit id="share.whatsappMessage" datatype="html">
+        <source>¡Mira mi viaje que armé en Tripilove! 🌍✈️</source>
+        <target>Check out the trip I made on Tripilove! 🌍✈️</target>
       </trans-unit>
       <trans-unit id="welcome.ctaCreatePlan" datatype="html">
         <source>Crear Plan</source>

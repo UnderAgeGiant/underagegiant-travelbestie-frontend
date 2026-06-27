@@ -4,7 +4,8 @@ export function buildShareLink(shareId: string, origin: string = window.location
 
 export function buildWhatsappUrl(tripName: string, shareId: string, origin: string = window.location.origin, prefix?: string): string {
   const link = buildShareLink(shareId, origin);
-  const msg = (prefix ?? '¡Mira mi viaje que armé en Tripilove! 🌍✈️') + ` ${tripName} — ${link}`;
+  const intro = prefix ?? $localize`:@@share.whatsappMessage:¡Mira mi viaje que armé en Tripilove! 🌍✈️`;
+  const msg = `${intro} ${tripName} — ${link}`;
   return `https://wa.me/?text=${encodeURIComponent(msg)}`;
 }
 

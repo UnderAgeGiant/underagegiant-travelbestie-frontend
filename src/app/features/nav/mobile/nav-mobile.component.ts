@@ -89,6 +89,10 @@ import { NavFacadeService } from '../nav-facade.service';
                 </button>
                 <button class="up-plan-del" (click)="facade.sharePlan(plan)" type="button"
                         i18n-title="@@nav.sharePlan" title="Compartir">🔗</button>
+                @if (plan.shareId) {
+                  <button class="up-plan-del" (click)="facade.shareWhatsapp(plan)" type="button"
+                          i18n-title="@@share.whatsappBtn" title="📤 WhatsApp">📤</button>
+                }
               </div>
             }
             @if (facade.filteredPlans().length === 0) {
