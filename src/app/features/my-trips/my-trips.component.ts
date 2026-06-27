@@ -12,7 +12,7 @@ import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
-import { openWhatsappShare } from '../../core/share/share-url.util';
+import { shareTrip } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -97,8 +97,8 @@ import { environment } from '../../../environments/environment';
                         </button>
                         <button class="btn-pill btn-outline"
                                 style="justify-content:center;gap:6px"
-                                (click)="whatsappShare(plan)" type="button"
-                                i18n="@@share.whatsappBtn">📤 WhatsApp</button>
+                                (click)="shareNative(plan)" type="button"
+                                i18n="@@share.shareBtn">📤 Compartir</button>
                       } @else {
                         <button class="btn-pill btn-primary"
                                 style="flex:1;justify-content:center;gap:7px"
@@ -303,9 +303,9 @@ export class MyTripsComponent {
     }
   }
 
-  whatsappShare(plan: SavedPlan): void {
+  shareNative(plan: SavedPlan): void {
     const sid = this.planShareId(plan);
-    if (sid) openWhatsappShare(plan.name, sid);
+    if (sid) void shareTrip(plan.name, sid);
   }
 
   downloadItinerary(plan: SavedPlan): void {

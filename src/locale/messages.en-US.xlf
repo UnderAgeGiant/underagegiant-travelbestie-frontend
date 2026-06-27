@@ -1074,11 +1074,11 @@
         <source>🗺 Mis viajes</source>
         <target>🗺 My trips</target>
       </trans-unit>
-      <trans-unit id="share.whatsappBtn" datatype="html">
-        <source>📤 WhatsApp</source>
-        <target>📤 WhatsApp</target>
+      <trans-unit id="share.shareBtn" datatype="html">
+        <source>📤 Compartir</source>
+        <target>📤 Share</target>
       </trans-unit>
-      <trans-unit id="share.whatsappMessage" datatype="html">
+      <trans-unit id="share.message" datatype="html">
         <source>✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳</source>
         <target>✨ Check out the trip I made on Tripilove! 🌍✈️🧳</target>
       </trans-unit>

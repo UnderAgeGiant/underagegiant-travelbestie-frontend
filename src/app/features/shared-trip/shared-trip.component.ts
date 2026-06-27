@@ -22,7 +22,7 @@ import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.comp
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
-import { openWhatsappShare } from '../../core/share/share-url.util';
+import { shareTrip } from '../../core/share/share-url.util';
 
 @Component({
     selector: 'app-shared-trip',
@@ -103,11 +103,11 @@ import { openWhatsappShare } from '../../core/share/share-url.util';
             </button>
           }
 
-          <!-- WhatsApp share -->
+          <!-- Native share (WhatsApp, Telegram, Messages, Mail…) -->
           <button class="btn-pill btn-outline"
                   style="margin-top:12px;margin-left:8px;gap:6px"
-                  (click)="shareWhatsapp()" type="button"
-                  i18n="@@share.whatsappBtn">📤 WhatsApp</button>
+                  (click)="shareNative()" type="button"
+                  i18n="@@share.shareBtn">📤 Compartir</button>
 
           <!-- Success toast -->
           @if (cloneResult()) {
@@ -572,9 +572,9 @@ export class SharedTripComponent {
     });
   }
 
-  shareWhatsapp(): void {
+  shareNative(): void {
     const trip = this.trip();
-    if (trip) openWhatsappShare(trip.tripName, this.tripId());
+    if (trip) void shareTrip(trip.tripName, this.tripId());
   }
 
   openCloneInEditor(): void {

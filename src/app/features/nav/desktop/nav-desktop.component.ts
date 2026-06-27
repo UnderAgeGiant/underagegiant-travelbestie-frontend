@@ -168,8 +168,8 @@ import { NavFacadeService } from '../nav-facade.service';
                               <button class="up-plan-del" (click)="facade.sharePlan(plan)" type="button"
                                       i18n-title="@@nav.sharePlan" title="Compartir">🔗</button>
                               @if (plan.shareId) {
-                                <button class="up-plan-del" (click)="facade.shareWhatsapp(plan)" type="button"
-                                        i18n-title="@@share.whatsappBtn" title="📤 WhatsApp">📤</button>
+                                <button class="up-plan-del" (click)="facade.shareNative(plan)" type="button"
+                                        i18n-title="@@share.shareBtn" title="📤 Compartir">📤</button>
                               }
                               <button class="up-plan-del"
                                       [disabled]="facade.cloningPlanId() === plan.id"
