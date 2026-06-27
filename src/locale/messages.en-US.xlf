@@ -1079,8 +1079,8 @@
         <target>📤 WhatsApp</target>
       </trans-unit>
       <trans-unit id="share.whatsappMessage" datatype="html">
-        <source>¡Mira mi viaje que armé en Tripilove! 🌍✈️</source>
-        <target>Check out the trip I made on Tripilove! 🌍✈️</target>
+        <source>✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳</source>
+        <target>✨ Check out the trip I made on Tripilove! 🌍✈️🧳</target>
       </trans-unit>
       <trans-unit id="welcome.ctaCreatePlan" datatype="html">
         <source>Crear Plan</source>
