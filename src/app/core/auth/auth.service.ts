@@ -8,6 +8,7 @@ import { MockUser, DEMO_USERS } from '../../mock/users.mock';
 export interface AuthUser {
   name: string;
   email: string;
+  homeCity?: string | null;
 }
 
 const USERS_KEY   = 'tb_mock_users';
@@ -110,12 +111,17 @@ export class AuthService {
 
   updateProfile(fields: {
     name?: string; newEmail?: string; otp?: string;
-    currentPassword?: string; newPassword?: string;
+    currentPassword?: string; newPassword?: string; homeCity?: string;
   }): Observable<{ user: AuthUser }> {
     if (environment.useMocks) {
       const current = this._user();
       if (!current) return throwError(() => Object.assign(new Error('UNAUTHORIZED'), { code: 'UNAUTHORIZED' }));
-      const updated: AuthUser = { name: fields.name ?? current.name, email: fields.newEmail ?? current.email };
+      const updated: AuthUser = {
+        ...current,
+        name:     fields.name ?? current.name,
+        email:    fields.newEmail ?? current.email,
+        homeCity: fields.homeCity !== undefined ? fields.homeCity : (current.homeCity ?? null),
+      };
       localStorage.setItem(SESSION_KEY, JSON.stringify(updated));
       this._user.set(updated);
       return of({ user: updated });
@@ -123,6 +129,27 @@ export class AuthService {
     return from(this.encryptPayload(fields)).pipe(
       switchMap(body => this.http.put<{ user: AuthUser }>(`${environment.apiUrl}/auth/profile`, body)),
       tap(res => { localStorage.setItem(SESSION_KEY, JSON.stringify(res.user)); this._user.set(res.user); }),
+      catchError((err: unknown) => throwError(() => Object.assign(new Error(this.classifyHttpStatus(err)), { code: this.classifyHttpStatus(err) }))),
+    );
+  }
+
+  requestPasswordReset(email: string): Observable<void> {
+    if (environment.useMocks) return of(undefined);
+    return this.http.post<void>(`${environment.apiUrl}/auth/request-password-reset`, { email }).pipe(
+      catchError((err: unknown) => throwError(() => Object.assign(new Error(this.classifyHttpStatus(err)), { code: this.classifyHttpStatus(err) }))),
+    );
+  }
+
+  resetPassword(email: string, otp: string, newPassword: string): Observable<void> {
+    if (environment.useMocks) {
+      const users = this.getStoredUsers();
+      const u = users.find(x => x.email === email);
+      if (u) { u.password = newPassword; localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
+      return of(undefined);
+    }
+    return from(this.encryptPayload({ email, otp, newPassword })).pipe(
+      switchMap(body => this.http.post<void>(`${environment.apiUrl}/auth/reset-password`, body)),
+      map(() => undefined),
       catchError((err: unknown) => throwError(() => Object.assign(new Error(this.classifyHttpStatus(err)), { code: this.classifyHttpStatus(err) }))),
     );
   }
@@ -196,7 +223,7 @@ export class AuthService {
 
   private mockSession(name: string, email: string): { token: string; user: AuthUser } {
     const token = `mock_${Date.now()}`;
-    const user: AuthUser = { name, email };
+    const user: AuthUser = { name, email, homeCity: null };
     this.setTokens(token, user);
     return { token, user };
   }
