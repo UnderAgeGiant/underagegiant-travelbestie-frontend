@@ -90,7 +90,7 @@ function transitIcon(mode: string): string {
     imports: [NgClass, NgStyle],
     template: `
 @if (visible()) {
-  <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()">
+  <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
 
     <div class="tl-body">
 
@@ -170,7 +170,7 @@ function transitIcon(mode: string): string {
             (click)="toggleCollapse()"
             [attr.aria-label]="collapsed() ? 'Expandir panel de horario' : 'Colapsar panel de horario'">
       <span class="tl-flap-chevron">{{ collapsed() ? '›' : '‹' }}</span>
-      <span class="tl-flap-label" i18n="@@timeline.flapLabel">Ver horario del día</span>
+      <span class="tl-flap-label">{{ flapLabel() }}</span>
     </button>
 
   </div>
@@ -184,6 +184,16 @@ export class DayTimelineComponent {
   // Optional inputs for external data (used by share page)
   readonly stop     = input<TripStop | null>(null);
   readonly transits = input<TransitLeg[] | null>(null);
+  // Rendered inline beneath a stop (single-city view); disables the column layout
+  // and the mobile auto-collapse so it stays open where the user opened it.
+  readonly inline   = input(false);
+
+  // Flap label depends on scope: a single stop shows that city; otherwise the whole plan.
+  protected readonly flapLabel = computed(() =>
+    this.stop()
+      ? $localize`:@@timeline.flapLabelCity:Ver itinerario de la ciudad`
+      : $localize`:@@timeline.flapLabelPlan:Ver itinerario del plan`,
+  );
 
   protected readonly hours = Array.from(
     { length: TL_H1 - TL_H0 + 1 },
@@ -285,7 +295,7 @@ export class DayTimelineComponent {
       const stop = this.activeStop();
       if (!stop) { this.selectedDay.set(null); this.lastStopId = null; return; }
 
-      if (stop.stopId !== this.lastStopId && this.device.isMobile()) {
+      if (stop.stopId !== this.lastStopId && this.device.isMobile() && !this.inline()) {
         this.collapsed.set(true);
       }
       this.lastStopId = stop.stopId;

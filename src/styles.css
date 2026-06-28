@@ -287,12 +287,12 @@ app-nav { display: block; }
 .dest-banner { padding: 22px 26px 16px; border-bottom: 1.5px solid var(--border); display: flex; align-items: center; gap: 16px; background: #fff; position: sticky; top: 0; z-index: 10; }
 .dest-banner-flag { font-size: 42px; line-height: 1; flex-shrink: 0; }
 .dest-banner-info { flex: 1; }
-.dest-banner-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; letter-spacing: -1px; line-height: 1; }
+.dest-banner-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; letter-spacing: -1px; line-height: 1; }
 .dest-banner-country { font-size: 12px; color: var(--t3); margin-top: 3px; }
 .dest-banner-badges { display: flex; gap: 6px; margin-top: 7px; flex-wrap: wrap; }
 .attractions-area { padding: 20px 22px; }
 .attractions-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-.attractions-label { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; letter-spacing: -.5px; }
+.attractions-label { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; letter-spacing: -.5px; }
 .att-count { font-size: 12px; color: var(--t3); }
 .att-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(270px,1fr)); gap: 14px; }
 .att-card { background: #fff; border: 1.5px solid var(--border); border-radius: 18px; overflow: hidden; transition: all .25s ease; animation: fadeUp .35s ease both; }
@@ -591,6 +591,8 @@ app-nav { display: block; }
   .att-grid { grid-template-columns: 1fr; }
 
   /* ── Welcome screen ── */
+  /* Drop the slide caption lower so the welcome CTAs don't sit on top of it */
+  .bg-caption { padding: 18px 24px 10px; }
   .welcome-overlay { padding: 28px 18px 28px; min-height: 80vh; }
   .welcome-title { font-size: clamp(28px, 9vw, 44px); }
   .welcome-sub { font-size: 14px; }
@@ -1889,6 +1891,29 @@ app-nav { display: block; }
   .saved-plan-actions > .btn-pill { flex: 1 1 100%; white-space: normal; }
 }
 
+/* Pill beneath each stop's lodging to open the city timeline */
+.stop-itinerary-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 8px; padding: 5px 12px; border-radius: 99px;
+  font-size: 11px; font-weight: 600; cursor: pointer;
+  color: var(--lav-d); background: var(--lav);
+  border: 1px solid var(--lav-d); transition: all .15s;
+}
+.stop-itinerary-pill:hover { filter: brightness(.97); transform: translateY(-1px); }
+.stop-itinerary-pill.active { background: var(--lav-d); color: #fff; }
+
+/* Inline (in-stop) timeline: full-width card beneath a stop, not a fixed side column */
+.timeline-panel.timeline-inline {
+  width: 100%; height: auto;
+  flex-direction: column;
+  border: 1.5px solid var(--border);
+  border-left: 3px solid var(--lav-d);
+  border-radius: 12px;
+  margin-top: 8px;
+}
+.timeline-panel.timeline-inline .tl-flap { display: none; }
+.timeline-panel.timeline-inline .tl-grid-wrap { max-height: 320px; }
+
 /* Distinct accent so the day schedule reads as its own feature (42.2) */
 .timeline-panel.timeline-accent { border-left: 3px solid var(--lav-d); }
 .timeline-panel.timeline-accent .tl-head { background: var(--lav); border-radius: 10px 10px 0 0; }
@@ -1913,33 +1938,40 @@ app-nav { display: block; }
   overflow-y: auto; padding: 44px 14px 24px;
 }
 .att-modal-close {
-  position: absolute; top: 10px; right: 12px; z-index: 1;
+  position: fixed; top: 10px; right: 12px; z-index: 210;
   background: #fff; border: 1px solid var(--border); border-radius: 50%;
   width: 34px; height: 34px; font-size: 16px; cursor: pointer;
+  box-shadow: var(--sh-md);
 }
 
 /* Welcome CTAs */
 .welcome-ctas {
-  display: flex; flex-direction: column; gap: 10px; margin-top: 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 14px;
 }
+/* Each button takes a pale hue sampled across the theme's lavender→peach gradient
+   (same direction as .panel-head), with dark same-hue text for contrast. */
 .welcome-cta {
-  padding: 14px 28px; border-radius: 14px; font-size: 15px; font-weight: 700;
-  cursor: pointer; border: none; transition: transform .12s, opacity .12s;
-  letter-spacing: .01em;
+  width: 200px; padding: 11px 18px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; letter-spacing: .01em;
+  cursor: pointer; border: 1px solid transparent;
+  transition: transform .12s, filter .12s;
 }
-.welcome-cta:hover { transform: translateY(-2px); }
+.welcome-cta:hover { transform: translateY(-2px); filter: brightness(1.04); }
 .welcome-cta:active { transform: scale(.97); }
 .welcome-cta-primary {
-  background: var(--lav-d); color: #fff;
-  box-shadow: 0 4px 18px oklch(45% .22 290/.35);
+  background: oklch(82% .09 290); color: oklch(40% .16 290);   /* pale lavender */
+  border-color: oklch(74% .11 290);
+  box-shadow: 0 3px 12px oklch(55% .16 290/.22);
 }
 .welcome-cta-ai {
-  background: oklch(14% .05 290); color: var(--lav);
-  border: 1.5px solid var(--lav-d);
+  background: oklch(82% .10 350); color: oklch(42% .17 350);   /* pale pink */
+  border-color: oklch(74% .12 350);
+  box-shadow: 0 3px 12px oklch(56% .17 350/.22);
 }
 .welcome-cta-karma {
-  background: oklch(96% .06 90); color: oklch(48% .14 75);
-  border: 1.5px solid oklch(85% .12 90);
+  background: oklch(84% .10 50); color: oklch(42% .15 50);     /* pale peach */
+  border-color: oklch(76% .12 50);
+  box-shadow: 0 3px 12px oklch(56% .16 50/.22);
 }
 .welcome-karma-modal-backdrop {
   position: fixed; inset: 0; z-index: 300; background: rgba(15,10,30,0.55);

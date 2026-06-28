@@ -74,7 +74,7 @@ import { MyTripsComponent }           from './features/my-trips/my-trips.compone
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
         <app-stop-list (addDestination)="showAddModal.set(true)" />
-        <tb-day-timeline #timeline />
+        <tb-day-timeline />
         <div class="right-panel">
           @if (!trip.activeStop()) {
             <div class="empty-stop">
@@ -85,7 +85,7 @@ import { MyTripsComponent }           from './features/my-trips/my-trips.compone
                    i18n="@@app.selectStopDesc">Haz clic en un destino del panel para explorar sus atracciones</div>
             </div>
           } @else {
-            <app-destination (viewItinerary)="timeline.expand()" />
+            <app-destination />
           }
         </div>
       </div>

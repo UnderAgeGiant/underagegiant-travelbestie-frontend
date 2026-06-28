@@ -12,10 +12,11 @@ import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TransitConnectorComponent } from './transit-connector.component';
 import { LodgingComponent } from './lodging.component';
+import { DayTimelineComponent } from '../../planning/day-timeline/day-timeline.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -130,6 +131,15 @@ import { LodgingComponent } from './lodging.component';
 
                 <app-lodging [stopId]="stop.stopId" />
 
+                <button type="button" class="stop-itinerary-pill"
+                        [class.active]="itineraryOpenStopId() === stop.stopId"
+                        (click)="$event.stopPropagation(); toggleItinerary(stop.stopId)"
+                        i18n="@@stopList.viewItinerary">📅 Ver itinerario de la ciudad</button>
+
+                @if (itineraryOpenStopId() === stop.stopId) {
+                  <tb-day-timeline [stop]="stop" [inline]="true" />
+                }
+
                 @if (stop.selectedAttractions.length > 0) {
                   <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
                     <button type="button"
@@ -233,7 +243,7 @@ import { LodgingComponent } from './lodging.component';
           }
         }
 
-        @if (device.isMobile() && showScrollTop()) {
+        @if (device.isMobile() && showScrollTop() && trip.stops().length > 0) {
           <button class="scroll-top-fab" (click)="scrollToActiveCity()" type="button"
                   i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
         }
@@ -271,6 +281,14 @@ export class StopListComponent {
   addDestination = output<void>();
 
   protected readonly showScrollTop = signal(false);
+
+  // Which stop's inline city timeline is currently open (null = none).
+  protected readonly itineraryOpenStopId = signal<string | null>(null);
+
+  protected toggleItinerary(stopId: string): void {
+    this.trip.setActive(stopId);
+    this.itineraryOpenStopId.update(cur => (cur === stopId ? null : stopId));
+  }
 
   @HostListener('window:scroll')
   onWindowScroll(): void {

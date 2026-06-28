@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, OnInit, effect, ChangeDetectionStrategy, output } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, effect, ChangeDetectionStrategy } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { TripService } from '../trip/trip.service';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -43,11 +43,6 @@ import { DeviceService } from '../../core/device/device.service';
             </div>
           </div>
         </div>
-        @if (device.isMobile()) {
-          <button class="btn-pill btn-outline" style="width:100%;justify-content:center;margin:8px 0"
-                  (click)="viewItinerary.emit()" type="button"
-                  i18n="@@plan.viewCityItinerary">📅 Ver itinerario de la ciudad</button>
-        }
 
         <ng-template #attList>
           <div class="attractions-area">
@@ -113,15 +108,19 @@ import { DeviceService } from '../../core/device/device.service';
           <ng-container [ngTemplateOutlet]="attList" />
         } @else {
           <button class="btn-pill btn-primary" style="width:100%;justify-content:center;margin:8px 0"
-                  (click)="attractionsModalOpen.set(true)" type="button"
+                  (click)="attModalScrolled.set(false); attractionsModalOpen.set(true)" type="button"
                   i18n="@@dest.addAttractionsBtn">➕ Agregar atracciones</button>
 
           @if (attractionsModalOpen()) {
             <div class="att-modal-backdrop" (click)="attractionsModalOpen.set(false)">
-              <div class="att-modal" (click)="$event.stopPropagation()">
+              <div class="att-modal" (scroll)="onAttModalScroll($event)" (click)="$event.stopPropagation()">
                 <button class="att-modal-close" (click)="attractionsModalOpen.set(false)"
                         i18n-aria-label="@@dest.addAttractionsClose" aria-label="Cerrar">✕</button>
                 <ng-container [ngTemplateOutlet]="attList" />
+                @if (attModalScrolled()) {
+                  <button class="scroll-top-fab" (click)="scrollAttModalTop()" type="button"
+                          i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
+                }
               </div>
             </div>
           }
@@ -135,8 +134,17 @@ export class DestinationComponent implements OnInit {
   private readonly api = inject(ApiService);
   protected readonly device = inject(DeviceService);
 
-  readonly viewItinerary = output<void>();
   protected readonly attractionsModalOpen = signal(false);
+  protected readonly attModalScrolled = signal(false);
+
+  protected onAttModalScroll(ev: Event): void {
+    this.attModalScrolled.set((ev.target as HTMLElement).scrollTop > 240);
+  }
+
+  protected scrollAttModalTop(): void {
+    (document.querySelector('.att-modal') as HTMLElement | null)
+      ?.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   private allComments = signal<Record<string, Comment[]>>({});
 
