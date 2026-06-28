@@ -38,13 +38,16 @@ import { environment } from '../../../../environments/environment';
       <div class="modal-backdrop" (click)="onBackdropClick($event)">
         <div class="modal">
           <div class="modal-head" style="position:relative"
-               [style.background]="loginMode() === 'login'
-                 ? 'linear-gradient(135deg,var(--lav),var(--peach))'
-                 : 'linear-gradient(135deg,var(--mint),var(--sky))'">
+               [style.background]="loginMode() === 'register'
+                 ? 'linear-gradient(135deg,var(--mint),var(--sky))'
+                 : 'linear-gradient(135deg,var(--lav),var(--peach))'">
             <button type="button"
                     style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:16px;line-height:1;padding:5px 8px;border-radius:8px;cursor:pointer;transition:background .12s"
                     (click)="authModal.close()">✕</button>
-            @if (loginMode() === 'login') {
+            @if (loginMode() === 'reset') {
+              <div class="modal-title" i18n="@@nav.resetTitle">Recuperar contraseña 🔑</div>
+              <div class="modal-sub" i18n="@@nav.resetSubtitle">Te enviaremos un código a tu correo</div>
+            } @else if (loginMode() === 'login') {
               <div class="modal-title" i18n="@@nav.loginTitle">¡Bienvenido de vuelta! 👋</div>
               <div class="modal-sub" i18n="@@nav.loginSubtitle">Inicia sesión para guardar tus viajes</div>
             } @else {
@@ -165,16 +168,95 @@ import { environment } from '../../../../environments/environment';
                 </div>
               }
             }
+            @if (loginMode() === 'reset') {
+              @if (resetStep() === 'request') {
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" i18n="@@nav.emailLabel">Correo electrónico</label>
+                  <input class="form-input" type="email"
+                         i18n-placeholder="@@nav.emailPlaceholder" placeholder="tú@correo.com"
+                         [value]="resetEmail()"
+                         (input)="resetEmail.set($any($event.target).value)" />
+                </div>
+              } @else if (resetStep() === 'verify') {
+                <div style="text-align:center;padding:8px 0 4px">
+                  <div style="font-size:28px">📧</div>
+                  <div style="font-size:12px;color:var(--t3);margin-top:6px">
+                    <ng-container i18n="@@nav.resetSentMsg">Si el correo existe, te enviamos un código a </ng-container>
+                    <strong>{{ resetEmail() }}</strong>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" i18n="@@nav.resetOtpLabel">Código de verificación</label>
+                  <input class="form-input" type="text" inputmode="numeric" maxlength="6"
+                         i18n-placeholder="@@nav.otpPlaceholder" placeholder="000000"
+                         [value]="resetOtp()"
+                         (input)="onResetOtpInput($any($event.target).value)" />
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" i18n="@@nav.resetNewPasswordLabel">Nueva contraseña</label>
+                  <div style="position:relative">
+                    <input class="form-input" style="padding-right:72px"
+                           [type]="showPassword() ? 'text' : 'password'" placeholder="••••••••"
+                           [value]="loginPassword()"
+                           (input)="loginPassword.set($any($event.target).value)" />
+                    <button type="button"
+                            style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
+                            (click)="showPassword.set(!showPassword())">
+                      {{ showPassword() ? 'Ocultar' : 'Ver' }}
+                    </button>
+                  </div>
+                  @if (loginPassword()) {
+                    <div style="margin-top:7px">
+                      <div style="display:flex;gap:3px;margin-bottom:4px">
+                        @for (i of [0, 1, 2]; track i) {
+                          <div style="flex:1;height:3px;border-radius:99px;transition:background .25s"
+                               [style.background]="strengthBarActive(i) ? strengthColor() : 'oklch(92% 0.02 280)'"></div>
+                        }
+                      </div>
+                      <span style="font-size:11px;font-weight:600;transition:color .25s"
+                            [style.color]="strengthColor()">{{ strengthLabel() }}</span>
+                    </div>
+                  }
+                </div>
+              } @else {
+                <div style="text-align:center;padding:16px 0 8px">
+                  <div style="font-size:40px">✅</div>
+                  <div style="font-size:14px;font-weight:600;color:var(--t1);margin-top:8px"
+                       i18n="@@nav.resetDoneTitle">¡Contraseña actualizada!</div>
+                  <div style="font-size:12px;color:var(--t3);margin-top:4px"
+                       i18n="@@nav.resetDoneMsg">Ya puedes iniciar sesión con tu nueva contraseña.</div>
+                </div>
+              }
+            }
           </div>
           <div class="modal-foot" style="flex-direction:column;gap:8px">
             <div style="display:flex;justify-content:center;padding-bottom:4px">
-              @if (loginMode() !== 'register' || !otpStep()) {
+              @if (loginMode() === 'login' || (loginMode() === 'register' && !otpStep())) {
                 <div id="tb-turnstile"></div>
               }
             </div>
             <div style="display:flex;gap:8px;width:100%">
               <button class="btn-pill btn-outline" (click)="authModal.close()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
-              @if (loginMode() === 'login') {
+              @if (loginMode() === 'reset') {
+                @if (resetStep() === 'request') {
+                  <button class="btn-pill btn-primary" (click)="requestReset()"
+                          [disabled]="resetLoading() || !resetEmail().trim()"
+                          [style.opacity]="(resetLoading() || !resetEmail().trim()) ? '0.5' : '1'"
+                          style="flex:2" i18n="@@nav.resetRequestBtn">
+                    {{ resetLoading() ? 'Enviando…' : 'Enviar código →' }}
+                  </button>
+                } @else if (resetStep() === 'verify') {
+                  <button class="btn-pill btn-primary" (click)="submitReset()"
+                          [disabled]="resetLoading() || resetOtp().length < 6 || loginPassword().length < 6"
+                          [style.opacity]="(resetLoading() || resetOtp().length < 6 || loginPassword().length < 6) ? '0.5' : '1'"
+                          style="flex:2" i18n="@@nav.resetSubmit">
+                    {{ resetLoading() ? 'Guardando…' : 'Cambiar contraseña →' }}
+                  </button>
+                } @else {
+                  <button class="btn-pill btn-primary" (click)="backToLoginFromReset()"
+                          style="flex:2" i18n="@@nav.resetBackToLogin">Iniciar sesión →</button>
+                }
+              } @else if (loginMode() === 'login') {
                 <button class="btn-pill btn-primary" (click)="doAuth()"
                         [disabled]="!captchaToken()"
                         [style.opacity]="captchaToken() ? '1' : '0.5'"
@@ -227,13 +309,27 @@ import { environment } from '../../../../environments/environment';
                 }
               </div>
             }
-            <div class="auth-toggle">
-              @if (loginMode() === 'login') {
-                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>Regístrate gratis</span></span>
-              } @else {
-                <span style="cursor:pointer" (click)="switchToLogin()" i18n="@@nav.authToggleRegister">¿Ya tienes una? <span>Inicia sesión</span></span>
+            @if (loginMode() === 'login' && failedLoginAttempts() >= 3) {
+              <div style="text-align:center;padding-top:2px">
+                <span style="cursor:pointer;font-size:12px;color:var(--lav-d);font-weight:600"
+                      (click)="openReset()" i18n="@@nav.forgotPassword">¿Olvidaste tu contraseña?</span>
+              </div>
+            }
+            @if (loginMode() === 'reset') {
+              @if (resetStep() !== 'done') {
+                <div class="auth-toggle">
+                  <span style="cursor:pointer" (click)="backToLoginFromReset()" i18n="@@nav.resetBackLink">← Volver a iniciar sesión</span>
+                </div>
               }
-            </div>
+            } @else if (loginMode() === 'login') {
+              <div class="auth-toggle">
+                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>Regístrate gratis</span></span>
+              </div>
+            } @else {
+              <div class="auth-toggle">
+                <span style="cursor:pointer" (click)="switchToLogin()" i18n="@@nav.authToggleRegister">¿Ya tienes una? <span>Inicia sesión</span></span>
+              </div>
+            }
           </div>
         </div>
       </div>
@@ -249,7 +345,7 @@ export class AuthModalComponent {
   private readonly visited    = inject(VisitedPlacesService);
 
   // auth form signals
-  loginMode     = signal<'login' | 'register'>('login');
+  loginMode     = signal<'login' | 'register' | 'reset'>('login');
   loginName     = signal('');
   loginEmail    = signal('');
   loginPassword        = signal('');
@@ -270,6 +366,13 @@ export class AuthModalComponent {
   otpCode        = signal('');
   otpLoading     = signal(false);
   registerLoading = signal(false);
+
+  // password recovery
+  failedLoginAttempts = signal(0);
+  resetStep    = signal<'request' | 'verify' | 'done'>('request');
+  resetEmail   = signal('');
+  resetOtp     = signal('');
+  resetLoading = signal(false);
 
   private readonly turnstileWidgetId = signal<string | null>(null);
   private initAttempts = 0;
@@ -338,6 +441,10 @@ export class AuthModalComponent {
         this.loginError.set('');
         this.loginErrorCode.set('');
         this.authErrorContext.set('');
+        this.failedLoginAttempts.set(0);
+        this.loginMode.set('login');
+        this.resetStep.set('request');
+        this.resetOtp.set('');
       }
     }, { allowSignalWrites: true });
   }
@@ -389,6 +496,7 @@ export class AuthModalComponent {
     this.loginConfirmPassword.set('');
     this.showPassword.set(false);
     this.showConfirmPassword.set(false);
+    this.failedLoginAttempts.set(0);
   }
 
   switchToLogin(): void {
@@ -401,6 +509,7 @@ export class AuthModalComponent {
     this.loginConfirmPassword.set('');
     this.showPassword.set(false);
     this.showConfirmPassword.set(false);
+    this.failedLoginAttempts.set(0);
   }
 
   goBackFromOtp(): void {
@@ -410,6 +519,68 @@ export class AuthModalComponent {
     this.loginErrorCode.set('');
     this.authErrorContext.set('');
     setTimeout(() => this.renderTurnstile(), 0);
+  }
+
+  openReset(): void {
+    this.loginMode.set('reset');
+    this.resetStep.set('request');
+    this.resetEmail.set(this.loginEmail());
+    this.resetOtp.set('');
+    this.loginPassword.set('');
+    this.loginError.set('');
+    this.loginErrorCode.set('');
+    this.authErrorContext.set('');
+    this.destroyTurnstile();
+  }
+
+  requestReset(): void {
+    const email = this.resetEmail().trim();
+    if (!email) { this.loginError.set('Ingresa tu correo electrónico.'); return; }
+    this.resetLoading.set(true);
+    this.loginError.set('');
+    this.loginErrorCode.set('');
+    this.authErrorContext.set('');
+    this.auth.requestPasswordReset(email).subscribe({
+      next: () => { this.resetLoading.set(false); this.resetStep.set('verify'); },
+      error: (err: unknown) => {
+        this.resetLoading.set(false);
+        this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.authErrorContext.set('send-otp');
+      },
+    });
+  }
+
+  submitReset(): void {
+    if (this.resetOtp().length < 6) { this.loginError.set('Ingresa el código de 6 dígitos.'); return; }
+    if (this.loginPassword().length < 6) { this.loginError.set('La contraseña debe tener al menos 6 caracteres.'); return; }
+    this.resetLoading.set(true);
+    this.loginError.set('');
+    this.loginErrorCode.set('');
+    this.authErrorContext.set('');
+    this.auth.resetPassword(this.resetEmail().trim(), this.resetOtp(), this.loginPassword()).subscribe({
+      next: () => { this.resetLoading.set(false); this.resetStep.set('done'); },
+      error: (err: unknown) => {
+        this.resetLoading.set(false);
+        this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.authErrorContext.set('register');
+      },
+    });
+  }
+
+  backToLoginFromReset(): void {
+    this.loginMode.set('login');
+    this.loginEmail.set(this.resetEmail().trim());
+    this.loginPassword.set('');
+    this.resetOtp.set('');
+    this.failedLoginAttempts.set(0);
+    this.loginError.set('');
+    this.loginErrorCode.set('');
+    this.authErrorContext.set('');
+    setTimeout(() => this.renderTurnstile(), 0);
+  }
+
+  onResetOtpInput(value: string): void {
+    this.resetOtp.set(value.replace(/\D/g, '').slice(0, 6));
   }
 
   sendOtp(): void {
@@ -482,6 +653,7 @@ export class AuthModalComponent {
     if (this.loginMode() === 'login') {
       this.auth.login(this.loginEmail(), this.loginPassword()).subscribe({
         next: res => {
+          this.failedLoginAttempts.set(0);
           this.trip.loadForUserPreservingAnonymous(res.user.email);
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
@@ -492,6 +664,7 @@ export class AuthModalComponent {
           this.authModal.executePostLogin();
         },
         error: (err: unknown) => {
+          this.failedLoginAttempts.update(n => n + 1);
           this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
           this.authErrorContext.set('login');
           this.resetTurnstile();
