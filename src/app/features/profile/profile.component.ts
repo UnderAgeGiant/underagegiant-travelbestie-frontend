@@ -30,31 +30,6 @@ import { WORLD_CITIES } from '../../data/cities.data';
           </div>
         </div>
 
-        <!-- Home address -->
-        @if (auth.isLoggedIn()) {
-          <div class="home-address-row">
-            <span class="home-address-icon">🏠</span>
-            @if (editingHome()) {
-              <input class="form-input home-address-input"
-                     [value]="homeInput()"
-                     (input)="homeInput.set($any($event.target).value)"
-                     placeholder="Ciudad o dirección de inicio…"
-                     (keydown.enter)="saveHome()"
-                     (keydown.escape)="editingHome.set(false)" />
-              <button class="btn-pill btn-primary" style="padding:4px 12px;font-size:11px"
-                      (click)="saveHome()">✓</button>
-              <button class="btn-pill btn-outline" style="padding:4px 8px;font-size:11px"
-                      (click)="editingHome.set(false)">✕</button>
-            } @else {
-              <span class="home-address-label"
-                    (click)="openHomeEdit()">
-                {{ homeAddress.address() || 'Agrega tu ciudad de origen…' }}
-              </span>
-              <button class="home-address-edit" (click)="openHomeEdit()" type="button">✏️</button>
-            }
-          </div>
-        }
-
         <!-- Edit account accordion -->
         <section>
           <div class="section-head">Editar cuenta ✏️</div>
@@ -90,6 +65,13 @@ import { WORLD_CITIES } from '../../data/cities.data';
                       <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
                     } @else {
                       <ng-container i18n="@@profile.errUpdatePassword">No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</ng-container>
+                    }
+                  }
+                  @case ('homeCity') {
+                    @if (editErrorCode() === 'UNAUTHORIZED') {
+                      <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
+                    } @else {
+                      <ng-container i18n="@@profile.errUpdateHomeCity">No se pudo guardar la ciudad. Intenta de nuevo.</ng-container>
                     }
                   }
                 }
@@ -306,6 +288,44 @@ import { WORLD_CITIES } from '../../data/cities.data';
               </div>
             }
 
+            <div class="profile-accordion-sep"></div>
+
+            <!-- Home city -->
+            <button class="profile-accordion-hd" (click)="toggleEditSection('homeCity')" type="button">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span>🏠</span>
+                <div style="text-align:left">
+                  <div class="profile-accordion-title" i18n="@@profile.homeCityTitle">Ciudad de origen</div>
+                  <div class="profile-accordion-sub">{{ homeAddress.address() || sinDefinir }}</div>
+                </div>
+              </div>
+              @if (editSavedTab() === 'homeCity') {
+                <span class="profile-accordion-check">✓</span>
+              } @else {
+                <span class="profile-accordion-chevron">{{ editSection() === 'homeCity' ? '▴' : '▾' }}</span>
+              }
+            </button>
+            @if (editSection() === 'homeCity') {
+              <div class="profile-accordion-bd">
+                <input class="form-input"
+                       i18n-placeholder="@@profile.homeCityPlaceholder" placeholder="Ciudad o dirección de inicio…"
+                       [value]="editHomeCity()"
+                       (input)="editHomeCity.set($any($event.target).value)"
+                       (keydown.enter)="editSaveHomeCity()" />
+                <button class="btn-pill btn-primary" style="margin-top:10px;width:100%;justify-content:center"
+                        [disabled]="editLoading()"
+                        (click)="editSaveHomeCity()">
+                  @if (editLoading()) {
+                    <span class="btn-spinner"></span> <ng-container i18n="@@profile.saving">Guardando…</ng-container>
+                  } @else if (editSavedTab() === 'homeCity') {
+                    ✓ <ng-container i18n="@@profile.saved">Guardado</ng-container>
+                  } @else {
+                    <ng-container i18n="@@profile.homeCitySave">Guardar ciudad</ng-container>
+                  }
+                </button>
+              </div>
+            }
+
           </div>
         </section>
 
@@ -424,7 +444,7 @@ export class ProfileComponent {
   openAiPlanning = output<void>();
 
   // ── Edit account accordion ──────────────────────────────────
-  editSection       = signal<'name' | 'email' | 'password' | null>(null);
+  editSection       = signal<'name' | 'email' | 'password' | 'homeCity' | null>(null);
   editDisplayName   = signal(this.auth.currentUser()?.name ?? '');
   editNewEmail      = signal('');
   editEmailOtp      = signal('');
@@ -433,13 +453,16 @@ export class ProfileComponent {
   editNewPwd        = signal('');
   editConfirmPwd    = signal('');
   editLoading       = signal(false);
-  editSavedTab      = signal<'name' | 'email-otp' | 'email' | 'password' | null>(null);
+  editSavedTab      = signal<'name' | 'email-otp' | 'email' | 'password' | 'homeCity' | null>(null);
   editError         = signal('');
   editErrorCode     = signal<string>('');
-  editErrorContext  = signal<'name' | 'email-otp' | 'email' | 'password' | ''>('');
+  editErrorContext  = signal<'name' | 'email-otp' | 'email' | 'password' | 'homeCity' | ''>('');
   editShowCurrentPwd  = signal(false);
   editShowNewPwd      = signal(false);
   editShowConfirmPwd  = signal(false);
+  editHomeCity        = signal(this.homeAddress.address());
+
+  readonly sinDefinir = $localize`:@@profile.homeCitySub:Sin definir`;
 
   readonly editPasswordsMatch = computed(() =>
     !this.editConfirmPwd() || this.editNewPwd() === this.editConfirmPwd()
@@ -489,11 +512,12 @@ export class ProfileComponent {
 
   private editSavedTimer: ReturnType<typeof setTimeout> | null = null;
 
-  toggleEditSection(section: 'name' | 'email' | 'password'): void {
+  toggleEditSection(section: 'name' | 'email' | 'password' | 'homeCity'): void {
     this.editSection.update(cur => cur === section ? null : section);
     this.editError.set('');
     this.editErrorCode.set('');
     this.editErrorContext.set('');
+    if (section === 'homeCity') this.editHomeCity.set(this.homeAddress.address());
   }
 
   editSaveName(): void {
@@ -576,14 +600,27 @@ export class ProfileComponent {
     });
   }
 
-  private editMarkSaved(tab: 'name' | 'email-otp' | 'email' | 'password', onComplete?: () => void): void {
+  editSaveHomeCity(): void {
+    this.editLoading.set(true);
+    this.editError.set('');
+    this.editErrorCode.set('');
+    this.editErrorContext.set('');
+    this.homeAddress.save(this.editHomeCity().trim()).subscribe({
+      next: () => { this.editLoading.set(false); this.editMarkSaved('homeCity'); },
+      error: (err: unknown) => {
+        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.editErrorContext.set('homeCity');
+        this.editLoading.set(false);
+      },
+    });
+  }
+
+  private editMarkSaved(tab: 'name' | 'email-otp' | 'email' | 'password' | 'homeCity', onComplete?: () => void): void {
     if (this.editSavedTimer) clearTimeout(this.editSavedTimer);
     this.editSavedTab.set(tab);
     this.editSavedTimer = setTimeout(() => { this.editSavedTab.set(null); onComplete?.(); }, 2500);
   }
 
-  editingHome     = signal(false);
-  homeInput       = signal('');
   pendingPin      = signal<{ x: number; y: number } | null>(null);
   pendingLabel    = signal('');
 
@@ -595,19 +632,6 @@ export class ProfileComponent {
   readonly totalPlanned = computed(() =>
     this.trip.stops().reduce((sum, s) => sum + s.selectedAttractions.length, 0)
   );
-
-
-  openHomeEdit(): void {
-    this.homeInput.set(this.homeAddress.address());
-    this.editingHome.set(true);
-  }
-
-  saveHome(): void {
-    const email = this.auth.currentUser()?.email;
-    if (!email) return;
-    this.homeAddress.save(email, this.homeInput());
-    this.editingHome.set(false);
-  }
 
   cityFor(cityId: string) {
     return WORLD_CITIES.find(c => c.id === cityId) ?? null;
