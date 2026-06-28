@@ -16,9 +16,9 @@ import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-mod
   ],
   template: `
     @if (device.isMobile()) {
-      <app-nav-mobile (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" />
+      <app-nav-mobile (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" (myTripsClick)="myTripsClick.emit()" />
     } @else {
-      <app-nav-desktop (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" />
+      <app-nav-desktop (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" (myTripsClick)="myTripsClick.emit()" />
     }
 
     <app-auth-modal />
@@ -49,4 +49,5 @@ export class NavShellComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
+  myTripsClick = output<void>();
 }

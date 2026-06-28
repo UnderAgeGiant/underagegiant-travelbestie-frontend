@@ -1,4 +1,6 @@
-import { Component, output, signal, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, output, signal, OnInit, OnDestroy, ChangeDetectionStrategy, inject } from '@angular/core';
+import { AuthService } from '../../core/auth/auth.service';
+import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
 
 @Component({
@@ -17,24 +19,23 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
         <div class="welcome-eyebrow" i18n="@@welcome.eyebrow">Planifica · Comparte · Explora</div>
         <h1 class="welcome-title" i18n="@@welcome.title">Viaja pensando en tu<br/><em>mejor amig&#64;</em></h1>
         <p class="welcome-sub" i18n="@@welcome.subtitle">Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</p>
-        <div class="welcome-actions">
-          <button class="btn-pill btn-primary"
-                  style="padding:11px 24px;font-size:14px"
-                  (click)="addDestination.emit()"
-                  i18n="@@welcome.addBtn">Comienza a crear tu plan</button>
-          <button class="btn-pill btn-outline"
-                  style="padding:11px 24px;font-size:14px"
-                  (click)="openAiPlanning.emit()"
-                  i18n="@@welcome.aiBtn">✨ Planificar con IA</button>
+        <div class="welcome-ctas">
+          <button class="welcome-cta welcome-cta-primary" (click)="addDestination.emit()"
+                  i18n="@@welcome.ctaCreatePlan">Crear Plan</button>
+          <button class="welcome-cta welcome-cta-ai" (click)="openAiPlanning.emit()"
+                  i18n="@@welcome.ctaCreateAi">✨ Crear con IA</button>
+          <button class="welcome-cta welcome-cta-karma" (click)="howKarmaOpen.set(true)"
+                  i18n="@@welcome.ctaHowKarma">⭐ Cómo ganar Karma</button>
         </div>
-      </div>
 
-      <div class="welcome-steps">
-        @for (step of steps; track step.n) {
-          <div class="step-card">
-            <div class="step-num">{{ step.n }}</div>
-            <div class="step-title">{{ step.t }}</div>
-            <div class="step-desc">{{ step.d }}</div>
+        @if (howKarmaOpen()) {
+          <div class="welcome-karma-modal-backdrop" (click)="howKarmaOpen.set(false)">
+            <div class="welcome-karma-modal" (click)="$event.stopPropagation()">
+              <h3 i18n="@@welcome.karmaTitle">Cómo ganar Karma ⭐</h3>
+              <p i18n="@@welcome.karmaBody">Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</p>
+              <button class="btn-pill btn-primary" (click)="howKarmaOpen.set(false)"
+                      i18n="@@welcome.karmaClose">Entendido</button>
+            </div>
           </div>
         }
       </div>
@@ -46,15 +47,8 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   openAiPlanning = output<void>();
   slideIdx = signal(0);
   readonly slides = SLIDES;
+  readonly howKarmaOpen = signal(false);
   private timer?: ReturnType<typeof setInterval>;
-
-  readonly steps = [
-    { n: 1, t: $localize`:@@welcome.step1Title:Elige una ciudad`,       d: $localize`:@@welcome.step1Desc:120+ destinos en el mundo` },
-    { n: 2, t: $localize`:@@welcome.step2Title:Explorar atracciones`,    d: $localize`:@@welcome.step2Desc:Lugares seleccionados para ver y hacer` },
-    { n: 3, t: $localize`:@@welcome.step3Title:Recopilar comentarios`,   d: $localize`:@@welcome.step3Desc:Tus amigos dejan consejos en cada parada` },
-    { n: 4, t: $localize`:@@welcome.step4Title:Comparte tu viaje 🔗`,    d: $localize`:@@welcome.step4Desc:Genera un enlace público de tu plan y compártelo con tus amigos` },
-    { n: 5, t: $localize`:@@welcome.step5Title:Gana Karma ⭐`,           d: $localize`:@@welcome.step5Desc:Cuando tus amigos comenten cada parada de tu viaje, ganas Karma` },
-  ];
 
   prevSlide() { this.slideIdx.update(i => (i - 1 + this.slides.length) % this.slides.length); }
   nextSlide() { this.slideIdx.update(i => (i + 1) % this.slides.length); }

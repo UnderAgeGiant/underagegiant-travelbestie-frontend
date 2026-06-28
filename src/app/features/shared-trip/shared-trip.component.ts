@@ -22,6 +22,7 @@ import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.comp
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
+import { shareTrip } from '../../core/share/share-url.util';
 
 @Component({
     selector: 'app-shared-trip',
@@ -101,6 +102,12 @@ import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.
               <span class="karma-cost">−1 ✨ karma</span>
             </button>
           }
+
+          <!-- Native share (WhatsApp, Telegram, Messages, Mail…) -->
+          <button class="btn-pill btn-outline"
+                  style="margin-top:12px;margin-left:8px;gap:6px"
+                  (click)="shareNative()" type="button"
+                  i18n="@@share.shareBtn">📤 Compartir</button>
 
           <!-- Success toast -->
           @if (cloneResult()) {
@@ -563,6 +570,11 @@ export class SharedTripComponent {
         this.karmaModal.handleKarmaError(err);
       },
     });
+  }
+
+  shareNative(): void {
+    const trip = this.trip();
+    if (trip) void shareTrip(trip.tripName, this.tripId());
   }
 
   openCloneInEditor(): void {

@@ -1,5 +1,6 @@
-import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { TripService } from '../trip.service';
+import { DeviceService } from '../../../core/device/device.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
@@ -11,10 +12,11 @@ import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TransitConnectorComponent } from './transit-connector.component';
 import { LodgingComponent } from './lodging.component';
+import { DayTimelineComponent } from '../../planning/day-timeline/day-timeline.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -129,44 +131,63 @@ import { LodgingComponent } from './lodging.component';
 
                 <app-lodging [stopId]="stop.stopId" />
 
+                <button type="button" class="stop-itinerary-pill"
+                        [class.active]="itineraryOpenStopId() === stop.stopId"
+                        (click)="$event.stopPropagation(); toggleItinerary(stop.stopId)"
+                        i18n="@@stopList.viewItinerary">📅 Ver itinerario de la ciudad</button>
+
+                @if (itineraryOpenStopId() === stop.stopId) {
+                  <tb-day-timeline [stop]="stop" [inline]="true" />
+                }
+
                 @if (stop.selectedAttractions.length > 0) {
                   <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
-                    <div style="font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--t3);margin-bottom:4px"
-                         i18n="@@stopList.plannedLabel">Planificado</div>
-                    @for (planned of stop.selectedAttractions; track planned.attractionId) {
-                      @let att = attractionFor(stop.cityId, planned.attractionId);
-                      @if (att) {
-                        @let collision = hasTimeCollision(stop, planned.entryId);
-                        <div class="att-plan-row" [class.att-collision]="collision"
-                             (click)="$event.stopPropagation()">
-                          <span class="att-plan-icon">{{ att.icon }}</span>
-                          <span class="att-plan-name">{{ att.name }}</span>
-                          <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
-                            @let d = planned.date || stop.checkIn;
-                            @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
-                          </span>
-                          @if (collision) {
-                            <span title="Conflicto de horario" style="font-size:11px;flex-shrink:0">⚠️</span>
-                          }
-                          <button class="att-plan-del"
-                                  (click)="trip.removeAttraction(stop.stopId, planned.entryId)"
-                                  i18n-title="@@stopList.removeAttTitle"
-                                  title="Quitar del plan">×</button>
-                          <!-- Inline time inputs for timeline -->
-                          <div class="att-time-inputs">
-                            <input type="time" class="att-time-input"
-                                   [value]="planned.startTime ?? ''"
-                                   (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event)"
-                                   i18n-placeholder="@@timeline.startTimePlaceholder"
-                                   placeholder="Inicio" />
-                            <span class="att-time-sep">–</span>
-                            <input type="time" class="att-time-input"
-                                   [value]="planned.endTime || endTimeFor(planned.startTime, att.estimatedMinutes)"
-                                   (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'endTime', $event)"
-                                   i18n-placeholder="@@timeline.endTimePlaceholder"
-                                   placeholder="Fin" />
+                    <button type="button"
+                            style="display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;cursor:pointer;padding:0"
+                            (click)="$event.stopPropagation(); toggleScheduled(stop.stopId)">
+                      <span style="font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--t3)">
+                        <ng-container i18n="@@stopList.plannedLabel">Planificado</ng-container>
+                        ({{ stop.selectedAttractions.length }})
+                      </span>
+                      <span style="margin-left:auto;font-size:10px;color:var(--t3)">{{ isScheduledOpen(stop.stopId) ? '▴' : '▾' }}</span>
+                    </button>
+
+                    @if (isScheduledOpen(stop.stopId)) {
+                      @for (planned of stop.selectedAttractions; track planned.attractionId) {
+                        @let att = attractionFor(stop.cityId, planned.attractionId);
+                        @if (att) {
+                          @let collision = hasTimeCollision(stop, planned.entryId);
+                          <div class="att-plan-row" [class.att-collision]="collision"
+                               (click)="$event.stopPropagation()">
+                            <span class="att-plan-icon">{{ att.icon }}</span>
+                            <span class="att-plan-name">{{ att.name }}</span>
+                            <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
+                              @let d = planned.date || stop.checkIn;
+                              @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                            </span>
+                            @if (collision) {
+                              <span title="Conflicto de horario" style="font-size:11px;flex-shrink:0">⚠️</span>
+                            }
+                            <button class="att-plan-del"
+                                    (click)="trip.removeAttraction(stop.stopId, planned.entryId)"
+                                    i18n-title="@@stopList.removeAttTitle"
+                                    title="Quitar del plan">×</button>
+                            <!-- Inline time inputs for timeline -->
+                            <div class="att-time-inputs">
+                              <input type="time" class="att-time-input"
+                                     [value]="planned.startTime ?? ''"
+                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event)"
+                                     i18n-placeholder="@@timeline.startTimePlaceholder"
+                                     placeholder="Inicio" />
+                              <span class="att-time-sep">–</span>
+                              <input type="time" class="att-time-input"
+                                     [value]="planned.endTime || endTimeFor(planned.startTime, att.estimatedMinutes)"
+                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'endTime', $event)"
+                                     i18n-placeholder="@@timeline.endTimePlaceholder"
+                                     placeholder="Fin" />
+                            </div>
                           </div>
-                        </div>
+                        }
                       }
                     }
                   </div>
@@ -222,6 +243,11 @@ import { LodgingComponent } from './lodging.component';
           }
         }
 
+        @if (device.isMobile() && showScrollTop() && trip.stops().length > 0) {
+          <button class="scroll-top-fab" (click)="scrollToActiveCity()" type="button"
+                  i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
+        }
+
         <!-- Saving popup -->
         @if (bookSaving()) {
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:oklch(100% 0 0/.7);border-radius:inherit;z-index:10;backdrop-filter:blur(2px)">
@@ -251,7 +277,42 @@ export class StopListComponent {
   private readonly auth       = inject(AuthService);
   private readonly authModal  = inject(AuthModalService);
   private readonly karmaModal = inject(KarmaModalService);
+  protected readonly device   = inject(DeviceService);
   addDestination = output<void>();
+
+  protected readonly showScrollTop = signal(false);
+
+  // Which stop's inline city timeline is currently open (null = none).
+  protected readonly itineraryOpenStopId = signal<string | null>(null);
+
+  protected toggleItinerary(stopId: string): void {
+    this.trip.setActive(stopId);
+    this.itineraryOpenStopId.update(cur => (cur === stopId ? null : stopId));
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.showScrollTop.set(window.scrollY > 240);
+  }
+
+  protected scrollToActiveCity(): void {
+    const el = document.querySelector('.stop-item.active');
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  protected readonly expandedStops = signal<Set<string>>(new Set());
+
+  protected toggleScheduled(stopId: string): void {
+    this.expandedStops.update(set => {
+      const next = new Set(set);
+      next.has(stopId) ? next.delete(stopId) : next.add(stopId);
+      return next;
+    });
+  }
+
+  protected isScheduledOpen(stopId: string): boolean {
+    return this.expandedStops().has(stopId);
+  }
 
   readonly firstCityLabel = computed(() => {
     const stops = this.trip.stops();

@@ -66,6 +66,7 @@ import { NavFacadeService } from '../nav-facade.service';
         </div>
 
         <button class="up-plans-btn" (click)="onProfile()" i18n="@@nav.myProfile">👤 Mi perfil</button>
+        <button class="up-plans-btn" (click)="onMyTrips()" i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
         <button class="up-plans-btn" (click)="facade.openBuyKarma()">
           <span>✨</span><span i18n="@@nav.buyKarmaBtn">+ Comprar</span>
         </button>
@@ -86,6 +87,12 @@ import { NavFacadeService } from '../nav-facade.service';
                   <div class="up-plan-name">{{ plan.name }}</div>
                   <div class="up-plan-date">{{ facade.planDate(plan.savedAt) }}</div>
                 </button>
+                <button class="up-plan-del" (click)="facade.sharePlan(plan)" type="button"
+                        i18n-title="@@nav.sharePlan" title="Compartir">🔗</button>
+                @if (plan.shareId) {
+                  <button class="up-plan-del" (click)="facade.shareNative(plan)" type="button"
+                          i18n-title="@@share.shareBtn" title="📤 Compartir">📤</button>
+                }
               </div>
             }
             @if (facade.filteredPlans().length === 0) {
@@ -144,11 +151,13 @@ export class NavMobileComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
+  myTripsClick = output<void>();
 
   drawerOpen = signal(false);
 
   onLogo(): void { this.facade.onLogoClick(); this.drawerOpen.set(false); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.drawerOpen.set(false); this.profileClick.emit(); }
+  onMyTrips(): void { this.facade.userMenuOpen.set(false); this.drawerOpen.set(false); this.myTripsClick.emit(); }
 
   quickAdd = this.facade.quickAdd.bind(this.facade);
   openSharedTrip = this.facade.openSharedTrip.bind(this.facade);

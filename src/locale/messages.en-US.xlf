@@ -104,6 +104,10 @@
         <source>Nombre del viaje…</source>
         <target>Trip name…</target>
       </trans-unit>
+      <trans-unit id="stopList.viewItinerary" datatype="html">
+        <source>📅 Ver itinerario de la ciudad</source>
+        <target>📅 View city itinerary</target>
+      </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
         <source>Guardar ✓</source>
         <target>Save ✓</target>
@@ -246,30 +250,6 @@
         <source>Comienza a crear tu plan</source>
         <target>Start Creating Your Plan</target>
       </trans-unit>
-      <trans-unit id="welcome.step1Title" datatype="html">
-        <source>Elige una ciudad</source>
-        <target>Choose a city</target>
-      </trans-unit>
-      <trans-unit id="welcome.step1Desc" datatype="html">
-        <source>120+ destinos en el mundo</source>
-        <target>120+ destinations worldwide</target>
-      </trans-unit>
-      <trans-unit id="welcome.step2Title" datatype="html">
-        <source>Explorar atracciones</source>
-        <target>Explore attractions</target>
-      </trans-unit>
-      <trans-unit id="welcome.step2Desc" datatype="html">
-        <source>Lugares seleccionados para ver y hacer</source>
-        <target>Curated spots to see &amp; do</target>
-      </trans-unit>
-      <trans-unit id="welcome.step3Title" datatype="html">
-        <source>Recopilar comentarios</source>
-        <target>Collect comments</target>
-      </trans-unit>
-      <trans-unit id="welcome.step3Desc" datatype="html">
-        <source>Tus amigos dejan consejos en cada parada</source>
-        <target>Friends leave tips on each stop</target>
-      </trans-unit>
 
       <!-- ── stop-list.component ── -->
       <trans-unit id="stopList.title" datatype="html">
@@ -395,8 +375,8 @@
         <target>comments</target>
       </trans-unit>
       <trans-unit id="dest.exploreTitle" datatype="html">
-        <source>Explorar atracciones</source>
-        <target>Explore Attractions</target>
+        <source>Agregar atracciones a mi itinerario</source>
+        <target>Add Attractions to My Itinerary</target>
       </trans-unit>
       <trans-unit id="dest.onePlace" datatype="html">
         <source>lugar</source>
@@ -1027,9 +1007,13 @@
         <source>Día libre — sin planes aún</source>
         <target>Free day — no plans yet</target>
       </trans-unit>
-      <trans-unit id="timeline.flapLabel" datatype="html">
-        <source>Ver horario del día</source>
-        <target>View day schedule</target>
+      <trans-unit id="timeline.flapLabelCity" datatype="html">
+        <source>Ver itinerario de la ciudad</source>
+        <target>View city itinerary</target>
+      </trans-unit>
+      <trans-unit id="timeline.flapLabelPlan" datatype="html">
+        <source>Ver itinerario del plan</source>
+        <target>View plan itinerary</target>
       </trans-unit>
 
       <!-- ── stop-list.component (timeline time inputs) ── -->
@@ -1067,6 +1051,64 @@
       <trans-unit id="nav.mobileClose" datatype="html">
         <source>Cerrar menú</source>
         <target>Close menu</target>
+      </trans-unit>
+
+      <!-- ── Feature 42: UX improvements ── -->
+      <trans-unit id="plan.exportItinerary" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Exportar</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Export</target>
+      </trans-unit>
+      <trans-unit id="plan.scrollToTop" datatype="html">
+        <source>Ir arriba</source>
+        <target>Scroll to top</target>
+      </trans-unit>
+      <trans-unit id="dest.addAttractionsBtn" datatype="html">
+        <source>➕ Agregar atracciones</source>
+        <target>➕ Add attractions</target>
+      </trans-unit>
+      <trans-unit id="dest.addAttractionsClose" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="nav.sharePlan" datatype="html">
+        <source>Compartir</source>
+        <target>Share</target>
+      </trans-unit>
+      <trans-unit id="nav.myTripsPage" datatype="html">
+        <source>🗺 Mis viajes</source>
+        <target>🗺 My trips</target>
+      </trans-unit>
+      <trans-unit id="share.shareBtn" datatype="html">
+        <source>📤 Compartir</source>
+        <target>📤 Share</target>
+      </trans-unit>
+      <trans-unit id="share.message" datatype="html">
+        <source>✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳</source>
+        <target>✨ Check out the trip I made on Tripilove! 🌍✈️🧳</target>
+      </trans-unit>
+      <trans-unit id="welcome.ctaCreatePlan" datatype="html">
+        <source>Crear Plan</source>
+        <target>Create Plan</target>
+      </trans-unit>
+      <trans-unit id="welcome.ctaCreateAi" datatype="html">
+        <source>✨ Crear con IA</source>
+        <target>✨ Create with AI</target>
+      </trans-unit>
+      <trans-unit id="welcome.ctaHowKarma" datatype="html">
+        <source>⭐ Cómo ganar Karma</source>
+        <target>⭐ How to earn Karma</target>
+      </trans-unit>
+      <trans-unit id="welcome.karmaTitle" datatype="html">
+        <source>Cómo ganar Karma ⭐</source>
+        <target>How to earn Karma ⭐</target>
+      </trans-unit>
+      <trans-unit id="welcome.karmaBody" datatype="html">
+        <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
+        <target>Earn Karma when your friends comment on the stops of your shared trips. Use it to clone trips, export itineraries, and plan with AI.</target>
+      </trans-unit>
+      <trans-unit id="welcome.karmaClose" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
       </trans-unit>
 
     </body>
