@@ -1,31 +1,34 @@
-import { Injectable, signal, inject, effect } from '@angular/core';
+import { Injectable, inject, computed, effect } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 
-const key = (email: string) => `tb_home_${email}`;
+const legacyKey = (email: string) => `tb_home_${email}`;
 
 @Injectable({ providedIn: 'root' })
 export class HomeAddressService {
   private readonly auth = inject(AuthService);
-  private _address = signal('');
-  readonly address = this._address.asReadonly();
+
+  readonly address = computed(() => this.auth.currentUser()?.homeCity ?? '');
 
   constructor() {
+    // One-time migration: if the account has no server-side home city but a legacy
+    // localStorage value exists, push it up once, then drop the legacy key.
     effect(() => {
       const user = this.auth.currentUser();
-      if (user?.email) {
-        this._address.set(localStorage.getItem(key(user.email)) ?? '');
-      } else {
-        this._address.set('');
+      if (!user?.email) return;
+      const serverValue = user.homeCity ?? '';
+      if (serverValue) return;
+      const legacy = localStorage.getItem(legacyKey(user.email));
+      if (legacy && legacy.trim()) {
+        this.save(legacy.trim()).subscribe({
+          next: () => localStorage.removeItem(legacyKey(user.email)),
+          error: () => { /* keep the legacy key for a future retry */ },
+        });
       }
     }, { allowSignalWrites: true });
   }
 
-  save(email: string, address: string): void {
-    this._address.set(address);
-    if (address.trim()) {
-      localStorage.setItem(key(email), address.trim());
-    } else {
-      localStorage.removeItem(key(email));
-    }
+  save(value: string): Observable<{ user: { homeCity?: string | null } }> {
+    return this.auth.updateProfile({ homeCity: value.trim() });
   }
 }

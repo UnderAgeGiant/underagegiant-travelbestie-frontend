@@ -611,6 +611,17 @@
           <context context-type="linenumber">118,119</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="plan.scrollToTop" datatype="html">
+        <source>Ir arriba</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/destination.component.ts</context>
+          <context context-type="linenumber">122,123</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
+          <context context-type="linenumber">248,251</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="planModal.title" datatype="html">
         <source>¿Cuándo y a qué hora? 📅</source>
         <context-group purpose="location">
@@ -1065,7 +1076,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">318,319</context>
+          <context context-type="linenumber">338,340</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.searchPlaceholder" datatype="html">
@@ -1315,223 +1326,319 @@
           <context context-type="linenumber">36,37</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.resetTitle" datatype="html">
+        <source>Recuperar contraseña 🔑</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetSubtitle" datatype="html">
+        <source>Te enviaremos un código a tu correo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.loginTitle" datatype="html">
         <source>¡Bienvenido de vuelta! 👋</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">48,49</context>
+          <context context-type="linenumber">51,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginSubtitle" datatype="html">
         <source>Inicia sesión para guardar tus viajes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">49,51</context>
+          <context context-type="linenumber">52,54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerTitle" datatype="html">
         <source>Crear cuenta ✨</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">51,52</context>
+          <context context-type="linenumber">54,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerSubtitle" datatype="html">
         <source>Únete y planifica viajes con tus amigos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">52,54</context>
+          <context context-type="linenumber">55,57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.emailLabel" datatype="html">
         <source>Correo electrónico</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">58,59</context>
+          <context context-type="linenumber">61,62</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">89,90</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">174,175</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.emailPlaceholder" datatype="html">
         <source>tú@correo.com</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">60,61</context>
+          <context context-type="linenumber">63,64</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">91,92</context>
+          <context context-type="linenumber">94,95</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">176,177</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.passwordLabel" datatype="html">
         <source>Contraseña</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">65,66</context>
+          <context context-type="linenumber">68,69</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">96,97</context>
+          <context context-type="linenumber">99,100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.nameLabel" datatype="html">
         <source>Tu nombre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">82,83</context>
+          <context context-type="linenumber">85,86</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.namePlaceholder" datatype="html">
         <source>Sofía García</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">84,85</context>
+          <context context-type="linenumber">87,88</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.confirmPasswordLabel" datatype="html">
         <source>Confirmar contraseña</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">122,123</context>
+          <context context-type="linenumber">125,126</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.confirmPasswordMismatch" datatype="html">
         <source>Las contraseñas no coinciden</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">137,139</context>
+          <context context-type="linenumber">140,142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpSentTitle" datatype="html">
         <source>Revisa tu correo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">144,145</context>
+          <context context-type="linenumber">147,148</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpSentTo" datatype="html">
         <source>Código enviado a </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">146,147</context>
+          <context context-type="linenumber">149,150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpLabel" datatype="html">
         <source>Código de verificación</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">151,152</context>
+          <context context-type="linenumber">154,155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpPlaceholder" datatype="html">
         <source>000000</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">155</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">192</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpBack" datatype="html">
         <source>← Cambiar email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">160,161</context>
+          <context context-type="linenumber">163,164</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpResend" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ otpLoading() ? &apos;Enviando…&apos; : &apos;Reenviar código&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">163,164</context>
+          <context context-type="linenumber">166,167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetSentMsg" datatype="html">
+        <source>Si el correo existe, te enviamos un código a </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">184,185</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetOtpLabel" datatype="html">
+        <source>Código de verificación</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">189,190</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetNewPasswordLabel" datatype="html">
+        <source>Nueva contraseña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">196,197</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetDoneTitle" datatype="html">
+        <source>¡Contraseña actualizada!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">225,226</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetDoneMsg" datatype="html">
+        <source>Ya puedes iniciar sesión con tu nueva contraseña.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">227,229</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.cancelBtn" datatype="html">
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">176,177</context>
+          <context context-type="linenumber">239,240</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetRequestBtn" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ resetLoading() ? &apos;Enviando…&apos; : &apos;Enviar código →&apos; }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">246,247</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetSubmit" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ resetLoading() ? &apos;Guardando…&apos; : &apos;Cambiar contraseña →&apos; }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">253,254</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetBackToLogin" datatype="html">
+        <source>Iniciar sesión →</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">257,259</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.signInSubmit" datatype="html">
         <source>Iniciar sesión →</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">181,182</context>
+          <context context-type="linenumber">263,264</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.sendOtpBtn" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ otpLoading() ? &apos;Enviando…&apos; : &apos;Enviar código →&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">187,188</context>
+          <context context-type="linenumber">269,270</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerSubmit" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ registerLoading() ? &apos;Verificando…&apos; : &apos;Crear cuenta →&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">194,195</context>
+          <context context-type="linenumber">276,277</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginErrNotFound" datatype="html">
         <source>No encontramos una cuenta con ese correo electrónico.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">203,204</context>
+          <context context-type="linenumber">285,286</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginErrWrongPassword" datatype="html">
         <source>Contraseña incorrecta. Intenta de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">205,206</context>
+          <context context-type="linenumber">287,288</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.loginErrGeneric" datatype="html">
         <source>Correo o contraseña incorrectos.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">207,208</context>
+          <context context-type="linenumber">289,290</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.errRateLimited" datatype="html">
         <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">212,213</context>
+          <context context-type="linenumber">294,295</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">219,220</context>
+          <context context-type="linenumber">301,302</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.sendOtpErr" datatype="html">
         <source>No pudimos enviar el código. Es posible que ese correo ya tenga una cuenta.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">214,215</context>
+          <context context-type="linenumber">296,297</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.registerOtpErr" datatype="html">
         <source>Código incorrecto o vencido. Te enviamos uno nuevo, revisa tu correo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">221,222</context>
+          <context context-type="linenumber">303,304</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.forgotPassword" datatype="html">
+        <source>¿Olvidaste tu contraseña?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">315,317</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.resetBackLink" datatype="html">
+        <source>← Volver a iniciar sesión</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
+          <context context-type="linenumber">321,323</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
         <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">232,233</context>
+          <context context-type="linenumber">326,327</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.authToggleRegister" datatype="html">
         <source>¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Inicia sesión<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
-          <context context-type="linenumber">234,235</context>
+          <context context-type="linenumber">330,331</context>
         </context-group>
       </trans-unit>
       <trans-unit id="plan.exportItinerary" datatype="html">
@@ -1566,54 +1673,107 @@
         <source>Tu sesión expiró. Vuelve a iniciar sesión.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">67,68</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">74,75</context>
+          <context context-type="linenumber">49,50</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">83,84</context>
+          <context context-type="linenumber">58,59</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">90,91</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">72,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errUpdateName" datatype="html">
         <source>No se pudo actualizar tu nombre. Intenta de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">69,70</context>
+          <context context-type="linenumber">44,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errRateLimited" datatype="html">
         <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">76,77</context>
+          <context context-type="linenumber">51,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errSendEmailOtp" datatype="html">
         <source>No se pudo enviar el código. Verifica que el correo no esté ya registrado.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">78,79</context>
+          <context context-type="linenumber">53,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errUpdateEmail" datatype="html">
         <source>Código incorrecto o vencido. Solicita uno nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">85,86</context>
+          <context context-type="linenumber">60,61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errUpdatePassword" datatype="html">
         <source>No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">92,94</context>
+          <context context-type="linenumber">67,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.errUpdateHomeCity" datatype="html">
+        <source>No se pudo guardar la ciudad. Intenta de nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">74,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.homeCityTitle" datatype="html">
+        <source>Ciudad de origen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">298,299</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.homeCityPlaceholder" datatype="html">
+        <source>Ciudad o dirección de inicio…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">311,312</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.saving" datatype="html">
+        <source>Guardando…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">319,320</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.saved" datatype="html">
+        <source>Guardado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">321,322</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.homeCitySave" datatype="html">
+        <source>Guardar ciudad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">323,324</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.homeCitySub" datatype="html">
+        <source>Sin definir</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
+          <context context-type="linenumber">465</context>
         </context-group>
       </trans-unit>
       <trans-unit id="sharedTrip.tripBy" datatype="html">
@@ -1992,13 +2152,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
           <context context-type="linenumber">232,233</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="plan.scrollToTop" datatype="html">
-        <source>Ir arriba</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">248,251</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.savingMsg" datatype="html">
