@@ -35,7 +35,7 @@ import { environment } from '../../../../environments/environment';
     }
 
     @if (authModal.isOpen()) {
-      <div class="modal-backdrop" (click)="onBackdropClick($event)">
+      <div class="modal-backdrop">
         <div class="modal">
           <div class="modal-head" style="position:relative"
                [style.background]="loginMode() === 'register'
@@ -631,12 +631,6 @@ export class AuthModalComponent {
     if (digits.length === 6) {
       this.doAuth();
     }
-  }
-
-  onBackdropClick(event: MouseEvent): void {
-    if (event.target !== event.currentTarget) return;
-    if (this.loginMode() === 'register') return;
-    this.authModal.close();
   }
 
   dismissRegisterSuccess(): void {
