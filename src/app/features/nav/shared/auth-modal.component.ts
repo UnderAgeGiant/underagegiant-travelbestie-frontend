@@ -561,6 +561,7 @@ export class AuthModalComponent {
       next: () => { this.resetLoading.set(false); this.resetStep.set('done'); },
       error: (err: unknown) => {
         this.resetLoading.set(false);
+        this.resetOtp.set('');
         this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
         this.authErrorContext.set('register');
       },
