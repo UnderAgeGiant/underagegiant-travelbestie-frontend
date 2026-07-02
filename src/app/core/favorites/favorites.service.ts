@@ -1,20 +1,51 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { ApiService } from '../api/api.service';
+import { AuthService } from '../auth/auth.service';
 import { FavoritedTrip } from '../models/trip.model';
 
 type FavoritedTripMeta = Pick<FavoritedTrip, 'tripName' | 'ownerName' | 'stops' | 'transits' | 'favoriteCount'>;
 
+const CACHE_TTL = 86_400_000; // 24 h in ms
+
 @Injectable({ providedIn: 'root' })
 export class FavoritesService {
-  private readonly api = inject(ApiService);
+  private readonly api  = inject(ApiService);
+  private readonly auth = inject(AuthService);
 
   private readonly _favoritedIds   = signal<Set<string>>(new Set());
   private readonly _favoritedTrips = signal<FavoritedTrip[]>([]);
   private readonly _loading        = signal(false);
   private loaded = false;
+  private _lastEmail: string | null = null;
 
   readonly favoritedTrips = this._favoritedTrips.asReadonly();
   readonly loading        = this._loading.asReadonly();
+
+  constructor() {
+    if (this.auth.currentUser()) this.loadFavorites();
+  }
+
+  private get cacheKey(): string | null {
+    const email = this._lastEmail ?? this.auth.currentUser()?.email ?? null;
+    return email ? `tb:favorites:cache:${email}` : null;
+  }
+
+  private readCache(): FavoritedTrip[] | null {
+    const key = this.cacheKey;
+    if (!key) return null;
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) return null;
+      const { data, ts } = JSON.parse(raw) as { data: FavoritedTrip[]; ts: number };
+      return Date.now() - ts < CACHE_TTL ? data : null;
+    } catch { return null; }
+  }
+
+  private writeCache(trips: FavoritedTrip[]): void {
+    const key = this.cacheKey;
+    if (!key) return;
+    try { localStorage.setItem(key, JSON.stringify({ data: trips, ts: Date.now() })); } catch { /* non-fatal */ }
+  }
 
   isFavorited(shareId: string): boolean {
     return this._favoritedIds().has(shareId);
@@ -29,9 +60,21 @@ export class FavoritesService {
     });
   }
 
-  /** Loads the favorited-trips list once and caches it; pass force=true to refetch. */
   loadFavorites(force = false): void {
     if (this.loaded && !force) return;
+    const email = this.auth.currentUser()?.email;
+    if (email) this._lastEmail = email;
+
+    if (!force) {
+      const cached = this.readCache();
+      if (cached) {
+        this._favoritedTrips.set(cached);
+        this._favoritedIds.set(new Set(cached.map(t => t.shareId)));
+        this.loaded = true;
+        return;
+      }
+    }
+
     this._loading.set(true);
     this.api.getFavorites().subscribe({
       next: trips => {
@@ -39,6 +82,7 @@ export class FavoritesService {
         this._favoritedIds.set(new Set(trips.map(t => t.shareId)));
         this.loaded = true;
         this._loading.set(false);
+        this.writeCache(trips);
       },
       error: () => { this._loading.set(false); },
     });
@@ -69,6 +113,7 @@ export class FavoritesService {
           if (list.some(t => t.shareId === shareId) || !tripMeta) return list;
           return [{ shareId, favoritedAt: new Date().toISOString(), ...tripMeta }, ...list];
         });
+        this.writeCache(this._favoritedTrips());
         onSuccess(result);
       },
       error: () => {
@@ -82,10 +127,12 @@ export class FavoritesService {
     });
   }
 
-  /** Clears the cache, e.g. on logout. */
   clear(): void {
+    const key = this.cacheKey;
     this._favoritedIds.set(new Set());
     this._favoritedTrips.set([]);
     this.loaded = false;
+    this._lastEmail = null;
+    if (key) { try { localStorage.removeItem(key); } catch { /* non-fatal */ } }
   }
 }

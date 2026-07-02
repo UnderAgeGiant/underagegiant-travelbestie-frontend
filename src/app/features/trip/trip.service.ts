@@ -139,8 +139,13 @@ export class TripService {
   loadForUserPreservingAnonymous(email: string): void {
     const preStops    = this._stops();
     const preTransits = this._transits();
-    this.loadForUser(email);
-    if (this._stops().length === 0 && preStops.length > 0) {
+    this._saving = true;
+    this._stops.set([]);
+    this._transits.set([]);
+    this._activeId.set(null);
+    this._loadedPlanId.set(null);
+    this._saving = false;
+    if (preStops.length > 0) {
       this.restoreStops(preStops, null, preTransits);
     }
   }

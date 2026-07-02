@@ -247,9 +247,25 @@ export class ApiService {
     );
   }
 
+  private readonly STATS_CACHE_KEY = 'tb:stats:cache';
+  private readonly STATS_CACHE_TTL = 86_400_000; // 24 h in ms
+
   getStats(): Observable<AppStats> {
     if (this.useMocks) return of({ cities: 120, users: 1200, plans: 4800 });
-    return this.http.get<AppStats>(`${this.base}/stats`);
+    try {
+      const raw = localStorage.getItem(this.STATS_CACHE_KEY);
+      if (raw) {
+        const { data, ts } = JSON.parse(raw) as { data: AppStats; ts: number };
+        if (Date.now() - ts < this.STATS_CACHE_TTL) return of(data);
+      }
+    } catch { /* non-fatal — fall through to network */ }
+    return this.http.get<AppStats>(`${this.base}/stats`).pipe(
+      tap(data => {
+        try {
+          localStorage.setItem(this.STATS_CACHE_KEY, JSON.stringify({ data, ts: Date.now() }));
+        } catch { /* non-fatal */ }
+      }),
+    );
   }
 
   toggleFavorite(shareId: string): Observable<{ favorited: boolean; favoriteCount: number }> {

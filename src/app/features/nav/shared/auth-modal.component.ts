@@ -5,6 +5,7 @@ import { TripService } from '../../trip/trip.service';
 import { KarmaService } from '../../../core/karma/karma.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
 import { VisitedPlacesService } from '../../../core/visited-places/visited-places.service';
+import { FavoritesService } from '../../../core/favorites/favorites.service';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -343,6 +344,7 @@ export class AuthModalComponent {
   private readonly karma      = inject(KarmaService);
   private readonly savedPlans = inject(SavedPlansService);
   private readonly visited    = inject(VisitedPlacesService);
+  private readonly favorites  = inject(FavoritesService);
 
   // auth form signals
   loginMode     = signal<'login' | 'register' | 'reset'>('login');
@@ -653,6 +655,7 @@ export class AuthModalComponent {
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
+          this.favorites.loadFavorites();
           this.loginEmail.set('');
           this.loginPassword.set('');
           this.loginConfirmPassword.set('');
@@ -674,6 +677,7 @@ export class AuthModalComponent {
           this.karma.loadForUser(res.user.email);
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
+          this.favorites.loadFavorites();
           this.registerSuccessName.set(res.user.name);
           this.loginName.set('');
           this.loginEmail.set('');

@@ -74,3 +74,52 @@ describe('ApiService (useMocks=false via spy)', () => {
     req.flush({ id: 'c1', ...comment });
   });
 });
+
+describe('ApiService.getStats() caching', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.removeItem('tb:stats:cache');
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+  });
+
+  afterEach(() => { http.verify(); localStorage.removeItem('tb:stats:cache'); });
+
+  it('returns cached stats without HTTP when cache is fresh', done => {
+    const cached = { cities: 99, users: 999, plans: 9999 };
+    localStorage.setItem('tb:stats:cache', JSON.stringify({ data: cached, ts: Date.now() }));
+    service.getStats().subscribe(result => {
+      expect(result).toEqual(cached);
+      http.expectNone((service as any).base + '/stats');
+      done();
+    });
+  });
+
+  it('fetches from API and writes cache when cache is missing', done => {
+    const fresh = { cities: 1, users: 2, plans: 3 };
+    service.getStats().subscribe(result => {
+      expect(result).toEqual(fresh);
+      const stored = JSON.parse(localStorage.getItem('tb:stats:cache')!);
+      expect(stored.data).toEqual(fresh);
+      expect(typeof stored.ts).toBe('number');
+      done();
+    });
+    http.expectOne(req => req.url.endsWith('/stats')).flush(fresh);
+  });
+
+  it('fetches from API when cache is older than 24 h', done => {
+    const stale = { cities: 0, users: 0, plans: 0 };
+    localStorage.setItem('tb:stats:cache', JSON.stringify({ data: stale, ts: Date.now() - 86_400_001 }));
+    service.getStats().subscribe(result => {
+      expect(result.cities).toBe(5);
+      done();
+    });
+    http.expectOne(req => req.url.endsWith('/stats')).flush({ cities: 5, users: 50, plans: 500 });
+  });
+});

@@ -64,3 +64,48 @@ describe('TripService', () => {
     expect(service.selectedAttractionsFor(stop2.stopId)).toHaveLength(0);
   });
 });
+
+describe('TripService.loadForUserPreservingAnonymous', () => {
+  let service: TripService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(TripService);
+  });
+
+  it('does NOT restore localStorage plan on login — editor stays empty', () => {
+    localStorage.setItem('tb_plan_user@test.com', JSON.stringify({
+      stops: [{ stopId: 's1', cityId: 'paris', cityName: 'Paris', country: 'France',
+                flag: '🇫🇷', region: 'europe', checkIn: '', checkOut: '',
+                selectedAttractions: [], lodging: null }],
+      transits: [],
+    }));
+    expect(service.stops()).toHaveLength(0);
+
+    service.loadForUserPreservingAnonymous('user@test.com');
+
+    expect(service.stops()).toHaveLength(0);
+  });
+
+  it('preserves anonymous stops built before login', () => {
+    service.addStop(PARIS, '2026-08-01', '2026-08-05');
+    expect(service.stops()).toHaveLength(1);
+
+    service.loadForUserPreservingAnonymous('user@test.com');
+
+    expect(service.stops()).toHaveLength(1);
+    expect(service.stops()[0].cityId).toBe('paris');
+  });
+
+  it('clears loadedPlanId on login', () => {
+    service.markAsLoadedPlan('some-plan-id');
+    expect(service.loadedPlanId()).toBe('some-plan-id');
+
+    service.loadForUserPreservingAnonymous('user@test.com');
+
+    expect(service.loadedPlanId()).toBeNull();
+  });
+});
