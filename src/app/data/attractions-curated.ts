@@ -25444,6 +25444,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 240,
+      imageUrl: "https://images.unsplash.com/photo-1598653060971-a83e7d35bf1a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIb2wlMjBDaGFuJTIwTWFyaW5lJTIwUmVzZXJ2ZSUyMFNhbiUyMFBlZHJvJTIwJTI4QW1iZXJncmlzJTIwQ2F5ZSUyOSUyMEJlbGl6ZXxlbnwxfDB8fHwxNzgyOTEwMTY3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedrobz_7",
@@ -25478,6 +25479,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://www.cayecaulkerwatertaxi.com/",
+      imageUrl: "https://images.unsplash.com/photo-1544525977-1eb923886ade?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXJpYmJlYW4lMjBTcHJpbnRlciUyMFdhdGVyJTIwVGF4aSUyMENheWUlMjBDYXVsa2VyJTIwQmVsaXplfGVufDF8MHx8fDE3ODI5MTAyNDR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cayecaulker_1",
@@ -25488,6 +25490,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1661891753869-02a23e1dbec6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUYXJwb24lMjB2aWV3aW5nJTIwQ2F5ZSUyMENhdWxrZXIlMjBCZWxpemV8ZW58MXwwfHx8MTc4MjkxMDMxOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cayecaulker_2",
@@ -25597,6 +25600,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1585535877056-b8f5dd0b24d5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWxsYWdlJTIwU3RhZ2UlMjBQbGFjZW5jaWElMjBCZWxpemV8ZW58MXwwfHx8MTc4MjkxMDYyMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   dangriga: [
@@ -25957,6 +25961,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1610687400070-4a694087f990?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwSGlzdG9yaWElMjBSZXB1YmxpY2FuYSUyMFZpbGxhJTIwUm95JTIwVGVndWNpZ2FscGElMjBIb25kdXJhc3xlbnwxfDB8fHwxNzgyODczMzUwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "tegucigalpa_6",
@@ -26076,6 +26081,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1776969673727-3496778ca256?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudG8lMjBhJTIwTGElMjBQYXolMjBUZWd1Y2lnYWxwYSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI4NzM1MDB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "tegucigalpa_17",
@@ -26096,6 +26102,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1697343774340-edf7a6181dab?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbnRpZ3VhJTIwUGVuaXRlbmNpYXJpYSUyMENlbnRyYWwlMjBUZWd1Y2lnYWxwYSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI4NzM2NTF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "tegucigalpa_19",
@@ -26106,6 +26113,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1776969688277-cd5d6a31f0ec?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWJUMzJUFEYSUyME5hdmlkZSVDMyVCMWElMjBUZWd1Y2lnYWxwYSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI4NzM3Mjd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "tegucigalpa_20",
@@ -26126,6 +26134,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1697343774340-edf7a6181dab?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaW5pc3RlcmlvJTIwZGVsJTIwVHJhYmFqbyUyMFRlZ3VjaWdhbHBhJTIwSG9uZHVyYXN8ZW58MXwwfHx8MTc4MjkxMTk3NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "tegucigalpa_22",
@@ -26136,6 +26145,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1697343774340-edf7a6181dab?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbCUyMEFyYm9saXRvJTIwVGVndWNpZ2FscGElMjBIb25kdXJhc3xlbnwxfDB8fHwxNzgyOTEyMDUwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "tegucigalpa_23",
@@ -26157,6 +26167,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1610687400070-4a694087f990?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ2xlc2lhJTIwTG9zJTIwRG9sb3JlcyUyMFRlZ3VjaWdhbHBhJTIwSG9uZHVyYXN8ZW58MXwwfHx8MTc4MjkxMjEyNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "tegucigalpa_25",
@@ -26167,6 +26178,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 300,
+      imageUrl: "https://images.unsplash.com/photo-1697343774340-edf7a6181dab?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMENlcnJvJTIwQXp1bCUyME1lJUMzJUExbWJhciUyMFRlZ3VjaWdhbHBhJTIwSG9uZHVyYXN8ZW58MXwwfHx8MTc4MjkxMjIwMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   copanruinas: [
@@ -26202,6 +26214,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1591551963955-9487b4973e84?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYXMlMjBTZXB1bHR1cmFzJTIwQ29wJUMzJUExbiUyMFJ1aW5hcyUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTIyNzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   roatan: [
@@ -26258,6 +26271,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://ajsmonkeysandsloths.com/",
+      imageUrl: "https://images.unsplash.com/photo-1668813610810-3d15364b6af9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBSiUyMFJvYXQlQzMlQTFuJTIwSG9uZHVyYXN8ZW58MXwwfHx8MTc4MjkxMjU3OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "roatan_5",
@@ -26289,6 +26303,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1656987877650-6f88f703b0b0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyME1hcmlubyUyMElzbGFzJTIwZGUlMjBsYSUyMEJhaCVDMyVBRGElMjBSb2F0JUMzJUExbiUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTI4MDV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "roatan_8",
@@ -26299,6 +26314,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1735405663732-6aae69febaa8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMFBvcnQlMjBSb3lhbCUyMFJvYXQlQzMlQTFuJTIwSG9uZHVyYXN8ZW58MXwwfHx8MTc4MjkxMjg4MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "roatan_9",
@@ -26319,6 +26335,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 300,
+      imageUrl: "https://images.unsplash.com/photo-1656987877650-6f88f703b0b0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXZXN0JTIwQmF5JTIwQmVhY2glMjBSb2F0JUMzJUExbiUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTMwMzJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "roatan_11",
@@ -26381,6 +26398,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1668813610810-3d15364b6af9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYXMlMjBtYW5nYXMlMjBMYSUyMENlaWJhJTIwSG9uZHVyYXN8ZW58MXwwfHx8MTc4MjkxMzQxMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laceiba_5",
@@ -26391,6 +26409,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1715625986678-ad3eab337ed6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYXMlMjBsZXRyYXMlMjBkZSUyMExhJTIwQ2VpYmElMjBMYSUyMENlaWJhJTIwSG9uZHVyYXN8ZW58MXwwfHx8MTc4MjkxMzQ4NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laceiba_6",
@@ -26401,6 +26420,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1766961631770-13edff91c750?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdWVsbGUlMjBUdXIlQzMlQURzdGljbyUyMFJlaW5hbGRvJTIwQ2FuYWxlcyUyMExhJTIwQ2VpYmElMjBIb25kdXJhc3xlbnwxfDB8fHwxNzgyOTEzNTYxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laceiba_7",
@@ -26422,6 +26442,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 240,
+      imageUrl: "https://images.unsplash.com/photo-1591761288830-a4676fd54d45?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSJUMzJUFEbyUyMENhbmdyZWphbCUyMExhJTIwQ2VpYmElMjBIb25kdXJhc3xlbnwxfDB8fHwxNzgyOTEzNjM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   sanpedrosula: [
@@ -26434,6 +26455,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1579390497555-d5842e45e622?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlbCUyME5pJUMzJUIxbyUyMFNhbiUyMFBlZHJvJTIwU3VsYSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTM2Mzh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedrosula_1",
@@ -26466,6 +26488,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1579390497555-d5842e45e622?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBzaW4lMjBFeHBsb3JhciUyMFNhbiUyMFBlZHJvJTIwU3VsYSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTM3MTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanpedrosula_4",
@@ -26499,6 +26522,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1766961631770-13edff91c750?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyME1hcmlubyUyMElzbGFzJTIwZGUlMjBsYSUyMEJhaCVDMyVBRGElMjBVdGlsYSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTM4NjV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "utila_2",
@@ -26582,6 +26606,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1728196453156-60d1619a70d4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbCUyMENoaXJjYWwlMjAtJTIwRXNjYWxpbmF0YSUyMENvbWF5YWd1YSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTQzMTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "comayagua_3",
@@ -26647,6 +26672,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1728196453156-60d1619a70d4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ2xlc2lhJTIwU2FuJTIwU2ViYXN0aSVDMyVBMW4lMjBDb21heWFndWElMjBIb25kdXJhc3xlbnwxfDB8fHwxNzgyOTE0Mzk2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "comayagua_9",
@@ -26657,6 +26683,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1728196453156-60d1619a70d4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbCUyMENoaXJjYWwlMjAtJTIwQ2Vycm8lMjBEYXZpZCUyMENvbWF5YWd1YSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTQ0NzJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "comayagua_10",
@@ -26677,6 +26704,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1599807776940-9593a0320808?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcmF2ZWRhZCUyMGNlcm8lMjBDb21heWFndWElMjBIb25kdXJhc3xlbnwxfDB8fHwxNzgyOTE0NjIzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   tela: [
@@ -26700,6 +26728,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 360,
+      imageUrl: "https://images.unsplash.com/photo-1763160871559-0cdac37d1b79?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMEplYW5uZXR0ZSUyMEthd2FzJTIwVGVsYSUyMEhvbmR1cmFzfGVufDF8MHx8fDE3ODI5MTQ2MjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
 
@@ -26737,6 +26766,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1634072724319-96cd27fcbb35?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyME5hY2lvbmFsJTIwZGUlMjBBbnRyb3BvbG9nJUMzJUFEYSUyMCU1QyUyMFNhbiUyMFNhbHZhZG9yJTIwRWwlMjBTYWx2YWRvcnxlbnwxfDB8fHwxNzgyOTE0NjI1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sansalvador_3",
@@ -26758,6 +26788,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1701815843646-e23ae78fdd38?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlbCUyMEZlcnJvY2FycmlsJTIwU2FuJTIwU2FsdmFkb3IlMjBFbCUyMFNhbHZhZG9yfGVufDF8MHx8fDE3ODI5MTQ3MDB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sansalvador_5",
@@ -26976,6 +27007,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1632023686136-874d9083d603?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMEVsJTIwUGljYWNobyUyMFNhbiUyMFNhbHZhZG9yJTIwRWwlMjBTYWx2YWRvcnxlbnwxfDB8fHwxNzgyOTE0ODUyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sansalvador_25",
@@ -27041,6 +27073,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1620679299590-abb4047f5349?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZWF0cm8lMjBOYWNpb25hbCUyMGRlJTIwU2FudGElMjBBbmElMjBTYW50YSUyMEFuYSUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTAwM3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   suchitoto: [
@@ -27064,6 +27097,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1701815843646-e23ae78fdd38?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwQXJ0ZSUyMEFsZWphbmRybyUyMENvdG8lMjBTdWNoaXRvdG8lMjBFbCUyMFNhbHZhZG9yfGVufDF8MHx8fDE3ODI5MTUwMDR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "suchitoto_2",
@@ -27074,6 +27108,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1633190545483-5edb598f3ebe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBkZSUyMEVsJTIwVHJvem8lMjBTdWNoaXRvdG8lMjBFbCUyMFNhbHZhZG9yfGVufDF8MHx8fDE3ODI5MTUwNzl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "suchitoto_3",
@@ -27084,6 +27119,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1633190545483-5edb598f3ebe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBkZSUyMEVsJTIwU2FsaXRyZSUyMFN1Y2hpdG90byUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTE1NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "suchitoto_4",
@@ -27094,6 +27130,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1714126620391-03b41d0438b6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNjYWRhJTIwTG9zJTIwVGVyY2lvcyUyMFN1Y2hpdG90byUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTIzMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "suchitoto_5",
@@ -27114,6 +27151,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1759025258335-554ea3f3652c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBTdWNoaXRvdG8lMjBFbCUyMFNhbHZhZG9yfGVufDF8MHx8fDE3ODI5MTUzODF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "suchitoto_7",
@@ -27124,6 +27162,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1718913988427-0bccb71908fc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYWx0byUyMEVsJTIwQ3VibyUyMFN1Y2hpdG90byUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTQ1N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "suchitoto_8",
@@ -27134,6 +27173,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1570759121557-5e01b7d9544e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQdWVydG8lMjBTYW4lMjBKdWFuJTIwU3VjaGl0b3RvJTIwRWwlMjBTYWx2YWRvcnxlbnwxfDB8fHwxNzgyOTE1NTMyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "suchitoto_9",
@@ -27170,6 +27210,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.istu.gob.sv/2022/08/parque-de-diversiones-sunset-park/",
+      imageUrl: "https://images.unsplash.com/photo-1721726672239-2d0e6940cb07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBkZSUyMERpdmVyc2lvbmVzJTIwJTVDJTIwTGElMjBMaWJlcnRhZCUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTY4M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lalibertad_1",
@@ -27180,6 +27221,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1735770513739-5468553dc799?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdW5zZXQlMjBBbXVzZW1lbnQlMjBQYXJrJTIwTGElMjBMaWJlcnRhZCUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTc1OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lalibertad_2",
@@ -27190,6 +27232,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1635000158455-42a69b4cbcd6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZW50cm8lMjBPYnJlcm8lMjBkZWwlMjBNVFBTJTIwTGElMjBMaWJlcnRhZCUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTgzNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lalibertad_3",
@@ -27200,6 +27243,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1721726672239-2d0e6940cb07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMEVsJTIwVHVuY28lMjBMYSUyMExpYmVydGFkJTIwRWwlMjBTYWx2YWRvcnxlbnwxfDB8fHwxNzgyOTE1OTEwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lalibertad_4",
@@ -27210,6 +27254,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1663946457157-476b36a0b99a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMEVsJTIwWm9udGUlMjBMYSUyMExpYmVydGFkJTIwRWwlMjBTYWx2YWRvcnxlbnwxfDB8fHwxNzgyOTE1OTg2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   joyaceren: [
@@ -27255,6 +27300,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1675229165215-339f564d86d3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdXRhJTIwVm9sY2FuJTIwSXphbGNvJTIwSm95YSUyMGRlJTIwQ2VyJUMzJUE5biUyMEVsJTIwU2FsdmFkb3J8ZW58MXwwfHx8MTc4MjkxNTk4Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "joyaceren_4",
@@ -27265,6 +27311,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1728571812263-770017729f48?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMFAlQzMlQkFibGljYSUyMEpveWElMjBkZSUyMENlciVDMyVBOW4lMjBFbCUyMFNhbHZhZG9yfGVufDF8MHx8fDE3ODI5MTYwNjJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "joyaceren_5",
@@ -27286,6 +27333,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1697139221462-99c7b40e3252?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYW4lMjBBbmRyJUMzJUE5cyUyMCVFMiU4MCU5MyUyMFpvbmElMjBBcnF1ZW9sJUMzJUIzZ2ljYSUyMEpveWElMjBkZSUyMENlciVDMyVBOW4lMjBFbCUyMFNhbHZhZG9yfGVufDF8MHx8fDE3ODI5MTYxMzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   sanmiguelsv: [
@@ -27387,6 +27435,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.4,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1668718519673-f8015a4fc8c4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYWd1bmElMjBkZSUyMFRpc2NhcGElMjBNYW5hZ3VhJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTYyOTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "managua_1",
@@ -27420,6 +27469,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1685134837095-bfda6b7696e9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudG8lMjBhJTIwUnViJUMzJUE5biUyMERhcmlvJTIwR3JhbmFkYSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE2MzY2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "granada_ni_2",
@@ -27441,6 +27491,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1584904558330-f9772a6778c5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ2xlc2lhJTIwZGUlMjBOdWVzdHJhJTIwU2UlQzMlQjFvcmElMjBkZSUyMEd1YWRhbHVwZSUyMEdyYW5hZGElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxNjQ0Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "granada_ni_4",
@@ -27492,6 +27543,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1685134837095-bfda6b7696e9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMb21hJTIwUG9zaW50ZXBlJTIwR3JhbmFkYSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE2NzQ0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "granada_ni_9",
@@ -27522,6 +27574,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1584904558330-f9772a6778c5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaSUyME11c2VvJTIwLSUyME11c2VvJTIwYXJxdWVvbCVDMyVCM2dpY28lMjBkZSUyMGNlciVDMyVBMW1pY2ElMjBwcmVjb2xvbWJpbmElMjBHcmFuYWRhJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTY5NzB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "granada_ni_12",
@@ -27542,6 +27595,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1584904558330-f9772a6778c5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbnRpZ3VhJTIwRXN0YWNpJUMzJUIzbiUyMGRlJTIwVHJlbiUyMEdyYW5hZGElMjBHcmFuYWRhJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTcxMjF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "granada_ni_14",
@@ -27552,6 +27606,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1630773899830-15ae96bbd777?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYWxhY2lvJTIwTXVuaWNpcGFsJTIwR3JhbmFkYSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE3MTk3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "granada_ni_15",
@@ -27562,6 +27617,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1685134837095-bfda6b7696e9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaXN0b3JpY2FsJTIwVHJhaW4lMjAlMjhPcGVuJTIwQWlyJTI5JTIwR3JhbmFkYSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE3MjcyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "granada_ni_16",
@@ -27709,6 +27765,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwbGElMjBSZXZvbHVjaSVDMyVCM24lMjBMZSVDMyVCM24lMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxODAyNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_3",
@@ -27774,6 +27831,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMFNhbiUyMEZyYW5jaXNjbyUyMGRlJTIwTCVDMyVCM3BhbG8lMjBMZSVDMyVCM24lMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxODEwMnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_9",
@@ -27784,6 +27842,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMExvcyUyMFBpY2Fkb3MlMjBMZSVDMyVCM24lMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxODE3N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_10",
@@ -27794,6 +27853,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1584904558330-f9772a6778c5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMEdyYW5kZSUyMExlJUMzJUIzbiUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE4MjUzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_11",
@@ -27804,6 +27864,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEFyY2hpdm8lMjBBbGZvbnNvJTIwQ29ydGV6JTIwTGUlQzMlQjNuJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTgzMjl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_12",
@@ -27814,6 +27875,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1584904558330-f9772a6778c5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEFyY2hpdm8lMjBSdWIlQzMlQTluJTIwRGFyJUMzJUFEbyUyMExlJUMzJUIzbiUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE4NDA0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_13",
@@ -27834,6 +27896,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBkZSUyMElnbGVzaWElMjBTYW4lMjBTZWJhc3RpJUMzJUExbiUyMExlJUMzJUIzbiUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE4NTU1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_15",
@@ -27874,6 +27937,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWVybmVzJTIwU2FudG8lMjBMZSVDMyVCM24lMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxODg1N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_19",
@@ -27884,6 +27948,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXRlZHJhbCUyMGRlJTIwTGUlQzMlQjNuJTIwJUUyJTgwJTkzJTIwVU5FU0NPJTIwTGUlQzMlQjNuJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTg5MzJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "leon_ni_20",
@@ -27905,6 +27970,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1549038281-29bba1500022?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBkZSUyMExlJUMzJUIzbiUyMFZpZWpvJTIwTGUlQzMlQjNuJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTkwMDh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   ometepe: [
@@ -27928,6 +27994,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 360,
+      imageUrl: "https://images.unsplash.com/photo-1632180199436-a4edc4ed04d4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJc2xhJTIwZGUlMjBPbWV0ZXBlJTIwTW95b2dhbHBhJTIwJTI4T21ldGVwZSUyOSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE5MDA5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ometepe_2",
@@ -27938,6 +28005,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1713186266823-9491048a94d9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMFNhbnRvJTIwRG9taW5nbyUyMCVFMiU4MCU5MyUyME9tZXRlcGUlMjBNb3lvZ2FscGElMjAlMjhPbWV0ZXBlJTI5JTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTkwODV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   sanjuandelsur: [
@@ -28009,6 +28077,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1626310614227-59e1c666e462?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHwlQzMlODFyYm9sJTIwZGUlMjBsYSUyMFZpZGElMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxOTA4Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_6",
@@ -28029,6 +28098,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1578283351335-ba8a40ba5b01?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZW50cm8lMjBkZSUyMFZpc2l0YW50ZXMlMjBWb2xjJUMzJUExbiUyME1hc2F5YSUyME1hc2F5YSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE5MjM3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_8",
@@ -28039,6 +28109,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1684861746842-7115e4530437?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlbCUyMEZvbGNsb3IlMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxOTMxMnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_9",
@@ -28049,6 +28120,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1654374530352-fedf4de12366?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEF1Z3VzdG8lMjBDLiUyMFNhbmRpbm8lMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxOTM4OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_10",
@@ -28059,6 +28131,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1638866487409-3145f91a92a7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGNhbWlsbyUyMG9ydGVnYSUyME1hc2F5YSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTE5NDYzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_11",
@@ -28069,6 +28142,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1578283351335-ba8a40ba5b01?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyME5hY3VkYXIlQzMlQUQlMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxOTUzOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_12",
@@ -28089,6 +28163,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1677689473762-7986a46acd4b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ2xlc2lhJTIwTmFuZGFzbW8lMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxOTY5MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_14",
@@ -28099,6 +28174,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1576515382035-a29a18c88b2d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYV9Db25jZXBjaSVDMyVCM24tTmluZGlyJUMzJUFEJTIwTWFzYXlhJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MTk3NjV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_15",
@@ -28119,6 +28195,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1742513225200-a3fe34ea1d2a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNZXJjYWRvJTIwZGUlMjBBcnRlc2FuJUMzJUFEYXMlMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxOTkxNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_17",
@@ -28129,6 +28206,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1684861746842-7115e4530437?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxkb24lMjBKb3MlQzMlQTklMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkxOTk5Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_18",
@@ -28139,6 +28217,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1665518807030-ff232df26016?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYWd1bmElMjBkZSUyMGFwb3lvJTIwTWFzYXlhJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MjAwNjd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_19",
@@ -28149,6 +28228,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1684861746842-7115e4530437?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWVzYXVyaW8lMjBNYXNheWElMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkyMDE0Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "masaya_20",
@@ -28170,6 +28250,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1599147092675-8f6dbafe46b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNZXJjYWRvJTIwZGUlMjBBcnRlc2FuJUMzJUFEYXMlMjBkZSUyME1hc2F5YSUyME1hc2F5YSUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTIwMjE4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   esteli: [
@@ -28222,6 +28303,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1584904558330-f9772a6778c5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMExhJTIwQ2FtcGFuYSUyMEVzdGVsJUMzJUFEJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MjA1MjF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "esteli_5",
@@ -28232,6 +28314,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1494444753080-e0d457fa3563?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNhJTIwZGUlMjBDdWx0dXJhJTIwJTVDJTIwRXN0ZWwlQzMlQUQlMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkyMDU5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "esteli_6",
@@ -28252,6 +28335,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1626310614226-c7904eddcb96?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGYWJyaWNhJTIwZGUlMjBQdXJvcyUyMGRlJTIwVGFiYWNvJTIwQUolMjBGZXJuYW5kZXolMjBFc3RlbCVDMyVBRCUyME5pY2FyYWd1YXxlbnwxfDB8fHwxNzgyOTIwNzQ3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "esteli_8",
@@ -28272,6 +28356,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1576515382035-a29a18c88b2d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDdXJ2YSUyMFByb251bmNpYWRhJTIwRXN0ZWwlQzMlQUQlMjBOaWNhcmFndWF8ZW58MXwwfHx8MTc4MjkyMDg5OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   cornislands: [
@@ -28295,6 +28380,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1632180199436-a4edc4ed04d4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb3VudCUyMFBsZWFzYW50JTIwSGlsbCUyMENvcm4lMjBJc2xhbmRzJTIwTmljYXJhZ3VhfGVufDF8MHx8fDE3ODI5MjA5MDB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cornislands_2",
@@ -28353,6 +28439,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 240,
+      imageUrl: "https://images.unsplash.com/photo-1707074111761-3f1db359269e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWb2xjJUMzJUExbiUyMEFyZW5hbCUyMExhJTIwRm9ydHVuYSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIxMDUzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lafortuna_1",
@@ -28385,6 +28472,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 240,
       website: "https://www.tabacon.com/",
+      imageUrl: "https://images.unsplash.com/photo-1580259679654-9276b39fd2d5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZXJtYXMlMjBUYWJhYyVDMyVCM24lMjBMYSUyMEZvcnR1bmElMjBDb3N0YSUyMFJpY2F8ZW58MXwwfHx8MTc4MjkyMTIwNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "lafortuna_4",
@@ -28490,6 +28578,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1536709017021-ce8f99c17e38?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMEJpZXNhbnolMjBNYW51ZWwlMjBBbnRvbmlvJTIwQ29zdGElMjBSaWNhfGVufDF8MHx8fDE3ODI5MjE3MzF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   monteverdecr: [
@@ -28524,6 +28613,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1567196315593-2907379a4c69?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMFNhbiUyMEpvcyVDMyVBOSUyME1vbnRldmVyZGUlMjBDb3N0YSUyMFJpY2F8ZW58MXwwfHx8MTc4MjkyMTczMnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "monteverdecr_3",
@@ -28534,6 +28624,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1592593210599-492c25d93ef9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFY29tdXNlbyUyMGRlJTIwbGFzJTIwTWluYXMlMjBkZSUyMEFiYW5nYXJlcyUyME1vbnRldmVyZGUlMjBDb3N0YSUyMFJpY2F8ZW58MXwwfHx8MTc4MjkyMTgwOHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "monteverdecr_4",
@@ -28555,6 +28646,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.monteverdebutterflygardens.com/",
+      imageUrl: "https://images.unsplash.com/photo-1776191845447-b9760ca2be62?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb250ZXZlcmRlJTIwQnV0dGVyZmx5JTIwR2FyZGVucyUyME1vbnRldmVyZGUlMjBDb3N0YSUyMFJpY2F8ZW58MXwwfHx8MTc4MjkyMTk1OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "monteverdecr_6",
@@ -28577,6 +28669,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://elcafetaltour.com",
+      imageUrl: "https://images.unsplash.com/photo-1597693253938-0ba06637f6e5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbCUyMENhZmV0YWwlMjBDb2ZmZXIlMjBUb3VyJTIwTW9udGV2ZXJkZSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyMTEwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "monteverdecr_8",
@@ -28587,6 +28680,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1592593210599-492c25d93ef9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSZWZ1Z2lvJTIwZGUlMjBWaWRhJTIwU2lsdmVzdHJlJTIwTW9udGV2ZXJkZSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyMTg1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "monteverdecr_9",
@@ -28630,6 +28724,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1597693253938-0ba06637f6e5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQdWVudGVzJTIwQ29sZ2FudGVzJTIwZGUlMjBNb250ZXZlcmRlJTIwTW9udGV2ZXJkZSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyNDEyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "monteverdecr_13",
@@ -28640,6 +28735,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1611223157314-18a252c20228?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW5vcHklMjBUb3VyJTIwJUUyJTgwJTkzJTIwVGlyb2xlc2FzJTIwTW9udGV2ZXJkZSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyNDg3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   puertoviejo: [
@@ -28663,6 +28759,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1516468899809-71bc9b73da47?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMENvY2xlcyUyMFB1ZXJ0byUyMFZpZWpvJTIwZGUlMjBUYWxhbWFuY2ElMjBDb3N0YSUyMFJpY2F8ZW58MXwwfHx8MTc4MjkyMjQ4OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "puertoviejo_2",
@@ -28673,6 +28770,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1516468899809-71bc9b73da47?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMFB1bnRhJTIwVXZhJTIwUHVlcnRvJTIwVmllam8lMjBkZSUyMFRhbGFtYW5jYSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyNTYzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   tamarindo: [
@@ -28699,6 +28797,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 240,
+      imageUrl: "https://images.unsplash.com/photo-1580182019279-9c9a88350737?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbmlkYWNpJUMzJUIzbiUyMGRlJTIwVG9ydHVnYXMlMjAlRTIlODAlOTMlMjBUb3J0dWd1ZXJvJTIwVG9ydHVndWVybyUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyNTYzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   jaco: [
@@ -28726,6 +28825,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1611602316663-92dc58e199ed?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUdXJ0bGUlMjBUcmFwJTIwUXVlcG9zJTIwQ29zdGElMjBSaWNhfGVufDF8MHx8fDE3ODI5MjI1NjR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "quepos_2",
@@ -28736,6 +28836,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1580259679654-9276b39fd2d5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaWRXb3JsZCUyMENvc3RhJTIwUmljYSUyMFF1ZXBvcyUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyNjM5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "quepos_3",
@@ -28746,6 +28847,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1592409482913-c3094afdb249?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQdW50YSUyMFNlcnJ1Y2hvJTIwUXVlcG9zJTIwQ29zdGElMjBSaWNhfGVufDF8MHx8fDE3ODI5MjI3MTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "quepos_4",
@@ -28756,6 +28858,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1719719595774-67f961da5d82?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaG9jb2xhdGUlMjBUb3VyJTIwTWFudWVsJTIwQW50b25pbyUyMFF1ZXBvcyUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyNzkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "quepos_5",
@@ -28766,6 +28869,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1611223157314-18a252c20228?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYW50dWFyaW8lMjBDYW5vcHklMjBUb3VyJTIwUXVlcG9zJTIwQ29zdGElMjBSaWNhfGVufDF8MHx8fDE3ODI5MjI4NjZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   liberia_cr: [
@@ -28779,6 +28883,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "www.sinac.go.cr",
+      imageUrl: "https://images.unsplash.com/photo-1734280397372-a0e9a1032fcf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMFJpbmMlQzMlQjNuJTIwZGUlMjBsYSUyMFZpZWphJTIwTGliZXJpYSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyODY3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_1",
@@ -28789,6 +28894,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1734280397372-a0e9a1032fcf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMENhJUMzJUIxYXMlMjBEdWxjZXMlMjBMaWJlcmlhJTIwQ29zdGElMjBSaWNhfGVufDF8MHx8fDE3ODI5MjI5NDJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_2",
@@ -28810,6 +28916,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://nya.cr/es/",
+      imageUrl: "https://images.unsplash.com/photo-1734280397372-a0e9a1032fcf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOWUElMjBMaWJlcmlhJTJDJTIwQ29zdGElMjBSaWNhJTIwTGliZXJpYSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIzMDk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_4",
@@ -28820,6 +28927,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1734280397372-a0e9a1032fcf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbnRpZ3VhJTIwR29iZXJuYWNpJUMzJUIzbiUyMExpYmVyaWElMjBDb3N0YSUyMFJpY2F8ZW58MXwwfHx8MTc4MjkyMzE2OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_5",
@@ -28861,6 +28969,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1586857732531-339838887a23?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdWQlMjBwb3RzJTIwTGliZXJpYSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIzNDcxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_9",
@@ -28871,6 +28980,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1586857732531-339838887a23?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNjYWRhcyUyMExhcyUyMENob3JyZXJhcyUyMExpYmVyaWElMjBDb3N0YSUyMFJpY2F8ZW58MXwwfHx8MTc4MjkyMzU0Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_10",
@@ -28881,6 +28991,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1586857732531-339838887a23?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTbWFsbCUyMFZvbGNhbm8lMjBMaWJlcmlhJTIwQ29zdGElMjBSaWNhfGVufDF8MHx8fDE3ODI5MjM2MjF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_11",
@@ -28891,6 +29002,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 360,
+      imageUrl: "https://images.unsplash.com/photo-1734280397372-a0e9a1032fcf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMFJpbmMlQzMlQjNuJTIwZGUlMjBsYSUyMFZpZWphJTIwTGliZXJpYSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyODY3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "liberia_cr_12",
@@ -28915,6 +29027,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 120,
       website: "https://www.pancanal.com/",
+      imageUrl: "https://images.unsplash.com/photo-1540610410855-b4c8877b761c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW5hbCUyMGRlJTIwUGFuYW0lQzMlQTElMjAlRTIlODAlOTMlMjBNaXJhZmxvcmVzJTIwQ2l1ZGFkJTIwZGUlMjBQYW5hbSVDMyVBMSUyMFBhbmFtJUMzJUExfGVufDF8MHx8fDE3ODI5MjM3NzZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "panamacity_1",
@@ -28925,6 +29038,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 150,
+      imageUrl: "https://images.unsplash.com/photo-1656781313303-51379444b553?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNjbyUyMFZpZWpvJTIwJUUyJTgwJTkzJTIwQ2FzY28lMjBBbnRpZ3VvJTIwQ2l1ZGFkJTIwZGUlMjBQYW5hbSVDMyVBMSUyMFBhbmFtJUMzJUExfGVufDF8MHx8fDE3ODI5MjM4NTJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "panamacity_2",
@@ -28946,6 +29060,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1607870960054-049070e8f65a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBkZSUyMFBhbmFtJUMzJUExJTIwVmllam8lMjBDaXVkYWQlMjBkZSUyMFBhbmFtJUMzJUExJTIwUGFuYW0lQzMlQTF8ZW58MXwwfHx8MTc4MjkyMzkyN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "panamacity_4",
@@ -28957,6 +29072,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       website: "https://www.biomuseopanama.org/",
+      imageUrl: "https://images.unsplash.com/photo-1709653771859-e1e9516da54a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCaW9tdXNlbyUyMENpdWRhZCUyMGRlJTIwUGFuYW0lQzMlQTElMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI0MDAzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   bocasdeltoro: [
@@ -28969,6 +29085,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1593881135370-702114a3448d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwUGwlQzMlQTFzdGljbyUyMEJvY2FzJTIwZGVsJTIwVG9ybyUyMFBhbmFtJUMzJUExfGVufDF8MHx8fDE3ODI5MjQwMDR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bocasdeltoro_1",
@@ -28979,6 +29096,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1593881135366-021cb95fd82d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQdXJlJTIwVHJlZSUyMEV4cGVyaWVuY2UlMjBCb2NhcyUyMGRlbCUyMFRvcm8lMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI0MDc5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bocasdeltoro_2",
@@ -28999,6 +29117,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1646015118912-3c37aacbd626?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdXJmJTIwcG9pbnQlMjBicmVhayUyMEJvY2FzJTIwZGVsJTIwVG9ybyUyMFBhbmFtJUMzJUExfGVufDF8MHx8fDE3ODI5MjQyMzB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bocasdeltoro_4",
@@ -29009,6 +29128,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1593881135366-021cb95fd82d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJc2xhJTIwUGVyZXpvc28lMjBCb2NhcyUyMGRlbCUyMFRvcm8lMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI0MzA2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bocasdeltoro_5",
@@ -29019,6 +29139,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1593881135366-021cb95fd82d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxpc2xhJTIwZGUlMjBsYXMlMjBlc3RyZWxsYXMlMjBCb2NhcyUyMGRlbCUyMFRvcm8lMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI0MzgxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "bocasdeltoro_6",
@@ -29082,6 +29203,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1758026827847-6792062a156b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMEd1YXlhYm8lMjBCb3F1ZXRlJTIwUGFuYW0lQzMlQTF8ZW58MXwwfHx8MTc4MjkyNDY4NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "boquete_2",
@@ -29174,6 +29296,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1656359988560-ec0c0be59fb0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaSUyMGphcmQlQzMlQURuJTIwZXMlMjBzdSUyMGphcmQlQzMlQURuJTIwQm9xdWV0ZSUyMFBhbmFtJUMzJUExfGVufDF8MHx8fDE3ODI5MjUzNjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "boquete_11",
@@ -29184,6 +29307,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1758026827847-6792062a156b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb3F1ZXRlJTIwVHJlZSUyMFRyZWslMjBCb3F1ZXRlJTIwUGFuYW0lQzMlQTF8ZW58MXwwfHx8MTc4MjkyNTQzOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "boquete_12",
@@ -29194,6 +29318,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1758026827847-6792062a156b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaWRkZW4lMjBXYXRlcmZhbGxzJTIwQm9xdWV0ZSUyMFBhbmFtJUMzJUExfGVufDF8MHx8fDE3ODI5MjU1MTR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "boquete_13",
@@ -29248,6 +29373,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1593881135370-702114a3448d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNldW0lMjBvZiUyMEt1bmElMjBDdWx0dXJhJTIwU2FuJTIwQmxhcyUyMCUyOEd1bmElMjBZYWxhJTI5JTIwUGFuYW0lQzMlQTF8ZW58MXwwfHx8MTc4MjkyNTY2Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanblas_2",
@@ -29258,6 +29384,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1579382424431-cb109887b65a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHdW5hJTIweWFsYSUyMG11c2VvJTIwU2FuJTIwQmxhcyUyMCUyOEd1bmElMjBZYWxhJTI5JTIwUGFuYW0lQzMlQTF8ZW58MXwwfHx8MTc4MjkyNTc0Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanblas_3",
@@ -29278,6 +29405,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1529443836102-11acad0174c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYSUyMFBpc2NpbmElMjBTYW4lMjBCbGFzJTIwJTI4R3VuYSUyMFlhbGElMjklMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI1ODkzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanblas_5",
@@ -29288,6 +29416,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1579382424431-cb109887b65a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXJjbyUyMEh1bmRpZG8lMjBTYW4lMjBCbGFzJTIwJTI4R3VuYSUyMFlhbGElMjklMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI1OTc2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanblas_6",
@@ -29298,6 +29427,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1583439942332-9245267774bb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBY2h1ZHViJTIwRHVtbWFkJTIwU2FuJTIwQmxhcyUyMCUyOEd1bmElMjBZYWxhJTI5JTIwUGFuYW0lQzMlQTF8ZW58MXwwfHx8MTc4MjkyNjA1Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "sanblas_7",
@@ -29339,6 +29469,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1709653771859-e1e9516da54a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlbCUyMEJhcnJpbyUyMHklMjBBbnRpZyVDMyVCQ2VkYWRlcyUyMExhJTIwQ2Fzb25hJTIwRGF2aWQlMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI2MjAzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "daviddechiriqui_1",
@@ -29369,6 +29500,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1701815843646-e23ae78fdd38?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbnRpZ3VvJTIwTXVzZW8lMjBKb3MlQzMlQTklMjBEb21pbmdvJTIwZGUlMjBPYmFsZGlhJTIwRGF2aWQlMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI2NDMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "daviddechiriqui_4",
@@ -29419,6 +29551,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1558031096-21eb8c643d39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSJUMzJUFEbyUyMEJydWpvJTIwRGF2aWQlMjBQYW5hbSVDMyVBMXxlbnwxfDB8fHwxNzgyOTI2ODA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "daviddechiriqui_9",
@@ -29483,6 +29616,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1553433342-956cde1d7646?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGFudGFjaW9uZXMlMjBkZSUyMFRhYmFjbyUyMFZpJUMzJUIxYWxlcyUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyNzExMnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   trinidad_cu: [
@@ -29518,6 +29652,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://www.yuditvidal.com",
+      imageUrl: "https://images.unsplash.com/photo-1776612964845-1bb3ef6eedf1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHYWxlciVDMyVBRGElMjBUYWxsZXIlMjBZdWRpdCUyMFZpZGFsJTIwRmFpZmUlMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyNzE5MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_3",
@@ -29529,6 +29664,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://boulevardcuba.com/",
+      imageUrl: "https://images.unsplash.com/photo-1570299437488-d430e1e677c7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZGVhJTIwVHJpbmlkYWQlMjBDdWJhfGVufDF8MHx8fDE3ODI5MjcyNjV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_4",
@@ -29539,6 +29675,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1538428347423-18f5dfa9ab97?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyME5hY2lvbmFsJTIwZGUlMjBsYSUyMEx1Y2hhJTIwQ29udHJhJTIwQmFuZGlkb3MlMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyNzM0MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_5",
@@ -29549,6 +29686,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1538428347423-18f5dfa9ab97?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNhJTIwZGUlMjBMb3MlMjBNJUMzJUExcnRpcmVzJTIwVHJpbmlkYWQlMjBDdWJhfGVufDF8MHx8fDE3ODI5Mjc0MTZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_6",
@@ -29559,6 +29697,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1590778197061-083bf2ded20f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ2xlc2lhJTIwZGUlMjBOdWVzdHJhJTIwU2UlQzMlQjFvcmElMjBkZSUyMGxhJTIwQ2FuZGVsYXJpYSUyMGRlJTIwbGElMjBQb3BhJTIwVHJpbmlkYWQlMjBDdWJhfGVufDF8MHx8fDE3ODI5Mjc0OTJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_7",
@@ -29569,6 +29708,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1538428347423-18f5dfa9ab97?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaWVuZGElMjBkZWwlMjBQdWVibG8lMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyNzU2N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_8",
@@ -29590,6 +29730,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1584098181992-e7f35b51f85a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFcm1pdGElMjBkZSUyMFNhbnRhJTIwQW5hJTIwVHJpbmlkYWQlMjBDdWJhfGVufDF8MHx8fDE3ODI5Mjc3MTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_10",
@@ -29600,6 +29741,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1538428347423-18f5dfa9ab97?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxab29sJUMzJUIzZ2ljbyUyMGRlJTIwVHJpbmlkYWQlMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyNzc5M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_11",
@@ -29620,6 +29762,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1570299437488-d430e1e677c7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNYXF1ZXRhJTIwZGUlMjBsYSUyMENpdWRhZCUyMGRlJTIwVHJpbmlkYWQlMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyNzk0NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_13",
@@ -29640,6 +29783,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1538428347423-18f5dfa9ab97?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZW50cm8lMjBIaXN0JUMzJUIzcmljbyUyMGRlJTIwVHJpbmlkYWQlMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyODA5NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_15",
@@ -29650,6 +29794,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 240,
+      imageUrl: "https://images.unsplash.com/photo-1596163513335-ee2efc4a6885?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMEFuYyVDMyVCM24lMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyODE3MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "trinidad_cu_16",
@@ -29660,6 +29805,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1538428347423-18f5dfa9ab97?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWYWxsZSUyMGRlJTIwbG9zJTIwSW5nZW5pb3MlMjBUcmluaWRhZCUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyODI0Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   santiagocu: [
@@ -29672,6 +29818,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1584542397795-06f7f0346b07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMFByb3ZpbmNpYWwlMjAlNUMlMjBTYW50aWFnbyUyMGRlJTIwQ3ViYSUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyODI0OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_1",
@@ -29736,6 +29883,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1609003250082-fa474ee44c11?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBab29sJUMzJUIzZ2ljbyUyMGRlJTIwU2FudGlhZ28lMjBkZSUyMEN1YmElMjBTYW50aWFnbyUyMGRlJTIwQ3ViYSUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyODM5OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_7",
@@ -29767,6 +29915,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1584542394556-e322a734e16d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwbGElMjBJbWFnZW4lMjBTYW50aWFnbyUyMGRlJTIwQ3ViYSUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyODU1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_10",
@@ -29808,6 +29957,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1584542397795-06f7f0346b07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbnRpZ3VhJTIwQ2FzYSUyMGRlJTIwRmlkZWwlMjBDYXN0cm8lMjBTYW50aWFnbyUyMGRlJTIwQ3ViYSUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyODg1MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_14",
@@ -29818,6 +29968,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1584542397795-06f7f0346b07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXRlciVDMyVBRGElMjBBbHRhJTIwZGUlMjBMYSUyMFNvY2FwYSUyMFNhbnRpYWdvJTIwZGUlMjBDdWJhJTIwQ3ViYXxlbnwxfDB8fHwxNzgyOTI4OTI2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_15",
@@ -29829,6 +29980,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.guruwalk.com/es/walks/32388-sorprendete-con-santiago-de-cuba-en-este-free-tour",
+      imageUrl: "https://images.unsplash.com/photo-1584542397795-06f7f0346b07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGUkVFJTIwVE9VUiUyMHBvciUyMFNhbnRpYWdvJTIwZGUlMjBDdWJhJTIwU2FudGlhZ28lMjBkZSUyMEN1YmElMjBDdWJhfGVufDF8MHx8fDE3ODI5MjkwMDJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_16",
@@ -29839,6 +29991,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1584542397795-06f7f0346b07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBkZSUyMERpdmVyc2lvbmVzJTIwRGlzdHJpdG8lMjBKb3MlQzMlQTklMjBNYXJ0JUMzJUFEJTIwU2FudGlhZ28lMjBkZSUyMEN1YmElMjBDdWJhfGVufDF8MHx8fDE3ODI5MjkwNzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_17",
@@ -29859,6 +30012,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1584542397795-06f7f0346b07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXN0aWxsbyUyMGRlbCUyME1vcnJvJTIwJUUyJTgwJTkzJTIwU2FudGlhZ28lMjBTYW50aWFnbyUyMGRlJTIwQ3ViYSUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyOTIyOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_19",
@@ -29869,6 +30023,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.8,
       estimatedMinutes: 480,
+      imageUrl: "https://images.unsplash.com/photo-1584542397795-06f7f0346b07?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXJuYXZhbCUyMGRlJTIwU2FudGlhZ28lMjBkZSUyMEN1YmElMjBTYW50aWFnbyUyMGRlJTIwQ3ViYSUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyOTMwNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santiagocu_20",
@@ -29927,6 +30082,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.ecured.cu/Fuerte_de_Rojas",
+      imageUrl: "https://images.unsplash.com/photo-1570299437488-d430e1e677c7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGdWVydGUlMjBkZSUyMFJvamFzJTIwVmFyYWRlcm8lMjBDdWJhfGVufDF8MHx8fDE3ODI5MjkzODF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_4",
@@ -29938,6 +30094,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.ecured.cu/Fuerte_de_la_F%C3%A1brica_de_Gas",
+      imageUrl: "https://images.unsplash.com/photo-1705781966425-ba17fbff45b7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGdWVydGUlMjBkZSUyMGxhJTIwRiVDMyVBMWJyaWNhJTIwZGUlMjBHYXMlMjBWYXJhZGVybyUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyOTQ1Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_5",
@@ -29949,6 +30106,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.ecured.cu/Fuerte_de_Jag%C3%BCey",
+      imageUrl: "https://images.unsplash.com/photo-1720306980713-25b65a9386a7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGdWVydGUlMjBkZSUyMEphZyVDMyVCQ2V5JTIwVmFyYWRlcm8lMjBDdWJhfGVufDF8MHx8fDE3ODI5Mjk1MzJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_6",
@@ -29979,6 +30137,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1720306980713-25b65a9386a7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwVmFyYWRlcm8lMjBWYXJhZGVybyUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyOTc1OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_9",
@@ -29989,6 +30148,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1737684893998-707fffa52239?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEJhdGFsbGElMjBkZSUyMElkZWFzJTIwVmFyYWRlcm8lMjBDdWJhfGVufDF8MHx8fDE3ODI5Mjk4MzR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_10",
@@ -29999,6 +30159,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1538428347423-18f5dfa9ab97?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNhJTIwTmF0YWwlMjBkZSUyMEpvcyVDMyVBOSUyMEFudG9uaW8lMjBFY2hldmVyciVDMyVBRGElMjBWYXJhZGVybyUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyOTkwOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_11",
@@ -30009,6 +30170,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1720306980713-25b65a9386a7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUb2RvJTIwRW4lMjBVbm8lMjBWYXJhZGVybyUyMEN1YmF8ZW58MXwwfHx8MTc4MjkyOTk4NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_12",
@@ -30029,6 +30191,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1720306980713-25b65a9386a7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDdWV2YSUyME11c3VsbWFuZXMlMjBWYXJhZGVybyUyMEN1YmF8ZW58MXwwfHx8MTc4MjkzMDEzNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "varadero_14",
@@ -30061,6 +30224,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1560165146-0db74c37574c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKYXJkJUMzJUFEbiUyMEJvdCVDMyVBMW5pY28lMjBkZSUyMENpZW5mdWVnb3MlMjBDaWVuZnVlZ29zJTIwQ3ViYXxlbnwxfDB8fHwxNzgyOTMwMjg5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   camaguey: [
@@ -30106,6 +30270,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1585955349732-ea70f5d3d204?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW1wYW5hcmlvJTIwQ2F5byUyMFNhbnRhJTIwTWFyJUMzJUFEYSUyMEN1YmF8ZW58MXwwfHx8MTc4MjkzMDUxNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
 
@@ -30186,6 +30351,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNaW5pc3RlcmlvcyUyMENhc2ElMjBEZSUyMFppb24lMjBTYW50byUyMERvbWluZ28lMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMDUxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santodomingo_7",
@@ -30350,6 +30516,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYWxhY2lvJTIwZGUlMjBCZWxsYXMlMjBBcnRlcyUyMFNhbnRvJTIwRG9taW5nbyUyMFJlcCVDMyVCQWJsaWNhJTIwRG9taW5pY2FuYXxlbnwxfDB8fHwxNzgyOTMwNjY4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santodomingo_22",
@@ -30390,6 +30557,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyME1pcmFkb3IlMjBkZWwlMjBOb3J0ZSUyMFNhbnRvJTIwRG9taW5nbyUyMFJlcCVDMyVCQWJsaWNhJTIwRG9taW5pY2FuYXxlbnwxfDB8fHwxNzgyOTMwOTcwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santodomingo_26",
@@ -30410,6 +30578,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaXVkYWQlMjBDb2xvbmlhbCUyMGRlJTIwU2FudG8lMjBEb21pbmdvJTIwU2FudG8lMjBEb21pbmdvJTIwUmVwJUMzJUJBYmxpY2ElMjBEb21pbmljYW5hfGVufDF8MHx8fDE3ODI5MzExMjF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santodomingo_28",
@@ -30431,6 +30600,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXRlZHJhbCUyMFByaW1hZGElMjBkZSUyMEFtJUMzJUE5cmljYSUyMFNhbnRvJTIwRG9taW5nbyUyMFJlcCVDMyVCQWJsaWNhJTIwRG9taW5pY2FuYXxlbnwxfDB8fHwxNzgyOTMxMTk2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "santodomingo_30",
@@ -30638,6 +30808,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBkZWwlMjBDYW1wYW5hcmlvJTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMjQ4OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_4",
@@ -30648,6 +30819,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1707232277837-cd7502534afe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYSUyMENhc29uYSUyMFNhbWFuJUMzJUExJTIwUmVwJUMzJUJBYmxpY2ElMjBEb21pbmljYW5hfGVufDF8MHx8fDE3ODI5MzI1NjR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_5",
@@ -30658,6 +30830,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1707232277837-cd7502534afe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbnRyYWRhJTIwYSUyMExvcyUyMEhhaXRpc2VzJTIwJTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMjY0MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_6",
@@ -30668,6 +30841,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1707232277837-cd7502534afe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb2NhJTIwZGVsJTIwRGlhYmxvJTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMjcxNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_7",
@@ -30678,6 +30852,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1707232277837-cd7502534afe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxmb3JtZXIlMjBwb3J0JTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMjc5MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_8",
@@ -30688,6 +30863,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYW50YW5hJTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMjg2Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_9",
@@ -30708,6 +30884,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 360,
+      imageUrl: "https://images.unsplash.com/photo-1701491071683-0bbe49cd5415?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxPYnNlcnZhY2klQzMlQjNuJTIwZGUlMjBCYWxsZW5hcyUyMEpvcm9iYWRhcyUyMFNhbWFuJUMzJUExJTIwUmVwJUMzJUJBYmxpY2ElMjBEb21pbmljYW5hfGVufDF8MHx8fDE3ODI5MzMwMTd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_11",
@@ -30718,6 +30895,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1642727765749-7dd591bdc40b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNjYWRhJTIwRWwlMjBMaW0lQzMlQjNuJTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMzA5M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "samana_12",
@@ -30764,6 +30942,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1642727765749-7dd591bdc40b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEhpZHJvZWwlQzMlQTljdHJpY2ElMjBKYXJhYmFjb2ElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMzI0NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "jarabacoa_3",
@@ -30804,6 +30983,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1679025211396-d7746f53c16e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZWF0cm8lMjBKYXJhYmFjb2ElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMzU0N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "jarabacoa_7",
@@ -30824,6 +31004,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1701491071683-0bbe49cd5415?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNpdGElMjBjb24lMjBwdWVydGElMjBhenVsJTIwSmFyYWJhY29hJTIwUmVwJUMzJUJBYmxpY2ElMjBEb21pbmljYW5hfGVufDF8MHx8fDE3ODI5MzM2OTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "jarabacoa_9",
@@ -30844,6 +31025,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1701491073141-18c24f39f00d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbnRlbmElMjBKYXJhYmFjb2ElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMzg0OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "jarabacoa_11",
@@ -30885,6 +31067,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 480,
+      imageUrl: "https://images.unsplash.com/photo-1642727765749-7dd591bdc40b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMEFybWFuZG8lMjBCZXJtJUMzJUJBZGV6JTIwSmFyYWJhY29hJTIwUmVwJUMzJUJBYmxpY2ElMjBEb21pbmljYW5hfGVufDF8MHx8fDE3ODI5MzQwNzZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   laromana: [
@@ -30897,6 +31080,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbHRvcyUyMGRlJTIwQ2hhdiVDMyVCM24lMjBMYSUyMFJvbWFuYSUyMFJlcCVDMyVCQWJsaWNhJTIwRG9taW5pY2FuYXxlbnwxfDB8fHwxNzgyOTM0MDc3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "laromana_1",
@@ -30907,6 +31091,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 300,
+      imageUrl: "https://images.unsplash.com/photo-1707232277837-cd7502534afe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJc2xhJTIwQ2F0YWxpbmElMjBMYSUyMFJvbWFuYSUyMFJlcCVDMyVCQWJsaWNhJTIwRG9taW5pY2FuYXxlbnwxfDB8fHwxNzgyOTM0MTUzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   santiago_dr: [
@@ -31086,6 +31271,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1626096181598-9d31320fa9bf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJbnN0aXR1dGUlMjBvZiUyMEphbWFpY2ElMjBNdXNldW0lMjBNb250ZWdvJTIwQmF5JTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM1MDYxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "montegobay_3",
@@ -31096,6 +31282,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb250ZWdvJTIwQmF5JTIwQ3VsdHVyYWwlMjBDZW50ZXIlMjBNb250ZWdvJTIwQmF5JTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM1MTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "montegobay_4",
@@ -31117,6 +31304,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbWFuY2lwYXRpb24lMjBXYXIlMjAxODMxLTMyJTIwTW9udGVnbyUyMEJheSUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzNTI4N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "montegobay_6",
@@ -31157,6 +31345,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaXAlMjBTdHJpcCUyMCUyOEdsb3VjZXN0ZXIlMjBBdmUlMjklMjBNb250ZWdvJTIwQmF5JTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM1NTg5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "montegobay_10",
@@ -31168,6 +31357,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 180,
       website: "https://www.doctorscavebathingclub.com/",
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEb2N0b3IlMjBNb250ZWdvJTIwQmF5JTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM1NjY1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "montegobay_11",
@@ -31189,6 +31379,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1626096181598-9d31320fa9bf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaXAlMjBTdHJpcCUyMCVFMiU4MCU5MyUyMEdsb3VjZXN0ZXIlMjBBdmVudWUlMjBNb250ZWdvJTIwQmF5JTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM1ODE3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   kingston: [
@@ -31317,6 +31508,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "http://www.jnht.com/site_fort_augusta.php",
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGb3J0JTIwQWd1c3RhJTIwS2luZ3N0b24lMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5MzYzNDZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "kingston_12",
@@ -31337,6 +31529,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1583166615346-edadc433eaa7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUcmVuY2glMjBUb3duJTIwQ3VsdHVyZSUyMFlhcmQlMjBNdXNldW0lMjBLaW5nc3RvbiUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzNjQ5N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "kingston_14",
@@ -31369,6 +31562,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "http://www.jnht.com/site_fort_charles.php",
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGb3J0JTIwQ2hhcmxlcyUyME1haW4lMjBCdWlsZGluZyUyQyUyMDE2NTUlMjBLaW5nc3RvbiUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzNjcyNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "kingston_17",
@@ -31379,6 +31573,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGb3J0JTIwUm9ja3klMjBLaW5nc3RvbiUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzNjgwMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "kingston_18",
@@ -31409,6 +31604,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEZXZvbiUyMEhvdXNlJTIwS2luZ3N0b24lMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5MzcwMjd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "kingston_21",
@@ -31429,6 +31625,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1530225232034-97cd4439bbe7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW5lJTIwUml2ZXIlMjBXYXRlcmZhbGwlMjBLaW5nc3RvbiUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzNzE3OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "kingston_23",
@@ -31493,6 +31690,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQb3J0JTIwUm95YWwlMjBLaW5nc3RvbiUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzNzQ4MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   negril: [
@@ -31505,6 +31703,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1605994543054-6ffbabbd8139?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcm92aWRlbmNlJTIwTW91bnRhaW4lMjBOZWdyaWwlMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5Mzc1MDZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "negril_1",
@@ -31516,6 +31715,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.koolrunnings.com/2017/",
+      imageUrl: "https://images.unsplash.com/photo-1592341480926-f22b41fc3afd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLb29sJTIwUnVubmluZ3MlMjBBZHZlbnR1cmUlMjBQYXJrJTIwTmVncmlsJTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM3NTgxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "negril_2",
@@ -31526,6 +31726,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1599928646811-c533d16833e9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDcmFmdCUyME1hcmtldCUyME5lZ3JpbCUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzNzY1N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "negril_3",
@@ -31556,6 +31757,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1601754691759-717b75bf002f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjBDbGlmZnMlMjBOZWdyaWwlMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5Mzc4ODR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "negril_6",
@@ -31566,6 +31768,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1588592997030-b842946c2023?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOZWdyaWwlMjBGb3NzaWwlMjBSZWVmcyUyMGFuZCUyMENhdmVzJTIwTmVncmlsJTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM3OTYwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "negril_7",
@@ -31576,6 +31779,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 300,
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTZXZlbiUyME1pbGUlMjBCZWFjaCUyME5lZ3JpbCUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzODAzNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "negril_8",
@@ -31610,6 +31814,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 180,
       website: "https://www.dunnsriverfallsja.com/",
+      imageUrl: "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEdW5uJTIwT2NobyUyMFIlQzMlQURvcyUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzODE4N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "ochorios_1",
@@ -31631,6 +31836,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 180,
       website: "https://rainforestadventure.com/mystic-mountain/",
+      imageUrl: "https://images.unsplash.com/photo-1557129603-ff35a0c70e5e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNeXN0aWMlMjBNb3VudGFpbiUyME9jaG8lMjBSJUMzJUFEb3MlMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5MzgzMzh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   portantonio: [
@@ -31674,6 +31880,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1641789107384-67a204447ecd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBcHByb3hpbWF0ZSUyMFNpdGUlMjBvZiUyME5hbm55JTIwVG93biUyMFBvcnQlMjBBbnRvbmlvJTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM4NDkyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_4",
@@ -31694,6 +31901,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1657304801597-b8a5a5aae6af?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaHJpc3QlMjBDaHVyY2glMjAlMjgxODQwJTI5JTIwUG9ydCUyMEFudG9uaW8lMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5Mzg2NDN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_6",
@@ -31704,6 +31912,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1641789107384-67a204447ecd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCdWlsZGVyJTIwUG9ydCUyMEFudG9uaW8lMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5Mzg3MTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_7",
@@ -31714,6 +31923,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1657304801597-b8a5a5aae6af?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGb2xseSUyMFJ1aW5zJTIwJTI4MTkwNSUyOSUyMFBvcnQlMjBBbnRvbmlvJTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM4Nzk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_8",
@@ -31724,6 +31934,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1707571854070-72028840176b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGcmVlbWFzb24lMjBQb3J0JTIwQW50b25pbyUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzODg3MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_9",
@@ -31744,6 +31955,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1542637297-1318423100cf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSYWZ0aW5nJTIwb24lMjB0aGUlMjBSaW8lMjBHcmFuZGUlMjBQb3J0JTIwQW50b25pbyUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzOTAyMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_11",
@@ -31754,6 +31966,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1641789107384-67a204447ecd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW5ub24lMjBDbGlmZiUyMFBvcnQlMjBBbnRvbmlvJTIwSmFtYWljYXxlbnwxfDB8fHwxNzgyOTM5MDk3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_12",
@@ -31774,6 +31987,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 180,
+      imageUrl: "https://images.unsplash.com/photo-1641789107384-67a204447ecd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGcmVuY2htYW4lMjBQb3J0JTIwQW50b25pbyUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzOTI0OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "portantonio_14",
@@ -31808,6 +32022,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1621953571257-4a6112891214?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXR1cmFsJTIwSGlzdG9yeSUyME11c2V1bSUyMFRyZWFzdXJlJTIwQmVhY2glMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5MzkzMjR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "treasurebeach_2",
@@ -31818,6 +32033,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1613758161254-93201c574c4f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb2F0JTNBJTIwV2VsY29tZSUyMHRvJTIwVHJlYXN1cmUlMjBCZWFjaCUyMFRyZWFzdXJlJTIwQmVhY2glMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5Mzk0MDB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "treasurebeach_3",
@@ -31848,6 +32064,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1601754691759-717b75bf002f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMb3ZlciUyMFRyZWFzdXJlJTIwQmVhY2glMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5Mzk2Mjd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "treasurebeach_6",
@@ -31858,6 +32075,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1621953571257-4a6112891214?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMFRyZWFzdXJlJTIwQmVhY2glMjBKYW1haWNhfGVufDF8MHx8fDE3ODI5Mzk3MDJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "treasurebeach_7",
@@ -31868,6 +32086,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1621953571257-4a6112891214?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcmVhdCUyMEJheSUyMEN1bHR1cmFsJTIwQ2VudGVyJTIwVHJlYXN1cmUlMjBCZWFjaCUyMEphbWFpY2F8ZW58MXwwfHx8MTc4MjkzOTc3OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "treasurebeach_8",

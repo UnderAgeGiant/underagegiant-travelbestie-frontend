@@ -1,5 +1,6 @@
 import { Component, input, output, signal, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { UnsplashBadgeComponent } from '../unsplash-badge/unsplash-badge.component';
 
 export interface Slide {
   url: string;
@@ -22,13 +23,14 @@ export const SLIDES: Slide[] = [
 
 @Component({
     selector: 'app-background-slider',
-    imports: [NgClass],
+    imports: [NgClass, UnsplashBadgeComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="bg-slider">
       @for (slide of slides; track $index) {
         <div [ngClass]="['bg-slide', activeIdx() === $index ? 'active' : '']">
           <img [src]="slide.url" [alt]="slide.city" />
+          <tb-unsplash-badge [url]="slide.url" />
           <div class="bg-overlay"></div>
         </div>
       }
