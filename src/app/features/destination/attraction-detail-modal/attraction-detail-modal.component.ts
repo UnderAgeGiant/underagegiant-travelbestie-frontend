@@ -15,10 +15,11 @@ import { CommentSimilarModalComponent } from '../../comments/comment-similar-mod
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
+import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-badge.component';
 
 @Component({
     selector: 'app-attraction-detail-modal',
-    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent],
+    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, UnsplashBadgeComponent],
     styles: [`
     .detail-modal {
       background: #fff;
@@ -124,6 +125,7 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
           @if (attraction().imageUrl && !imgError()) {
             <img class="hero-img" [src]="attraction().imageUrl" [alt]="attraction().name"
                  loading="lazy" (error)="imgError.set(true)">
+            <tb-unsplash-badge [url]="attraction().imageUrl" />
           } @else {
             <div class="hero-fallback-icon">{{ attraction().icon }}</div>
           }

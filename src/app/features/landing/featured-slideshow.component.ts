@@ -6,6 +6,7 @@ import { FeaturedTrip } from '../../core/models/featured-trip.model';
 import { ApiService } from '../../core/api/api.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
+import { UnsplashBadgeComponent } from '../../shared/unsplash-badge/unsplash-badge.component';
 
 const Q = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1920&q=80`;
 
@@ -67,7 +68,7 @@ const CITY_COVER_PHOTOS: Record<string, string> = {
 @Component({
     selector: 'tb-featured-slideshow',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass],
+    imports: [NgClass, UnsplashBadgeComponent],
     host: {
         '[style.display]': 'hostDisplay',
         '[class.landing-snap-child]': 'isVisible',
@@ -77,6 +78,7 @@ const CITY_COVER_PHOTOS: Record<string, string> = {
 @for (trip of trips(); track trip.id; let i = $index) {
   <div [ngClass]="['s2-slide', activeIdx() === i ? 'active' : '']">
     <img [src]="coverUrl(trip)" [alt]="trip.tripName" />
+    <tb-unsplash-badge [url]="coverUrl(trip)" />
     <div class="s2-overlay"></div>
     <div class="s2-content">
       <div class="s2-trip-block">
