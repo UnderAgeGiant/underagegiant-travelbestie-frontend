@@ -39697,7 +39697,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_0",
       active: true,
-      name: "សារមន្ទីរ​ឧក្រិដ្ឋកម្មប្រល័យ​ពូជសាសន៍​ទួលស្លែង",
+      name: "Museo del Genocidio Tuol Sleng",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -39709,7 +39709,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_1",
       active: true,
-      name: "សារមន្ទីរ​ជាតិ",
+      name: "Museo Nacional de Camboya",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -39721,7 +39721,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_2",
       active: true,
-      name: "ព្រឹទ្ធសភា",
+      name: "Senado de Camboya",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -39732,7 +39732,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_3",
       active: true,
-      name: "ព្រះបរមរាជវាំង​នៃរាជាណាចក្រ​កម្ពុជា",
+      name: "Palacio Real del Reino de Camboya",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -39743,7 +39743,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_4",
       active: true,
-      name: "St. Joseph Catholic Church",
+      name: "Iglesia Católica de San José",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -39754,7 +39754,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_5",
       active: true,
-      name: "Roup Pi",
+      name: "Monumento a los Caídos de Phnom Penh",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -39765,7 +39765,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_6",
       active: true,
-      name: "វត្តព្រះកែវមរកត",
+      name: "Pagoda de Plata",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -39776,7 +39776,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_7",
       active: true,
-      name: "វត្តមហាមន្រ្តី",
+      name: "Templo Wat Moha Montrei",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -39787,7 +39787,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_8",
       active: true,
-      name: "វត្តសារាវ័នតេជោ",
+      name: "Templo Wat Saravan",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -39798,7 +39798,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_9",
       active: true,
-      name: "វត្តបទុម​វតី​រាជវរារាម",
+      name: "Templo Wat Botum",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -39809,7 +39809,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_10",
       active: true,
-      name: "វិមានមិត្តភាពកម្ពុជា-វៀតណាម",
+      name: "Monumento a la Amistad Camboya-Vietnam",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -39820,7 +39820,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_11",
       active: true,
-      name: "វិមានឯករាជ្យ",
+      name: "Monumento a la Independencia",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -39831,7 +39831,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_12",
       active: true,
-      name: "ផ្សារធំថ្មី",
+      name: "Mercado Central Phsar Thmei",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -39842,7 +39842,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_13",
       active: true,
-      name: "សាលសន្និសីទចតុមុខ",
+      name: "Sala de Conferencias Chaktomuk",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -39853,7 +39853,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_14",
       active: true,
-      name: "Sosoro",
+      name: "Museo Sosoro",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -39864,7 +39864,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_15",
       active: true,
-      name: "Ny Art",
+      name: "Galería Ny Art",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -39875,7 +39875,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_16",
       active: true,
-      name: "The Gallerist",
+      name: "Galería The Gallerist",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -39907,7 +39907,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_19",
       active: true,
-      name: "Dina Art Gallery - Paintings & Sculptures - Phnom Penh",
+      name: "Galería de Arte Dina - Pinturas y Esculturas - Phnom Penh",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -39918,7 +39918,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_20",
       active: true,
-      name: "ផ្សារ​រាត្រី",
+      name: "Mercado Nocturno",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -39929,7 +39929,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_21",
       active: true,
-      name: "Synny Water Park",
+      name: "Parque Acuático Synny",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -39939,7 +39939,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_22",
       active: true,
-      name: "សួន​ចំការព្រីង",
+      name: "Jardín Chamkar Preng",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -39950,7 +39950,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_23",
       active: true,
-      name: "Silk Island Garden",
+      name: "Jardín de la Isla de la Seda",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -39960,7 +39960,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_24",
       active: true,
-      name: "Norea Garden",
+      name: "Jardín Norea",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -39970,7 +39970,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phnompenh_25",
       active: true,
-      name: "Borey Phnom Penh Sok San (The Sok San Town)",
+      name: "Borey Phnom Penh Sok San (Ciudad Sok San)",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
