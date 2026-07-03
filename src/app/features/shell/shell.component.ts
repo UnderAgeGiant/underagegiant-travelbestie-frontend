@@ -104,9 +104,11 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
                     (openAiPlanning)="showMyTrips.set(false); showAiPlanning.set(true)" />
     }
 
-    @if (showAiPlanning()) {
-      <app-ai-planning (close)="showAiPlanning.set(false)"
-                       (planSaved)="showAiPlanning.set(false); toast.set('Plan guardado')" />
+    @defer (when showAiPlanning()) {
+      @if (showAiPlanning()) {
+        <app-ai-planning (close)="showAiPlanning.set(false)"
+                         (planSaved)="showAiPlanning.set(false); toast.set('Plan guardado')" />
+      }
     }
   `
 })
