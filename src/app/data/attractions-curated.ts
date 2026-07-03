@@ -23109,6 +23109,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1769442387034-0845bb5f5243?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjBDZW5vdGFwaCUyMEdlb3JnZSUyMFRvd24lMjAlMjhQZW5hbmclMjklMjBNYWxheXNpYXxlbnwxfDB8fHwxNzgzMDkxMDk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "georgetown_3",
@@ -23140,6 +23141,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Starboek_Market_%2823132264799%29.jpg/960px-Starboek_Market_%2823132264799%29.jpg",
     },
     {
       id: "georgetown_6",
@@ -23150,6 +23152,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1769442387034-0845bb5f5243?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdC4lMjBHZW9yZ2UlMjBHZW9yZ2UlMjBUb3duJTIwJTI4UGVuYW5nJTI5JTIwTWFsYXlzaWF8ZW58MXwwfHx8MTc4MzA5MTI0NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "georgetown_7",
@@ -23192,6 +23195,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1769442387034-0845bb5f5243?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdC4lMjBBbmRyZXclMjBHZW9yZ2UlMjBUb3duJTIwJTI4UGVuYW5nJTI5JTIwTWFsYXlzaWF8ZW58MXwwfHx8MTc4MzA5MTM5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "georgetown_11",
@@ -23202,6 +23206,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1661260731039-8d4cbf5ecf79?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxRdWVlbnN0b3duJTIwTW9zcXVlJTIwR2VvcmdlJTIwVG93biUyMCUyOFBlbmFuZyUyOSUyME1hbGF5c2lhfGVufDF8MHx8fDE3ODMwOTE0NzJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "georgetown_12",
@@ -23243,6 +23248,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1769442387034-0845bb5f5243?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMb2NvbW90aXZlJTIwR2VvcmdlJTIwVG93biUyMCUyOFBlbmFuZyUyOSUyME1hbGF5c2lhfGVufDF8MHx8fDE3ODMwOTE2OTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "georgetown_16",
@@ -23273,6 +23279,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1675556894466-8c2c04b67539?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXRlZHJhbCUyMGRlJTIwU2FuJTIwSm9yZ2UlMjAlRTIlODAlOTMlMjBTdC4lMjBHZW9yZ2UlMjBHZW9yZ2UlMjBUb3duJTIwJTI4UGVuYW5nJTI5JTIwTWFsYXlzaWF8ZW58MXwwfHx8MTc4MzA5MTkyNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "georgetown_19",
@@ -23283,6 +23290,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.4,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/photo-1754103315887-d7bd214cff7b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb3RhbmljYWwlMjBHYXJkZW5zJTIwb2YlMjBHZW9yZ2V0b3duJTIwR2VvcmdlJTIwVG93biUyMCUyOFBlbmFuZyUyOSUyME1hbGF5c2lhfGVufDF8MHx8fDE3ODMwOTIwMDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "georgetown_20",
@@ -23303,6 +23311,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.3,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Starboek_Market_%2823132264799%29.jpg/960px-Starboek_Market_%2823132264799%29.jpg",
     },
   ],
   kaieteur: [

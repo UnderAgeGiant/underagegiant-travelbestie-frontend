@@ -584,6 +584,10 @@
         <source>Asia</source>
         <target>Asia</target>
       </trans-unit>
+      <trans-unit id="region.southeast-asia" datatype="html">
+        <source>Sudeste Asiático</source>
+        <target>Southeast Asia</target>
+      </trans-unit>
       <trans-unit id="region.americas" datatype="html">
         <source>América</source>
         <target>Americas</target>
