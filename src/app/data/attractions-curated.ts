@@ -38818,6 +38818,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/photo-1507039102241-5ec61d624406?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluJTIwWmVybWF0dCUyMFN3aXR6ZXJsYW5kfGVufDF8MHx8fDE3ODMwMTUyMjd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "zermatt_16",
@@ -38829,6 +38830,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.gornergrat.ch/en/stories/golden-spot",
+      imageUrl: "https://images.unsplash.com/photo-1507039102241-5ec61d624406?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHb2xkZW4lMjBTcG90JTIwWmVybWF0dCUyMFN3aXR6ZXJsYW5kfGVufDF8MHx8fDE3ODMwMTUzMDJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "zermatt_17",
@@ -38849,6 +38851,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://images.unsplash.com/photo-1521292270410-a8c4d716d518?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHbGV0c2NoZXJnYXJ0ZW4lMjBaZXJtYXR0JTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAxNTQ1M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "zermatt_19",
@@ -38859,6 +38862,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 240,
+      imageUrl: "https://images.unsplash.com/photo-1492119884860-63772f175a02?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHb3JuZXJncmF0JTIwJUUyJTgwJTkzJTIwVmlzdGElMjBhbCUyME1hdHRlcmhvcm4lMjBaZXJtYXR0JTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAxNTUyOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
 
@@ -38872,6 +38876,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1652606820826-13ae0426bff6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXRlZHJhbCUyMGRlJTIwTWFuY2hlc3RlciUyME1hbmNoZXN0ZXIlMjBVS3xlbnwxfDB8fHwxNzgzMDE1NTMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "manchester_1",
@@ -38991,6 +38996,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://historicengland.org.uk/listing/the-list/list-entry/1445102",
+      imageUrl: "https://images.unsplash.com/photo-1703454468278-aebe59096289?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTb3V0aCUyMFBhcmslMjBDb21tZW1vcmF0aW9uJTIwU3RvbmUlMjBPeGZvcmQlMjBVS3xlbnwxfDB8fHwxNzgzMDE1NjA3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oxford_7",
@@ -39002,6 +39008,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "http://www.oxfordhistory.org.uk/streets/inscriptions/east/cowley_barracks.html",
+      imageUrl: "https://images.unsplash.com/photo-1703454466959-337ac58c9b18?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb3dsZXklMjBCYXJyYWNrcyUyME94Zm9yZCUyMFVLfGVufDF8MHx8fDE3ODMwMTU2ODJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oxford_8",
@@ -39036,6 +39043,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.raleighpark.org.uk/",
+      imageUrl: "https://images.unsplash.com/photo-1703454466959-337ac58c9b18?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSYWxlaWdoJTIwUGFyayUyME94Zm9yZCUyMFVLfGVufDF8MHx8fDE3ODMwMTU4MzR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oxford_11",
@@ -39059,6 +39067,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.standrewsoxford.org/",
+      imageUrl: "https://images.unsplash.com/20/cambridge.JPG?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdCUyMEFuZHJldyUyME94Zm9yZCUyMFVLfGVufDF8MHx8fDE3ODMwMTU5MDl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oxford_13",
@@ -39093,6 +39102,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/20/cambridge.JPG?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNYXJ0eXJzJTIwT3hmb3JkJTIwVUt8ZW58MXwwfHx8MTc4MzAxNTk4NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oxford_16",
@@ -39265,6 +39275,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/20/cambridge.JPG?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaHJpc3QlMjBDaHVyY2glMjBDb2xsZWdlJTIwT3hmb3JkJTIwVUt8ZW58MXwwfHx8MTc4MzAxNjIxMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "oxford_31",
@@ -39275,6 +39286,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/20/cambridge.JPG?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb2RsZWlhbiUyMExpYnJhcnklMjBPeGZvcmQlMjBVS3xlbnwxfDB8fHwxNzgzMDE2Mjg3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   cambridge: [
@@ -39396,6 +39408,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.cambridge.gov.uk/parks-and-playgrounds",
+      imageUrl: "https://images.unsplash.com/20/cambridge.JPG?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb2xkaGFtJTIwQ2FtYnJpZGdlJTIwVUt8ZW58MXwwfHx8MTc4MzAxNjI4OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cambridge_10",
@@ -39419,6 +39432,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.stpaulscambridge.org.uk/",
+      imageUrl: "https://images.unsplash.com/photo-1627411437849-4bc5a9b9341d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdCUyMFBhdWwlMjBDYW1icmlkZ2UlMjBVS3xlbnwxfDB8fHwxNzgzMDE2MzYzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cambridge_12",
@@ -39430,6 +39444,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "http://www.standrewsimpington.org/",
+      imageUrl: "https://images.unsplash.com/photo-1627411437849-4bc5a9b9341d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdCUyMEFuZHJldyUyMENhbWJyaWRnZSUyMFVLfGVufDF8MHx8fDE3ODMwMTY0Mzl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cambridge_13",
@@ -39441,6 +39456,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.cambridge.gov.uk/christs-pieces",
+      imageUrl: "https://images.unsplash.com/photo-1627411437849-4bc5a9b9341d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaHJpc3QlMjBDYW1icmlkZ2UlMjBVS3xlbnwxfDB8fHwxNzgzMDE2NTE0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cambridge_14",
@@ -39630,6 +39646,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 60,
+      imageUrl: "https://images.unsplash.com/20/cambridge.JPG?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLaW5nJTIwQ2FtYnJpZGdlJTIwVUt8ZW58MXwwfHx8MTc4MzAxNjgxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "cambridge_31",
@@ -39640,6 +39657,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 90,
+      imageUrl: "https://images.unsplash.com/20/cambridge.JPG?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjBCYWNrcyUyMCUyOFIlQzMlQURvJTIwQ2FtJTI5JTIwQ2FtYnJpZGdlJTIwVUt8ZW58MXwwfHx8MTc4MzAxNjg5Mnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
   glasgow: [
@@ -39662,6 +39680,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 45,
+      imageUrl: "https://images.unsplash.com/photo-1531152369337-1d0b0b9ef20d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXRlZHJhbCUyMGRlJTIwR2xhc2dvdyUyMEdsYXNnb3clMjBVS3xlbnwxfDB8fHwxNzgzMDE2OTY5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
     },
   ],
 
