@@ -1,18 +1,17 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, from, of } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
-import { CityCatalog, PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
+import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
-import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { AttractionCatalogService } from '../ai/attraction-catalog.service';
 
 const MOCK_KARMA_PACKAGES: KarmaPackage[] = [
   { id: 'karma_10',  karma: 10,  price: '0.99', currency: 'USD', label: '10 Karma'  },
@@ -21,14 +20,11 @@ const MOCK_KARMA_PACKAGES: KarmaPackage[] = [
   { id: 'karma_100', karma: 100, price: '6.99', currency: 'USD', label: '100 Karma' },
 ];
 
-const CITY_CATALOG: CityCatalog = Object.fromEntries(
-  WORLD_CITIES.map(city => [city.id, getAttractions(city).map(a => ({ id: a.id, name: a.name }))])
-);
-
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly http = inject(HttpClient);
   private readonly sharedTripsService = inject(SharedTripsService);
+  private readonly catalog = inject(AttractionCatalogService);
 
   constructor(@Optional() @Inject('ENV') private injectedEnv: typeof environment | null) {}
 
@@ -170,9 +166,11 @@ export class ApiService {
         // No changeInfo in mock mode — component handles undefined gracefully
       });
     }
-    return this.http.post<PlanTripResponse>(
-      `${this.base}/ai/plan`,
-      { ...req, cityCatalog: CITY_CATALOG },
+    return from(this.catalog.getCityCatalog()).pipe(
+      switchMap(cityCatalog => this.http.post<PlanTripResponse>(
+        `${this.base}/ai/plan`,
+        { ...req, cityCatalog },
+      )),
     );
   }
 

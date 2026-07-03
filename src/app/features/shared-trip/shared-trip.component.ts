@@ -1,4 +1,5 @@
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { forkJoin, of, switchMap, catchError } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
@@ -396,7 +397,11 @@ import { shareTrip } from '../../core/share/share-url.util';
   `
 })
 export class SharedTripComponent {
-  readonly tripId = input.required<string>();
+  private readonly route = inject(ActivatedRoute);
+  readonly tripIdInput = input<string | undefined>(undefined, { alias: 'tripId' });
+  readonly tripId = computed(() =>
+    this.tripIdInput() ?? this.route.snapshot.paramMap.get('id') ?? '',
+  );
 
   private readonly api        = inject(ApiService);
   private readonly svc        = inject(SharedTripsService);

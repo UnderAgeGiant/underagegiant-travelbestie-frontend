@@ -6,6 +6,7 @@ import localeEsCL from '@angular/common/locales/es-CL';
 import localeEnUS from '@angular/common/locales/en';
 import { routes } from './app.routes';
 import { authInterceptor } from './core/auth/auth.interceptor';
+import { shareRedirectPath } from './core/routing/share-redirect.util';
 
 registerLocaleData(localeEsCL, 'es-CL');
 registerLocaleData(localeEnUS, 'en-US');
@@ -21,5 +22,13 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withXhr(), withInterceptors([authInterceptor])),
     { provide: APP_INITIALIZER, useFactory: syncDocumentLang, multi: true },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => () => {
+        const target = shareRedirectPath(window.location.search);
+        if (target) window.history.replaceState({}, '', target);
+      },
+      multi: true,
+    },
   ],
 };
