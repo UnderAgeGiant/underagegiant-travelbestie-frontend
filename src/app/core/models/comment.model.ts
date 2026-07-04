@@ -40,6 +40,7 @@ export interface TicketPrices {
 export interface Attraction {
   id:               string;
   name:             string;
+  nativeName?:      string;   // original-script name, shown as a muted sub-label when present and different from `name`
   type:             string;
   category:         AttractionCategory;
   active:           boolean;
