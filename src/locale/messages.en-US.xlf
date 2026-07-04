@@ -588,6 +588,22 @@
         <source>Sudeste Asiático</source>
         <target>Southeast Asia</target>
       </trans-unit>
+      <trans-unit id="region.east-asia" datatype="html">
+        <source>Asia Oriental</source>
+        <target>East Asia</target>
+      </trans-unit>
+      <trans-unit id="region.south-asia" datatype="html">
+        <source>Asia del Sur</source>
+        <target>South Asia</target>
+      </trans-unit>
+      <trans-unit id="region.central-asia" datatype="html">
+        <source>Asia Central</source>
+        <target>Central Asia</target>
+      </trans-unit>
+      <trans-unit id="region.middle-east" datatype="html">
+        <source>Medio Oriente</source>
+        <target>Middle East</target>
+      </trans-unit>
       <trans-unit id="region.americas" datatype="html">
         <source>América</source>
         <target>Americas</target>
