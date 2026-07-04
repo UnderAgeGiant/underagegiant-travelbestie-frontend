@@ -5,6 +5,10 @@ describe('REGION_LABELS', () => {
     expect(REGION_LABELS['europe']).toBe('Europa');
     expect(REGION_LABELS['asia']).toBe('Asia');
     expect(REGION_LABELS['southeast-asia']).toBe('Sudeste Asiático');
+    expect(REGION_LABELS['east-asia']).toBe('Asia Oriental');
+    expect(REGION_LABELS['south-asia']).toBe('Asia del Sur');
+    expect(REGION_LABELS['central-asia']).toBe('Asia Central');
+    expect(REGION_LABELS['middle-east']).toBe('Medio Oriente');
     expect(REGION_LABELS['americas']).toBe('América');
     expect(REGION_LABELS['africa']).toBe('África');
     expect(REGION_LABELS['oceania']).toBe('Oceanía');
