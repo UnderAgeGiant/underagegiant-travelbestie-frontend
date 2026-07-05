@@ -169,7 +169,9 @@ export class DestinationComponent implements OnInit {
     if (cat) list = list.filter(a => a.category === cat);
     const q = this.searchQuery().trim().toLowerCase();
     if (q) list = list.filter(a =>
-      a.name.toLowerCase().includes(q) || a.type.toLowerCase().includes(q)
+      a.name.toLowerCase().includes(q) ||
+      a.type.toLowerCase().includes(q) ||
+      (a.nativeName?.toLowerCase().includes(q) ?? false)
     );
     return list;
   });
