@@ -73,6 +73,9 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
       text-shadow: 0 1px 6px rgba(0,0,0,.45);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
+    .hero-name-native {
+      font-size: 12px; color: rgba(255,255,255,.7); margin-top: 2px; font-style: italic;
+    }
     .hero-meta {
       display: flex; align-items: center; gap: 8px; margin-top: 4px;
     }
@@ -133,6 +136,9 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
           <button class="hero-close" (click)="close.emit()" type="button" aria-label="Cerrar">✕</button>
           <div class="hero-caption">
             <div class="hero-name">{{ attraction().icon }} {{ attraction().name }}</div>
+            @if (attraction().nativeName && attraction().nativeName !== attraction().name) {
+              <div class="hero-name-native">({{ attraction().nativeName }})</div>
+            }
             <div class="hero-meta">
               <span class="hero-type">{{ attraction().type }}</span>
               <span class="hero-stars">{{ starStr() }}</span>

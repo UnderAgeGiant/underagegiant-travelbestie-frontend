@@ -35,6 +35,9 @@ import { UnsplashBadgeComponent } from '../../shared/unsplash-badge/unsplash-bad
           {{ attraction().type }}
         </span>
         <div class="att-preview-name">{{ attraction().icon }} {{ attraction().name }}</div>
+        @if (attraction().nativeName && attraction().nativeName !== attraction().name) {
+          <div class="att-preview-native">({{ attraction().nativeName }})</div>
+        }
         <div class="att-preview-meta">
           <span class="att-preview-stars">{{ stars() }}</span>
           <span>{{ attraction().estimatedMinutes | duration }}</span>

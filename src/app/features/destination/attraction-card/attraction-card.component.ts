@@ -90,6 +90,10 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
     .card-caption-meta {
       font-size: 10px; color: rgba(255,255,255,.82); margin-top: 2px;
     }
+    .card-caption-native {
+      font-size: 9px; color: rgba(255,255,255,.65); margin-top: 1px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-style: italic;
+    }
     /* ── Footer ── */
     .card-footer {
       display: flex; align-items: center; gap: 2px;
@@ -172,6 +176,9 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
 
         <div class="card-caption">
           <div class="card-caption-name">{{ attraction().icon }} {{ attraction().name }}</div>
+          @if (attraction().nativeName && attraction().nativeName !== attraction().name) {
+            <div class="card-caption-native">({{ attraction().nativeName }})</div>
+          }
           <div class="card-caption-meta">{{ attraction().type }} · ⏱ {{ attraction().estimatedMinutes | duration }}</div>
         </div>
       </div>
