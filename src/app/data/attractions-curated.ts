@@ -14587,7 +14587,8 @@ export const CURATED_ALL: CuratedMap = {
 {
       id: "hangaroa_0",
       active: true,
-      name: "Maꞌuŋa Tere Vaka",
+      name: "Volcán Terevaka",
+      nativeName: "Maꞌuŋa Tere Vaka",
       category: 'poi', type: "Volcán",
       icon: "🌋",
       bg: "#E8FDE8",
@@ -14620,7 +14621,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hangaroa_3",
       active: true,
-      name: "ʻŌroŋo",
+      name: "Orongo",
+      nativeName: "ʻŌroŋo",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -14728,7 +14730,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hangaroa_13",
       active: true,
-      name: "Ana Kakeŋa",
+      name: "Cueva de las Dos Ventanas (Ana Kakenga)",
+      nativeName: "Ana Kakeŋa",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -25084,7 +25087,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "quetzaltenango_18",
-      active: true,
+      active: false,
       name: "游客市场当地食物的小摊",
       category: 'poi', type: "Atracción",
       icon: "✨",
@@ -27394,7 +27397,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sanmiguelsv_4",
       active: true,
-      name: "Teatro Nacional Francisco Gavidia‎",
+      name: "Teatro Nacional Francisco Gavidia",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -41583,7 +41586,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "langkawi_0",
       active: true,
-      name: "อุทยานแห่งชาติตะรุเตา",
+      name: "Parque Nacional Tarutao",
+      nativeName: "อุทยานแห่งชาติตะรุเตา",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -42946,7 +42950,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "singaporecity_2",
       active: true,
-      name: "新加坡佛牙寺龙华院",
+      name: "Templo y Museo de la Reliquia del Diente de Buda",
+      nativeName: "新加坡佛牙寺龙华院",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43320,7 +43325,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_0",
       active: true,
-      name: "พิพิธภัณฑสถานแห่งชาติ ถลาง",
+      name: "Museo Nacional de Thalang",
+      nativeName: "พิพิธภัณฑสถานแห่งชาติ ถลาง",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43331,7 +43337,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_1",
       active: true,
-      name: "พระพุทธมิ่งมงคลเอกเนาคคีรี",
+      name: "Gran Buda de Phuket",
+      nativeName: "พระพุทธมิ่งมงคลเอกเนาคคีรี",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -43352,7 +43359,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_3",
       active: true,
-      name: "วัดมงคลนิมิตร",
+      name: "Templo Wat Mongkol Nimit",
+      nativeName: "วัดมงคลนิมิตร",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43362,7 +43370,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_4",
       active: true,
-      name: "วัดเชิงทะเล",
+      name: "Templo Wat Cherng Talay",
+      nativeName: "วัดเชิงทะเล",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43372,7 +43381,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_5",
       active: true,
-      name: "อนุสาวรีย์วีรสตรี",
+      name: "Monumento a las Heroínas",
+      nativeName: "อนุสาวรีย์วีรสตรี",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -43402,7 +43412,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_8",
       active: true,
-      name: "อุทยานแห่งชาติสิรินาถ",
+      name: "Parque Nacional Sirinat",
+      nativeName: "อุทยานแห่งชาติสิรินาถ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -43422,7 +43433,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_10",
       active: true,
-      name: "แหลมพรหมเทพ",
+      name: "Cabo Promthep",
+      nativeName: "แหลมพรหมเทพ",
       category: 'poi', type: "Mirador",
       icon: "🌄",
       bg: "#E8FDE8",
@@ -43432,7 +43444,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_11",
       active: true,
-      name: "เมืองเก่าภูเก็ต",
+      name: "Casco Antiguo de Phuket",
+      nativeName: "เมืองเก่าภูเก็ต",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -43442,7 +43455,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_12",
       active: true,
-      name: "หาดกะตะน้อย",
+      name: "Playa Kata Noi",
+      nativeName: "หาดกะตะน้อย",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -43452,7 +43466,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_13",
       active: true,
-      name: "หาดกะตะ",
+      name: "Playa Kata",
+      nativeName: "หาดกะตะ",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -43484,7 +43499,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_16",
       active: true,
-      name: "พิพิธภัณฑ์เพอรานากัน",
+      name: "Museo Peranakan",
+      nativeName: "พิพิธภัณฑ์เพอรานากัน",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43577,7 +43593,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_25",
       active: true,
-      name: "สวนสาธารณะเฉลิมพระเกียรติ",
+      name: "Parque Chalermphrakiat",
+      nativeName: "สวนสาธารณะเฉลิมพระเกียรติ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -43587,7 +43604,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_26",
       active: true,
-      name: "ถนนคนเดิน หลาดใหญ่",
+      name: "Calle Peatonal Lard Yai",
+      nativeName: "ถนนคนเดิน หลาดใหญ่",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -43597,7 +43615,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "phuket_27",
       active: true,
-      name: "สวนสาธารณะเขารัง",
+      name: "Parque Khao Rang",
+      nativeName: "สวนสาธารณะเขารัง",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -43639,7 +43658,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_0",
       active: true,
-      name: "ป้อมเพชร",
+      name: "Fuerte Phet",
+      nativeName: "ป้อมเพชร",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -43649,7 +43669,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_1",
       active: true,
-      name: "พิพิธภัณฑสถานแห่งชาติ เจ้าสามพระยา",
+      name: "Museo Nacional Chao Sam Phraya",
+      nativeName: "พิพิธภัณฑสถานแห่งชาติ เจ้าสามพระยา",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43659,7 +43680,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_2",
       active: true,
-      name: "วัดนก",
+      name: "Templo Wat Nok",
+      nativeName: "วัดนก",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -43669,7 +43691,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_3",
       active: true,
-      name: "วัดบรมพุทธาราม",
+      name: "Templo Wat Borom Phuttharam",
+      nativeName: "วัดบรมพุทธาราม",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -43679,7 +43702,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_4",
       active: true,
-      name: "วัดชัยภูมิ",
+      name: "Templo Wat Chaiyaphum",
+      nativeName: "วัดชัยภูมิ",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -43689,7 +43713,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_5",
       active: true,
-      name: "วัดมหาทลาย",
+      name: "Templo Wat Maha Thalai",
+      nativeName: "วัดมหาทลาย",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -43699,7 +43724,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_6",
       active: true,
-      name: "อุทยานประวัติศาสตร์พระนครศรีอยุธยา",
+      name: "Parque Histórico de Ayutthaya",
+      nativeName: "อุทยานประวัติศาสตร์พระนครศรีอยุธยา",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -43709,7 +43735,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_7",
       active: true,
-      name: "วัดนักบุญยอแซฟ",
+      name: "Iglesia de San José",
+      nativeName: "วัดนักบุญยอแซฟ",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43719,7 +43746,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_8",
       active: true,
-      name: "ตลาดน้ำอโยธยา",
+      name: "Mercado Flotante de Ayothaya",
+      nativeName: "ตลาดน้ำอโยธยา",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -43729,7 +43757,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_9",
       active: true,
-      name: "วัดมเหยงคณ์",
+      name: "Templo Wat Maheyong",
+      nativeName: "วัดมเหยงคณ์",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43739,7 +43768,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_10",
       active: true,
-      name: "วัดธรรมิกราช",
+      name: "Templo Wat Thammikarat",
+      nativeName: "วัดธรรมิกราช",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43749,7 +43779,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_11",
       active: true,
-      name: "วัดญาณเสน",
+      name: "Templo Wat Yan Sen",
+      nativeName: "วัดญาณเสน",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43759,7 +43790,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_12",
       active: true,
-      name: "วัดสุวรรณดารารามราชวรวิหาร",
+      name: "Templo Wat Suwandararam",
+      nativeName: "วัดสุวรรณดารารามราชวรวิหาร",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43769,7 +43801,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_13",
       active: true,
-      name: "พิพิธภัณฑสถานแห่งชาติ จันทรเกษม",
+      name: "Museo Nacional Chantharakasem",
+      nativeName: "พิพิธภัณฑสถานแห่งชาติ จันทรเกษม",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43779,7 +43812,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_14",
       active: true,
-      name: "บ้านฮอลันดา",
+      name: "Casa Holandesa (Baan Hollanda)",
+      nativeName: "บ้านฮอลันดา",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43789,7 +43823,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_15",
       active: true,
-      name: "หมู่บ้านญี่ปุ่น",
+      name: "Pueblo Japonés",
+      nativeName: "หมู่บ้านญี่ปุ่น",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43799,7 +43834,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_16",
       active: true,
-      name: "ศูนย์ข้อมูลการอนุรักษ์นครประวัติศาสตร์พระนครศรีอยุธยา",
+      name: "Centro de Información para la Conservación de la Ciudad Histórica de Ayutthaya",
+      nativeName: "ศูนย์ข้อมูลการอนุรักษ์นครประวัติศาสตร์พระนครศรีอยุธยา",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -43809,7 +43845,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_17",
       active: true,
-      name: "ตลาดน้ำวนบางกะจะ",
+      name: "Mercado Flotante Bang Kaja",
+      nativeName: "ตลาดน้ำวนบางกะจะ",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -43819,7 +43856,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_18",
       active: true,
-      name: "วังช้างอยุธยา แล เพนียด",
+      name: "Palacio de Elefantes de Ayutthaya",
+      nativeName: "วังช้างอยุธยา แล เพนียด",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -43829,7 +43867,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_19",
       active: true,
-      name: "ตลาดกรุงศรี",
+      name: "Mercado Krung Sri",
+      nativeName: "ตลาดกรุงศรี",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -43839,7 +43878,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_20",
       active: true,
-      name: "ศูนย์จำหน่ายสินค้าของที่ระลึก วิหารพระมงคลบพิตร",
+      name: "Tienda de Recuerdos del Viharn Phra Mongkhon Bophit",
+      nativeName: "ศูนย์จำหน่ายสินค้าของที่ระลึก วิหารพระมงคลบพิตร",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -43849,7 +43889,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_21",
       active: true,
-      name: "หมู่บ้านช้างเพนียดหลวง",
+      name: "Aldea del Kraal Real de Elefantes",
+      nativeName: "หมู่บ้านช้างเพนียดหลวง",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -43859,7 +43900,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ayutthaya_22",
       active: true,
-      name: "อยุธยาไนท์มาร์เก็ต",
+      name: "Mercado Nocturno de Ayutthaya",
+      nativeName: "อยุธยาไนท์มาร์เก็ต",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -43901,7 +43943,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_0",
       active: true,
-      name: "วัดไสไทย",
+      name: "Templo Wat Sai Thai",
+      nativeName: "วัดไสไทย",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43911,7 +43954,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_1",
       active: true,
-      name: "ศาลหลักเมืองกระบี่",
+      name: "Santuario del Pilar de la Ciudad de Krabi",
+      nativeName: "ศาลหลักเมืองกระบี่",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43931,7 +43975,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_3",
       active: true,
-      name: "มัสยิดบ้านคลองแห้ง",
+      name: "Mezquita Ban Khlong Haeng",
+      nativeName: "มัสยิดบ้านคลองแห้ง",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43941,7 +43986,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_4",
       active: true,
-      name: "อุทยานแห่งชาติหาดนพรัตน์ธารา-หมู่เกาะพีพี",
+      name: "Parque Nacional Hat Noppharat Thara-Islas Phi Phi",
+      nativeName: "อุทยานแห่งชาติหาดนพรัตน์ธารา-หมู่เกาะพีพี",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -43951,7 +43997,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_5",
       active: true,
-      name: "อุทยานแห่งชาติเขาพนมเบญจา",
+      name: "Parque Nacional Khao Phanom Bencha",
+      nativeName: "อุทยานแห่งชาติเขาพนมเบญจา",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -43961,7 +44008,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_6",
       active: true,
-      name: "วัดภูเขาพระมหาโพธิสัตว์",
+      name: "Templo de la Montaña del Gran Bodhisattva",
+      nativeName: "วัดภูเขาพระมหาโพธิสัตว์",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -43971,7 +44019,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_7",
       active: true,
-      name: "สุสานหอย",
+      name: "Cementerio de Conchas (Susan Hoi)",
+      nativeName: "สุสานหอย",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -43981,7 +44030,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_8",
       active: true,
-      name: "ถ้ำเขาขนาบน้ำ",
+      name: "Cueva Khao Khanap Nam",
+      nativeName: "ถ้ำเขาขนาบน้ำ",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -43991,7 +44041,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_9",
       active: true,
-      name: "น้ำตกห้วยโต้",
+      name: "Cascada Huai To",
+      nativeName: "น้ำตกห้วยโต้",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44011,7 +44062,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_11",
       active: true,
-      name: "ดินแดงดอย",
+      name: "Mirador Din Daeng Doi",
+      nativeName: "ดินแดงดอย",
       category: 'poi', type: "Mirador",
       icon: "🌄",
       bg: "#E8FDE8",
@@ -44021,7 +44073,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_12",
       active: true,
-      name: "เขาอ่าวป่อง",
+      name: "Mirador Khao Ao Pong",
+      nativeName: "เขาอ่าวป่อง",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -44031,7 +44084,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_13",
       active: true,
-      name: "เขาหน้าแดง",
+      name: "Mirador Khao Na Daeng",
+      nativeName: "เขาหน้าแดง",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -44041,7 +44095,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_14",
       active: true,
-      name: "เขาหาดปละตก",
+      name: "Mirador Khao Hat Plataek",
+      nativeName: "เขาหาดปละตก",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -44051,7 +44106,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_15",
       active: true,
-      name: "เขาคลองแห้ง",
+      name: "Mirador Khao Khlong Haeng",
+      nativeName: "เขาคลองแห้ง",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -44061,7 +44117,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_16",
       active: true,
-      name: "เขาอ่าวนาง",
+      name: "Mirador Khao Ao Nang",
+      nativeName: "เขาอ่าวนาง",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -44071,7 +44128,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_17",
       active: true,
-      name: "พิพิธภัณฑ์เรือหลวงลันตา",
+      name: "Museo del Buque Real Lanta",
+      nativeName: "พิพิธภัณฑ์เรือหลวงลันตา",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44081,7 +44139,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_18",
       active: true,
-      name: "หอศิลป์อันดามัน",
+      name: "Galería de Arte Andamán",
+      nativeName: "หอศิลป์อันดามัน",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44091,7 +44150,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_19",
       active: true,
-      name: "พิพิธภัณฑ์ลูกปัดอันดามัน",
+      name: "Museo de Cuentas Andamán",
+      nativeName: "พิพิธภัณฑ์ลูกปัดอันดามัน",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44101,7 +44161,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_20",
       active: true,
-      name: "ศูนย์วิจัยและพัฒนาการเพาะเลี้ยงสัตว์น้ำชายฝั่งกระบี่",
+      name: "Centro de Investigación y Desarrollo de Acuicultura Costera de Krabi",
+      nativeName: "ศูนย์วิจัยและพัฒนาการเพาะเลี้ยงสัตว์น้ำชายฝั่งกระบี่",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -44111,7 +44172,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "krabi_21",
       active: true,
-      name: "ถนนคนเดินกระบี่",
+      name: "Calle Peatonal de Krabi",
+      nativeName: "ถนนคนเดินกระบี่",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -44154,7 +44216,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_0",
       active: true,
-      name: "Bảo tàng Chứng tích Chiến tranh",
+      name: "Museo de los Vestigios de Guerra",
+      nativeName: "Bảo tàng Chứng tích Chiến tranh",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44165,7 +44228,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_1",
       active: true,
-      name: "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh",
+      name: "Museo de Bellas Artes de Ho Chi Minh",
+      nativeName: "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44176,7 +44240,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_2",
       active: true,
-      name: "Bảo tàng Lịch sử Thành phố Hồ Chí Minh",
+      name: "Museo de Historia de Ho Chi Minh",
+      nativeName: "Bảo tàng Lịch sử Thành phố Hồ Chí Minh",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44187,7 +44252,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_3",
       active: true,
-      name: "Thảo Cầm Viên Sài Gòn",
+      name: "Zoológico y Jardín Botánico de Saigón",
+      nativeName: "Thảo Cầm Viên Sài Gòn",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -44198,7 +44264,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_4",
       active: true,
-      name: "Chợ Bến Thành",
+      name: "Mercado Ben Thanh",
+      nativeName: "Chợ Bến Thành",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -44209,7 +44276,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_5",
       active: true,
-      name: "Bảo tàng Không quân phía Nam",
+      name: "Museo de la Fuerza Aérea del Sur",
+      nativeName: "Bảo tàng Không quân phía Nam",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44219,7 +44287,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_6",
       active: true,
-      name: "Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ",
+      name: "Museo de las Fuerzas Armadas del Sureste",
+      nativeName: "Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44229,7 +44298,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_7",
       active: true,
-      name: "Chùa Vĩnh Nghiêm",
+      name: "Pagoda Vinh Nghiem",
+      nativeName: "Chùa Vĩnh Nghiêm",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44240,7 +44310,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_8",
       active: true,
-      name: "Nam Thiên Nhất Trụ",
+      name: "Pagoda Nam Thien Nhat Tru",
+      nativeName: "Nam Thiên Nhất Trụ",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44250,7 +44321,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_9",
       active: true,
-      name: "Chùa Phụng Sơn",
+      name: "Pagoda Phung Son",
+      nativeName: "Chùa Phụng Sơn",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44260,7 +44332,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_10",
       active: true,
-      name: "Công viên Văn hóa Đầm Sen",
+      name: "Parque Cultural Dam Sen",
+      nativeName: "Công viên Văn hóa Đầm Sen",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -44270,7 +44343,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_11",
       active: true,
-      name: "Công viên Lê Văn Tám",
+      name: "Parque Le Van Tam",
+      nativeName: "Công viên Lê Văn Tám",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -44280,7 +44354,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_12",
       active: true,
-      name: "Bưu điện Trung tâm Sài Gòn",
+      name: "Oficina Central de Correos de Saigón",
+      nativeName: "Bưu điện Trung tâm Sài Gòn",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -44290,7 +44365,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_13",
       active: true,
-      name: "Dinh Độc Lập",
+      name: "Palacio de la Independencia",
+      nativeName: "Dinh Độc Lập",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -44311,7 +44387,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_15",
       active: true,
-      name: "Công viên Chi Lăng",
+      name: "Parque Chi Lang",
+      nativeName: "Công viên Chi Lăng",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -44321,7 +44398,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_16",
       active: true,
-      name: "Công viên Bách Tùng Diệp",
+      name: "Parque Bach Tung Diep",
+      nativeName: "Công viên Bách Tùng Diệp",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -44331,7 +44409,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_17",
       active: true,
-      name: "Đền Sri Mariamman",
+      name: "Templo Sri Mariamman",
+      nativeName: "Đền Sri Mariamman",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44341,7 +44420,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_18",
       active: true,
-      name: "Đền thờ Vua Hùng",
+      name: "Templo de los Reyes Hung",
+      nativeName: "Đền thờ Vua Hùng",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44351,7 +44431,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_19",
       active: true,
-      name: "Cầu Mống",
+      name: "Puente Mong",
+      nativeName: "Cầu Mống",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -44361,7 +44442,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_20",
       active: true,
-      name: "Chợ Bà Chiểu",
+      name: "Mercado Ba Chieu",
+      nativeName: "Chợ Bà Chiểu",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -44371,7 +44453,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_21",
       active: true,
-      name: "Chợ đầu mối Thủ Đức",
+      name: "Mercado Mayorista de Thu Duc",
+      nativeName: "Chợ đầu mối Thủ Đức",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -44381,7 +44464,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_22",
       active: true,
-      name: "Trụ sở Ủy ban nhân dân Thành phố Hồ Chí Minh",
+      name: "Sede del Comité Popular de Ho Chi Minh",
+      nativeName: "Trụ sở Ủy ban nhân dân Thành phố Hồ Chí Minh",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44392,7 +44476,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_23",
       active: true,
-      name: "Nhà hát Thành phố",
+      name: "Teatro Municipal de Saigón",
+      nativeName: "Nhà hát Thành phố",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -44403,7 +44488,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_24",
       active: true,
-      name: "Tượng đài Tôn Đức Thắng",
+      name: "Estatua de Ton Duc Thang",
+      nativeName: "Tượng đài Tôn Đức Thắng",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -44413,7 +44499,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_25",
       active: true,
-      name: "Chợ Bình Tây",
+      name: "Mercado Binh Tay",
+      nativeName: "Chợ Bình Tây",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -44424,7 +44511,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_26",
       active: true,
-      name: "Lăng Lê Văn Duyệt",
+      name: "Tumba de Le Van Duyet",
+      nativeName: "Lăng Lê Văn Duyệt",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -44434,7 +44522,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_27",
       active: true,
-      name: "Disco Travel - Du lịch Quốc Tế Khám Phá",
+      name: "Disco Travel - Turismo Internacional de Descubrimiento",
+      nativeName: "Disco Travel - Du lịch Quốc Tế Khám Phá",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44445,7 +44534,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_28",
       active: true,
-      name: "Di Tích Chuồng Chim Bồ Câu Người Ấn Tamil",
+      name: "Vestigio del Palomar de la Comunidad Tamil",
+      nativeName: "Di Tích Chuồng Chim Bồ Câu Người Ấn Tamil",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -44455,7 +44545,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hochiminh_29",
       active: true,
-      name: "Thiên đường giải trí Thỏ Trắng",
+      name: "Paraíso de Diversión Conejo Blanco",
+      nativeName: "Thiên đường giải trí Thỏ Trắng",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -44507,7 +44598,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "halong_0",
       active: true,
-      name: "Vườn quốc gia Cát Bà",
+      name: "Parque Nacional Cat Ba",
+      nativeName: "Vườn quốc gia Cát Bà",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -44518,7 +44610,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "halong_1",
       active: true,
-      name: "Vịnh Hạ Long",
+      name: "Bahía de Ha Long",
+      nativeName: "Vịnh Hạ Long",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44528,7 +44621,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "halong_2",
       active: true,
-      name: "G. X. Ti Tốp",
+      name: "Isla Titop",
+      nativeName: "G. X. Ti Tốp",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -44538,7 +44632,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "halong_3",
       active: true,
-      name: "Phi Long Thần Tốc",
+      name: "Phi Long Thần Tốc (lanchas rápidas)",
+      nativeName: "Phi Long Thần Tốc",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44558,7 +44653,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "halong_5",
       active: true,
-      name: "hòn gà chọi",
+      name: "Islote del Gallo de Pelea",
+      nativeName: "hòn gà chọi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44568,7 +44664,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "halong_6",
       active: true,
-      name: "Bảo tàng Quảng Ninh",
+      name: "Museo de Quang Ninh",
+      nativeName: "Bảo tàng Quảng Ninh",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44588,7 +44685,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "halong_8",
       active: true,
-      name: "Khu vui chơi thiếu niên nhi đồng",
+      name: "Zona de Diversiones Infantiles",
+      nativeName: "Khu vui chơi thiếu niên nhi đồng",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -44630,7 +44728,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_0",
       active: true,
-      name: "Hoàng Thành Huế",
+      name: "Ciudad Imperial de Hue",
+      nativeName: "Hoàng Thành Huế",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44640,7 +44739,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_1",
       active: true,
-      name: "Cung An Định",
+      name: "Palacio An Dinh",
+      nativeName: "Cung An Định",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -44650,7 +44750,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_2",
       active: true,
-      name: "Kinh thành Huế",
+      name: "Ciudadela de Hue",
+      nativeName: "Kinh thành Huế",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -44670,7 +44771,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_4",
       active: true,
-      name: "Chùa Thiên Mụ",
+      name: "Pagoda Thien Mu",
+      nativeName: "Chùa Thiên Mụ",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44680,7 +44782,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_5",
       active: true,
-      name: "Chùa Từ Hiếu",
+      name: "Pagoda Tu Hieu",
+      nativeName: "Chùa Từ Hiếu",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44690,7 +44793,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_6",
       active: true,
-      name: "Chùa Quốc Ân",
+      name: "Pagoda Quoc An",
+      nativeName: "Chùa Quốc Ân",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44700,7 +44804,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_7",
       active: true,
-      name: "Nhà Thờ Dòng Chúa Cứu Thế Huế",
+      name: "Iglesia Redentorista de Hue",
+      nativeName: "Nhà Thờ Dòng Chúa Cứu Thế Huế",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -44710,7 +44815,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_8",
       active: true,
-      name: "Điện Thái Hòa",
+      name: "Palacio Thai Hoa",
+      nativeName: "Điện Thái Hòa",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44720,7 +44826,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_9",
       active: true,
-      name: "Nhà hát Sông Hương",
+      name: "Teatro del Río Perfume",
+      nativeName: "Nhà hát Sông Hương",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -44730,7 +44837,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_10",
       active: true,
-      name: "Chùa Báo Quốc",
+      name: "Pagoda Bao Quoc",
+      nativeName: "Chùa Báo Quốc",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44751,7 +44859,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_12",
       active: true,
-      name: "Trung tâm Nghệ thuật Điềm Phùng Thị",
+      name: "Centro de Arte Diem Phung Thi",
+      nativeName: "Trung tâm Nghệ thuật Điềm Phùng Thị",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44762,7 +44871,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_13",
       active: true,
-      name: "Tử Cấm Thành",
+      name: "Ciudad Púrpura Prohibida",
+      nativeName: "Tử Cấm Thành",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -44772,7 +44882,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_14",
       active: true,
-      name: "Điềm Phùng Thį",
+      name: "Diem Phung Thi",
+      nativeName: "Điềm Phùng Thį",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44792,7 +44903,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_16",
       active: true,
-      name: "Điện Kiến Trung",
+      name: "Palacio Kien Trung",
+      nativeName: "Điện Kiến Trung",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -44802,7 +44914,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_17",
       active: true,
-      name: "Lăng Tự Đức",
+      name: "Tumba de Tu Duc",
+      nativeName: "Lăng Tự Đức",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -44812,7 +44925,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_18",
       active: true,
-      name: "Chợ Đông Ba",
+      name: "Mercado Dong Ba",
+      nativeName: "Chợ Đông Ba",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -44822,7 +44936,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_19",
       active: true,
-      name: "Quốc Tử Giám",
+      name: "Academia Imperial de Hue",
+      nativeName: "Quốc Tử Giám",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -44832,7 +44947,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_20",
       active: true,
-      name: "Tượng đài Quan Thế Âm Bồ Tát",
+      name: "Estatua de Quan Am (Avalokiteshvara)",
+      nativeName: "Tượng đài Quan Thế Âm Bồ Tát",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -44862,7 +44978,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hue_23",
       active: true,
-      name: "Duyệt Thị Đường",
+      name: "Teatro Real Duyet Thi Duong",
+      nativeName: "Duyệt Thị Đường",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -44937,7 +45054,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_0",
       active: true,
-      name: "Ասլամազյան քույրերի պատկերասրահ",
+      name: "Galería de las Hermanas Aslamazyan",
+      nativeName: "Ասլամազյան քույրերի պատկերասրահ",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44948,7 +45066,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_1",
       active: true,
-      name: "Ձիթողցոնց տուն-թանգարան",
+      name: "Casa-museo de la familia Dzitoghtsyants",
+      nativeName: "Ձիթողցոնց տուն-թանգարան",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44958,7 +45077,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_2",
       active: true,
-      name: "ԱՎԵՏԻՔ ԻՍԱՀԱԿՅԱՆԻ ՏՈՒՆ-ԹԱՆԳԱՐԱՆ",
+      name: "Casa-museo de Avetik Isahakyan",
+      nativeName: "ԱՎԵՏԻՔ ԻՍԱՀԱԿՅԱՆԻ ՏՈՒՆ-ԹԱՆԳԱՐԱՆ",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44968,7 +45088,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_3",
       active: true,
-      name: "ՄՀԵՐ ՄԿՐՏՉՅԱՆԻ ԹԱՆԳԱՐԱՆ",
+      name: "Museo de Mher Mkrtchyan",
+      nativeName: "ՄՀԵՐ ՄԿՐՏՉՅԱՆԻ ԹԱՆԳԱՐԱՆ",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44978,7 +45099,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_4",
       active: true,
-      name: "Սև Բերդ",
+      name: "Fortaleza Negra (Sev Berd)",
+      nativeName: "Սև Բերդ",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -44988,7 +45110,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_5",
       active: true,
-      name: "ՀՈՎՀԱՆՆԵՍ ՇԻՐԱԶԻ ՀՈՒՇԱՏՈՒՆ-ԹԱՆԳԱՐԱՆ",
+      name: "Casa-museo memorial de Hovhannes Shiraz",
+      nativeName: "ՀՈՎՀԱՆՆԵՍ ՇԻՐԱԶԻ ՀՈՒՇԱՏՈՒՆ-ԹԱՆԳԱՐԱՆ",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -44998,7 +45121,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_6",
       active: true,
-      name: "Շարլ Ազնավուր",
+      name: "Monumento a Charles Aznavour",
+      nativeName: "Շարլ Ազնավուր",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -45008,7 +45132,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_7",
       active: true,
-      name: "Հայ Կաթողիկէ Սրբոց Նահատակաց Աթոռանիստ Եկեղեցի",
+      name: "Catedral católica armenia de los Santos Mártires",
+      nativeName: "Հայ Կաթողիկէ Սրբոց Նահատակաց Աթոռանիստ Եկեղեցի",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45018,7 +45143,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_8",
       active: true,
-      name: "Հուշարձան երկրաշարժի զոհերի հիշատակին",
+      name: "Monumento a las víctimas del terremoto",
+      nativeName: "Հուշարձան երկրաշարժի զոհերի հիշատակին",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -45028,7 +45154,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_9",
       active: true,
-      name: "Վահան Չերազ",
+      name: "Monumento a Vahan Cheraz",
+      nativeName: "Վահան Չերազ",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -45038,7 +45165,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_10",
       active: true,
-      name: "Սուրբ Աստվածածին (Յոթ Վերք)",
+      name: "Iglesia de la Santa Madre de Dios (Yot Verk)",
+      nativeName: "Սուրբ Աստվածածին (Յոթ Վերք)",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45048,7 +45176,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_11",
       active: true,
-      name: "Սուրբ Նշան",
+      name: "Iglesia de Surb Nshan",
+      nativeName: "Սուրբ Նշան",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45058,7 +45187,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_12",
       active: true,
-      name: "Սուրբ Հակոբ եկեղեցի",
+      name: "Iglesia de San Hakob",
+      nativeName: "Սուրբ Հակոբ եկեղեցի",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45068,7 +45198,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_13",
       active: true,
-      name: "Սուրբ Ամենափրկիչ եկեղեցի",
+      name: "Iglesia del Santo Salvador",
+      nativeName: "Սուրբ Ամենափրկիչ եկեղեցի",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45078,7 +45209,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_14",
       active: true,
-      name: "Մայր Հայաստան",
+      name: "Estatua de la Madre Armenia",
+      nativeName: "Մայր Հայաստան",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45098,7 +45230,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_16",
       active: true,
-      name: "Երկաթե շատրվան",
+      name: "Fuente de Hierro",
+      nativeName: "Երկաթե շատրվան",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45108,7 +45241,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_17",
       active: true,
-      name: "Վարդան Աճեմյանի անվան դրամատիկական թատրոն",
+      name: "Teatro Dramático Vardan Achemyan",
+      nativeName: "Վարդան Աճեմյանի անվան դրամատիկական թատրոն",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45128,7 +45262,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "gyumri_19",
       active: true,
-      name: "Ծակ քար",
+      name: "Piedra Agujereada (Tsak Kar)",
+      nativeName: "Ծակ քար",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45191,7 +45326,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_0",
       active: true,
-      name: "Milli Azərbaycan Tarixi Muzeyi",
+      name: "Museo Nacional de Historia de Azerbaiyán",
+      nativeName: "Milli Azərbaycan Tarixi Muzeyi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45202,7 +45338,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_1",
       active: true,
-      name: "Azərbaycan Dəmiryol Muzeyi",
+      name: "Museo del Ferrocarril de Azerbaiyán",
+      nativeName: "Azərbaycan Dəmiryol Muzeyi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45213,7 +45350,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_2",
       active: true,
-      name: "Qız Qalası",
+      name: "Torre de la Doncella",
+      nativeName: "Qız Qalası",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -45224,7 +45362,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_3",
       active: true,
-      name: "Şirvanşahlar Sarayı Bakı",
+      name: "Palacio de los Shirvanshahs de Bakú",
+      nativeName: "Şirvanşahlar Sarayı Bakı",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45245,7 +45384,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_5",
       active: true,
-      name: "Xalq Təhsili Muzeyi",
+      name: "Museo de Educación Pública",
+      nativeName: "Xalq Təhsili Muzeyi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45255,7 +45395,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_6",
       active: true,
-      name: "Qoşa Qala Qapısı Bakı",
+      name: "Puertas Dobles de la Fortaleza de Bakú",
+      nativeName: "Qoşa Qala Qapısı Bakı",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -45265,7 +45406,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_7",
       active: true,
-      name: "Keyrəki palçıq vulkanı",
+      name: "Volcán de lodo de Keyraki",
+      nativeName: "Keyrəki palçıq vulkanı",
       category: 'poi', type: "Volcán",
       icon: "🌋",
       bg: "#E8FDE8",
@@ -45275,7 +45417,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_8",
       active: true,
-      name: "Ramana Qalası",
+      name: "Castillo de Ramana",
+      nativeName: "Ramana Qalası",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -45295,7 +45438,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_10",
       active: true,
-      name: "Müqədəss Məryəm Katolik Kilsəsi",
+      name: "Iglesia católica de la Santa Virgen María",
+      nativeName: "Müqədəss Məryəm Katolik Kilsəsi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45316,7 +45460,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_12",
       active: true,
-      name: "Şəhidlər Məscidi",
+      name: "Mezquita de los Mártires",
+      nativeName: "Şəhidlər Məscidi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45326,7 +45471,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_13",
       active: true,
-      name: "Əşkinazi yəhudilərinin Bakıdakı sinaqoqu",
+      name: "Sinagoga Asquenazí de Bakú",
+      nativeName: "Əşkinazi yəhudilərinin Bakıdakı sinaqoqu",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45336,7 +45482,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_14",
       active: true,
-      name: "Göy Məscid",
+      name: "Mezquita Azul",
+      nativeName: "Göy Məscid",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45346,7 +45493,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_15",
       active: true,
-      name: "Müqəddəs Qriqori kilsəsi",
+      name: "Iglesia de San Gregorio",
+      nativeName: "Müqəddəs Qriqori kilsəsi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45356,7 +45504,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_16",
       active: true,
-      name: "Azərbaycan Dövlət Rus Dram Teatrı",
+      name: "Teatro Estatal de Drama Ruso de Azerbaiyán",
+      nativeName: "Azərbaycan Dövlət Rus Dram Teatrı",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45378,7 +45527,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_18",
       active: true,
-      name: "Sahil bağı",
+      name: "Jardín Sahil",
+      nativeName: "Sahil bağı",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -45388,7 +45538,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_19",
       active: true,
-      name: "Xəqani bağı ( Malakan bağı )",
+      name: "Jardín Khagani (Jardín Malakan)",
+      nativeName: "Xəqani bağı ( Malakan bağı )",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -45398,7 +45549,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_20",
       active: true,
-      name: "Nərimanov parkı",
+      name: "Parque Narimanov",
+      nativeName: "Nərimanov parkı",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -45408,7 +45560,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_21",
       active: true,
-      name: "Qış Parkı",
+      name: "Parque de Invierno",
+      nativeName: "Qış Parkı",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -45418,7 +45571,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_22",
       active: true,
-      name: "Bakı Zooparkı",
+      name: "Zoológico de Bakú",
+      nativeName: "Bakı Zooparkı",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -45428,7 +45582,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_23",
       active: true,
-      name: "Azərbaycan Dövlət Kukla Teatrı",
+      name: "Teatro Estatal de Marionetas de Azerbaiyán",
+      nativeName: "Azərbaycan Dövlət Kukla Teatrı",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45439,7 +45594,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_24",
       active: true,
-      name: "Nəbabət Bağı / Botanika Bağı",
+      name: "Jardín Nababat / Jardín Botánico",
+      nativeName: "Nəbabət Bağı / Botanika Bağı",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -45449,7 +45605,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_25",
       active: true,
-      name: "Gənc Tamaşaçılar Teatrı",
+      name: "Teatro de Jóvenes Espectadores",
+      nativeName: "Gənc Tamaşaçılar Teatrı",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45460,7 +45617,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_26",
       active: true,
-      name: "Heydər Əliyev Sarayı",
+      name: "Palacio Heydar Aliyev",
+      nativeName: "Heydər Əliyev Sarayı",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45471,7 +45629,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_27",
       active: true,
-      name: "Şərq Bazarı",
+      name: "Bazar Oriental",
+      nativeName: "Şərq Bazarı",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -45481,7 +45640,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_28",
       active: true,
-      name: "Yanar Dağ",
+      name: "Yanar Dag (Montaña Ardiente)",
+      nativeName: "Yanar Dağ",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45491,7 +45651,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baku_29",
       active: true,
-      name: "Paraşüt Qülləsi",
+      name: "Torre de Paracaídas",
+      nativeName: "Paraşüt Qülləsi",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45543,7 +45704,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_0",
       active: true,
-      name: "Şəkixanovlar Ev Muzeyi",
+      name: "Casa-museo de los Shekikhanov",
+      nativeName: "Şəkixanovlar Ev Muzeyi",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -45553,7 +45715,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_1",
       active: true,
-      name: "Şəki Tarix-Diyarşünaslıq Muzeyi",
+      name: "Museo de Historia y Etnografía de Sheki",
+      nativeName: "Şəki Tarix-Diyarşünaslıq Muzeyi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45563,7 +45726,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_2",
       active: true,
-      name: "Şəki Xan Sarayı",
+      name: "Palacio del Kan de Sheki",
+      nativeName: "Şəki Xan Sarayı",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -45573,7 +45737,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_3",
       active: true,
-      name: "Üç Müqəddəs Kilsəs",
+      name: "Iglesia de los Tres Santos",
+      nativeName: "Üç Müqəddəs Kilsəs",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45583,7 +45748,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_4",
       active: true,
-      name: "Mirzə Fətəli Axundovun Ev Muzeyi",
+      name: "Casa-museo de Mirza Fatali Ajundov",
+      nativeName: "Mirzə Fətəli Axundovun Ev Muzeyi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45593,7 +45759,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_5",
       active: true,
-      name: "Müqəddəs Yelisey kilsəsi",
+      name: "Iglesia de San Eliseo",
+      nativeName: "Müqəddəs Yelisey kilsəsi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45603,7 +45770,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_6",
       active: true,
-      name: "Ömər Əfəndi məscidi",
+      name: "Mezquita de Omar Efendi",
+      nativeName: "Ömər Əfəndi məscidi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45613,7 +45781,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_7",
       active: true,
-      name: "İmam Əli məscidi",
+      name: "Mezquita del Imam Ali",
+      nativeName: "İmam Əli məscidi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45623,7 +45792,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_8",
       active: true,
-      name: "Yuxarı Karvansara",
+      name: "Caravasar Superior",
+      nativeName: "Yuxarı Karvansara",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -45633,7 +45803,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_9",
       active: true,
-      name: "Aşağı Karvansaray",
+      name: "Caravasar Inferior",
+      nativeName: "Aşağı Karvansaray",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -45643,7 +45814,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_10",
       active: true,
-      name: "Şəki Cümə Məscidi",
+      name: "Mezquita de los Viernes de Sheki",
+      nativeName: "Şəki Cümə Məscidi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45664,7 +45836,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_12",
       active: true,
-      name: "Şəki Dövlət Rəsm Qalereyası",
+      name: "Galería Estatal de Arte de Sheki",
+      nativeName: "Şəki Dövlət Rəsm Qalereyası",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45674,7 +45847,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_13",
       active: true,
-      name: "Albanlar hamamı 19-cu əsr",
+      name: "Baños de los Albaneses (siglo XIX)",
+      nativeName: "Albanlar hamamı 19-cu əsr",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -45684,7 +45858,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_14",
       active: true,
-      name: "Alban kilsəsi Calğalı bulaq",
+      name: "Iglesia albana del manantial de Jalgali",
+      nativeName: "Alban kilsəsi Calğalı bulaq",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45694,7 +45869,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_15",
       active: true,
-      name: "Şəki Bayraq Meydanı",
+      name: "Plaza de la Bandera de Sheki",
+      nativeName: "Şəki Bayraq Meydanı",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -45714,7 +45890,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_17",
       active: true,
-      name: "At kirayə",
+      name: "Alquiler de caballos",
+      nativeName: "At kirayə",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45724,7 +45901,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_18",
       active: true,
-      name: "Abdulxalq Hamamı",
+      name: "Baños de Abdulkhalig",
+      nativeName: "Abdulxalq Hamamı",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45734,7 +45912,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_19",
       active: true,
-      name: "Lütfəli Abdullayevin Evi",
+      name: "Casa de Lütfali Abdullayev",
+      nativeName: "Lütfəli Abdullayevin Evi",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45744,7 +45923,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sheki_20",
       active: true,
-      name: "Kiş Körpüsü",
+      name: "Puente de Kish",
+      nativeName: "Kiş Körpüsü",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45777,7 +45957,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_0",
       active: true,
-      name: "مسجد الخميس",
+      name: "Mezquita Al Khamis",
+      nativeName: "مسجد الخميس",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45788,7 +45969,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_1",
       active: true,
-      name: "متحف البحرين الوطني",
+      name: "Museo Nacional de Baréin",
+      nativeName: "متحف البحرين الوطني",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45799,7 +45981,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_2",
       active: true,
-      name: "بيت القرآن",
+      name: "Beit Al Quran (Casa del Corán)",
+      nativeName: "بيت القرآن",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -45840,7 +46023,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_6",
       active: true,
-      name: "مسجد أحمد الفاتح",
+      name: "Mezquita Al Fateh",
+      nativeName: "مسجد أحمد الفاتح",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -45851,7 +46035,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_7",
       active: true,
-      name: "قلعة البحرين",
+      name: "Fuerte de Baréin (Qal'at al-Bahrain)",
+      nativeName: "قلعة البحرين",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -45861,7 +46046,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_8",
       active: true,
-      name: "مسرح البحرين الوطني",
+      name: "Teatro Nacional de Baréin",
+      nativeName: "مسرح البحرين الوطني",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -45872,7 +46058,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_9",
       active: true,
-      name: "قصر القضيبية",
+      name: "Palacio Al Qudaibiya",
+      nativeName: "قصر القضيبية",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -45912,7 +46099,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_13",
       active: true,
-      name: "القصر القديم",
+      name: "Palacio Viejo",
+      nativeName: "القصر القديم",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -45922,7 +46110,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_14",
       active: true,
-      name: "قلعه بوماهر",
+      name: "Fuerte Abu Mahar",
+      nativeName: "قلعه بوماهر",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -45983,7 +46172,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "manama_20",
       active: true,
-      name: "سوق باب البحرين",
+      name: "Zoco Bab Al Bahrain",
+      nativeName: "سوق باب البحرين",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -46058,7 +46248,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_1",
       active: true,
-      name: "বাংলাদেশ জাতীয় জাদুঘর",
+      name: "Museo Nacional de Bangladés",
+      nativeName: "বাংলাদেশ জাতীয় জাদুঘর",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46069,7 +46260,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_2",
       active: true,
-      name: "বঙ্গভবন",
+      name: "Bangabhaban (Palacio Presidencial)",
+      nativeName: "বঙ্গভবন",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -46099,7 +46291,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_5",
       active: true,
-      name: "জাতীয় সংসদ ভবন",
+      name: "Edificio del Parlamento Nacional (Jatiyo Sangsad Bhaban)",
+      nativeName: "জাতীয় সংসদ ভবন",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -46110,7 +46303,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_6",
       active: true,
-      name: "বাংলাদেশ সামরিক জাদুঘর",
+      name: "Museo Militar de Bangladés",
+      nativeName: "বাংলাদেশ সামরিক জাদুঘর",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46130,7 +46324,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_8",
       active: true,
-      name: "লালবাগ কেল্লা",
+      name: "Fuerte Lalbagh",
+      nativeName: "লালবাগ কেল্লা",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -46140,7 +46335,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_9",
       active: true,
-      name: "জিয়াউর রহমানের সমাধি",
+      name: "Mausoleo de Ziaur Rahman",
+      nativeName: "জিয়াউর রহমানের সমাধি",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -46150,7 +46346,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_10",
       active: true,
-      name: "জাতীয় ঈদগাহ",
+      name: "Idgah Nacional",
+      nativeName: "জাতীয় ঈদগাহ",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46160,7 +46357,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_11",
       active: true,
-      name: "চকবাজার শাহী মসজিদ",
+      name: "Mezquita Shahi de Chawk Bazar",
+      nativeName: "চকবাজার শাহী মসজিদ",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46180,7 +46378,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_13",
       active: true,
-      name: "বিনত বিবি মসজিদ",
+      name: "Mezquita Binat Bibi",
+      nativeName: "বিনত বিবি মসজিদ",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46200,7 +46399,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_15",
       active: true,
-      name: "জিয়া উদ্যান",
+      name: "Parque Zia",
+      nativeName: "জিয়া উদ্যান",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -46210,7 +46410,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_16",
       active: true,
-      name: "Baldha Garden বলধা গার্ডেন",
+      name: "Jardín Baldha",
+      nativeName: "Baldha Garden বলধা গার্ডেন",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -46220,7 +46421,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_17",
       active: true,
-      name: "রমনা পার্ক",
+      name: "Parque Ramna",
+      nativeName: "রমনা পার্ক",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -46240,7 +46442,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_19",
       active: true,
-      name: "শাপলা চত্বর",
+      name: "Plaza Shapla",
+      nativeName: "শাপলা চত্বর",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -46250,7 +46453,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_20",
       active: true,
-      name: "সন্ত্রাস বিরোধী রাজু স্মারক ভাস্কর্য",
+      name: "Escultura Conmemorativa Antiterrorismo Raju",
+      nativeName: "সন্ত্রাস বিরোধী রাজু স্মারক ভাস্কর্য",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -46291,7 +46495,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_24",
       active: true,
-      name: "ঢাকা অক্সফোর্ড ইন্টারন্যাশনাল কলেজ",
+      name: "Colegio Internacional Oxford de Dhaka",
+      nativeName: "ঢাকা অক্সফোর্ড ইন্টারন্যাশনাল কলেজ",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -46302,7 +46507,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dhaka_25",
       active: true,
-      name: "জিন্দা পার্ক",
+      name: "Parque Jinda",
+      nativeName: "জিন্দা পার্ক",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -46364,7 +46570,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "coxsbazar_2",
       active: true,
-      name: "গনপূর্ত পার্ক",
+      name: "Parque de Obras Públicas",
+      nativeName: "গনপূর্ত পার্ক",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -46481,7 +46688,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paro_0",
       active: true,
-      name: "འབྲུག་རྒྱལ་ཡོངས་འགྲེམས་སྟོན་ཁང་།",
+      name: "Museo Nacional de Bután",
+      nativeName: "འབྲུག་རྒྱལ་ཡོངས་འགྲེམས་སྟོན་ཁང་།",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46553,7 +46761,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "punakha_0",
       active: true,
-      name: "རྒྱལ་ཡོངས་སེམས་ཅན། ༼འབྲོང་གྱིམ་ཙི༽",
+      name: "Reserva del Takin, Animal Nacional de Bután",
+      nativeName: "རྒྱལ་ཡོངས་སེམས་ཅན། ༼འབྲོང་གྱིམ་ཙི༽",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -46597,7 +46806,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_0",
       active: true,
-      name: "გონიოს ციხე",
+      name: "Fortaleza de Gonio",
+      nativeName: "გონიოს ციხე",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -46607,7 +46817,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_1",
       active: true,
-      name: "ხელოვნების მუზეუმი",
+      name: "Museo de Arte",
+      nativeName: "ხელოვნების მუზეუმი",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46617,7 +46828,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_2",
       active: true,
-      name: "ბათუმის დელფინარიუმი",
+      name: "Delfinario de Batumi",
+      nativeName: "ბათუმის დელფინარიუმი",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -46628,7 +46840,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_3",
       active: true,
-      name: "არქეოლოგიური მუზეუმი",
+      name: "Museo Arqueológico",
+      nativeName: "არქეოლოგიური მუზეუმი",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46639,7 +46852,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_4",
       active: true,
-      name: "თამარის ციხე",
+      name: "Fortaleza de la Reina Tamar",
+      nativeName: "თამარის ციხე",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -46649,7 +46863,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_5",
       active: true,
-      name: "ძმები ნობელების სახელობის ტექნოლოგიური მუზეუმი",
+      name: "Museo Tecnológico de los Hermanos Nobel",
+      nativeName: "ძმები ნობელების სახელობის ტექნოლოგიური მუზეუმი",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46659,7 +46874,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_6",
       active: true,
-      name: "ხარიტონ ახვლედიანის სახელობის მუზეუმი",
+      name: "Museo Khariton Ajvlediani",
+      nativeName: "ხარიტონ ახვლედიანის სახელობის მუზეუმი",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46669,7 +46885,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_7",
       active: true,
-      name: "მედეას ქანდაკება",
+      name: "Estatua de Medea",
+      nativeName: "მედეას ქანდაკება",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -46679,7 +46896,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_8",
       active: true,
-      name: "ბათუმის ი. ჭავჭავაძის სახელობის დრამატული თეატრი",
+      name: "Teatro Dramático Ilia Chavchavadze de Batumi",
+      nativeName: "ბათუმის ი. ჭავჭავაძის სახელობის დრამატული თეატრი",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -46690,7 +46908,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_9",
       active: true,
-      name: "სულიწმიდის კათოლიკური ეკლესია",
+      name: "Iglesia católica del Espíritu Santo",
+      nativeName: "სულიწმიდის კათოლიკური ეკლესია",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46700,7 +46919,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_10",
       active: true,
-      name: "ღვთისმშობლის შობის სახელობის საკათედრო ტაძარი",
+      name: "Catedral de la Natividad de la Virgen",
+      nativeName: "ღვთისმშობლის შობის სახელობის საკათედრო ტაძარი",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46710,7 +46930,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_11",
       active: true,
-      name: "ჩარკვიანის სახელობის სამშობიარო სახლი",
+      name: "Casa de Maternidad Charkviani",
+      nativeName: "ჩარკვიანის სახელობის სამშობიარო სახლი",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -46720,7 +46941,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_12",
       active: true,
-      name: "ბათუმის ცენტრალური მეჩეთი ორთა ჯამე",
+      name: "Mezquita Central de Batumi (Orta Jame)",
+      nativeName: "ბათუმის ცენტრალური მეჩეთი ორთა ჯამე",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46730,7 +46952,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_13",
       active: true,
-      name: "ბათუმის წმინდა ქრისტეს სომხური ეკლესია",
+      name: "Iglesia armenia de Cristo Salvador de Batumi",
+      nativeName: "ბათუმის წმინდა ქრისტეს სომხური ეკლესია",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46740,7 +46963,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_14",
       active: true,
-      name: "ბათუმის სინაგოგა",
+      name: "Sinagoga de Batumi",
+      nativeName: "ბათუმის სინაგოგა",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46750,7 +46974,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_15",
       active: true,
-      name: "გრაფინია ფესენკოს აგარაკი",
+      name: "Dacha de la Condesa Fesenko",
+      nativeName: "გრაფინია ფესენკოს აგარაკი",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -46760,7 +46985,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_16",
       active: true,
-      name: "6 მაისი პარკი",
+      name: "Parque 6 de Mayo",
+      nativeName: "6 მაისი პარკი",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -46770,7 +46996,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_17",
       active: true,
-      name: "მტირალას ეროვნული პარკი",
+      name: "Parque Nacional Mtirala",
+      nativeName: "მტირალას ეროვნული პარკი",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -46780,7 +47007,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_18",
       active: true,
-      name: "ნინო და ალი",
+      name: "Estatua de Ali y Nino",
+      nativeName: "ნინო და ალი",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -46790,7 +47018,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_19",
       active: true,
-      name: "ბათუმის სახელმწიფო მუსიკალური ცენტრი",
+      name: "Centro Estatal de Música de Batumi",
+      nativeName: "ბათუმის სახელმწიფო მუსიკალური ცენტრი",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -46800,7 +47029,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_20",
       active: true,
-      name: "პიაცა მოედანი",
+      name: "Plaza Piazza",
+      nativeName: "პიაცა მოედანი",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -46810,7 +47040,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_21",
       active: true,
-      name: "ბათუმის თოჯინებისა და მოზარდ მაყურებელთა პროფესიული სახელმწიფო თეატრი",
+      name: "Teatro Estatal de Marionetas y Jóvenes Espectadores de Batumi",
+      nativeName: "ბათუმის თოჯინებისა და მოზარდ მაყურებელთა პროფესიული სახელმწიფო თეატრი",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -46820,7 +47051,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_22",
       active: true,
-      name: "ანბანის კოშკი",
+      name: "Torre del Alfabeto",
+      nativeName: "ანბანის კოშკი",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -46830,7 +47062,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_23",
       active: true,
-      name: "ფანტაზია",
+      name: "Fantasía",
+      nativeName: "ფანტაზია",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -46840,7 +47073,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_24",
       active: true,
-      name: "ბათუმის საზაფხულო თეატრი",
+      name: "Teatro de Verano de Batumi",
+      nativeName: "ბათუმის საზაფხურო თეატრი",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -46851,7 +47085,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_25",
       active: true,
-      name: "ბათუმის შუქურა",
+      name: "Faro de Batumi",
+      nativeName: "ბათუმის შუქურა",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -46861,7 +47096,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_26",
       active: true,
-      name: "ახალშენი",
+      name: "Ajalsheni",
+      nativeName: "ახალშენი",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -46871,7 +47107,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_27",
       active: true,
-      name: "ყიბლისთა",
+      name: "Kiblistá",
+      nativeName: "ყიბლისთა",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -46881,7 +47118,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_28",
       active: true,
-      name: "ანარია",
+      name: "Anaria",
+      nativeName: "ანარია",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -46891,7 +47129,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "batumi_29",
       active: true,
-      name: "ხეჩოკეტი",
+      name: "Khechoketi",
+      nativeName: "ხეჩოკეტი",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -46933,7 +47172,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_0",
       active: true,
-      name: "ტყარშეთი",
+      name: "Volcán de Tqarsheti",
+      nativeName: "ტყარშეთი",
       category: 'poi', type: "Volcán",
       icon: "🌋",
       bg: "#E8FDE8",
@@ -46943,7 +47183,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_1",
       active: true,
-      name: "არშის ციხე",
+      name: "Fortaleza de Arshi",
+      nativeName: "არშის ციხე",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -46953,7 +47194,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_2",
       active: true,
-      name: "სტეფანწმინდის ისტორიული მუზეუმი. ალექსანდრე ყაზბეგის სახლ-მუზეუმი",
+      name: "Museo Histórico de Stepantsminda. Casa-museo de Alexander Kazbegi",
+      nativeName: "სტეფანწმინდის ისტორიული მუზეუმი. ალექსანდრე ყაზბეგის სახლ-მუზეუმი",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -46963,7 +47205,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_3",
       active: true,
-      name: "სნოს ციხე",
+      name: "Fortaleza de Sno",
+      nativeName: "სნოს ციხე",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -46973,7 +47216,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_4",
       active: true,
-      name: "გერგეთის სამების ეკლესია",
+      name: "Iglesia de la Trinidad de Gergeti",
+      nativeName: "გერგეთის სამების ეკლესია",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46983,7 +47227,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_5",
       active: true,
-      name: "მთავარანგელოზის ეკლესია",
+      name: "Iglesia del Arcángel",
+      nativeName: "მთავარანგელოზის ეკლესია",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -46993,7 +47238,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_6",
       active: true,
-      name: "გარბნის ოქროს წმ. გიორგის ეკლესია",
+      name: "Iglesia dorada de San Jorge de Garbani",
+      nativeName: "გარბნის ოქროს წმ. გიორგის ეკლესია",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47003,7 +47249,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_7",
       active: true,
-      name: "Шан / შანი",
+      name: "Shani",
+      nativeName: "Шан / შანი",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -47013,7 +47260,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_8",
       active: true,
-      name: "არწივისწვერი",
+      name: "Pico del Águila (Artsivisperi)",
+      nativeName: "არწივისწვერი",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -47023,7 +47271,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_9",
       active: true,
-      name: "თამარის ციხე",
+      name: "Fortaleza de la Reina Tamar",
+      nativeName: "თამარის ციხე",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -47043,7 +47292,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_11",
       active: true,
-      name: "ელია წინასწარმეტყველის ეკლესია",
+      name: "Iglesia del Profeta Elías",
+      nativeName: "ელია წინასწარმეტყველის ეკლესია",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47063,7 +47313,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "stepantsminda_13",
       active: true,
-      name: "ვეძის აუზი",
+      name: "Piscina de Vedzi",
+      nativeName: "ვეძის აუზი",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -47096,7 +47347,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_0",
       active: true,
-      name: "香港大學美術博物館 University Museum & Art Gallery",
+      name: "Museo y Galería de Arte de la Universidad de Hong Kong",
+      nativeName: "香港大學美術博物館 University Museum & Art Gallery",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47107,7 +47359,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_1",
       active: true,
-      name: "香港杜莎夫人蠟像館 Madame Tussauds Hong Kong",
+      name: "Museo de Cera Madame Tussauds Hong Kong",
+      nativeName: "香港杜莎夫人蠟像館 Madame Tussauds Hong Kong",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47118,7 +47371,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_2",
       active: true,
-      name: "許士芬地質博物館 Stephen Hui Geological Museum",
+      name: "Museo Geológico Stephen Hui",
+      nativeName: "許士芬地質博物館 Stephen Hui Geological Museum",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47129,7 +47383,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_3",
       active: true,
-      name: "香港賽馬博物館 The Hong Kong Racing Museum",
+      name: "Museo de las Carreras de Hong Kong",
+      nativeName: "香港賽馬博物館 The Hong Kong Racing Museum",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47140,7 +47395,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_4",
       active: true,
-      name: "茶具文物館 Flagstaff House Museum of Tea Ware",
+      name: "Museo de Utensilios de Té Flagstaff House",
+      nativeName: "茶具文物館 Flagstaff House Museum of Tea Ware",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47151,7 +47407,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_5",
       active: true,
-      name: "鯉魚門公園及度假村 Lei Yue Mun Park and Holiday Village",
+      name: "Parque y Complejo Vacacional de Lei Yue Mun",
+      nativeName: "鯉魚門公園及度假村 Lei Yue Mun Park and Holiday Village",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47162,7 +47419,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_6",
       active: true,
-      name: "香港公園 Hong Kong Park",
+      name: "Parque de Hong Kong",
+      nativeName: "香港公園 Hong Kong Park",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47173,7 +47431,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_7",
       active: true,
-      name: "南蓮園池 Nan Lian Garden",
+      name: "Jardín Nan Lian",
+      nativeName: "南蓮園池 Nan Lian Garden",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47184,7 +47443,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_8",
       active: true,
-      name: "天后廟 Tin Hau Temple",
+      name: "Templo de Tin Hau",
+      nativeName: "天后廟 Tin Hau Temple",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47195,7 +47455,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_9",
       active: true,
-      name: "志蓮淨苑 Chi Lin Nunnery",
+      name: "Convento de Chi Lin",
+      nativeName: "志蓮淨苑 Chi Lin Nunnery",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47206,7 +47467,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_10",
       active: true,
-      name: "佐敦谷公園 Jordan Valley Park",
+      name: "Parque del Valle de Jordan",
+      nativeName: "佐敦谷公園 Jordan Valley Park",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47217,7 +47479,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_11",
       active: true,
-      name: "零碳天地 Zero Carbon Building",
+      name: "Edificio Cero Carbono",
+      nativeName: "零碳天地 Zero Carbon Building",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47228,7 +47491,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_12",
       active: true,
-      name: "九龍城侯王古廟 Kowloon City Hau Wong Temple",
+      name: "Templo Hau Wong de la Ciudad de Kowloon",
+      nativeName: "九龍城侯王古廟 Kowloon City Hau Wong Temple",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47239,7 +47503,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_13",
       active: true,
-      name: "東蓮覺苑 Tung Lin Kok Yuen",
+      name: "Templo Tung Lin Kok Yuen",
+      nativeName: "東蓮覺苑 Tung Lin Kok Yuen",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47250,7 +47515,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_14",
       active: true,
-      name: "紅磡聖母堂 St. Mary's Church Hung Hom",
+      name: "Iglesia de Santa María de Hung Hom",
+      nativeName: "紅磡聖母堂 St. Mary's Church Hung Hom",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47261,7 +47527,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_15",
       active: true,
-      name: "摩星嶺要塞 Mount Davis Fort",
+      name: "Fuerte de Mount Davis",
+      nativeName: "摩星嶺要塞 Mount Davis Fort",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47271,7 +47538,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_16",
       active: true,
-      name: "香港摩天輪 The Hong Kong Observation Wheel",
+      name: "Noria de Observación de Hong Kong",
+      nativeName: "香港摩天輪 The Hong Kong Observation Wheel",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47282,7 +47550,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_17",
       active: true,
-      name: "山頂 The Peak",
+      name: "Victoria Peak",
+      nativeName: "山頂 The Peak",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -47293,7 +47562,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_18",
       active: true,
-      name: "馬場先難友紀念碑 Race Course Fire Memorial",
+      name: "Monumento Conmemorativo del Incendio del Hipódromo",
+      nativeName: "馬場先難友紀念碑 Race Course Fire Memorial",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -47303,7 +47573,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_19",
       active: true,
-      name: "前水警總部 Former Marine Police Headquarters Compound",
+      name: "Antiguo Cuartel General de la Policía Marítima",
+      nativeName: "前水警總部 Former Marine Police Headquarters Compound",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -47313,7 +47584,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_20",
       active: true,
-      name: "怡和午砲 Noonday Gun",
+      name: "Cañón del Mediodía",
+      nativeName: "怡和午砲 Noonday Gun",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -47323,7 +47595,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_21",
       active: true,
-      name: "廟街夜市 Temple Street Night Market",
+      name: "Mercado Nocturno de Temple Street",
+      nativeName: "廟街夜市 Temple Street Night Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47344,7 +47617,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_23",
       active: true,
-      name: "尤德觀鳥園 Edward Youde Aviary",
+      name: "Pajarera Edward Youde",
+      nativeName: "尤德觀鳥園 Edward Youde Aviary",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -47365,7 +47639,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_25",
       active: true,
-      name: "灣仔街市 Wanchai Market",
+      name: "Mercado de Wan Chai",
+      nativeName: "灣仔街市 Wanchai Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47375,7 +47650,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_26",
       active: true,
-      name: "香港仔魚類批發市場 Aberdeen Wholesale Fish Market",
+      name: "Mercado Mayorista de Pescado de Aberdeen",
+      nativeName: "香港仔魚類批發市場 Aberdeen Wholesale Fish Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47385,7 +47661,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_27",
       active: true,
-      name: "油麻地果欄 Yau Ma Tei Wholesale Fruit Market",
+      name: "Mercado Mayorista de Frutas de Yau Ma Tei",
+      nativeName: "油麻地果欄 Yau Ma Tei Wholesale Fruit Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47395,7 +47672,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_28",
       active: true,
-      name: "園圃街雀鳥花園 Yuen Po Street Bird Garden",
+      name: "Jardín de Aves de Yuen Po Street",
+      nativeName: "園圃街雀鳥花園 Yuen Po Street Bird Garden",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47405,7 +47683,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "hongkongisland_29",
       active: true,
-      name: "戲曲中心 Xiqu Centre",
+      name: "Centro Xiqu",
+      nativeName: "戲曲中心 Xiqu Centre",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -47448,7 +47727,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_0",
       active: true,
-      name: "香港大學美術博物館 University Museum & Art Gallery",
+      name: "Museo y Galería de Arte de la Universidad de Hong Kong",
+      nativeName: "香港大學美術博物館 University Museum & Art Gallery",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47459,7 +47739,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_1",
       active: true,
-      name: "香港杜莎夫人蠟像館 Madame Tussauds Hong Kong",
+      name: "Museo de Cera Madame Tussauds Hong Kong",
+      nativeName: "香港杜莎夫人蠟像館 Madame Tussauds Hong Kong",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47470,7 +47751,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_2",
       active: true,
-      name: "許士芬地質博物館 Stephen Hui Geological Museum",
+      name: "Museo Geológico Stephen Hui",
+      nativeName: "許士芬地質博物館 Stephen Hui Geological Museum",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47481,7 +47763,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_3",
       active: true,
-      name: "香港賽馬博物館 The Hong Kong Racing Museum",
+      name: "Museo de las Carreras de Hong Kong",
+      nativeName: "香港賽馬博物館 The Hong Kong Racing Museum",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47492,7 +47775,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_4",
       active: true,
-      name: "茶具文物館 Flagstaff House Museum of Tea Ware",
+      name: "Museo de Utensilios de Té Flagstaff House",
+      nativeName: "茶具文物館 Flagstaff House Museum of Tea Ware",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47503,7 +47787,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_5",
       active: true,
-      name: "鯉魚門公園及度假村 Lei Yue Mun Park and Holiday Village",
+      name: "Parque y Complejo Vacacional de Lei Yue Mun",
+      nativeName: "鯉魚門公園及度假村 Lei Yue Mun Park and Holiday Village",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47514,7 +47799,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_6",
       active: true,
-      name: "城門棱堡 Shing Mun Redoubt",
+      name: "Reducto de Shing Mun",
+      nativeName: "城門棱堡 Shing Mun Redoubt",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47524,7 +47810,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_7",
       active: true,
-      name: "香港公園 Hong Kong Park",
+      name: "Parque de Hong Kong",
+      nativeName: "香港公園 Hong Kong Park",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47535,7 +47822,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_8",
       active: true,
-      name: "南蓮園池 Nan Lian Garden",
+      name: "Jardín Nan Lian",
+      nativeName: "南蓮園池 Nan Lian Garden",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47546,7 +47834,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_9",
       active: true,
-      name: "天后廟 Tin Hau Temple",
+      name: "Templo de Tin Hau",
+      nativeName: "天后廟 Tin Hau Temple",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47557,7 +47846,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_10",
       active: true,
-      name: "志蓮淨苑 Chi Lin Nunnery",
+      name: "Convento de Chi Lin",
+      nativeName: "志蓮淨苑 Chi Lin Nunnery",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47568,7 +47858,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_11",
       active: true,
-      name: "佐敦谷公園 Jordan Valley Park",
+      name: "Parque del Valle de Jordan",
+      nativeName: "佐敦谷公園 Jordan Valley Park",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47579,7 +47870,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_12",
       active: true,
-      name: "零碳天地 Zero Carbon Building",
+      name: "Edificio Cero Carbono",
+      nativeName: "零碳天地 Zero Carbon Building",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47590,7 +47882,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_13",
       active: true,
-      name: "九龍城侯王古廟 Kowloon City Hau Wong Temple",
+      name: "Templo Hau Wong de la Ciudad de Kowloon",
+      nativeName: "九龍城侯王古廟 Kowloon City Hau Wong Temple",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47601,7 +47894,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_14",
       active: true,
-      name: "東蓮覺苑 Tung Lin Kok Yuen",
+      name: "Templo Tung Lin Kok Yuen",
+      nativeName: "東蓮覺苑 Tung Lin Kok Yuen",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47612,7 +47906,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_15",
       active: true,
-      name: "紅磡聖母堂 St. Mary's Church Hung Hom",
+      name: "Iglesia de Santa María de Hung Hom",
+      nativeName: "紅磡聖母堂 St. Mary's Church Hung Hom",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47623,7 +47918,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_16",
       active: true,
-      name: "荃灣海濱公園 Tsuen Wan Riviera Park",
+      name: "Parque Ribereño de Tsuen Wan",
+      nativeName: "荃灣海濱公園 Tsuen Wan Riviera Park",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47634,7 +47930,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_17",
       active: true,
-      name: "摩星嶺要塞 Mount Davis Fort",
+      name: "Fuerte de Mount Davis",
+      nativeName: "摩星嶺要塞 Mount Davis Fort",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47644,7 +47941,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_18",
       active: true,
-      name: "山頂 The Peak",
+      name: "Victoria Peak",
+      nativeName: "山頂 The Peak",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -47655,7 +47953,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_19",
       active: true,
-      name: "馬場先難友紀念碑 Race Course Fire Memorial",
+      name: "Monumento Conmemorativo del Incendio del Hipódromo",
+      nativeName: "馬場先難友紀念碑 Race Course Fire Memorial",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -47665,7 +47964,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_20",
       active: true,
-      name: "前水警總部 Former Marine Police Headquarters Compound",
+      name: "Antiguo Cuartel General de la Policía Marítima",
+      nativeName: "前水警總部 Former Marine Police Headquarters Compound",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -47675,7 +47975,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_21",
       active: true,
-      name: "廟街夜市 Temple Street Night Market",
+      name: "Mercado Nocturno de Temple Street",
+      nativeName: "廟街夜市 Temple Street Night Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47696,7 +47997,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_23",
       active: true,
-      name: "尤德觀鳥園 Edward Youde Aviary",
+      name: "Pajarera Edward Youde",
+      nativeName: "尤德觀鳥園 Edward Youde Aviary",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -47706,7 +48008,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_24",
       active: true,
-      name: "葵青劇院 Kwai Tsing Theatre",
+      name: "Teatro de Kwai Tsing",
+      nativeName: "葵青劇院 Kwai Tsing Theatre",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -47728,7 +48031,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_26",
       active: true,
-      name: "灣仔街市 Wanchai Market",
+      name: "Mercado de Wan Chai",
+      nativeName: "灣仔街市 Wanchai Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47738,7 +48042,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_27",
       active: true,
-      name: "香港仔魚類批發市場 Aberdeen Wholesale Fish Market",
+      name: "Mercado Mayorista de Pescado de Aberdeen",
+      nativeName: "香港仔魚類批發市場 Aberdeen Wholesale Fish Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47748,7 +48053,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_28",
       active: true,
-      name: "油麻地果欄 Yau Ma Tei Wholesale Fruit Market",
+      name: "Mercado Mayorista de Frutas de Yau Ma Tei",
+      nativeName: "油麻地果欄 Yau Ma Tei Wholesale Fruit Market",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47758,7 +48064,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kowloon_29",
       active: true,
-      name: "園圃街雀鳥花園 Yuen Po Street Bird Garden",
+      name: "Jardín de Aves de Yuen Po Street",
+      nativeName: "園圃街雀鳥花園 Yuen Po Street Bird Garden",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47833,7 +48140,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_0",
       active: true,
-      name: "موزه سینمای ایران",
+      name: "Museo del Cine de Irán",
+      nativeName: "موزه سینمای ایران",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47844,7 +48152,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_1",
       active: true,
-      name: "مجموعه فرهنگی تاریخی سعدآباد",
+      name: "Complejo Cultural e Histórico de Saadabad",
+      nativeName: "مجموعه فرهنگی تاریخی سعدآباد",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47855,7 +48164,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_2",
       active: true,
-      name: "کاخ موزه گلستان",
+      name: "Palacio Museo Golestán",
+      nativeName: "کاخ موزه گلستان",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47866,7 +48176,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_3",
       active: true,
-      name: "موزه رضا عباسی",
+      name: "Museo Reza Abbasi",
+      nativeName: "موزه رضا عباسی",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47877,7 +48188,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_4",
       active: true,
-      name: "موزه شهدا",
+      name: "Museo de los Mártires",
+      nativeName: "موزه شهدا",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -47887,7 +48199,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_5",
       active: true,
-      name: "عمارت کوشک فخرالدوله",
+      name: "Pabellón Fakhr od-Dowleh",
+      nativeName: "عمارت کوشک فخرالدوله",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47897,7 +48210,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_6",
       active: true,
-      name: "بازار تجریش",
+      name: "Bazar de Tajrish",
+      nativeName: "بازار تجریش",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -47908,7 +48222,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_7",
       active: true,
-      name: "باغ گیاه‌ شناسی ملی ایران",
+      name: "Jardín Botánico Nacional de Irán",
+      nativeName: "باغ گیاه‌ شناسی ملی ایران",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47919,7 +48234,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_8",
       active: true,
-      name: "بوستان جنگلی چیتگر",
+      name: "Parque Forestal de Chitgar",
+      nativeName: "بوستان جنگلی چیتگر",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47930,7 +48246,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_9",
       active: true,
-      name: "پارک ارم",
+      name: "Parque Eram",
+      nativeName: "پارک ارم",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47941,7 +48258,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_10",
       active: true,
-      name: "مجموعه فرهنگی تاریخی کاخ نیاوران",
+      name: "Complejo Cultural e Histórico del Palacio Niavarán",
+      nativeName: "مجموعه فرهنگی تاریخی کاخ نیاوران",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47952,7 +48270,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_11",
       active: true,
-      name: "قلعه گبری",
+      name: "Fortaleza Gabri",
+      nativeName: "قلعه گبری",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47962,7 +48281,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_12",
       active: true,
-      name: "بوستان اندیشه",
+      name: "Parque Andisheh",
+      nativeName: "بوستان اندیشه",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -47973,7 +48293,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_13",
       active: true,
-      name: "کاخ ثابت پاسال",
+      name: "Palacio Sabet Pasal",
+      nativeName: "کاخ ثابت پاسال",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -47983,7 +48304,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_14",
       active: true,
-      name: "حاج رجب علی",
+      name: "Hach Rajab Ali",
+      nativeName: "حاج رجب علی",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -47993,7 +48315,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_15",
       active: true,
-      name: "کلیسای وارطان مقدس",
+      name: "Iglesia de San Vartán",
+      nativeName: "کلیسای وارطان مقدس",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48003,7 +48326,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_16",
       active: true,
-      name: "امامزاده اسماعیل",
+      name: "Santuario Imamzadeh Ismail",
+      nativeName: "امامزاده اسماعیل",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48013,7 +48337,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_17",
       active: true,
-      name: "سقاخانه گذر امام‌زاده یحیی",
+      name: "Saqqakhaneh del Pasadizo Imamzadeh Yahya",
+      nativeName: "سقاخانه گذر امام‌زاده یحیی",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48023,7 +48348,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_18",
       active: true,
-      name: "عمارت فخرالدوله",
+      name: "Mansión Fakhr od-Dowleh",
+      nativeName: "عمارت فخرالدوله",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48033,7 +48359,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_19",
       active: true,
-      name: "کلیسای ارتدکس سنت نیکولاس",
+      name: "Iglesia Ortodoxa de San Nicolás",
+      nativeName: "کلیسای ارتدکس سنت نیکولاس",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48043,7 +48370,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_20",
       active: true,
-      name: "آرامگاه شیخ صدوق",
+      name: "Mausoleo del Sheij Saduq",
+      nativeName: "آرامگاه شیخ صدوق",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48053,7 +48381,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_21",
       active: true,
-      name: "باغ وحش ارم",
+      name: "Zoológico Eram",
+      nativeName: "باغ وحش ارم",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48063,7 +48392,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_22",
       active: true,
-      name: "باغ پرندگان تهران",
+      name: "Jardín de Aves de Teherán",
+      nativeName: "باغ پرندگان تهران",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48073,7 +48403,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_23",
       active: true,
-      name: "بازار خانات",
+      name: "Bazar Khanat",
+      nativeName: "بازار خانات",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -48083,7 +48414,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_24",
       active: true,
-      name: "خانه مینایی",
+      name: "Casa Minaei",
+      nativeName: "خانه مینایی",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48093,7 +48425,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_25",
       active: true,
-      name: "تئاتر شهر",
+      name: "Teatro de la Ciudad",
+      nativeName: "تئاتر شهر",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -48103,7 +48436,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_26",
       active: true,
-      name: "سردر باغ ملی",
+      name: "Portal del Jardín Nacional",
+      nativeName: "سردر باغ ملی",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48113,7 +48447,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_27",
       active: true,
-      name: "خانه تاریخی ظهیرالاسلام",
+      name: "Casa Histórica de Zahir al-Islam",
+      nativeName: "خانه تاریخی ظهیرالاسلام",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48123,7 +48458,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tehran_28",
       active: true,
-      name: "کلکچال",
+      name: "Kolakchal",
+      nativeName: "کلکچال",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -48175,7 +48511,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_0",
       active: true,
-      name: "موزه سکه و مردم شناسی حیدرزاده",
+      name: "Museo de Monedas y Etnografía Heydarzadeh",
+      nativeName: "موزه سکه و مردم شناسی حیدرزاده",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48185,7 +48522,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_1",
       active: true,
-      name: "موزه آب",
+      name: "Museo del Agua",
+      nativeName: "موزه آب",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48195,7 +48533,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_2",
       active: true,
-      name: "موزه آیینه و روشنایی یزد",
+      name: "Museo del Espejo y la Iluminación de Yazd",
+      nativeName: "موزه آیینه و روشنایی یزد",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48205,7 +48544,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_3",
       active: true,
-      name: "قلعه ابرندآباد",
+      name: "Castillo de Abarandabad",
+      nativeName: "قلعه ابرندآباد",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -48215,7 +48555,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_4",
       active: true,
-      name: "دخمه زرتشتیان",
+      name: "Torres del Silencio Zoroástricas",
+      nativeName: "دخمه زرتشتیان",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48225,7 +48566,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_5",
       active: true,
-      name: "آب انبار شش بادگیر",
+      name: "Aljibe de las Seis Torres de Viento",
+      nativeName: "آب انبار شش بادگیر",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48235,7 +48577,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_6",
       active: true,
-      name: "بازار مسگرها",
+      name: "Bazar de los Caldereros",
+      nativeName: "بازار مسگرها",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -48245,7 +48588,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_7",
       active: true,
-      name: "مسجد فُرط",
+      name: "Mezquita Forat",
+      nativeName: "مسجد فُرط",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48255,7 +48599,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_8",
       active: true,
-      name: "مسجد علاقه بند",
+      name: "Mezquita Alaqeband",
+      nativeName: "مسجد علاقه بند",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48265,7 +48610,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_9",
       active: true,
-      name: "آتشکده زرتشتیان",
+      name: "Templo del Fuego Zoroástrico",
+      nativeName: "آتشکده زرتشتیان",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48275,7 +48621,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_10",
       active: true,
-      name: "مسجد ملّا اسماعیل",
+      name: "Mezquita Molla Ismail",
+      nativeName: "مسجد ملّا اسماعیل",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48285,7 +48632,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_11",
       active: true,
-      name: "تکیه امیر چخماق",
+      name: "Complejo Amir Chakhmaq",
+      nativeName: "تکیه امیر چخماق",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48295,7 +48643,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_12",
       active: true,
-      name: "حسینیه فهادان",
+      name: "Husseiniyeh de Fahadan",
+      nativeName: "حسینیه فهادان",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48305,7 +48654,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_13",
       active: true,
-      name: "آب‌انبار کوشک نو",
+      name: "Aljibe de Kushk-e Now",
+      nativeName: "آب‌انبار کوشک نو",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48315,7 +48665,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_14",
       active: true,
-      name: "باغ دولت آباد",
+      name: "Jardín de Dowlat Abad",
+      nativeName: "باغ دولت آباد",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48325,7 +48676,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_15",
       active: true,
-      name: "آب انبار رستم گیو",
+      name: "Aljibe Rostam Guiv",
+      nativeName: "آب انبار رستم گیو",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48335,7 +48687,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_16",
       active: true,
-      name: "ساعت مارکار",
+      name: "Torre del Reloj Markar",
+      nativeName: "ساعت مارکار",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48345,7 +48698,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_17",
       active: true,
-      name: "خانه هرندی ها",
+      name: "Casa de los Harandi",
+      nativeName: "خانه هرندی ها",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48355,7 +48709,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_18",
       active: true,
-      name: "بادگیر باغ دولت آباد",
+      name: "Torre de Viento del Jardín Dowlat Abad",
+      nativeName: "بادگیر باغ دولت آباد",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48365,7 +48720,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_19",
       active: true,
-      name: "خانه ملک زاده",
+      name: "Casa Malekzadeh",
+      nativeName: "خانه ملک زاده",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48375,7 +48731,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_20",
       active: true,
-      name: "موزه آسیاب آبی وزیر",
+      name: "Museo del Molino de Agua Vazir",
+      nativeName: "موزه آسیاب آبی وزیر",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48385,7 +48742,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_21",
       active: true,
-      name: "موزه زرتشتیان یزد",
+      name: "Museo Zoroástrico de Yazd",
+      nativeName: "موزه زرتشتیان یزد",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48395,7 +48753,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_22",
       active: true,
-      name: "موقوفه سرای خان کهنه سرای دوم (بازار طلا فروشان یزد)",
+      name: "Caravasar Khan Viejo, Segundo Caravasar (Bazar de los Joyeros de Yazd)",
+      nativeName: "موقوفه سرای خان کهنه سرای دوم (بازار طلا فروشان یزد)",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -48405,7 +48764,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "yazd_23",
       active: true,
-      name: "بوستان ناجی",
+      name: "Parque Naji",
+      nativeName: "بوستان ناجی",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48459,7 +48819,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_1",
       active: true,
-      name: "היכל העצמאות",
+      name: "Salón de la Independencia",
+      nativeName: "היכל העצמאות",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48481,7 +48842,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_3",
       active: true,
-      name: "מוזיאון בית יוסף באו",
+      name: "Museo Casa de Joseph Bau",
+      nativeName: "מוזיאון בית יוסף באו",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48492,7 +48854,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_4",
       active: true,
-      name: "מוזיאון ארץ ישראל",
+      name: "Museo Eretz Israel",
+      nativeName: "מוזיאון ארץ ישראל",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48503,7 +48866,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_5",
       active: true,
-      name: "תל קנה",
+      name: "Tel Kana",
+      nativeName: "תל קנה",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48514,7 +48878,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_6",
       active: true,
-      name: "גן הבנים",
+      name: "Jardín HaBanim",
+      nativeName: "גן הבנים",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48525,7 +48890,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_7",
       active: true,
-      name: "ראש ציפור",
+      name: "Parque Rosh Tzipor",
+      nativeName: "ראש ציפור",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48536,7 +48902,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_8",
       active: true,
-      name: "גן הקקטוסים",
+      name: "Jardín de Cactus",
+      nativeName: "גן הקקטוסים",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48547,7 +48914,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_9",
       active: true,
-      name: "הגן הגזום",
+      name: "El Jardín Recortado",
+      nativeName: "הגן הגזום",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48558,7 +48926,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_10",
       active: true,
-      name: "מימדיון",
+      name: "Parque Acuático Meymadion",
+      nativeName: "מימדיון",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48569,7 +48938,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_11",
       active: true,
-      name: "לונה פארק",
+      name: "Luna Park",
+      nativeName: "לונה פארק",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48580,7 +48950,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_12",
       active: true,
-      name: "מערות אפקה",
+      name: "Cuevas de Afek",
+      nativeName: "מערות אפקה",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48591,7 +48962,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_13",
       active: true,
-      name: "שוק הפשפשים",
+      name: "Mercado de las Pulgas",
+      nativeName: "שוק הפשפשים",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -48602,7 +48974,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_14",
       active: true,
-      name: "ימית 2000",
+      name: "Yamit 2000",
+      nativeName: "ימית 2000",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48613,7 +48986,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_15",
       active: true,
-      name: "כנסיית עמנואל",
+      name: "Iglesia Emmanuel",
+      nativeName: "כנסיית עמנואל",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48624,7 +48998,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_16",
       active: true,
-      name: "גאולת ישראל",
+      name: "Sinagoga Gueulat Israel",
+      nativeName: "גאולת ישראל",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48635,7 +49010,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_17",
       active: true,
-      name: "שרונה מרקט",
+      name: "Mercado Sarona",
+      nativeName: "שרונה מרקט",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -48646,7 +49022,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_18",
       active: true,
-      name: "הפארק האקולוגי הוד השרון",
+      name: "Parque Ecológico de Hod HaSharon",
+      nativeName: "הפארק האקולוגי הוד השרון",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48657,7 +49034,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_19",
       active: true,
-      name: "שבע טחנות",
+      name: "Los Siete Molinos",
+      nativeName: "שבע טחנות",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48668,7 +49046,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_20",
       active: true,
-      name: "הספארי ברמת גן",
+      name: "Safari de Ramat Gan",
+      nativeName: "הספארי ברמת גן",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48679,7 +49058,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_21",
       active: true,
-      name: "תל יונה",
+      name: "Tel Yona",
+      nativeName: "תל יונה",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48689,7 +49069,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_22",
       active: true,
-      name: "תל זיתון",
+      name: "Tel Zeitun",
+      nativeName: "תל זיתון",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48699,7 +49080,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_23",
       active: true,
-      name: "הקאמרי",
+      name: "Teatro Cameri",
+      nativeName: "הקאמרי",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -48710,7 +49092,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_24",
       active: true,
-      name: "תאטרון גשר",
+      name: "Teatro Gesher",
+      nativeName: "תאטרון גשר",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -48721,7 +49104,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_25",
       active: true,
-      name: "בית הכנסת הגדול",
+      name: "Gran Sinagoga de Tel Aviv",
+      nativeName: "בית הכנסת הגדול",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48731,7 +49115,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_26",
       active: true,
-      name: "עקלתון",
+      name: "Parque Akalton",
+      nativeName: "עקלתון",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -48742,7 +49127,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_27",
       active: true,
-      name: "פסל שער האמונה",
+      name: "Estatua de la Puerta de la Fe",
+      nativeName: "פסל שער האמונה",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -48753,7 +49139,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_28",
       active: true,
-      name: "היכל התרבות פתח תקווה",
+      name: "Salón de la Cultura de Petaj Tikva",
+      nativeName: "היכל התרבות פתח תקווה",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -48764,7 +49151,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "telaviv_29",
       active: true,
-      name: "קול יהודה",
+      name: "Sinagoga Kol Yehuda",
+      nativeName: "קול יהודה",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48806,7 +49194,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_0",
       active: true,
-      name: "מוזיאון חיפה לאמנות",
+      name: "Museo de Arte de Haifa",
+      nativeName: "מוזיאון חיפה לאמנות",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48817,7 +49206,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_1",
       active: true,
-      name: "אנדרטת הנספים בשריפה בכרמל",
+      name: "Monumento a las Víctimas del Incendio del Carmel",
+      nativeName: "אנדרטת הנספים בשריפה בכרמל",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48828,7 +49218,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_2",
       active: true,
-      name: "הגנים הבהאים",
+      name: "Jardines Bahá'ís de Haifa",
+      nativeName: "הגנים הבהאים",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48839,7 +49230,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_3",
       active: true,
-      name: "מוזיאון ההעפלה וחיל הים",
+      name: "Museo de la Inmigración Clandestina y la Marina",
+      nativeName: "מוזיאון ההעפלה וחיל הים",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48849,7 +49241,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_4",
       active: true,
-      name: "מוזיאון דגון",
+      name: "Museo Dagón",
+      nativeName: "מוזיאון דגון",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48859,7 +49252,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_5",
       active: true,
-      name: "גן החיות הלימודי חיפה",
+      name: "Zoológico Educativo de Haifa",
+      nativeName: "גן החיות הלימודי חיפה",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48870,7 +49264,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_6",
       active: true,
-      name: "מחנה עתלית",
+      name: "Campo de Detención de Atlit",
+      nativeName: "מחנה עתלית",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48880,7 +49275,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_7",
       active: true,
-      name: "מוזיאון טיקוטין לאמנות יפנית",
+      name: "Museo Tikotin de Arte Japonés",
+      nativeName: "מוזיאון טיקוטין לאמנות יפנית",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -48901,7 +49297,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_9",
       active: true,
-      name: "חי-בר כרמל",
+      name: "Reserva Hai-Bar Carmel",
+      nativeName: "חי-בר כרמל",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -48912,7 +49309,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_10",
       active: true,
-      name: "תל שיקמונה",
+      name: "Tel Shikmona",
+      nativeName: "תל שיקמונה",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48922,7 +49320,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_11",
       active: true,
-      name: "כנסיית יוחנן הקדוש",
+      name: "Iglesia de San Juan",
+      nativeName: "כנסיית יוחנן הקדוש",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -48932,7 +49331,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_12",
       active: true,
-      name: "הגנים הבהאיים",
+      name: "Jardines Bahá'ís de Haifa",
+      nativeName: "הגנים הבהאיים",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48943,7 +49343,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_13",
       active: true,
-      name: "הציפור הפצועה",
+      name: "El Pájaro Herido",
+      nativeName: "הציפור הפצועה",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48953,7 +49354,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_14",
       active: true,
-      name: "אנדרטת אח\"י אילת",
+      name: "Monumento al INS Eilat",
+      nativeName: "אנדרטת אח\"י אילת",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -48963,7 +49365,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_15",
       active: true,
-      name: "בוסתן כיאט",
+      name: "Huerto Kayat",
+      nativeName: "בוסתן כיאט",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -48983,7 +49386,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_17",
       active: true,
-      name: "בית הגפן",
+      name: "Casa de la Vid (Beit HaGefen)",
+      nativeName: "בית הגפן",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -48994,7 +49398,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_18",
       active: true,
-      name: "גן פסלי אורסולה מלבין",
+      name: "Jardín de Esculturas de Ursula Malbin",
+      nativeName: "גן פסלי אורסולה מלבין",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49004,7 +49409,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_19",
       active: true,
-      name: "פארק הכט",
+      name: "Parque Hecht",
+      nativeName: "פארק הכט",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49014,7 +49420,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_20",
       active: true,
-      name: "כיפת הבאב",
+      name: "Santuario del Báb",
+      nativeName: "כיפת הבאב",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49024,7 +49431,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_21",
       active: true,
-      name: "טכניון הגן האקולוגי",
+      name: "Jardín Ecológico del Technion",
+      nativeName: "טכניון הגן האקולוגי",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49034,7 +49442,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_22",
       active: true,
-      name: "جامع سيدنا محمود",
+      name: "Mezquita Sidna Mahmud",
+      nativeName: "جامع سيدنا محمود",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49044,7 +49453,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_23",
       active: true,
-      name: "ישיבת אור וישועה",
+      name: "Yeshivá Or VeYeshua",
+      nativeName: "ישיבת אור וישועה",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49054,7 +49464,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_24",
       active: true,
-      name: "שוק תלפיות",
+      name: "Mercado de Talpiot",
+      nativeName: "שוק תלפיות",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -49064,7 +49475,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_25",
       active: true,
-      name: "מערת אליהו",
+      name: "Cueva de Elías",
+      nativeName: "מערת אליהו",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49074,7 +49486,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_26",
       active: true,
-      name: "תיאטרון חיפה",
+      name: "Teatro de Haifa",
+      nativeName: "תיאטרון חיפה",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -49084,7 +49497,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_27",
       active: true,
-      name: "אובליסק הטכניון",
+      name: "Obelisco del Technion",
+      nativeName: "אובליסק הטכניון",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -49094,7 +49508,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_28",
       active: true,
-      name: "רום כרמל",
+      name: "Cumbre del Carmelo",
+      nativeName: "רום כרמל",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49104,7 +49519,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_29",
       active: true,
-      name: "הר ערקן",
+      name: "Monte Arkan",
+      nativeName: "הר ערקן",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49114,7 +49530,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "haifa_30",
       active: true,
-      name: "Jardines Baháʼís de Haifa",
+      name: "Jardines Bahá'ís de Haifa",
       category: 'poi', type: "Naturaleza",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49126,7 +49542,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_0",
       active: true,
-      name: "מוזיאון להסטוריה אילת",
+      name: "Museo de Historia de Eilat",
+      nativeName: "מוזיאון להסטוריה אילת",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49137,7 +49554,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_1",
       active: true,
-      name: "טופ 94",
+      name: "Top 94",
+      nativeName: "טופ 94",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -49148,7 +49566,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_2",
       active: true,
-      name: "פארק המצפה התת-ימי",
+      name: "Parque del Observatorio Submarino",
+      nativeName: "פארק המצפה התת-ימי",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -49159,7 +49578,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_3",
       active: true,
-      name: "ריף הדולפינים",
+      name: "Arrecife de los Delfines",
+      nativeName: "ריף הדולפינים",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49170,7 +49590,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_4",
       active: true,
-      name: "قلعة العقبة",
+      name: "Castillo de Áqaba",
+      nativeName: "قلعة العقبة",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -49180,7 +49601,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_5",
       active: true,
-      name: "متحف آثار إقليم العقبة",
+      name: "Museo Arqueológico de Áqaba",
+      nativeName: "متحف آثار إقليم العقبة",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49190,7 +49612,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_6",
       active: true,
-      name: "דגל הדיו",
+      name: "Monumento de la Bandera de Tinta",
+      nativeName: "דגל הדיו",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -49210,7 +49633,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_8",
       active: true,
-      name: "آيلة",
+      name: "Ayla (sitio arqueológico)",
+      nativeName: "آيلة",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -49230,7 +49654,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_10",
       active: true,
-      name: "חוף הנסיכה",
+      name: "Playa de la Princesa",
+      nativeName: "חוף הנסיכה",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49241,7 +49666,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_11",
       active: true,
-      name: "פארק אופירה",
+      name: "Parque Ofira",
+      nativeName: "פארק אופירה",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49251,7 +49677,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_12",
       active: true,
-      name: "הר שלמה",
+      name: "Monte Salomón",
+      nativeName: "הר שלמה",
       category: 'poi', type: "Mirador",
       icon: "🌄",
       bg: "#E8FDE8",
@@ -49261,7 +49688,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_13",
       active: true,
-      name: "חוות גמלים",
+      name: "Granja de Camellos",
+      nativeName: "חוות גמלים",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49271,7 +49699,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_14",
       active: true,
-      name: "צוקי גשרון",
+      name: "Acantilados de Gishron",
+      nativeName: "צוקי גשרון",
       category: 'poi', type: "Mirador",
       icon: "🌄",
       bg: "#E8FDE8",
@@ -49281,7 +49710,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_15",
       active: true,
-      name: "חוף הדולפין",
+      name: "Playa del Delfín",
+      nativeName: "חוף הדולפין",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49291,7 +49721,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_16",
       active: true,
-      name: "הר שחמון",
+      name: "Monte Shajmón",
+      nativeName: "הר שחמון",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49301,7 +49732,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_17",
       active: true,
-      name: "רמת יותם",
+      name: "Meseta de Yotam",
+      nativeName: "רמת יותם",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49311,7 +49743,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_18",
       active: true,
-      name: "הר שחורת",
+      name: "Monte Shejorot",
+      nativeName: "הר שחורת",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49321,7 +49754,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_19",
       active: true,
-      name: "הר אמיר",
+      name: "Monte Amir",
+      nativeName: "הר אמיר",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49331,7 +49765,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_20",
       active: true,
-      name: "הר יהושפט",
+      name: "Monte Josafat",
+      nativeName: "הר יהושפט",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49351,7 +49786,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_22",
       active: true,
-      name: "אתר צלילה -סטי\"ל (24 מטר)",
+      name: "Sitio de buceo Satil (24 metros)",
+      nativeName: "אתר צלילה -סטי\"ל (24 מטר)",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -49362,7 +49798,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "eilat_23",
       active: true,
-      name: "אילת עירי",
+      name: "Museo Municipal de Eilat",
+      nativeName: "אילת עירי",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49385,7 +49822,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_0",
       active: true,
-      name: "松伯美術館",
+      name: "Museo de Arte Shōhaku",
+      nativeName: "松伯美術館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49396,7 +49834,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_1",
       active: true,
-      name: "平城宮跡資料館",
+      name: "Museo del Yacimiento del Palacio Heijō",
+      nativeName: "平城宮跡資料館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49407,7 +49846,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_2",
       active: true,
-      name: "京都府立山城郷土資料館（ふるさとミュージアム山城）",
+      name: "Museo Local de Yamashiro de la Prefectura de Kioto (Furusato Museum Yamashiro)",
+      nativeName: "京都府立山城郷土資料館（ふるさとミュージアム山城）",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49417,7 +49857,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_3",
       active: true,
-      name: "中野美術館",
+      name: "Museo de Arte Nakano",
+      nativeName: "中野美術館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49427,7 +49868,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_4",
       active: true,
-      name: "大和文華館",
+      name: "Museo Yamato Bunkakan",
+      nativeName: "大和文華館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -49437,7 +49879,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_5",
       active: true,
-      name: "郡山城跡",
+      name: "Ruinas del Castillo de Kōriyama",
+      nativeName: "郡山城跡",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -49447,7 +49890,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_6",
       active: true,
-      name: "元興寺小塔院跡",
+      name: "Ruinas del Kotō-in del Templo Gangō-ji",
+      nativeName: "元興寺小塔院跡",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -49457,7 +49901,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_7",
       active: true,
-      name: "薬師寺",
+      name: "Templo Yakushi-ji",
+      nativeName: "薬師寺",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49468,7 +49913,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_8",
       active: true,
-      name: "喜光寺",
+      name: "Templo Kikō-ji",
+      nativeName: "喜光寺",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49479,7 +49925,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_9",
       active: true,
-      name: "海龍王寺",
+      name: "Templo Kairyūō-ji",
+      nativeName: "海龍王寺",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49490,7 +49937,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_10",
       active: true,
-      name: "法華寺",
+      name: "Templo Hokke-ji",
+      nativeName: "法華寺",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49501,7 +49949,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_11",
       active: true,
-      name: "白毫寺 (Byakugō-ji)",
+      name: "Templo Byakugō-ji",
+      nativeName: "白毫寺 (Byakugō-ji)",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -49511,7 +49960,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_12",
       active: true,
-      name: "頭塔 (Zuto Tower)",
+      name: "Torre Zutō",
+      nativeName: "頭塔 (Zuto Tower)",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -49521,7 +49971,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_13",
       active: true,
-      name: "平城天皇陵",
+      name: "Mausoleo del Emperador Heizei",
+      nativeName: "平城天皇陵",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -49531,7 +49982,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_14",
       active: true,
-      name: "史跡 元興寺小塔院跡",
+      name: "Sitio Histórico: Ruinas del Kotō-in del Templo Gangō-ji",
+      nativeName: "史跡 元興寺小塔院跡",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -49541,7 +49993,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_15",
       active: true,
-      name: "依水園",
+      name: "Jardín Isui-en",
+      nativeName: "依水園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49552,7 +50005,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_16",
       active: true,
-      name: "吉城園",
+      name: "Jardín Yoshiki-en",
+      nativeName: "吉城園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49563,7 +50017,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_17",
       active: true,
-      name: "旧大乗院庭園",
+      name: "Antiguo Jardín Daijō-in",
+      nativeName: "旧大乗院庭園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49573,7 +50028,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_18",
       active: true,
-      name: "関西文化学術研究都市記念公園",
+      name: "Parque Conmemorativo de la Ciudad Científica de Kansai",
+      nativeName: "関西文化学術研究都市記念公園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49583,7 +50039,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_19",
       active: true,
-      name: "子規の庭",
+      name: "Jardín de Shiki",
+      nativeName: "子規の庭",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -49593,7 +50050,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_20",
       active: true,
-      name: "夕日地蔵",
+      name: "Jizō del Atardecer",
+      nativeName: "夕日地蔵",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -49603,7 +50061,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_21",
       active: true,
-      name: "箱本館紺屋",
+      name: "Casa-Museo Hakomotokan Konya",
+      nativeName: "箱本館紺屋",
       category: 'poi', type: "Mirador",
       icon: "🌄",
       bg: "#E8FDE8",
@@ -49613,7 +50072,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_22",
       active: true,
-      name: "朱雀門",
+      name: "Puerta Suzakumon",
+      nativeName: "朱雀門",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49623,7 +50083,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_23",
       active: true,
-      name: "若草山",
+      name: "Monte Wakakusa",
+      nativeName: "若草山",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49633,7 +50094,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_24",
       active: true,
-      name: "高円山",
+      name: "Monte Takamado",
+      nativeName: "高円山",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49643,7 +50105,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_25",
       active: true,
-      name: "春日山",
+      name: "Monte Kasuga",
+      nativeName: "春日山",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49653,7 +50116,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_26",
       active: true,
-      name: "芳山",
+      name: "Monte Yoshi",
+      nativeName: "芳山",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49663,7 +50127,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_27",
       active: true,
-      name: "花山",
+      name: "Monte Hana",
+      nativeName: "花山",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49673,7 +50138,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_28",
       active: true,
-      name: "中谷堂",
+      name: "Nakatanidō",
+      nativeName: "中谷堂",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49684,7 +50150,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "nara_29",
       active: true,
-      name: "ならまち格子の家",
+      name: "Casa de Celosías de Naramachi",
+      nativeName: "ならまち格子の家",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49728,7 +50195,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "wadimusa_0",
       active: true,
-      name: "الوعيرة",
+      name: "Castillo de Al-Wu'ayra",
+      nativeName: "الوعيرة",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -49748,7 +50216,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "wadimusa_2",
       active: true,
-      name: "البترا",
+      name: "Petra",
+      nativeName: "البترا",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -49829,7 +50298,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "wadimusa_10",
       active: true,
-      name: "جبل المذبح",
+      name: "Monte del Altar (Jabal al-Madbah)",
+      nativeName: "جبل المذبح",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49889,7 +50359,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "wadimusa_16",
       active: true,
-      name: "جبل النبي هارون",
+      name: "Monte del Profeta Aarón (Jabal Haroun)",
+      nativeName: "جبل النبي هارون",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -49931,7 +50402,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "wadirum_1",
       active: true,
-      name: "وادي رم",
+      name: "Wadi Rum",
+      nativeName: "وادي رم",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -49961,7 +50433,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "wadirum_4",
       active: true,
-      name: "أبو نخيلة",
+      name: "Abu Nkheila",
+      nativeName: "أبو نخيلة",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50045,7 +50518,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_0",
       active: true,
-      name: "מוזיאון להסטוריה אילת",
+      name: "Museo de Historia de Eilat",
+      nativeName: "מוזיאון להסטוריה אילת",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50056,7 +50530,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_1",
       active: true,
-      name: "טופ 94",
+      name: "Top 94",
+      nativeName: "טופ 94",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -50067,7 +50542,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_2",
       active: true,
-      name: "פארק המצפה התת-ימי",
+      name: "Parque del Observatorio Submarino",
+      nativeName: "פארק המצפה התת-ימי",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -50078,7 +50554,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_3",
       active: true,
-      name: "ריף הדולפינים",
+      name: "Arrecife de los Delfines",
+      nativeName: "ריף הדולפינים",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50089,7 +50566,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_4",
       active: true,
-      name: "قلعة العقبة",
+      name: "Castillo de Aqaba",
+      nativeName: "قلعة العقبة",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -50099,7 +50577,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_5",
       active: true,
-      name: "متحف آثار إقليم العقبة",
+      name: "Museo Arqueológico de Aqaba",
+      nativeName: "متحف آثار إقليم العقبة",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50109,7 +50588,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_6",
       active: true,
-      name: "דגל הדיו",
+      name: "Monumento Bandera de Tinta",
+      nativeName: "דגל הדיו",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50129,7 +50609,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_8",
       active: true,
-      name: "آيلة",
+      name: "Ayla",
+      nativeName: "آيلة",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50149,7 +50630,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_10",
       active: true,
-      name: "פארק אופירה",
+      name: "Parque Ofira",
+      nativeName: "פארק אופירה",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50159,7 +50641,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_11",
       active: true,
-      name: "חוות גמלים",
+      name: "Granja de Camellos",
+      nativeName: "חוות גמלים",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50169,7 +50652,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_12",
       active: true,
-      name: "חוף הדולפין",
+      name: "Playa del Delfín",
+      nativeName: "חוף הדולפין",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50179,7 +50663,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_13",
       active: true,
-      name: "مرصد طيور العقبة",
+      name: "Observatorio de Aves de Aqaba",
+      nativeName: "مرصد طيور العقبة",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50189,7 +50674,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_14",
       active: true,
-      name: "הר שחמון",
+      name: "Monte Shachamon",
+      nativeName: "הר שחמון",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -50199,7 +50685,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_15",
       active: true,
-      name: "רמת יותם",
+      name: "Meseta de Yotam",
+      nativeName: "רמת יותם",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -50209,7 +50696,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_16",
       active: true,
-      name: "גבעת שחורת",
+      name: "Colina Shecharut",
+      nativeName: "גבעת שחורת",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -50219,7 +50707,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_17",
       active: true,
-      name: "جبل الأخضر",
+      name: "Monte Verde (Jabal Al-Akhdar)",
+      nativeName: "جبل الأخضر",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -50229,7 +50718,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_18",
       active: true,
-      name: "הר צפחות",
+      name: "Monte Tzfachot",
+      nativeName: "הר צפחות",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -50249,7 +50739,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_20",
       active: true,
-      name: "אתר צלילה -סטי\"ל (24 מטר)",
+      name: "Sitio de Buceo - Lancha Misilera Hundida (24 m)",
+      nativeName: "אתר צלילה -סטי\"ל (24 מטר)",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50260,7 +50751,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "aqaba_21",
       active: true,
-      name: "אילת עירי",
+      name: "Eilat, Mi Ciudad",
+      nativeName: "אילת עירי",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50293,7 +50785,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_0",
       active: true,
-      name: "Бекініс",
+      name: "Fortaleza",
+      nativeName: "Бекініс",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -50304,7 +50797,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_1",
       active: true,
-      name: "Дінмұхамед Қонаев Пәтер Мұражайы",
+      name: "Museo del Apartamento de Dinmujamed Kunáyev",
+      nativeName: "Дінмұхамед Қонаев Пәтер Мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50315,7 +50809,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_2",
       active: true,
-      name: "Қазақстан Республикасының Мемлекеттік Орталық Мұражайы",
+      name: "Museo Estatal Central de la República de Kazajistán",
+      nativeName: "Қазақстан Республикасының Мемлекеттік Орталық Мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50326,7 +50821,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_3",
       active: true,
-      name: "ҚР Мемлекеттік Ә. Қастеев атындағы өнер мұражайы",
+      name: "Museo Estatal de Arte Kasteyev",
+      nativeName: "ҚР Мемлекеттік Ә. Қастеев атындағы өнер мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50337,7 +50833,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_4",
       active: true,
-      name: "Қазақстан Республикасы орталық теміржол көлігі мұражайы",
+      name: "Museo Central de Transporte Ferroviario de Kazajistán",
+      nativeName: "Қазақстан Республикасы орталық теміржол көлігі мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50347,7 +50844,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_5",
       active: true,
-      name: "Вознесенск Шіркеуі",
+      name: "Catedral de la Ascensión",
+      nativeName: "Вознесенск Шіркеуі",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50358,7 +50856,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_6",
       active: true,
-      name: "Ықылас атындағы халық музыкалық аспаптар мұражайы",
+      name: "Museo de Instrumentos Musicales Populares Ykylas",
+      nativeName: "Ықылас атындағы халық музыкалық аспаптар мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50368,7 +50867,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_7",
       active: true,
-      name: "Орталық Демалыс және Мәдениет Саябағы",
+      name: "Parque Central de Cultura y Recreación",
+      nativeName: "Орталық Демалыс және Мәдениет Саябағы",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50379,7 +50879,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_8",
       active: true,
-      name: "Бас Ботаникалық Бақ",
+      name: "Jardín Botánico Principal",
+      nativeName: "Бас Ботаникалық Бақ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50390,7 +50891,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_9",
       active: true,
-      name: "Д. А. Қонаев ескерткіші",
+      name: "Monumento a D. A. Kunáyev",
+      nativeName: "Д. А. Қонаев ескерткіші",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50400,7 +50902,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_10",
       active: true,
-      name: "Аманкелді Иманов",
+      name: "Amangueldi Ímanov",
+      nativeName: "Аманкелді Иманов",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50410,7 +50913,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_11",
       active: true,
-      name: "Абылай хан",
+      name: "Abylai Kan",
+      nativeName: "Абылай хан",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50420,7 +50924,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_12",
       active: true,
-      name: "Абай Ескерткіші",
+      name: "Monumento a Abai",
+      nativeName: "Абай Ескерткіші",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50430,7 +50935,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_13",
       active: true,
-      name: "ARTиШОК",
+      name: "ARTiSHOCK",
+      nativeName: "ARTиШОК",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -50441,7 +50947,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_14",
       active: true,
-      name: "Храм в честь иконы Божией Матери Всех скорбящих Радосте",
+      name: "Iglesia del Icono de la Virgen Alegría de Todos los Afligidos",
+      nativeName: "Храм в честь иконы Божией Матери Всех скорбящих Радосте",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50451,7 +50958,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_15",
       active: true,
-      name: "Никольск шіркеуі",
+      name: "Iglesia de San Nicolás",
+      nativeName: "Никольск шіркеуі",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50461,7 +50969,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_16",
       active: true,
-      name: "Михаил Лермонтов атындағы мемлекеттік академиялық орыс драма театры",
+      name: "Teatro Dramático Ruso Académico Estatal Lérmontov",
+      nativeName: "Михаил Лермонтов атындағы мемлекеттік академиялық орыс драма театры",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -50472,7 +50981,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_17",
       active: true,
-      name: "Н. Сац атындағы балалар мен жасөспірімдерге арналған театр",
+      name: "Teatro Infantil y Juvenil Natalia Sats",
+      nativeName: "Н. Сац атындағы балалар мен жасөспірімдерге арналған театр",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -50483,7 +50993,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_18",
       active: true,
-      name: "28 гвардия-панфиловшылар атын. саябақ",
+      name: "Parque de los 28 Panfílovtsy",
+      nativeName: "28 гвардия-панфиловшылар атын. саябақ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50493,7 +51004,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_19",
       active: true,
-      name: "Баум Тоғайы",
+      name: "Arboleda Baum",
+      nativeName: "Баум Тоғайы",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50503,7 +51015,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_20",
       active: true,
-      name: "Қазақстан Республикасының Тұңғыш Президентінің атындағы Саябақ",
+      name: "Parque del Primer Presidente de Kazajistán",
+      nativeName: "Қазақстан Республикасының Тұңғыш Президентінің атындағы Саябақ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50513,7 +51026,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_21",
       active: true,
-      name: "Алматы хайуанаттар бағы",
+      name: "Zoológico de Almaty",
+      nativeName: "Алматы хайуанаттар бағы",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -50524,7 +51038,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_22",
       active: true,
-      name: "Храм Христа Спасителя",
+      name: "Catedral de Cristo Salvador",
+      nativeName: "Храм Христа Спасителя",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50534,7 +51049,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_23",
       active: true,
-      name: "София атындағы собор",
+      name: "Catedral de Santa Sofía",
+      nativeName: "София атындағы собор",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50544,7 +51060,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_24",
       active: true,
-      name: "Абай атындағы Қазақ Ұлттық опера және балет театры",
+      name: "Teatro Nacional Kazajo de Ópera y Ballet Abai",
+      nativeName: "Абай атындағы Қазақ Ұлттық опера және балет театры",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -50555,7 +51072,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_25",
       active: true,
-      name: "Көк Базар",
+      name: "Bazar Verde",
+      nativeName: "Көк Базар",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -50565,7 +51083,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_26",
       active: true,
-      name: "Зазеркалье",
+      name: "Al Otro Lado del Espejo",
+      nativeName: "Зазеркалье",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -50575,7 +51094,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_27",
       active: true,
-      name: "Қазақстан Республикасы Президентінің мұрағаты",
+      name: "Archivo Presidencial de Kazajistán",
+      nativeName: "Қазақстан Республикасы Президентінің мұрағаты",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50585,7 +51105,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_28",
       active: true,
-      name: "Ғалымдар Үйі",
+      name: "Casa de los Científicos",
+      nativeName: "Ғалымдар Үйі",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50595,7 +51116,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "almaty_29",
       active: true,
-      name: "\"Көк-Төбе\" теледидар мұнарасы",
+      name: "Torre de Televisión Kok-Tobe",
+      nativeName: "\"Көк-Төбе\" теледидар мұнарасы",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50637,7 +51159,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_0",
       active: true,
-      name: "Қазақстан Республикасының Ұлттық Мұражайы",
+      name: "Museo Nacional de la República de Kazajistán",
+      nativeName: "Қазақстан Республикасының Ұлттық Мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50648,7 +51171,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_1",
       active: true,
-      name: "Бейт Рахель Хабад Любавич",
+      name: "Sinagoga Beit Rajel Jabad Lubávich",
+      nativeName: "Бейт Рахель Хабад Любавич",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50659,7 +51183,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_2",
       active: true,
-      name: "Ботаникалық бақ",
+      name: "Jardín Botánico",
+      nativeName: "Ботаникалық бақ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50670,7 +51195,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_3",
       active: true,
-      name: "Атамекен Қазақстан картасы этно-мемориалдық кешені",
+      name: "Complejo Etnomemorial Atameken (Mapa de Kazajistán)",
+      nativeName: "Атамекен Қазақстан картасы этно-мемориалдық кешені",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50680,7 +51206,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_4",
       active: true,
-      name: "Жетісу саябағы",
+      name: "Parque Zhetysu",
+      nativeName: "Жетісу саябағы",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -50690,7 +51217,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_5",
       active: true,
-      name: "Бәйтерек",
+      name: "Baiterek",
+      nativeName: "Бәйтерек",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50700,7 +51228,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_6",
       active: true,
-      name: "Әзірет Сұлтан мешіті",
+      name: "Mezquita Hazrat Sultán",
+      nativeName: "Әзірет Сұлтан мешіті",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50710,7 +51239,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_7",
       active: true,
-      name: "Мәңгілік Ел салтанат қақпасы",
+      name: "Arco Triunfal Mangilik El",
+      nativeName: "Мәңгілік Ел салтанат қақпасы",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50720,7 +51250,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_8",
       active: true,
-      name: "Астана Опера",
+      name: "Ópera de Astaná",
+      nativeName: "Астана Опера",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -50742,7 +51273,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_10",
       active: true,
-      name: "Әбу Насыр әл-Фараби мешіті",
+      name: "Mezquita Abu Nasr al-Farabi",
+      nativeName: "Әбу Насыр әл-Фараби мешіті",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -50752,7 +51284,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_11",
       active: true,
-      name: "Астана-Экспо КС",
+      name: "Astana Expo",
+      nativeName: "Астана-Экспо КС",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50763,7 +51296,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_12",
       active: true,
-      name: "Қазақстан Теміржол тарихы Мұражайы",
+      name: "Museo de Historia Ferroviaria de Kazajistán",
+      nativeName: "Қазақстан Теміржол тарихы Мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50773,7 +51307,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_13",
       active: true,
-      name: "ҚР Тұңғыш Президенті Н. Ә. Назарбаевтың мұражайы",
+      name: "Museo del Primer Presidente Nursultán Nazarbáyev",
+      nativeName: "ҚР Тұңғыш Президенті Н. Ә. Назарбаевтың мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50783,7 +51318,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_14",
       active: true,
-      name: "Т34-85",
+      name: "T-34-85",
+      nativeName: "Т34-85",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50793,7 +51329,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_15",
       active: true,
-      name: "Студия 1337",
+      name: "Estudio 1337",
+      nativeName: "Студия 1337",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50824,7 +51361,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_18",
       active: true,
-      name: "Дракон",
+      name: "Dragón",
+      nativeName: "Дракон",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50834,7 +51372,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "astana_19",
       active: true,
-      name: "Олимпиада сақиналары",
+      name: "Anillos Olímpicos",
+      nativeName: "Олимпиада сақиналары",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50876,7 +51415,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_0",
       active: true,
-      name: "«Әзірет Сұлтан» Ұлттық тарихи-мәдени музей-қорығы",
+      name: "Reserva Museo Histórico-Cultural Nacional Azret Sultán",
+      nativeName: "«Әзірет Сұлтан» Ұлттық тарихи-мәдени музей-қорығы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50887,7 +51427,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_1",
       active: true,
-      name: "Қожа Ахмет Ясауи кесенесі",
+      name: "Mausoleo de Khoja Ahmed Yasaui",
+      nativeName: "Қожа Ахмет Ясауи кесенесі",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50897,7 +51438,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_2",
       active: true,
-      name: "Этнографиялық Мұражай",
+      name: "Museo Etnográfico",
+      nativeName: "Этнографиялық Мұражай",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50907,7 +51449,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_3",
       active: true,
-      name: "Шығыс Моншасы",
+      name: "Baños Orientales",
+      nativeName: "Шығыс Моншасы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50917,7 +51460,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_4",
       active: true,
-      name: "Тұңғыш Президент Мұражайы",
+      name: "Museo del Primer Presidente",
+      nativeName: "Тұңғыш Президент Мұражайы",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -50927,7 +51471,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_5",
       active: true,
-      name: "Гол+Пас БК",
+      name: "Club de Billar Gol+Pas",
+      nativeName: "Гол+Пас БК",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -50937,7 +51482,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_6",
       active: true,
-      name: "Олимп БК",
+      name: "Club de Billar Olimp",
+      nativeName: "Олимп БК",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -50947,7 +51493,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_7",
       active: true,
-      name: "Бильярд",
+      name: "Billar",
+      nativeName: "Бильярд",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -50957,7 +51504,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_8",
       active: true,
-      name: "Көлтөбе көне қалашығы",
+      name: "Antiguo Asentamiento de Koltobe",
+      nativeName: "Көлтөбе көне қалашығы",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -50967,7 +51515,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_9",
       active: true,
-      name: "Түйе керуені",
+      name: "Caravana de Camellos",
+      nativeName: "Түйе керуені",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -50977,7 +51526,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "turkistan_10",
       active: true,
-      name: "Сәулет ескерткіші",
+      name: "Monumento Arquitectónico",
+      nativeName: "Сәулет ескерткіші",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51000,7 +51550,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_0",
       active: true,
-      name: "داو فاتح الخير",
+      name: "Dhow Fateh Al Khair",
+      nativeName: "داو فاتح الخير",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51011,7 +51562,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_1",
       active: true,
-      name: "متحف الكويت الوطني",
+      name: "Museo Nacional de Kuwait",
+      nativeName: "متحف الكويت الوطني",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51021,7 +51573,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_2",
       active: true,
-      name: "مسجد الإمام زين العابدين",
+      name: "Mezquita del Imam Zain Al-Abidin",
+      nativeName: "مسجد الإمام زين العابدين",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -51032,7 +51585,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_3",
       active: true,
-      name: "قصر السيف",
+      name: "Palacio Al Seif",
+      nativeName: "قصر السيف",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -51042,7 +51596,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_4",
       active: true,
-      name: "حديقة الحيوان",
+      name: "Zoológico de Kuwait",
+      nativeName: "حديقة الحيوان",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -51052,7 +51607,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_5",
       active: true,
-      name: "أبراج الكويت",
+      name: "Torres de Kuwait",
+      nativeName: "أبراج الكويت",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51062,7 +51618,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_6",
       active: true,
-      name: "برج التحرير",
+      name: "Torre de la Liberación",
+      nativeName: "برج التحرير",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51072,7 +51629,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_7",
       active: true,
-      name: "المركز العلمي",
+      name: "Centro Científico",
+      nativeName: "المركز العلمي",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51094,7 +51652,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_9",
       active: true,
-      name: "متحف طارق رجب",
+      name: "Museo Tareq Rajab",
+      nativeName: "متحف طارق رجب",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51105,7 +51664,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_10",
       active: true,
-      name: "بيت دكسون",
+      name: "Casa Dickson",
+      nativeName: "بيت دكسون",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51115,7 +51675,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_11",
       active: true,
-      name: "قصر نايف",
+      name: "Palacio Nayef",
+      nativeName: "قصر نايف",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -51125,7 +51686,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_12",
       active: true,
-      name: "حديقة الحيوانات في الكويت",
+      name: "Parque Zoológico de Kuwait",
+      nativeName: "حديقة الحيوانات في الكويت",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -51145,7 +51707,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_14",
       active: true,
-      name: "عكاز",
+      name: "Isla Okkaz",
+      nativeName: "عكاز",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51155,7 +51718,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kuwaitcity_15",
       active: true,
-      name: "قصر الشيخ خزعل",
+      name: "Palacio del Jeque Khazal",
+      nativeName: "قصر الشيخ خزعل",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51198,7 +51762,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_0",
       active: true,
-      name: "Зоологический музей",
+      name: "Museo Zoológico",
+      nativeName: "Зоологический музей",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51209,7 +51774,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_1",
       active: true,
-      name: "Национальный Исторический Музей",
+      name: "Museo Histórico Nacional",
+      nativeName: "Национальный Исторический Музей",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51220,7 +51786,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_2",
       active: true,
-      name: "Мемориальный дом-музей М.В.Фрунзе",
+      name: "Casa Museo Memorial de M. V. Frunze",
+      nativeName: "Мемориальный дом-музей М.В.Фрунзе",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51231,7 +51798,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_3",
       active: true,
-      name: "Дом-музей Алыкула Осмонова",
+      name: "Casa Museo de Alykul Osmónov",
+      nativeName: "Дом-музей Алыкула Осмонова",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51241,7 +51809,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_4",
       active: true,
-      name: "Найманбай манасчы",
+      name: "Monumento a Naimanbái Manaschy",
+      nativeName: "Найманбай манасчы",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51252,7 +51821,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_5",
       active: true,
-      name: "Панфилов атындагы сейилбак",
+      name: "Parque Panfílov",
+      nativeName: "Панфилов атындагы сейилбак",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -51272,7 +51842,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_7",
       active: true,
-      name: "Ботанический сад \"КНУ имени Жусупа Баласагына\"",
+      name: "Jardín Botánico de la Universidad Nacional Zhusup Balasaguín",
+      nativeName: "Ботанический сад \"КНУ имени Жусупа Баласагына\"",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -51282,7 +51853,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_8",
       active: true,
-      name: "Кара-Жыгач багы",
+      name: "Parque Kara-Zhygach",
+      nativeName: "Кара-Жыгач багы",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -51292,7 +51864,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_9",
       active: true,
-      name: "Воскресенский собор",
+      name: "Catedral de la Resurrección",
+      nativeName: "Воскресенский собор",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -51302,7 +51875,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_10",
       active: true,
-      name: "Ошский рынок",
+      name: "Bazar de Osh",
+      nativeName: "Ошский рынок",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -51312,7 +51886,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_11",
       active: true,
-      name: "Дендрарий-заповедник имени Гареева",
+      name: "Reserva Dendrológica Gareev",
+      nativeName: "Дендрарий-заповедник имени Гареева",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -51323,7 +51898,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_12",
       active: true,
-      name: "Ботанический сад имени Э.З. Гареева",
+      name: "Jardín Botánico E. Z. Gareev",
+      nativeName: "Ботанический сад имени Э.З. Гареева",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -51334,7 +51910,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_13",
       active: true,
-      name: "Кыргызско-Российских отношений",
+      name: "Monumento a las Relaciones Kirguiso-Rusas",
+      nativeName: "Кыргызско-Российских отношений",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -51344,7 +51921,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_14",
       active: true,
-      name: "Филармония",
+      name: "Filarmónica",
+      nativeName: "Филармония",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -51354,7 +51932,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_15",
       active: true,
-      name: "Русский Драматический Театр",
+      name: "Teatro Dramático Ruso",
+      nativeName: "Русский Драматический Театр",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -51364,7 +51943,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_16",
       active: true,
-      name: "Музей изобразительных искусств имени Гапара Айтиева",
+      name: "Museo de Bellas Artes Gapar Aitíev",
+      nativeName: "Музей изобразительных искусств имени Гапара Айтиева",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51375,7 +51955,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_17",
       active: true,
-      name: "Кузнечная крепость",
+      name: "Fortaleza del Herrero",
+      nativeName: "Кузнечная крепость",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -51385,7 +51966,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_18",
       active: true,
-      name: "Евразия паркы",
+      name: "Parque Eurasia",
+      nativeName: "Евразия паркы",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -51396,7 +51978,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_19",
       active: true,
-      name: "Иллюзион",
+      name: "Ilusión",
+      nativeName: "Иллюзион",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -51406,7 +51989,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_20",
       active: true,
-      name: "Парк \"Асанбай\"",
+      name: "Parque Asanbái",
+      nativeName: "Парк \"Асанбай\"",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -51416,7 +52000,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bishkek_21",
       active: true,
-      name: "Нулевой километр",
+      name: "Kilómetro Cero",
+      nativeName: "Нулевой километр",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51470,7 +52055,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_0",
       active: true,
-      name: "Историко-этнографический музей Сулайман-Тоо",
+      name: "Museo Histórico-Etnográfico Sulaimán-Too",
+      nativeName: "Историко-этнографический музей Сулайман-Тоо",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51481,7 +52067,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_1",
       active: true,
-      name: "Айкол Манас",
+      name: "Monumento a Aikol Manas",
+      nativeName: "Айкол Манас",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51491,7 +52078,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_2",
       active: true,
-      name: "Узбекский драматический театр имени З. М. Бабура",
+      name: "Teatro Dramático Uzbeko Zajiriddín Bábur",
+      nativeName: "Узбекский драматический театр имени З. М. Бабура",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -51501,7 +52089,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_3",
       active: true,
-      name: "Археологический музей",
+      name: "Museo Arqueológico",
+      nativeName: "Археологический музей",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51521,7 +52110,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_5",
       active: true,
-      name: "Тургунбай Садыков атындагы Ош облустук корком сурот музейи",
+      name: "Museo Regional de Bellas Artes Turgunbái Sadýkov de Osh",
+      nativeName: "Тургунбай Садыков атындагы Ош облустук корком сурот музейи",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51531,7 +52121,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_6",
       active: true,
-      name: "Поселение бронзового века",
+      name: "Asentamiento de la Edad de Bronce",
+      nativeName: "Поселение бронзового века",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51541,7 +52132,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_7",
       active: true,
-      name: "Средневековая баня",
+      name: "Baño Medieval",
+      nativeName: "Средневековая баня",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51561,7 +52153,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_9",
       active: true,
-      name: "Бел таш",
+      name: "Piedra Bel Tash",
+      nativeName: "Бел таш",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51571,7 +52164,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_10",
       active: true,
-      name: "Кол таш",
+      name: "Piedra Kol Tash",
+      nativeName: "Кол таш",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51581,7 +52175,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "osh_11",
       active: true,
-      name: "Памятник Курманжан Датка",
+      name: "Monumento a Kurmanyán Dátka",
+      nativeName: "Памятник Курманжан Датка",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51614,7 +52209,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_0",
       active: true,
-      name: "بيت بيروت",
+      name: "Beit Beirut (Casa de Beirut)",
+      nativeName: "بيت بيروت",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51635,7 +52231,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_2",
       active: true,
-      name: "المتحف الأثري في الجامعة الأمريكية في بيروت",
+      name: "Museo Arqueológico de la Universidad Americana de Beirut",
+      nativeName: "المتحف الأثري في الجامعة الأمريكية في بيروت",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51655,7 +52252,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_4",
       active: true,
-      name: "قلعة بيروت البحرية",
+      name: "Castillo Marítimo de Beirut",
+      nativeName: "قلعة بيروت البحرية",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -51665,7 +52263,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_5",
       active: true,
-      name: "المتحف الوطني",
+      name: "Museo Nacional de Beirut",
+      nativeName: "المتحف الوطني",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -51676,7 +52275,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_6",
       active: true,
-      name: "مسجد الداعوق",
+      name: "Mezquita Al Daouk",
+      nativeName: "مسجد الداعوق",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -51687,7 +52287,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_7",
       active: true,
-      name: "نصب بشير جميل التذكاري",
+      name: "Monumento a Bachir Gemayel",
+      nativeName: "نصب بشير جميل التذكاري",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51697,7 +52298,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_8",
       active: true,
-      name: "اغتيال رفيق الحريري",
+      name: "Sitio del Asesinato de Rafik Hariri",
+      nativeName: "اغتيال رفيق الحريري",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51707,7 +52309,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_9",
       active: true,
-      name: "مقبرة شهداء صبرا وشاتيلا الفلسطينيين",
+      name: "Cementerio de los Mártires Palestinos de Sabra y Chatila",
+      nativeName: "مقبرة شهداء صبرا وشاتيلا الفلسطينيين",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51717,7 +52320,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_10",
       active: true,
-      name: "مضمار سباق الخيل الروماني",
+      name: "Hipódromo Romano",
+      nativeName: "مضمار سباق الخيل الروماني",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51727,7 +52331,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_11",
       active: true,
-      name: "حرش بيروت",
+      name: "Bosque de Beirut (Horsh Beirut)",
+      nativeName: "حرش بيروت",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -51737,7 +52342,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_12",
       active: true,
-      name: "كاتدرائية القديس جاورجيوس للروم الأرثوذكس",
+      name: "Catedral Ortodoxa de San Jorge",
+      nativeName: "كاتدرائية القديس جاورجيوس للروم الأرثوذكس",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -51747,7 +52353,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_13",
       active: true,
-      name: "كاتدرائية مار جرجس المارونية",
+      name: "Catedral Maronita de San Jorge",
+      nativeName: "كاتدرائية مار جرجس المارونية",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -51767,7 +52374,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_15",
       active: true,
-      name: "جامع محمد الأمين",
+      name: "Mezquita Mohammad Al-Amin",
+      nativeName: "جامع محمد الأمين",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -51777,7 +52385,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_16",
       active: true,
-      name: "تمثال الشهداء",
+      name: "Estatua de los Mártires",
+      nativeName: "تمثال الشهداء",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -51797,7 +52406,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_18",
       active: true,
-      name: "البيضة",
+      name: "El Huevo",
+      nativeName: "البيضة",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51807,7 +52417,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_19",
       active: true,
-      name: "البيت الوردي",
+      name: "La Casa Rosa",
+      nativeName: "البيت الوردي",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51817,7 +52428,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_20",
       active: true,
-      name: "البعصة",
+      name: "Al Bas'a",
+      nativeName: "البعصة",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51827,7 +52439,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beirut_21",
       active: true,
-      name: "المنارة القديمة",
+      name: "Faro Antiguo de Beirut",
+      nativeName: "المنارة القديمة",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -51911,7 +52524,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baalbek_0",
       active: true,
-      name: "حجر الحبلى",
+      name: "Piedra de la Embarazada",
+      nativeName: "حجر الحبلى",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51921,7 +52535,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baalbek_1",
       active: true,
-      name: "معبد باخوس",
+      name: "Templo de Baco",
+      nativeName: "معبد باخوس",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51931,7 +52546,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baalbek_2",
       active: true,
-      name: "معبد جوبيتر",
+      name: "Templo de Júpiter",
+      nativeName: "معبد جوبيتر",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51951,7 +52567,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baalbek_4",
       active: true,
-      name: "قلعة بعلبك",
+      name: "Ciudadela de Baalbek",
+      nativeName: "قلعة بعلبك",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -51981,7 +52598,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "baalbek_7",
       active: true,
-      name: "אוכף טופוגרפי",
+      name: "Collado Topográfico",
+      nativeName: "אוכף טופוגרפי",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -52014,7 +52632,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_0",
       active: true,
-      name: "沙梨頭更館 Posto do Guarda-Nocturno no Patane",
+      name: "Puesto del Vigilante Nocturno de Patane",
+      nativeName: "沙梨頭更館 Posto do Guarda-Nocturno no Patane",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52025,7 +52644,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_1",
       active: true,
-      name: "圆明新园",
+      name: "Nuevo Jardín Yuanming",
+      nativeName: "圆明新园",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52036,7 +52656,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_2",
       active: true,
-      name: "澳門回歸賀禮陳列館 Museu das Ofertas sobre a Transferência de Soberania de Macau",
+      name: "Museo de las Ofrendas por el Retorno de Macao",
+      nativeName: "澳門回歸賀禮陳列館 Museu das Ofertas sobre a Transferência de Soberania de Macau",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52047,7 +52668,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_3",
       active: true,
-      name: "澳門教科文中心 Centro Unesco de Macau",
+      name: "Centro UNESCO de Macao",
+      nativeName: "澳門教科文中心 Centro Unesco de Macau",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52058,7 +52680,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_4",
       active: true,
-      name: "路氹歷史館 Museu da História da Taipa e Coloane",
+      name: "Museo de Historia de Taipa y Coloane",
+      nativeName: "路氹歷史館 Museu da História da Taipa e Coloane",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52069,7 +52692,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_5",
       active: true,
-      name: "大炮台 Fortaleza do Monte",
+      name: "Fortaleza del Monte",
+      nativeName: "大炮台 Fortaleza do Monte",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -52079,7 +52703,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_6",
       active: true,
-      name: "聖老楞佐堂 Igreja de S. Lourenço",
+      name: "Iglesia de San Lorenzo",
+      nativeName: "聖老楞佐堂 Igreja de S. Lourenço",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52090,7 +52715,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_7",
       active: true,
-      name: "望廈炮台 Fortaleza de Mong-Há",
+      name: "Fortaleza de Mong-Há",
+      nativeName: "望廈炮台 Fortaleza de Mong-Há",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -52100,7 +52726,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_8",
       active: true,
-      name: "東望洋炮台 Fortaleza da Guia",
+      name: "Fortaleza de Guía",
+      nativeName: "東望洋炮台 Fortaleza da Guia",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -52110,7 +52737,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_9",
       active: true,
-      name: "關閘 Portas do Cerco",
+      name: "Puertas del Cerco",
+      nativeName: "關閘 Portas do Cerco",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -52120,7 +52748,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_10",
       active: true,
-      name: "馬禮遜教堂 Capela Protestante de Macau",
+      name: "Capilla Protestante de Macao",
+      nativeName: "馬禮遜教堂 Capela Protestante de Macau",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52130,7 +52759,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_11",
       active: true,
-      name: "三街會館 Templo Sam Kai Vui Kun",
+      name: "Templo Sam Kai Vui Kun",
+      nativeName: "三街會館 Templo Sam Kai Vui Kun",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52140,7 +52770,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_12",
       active: true,
-      name: "望德聖母堂 Igreja de São Lázaro",
+      name: "Iglesia de San Lázaro",
+      nativeName: "望德聖母堂 Igreja de São Lázaro",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52150,7 +52781,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_13",
       active: true,
-      name: "舊城牆遺址 Troço das Antigas Muralhas de Defesa",
+      name: "Restos de las Antiguas Murallas de Defensa",
+      nativeName: "舊城牆遺址 Troço das Antigas Muralhas de Defesa",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -52160,7 +52792,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_14",
       active: true,
-      name: "柯邦迪前地 Praça de Ponte e Horta",
+      name: "Plaza Ponte e Horta",
+      nativeName: "柯邦迪前地 Praça de Ponte e Horta",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52170,7 +52803,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_15",
       active: true,
-      name: "華士古達嘉馬花園 Jardim Vasco da Gama",
+      name: "Jardín Vasco da Gama",
+      nativeName: "華士古達嘉馬花園 Jardim Vasco da Gama",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52180,7 +52814,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_16",
       active: true,
-      name: "得勝花園 Jardim da Vitória",
+      name: "Jardín de la Victoria",
+      nativeName: "得勝花園 Jardim da Vitória",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52190,7 +52825,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_17",
       active: true,
-      name: "金蓮花廣場 A Praça Flor de Lótus",
+      name: "Plaza de la Flor de Loto",
+      nativeName: "金蓮花廣場 A Praça Flor de Lótus",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52200,7 +52836,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_18",
       active: true,
-      name: "澳門文化中心 Centro Cultural de Macau",
+      name: "Centro Cultural de Macao",
+      nativeName: "澳門文化中心 Centro Cultural de Macau",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -52211,7 +52848,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_19",
       active: true,
-      name: "媽閣廟 Templo de A-Ma",
+      name: "Templo de A-Ma",
+      nativeName: "媽閣廟 Templo de A-Ma",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52221,7 +52859,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_20",
       active: true,
-      name: "耶穌會紀念廣場",
+      name: "Plaza de la Compañía de Jesús",
+      nativeName: "耶穌會紀念廣場",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52231,7 +52870,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_21",
       active: true,
-      name: "營地街市市政綜合大樓 Complexo Municipal de Sao Domingos",
+      name: "Complejo Municipal del Mercado de San Domingos",
+      nativeName: "營地街市市政綜合大樓 Complexo Municipal de Sao Domingos",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -52241,7 +52881,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_22",
       active: true,
-      name: "沙梨頭街市  Mercado Municipal do Patane",
+      name: "Mercado Municipal de Patane",
+      nativeName: "沙梨頭街市  Mercado Municipal do Patane",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -52251,7 +52892,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_23",
       active: true,
-      name: "雀仔園街市 Mercado da Horta da Mitra",
+      name: "Mercado de Horta da Mitra",
+      nativeName: "雀仔園街市 Mercado da Horta da Mitra",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -52261,7 +52903,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_24",
       active: true,
-      name: "紅街市 Mercado Municipal Almirante Lacerda",
+      name: "Mercado Municipal Almirante Lacerda",
+      nativeName: "紅街市 Mercado Municipal Almirante Lacerda",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -52271,7 +52914,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_25",
       active: true,
-      name: "台山街市市政綜合大樓 Complexo Municipal do Mercado de Tamagnini Barbosa",
+      name: "Complejo Municipal del Mercado Tamagnini Barbosa",
+      nativeName: "台山街市市政綜合大樓 Complexo Municipal do Mercado de Tamagnini Barbosa",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -52281,7 +52925,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_26",
       active: true,
-      name: "澳門百老匯 Broadway Macau",
+      name: "Broadway Macao",
+      nativeName: "澳門百老匯 Broadway Macau",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -52292,7 +52937,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_27",
       active: true,
-      name: "擁抱 Abraço",
+      name: "Abrazo (escultura)",
+      nativeName: "擁抱 Abraço",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -52302,7 +52948,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_28",
       active: true,
-      name: "歐維士石像 Monumento a Jorge Álvares",
+      name: "Monumento a Jorge Álvares",
+      nativeName: "歐維士石像 Monumento a Jorge Álvares",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -52312,7 +52959,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "macau_29",
       active: true,
-      name: "東方基金會會址 Casa Garden",
+      name: "Casa Garden (Sede de la Fundación Oriente)",
+      nativeName: "東方基金會會址 Casa Garden",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -52365,7 +53013,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "male_1",
       active: true,
-      name: "ސަލްމާން ރަސްގެފާނުގެ މިސްކިތް",
+      name: "Mezquita del Rey Salman",
+      nativeName: "ސަލްމާން ރަސްގެފާނުގެ މިސްކިތް",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52375,7 +53024,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "male_2",
       active: true,
-      name: "ބިހުރޯޒު ކަމަނާ މިސްކިތް",
+      name: "Mezquita Bihuroazu Kamana",
+      nativeName: "ބިހުރޯޒު ކަމަނާ މިސްކިތް",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52385,7 +53035,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "male_3",
       active: true,
-      name: "ހުކުރު މިސްކިތް",
+      name: "Antigua Mezquita del Viernes (Malé Hukuru Miskiy)",
+      nativeName: "ހުކުރު މިސްކިތް",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52415,7 +53066,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "male_6",
       active: true,
-      name: "ޤައުމީ ދާރުލްއާސާރު",
+      name: "Museo Nacional de Maldivas",
+      nativeName: "ޤައުމީ ދާރުލްއާސާރު",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52533,7 +53185,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kharkhorin_0",
       active: true,
-      name: "Эрдэнэ Зуу",
+      name: "Monasterio de Erdene Zuu",
+      nativeName: "Эрдэнэ Зуу",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52543,7 +53196,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kharkhorin_1",
       active: true,
-      name: "Хархорум",
+      name: "Karakórum",
+      nativeName: "Хархорум",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -52594,7 +53248,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kharkhorin_6",
       active: true,
-      name: "Хар Хорум",
+      name: "Karakórum",
+      nativeName: "Хар Хорум",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -52626,7 +53281,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dalanzadgad_0",
       active: true,
-      name: "Өмнөговь аймгийн Соёл амралтын хүрээлэн",
+      name: "Complejo Cultural y Recreativo de la Provincia de Ömnögovi",
+      nativeName: "Өмнөговь аймгийн Соёл амралтын хүрээлэн",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -52636,7 +53292,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dalanzadgad_1",
       active: true,
-      name: "고비3일 도심",
+      name: "Gobi 3 Días - Centro",
+      nativeName: "고비3일 도심",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -52711,7 +53368,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "chitwan_1",
       active: true,
-      name: "चितवन राष्ट्रिय निकुञ्‍ज",
+      name: "Parque Nacional de Chitwan",
+      nativeName: "चितवन राष्ट्रिय निकुञ्‍ज",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52784,7 +53442,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_0",
       active: true,
-      name: "متحف التاريخ الطبيعي",
+      name: "Museo de Historia Natural",
+      nativeName: "متحف التاريخ الطبيعي",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52794,7 +53453,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_1",
       active: true,
-      name: "Oil and Gas Exhibition Center مكتب نفط عمان",
+      name: "Centro de Exhibición de Petróleo y Gas de Omán",
+      nativeName: "Oil and Gas Exhibition Center مكتب نفط عمان",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52804,7 +53464,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_2",
       active: true,
-      name: "جامع السلطان قابوس الأكبر",
+      name: "Gran Mezquita del Sultán Qaboos",
+      nativeName: "جامع السلطان قابوس الأكبر",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52835,7 +53496,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_5",
       active: true,
-      name: "دار الأوبرا السلطانية مسقط",
+      name: "Casa de la Ópera Real de Mascate",
+      nativeName: "دار الأوبرا السلطانية مسقط",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -52846,7 +53508,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_6",
       active: true,
-      name: "جامع الزواوي",
+      name: "Mezquita Al Zawawi",
+      nativeName: "جامع الزواوي",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -52856,7 +53519,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_7",
       active: true,
-      name: "حديقة القرم الطبيعية",
+      name: "Parque Natural de Qurm",
+      nativeName: "حديقة القرم الطبيعية",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52866,7 +53530,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_8",
       active: true,
-      name: "حديقة العامرات",
+      name: "Parque Al Amerat",
+      nativeName: "حديقة العامرات",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -52876,7 +53541,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_9",
       active: true,
-      name: "برج الصحوة",
+      name: "Torre Al Sahwa",
+      nativeName: "برج الصحوة",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -52886,7 +53552,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_10",
       active: true,
-      name: "جبل قرمذل",
+      name: "Monte Qarmadhil",
+      nativeName: "جبل قرمذل",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -52896,7 +53563,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_11",
       active: true,
-      name: "جبل مريوة",
+      name: "Monte Mariwa",
+      nativeName: "جبل مريوة",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -52906,7 +53574,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_12",
       active: true,
-      name: "جبل مكيب",
+      name: "Monte Makib",
+      nativeName: "جبل مكيب",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -52916,7 +53585,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_13",
       active: true,
-      name: "القبة الفلكية مسقط",
+      name: "Planetario de Mascate",
+      nativeName: "القبة الفلكية مسقط",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -52927,7 +53597,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_14",
       active: true,
-      name: "بناية الريم",
+      name: "Edificio Al Reem",
+      nativeName: "بناية الريم",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -52969,7 +53640,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "muscat_18",
       active: true,
-      name: "مرح لاند",
+      name: "Marah Land",
+      nativeName: "مرح لاند",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -53076,7 +53748,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_0",
       active: true,
-      name: "شاہی قلعہ",
+      name: "Fuerte de Lahore",
+      nativeName: "شاہی قلعہ",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -53086,7 +53759,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_1",
       active: true,
-      name: "فقیر خانہ میوزیم",
+      name: "Museo Fakir Khana",
+      nativeName: "فقیر خانہ میوزیم",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -53096,7 +53770,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_2",
       active: true,
-      name: "جلو پارک",
+      name: "Parque Jallo",
+      nativeName: "جلو پارک",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -53157,7 +53832,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_8",
       active: true,
-      name: "شالامار باغ",
+      name: "Jardines de Shalimar",
+      nativeName: "شالامار باغ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -53207,7 +53883,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_13",
       active: true,
-      name: "اقبال پارک",
+      name: "Parque Iqbal",
+      nativeName: "اقبال پارک",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -53237,7 +53914,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_16",
       active: true,
-      name: "شہداء",
+      name: "Mezquita de los Mártires (Masjid-e-Shuhada)",
+      nativeName: "شہداء",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -53247,7 +53925,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_17",
       active: true,
-      name: "جامعہ کریمیہ نیویں مسجد",
+      name: "Mezquita Jamia Karimia Naeemia",
+      nativeName: "جامعہ کریمیہ نیویں مسجد",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -53257,7 +53936,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lahore_18",
       active: true,
-      name: "گوردوارہ جنم آسھن گرو رام داس",
+      name: "Templo Sij Gurdwara Janam Asthan Guru Ram Das",
+      nativeName: "گوردوارہ جنم آسھن گرو رام داس",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -53442,7 +54122,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "islamabad_6",
       active: true,
-      name: "پاکستان یادگار",
+      name: "Monumento de Pakistán",
+      nativeName: "پاکستان یادگار",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -53452,7 +54133,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "islamabad_7",
       active: true,
-      name: "فاطمہ جناح پارک",
+      name: "Parque Fatima Jinnah",
+      nativeName: "فاطمہ جناح پارک",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -53462,7 +54144,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "islamabad_8",
       active: true,
-      name: "فیصل مسجد",
+      name: "Mezquita Faisal",
+      nativeName: "فیصل مسجد",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -53532,7 +54215,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "islamabad_15",
       active: true,
-      name: "تاج علی ہاؤس مرآبادی",
+      name: "Casa Taj Ali (Morabadi)",
+      nativeName: "تاج علی ہاؤس مرآبادی",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -53676,7 +54360,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "karachi_5",
       active: true,
-      name: "زمزمہ پارک",
+      name: "Parque Zamzama",
+      nativeName: "زمزمہ پارک",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -53706,7 +54391,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "karachi_8",
       active: true,
-      name: "سفاری باغ",
+      name: "Parque Safari",
+      nativeName: "سفاری باغ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -53726,7 +54412,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "karachi_10",
       active: true,
-      name: "Daryalāl Sankat Mochan Temple",
+      name: "Templo Daryalal Sankat Mochan",
+      nativeName: "Daryalāl Sankat Mochan Temple",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -53756,7 +54443,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "karachi_13",
       active: true,
-      name: "جزیرہ شمس پیر",
+      name: "Isla Shams Pir",
+      nativeName: "جزیرہ شمس پیر",
       category: 'poi', type: "Mirador",
       icon: "🌄",
       bg: "#E8FDE8",
@@ -53944,7 +54632,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_1",
       active: true,
-      name: "مهد آل سعود",
+      name: "Cuna de la Casa de Saud",
+      nativeName: "مهد آل سعود",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -53954,7 +54643,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_2",
       active: true,
-      name: "حديقة الملك سلمان",
+      name: "Parque del Rey Salman",
+      nativeName: "حديقة الملك سلمان",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -53965,7 +54655,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_3",
       active: true,
-      name: "قلعة المصمك",
+      name: "Fuerte Al Masmak",
+      nativeName: "قلعة المصمك",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -53975,7 +54666,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_4",
       active: true,
-      name: "قصر المربع",
+      name: "Palacio Al Murabba",
+      nativeName: "قصر المربع",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -53985,7 +54677,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_5",
       active: true,
-      name: "المتحف الوطني السعودي",
+      name: "Museo Nacional de Arabia Saudita",
+      nativeName: "المتحف الوطني السعودي",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -53995,7 +54688,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_6",
       active: true,
-      name: "منتزه السويدي",
+      name: "Parque As-Suwaidi",
+      nativeName: "منتزه السويدي",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -54005,7 +54699,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_7",
       active: true,
-      name: "الطريف",
+      name: "Barrio At-Turaif",
+      nativeName: "الطريف",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -54015,7 +54710,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_8",
       active: true,
-      name: "بوليفارد رياض سيتي",
+      name: "Boulevard Riyadh City",
+      nativeName: "بوليفارد رياض سيتي",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54025,7 +54721,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_9",
       active: true,
-      name: "مسرح محمد عبده",
+      name: "Teatro Mohammed Abdu",
+      nativeName: "مسرح محمد عبده",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -54045,7 +54742,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_11",
       active: true,
-      name: "قصر الملك عبد الله بن عبد العزيز",
+      name: "Palacio del Rey Abdullah bin Abdulaziz",
+      nativeName: "قصر الملك عبد الله بن عبد العزيز",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54055,7 +54753,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_12",
       active: true,
-      name: "قصر الملك عبدالله بن عبدالعزيز",
+      name: "Palacio del Rey Abdullah bin Abdulaziz",
+      nativeName: "قصر الملك عبدالله بن عبدالعزيز",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54065,7 +54764,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_13",
       active: true,
-      name: "قصر اليمامة",
+      name: "Palacio Al Yamama",
+      nativeName: "قصر اليمامة",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54075,7 +54775,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_14",
       active: true,
-      name: "سباركيز",
+      name: "Sparkies",
+      nativeName: "سباركيز",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -54085,7 +54786,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_15",
       active: true,
-      name: "حديقة الحيوانات",
+      name: "Zoológico de Riad",
+      nativeName: "حديقة الحيوانات",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -54105,7 +54807,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "riyadh_17",
       active: true,
-      name: "ونترلاند",
+      name: "Winterland",
+      nativeName: "ونترلاند",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -54177,7 +54880,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_2",
       active: true,
-      name: "قشلة جدة",
+      name: "Cuartel de Jeddah (Qishla)",
+      nativeName: "قشلة جدة",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54187,7 +54891,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_3",
       active: true,
-      name: "مسجد الملك سعود",
+      name: "Mezquita del Rey Saud",
+      nativeName: "مسجد الملك سعود",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54197,7 +54902,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_4",
       active: true,
-      name: "مسجد المعمار",
+      name: "Mezquita Al Ma'mar",
+      nativeName: "مسجد المعمار",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54207,7 +54913,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_5",
       active: true,
-      name: "مسجد الجفالي",
+      name: "Mezquita Al Jafali",
+      nativeName: "مسجد الجفالي",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54248,7 +54955,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_9",
       active: true,
-      name: "باب الجديد",
+      name: "Puerta Nueva (Bab Al Jadid)",
+      nativeName: "باب الجديد",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54258,7 +54966,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_10",
       active: true,
-      name: "قصر السلام الملكي",
+      name: "Palacio Real As-Salam",
+      nativeName: "قصر السلام الملكي",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54268,7 +54977,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_11",
       active: true,
-      name: "ملاهي الشلال",
+      name: "Parque de Atracciones Al Shallal",
+      nativeName: "ملاهي الشلال",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -54279,7 +54989,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_12",
       active: true,
-      name: "تيم لاب بوليدرس جدة",
+      name: "teamLab Borderless Jeddah",
+      nativeName: "تيم لاب بوليدرس جدة",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54299,7 +55010,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeddah_14",
       active: true,
-      name: "Fun Island - جزيرة المرح",
+      name: "Fun Island (Isla de la Diversión)",
+      nativeName: "Fun Island - جزيرة المرح",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -54403,7 +55115,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_1",
       active: true,
-      name: "مسجد القبلتين",
+      name: "Mezquita de las Dos Qiblas",
+      nativeName: "مسجد القبلتين",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54413,7 +55126,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_2",
       active: true,
-      name: "مسجد الغمامة",
+      name: "Mezquita Al Ghamama",
+      nativeName: "مسجد الغمامة",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54423,7 +55137,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_3",
       active: true,
-      name: "المسجد النبوي",
+      name: "Mezquita del Profeta (Al-Masjid an-Nabawi)",
+      nativeName: "المسجد النبوي",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54433,7 +55148,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_4",
       active: true,
-      name: "قمة جبل أحد",
+      name: "Cumbre del Monte Uhud",
+      nativeName: "قمة جبل أحد",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -54443,7 +55159,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_5",
       active: true,
-      name: "معرض القرآن الكريم",
+      name: "Exposición del Sagrado Corán",
+      nativeName: "معرض القرآن الكريم",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54454,7 +55171,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_6",
       active: true,
-      name: "متحف السلام",
+      name: "Museo de la Paz",
+      nativeName: "متحف السلام",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54465,7 +55183,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_7",
       active: true,
-      name: "مكتب ابو عبدالله الجابري المدينة",
+      name: "Oficina de Abu Abdullah Al Yabri, Medina",
+      nativeName: "مكتب ابو عبدالله الجابري المدينة",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54475,7 +55194,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_8",
       active: true,
-      name: "معرض عمارة المسجد النبوي",
+      name: "Exposición de la Arquitectura de la Mezquita del Profeta",
+      nativeName: "معرض عمارة المسجد النبوي",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54485,7 +55205,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_9",
       active: true,
-      name: "قصر امير المدينة",
+      name: "Palacio del Emir de Medina",
+      nativeName: "قصر امير المدينة",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54495,7 +55216,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_10",
       active: true,
-      name: "J Walk جي ووك",
+      name: "J Walk",
+      nativeName: "J Walk جي ووك",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -54506,7 +55228,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_11",
       active: true,
-      name: "قصر طيبة",
+      name: "Palacio Taibah",
+      nativeName: "قصر طيبة",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54526,7 +55249,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_13",
       active: true,
-      name: "محطة مخيط - قطار الحجاز",
+      name: "Estación Mukhaytim - Ferrocarril del Hiyaz",
+      nativeName: "محطة مخيط - قطار الحجاز",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -54536,7 +55260,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_14",
       active: true,
-      name: "قصر سعيد بن العاص الأثري",
+      name: "Palacio Histórico de Said bin Al-As",
+      nativeName: "قصر سعيد بن العاص الأثري",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -54546,7 +55271,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_15",
       active: true,
-      name: "حديقة السكة الحديدة",
+      name: "Parque del Ferrocarril",
+      nativeName: "حديقة السكة الحديدة",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -54556,7 +55282,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_16",
       active: true,
-      name: "واحة ميلاف",
+      name: "Oasis Milaf",
+      nativeName: "واحة ميلاف",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54567,7 +55294,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_17",
       active: true,
-      name: "مزرعة سلمان الفارسي المحمدي",
+      name: "Granja de Salman Al-Farisi",
+      nativeName: "مزرعة سلمان الفارسي المحمدي",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54577,7 +55305,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_18",
       active: true,
-      name: "مركز كوكب البولينج",
+      name: "Centro de Bolos Kawkab",
+      nativeName: "مركز كوكب البولينج",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54587,7 +55316,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "medina_19",
       active: true,
-      name: "مقصد قباء",
+      name: "Mezquita de Quba",
+      nativeName: "مقصد قباء",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54620,7 +55350,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_0",
       active: true,
-      name: "국립해양박물관",
+      name: "Museo Marítimo Nacional",
+      nativeName: "국립해양박물관",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54631,7 +55362,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_1",
       active: true,
-      name: "일제강제동원역사관",
+      name: "Museo Histórico de la Movilización Forzada bajo el Imperio Japonés",
+      nativeName: "일제강제동원역사관",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54642,7 +55374,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_2",
       active: true,
-      name: "복천박물관",
+      name: "Museo Bokcheon",
+      nativeName: "복천박물관",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54653,7 +55386,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_3",
       active: true,
-      name: "부산박물관",
+      name: "Museo de Busan",
+      nativeName: "부산박물관",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54664,7 +55398,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_4",
       active: true,
-      name: "유엔평화기념관",
+      name: "Salón Conmemorativo de la Paz de la ONU",
+      nativeName: "유엔평화기념관",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54675,7 +55410,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_5",
       active: true,
-      name: "범어사",
+      name: "Templo Beomeosa",
+      nativeName: "범어사",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54686,7 +55422,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_6",
       active: true,
-      name: "한국 이슬람교 부산성원",
+      name: "Mezquita Islámica de Busan",
+      nativeName: "한국 이슬람교 부산성원",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -54697,7 +55434,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_7",
       active: true,
-      name: "재한국 국제연합 기념공원",
+      name: "Cementerio Conmemorativo de las Naciones Unidas en Corea",
+      nativeName: "재한국 국제연합 기념공원",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -54708,7 +55446,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_8",
       active: true,
-      name: "씨라이프 부산 아쿠아리움",
+      name: "Acuario SEA LIFE Busan",
+      nativeName: "씨라이프 부산 아쿠아리움",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -54719,7 +55458,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_9",
       active: true,
-      name: "위안부 평화비",
+      name: "Monumento de la Paz a las Mujeres de Confort",
+      nativeName: "위안부 평화비",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -54729,7 +55469,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_10",
       active: true,
-      name: "수영사적공원",
+      name: "Parque Histórico de Suyeong",
+      nativeName: "수영사적공원",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -54739,7 +55480,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_11",
       active: true,
-      name: "감천문화마을",
+      name: "Aldea Cultural de Gamcheon",
+      nativeName: "감천문화마을",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54750,7 +55492,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_12",
       active: true,
-      name: "용두산공원",
+      name: "Parque Yongdusan",
+      nativeName: "용두산공원",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -54760,7 +55503,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_13",
       active: true,
-      name: "숙등공원",
+      name: "Parque Sukdeung",
+      nativeName: "숙등공원",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -54770,7 +55514,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_14",
       active: true,
-      name: "부산시민공원",
+      name: "Parque Ciudadano de Busan",
+      nativeName: "부산시민공원",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -54780,7 +55525,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_15",
       active: true,
-      name: "부산항대교",
+      name: "Puente del Puerto de Busan",
+      nativeName: "부산항대교",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54790,7 +55536,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_16",
       active: true,
-      name: "좌수영성지 곰솔",
+      name: "Pino Gomsol del Yacimiento de la Fortaleza Jwasuyeong",
+      nativeName: "좌수영성지 곰솔",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54800,7 +55547,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_17",
       active: true,
-      name: "해운대 해수욕장",
+      name: "Playa de Haeundae",
+      nativeName: "해운대 해수욕장",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -54810,7 +55558,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_18",
       active: true,
-      name: "부산타워",
+      name: "Torre de Busan",
+      nativeName: "부산타워",
       category: 'poi', type: "Mirador",
       icon: "🌄",
       bg: "#E8FDE8",
@@ -54820,7 +55569,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_19",
       active: true,
-      name: "장산",
+      name: "Monte Jangsan",
+      nativeName: "장산",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -54830,7 +55580,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_20",
       active: true,
-      name: "금련산",
+      name: "Monte Geumnyeonsan",
+      nativeName: "금련산",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -54840,7 +55591,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_21",
       active: true,
-      name: "황령산",
+      name: "Monte Hwangnyeongsan",
+      nativeName: "황령산",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -54850,7 +55602,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_22",
       active: true,
-      name: "구봉산",
+      name: "Monte Gubongsan",
+      nativeName: "구봉산",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -54860,7 +55613,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_23",
       active: true,
-      name: "개좌산",
+      name: "Monte Gaejwasan",
+      nativeName: "개좌산",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -54870,7 +55624,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_24",
       active: true,
-      name: "부영벽산파라빌",
+      name: "Buyoung Byeoksan Parabille",
+      nativeName: "부영벽산파라빌",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54880,7 +55635,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_25",
       active: true,
-      name: "금정산서문",
+      name: "Puerta Oeste del Monte Geumjeongsan",
+      nativeName: "금정산서문",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54890,7 +55646,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_26",
       active: true,
-      name: "용운사",
+      name: "Templo Yongunsa",
+      nativeName: "용운사",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54900,7 +55657,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "busan_27",
       active: true,
-      name: "북장대",
+      name: "Bukjangdae (Puesto de Mando Norte)",
+      nativeName: "북장대",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -54942,7 +55700,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_0",
       active: true,
-      name: "국립제주박물관",
+      name: "Museo Nacional de Jeju",
+      nativeName: "국립제주박물관",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54953,7 +55712,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_1",
       active: true,
-      name: "제주목관아",
+      name: "Oficina Gubernamental de Jeju (Jeju Mokgwana)",
+      nativeName: "제주목관아",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54964,7 +55724,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_2",
       active: true,
-      name: "넥슨컴퓨터박물관",
+      name: "Museo del Computador Nexon",
+      nativeName: "넥슨컴퓨터박물관",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54985,7 +55746,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_4",
       active: true,
-      name: "제주러브랜드 Jeju Love Land",
+      name: "Jeju Loveland",
+      nativeName: "제주러브랜드 Jeju Love Land",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -54995,7 +55757,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_5",
       active: true,
-      name: "제주러브랜드",
+      name: "Jeju Loveland",
+      nativeName: "제주러브랜드",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55005,7 +55768,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_6",
       active: true,
-      name: "제주 4 3 평화공원",
+      name: "Parque de la Paz Jeju 4.3",
+      nativeName: "제주 4 3 평화공원",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55015,7 +55779,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_7",
       active: true,
-      name: "귤림서원",
+      name: "Academia Confuciana Gyullim Seowon",
+      nativeName: "귤림서원",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55025,7 +55790,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_8",
       active: true,
-      name: "제주성지",
+      name: "Yacimiento de la Fortaleza de Jeju",
+      nativeName: "제주성지",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55035,7 +55801,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_9",
       active: true,
-      name: "동문시장",
+      name: "Mercado Dongmun",
+      nativeName: "동문시장",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -55045,7 +55812,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_10",
       active: true,
-      name: "수산봉",
+      name: "Monte Susanbong",
+      nativeName: "수산봉",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -55055,7 +55823,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_11",
       active: true,
-      name: "도두봉",
+      name: "Monte Dodubong",
+      nativeName: "도두봉",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -55065,7 +55834,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_12",
       active: true,
-      name: "산세미오름",
+      name: "Oreum Sansemi",
+      nativeName: "산세미오름",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -55075,7 +55845,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_13",
       active: true,
-      name: "천아오름",
+      name: "Oreum Cheona",
+      nativeName: "천아오름",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -55085,7 +55856,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_14",
       active: true,
-      name: "사라봉",
+      name: "Monte Sarabong",
+      nativeName: "사라봉",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -55106,7 +55878,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_16",
       active: true,
-      name: "한라산국립공원",
+      name: "Parque Nacional del Monte Halla",
+      nativeName: "한라산국립공원",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -55117,7 +55890,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_17",
       active: true,
-      name: "에코랜드 테마파크",
+      name: "Parque Temático Eco Land",
+      nativeName: "에코랜드 테마파크",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55127,7 +55901,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_18",
       active: true,
-      name: "광해군유배지",
+      name: "Sitio de Exilio del Rey Gwanghae",
+      nativeName: "광해군유배지",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55137,7 +55912,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_19",
       active: true,
-      name: "도련지석묘1호",
+      name: "Dolmen de Doryeon N.º 1",
+      nativeName: "도련지석묘1호",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55147,7 +55923,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_20",
       active: true,
-      name: "도련지석묘2호",
+      name: "Dolmen de Doryeon N.º 2",
+      nativeName: "도련지석묘2호",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55157,7 +55934,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_21",
       active: true,
-      name: "수목원 테마파크",
+      name: "Parque Temático del Arboreto",
+      nativeName: "수목원 테마파크",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55167,7 +55945,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "jeju_22",
       active: true,
-      name: "한라산 국립공원",
+      name: "Parque Nacional del Monte Halla",
+      nativeName: "한라산 국립공원",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55457,7 +56236,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_0",
       active: true,
-      name: "戰爭與和平紀念公園主題館",
+      name: "Salón Temático del Parque Conmemorativo de la Guerra y la Paz",
+      nativeName: "戰爭與和平紀念公園主題館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55468,7 +56248,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_1",
       active: true,
-      name: "高雄歷史博物館",
+      name: "Museo de Historia de Kaohsiung",
+      nativeName: "高雄歷史博物館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55479,7 +56260,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_2",
       active: true,
-      name: "舊打狗驛故事館",
+      name: "Casa de Historias de la Antigua Estación de Takao",
+      nativeName: "舊打狗驛故事館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55490,7 +56272,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_3",
       active: true,
-      name: "國立科學工藝博物館",
+      name: "Museo Nacional de Ciencia y Tecnología",
+      nativeName: "國立科學工藝博物館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55501,7 +56284,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_4",
       active: true,
-      name: "見城館",
+      name: "Salón Jiancheng",
+      nativeName: "見城館",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55512,7 +56296,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_5",
       active: true,
-      name: "旗後砲台",
+      name: "Fuerte de Cihou",
+      nativeName: "旗後砲台",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -55522,7 +56307,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_6",
       active: true,
-      name: "大東文化藝術中心",
+      name: "Centro de Arte y Cultura Dadong",
+      nativeName: "大東文化藝術中心",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55533,7 +56319,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_7",
       active: true,
-      name: "高雄市壽山動物園",
+      name: "Zoológico de Shoushan de Kaohsiung",
+      nativeName: "高雄市壽山動物園",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55544,7 +56331,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_8",
       active: true,
-      name: "鳳儀書院",
+      name: "Academia Fengyi",
+      nativeName: "鳳儀書院",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55555,7 +56343,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_9",
       active: true,
-      name: "駁二藝術特區",
+      name: "Distrito de Arte Pier-2",
+      nativeName: "駁二藝術特區",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55566,7 +56355,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_10",
       active: true,
-      name: "打狗英國領事館文化園區",
+      name: "Parque Cultural del Antiguo Consulado Británico de Takao",
+      nativeName: "打狗英國領事館文化園區",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55577,7 +56367,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_11",
       active: true,
-      name: "衛武營都會公園",
+      name: "Parque Metropolitano de Weiwuying",
+      nativeName: "衛武營都會公園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55588,7 +56379,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_12",
       active: true,
-      name: "旗後天后宮",
+      name: "Templo de Tianhou de Cihou",
+      nativeName: "旗後天后宮",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -55598,7 +56390,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_13",
       active: true,
-      name: "雄鎮北門",
+      name: "Puerta Norte Xiongzhen",
+      nativeName: "雄鎮北門",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55608,7 +56401,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_14",
       active: true,
-      name: "逍遙園",
+      name: "Jardín Xiaoyao",
+      nativeName: "逍遙園",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55618,7 +56412,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_15",
       active: true,
-      name: "震洋神社殘跡",
+      name: "Restos del Santuario Shinyo",
+      nativeName: "震洋神社殘跡",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55628,7 +56423,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_16",
       active: true,
-      name: "春秋御閣",
+      name: "Pabellones de la Primavera y el Otoño",
+      nativeName: "春秋御閣",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -55638,7 +56434,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_17",
       active: true,
-      name: "台灣基督長老教會旗後教會",
+      name: "Iglesia Presbiteriana de Cihou de Taiwán",
+      nativeName: "台灣基督長老教會旗後教會",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -55648,7 +56445,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_18",
       active: true,
-      name: "化龍宮",
+      name: "Templo Hualong",
+      nativeName: "化龍宮",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -55658,7 +56456,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_19",
       active: true,
-      name: "蔣公感恩堂",
+      name: "Salón de Gratitud a Chiang Kai-shek",
+      nativeName: "蔣公感恩堂",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -55668,7 +56467,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_20",
       active: true,
-      name: "瑞豐夜市",
+      name: "Mercado Nocturno de Ruifeng",
+      nativeName: "瑞豐夜市",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -55678,7 +56478,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_21",
       active: true,
-      name: "凹子底森林公園",
+      name: "Parque Forestal de Aozihdi",
+      nativeName: "凹子底森林公園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55688,7 +56489,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_22",
       active: true,
-      name: "勞工公園",
+      name: "Parque de los Trabajadores",
+      nativeName: "勞工公園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55698,7 +56500,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_23",
       active: true,
-      name: "高雄公園",
+      name: "Parque de Kaohsiung",
+      nativeName: "高雄公園",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55708,7 +56511,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_24",
       active: true,
-      name: "六合夜市",
+      name: "Mercado Nocturno de Liuhe",
+      nativeName: "六合夜市",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -55718,7 +56522,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_25",
       active: true,
-      name: "衛武營國家藝術文化中心",
+      name: "Centro Nacional de Artes y Cultura de Weiwuying",
+      nativeName: "衛武營國家藝術文化中心",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -55729,7 +56534,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_26",
       active: true,
-      name: "鳳山青年夜市",
+      name: "Mercado Nocturno Juvenil de Fengshan",
+      nativeName: "鳳山青年夜市",
       category: 'foodie', type: "Mercado",
       icon: "🍴",
       bg: "#FDF5E8",
@@ -55739,7 +56545,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_27",
       active: true,
-      name: "光之穹頂",
+      name: "Cúpula de Luz",
+      nativeName: "光之穹頂",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -55749,7 +56556,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_28",
       active: true,
-      name: "龍虎塔",
+      name: "Pagodas del Dragón y el Tigre",
+      nativeName: "龍虎塔",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -55759,7 +56567,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "kaohsiung_29",
       active: true,
-      name: "馳騖寰宇",
+      name: "Recorriendo el Universo",
+      nativeName: "馳騖寰宇",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -55826,7 +56635,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_0",
       active: true,
-      name: "Музей музыкальной культуры им. З.Шахиди",
+      name: "Museo de Cultura Musical Ziyodullo Shahidí",
+      nativeName: "Музей музыкальной культуры им. З.Шахиди",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55837,7 +56647,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_1",
       active: true,
-      name: "Қасри Миллат",
+      name: "Palacio de la Nación",
+      nativeName: "Қасри Миллат",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -55847,7 +56658,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_2",
       active: true,
-      name: "Боғи Хайём",
+      name: "Parque Omar Jayam",
+      nativeName: "Боғи Хайём",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55858,7 +56670,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_3",
       active: true,
-      name: "Парк \"Победы\"",
+      name: "Parque de la Victoria",
+      nativeName: "Парк \"Победы\"",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55868,7 +56681,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_4",
       active: true,
-      name: "Боғи ҳайвонот",
+      name: "Zoológico",
+      nativeName: "Боғи ҳайвонот",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -55878,7 +56692,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_5",
       active: true,
-      name: "Мевлана Яакуб Шарки Мадраса",
+      name: "Madrasa Mevlana Yaqub Charji",
+      nativeName: "Мевлана Яакуб Шарки Мадраса",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -55888,7 +56703,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_6",
       active: true,
-      name: "Боғи устод Рӯдакӣ",
+      name: "Parque Rudakí",
+      nativeName: "Боғи устод Рӯдакӣ",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55898,7 +56714,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_7",
       active: true,
-      name: "Боги ботаники",
+      name: "Jardín Botánico",
+      nativeName: "Боги ботаники",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -55908,7 +56725,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_8",
       active: true,
-      name: "Свято-Никольский собор",
+      name: "Catedral de San Nicolás",
+      nativeName: "Свято-Никольский собор",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -55918,7 +56736,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_9",
       active: true,
-      name: "Ҳайкали Исмоили Сомонӣ",
+      name: "Estatua de Ismail Samani",
+      nativeName: "Ҳайкали Исмоили Сомонӣ",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -55928,7 +56747,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_10",
       active: true,
-      name: "Филармонияи давлатии Точикистон",
+      name: "Filarmónica Estatal de Tayikistán",
+      nativeName: "Филармонияи давлатии Точикистон",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -55938,7 +56758,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_11",
       active: true,
-      name: "Боғи парчами Тоҷикистон",
+      name: "Parque de la Bandera de Tayikistán",
+      nativeName: "Боғи парчами Тоҷикистон",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -55948,7 +56769,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_12",
       active: true,
-      name: "Театри Лоҳути",
+      name: "Teatro Lahutí",
+      nativeName: "Театри Лоҳути",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -55958,7 +56780,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_13",
       active: true,
-      name: "Театри опера ва балети ба номи Садриддин Айнӣ",
+      name: "Teatro de Ópera y Ballet Sadriddín Aini",
+      nativeName: "Театри опера ва балети ба номи Садриддин Айнӣ",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -55968,7 +56791,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_14",
       active: true,
-      name: "Музей музыкальных инструментов Гурминджа Завкибекова",
+      name: "Museo de Instrumentos Musicales Gurminj Zavkibékov",
+      nativeName: "Музей музыкальных инструментов Гурминджа Завкибекова",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55979,7 +56803,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_15",
       active: true,
-      name: "Осорхонаи миллии ёдгориҳои бостонии Тоҷикистон",
+      name: "Museo Nacional de Antigüedades de Tayikistán",
+      nativeName: "Осорхонаи миллии ёдгориҳои бостонии Тоҷикистон",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -55990,7 +56815,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_16",
       active: true,
-      name: "Осорхонаи миллии Тоҷикистон",
+      name: "Museo Nacional de Tayikistán",
+      nativeName: "Осорхонаи миллии Тоҷикистон",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -56001,7 +56827,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_17",
       active: true,
-      name: "Этнографический музей",
+      name: "Museo Etnográfico",
+      nativeName: "Этнографический музей",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -56021,7 +56848,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_19",
       active: true,
-      name: "Хонаи Фирӯзшон",
+      name: "Casa de Firuzshón",
+      nativeName: "Хонаи Фирӯзшон",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -56031,7 +56859,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_20",
       active: true,
-      name: "Компьютерные игры",
+      name: "Videojuegos",
+      nativeName: "Компьютерные игры",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -56041,7 +56870,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "dushanbe_21",
       active: true,
-      name: "Алулак",
+      name: "Alulak",
+      nativeName: "Алулак",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -56073,7 +56903,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khorog_0",
       active: true,
-      name: "Кофар-Калъа",
+      name: "Fortaleza de Kafir-Kalá",
+      nativeName: "Кофар-Калъа",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -56083,7 +56914,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khorog_1",
       active: true,
-      name: "Музей Памир",
+      name: "Museo del Pamir",
+      nativeName: "Музей Памир",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -56093,7 +56925,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khorog_2",
       active: true,
-      name: "ГЭС \"Хорог\"",
+      name: "Central Hidroeléctrica de Jorog",
+      nativeName: "ГЭС \"Хорог\"",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -56188,7 +57021,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_5",
       active: true,
-      name: "Hadrian Tapınağı",
+      name: "Templo de Adriano",
+      nativeName: "Hadrian Tapınağı",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -56208,7 +57042,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_7",
       active: true,
-      name: "İsa Bey Camii",
+      name: "Mezquita de İsa Bey",
+      nativeName: "İsa Bey Camii",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -56218,7 +57053,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_8",
       active: true,
-      name: "Akıncılar Camii",
+      name: "Mezquita de Akıncılar",
+      nativeName: "Akıncılar Camii",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -56228,7 +57064,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_9",
       active: true,
-      name: "Kılıçaslan Camii",
+      name: "Mezquita de Kılıçaslan",
+      nativeName: "Kılıçaslan Camii",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -56248,7 +57085,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_11",
       active: true,
-      name: "Panayırdağ",
+      name: "Monte Panayır",
+      nativeName: "Panayırdağ",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -56258,7 +57096,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_12",
       active: true,
-      name: "Ayasluğ",
+      name: "Colina de Ayasoluk",
+      nativeName: "Ayasluğ",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -56289,7 +57128,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_15",
       active: true,
-      name: "Taş Mektep Müzesi",
+      name: "Museo de la Escuela de Piedra",
+      nativeName: "Taş Mektep Müzesi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -56299,7 +57139,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ephesus_16",
       active: true,
-      name: "Buharlı Lokomotif Müzesi",
+      name: "Museo de la Locomotora de Vapor",
+      nativeName: "Buharlı Lokomotif Müzesi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -56448,7 +57289,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ashgabat_4",
       active: true,
-      name: "Türkmenistanyň Baş Baýdagy",
+      name: "Bandera Principal de Turkmenistán",
+      nativeName: "Türkmenistanyň Baş Baýdagy",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -56458,7 +57300,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ashgabat_5",
       active: true,
-      name: "Taras Şewçenko binasy",
+      name: "Monumento a Taras Shevchenko",
+      nativeName: "Taras Şewçenko binasy",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -56518,7 +57361,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ashgabat_11",
       active: true,
-      name: "Türkmenbaşy Ruhy Metjidi",
+      name: "Mezquita Türkmenbashi Ruhy",
+      nativeName: "Türkmenbaşy Ruhy Metjidi",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -56608,7 +57452,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ashgabat_20",
       active: true,
-      name: "Baş Drama Teatry",
+      name: "Teatro Dramático Principal",
+      nativeName: "Baş Drama Teatry",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -56638,7 +57483,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ashgabat_23",
       active: true,
-      name: "\"Älem\" medeni dynç alyş merkezi",
+      name: "Centro Cultural y de Ocio Älem",
+      nativeName: "\"Älem\" medeni dynç alyş merkezi",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -56648,7 +57494,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ashgabat_24",
       active: true,
-      name: "Türkmenistanyň Döwlet Sirki",
+      name: "Circo Estatal de Turkmenistán",
+      nativeName: "Türkmenistanyň Döwlet Sirki",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -56708,7 +57555,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "ashgabat_30",
       active: true,
-      name: "Mezquita Türkmenbaşy Ruhy (Kipchak)",
+      name: "Mezquita Türkmenbashi Ruhy (Kipchak)",
+      nativeName: "Mezquita Türkmenbaşy Ruhy (Kipchak)",
       category: 'poi', type: "Mezquita",
       icon: "🕌",
       bg: "#E8F0FD",
@@ -56750,7 +57598,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "darvaza_1",
       active: true,
-      name: "Derweze şäherçesi",
+      name: "Poblado de Derweze",
+      nativeName: "Derweze şäherçesi",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -56825,7 +57674,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_1",
       active: true,
-      name: "قلب الشارقة",
+      name: "Corazón de Sharjah",
+      nativeName: "قلب الشارقة",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -56836,7 +57686,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_2",
       active: true,
-      name: "حديقة الممزر",
+      name: "Parque Al Mamzar",
+      nativeName: "حديقة الممزر",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -56846,7 +57697,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_3",
       active: true,
-      name: "مسجد النور",
+      name: "Mezquita Al Noor",
+      nativeName: "مسجد النور",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -56866,7 +57718,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_5",
       active: true,
-      name: "الغرفة الماطرة",
+      name: "Rain Room",
+      nativeName: "الغرفة الماطرة",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -56877,7 +57730,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_6",
       active: true,
-      name: "اشاره الشقه",
+      name: "Al Shuqqa",
+      nativeName: "اشاره الشقه",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -56907,7 +57761,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_9",
       active: true,
-      name: "مربى الشارقة للأحياء المائية",
+      name: "Acuario de Sharjah",
+      nativeName: "مربى الشارقة للأحياء المائية",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -56918,7 +57773,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_10",
       active: true,
-      name: "مربعة علي بن راشد",
+      name: "Plaza Ali bin Rashid",
+      nativeName: "مربعة علي بن راشد",
       category: 'poi', type: "Histórico",
       icon: "🏰",
       bg: "#E8F0FD",
@@ -56979,7 +57835,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "sharjah_16",
       active: true,
-      name: "حديقة الصفا",
+      name: "Parque Al Safa",
+      nativeName: "حديقة الصفا",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -57022,7 +57879,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_0",
       active: true,
-      name: "музей геологии",
+      name: "Museo de Geología",
+      nativeName: "музей геологии",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -57033,7 +57891,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_1",
       active: true,
-      name: "Ташкентский политехнический музей",
+      name: "Museo Politécnico de Taskent",
+      nativeName: "Ташкентский политехнический музей",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -57066,7 +57925,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_4",
       active: true,
-      name: "Oʻzbekiston Respublikasi Amaliy Sanʼati Muzeyi",
+      name: "Museo Estatal de Artes Aplicadas de Uzbekistán",
+      nativeName: "Oʻzbekiston Respublikasi Amaliy Sanʼati Muzeyi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -57087,7 +57947,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_6",
       active: true,
-      name: "Toshkent hayvonot bogʻi",
+      name: "Zoológico de Taskent",
+      nativeName: "Toshkent hayvonot bogʻi",
       category: 'poi', type: "Atracción",
       icon: "🎡",
       bg: "#FDE8F5",
@@ -57118,7 +57979,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_9",
       active: true,
-      name: "Тарас Шевченко",
+      name: "Monumento a Taras Shevchenko",
+      nativeName: "Тарас Шевченко",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -57128,7 +57990,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_10",
       active: true,
-      name: "Дизельная",
+      name: "Estación Diésel",
+      nativeName: "Дизельная",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -57148,7 +58011,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_12",
       active: true,
-      name: "Ташкентская телебашня",
+      name: "Torre de Televisión de Taskent",
+      nativeName: "Ташкентская телебашня",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -57159,7 +58023,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_13",
       active: true,
-      name: "Кафедральный Собор Успения Божeй Матери",
+      name: "Catedral de la Asunción de la Virgen",
+      nativeName: "Кафедральный Собор Успения Божeй Матери",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -57169,7 +58034,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_14",
       active: true,
-      name: "Римско-католический Костел Святейшего Сердца Иисуса",
+      name: "Iglesia Católica del Sagrado Corazón de Jesús",
+      nativeName: "Римско-католический Костел Святейшего Сердца Иисуса",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -57179,7 +58045,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_15",
       active: true,
-      name: "Храм святого Равноапостольного великого князя Владимира",
+      name: "Iglesia de San Vladimiro, Gran Príncipe Igual a los Apóstoles",
+      nativeName: "Храм святого Равноапостольного великого князя Владимира",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -57210,7 +58077,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_18",
       active: true,
-      name: "Oʻzbekiston milliy bogʻi",
+      name: "Parque Nacional de Uzbekistán",
+      nativeName: "Oʻzbekiston milliy bogʻi",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -57230,7 +58098,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_20",
       active: true,
-      name: "Ходжа Ахрор Вали",
+      name: "Complejo Khoja Ahrar Wali",
+      nativeName: "Ходжа Ахрор Вали",
       category: 'poi', type: "Iglesia",
       icon: "⛪",
       bg: "#E8F0FD",
@@ -57260,7 +58129,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_23",
       active: true,
-      name: "Мемориальный комлекс \"Парк Победы\"",
+      name: "Complejo Memorial Parque de la Victoria",
+      nativeName: "Мемориальный комлекс \"Парк Победы\"",
       category: 'poi', type: "Parque",
       icon: "🌿",
       bg: "#E8FDE8",
@@ -57280,7 +58150,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_25",
       active: true,
-      name: "Монумент \"Мужество\"",
+      name: "Monumento Valentía",
+      nativeName: "Монумент \"Мужество\"",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -57290,7 +58161,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_26",
       active: true,
-      name: "Ильхом",
+      name: "Ilkhom",
+      nativeName: "Ильхом",
       category: 'poi', type: "Cultural",
       icon: "🎭",
       bg: "#FDE8F5",
@@ -57310,7 +58182,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_28",
       active: true,
-      name: "Ташкентские куранты",
+      name: "Reloj de Taskent",
+      nativeName: "Ташкентские куранты",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -57320,7 +58193,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "tashkent_29",
       active: true,
-      name: "Минг Урик",
+      name: "Ming Úrik",
+      nativeName: "Минг Урик",
       category: 'poi', type: "Naturaleza",
       icon: "🏔️",
       bg: "#E8FDE8",
@@ -57384,7 +58258,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bukhara_0",
       active: true,
-      name: "Magʻoki Attori masjidi",
+      name: "Mezquita Magoki-Attari",
+      nativeName: "Magʻoki Attori masjidi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -57425,7 +58300,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bukhara_4",
       active: true,
-      name: "Gʻulomjon karvonsaroyi",
+      name: "Caravasar Gulomyán",
+      nativeName: "Gʻulomjon karvonsaroyi",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -57555,7 +58431,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bukhara_17",
       active: true,
-      name: "Viloyat oʻlkashunoslik muzeyi",
+      name: "Museo Regional de Historia Local",
+      nativeName: "Viloyat oʻlkashunoslik muzeyi",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -57565,7 +58442,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bukhara_18",
       active: true,
-      name: "Музей кукол",
+      name: "Museo de Muñecas",
+      nativeName: "Музей кукол",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
@@ -57667,7 +58545,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khiva_4",
       active: true,
-      name: "Дишан - Кала",
+      name: "Dishán-Kalá",
+      nativeName: "Дишан - Кала",
       category: 'poi', type: "Histórico",
       icon: "🏛️",
       bg: "#E8F0FD",
@@ -57778,7 +58657,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khiva_15",
       active: true,
-      name: "Спальня Хана",
+      name: "Dormitorio del Kan",
+      nativeName: "Спальня Хана",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -57788,7 +58668,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khiva_16",
       active: true,
-      name: "Минарет Чилли-Авлия",
+      name: "Minarete Chil-Ovliyo",
+      nativeName: "Минарет Чилли-Авлия",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -57798,7 +58679,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khiva_17",
       active: true,
-      name: "Вход в комплекс",
+      name: "Entrada al Complejo",
+      nativeName: "Вход в комплекс",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
@@ -57808,7 +58690,8 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "khiva_18",
       active: true,
-      name: "Гробница",
+      name: "Tumba",
+      nativeName: "Гробница",
       category: 'poi', type: "Atracción",
       icon: "✨",
       bg: "#FDE8F5",
