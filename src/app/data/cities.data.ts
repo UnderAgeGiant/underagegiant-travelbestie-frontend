@@ -160,7 +160,7 @@ export const WORLD_CITIES: City[] = [
   { id: 'puertovaras',      name: 'Puerto Varas',         country: 'Chile', flag: '🇨🇱', region: 'americas' },
   { id: 'puertonatales',    name: 'Puerto Natales',       country: 'Chile', flag: '🇨🇱', region: 'americas' },
   { id: 'puntaarenas',      name: 'Punta Arenas',         country: 'Chile', flag: '🇨🇱', region: 'americas' },
-  { id: 'hangaroa',         name: 'Hanga Roa',            country: 'Chile', flag: '🇨🇱', region: 'americas' },
+  { id: 'hangaroa',         name: 'Hanga Roa (Rapa Nui)',            country: 'Chile', flag: '🇨🇱', region: 'americas' },
   { id: 'havana', name: 'Havana', country: 'Cuba', flag: '🇨🇺', region: 'americas' },
   { id: 'quito', name: 'Quito', country: 'Ecuador', flag: '🇪🇨', region: 'americas' },
   { id: 'guayaquil', name: 'Guayaquil', country: 'Ecuador', flag: '🇪🇨', region: 'americas' },
