@@ -2018,3 +2018,72 @@ app-nav { display: block; }
   transition: background .15s, color .15s;
 }
 .unsplash-badge:hover { background: rgba(0,0,0,.55); color: #fff; }
+
+/* In-app notifications */
+.notif-wrap { position: relative; }
+.notif-bell {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%; padding: 0;
+  background: #fff; border: 1.5px solid var(--border); color: var(--t2);
+  cursor: pointer; transition: all .2s;
+}
+.notif-bell:hover,
+.notif-bell-active { border-color: var(--lav-d); color: var(--lav-d); box-shadow: var(--sh); }
+.notif-bell-icon { width: 19px; height: 19px; }
+.notif-bell-shake { animation: notif-shake .9s cubic-bezier(.36,.07,.19,.97) both; }
+@keyframes notif-shake {
+  0%, 100% { transform: rotate(0); }
+  15% { transform: rotate(-14deg); color: var(--peach-d); border-color: var(--peach-d); }
+  30% { transform: rotate(12deg);  color: var(--peach-d); border-color: var(--peach-d); }
+  45% { transform: rotate(-10deg); color: var(--peach-d); border-color: var(--peach-d); }
+  60% { transform: rotate(8deg);   color: var(--peach-d); }
+  75% { transform: rotate(-5deg); }
+  90% { transform: rotate(3deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .notif-bell-shake { animation: none; }
+}
+.notif-badge {
+  position: absolute; top: -4px; right: -4px; min-width: 17px; height: 17px;
+  border-radius: 99px; background: var(--peach-d); color: #fff;
+  font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  padding: 0 4px; border: 2px solid #fff;
+}
+.notif-panel {
+  position: absolute; top: calc(100% + 10px); right: 0; width: 340px;
+  background: #fff; border: 1.5px solid var(--border); border-radius: 20px;
+  box-shadow: var(--sh-lg); z-index: 500; overflow: hidden;
+  animation: slideDown .25s cubic-bezier(.34,1.2,.64,1) both;
+}
+.notif-panel-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 16px 20px 12px;
+  background: linear-gradient(135deg, var(--lav), var(--peach));
+  border-bottom: 1px solid var(--border);
+}
+.notif-mute-btn {
+  background: transparent; border: none; padding: 0;
+  font-size: 11.5px; color: var(--t2); cursor: pointer; text-decoration: underline;
+  white-space: nowrap;
+}
+.notif-list { max-height: 380px; overflow-y: auto; padding: 8px; }
+.notif-empty { padding: 28px 0; text-align: center; font-size: 13px; color: var(--t3); }
+.notif-item {
+  display: block; width: 100%; text-align: left;
+  background: #fff; border: none; border-radius: 12px; padding: 10px 12px;
+  cursor: pointer; transition: background .15s;
+}
+.notif-item:hover { background: var(--cream); }
+.notif-item.unread { background: var(--lav); }
+.notif-item-title { font-size: 13px; font-weight: 600; color: var(--t1); }
+.notif-item-body {
+  font-size: 12px; color: var(--t2); margin-top: 1px;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.notif-item-date { font-size: 10.5px; color: var(--t3); margin-top: 3px; }
+
+/* Mobile override — must stay after the default .notif-panel rules (cascade rule
+   documented in CLAUDE.md): fixed full-width panel so it doesn't overflow. */
+@media (max-width: 768px) {
+  .notif-panel { position: fixed; top: 64px; left: 12px; right: 12px; width: auto; }
+}

@@ -1,9 +1,10 @@
 import { Component, inject, output } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
+import { NotificationBellComponent } from '../shared/notification-bell.component';
 
 @Component({
   selector: 'app-nav-desktop',
-  imports: [],
+  imports: [NotificationBellComponent],
   template: `
     <nav class="nav">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -80,6 +81,10 @@ import { NavFacadeService } from '../nav-facade.service';
               + Comprar
             </button>
           </div>
+        }
+
+        @if (facade.auth.isLoggedIn()) {
+          <app-notification-bell />
         }
 
         @if (!facade.auth.isLoggedIn()) {
