@@ -38,6 +38,40 @@
         <source>Cerrar sesión</source>
         <target>Sign out</target>
       </trans-unit>
+
+      <!-- ── notification-bell.component ── -->
+      <trans-unit id="notif.bellAria" datatype="html">
+        <source>Notificaciones</source>
+        <target>Notifications</target>
+      </trans-unit>
+      <trans-unit id="notif.panelTitle" datatype="html">
+        <source>Notificaciones</source>
+        <target>Notifications</target>
+      </trans-unit>
+      <trans-unit id="notif.mute" datatype="html">
+        <source>Silenciar todas</source>
+        <target>Mute all</target>
+      </trans-unit>
+      <trans-unit id="notif.unmute" datatype="html">
+        <source>Silenciadas — reactivar</source>
+        <target>Muted — turn back on</target>
+      </trans-unit>
+      <trans-unit id="notif.empty" datatype="html">
+        <source>Sin notificaciones aún</source>
+        <target>No notifications yet</target>
+      </trans-unit>
+      <trans-unit id="notif.now" datatype="html">
+        <source>ahora</source>
+        <target>now</target>
+      </trans-unit>
+      <trans-unit id="notif.minsAgo" datatype="html">
+        <source>hace <x id="count" equiv-text="mins"/> min</source>
+        <target><x id="count" equiv-text="mins"/> min ago</target>
+      </trans-unit>
+      <trans-unit id="notif.hoursAgo" datatype="html">
+        <source>hace <x id="count" equiv-text="hours"/> h</source>
+        <target><x id="count" equiv-text="hours"/> h ago</target>
+      </trans-unit>
       <trans-unit id="nav.myPlans" datatype="html">
         <source>Mis viajes guardados</source>
         <target>My saved trips</target>
