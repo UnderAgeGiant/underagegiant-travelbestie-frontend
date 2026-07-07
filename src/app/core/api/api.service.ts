@@ -9,6 +9,7 @@ import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../mode
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
+import { AppNotification, NotificationStatus } from '../models/notification.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
@@ -277,5 +278,25 @@ export class ApiService {
   getFavorites(): Observable<FavoritedTrip[]> {
     if (this.useMocks) return of([]);
     return this.http.get<FavoritedTrip[]>(`${this.base}/favorites`);
+  }
+
+  getNotifications(): Observable<{ notifications: AppNotification[] }> {
+    if (this.useMocks) return of({ notifications: [] });
+    return this.http.get<{ notifications: AppNotification[] }>(`${this.base}/notifications`);
+  }
+
+  getNotificationStatus(): Observable<NotificationStatus> {
+    if (this.useMocks) return of({ count: 0, muted: false });
+    return this.http.get<NotificationStatus>(`${this.base}/notifications/status`);
+  }
+
+  markNotificationsRead(): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/notifications/read`, {});
+  }
+
+  setNotificationsMuted(muted: boolean): Observable<{ muted: boolean }> {
+    if (this.useMocks) return of({ muted });
+    return this.http.put<{ muted: boolean }>(`${this.base}/notifications/mute`, { muted });
   }
 }
