@@ -10,6 +10,7 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
+import { dayRouteUrl as buildDayRouteUrl } from '../../../core/maps/google-maps-url.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 7;   // first hour rendered (07:00)
@@ -103,6 +104,12 @@ function transitIcon(mode: string): string {
           <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
                   [disabled]="exporting()" (click)="exportItinerary()" type="button"
                   i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
+        }
+        @if (routeUrl()) {
+          <a class="btn-pill btn-outline tl-route-btn"
+             [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
+            <span i18n="@@timeline.dayRoute">🗺️ Ruta del día</span>
+          </a>
         }
       </div>
 
@@ -344,6 +351,23 @@ export class DayTimelineComponent {
     if (attCount)     parts.push(`${attCount} ${attCount === 1 ? 'actividad' : 'actividades'}`);
     if (transitCount) parts.push(`${transitCount} ${transitCount === 1 ? 'transporte' : 'transportes'}`);
     return `${day} · ${parts.join(' · ')}`;
+  });
+
+  // Walking route through the selected day's timed attractions, in start-time
+  // order; the stop's lodging (when set) is origin and destination.
+  protected readonly routeUrl = computed<string | null>(() => {
+    if (this.transportMode()) return null;
+    const stop = this.selectedStopForDay();
+    const day  = this.selectedDay();
+    if (!stop || !day) return null;
+    const city = WORLD_CITIES.find(c => c.id === stop.cityId);
+    const attractions = city ? getAttractions(city) : [];
+    const names = this.attractionsForDay(stop.selectedAttractions, day)
+      .filter((a: PlannedAttraction) => !!a.startTime)
+      .sort((a, b) => hmToMin(a.startTime!) - hmToMin(b.startTime!))
+      .map(a => attractions.find(x => x.id === a.attractionId)?.name)
+      .filter((n): n is string => !!n);
+    return buildDayRouteUrl(names, stop.cityId, stop.lodging?.name ?? null);
   });
 
   // ── Block calculation ─────────────────────────────────────────────────────

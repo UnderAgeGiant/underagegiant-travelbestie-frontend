@@ -1259,6 +1259,12 @@ app-nav { display: block; }
   color: var(--t2);
   margin-top: 2px;
 }
+.tl-route-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 6px; margin-left: 6px;
+  font-size: 11px; padding: 4px 12px;
+  text-decoration: none;
+}
 
 .tl-days {
   display: flex;
