@@ -1,5 +1,14 @@
+/**
+ * Builds a real, absolute shareable URL — for clipboard, WhatsApp, and the
+ * native OS share sheet, none of which understand an Angular Router UrlTree.
+ * Uses the direct /shared/:id path (vercel.json rewrites any non-asset path
+ * to index.html, so this loads correctly cold). The legacy /?share=:id
+ * query-param form is still accepted on load — see
+ * core/routing/share-redirect.util.ts — for links generated before this
+ * change, so don't remove that shim even though new links skip it.
+ */
 export function buildShareLink(shareId: string, origin: string = window.location.origin): string {
-  return `${origin}/?share=${shareId}`;
+  return `${origin}/shared/${shareId}`;
 }
 
 export function buildWhatsappUrl(tripName: string, shareId: string, origin: string = window.location.origin, prefix?: string): string {

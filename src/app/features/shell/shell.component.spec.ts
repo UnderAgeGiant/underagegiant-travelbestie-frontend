@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { ShellComponent } from './shell.component';
 import { TripService } from '../trip/trip.service';
 
@@ -18,7 +19,7 @@ describe('ShellComponent', () => {
     };
     TestBed.configureTestingModule({
       imports: [ShellComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     });
     const fixture = TestBed.createComponent(ShellComponent);
     if (stopsLen > 0) {

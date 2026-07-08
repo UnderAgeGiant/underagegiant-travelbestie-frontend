@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { NavShellComponent } from './nav-shell.component';
 import { DeviceService } from '../../core/device/device.service';
 
@@ -18,7 +19,7 @@ describe('NavShellComponent', () => {
     device.setMobile(mobile);
     TestBed.configureTestingModule({
       imports: [NavShellComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting(), { provide: DeviceService, useValue: device }],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([]), { provide: DeviceService, useValue: device }],
     });
     const fixture = TestBed.createComponent(NavShellComponent);
     fixture.detectChanges();
