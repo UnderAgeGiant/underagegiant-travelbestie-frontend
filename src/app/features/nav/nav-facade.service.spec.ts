@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { NavFacadeService } from './nav-facade.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
@@ -13,7 +14,7 @@ describe('NavFacadeService — favorites list', () => {
     localStorage.clear();
     sessionStorage.clear();
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     });
     facade = TestBed.inject(NavFacadeService);
     http = TestBed.inject(HttpTestingController);
@@ -71,7 +72,7 @@ describe('NavFacadeService — shared trips + logo', () => {
     localStorage.clear();
     sessionStorage.clear();
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     });
     facade = TestBed.inject(NavFacadeService);
     savedPlans = TestBed.inject(SavedPlansService);

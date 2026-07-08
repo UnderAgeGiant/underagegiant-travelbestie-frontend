@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy, Component, inject, signal, OnInit, OnDestroy,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { FeaturedTrip } from '../../core/models/featured-trip.model';
 import { ApiService } from '../../core/api/api.service';
@@ -132,6 +133,7 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
   }
 
   private readonly api = inject(ApiService);
+  private readonly router = inject(Router);
   private timer?: ReturnType<typeof setInterval>;
   private readonly INTERVAL = 5000;
 
@@ -159,7 +161,7 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
   protected next(): void { this.goTo(this.activeIdx() + 1); }
 
   protected goToShared(shareId: string): void {
-    window.location.href = `/?share=${encodeURIComponent(shareId)}&highlight=clone`;
+    this.router.navigate(['/shared', shareId], { queryParams: { highlight: 'clone' } });
   }
 
   protected coverUrl(trip: FeaturedTrip): string {

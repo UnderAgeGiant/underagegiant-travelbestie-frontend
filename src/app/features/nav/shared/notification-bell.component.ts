@@ -1,6 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotificationService } from '../../../core/notifications/notification.service';
 import { AppNotification } from '../../../core/models/notification.model';
+import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
 
 /**
  * Nav bell with unread badge + floating notification panel (mirrors the
@@ -58,6 +60,7 @@ import { AppNotification } from '../../../core/models/notification.model';
 })
 export class NotificationBellComponent {
   readonly notif = inject(NotificationService);
+  private readonly router = inject(Router);
   readonly panelOpen = signal(false);
 
   togglePanel(): void {
@@ -68,9 +71,14 @@ export class NotificationBellComponent {
 
   open(n: AppNotification): void {
     this.panelOpen.set(false);
-    // Full-page navigation, like the facade's goToSharedTrip — the ?share=
-    // deep link is rewritten to /shared/:id by the APP_INITIALIZER redirect.
-    window.location.href = n.url;
+    // Router navigation, not window.location.href — a hard reload would blank
+    // the in-memory access token and flash the "signed out" nav state.
+    // n.url is a backend-issued relative path, e.g. "/?share=abc" or "/" —
+    // reuse the same query-param → route mapping the APP_INITIALIZER applies
+    // on cold load, so this works whether or not the backend has switched to
+    // emitting /shared/:id links directly.
+    const [path, search] = n.url.split('?');
+    this.router.navigateByUrl(search ? (shareRedirectPath(`?${search}`) ?? path) : path);
   }
 
   relativeDate(iso: string): string {

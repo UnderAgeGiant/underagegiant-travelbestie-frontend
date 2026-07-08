@@ -1,4 +1,5 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { shareTrip } from '../../core/share/share-url.util';
 import { toObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -32,6 +33,7 @@ export class NavFacadeService {
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
+  private readonly router       = inject(Router);
 
   // ── search / menu state ──
   navQuery     = signal('');
@@ -207,8 +209,11 @@ export class NavFacadeService {
     this.myTripsOpen.update(v => !v);
     if (!this.myTripsOpen()) this.sharedTripsSearch.set('');
   }
-  openSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
-  goToSharedTrip(id: string): void { window.location.href = `/?share=${id}`; }
+  // Router navigation (not window.location.href) keeps the in-memory access
+  // token alive — a full reload would blank it until the silent cookie
+  // refresh resolves, flashing the "signed out" nav state.
+  openSharedTrip(id: string): void { this.router.navigate(['/shared', id]); }
+  goToSharedTrip(id: string): void { this.router.navigate(['/shared', id]); }
   commentCount(tripId: string): number { return this.sharedTrips.getCommentCount(tripId); }
 
   quickAdd(city: City): void {
@@ -254,10 +259,13 @@ export class NavFacadeService {
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
 
-    if (window.location.search) {
+    // Loading a plan while viewing a shared trip (/shared/:id) should return
+    // to the main app view. window.location.search is no longer a reliable
+    // signal here — the Router shows this URL with an empty search string.
+    if (this.router.url.startsWith('/shared')) {
       const email = this.auth.currentUser()?.email;
       if (email) this.trip.persistNow(email);
-      window.location.href = '/';
+      this.router.navigate(['/']);
     }
   }
 
@@ -351,6 +359,6 @@ export class NavFacadeService {
     this.savedPlans.clear();
     this.visited.clear();
     this.favorites.clear();
-    window.location.href = '/';
+    this.router.navigate(['/']);
   }
 }

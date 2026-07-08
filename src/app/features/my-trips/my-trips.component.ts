@@ -1,4 +1,5 @@
 import { Component, computed, inject, signal, output, ChangeDetectionStrategy } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
@@ -12,12 +13,12 @@ import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
-import { shareTrip } from '../../core/share/share-url.util';
+import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
@@ -155,7 +156,7 @@ import { environment } from '../../../environments/environment';
                         <span class="fav-card-date">{{ fmtDate(trip.favoritedAt) }}</span>
                       </div>
                       <div class="fav-card-actions">
-                        <a class="btn-pill btn-outline" [href]="'/?share=' + trip.shareId"
+                        <a class="btn-pill btn-outline" [routerLink]="['/shared', trip.shareId]"
                            i18n="@@profile.favCardOpen">Ver plan</a>
                         <button class="btn-pill btn-ghost fav-remove-btn"
                                 (click)="removeFavorite(trip)"
@@ -240,6 +241,7 @@ export class MyTripsComponent {
   private readonly karma       = inject(KarmaService);
   private readonly karmaModal  = inject(KarmaModalService);
   private readonly api         = inject(ApiService);
+  private readonly router      = inject(Router);
 
   close          = output<void>();
   openAiPlanning = output<void>();
@@ -355,9 +357,11 @@ export class MyTripsComponent {
   }
 
   private copyLink(shareId: string, _planId: string): void {
-    const url = `${window.location.origin}/?share=${shareId}`;
-    navigator.clipboard.writeText(url).catch(() => {});
-    window.location.href = url;
+    // Clipboard needs a real absolute URL (it leaves the app); the follow-up
+    // "view it" navigation stays in-app via the Router so the in-memory
+    // access token survives instead of a full reload blanking it.
+    navigator.clipboard.writeText(buildShareLink(shareId)).catch(() => {});
+    this.router.navigate(['/shared', shareId]);
   }
 
   togglePlan(id: string): void {

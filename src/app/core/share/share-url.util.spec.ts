@@ -2,14 +2,14 @@ import { buildShareLink, buildWhatsappUrl, shareTrip } from './share-url.util';
 
 describe('share url helpers', () => {
   it('builds the public share link from a shareId', () => {
-    expect(buildShareLink('abc', 'https://tripilove.app')).toBe('https://tripilove.app/?share=abc');
+    expect(buildShareLink('abc', 'https://tripilove.app')).toBe('https://tripilove.app/shared/abc');
   });
 
   it('builds a wa.me url with an encoded message + link', () => {
     const url = buildWhatsappUrl('Mi Viaje', 'abc', 'https://tripilove.app');
     expect(url.startsWith('https://wa.me/?text=')).toBe(true);
     expect(decodeURIComponent(url)).toContain('Mi Viaje');
-    expect(decodeURIComponent(url)).toContain('https://tripilove.app/?share=abc');
+    expect(decodeURIComponent(url)).toContain('https://tripilove.app/shared/abc');
   });
 
   it('shareTrip uses the Web Share API with a structured url field when available', async () => {
@@ -18,7 +18,7 @@ describe('share url helpers', () => {
     await shareTrip('Mi Viaje', 'abc', 'https://tripilove.app');
     expect(share).toHaveBeenCalledWith(expect.objectContaining({
       title: 'Mi Viaje',
-      url: 'https://tripilove.app/?share=abc',
+      url: 'https://tripilove.app/shared/abc',
     }));
     delete (navigator as any).share;
   });

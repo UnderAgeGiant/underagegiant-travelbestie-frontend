@@ -1,5 +1,5 @@
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { forkJoin, of, switchMap, catchError } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
@@ -398,6 +398,7 @@ import { shareTrip } from '../../core/share/share-url.util';
 })
 export class SharedTripComponent {
   private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   readonly tripIdInput = input<string | undefined>(undefined, { alias: 'tripId' });
   readonly tripId = computed(() =>
     this.tripIdInput() ?? this.route.snapshot.paramMap.get('id') ?? '',
@@ -593,7 +594,7 @@ export class SharedTripComponent {
       transits: cloned.transits ?? [],
     });
     this.tripService.restoreStops(cloned.stops, cloned.id!, cloned.transits ?? []);
-    window.location.href = '/';
+    this.router.navigate(['/']);
   }
 
   selectShareStop(stop: TripStop): void {
@@ -669,7 +670,7 @@ export class SharedTripComponent {
     this.activePreview.set({ attraction: att, x, y });
   }
 
-  goHome(): void { window.location.href = '/'; }
+  goHome(): void { this.router.navigate(['/']); }
 
   shortDate(s: string): string {
     const p = s.split('/');
