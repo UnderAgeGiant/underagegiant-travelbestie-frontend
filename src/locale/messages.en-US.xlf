@@ -502,6 +502,10 @@
         <source>💌 Agregar comentario</source>
         <target>💌 Add a comment</target>
       </trans-unit>
+      <trans-unit id="maps.viewOnMaps" datatype="html">
+        <source>Ver en Google Maps</source>
+        <target>View on Google Maps</target>
+      </trans-unit>
 
       <!-- ── comment-modal.component ── -->
       <trans-unit id="commentModal.title" datatype="html">
@@ -1136,6 +1140,10 @@
       <trans-unit id="timeline.freeDay" datatype="html">
         <source>Día libre — sin planes aún</source>
         <target>Free day — no plans yet</target>
+      </trans-unit>
+      <trans-unit id="timeline.dayRoute" datatype="html">
+        <source>🗺️ Ruta del día</source>
+        <target>🗺️ Day route</target>
       </trans-unit>
       <trans-unit id="timeline.flapLabelCity" datatype="html">
         <source>Ver itinerario de la ciudad</source>
