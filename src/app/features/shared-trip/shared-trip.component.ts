@@ -24,6 +24,7 @@ import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
 import { shareTrip } from '../../core/share/share-url.util';
+import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
 
 @Component({
     selector: 'app-shared-trip',
@@ -249,6 +250,11 @@ import { shareTrip } from '../../core/share/share-url.util';
                           <span class="itin-item-meta">
                             @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                           </span>
+                          <a class="itin-link"
+                             [attr.href]="mapsUrl(att.name, stop.cityId)"
+                             target="_blank" rel="noopener noreferrer"
+                             (click)="$event.stopPropagation()"
+                             i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps">📍</a>
                         </div>
                         @if (shouldShowComments(attKey)) {
                           <app-step-comments
@@ -397,6 +403,8 @@ import { shareTrip } from '../../core/share/share-url.util';
   `
 })
 export class SharedTripComponent {
+  protected readonly mapsUrl = attractionMapsUrl;
+
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   readonly tripIdInput = input<string | undefined>(undefined, { alias: 'tripId' });
