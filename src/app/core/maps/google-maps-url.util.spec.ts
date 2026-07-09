@@ -1,4 +1,4 @@
-import { attractionMapsUrl, dayRouteUrl, MAX_ROUTE_WAYPOINTS } from './google-maps-url.util';
+import { attractionMapsUrl, dayRouteUrl, transitTerminalName, MAX_ROUTE_WAYPOINTS } from './google-maps-url.util';
 import { WORLD_CITIES } from '../../data/cities.data';
 
 // Any real city — assertions derive name/country from the same entry.
@@ -24,11 +24,24 @@ describe('dayRouteUrl', () => {
   });
 
   it('routes a single attraction when lodging provides origin and destination', () => {
-    const url = dayRouteUrl(['Torre Eiffel'], CITY.id, 'Hotel Le Central')!;
+    const url = dayRouteUrl(['Torre Eiffel'], CITY.id, 'Hotel Le Central', 'Hotel Le Central')!;
     expect(url).toContain(`origin=${q('Hotel Le Central')}`);
     expect(url).toContain(`destination=${q('Hotel Le Central')}`);
     expect(url).toContain(`waypoints=${q('Torre Eiffel')}`);
     expect(url).toContain('travelmode=walking');
+  });
+
+  it('supports an asymmetric origin/destination (e.g. arrival terminal vs. lodging)', () => {
+    const url = dayRouteUrl(['Torre Eiffel'], CITY.id, 'Aeropuerto', 'Hotel Le Central')!;
+    expect(url).toContain(`origin=${q('Aeropuerto')}`);
+    expect(url).toContain(`destination=${q('Hotel Le Central')}`);
+    expect(url).toContain(`waypoints=${q('Torre Eiffel')}`);
+  });
+
+  it('uses only an origin override when no destination override is given', () => {
+    const url = dayRouteUrl(['Torre Eiffel'], CITY.id, 'Hotel Le Central')!;
+    expect(url).toContain(`origin=${q('Hotel Le Central')}`);
+    expect(url).toContain(`destination=${q('Torre Eiffel')}`);
   });
 
   it('uses first as origin, last as destination, middles as pipe-separated waypoints', () => {
@@ -48,5 +61,18 @@ describe('dayRouteUrl', () => {
     expect(url).toContain(`destination=${q('P14')}`);
     const waypointsParam = new URL(url).searchParams.get('waypoints')!;
     expect(waypointsParam.split('|')).toHaveLength(MAX_ROUTE_WAYPOINTS);
+  });
+});
+
+describe('transitTerminalName', () => {
+  it('returns a terminal search term for flight, train and boat', () => {
+    expect(transitTerminalName('flight')).toBe('Aeropuerto');
+    expect(transitTerminalName('train')).toBe('Estación de tren');
+    expect(transitTerminalName('boat')).toBe('Puerto');
+  });
+
+  it('returns null for bus and car (no fixed terminal)', () => {
+    expect(transitTerminalName('bus')).toBeNull();
+    expect(transitTerminalName('car')).toBeNull();
   });
 });

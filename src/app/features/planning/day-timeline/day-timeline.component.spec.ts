@@ -127,3 +127,96 @@ describe('DayTimelineComponent — trip-wide days', () => {
     expect(days.some(d => d.cityId === 'london')).toBe(true);
   });
 });
+
+describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    installMatchMediaMock(false);
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+  });
+
+  it('uses the arrival transit terminal (not lodging) as origin on the stop\'s first day', () => {
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      lodging: { name: 'Hotel Le Central', url: '' },
+      selectedAttractions: [
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' },
+      ],
+    }] as any, null, [{
+      fromCityId: '__start__', toCityId: 'paris',
+      segments: [{ mode: 'flight', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
+    }] as any);
+    fixture.detectChanges();
+
+    (component as any).selectedDay.set('01/06');
+    const url = (component as any).routeUrl() as string;
+    expect(url).toContain('origin=Aeropuerto');
+    expect(url).not.toContain('origin=Hotel');
+  });
+
+  it('uses the departure transit terminal (not lodging) as destination on the stop\'s last day', () => {
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      lodging: { name: 'Hotel Le Central', url: '' },
+      selectedAttractions: [
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '03/06/2026' },
+      ],
+    }] as any, null, [{
+      fromCityId: 'paris', toCityId: '__end__',
+      segments: [{ mode: 'train', departureDate: '03/06/2026', departureTime: '18:00', arrivalDate: '03/06/2026', arrivalTime: '20:00', notes: '' }],
+    }] as any);
+    fixture.detectChanges();
+
+    (component as any).selectedDay.set('03/06');
+    const url = (component as any).routeUrl() as string;
+    expect(url).toContain(encodeURIComponent('Estación de tren'));
+    expect(url).not.toContain('destination=Hotel');
+  });
+
+  it('falls back to lodging on days that are neither arrival nor departure', () => {
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      lodging: { name: 'Hotel Le Central', url: '' },
+      selectedAttractions: [
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '02/06/2026' },
+      ],
+    }] as any, null, [{
+      fromCityId: '__start__', toCityId: 'paris',
+      segments: [{ mode: 'flight', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
+    }] as any);
+    fixture.detectChanges();
+
+    (component as any).selectedDay.set('02/06');
+    const url = (component as any).routeUrl() as string;
+    expect(url).toContain('origin=Hotel');
+    expect(url).toContain('destination=Hotel');
+  });
+
+  it('falls back to lodging for bus/car arrivals (no fixed terminal)', () => {
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      lodging: { name: 'Hotel Le Central', url: '' },
+      selectedAttractions: [
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' },
+      ],
+    }] as any, null, [{
+      fromCityId: '__start__', toCityId: 'paris',
+      segments: [{ mode: 'bus', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
+    }] as any);
+    fixture.detectChanges();
+
+    (component as any).selectedDay.set('01/06');
+    const url = (component as any).routeUrl() as string;
+    expect(url).toContain('origin=Hotel');
+  });
+});

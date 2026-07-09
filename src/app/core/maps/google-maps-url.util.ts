@@ -1,4 +1,5 @@
 import { WORLD_CITIES } from '../../data/cities.data';
+import { TransitMode } from '../models/trip.model';
 
 /**
  * Keyless Google Maps deep links ("Maps URLs" scheme). The `api=1` marker is
@@ -21,20 +22,38 @@ export function attractionMapsUrl(attractionName: string, cityId: string): strin
 }
 
 /**
+ * Generic search term for a transit mode's terminal (airport / train station / pier).
+ * Bus and car have no fixed terminal building, so callers should fall back to the
+ * lodging (or nothing) for those modes.
+ */
+export function transitTerminalName(mode: TransitMode): string | null {
+  switch (mode) {
+    case 'flight': return 'Aeropuerto';
+    case 'train':  return 'Estación de tren';
+    case 'boat':   return 'Puerto';
+    default:       return null; // bus / car
+  }
+}
+
+/**
  * Walking route through the day's attractions in the given order.
- * When lodgingName is set it becomes origin AND destination (round trip
- * from the hotel). Returns null when there are fewer than 2 route points.
+ * `originName`/`destinationName` are independent — pass the same value for
+ * both to get a round trip (e.g. lodging), or different values for an
+ * arrival-terminal origin / departure-terminal destination on transit days.
+ * Returns null when there are fewer than 2 route points.
  */
 export function dayRouteUrl(
   attractionNames: string[],
   cityId: string,
-  lodgingName?: string | null,
+  originName?: string | null,
+  destinationName?: string | null,
 ): string | null {
-  let places = attractionNames.map(n => placeQuery(n, cityId));
-  if (lodgingName) {
-    const lodging = placeQuery(lodgingName, cityId);
-    places = [lodging, ...places, lodging];
-  }
+  const attractionPlaces = attractionNames.map(n => placeQuery(n, cityId));
+  const places = [
+    ...(originName ? [placeQuery(originName, cityId)] : []),
+    ...attractionPlaces,
+    ...(destinationName ? [placeQuery(destinationName, cityId)] : []),
+  ];
   if (places.length < 2) return null;
 
   const origin      = places[0];
