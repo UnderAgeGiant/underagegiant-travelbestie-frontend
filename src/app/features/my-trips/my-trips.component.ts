@@ -51,60 +51,75 @@ import { environment } from '../../../environments/environment';
               @if (savedPlans.plans().length === 0) {
                 <div class="section-empty">Aún no tienes viajes guardados. Usa el botón "Guardar viaje 🎉" para guardar uno.</div>
               } @else {
-                <input class="form-input"
-                       type="search"
-                       style="font-size:12px;padding:7px 10px;margin-bottom:12px"
-                       placeholder="Buscar viaje guardado…"
-                       [value]="planSearch()"
-                       (input)="planSearch.set($any($event.target).value)" />
+                <div class="saved-plan-filter-row">
+                  <input class="form-input"
+                         type="search"
+                         style="font-size:12px;padding:7px 10px"
+                         placeholder="Buscar viaje guardado…"
+                         [value]="planSearch()"
+                         (input)="planSearch.set($any($event.target).value)" />
+                  <label class="saved-plan-filter-check">
+                    <input type="checkbox"
+                           [checked]="publishedOnly()"
+                           (change)="publishedOnly.set($any($event.target).checked)" />
+                    <span i18n="@@myTrips.publishedFilter">Viaje publicado</span>
+                  </label>
+                </div>
                 @for (plan of filteredPlans(); track plan.id) {
                   <div class="saved-plan-card">
                     <div class="saved-plan-header" (click)="togglePlan(plan.id)">
                       <div class="saved-plan-info">
-                        <div class="saved-plan-name">{{ plan.name }}</div>
+                        <div class="saved-plan-name">
+                          {{ plan.name }}
+                          @if (planShareId(plan)) {
+                            <span class="saved-plan-published" i18n="@@myTrips.publishedBadge">✓ Viaje Publicado</span>
+                          }
+                        </div>
                         <div class="saved-plan-meta">
                           {{ plan.stops.length }} ciudad{{ plan.stops.length !== 1 ? 'es' : '' }}
                           · {{ fmtDate(plan.savedAt) }}
                         </div>
                       </div>
                       <div style="display:flex;align-items:center;gap:4px;margin-left:auto">
-                        <button style="background:none;border:none;cursor:pointer;font-size:12px;padding:4px 8px;border-radius:6px;opacity:.85;transition:opacity .12s;white-space:nowrap;font-weight:600;color:var(--lav-d)"
-                                (click)="$event.stopPropagation(); loadAndModify(plan)"
-                                title="Modificar plan">
-                          ✏️ Modificar plan
-                        </button>
-                        <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s"
+                        <button class="saved-plan-act-btn"
                                 [disabled]="cloningId() === plan.id"
-                                [style.opacity]="cloningId() === plan.id ? 0.4 : 0.7"
                                 (click)="$event.stopPropagation(); confirmCloneId.set(plan.id)"
                                 title="Clonar viaje">
-                          {{ cloningId() === plan.id ? '⏳' : '📋' }}
+                          {{ cloningId() === plan.id ? '⏳' : '📋' }} <span i18n="@@myTrips.cloneBtn">Clonar</span>
                         </button>
-                        <button style="background:none;border:none;cursor:pointer;font-size:15px;padding:4px 6px;border-radius:6px;opacity:.7;transition:opacity .12s,color .12s;color:inherit"
+                        <button class="saved-plan-act-btn"
                                 (click)="$event.stopPropagation(); confirmDeleteId.set(plan.id)"
                                 title="Eliminar viaje">
-                          🗑️
+                          🗑️ <span i18n="@@myTrips.deleteBtn">Eliminar</span>
                         </button>
                         <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
                       </div>
                     </div>
 
                     <div class="saved-plan-actions">
+                      <button class="btn-pill btn-primary"
+                              style="flex:1;justify-content:center;gap:7px"
+                              (click)="loadAndModify(plan)" type="button"
+                              i18n="@@myTrips.modifyPlanBtn">
+                        ✏️ Modificar mi plan
+                      </button>
                       @if (planShareId(plan)) {
                         <button class="btn-pill btn-ghost"
-                                style="flex:1;justify-content:center;gap:7px"
-                                (click)="sharePlan(plan)" type="button">
-                          🔗 Ver viaje compartido
+                                style="justify-content:center;gap:7px"
+                                (click)="sharePlan(plan)" type="button"
+                                i18n="@@myTrips.viewPublishedBtn">
+                          🔗 Ver viaje publicado
                         </button>
                         <button class="btn-pill btn-outline"
                                 style="justify-content:center;gap:6px"
                                 (click)="shareNative(plan)" type="button"
                                 i18n="@@share.shareBtn">📤 Compartir</button>
                       } @else {
-                        <button class="btn-pill btn-primary"
-                                style="flex:1;justify-content:center;gap:7px"
-                                (click)="sharePlan(plan)" type="button">
-                          📤 Compartir viaje
+                        <button class="btn-pill btn-outline"
+                                style="justify-content:center;gap:6px"
+                                (click)="sharePlan(plan)" type="button"
+                                i18n="@@myTrips.publishBtn">
+                          📤 Publicar
                         </button>
                       }
                       <button class="btn-pill btn-outline"
@@ -261,6 +276,7 @@ export class MyTripsComponent {
   // ── Saved plans ──
   selectedPlanId  = signal<string | null>(null);
   planSearch      = signal('');
+  publishedOnly   = signal(false);
   shareError      = signal<string | null>(null);
   exportingPlanId = signal<string | null>(null);
   toast           = signal<string | null>(null);
@@ -270,8 +286,10 @@ export class MyTripsComponent {
 
   readonly filteredPlans = computed(() => {
     const q = this.planSearch().toLowerCase().trim();
-    if (!q) return this.savedPlans.plans();
-    return this.savedPlans.plans().filter(p => p.name.toLowerCase().includes(q));
+    let plans = this.savedPlans.plans();
+    if (this.publishedOnly()) plans = plans.filter(p => !!this.planShareId(p));
+    if (!q) return plans;
+    return plans.filter(p => p.name.toLowerCase().includes(q));
   });
 
   planShareId(plan: SavedPlan): string | undefined {
