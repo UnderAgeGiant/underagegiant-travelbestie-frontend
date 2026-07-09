@@ -1209,8 +1209,36 @@
         <target>Close</target>
       </trans-unit>
       <trans-unit id="nav.sharePlan" datatype="html">
-        <source>Compartir</source>
-        <target>Share</target>
+        <source>Publicar</source>
+        <target>Publish</target>
+      </trans-unit>
+      <trans-unit id="myTrips.publishedFilter" datatype="html">
+        <source>Viaje publicado</source>
+        <target>Published trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.publishedBadge" datatype="html">
+        <source>✓ Viaje Publicado</source>
+        <target>✓ Published Trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneBtn" datatype="html">
+        <source>Clonar</source>
+        <target>Clone</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteBtn" datatype="html">
+        <source>Eliminar</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="myTrips.modifyPlanBtn" datatype="html">
+        <source> ✏️ Modificar mi plan </source>
+        <target> ✏️ Edit my plan </target>
+      </trans-unit>
+      <trans-unit id="myTrips.viewPublishedBtn" datatype="html">
+        <source> 🔗 Ver viaje publicado </source>
+        <target> 🔗 View published trip </target>
+      </trans-unit>
+      <trans-unit id="myTrips.publishBtn" datatype="html">
+        <source> 📤 Publicar </source>
+        <target> 📤 Publish </target>
       </trans-unit>
       <trans-unit id="nav.myTripsPage" datatype="html">
         <source>🗺 Mis viajes</source>
