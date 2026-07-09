@@ -93,7 +93,7 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
                   <div class="up-plan-date">{{ facade.planDate(plan.savedAt) }}</div>
                 </button>
                 <button class="up-plan-del" (click)="facade.sharePlan(plan)" type="button"
-                        i18n-title="@@nav.sharePlan" title="Compartir">🔗</button>
+                        i18n-title="@@nav.sharePlan" title="Publicar">🔗</button>
                 @if (plan.shareId) {
                   <button class="up-plan-del" (click)="facade.shareNative(plan)" type="button"
                           i18n-title="@@share.shareBtn" title="📤 Compartir">📤</button>
