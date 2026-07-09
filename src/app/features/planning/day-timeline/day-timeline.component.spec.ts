@@ -220,3 +220,42 @@ describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => 
     expect(url).toContain('origin=Hotel');
   });
 });
+
+describe('DayTimelineComponent — hour grid range', () => {
+  it('renders the full day from 00:00 to 23:00', () => {
+    installMatchMediaMock(false);
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const comp = TestBed.createComponent(DayTimelineComponent).componentInstance;
+    const hours = (comp as any).hours as number[];
+    expect(hours[0]).toBe(0);                       // first hour line is 00:00
+    expect(hours[hours.length - 1]).toBe(23);       // last hour line is 23:00
+    expect(hours).toHaveLength(24);
+    expect((comp as any).gridHeight()).toBe(23 * 46 + 12); // (TL_H1 − TL_H0) · TL_RH + 12
+  });
+
+  it('positions an early-morning attraction at its true offset from midnight', () => {
+    installMatchMediaMock(false);
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '02/06/2026',
+      selectedAttractions: [
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '05:00', endTime: '06:00', date: '01/06/2026' },
+      ],
+    }] as any, null, []);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    fixture.detectChanges();
+    (fixture.componentInstance as any).selectedDay.set('01/06');
+    const blocks = (fixture.componentInstance as any).blocks() as Array<{ top: number }>;
+    expect(blocks).toHaveLength(1);
+    expect(blocks[0].top).toBe(5 * 46);  // 05:00 = 5 hours after the 00:00 grid origin
+  });
+});
