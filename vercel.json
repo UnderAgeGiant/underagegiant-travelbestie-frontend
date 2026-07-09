@@ -16,7 +16,7 @@
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://challenges.cloudflare.com https://www.paypal.com https://www.paypalobjects.com; frame-src https://challenges.cloudflare.com https://www.paypal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://underagegiant-travelbestie-manager.vercel.app https://www.paypal.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+          "value": "default-src 'self'; script-src 'self' https://challenges.cloudflare.com https://www.paypal.com https://www.paypalobjects.com; frame-src https://challenges.cloudflare.com https://www.paypal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.tripilove.com https://underagegiant-travelbestie-manager.vercel.app https://www.paypal.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
         }
       ]
     }
