@@ -16,6 +16,7 @@ import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-badge.component';
+import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 
 @Component({
     selector: 'app-attraction-detail-modal',
@@ -173,9 +174,8 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
 
           <hr class="divider">
 
-          <!-- Enrichment: hours / ticket / website -->
-          @if (todayHours() || ticketSummary() || websiteDomain()) {
-            <div class="detail-enrich">
+          <!-- Enrichment: hours / ticket / website / maps -->
+          <div class="detail-enrich">
               @if (todayHours()) {
                 <div class="att-preview-enrich">
                   <span class="att-enrich-icon">🕐</span>
@@ -198,9 +198,16 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
                      (click)="openWebsite($event)">{{ websiteDomain() }}</a>
                 </div>
               }
+              <div class="att-preview-enrich">
+                <span class="att-enrich-icon">📍</span>
+                <a class="att-enrich-value att-enrich-link"
+                   [attr.href]="mapsUrl()"
+                   target="_blank" rel="noopener noreferrer"
+                   (click)="$event.stopPropagation()"
+                   i18n="@@maps.viewOnMaps">Ver en Google Maps</a>
+              </div>
             </div>
             <hr class="divider">
-          }
 
           <!-- Comments -->
           <div class="comments-head">
@@ -295,6 +302,8 @@ export class AttractionDetailModalComponent {
   readonly activeStop = computed(() => this.trip.activeStop());
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
+
+  readonly mapsUrl = computed(() => attractionMapsUrl(this.attraction().name, this.cityId()));
 
   readonly eventDateTime = computed(() =>
     formatEventLong(this.attraction().date, this.attraction().time)

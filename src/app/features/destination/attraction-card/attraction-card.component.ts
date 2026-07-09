@@ -10,6 +10,7 @@ import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
 import { CATEGORY_META } from '../../../core/models/attraction-category';
 import { formatEventChip } from '../../../core/utils/event-datetime.util';
 import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-badge.component';
+import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 
 @Component({
     selector: 'app-attraction-card',
@@ -198,9 +199,8 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
              title="Fecha y hora del evento">{{ eventDateTime() }}</div>
       }
 
-      <!-- Enrichment strip: hours / ticket / website -->
-      @if (todayHours() || ticketSummary() || websiteDomain()) {
-        <div class="card-enrich">
+      <!-- Enrichment strip: hours / ticket / website / maps -->
+      <div class="card-enrich">
           @if (todayHours()) {
             <div class="att-preview-enrich">
               <span class="att-enrich-icon">🕐</span>
@@ -223,8 +223,15 @@ import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-
                  (click)="$event.stopPropagation()">{{ websiteDomain() }}</a>
             </div>
           }
+          <div class="att-preview-enrich">
+            <span class="att-enrich-icon">📍</span>
+            <a class="att-enrich-value att-enrich-link"
+               [attr.href]="mapsUrl()"
+               target="_blank" rel="noopener noreferrer"
+               (click)="$event.stopPropagation()"
+               i18n="@@maps.viewOnMaps">Ver en Google Maps</a>
+          </div>
         </div>
-      }
 
       <!-- Planned entry chips — one per scheduled visit -->
       @if (plannedEntries().length > 0) {
@@ -313,6 +320,8 @@ export class AttractionCardComponent {
   readonly categoryBg   = computed(() => CATEGORY_META[this.attraction().category]?.bg ?? '#E8F0FD');
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
+
+  readonly mapsUrl = computed(() => attractionMapsUrl(this.attraction().name, this.cityId()));
 
   readonly eventDateTime = computed(() =>
     formatEventChip(this.attraction().date, this.attraction().time)

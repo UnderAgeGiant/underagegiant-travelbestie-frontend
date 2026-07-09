@@ -1259,6 +1259,12 @@ app-nav { display: block; }
   color: var(--t2);
   margin-top: 2px;
 }
+.tl-route-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 6px; margin-left: 6px;
+  font-size: 11px; padding: 4px 12px;
+  text-decoration: none;
+}
 
 .tl-days {
   display: flex;
@@ -1920,6 +1926,13 @@ app-nav { display: block; }
 }
 .timeline-panel.timeline-inline .tl-flap { display: none; }
 .timeline-panel.timeline-inline .tl-grid-wrap { max-height: 320px; }
+
+/* Mobile: drop the fixed cap so the day grid grows in-flow instead of
+   overflowing (unclipped, since .tl-grid-wrap goes overflow-y:visible on
+   mobile above) past its box and hiding beneath the next city's card. */
+@media (max-width: 768px) {
+  .timeline-panel.timeline-inline .tl-grid-wrap { max-height: none; }
+}
 
 /* Distinct accent so the day schedule reads as its own feature (42.2) */
 .timeline-panel.timeline-accent { border-left: 3px solid var(--lav-d); }

@@ -10,6 +10,7 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
+import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../core/maps/google-maps-url.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 7;   // first hour rendered (07:00)
@@ -103,6 +104,12 @@ function transitIcon(mode: string): string {
           <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
                   [disabled]="exporting()" (click)="exportItinerary()" type="button"
                   i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
+        }
+        @if (routeUrl()) {
+          <a class="btn-pill btn-outline tl-route-btn"
+             [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
+            <span i18n="@@timeline.dayRoute">🗺️ Ruta del día</span>
+          </a>
         }
       </div>
 
@@ -345,6 +352,53 @@ export class DayTimelineComponent {
     if (transitCount) parts.push(`${transitCount} ${transitCount === 1 ? 'transporte' : 'transportes'}`);
     return `${day} · ${parts.join(' · ')}`;
   });
+
+  // Walking route through the selected day's timed attractions, in start-time
+  // order. Origin/destination default to the stop's lodging (round trip), but
+  // on the stop's first/last day they use the arriving/departing transit's
+  // terminal instead — the traveler hasn't reached (or has already left) the
+  // hotel yet on those days.
+  protected readonly routeUrl = computed<string | null>(() => {
+    if (this.transportMode()) return null;
+    const stop = this.selectedStopForDay();
+    const day  = this.selectedDay();
+    if (!stop || !day) return null;
+    const city = WORLD_CITIES.find(c => c.id === stop.cityId);
+    const attractions = city ? getAttractions(city) : [];
+    const names = this.attractionsForDay(stop.selectedAttractions, day)
+      .filter((a: PlannedAttraction) => !!a.startTime)
+      .sort((a, b) => hmToMin(a.startTime!) - hmToMin(b.startTime!))
+      .map(a => attractions.find(x => x.id === a.attractionId)?.name)
+      .filter((n): n is string => !!n);
+
+    const lodgingName = stop.lodging?.name ?? null;
+    const origin      = this.arrivalTerminal(stop, day)   ?? lodgingName;
+    const destination = this.departureTerminal(stop, day) ?? lodgingName;
+    return buildDayRouteUrl(names, stop.cityId, origin, destination);
+  });
+
+  // Terminal (airport/station/pier) the traveler arrives at, only on the
+  // stop's first day and only for modes with a fixed terminal (not bus/car).
+  private arrivalTerminal(stop: TripStop, day: string): string | null {
+    if (day !== stop.checkIn.slice(0, 5)) return null;
+    for (const leg of this.allTransits()) {
+      if (leg.toCityId !== stop.cityId) continue;
+      const seg = leg.segments.find(s => s.arrivalDate?.slice(0, 5) === day);
+      if (seg) return transitTerminalName(seg.mode);
+    }
+    return null;
+  }
+
+  // Terminal the traveler departs from, only on the stop's last day.
+  private departureTerminal(stop: TripStop, day: string): string | null {
+    if (day !== stop.checkOut.slice(0, 5)) return null;
+    for (const leg of this.allTransits()) {
+      if (leg.fromCityId !== stop.cityId) continue;
+      const seg = leg.segments.find(s => s.departureDate?.slice(0, 5) === day);
+      if (seg) return transitTerminalName(seg.mode);
+    }
+    return null;
+  }
 
   // ── Block calculation ─────────────────────────────────────────────────────
   protected readonly blocks = computed<TimeBlock[]>(() => {
