@@ -13,7 +13,7 @@ import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../core/maps/google-maps-url.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
-const TL_H0 = 7;   // first hour rendered (07:00)
+const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
 const TL_H1 = 23;  // last  hour rendered (23:00)
 const TL_RH = 46;  // pixels per hour
 
@@ -535,7 +535,7 @@ export class DayTimelineComponent {
       const firstTop = Math.min(...bls.map(b => b.top));
       wrap.scrollTop = Math.max(0, firstTop - 20);
     } else {
-      wrap.scrollTop = TL_RH;
+      wrap.scrollTop = 7 * TL_RH;  // free day: open at 07:00, not midnight
     }
   }
 }
