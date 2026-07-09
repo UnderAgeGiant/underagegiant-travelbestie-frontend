@@ -1927,6 +1927,13 @@ app-nav { display: block; }
 .timeline-panel.timeline-inline .tl-flap { display: none; }
 .timeline-panel.timeline-inline .tl-grid-wrap { max-height: 320px; }
 
+/* Mobile: drop the fixed cap so the day grid grows in-flow instead of
+   overflowing (unclipped, since .tl-grid-wrap goes overflow-y:visible on
+   mobile above) past its box and hiding beneath the next city's card. */
+@media (max-width: 768px) {
+  .timeline-panel.timeline-inline .tl-grid-wrap { max-height: none; }
+}
+
 /* Distinct accent so the day schedule reads as its own feature (42.2) */
 .timeline-panel.timeline-accent { border-left: 3px solid var(--lav-d); }
 .timeline-panel.timeline-accent .tl-head { background: var(--lav); border-radius: 10px 10px 0 0; }
