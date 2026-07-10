@@ -602,6 +602,10 @@
         <source>dd/mm/aaaa</source>
         <target>mm/dd/yyyy</target>
       </trans-unit>
+      <trans-unit id="timePicker.placeholder" datatype="html">
+        <source>hh:mm</source>
+        <target>hh:mm</target>
+      </trans-unit>
 
       <!-- ── city-combobox.component ── -->
       <trans-unit id="combobox.placeholder" datatype="html">
