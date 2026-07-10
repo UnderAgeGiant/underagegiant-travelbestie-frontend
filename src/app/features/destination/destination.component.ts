@@ -9,6 +9,7 @@ import { Comment } from '../../core/models/comment.model';
 import { ApiService } from '../../core/api/api.service';
 import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
 import { DeviceService } from '../../core/device/device.service';
+import { DestinationModalService } from './destination-modal.service';
 
 @Component({
     selector: 'app-destination',
@@ -16,7 +17,7 @@ import { DeviceService } from '../../core/device/device.service';
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="dest-view">
-      @if (city()) {
+      @if (city() && !device.isMobile()) {
         <div class="dest-banner">
           <div class="dest-banner-flag">{{ city()!.flag }}</div>
           <div class="dest-banner-info">
@@ -43,8 +44,9 @@ import { DeviceService } from '../../core/device/device.service';
             </div>
           </div>
         </div>
+      }
 
-        <ng-template #attList>
+      <ng-template #attList>
           <div class="attractions-area">
             <div class="attractions-top">
               <div class="attractions-label" i18n="@@dest.exploreTitle">Agregar atracciones a mi itinerario</div>
@@ -104,26 +106,21 @@ import { DeviceService } from '../../core/device/device.service';
           </div>
         </ng-template>
 
+      @if (city()) {
         @if (!device.isMobile()) {
           <ng-container [ngTemplateOutlet]="attList" />
-        } @else {
-          <button class="btn-pill btn-primary" style="width:100%;justify-content:center;margin:8px 0"
-                  (click)="attModalScrolled.set(false); attractionsModalOpen.set(true)" type="button"
-                  i18n="@@dest.addAttractionsBtn">➕ Agregar atracciones</button>
-
-          @if (attractionsModalOpen()) {
-            <div class="att-modal-backdrop" (click)="attractionsModalOpen.set(false)">
-              <div class="att-modal" (scroll)="onAttModalScroll($event)" (click)="$event.stopPropagation()">
-                <button class="att-modal-close" (click)="attractionsModalOpen.set(false)"
-                        i18n-aria-label="@@dest.addAttractionsClose" aria-label="Cerrar">✕</button>
-                <ng-container [ngTemplateOutlet]="attList" />
-                @if (attModalScrolled()) {
-                  <button class="scroll-top-fab" (click)="scrollAttModalTop()" type="button"
-                          i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
-                }
-              </div>
+        } @else if (modal.isOpen()) {
+          <div class="att-modal-backdrop" (click)="modal.close()">
+            <div class="att-modal" (scroll)="onAttModalScroll($event)" (click)="$event.stopPropagation()">
+              <button class="att-modal-close" (click)="modal.close()"
+                      i18n-aria-label="@@dest.addAttractionsClose" aria-label="Cerrar">✕</button>
+              <ng-container [ngTemplateOutlet]="attList" />
+              @if (attModalScrolled()) {
+                <button class="scroll-top-fab" (click)="scrollAttModalTop()" type="button"
+                        i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
+              }
             </div>
-          }
+          </div>
         }
       }
     </div>
@@ -133,8 +130,8 @@ export class DestinationComponent implements OnInit {
   private readonly trip = inject(TripService);
   private readonly api = inject(ApiService);
   protected readonly device = inject(DeviceService);
+  protected readonly modal = inject(DestinationModalService);
 
-  protected readonly attractionsModalOpen = signal(false);
   protected readonly attModalScrolled = signal(false);
 
   protected onAttModalScroll(ev: Event): void {
