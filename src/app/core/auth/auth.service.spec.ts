@@ -48,6 +48,10 @@ describe('AuthService', () => {
     expect(service.isLoggedIn()).toBe(false);
   });
 
+  it('never seeds a mock user registry into localStorage', () => {
+    expect(localStorage.getItem('tb_mock_users')).toBeNull();
+  });
+
   it('logout clears token and user', () => {
     service.logout();
     expect(service.token()).toBeNull();

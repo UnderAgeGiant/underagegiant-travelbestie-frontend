@@ -2,6 +2,7 @@ import { Component, input, output, signal, computed, OnInit, ChangeDetectionStra
 import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
+import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { formatEventLong, isDateInRange } from '../../../core/utils/event-datetime.util';
 
 export interface ScheduleEntry {
@@ -18,7 +19,7 @@ export interface PlanEntry {
 
 @Component({
     selector: 'app-plan-time-modal',
-    imports: [DurationPipe, DatePickerComponent],
+    imports: [DurationPipe, DatePickerComponent, TimePickerComponent],
     styles: [`
     .schedule-row {
       display: flex; align-items: center; gap: 10px;
@@ -93,9 +94,9 @@ export interface PlanEntry {
               </div>
               <div class="form-group" style="flex:1;margin-bottom:0">
                 <label class="form-label" i18n="@@planModal.timeLabel">Hora de inicio</label>
-                <input type="time" class="form-input"
-                       [value]="time()"
-                       (change)="time.set($any($event.target).value)" />
+                <app-time-picker
+                  [initialTime]="time()"
+                  (timeChange)="time.set($event)" />
               </div>
             </div>
           }

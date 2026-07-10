@@ -587,7 +587,6 @@ app-nav { display: block; }
     flex: none;
     width: 100%;
     overflow: visible;
-    min-height: 80vh;
   }
 
   /* ── Destination ── */
@@ -1922,6 +1921,11 @@ app-nav { display: block; }
 }
 .stop-itinerary-pill:hover { filter: brightness(.97); transform: translateY(-1px); }
 .stop-itinerary-pill.active { background: var(--lav-d); color: #fff; }
+
+/* Row holding the itinerary pill + (mobile) add-attraction pill side by side */
+.stop-pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.stop-pill-row .stop-itinerary-pill { margin-top: 0; }
+.stop-add-attraction-pill { color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
 
 /* Inline (in-stop) timeline: full-width card beneath a stop, not a fixed side column */
 .timeline-panel.timeline-inline {
