@@ -13,6 +13,7 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
 import { TransitConnectorComponent } from './transit-connector.component';
 import { LodgingComponent } from './lodging.component';
 import { DayTimelineComponent } from '../../planning/day-timeline/day-timeline.component';
+import { DestinationModalService } from '../../destination/destination-modal.service';
 
 @Component({
     selector: 'app-stop-list',
@@ -131,10 +132,17 @@ import { DayTimelineComponent } from '../../planning/day-timeline/day-timeline.c
 
                 <app-lodging [stopId]="stop.stopId" />
 
-                <button type="button" class="stop-itinerary-pill"
-                        [class.active]="itineraryOpenStopId() === stop.stopId"
-                        (click)="$event.stopPropagation(); toggleItinerary(stop.stopId)"
-                        i18n="@@stopList.viewItinerary">📅 Ver itinerario de la ciudad</button>
+                <div class="stop-pill-row">
+                  <button type="button" class="stop-itinerary-pill"
+                          [class.active]="itineraryOpenStopId() === stop.stopId"
+                          (click)="$event.stopPropagation(); toggleItinerary(stop.stopId)"
+                          i18n="@@stopList.viewItinerary">📅 Ver itinerario de la ciudad</button>
+                  @if (device.isMobile()) {
+                    <button type="button" class="stop-itinerary-pill stop-add-attraction-pill"
+                            (click)="$event.stopPropagation(); openAddAttraction(stop.stopId)"
+                            i18n="@@stopList.addAttractionBtn">➕ Agregar atracción</button>
+                  }
+                </div>
 
                 @if (itineraryOpenStopId() === stop.stopId) {
                   <tb-day-timeline [stop]="stop" [inline]="true" />
@@ -278,6 +286,7 @@ export class StopListComponent {
   private readonly authModal  = inject(AuthModalService);
   private readonly karmaModal = inject(KarmaModalService);
   protected readonly device   = inject(DeviceService);
+  private readonly destModal  = inject(DestinationModalService);
   addDestination = output<void>();
 
   protected readonly showScrollTop = signal(false);
@@ -288,6 +297,11 @@ export class StopListComponent {
   protected toggleItinerary(stopId: string): void {
     this.trip.setActive(stopId);
     this.itineraryOpenStopId.update(cur => (cur === stopId ? null : stopId));
+  }
+
+  openAddAttraction(stopId: string): void {
+    this.trip.setActive(stopId);
+    this.destModal.open();
   }
 
   @HostListener('window:scroll')
