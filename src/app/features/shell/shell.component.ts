@@ -5,6 +5,7 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 import { StopListComponent } from '../trip/stop-list/stop-list.component';
 import { DestinationComponent } from '../destination/destination.component';
 import { AddStopModalComponent } from '../trip/add-stop-modal/add-stop-modal.component';
+import { MobileAttractionsModalComponent } from '../destination/mobile-attractions-modal/mobile-attractions-modal.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { AiPlanningComponent } from '../ai-planning/ai-planning.component';
@@ -22,6 +23,7 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
         StopListComponent,
         DestinationComponent,
         AddStopModalComponent,
+        MobileAttractionsModalComponent,
         ToastComponent,
         ProfileComponent,
         AiPlanningComponent,
@@ -89,6 +91,8 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
     @if (showAddModal()) {
       <app-add-stop-modal (close)="showAddModal.set(false)" />
     }
+
+    <app-mobile-attractions-modal />
 
     @if (toast()) {
       <app-toast [message]="toast()!" (done)="toast.set(null)" />
