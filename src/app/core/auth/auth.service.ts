@@ -3,7 +3,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError, from } from 'rxjs';
 import { tap, switchMap, catchError, map, finalize, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { MockUser, DEMO_USERS } from '../../mock/users.mock';
 
 export interface AuthUser {
   name: string;
@@ -11,7 +10,6 @@ export interface AuthUser {
   homeCity?: string | null;
 }
 
-const USERS_KEY   = 'tb_mock_users';
 const SESSION_KEY = 'tb_session_user';
 
 @Injectable({ providedIn: 'root' })
@@ -41,10 +39,6 @@ export class AuthService {
       try { this._user.set(JSON.parse(raw)); } catch { /* ignore */ }
     }
 
-    if (!localStorage.getItem(USERS_KEY)) {
-      localStorage.setItem(USERS_KEY, JSON.stringify(DEMO_USERS));
-    }
-
     // Silent refresh: the refresh token now lives in an HttpOnly cookie we cannot read.
     // Use the non-sensitive session marker to decide whether a session may exist, then
     // let the backend confirm via the cookie. A 401 simply leaves us logged out.
@@ -55,11 +49,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
-      const users = this.getStoredUsers();
-      const byEmail = users.find(u => u.email === email);
-      if (!byEmail) return throwError(() => Object.assign(new Error('USER_NOT_FOUND'), { code: 'USER_NOT_FOUND' }));
-      if (byEmail.password !== password) return throwError(() => Object.assign(new Error('WRONG_PASSWORD'), { code: 'WRONG_PASSWORD' }));
-      return of(this.mockSession(byEmail.name, byEmail.email));
+      return of(this.mockSession(email.split('@')[0], email));
     }
     return from(this.encryptPayload({ email, password })).pipe(
       switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
@@ -75,12 +65,6 @@ export class AuthService {
 
   register(name: string, email: string, password: string, otp: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
-      const users = this.getStoredUsers();
-      if (users.some(u => u.email === email)) {
-        return throwError(() => Object.assign(new Error('BAD_REQUEST'), { code: 'BAD_REQUEST' }));
-      }
-      users.push({ name, email, password });
-      localStorage.setItem(USERS_KEY, JSON.stringify(users));
       return of(this.mockSession(name, email));
     }
     return from(this.encryptPayload({ name, email, password, otp })).pipe(
@@ -142,9 +126,6 @@ export class AuthService {
 
   resetPassword(email: string, otp: string, newPassword: string): Observable<void> {
     if (environment.useMocks) {
-      const users = this.getStoredUsers();
-      const u = users.find(x => x.email === email);
-      if (u) { u.password = newPassword; localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
       return of(undefined);
     }
     return from(this.encryptPayload({ email, otp, newPassword })).pipe(
@@ -255,7 +236,4 @@ export class AuthService {
     } catch { throw new Error('Error al cifrar las credenciales. Intenta de nuevo.'); }
   }
 
-  private getStoredUsers(): MockUser[] {
-    try { return JSON.parse(localStorage.getItem(USERS_KEY) ?? '[]'); } catch { return []; }
-  }
 }
