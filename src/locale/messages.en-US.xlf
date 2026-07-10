@@ -142,6 +142,10 @@
         <source>📅 Ver itinerario de la ciudad</source>
         <target>📅 View city itinerary</target>
       </trans-unit>
+      <trans-unit id="stopList.addAttractionBtn" datatype="html">
+        <source>➕ Agregar atracción</source>
+        <target>➕ Add attraction</target>
+      </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
         <source>Guardar ✓</source>
         <target>Save ✓</target>
@@ -1199,10 +1203,6 @@
       <trans-unit id="plan.scrollToTop" datatype="html">
         <source>Ir arriba</source>
         <target>Scroll to top</target>
-      </trans-unit>
-      <trans-unit id="dest.addAttractionsBtn" datatype="html">
-        <source>➕ Agregar atracciones</source>
-        <target>➕ Add attractions</target>
       </trans-unit>
       <trans-unit id="dest.addAttractionsClose" datatype="html">
         <source>Cerrar</source>
