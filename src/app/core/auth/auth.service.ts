@@ -42,8 +42,15 @@ export class AuthService {
     // Silent refresh: the refresh token now lives in an HttpOnly cookie we cannot read.
     // Use the non-sensitive session marker to decide whether a session may exist, then
     // let the backend confirm via the cookie. A 401 simply leaves us logged out.
+    //
+    // Deferred via queueMicrotask: subscribing synchronously here would dispatch the
+    // HTTP call (and re-enter authInterceptor's inject(AuthService)) while this very
+    // constructor is still on the call stack — Angular's DI throws NG0200 (circular
+    // dependency) because the singleton isn't finished constructing yet. Deferring past
+    // the current tick lets construction finish first, so the interceptor's inject()
+    // resolves against the now-fully-registered instance.
     if (localStorage.getItem(SESSION_KEY)) {
-      this.refreshAccessToken().subscribe();
+      queueMicrotask(() => this.refreshAccessToken().subscribe());
     }
   }
 
