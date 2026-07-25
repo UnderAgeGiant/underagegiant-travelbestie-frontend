@@ -158,6 +158,15 @@ export class AuthService {
     return this._refreshInFlight;
   }
 
+  /**
+   * True when a session marker exists but the in-memory token hasn't been
+   * restored yet (e.g. right after a page reload). Callers should wait for
+   * refreshAccessToken() before sending authenticated requests.
+   */
+  sessionMayExist(): boolean {
+    return this._token() === null && localStorage.getItem(SESSION_KEY) !== null;
+  }
+
   logout(): void {
     if (!environment.useMocks && localStorage.getItem(SESSION_KEY)) {
       // Fire-and-forget — the backend reads + clears the cookie; we don't block the UI.
