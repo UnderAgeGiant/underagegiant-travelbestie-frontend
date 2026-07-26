@@ -71,7 +71,7 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
         <app-stop-list (addDestination)="showAddModal.set(true)" />
-        <tb-day-timeline />
+        <tb-day-timeline [showPlanSlideshow]="true" />
         <div class="right-panel">
           @if (!trip.activeStop()) {
             <div class="empty-stop">
