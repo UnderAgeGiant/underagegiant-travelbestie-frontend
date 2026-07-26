@@ -5,12 +5,15 @@ import {
 import { DeviceService } from '../../../core/device/device.service';
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
-import { TripStop, PlannedAttraction, TransitLeg } from '../../../core/models/trip.model';
+import { TripStop, PlannedAttraction, TransitLeg, TransitMode } from '../../../core/models/trip.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../core/maps/google-maps-url.util';
+import { SlideshowItem } from '../../../core/models/plan-slideshow.model';
+import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slideshow.component';
+import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -85,10 +88,14 @@ function transitIcon(mode: string): string {
   return icons[mode] ?? '🚀';
 }
 
+const TRANSIT_LABEL: Record<TransitMode, string> = {
+  flight: 'Vuelo', train: 'Tren', boat: 'Barco', bus: 'Bus', car: 'Auto',
+};
+
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -110,6 +117,16 @@ function transitIcon(mode: string): string {
              [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
             <span i18n="@@timeline.dayRoute">🗺️ Ruta del día</span>
           </a>
+        }
+        @if (blocks().length > 0) {
+          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
+                  (click)="daySlideshowOpen.set(true)" type="button"
+                  i18n="@@timeline.daySlideshow">🎬 Presentación del día</button>
+        }
+        @if (showPlanSlideshow() && planSlideItems().length > 0) {
+          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
+                  (click)="planSlideshowOpen.set(true)" type="button"
+                  i18n="@@timeline.planSlideshow">🎞️ Presentación del plan</button>
         }
       </div>
 
@@ -181,6 +198,13 @@ function transitIcon(mode: string): string {
     </button>
 
   </div>
+
+  @if (daySlideshowOpen()) {
+    <app-plan-slideshow [items]="daySlideItems()" (closed)="daySlideshowOpen.set(false)" />
+  }
+  @if (planSlideshowOpen()) {
+    <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
+  }
 }
   `
 })
@@ -194,6 +218,9 @@ export class DayTimelineComponent {
   // Rendered inline beneath a stop (single-city view); disables the column layout
   // and the mobile auto-collapse so it stays open where the user opened it.
   readonly inline   = input(false);
+  // Whole-plan slideshow switch — only set true on the single trip-wide
+  // instance rendered by ShellComponent (see Task 5).
+  readonly showPlanSlideshow = input(false);
 
   // Flap label depends on scope: a single stop shows that city; otherwise the whole plan.
   protected readonly flapLabel = computed(() =>
@@ -221,6 +248,8 @@ export class DayTimelineComponent {
 
   // ── Collapse / expand ─────────────────────────────────────────────────────
   protected readonly collapsed = signal(false);
+  protected readonly daySlideshowOpen  = signal(false);
+  protected readonly planSlideshowOpen = signal(false);
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
   /** Public: open the timeline (used by the mobile 'Ver itinerario' button). */
   expand(): void { this.collapsed.set(false); }
@@ -537,5 +566,90 @@ export class DayTimelineComponent {
     } else {
       wrap.scrollTop = 7 * TL_RH;  // free day: open at 07:00, not midnight
     }
+  }
+
+  // ── Slideshow items ───────────────────────────────────────────────────────
+  protected readonly daySlideItems = computed<SlideshowItem[]>(() => {
+    const stop = this.selectedStopForDay();
+    const day  = this.selectedDay();
+    if (!stop || !day) return [];
+
+    const dayTab  = this.days().find(t => t.key === day);
+    const dateStr = dayTab ? this.fmtDate(dayTab.date) : null;
+
+    const city = WORLD_CITIES.find(c => c.id === stop.cityId);
+    const attractions = city ? getAttractions(city) : [];
+
+    const attItems: SlideshowItem[] = this.attractionsForDay(stop.selectedAttractions, day)
+      .filter((a: PlannedAttraction) => !!a.startTime)
+      .map((a: PlannedAttraction): SlideshowItem => {
+        const att = attractions.find(x => x.id === a.attractionId)
+                 ?? findCuratedAttraction(stop.cityId, a.attractionId)
+                 ?? null;
+        const startMin = hmToMin(a.startTime!);
+        const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + (att?.estimatedMinutes ?? 60);
+        const date     = a.date ?? dateStr;
+        return {
+          id:        `att:${a.entryId}`,
+          name:      att?.name ?? a.attractionId,
+          type:      att?.type ?? '',
+          icon:      typeIcon(att?.type ?? ''),
+          imageUrl:  att?.imageUrl ?? null,
+          startDate: date,
+          startTime: a.startTime!,
+          endDate:   date,
+          endTime:   minToHm(endMin),
+        };
+      });
+
+    return [...attItems, ...this.transitSlideItemsForDay(day, stop.cityId)]
+      .sort((a, b) => this.slideSortKey(a) - this.slideSortKey(b));
+  });
+
+  protected readonly planSlideItems = computed<SlideshowItem[]>(() => {
+    if (!this.showPlanSlideshow()) return [];
+    const stops = this.stop() ? [this.stop()!] : this.trip.stops();
+    return buildPlanSlideshowItems(stops, this.allTransits());
+  });
+
+  private transitSlideItemsForDay(day: string, cityId: string): SlideshowItem[] {
+    const items: SlideshowItem[] = [];
+    for (const leg of this.allTransits()) {
+      const isOutgoing = leg.fromCityId === cityId;
+      const isIncoming = leg.toCityId   === cityId;
+      if (!isOutgoing && !isIncoming) continue;
+
+      for (const seg of leg.segments) {
+        if (!seg.departureDate || !seg.departureTime) continue;
+        const depKey = seg.departureDate.slice(0, 5);
+        const arrKey = seg.arrivalDate ? seg.arrivalDate.slice(0, 5) : depKey;
+        if (depKey !== day && arrKey !== day) continue;
+
+        items.push({
+          id:        `transit:${leg.fromCityId}:${leg.toCityId}:${seg.departureDate}:${seg.departureTime}`,
+          name:      `${this.cityLabel(leg.fromCityId)} → ${this.cityLabel(leg.toCityId)}`,
+          type:      TRANSIT_LABEL[seg.mode] ?? 'Transporte',
+          icon:      transitIcon(seg.mode),
+          imageUrl:  null,
+          startDate: seg.departureDate,
+          startTime: seg.departureTime,
+          endDate:   seg.arrivalDate || seg.departureDate,
+          endTime:   seg.arrivalTime || null,
+        });
+      }
+    }
+    return items;
+  }
+
+  private slideSortKey(item: SlideshowItem): number {
+    if (!item.startDate || !item.startTime) return Number.MAX_SAFE_INTEGER;
+    const [d, m, y] = item.startDate.split('/').map(Number);
+    const [h, mi]   = item.startTime.split(':').map(Number);
+    const t = new Date(y ?? 0, (m ?? 1) - 1, d ?? 1, h ?? 0, mi ?? 0).getTime();
+    return isNaN(t) ? Number.MAX_SAFE_INTEGER : t;
+  }
+
+  private fmtDate(d: Date): string {
+    return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
   }
 }
