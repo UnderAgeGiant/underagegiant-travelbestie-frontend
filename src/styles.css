@@ -2112,3 +2112,88 @@ app-nav { display: block; }
 @media (max-width: 768px) {
   .notif-panel { position: fixed; top: 64px; left: 12px; right: 12px; width: auto; }
 }
+
+/* ── Plan slideshow (fullscreen presentation mode) ──────────────────────── */
+.ps-overlay-root {
+  position: fixed; inset: 0; z-index: 950;
+  background: #000; overflow: hidden;
+}
+.ps-slide {
+  position: absolute; inset: 0; opacity: 0;
+  transition: opacity 1s cubic-bezier(.4,0,.2,1);
+}
+.ps-slide.active { opacity: 1; }
+.ps-slide-img {
+  width: 100%; height: 100%; object-fit: cover;
+  animation: ken-burns 8s ease-in-out both;
+}
+.ps-slide-fallback {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, oklch(30% .05 290), oklch(20% .04 250));
+  animation: ken-burns 8s ease-in-out both;
+}
+.ps-slide-fallback-icon { font-size: 96px; opacity: .85; }
+.ps-slide-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.65) 100%);
+}
+.ps-close {
+  position: absolute; top: 20px; right: 20px; z-index: 3;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: oklch(100% 0 0/.15); backdrop-filter: blur(8px);
+  border: 1px solid oklch(100% 0 0/.3); color: #fff; font-size: 16px;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background .2s;
+}
+.ps-close:hover { background: oklch(100% 0 0/.3); }
+.ps-caption {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 40px 56px;
+}
+.ps-caption-type {
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: oklch(100% 0 0/.65); margin-bottom: 8px; animation: captionUp .5s ease both;
+}
+.ps-caption-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300;
+  letter-spacing: -2px; color: #fff; line-height: 1.05; animation: captionUp .5s .07s ease both;
+}
+.ps-caption-time {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 15px; color: oklch(100% 0 0/.75); margin-top: 10px;
+  animation: captionUp .5s .14s ease both;
+}
+.ps-caption-arrow { opacity: .6; }
+.ps-dots {
+  position: absolute; bottom: 40px; right: 56px; z-index: 3;
+  display: flex; gap: 7px;
+}
+.ps-dot {
+  width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0;
+  background: oklch(100% 0 0/.4); cursor: pointer; transition: all .3s;
+}
+.ps-dot.active { background: #fff; width: 22px; border-radius: 4px; }
+.ps-arrows {
+  position: absolute; top: 50%; left: 20px; right: 20px; z-index: 3;
+  display: flex; justify-content: space-between; transform: translateY(-50%);
+  pointer-events: none;
+}
+.ps-arrow {
+  width: 48px; height: 48px; border-radius: 50%; pointer-events: auto;
+  background: oklch(100% 0 0/.15); backdrop-filter: blur(8px); color: #fff;
+  font-size: 22px; border: 1px solid oklch(100% 0 0/.3);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background .2s;
+}
+.ps-arrow:hover { background: oklch(100% 0 0/.3); }
+.ps-empty {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 16px; opacity: .7;
+}
+@media (max-width: 768px) {
+  .ps-caption { padding: 24px 24px 32px; }
+  .ps-caption-name { font-size: 36px; }
+  .ps-dots { right: 24px; bottom: 24px; }
+  .ps-arrows { left: 8px; right: 8px; }
+  .ps-arrow { width: 40px; height: 40px; font-size: 18px; }
+}
