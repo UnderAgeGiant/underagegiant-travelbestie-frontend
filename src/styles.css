@@ -232,7 +232,7 @@ app-nav { display: block; }
 .shared-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }
 .shared-bg { position: fixed; inset: 0; z-index: 0; background: url('/paper-planes.webp') repeat center center / 380px auto; filter: blur(1px); transform: scale(1.04); pointer-events: none; }
 .shared-bg-frost { position: fixed; inset: 0; z-index: 1; background: rgba(255,255,255,.45); pointer-events: none; }
-.shared-body { display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; margin: 58px auto 0; padding: 24px 20px 60px; position: relative; z-index: 2; }
+.shared-body { display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; margin: 58px auto 0; padding: 24px 20px 60px; position: relative; z-index: 210; }
 .shared-main { flex: 0 1 680px; min-width: 0; }
 .shared-not-found { position: relative; z-index: 2; }
 .shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
