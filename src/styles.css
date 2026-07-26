@@ -2022,28 +2022,6 @@ app-nav { display: block; }
   font-size: 13px; color: var(--t2); line-height: 1.6; margin: 0 0 18px;
 }
 
-/* ── Unsplash watermark badge (shared across image containers) ─────────── */
-.unsplash-badge {
-  position: absolute;
-  bottom: 6px;
-  right: 6px;
-  z-index: 3;
-  padding: 2px 7px;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: .2px;
-  color: rgba(255,255,255,.85);
-  background: rgba(0,0,0,.35);
-  border-radius: 5px;
-  backdrop-filter: blur(2px);
-  text-decoration: none;
-  line-height: 1.4;
-  white-space: nowrap;
-  pointer-events: auto;
-  transition: background .15s, color .15s;
-}
-.unsplash-badge:hover { background: rgba(0,0,0,.55); color: #fff; }
-
 /* In-app notifications */
 .notif-wrap { position: relative; }
 .notif-bell {
