@@ -1,8 +1,9 @@
-import { TestBed } from '@angular/core/testing';
-import { provideHttpClient, withXhr } from '@angular/common/http';
+import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
+import { provideHttpClient, withXhr, withInterceptors } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { AuthService } from './auth.service';
+import { authInterceptor } from './auth.interceptor';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -57,4 +58,37 @@ describe('AuthService', () => {
     expect(service.token()).toBeNull();
     expect(service.currentUser()).toBeNull();
   });
+});
+
+describe('AuthService boot-time silent refresh (NG0200 regression)', () => {
+  // authInterceptor calls inject(AuthService) on every outgoing request, including the
+  // one the constructor fires for itself. If that call is dispatched synchronously
+  // during construction, Angular's DI detects the re-entrant inject(AuthService) as a
+  // circular dependency (NG0200) before the request ever reaches the network — silently
+  // caught by refreshAccessToken()'s catchError, which then wipes the session marker on
+  // every reload. The constructor must defer the call past construction (queueMicrotask)
+  // so the interceptor's inject(AuthService) resolves against the finished singleton.
+  afterEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  });
+
+  it('does not throw NG0200 and issues the refresh request when a session marker exists on construction', fakeAsync(() => {
+    localStorage.setItem('tb_session_user', JSON.stringify({ name: 'Test', email: 'test@test.com' }));
+    TestBed.configureTestingModule({
+      providers: [
+        AuthService,
+        provideHttpClient(withXhr(), withInterceptors([authInterceptor])),
+        provideHttpClientTesting(),
+      ],
+    });
+
+    expect(() => TestBed.inject(AuthService)).not.toThrow();
+
+    flushMicrotasks();
+    const http = TestBed.inject(HttpTestingController);
+    const req = http.expectOne(r => r.url.includes('/auth/refresh'));
+    req.flush({ token: 'fresh.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
+    http.verify();
+  }));
 });
