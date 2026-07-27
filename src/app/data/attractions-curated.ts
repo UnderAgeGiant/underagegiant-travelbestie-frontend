@@ -12754,6 +12754,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://museofonck.cl",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Moai_head_at_Corporacion_Museo_de_Arqueologia_e_Historia_Francisco_Fonck.jpg/1920px-Moai_head_at_Corporacion_Museo_de_Arqueologia_e_Historia_Francisco_Fonck.jpg",
     },
     {
       id: "vinadelmar_15",
@@ -12775,6 +12776,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Escuela_Municipal_de_Bellas_Artes%2C_Vi%C3%B1a_del_Mar_20231002.jpg/3840px-Escuela_Municipal_de_Bellas_Artes%2C_Vi%C3%B1a_del_Mar_20231002.jpg",
     },
     {
       id: "vinadelmar_17",
@@ -12785,6 +12787,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Muelle_Vergara%2C_Vi%C3%B1a_del_Mar_20200121_22.jpg/1920px-Muelle_Vergara%2C_Vi%C3%B1a_del_Mar_20200121_22.jpg",
     },
     {
       id: "vinadelmar_18",
@@ -12806,6 +12809,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Reloj_de_flores.%28Vi%C3%B1a_del_Mar%29.jpg/1920px-Reloj_de_flores.%28Vi%C3%B1a_del_Mar%29.jpg",
     },
   ],
   sanpedroatacama: [
@@ -13153,6 +13157,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.arzobispadodelaserena.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseo251921univ%29.pdf/page1-960px-Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseo251921univ%29.pdf.jpg",
     },
     {
       id: "laserena_1",
@@ -13409,6 +13414,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.bigbangpark.cl/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Breeder_and_sportsman_%28IA_breedersportsma321898sanf%29.pdf/page1-1280px-Breeder_and_sportsman_%28IA_breedersportsma321898sanf%29.pdf.jpg",
     },
     {
       id: "laserena_24",
@@ -13419,6 +13425,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Copiapo_25_marzo_2015_.jpg",
     },
     {
       id: "laserena_25",
@@ -13440,6 +13447,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Aurora_de_Chile_-_N%C2%B0_Extraordinario_-_1_de_septiembre_de_2010.pdf/page1-960px-Aurora_de_Chile_-_N%C2%B0_Extraordinario_-_1_de_septiembre_de_2010.pdf.jpg",
     },
     {
       id: "laserena_27",
@@ -13450,6 +13458,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Jard%C3%ADn_Japon%C3%A9s_de_La_Serena_%2815190973631%29.jpg/1920px-Jard%C3%ADn_Japon%C3%A9s_de_La_Serena_%2815190973631%29.jpg",
     },
   ],
   coquimbo: [
@@ -13608,6 +13617,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/35/Cruz_del_tercer_Milenio.jpg",
     },
     {
       id: "coquimbo_14",
@@ -13653,6 +13663,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/Villarrica_town_and_volcano.jpg",
     },
     {
       id: "pucon_3",
@@ -13786,6 +13797,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Chile_en_1908_-_bdh0000119585.pdf/page1-1920px-Chile_en_1908_-_bdh0000119585.pdf.jpg",
     },
     {
       id: "pucon_15",
@@ -13796,6 +13808,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Termas_de_Quimey-Co_Puc%C3%B3n.jpg",
     },
   ],
   puertovaras: [
@@ -13863,6 +13876,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Puerto_Varas_La_Puntilla_-escultra_de_la_princesa_Licarayen_f02.jpg/1920px-Puerto_Varas_La_Puntilla_-escultra_de_la_princesa_Licarayen_f02.jpg",
     },
     {
       id: "puertovaras_6",
@@ -14005,6 +14019,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Panoramica_Puerto_Varas_2023.jpg",
     },
     {
       id: "puertovaras_19",
@@ -14025,6 +14040,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Senyera_%28Pl._Octavi%C3%A0%2C_S._Cugat_del_Vall%C3%A8s%29_01.jpg",
     },
     {
       id: "puertovaras_21",
@@ -14036,6 +14052,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.chesterbeer.cl/",
+      imageUrl: "https://live.staticflickr.com/2928/13957831973_5c239d9b2e_b.jpg",
     },
     {
       id: "puertovaras_22",
@@ -14128,6 +14145,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.rutadelosparques.org/parque-nacional-bernardo-ohiggins/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Glaciar_Serrano%2C_Parque_Nacional_Bernardo_O%27Higgins%2C_Puerto_Natales%2C_Magallanes%2C_Chile.jpg/1920px-Glaciar_Serrano%2C_Parque_Nacional_Bernardo_O%27Higgins%2C_Puerto_Natales%2C_Magallanes%2C_Chile.jpg",
     },
     {
       id: "puertonatales_5",
@@ -14171,6 +14189,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Silla_del_diablo.JPG/1920px-Silla_del_diablo.JPG",
     },
     {
       id: "puertonatales_9",
@@ -14282,6 +14301,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Anales_de_la_Biblioteca_-_Paul_Groussac_%28tomo_primero%29.pdf/page1-500px-Anales_de_la_Biblioteca_-_Paul_Groussac_%28tomo_primero%29.pdf.jpg",
     },
     {
       id: "puertonatales_19",
@@ -14292,6 +14312,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Las_C%C3%B3rdoba_de_Iberoam%C3%A9rica.pdf/page1-500px-Las_C%C3%B3rdoba_de_Iberoam%C3%A9rica.pdf.jpg",
     },
     {
       id: "puertonatales_20",
@@ -14581,6 +14602,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/The_construction_of_the_HMS_Beagle_Full_Size_Replica_in_the_Nao_Victoria_Museum_-_Punta_Arenas_-_Chile.jpg/1920px-The_construction_of_the_HMS_Beagle_Full_Size_Replica_in_the_Nao_Victoria_Museum_-_Punta_Arenas_-_Chile.jpg",
     },
   ],
   hangaroa: [
@@ -14726,6 +14748,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Easter_Island_5.jpg/3840px-Easter_Island_5.jpg",
     },
     {
       id: "hangaroa_13",
@@ -14770,6 +14793,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Easter_Island_5.jpg/3840px-Easter_Island_5.jpg",
     },
     {
       id: "hangaroa_17",
@@ -14780,6 +14804,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Anakena_Moai_-_Rapa_Nui_-_Easter_Island_-_Isla_de_Pasqua.jpg/1920px-Anakena_Moai_-_Rapa_Nui_-_Easter_Island_-_Isla_de_Pasqua.jpg",
     },
     {
       id: "hangaroa_18",
@@ -14790,6 +14815,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Hanga_Roa%2C_Easter_Island%2C_Valparaiso_Region%2C_Chile_-_panoramio_%286%29.jpg/1920px-Hanga_Roa%2C_Easter_Island%2C_Valparaiso_Region%2C_Chile_-_panoramio_%286%29.jpg",
     },
   ],
   rio: [
@@ -15038,6 +15064,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "http://www.jbrj.gov.br/cultura/espaco_tom_jobim.html",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/JBRJ_-_Espa%C3%A7o_Tom_Jobim_02.jpg/1920px-JBRJ_-_Espa%C3%A7o_Tom_Jobim_02.jpg",
     },
     {
       id: "rio_21",
@@ -15234,6 +15261,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.exercito.gov.br/fortedecopacabana",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Boca_da_Ba%C3%ADa_de_Guanabara_e_orlas_artificiais_-_Parque_do_Flamengo%2C_Fortes_Hist%C3%B3ricos_de_Niter%C3%B3i%2C_Monumento_Natural_do_P%C3%A3o_de_A%C3%A7%C3%BAcar%2C_orla_mar%C3%ADtima_de_Copacabana_-_Rio_de_Janeiro_-_20240623064031.jpg/1920px-thumbnail.jpg",
     },
     {
       id: "rio_38",
@@ -16135,6 +16163,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://saranossaterra.com.br/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/07_01_2022_Solenidade_da_Celebra%C3%A7%C3%A3o_Prof%C3%A9tica_Sara_Nossa_Terra_%2851807059939%29.jpg/1920px-07_01_2022_Solenidade_da_Celebra%C3%A7%C3%A3o_Prof%C3%A9tica_Sara_Nossa_Terra_%2851807059939%29.jpg",
     },
     {
       id: "brasilia_11",
@@ -16645,6 +16674,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Biblioteconomia_-_INTRODU%C3%87%C3%83O_%C3%80_BIBLIOTECONOMIA_-_COMPET%C3%8ANCIA_-1.webm/1280px--Biblioteconomia_-_INTRODU%C3%87%C3%83O_%C3%80_BIBLIOTECONOMIA_-_COMPET%C3%8ANCIA_-1.webm.jpg",
     },
     {
       id: "recife_26",
@@ -16800,6 +16830,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Ouro_Preto_Casa_dos_Inconfidentes_%28na_encosta_dos_Morros_do_Cruzeiro%29._Neste_pr%C3%A9dio_os_Inconfidentes_fizeram_varias_reuni%C3%B5es_%281%29_-_1-14949-0000-0000%2C_Acervo_do_Museu_Paulista_da_USP.jpg/1920px-thumbnail.jpg",
     },
     {
       id: "ouropreto_13",
@@ -16821,6 +16852,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PedroVilela_Mina_do_Chico_Rei_Ouro_Preto_MG_%2826995676078%29.jpg/1920px-PedroVilela_Mina_do_Chico_Rei_Ouro_Preto_MG_%2826995676078%29.jpg",
     },
     {
       id: "ouropreto_15",
@@ -16843,6 +16875,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Uma_corte_colonial_-_arquitetura%2C_mobili%C3%A1rio%2C_ornamentos_e_utens%C3%ADlios_do_Pal%C3%A1cio_Velho_de_Ouro_Preto_%281721-1735%29%2C_Anais_do_Museu_Paulista.pdf/page1-960px-Uma_corte_colonial_-_arquitetura%2C_mobili%C3%A1rio%2C_ornamentos_e_utens%C3%ADlios_do_Pal%C3%A1cio_Velho_de_Ouro_Preto_%281721-1735%29%2C_Anais_do_Museu_Paulista.pdf.jpg",
     },
     {
       id: "ouropreto_17",
@@ -16897,6 +16930,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Ouro_Preto_%28Freguezia_de_Antonio_Dias%29_1._Matriz_de_Antonio_Dias_2._Csa_de_Marilia_de_Dirceu_3._Ladeira_%281%29_-_1-14991-0000-0000%2C_Acervo_do_Museu_Paulista_da_USP_%28cropped%29.jpg/1920px-thumbnail.jpg",
     },
   ],
   foziguacu: [
@@ -17034,6 +17068,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Mos%C3%A8_Bertoni.jpg",
     },
     {
       id: "foziguacu_12",
@@ -17078,6 +17113,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 180,
       website: "https://www.itaipu.gov.br/turismo",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/ZigKoch_Vertedouro_Usina_Hidrel%C3%A9trica_de_Itaipu_Foz_do_Iguacu_PR_%2839239081470%29.jpg/1920px-ZigKoch_Vertedouro_Usina_Hidrel%C3%A9trica_de_Itaipu_Foz_do_Iguacu_PR_%2839239081470%29.jpg",
     },
     {
       id: "foziguacu_16",
@@ -17355,6 +17391,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/O_amanhecer_de_um_insone%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%2840309%29.pdf/page1-960px-O_amanhecer_de_um_insone%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%2840309%29.pdf.jpg",
     },
     {
       id: "florianopolis_24",
@@ -17525,6 +17562,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Bandeira_do_Amazonas.svg/960px-Bandeira_do_Amazonas.svg.png",
     },
     {
       id: "manaus_9",
@@ -17557,6 +17595,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Between_the_Ochils_and_Forth%3B_a_description%2C_topographical_and_historical%2C_of_the_country_between_Stirling_bridge_and_Aberdour_%28IA_betweenochilsfor00beveiala%29.pdf/page1-500px-thumbnail.pdf.jpg",
     },
     {
       id: "manaus_12",
@@ -17578,6 +17617,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/04_11_2020_Visita_ao_zool%C3%B3gico_do_CIGS_%28Centro_de_Instru%C3%A7%C3%A3o_de_Guerra_na_Selva%29_%2850567613348%29.jpg/1920px-04_11_2020_Visita_ao_zool%C3%B3gico_do_CIGS_%28Centro_de_Instru%C3%A7%C3%A3o_de_Guerra_na_Selva%29_%2850567613348%29.jpg",
     },
     {
       id: "manaus_14",
@@ -17588,6 +17628,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Guaranazal_minha_segunda_casa%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%2844650%29.pdf/page1-960px-Guaranazal_minha_segunda_casa%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%2844650%29.pdf.jpg",
     },
     {
       id: "manaus_15",
@@ -17850,6 +17891,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/O_Despertador_1870_n%C3%BAmero_748.pdf/page1-1920px-O_Despertador_1870_n%C3%BAmero_748.pdf.jpg",
     },
     {
       id: "fortaleza_21",
@@ -17860,6 +17902,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/A_Fortaleza_em_1810.pdf/page1-960px-A_Fortaleza_em_1810.pdf.jpg",
     },
     {
       id: "fortaleza_22",
@@ -18235,6 +18278,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://planetario.montevideo.gub.uy/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Planetario_Municipal_Agrimensor_Germ%C3%A1n_Barbato._Montevideo%2C_Uruguay.JPG",
     },
     {
       id: "montevideo_29",
@@ -18291,6 +18335,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Rambla_de_Montevideo_2017.webm/500px--Rambla_de_Montevideo_2017.webm.jpg",
     },
     {
       id: "montevideo_34",
@@ -18301,6 +18346,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Palacio_Legislativo_Montevideo_2.jpg/1920px-Palacio_Legislativo_Montevideo_2.jpg",
     },
     {
       id: "montevideo_35",
@@ -18428,6 +18474,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Historia_de_los_gobernadores_de_las_provincias_Argentinas_-_Antonio_Zinny_%28Tomo_5%29.pdf/page1-330px-Historia_de_los_gobernadores_de_las_provincias_Argentinas_-_Antonio_Zinny_%28Tomo_5%29.pdf.jpg",
     },
     {
       id: "coloniadelsacramento_10",
@@ -18438,6 +18485,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Colonia_del_Sacramento%2C_Uruguay_%285459692691%29.jpg/1920px-Colonia_del_Sacramento%2C_Uruguay_%285459692691%29.jpg",
     },
     {
       id: "coloniadelsacramento_11",
@@ -18481,6 +18529,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Metrica_descripcion_de_las_magnificas_demonstraciones%2C_y_sublimes_Fiestas%2C_celebradas_en_las_Ciudades_de_Granada%2C_y_Alhama_en_los_Desagravios_del_Ssmo._Sacramento%2C_a_los_oprobios_%28IA_A11202410%29.pdf/page1-250px-thumbnail.pdf.jpg",
     },
     {
       id: "coloniadelsacramento_15",
@@ -18606,6 +18655,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e8/WP_Eichmann_Passport.jpg",
     },
     {
       id: "puntadeleste_7",
@@ -18737,6 +18787,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/BaANH50721_Memoria_del_Ministerio_de_Guerra_y_Marina_%281882%29.pdf/page1-500px-BaANH50721_Memoria_del_Ministerio_de_Guerra_y_Marina_%281882%29.pdf.jpg",
     },
     {
       id: "puntadeleste_19",
@@ -18747,6 +18798,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Torre_del_Rayo_Vistas.jpg",
     },
     {
       id: "puntadeleste_20",
@@ -19094,6 +19146,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 180,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Chile._Atividades_Subversivas._Rela%C3%A7%C3%A3o_de_Elementos_Extremistas%2C_Arquivo_Nacional_%28BR_DFANBSB_IE.0.0.6_%282-8%29%29.pdf/page1-1280px-Chile._Atividades_Subversivas._Rela%C3%A7%C3%A3o_de_Elementos_Extremistas%2C_Arquivo_Nacional_%28BR_DFANBSB_IE.0.0.6_%282-8%29%29.pdf.jpg",
     },
     {
       id: "maldonado_24",
@@ -19104,6 +19157,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/91/20003_Punta_Ballena%2C_Maldonado_Department%2C_Uruguay_-_panoramio_%288%29.jpg",
     },
   ],
   salto: [
@@ -19274,6 +19328,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/El_libro_de_la_patria_-_Carlos_Roxlo.pdf/page1-500px-El_libro_de_la_patria_-_Carlos_Roxlo.pdf.jpg",
     },
     {
       id: "salto_15",
@@ -19318,6 +19373,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Desde_el_molino_%28IA_desdeelmolino00rusi%29.pdf/page1-500px-Desde_el_molino_%28IA_desdeelmolino00rusi%29.pdf.jpg",
     },
     {
       id: "salto_19",
@@ -19328,6 +19384,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Melchor_Mendez_Margari%C3%B1os_-_El_Exodo_del_pueblo_oriental.jpg",
     },
     {
       id: "salto_20",
@@ -19360,6 +19417,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cartel_del_Hotel.JPG/1920px-Cartel_del_Hotel.JPG",
     },
     {
       id: "salto_23",
@@ -19382,6 +19440,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Represa_Salto_Grande_-_satellite_image.JPG/1920px-Represa_Salto_Grande_-_satellite_image.JPG",
     },
   ],
   piriapolis: [
@@ -19502,6 +19561,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Memorias_MinGob_Provincia_de_Buenos_Aires_1936-1937_%28Tomo_4%29.pdf/page1-960px-Memorias_MinGob_Provincia_de_Buenos_Aires_1936-1937_%28Tomo_4%29.pdf.jpg",
     },
     {
       id: "piriapolis_11",
@@ -19523,6 +19583,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Reserva_de_Flora_y_Fauna_del_Pan_de_Az%C3%BAcar.jpg",
     },
     {
       id: "piriapolis_13",
@@ -19568,6 +19629,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Anglo_puerto.jpg/1920px-Anglo_puerto.jpg",
     },
     {
       id: "fraybentos_1",
@@ -19649,6 +19711,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/%C3%91and%C3%BA_de_la_REserva_de_Fauna_de_Carmelo.jpg/1920px-%C3%91and%C3%BA_de_la_REserva_de_Fauna_de_Carmelo.jpg",
     },
     {
       id: "carmelo_2",
@@ -19692,6 +19755,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Notas_de_un_viaje_-_sefarad18263.pdf/page1-1280px-Notas_de_un_viaje_-_sefarad18263.pdf.jpg",
     },
     {
       id: "carmelo_6",
@@ -19703,6 +19767,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       website: "https://www.narbona.com.uy/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/SF_maig_2026.jpg",
     },
     {
       id: "carmelo_7",
@@ -19737,6 +19802,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Pra%C3%A7a_Internacional_-_panoramio_%284%29.jpg/1920px-Pra%C3%A7a_Internacional_-_panoramio_%284%29.jpg",
     },
     {
       id: "rivera_2",
@@ -19769,6 +19835,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/B._Bradshaw%27s_Dictionary_of_mineral_waters%2C_climatic_health_resorts%2C_sea_baths%2C_and_hydropathic_establishments_%28electronic_resource%29_%2C_giving_the_names_of_doctors_%28IA_b20385493%29.pdf/page1-500px-thumbnail.pdf.jpg",
     },
   ],
   tacuarembo: [
@@ -20021,6 +20088,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Mirador_Killi_Killi%2C_La_Paz.jpg/1920px-Mirador_Killi_Killi%2C_La_Paz.jpg",
     },
     {
       id: "lapaz_12",
@@ -20086,6 +20154,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Presentaci%C3%B3n_del_Libro._Las_cartas_de_Fernando_T%C3%BApac_Amaru.FIL_2025.jpg/1920px-Presentaci%C3%B3n_del_Libro._Las_cartas_de_Fernando_T%C3%BApac_Amaru.FIL_2025.jpg",
     },
     {
       id: "lapaz_18",
@@ -20108,6 +20177,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://museosanfransiscobolivia.com",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/San-francisco_by_night_Bolivia.jpg/1920px-San-francisco_by_night_Bolivia.jpg",
     },
     {
       id: "lapaz_20",
@@ -20119,6 +20189,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://mna.org.bo",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Museo_Nacional_de_Arte_de_Bolivia_29.jpg",
     },
     {
       id: "lapaz_21",
@@ -20130,6 +20201,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://cocamuseum.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Museo_de_la_Coca.jpg/1920px-Museo_de_la_Coca.jpg",
     },
     {
       id: "lapaz_22",
@@ -20151,6 +20223,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Curtiss_C-46_CP-855_of_Frigorifico_Santa_Rita%2C_La_Paz_6.10.1975%2C_F115-14.jpg/1920px-Curtiss_C-46_CP-855_of_Frigorifico_Santa_Rita%2C_La_Paz_6.10.1975%2C_F115-14.jpg",
     },
     {
       id: "lapaz_24",
@@ -20161,6 +20234,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/La_conquista_de_M%C3%A9xico_efectuada_por_Hern%C3%A1n_Cort%C3%A9s%2C_seg%C3%BAn_el_C%C3%B3dice_jerogl%C3%ADfico_Troano-americano_%28IA_gri_33125014983817%29.pdf/page1-960px-La_conquista_de_M%C3%A9xico_efectuada_por_Hern%C3%A1n_Cort%C3%A9s%2C_seg%C3%BAn_el_C%C3%B3dice_jerogl%C3%ADfico_Troano-americano_%28IA_gri_33125014983817%29.pdf.jpg",
     },
     {
       id: "lapaz_25",
@@ -20172,6 +20246,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.incalandtours.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Geography_of_the_central_Andes%3B_a_handbook_to_accompany_the_La_Paz_sheet_of_the_map_of_Hispanic_America_on_the_millionth_scale_%28IA_geographyofcentr00ogil%29.pdf/page1-500px-Geography_of_the_central_Andes%3B_a_handbook_to_accompany_the_La_Paz_sheet_of_the_map_of_Hispanic_America_on_the_millionth_scale_%28IA_geographyofcentr00ogil%29.pdf.jpg",
     },
     {
       id: "lapaz_26",
@@ -20183,6 +20258,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 90,
       website: "https://www.miteleferico.bo/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/L%C3%ADnea_Roja_de_Mi_Telef%C3%A9rico_en_La_Paz%2C_Bolivia.jpg",
     },
     {
       id: "lapaz_27",
@@ -20193,6 +20269,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 90,
+      imageUrl: "https://live.staticflickr.com/7236/7180897776_fcb05e660a_b.jpg",
     },
     {
       id: "lapaz_28",
@@ -20203,6 +20280,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://live.staticflickr.com/4355/36128910673_3546162f96_b.jpg",
     },
     {
       id: "lapaz_29",
@@ -20224,6 +20302,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 240,
+      imageUrl: "https://live.staticflickr.com/3335/3244760583_a678ebfb5a_b.jpg",
     },
   ],
   sucre: [
@@ -20248,6 +20327,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://live.staticflickr.com/33/101159149_229cb7efec_b.jpg",
     },
     {
       id: "sucre_2",
@@ -20270,6 +20350,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://www.parquecretacicosucre.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Parque_Cret%C3%A1cico_Sucre_Bolivia.jpg",
     },
     {
       id: "sucre_4",
@@ -20302,6 +20383,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://live.staticflickr.com/7592/17042210319_578b750653.jpg",
     },
     {
       id: "sucre_7",
@@ -20312,6 +20394,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/Dinosaur_tracks_in_Bolivia_2.jpg",
     },
     {
       id: "sucre_8",
@@ -20322,6 +20405,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://live.staticflickr.com/5466/8925014162_18afe8b0bd_b.jpg",
     },
     {
       id: "sucre_9",
@@ -20333,6 +20417,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.asur.org.bo/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Ejemplo_de_tarjeta_postal_vendida_en_el_Museo_de_arte_ind%C3%ADgena_ASUR..jpg/1920px-Ejemplo_de_tarjeta_postal_vendida_en_el_Museo_de_arte_ind%C3%ADgena_ASUR..jpg",
     },
     {
       id: "sucre_10",
@@ -20344,6 +20429,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.museodeltesoro.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/84/Museo_del_tesoro_Sucre.jpg",
     },
     {
       id: "sucre_11",
@@ -20355,6 +20441,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.chocolatesparati.net/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/W._F._Burnett%27s_1920_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Bolivia._%28IA_wfburnettsguiaof00burn%29.pdf/page1-1280px-W._F._Burnett%27s_1920_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Bolivia._%28IA_wfburnettsguiaof00burn%29.pdf.jpg",
     },
     {
       id: "sucre_12",
@@ -20365,6 +20452,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Silleria_del_museo_convento_de_la_recoleta.jpg/1920px-Silleria_del_museo_convento_de_la_recoleta.jpg",
     },
     {
       id: "sucre_13",
@@ -20375,6 +20463,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Interior_del_Palacete_del_Guereo.jpg",
     },
     {
       id: "sucre_14",
@@ -20385,6 +20474,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Palacete_de_la_Florida%2C_Sucre.jpg/1920px-Palacete_de_la_Florida%2C_Sucre.jpg",
     },
     {
       id: "sucre_15",
@@ -20395,6 +20485,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/06/Miraflores_Palace.png",
     },
     {
       id: "sucre_16",
@@ -20405,6 +20496,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Vista_de_parte_alta_de_la_Grita_desde_el_Hotel_Monta%C3%B1a.JPG",
     },
     {
       id: "sucre_17",
@@ -20415,6 +20507,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Ex_Palacio_Nacional_en_Sucre%2C_Bolivia.jpg",
     },
     {
       id: "sucre_18",
@@ -20425,6 +20518,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 180,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/GolfodeCariaco.jpg",
     },
     {
       id: "sucre_19",
@@ -20435,6 +20529,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/62/20170805_Bolivia_1214_Sucre_sRGB_%2826204168039%29.jpg",
     },
     {
       id: "sucre_20",
@@ -20446,6 +20541,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       website: "https://www.parquecretacico.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/Huellas_de_dinosaurios_saur%C3%B3podos_en_Cal_Orcko%2C_Sucre.jpg",
     },
   ],
   potosi: [
@@ -20458,6 +20554,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 240,
+      imageUrl: "https://live.staticflickr.com/4643/39425870292_6d0636eb12_b.jpg",
     },
     {
       id: "potosi_1",
@@ -20468,6 +20565,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Casa_de_la_Moneda_de_Potos%C3%AD_%28Bolivia%29.jpg",
     },
     {
       id: "potosi_2",
@@ -20502,6 +20600,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Isla_del_Pescado%2C_Salar_de_Uyuni%2C_Bolivia%2C_2016-02-04%2C_DD_42.JPG/1920px-Isla_del_Pescado%2C_Salar_de_Uyuni%2C_Bolivia%2C_2016-02-04%2C_DD_42.JPG",
     },
     {
       id: "uyuni_2",
@@ -20512,6 +20611,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 480,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Bolivia_physical_map.svg/langes-960px-Bolivia_physical_map.svg.png",
     },
     {
       id: "uyuni_3",
@@ -20539,6 +20639,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://museodorbigny.org/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Exposici%C3%B3n_de_la_Rep%C3%BAblica_del_Per%C3%BA_presentada_al_excmo._govierno_argentino_en_el_juicio_de_l%C3%ADmites_con_la_rep%C3%BAblica_de_Bolivia_%28IA_republicaperu02barcrich%29.pdf/page1-500px-thumbnail.pdf.jpg",
     },
     {
       id: "cochabamba_1",
@@ -20561,6 +20662,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://sernap.gob.bo/tunari/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Laguna_del_Parque_Nacional_Tunari%2C_Cochabamba%2C_Bolivia.jpg",
     },
     {
       id: "cochabamba_3",
@@ -20582,6 +20684,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5b/MONUMENTO_A_LAS_HERO%C3%8DNAS_DE_LA_CORONILLA.jpg",
     },
     {
       id: "cochabamba_5",
@@ -20603,6 +20706,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/CAPILLA_CEMENTERIO_Gral._COCHABAMBA.jpg",
     },
     {
       id: "cochabamba_7",
@@ -20724,6 +20828,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.museo.umss.edu.bo/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/07/Dick_Edgar_Ibarra_Grasso._Fotograf%C3%ADa_Jorge_Cappato_1980.jpg",
     },
     {
       id: "cochabamba_18",
@@ -20734,6 +20839,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://live.staticflickr.com/4096/5610721712_fd4baef427_b.jpg",
     },
     {
       id: "cochabamba_19",
@@ -20744,6 +20850,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/La_cer%C3%A1mica_chiriguana_%28IA_laceramicachirig00oute%29.pdf/page1-960px-La_cer%C3%A1mica_chiriguana_%28IA_laceramicachirig00oute%29.pdf.jpg",
     },
     {
       id: "cochabamba_20",
@@ -20764,6 +20871,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gazeta_ministerial_del_gobierno_de_Buenos-Ayres_%28IA_gazetaministeria00unkn_89%29.pdf/page1-960px-Gazeta_ministerial_del_gobierno_de_Buenos-Ayres_%28IA_gazetaministeria00unkn_89%29.pdf.jpg",
     },
     {
       id: "cochabamba_22",
@@ -20774,6 +20882,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/37/Plazacobija.JPG",
     },
     {
       id: "cochabamba_23",
@@ -20784,6 +20893,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Monograf%C3%ADa_de_Bolivia_Tomo_2_-_Biblioteca_del_sesquicentenario%28Libro%29.pdf/page1-960px-Monograf%C3%ADa_de_Bolivia_Tomo_2_-_Biblioteca_del_sesquicentenario%28Libro%29.pdf.jpg",
     },
     {
       id: "cochabamba_24",
@@ -20805,6 +20915,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/2009_Events_Collage_V2.png",
     },
     {
       id: "cochabamba_26",
@@ -20825,6 +20936,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/de/Cocha_Noche.jpg",
     },
     {
       id: "cochabamba_28",
@@ -20835,6 +20947,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/La_cuesti%C3%B3n_del_Pac%C3%ADfico_-_ante_el_juicio_de_cien_escritores_extranjeros_%28IA_lacuestindelpacf00dimi%29.pdf/page1-1280px-La_cuesti%C3%B3n_del_Pac%C3%ADfico_-_ante_el_juicio_de_cien_escritores_extranjeros_%28IA_lacuestindelpacf00dimi%29.pdf.jpg",
     },
   ],
   copacabana_bo: [
@@ -20858,6 +20971,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 360,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Isla_del_Sol_y_de_La_Luna_Lago_Titicaca-La_Paz_Nolivia.jpg/1920px-Isla_del_Sol_y_de_La_Luna_Lago_Titicaca-La_Paz_Nolivia.jpg",
     },
     {
       id: "copacabana_bo_2",
@@ -20868,6 +20982,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 240,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Isla_de_la_Luna%2C_Copacabana%2C_Bolivia_cropped.jpg/1920px-Isla_de_la_Luna%2C_Copacabana%2C_Bolivia_cropped.jpg",
     },
   ],
   rurrenabaque: [
@@ -20881,6 +20996,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://sernap.gob.bo/madidi/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Madidi_National_Park_2006-25-7.jpg",
     },
     {
       id: "rurrenabaque_1",
@@ -20902,6 +21018,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Amanecer_de_verano.jpg",
     },
     {
       id: "rurrenabaque_3",
@@ -20912,6 +21029,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/en/1/11/Comunidad_Inti_Wara_Yassi_%28logo%29.png",
     },
     {
       id: "rurrenabaque_4",
@@ -20922,6 +21040,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Psyche_%28IA_psyche303119231924camb%29.pdf/page1-500px-Psyche_%28IA_psyche303119231924camb%29.pdf.jpg",
     },
     {
       id: "rurrenabaque_5",
@@ -20932,6 +21051,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 480,
+      imageUrl: "https://live.staticflickr.com/7783/28829971320_329efca38e_b.jpg",
     },
     {
       id: "rurrenabaque_6",
@@ -20942,6 +21062,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 480,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Indigena_Tours_-_Tours_en_Rurrenabaque_Bolivia.jpg",
     },
   ],
   oruro: [
@@ -20954,6 +21075,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Cerro_San_Felipe%2C_Oruro-Bolivia.jpg/1920px-Cerro_San_Felipe%2C_Oruro-Bolivia.jpg",
     },
     {
       id: "oruro_1",
@@ -20964,6 +21086,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Cerro_de_san_Pedro.jpg/1920px-Cerro_de_san_Pedro.jpg",
     },
     {
       id: "oruro_2",
@@ -20974,6 +21097,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Iglesias_de_Oruro_-_Jose_de_Mesa_y_Teresa_Gisbert_%28Libro%29.pdf/page1-960px-Iglesias_de_Oruro_-_Jose_de_Mesa_y_Teresa_Gisbert_%28Libro%29.pdf.jpg",
     },
     {
       id: "oruro_3",
@@ -20984,6 +21108,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/52/Oruro_Carnaval.jpg",
     },
     {
       id: "oruro_4",
@@ -20994,6 +21119,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/1922-06-06%2C_El_Liberal%2C_Sim%C3%B3n_I._Pati%C3%B1o_%28cropped%29.jpg",
     },
     {
       id: "oruro_5",
@@ -21004,6 +21130,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Aeropuerto_de_Oruro_04.jpg/1920px-Aeropuerto_de_Oruro_04.jpg",
     },
     {
       id: "oruro_6",
@@ -21014,6 +21141,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Parque_Zool%C3%B3gico%2C_Oruro.jpg/1920px-Parque_Zool%C3%B3gico%2C_Oruro.jpg",
     },
     {
       id: "oruro_7",
@@ -21054,6 +21182,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sajama_National_Park.jpg",
     },
     {
       id: "oruro_11",
@@ -21100,6 +21229,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/13/Fuente_en_la_Plaza_26_de_Enero_de_Vallegrande_-_Bolivia.jpg",
     },
     {
       id: "samaipata_3",
@@ -21120,6 +21250,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Americanos_c%C3%A9lebres%3B_glorias_del_Nuevo_mundo_%28IA_baronesadeam01wilsrich%29.pdf/page1-960px-Americanos_c%C3%A9lebres%3B_glorias_del_Nuevo_mundo_%28IA_baronesadeam01wilsrich%29.pdf.jpg",
     },
     {
       id: "samaipata_5",
@@ -21130,6 +21261,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f4/JscFuerteSamaipata1.jpg",
     },
     {
       id: "samaipata_6",
@@ -21140,6 +21272,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f4/JscFuerteSamaipata1.jpg",
     },
     {
       id: "samaipata_7",
@@ -21150,6 +21283,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Samaipata%2C_Bolivia%2C_March_2016.jpg/3840px-Samaipata%2C_Bolivia%2C_March_2016.jpg",
     },
     {
       id: "samaipata_8",
@@ -21160,6 +21294,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Tawantinsuyo.gif",
     },
     {
       id: "samaipata_9",
@@ -21170,6 +21305,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Bosque_de_los_helechos_gigantes_-_Municipio_de_Samaipata%2C_Bolivia.jpg",
     },
     {
       id: "samaipata_10",
@@ -21180,6 +21316,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://live.staticflickr.com/7161/6590160471_cac292ebb6_b.jpg",
     },
     {
       id: "samaipata_11",
@@ -21190,6 +21327,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/80/Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg",
     },
     {
       id: "samaipata_12",
@@ -21200,6 +21338,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
+      imageUrl: "https://live.staticflickr.com/7032/6590151945_edf395f923_b.jpg",
     },
     {
       id: "samaipata_13",
@@ -21235,6 +21374,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/El_Telef%C3%A9rico_de_Caracas_o_Telef%C3%A9rico_del_%C3%81vila.jpg/1920px-El_Telef%C3%A9rico_de_Caracas_o_Telef%C3%A9rico_del_%C3%81vila.jpg",
     },
     {
       id: "caracas_2",
@@ -21245,6 +21385,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Installation_view_of_Honys_Torres%E2%80%99_work_Racism_without_Piety_at_the_II_Bienal_del_Sur_%282017%E2%80%932018%29%2C_Museo_de_Arte_Contempor%C3%A1neo_de_Caracas_07.jpg/1920px-Installation_view_of_Honys_Torres%E2%80%99_work_Racism_without_Piety_at_the_II_Bienal_del_Sur_%282017%E2%80%932018%29%2C_Museo_de_Arte_Contempor%C3%A1neo_de_Caracas_07.jpg",
     },
     {
       id: "caracas_3",
@@ -21255,6 +21396,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Casa_Natal_del_Libertador_Sim%C3%B3n_Bol%C3%ADvar_-.jpg",
     },
   ],
   merida: [
@@ -21267,6 +21409,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.8,
       estimatedMinutes: 300,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cabina_del_Sistema_Telef%C3%A9rico_de_M%C3%A9rida_Mukumbar%C3%AD.jpg",
     },
     {
       id: "merida_1",
@@ -21277,6 +21420,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 480,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Pico_Bol%C3%ADvar_desde_el_Pico_el_Toro.jpg/1920px-Pico_Bol%C3%ADvar_desde_el_Pico_el_Toro.jpg",
     },
     {
       id: "merida_2",
@@ -21287,6 +21431,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 360,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Poblacion_de_Los_Nevados.jpg/1920px-Poblacion_de_Los_Nevados.jpg",
     },
     {
       id: "merida_3",
@@ -21297,6 +21442,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Neblina_en_Laguna_de_Mucubaj%C3%AD%2C_M%C3%A9rida%2C_Venezuela.JPG/1920px-Neblina_en_Laguna_de_Mucubaj%C3%AD%2C_M%C3%A9rida%2C_Venezuela.JPG",
     },
   ],
   canaima: [
@@ -21352,6 +21498,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Wei_Tepuy.jpg",
     },
     {
       id: "canaima_5",
@@ -21362,6 +21509,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a6/RCTV_logo_2_000.png",
     },
     {
       id: "canaima_6",
@@ -21372,6 +21520,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/En_el_sur._%28Dialectos_ind%C3%ADgenas_de_Venezuela%29_%28IA_enelsurdialectos00tave%29.pdf/page1-500px-En_el_sur._%28Dialectos_ind%C3%ADgenas_de_Venezuela%29_%28IA_enelsurdialectos00tave%29.pdf.jpg",
     },
     {
       id: "canaima_7",
@@ -21440,6 +21589,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://www.musipanelreino.com.ve/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/PlayaElAgua_%28Margarita-VEN%29.jpg",
     },
     {
       id: "islamargarita_2",
@@ -21451,6 +21601,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://waterlandmundomarino.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Turismo_en_Pampatar_4.jpg",
     },
     {
       id: "islamargarita_3",
@@ -21552,6 +21703,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/IGVSB_Red_Geod%C3%A9sica_Municipal_-_Nueva_Esparta_-_Municipio_Garc%C3%ADa.pdf/page1-960px-IGVSB_Red_Geod%C3%A9sica_Municipal_-_Nueva_Esparta_-_Municipio_Garc%C3%ADa.pdf.jpg",
     },
     {
       id: "islamargarita_12",
@@ -21562,6 +21714,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cristo_en_la_devoci%C3%B3n_reliigiosa_cat%C3%B3lica_neoespartana.pdf/page1-960px-Cristo_en_la_devoci%C3%B3n_reliigiosa_cat%C3%B3lica_neoespartana.pdf.jpg",
     },
     {
       id: "islamargarita_13",
@@ -21572,6 +21725,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Venezuela_%28IA_venezuela00daltrich%29.pdf/page1-500px-Venezuela_%28IA_venezuela00daltrich%29.pdf.jpg",
     },
     {
       id: "islamargarita_14",
@@ -21582,6 +21736,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bulletin_Of_The_Pan_American_Union_1923-01-_Vol_56_Iss_1_%28IA_sim_bulletin-of-the-pan-american-union_1923-01_56_1%29.pdf/page1-500px-Bulletin_Of_The_Pan_American_Union_1923-01-_Vol_56_Iss_1_%28IA_sim_bulletin-of-the-pan-american-union_1923-01_56_1%29.pdf.jpg",
     },
     {
       id: "islamargarita_15",
@@ -21592,6 +21747,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/PlayaElAgua_%28Margarita-VEN%29.jpg",
     },
     {
       id: "islamargarita_16",
@@ -21602,6 +21758,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Panoramic_of_Juan_Griego_45.jpg/3840px-Panoramic_of_Juan_Griego_45.jpg",
     },
     {
       id: "islamargarita_17",
@@ -21612,6 +21769,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Turismo_en_Pampatar_4.jpg",
     },
     {
       id: "islamargarita_18",
@@ -21622,6 +21780,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg/3840px-Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg",
     },
     {
       id: "islamargarita_19",
@@ -21633,6 +21792,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.parquediverland.com.ve/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pto_Viejo_atardecer.JPG/3840px-Pto_Viejo_atardecer.JPG",
     },
     {
       id: "islamargarita_20",
@@ -21644,6 +21804,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://youtu.be/YOZgMFC59GI",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg/3840px-Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg",
     },
     {
       id: "islamargarita_21",
@@ -21654,6 +21815,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Venezuela_-_Nueva_Esparta_-_Mari%C3%B1o.svg/langes-960px-Venezuela_-_Nueva_Esparta_-_Mari%C3%B1o.svg.png",
     },
     {
       id: "islamargarita_22",
@@ -21664,6 +21826,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Entrada_principal_del_museo.jpg/1920px-Entrada_principal_del_museo.jpg",
     },
     {
       id: "islamargarita_23",
@@ -21674,6 +21837,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/langes-960px-Flag_of_Venezuela.svg.png",
     },
     {
       id: "islamargarita_24",
@@ -21684,6 +21848,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/40/Desde_chacopata.JPG",
     },
     {
       id: "islamargarita_25",
@@ -21694,6 +21859,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/De_Cura%C3%A7aosche_courant_30-08-1817_%28IA_ddd_010333994_mpeg21%29.pdf/page1-1280px-De_Cura%C3%A7aosche_courant_30-08-1817_%28IA_ddd_010333994_mpeg21%29.pdf.jpg",
     },
   ],
   ciudadbolivar: [
@@ -21706,6 +21872,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Ciudad_Bol%C3%ADvar_%282004%29_02.jpg",
     },
     {
       id: "ciudadbolivar_1",
@@ -21716,6 +21883,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Hist%C3%B3rica...Ciudad_Bol%C3%ADvar.JPG/1920px-Hist%C3%B3rica...Ciudad_Bol%C3%ADvar.JPG",
     },
   ],
   losroques: [
@@ -21728,6 +21896,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 480,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Archipi%C3%A9lago_Los_Roques_-_Dos_Mosquises.jpg/1920px-Archipi%C3%A9lago_Los_Roques_-_Dos_Mosquises.jpg",
     },
     {
       id: "losroques_1",
@@ -21738,6 +21907,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 240,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/LosRoquesLosFrancisqu%C3%AD.JPG",
     },
   ],
   morrocoy: [
@@ -21761,6 +21931,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 300,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Cayo_Sombrero%2C_Morrocoy_Edo_Falcon.jpg/1920px-Cayo_Sombrero%2C_Morrocoy_Edo_Falcon.jpg",
     },
   ],
   maracaibo: [
@@ -21795,6 +21966,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Parque_La_Marina_y_el_Mirador_del_Lago.jpg/1920px-Parque_La_Marina_y_el_Mirador_del_Lago.jpg",
     },
     {
       id: "maracaibo_3",
@@ -21838,6 +22010,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Museo_Maczul_en_Maracaibo.JPG/1920px-Museo_Maczul_en_Maracaibo.JPG",
     },
     {
       id: "maracaibo_7",
@@ -21848,6 +22021,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Teatro_Bellas_Artes_02.jpg/1920px-Teatro_Bellas_Artes_02.jpg",
     },
     {
       id: "maracaibo_8",
@@ -21858,6 +22032,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Museo_Arquidiocesano_Obispo_Lasso.jpg/1920px-Museo_Arquidiocesano_Obispo_Lasso.jpg",
     },
     {
       id: "maracaibo_9",
@@ -21868,6 +22043,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Museo_Urdaneta_II.jpg/1920px-Museo_Urdaneta_II.jpg",
     },
     {
       id: "maracaibo_10",
@@ -21878,6 +22054,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Puente_de_Maracaibo.jpg",
     },
     {
       id: "maracaibo_11",
@@ -21889,6 +22066,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.instagram.com/aquaventurapark/?hl=es",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Aquaventura_Park_%28Parque_Acu%C3%A1tico%29.jpg/1920px-Aquaventura_Park_%28Parque_Acu%C3%A1tico%29.jpg",
     },
     {
       id: "maracaibo_12",
@@ -21899,6 +22077,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Cuesti%C3%B3n_l%C3%ADmites%3B_el_derecho_de_M%C3%A9rida_a_la_costa_sur_del_lago_de_Maracaibo_%28IA_cuestinlmiteseld00febr%29.pdf/page1-500px-Cuesti%C3%B3n_l%C3%ADmites%3B_el_derecho_de_M%C3%A9rida_a_la_costa_sur_del_lago_de_Maracaibo_%28IA_cuestinlmiteseld00febr%29.pdf.jpg",
     },
     {
       id: "maracaibo_13",
@@ -21909,6 +22088,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Isla_de_los_Leprozos%2C_estado_Zulia%2C_Venezuela.jpg/3840px-Isla_de_los_Leprozos%2C_estado_Zulia%2C_Venezuela.jpg",
     },
     {
       id: "maracaibo_14",
@@ -21919,6 +22099,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f0/2010_wikiproject_image.png",
     },
     {
       id: "maracaibo_15",
@@ -21929,6 +22110,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/La_Esquina_de_la_Tradici%C3%B3n_Pa%27_que_Luis.jpg/1920px-La_Esquina_de_la_Tradici%C3%B3n_Pa%27_que_Luis.jpg",
     },
   ],
   sancristo: [
@@ -21944,6 +22126,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Gaceta_Oficial_de_Venezuela_-_43199.pdf/page1-1280px-Gaceta_Oficial_de_Venezuela_-_43199.pdf.jpg",
     },
     {
       id: "puertolacru_1",
@@ -22010,6 +22193,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/La_prostituci%C3%B3n%2C_sus_causas%2C_sus_males%2C_su_higiene_%28IA_laprostitucionsu00duqu%29.pdf/page1-960px-La_prostituci%C3%B3n%2C_sus_causas%2C_sus_males%2C_su_higiene_%28IA_laprostitucionsu00duqu%29.pdf.jpg",
     },
     {
       id: "puertolacru_7",
@@ -22020,6 +22204,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Poes%C3%ADas_escogidas_de_sor._Juana_In%C3%A9s_de_la_Cruz_%28IA_poesasescogida00juan%29.pdf/page1-960px-Poes%C3%ADas_escogidas_de_sor._Juana_In%C3%A9s_de_la_Cruz_%28IA_poesasescogida00juan%29.pdf.jpg",
     },
     {
       id: "puertolacru_8",
@@ -22030,6 +22215,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/94/Parque_Nacional_Mochima_Puerto_La_cruz%2C_Edo_Anzoategui..JPG",
     },
     {
       id: "puertolacru_9",
@@ -22040,6 +22226,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Vista_del_Cerro_El_Mag%C3%BCey.jpg/1920px-Vista_del_Cerro_El_Mag%C3%BCey.jpg",
     },
     {
       id: "puertolacru_10",
@@ -22050,6 +22237,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Cerro_de_Monte_Cristo._Camino.JPG/1920px-Cerro_de_Monte_Cristo._Camino.JPG",
     },
     {
       id: "puertolacru_11",
@@ -22060,6 +22248,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/OJ_L_202500257_of_2025_-_EN_English.pdf/page1-960px-OJ_L_202500257_of_2025_-_EN_English.pdf.jpg",
     },
     {
       id: "puertolacru_12",
@@ -22070,6 +22259,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Diccionario_bot%C3%A1nico_de_los_nombres_vulgares_cubanos_y_puerto-rique%C3%B1os_-por_Manuel_G%C3%B3mez_de_la_Maza._%28IA_mobot31753000747722%29.pdf/page1-1920px-Diccionario_bot%C3%A1nico_de_los_nombres_vulgares_cubanos_y_puerto-rique%C3%B1os_-por_Manuel_G%C3%B3mez_de_la_Maza._%28IA_mobot31753000747722%29.pdf.jpg",
     },
     {
       id: "puertolacru_13",
@@ -22080,6 +22270,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Fachada_Museo_Dimitiros_Demu.jpg",
     },
     {
       id: "puertolacru_14",
@@ -22090,6 +22281,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseod81898muse%29.pdf/page1-500px-Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseod81898muse%29.pdf.jpg",
     },
     {
       id: "puertolacru_15",
@@ -22100,6 +22292,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Directorio_comercial_%C3%A9_industrial_de_la_isla_de_Puerto-Rico_para_1894._Formado_con_relaciones_oficiales_remitidas_por_los_sres._alcaldes_municipales_de_cada_localidad_%28IA_directoriocomerc00blan%29.pdf/page1-500px-thumbnail.pdf.jpg",
     },
     {
       id: "puertolacru_16",
@@ -22110,6 +22303,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Gaceta_Oficial_de_Venezuela_N%C2%BA_43384.pdf/page1-1280px-Gaceta_Oficial_de_Venezuela_N%C2%BA_43384.pdf.jpg",
     },
     {
       id: "puertolacru_17",
@@ -22120,6 +22314,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/BaANH47883_Guia_de_la_ciudad_y_almanaque_de_comercio_de_Buenos_aires_para_el_a%C3%B1o_1833.pdf/page1-500px-BaANH47883_Guia_de_la_ciudad_y_almanaque_de_comercio_de_Buenos_aires_para_el_a%C3%B1o_1833.pdf.jpg",
     },
     {
       id: "puertolacru_18",
@@ -22130,6 +22325,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Colecci%C3%B3n_de_los_viages_y_descubrimientos_que_hicieron_por_mar_los_espa%C3%B1oles_-_IA_coleccibonviages04navarich.pdf/page1-500px-Colecci%C3%B3n_de_los_viages_y_descubrimientos_que_hicieron_por_mar_los_espa%C3%B1oles_-_IA_coleccibonviages04navarich.pdf.jpg",
     },
     {
       id: "puertolacru_19",
@@ -22140,6 +22336,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Primera_parte_de_los_Commentarios_reales_-_que_tratan%2C_de_el_origen_de_los_Incas%2C_reies%2C_que_fueron_del_Per%C3%BA_%28IA_partedeloscomme00vega%29.pdf/page1-500px-Primera_parte_de_los_Commentarios_reales_-_que_tratan%2C_de_el_origen_de_los_Incas%2C_reies%2C_que_fueron_del_Per%C3%BA_%28IA_partedeloscomme00vega%29.pdf.jpg",
     },
     {
       id: "puertolacru_20",
@@ -22150,6 +22347,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/2010_Census_Urbanized_Area_Reference_Map_for_San_Juan%2C_Puerto_Rico_%28Spanish_Language_Map%29_-_DPLA_-_bcbe19cccad7422e6a4206c950502e89.pdf/page1-1920px-2010_Census_Urbanized_Area_Reference_Map_for_San_Juan%2C_Puerto_Rico_%28Spanish_Language_Map%29_-_DPLA_-_bcbe19cccad7422e6a4206c950502e89.pdf.jpg",
     },
     {
       id: "puertolacru_21",
@@ -22160,6 +22358,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Apuntes_para_la_fauna_Puerto-Rique%C3%B1a_%28IA_apuntesparalafau45gund%29.pdf/page1-500px-Apuntes_para_la_fauna_Puerto-Rique%C3%B1a_%28IA_apuntesparalafau45gund%29.pdf.jpg",
     },
   ],
 
@@ -22207,6 +22406,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Centro_Cultural_de_la_Rep%C3%BAblica%2C_Asunci%C3%B3n.jpg",
     },
     {
       id: "asuncion_4",
@@ -22317,6 +22517,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/85/Pecari_Collar_zoo.jpg",
     },
     {
       id: "asuncion_14",
@@ -22328,6 +22529,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://museobarbero.org.py/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Museo_Etnografico_Andres_Barbero_01.jpg",
     },
     {
       id: "asuncion_15",
@@ -22338,6 +22540,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/P%C3%A1ginas_sueltas_%28IA_paginassueltas00mosq%29.pdf/page1-500px-P%C3%A1ginas_sueltas_%28IA_paginassueltas00mosq%29.pdf.jpg",
     },
     {
       id: "asuncion_16",
@@ -22348,6 +22551,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/En_Favor_de_los_aliados_-_discursos_pronunciados_en_la_ocasi%C3%B3n_de_la_gran_demonstraci%C3%B3n_en_favor_de_los_aliados_realizada_en_Asunci%C3%B3n_%28Paraguay%29%2C_el_11_ed_julio_de_1917_%28IA_favoraliados00baez%29.pdf/page1-500px-thumbnail.pdf.jpg",
     },
     {
       id: "asuncion_17",
@@ -22358,6 +22562,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/M%C3%A9xico_pintoresco%2C_art%C3%ADstico_y_monumental_%28IA_gri_mexicopintor03rive%29.pdf/page1-500px-M%C3%A9xico_pintoresco%2C_art%C3%ADstico_y_monumental_%28IA_gri_mexicopintor03rive%29.pdf.jpg",
     },
     {
       id: "asuncion_18",
@@ -22369,6 +22574,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://www.mca.gov.py/i_zoo/Imagenes/cuidado10.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facundo_-_bdh0000096116.pdf/page1-1280px-Facundo_-_bdh0000096116.pdf.jpg",
     },
     {
       id: "asuncion_19",
@@ -22380,6 +22586,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Descripci%C3%B3n_de_Gato_Montes.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Gato_Mont%C3%A9s_Sudamericano.JPG/1920px-Gato_Mont%C3%A9s_Sudamericano.JPG",
     },
     {
       id: "asuncion_20",
@@ -22391,6 +22598,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://upload.wikimedia.org/wikipedia/commons/7/75/Chah%C3%A3_Zoo.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/75/Chah%C3%A3_Zoo.jpg",
     },
     {
       id: "asuncion_21",
@@ -22401,6 +22609,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f4/Costanera_Sur_Cerro_Lambar%C3%A9_2.png",
     },
     {
       id: "asuncion_22",
@@ -22411,6 +22620,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Palacio_de_los_Lopez%2C_Asunci%C3%B3n_PAR.jpg/1920px-Palacio_de_los_Lopez%2C_Asunci%C3%B3n_PAR.jpg",
     },
     {
       id: "asuncion_23",
@@ -22432,6 +22642,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Casa_de_la_Independencia_museum%2C_Asunci%C3%B3n.jpg/1920px-Casa_de_la_Independencia_museum%2C_Asunci%C3%B3n.jpg",
     },
     {
       id: "asuncion_25",
@@ -22453,6 +22664,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.2,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mercado_privado_Calmay%2C_mercado_de_Abasto%2C_Asunci%C3%B3n%2C_Paraguay.jpg/1920px-Mercado_privado_Calmay%2C_mercado_de_Abasto%2C_Asunci%C3%B3n%2C_Paraguay.jpg",
     },
   ],
   encarnacion: [
@@ -22466,6 +22678,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://www.isparm.edu.ar/servicios.php?pageid=museo",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Remedios_aqueduct_panorama.jpg/3840px-Remedios_aqueduct_panorama.jpg",
     },
     {
       id: "encarnacion_1",
@@ -22586,6 +22799,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/2017_Lima_-_Edificio_en_la_plaza_San_Mart%C3%ADn%2C_jirones_Oco%C3%B1a_y_Carabaya.jpg/1920px-2017_Lima_-_Edificio_en_la_plaza_San_Mart%C3%ADn%2C_jirones_Oco%C3%B1a_y_Carabaya.jpg",
     },
     {
       id: "encarnacion_12",
@@ -22596,6 +22810,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Coronaci%C3%B3n_de_don_Eduardo_Blanco%2C_Caracas-_28_de_julio_de_1911_%28IA_coronaciondedone00unse%29.pdf/page1-500px-Coronaci%C3%B3n_de_don_Eduardo_Blanco%2C_Caracas-_28_de_julio_de_1911_%28IA_coronaciondedone00unse%29.pdf.jpg",
     },
     {
       id: "encarnacion_13",
@@ -22639,6 +22854,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Puntual_descripci%C3%B3n%2C_en_la_que_con_brevedad_se_describe_la_magn%C3%ADfica%2C_y_plausible_solemnidad_con_que_la_muy_Noble%2C_siempre_Leal_ciudad_de_Sevilla_%28IA_A11312710%29.pdf/page1-500px-thumbnail.pdf.jpg",
     },
     {
       id: "encarnacion_17",
@@ -22649,6 +22865,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Encarnaci%C3%B3n%2C_novela_-_IA_encarnacinnovela00dice.pdf/page1-500px-Encarnaci%C3%B3n%2C_novela_-_IA_encarnacinnovela00dice.pdf.jpg",
     },
     {
       id: "encarnacion_18",
@@ -22659,6 +22876,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Los_tres_amores_-_drama_en_tres_actos_precididos_de_un_pr%C3%B3logo_%28IA_lostresamoresdra2347gmez%29.pdf/page1-500px-Los_tres_amores_-_drama_en_tres_actos_precididos_de_un_pr%C3%B3logo_%28IA_lostresamoresdra2347gmez%29.pdf.jpg",
     },
     {
       id: "encarnacion_19",
@@ -22690,6 +22908,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.casamientos.com.ar/quintas/la-quinta-club-de-eventos--e135385",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/La_profec%C3%ADa_-_bdh0000250913_-_Volumen_3.pdf/page1-1920px-La_profec%C3%ADa_-_bdh0000250913_-_Volumen_3.pdf.jpg",
     },
     {
       id: "encarnacion_22",
@@ -22701,6 +22920,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://garupa.com.ar/granja-san-victor/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/De_O%C3%B1ate_a_la_Granja_%281907%29.djvu/page1-1920px-De_O%C3%B1ate_a_la_Granja_%281907%29.djvu.jpg",
     },
     {
       id: "encarnacion_23",
@@ -22711,6 +22931,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Iglesia%2C_Ruinas_Jesu%C3%ADticas_Sant%C3%ADsima_Trinidad_del_Paran%C3%A1%2C_Encarnaci%C3%B3n%2C_Paraguay_-_panoramio.jpg/1920px-Iglesia%2C_Ruinas_Jesu%C3%ADticas_Sant%C3%ADsima_Trinidad_del_Paran%C3%A1%2C_Encarnaci%C3%B3n%2C_Paraguay_-_panoramio.jpg",
     },
     {
       id: "encarnacion_24",
@@ -22721,6 +22942,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Jesus_de_Tavarangue_-_Main_building_from_the_left_2.JPG/3840px-Jesus_de_Tavarangue_-_Main_building_from_the_left_2.JPG",
     },
     {
       id: "encarnacion_25",
@@ -22732,6 +22954,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 360,
       website: "https://www.carnavalencarnacion.com/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/00/Carnavalencarnacenocarros.jpg",
     },
     {
       id: "encarnacion_26",
@@ -22742,6 +22965,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Playa_San_Jos%C3%A9_-_Avenida_Costanera_%28Encarnaci%C3%B3n%2C_Paraguay%29.jpg/1920px-Playa_San_Jos%C3%A9_-_Avenida_Costanera_%28Encarnaci%C3%B3n%2C_Paraguay%29.jpg",
     },
   ],
   ciudaddeste: [
@@ -22754,6 +22978,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 300,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Santos_Dumont_en_las_cataratas.pdf/page1-500px-Santos_Dumont_en_las_cataratas.pdf.jpg",
     },
     {
       id: "ciudaddeste_1",
@@ -22765,6 +22990,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 180,
       website: "https://www.itaipu.gov.py/turismo",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Usina_Hidroel%C3%A9trica_Itaipu_Binacional_-_Itaipu_Dam_-_Lago_Itaip%C3%BA_-_Itaipu_Lake_%2817174674039%29.jpg/1920px-Usina_Hidroel%C3%A9trica_Itaipu_Binacional_-_Itaipu_Dam_-_Lago_Itaip%C3%BA_-_Itaipu_Lake_%2817174674039%29.jpg",
     },
   ],
   sanbernardinopy: [
@@ -22777,6 +23003,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Historia_de_la_conquista_de_Mexico_%28IA_historiadelaconq00sahaiala%29.pdf/page1-500px-Historia_de_la_conquista_de_Mexico_%28IA_historiadelaconq00sahaiala%29.pdf.jpg",
     },
     {
       id: "sanbernardinopy_1",
@@ -22787,6 +23014,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Biblioteca_de_jesu%C3%ADtas_espa%C3%B1oles_que_escribieron_sobre_la_Inmaculada_Concepci%C3%B3n_de_Nuestra_Se%C3%B1ora_antes_de_la_definici%C3%B3n_dogm%C3%A1tica_de_este_misterio_%28IA_bibliotecadejesu00uria%29.pdf/page1-960px-thumbnail.pdf.jpg",
     },
     {
       id: "sanbernardinopy_2",
@@ -22797,6 +23025,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Batalha_de_Campo_Grande_-_1871_b.jpg",
     },
     {
       id: "sanbernardinopy_3",
@@ -22807,6 +23036,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Antig%C3%BCedades_del_Convento_Casa_Grande_de_San_Agust%C3%ADn_de_Sevilla%2C_y_noticias_del_Santo_Crucifixo_que_en_%C3%A9l_se_venera_%28IA_ACarriazo0220%29.pdf/page1-330px-Antig%C3%BCedades_del_Convento_Casa_Grande_de_San_Agust%C3%ADn_de_Sevilla%2C_y_noticias_del_Santo_Crucifixo_que_en_%C3%A9l_se_venera_%28IA_ACarriazo0220%29.pdf.jpg",
     },
     {
       id: "sanbernardinopy_4",
@@ -22817,6 +23047,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 180,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Lago_Ypacara%C3%AD%2C_visto_desde_San_Bernardino.jpg/1920px-Lago_Ypacara%C3%AD%2C_visto_desde_San_Bernardino.jpg",
     },
   ],
   concepcionpy: [
@@ -22829,6 +23060,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Museo_Cuartel_de_Villa_Real.jpg/1920px-Museo_Cuartel_de_Villa_Real.jpg",
     },
     {
       id: "concepcionpy_1",
@@ -22839,6 +23071,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Vitoria_-_Catedra_Nueva_055.JPG",
     },
     {
       id: "concepcionpy_2",
@@ -22849,6 +23082,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mansion_Otano_1.jpg/1920px-Mansion_Otano_1.jpg",
     },
   ],
   pilar: [
@@ -22874,6 +23108,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
     },
     {
       id: "aregua_2",
@@ -22894,6 +23129,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
     },
     {
       id: "aregua_4",
@@ -22914,6 +23150,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Descripci%C3%B3n_hist%C3%B3rica_de_la_antigua_provincia_del_Paraguay_%28IA_descripcionhisto00mola%29.pdf/page1-500px-Descripci%C3%B3n_hist%C3%B3rica_de_la_antigua_provincia_del_Paraguay_%28IA_descripcionhisto00mola%29.pdf.jpg",
     },
     {
       id: "aregua_6",
@@ -22924,6 +23161,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Giants_Causeway_d%C3%A9tail_de_la_chauss%C3%A9e.JPG",
     },
     {
       id: "aregua_7",
@@ -22934,6 +23172,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Teatro_Municipal_Asuncion.jpg",
     },
     {
       id: "aregua_8",
@@ -22954,6 +23193,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Barrio_ycua_sati_Asunci%C3%B3n.jpg",
     },
     {
       id: "aregua_10",
@@ -22964,6 +23204,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Palacio_de_Gobierno2.jpg",
     },
     {
       id: "aregua_11",
@@ -22974,6 +23215,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
     },
   ],
   filadelfia: [
@@ -22986,6 +23228,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/31/Museo_Jakob_Unger_P8050117_filtered.jpg",
     },
     {
       id: "filadelfia_1",
@@ -22996,6 +23239,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Diario_VI_Regi%C3%B3n_-_N%C2%B0_7.123_-_22_de_febrero_de_2012.pdf/page1-1280px-Diario_VI_Regi%C3%B3n_-_N%C2%B0_7.123_-_22_de_febrero_de_2012.pdf.jpg",
     },
     {
       id: "filadelfia_2",
@@ -23006,6 +23250,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Espelhos_%C3%A9tnicos_-_autorrepresenta%C3%A7%C3%B5es_nos_museus_gal%C3%AAs_e_menonita_na_Argentina_e_no_Paraguai%2C_Anais_do_Museu_Paulista.pdf/page1-960px-Espelhos_%C3%A9tnicos_-_autorrepresenta%C3%A7%C3%B5es_nos_museus_gal%C3%AAs_e_menonita_na_Argentina_e_no_Paraguai%2C_Anais_do_Museu_Paulista.pdf.jpg",
     },
     {
       id: "filadelfia_3",
@@ -23016,6 +23261,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/langes-1280px-Flag_of_Paraguay.svg.png",
     },
     {
       id: "filadelfia_4",
@@ -23026,6 +23272,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Philadelphia_History_Museum_at_the_Atwater_Kent_from_south.jpg/1920px-Philadelphia_History_Museum_at_the_Atwater_Kent_from_south.jpg",
     },
     {
       id: "filadelfia_5",
@@ -23036,6 +23283,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Brown_Rat_%28Rattus_norvegicus%29_also_called_Norway_Rat_or_Common_Rat_-with_food_container_-_Mathias_Baldwin_Park%2C_Philadelphia%2C_Pennsylvania%2C_USA.jpg/1920px-Brown_Rat_%28Rattus_norvegicus%29_also_called_Norway_Rat_or_Common_Rat_-with_food_container_-_Mathias_Baldwin_Park%2C_Philadelphia%2C_Pennsylvania%2C_USA.jpg",
     },
     {
       id: "filadelfia_6",
@@ -23046,6 +23294,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Moda_nou%C4%83_1904-01-30%2C_nr._05.pdf/page1-1280px-Moda_nou%C4%83_1904-01-30%2C_nr._05.pdf.jpg",
     },
     {
       id: "filadelfia_7",
@@ -23056,6 +23305,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Compendio_de_la_medicina_..._en_Nueva_Espa%C3%B1a_%28IA_63540830R.nlm.nih.gov%29.pdf/page1-500px-Compendio_de_la_medicina_..._en_Nueva_Espa%C3%B1a_%28IA_63540830R.nlm.nih.gov%29.pdf.jpg",
     },
     {
       id: "filadelfia_8",
@@ -23066,6 +23316,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Archivio_per_l%27antropologia_e_l%27etnologia_%28IA_archivioperlantr2931unse%29.pdf/page1-960px-Archivio_per_l%27antropologia_e_l%27etnologia_%28IA_archivioperlantr2931unse%29.pdf.jpg",
     },
     {
       id: "filadelfia_9",
@@ -23076,6 +23327,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Milliyet_1933_subat_22.pdf/page1-1920px-Milliyet_1933_subat_22.pdf.jpg",
     },
     {
       id: "filadelfia_10",
@@ -23086,6 +23338,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Filadelfia_view.jpg",
     },
     {
       id: "filadelfia_11",
@@ -23096,6 +23349,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Filadelfia_view.jpg",
     },
     {
       id: "filadelfia_12",
@@ -23106,6 +23360,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 480,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Chaco_Boreal_Paraguay.jpg",
     },
     {
       id: "filadelfia_13",
@@ -23116,6 +23371,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 480,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Chaco_Boreal_Paraguay.jpg",
     },
   ],
 
@@ -23173,6 +23429,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Water_fountain_in_Promenade_Gardens_Guyana.jpg/1920px-Water_fountain_in_Promenade_Gardens_Guyana.jpg",
     },
     {
       id: "georgetown_5",
@@ -23227,6 +23484,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Archon_%28IA_archonmay1924118dumm%29.pdf/page1-1280px-Archon_%28IA_archonmay1924118dumm%29.pdf.jpg",
     },
     {
       id: "georgetown_10",
@@ -23270,6 +23528,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Walter_Roth_Museum_of_Anthropology_%2813695446384%29.jpg",
     },
     {
       id: "georgetown_14",
@@ -23280,6 +23539,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Walter_Roth_Museum_of_Anthropology_%2813695446384%29.jpg",
     },
     {
       id: "georgetown_15",
@@ -23301,6 +23561,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fountain%2C_Georgetown_Waterfront_Park.jpg/1920px-Fountain%2C_Georgetown_Waterfront_Park.jpg",
     },
     {
       id: "georgetown_17",
@@ -23343,6 +23604,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.3,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Walter_Roth_Museum_of_Anthropology_%2813695446384%29.jpg",
     },
     {
       id: "georgetown_21",
@@ -23390,6 +23652,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Linden-Museum_Stuttgart_2013_02.jpg/1920px-Linden-Museum_Stuttgart_2013_02.jpg",
     },
     {
       id: "linden_1",
@@ -23400,6 +23663,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Minneapolis_neighborhood_Linden_Hills_%2852196921515%29.jpg/1920px-Minneapolis_neighborhood_Linden_Hills_%2852196921515%29.jpg",
     },
     {
       id: "linden_2",
@@ -23410,6 +23674,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Catalog_of_Copyright_Entries_1973_Works_of_Art_Jan-June_Renewals.djvu/page1-500px-Catalog_of_Copyright_Entries_1973_Works_of_Art_Jan-June_Renewals.djvu.jpg",
     },
   ],
   newamsterdam: [
@@ -23436,6 +23701,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/57/Lethem.jpg",
     },
     {
       id: "lethem_2",
@@ -23457,6 +23723,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 480,
       website: "https://www.iwokrama.org/",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_Guyana.svg/langes-1280px-Flag_of_Guyana.svg.png",
     },
     {
       id: "lethem_4",
@@ -23467,6 +23734,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 480,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sex_ratio_effects_on_reproductive_strategies_in_humans.pdf/page1-960px-Sex_ratio_effects_on_reproductive_strategies_in_humans.pdf.jpg",
     },
   ],
 
@@ -23480,6 +23748,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Historic_Inner_City_of_Paramaribo-113545.jpg/1920px-Historic_Inner_City_of_Paramaribo-113545.jpg",
     },
     {
       id: "paramaribo_1",
@@ -23490,6 +23759,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg/1920px-Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg",
     },
     {
       id: "paramaribo_2",
@@ -23500,6 +23770,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.3,
       estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Palmentuin%2C_Paramaribo_%2830394425793%29.jpg/1920px-Palmentuin%2C_Paramaribo_%2830394425793%29.jpg",
     },
     {
       id: "paramaribo_3",
@@ -23546,6 +23817,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Brokopondo_reservoir.jpg",
     },
     {
       id: "brownsweg_2",
@@ -23662,6 +23934,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Famille_Charles-Edouard_Gagnon_%28microforme%29_-_petites_notices_biographiques_et_g%C3%A9n%C3%A9alogiques_%28IA_cihm_07899%29.pdf/page1-960px-Famille_Charles-Edouard_Gagnon_%28microforme%29_-_petites_notices_biographiques_et_g%C3%A9n%C3%A9alogiques_%28IA_cihm_07899%29.pdf.jpg",
     },
     {
       id: "albina_4",
@@ -23672,6 +23945,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Victoria_Daily_Times_%281922-07-03%29_%28IA_victoriadailytimes19220703%29.pdf/page1-1920px-Victoria_Daily_Times_%281922-07-03%29_%28IA_victoriadailytimes19220703%29.pdf.jpg",
     },
     {
       id: "albina_5",
@@ -23682,6 +23956,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Campbell_Interurban_Press_1920-07-30_%28IA_cacblm_000633%29.pdf/page1-1280px-Campbell_Interurban_Press_1920-07-30_%28IA_cacblm_000633%29.pdf.jpg",
     },
     {
       id: "albina_6",
@@ -23712,6 +23987,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 360,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/langes-960px-Flag_of_Suriname.svg.png",
     },
     {
       id: "albina_9",
@@ -23722,6 +23998,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.3,
       estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/langes-960px-Flag_of_Suriname.svg.png",
     },
   ],
 

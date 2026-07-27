@@ -1281,6 +1281,36 @@
         <target>Got it</target>
       </trans-unit>
 
+      <!-- ── plan-slideshow ── -->
+      <trans-unit id="planSlideshow.close" datatype="html">
+        <source>Cerrar presentación</source>
+        <target>Close presentation</target>
+      </trans-unit>
+      <trans-unit id="planSlideshow.prev" datatype="html">
+        <source>Anterior</source>
+        <target>Previous</target>
+      </trans-unit>
+      <trans-unit id="planSlideshow.next" datatype="html">
+        <source>Siguiente</source>
+        <target>Next</target>
+      </trans-unit>
+      <trans-unit id="planSlideshow.empty" datatype="html">
+        <source>No hay elementos para mostrar todavía.</source>
+        <target>There's nothing to show yet.</target>
+      </trans-unit>
+      <trans-unit id="timeline.daySlideshow" datatype="html">
+        <source>🎬 Presentación del día</source>
+        <target>🎬 Day slideshow</target>
+      </trans-unit>
+      <trans-unit id="timeline.planSlideshow" datatype="html">
+        <source>🎞️ Presentación del plan</source>
+        <target>🎞️ Plan slideshow</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.planSlideshow" datatype="html">
+        <source>🎬 Presentación</source>
+        <target>🎬 Slideshow</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

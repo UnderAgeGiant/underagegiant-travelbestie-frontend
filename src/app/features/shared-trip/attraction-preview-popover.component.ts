@@ -2,11 +2,10 @@ import { Component, input, computed, ChangeDetectionStrategy } from '@angular/co
 import { Attraction } from '../../core/models/comment.model';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { formatTodayHours } from '../../core/utils/attraction-hours.util';
-import { UnsplashBadgeComponent } from '../../shared/unsplash-badge/unsplash-badge.component';
 
 @Component({
     selector: 'app-attraction-preview-popover',
-    imports: [DurationPipe, UnsplashBadgeComponent],
+    imports: [DurationPipe],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="att-preview-card"
@@ -20,7 +19,6 @@ import { UnsplashBadgeComponent } from '../../shared/unsplash-badge/unsplash-bad
                [src]="attraction().imageUrl"
                [alt]="attraction().name"
                loading="lazy" />
-          <tb-unsplash-badge [url]="attraction().imageUrl" />
         </div>
       } @else {
         <div class="att-preview-img-fallback"

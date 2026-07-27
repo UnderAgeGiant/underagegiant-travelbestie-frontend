@@ -9,12 +9,11 @@ import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-m
 import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
 import { CATEGORY_META } from '../../../core/models/attraction-category';
 import { formatEventChip } from '../../../core/utils/event-datetime.util';
-import { UnsplashBadgeComponent } from '../../../shared/unsplash-badge/unsplash-badge.component';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 
 @Component({
     selector: 'app-attraction-card',
-    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent, UnsplashBadgeComponent],
+    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent],
     styles: [`
     .att-card {
       padding: 0 !important;
@@ -152,7 +151,6 @@ import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
                [alt]="attraction().name"
                loading="lazy"
                (error)="imgError.set(true)">
-          <tb-unsplash-badge [url]="attraction().imageUrl" />
         } @else {
           <div class="card-fallback-icon">{{ attraction().icon }}</div>
         }

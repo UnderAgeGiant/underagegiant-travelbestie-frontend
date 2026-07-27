@@ -25,10 +25,13 @@ import { getAttractions } from '../../data/attractions.data';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
 import { shareTrip } from '../../core/share/share-url.util';
 import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
+import { SlideshowItem } from '../../core/models/plan-slideshow.model';
+import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
+import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent],
+    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -110,6 +113,14 @@ import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
                   style="margin-top:12px;margin-left:8px;gap:6px"
                   (click)="shareNative()" type="button"
                   i18n="@@share.shareBtn">📤 Compartir</button>
+
+          <!-- Whole-plan slideshow -->
+          @if (planSlideItems().length > 0) {
+            <button class="btn-pill btn-outline"
+                    style="margin-top:12px;margin-left:8px;gap:6px"
+                    (click)="planSlideshowOpen.set(true)" type="button"
+                    i18n="@@sharedTrip.planSlideshow">🎬 Presentación</button>
+          }
 
           <!-- Success toast -->
           @if (cloneResult()) {
@@ -399,6 +410,10 @@ import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
         [y]="activePreview()!.y" />
     }
 
+    @if (planSlideshowOpen()) {
+      <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
+    }
+
     </div>
   `
 })
@@ -437,6 +452,7 @@ export class SharedTripComponent {
   karmaFlashStep   = signal<string | null>(null);
   cloning          = signal(false);
   cloneResult      = signal<Trip | null>(null);
+  planSlideshowOpen = signal(false);
   shakeClone         = signal(false);
   private shakeTriggered = false;
   activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);
@@ -463,6 +479,11 @@ export class SharedTripComponent {
 
   private readonly _trip = signal<SharedTrip | null>(null);
   readonly trip = this._trip.asReadonly();
+
+  planSlideItems = computed<SlideshowItem[]>(() => {
+    const t = this.trip();
+    return t ? buildPlanSlideshowItems(t.stops, t.transits ?? []) : [];
+  });
 
   constructor() {
     effect(() => {
