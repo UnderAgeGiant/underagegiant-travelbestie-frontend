@@ -1287,9 +1287,14 @@ app-nav { display: block; }
      its actual box and hand overflow to overflow-x: auto instead. */
   min-width: 0;
   border-bottom: 1px solid var(--border);
-  scrollbar-width: none;
 }
-.tl-days::-webkit-scrollbar { display: none; }
+/* Visible on desktop — mouse users have no swipe gesture to fall back on,
+   so hiding the only way to see/grab the scroll affordance made the row
+   look un-scrollable there even though it was. Hidden again on mobile
+   below, where touch swipe already works. */
+.tl-days::-webkit-scrollbar { height: 5px; }
+.tl-days::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+.tl-days::-webkit-scrollbar-thumb:hover { background: var(--lav-d); }
 
 .tl-day {
   flex-shrink: 0;
@@ -1432,6 +1437,8 @@ app-nav { display: block; }
     gap: 8px;
   }
   .tl-flap-label { display: inline; }
+  .tl-days { scrollbar-width: none; }
+  .tl-days::-webkit-scrollbar { display: none; }
   .tl-grid-wrap { overflow-y: visible; }
 }
 @media (prefers-reduced-motion: reduce) {
