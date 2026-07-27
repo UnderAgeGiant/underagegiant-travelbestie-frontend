@@ -1275,9 +1275,17 @@ app-nav { display: block; }
 
 .tl-days {
   display: flex;
+  flex-wrap: nowrap;
   gap: 6px;
   padding: 12px;
   overflow-x: auto;
+  overflow-y: hidden;
+  /* Nested flex items default to min-width: auto, so on a long trip the
+     row refuses to shrink below the width of every day tab (flex-shrink:0
+     below) — it grows past its column instead of scrolling, pushing
+     whatever comes after it down the page. min-width: 0 lets it clip to
+     its actual box and hand overflow to overflow-x: auto instead. */
+  min-width: 0;
   border-bottom: 1px solid var(--border);
   scrollbar-width: none;
 }
