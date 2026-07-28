@@ -3,6 +3,7 @@ export interface TripSuggestion {
   title: string;
   summary: string;
   highlights: string[];
+  cityIds?: string[];
 }
 
 export interface SuggestTripsResponse {
