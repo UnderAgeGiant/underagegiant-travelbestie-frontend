@@ -123,3 +123,51 @@ describe('ApiService.getStats() caching', () => {
     http.expectOne(req => req.url.endsWith('/stats')).flush({ cities: 5, users: 50, plans: 500 });
   });
 });
+
+describe('ApiService AI planning — city-scoped payloads', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+  });
+
+  afterEach(() => http.verify());
+
+  it('suggestTrips sends a lightweight cityIndex alongside preferences', async () => {
+    service.suggestTrips('historia y arte').subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/suggest') && r.method === 'POST');
+    expect(Array.isArray(req.request.body.cityIndex)).toBe(true);
+    expect(req.request.body.cityIndex.length).toBeGreaterThan(0);
+    expect(req.request.body.cityIndex[0]).toEqual(expect.objectContaining({ id: expect.any(String), name: expect.any(String) }));
+    req.flush({ options: [] });
+  });
+
+  it('planTrip sends an attractions catalog filtered to the selected option\'s cityIds', async () => {
+    service.planTrip({
+      selectedOption: { id: 1, title: 'T', summary: 'S', highlights: [], cityIds: ['paris', 'rome'] },
+      preferences: 'arte',
+    }).subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST');
+    expect(Object.keys(req.request.body.cityCatalog).sort()).toEqual(['paris', 'rome']);
+    req.flush({ title: 'T', stops: [], transits: [] });
+  });
+
+  it('planTrip sends no cityCatalog when the selected option has no cityIds', async () => {
+    service.planTrip({
+      selectedOption: { id: 1, title: 'T', summary: 'S', highlights: [] },
+      preferences: 'arte',
+    }).subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST');
+    expect(req.request.body.cityCatalog).toBeUndefined();
+    req.flush({ title: 'T', stops: [], transits: [] });
+  });
+});
