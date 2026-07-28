@@ -5799,7 +5799,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Palau_de_la_M%C3%BAsica_Catalana_and_Hospital_de_Sant_Pau%2C_Barcelona_-_20190912100424.jpg/1920px-Palau_de_la_M%C3%BAsica_Catalana_and_Hospital_de_Sant_Pau%2C_Barcelona_-_20190912100424.jpg",
       website: "https://www.barcelona-tickets.com/palau-de-la-musica-catalana-barcelona/timings-opening-hours/",
       ticketPrices: {
         free: false,
@@ -5816,7 +5816,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/%28Barcelona%29_Antoni_Gaudi_-_Sobreporta_%28Overdoor%29_MNAC_145315.jpg/1920px-%28Barcelona%29_Antoni_Gaudi_-_Sobreporta_%28Overdoor%29_MNAC_145315.jpg",
       website: "https://www.lapedrera.com/en/",
       schedule: {
         mon: {
@@ -5858,7 +5858,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Pedrera_del_M%C3%A8dol_%28AFCEC_RIBASV_C_2714%29.jpg",
     },
     {
       id: "barcelona_3",
@@ -5869,7 +5869,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/59/Sala_dormitori_del_monestir_de_Santa_Maria_de_Poblet_%28AFCEC_VINTRO_D_2603%29.jpeg",
       website: "http://www.poblet.cat/",
     },
     {
@@ -5881,7 +5881,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1650964827770-421afa7960ac?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1650964827770-421afa7960ac?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       website: "https://ajuntament.barcelona.cat/eixample/ca/el-districte-i-els-seus-barris/la-sagrada-familia",
     },
     {
@@ -5893,7 +5893,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1630219694734-fe47ab76b15e?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Park_G%C3%BCell_02.jpg/1920px-Park_G%C3%BCell_02.jpg",
       website: "https://parkguell.barcelona/ca",
     },
     {
@@ -5905,7 +5905,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.4,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1654684784883-3423612c0629?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/15-10-27-Vista_des_de_l%27est%C3%A0tua_de_Colom_a_Barcelona-WMA_2791.jpg/1920px-15-10-27-Vista_des_de_l%27est%C3%A0tua_de_Colom_a_Barcelona-WMA_2791.jpg",
       website: "https://www.nomads-travel-guide.com/places/la-rambla-barcelona/",
       ticketPrices: {
         free: true,
@@ -5920,7 +5920,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1656597787628-62741d181641?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Casa_Batl%C3%B3_Barcelona_May_2026-7.jpg/1920px-Casa_Batl%C3%B3_Barcelona_May_2026-7.jpg",
       website: "https://www.casabatllo.es/",
     },
     {
@@ -5932,7 +5932,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 75,
-      imageUrl: "https://images.unsplash.com/photo-1593368858664-a7fe556ab936?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Casa_Mil%C3%A0%2C_general_view.jpg/1920px-Casa_Mil%C3%A0%2C_general_view.jpg",
       website: "https://www.lapedrera.com/ca/",
       schedule: {
         mon: {
@@ -5974,7 +5974,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1628541289614-b70c327da0bf?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Beach%2C_Barcelona_%28P1170713%29.jpg/1920px-Beach%2C_Barcelona_%28P1170713%29.jpg",
     },
     {
       id: "barcelona_10",
@@ -5985,7 +5985,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1670085933747-2716ef10bf07?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Monument_a_Colom_-_Barcelona_-_Spain_-_panoramio.jpg/1920px-Monument_a_Colom_-_Barcelona_-_Spain_-_panoramio.jpg",
       website: "https://ajuntament.barcelona.cat/ciutatvella/ca/el-districte-i-els-seus-barris/el-gotic",
     },
     {
@@ -5997,7 +5997,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1519749701521-90c37a9ec3f5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/LFP_-_Barcelona_vs_Mallorca_pre-match_-_Oct_3rd_2010.jpg/1920px-LFP_-_Barcelona_vs_Mallorca_pre-match_-_Oct_3rd_2010.jpg",
       website: "https://www.fcbarcelona.com/en/club/facilities/camp-nou/",
       ticketPrices: {
         free: false,
@@ -6014,7 +6014,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1544918877-460635b6d13e?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Barcelona_Montju%C3%AFc_monument_Sardana.jpg/1920px-Barcelona_Montju%C3%AFc_monument_Sardana.jpg",
       website: "http://ajuntament.barcelona.cat/castelldemontjuic/",
       ticketPrices: {
         free: false,
@@ -32964,7 +32964,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://stad.gent/cultuur-sport-vrije-tijd/buiten-genieten/coyendanspark",
-      imageUrl: "https://images.unsplash.com/photo-1636406549515-3108c7dc8ebc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb3llbmRhbnNwYXJrJTIwR2hlbnQlMjBCZWxnaXVtfGVufDF8MHx8fDE3ODI5OTYwODV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D0%BE%D0%BB%D0%B5_-_panoramio_%281%29.jpg/1920px-%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D0%BE%D0%BB%D0%B5_-_panoramio_%281%29.jpg",
     },
     {
       id: "ghent_11",
@@ -33009,7 +33009,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-1464793279436-9b124684bd85?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLYXBlbCUyMHZhbiUyME9uemUtTGlldmUtVnJvdXclMjB2YW4lMjBIZW1lbHJpamslMjBHaGVudCUyMEJlbGdpdW18ZW58MXwwfHx8MTc4Mjk5NjE2MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Infobord_Kapel_O.L.V._van_Hemelrijk_-_De_Pinte.jpg/1920px-Infobord_Kapel_O.L.V._van_Hemelrijk_-_De_Pinte.jpg",
     },
     {
       id: "ghent_15",
@@ -33033,7 +33033,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.deviezegasten.org/",
-      imageUrl: "https://images.unsplash.com/photo-1491557345352-5929e343eb89?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxiaWolMjBHaGVudCUyMEJlbGdpdW18ZW58MXwwfHx8MTc4Mjk5NjIzN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/44/Bij_Sint-Jacobs_18_-_124162_-_onroerenderfgoed.jpg",
     },
     {
       id: "ghent_17",
@@ -33057,7 +33057,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://www.scalaplatform.be",
-      imageUrl: "https://images.unsplash.com/photo-1550925835-3f41dd86644d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTY2FsYSUyMEdoZW50JTIwQmVsZ2l1bXxlbnwxfDB8fHwxNzgyOTk2MzEyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Entrance_of_new_Cin%C3%A9_Scala_june_2017.jpg/1920px-Entrance_of_new_Cin%C3%A9_Scala_june_2017.jpg",
     },
     {
       id: "ghent_19",
@@ -33135,7 +33135,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1605315187945-adcbcf036646?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXZXJyZWdhcmVuc3RyYWF0JTIwR2hlbnQlMjBCZWxnaXVtfGVufDF8MHx8fDE3ODI5OTY1Mzl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Werregarenstraat%2C_Ghent.jpg/1920px-Werregarenstraat%2C_Ghent.jpg",
     },
     {
       id: "ghent_26",
@@ -33146,7 +33146,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1550925835-3f41dd86644d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaW50LUFtYW5kc2JlcmclMjBHaGVudCUyMEJlbGdpdW18ZW58MXwwfHx8MTc4Mjk5NjYxNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Town_hall_of_Sint-Amandsberg_%28DSCF0325%29.jpg/1920px-Town_hall_of_Sint-Amandsberg_%28DSCF0325%29.jpg",
     },
     {
       id: "ghent_27",
@@ -33170,7 +33170,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.wafflesnbeer.be/",
-      imageUrl: "https://images.unsplash.com/photo-1731192828689-f538f59117e6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxXYWZmbGVzJTIwJTIwR2hlbnQlMjBCZWxnaXVtfGVufDF8MHx8fDE3ODI5OTY3NjZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/%27Wafelbakker_van_3%2C14%27_Gent_%285715435839%29.jpg",
     },
     {
       id: "ghent_29",
@@ -33192,7 +33192,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 75,
-      imageUrl: "https://images.unsplash.com/photo-1605315187945-adcbcf036646?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXN0aWxsbyUyMGRlJTIwbG9zJTIwQ29uZGVzJTIwJTI4R3JhdmVuc3RlZW4lMjklMjBHaGVudCUyMEJlbGdpdW18ZW58MXwwfHx8MTc4Mjk5NjkxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Gravensteen%2C_Ghent_%28DSCF0191%29.jpg/1920px-Gravensteen%2C_Ghent_%28DSCF0191%29.jpg",
     },
     {
       id: "ghent_31",
@@ -33203,7 +33203,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1547057951-61fcf322bb1e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXRlZHJhbCUyMGRlJTIwU2FuJTIwQmF2JUMzJUIzbiUyMEdoZW50JTIwQmVsZ2l1bXxlbnwxfDB8fHwxNzgyOTk2OTkzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gent-Sint-Baafskathedraal_vom_Belfried_aus_gesehen.jpg/1920px-Gent-Sint-Baafskathedraal_vom_Belfried_aus_gesehen.jpg",
     },
   ],
   antwerp: [
