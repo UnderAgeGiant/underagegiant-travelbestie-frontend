@@ -47,3 +47,15 @@ export interface PlanTripResponse {
   transits:   unknown[];
   changeInfo?: PlanChangeInfo;
 }
+
+export interface CityAttractionSuggestion {
+  attractionId: string;
+  date:         string;   // dd/mm/yyyy
+  startTime:    string;   // HH:mm
+  endTime:      string;   // HH:mm — display only, see TripService.addAttraction (no endTime param)
+  reason:       string;
+}
+
+export interface SuggestCityAttractionsResponse {
+  suggestions: CityAttractionSuggestion[];
+}

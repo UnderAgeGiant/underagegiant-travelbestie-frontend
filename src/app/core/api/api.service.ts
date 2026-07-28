@@ -5,7 +5,7 @@ import { switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
-import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog } from '../models/ai.model';
+import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
@@ -183,6 +183,35 @@ export class ApiService {
         { ...req, cityCatalog },
       )),
     );
+  }
+
+  suggestCityAttractions(
+    cityId: string,
+    checkIn: string,
+    checkOut: string,
+    existingAttractionIds: string[],
+    cityCatalog: CatalogEntry[],
+  ): Observable<SuggestCityAttractionsResponse> {
+    if (this.useMocks) {
+      const candidates = cityCatalog.filter(c => !existingAttractionIds.includes(c.id)).slice(0, 3);
+      const reasons = [
+        'Ideal para complementar tu día en la ciudad.',
+        'Una parada corta que no te sacará mucho de tu ruta.',
+        'Muy bien evaluada por otros viajeros.',
+      ];
+      return of({
+        suggestions: candidates.map((c, i) => ({
+          attractionId: c.id,
+          date: checkIn,
+          startTime: `${String(10 + i * 2).padStart(2, '0')}:00`,
+          endTime:   `${String(11 + i * 2).padStart(2, '0')}:00`,
+          reason: reasons[i] ?? 'Una gran opción para tu itinerario.',
+        })),
+      });
+    }
+    return this.http.post<SuggestCityAttractionsResponse>(`${this.base}/ai/suggest-attractions`, {
+      cityId, checkIn, checkOut, existingAttractionIds, cityCatalog,
+    });
   }
 
   getKarmaPackages(): Observable<{ packages: KarmaPackage[] }> {
