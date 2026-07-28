@@ -1281,6 +1281,28 @@
         <target>Got it</target>
       </trans-unit>
 
+      <!-- ── attraction image lightbox + hero carousel ── -->
+      <trans-unit id="imgLightbox.close" datatype="html">
+        <source>Cerrar imagen</source>
+        <target>Close image</target>
+      </trans-unit>
+      <trans-unit id="imgLightbox.prev" datatype="html">
+        <source>Anterior</source>
+        <target>Previous</target>
+      </trans-unit>
+      <trans-unit id="imgLightbox.next" datatype="html">
+        <source>Siguiente</source>
+        <target>Next</target>
+      </trans-unit>
+      <trans-unit id="detailModal.prevImage" datatype="html">
+        <source>Imagen anterior</source>
+        <target>Previous image</target>
+      </trans-unit>
+      <trans-unit id="detailModal.nextImage" datatype="html">
+        <source>Siguiente imagen</source>
+        <target>Next image</target>
+      </trans-unit>
+
       <!-- ── plan-slideshow ── -->
       <trans-unit id="planSlideshow.close" datatype="html">
         <source>Cerrar presentación</source>
