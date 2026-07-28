@@ -475,7 +475,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">168,170</context>
+          <context context-type="linenumber">207,209</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.eventDateTime" datatype="html">
@@ -493,39 +493,74 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">205,207</context>
+          <context context-type="linenumber">244,246</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shared-trip/shared-trip.component.ts</context>
           <context context-type="linenumber">268,269</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="detailModal.prevImage" datatype="html">
+        <source>Imagen anterior</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
+          <context context-type="linenumber">163,164</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="detailModal.nextImage" datatype="html">
+        <source>Siguiente imagen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
+          <context context-type="linenumber">165,166</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="detailModal.durationLabel" datatype="html">
         <source>⏱ Duración estimada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">159,160</context>
+          <context context-type="linenumber">198,199</context>
         </context-group>
       </trans-unit>
       <trans-unit id="detailModal.commentsTitle" datatype="html">
         <source>💬 Comentarios</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">212,213</context>
+          <context context-type="linenumber">251,252</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.noComments" datatype="html">
         <source>¡Sin comentarios aún — sé el primero! 💬</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">219,221</context>
+          <context context-type="linenumber">258,260</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.addComment" datatype="html">
         <source>💌 Agregar comentario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
-          <context context-type="linenumber">236,238</context>
+          <context context-type="linenumber">275,277</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imgLightbox.close" datatype="html">
+        <source>Cerrar imagen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/attraction-image-lightbox/attraction-image-lightbox.component.ts</context>
+          <context context-type="linenumber">75,77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imgLightbox.prev" datatype="html">
+        <source>Anterior</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/attraction-image-lightbox/attraction-image-lightbox.component.ts</context>
+          <context context-type="linenumber">82,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imgLightbox.next" datatype="html">
+        <source>Siguiente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/attraction-image-lightbox/attraction-image-lightbox.component.ts</context>
+          <context context-type="linenumber">84,87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dest.exploreTitle" datatype="html">
