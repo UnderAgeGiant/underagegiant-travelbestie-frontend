@@ -1338,9 +1338,21 @@
       </trans-unit>
 
       <!-- ── city-suggest: AI per-city attraction cloud ── -->
+      <trans-unit id="citySuggest.closeAria" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
       <trans-unit id="citySuggest.thinking" datatype="html">
-        <source>Pensando ideas…</source>
-        <target>Thinking of ideas…</target>
+        <source>Pensando en más ideas para ti…</source>
+        <target>Thinking of more ideas for you…</target>
+      </trans-unit>
+      <trans-unit id="citySuggest.errorTitle" datatype="html">
+        <source>¡Ups!</source>
+        <target>Oops!</target>
+      </trans-unit>
+      <trans-unit id="citySuggest.greeting" datatype="html">
+        <source>¡Mira lo que encontré para ti! 🐾</source>
+        <target>Look what I found for you! 🐾</target>
       </trans-unit>
       <trans-unit id="citySuggest.addAllBtn" datatype="html">
         <source>➕ Agregar todo al plan</source>

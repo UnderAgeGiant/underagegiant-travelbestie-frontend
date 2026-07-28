@@ -140,7 +140,7 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
                           (click)="$event.stopPropagation(); toggleItinerary(stop.stopId)"
                           i18n="@@stopList.viewItinerary">📅 Ver itinerario de la ciudad</button>
                   <button type="button" class="stop-itinerary-pill stop-ai-suggest-pill"
-                          (click)="$event.stopPropagation(); suggestForCity(stop, $event)"
+                          (click)="$event.stopPropagation(); suggestForCity(stop)"
                           i18n="@@stopList.aiSuggestBtn">✨ Sugiere qué hacer en esta ciudad
                     <span class="karma-cost">−2 ✨ karma</span>
                   </button>
@@ -157,8 +157,6 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
                     [suggestions]="citySuggest.suggestions()"
                     [loading]="citySuggest.loading()"
                     [error]="citySuggest.error()"
-                    [x]="citySuggestX()"
-                    [y]="citySuggestY()"
                     (dismiss)="citySuggest.close()"
                     (addAll)="citySuggest.addAll(stop.stopId, stop.cityId)" />
                 }
@@ -310,8 +308,6 @@ export class StopListComponent {
   addDestination = output<void>();
 
   protected readonly showScrollTop = signal(false);
-  protected readonly citySuggestX = signal(0);
-  protected readonly citySuggestY = signal(0);
 
   // Which stop's inline city timeline is currently open (null = none).
   protected readonly itineraryOpenStopId = signal<string | null>(null);
@@ -326,26 +322,11 @@ export class StopListComponent {
     this.destModal.open();
   }
 
-  suggestForCity(stop: import('../../../core/models/trip.model').TripStop, event: MouseEvent): void {
-    // Capture the button's position synchronously — event.currentTarget reverts to null
-    // once the event finishes dispatching, so it can't be read later from an async callback.
-    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    const cardW = 320;
-    let x = rect.left;
-    if (x + cardW > window.innerWidth) x = window.innerWidth - cardW - 12;
-    const posX = Math.max(12, x);
-    const posY = rect.bottom + 8;
-
+  suggestForCity(stop: import('../../../core/models/trip.model').TripStop): void {
     if (!this.auth.isLoggedIn()) {
-      this.authModal.openLogin(() => this.openCitySuggestCloud(stop, posX, posY));
+      this.authModal.openLogin(() => this.citySuggest.request(stop));
       return;
     }
-    this.openCitySuggestCloud(stop, posX, posY);
-  }
-
-  private openCitySuggestCloud(stop: import('../../../core/models/trip.model').TripStop, x: number, y: number): void {
-    this.citySuggestX.set(x);
-    this.citySuggestY.set(y);
     this.citySuggest.request(stop);
   }
 

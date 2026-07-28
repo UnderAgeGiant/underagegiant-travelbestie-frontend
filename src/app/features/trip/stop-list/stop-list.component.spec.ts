@@ -80,9 +80,8 @@ describe('StopListComponent — AI city suggestions', () => {
 
   it('opens the login modal instead of requesting suggestions when logged out', () => {
     const stop = trip.stops()[0];
-    const clickEvent = { currentTarget: document.createElement('button') } as unknown as MouseEvent;
 
-    component.suggestForCity(stop, clickEvent);
+    component.suggestForCity(stop);
 
     expect(authModal.isOpen()).toBe(true);
     expect(citySuggest.openForStopId()).toBeNull();
@@ -91,9 +90,22 @@ describe('StopListComponent — AI city suggestions', () => {
   it('requests suggestions immediately when already logged in', async () => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
     const stop = trip.stops()[0];
-    const clickEvent = { currentTarget: document.createElement('button') } as unknown as MouseEvent;
 
-    component.suggestForCity(stop, clickEvent);
+    component.suggestForCity(stop);
+    await new Promise(resolve => setTimeout(resolve, 0));
+
+    expect(citySuggest.openForStopId()).toBe(stop.stopId);
+    http.expectOne(r => r.url.includes('/ai/suggest-attractions')).flush({ suggestions: [] });
+  });
+
+  it('re-requests suggestions after logging in through the modal callback (no stale event reused)', async () => {
+    const stop = trip.stops()[0];
+
+    component.suggestForCity(stop);
+    expect(citySuggest.openForStopId()).toBeNull();
+
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    authModal.executePostLogin();
     await new Promise(resolve => setTimeout(resolve, 0));
 
     expect(citySuggest.openForStopId()).toBe(stop.stopId);
