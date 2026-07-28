@@ -5,7 +5,7 @@ import { switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
-import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse } from '../models/ai.model';
+import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
@@ -112,12 +112,14 @@ export class ApiService {
     if (this.useMocks) {
       return of({
         options: [
-          { id: 1, title: 'Clásicos de Europa', summary: 'París, Roma y Barcelona en un viaje lleno de arte, historia y gastronomía.', highlights: ['París, Francia', 'Roma, Italia', 'Barcelona, España'] },
-          { id: 2, title: 'Asia Oriental',       summary: 'Tokio, Kioto y Seúl: tradición y modernidad en perfecta armonía.',          highlights: ['Tokio, Japón',   'Kioto, Japón',   'Seúl, Corea del Sur'] },
+          { id: 1, title: 'Clásicos de Europa', summary: 'París, Roma y Barcelona en un viaje lleno de arte, historia y gastronomía.', highlights: ['París, Francia', 'Roma, Italia', 'Barcelona, España'], cityIds: ['paris', 'rome', 'barcelona'] },
+          { id: 2, title: 'Asia Oriental',       summary: 'Tokio, Kioto y Seúl: tradición y modernidad en perfecta armonía.',          highlights: ['Tokio, Japón',   'Kioto, Japón',   'Seúl, Corea del Sur'], cityIds: ['tokyo', 'kyoto', 'seoul'] },
         ],
       });
     }
-    return this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget });
+    return from(this.catalog.getCityIndex()).pipe(
+      switchMap(cityIndex => this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget, cityIndex })),
+    );
   }
 
   shareTrip(tripId: string): Observable<{ shareId: string }> {
@@ -167,7 +169,15 @@ export class ApiService {
         // No changeInfo in mock mode — component handles undefined gracefully
       });
     }
-    return from(this.catalog.getCityCatalog()).pipe(
+    // Only the selected option's own cities are sent — not the whole WORLD_CITIES
+    // catalog. Missing cityIds (older session, or the model omitted them) degrade
+    // to no catalog at all; the backend's own "unlisted city" fallback covers it.
+    const cityIds = req.selectedOption.cityIds;
+    const catalog$: Observable<CityCatalog | undefined> = cityIds && cityIds.length > 0
+      ? from(this.catalog.getCityCatalog(cityIds))
+      : of(undefined);
+
+    return catalog$.pipe(
       switchMap(cityCatalog => this.http.post<PlanTripResponse>(
         `${this.base}/ai/plan`,
         { ...req, cityCatalog },
