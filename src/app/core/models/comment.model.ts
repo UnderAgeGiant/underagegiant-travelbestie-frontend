@@ -49,6 +49,7 @@ export interface Attraction {
   rating:           number;
   estimatedMinutes: number;
   imageUrl?:        string;
+  images?:          string[];  // extra photos, shown as a carousel in AttractionDetailModalComponent (imageUrl is always the cover/first photo)
   description?:     string;
   website?:         string | null;
   schedule?:        WeeklySchedule | null;
