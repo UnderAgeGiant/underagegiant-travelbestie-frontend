@@ -50,16 +50,22 @@ function hashRating(cityId: string, index: number): number {
   return Math.abs(h + index * 31) % 10;
 }
 
+/** Drops any non-https photo URL (mixed-content safety — production is HTTPS-only). */
+export function stripInsecureImages(a: Attraction): Attraction {
+  return {
+    ...a,
+    imageUrl: a.imageUrl?.startsWith('http://') ? undefined : a.imageUrl,
+    images: a.images?.filter(u => !u.startsWith('http://')),
+  };
+}
+
 export function getAttractions(city: City): Attraction[] {
   let base: Attraction[];
 
   if (CURATED_ALL[city.id]) {
     base = CURATED_ALL[city.id]
       .filter(a => a.active)
-      .map(a => ({
-        ...a,
-        imageUrl: a.imageUrl?.startsWith('http://') ? undefined : a.imageUrl,
-      }));
+      .map(stripInsecureImages);
   } else {
     const tmpl = REGION_TMPL[city.region] ?? REGION_TMPL['europe'];
     base = tmpl.map((x, i) => ({
