@@ -5882,6 +5882,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1650964827770-421afa7960ac?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      images: [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Simetr%C3%ADa_na_Sagrada_Familia._Barcelona_B30.jpg/1920px-Simetr%C3%ADa_na_Sagrada_Familia._Barcelona_B30.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/89/Sagrada_Familia_al_Atardecer.JPG",
+      ],
       website: "https://ajuntament.barcelona.cat/eixample/ca/el-districte-i-els-seus-barris/la-sagrada-familia",
     },
     {

@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy, Component, HostListener, OnInit, input, output, signal,
+  ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, Renderer2, inject, input, output, signal,
 } from '@angular/core';
 
 const SWIPE_THRESHOLD_PX = 50;
@@ -103,8 +103,15 @@ export class AttractionImageLightboxComponent implements OnInit {
 
   protected readonly activeIdx = signal(0);
 
+  private readonly elementRef = inject(ElementRef<HTMLElement>);
+  private readonly renderer   = inject(Renderer2);
+
   ngOnInit(): void {
     this.activeIdx.set(this.startIndex());
+    // Ancestors elsewhere in the tree (e.g. a fill-mode:'both' CSS animation) can establish a
+    // stacking context that traps this overlay's z-index below the nav bar. Reparenting the host
+    // to <body> puts it in the root stacking context, matching how CDK Overlay avoids this class of bug.
+    this.renderer.appendChild(document.body, this.elementRef.nativeElement);
   }
 
   protected next(): void {

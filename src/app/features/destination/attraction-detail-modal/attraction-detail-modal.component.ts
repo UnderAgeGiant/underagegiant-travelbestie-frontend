@@ -16,10 +16,12 @@ import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
+import { attractionImages } from '../../../core/utils/attraction-images.util';
+import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/attraction-image-lightbox.component';
 
 @Component({
     selector: 'app-attraction-detail-modal',
-    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent],
+    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent],
     styles: [`
     .detail-modal {
       background: #fff;
@@ -82,6 +84,28 @@ import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
     .hero-type { font-size: 12px; color: rgba(255,255,255,.85); font-weight: 500; }
     .hero-stars { font-size: 12px; color: #FFD700; letter-spacing: 1px; }
     .hero-rating { font-size: 12px; color: rgba(255,255,255,.9); font-weight: 700; }
+    .hero-img { cursor: zoom-in; }
+    .hero-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,.55); color: var(--t1);
+      font-size: 15px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none; backdrop-filter: blur(6px);
+      transition: background .15s, transform .15s;
+      z-index: 2;
+    }
+    .hero-nav:hover { background: rgba(255,255,255,.85); transform: translateY(-50%) scale(1.08); }
+    .hero-nav-prev { left: 10px; }
+    .hero-nav-next { right: 10px; }
+    .hero-dots {
+      position: absolute; top: 16px; left: 12px; z-index: 2;
+      display: flex; gap: 6px;
+    }
+    .hero-dot {
+      width: 6px; height: 6px; border-radius: 50%; border: none; padding: 0;
+      background: rgba(255,255,255,.5); cursor: pointer; transition: all .2s;
+    }
+    .hero-dot.active { background: #fff; width: 16px; border-radius: 3px; }
     .detail-body { overflow-y: auto; flex: 1; padding: 20px; }
     .action-row {
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -123,16 +147,31 @@ import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
       <div class="detail-modal">
 
-        <!-- Hero image -->
+        <!-- Hero image carousel -->
         <div class="detail-hero" [style.background-color]="attraction().bg">
-          @if (attraction().imageUrl && !imgError()) {
-            <img class="hero-img" [src]="attraction().imageUrl" [alt]="attraction().name"
-                 loading="lazy" (error)="imgError.set(true)">
+          @if (images()[heroIdx()] && !imgError()) {
+            <img class="hero-img" [src]="images()[heroIdx()]" [alt]="attraction().name"
+                 loading="lazy" (error)="imgError.set(true)" (click)="openLightbox()">
           } @else {
             <div class="hero-fallback-icon">{{ attraction().icon }}</div>
           }
           <div class="hero-gradient"></div>
           <button class="hero-close" (click)="close.emit()" type="button" aria-label="Cerrar">✕</button>
+
+          @if (images().length > 1) {
+            <button class="hero-nav hero-nav-prev" (click)="$event.stopPropagation(); prevHeroImage()"
+                    type="button" i18n-aria-label="@@detailModal.prevImage" aria-label="Imagen anterior">‹</button>
+            <button class="hero-nav hero-nav-next" (click)="$event.stopPropagation(); nextHeroImage()"
+                    type="button" i18n-aria-label="@@detailModal.nextImage" aria-label="Siguiente imagen">›</button>
+            <div class="hero-dots">
+              @for (img of images(); track $index) {
+                <button [class]="'hero-dot' + (heroIdx() === $index ? ' active' : '')"
+                        (click)="$event.stopPropagation(); selectHeroImage($index)"
+                        type="button" [attr.aria-label]="'Imagen ' + ($index + 1)"></button>
+              }
+            </div>
+          }
+
           <div class="hero-caption">
             <div class="hero-name">{{ attraction().icon }} {{ attraction().name }}</div>
             @if (attraction().nativeName && attraction().nativeName !== attraction().name) {
@@ -264,6 +303,16 @@ import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
         <app-comment-similar-modal (dismiss)="showSimilarModal.set(false)" />
       }
     </div>
+
+    <!-- Rendered outside .modal-backdrop: that ancestor's backdrop-filter makes it a containing
+         block for fixed-position descendants, which traps the lightbox's z-index under the nav bar. -->
+    @if (showLightbox()) {
+      <app-attraction-image-lightbox
+        [images]="images()"
+        [startIndex]="heroIdx()"
+        [altText]="attraction().name"
+        (closed)="showLightbox.set(false)" />
+    }
   `
 })
 export class AttractionDetailModalComponent {
@@ -281,6 +330,8 @@ export class AttractionDetailModalComponent {
   showCommentModal = signal(false);
   showSimilarModal = signal(false);
   commentError     = signal<string | null>(null);
+  showLightbox     = signal(false);
+  heroIdx          = signal(0);
 
   private readonly trip       = inject(TripService);
   private readonly api        = inject(ApiService);
@@ -298,6 +349,8 @@ export class AttractionDetailModalComponent {
   );
 
   readonly activeStop = computed(() => this.trip.activeStop());
+
+  readonly images = computed(() => attractionImages(this.attraction()));
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 
@@ -343,6 +396,25 @@ export class AttractionDetailModalComponent {
   starStr(): string {
     const r = Math.round(this.attraction().rating);
     return '★'.repeat(r) + '☆'.repeat(5 - r);
+  }
+
+  selectHeroImage(i: number): void {
+    this.heroIdx.set(i);
+    this.imgError.set(false);
+  }
+
+  nextHeroImage(): void {
+    const n = this.images().length;
+    if (n) this.selectHeroImage((this.heroIdx() + 1) % n);
+  }
+
+  prevHeroImage(): void {
+    const n = this.images().length;
+    if (n) this.selectHeroImage((this.heroIdx() - 1 + n) % n);
+  }
+
+  openLightbox(): void {
+    if (this.images().length > 0) this.showLightbox.set(true);
   }
 
   openWebsite(event: MouseEvent): void {
