@@ -1,0 +1,69 @@
+import { Injectable, inject, signal } from '@angular/core';
+import { ApiService } from '../api/api.service';
+import { AttractionCatalogService } from './attraction-catalog.service';
+import { KarmaModalService } from '../karma/karma-modal.service';
+import { TripService } from '../../features/trip/trip.service';
+import { TripStop } from '../models/trip.model';
+import { CityAttractionSuggestion } from '../models/ai.model';
+import { findCuratedAttraction } from '../../data/attractions.data';
+
+@Injectable({ providedIn: 'root' })
+export class CitySuggestService {
+  private readonly api        = inject(ApiService);
+  private readonly catalog    = inject(AttractionCatalogService);
+  private readonly karmaModal = inject(KarmaModalService);
+  private readonly trip       = inject(TripService);
+
+  private readonly _openForStopId = signal<string | null>(null);
+  private readonly _loading       = signal(false);
+  private readonly _suggestions   = signal<CityAttractionSuggestion[]>([]);
+  private readonly _error         = signal<string | null>(null);
+
+  readonly openForStopId = this._openForStopId.asReadonly();
+  readonly loading       = this._loading.asReadonly();
+  readonly suggestions   = this._suggestions.asReadonly();
+  readonly error         = this._error.asReadonly();
+
+  /** Opens the cloud for `stop` immediately (loading state), then fetches suggestions. */
+  async request(stop: TripStop): Promise<void> {
+    this._loading.set(true);
+    this._error.set(null);
+    this._suggestions.set([]);
+    this._openForStopId.set(stop.stopId);
+
+    const existingIds = stop.selectedAttractions.map(a => a.attractionId);
+    const catalogMap  = await this.catalog.getCityCatalog([stop.cityId]);
+    const cityCatalog = catalogMap[stop.cityId] ?? [];
+
+    this.api.suggestCityAttractions(stop.cityId, stop.checkIn, stop.checkOut, existingIds, cityCatalog)
+      .subscribe({
+        next: res => {
+          this._loading.set(false);
+          this._suggestions.set(res.suggestions);
+        },
+        error: err => {
+          this._loading.set(false);
+          if (this.karmaModal.handleKarmaError(err)) {
+            this._openForStopId.set(null);
+          } else {
+            this._error.set('No pudimos generar sugerencias. Intenta de nuevo.');
+          }
+        },
+      });
+  }
+
+  /** Adds every current suggestion to the stop via the existing TripService.addAttraction, then closes. */
+  addAll(stopId: string, cityId: string): void {
+    for (const s of this._suggestions()) {
+      const attraction = findCuratedAttraction(cityId, s.attractionId);
+      this.trip.addAttraction(stopId, s.attractionId, s.startTime, s.date, attraction?.category);
+    }
+    this.close();
+  }
+
+  close(): void {
+    this._openForStopId.set(null);
+    this._suggestions.set([]);
+    this._error.set(null);
+  }
+}
