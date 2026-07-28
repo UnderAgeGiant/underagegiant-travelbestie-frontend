@@ -146,6 +146,10 @@
         <source>➕ Agregar atracción</source>
         <target>➕ Add attraction</target>
       </trans-unit>
+      <trans-unit id="stopList.aiSuggestBtn" datatype="html">
+        <source>✨ Sugiere qué hacer en esta ciudad <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>✨ Suggest what to do in this city <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+      </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
         <source>Guardar ✓</source>
         <target>Save ✓</target>
@@ -1331,6 +1335,16 @@
       <trans-unit id="sharedTrip.planSlideshow" datatype="html">
         <source>🎬 Presentación</source>
         <target>🎬 Slideshow</target>
+      </trans-unit>
+
+      <!-- ── city-suggest: AI per-city attraction cloud ── -->
+      <trans-unit id="citySuggest.thinking" datatype="html">
+        <source>Pensando ideas…</source>
+        <target>Thinking of ideas…</target>
+      </trans-unit>
+      <trans-unit id="citySuggest.addAllBtn" datatype="html">
+        <source>➕ Agregar todo al plan</source>
+        <target>➕ Add everything to the plan</target>
       </trans-unit>
 
     </body>
