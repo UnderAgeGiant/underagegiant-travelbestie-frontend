@@ -327,16 +327,25 @@ export class StopListComponent {
   }
 
   suggestForCity(stop: import('../../../core/models/trip.model').TripStop, event: MouseEvent): void {
-    if (!this.auth.isLoggedIn()) {
-      this.authModal.openLogin(() => this.suggestForCity(stop, event));
-      return;
-    }
+    // Capture the button's position synchronously — event.currentTarget reverts to null
+    // once the event finishes dispatching, so it can't be read later from an async callback.
     const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
     const cardW = 320;
     let x = rect.left;
     if (x + cardW > window.innerWidth) x = window.innerWidth - cardW - 12;
-    this.citySuggestX.set(Math.max(12, x));
-    this.citySuggestY.set(rect.bottom + 8);
+    const posX = Math.max(12, x);
+    const posY = rect.bottom + 8;
+
+    if (!this.auth.isLoggedIn()) {
+      this.authModal.openLogin(() => this.openCitySuggestCloud(stop, posX, posY));
+      return;
+    }
+    this.openCitySuggestCloud(stop, posX, posY);
+  }
+
+  private openCitySuggestCloud(stop: import('../../../core/models/trip.model').TripStop, x: number, y: number): void {
+    this.citySuggestX.set(x);
+    this.citySuggestY.set(y);
     this.citySuggest.request(stop);
   }
 
