@@ -1942,6 +1942,35 @@ app-nav { display: block; }
 .stop-pill-row .stop-itinerary-pill { margin-top: 0; }
 .stop-add-attraction-pill { color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
 
+/* AI city-attraction suggestion cloud (Feature 52) */
+.city-suggest-backdrop { position: fixed; inset: 0; z-index: 899; }
+.city-suggest-cloud {
+  position: fixed; z-index: 900; width: 320px; max-width: calc(100vw - 24px);
+  background: #fff; border-radius: 16px; box-shadow: var(--sh-lg);
+  padding: 16px; animation: fadeInUp .15s ease;
+}
+.city-suggest-close {
+  position: absolute; top: 8px; right: 8px; width: 24px; height: 24px;
+  border-radius: 50%; border: none; background: oklch(0% 0 0/.06); cursor: pointer;
+  font-size: 12px; color: var(--t2); line-height: 1;
+}
+.city-suggest-loading, .city-suggest-error {
+  display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--t2); padding: 8px 4px;
+}
+.city-suggest-spinner {
+  width: 16px; height: 16px; border: 2px solid var(--lav-d); border-top-color: transparent;
+  border-radius: 50%; animation: spin .7s linear infinite;
+}
+.city-suggest-bubbles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.city-suggest-bubble {
+  flex: 1 1 130px; background: var(--lav); border: 1px solid var(--lav-d); border-radius: 12px;
+  padding: 8px 10px;
+}
+.city-suggest-bubble-head { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--lav-d); }
+.city-suggest-bubble-time { font-size: 10px; color: var(--t3); margin-top: 2px; }
+.city-suggest-bubble-reason { font-size: 11px; color: var(--t2); margin-top: 4px; line-height: 1.4; }
+.city-suggest-add-all { width: 100%; justify-content: center; margin-top: 12px; }
+
 /* Inline (in-stop) timeline: full-width card beneath a stop, not a fixed side column */
 .timeline-panel.timeline-inline {
   width: 100%; height: auto;
