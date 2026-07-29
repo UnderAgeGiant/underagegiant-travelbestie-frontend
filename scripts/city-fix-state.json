@@ -1,1 +1,6 @@
-{}
+{
+  "dubai": {
+    "attempts": 1,
+    "radiusKm": 15
+  }
+}

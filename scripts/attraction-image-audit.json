@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-29T12:56:03.634Z",
+  "generatedAt": "2026-07-29T14:17:17.719Z",
   "totalCities": 569,
-  "citiesNeedingWork": 468,
+  "citiesNeedingWork": 467,
   "goalMet": false,
-  "nextCity": "london",
+  "nextCity": "dubai",
   "cities": [
     {
       "city": "bangkok",
@@ -23,41 +23,16 @@
     },
     {
       "city": "london",
-      "count": 14,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "london_0",
-            "london_1",
-            "london_2",
-            "london_3",
-            "london_4",
-            "london_13"
-          ]
-        }
-      ],
-      "missingCount": 1,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 2
     },
     {
       "city": "dubai",
       "count": 7,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "dubai_0",
-            "dubai_1",
-            "dubai_2",
-            "dubai_3",
-            "dubai_4",
-            "dubai_5",
-            "dubai_6"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 8,
       "needsWork": true,
       "priorityRank": 3

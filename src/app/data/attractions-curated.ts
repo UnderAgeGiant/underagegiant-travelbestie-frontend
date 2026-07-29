@@ -1413,7 +1413,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/42/Dubai_Mall_gallery%2C_6_December_2008.jpg",
       website: "https://thedubaimall.com/",
     },
     {
@@ -1425,7 +1425,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Palm_Island_Resort.jpg/1920px-Palm_Island_Resort.jpg",
       website: "https://www.palmtowertickets.com/",
       ticketPrices: {
         free: false,
@@ -1442,7 +1442,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.4,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Museo_de_Dubai-Dubai2821.JPG/1920px-Museo_de_Dubai-Dubai2821.JPG",
       website: "https://www.dubai-tickets.co/museum-of-the-future/",
       ticketPrices: {
         free: false,
@@ -1459,7 +1459,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Dubai_creek-2011_%287%29.JPG/1920px-Dubai_creek-2011_%287%29.JPG",
       website: "https://traveltriangle.com/united-arab-emirates-tourism/dubai/things-to-do/dubai-creek/timings",
       ticketPrices: {
         free: false,
@@ -1476,7 +1476,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Panorama_of_Dubai_from_Jumeriah_1.jpg/1920px-Panorama_of_Dubai_from_Jumeriah_1.jpg",
       website: "https://www.thedubaiframe.com/",
       ticketPrices: {
         free: false,
@@ -1493,7 +1493,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/37/Jumeirah_Mosque_-_panoramio_%281%29.jpg",
       website: "https://www.jumeirahmosque.ae/",
     },
   ],
@@ -7150,7 +7150,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg/1920px-Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg",
       website: "https://toweroflondon.org/en",
       schedule: {
         mon: {
@@ -7196,7 +7196,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Palace_of_Westminster%2C_London_-_Feb_2007.jpg/1920px-Palace_of_Westminster%2C_London_-_Feb_2007.jpg",
     },
     {
       id: "london_3",
@@ -7207,7 +7207,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Kew_Gardens_Waterlily_House_-_Sept_2008.jpg/1920px-Kew_Gardens_Waterlily_House_-_Sept_2008.jpg",
       website: "https://www.kew.org/",
     },
     {
@@ -7219,7 +7219,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/The_history_of_St._Martin%27s_Church%2C_Canterbury_-_a_monograph_%28IA_cu31924050004567%29.pdf/page1-500px-The_history_of_St._Martin%27s_Church%2C_Canterbury_-_a_monograph_%28IA_cu31924050004567%29.pdf.jpg",
     },
     {
       id: "london_5",
@@ -7386,8 +7386,20 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Super_moon_over_City_of_London_from_Tate_Modern_2018-01-31_4.jpg/1920px-Super_moon_over_City_of_London_from_Tate_Modern_2018-01-31_4.jpg",
       website: "https://www.tate.org.uk/visit/tate-modern",
+    },
+    {
+      id: "london_14",
+      active: true,
+      name: "Charles Dickens Museum",
+      category: 'poi', type: "Museo",
+      icon: "🖼️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Charles_Dickens_Museum_-_geograph.org.uk_-_7006672.jpg/1920px-Charles_Dickens_Museum_-_geograph.org.uk_-_7006672.jpg",
+      website: "https://dickensmuseum.com/",
     },
   ],
   luoyang: [
