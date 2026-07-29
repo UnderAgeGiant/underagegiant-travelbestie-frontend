@@ -161,7 +161,7 @@ describe('CitySuggestCloudComponent', () => {
     expect(emitted).toBe(true);
   });
 
-  it('emits dismiss when the backdrop is clicked but not when the dog/bubble scene is clicked', () => {
+  it('does not emit dismiss when the backdrop or the dog/bubble scene is clicked — only the ✕ button closes it', () => {
     TestBed.configureTestingModule({ imports: [CitySuggestCloudComponent] });
     const fixture = TestBed.createComponent(CitySuggestCloudComponent);
     fixture.componentRef.setInput('cityId', 'paris');
@@ -176,6 +176,6 @@ describe('CitySuggestCloudComponent', () => {
     expect(emitted).toBe(false);
 
     (fixture.nativeElement.querySelector('.csc-overlay') as HTMLElement).click();
-    expect(emitted).toBe(true);
+    expect(emitted).toBe(false);
   });
 });

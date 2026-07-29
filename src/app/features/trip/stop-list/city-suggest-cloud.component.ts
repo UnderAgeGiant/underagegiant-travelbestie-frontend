@@ -14,11 +14,11 @@ interface ResolvedSuggestion extends CityAttractionSuggestion {
   selector: 'app-city-suggest-cloud',
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
-    <div class="csc-overlay" (click)="dismiss.emit()">
+    <div class="csc-overlay">
       <button type="button" class="csc-close" (click)="dismiss.emit()"
               i18n-aria-label="@@citySuggest.closeAria" aria-label="Cerrar">✕</button>
 
-      <div class="csc-scene" (click)="$event.stopPropagation()">
+      <div class="csc-scene">
         <img class="csc-dog" src="/small-black-dog.png" alt="Asistente Miel" draggable="false" />
 
         <div class="csc-bubble">
