@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T19:18:03.714Z",
+  "generatedAt": "2026-07-29T19:26:08.680Z",
   "totalCities": 569,
-  "citiesNeedingWork": 421,
+  "citiesNeedingWork": 420,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -551,41 +551,18 @@
     },
     {
       "city": "venice",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1514890547357-a9ee288728f0?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "venice_0",
-            "venice_1",
-            "venice_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 67
     },
     {
       "city": "florence",
-      "count": 8,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1541331622-1d8f73c6ba80?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "florence_0",
-            "florence_1",
-            "florence_2",
-            "florence_3",
-            "florence_4",
-            "florence_5",
-            "florence_6",
-            "florence_7"
-          ]
-        }
-      ],
-      "missingCount": 7,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 68
     },
     {
