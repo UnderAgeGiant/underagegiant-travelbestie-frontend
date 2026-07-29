@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T18:45:53.802Z",
+  "generatedAt": "2026-07-29T18:57:08.923Z",
   "totalCities": 569,
-  "citiesNeedingWork": 431,
+  "citiesNeedingWork": 428,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -447,42 +447,33 @@
     },
     {
       "city": "bogota",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 54
     },
     {
       "city": "medellin",
-      "count": 6,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1515366974328-f1181eb25189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtZWRlbGxpbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "medellin_1",
-            "medellin_2",
-            "medellin_4"
-          ]
-        }
-      ],
-      "missingCount": 9,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 55
     },
     {
       "city": "cartagena",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 56
     },
     {
       "city": "quito",
-      "count": 1,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 57
     },

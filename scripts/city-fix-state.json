@@ -58,5 +58,9 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "quito": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
