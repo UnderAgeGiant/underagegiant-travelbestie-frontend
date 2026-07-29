@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T16:38:05.514Z",
+  "generatedAt": "2026-07-29T16:44:17.171Z",
   "totalCities": 569,
-  "citiesNeedingWork": 460,
+  "citiesNeedingWork": 459,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -119,35 +119,16 @@
     },
     {
       "city": "prague",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "prague_0",
-            "prague_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 14
     },
     {
       "city": "seoul",
       "count": 5,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "seoul_0",
-            "seoul_1",
-            "seoul_2",
-            "seoul_3",
-            "seoul_4"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 10,
       "needsWork": true,
       "priorityRank": 15
