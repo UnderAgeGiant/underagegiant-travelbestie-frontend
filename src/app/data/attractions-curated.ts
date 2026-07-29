@@ -2689,7 +2689,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 30,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Interior_%C3%81rbol_de_Navidad_--_2013_--_Puerta_del_Sol%2C_Madrid%2C_Espa%C3%B1a.jpg/1920px-Interior_%C3%81rbol_de_Navidad_--_2013_--_Puerta_del_Sol%2C_Madrid%2C_Espa%C3%B1a.jpg",
+      imageUrl: "https://images.unsplash.com/photo-1704908327293-82e8a6026450?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       website: "https://www.trip.com/travel-guide/attraction/madrid/puerta-del-sol-84417/",
       ticketUrl: "https://www.trip.com/travel-guide/attraction/madrid/puerta-del-sol-84417/",
       ticketPrices: {
