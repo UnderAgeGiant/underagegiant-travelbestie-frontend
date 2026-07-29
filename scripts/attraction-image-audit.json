@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T17:29:03.704Z",
+  "generatedAt": "2026-07-29T17:34:08.872Z",
   "totalCities": 569,
-  "citiesNeedingWork": 452,
+  "citiesNeedingWork": 450,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -247,18 +247,18 @@
     },
     {
       "city": "cancun",
-      "count": 8,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 7,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 29
     },
     {
       "city": "lasvegas",
-      "count": 7,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 8,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 30
     },
     {
