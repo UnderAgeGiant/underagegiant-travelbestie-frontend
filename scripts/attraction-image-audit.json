@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T23:32:15.249Z",
+  "generatedAt": "2026-07-29T23:43:39.559Z",
   "totalCities": 569,
-  "citiesNeedingWork": 418,
+  "citiesNeedingWork": 415,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -639,54 +639,33 @@
     },
     {
       "city": "porto",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 77
     },
     {
       "city": "berlin",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "berlin_0",
-            "berlin_1",
-            "berlin_2",
-            "berlin_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 78
     },
     {
       "city": "munich",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 79
     },
     {
       "city": "cologne",
-      "count": 5,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1571396236831-84b58b48a2d3?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "cologne_0",
-            "cologne_1",
-            "cologne_2",
-            "cologne_3",
-            "cologne_4"
-          ]
-        }
-      ],
-      "missingCount": 10,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 80
     },
