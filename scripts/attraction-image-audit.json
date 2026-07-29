@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T18:02:09.566Z",
+  "generatedAt": "2026-07-29T18:08:09.037Z",
   "totalCities": 569,
   "citiesNeedingWork": 442,
   "goalMet": false,
@@ -343,17 +343,9 @@
     },
     {
       "city": "casablanca",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "casablanca_0",
-            "casablanca_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 41
     },
