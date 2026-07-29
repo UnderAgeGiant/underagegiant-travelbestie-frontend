@@ -840,6 +840,10 @@
         <source>✏️ Ajustar opciones</source>
         <target>✏️ Adjust options</target>
       </trans-unit>
+      <trans-unit id="aiplan.regenerateBtn" datatype="html">
+        <source>Generar nuevas opciones</source>
+        <target>Generate new options</target>
+      </trans-unit>
 
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
         <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?</source>

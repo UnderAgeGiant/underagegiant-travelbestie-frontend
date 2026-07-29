@@ -53,13 +53,13 @@ type Step = 'preferences' | 'options' | 'result';
           <!-- Header -->
           <div class="ai-plan-header-row">
             <div class="ai-plan-header-dog-wrap">
-              <svg class="ai-plan-dog-badge" viewBox="0 0 130 40" aria-hidden="true">
-                <path id="aiPlanDogArc" d="M 8 36 A 100 100 0 0 1 122 36" fill="none" />
+              <img class="csc-dog ai-plan-header-dog" src="/small-black-dog.jpg" alt="" aria-hidden="true" draggable="false" />
+              <svg class="ai-plan-dog-badge" viewBox="0 0 90 90" aria-hidden="true">
+                <path id="aiPlanDogArc" d="M 12 34 A 46 46 0 0 1 78 34" fill="none" />
                 <text text-anchor="middle">
                   <textPath href="#aiPlanDogArc" startOffset="50%">Asistente Miel</textPath>
                 </text>
               </svg>
-              <img class="csc-dog ai-plan-header-dog" src="/small-black-dog.jpg" alt="" aria-hidden="true" draggable="false" />
             </div>
             <div class="shared-header">
               <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
@@ -314,6 +314,13 @@ type Step = 'preferences' | 'options' | 'result';
                         (click)="adjustOptions()"
                         type="button"
                         i18n="@@aiplan.adjustBtn">✏️ Ajustar opciones</button>
+                <button class="btn-pill btn-outline"
+                        [disabled]="loading()"
+                        (click)="suggest()"
+                        type="button">
+                  @if (loading()) { ⏳ } @else { 🔄 }
+                  <span i18n="@@aiplan.regenerateBtn">Generar nuevas opciones</span>
+                </button>
                 <button class="btn-pill btn-primary"
                         [disabled]="loading() || !selectedOption()"
                         (click)="plan()"
@@ -647,7 +654,7 @@ export class AiPlanningComponent {
       .subscribe({
         next: res => {
           this.suggestions.set(res);
-          this.selectedOption.set(res.options[0]);
+          this.selectedOption.set(null);
           this.loading.set(false);
           this.step.set('options');
           // Update suggest baseline so bar is reactive when user adjusts for re-suggest
