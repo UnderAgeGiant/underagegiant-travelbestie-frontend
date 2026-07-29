@@ -51,10 +51,21 @@ type Step = 'preferences' | 'options' | 'result';
           <div style="width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column">
 
           <!-- Header -->
-          <div class="shared-header">
-            <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
-            <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
-            <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 karma ⭐ en total</div>
+          <div class="ai-plan-header-row">
+            <div class="ai-plan-header-dog-wrap">
+              <svg class="ai-plan-dog-badge" viewBox="0 0 130 40" aria-hidden="true">
+                <path id="aiPlanDogArc" d="M 8 36 A 100 100 0 0 1 122 36" fill="none" />
+                <text text-anchor="middle">
+                  <textPath href="#aiPlanDogArc" startOffset="50%">Asistente Miel</textPath>
+                </text>
+              </svg>
+              <img class="csc-dog ai-plan-header-dog" src="/small-black-dog.jpg" alt="" aria-hidden="true" draggable="false" />
+            </div>
+            <div class="shared-header">
+              <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
+              <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
+              <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 karma ⭐ en total</div>
+            </div>
           </div>
 
           <!-- Step indicator -->

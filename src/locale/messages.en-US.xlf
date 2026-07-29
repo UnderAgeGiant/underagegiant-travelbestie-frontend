@@ -1265,8 +1265,8 @@
         <target>Create Plan</target>
       </trans-unit>
       <trans-unit id="welcome.ctaCreateAi" datatype="html">
-        <source>✨ Crear con IA</source>
-        <target>✨ Create with AI</target>
+        <source>🐾 Crear con IA</source>
+        <target>🐾 Create with AI</target>
       </trans-unit>
       <trans-unit id="welcome.ctaHowKarma" datatype="html">
         <source>⭐ Cómo ganar Karma</source>

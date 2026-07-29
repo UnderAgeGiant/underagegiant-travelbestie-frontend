@@ -23,7 +23,7 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
           <button class="welcome-cta welcome-cta-primary" (click)="addDestination.emit()"
                   i18n="@@welcome.ctaCreatePlan">Crear Plan</button>
           <button class="welcome-cta welcome-cta-ai" (click)="openAiPlanning.emit()"
-                  i18n="@@welcome.ctaCreateAi">✨ Crear con IA</button>
+                  i18n="@@welcome.ctaCreateAi">🐾 Crear con IA</button>
           <button class="welcome-cta welcome-cta-karma" (click)="howKarmaOpen.set(true)"
                   i18n="@@welcome.ctaHowKarma">⭐ Cómo ganar Karma</button>
         </div>
