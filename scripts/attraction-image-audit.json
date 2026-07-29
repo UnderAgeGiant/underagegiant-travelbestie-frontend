@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T17:16:16.058Z",
+  "generatedAt": "2026-07-29T17:23:26.381Z",
   "totalCities": 569,
   "citiesNeedingWork": 453,
   "goalMet": false,
@@ -223,27 +223,17 @@
     },
     {
       "city": "delhi",
-      "count": 3,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 26
     },
     {
       "city": "agra",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1564507592333-87154ceb8e23?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "agra_0",
-            "agra_1",
-            "agra_2",
-            "agra_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 27
     },
