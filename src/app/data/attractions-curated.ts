@@ -5995,7 +5995,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1516550135-5571cdac0edb?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Schonbrunn_Palace_-_Vienna.jpg/1920px-Schonbrunn_Palace_-_Vienna.jpg",
     },
     {
       id: "vienna_2",
@@ -6006,7 +6006,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1516550135-5571cdac0edb?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/29/Karte_Nationalparks_%C3%96sterreich.png",
     },
     {
       id: "vienna_3",
@@ -6017,7 +6017,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1516550135-5571cdac0edb?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/06/Lednice%2C_Jagdschloesschen_%2824759924688%29.jpg",
     },
     {
       id: "vienna_4",
@@ -6039,7 +6039,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1516550135-5571cdac0edb?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Semmering_Payerbach_1875.jpg/1920px-Semmering_Payerbach_1875.jpg",
     },
   ],
   vilnius: [
@@ -41957,7 +41957,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Taman_pujaan_bangsa_Margarana%2C_Bali.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Atlas_Pariwisata_2022_Bali.pdf/page1-960px-Atlas_Pariwisata_2022_Bali.pdf.jpg",
     },
     {
       id: "ubud_15",
@@ -42023,7 +42023,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_03.jpg/960px-Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_03.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/11/Pura_Dalem_Agung_Padantegal_200507.jpg",
     },
     {
       id: "ubud_21",

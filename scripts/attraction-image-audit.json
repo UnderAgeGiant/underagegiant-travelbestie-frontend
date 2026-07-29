@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T16:57:15.624Z",
+  "generatedAt": "2026-07-29T17:01:14.977Z",
   "totalCities": 569,
-  "citiesNeedingWork": 457,
+  "citiesNeedingWork": 456,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -160,24 +160,9 @@
     {
       "city": "ubud",
       "count": 26,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Taman_pujaan_bangsa_Margarana%2C_Bali.jpg",
-          "ids": [
-            "ubud_9",
-            "ubud_14"
-          ]
-        },
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_03.jpg/960px-Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_03.jpg",
-          "ids": [
-            "ubud_19",
-            "ubud_20"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 19
     },
     {
@@ -188,11 +173,7 @@
           "imageUrl": "https://images.unsplash.com/photo-1516550135-5571cdac0edb?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "vienna_0",
-            "vienna_1",
-            "vienna_2",
-            "vienna_3",
-            "vienna_4",
-            "vienna_5"
+            "vienna_4"
           ]
         }
       ],
