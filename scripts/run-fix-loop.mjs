@@ -28,7 +28,7 @@ const RADIUS_GROWTH = 1.5;
 function loadCityMeta() {
   const src = readFileSync(CITIES_FE, 'utf8');
   const map = new Map();
-  for (const m of src.matchAll(/\{ id: '([^']+)', name: '([^']+)', country: '([^']+)'/g)) {
+  for (const m of src.matchAll(/\{ id: '([^']+)',\s*name: '([^']+)',\s*country: '([^']+)'/g)) {
     map.set(m[1], { id: m[1], name: m[2], country: m[3] });
   }
   return map;
