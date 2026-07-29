@@ -57,16 +57,20 @@ describe('CitySuggestService', () => {
     expect(service.suggestions()[0].attractionId).toBe('paris_0');
   });
 
-  it('addAll adds every suggestion via TripService.addAttraction and closes the cloud', async () => {
+  it('addAll adds only the selected suggestions via TripService.addAttraction and closes the cloud', async () => {
     trip.addStop(PARIS, '01/07/2026', '05/07/2026');
     const stop = trip.stops()[0];
 
     service.request(stop);
     await flushAsync();
-    http.expectOne(r => r.url.includes('/ai/suggest-attractions'))
-      .flush({ suggestions: [{ attractionId: 'paris_0', date: '02/07/2026', startTime: '10:00', endTime: '11:00', reason: 'Cerca' }] });
+    http.expectOne(r => r.url.includes('/ai/suggest-attractions')).flush({
+      suggestions: [
+        { attractionId: 'paris_0', date: '02/07/2026', startTime: '10:00', endTime: '11:00', reason: 'Cerca' },
+        { attractionId: 'paris_1', date: '02/07/2026', startTime: '12:00', endTime: '13:00', reason: 'Lejos' },
+      ],
+    });
 
-    service.addAll(stop.stopId, 'paris');
+    service.addAll(stop.stopId, 'paris', ['paris_0']);
 
     const updatedStop = trip.stops()[0];
     expect(updatedStop.selectedAttractions.length).toBe(1);
@@ -74,6 +78,31 @@ describe('CitySuggestService', () => {
     expect(updatedStop.selectedAttractions[0].startTime).toBe('10:00');
     expect(service.openForStopId()).toBeNull();
     expect(service.suggestions().length).toBe(0);
+  });
+
+  it('searchMore re-requests without closing the cloud, excluding planned and previously-shown attractions', async () => {
+    trip.addStop(PARIS, '01/07/2026', '05/07/2026');
+    const stop = trip.stops()[0];
+    trip.addAttraction(stop.stopId, 'paris_9', '09:00');
+
+    service.request(stop);
+    await flushAsync();
+    http.expectOne(r => r.url.includes('/ai/suggest-attractions')).flush({
+      suggestions: [{ attractionId: 'paris_0', date: '02/07/2026', startTime: '10:00', endTime: '11:00', reason: 'x' }],
+    });
+
+    service.searchMore(trip.stops()[0]);
+    expect(service.openForStopId()).toBe(stop.stopId);
+    expect(service.loading()).toBe(true);
+    await flushAsync();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
+    expect(req.request.body.existingAttractionIds.sort()).toEqual(['paris_0', 'paris_9']);
+    req.flush({ suggestions: [{ attractionId: 'paris_2', date: '03/07/2026', startTime: '09:00', endTime: '10:00', reason: 'y' }] });
+
+    expect(service.loading()).toBe(false);
+    expect(service.suggestions().length).toBe(1);
+    expect(service.suggestions()[0].attractionId).toBe('paris_2');
   });
 
   it('routes a 402 response through KarmaModalService and closes the cloud', async () => {

@@ -26,16 +26,32 @@ export class CitySuggestService {
 
   /** Opens the cloud for `stop` immediately (loading state), then fetches suggestions. */
   async request(stop: TripStop): Promise<void> {
+    this._openForStopId.set(stop.stopId);
+    await this.fetchSuggestions(stop, stop.selectedAttractions.map(a => a.attractionId));
+  }
+
+  /**
+   * Re-requests suggestions for the stop the cloud is already open for, without closing it.
+   * Excludes both already-planned attractions and the batch just shown, so DeepSeek doesn't
+   * repeat itself.
+   */
+  async searchMore(stop: TripStop): Promise<void> {
+    const excludeIds = [
+      ...stop.selectedAttractions.map(a => a.attractionId),
+      ...this._suggestions().map(s => s.attractionId),
+    ];
+    await this.fetchSuggestions(stop, excludeIds);
+  }
+
+  private async fetchSuggestions(stop: TripStop, existingAttractionIds: string[]): Promise<void> {
     this._loading.set(true);
     this._error.set(null);
     this._suggestions.set([]);
-    this._openForStopId.set(stop.stopId);
 
-    const existingIds = stop.selectedAttractions.map(a => a.attractionId);
     const catalogMap  = await this.catalog.getCityCatalog([stop.cityId]);
     const cityCatalog = catalogMap[stop.cityId] ?? [];
 
-    this.api.suggestCityAttractions(stop.cityId, stop.checkIn, stop.checkOut, existingIds, cityCatalog)
+    this.api.suggestCityAttractions(stop.cityId, stop.checkIn, stop.checkOut, existingAttractionIds, cityCatalog)
       .subscribe({
         next: res => {
           this._loading.set(false);
@@ -52,9 +68,10 @@ export class CitySuggestService {
       });
   }
 
-  /** Adds every current suggestion to the stop via the existing TripService.addAttraction, then closes. */
-  addAll(stopId: string, cityId: string): void {
+  /** Adds only the selected suggestions to the stop via the existing TripService.addAttraction, then closes. */
+  addAll(stopId: string, cityId: string, selectedAttractionIds: string[]): void {
     for (const s of this._suggestions()) {
+      if (!selectedAttractionIds.includes(s.attractionId)) continue;
       const attraction = findCuratedAttraction(cityId, s.attractionId);
       this.trip.addAttraction(stopId, s.attractionId, s.startTime, s.date, attraction?.category);
     }

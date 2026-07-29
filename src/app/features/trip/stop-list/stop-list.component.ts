@@ -158,7 +158,8 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
                     [loading]="citySuggest.loading()"
                     [error]="citySuggest.error()"
                     (dismiss)="citySuggest.close()"
-                    (addAll)="citySuggest.addAll(stop.stopId, stop.cityId)" />
+                    (addAll)="citySuggest.addAll(stop.stopId, stop.cityId, $event)"
+                    (searchMore)="citySuggest.searchMore(stop)" />
                 }
 
                 @if (itineraryOpenStopId() === stop.stopId) {

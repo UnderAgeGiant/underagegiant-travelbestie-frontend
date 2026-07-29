@@ -1,6 +1,6 @@
 import {
   ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, Renderer2,
-  computed, inject, input, output,
+  computed, effect, inject, input, output, signal,
 } from '@angular/core';
 import { CityAttractionSuggestion } from '../../../core/models/ai.model';
 import { findCuratedAttraction } from '../../../data/attractions.data';
@@ -32,7 +32,11 @@ interface ResolvedSuggestion extends CityAttractionSuggestion {
             <p class="csc-bubble-title" i18n="@@citySuggest.greeting">¡Mira lo que encontré para ti! 🐾</p>
             <div class="csc-messages">
               @for (s of resolved(); track s.attractionId) {
-                <div class="csc-msg">
+                <label class="csc-msg">
+                  <input type="checkbox" class="csc-msg-check"
+                         [checked]="selectedIds().has(s.attractionId)"
+                         (change)="toggleSelected(s.attractionId)"
+                         i18n-aria-label="@@citySuggest.checkAria" aria-label="Incluir {{ s.name }}" />
                   <span class="csc-msg-icon">{{ s.icon }}</span>
                   <div class="csc-msg-body">
                     <div class="csc-msg-head">
@@ -41,12 +45,20 @@ interface ResolvedSuggestion extends CityAttractionSuggestion {
                     </div>
                     <p class="csc-msg-reason">{{ s.reason }}</p>
                   </div>
-                </div>
+                </label>
               }
             </div>
-            <button type="button" class="btn-pill btn-primary city-suggest-add-all"
-                    (click)="addAll.emit()"
-                    i18n="@@citySuggest.addAllBtn">➕ Agregar todo al plan</button>
+            <div class="csc-actions">
+              <button type="button" class="btn-pill btn-outline city-suggest-more"
+                      (click)="searchMore.emit()"
+                      i18n="@@citySuggest.searchMoreBtn">🔄 Buscar más opciones
+                <span class="karma-cost">−2 ✨ karma</span>
+              </button>
+              <button type="button" class="btn-pill btn-primary city-suggest-add-all"
+                      [disabled]="selectedIds().size === 0"
+                      (click)="emitAddSelected()"
+                      i18n="@@citySuggest.addAllBtn">➕ Agregar lo seleccionado al plan</button>
+            </div>
           }
         </div>
       </div>
@@ -59,11 +71,20 @@ export class CitySuggestCloudComponent implements OnInit {
   readonly loading     = input.required<boolean>();
   readonly error       = input<string | null>(null);
 
-  readonly dismiss = output<void>();
-  readonly addAll  = output<void>();
+  readonly dismiss    = output<void>();
+  readonly addAll     = output<string[]>();
+  readonly searchMore = output<void>();
 
   private readonly elementRef = inject(ElementRef<HTMLElement>);
   private readonly renderer   = inject(Renderer2);
+
+  protected readonly selectedIds = signal<Set<string>>(new Set());
+
+  // Every new batch of suggestions arrives fully checked; re-seed selection whenever
+  // the input array changes (initial fetch or "search more").
+  private readonly syncSelection = effect(() => {
+    this.selectedIds.set(new Set(this.suggestions().map(s => s.attractionId)));
+  });
 
   ngOnInit(): void {
     // Fullscreen overlay must win against <app-nav> regardless of where this component is
@@ -78,6 +99,18 @@ export class CitySuggestCloudComponent implements OnInit {
       return { ...s, name: att?.name ?? s.attractionId, icon: att?.icon ?? '📍' };
     }),
   );
+
+  protected toggleSelected(attractionId: string): void {
+    this.selectedIds.update(set => {
+      const next = new Set(set);
+      next.has(attractionId) ? next.delete(attractionId) : next.add(attractionId);
+      return next;
+    });
+  }
+
+  protected emitAddSelected(): void {
+    this.addAll.emit(Array.from(this.selectedIds()));
+  }
 
   shortDate(d: string): string {
     const p = d.split('/');

@@ -1354,9 +1354,17 @@
         <source>¡Mira lo que encontré para ti! 🐾</source>
         <target>Look what I found for you! 🐾</target>
       </trans-unit>
+      <trans-unit id="citySuggest.checkAria" datatype="html">
+        <source>Incluir <x id="INTERPOLATION" equiv-text="{{ s.name }}"/></source>
+        <target>Include <x id="INTERPOLATION" equiv-text="{{ s.name }}"/></target>
+      </trans-unit>
+      <trans-unit id="citySuggest.searchMoreBtn" datatype="html">
+        <source>🔄 Buscar más opciones <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>🔄 Search for more options <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+      </trans-unit>
       <trans-unit id="citySuggest.addAllBtn" datatype="html">
-        <source>➕ Agregar todo al plan</source>
-        <target>➕ Add everything to the plan</target>
+        <source>➕ Agregar lo seleccionado al plan</source>
+        <target>➕ Add the selected ones to the plan</target>
       </trans-unit>
 
     </body>

@@ -2016,14 +2016,20 @@ app-nav { display: block; }
 .csc-bubble-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--t1); margin: 0 0 10px; }
 .csc-bubble-text { font-size: 13px; color: var(--t2); line-height: 1.5; margin: 0; }
 .csc-messages { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
-.csc-msg { display: flex; gap: 10px; align-items: flex-start; }
+.csc-msg {
+  display: flex; gap: 10px; align-items: flex-start; cursor: pointer;
+  padding: 6px; margin: -6px; border-radius: 12px; transition: background .12s;
+}
+.csc-msg:hover { background: oklch(0% 0 0/.03); }
+.csc-msg-check { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lav-d); cursor: pointer; }
 .csc-msg-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
 .csc-msg-body { flex: 1; min-width: 0; }
 .csc-msg-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
 .csc-msg-name { font-size: 13px; font-weight: 700; color: var(--t1); }
 .csc-msg-time { font-size: 10.5px; color: var(--t3); }
 .csc-msg-reason { font-size: 12px; color: var(--t2); line-height: 1.45; margin: 2px 0 0; }
-.city-suggest-add-all { width: 100%; justify-content: center; margin-top: 4px; }
+.csc-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.city-suggest-more, .city-suggest-add-all { width: 100%; justify-content: center; }
 
 @media (max-width: 640px) {
   .csc-scene { flex-direction: column; align-items: center; gap: 0; }
