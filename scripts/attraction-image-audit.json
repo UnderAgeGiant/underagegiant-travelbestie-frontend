@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T18:57:08.923Z",
+  "generatedAt": "2026-07-29T19:02:48.319Z",
   "totalCities": 569,
-  "citiesNeedingWork": 428,
+  "citiesNeedingWork": 426,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -471,33 +471,25 @@
     },
     {
       "city": "quito",
-      "count": 13,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 2,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 57
     },
     {
       "city": "montevideo",
       "count": 36,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/2016_Mercado_del_Puerto_de_Montevideo.jpg/960px-2016_Mercado_del_Puerto_de_Montevideo.jpg",
-          "ids": [
-            "montevideo_27",
-            "montevideo_32"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 58
     },
     {
       "city": "havana",
-      "count": 6,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 9,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 59
     },
