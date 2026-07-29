@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-29T12:54:06.356Z",
+  "generatedAt": "2026-07-29T12:56:03.634Z",
   "totalCities": 569,
-  "citiesNeedingWork": 469,
+  "citiesNeedingWork": 468,
   "goalMet": false,
-  "nextCity": "bangkok",
+  "nextCity": "london",
   "cities": [
     {
       "city": "bangkok",
-      "count": 9,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 6,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 0
     },
     {
