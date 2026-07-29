@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T23:20:33.686Z",
+  "generatedAt": "2026-07-29T23:32:15.249Z",
   "totalCities": 569,
-  "citiesNeedingWork": 420,
+  "citiesNeedingWork": 418,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -623,51 +623,25 @@
     },
     {
       "city": "granada",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1509773896068-7fd415d91e2e?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "granada_0",
-            "granada_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 75
     },
     {
       "city": "lisbon",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "lisbon_0",
-            "lisbon_1",
-            "lisbon_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 76
     },
     {
       "city": "porto",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "porto_0",
-            "porto_1",
-            "porto_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 77
     },
