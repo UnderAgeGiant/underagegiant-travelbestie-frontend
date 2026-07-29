@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T18:36:46.227Z",
+  "generatedAt": "2026-07-29T18:45:53.802Z",
   "totalCities": 569,
-  "citiesNeedingWork": 433,
+  "citiesNeedingWork": 431,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -431,26 +431,18 @@
     },
     {
       "city": "lima",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 52
     },
     {
       "city": "cusco",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "cusco_0",
-            "cusco_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 53
     },
     {

@@ -58,9 +58,5 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
-  },
-  "lima": {
-    "attempts": 3,
-    "radiusKm": 35
   }
 }
