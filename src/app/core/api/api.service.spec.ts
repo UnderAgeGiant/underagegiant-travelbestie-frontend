@@ -171,3 +171,74 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     req.flush({ title: 'T', stops: [], transits: [] });
   });
 });
+
+describe('ApiService.suggestCityAttractions() — real HTTP', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+  });
+
+  afterEach(() => http.verify());
+
+  it('posts cityId, dates, existing IDs and the city catalog to /ai/suggest-attractions, defaulting isFollowUp to false', () => {
+    service.suggestCityAttractions(
+      'paris', '01/07/2026', '05/07/2026', ['paris_0'],
+      [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
+    ).subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions') && r.method === 'POST');
+    expect(req.request.body).toEqual({
+      cityId: 'paris',
+      checkIn: '01/07/2026',
+      checkOut: '05/07/2026',
+      existingAttractionIds: ['paris_0'],
+      cityCatalog: [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
+      isFollowUp: false,
+    });
+    req.flush({ suggestions: [] });
+  });
+
+  it('posts isFollowUp: true when explicitly requested (free "search more" call)', () => {
+    service.suggestCityAttractions(
+      'paris', '01/07/2026', '05/07/2026', ['paris_0'],
+      [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
+      true,
+    ).subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions') && r.method === 'POST');
+    expect(req.request.body.isFollowUp).toBe(true);
+    req.flush({ suggestions: [] });
+  });
+});
+
+describe('ApiService.suggestCityAttractions() — mock mode', () => {
+  let service: ApiService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(withXhr()), provideHttpClientTesting(),
+        { provide: 'ENV', useValue: { useMocks: true, apiUrl: 'http://localhost:3000' } },
+      ],
+    });
+    service = TestBed.inject(ApiService);
+  });
+
+  it('returns canned suggestions built from the given catalog, excluding existing IDs', done => {
+    service.suggestCityAttractions(
+      'paris', '01/07/2026', '05/07/2026', ['paris_0'],
+      [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }, { id: 'paris_2', name: 'Notre-Dame' }],
+    ).subscribe(res => {
+      expect(res.suggestions.length).toBeGreaterThan(0);
+      expect(res.suggestions.every(s => s.attractionId !== 'paris_0')).toBe(true);
+      done();
+    });
+  });
+});

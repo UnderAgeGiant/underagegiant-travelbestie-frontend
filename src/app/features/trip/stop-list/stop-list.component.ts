@@ -14,10 +14,12 @@ import { TransitConnectorComponent } from './transit-connector.component';
 import { LodgingComponent } from './lodging.component';
 import { DayTimelineComponent } from '../../planning/day-timeline/day-timeline.component';
 import { DestinationModalService } from '../../destination/destination-modal.service';
+import { CitySuggestService } from '../../../core/ai/city-suggest.service';
+import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -137,12 +139,28 @@ import { DestinationModalService } from '../../destination/destination-modal.ser
                           [class.active]="itineraryOpenStopId() === stop.stopId"
                           (click)="$event.stopPropagation(); toggleItinerary(stop.stopId)"
                           i18n="@@stopList.viewItinerary">📅 Ver itinerario de la ciudad</button>
+                  <button type="button" class="stop-itinerary-pill stop-ai-suggest-pill"
+                          (click)="$event.stopPropagation(); suggestForCity(stop)"
+                          i18n="@@stopList.aiSuggestBtn">🐾 Sugiere qué hacer en esta ciudad
+                    <span class="karma-cost">−2 ✨ karma</span>
+                  </button>
                   @if (device.isMobile()) {
                     <button type="button" class="stop-itinerary-pill stop-add-attraction-pill"
                             (click)="$event.stopPropagation(); openAddAttraction(stop.stopId)"
                             i18n="@@stopList.addAttractionBtn">➕ Agregar atracción</button>
                   }
                 </div>
+
+                @if (citySuggest.openForStopId() === stop.stopId) {
+                  <app-city-suggest-cloud
+                    [cityId]="stop.cityId"
+                    [suggestions]="citySuggest.suggestions()"
+                    [loading]="citySuggest.loading()"
+                    [error]="citySuggest.error()"
+                    (dismiss)="citySuggest.close()"
+                    (addAll)="citySuggest.addAll(stop.stopId, stop.cityId, $event)"
+                    (searchMore)="citySuggest.searchMore(stop)" />
+                }
 
                 @if (itineraryOpenStopId() === stop.stopId) {
                   <tb-day-timeline [stop]="stop" [inline]="true" />
@@ -287,6 +305,7 @@ export class StopListComponent {
   private readonly karmaModal = inject(KarmaModalService);
   protected readonly device   = inject(DeviceService);
   private readonly destModal  = inject(DestinationModalService);
+  protected readonly citySuggest = inject(CitySuggestService);
   addDestination = output<void>();
 
   protected readonly showScrollTop = signal(false);
@@ -302,6 +321,14 @@ export class StopListComponent {
   openAddAttraction(stopId: string): void {
     this.trip.setActive(stopId);
     this.destModal.open();
+  }
+
+  suggestForCity(stop: import('../../../core/models/trip.model').TripStop): void {
+    if (!this.auth.isLoggedIn()) {
+      this.authModal.openLogin(() => this.citySuggest.request(stop));
+      return;
+    }
+    this.citySuggest.request(stop);
   }
 
   @HostListener('window:scroll')

@@ -78,7 +78,7 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
                     style="padding:4px 10px;font-size:11px;font-weight:700"
                     (click)="facade.openBuyKarma()"
                     i18n="@@nav.buyKarmaBtn">
-              + Comprar
+              Comprar Karma
             </button>
           </div>
         }
