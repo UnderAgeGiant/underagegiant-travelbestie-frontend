@@ -94,7 +94,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg/1920px-Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg",
     },
     {
       id: "athens_1",
@@ -105,7 +105,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/20190511_172_epidaure.jpg/1920px-20190511_172_epidaure.jpg",
     },
     {
       id: "athens_2",
@@ -116,7 +116,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Lion_Gate_-_Mycenae_by_Joy_of_Museums.jpg/1920px-Lion_Gate_-_Mycenae_by_Joy_of_Museums.jpg",
     },
     {
       id: "athens_3",
@@ -127,7 +127,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/NEA_MONH.jpg/3840px-NEA_MONH.jpg",
     },
   ],
   bali: [
@@ -2562,7 +2562,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Universidad_de_Alcal%C3%A1_%28RPS_20-08-2017%29_Colegio_de_San_Pedro_y_San_Pablo%2C_fachada_principal.png/1920px-Universidad_de_Alcal%C3%A1_%28RPS_20-08-2017%29_Colegio_de_San_Pedro_y_San_Pablo%2C_fachada_principal.png",
     },
     {
       id: "madrid_1",
@@ -2573,7 +2573,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monasterio_de_El_Escorial_en_Madrid.jpg/1920px-Monasterio_de_El_Escorial_en_Madrid.jpg",
       website: "https://elescorial.madrid/en",
       schedule: {
         mon: {
@@ -2619,7 +2619,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Palacio_Real_de_Aranjuez._Real_Sitio_de_Aranjuez.jpg/1920px-Palacio_Real_de_Aranjuez._Real_Sitio_de_Aranjuez.jpg",
       website: "https://feverup.com/m/142702/en",
       ticketUrl: "https://feverup.com/m/142702/en",
       ticketPrices: {
@@ -2637,7 +2637,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Toledo_%2837737041515%29.jpg/1920px-Toledo_%2837737041515%29.jpg",
       website: "https://toledomonumental.com/en/",
       ticketUrl: "https://toledomonumental.com/",
       ticketPrices: {
@@ -2655,7 +2655,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ALCAZAR_DE_SEGOVIA_%2816193485811%29.jpg/1920px-ALCAZAR_DE_SEGOVIA_%2816193485811%29.jpg",
     },
     {
       id: "madrid_5",
@@ -2666,7 +2666,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Avila_-_Iglesia_de_San_Martin_1.JPG",
     },
     {
       id: "madrid_6",
@@ -2677,7 +2677,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1658922184767-d5335cb2a9d2?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Plaza_Mayor_de_Madrid_-_01.jpg/1920px-Plaza_Mayor_de_Madrid_-_01.jpg",
       website: "http://www.plazamayor.com.co",
     },
     {
@@ -2689,7 +2689,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 30,
-      imageUrl: "https://images.unsplash.com/photo-1604506341132-5b3f43009c3e?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Interior_%C3%81rbol_de_Navidad_--_2013_--_Puerta_del_Sol%2C_Madrid%2C_Espa%C3%B1a.jpg/1920px-Interior_%C3%81rbol_de_Navidad_--_2013_--_Puerta_del_Sol%2C_Madrid%2C_Espa%C3%B1a.jpg",
       website: "https://www.trip.com/travel-guide/attraction/madrid/puerta-del-sol-84417/",
       ticketUrl: "https://www.trip.com/travel-guide/attraction/madrid/puerta-del-sol-84417/",
       ticketPrices: {
@@ -2707,7 +2707,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1631755620300-82b11adf8bdd?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Palacio_Real_de_Madrid_Julio_2016_%28cropped%29.jpg",
       website: "https://www.patrimonionacional.es/visita/palacio-real-de-madrid",
       ticketUrl: "https://tickets.patrimonionacional.es/en/tickets/palacio-real-de-madrid",
       ticketPrices: {
@@ -2725,7 +2725,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.9,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg/1920px-Museo_del_Prado_2016_%2825185969599%29.jpg",
       website: "https://www.museodelprado.es/",
       schedule: {
         mon: {
@@ -2767,7 +2767,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1682282910266-2926585b1785?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Monumento_a_Alfonso_XII_de_Espa%C3%B1a_en_los_Jardines_del_Retiro_-_04.jpg/1920px-Monumento_a_Alfonso_XII_de_Espa%C3%B1a_en_los_Jardines_del_Retiro_-_04.jpg",
       website: "https://www.ticketlens.com/en/p368352459/madrid/buen-retiro-park",
       ticketPrices: {
         free: false,
@@ -2784,7 +2784,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1562580821-10d51c62dde2?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Madrid_-_Edificio_Grassy_%28Gran_V%C3%ADa_1%29_-_north_facade_-_relief_over_entrance.jpg/1920px-Madrid_-_Edificio_Grassy_%28Gran_V%C3%ADa_1%29_-_north_facade_-_relief_over_entrance.jpg",
     },
     {
       id: "madrid_12",
@@ -2795,7 +2795,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1598959739301-c185b037e206?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Estadio_Santiago_Bernab%C3%A9u_-_01.jpg/1920px-Estadio_Santiago_Bernab%C3%A9u_-_01.jpg",
       website: "https://www.ticketlens.com/en/p660269/madrid/santiago-bernabeu-stadium",
       ticketPrices: {
         free: false,
@@ -2812,7 +2812,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1675671858948-93aca2f59973?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Mercado_de_San_Miguel_-_Madrid.png/1920px-Mercado_de_San_Miguel_-_Madrid.png",
       schedule: {
         mon: {
           open: "10:00",
@@ -2845,7 +2845,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 45,
-      imageUrl: "https://images.unsplash.com/photo-1594547290750-aac228651d21?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Templo_de_Debod%2C_Madrid%2C_Espa%C3%B1a%2C_2023-01-03%2C_DD_89-91_HDR.jpg/1920px-Templo_de_Debod%2C_Madrid%2C_Espa%C3%B1a%2C_2023-01-03%2C_DD_89-91_HDR.jpg",
       website: "https://www.nomads-travel-guide.com/places/templo-de-debod/",
       ticketPrices: {
         free: true,
@@ -5425,7 +5425,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Rijksmuseum_atrium_glass_roof_seen_from_below_in_Amsterdam.jpg/1920px-Rijksmuseum_atrium_glass_roof_seen_from_below_in_Amsterdam.jpg",
       website: "https://www.rijksmuseum.nl/",
     },
     {
@@ -5437,7 +5437,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Van_Gogh_Museum_Amsterdam.jpg/1920px-Van_Gogh_Museum_Amsterdam.jpg",
       website: "http://www.vangoghmuseum.nl/",
     },
     {
@@ -5449,7 +5449,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8E8",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/AnneFrankHouseAmsterdamtheNetherlands.jpg/1920px-AnneFrankHouseAmsterdamtheNetherlands.jpg",
       website: "http://www.annefrank.org/",
     },
     {
@@ -5461,7 +5461,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDF5",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Eerste_Leliedwarsstraat.jpg/1920px-Eerste_Leliedwarsstraat.jpg",
     },
     {
       id: "amsterdam_4",
@@ -5472,7 +5472,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/26Y_1599_2.jpg/1920px-26Y_1599_2.jpg",
     },
     {
       id: "amsterdam_5",
@@ -5483,7 +5483,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Fort_bij_Spijkerboor_%2819067314614%29.jpg/1920px-Fort_bij_Spijkerboor_%2819067314614%29.jpg",
       website: "http://www.stelling-amsterdam.nl/index.htm",
     },
     {
@@ -5495,7 +5495,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Amsterdam_%28NL%29%2C_Rokin_--_2015_--_7238.jpg/1920px-Amsterdam_%28NL%29%2C_Rokin_--_2015_--_7238.jpg",
       website: "https://www.iamsterdam.com/whats-on/calendar/museums-and-galleries/museums/museum-of-the-canals",
       schedule: {
         mon: {
@@ -5537,7 +5537,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/ff/KinderdijkMolens02.jpg",
     },
   ],
   anuradhapura: [
@@ -8190,7 +8190,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Colosseum_in_Rome-April_2007-1-_copie_2B.jpg/1920px-Colosseum_in_Rome-April_2007-1-_copie_2B.jpg",
       website: "http://www.coliseum.org.uk",
     },
     {
@@ -8202,7 +8202,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Museums_in_the_Vatican_City.jpg/1920px-Museums_in_the_Vatican_City.jpg",
       website: "https://www.thevaticantickets.com/timings/",
       ticketPrices: {
         free: false,
@@ -8219,7 +8219,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDF5",
       rating: 4.7,
       estimatedMinutes: 30,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Oceanus_%28Trevi_fountain%29.jpg/1920px-Oceanus_%28Trevi_fountain%29.jpg",
       website: "http://www.trevifountain.net/",
       ticketPrices: {
         free: false,
@@ -8236,7 +8236,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pantheon_Rom_1_cropped.jpg/1920px-Pantheon_Rom_1_cropped.jpg",
       website: "https://www.pantheonroma.com/",
     },
     {
@@ -8248,7 +8248,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Santa_Maria_in_Trastevere_church_in_Rome_%2812%29.jpg/1920px-Santa_Maria_in_Trastevere_church_in_Rome_%2812%29.jpg",
     },
     {
       id: "rome_5",
@@ -8259,7 +8259,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg/1920px-St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg",
       website: "https://www.vaticanstate.va/it/",
       ticketPrices: {
         free: false,
@@ -8276,7 +8276,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Villa_Hadriana_%28Villa_Adriana_Tivoli%29_1000_03.jpg/1920px-Villa_Hadriana_%28Villa_Adriana_Tivoli%29_1000_03.jpg",
       website: "https://www.levillae.com/",
     },
     {
@@ -8288,7 +8288,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Villa_Deste_park_Rometta_2011_2.jpg/1920px-Villa_Deste_park_Rometta_2011_2.jpg",
       website: "https://www.tivolitickets.com/villa-d-este/timings-opening-hours/",
       ticketPrices: {
         free: false,
@@ -8305,7 +8305,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Cerveteri%2C_necropoli_della_banditaccia%2C_via_sepolcrale_principale%2C_01.jpg/1920px-Cerveteri%2C_necropoli_della_banditaccia%2C_via_sepolcrale_principale%2C_01.jpg",
       website: "http://www.tarquinia-cerveteri.it",
     },
   ],
