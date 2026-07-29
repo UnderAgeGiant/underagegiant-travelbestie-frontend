@@ -2233,17 +2233,17 @@
         </context-group>
       </trans-unit>
       <trans-unit id="citySuggest.searchMoreBtn" datatype="html">
-        <source>🔄 Buscar más opciones <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <source>🔄 Buscar más opciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/city-suggest-cloud.component.ts</context>
-          <context context-type="linenumber">54,56</context>
+          <context context-type="linenumber">54,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="citySuggest.addAllBtn" datatype="html">
         <source>➕ Agregar lo seleccionado al plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/city-suggest-cloud.component.ts</context>
-          <context context-type="linenumber">60,62</context>
+          <context context-type="linenumber">58,60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lodging.namePlaceholder" datatype="html">

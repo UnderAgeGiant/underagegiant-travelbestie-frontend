@@ -51,9 +51,7 @@ interface ResolvedSuggestion extends CityAttractionSuggestion {
             <div class="csc-actions">
               <button type="button" class="btn-pill btn-outline city-suggest-more"
                       (click)="searchMore.emit()"
-                      i18n="@@citySuggest.searchMoreBtn">🔄 Buscar más opciones
-                <span class="karma-cost">−2 ✨ karma</span>
-              </button>
+                      i18n="@@citySuggest.searchMoreBtn">🔄 Buscar más opciones</button>
               <button type="button" class="btn-pill btn-primary city-suggest-add-all"
                       [disabled]="selectedIds().size === 0"
                       (click)="emitAddSelected()"
