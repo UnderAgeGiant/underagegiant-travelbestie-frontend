@@ -141,7 +141,7 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
                           i18n="@@stopList.viewItinerary">📅 Ver itinerario de la ciudad</button>
                   <button type="button" class="stop-itinerary-pill stop-ai-suggest-pill"
                           (click)="$event.stopPropagation(); suggestForCity(stop)"
-                          i18n="@@stopList.aiSuggestBtn">✨ Sugiere qué hacer en esta ciudad
+                          i18n="@@stopList.aiSuggestBtn">🐾 Sugiere qué hacer en esta ciudad
                     <span class="karma-cost">−2 ✨ karma</span>
                   </button>
                   @if (device.isMobile()) {
