@@ -30,7 +30,7 @@
     "stuck": true
   },
   "delhi": {
-    "attempts": 1,
-    "radiusKm": 15
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
