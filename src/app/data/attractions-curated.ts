@@ -7804,7 +7804,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg/1920px-Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg",
       website: "https://uk.trip.com/travel-guide/attraction/paris/seine-river-78782/",
       ticketUrl: "https://uk.trip.com/travel-guide/attraction/paris/seine-river-78782/",
       ticketPrices: {
@@ -7822,7 +7822,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Vue_a%C3%A9rienne_du_domaine_de_Versailles_le_20_ao%C3%BBt_2014_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_22.jpg/1920px-Vue_a%C3%A9rienne_du_domaine_de_Versailles_le_20_ao%C3%BBt_2014_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_22.jpg",
     },
     {
       id: "paris_2",
@@ -7833,7 +7833,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Palace_of_Fontainebleau_027.jpg/1920px-Palace_of_Fontainebleau_027.jpg",
     },
     {
       id: "paris_3",
@@ -7844,7 +7844,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/0_Provins_-_Le_centre_historique_de_la_ville_basse.JPG/1920px-0_Provins_-_Le_centre_historique_de_la_ville_basse.JPG",
     },
     {
       id: "paris_4",
@@ -7855,7 +7855,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Notre_Dame_de_Chartres.jpg/1920px-Notre_Dame_de_Chartres.jpg",
       website: "http://www.cathedrale-chartres.org/",
     },
     {
@@ -7867,7 +7867,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1679231926688-ef9cdab5ed2f?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/1920px-Tour_Eiffel_Wikimedia_Commons.jpg",
       website: "https://www.toureiffel.paris",
       schedule: {
         mon: {
@@ -7909,7 +7909,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-1587648415693-4a5362b2ce41?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Cour_Napol%C3%A9on_at_night_-_Louvre.jpg/1920px-Cour_Napol%C3%A9on_at_night_-_Louvre.jpg",
       website: "https://www.louvre.fr/",
     },
     {
@@ -7921,7 +7921,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1595540089942-545def48cf3e?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Arc_de_triomphe_du_carrousel_in_Paris_France.jpg/1920px-Arc_de_triomphe_du_carrousel_in_Paris_France.jpg",
       website: "https://www.paris-arc-de-triomphe.fr",
       ticketUrl: "https://www.musement.com/us/paris/entrance-tickets-to-the-arc-de-triomphe-s-rooftop-7766/",
       ticketPrices: {
@@ -7939,7 +7939,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1641503855609-5e28a1ed35a9?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Avenue_des_Champs-Elys%C3%A9es%2C_Paris_12_December_2020.jpg/1920px-Avenue_des_Champs-Elys%C3%A9es%2C_Paris_12_December_2020.jpg",
       website: "https://en.parisinfo.com/transport/73130/Avenue-des-Champs-Elysees",
     },
     {
@@ -7951,7 +7951,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1555425748-f780612e5634?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Paris%2C_Notre_Dame_--_2014_--_1458-65.jpg/1920px-Paris%2C_Notre_Dame_--_2014_--_1458-65.jpg",
       website: "https://www.notredamedeparis.fr/",
     },
     {
@@ -7963,7 +7963,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1623009070764-45002990256e?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/L%27escalier_de_droite_menant_%C3%A0_la_Basilique_de_Montmartre_-_GT_03_-_2024.jpg/1920px-L%27escalier_de_droite_menant_%C3%A0_la_Basilique_de_Montmartre_-_GT_03_-_2024.jpg",
       website: "http://www.montmartre-sk.com/",
     },
     {
@@ -7975,7 +7975,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://images.unsplash.com/photo-1591828353335-197466da2a4e?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Chateau_Versailles_Galerie_des_Glaces.jpg/1920px-Chateau_Versailles_Galerie_des_Glaces.jpg",
       website: "https://en.chateauversailles.fr/",
     },
     {
@@ -7987,7 +7987,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-1528041119984-da3a9f8d04d1?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Feu_de_camp_-_20150802_15h44_%2810722%29.jpg/1920px-Feu_de_camp_-_20150802_15h44_%2810722%29.jpg",
       website: "http://www.disneylandparis.com",
       schedule: {
         mon: {
@@ -8029,7 +8029,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.8,
       estimatedMinutes: 150,
-      imageUrl: "https://images.unsplash.com/photo-1732841021162-b3c37f05e6eb?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/MuseeOrsay_20070324.jpg/1920px-MuseeOrsay_20070324.jpg",
       website: "https://www.musee-orsay.fr/",
       schedule: {
         tue: {
@@ -8070,7 +8070,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Paris_Sainte_Chapelle_East_View_02.JPG/1920px-Paris_Sainte_Chapelle_East_View_02.JPG",
       website: "https://www.paristickets.com/sainte-chapelle/timings-opening-hours/",
       ticketPrices: {
         free: false,
