@@ -53,5 +53,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "zanzibar": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "victoriafalls": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

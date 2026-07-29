@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T18:17:14.510Z",
+  "generatedAt": "2026-07-29T18:25:41.095Z",
   "totalCities": 569,
   "citiesNeedingWork": 439,
   "goalMet": false,
@@ -375,9 +375,9 @@
     },
     {
       "city": "zanzibar",
-      "count": 5,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 10,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 45
     },
