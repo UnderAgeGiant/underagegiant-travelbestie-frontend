@@ -1,6 +1,7 @@
 import { Component, inject, output, signal } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
+import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
 
 @Component({
   selector: 'app-nav-mobile',
@@ -88,7 +89,7 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
           <div class="up-plans-panel">
             @for (plan of facade.filteredPlans(); track plan.id) {
               <div class="up-plan-row">
-                <button class="up-plan-load" (click)="loadPlan(plan)">
+                <button class="up-plan-load" (click)="onLoadPlan(plan)">
                   <div class="up-plan-name">{{ plan.name }}</div>
                   <div class="up-plan-date">{{ facade.planDate(plan.savedAt) }}</div>
                 </button>
@@ -167,5 +168,9 @@ export class NavMobileComponent {
   quickAdd = this.facade.quickAdd.bind(this.facade);
   openSharedTrip = this.facade.openSharedTrip.bind(this.facade);
   goToShared = this.facade.goToSharedTrip.bind(this.facade);
-  loadPlan = this.facade.doLoadPlan.bind(this.facade);
+
+  onLoadPlan(plan: SavedPlan): void {
+    this.facade.doLoadPlan(plan);
+    this.drawerOpen.set(false);
+  }
 }
