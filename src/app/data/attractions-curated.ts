@@ -1155,6 +1155,30 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Bas%C3%ADlica_de_San_Jos%C3%A9_de_Flores_vista_desde_la_plaza_2.JPG/1920px-Bas%C3%ADlica_de_San_Jos%C3%A9_de_Flores_vista_desde_la_plaza_2.JPG",
       website: "http://www.basilicadeflores.com.ar/",
     },
+    {
+      id: "buenosaires_13",
+      active: true,
+      name: "Museo Casa de Ricardo Rojas",
+      category: 'poi', type: "Museo",
+      icon: "🖼️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Intervenci%C3%B3n_de_vitrinas_en_la_sala_del_escritorio_del_Museo_Casa_Ricardo_Rojas_de_la_Ciudad_Aut%C3%B3noma_de_Buenos_Aires_%28CABA%29.jpg/1920px-Intervenci%C3%B3n_de_vitrinas_en_la_sala_del_escritorio_del_Museo_Casa_Ricardo_Rojas_de_la_Ciudad_Aut%C3%B3noma_de_Buenos_Aires_%28CABA%29.jpg",
+      website: "https://museorojas.cultura.gob.ar/",
+    },
+    {
+      id: "buenosaires_14",
+      active: true,
+      name: "Museo de la Pasión Boquense",
+      category: 'poi', type: "Museo",
+      icon: "🖼️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Museo_de_la_Pasi%C3%B3n_Boquense_en_enero_de_2024_-_BugWarp_14.jpg/1920px-Museo_de_la_Pasi%C3%B3n_Boquense_en_enero_de_2024_-_BugWarp_14.jpg",
+      website: "https://museoboquense.com/",
+    },
   ],
   cairo: [
     {
@@ -5918,7 +5942,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#EEE8FD",
       rating: 4.6,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fundacion_Pablo_Neruda%2C_La_Chascona.jpg/1920px-Fundacion_Pablo_Neruda%2C_La_Chascona.jpg",
     },
     {
       id: "santiago_5",
@@ -5941,7 +5965,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F5FD",
       rating: 4.7,
       estimatedMinutes: 360,
-      imageUrl: "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/82/Vista_de_Valle_Nevado.jpg",
     },
 {
       id: "santiago_7",
@@ -6097,7 +6121,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.santiagoturismo.cl/parque-ohiggins/",
-      imageUrl: "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Andenes_Metro_Parque_OHiggins.jpg/1920px-Andenes_Metro_Parque_OHiggins.jpg",
     },
     {
       id: "santiago_20",
@@ -15962,7 +15986,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Plaza_O%27Higgins%2C_Valpara%C3%ADso_20230704.jpg/1920px-Plaza_O%27Higgins%2C_Valpara%C3%ADso_20230704.jpg",
     },
     {
       id: "valparaiso_16",
@@ -16107,7 +16131,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://ssr.cl/home/museo/",
-      imageUrl: "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Bolet%C3%ADn_de_la_Sociedad_Espa%C3%B1ola_de_Historia_Natural_%28IA_boletndelasoci15soci%29.pdf/page1-500px-Bolet%C3%ADn_de_la_Sociedad_Espa%C3%B1ola_de_Historia_Natural_%28IA_boletndelasoci15soci%29.pdf.jpg",
     },
     {
       id: "valparaiso_29",
@@ -16119,7 +16143,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.mugupla.cl/",
-      imageUrl: "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Museo_Universitario_del_Grabado%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20230902.jpg/1920px-Museo_Universitario_del_Grabado%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20230902.jpg",
     },
   ],
   vinadelmar: [

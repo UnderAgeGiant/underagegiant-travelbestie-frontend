@@ -59,8 +59,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "buenosaires": {
-    "attempts": 1,
-    "radiusKm": 15
+  "lima": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }
