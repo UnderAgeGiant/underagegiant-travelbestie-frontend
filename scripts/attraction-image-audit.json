@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T17:09:10.121Z",
+  "generatedAt": "2026-07-29T17:14:08.495Z",
   "totalCities": 569,
   "citiesNeedingWork": 453,
   "goalMet": false,
@@ -207,9 +207,9 @@
     },
     {
       "city": "shanghai",
-      "count": 7,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 24
     },
@@ -224,16 +224,7 @@
     {
       "city": "delhi",
       "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1587474043843-d0c3cc087c29?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "delhi_0",
-            "delhi_1",
-            "delhi_2"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 12,
       "needsWork": true,
       "priorityRank": 26
