@@ -99,8 +99,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "cologne": {
-    "attempts": 2,
-    "radiusKm": 23
+  "guilin": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

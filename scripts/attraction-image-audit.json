@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T23:43:39.559Z",
+  "generatedAt": "2026-07-29T23:58:22.656Z",
   "totalCities": 569,
-  "citiesNeedingWork": 415,
+  "citiesNeedingWork": 411,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -663,28 +663,18 @@
     },
     {
       "city": "cologne",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 80
     },
     {
       "city": "hamburg",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1552070613-32f6a66dc9f5?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "hamburg_0",
-            "hamburg_1",
-            "hamburg_2",
-            "hamburg_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 81
     },
     {
@@ -697,43 +687,25 @@
     },
     {
       "city": "beijing",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1508804185452-ba3aa94f3d23?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "beijing_0",
-            "beijing_1",
-            "beijing_2",
-            "beijing_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 83
     },
     {
       "city": "xian",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1547016809-ce39b7e3de0e?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "xian_0",
-            "xian_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 84
     },
     {
       "city": "guilin",
-      "count": 1,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 85
     },
