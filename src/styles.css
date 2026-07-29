@@ -648,18 +648,11 @@ app-nav { display: block; }
 .ai-plan-page .shared-bg { background: url('/ai-plannification.jpeg') center center / cover no-repeat; filter: blur(2px); }
 .ai-plan-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
 .ai-plan-header-row .shared-header { flex: 1; min-width: 0; margin-bottom: 0; }
-.ai-plan-header-dog-wrap { position: relative; flex-shrink: 0; width: 90px; height: 90px; }
+.ai-plan-header-dog-wrap { flex-shrink: 0; }
 .ai-plan-header-dog { width: 90px; height: 90px; margin-bottom: 0; }
-.ai-plan-dog-badge { position: absolute; inset: 0; width: 90px; height: 90px; pointer-events: none; }
-.ai-plan-dog-badge text {
-  font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 11px; fill: var(--t1);
-  paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round;
-}
 @media (max-width: 640px) {
   .ai-plan-header-row { flex-direction: column; margin-bottom: 20px; }
-  .ai-plan-header-dog-wrap { width: 70px; height: 70px; }
   .ai-plan-header-dog { width: 70px; height: 70px; }
-  .ai-plan-dog-badge { width: 70px; height: 70px; }
 }
 .ai-loading-overlay { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.4); backdrop-filter: blur(6px); }
 .ai-loading-card { background: #fff; border-radius: 20px; padding: 36px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: var(--sh-lg); max-width: 300px; width: 90%; animation: scaleIn .2s ease; }

@@ -19,7 +19,7 @@ interface ResolvedSuggestion extends CityAttractionSuggestion {
               i18n-aria-label="@@citySuggest.closeAria" aria-label="Cerrar">✕</button>
 
       <div class="csc-scene" (click)="$event.stopPropagation()">
-        <img class="csc-dog" src="/small-black-dog.jpg" alt="" aria-hidden="true" draggable="false" />
+        <img class="csc-dog" src="/small-black-dog.png" alt="Asistente Miel" draggable="false" />
 
         <div class="csc-bubble">
           @if (loading()) {

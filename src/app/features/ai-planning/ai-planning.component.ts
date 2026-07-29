@@ -53,13 +53,7 @@ type Step = 'preferences' | 'options' | 'result';
           <!-- Header -->
           <div class="ai-plan-header-row">
             <div class="ai-plan-header-dog-wrap">
-              <img class="csc-dog ai-plan-header-dog" src="/small-black-dog.jpg" alt="" aria-hidden="true" draggable="false" />
-              <svg class="ai-plan-dog-badge" viewBox="0 0 90 90" aria-hidden="true">
-                <path id="aiPlanDogArc" d="M 12 34 A 46 46 0 0 1 78 34" fill="none" />
-                <text text-anchor="middle">
-                  <textPath href="#aiPlanDogArc" startOffset="50%">Asistente Miel</textPath>
-                </text>
-              </svg>
+              <img class="csc-dog ai-plan-header-dog" src="/small-black-dog.png" alt="Asistente Miel" draggable="false" />
             </div>
             <div class="shared-header">
               <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
