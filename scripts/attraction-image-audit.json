@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T17:49:14.123Z",
+  "generatedAt": "2026-07-29T17:57:07.559Z",
   "totalCities": 569,
-  "citiesNeedingWork": 443,
+  "citiesNeedingWork": 442,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -319,29 +319,17 @@
     },
     {
       "city": "cairo",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 38
     },
     {
       "city": "marrakech",
-      "count": 6,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1543349689-9a4d426bee8e?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "marrakech_0",
-            "marrakech_1",
-            "marrakech_2",
-            "marrakech_3",
-            "marrakech_4",
-            "marrakech_5"
-          ]
-        }
-      ],
-      "missingCount": 9,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 39
     },

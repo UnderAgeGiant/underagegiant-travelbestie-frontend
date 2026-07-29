@@ -39,8 +39,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "cairo": {
-    "attempts": 1,
-    "radiusKm": 15
+  "marrakech": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
