@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T19:02:48.319Z",
+  "generatedAt": "2026-07-29T19:08:16.586Z",
   "totalCities": 569,
   "citiesNeedingWork": 426,
   "goalMet": false,
@@ -495,9 +495,9 @@
     },
     {
       "city": "puntacana",
-      "count": 3,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 60
     },

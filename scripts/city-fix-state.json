@@ -60,7 +60,12 @@
     "stuck": true
   },
   "havana": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "puntacana": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
