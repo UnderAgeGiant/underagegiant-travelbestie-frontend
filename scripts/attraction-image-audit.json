@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T16:53:23.113Z",
+  "generatedAt": "2026-07-29T16:57:15.624Z",
   "totalCities": 569,
-  "citiesNeedingWork": 459,
+  "citiesNeedingWork": 457,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -135,26 +135,18 @@
     },
     {
       "city": "osaka",
-      "count": 13,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 2,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 16
     },
     {
       "city": "denpasar",
       "count": 25,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bali_Museum.jpg/960px-Bali_Museum.jpg",
-          "ids": [
-            "denpasar_0",
-            "denpasar_1"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 17
     },
     {
