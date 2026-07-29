@@ -73,7 +73,7 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
         <button class="up-plans-btn" (click)="onProfile()" i18n="@@nav.myProfile">👤 Mi perfil</button>
         <button class="up-plans-btn" (click)="onMyTrips()" i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
         <button class="up-plans-btn" (click)="facade.openBuyKarma()">
-          <span>✨</span><span i18n="@@nav.buyKarmaBtn">+ Comprar</span>
+          <span>✨</span><span i18n="@@nav.buyKarmaBtn">Comprar Karma</span>
         </button>
 
         <!-- Saved plans -->

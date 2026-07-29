@@ -767,8 +767,8 @@
 
       <!-- ── nav ── -->
       <trans-unit id="nav.buyKarmaBtn" datatype="html">
-        <source>+ Comprar</source>
-        <target>+ Buy</target>
+        <source>Comprar Karma</source>
+        <target>Buy Karma</target>
       </trans-unit>
 
       <!-- ── ai-planning.component ── -->
