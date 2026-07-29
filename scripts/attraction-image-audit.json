@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T18:08:09.037Z",
+  "generatedAt": "2026-07-29T18:17:14.510Z",
   "totalCities": 569,
-  "citiesNeedingWork": 442,
+  "citiesNeedingWork": 439,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -351,34 +351,26 @@
     },
     {
       "city": "capetown",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "capetown_0",
-            "capetown_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 42
     },
     {
       "city": "johannesburg",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 12,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 43
     },
     {
       "city": "nairobi",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 44
     },
     {
