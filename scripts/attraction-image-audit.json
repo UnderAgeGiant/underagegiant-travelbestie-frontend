@@ -1,0 +1,6075 @@
+{
+  "generatedAt": "2026-07-29T12:54:06.356Z",
+  "totalCities": 569,
+  "citiesNeedingWork": 469,
+  "goalMet": false,
+  "nextCity": "bangkok",
+  "cities": [
+    {
+      "city": "bangkok",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 0
+    },
+    {
+      "city": "paris",
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 1
+    },
+    {
+      "city": "london",
+      "count": 14,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "london_0",
+            "london_1",
+            "london_2",
+            "london_3",
+            "london_4",
+            "london_13"
+          ]
+        }
+      ],
+      "missingCount": 1,
+      "needsWork": true,
+      "priorityRank": 2
+    },
+    {
+      "city": "dubai",
+      "count": 7,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "dubai_0",
+            "dubai_1",
+            "dubai_2",
+            "dubai_3",
+            "dubai_4",
+            "dubai_5",
+            "dubai_6"
+          ]
+        }
+      ],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 3
+    },
+    {
+      "city": "singapore",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 4
+    },
+    {
+      "city": "singaporecity",
+      "count": 37,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 5
+    },
+    {
+      "city": "istanbul",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "istanbul_0",
+            "istanbul_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 6
+    },
+    {
+      "city": "kualalumpur",
+      "count": 8,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1573827184973-dbfc051106f3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrdWFsYWx1bXB1ciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTc2NTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "kualalumpur_1",
+            "kualalumpur_3",
+            "kualalumpur_4",
+            "kualalumpur_5",
+            "kualalumpur_7"
+          ]
+        }
+      ],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 7
+    },
+    {
+      "city": "antalya",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 8
+    },
+    {
+      "city": "newyork",
+      "count": 12,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "newyork_0",
+            "newyork_11"
+          ]
+        }
+      ],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 9
+    },
+    {
+      "city": "tokyo",
+      "count": 11,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "tokyo_9",
+            "tokyo_10"
+          ]
+        }
+      ],
+      "missingCount": 4,
+      "needsWork": true,
+      "priorityRank": 10
+    },
+    {
+      "city": "phuket",
+      "count": 31,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 11
+    },
+    {
+      "city": "milan",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1603117397943-a430d6e02b73?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "milan_0",
+            "milan_1",
+            "milan_2",
+            "milan_3",
+            "milan_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 12
+    },
+    {
+      "city": "barcelona",
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
+      "needsWork": true,
+      "priorityRank": 13
+    },
+    {
+      "city": "prague",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "prague_0",
+            "prague_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 14
+    },
+    {
+      "city": "seoul",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "seoul_0",
+            "seoul_1",
+            "seoul_2",
+            "seoul_3",
+            "seoul_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 15
+    },
+    {
+      "city": "osaka",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "osaka_0",
+            "osaka_1",
+            "osaka_2",
+            "osaka_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 16
+    },
+    {
+      "city": "denpasar",
+      "count": 25,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bali_Museum.jpg/960px-Bali_Museum.jpg",
+          "ids": [
+            "denpasar_0",
+            "denpasar_1"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 17
+    },
+    {
+      "city": "bali",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 18
+    },
+    {
+      "city": "ubud",
+      "count": 26,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Taman_pujaan_bangsa_Margarana%2C_Bali.jpg",
+          "ids": [
+            "ubud_9",
+            "ubud_14"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_03.jpg/960px-Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_03.jpg",
+          "ids": [
+            "ubud_19",
+            "ubud_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 19
+    },
+    {
+      "city": "vienna",
+      "count": 6,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1516550135-5571cdac0edb?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "vienna_0",
+            "vienna_1",
+            "vienna_2",
+            "vienna_3",
+            "vienna_4",
+            "vienna_5"
+          ]
+        }
+      ],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 20
+    },
+    {
+      "city": "amsterdam",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 21
+    },
+    {
+      "city": "hongkong",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 22
+    },
+    {
+      "city": "rome",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 23
+    },
+    {
+      "city": "shanghai",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 24
+    },
+    {
+      "city": "macau",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 25
+    },
+    {
+      "city": "delhi",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1587474043843-d0c3cc087c29?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "delhi_0",
+            "delhi_1",
+            "delhi_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 26
+    },
+    {
+      "city": "agra",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1564507592333-87154ceb8e23?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "agra_0",
+            "agra_1",
+            "agra_2",
+            "agra_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 27
+    },
+    {
+      "city": "mumbai",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "mumbai_0",
+            "mumbai_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 28
+    },
+    {
+      "city": "cancun",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 29
+    },
+    {
+      "city": "lasvegas",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 30
+    },
+    {
+      "city": "losangeles",
+      "count": 8,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1584702792844-389588c67373?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxsb3NhbmdlbGVzJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzY1ODd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "losangeles_4",
+            "losangeles_5",
+            "losangeles_7"
+          ]
+        }
+      ],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 31
+    },
+    {
+      "city": "orlando",
+      "count": 21,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "orlando_12",
+            "orlando_14",
+            "orlando_15",
+            "orlando_17",
+            "orlando_18",
+            "orlando_19",
+            "orlando_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 32
+    },
+    {
+      "city": "miami",
+      "count": 22,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1589083130544-0d6a2926e519?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtaWFtaSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjgwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "miami_14",
+            "miami_17",
+            "miami_18",
+            "miami_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 33
+    },
+    {
+      "city": "sanfrancisco",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 34
+    },
+    {
+      "city": "toronto",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 35
+    },
+    {
+      "city": "vancouver",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 36
+    },
+    {
+      "city": "montreal",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 37
+    },
+    {
+      "city": "cairo",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "cairo_0",
+            "cairo_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 38
+    },
+    {
+      "city": "marrakech",
+      "count": 6,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1543349689-9a4d426bee8e?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "marrakech_0",
+            "marrakech_1",
+            "marrakech_2",
+            "marrakech_3",
+            "marrakech_4",
+            "marrakech_5"
+          ]
+        }
+      ],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 39
+    },
+    {
+      "city": "fez",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "fez_0",
+            "fez_1",
+            "fez_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 40
+    },
+    {
+      "city": "casablanca",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "casablanca_0",
+            "casablanca_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 41
+    },
+    {
+      "city": "capetown",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "capetown_0",
+            "capetown_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 42
+    },
+    {
+      "city": "johannesburg",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 43
+    },
+    {
+      "city": "nairobi",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 44
+    },
+    {
+      "city": "zanzibar",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 45
+    },
+    {
+      "city": "victoriafalls",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 46
+    },
+    {
+      "city": "rio",
+      "count": 40,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg/960px-Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg",
+          "ids": [
+            "rio_0",
+            "rio_9"
+          ]
+        },
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxyaW8lMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIyNjk1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "rio_1",
+            "rio_2"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 47
+    },
+    {
+      "city": "saopaulo",
+      "count": 33,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/TvCRYXwKhfQ?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "saopaulo_30",
+            "saopaulo_32"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 48
+    },
+    {
+      "city": "buenosaires",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 49
+    },
+    {
+      "city": "santiago",
+      "count": 34,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1689850543263-01a52ccc6943?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50aWFnbyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MzA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "santiago_2",
+            "santiago_4",
+            "santiago_6",
+            "santiago_19"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 50
+    },
+    {
+      "city": "valparaiso",
+      "count": 29,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1674002352484-2c3735819535?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx2YWxwYXJhaXNvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIyMjA0Mzd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "valparaiso_1",
+            "valparaiso_15",
+            "valparaiso_28",
+            "valparaiso_29"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 51
+    },
+    {
+      "city": "lima",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 52
+    },
+    {
+      "city": "cusco",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "cusco_0",
+            "cusco_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 53
+    },
+    {
+      "city": "bogota",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 54
+    },
+    {
+      "city": "medellin",
+      "count": 6,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1515366974328-f1181eb25189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxtZWRlbGxpbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MjQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "medellin_1",
+            "medellin_2",
+            "medellin_4"
+          ]
+        }
+      ],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 55
+    },
+    {
+      "city": "cartagena",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 56
+    },
+    {
+      "city": "quito",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 57
+    },
+    {
+      "city": "montevideo",
+      "count": 36,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/2016_Mercado_del_Puerto_de_Montevideo.jpg/960px-2016_Mercado_del_Puerto_de_Montevideo.jpg",
+          "ids": [
+            "montevideo_27",
+            "montevideo_32"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 58
+    },
+    {
+      "city": "havana",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 59
+    },
+    {
+      "city": "puntacana",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 60
+    },
+    {
+      "city": "santodomingo",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 61
+    },
+    {
+      "city": "kingston",
+      "count": 29,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/BLT_Wikipedia_Edit-a-thon_at_the_National_Gallery_of_Jamaica_23.jpg/960px-BLT_Wikipedia_Edit-a-thon_at_the_National_Gallery_of_Jamaica_23.jpg",
+          "ids": [
+            "kingston_1",
+            "kingston_27"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 62
+    },
+    {
+      "city": "sydney",
+      "count": 6,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "sydney_0",
+            "sydney_1",
+            "sydney_2",
+            "sydney_3",
+            "sydney_4",
+            "sydney_5"
+          ]
+        }
+      ],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 63
+    },
+    {
+      "city": "melbourne",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 64
+    },
+    {
+      "city": "auckland",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 65
+    },
+    {
+      "city": "queenstown",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 66
+    },
+    {
+      "city": "venice",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1514890547357-a9ee288728f0?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "venice_0",
+            "venice_1",
+            "venice_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 67
+    },
+    {
+      "city": "florence",
+      "count": 8,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1541331622-1d8f73c6ba80?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "florence_0",
+            "florence_1",
+            "florence_2",
+            "florence_3",
+            "florence_4",
+            "florence_5",
+            "florence_6",
+            "florence_7"
+          ]
+        }
+      ],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 68
+    },
+    {
+      "city": "naples",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "naples_0",
+            "naples_1",
+            "naples_2",
+            "naples_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 69
+    },
+    {
+      "city": "verona",
+      "count": 6,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1597435877886-5e23d2e10da6?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "verona_0",
+            "verona_1",
+            "verona_2",
+            "verona_3",
+            "verona_4",
+            "verona_5"
+          ]
+        }
+      ],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 70
+    },
+    {
+      "city": "athens",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 71
+    },
+    {
+      "city": "santorini",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 72
+    },
+    {
+      "city": "madrid",
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 73
+    },
+    {
+      "city": "seville",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1511527844966-d4a7d73b9923?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "seville_0",
+            "seville_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 74
+    },
+    {
+      "city": "granada",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1509773896068-7fd415d91e2e?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "granada_0",
+            "granada_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 75
+    },
+    {
+      "city": "lisbon",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "lisbon_0",
+            "lisbon_1",
+            "lisbon_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 76
+    },
+    {
+      "city": "porto",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "porto_0",
+            "porto_1",
+            "porto_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 77
+    },
+    {
+      "city": "berlin",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "berlin_0",
+            "berlin_1",
+            "berlin_2",
+            "berlin_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 78
+    },
+    {
+      "city": "munich",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 79
+    },
+    {
+      "city": "cologne",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1571396236831-84b58b48a2d3?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "cologne_0",
+            "cologne_1",
+            "cologne_2",
+            "cologne_3",
+            "cologne_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 80
+    },
+    {
+      "city": "hamburg",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1552070613-32f6a66dc9f5?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "hamburg_0",
+            "hamburg_1",
+            "hamburg_2",
+            "hamburg_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 81
+    },
+    {
+      "city": "frankfurt",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 82
+    },
+    {
+      "city": "beijing",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1508804185452-ba3aa94f3d23?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "beijing_0",
+            "beijing_1",
+            "beijing_2",
+            "beijing_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 83
+    },
+    {
+      "city": "xian",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1547016809-ce39b7e3de0e?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "xian_0",
+            "xian_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 84
+    },
+    {
+      "city": "guilin",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 85
+    },
+    {
+      "city": "hangzhou",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 86
+    },
+    {
+      "city": "chengdu",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 87
+    },
+    {
+      "city": "taipei",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 88
+    },
+    {
+      "city": "busan",
+      "count": 31,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 89
+    },
+    {
+      "city": "jeju",
+      "count": 26,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 90
+    },
+    {
+      "city": "kyoto",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 91
+    },
+    {
+      "city": "hanoi",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1509822929954-3a29f4ca4f7b?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "hanoi_0",
+            "hanoi_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 92
+    },
+    {
+      "city": "hochiminh",
+      "count": 34,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 93
+    },
+    {
+      "city": "siemreap",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 94
+    },
+    {
+      "city": "phnompenh",
+      "count": 29,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 95
+    },
+    {
+      "city": "vientiane",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 96
+    },
+    {
+      "city": "luangprabang",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 97
+    },
+    {
+      "city": "yangon",
+      "count": 26,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Yangon_-_Shwedagon_Pagoda_03.jpg/960px-Yangon_-_Shwedagon_Pagoda_03.jpg",
+          "ids": [
+            "yangon_2",
+            "yangon_3"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 98
+    },
+    {
+      "city": "manila",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 99
+    },
+    {
+      "city": "cebu",
+      "count": 28,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Basilica_Minore_del_Santo_Ni%C3%B1o_de_Cebu_%28Osme%C3%B1a_Boulevard%2C_Cebu_City%3B_09-05-2022%29.jpg/960px-Basilica_Minore_del_Santo_Ni%C3%B1o_de_Cebu_%28Osme%C3%B1a_Boulevard%2C_Cebu_City%3B_09-05-2022%29.jpg",
+          "ids": [
+            "cebu_4",
+            "cebu_9"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 100
+    },
+    {
+      "city": "boracay",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 101
+    },
+    {
+      "city": "jakarta",
+      "count": 31,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 102
+    },
+    {
+      "city": "yogyakarta",
+      "count": 30,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 103
+    },
+    {
+      "city": "langkawi",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 104
+    },
+    {
+      "city": "malacca",
+      "count": 28,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/People%27s_Museum%2C_Kite_Museum%2C_Beauty_Museum.JPG/960px-People%27s_Museum%2C_Kite_Museum%2C_Beauty_Museum.JPG",
+          "ids": [
+            "malacca_2",
+            "malacca_4"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 105
+    },
+    {
+      "city": "colombo",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 106
+    },
+    {
+      "city": "kathmandu",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 107
+    },
+    {
+      "city": "male",
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
+      "needsWork": true,
+      "priorityRank": 108
+    },
+    {
+      "city": "doha",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 109
+    },
+    {
+      "city": "abudhabi",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 110
+    },
+    {
+      "city": "muscat",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 111
+    },
+    {
+      "city": "amman",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "amman_0",
+            "amman_1",
+            "amman_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 112
+    },
+    {
+      "city": "petra",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1579606032821-31269d3a7bc2?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "petra_0",
+            "petra_1",
+            "petra_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 113
+    },
+    {
+      "city": "jerusalem",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1552895839-8a840d2bd86e?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "jerusalem_0",
+            "jerusalem_1",
+            "jerusalem_2",
+            "jerusalem_3",
+            "jerusalem_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 114
+    },
+    {
+      "city": "telaviv",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 115
+    },
+    {
+      "city": "beirut",
+      "count": 26,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 116
+    },
+    {
+      "city": "riyadh",
+      "count": 22,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 117
+    },
+    {
+      "city": "jeddah",
+      "count": 20,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 118
+    },
+    {
+      "city": "tunis",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "tunis_0",
+            "tunis_1",
+            "tunis_2",
+            "tunis_3",
+            "tunis_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 119
+    },
+    {
+      "city": "luxor",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 120
+    },
+    {
+      "city": "aswan",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 121
+    },
+    {
+      "city": "hurghada",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 122
+    },
+    {
+      "city": "lagos",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 123
+    },
+    {
+      "city": "accra",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 124
+    },
+    {
+      "city": "dakar",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1569103470331-cc6bb58edb73?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxkYWthciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTY5MTY0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "dakar_2",
+            "dakar_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 125
+    },
+    {
+      "city": "addisababa",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 126
+    },
+    {
+      "city": "copenhagen",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "copenhagen_0",
+            "copenhagen_1",
+            "copenhagen_2",
+            "copenhagen_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 127
+    },
+    {
+      "city": "stockholm",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "stockholm_0",
+            "stockholm_1",
+            "stockholm_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 128
+    },
+    {
+      "city": "oslo",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 129
+    },
+    {
+      "city": "reykjavik",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 130
+    },
+    {
+      "city": "tallinn",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1568793220-d9f47e1bcc02?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "tallinn_0",
+            "tallinn_1",
+            "tallinn_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 131
+    },
+    {
+      "city": "vilnius",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "vilnius_0",
+            "vilnius_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 132
+    },
+    {
+      "city": "warsaw",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 133
+    },
+    {
+      "city": "krakow",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1548036161-3cac5c6c0e48?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "krakow_0",
+            "krakow_1",
+            "krakow_2",
+            "krakow_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 134
+    },
+    {
+      "city": "budapest",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1568683254765-9bc96ca7e56a?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "budapest_0",
+            "budapest_1",
+            "budapest_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 135
+    },
+    {
+      "city": "dubrovnik",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1527004220322-bbb26e87fbe2?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "dubrovnik_0",
+            "dubrovnik_1",
+            "dubrovnik_2",
+            "dubrovnik_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 136
+    },
+    {
+      "city": "sofia",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1544085701-4d8b4e31e05a?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "sofia_0",
+            "sofia_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 137
+    },
+    {
+      "city": "edinburgh",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558370894-bde8d39395c0?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "edinburgh_0",
+            "edinburgh_1",
+            "edinburgh_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 138
+    },
+    {
+      "city": "dublin",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 139
+    },
+    {
+      "city": "galway",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 140
+    },
+    {
+      "city": "brussels",
+      "count": 15,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "brussels_0",
+            "brussels_4"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 141
+    },
+    {
+      "city": "bruges",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 142
+    },
+    {
+      "city": "antwerp",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 143
+    },
+    {
+      "city": "ghent",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 144
+    },
+    {
+      "city": "zurich",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1587583029793-8c73f61c9fcf?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "zurich_0",
+            "zurich_1",
+            "zurich_2",
+            "zurich_3",
+            "zurich_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 145
+    },
+    {
+      "city": "geneva",
+      "count": 32,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1584200463394-bba4b2117e4d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXMlQzMlQTllJTIwZCUyMEdlbmV2YSUyMFN3aXR6ZXJsYW5kfGVufDF8MHx8fDE3ODMwMDkxNjZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "geneva_1",
+            "geneva_4"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Poype_de_Ternier.jpg/960px-Poype_de_Ternier.jpg",
+          "ids": [
+            "geneva_7",
+            "geneva_16"
+          ]
+        },
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1584200463394-bba4b2117e4d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKZXQlMjBkJTIwR2VuZXZhJTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAxMDA3M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "geneva_28",
+            "geneva_30"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 146
+    },
+    {
+      "city": "lucerne",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 147
+    },
+    {
+      "city": "interlaken",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 148
+    },
+    {
+      "city": "bern",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 149
+    },
+    {
+      "city": "zermatt",
+      "count": 20,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 150
+    },
+    {
+      "city": "salzburg",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1595872205966-35cb574be62d?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "salzburg_0",
+            "salzburg_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 151
+    },
+    {
+      "city": "innsbruck",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 152
+    },
+    {
+      "city": "hallstatt",
+      "count": 29,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 153
+    },
+    {
+      "city": "graz",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 154
+    },
+    {
+      "city": "nice",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 155
+    },
+    {
+      "city": "lyon",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 156
+    },
+    {
+      "city": "bordeaux",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "bordeaux_0",
+            "bordeaux_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 157
+    },
+    {
+      "city": "strasbourg",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "strasbourg_0",
+            "strasbourg_1",
+            "strasbourg_2",
+            "strasbourg_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 158
+    },
+    {
+      "city": "chicago",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 159
+    },
+    {
+      "city": "rotterdam",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 160
+    },
+    {
+      "city": "thehague",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 161
+    },
+    {
+      "city": "utrecht",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 162
+    },
+    {
+      "city": "maastricht",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 163
+    },
+    {
+      "city": "delft",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 164
+    },
+    {
+      "city": "giethoorn",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 165
+    },
+    {
+      "city": "leuven",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 166
+    },
+    {
+      "city": "cork",
+      "count": 32,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/EnglishMarketCork.JPG/960px-EnglishMarketCork.JPG",
+          "ids": [
+            "cork_6",
+            "cork_30"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 167
+    },
+    {
+      "city": "killarney",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 168
+    },
+    {
+      "city": "cliffsofmoher",
+      "count": 16,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 169
+    },
+    {
+      "city": "palermo",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1589815516038-dd14a9e9b58b?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "palermo_0",
+            "palermo_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 170
+    },
+    {
+      "city": "thessaloniki",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "thessaloniki_0",
+            "thessaloniki_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 171
+    },
+    {
+      "city": "chiangmai",
+      "count": 7,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1512553353614-82a7370096dc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjaGlhbmdtYWklMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3NjUxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "chiangmai_1",
+            "chiangmai_4",
+            "chiangmai_5"
+          ]
+        }
+      ],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 172
+    },
+    {
+      "city": "ayutthaya",
+      "count": 26,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 173
+    },
+    {
+      "city": "krabi",
+      "count": 25,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 174
+    },
+    {
+      "city": "hcmc",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 175
+    },
+    {
+      "city": "jaipur",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 176
+    },
+    {
+      "city": "kaohsiung",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 177
+    },
+    {
+      "city": "tainan",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 178
+    },
+    {
+      "city": "hualien",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 179
+    },
+    {
+      "city": "tbilisi",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "tbilisi_0",
+            "tbilisi_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 180
+    },
+    {
+      "city": "batumi",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 181
+    },
+    {
+      "city": "stepantsminda",
+      "count": 16,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 182
+    },
+    {
+      "city": "varanasi",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 183
+    },
+    {
+      "city": "hiroshima",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "hiroshima_0",
+            "hiroshima_1",
+            "hiroshima_2",
+            "hiroshima_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 184
+    },
+    {
+      "city": "pokhara",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 185
+    },
+    {
+      "city": "chitwan",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 186
+    },
+    {
+      "city": "hoian",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "hoian_0",
+            "hoian_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 187
+    },
+    {
+      "city": "halong",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 188
+    },
+    {
+      "city": "hue",
+      "count": 26,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 189
+    },
+    {
+      "city": "haifa",
+      "count": 31,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 190
+    },
+    {
+      "city": "eilat",
+      "count": 25,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 191
+    },
+    {
+      "city": "mexicocity",
+      "count": 7,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "mexicocity_0",
+            "mexicocity_1",
+            "mexicocity_2",
+            "mexicocity_3",
+            "mexicocity_4",
+            "mexicocity_5",
+            "mexicocity_6"
+          ]
+        }
+      ],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 192
+    },
+    {
+      "city": "aguascalientes",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 193
+    },
+    {
+      "city": "arequipa",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 194
+    },
+    {
+      "city": "puno",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 195
+    },
+    {
+      "city": "nazca",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 196
+    },
+    {
+      "city": "iquitos",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 197
+    },
+    {
+      "city": "trujillo",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 198
+    },
+    {
+      "city": "huaraz",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 199
+    },
+    {
+      "city": "paracas",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 200
+    },
+    {
+      "city": "vinadelmar",
+      "count": 19,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 201
+    },
+    {
+      "city": "sanpedroatacama",
+      "count": 29,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/nPHMhiwkgKI?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "sanpedroatacama_12",
+            "sanpedroatacama_23",
+            "sanpedroatacama_24"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 202
+    },
+    {
+      "city": "laserena",
+      "count": 28,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 203
+    },
+    {
+      "city": "coquimbo",
+      "count": 15,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "coquimbo_5",
+            "coquimbo_6",
+            "coquimbo_9",
+            "coquimbo_10"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 204
+    },
+    {
+      "city": "pucon",
+      "count": 15,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "pucon_7",
+            "pucon_8",
+            "pucon_11",
+            "pucon_12"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 205
+    },
+    {
+      "city": "puertovaras",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 206
+    },
+    {
+      "city": "puertonatales",
+      "count": 21,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Torres_del_Paine%2C_Laguna_Azul_09.jpg/960px-Torres_del_Paine%2C_Laguna_Azul_09.jpg",
+          "ids": [
+            "puertonatales_2",
+            "puertonatales_5"
+          ]
+        },
+        {
+          "imageUrl": "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "puertonatales_10",
+            "puertonatales_14",
+            "puertonatales_15",
+            "puertonatales_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 207
+    },
+    {
+      "city": "puntaarenas",
+      "count": 23,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/aqgshrMVDm8?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "puntaarenas_14",
+            "puntaarenas_16"
+          ]
+        },
+        {
+          "imageUrl": "https://images.unsplash.com/ZOa6NcAqGRE?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "puntaarenas_18",
+            "puntaarenas_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 208
+    },
+    {
+      "city": "hangaroa",
+      "count": 18,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1583813365826-eb578f8bd5a3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYW5nYXJvYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI2OTMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "hangaroa_8",
+            "hangaroa_9",
+            "hangaroa_15"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Easter_Island_5.jpg/3840px-Easter_Island_5.jpg",
+          "ids": [
+            "hangaroa_12",
+            "hangaroa_16"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 209
+    },
+    {
+      "city": "guayaquil",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 210
+    },
+    {
+      "city": "cuenca",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 211
+    },
+    {
+      "city": "galapagos",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 212
+    },
+    {
+      "city": "banos",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 213
+    },
+    {
+      "city": "otavalo",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 214
+    },
+    {
+      "city": "mindo",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 215
+    },
+    {
+      "city": "riobamba",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 216
+    },
+    {
+      "city": "montanita",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 217
+    },
+    {
+      "city": "tena",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 218
+    },
+    {
+      "city": "santamarta",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 219
+    },
+    {
+      "city": "cali",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 220
+    },
+    {
+      "city": "salento",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 221
+    },
+    {
+      "city": "villadeley",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 222
+    },
+    {
+      "city": "sanagustin",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 223
+    },
+    {
+      "city": "barranquilla",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 224
+    },
+    {
+      "city": "leticia",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 225
+    },
+    {
+      "city": "oaxaca",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "oaxaca_0",
+            "oaxaca_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 226
+    },
+    {
+      "city": "durban",
+      "count": 20,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Suricate_Mitchell_Park.JPG",
+          "ids": [
+            "durban_5",
+            "durban_6"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 227
+    },
+    {
+      "city": "kruger",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 228
+    },
+    {
+      "city": "stellenbosch",
+      "count": 18,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 229
+    },
+    {
+      "city": "mombasa",
+      "count": 11,
+      "duplicateGroups": [],
+      "missingCount": 4,
+      "needsWork": true,
+      "priorityRank": 230
+    },
+    {
+      "city": "maasaimara",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 231
+    },
+    {
+      "city": "amboseli",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 232
+    },
+    {
+      "city": "arusha",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 233
+    },
+    {
+      "city": "daressalaam",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 234
+    },
+    {
+      "city": "ngorongoro",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 235
+    },
+    {
+      "city": "abuja",
+      "count": 10,
+      "duplicateGroups": [],
+      "missingCount": 5,
+      "needsWork": true,
+      "priorityRank": 236
+    },
+    {
+      "city": "sousse",
+      "count": 21,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 237
+    },
+    {
+      "city": "djerba",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 238
+    },
+    {
+      "city": "sidibousaid",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 239
+    },
+    {
+      "city": "saintlouis",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 240
+    },
+    {
+      "city": "saly",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 241
+    },
+    {
+      "city": "alexandria",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 242
+    },
+    {
+      "city": "rabat",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 243
+    },
+    {
+      "city": "chefchaouen",
+      "count": 11,
+      "duplicateGroups": [],
+      "missingCount": 4,
+      "needsWork": true,
+      "priorityRank": 244
+    },
+    {
+      "city": "essaouira",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 245
+    },
+    {
+      "city": "ouarzazate",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 246
+    },
+    {
+      "city": "brisbane",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 247
+    },
+    {
+      "city": "saintpetersburg",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 248
+    },
+    {
+      "city": "caen",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 249
+    },
+    {
+      "city": "tours",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "tours_0",
+            "tours_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 250
+    },
+    {
+      "city": "avignon",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "avignon_0",
+            "avignon_1",
+            "avignon_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 251
+    },
+    {
+      "city": "dijon",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "dijon_0",
+            "dijon_1",
+            "dijon_2",
+            "dijon_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 252
+    },
+    {
+      "city": "carcassonne",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "carcassonne_0",
+            "carcassonne_1",
+            "carcassonne_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 253
+    },
+    {
+      "city": "nimes",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "nimes_0",
+            "nimes_1",
+            "nimes_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 254
+    },
+    {
+      "city": "marseille",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 255
+    },
+    {
+      "city": "toulouse",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 256
+    },
+    {
+      "city": "nantes",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 257
+    },
+    {
+      "city": "annecy",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 258
+    },
+    {
+      "city": "montsaintmichel",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 259
+    },
+    {
+      "city": "burgos",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "burgos_0",
+            "burgos_1",
+            "burgos_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 260
+    },
+    {
+      "city": "salamanca",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "salamanca_0",
+            "salamanca_1",
+            "salamanca_2",
+            "salamanca_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 261
+    },
+    {
+      "city": "compostela",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1561464402-da6f729b09c9?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "compostela_0",
+            "compostela_1",
+            "compostela_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 262
+    },
+    {
+      "city": "bilbao",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "bilbao_0",
+            "bilbao_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 263
+    },
+    {
+      "city": "cordoba",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "cordoba_0",
+            "cordoba_1",
+            "cordoba_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 264
+    },
+    {
+      "city": "dresden",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1576049519901-67f4c6e02ee1?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "dresden_0",
+            "dresden_1",
+            "dresden_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 265
+    },
+    {
+      "city": "nuremberg",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 266
+    },
+    {
+      "city": "weimar",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1520756396-5c18b7f81e8f?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "weimar_0",
+            "weimar_1",
+            "weimar_2",
+            "weimar_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 267
+    },
+    {
+      "city": "bamberg",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1553152531-b98a2756f061?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "bamberg_0",
+            "bamberg_1",
+            "bamberg_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 268
+    },
+    {
+      "city": "heidelberg",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 269
+    },
+    {
+      "city": "stuttgart",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 270
+    },
+    {
+      "city": "leipzig",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 271
+    },
+    {
+      "city": "fussen",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 272
+    },
+    {
+      "city": "potsdam",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 273
+    },
+    {
+      "city": "bath",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1603097890522-f2e22aa08e35?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "bath_0",
+            "bath_1",
+            "bath_2",
+            "bath_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 274
+    },
+    {
+      "city": "york",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1540202404-a2f29d0e0bc2?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "york_0",
+            "york_1",
+            "york_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 275
+    },
+    {
+      "city": "cardiff",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 276
+    },
+    {
+      "city": "manchester",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 277
+    },
+    {
+      "city": "liverpool",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 278
+    },
+    {
+      "city": "oxford",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 279
+    },
+    {
+      "city": "cambridge",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 280
+    },
+    {
+      "city": "glasgow",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 281
+    },
+    {
+      "city": "pisa",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "pisa_0",
+            "pisa_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 282
+    },
+    {
+      "city": "assisi",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1504893050483-d32e84f476ff?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "assisi_0",
+            "assisi_1",
+            "assisi_2",
+            "assisi_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 283
+    },
+    {
+      "city": "matera",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "matera_0",
+            "matera_1",
+            "matera_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 284
+    },
+    {
+      "city": "agrigento",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1500417148489-0a3840f6e197?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "agrigento_0",
+            "agrigento_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 285
+    },
+    {
+      "city": "olomouc",
+      "count": 5,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "olomouc_0",
+            "olomouc_1",
+            "olomouc_2",
+            "olomouc_3",
+            "olomouc_4"
+          ]
+        }
+      ],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 286
+    },
+    {
+      "city": "bergen",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 287
+    },
+    {
+      "city": "goteborg",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 288
+    },
+    {
+      "city": "olympia",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 289
+    },
+    {
+      "city": "delphi",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "delphi_0",
+            "delphi_1",
+            "delphi_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 290
+    },
+    {
+      "city": "meteora",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 291
+    },
+    {
+      "city": "isfahan",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "isfahan_0",
+            "isfahan_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 292
+    },
+    {
+      "city": "shiraz",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "shiraz_0",
+            "shiraz_1",
+            "shiraz_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 293
+    },
+    {
+      "city": "tabriz",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 294
+    },
+    {
+      "city": "tehran",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 295
+    },
+    {
+      "city": "yazd",
+      "count": 27,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 296
+    },
+    {
+      "city": "cappadocia",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 297
+    },
+    {
+      "city": "izmir",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "izmir_0",
+            "izmir_1",
+            "izmir_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 298
+    },
+    {
+      "city": "ephesus",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 299
+    },
+    {
+      "city": "pamukkale",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 300
+    },
+    {
+      "city": "wadimusa",
+      "count": 19,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 301
+    },
+    {
+      "city": "wadirum",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 302
+    },
+    {
+      "city": "aqaba",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 303
+    },
+    {
+      "city": "kolkata",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 304
+    },
+    {
+      "city": "aurangabad",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "aurangabad_0",
+            "aurangabad_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 305
+    },
+    {
+      "city": "bhopal",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "bhopal_0",
+            "bhopal_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 306
+    },
+    {
+      "city": "hampi",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "hampi_0",
+            "hampi_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 307
+    },
+    {
+      "city": "goa",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 308
+    },
+    {
+      "city": "mahabalipuram",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 309
+    },
+    {
+      "city": "kandy",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "kandy_0",
+            "kandy_1",
+            "kandy_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 310
+    },
+    {
+      "city": "anuradhapura",
+      "count": 4,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "anuradhapura_0",
+            "anuradhapura_1",
+            "anuradhapura_2",
+            "anuradhapura_3"
+          ]
+        }
+      ],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 311
+    },
+    {
+      "city": "galle",
+      "count": 19,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 312
+    },
+    {
+      "city": "sigiriya",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 313
+    },
+    {
+      "city": "gyeongju",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "gyeongju_0",
+            "gyeongju_1",
+            "gyeongju_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 314
+    },
+    {
+      "city": "nikko",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "nikko_0",
+            "nikko_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 315
+    },
+    {
+      "city": "nara",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 316
+    },
+    {
+      "city": "luoyang",
+      "count": 3,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "luoyang_0",
+            "luoyang_1",
+            "luoyang_2"
+          ]
+        }
+      ],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 317
+    },
+    {
+      "city": "lijiang",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 318
+    },
+    {
+      "city": "chongqing",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 319
+    },
+    {
+      "city": "mandalay",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 320
+    },
+    {
+      "city": "bagan",
+      "count": 19,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 321
+    },
+    {
+      "city": "lalibela",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 322
+    },
+    {
+      "city": "aksum",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 323
+    },
+    {
+      "city": "gondar",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "gondar_0",
+            "gondar_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 324
+    },
+    {
+      "city": "bahirdar",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 325
+    },
+    {
+      "city": "algiers",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "algiers_0",
+            "algiers_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 326
+    },
+    {
+      "city": "oran",
+      "count": 16,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oran_Santa_Cruz.JPG/960px-Oran_Santa_Cruz.JPG",
+          "ids": [
+            "oran_1",
+            "oran_6"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 327
+    },
+    {
+      "city": "constantine",
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
+      "needsWork": true,
+      "priorityRank": 328
+    },
+    {
+      "city": "kumasi",
+      "count": 17,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 329
+    },
+    {
+      "city": "capecoast",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 330
+    },
+    {
+      "city": "quebeccity",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 331
+    },
+    {
+      "city": "puebla",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 332
+    },
+    {
+      "city": "guanajuato",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "guanajuato_0",
+            "guanajuato_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 333
+    },
+    {
+      "city": "guadalajara",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "guadalajara_0",
+            "guadalajara_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 334
+    },
+    {
+      "city": "tulum",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 335
+    },
+    {
+      "city": "sancristobal",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 336
+    },
+    {
+      "city": "merida_mx",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 337
+    },
+    {
+      "city": "playacarmen",
+      "count": 10,
+      "duplicateGroups": [],
+      "missingCount": 5,
+      "needsWork": true,
+      "priorityRank": 338
+    },
+    {
+      "city": "puertoescond",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 339
+    },
+    {
+      "city": "philadelphia",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 340
+    },
+    {
+      "city": "santafe",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 341
+    },
+    {
+      "city": "ouropreto",
+      "count": 22,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/VYFhyu13vho?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "ouropreto_4",
+            "ouropreto_15"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 342
+    },
+    {
+      "city": "salvador",
+      "count": 30,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 343
+    },
+    {
+      "city": "brasilia",
+      "count": 30,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1641404073707-5dd3e01e1b8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmFzaWxpYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI3MDAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "brasilia_9",
+            "brasilia_19",
+            "brasilia_26"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 344
+    },
+    {
+      "city": "recife",
+      "count": 27,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 345
+    },
+    {
+      "city": "foziguacu",
+      "count": 17,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/00_1854_Iguaz%C3%BA-Wasserf%C3%A4lle_-_S%C3%BCdamerika.jpg/960px-00_1854_Iguaz%C3%BA-Wasserf%C3%A4lle_-_S%C3%BCdamerika.jpg",
+          "ids": [
+            "foziguacu_3",
+            "foziguacu_6"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 346
+    },
+    {
+      "city": "florianopolis",
+      "count": 30,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 347
+    },
+    {
+      "city": "manaus",
+      "count": 17,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meeting_of_Waters_%28Manaus%29.jpg/960px-Meeting_of_Waters_%28Manaus%29.jpg",
+          "ids": [
+            "manaus_4",
+            "manaus_15"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Teatro_Amazonas_Atualmente_01.jpg/960px-Teatro_Amazonas_Atualmente_01.jpg",
+          "ids": [
+            "manaus_5",
+            "manaus_16"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 348
+    },
+    {
+      "city": "fortaleza",
+      "count": 25,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1777734794841-915df822ef26?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxmb3J0YWxlemElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIzMDQ5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "fortaleza_17",
+            "fortaleza_24"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 349
+    },
+    {
+      "city": "iguazu",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "iguazu_0",
+            "iguazu_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 350
+    },
+    {
+      "city": "mendoza",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 351
+    },
+    {
+      "city": "bariloche",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 352
+    },
+    {
+      "city": "salta",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 353
+    },
+    {
+      "city": "puertoiguazu",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 354
+    },
+    {
+      "city": "ushuaia",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 355
+    },
+    {
+      "city": "elcalafate",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 356
+    },
+    {
+      "city": "tilcara",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 357
+    },
+    {
+      "city": "rosario",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 358
+    },
+    {
+      "city": "trinidadcuba",
+      "count": 2,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "trinidadcuba_0",
+            "trinidadcuba_1"
+          ]
+        }
+      ],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 359
+    },
+    {
+      "city": "vinales",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 360
+    },
+    {
+      "city": "trinidad_cu",
+      "count": 17,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 361
+    },
+    {
+      "city": "santiagocu",
+      "count": 21,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 362
+    },
+    {
+      "city": "varadero",
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 363
+    },
+    {
+      "city": "cienfuegos",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 364
+    },
+    {
+      "city": "camaguey",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 365
+    },
+    {
+      "city": "cayosantamaria",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 366
+    },
+    {
+      "city": "cairns",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 367
+    },
+    {
+      "city": "alicesprings",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 368
+    },
+    {
+      "city": "coloniadelsacramento",
+      "count": 19,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 369
+    },
+    {
+      "city": "puntadeleste",
+      "count": 27,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Arboretum_Lussich_Observatory.jpg",
+          "ids": [
+            "puntadeleste_3",
+            "puntadeleste_9"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 370
+    },
+    {
+      "city": "maldonado",
+      "count": 25,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Arboretum_Lussich_Observatory.jpg",
+          "ids": [
+            "maldonado_3",
+            "maldonado_9"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 371
+    },
+    {
+      "city": "salto",
+      "count": 25,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1647436339799-f9e61e11720d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZXJtYXMlMjBkZWwlMjBEYXltJUMzJUExbiUyMFNhbHRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg3MTA1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "salto_15",
+            "salto_23"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 372
+    },
+    {
+      "city": "piriapolis",
+      "count": 16,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Reserva_de_Flora_y_Fauna_del_Pan_de_Az%C3%BAcar.jpg",
+          "ids": [
+            "piriapolis_2",
+            "piriapolis_12"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Cerro_San_Antonio.jpg",
+          "ids": [
+            "piriapolis_3",
+            "piriapolis_14"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 373
+    },
+    {
+      "city": "fraybentos",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 374
+    },
+    {
+      "city": "rocha",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 375
+    },
+    {
+      "city": "carmelo",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 376
+    },
+    {
+      "city": "rivera",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 377
+    },
+    {
+      "city": "tacuarembo",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 378
+    },
+    {
+      "city": "minas",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 379
+    },
+    {
+      "city": "lapaz",
+      "count": 31,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cholitas_fight_it_out_in_the_arena_%28February_2014%29_2014-02-16_19-28.jpg/960px-Cholitas_fight_it_out_in_the_arena_%28February_2014%29_2014-02-16_19-28.jpg",
+          "ids": [
+            "lapaz_4",
+            "lapaz_18"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 380
+    },
+    {
+      "city": "sucre",
+      "count": 21,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 381
+    },
+    {
+      "city": "potosi",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 382
+    },
+    {
+      "city": "uyuni",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 383
+    },
+    {
+      "city": "santacruz",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 384
+    },
+    {
+      "city": "cochabamba",
+      "count": 29,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 385
+    },
+    {
+      "city": "copacabana_bo",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 386
+    },
+    {
+      "city": "rurrenabaque",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 387
+    },
+    {
+      "city": "oruro",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 388
+    },
+    {
+      "city": "samaipata",
+      "count": 14,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Woodbine_NJ_Synagogue.JPG/960px-Woodbine_NJ_Synagogue.JPG",
+          "ids": [
+            "samaipata_0",
+            "samaipata_13"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/JscFuerteSamaipata1.jpg",
+          "ids": [
+            "samaipata_5",
+            "samaipata_6"
+          ]
+        }
+      ],
+      "missingCount": 1,
+      "needsWork": true,
+      "priorityRank": 389
+    },
+    {
+      "city": "caracas",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 390
+    },
+    {
+      "city": "merida",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 391
+    },
+    {
+      "city": "canaima",
+      "count": 11,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Albert_Anker_-_Die_Ziviltrauung_%281887%29.jpg/960px-Albert_Anker_-_Die_Ziviltrauung_%281887%29.jpg",
+          "ids": [
+            "canaima_1",
+            "canaima_9"
+          ]
+        }
+      ],
+      "missingCount": 4,
+      "needsWork": true,
+      "priorityRank": 392
+    },
+    {
+      "city": "islamargarita",
+      "count": 26,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/PlayaElAgua_%28Margarita-VEN%29.jpg",
+          "ids": [
+            "islamargarita_1",
+            "islamargarita_15"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Turismo_en_Pampatar_4.jpg",
+          "ids": [
+            "islamargarita_2",
+            "islamargarita_17"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Vista_de_El_Tirano_y_el_Guayamur%C3%AD_desde_Cabo_Blanco._Isla_de_Margarita%2C_estado_Nueva_Esparta._Venezuela..jpg",
+          "ids": [
+            "islamargarita_5",
+            "islamargarita_7"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg/3840px-Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg",
+          "ids": [
+            "islamargarita_18",
+            "islamargarita_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 393
+    },
+    {
+      "city": "ciudadbolivar",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 394
+    },
+    {
+      "city": "losroques",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 395
+    },
+    {
+      "city": "morrocoy",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 396
+    },
+    {
+      "city": "maracaibo",
+      "count": 16,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 397
+    },
+    {
+      "city": "sancristo",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 398
+    },
+    {
+      "city": "puertolacru",
+      "count": 22,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Jardin_de_la_Casa_Fuerte.jpg/960px-Jardin_de_la_Casa_Fuerte.jpg",
+          "ids": [
+            "puertolacru_2",
+            "puertolacru_5"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 399
+    },
+    {
+      "city": "asuncion",
+      "count": 27,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Asuncion_zoo.jpg/960px-Asuncion_zoo.jpg",
+          "ids": [
+            "asuncion_7",
+            "asuncion_25"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 400
+    },
+    {
+      "city": "encarnacion",
+      "count": 27,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 401
+    },
+    {
+      "city": "ciudaddeste",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 402
+    },
+    {
+      "city": "sanbernardinopy",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 403
+    },
+    {
+      "city": "concepcionpy",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 404
+    },
+    {
+      "city": "pilar",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 405
+    },
+    {
+      "city": "aregua",
+      "count": 12,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
+          "ids": [
+            "aregua_1",
+            "aregua_3",
+            "aregua_11"
+          ]
+        }
+      ],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 406
+    },
+    {
+      "city": "filadelfia",
+      "count": 14,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Filadelfia_view.jpg",
+          "ids": [
+            "filadelfia_10",
+            "filadelfia_11"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Chaco_Boreal_Paraguay.jpg",
+          "ids": [
+            "filadelfia_12",
+            "filadelfia_13"
+          ]
+        }
+      ],
+      "missingCount": 1,
+      "needsWork": true,
+      "priorityRank": 407
+    },
+    {
+      "city": "georgetown",
+      "count": 22,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Starboek_Market_%2823132264799%29.jpg/960px-Starboek_Market_%2823132264799%29.jpg",
+          "ids": [
+            "georgetown_5",
+            "georgetown_21"
+          ]
+        },
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Walter_Roth_Museum_of_Anthropology_%2813695446384%29.jpg",
+          "ids": [
+            "georgetown_13",
+            "georgetown_14",
+            "georgetown_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 408
+    },
+    {
+      "city": "kaieteur",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 409
+    },
+    {
+      "city": "linden",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 410
+    },
+    {
+      "city": "newamsterdam",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 411
+    },
+    {
+      "city": "lethem",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 412
+    },
+    {
+      "city": "paramaribo",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 413
+    },
+    {
+      "city": "nieuwnikk",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 414
+    },
+    {
+      "city": "brownsweg",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 415
+    },
+    {
+      "city": "albina",
+      "count": 10,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/langes-960px-Flag_of_Suriname.svg.png",
+          "ids": [
+            "albina_8",
+            "albina_9"
+          ]
+        }
+      ],
+      "missingCount": 5,
+      "needsWork": true,
+      "priorityRank": 416
+    },
+    {
+      "city": "guatemalacity",
+      "count": 26,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1697382803280-0028941d4935?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYWxhY2lvJTIwTmFjaW9uYWwlMjBkZSUyMGxhJTIwQ3VsdHVyYSUyMENpdWRhZCUyMGRlJTIwR3VhdGVtYWxhJTIwR3VhdGVtYWxhfGVufDF8MHx8fDE3ODI4NjMzNDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "guatemalacity_4",
+            "guatemalacity_24"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 417
+    },
+    {
+      "city": "antigua",
+      "count": 26,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 418
+    },
+    {
+      "city": "flores",
+      "count": 16,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Fan_i_Vogel_River_Valley.jpg",
+          "ids": [
+            "flores_1",
+            "flores_14"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 419
+    },
+    {
+      "city": "panajachel",
+      "count": 17,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 420
+    },
+    {
+      "city": "chichicast",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 421
+    },
+    {
+      "city": "quetzaltenango",
+      "count": 20,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 422
+    },
+    {
+      "city": "livingston",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 423
+    },
+    {
+      "city": "coban",
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
+      "needsWork": true,
+      "priorityRank": 424
+    },
+    {
+      "city": "belizecity",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 425
+    },
+    {
+      "city": "sanignacio",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 426
+    },
+    {
+      "city": "sanpedrobz",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 427
+    },
+    {
+      "city": "cayecaulker",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 428
+    },
+    {
+      "city": "placencia",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 429
+    },
+    {
+      "city": "dangriga",
+      "count": 19,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 430
+    },
+    {
+      "city": "orangewalk",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 431
+    },
+    {
+      "city": "tegucigalpa",
+      "count": 26,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/SanJuancito2010.jpg/960px-SanJuancito2010.jpg",
+          "ids": [
+            "tegucigalpa_9",
+            "tegucigalpa_23"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 432
+    },
+    {
+      "city": "copanruinas",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 433
+    },
+    {
+      "city": "roatan",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 434
+    },
+    {
+      "city": "laceiba",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 435
+    },
+    {
+      "city": "sanpedrosula",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 436
+    },
+    {
+      "city": "utila",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 437
+    },
+    {
+      "city": "comayagua",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 438
+    },
+    {
+      "city": "tela",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 439
+    },
+    {
+      "city": "sansalvador",
+      "count": 29,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Parque_Cuscatl%C3%A1n.jpg/960px-Parque_Cuscatl%C3%A1n.jpg",
+          "ids": [
+            "sansalvador_20",
+            "sansalvador_26"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 440
+    },
+    {
+      "city": "santaanasv",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 441
+    },
+    {
+      "city": "suchitoto",
+      "count": 11,
+      "duplicateGroups": [],
+      "missingCount": 4,
+      "needsWork": true,
+      "priorityRank": 442
+    },
+    {
+      "city": "rutadelasflor",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 443
+    },
+    {
+      "city": "lalibertad",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 444
+    },
+    {
+      "city": "joyaceren",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 445
+    },
+    {
+      "city": "sanmiguelsv",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 446
+    },
+    {
+      "city": "managua",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 447
+    },
+    {
+      "city": "granada_ni",
+      "count": 27,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 448
+    },
+    {
+      "city": "leon_ni",
+      "count": 22,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 449
+    },
+    {
+      "city": "ometepe",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 450
+    },
+    {
+      "city": "sanjuandelsur",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 451
+    },
+    {
+      "city": "masaya",
+      "count": 22,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Taurus_627-KLM_357MAG_008.jpg",
+          "ids": [
+            "masaya_0",
+            "masaya_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 452
+    },
+    {
+      "city": "esteli",
+      "count": 10,
+      "duplicateGroups": [],
+      "missingCount": 5,
+      "needsWork": true,
+      "priorityRank": 453
+    },
+    {
+      "city": "cornislands",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 454
+    },
+    {
+      "city": "sanjosecr",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 455
+    },
+    {
+      "city": "lafortuna",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 456
+    },
+    {
+      "city": "manuelantonio",
+      "count": 9,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Manuel_Antonio_CRI_07_2016_7495.jpg/960px-Manuel_Antonio_CRI_07_2016_7495.jpg",
+          "ids": [
+            "manuelantonio_0",
+            "manuelantonio_7"
+          ]
+        }
+      ],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 457
+    },
+    {
+      "city": "monteverdecr",
+      "count": 14,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Ilya_Triling_portrait_from_Klangen_fun_mayn_lebn.jpg",
+          "ids": [
+            "monteverdecr_0",
+            "monteverdecr_11"
+          ]
+        }
+      ],
+      "missingCount": 1,
+      "needsWork": true,
+      "priorityRank": 458
+    },
+    {
+      "city": "puertoviejo",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 459
+    },
+    {
+      "city": "tamarindo",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 460
+    },
+    {
+      "city": "tortuguero",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 461
+    },
+    {
+      "city": "jaco",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 462
+    },
+    {
+      "city": "quepos",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 463
+    },
+    {
+      "city": "liberia_cr",
+      "count": 13,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1734280397372-a0e9a1032fcf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMFJpbmMlQzMlQjNuJTIwZGUlMjBsYSUyMFZpZWphJTIwTGliZXJpYSUyMENvc3RhJTIwUmljYXxlbnwxfDB8fHwxNzgyOTIyODY3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "liberia_cr_0",
+            "liberia_cr_11"
+          ]
+        }
+      ],
+      "missingCount": 2,
+      "needsWork": true,
+      "priorityRank": 464
+    },
+    {
+      "city": "panamacity",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 465
+    },
+    {
+      "city": "bocasdeltoro",
+      "count": 10,
+      "duplicateGroups": [],
+      "missingCount": 5,
+      "needsWork": true,
+      "priorityRank": 466
+    },
+    {
+      "city": "boquete",
+      "count": 16,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Gaja_river.jpg",
+          "ids": [
+            "boquete_0",
+            "boquete_13"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 467
+    },
+    {
+      "city": "sanblas",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 468
+    },
+    {
+      "city": "elvalle",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 469
+    },
+    {
+      "city": "colon",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 470
+    },
+    {
+      "city": "pedasi",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 471
+    },
+    {
+      "city": "daviddechiriqui",
+      "count": 11,
+      "duplicateGroups": [],
+      "missingCount": 4,
+      "needsWork": true,
+      "priorityRank": 472
+    },
+    {
+      "city": "puertoplata",
+      "count": 11,
+      "duplicateGroups": [],
+      "missingCount": 4,
+      "needsWork": true,
+      "priorityRank": 473
+    },
+    {
+      "city": "samana",
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
+      "needsWork": true,
+      "priorityRank": 474
+    },
+    {
+      "city": "lasterrenas",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 475
+    },
+    {
+      "city": "jarabacoa",
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 476
+    },
+    {
+      "city": "laromana",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 477
+    },
+    {
+      "city": "santiago_dr",
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
+      "needsWork": true,
+      "priorityRank": 478
+    },
+    {
+      "city": "montegobay",
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
+      "needsWork": true,
+      "priorityRank": 479
+    },
+    {
+      "city": "negril",
+      "count": 10,
+      "duplicateGroups": [],
+      "missingCount": 5,
+      "needsWork": true,
+      "priorityRank": 480
+    },
+    {
+      "city": "ochorios",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 481
+    },
+    {
+      "city": "portantonio",
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 482
+    },
+    {
+      "city": "treasurebeach",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 483
+    },
+    {
+      "city": "luxembourgcity",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 484
+    },
+    {
+      "city": "vianden",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 485
+    },
+    {
+      "city": "echternach",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 486
+    },
+    {
+      "city": "elnido",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 487
+    },
+    {
+      "city": "yerevan",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 488
+    },
+    {
+      "city": "gyumri",
+      "count": 25,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 489
+    },
+    {
+      "city": "baku",
+      "count": 34,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 490
+    },
+    {
+      "city": "sheki",
+      "count": 23,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 491
+    },
+    {
+      "city": "manama",
+      "count": 26,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 492
+    },
+    {
+      "city": "dhaka",
+      "count": 29,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 493
+    },
+    {
+      "city": "coxsbazar",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 494
+    },
+    {
+      "city": "sylhet",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 495
+    },
+    {
+      "city": "thimphu",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 496
+    },
+    {
+      "city": "paro",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 497
+    },
+    {
+      "city": "punakha",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 498
+    },
+    {
+      "city": "hongkongisland",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 499
+    },
+    {
+      "city": "kowloon",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 500
+    },
+    {
+      "city": "lantauisland",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 501
+    },
+    {
+      "city": "almaty",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 502
+    },
+    {
+      "city": "astana",
+      "count": 23,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 503
+    },
+    {
+      "city": "turkistan",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 504
+    },
+    {
+      "city": "kuwaitcity",
+      "count": 19,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 505
+    },
+    {
+      "city": "bishkek",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 506
+    },
+    {
+      "city": "cholponata",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 507
+    },
+    {
+      "city": "osh",
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
+      "needsWork": true,
+      "priorityRank": 508
+    },
+    {
+      "city": "byblos",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 509
+    },
+    {
+      "city": "baalbek",
+      "count": 10,
+      "duplicateGroups": [],
+      "missingCount": 5,
+      "needsWork": true,
+      "priorityRank": 510
+    },
+    {
+      "city": "maafushi",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 511
+    },
+    {
+      "city": "ulaanbaatar",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 512
+    },
+    {
+      "city": "kharkhorin",
+      "count": 9,
+      "duplicateGroups": [],
+      "missingCount": 6,
+      "needsWork": true,
+      "priorityRank": 513
+    },
+    {
+      "city": "dalanzadgad",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 514
+    },
+    {
+      "city": "salalah",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 515
+    },
+    {
+      "city": "nizwa",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 516
+    },
+    {
+      "city": "lahore",
+      "count": 30,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 517
+    },
+    {
+      "city": "islamabad",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 518
+    },
+    {
+      "city": "karachi",
+      "count": 26,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 519
+    },
+    {
+      "city": "alula",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 520
+    },
+    {
+      "city": "medina",
+      "count": 22,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 521
+    },
+    {
+      "city": "dushanbe",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 522
+    },
+    {
+      "city": "khorog",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 523
+    },
+    {
+      "city": "ashgabat",
+      "count": 33,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 524
+    },
+    {
+      "city": "darvaza",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 525
+    },
+    {
+      "city": "sharjah",
+      "count": 20,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 526
+    },
+    {
+      "city": "tashkent",
+      "count": 32,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 527
+    },
+    {
+      "city": "samarkand",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 528
+    },
+    {
+      "city": "bukhara",
+      "count": 24,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 529
+    },
+    {
+      "city": "khiva",
+      "count": 20,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 530
+    },
+    {
+      "city": "gaborone",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 531
+    },
+    {
+      "city": "maun",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 532
+    },
+    {
+      "city": "kasane",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 533
+    },
+    {
+      "city": "yaounde",
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
+      "needsWork": true,
+      "priorityRank": 534
+    },
+    {
+      "city": "douala",
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 535
+    },
+    {
+      "city": "limbe",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 536
+    },
+    {
+      "city": "abidjan",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 537
+    },
+    {
+      "city": "yamoussoukro",
+      "count": 5,
+      "duplicateGroups": [],
+      "missingCount": 10,
+      "needsWork": true,
+      "priorityRank": 538
+    },
+    {
+      "city": "grandbassam",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 539
+    },
+    {
+      "city": "antananarivo",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 540
+    },
+    {
+      "city": "nosybe",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 541
+    },
+    {
+      "city": "andasibe",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 542
+    },
+    {
+      "city": "portlouis",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 543
+    },
+    {
+      "city": "grandbaie",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 544
+    },
+    {
+      "city": "chamarel",
+      "count": 20,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
+      "priorityRank": 545
+    },
+    {
+      "city": "maputo",
+      "count": 22,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Fortaleza_Maputo-2.jpg/960px-Fortaleza_Maputo-2.jpg",
+          "ids": [
+            "maputo_1",
+            "maputo_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 546
+    },
+    {
+      "city": "vilanculos",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 547
+    },
+    {
+      "city": "ilhademocambique",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 548
+    },
+    {
+      "city": "windhoek",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 549
+    },
+    {
+      "city": "swakopmund",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 550
+    },
+    {
+      "city": "sossusvlei",
+      "count": 3,
+      "duplicateGroups": [],
+      "missingCount": 12,
+      "needsWork": true,
+      "priorityRank": 551
+    },
+    {
+      "city": "etosha",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 552
+    },
+    {
+      "city": "walvisbay",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 553
+    },
+    {
+      "city": "kigali",
+      "count": 16,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1708772565588-33785e13aa46?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLaWdhbGklMjBHZW5vY2lkZSUyME1lbW9yaWFsJTIwS2lnYWxpJTIwUndhbmRhfGVufDF8MHx8fDE3ODMyOTA2OTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "kigali_8",
+            "kigali_15"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 554
+    },
+    {
+      "city": "musanze",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 555
+    },
+    {
+      "city": "victoriamahe",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 556
+    },
+    {
+      "city": "praslin",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 557
+    },
+    {
+      "city": "ladigue",
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
+      "needsWork": true,
+      "priorityRank": 558
+    },
+    {
+      "city": "kampala",
+      "count": 22,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Museum_Entrance_2.JPG/960px-Museum_Entrance_2.JPG",
+          "ids": [
+            "kampala_0",
+            "kampala_21"
+          ]
+        },
+        {
+          "imageUrl": "https://images.unsplash.com/photo-1614815684544-99ec63eebb3f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLYXN1YmklMjBUb21icyUyMEthbXBhbGElMjBVZ2FuZGF8ZW58MXwwfHx8MTc4MzI5NTU1NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "ids": [
+            "kampala_1",
+            "kampala_20"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 559
+    },
+    {
+      "city": "entebbe",
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
+      "needsWork": true,
+      "priorityRank": 560
+    },
+    {
+      "city": "jinja",
+      "count": 2,
+      "duplicateGroups": [],
+      "missingCount": 13,
+      "needsWork": true,
+      "priorityRank": 561
+    },
+    {
+      "city": "bwindi",
+      "count": 1,
+      "duplicateGroups": [],
+      "missingCount": 14,
+      "needsWork": true,
+      "priorityRank": 562
+    },
+    {
+      "city": "lusaka",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 563
+    },
+    {
+      "city": "livingstone",
+      "count": 16,
+      "duplicateGroups": [
+        {
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Livingstone_Museum%2C_Livingstone%2C_Zambia_-_200310.jpg/960px-Livingstone_Museum%2C_Livingstone%2C_Zambia_-_200310.jpg",
+          "ids": [
+            "livingstone_1",
+            "livingstone_15"
+          ]
+        }
+      ],
+      "missingCount": 0,
+      "needsWork": true,
+      "priorityRank": 564
+    },
+    {
+      "city": "southluangwa",
+      "count": 6,
+      "duplicateGroups": [],
+      "missingCount": 9,
+      "needsWork": true,
+      "priorityRank": 565
+    },
+    {
+      "city": "harare",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 566
+    },
+    {
+      "city": "bulawayo",
+      "count": 0,
+      "duplicateGroups": [],
+      "missingCount": 15,
+      "needsWork": true,
+      "priorityRank": 567
+    },
+    {
+      "city": "masvingo",
+      "count": 4,
+      "duplicateGroups": [],
+      "missingCount": 11,
+      "needsWork": true,
+      "priorityRank": 568
+    }
+  ]
+}
