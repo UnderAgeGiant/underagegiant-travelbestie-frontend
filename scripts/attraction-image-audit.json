@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T15:22:08.527Z",
+  "generatedAt": "2026-07-29T16:27:11.823Z",
   "totalCities": 569,
-  "citiesNeedingWork": 465,
+  "citiesNeedingWork": 464,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -55,37 +55,18 @@
     },
     {
       "city": "istanbul",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "istanbul_0",
-            "istanbul_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 6
     },
     {
       "city": "kualalumpur",
-      "count": 8,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1573827184973-dbfc051106f3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrdWFsYWx1bXB1ciUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMTc2NTM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "kualalumpur_1",
-            "kualalumpur_3",
-            "kualalumpur_4",
-            "kualalumpur_5",
-            "kualalumpur_7"
-          ]
-        }
-      ],
-      "missingCount": 7,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 7
     },
     {
