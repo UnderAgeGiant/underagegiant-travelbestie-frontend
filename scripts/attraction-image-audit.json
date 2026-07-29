@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T19:08:16.586Z",
+  "generatedAt": "2026-07-29T19:18:03.714Z",
   "totalCities": 569,
-  "citiesNeedingWork": 426,
+  "citiesNeedingWork": 421,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -512,61 +512,41 @@
     {
       "city": "kingston",
       "count": 29,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/BLT_Wikipedia_Edit-a-thon_at_the_National_Gallery_of_Jamaica_23.jpg/960px-BLT_Wikipedia_Edit-a-thon_at_the_National_Gallery_of_Jamaica_23.jpg",
-          "ids": [
-            "kingston_1",
-            "kingston_27"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 62
     },
     {
       "city": "sydney",
-      "count": 6,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "sydney_0",
-            "sydney_1",
-            "sydney_2",
-            "sydney_3",
-            "sydney_4",
-            "sydney_5"
-          ]
-        }
-      ],
-      "missingCount": 9,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 63
     },
     {
       "city": "melbourne",
-      "count": 7,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 8,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 64
     },
     {
       "city": "auckland",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 65
     },
     {
       "city": "queenstown",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 66
     },
     {
