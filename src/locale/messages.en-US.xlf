@@ -1229,8 +1229,8 @@
         <target>✓ Published Trip</target>
       </trans-unit>
       <trans-unit id="myTrips.cloneBtn" datatype="html">
-        <source>Clonar</source>
-        <target>Clone</target>
+        <source>Duplicar</source>
+        <target>Duplicate</target>
       </trans-unit>
       <trans-unit id="myTrips.deleteBtn" datatype="html">
         <source>Eliminar</source>

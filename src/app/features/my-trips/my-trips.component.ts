@@ -84,8 +84,8 @@ import { environment } from '../../../environments/environment';
                         <button class="saved-plan-act-btn"
                                 [disabled]="cloningId() === plan.id"
                                 (click)="$event.stopPropagation(); confirmCloneId.set(plan.id)"
-                                title="Clonar viaje">
-                          {{ cloningId() === plan.id ? '⏳' : '📋' }} <span i18n="@@myTrips.cloneBtn">Clonar</span>
+                                title="Duplicar viaje">
+                          {{ cloningId() === plan.id ? '⏳' : '📋' }} <span i18n="@@myTrips.cloneBtn">Duplicar</span>
                         </button>
                         <button class="saved-plan-act-btn"
                                 (click)="$event.stopPropagation(); confirmDeleteId.set(plan.id)"
@@ -96,45 +96,47 @@ import { environment } from '../../../environments/environment';
                       </div>
                     </div>
 
-                    <div class="saved-plan-actions">
-                      <button class="btn-pill btn-primary"
-                              style="flex:1;justify-content:center;gap:7px"
-                              (click)="loadAndModify(plan)" type="button"
-                              i18n="@@myTrips.modifyPlanBtn">
-                        ✏️ Modificar mi plan
-                      </button>
-                      @if (planShareId(plan)) {
-                        <button class="btn-pill btn-ghost"
-                                style="justify-content:center;gap:7px"
-                                (click)="sharePlan(plan)" type="button"
-                                i18n="@@myTrips.viewPublishedBtn">
-                          🔗 Ver viaje publicado
+                    @if (selectedPlanId() === plan.id) {
+                      <div class="saved-plan-actions">
+                        <button class="btn-pill btn-primary"
+                                style="flex:1;justify-content:center;gap:7px"
+                                (click)="loadAndModify(plan)" type="button"
+                                i18n="@@myTrips.modifyPlanBtn">
+                          ✏️ Modificar mi plan
                         </button>
-                        <button class="btn-pill btn-outline"
-                                style="justify-content:center;gap:6px"
-                                (click)="shareNative(plan)" type="button"
-                                i18n="@@share.shareBtn">📤 Compartir</button>
-                      } @else {
-                        <button class="btn-pill btn-outline"
-                                style="justify-content:center;gap:6px"
-                                (click)="sharePlan(plan)" type="button"
-                                i18n="@@myTrips.publishBtn">
-                          📤 Publicar
-                        </button>
-                      }
-                      <button class="btn-pill btn-outline"
-                              style="justify-content:center;gap:6px;white-space:nowrap"
-                              [disabled]="exportingPlanId() === plan.id"
-                              (click)="downloadItinerary(plan)" type="button">
-                        {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
-                        @if (!plan.exportedAt) {
-                          <span class="karma-cost">−1 ✨ karma</span>
+                        @if (planShareId(plan)) {
+                          <button class="btn-pill btn-ghost"
+                                  style="justify-content:center;gap:7px"
+                                  (click)="sharePlan(plan)" type="button"
+                                  i18n="@@myTrips.viewPublishedBtn">
+                            🔗 Ver viaje publicado
+                          </button>
+                          <button class="btn-pill btn-outline"
+                                  style="justify-content:center;gap:6px"
+                                  (click)="shareNative(plan)" type="button"
+                                  i18n="@@share.shareBtn">📤 Compartir</button>
+                        } @else {
+                          <button class="btn-pill btn-outline"
+                                  style="justify-content:center;gap:6px"
+                                  (click)="sharePlan(plan)" type="button"
+                                  i18n="@@myTrips.publishBtn">
+                            📤 Publicar
+                          </button>
                         }
-                      </button>
-                      @if (shareError() === plan.id) {
-                        <span class="share-error">Karma insuficiente</span>
-                      }
-                    </div>
+                        <button class="btn-pill btn-outline"
+                                style="justify-content:center;gap:6px;white-space:nowrap"
+                                [disabled]="exportingPlanId() === plan.id"
+                                (click)="downloadItinerary(plan)" type="button">
+                          {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
+                          @if (!plan.exportedAt) {
+                            <span class="karma-cost">−1 ✨ karma</span>
+                          }
+                        </button>
+                        @if (shareError() === plan.id) {
+                          <span class="share-error">Karma insuficiente</span>
+                        }
+                      </div>
+                    }
 
                     @if (selectedPlanId() === plan.id) {
                       <div class="saved-plan-itin">
@@ -206,7 +208,7 @@ import { environment } from '../../../environments/environment';
       <div class="modal-backdrop" (click)="confirmCloneId.set(null)">
         <div class="modal" (click)="$event.stopPropagation()" style="max-width:340px">
           <div class="modal-head" style="background:linear-gradient(135deg,var(--lav),var(--peach))">
-            <div class="modal-title">📋 Clonar viaje</div>
+            <div class="modal-title">📋 Duplicar viaje</div>
             <div class="modal-sub">{{ planName(confirmCloneId()!) }}</div>
           </div>
           <div class="modal-body" style="padding:20px 24px">
@@ -217,7 +219,7 @@ import { environment } from '../../../environments/environment';
           </div>
           <div class="modal-foot" style="gap:8px">
             <button class="btn-pill btn-outline" style="flex:1" (click)="confirmCloneId.set(null)" type="button">Cancelar</button>
-            <button class="btn-pill btn-primary" style="flex:1" (click)="confirmClonePlan()" type="button">📋 Clonar</button>
+            <button class="btn-pill btn-primary" style="flex:1" (click)="confirmClonePlan()" type="button">📋 Duplicar</button>
           </div>
         </div>
       </div>
