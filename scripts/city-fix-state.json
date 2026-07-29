@@ -3,5 +3,9 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "tokyo": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
