@@ -39,6 +39,7 @@ function loadState() {
 function saveState(state) {
   writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
 }
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function main() {
   if (existsSync(FLAG_FILE)) { console.log('GOAL_MET.flag present — nothing to do.'); return; }
@@ -97,6 +98,7 @@ async function main() {
       state[candidate.city] = cityState;
     }
     saveState(state);
+    if (i < MAX_CITIES - 1) await sleep(3000); // courtesy delay before hitting Overpass again
   }
 
   if (auditReport.goalMet) writeFileSync(FLAG_FILE, `Goal met at ${auditReport.generatedAt}\n`);
