@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T19:26:08.680Z",
+  "generatedAt": "2026-07-29T19:33:18.147Z",
   "totalCities": 569,
   "citiesNeedingWork": 420,
   "goalMet": false,
@@ -567,19 +567,9 @@
     },
     {
       "city": "naples",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "naples_0",
-            "naples_1",
-            "naples_2",
-            "naples_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 69
     },
@@ -591,11 +581,7 @@
           "imageUrl": "https://images.unsplash.com/photo-1597435877886-5e23d2e10da6?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "verona_0",
-            "verona_1",
-            "verona_2",
-            "verona_3",
-            "verona_4",
-            "verona_5"
+            "verona_3"
           ]
         }
       ],
