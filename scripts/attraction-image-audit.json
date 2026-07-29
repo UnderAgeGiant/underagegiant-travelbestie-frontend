@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T16:44:17.171Z",
+  "generatedAt": "2026-07-29T16:53:23.113Z",
   "totalCities": 569,
   "citiesNeedingWork": 459,
   "goalMet": false,
@@ -127,27 +127,17 @@
     },
     {
       "city": "seoul",
-      "count": 5,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 10,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 15
     },
     {
       "city": "osaka",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "osaka_0",
-            "osaka_1",
-            "osaka_2",
-            "osaka_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 16
     },
