@@ -40,7 +40,12 @@
     "stuck": true
   },
   "marrakech": {
-    "attempts": 2,
-    "radiusKm": 23
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "fez": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }
