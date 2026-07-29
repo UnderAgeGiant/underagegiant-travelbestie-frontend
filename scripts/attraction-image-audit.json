@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-29T14:17:17.719Z",
+  "generatedAt": "2026-07-29T14:19:37.678Z",
   "totalCities": 569,
-  "citiesNeedingWork": 467,
+  "citiesNeedingWork": 466,
   "goalMet": false,
-  "nextCity": "dubai",
+  "nextCity": "singapore",
   "cities": [
     {
       "city": "bangkok",
@@ -31,10 +31,10 @@
     },
     {
       "city": "dubai",
-      "count": 7,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 8,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 3
     },
     {
