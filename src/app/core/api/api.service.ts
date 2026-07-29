@@ -5,7 +5,7 @@ import { switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
-import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse } from '../models/ai.model';
+import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
@@ -192,6 +192,8 @@ export class ApiService {
     existingAttractionIds: string[],
     cityCatalog: CatalogEntry[],
     isFollowUp = false,
+    existingSchedule: SuggestionScheduleEntry[] = [],
+    departureTimes: SuggestionDeparture[] = [],
   ): Observable<SuggestCityAttractionsResponse> {
     if (this.useMocks) {
       const candidates = cityCatalog.filter(c => !existingAttractionIds.includes(c.id)).slice(0, 3);
@@ -211,7 +213,7 @@ export class ApiService {
       });
     }
     return this.http.post<SuggestCityAttractionsResponse>(`${this.base}/ai/suggest-attractions`, {
-      cityId, checkIn, checkOut, existingAttractionIds, cityCatalog, isFollowUp,
+      cityId, checkIn, checkOut, existingAttractionIds, cityCatalog, isFollowUp, existingSchedule, departureTimes,
     });
   }
 

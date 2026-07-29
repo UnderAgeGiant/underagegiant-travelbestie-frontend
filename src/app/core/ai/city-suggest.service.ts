@@ -52,8 +52,17 @@ export class CitySuggestService {
     const catalogMap  = await this.catalog.getCityCatalog([stop.cityId]);
     const cityCatalog = catalogMap[stop.cityId] ?? [];
 
-    this.api.suggestCityAttractions(stop.cityId, stop.checkIn, stop.checkOut, existingAttractionIds, cityCatalog, isFollowUp)
-      .subscribe({
+    const existingSchedule = stop.selectedAttractions.flatMap(a =>
+      a.date && a.startTime && a.endTime ? [{ date: a.date, startTime: a.startTime, endTime: a.endTime }] : [],
+    );
+    const departureTimes = this.trip.transits()
+      .filter(t => t.fromCityId === stop.cityId && t.segments.length > 0)
+      .map(t => ({ date: t.segments[0].departureDate, time: t.segments[0].departureTime }));
+
+    this.api.suggestCityAttractions(
+      stop.cityId, stop.checkIn, stop.checkOut, existingAttractionIds, cityCatalog, isFollowUp,
+      existingSchedule, departureTimes,
+    ).subscribe({
         next: res => {
           this._loading.set(false);
           this._suggestions.set(res.suggestions);
