@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T19:46:32.090Z",
+  "generatedAt": "2026-07-29T23:20:33.686Z",
   "totalCities": 569,
   "citiesNeedingWork": 420,
   "goalMet": false,
@@ -615,17 +615,9 @@
     },
     {
       "city": "seville",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1511527844966-d4a7d73b9923?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "seville_0",
-            "seville_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 74
     },
