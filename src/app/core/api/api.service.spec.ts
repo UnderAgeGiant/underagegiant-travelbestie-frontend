@@ -187,7 +187,7 @@ describe('ApiService.suggestCityAttractions() — real HTTP', () => {
 
   afterEach(() => http.verify());
 
-  it('posts cityId, dates, existing IDs and the city catalog to /ai/suggest-attractions', () => {
+  it('posts cityId, dates, existing IDs and the city catalog to /ai/suggest-attractions, defaulting isFollowUp to false', () => {
     service.suggestCityAttractions(
       'paris', '01/07/2026', '05/07/2026', ['paris_0'],
       [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
@@ -200,7 +200,20 @@ describe('ApiService.suggestCityAttractions() — real HTTP', () => {
       checkOut: '05/07/2026',
       existingAttractionIds: ['paris_0'],
       cityCatalog: [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
+      isFollowUp: false,
     });
+    req.flush({ suggestions: [] });
+  });
+
+  it('posts isFollowUp: true when explicitly requested (free "search more" call)', () => {
+    service.suggestCityAttractions(
+      'paris', '01/07/2026', '05/07/2026', ['paris_0'],
+      [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
+      true,
+    ).subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions') && r.method === 'POST');
+    expect(req.request.body.isFollowUp).toBe(true);
     req.flush({ suggestions: [] });
   });
 });

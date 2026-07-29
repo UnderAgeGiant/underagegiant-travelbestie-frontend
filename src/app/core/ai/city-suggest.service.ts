@@ -24,26 +24,27 @@ export class CitySuggestService {
   readonly suggestions   = this._suggestions.asReadonly();
   readonly error         = this._error.asReadonly();
 
-  /** Opens the cloud for `stop` immediately (loading state), then fetches suggestions. */
+  /** Opens the cloud for `stop` immediately (loading state), then fetches suggestions. Costs karma. */
   async request(stop: TripStop): Promise<void> {
     this._openForStopId.set(stop.stopId);
-    await this.fetchSuggestions(stop, stop.selectedAttractions.map(a => a.attractionId));
+    await this.fetchSuggestions(stop, stop.selectedAttractions.map(a => a.attractionId), false);
   }
 
   /**
    * Re-requests suggestions for the stop the cloud is already open for, without closing it.
    * Excludes both already-planned attractions and the batch just shown, so DeepSeek doesn't
-   * repeat itself.
+   * repeat itself. Sent with isFollowUp: true so the backend treats it as free — only the
+   * first suggestion request per stop-card click costs karma.
    */
   async searchMore(stop: TripStop): Promise<void> {
     const excludeIds = [
       ...stop.selectedAttractions.map(a => a.attractionId),
       ...this._suggestions().map(s => s.attractionId),
     ];
-    await this.fetchSuggestions(stop, excludeIds);
+    await this.fetchSuggestions(stop, excludeIds, true);
   }
 
-  private async fetchSuggestions(stop: TripStop, existingAttractionIds: string[]): Promise<void> {
+  private async fetchSuggestions(stop: TripStop, existingAttractionIds: string[], isFollowUp: boolean): Promise<void> {
     this._loading.set(true);
     this._error.set(null);
     this._suggestions.set([]);
@@ -51,7 +52,7 @@ export class CitySuggestService {
     const catalogMap  = await this.catalog.getCityCatalog([stop.cityId]);
     const cityCatalog = catalogMap[stop.cityId] ?? [];
 
-    this.api.suggestCityAttractions(stop.cityId, stop.checkIn, stop.checkOut, existingAttractionIds, cityCatalog)
+    this.api.suggestCityAttractions(stop.cityId, stop.checkIn, stop.checkOut, existingAttractionIds, cityCatalog, isFollowUp)
       .subscribe({
         next: res => {
           this._loading.set(false);

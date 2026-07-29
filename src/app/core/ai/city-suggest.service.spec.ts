@@ -50,6 +50,7 @@ describe('CitySuggestService', () => {
     expect(req.request.body.cityId).toBe('paris');
     expect(req.request.body.checkIn).toBe('01/07/2026');
     expect(req.request.body.checkOut).toBe('05/07/2026');
+    expect(req.request.body.isFollowUp).toBe(false);
     req.flush({ suggestions: [{ attractionId: 'paris_0', date: '02/07/2026', startTime: '10:00', endTime: '11:00', reason: 'Cerca de tu hotel' }] });
 
     expect(service.loading()).toBe(false);
@@ -98,6 +99,7 @@ describe('CitySuggestService', () => {
 
     const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
     expect(req.request.body.existingAttractionIds.sort()).toEqual(['paris_0', 'paris_9']);
+    expect(req.request.body.isFollowUp).toBe(true);
     req.flush({ suggestions: [{ attractionId: 'paris_2', date: '03/07/2026', startTime: '09:00', endTime: '10:00', reason: 'y' }] });
 
     expect(service.loading()).toBe(false);
