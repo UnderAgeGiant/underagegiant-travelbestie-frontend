@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T17:23:26.381Z",
+  "generatedAt": "2026-07-29T17:29:03.704Z",
   "totalCities": 569,
-  "citiesNeedingWork": 453,
+  "citiesNeedingWork": 452,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -231,25 +231,17 @@
     },
     {
       "city": "agra",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 27
     },
     {
       "city": "mumbai",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "mumbai_0",
-            "mumbai_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 28
     },

@@ -34,8 +34,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "agra": {
-    "attempts": 3,
-    "radiusKm": 35
+  "mumbai": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
