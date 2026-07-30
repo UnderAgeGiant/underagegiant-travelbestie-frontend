@@ -36,11 +36,38 @@
  * browser then resolves those explicit paths against the real origin
  * root regardless of <base href>, so assets keep loading from the correct
  * locale folder while the Router only ever sees base href="/".
+ *
+ * IMPORTANT #3 — public/ assets referenced at RUNTIME (not from
+ * index.html) also need a root copy. Fix #2 only rewrites references that
+ * live inside the two index.html documents (the initial script/link/
+ * favicon tags). But plenty of components reference public/ assets
+ * directly in their templates — e.g. <img src="world-map.webp"> in
+ * ProfileComponent, <img src="/small-black-dog.png"> in
+ * AiPlanningComponent/CitySuggestCloudComponent, team photos in
+ * AboutComponent — compiled into the JS bundles, not index.html, so
+ * fix #2's rewrite never touches them. With <base href="/">, those
+ * template-level references resolve against the dist ROOT, but the
+ * actual files only exist inside es-CL/ and en-US/ (Angular gives each
+ * locale its own full self-contained copy) — so every such image 404s.
+ * On this local preview server (and identically on real Vercel, since
+ * its rewrite gives real files precedence but there IS no real file at
+ * that root path) the 404 gets masked by the SPA-fallback rewrite
+ * serving index.html's *HTML* bytes in place of the image, which the
+ * <img> tag then fails to decode — rendering as a blank/broken image,
+ * confirmed live via chrome-devtools network inspection (200 status,
+ * wrong content-type, broken render).
+ *
+ * Fix: copy the actual public/ SOURCE folder straight to the dist root.
+ * Its contents are by definition locale-independent (untranslated static
+ * assets), so a single root copy is correct and unambiguous — no
+ * filename-collision risk like the Angular-emitted hashed bundles have,
+ * since these names never change between locale builds.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, cpSync } from 'node:fs';
 import { join } from 'node:path';
 
 const DIST = join('dist', 'underagegiant-travelbestie-frontend', 'browser');
+const PUBLIC = 'public';
 
 // Matches href="..." / src="..." values that are relative (no scheme, no
 // leading slash) — i.e. exactly the asset references Angular emits
@@ -59,3 +86,6 @@ function publishIndex(locale, indexTargetName) {
 
 publishIndex('es-CL', 'index.html');
 publishIndex('en-US', 'index.en-US.html');
+
+cpSync(PUBLIC, DIST, { recursive: true });
+console.log(`post-build: copied ${PUBLIC}/ -> dist root (locale-independent assets, fixes runtime-referenced <img> paths)`);
