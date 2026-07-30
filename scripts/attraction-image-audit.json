@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T18:38:18.167Z",
+  "generatedAt": "2026-07-30T18:49:14.070Z",
   "totalCities": 569,
-  "citiesNeedingWork": 368,
+  "citiesNeedingWork": 367,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1647,25 +1647,25 @@
     },
     {
       "city": "iquitos",
-      "count": 11,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 4,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 197
     },
     {
       "city": "trujillo",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 198
     },
     {
       "city": "huaraz",
-      "count": 0,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 199
     },
