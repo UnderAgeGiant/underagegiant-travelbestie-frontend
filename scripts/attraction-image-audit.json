@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T00:48:27.642Z",
+  "generatedAt": "2026-07-30T00:52:22.187Z",
   "totalCities": 569,
-  "citiesNeedingWork": 407,
+  "citiesNeedingWork": 404,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -808,41 +808,25 @@
     {
       "city": "yangon",
       "count": 26,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Yangon_-_Shwedagon_Pagoda_03.jpg/960px-Yangon_-_Shwedagon_Pagoda_03.jpg",
-          "ids": [
-            "yangon_2",
-            "yangon_3"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 98
     },
     {
       "city": "manila",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 12,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 99
     },
     {
       "city": "cebu",
       "count": 28,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Basilica_Minore_del_Santo_Ni%C3%B1o_de_Cebu_%28Osme%C3%B1a_Boulevard%2C_Cebu_City%3B_09-05-2022%29.jpg/960px-Basilica_Minore_del_Santo_Ni%C3%B1o_de_Cebu_%28Osme%C3%B1a_Boulevard%2C_Cebu_City%3B_09-05-2022%29.jpg",
-          "ids": [
-            "cebu_4",
-            "cebu_9"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 100
     },
     {
