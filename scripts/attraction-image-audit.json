@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T17:39:05.442Z",
+  "generatedAt": "2026-07-30T17:47:48.161Z",
   "totalCities": 569,
   "citiesNeedingWork": 372,
   "goalMet": false,
@@ -1543,9 +1543,9 @@
     },
     {
       "city": "pokhara",
-      "count": 3,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 185
     },

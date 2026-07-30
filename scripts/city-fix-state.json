@@ -265,7 +265,12 @@
     "stuck": true
   },
   "hiroshima": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "pokhara": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
