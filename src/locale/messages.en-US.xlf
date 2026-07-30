@@ -1376,6 +1376,10 @@
         <source>🗺 Mis viajes</source>
         <target>🗺 My trips</target>
       </trans-unit>
+      <trans-unit id="nav.mySharedTrips" datatype="html">
+        <source>Mis viajes compartidos</source>
+        <target>My shared trips</target>
+      </trans-unit>
       <trans-unit id="share.shareBtn" datatype="html">
         <source>📤 Compartir</source>
         <target>📤 Share</target>
@@ -1593,6 +1597,202 @@
       <trans-unit id="profile.aiBtn" datatype="html">
         <source>✨ Nuevo viaje con IA</source>
         <target>✨ New trip with AI</target>
+      </trans-unit>
+
+      <!-- ── profile.component: full translation pass ── -->
+      <trans-unit id="profile.title" datatype="html">
+        <source>Mi Perfil</source>
+        <target>My Profile</target>
+      </trans-unit>
+      <trans-unit id="profile.backBtn" datatype="html">
+        <source>← Volver</source>
+        <target>← Back</target>
+      </trans-unit>
+      <trans-unit id="profile.editAccountTitle" datatype="html">
+        <source>Editar cuenta ✏️</source>
+        <target>Edit account ✏️</target>
+      </trans-unit>
+      <trans-unit id="profile.nameTitle" datatype="html">
+        <source>Nombre</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="profile.displayNameLabel" datatype="html">
+        <source>Nombre para mostrar</source>
+        <target>Display name</target>
+      </trans-unit>
+      <trans-unit id="profile.namePlaceholder" datatype="html">
+        <source>Tu nombre</source>
+        <target>Your name</target>
+      </trans-unit>
+      <trans-unit id="profile.saveNameBtn" datatype="html">
+        <source>Guardar nombre</source>
+        <target>Save name</target>
+      </trans-unit>
+      <trans-unit id="profile.emailTitle" datatype="html">
+        <source>Correo electrónico</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="profile.newEmailLabel" datatype="html">
+        <source>Nueva dirección de correo</source>
+        <target>New email address</target>
+      </trans-unit>
+      <trans-unit id="profile.newEmailPlaceholder" datatype="html">
+        <source>nuevo@correo.com</source>
+        <target>new@email.com</target>
+      </trans-unit>
+      <trans-unit id="profile.sendingMsg" datatype="html">
+        <source>Enviando…</source>
+        <target>Sending…</target>
+      </trans-unit>
+      <trans-unit id="profile.sentMsg" datatype="html">
+        <source>Enviado</source>
+        <target>Sent</target>
+      </trans-unit>
+      <trans-unit id="profile.sendCodeBtn" datatype="html">
+        <source>Enviar código →</source>
+        <target>Send code →</target>
+      </trans-unit>
+      <trans-unit id="profile.checkEmailTitle" datatype="html">
+        <source>Revisa tu correo</source>
+        <target>Check your email</target>
+      </trans-unit>
+      <trans-unit id="profile.codeSentTo" datatype="html">
+        <source> Código enviado a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ editNewEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
+                    </source>
+        <target> Code sent to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ editNewEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
+                    </target>
+      </trans-unit>
+      <trans-unit id="profile.otpLabel" datatype="html">
+        <source>Código de verificación</source>
+        <target>Verification code</target>
+      </trans-unit>
+      <trans-unit id="profile.changeEmailBtn" datatype="html">
+        <source>← Cambiar correo</source>
+        <target>← Change email</target>
+      </trans-unit>
+      <trans-unit id="profile.resendCodeBtn" datatype="html">
+        <source>Reenviar código</source>
+        <target>Resend code</target>
+      </trans-unit>
+      <trans-unit id="profile.verifyingMsg" datatype="html">
+        <source>Verificando…</source>
+        <target>Verifying…</target>
+      </trans-unit>
+      <trans-unit id="profile.updatedMsg" datatype="html">
+        <source>Actualizado</source>
+        <target>Updated</target>
+      </trans-unit>
+      <trans-unit id="profile.updateEmailBtn" datatype="html">
+        <source>Actualizar correo →</source>
+        <target>Update email →</target>
+      </trans-unit>
+      <trans-unit id="profile.passwordTitle" datatype="html">
+        <source>Contraseña</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="profile.currentPasswordLabel" datatype="html">
+        <source>Contraseña actual</source>
+        <target>Current password</target>
+      </trans-unit>
+      <trans-unit id="profile.hideBtn" datatype="html">
+        <source>Ocultar</source>
+        <target>Hide</target>
+      </trans-unit>
+      <trans-unit id="profile.showBtn" datatype="html">
+        <source>Ver</source>
+        <target>Show</target>
+      </trans-unit>
+      <trans-unit id="profile.newPasswordLabel" datatype="html">
+        <source>Nueva contraseña</source>
+        <target>New password</target>
+      </trans-unit>
+      <trans-unit id="profile.strengthVulnerable" datatype="html">
+        <source>Vulnerable</source>
+        <target>Weak</target>
+      </trans-unit>
+      <trans-unit id="profile.strengthLight" datatype="html">
+        <source>Moderada</source>
+        <target>Moderate</target>
+      </trans-unit>
+      <trans-unit id="profile.strengthStrong" datatype="html">
+        <source>Fuerte</source>
+        <target>Strong</target>
+      </trans-unit>
+      <trans-unit id="profile.updatingMsg" datatype="html">
+        <source>Actualizando…</source>
+        <target>Updating…</target>
+      </trans-unit>
+      <trans-unit id="profile.passwordUpdatedMsg" datatype="html">
+        <source>Actualizada</source>
+        <target>Updated</target>
+      </trans-unit>
+      <trans-unit id="profile.updatePasswordBtn" datatype="html">
+        <source>Actualizar contraseña</source>
+        <target>Update password</target>
+      </trans-unit>
+      <trans-unit id="profile.myTripsTitle" datatype="html">
+        <source>Mis planificaciones ✈️</source>
+        <target>My trips ✈️</target>
+      </trans-unit>
+      <trans-unit id="profile.noTripsYet" datatype="html">
+        <source>Aún no tienes destinos planificados. ¡Agrega tu primera ciudad!</source>
+        <target>You haven't planned any destinations yet. Add your first city!</target>
+      </trans-unit>
+      <trans-unit id="profile.currentTripLabel" datatype="html">
+        <source>Viaje actual</source>
+        <target>Current trip</target>
+      </trans-unit>
+      <trans-unit id="profile.citiesLabel" datatype="html">
+        <source>Ciudades</source>
+        <target>Cities</target>
+      </trans-unit>
+      <trans-unit id="profile.attractionsLabel" datatype="html">
+        <source>Atracciones</source>
+        <target>Attractions</target>
+      </trans-unit>
+      <trans-unit id="profile.visitedPlacesTitle" datatype="html">
+        <source>Lugares visitados 🗺</source>
+        <target>Visited places 🗺</target>
+      </trans-unit>
+      <trans-unit id="profile.loginToSavePlaces" datatype="html">
+        <source>Inicia sesión para guardar tus lugares visitados en el mapa.</source>
+        <target>Sign in to save the places you've visited on the map.</target>
+      </trans-unit>
+      <trans-unit id="profile.mapHint" datatype="html">
+        <source> Haz clic en el mapa para marcar un lugar que ya visitaste. Pasa el cursor sobre un pin para eliminarlo. </source>
+        <target> Click the map to mark a place you've already visited. Hover over a pin to remove it. </target>
+      </trans-unit>
+      <trans-unit id="profile.worldMapAlt" datatype="html">
+        <source>World map</source>
+        <target>World map</target>
+      </trans-unit>
+      <trans-unit id="profile.placeVisitedPlaceholder" datatype="html">
+        <source>¿Qué lugar visitaste?</source>
+        <target>What place did you visit?</target>
+      </trans-unit>
+      <trans-unit id="profile.addPinBtn" datatype="html">
+        <source>Agregar</source>
+        <target>Add</target>
+      </trans-unit>
+      <trans-unit id="profile.pinsMarkedCount" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugar<x id="INTERPOLATION_1" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;es&apos; : &apos;&apos; }}"/> marcado<x id="INTERPOLATION_2" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;s&apos; : &apos;&apos; }}"/> </source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> place<x id="INTERPOLATION_1" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;es&apos; : &apos;&apos; }}"/> marked<x id="INTERPOLATION_2" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;s&apos; : &apos;&apos; }}"/></target>
+      </trans-unit>
+      <trans-unit id="profile.errNameEmpty" datatype="html">
+        <source>El nombre no puede estar vacío.</source>
+        <target>Name can't be empty.</target>
+      </trans-unit>
+      <trans-unit id="profile.errEmailEmpty" datatype="html">
+        <source>Ingresa la nueva dirección de correo.</source>
+        <target>Enter the new email address.</target>
+      </trans-unit>
+      <trans-unit id="profile.errPasswordsMismatch" datatype="html">
+        <source>Las contraseñas no coinciden.</source>
+        <target>Passwords don't match.</target>
+      </trans-unit>
+      <trans-unit id="profile.errPasswordTooShort" datatype="html">
+        <source>La contraseña debe tener al menos 6 caracteres.</source>
+        <target>Password must be at least 6 characters.</target>
       </trans-unit>
 
       <!-- ── stop-list.component: date-save controls ── -->

@@ -15,8 +15,8 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
       <!-- Header bar -->
       <div class="prof-bar">
-        <button class="back-btn" (click)="close.emit()" type="button">← Volver</button>
-        <div class="prof-bar-title">Mi Perfil</div>
+        <button class="back-btn" (click)="close.emit()" type="button" i18n="@@profile.backBtn">← Volver</button>
+        <div class="prof-bar-title" i18n="@@profile.title">Mi Perfil</div>
       </div>
 
       <!-- Scrollable body -->
@@ -33,7 +33,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
         <!-- Edit account accordion -->
         <section>
-          <div class="section-head">Editar cuenta ✏️</div>
+          <div class="section-head" i18n="@@profile.editAccountTitle">Editar cuenta ✏️</div>
           @if (editErrorCode() || editError()) {
             <div class="profile-error" style="margin:0 0 10px">
               @if (editErrorCode()) {
@@ -87,7 +87,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             <button class="profile-accordion-hd" (click)="toggleEditSection('name')" type="button">
               <span style="font-size:17px">👤</span>
               <div style="flex:1;text-align:left">
-                <div class="profile-accordion-title">Nombre</div>
+                <div class="profile-accordion-title" i18n="@@profile.nameTitle">Nombre</div>
                 @if (editSection() !== 'name') {
                   <div class="profile-accordion-sub">{{ auth.currentUser()?.name }}</div>
                 }
@@ -101,8 +101,8 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             @if (editSection() === 'name') {
               <div class="profile-accordion-bd">
                 <div class="form-group" style="margin-bottom:14px">
-                  <label class="form-label">Nombre para mostrar</label>
-                  <input class="form-input" placeholder="Tu nombre"
+                  <label class="form-label" i18n="@@profile.displayNameLabel">Nombre para mostrar</label>
+                  <input class="form-input" i18n-placeholder="@@profile.namePlaceholder" placeholder="Tu nombre"
                          [value]="editDisplayName()"
                          (input)="editDisplayName.set($any($event.target).value)" />
                 </div>
@@ -112,11 +112,11 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                         [style.background]="editSavedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''"
                         [style.border-color]="editSavedTab() === 'name' ? 'oklch(50% 0.16 145)' : ''">
                   @if (editLoading()) {
-                    <span class="btn-spinner"></span> Guardando…
+                    <span class="btn-spinner"></span> <ng-container i18n="@@profile.saving">Guardando…</ng-container>
                   } @else if (editSavedTab() === 'name') {
-                    ✓ Guardado
+                    ✓ <ng-container i18n="@@profile.saved">Guardado</ng-container>
                   } @else {
-                    Guardar nombre
+                    <ng-container i18n="@@profile.saveNameBtn">Guardar nombre</ng-container>
                   }
                 </button>
               </div>
@@ -128,7 +128,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             <button class="profile-accordion-hd" (click)="toggleEditSection('email')" type="button">
               <span style="font-size:17px">✉️</span>
               <div style="flex:1;text-align:left">
-                <div class="profile-accordion-title">Correo electrónico</div>
+                <div class="profile-accordion-title" i18n="@@profile.emailTitle">Correo electrónico</div>
                 @if (editSection() !== 'email') {
                   <div class="profile-accordion-sub">{{ auth.currentUser()?.email }}</div>
                 }
@@ -143,8 +143,8 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
               <div class="profile-accordion-bd">
                 @if (!editEmailOtpSent()) {
                   <div class="form-group" style="margin-bottom:14px">
-                    <label class="form-label">Nueva dirección de correo</label>
-                    <input class="form-input" type="email" placeholder="nuevo@correo.com"
+                    <label class="form-label" i18n="@@profile.newEmailLabel">Nueva dirección de correo</label>
+                    <input class="form-input" type="email" i18n-placeholder="@@profile.newEmailPlaceholder" placeholder="nuevo@correo.com"
                            [value]="editNewEmail()"
                            (input)="editNewEmail.set($any($event.target).value)" />
                   </div>
@@ -155,30 +155,30 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                           [style.background]="editSavedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''"
                           [style.border-color]="editSavedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''">
                     @if (editLoading()) {
-                      <span class="btn-spinner"></span> Enviando…
+                      <span class="btn-spinner"></span> <ng-container i18n="@@profile.sendingMsg">Enviando…</ng-container>
                     } @else if (editSavedTab() === 'email-otp') {
-                      ✓ Enviado
+                      ✓ <ng-container i18n="@@profile.sentMsg">Enviado</ng-container>
                     } @else {
-                      Enviar código →
+                      <ng-container i18n="@@profile.sendCodeBtn">Enviar código →</ng-container>
                     }
                   </button>
                 } @else {
                   <div style="text-align:center;padding:4px 0 12px">
                     <div style="font-size:28px">📧</div>
-                    <div style="font-size:13px;font-weight:600;color:var(--t1);margin-top:6px">Revisa tu correo</div>
-                    <div style="font-size:12px;color:var(--t3);margin-top:3px">
+                    <div style="font-size:13px;font-weight:600;color:var(--t1);margin-top:6px" i18n="@@profile.checkEmailTitle">Revisa tu correo</div>
+                    <div style="font-size:12px;color:var(--t3);margin-top:3px" i18n="@@profile.codeSentTo">
                       Código enviado a <strong>{{ editNewEmail() }}</strong>
                     </div>
                   </div>
                   <div class="form-group" style="margin-bottom:4px">
-                    <label class="form-label">Código de verificación</label>
+                    <label class="form-label" i18n="@@profile.otpLabel">Código de verificación</label>
                     <input class="form-input" type="text" inputmode="numeric" maxlength="6" placeholder="000000"
                            [value]="editEmailOtp()"
                            (input)="editEmailOtp.set($any($event.target).value)" />
                   </div>
                   <div style="display:flex;justify-content:space-between;margin-bottom:14px;font-size:11px">
-                    <span style="color:var(--lav-d);cursor:pointer" (click)="editEmailOtpSent.set(false)">← Cambiar correo</span>
-                    <span style="color:var(--lav-d);cursor:pointer" (click)="editRequestOtp()">Reenviar código</span>
+                    <span style="color:var(--lav-d);cursor:pointer" (click)="editEmailOtpSent.set(false)" i18n="@@profile.changeEmailBtn">← Cambiar correo</span>
+                    <span style="color:var(--lav-d);cursor:pointer" (click)="editRequestOtp()" i18n="@@profile.resendCodeBtn">Reenviar código</span>
                   </div>
                   <button class="btn-pill btn-primary" style="width:100%;justify-content:center"
                           (click)="editUpdateEmail()"
@@ -187,11 +187,11 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                           [style.background]="editSavedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''"
                           [style.border-color]="editSavedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''">
                     @if (editLoading()) {
-                      <span class="btn-spinner"></span> Verificando…
+                      <span class="btn-spinner"></span> <ng-container i18n="@@profile.verifyingMsg">Verificando…</ng-container>
                     } @else if (editSavedTab() === 'email') {
-                      ✓ Actualizado
+                      ✓ <ng-container i18n="@@profile.updatedMsg">Actualizado</ng-container>
                     } @else {
-                      Actualizar correo →
+                      <ng-container i18n="@@profile.updateEmailBtn">Actualizar correo →</ng-container>
                     }
                   </button>
                 }
@@ -204,7 +204,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             <button class="profile-accordion-hd" (click)="toggleEditSection('password')" type="button">
               <span style="font-size:17px">🔒</span>
               <div style="flex:1;text-align:left">
-                <div class="profile-accordion-title">Contraseña</div>
+                <div class="profile-accordion-title" i18n="@@profile.passwordTitle">Contraseña</div>
                 @if (editSection() !== 'password') {
                   <div class="profile-accordion-sub">••••••••</div>
                 }
@@ -218,7 +218,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             @if (editSection() === 'password') {
               <div class="profile-accordion-bd">
                 <div class="form-group">
-                  <label class="form-label">Contraseña actual</label>
+                  <label class="form-label" i18n="@@profile.currentPasswordLabel">Contraseña actual</label>
                   <div style="position:relative">
                     <input class="form-input" style="padding-right:72px"
                            [type]="editShowCurrentPwd() ? 'text' : 'password'" placeholder="••••••••"
@@ -226,12 +226,12 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                            (input)="editCurrentPwd.set($any($event.target).value)" />
                     <button type="button" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
                             (click)="editShowCurrentPwd.set(!editShowCurrentPwd())">
-                      {{ editShowCurrentPwd() ? 'Ocultar' : 'Ver' }}
+                      @if (editShowCurrentPwd()) { <ng-container i18n="@@profile.hideBtn">Ocultar</ng-container> } @else { <ng-container i18n="@@profile.showBtn">Ver</ng-container> }
                     </button>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Nueva contraseña</label>
+                  <label class="form-label" i18n="@@profile.newPasswordLabel">Nueva contraseña</label>
                   <div style="position:relative">
                     <input class="form-input" style="padding-right:72px"
                            [type]="editShowNewPwd() ? 'text' : 'password'" placeholder="••••••••"
@@ -239,7 +239,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                            (input)="editNewPwd.set($any($event.target).value)" />
                     <button type="button" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
                             (click)="editShowNewPwd.set(!editShowNewPwd())">
-                      {{ editShowNewPwd() ? 'Ocultar' : 'Ver' }}
+                      @if (editShowNewPwd()) { <ng-container i18n="@@profile.hideBtn">Ocultar</ng-container> } @else { <ng-container i18n="@@profile.showBtn">Ver</ng-container> }
                     </button>
                   </div>
                   @if (editNewPwd()) {
@@ -256,7 +256,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                   }
                 </div>
                 <div class="form-group" style="margin-bottom:14px">
-                  <label class="form-label">Confirmar contraseña</label>
+                  <label class="form-label" i18n="@@nav.confirmPasswordLabel">Confirmar contraseña</label>
                   <div style="position:relative">
                     <input class="form-input" style="padding-right:72px"
                            [type]="editShowConfirmPwd() ? 'text' : 'password'" placeholder="••••••••"
@@ -265,11 +265,11 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                            [style.border-color]="editConfirmPwd() && !editPasswordsMatch() ? 'oklch(55% 0.22 25)' : ''" />
                     <button type="button" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:11px;font-weight:600;color:var(--lav-d);cursor:pointer;padding:4px 2px;line-height:1"
                             (click)="editShowConfirmPwd.set(!editShowConfirmPwd())">
-                      {{ editShowConfirmPwd() ? 'Ocultar' : 'Ver' }}
+                      @if (editShowConfirmPwd()) { <ng-container i18n="@@profile.hideBtn">Ocultar</ng-container> } @else { <ng-container i18n="@@profile.showBtn">Ver</ng-container> }
                     </button>
                   </div>
                   @if (editConfirmPwd() && !editPasswordsMatch()) {
-                    <div style="font-size:11px;color:oklch(55% 0.22 25);margin-top:4px">Las contraseñas no coinciden</div>
+                    <div style="font-size:11px;color:oklch(55% 0.22 25);margin-top:4px" i18n="@@nav.confirmPasswordMismatch">Las contraseñas no coinciden</div>
                   }
                 </div>
                 <button class="btn-pill btn-primary" style="width:100%;justify-content:center"
@@ -279,11 +279,11 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                         [style.background]="editSavedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''"
                         [style.border-color]="editSavedTab() === 'password' ? 'oklch(50% 0.16 145)' : ''">
                   @if (editLoading()) {
-                    <span class="btn-spinner"></span> Actualizando…
+                    <span class="btn-spinner"></span> <ng-container i18n="@@profile.updatingMsg">Actualizando…</ng-container>
                   } @else if (editSavedTab() === 'password') {
-                    ✓ Actualizada
+                    ✓ <ng-container i18n="@@profile.passwordUpdatedMsg">Actualizada</ng-container>
                   } @else {
-                    Actualizar contraseña
+                    <ng-container i18n="@@profile.updatePasswordBtn">Actualizar contraseña</ng-container>
                   }
                 </button>
               </div>
@@ -333,24 +333,24 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
         <!-- Trip summary -->
         <section>
           <div class="section-head" style="display:flex;align-items:center;justify-content:space-between">
-            <span>Mis planificaciones ✈️</span>
+            <span i18n="@@profile.myTripsTitle">Mis planificaciones ✈️</span>
             <button class="btn-pill btn-outline" style="font-size:12px;padding:5px 14px"
                     (click)="openAiPlanning.emit()" type="button"
                     i18n="@@profile.aiBtn">✨ Nuevo viaje con IA</button>
           </div>
           @if (trip.stops().length === 0) {
-            <div class="section-empty">Aún no tienes destinos planificados. ¡Agrega tu primera ciudad!</div>
+            <div class="section-empty" i18n="@@profile.noTripsYet">Aún no tienes destinos planificados. ¡Agrega tu primera ciudad!</div>
           } @else {
             <div class="trip-card">
-              <div class="trip-card-name">Viaje actual</div>
+              <div class="trip-card-name" i18n="@@profile.currentTripLabel">Viaje actual</div>
               <div class="trip-stats">
                 <div>
                   <div class="trip-stat-val">{{ trip.stops().length }}</div>
-                  <div class="trip-stat-lbl">Ciudades</div>
+                  <div class="trip-stat-lbl" i18n="@@profile.citiesLabel">Ciudades</div>
                 </div>
                 <div>
                   <div class="trip-stat-val">{{ totalPlanned() }}</div>
-                  <div class="trip-stat-lbl">Atracciones</div>
+                  <div class="trip-stat-lbl" i18n="@@profile.attractionsLabel">Atracciones</div>
                 </div>
               </div>
               <div class="city-badges">
@@ -373,17 +373,17 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
         <!-- World map -->
         <section>
-          <div class="section-head">Lugares visitados 🗺</div>
+          <div class="section-head" i18n="@@profile.visitedPlacesTitle">Lugares visitados 🗺</div>
           @if (!auth.isLoggedIn()) {
-            <div class="section-empty">Inicia sesión para guardar tus lugares visitados en el mapa.</div>
+            <div class="section-empty" i18n="@@profile.loginToSavePlaces">Inicia sesión para guardar tus lugares visitados en el mapa.</div>
           } @else {
-            <p class="map-hint">
+            <p class="map-hint" i18n="@@profile.mapHint">
               Haz clic en el mapa para marcar un lugar que ya visitaste.
               Pasa el cursor sobre un pin para eliminarlo.
             </p>
 
             <div class="map-wrap" (click)="onMapClick($event)">
-              <img class="world-map-img" src="world-map.webp" alt="World map" draggable="false" />
+              <img class="world-map-img" src="world-map.webp" i18n-alt="@@profile.worldMapAlt" alt="World map" draggable="false" />
 
               @for (pin of visitedPlaces.pins(); track pin.id) {
                 <div class="map-pin"
@@ -411,17 +411,18 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                 <input class="pin-form-input"
                        [value]="pendingLabel()"
                        (input)="pendingLabel.set($any($event.target).value)"
+                       i18n-placeholder="@@profile.placeVisitedPlaceholder"
                        placeholder="¿Qué lugar visitaste?"
                        (keydown.enter)="confirmPin()" />
                 <button class="btn-pill btn-primary" style="padding:6px 14px;font-size:12px;flex-shrink:0"
-                        (click)="confirmPin()" type="button">Agregar</button>
+                        (click)="confirmPin()" type="button" i18n="@@profile.addPinBtn">Agregar</button>
                 <button class="btn-pill btn-outline" style="padding:6px 10px;font-size:12px;flex-shrink:0"
                         (click)="cancelPin()" type="button">✕</button>
               </div>
             }
 
             @if (visitedPlaces.pins().length > 0) {
-              <div style="margin-top:12px;font-size:12px;color:var(--t3)">
+              <div style="margin-top:12px;font-size:12px;color:var(--t3)" i18n="@@profile.pinsMarkedCount">
                 {{ visitedPlaces.pins().length }}
                 lugar{{ visitedPlaces.pins().length !== 1 ? 'es' : '' }}
                 marcado{{ visitedPlaces.pins().length !== 1 ? 's' : '' }}
@@ -504,9 +505,9 @@ export class ProfileComponent {
 
   editStrengthLabel(): string {
     switch (this.editPasswordStrength()) {
-      case 'vulnerable': return 'Vulnerable';
-      case 'light':      return 'Moderada';
-      case 'strong':     return 'Fuerte';
+      case 'vulnerable': return $localize`:@@profile.strengthVulnerable:Vulnerable`;
+      case 'light':      return $localize`:@@profile.strengthLight:Moderada`;
+      case 'strong':     return $localize`:@@profile.strengthStrong:Fuerte`;
       default:           return '';
     }
   }
@@ -523,7 +524,7 @@ export class ProfileComponent {
 
   editSaveName(): void {
     const name = this.editDisplayName().trim();
-    if (!name) { this.editError.set('El nombre no puede estar vacío.'); return; }
+    if (!name) { this.editError.set($localize`:@@profile.errNameEmpty:El nombre no puede estar vacío.`); return; }
     this.editLoading.set(true);
     this.editError.set('');
     this.editErrorCode.set('');
@@ -540,7 +541,7 @@ export class ProfileComponent {
 
   editRequestOtp(): void {
     const email = this.editNewEmail().trim();
-    if (!email) { this.editError.set('Ingresa la nueva dirección de correo.'); return; }
+    if (!email) { this.editError.set($localize`:@@profile.errEmailEmpty:Ingresa la nueva dirección de correo.`); return; }
     this.editLoading.set(true);
     this.editError.set('');
     this.editErrorCode.set('');
@@ -581,8 +582,8 @@ export class ProfileComponent {
   }
 
   editUpdatePassword(): void {
-    if (!this.editPasswordsMatch()) { this.editError.set('Las contraseñas no coinciden.'); return; }
-    if (this.editNewPwd().length < 6) { this.editError.set('La contraseña debe tener al menos 6 caracteres.'); return; }
+    if (!this.editPasswordsMatch()) { this.editError.set($localize`:@@profile.errPasswordsMismatch:Las contraseñas no coinciden.`); return; }
+    if (this.editNewPwd().length < 6) { this.editError.set($localize`:@@profile.errPasswordTooShort:La contraseña debe tener al menos 6 caracteres.`); return; }
     this.editLoading.set(true);
     this.editError.set('');
     this.editErrorCode.set('');
