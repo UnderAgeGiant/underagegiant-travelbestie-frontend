@@ -105,7 +105,12 @@
     "stuck": true
   },
   "hangzhou": {
-    "attempts": 2,
-    "radiusKm": 23
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "taipei": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
