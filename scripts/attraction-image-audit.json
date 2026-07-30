@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T20:29:11.915Z",
+  "generatedAt": "2026-07-30T20:37:18.150Z",
   "totalCities": 569,
-  "citiesNeedingWork": 357,
+  "citiesNeedingWork": 355,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1856,25 +1856,25 @@
     },
     {
       "city": "santamarta",
-      "count": 13,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 2,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 219
     },
     {
       "city": "cali",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 220
     },
     {
       "city": "salento",
-      "count": 0,
+      "count": 3,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 12,
       "needsWork": true,
       "priorityRank": 221
     },

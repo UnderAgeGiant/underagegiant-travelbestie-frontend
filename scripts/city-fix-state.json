@@ -334,8 +334,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "santamarta": {
-    "attempts": 3,
-    "radiusKm": 35
+  "salento": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
