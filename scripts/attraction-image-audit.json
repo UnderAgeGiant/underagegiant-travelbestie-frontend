@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T19:03:18.160Z",
+  "generatedAt": "2026-07-30T19:09:15.300Z",
   "totalCities": 569,
-  "citiesNeedingWork": 364,
+  "citiesNeedingWork": 363,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1738,39 +1738,15 @@
     {
       "city": "puertonatales",
       "count": 21,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Torres_del_Paine%2C_Laguna_Azul_09.jpg/960px-Torres_del_Paine%2C_Laguna_Azul_09.jpg",
-          "ids": [
-            "puertonatales_2",
-            "puertonatales_5"
-          ]
-        },
-        {
-          "imageUrl": "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "puertonatales_10",
-            "puertonatales_14",
-            "puertonatales_15",
-            "puertonatales_20"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 207
     },
     {
       "city": "puntaarenas",
       "count": 23,
       "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/aqgshrMVDm8?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "puntaarenas_14",
-            "puntaarenas_16"
-          ]
-        },
         {
           "imageUrl": "https://images.unsplash.com/ZOa6NcAqGRE?auto=format&fit=crop&w=800&q=80",
           "ids": [

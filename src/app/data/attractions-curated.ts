@@ -27156,7 +27156,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Torres_del_Paine%2C_Laguna_Azul_09.jpg/960px-Torres_del_Paine%2C_Laguna_Azul_09.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Laguna_Amarga%2C_Parque_nacional_Torres_del_Paine%2C_Puerto_Natales.jpg",
     },
     {
       id: "puertonatales_6",
@@ -27256,7 +27256,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/El_%C3%BAltimo_vals_de_Weber_-_comedia_en_un_acto_%28IA_elltimovalsdeweb00duma%29.pdf/page1-960px-El_%C3%BAltimo_vals_de_Weber_-_comedia_en_un_acto_%28IA_elltimovalsdeweb00duma%29.pdf.jpg",
     },
     {
       id: "puertonatales_15",
@@ -27267,7 +27267,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Consectario_de_Cumana_1956.pdf/page1-960px-Consectario_de_Cumana_1956.pdf.jpg",
     },
     {
       id: "puertonatales_16",
@@ -27323,7 +27323,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/87VrVwRj-aM?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Durban_-_panoramio_-_---%3DXEON%3D---.jpg",
     },
     {
       id: "puertonatales_21",
@@ -27524,7 +27524,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/aqgshrMVDm8?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Noticia_de_varias_excavaciones_del_Cerro_de_los_Santos_%28IA_noticiadevariase00savi%29.pdf/page1-500px-Noticia_de_varias_excavaciones_del_Cerro_de_los_Santos_%28IA_noticiadevariase00savi%29.pdf.jpg",
     },
     {
       id: "puntaarenas_17",
