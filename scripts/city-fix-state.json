@@ -424,8 +424,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "montsaintmichel": {
-    "attempts": 2,
-    "radiusKm": 23
+  "salamanca": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
