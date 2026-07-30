@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'tb-app-footer',
   standalone: true,
+  imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'landing-snap-child landing-footer' },
   template: `
@@ -26,7 +28,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     </div>
     <div class="landing-footer-col">
       <h3 class="landing-footer-col-head" i18n="@@landing.footerColAbout">Nosotros</h3>
-      <a class="landing-footer-link" href="#about" i18n="@@landing.footerLinkAbout">Sobre Tripilove</a>
+      <a class="landing-footer-link" routerLink="/about" i18n="@@landing.footerLinkAbout">Sobre Tripilove</a>
     </div>
     <div class="landing-footer-col">
       <h3 class="landing-footer-col-head" i18n="@@landing.footerColLegal">Legal</h3>

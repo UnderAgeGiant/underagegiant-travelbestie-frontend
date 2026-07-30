@@ -2300,3 +2300,122 @@ app-nav { display: block; }
   .ps-arrows { left: 8px; right: 8px; }
   .ps-arrow { width: 40px; height: 40px; font-size: 18px; }
 }
+
+/* ── About Us page ─────────────────────────────────────────────────────── */
+.about-page {
+  position: relative;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 72px;
+}
+@media (max-width: 768px) {
+  .about-page { margin-top: 0; }
+}
+
+.about-hero {
+  padding: 72px 24px 56px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--lav), var(--peach));
+  border-bottom: 1.5px solid var(--border);
+}
+.about-hero-eyebrow {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--t2); margin-bottom: 14px;
+  animation: fadeUp .6s .05s ease both;
+}
+.about-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5.5vw, 64px); font-weight: 300;
+  letter-spacing: -2px; line-height: 1.05; margin-bottom: 16px;
+  animation: fadeUp .6s .12s ease both;
+}
+.about-hero-title em { font-style: italic; color: var(--peach-d); }
+.about-hero-sub {
+  font-size: 16px; color: var(--t2); max-width: 520px; margin: 0 auto;
+  animation: fadeUp .6s .2s ease both;
+}
+
+.about-journey { max-width: 820px; margin: 0 auto; padding: 64px 24px 40px; }
+.about-journey-head { text-align: center; margin-bottom: 8px; }
+.about-journey-label {
+  font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400;
+  letter-spacing: -.5px; margin-bottom: 8px;
+}
+.about-journey-sub { font-size: 14px; color: var(--t3); max-width: 440px; margin: 0 auto 20px; }
+
+.about-step { display: flex; align-items: center; gap: 44px; }
+.about-step.reverse { flex-direction: row-reverse; }
+.about-step-media { flex: 0 0 260px; position: relative; }
+.about-step-photo-frame {
+  width: 260px; height: 260px; border-radius: 22px; overflow: hidden;
+  border: 1.5px solid var(--border); box-shadow: var(--sh-md); position: relative;
+}
+.about-step-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-step-photo-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 500; color: #fff;
+}
+.about-step-photo-placeholder[data-accent="lav"]   { background: linear-gradient(135deg, var(--lav), var(--lav-d)); }
+.about-step-photo-placeholder[data-accent="peach"] { background: linear-gradient(135deg, var(--peach), var(--peach-d)); }
+.about-step-photo-placeholder[data-accent="mint"]  { background: linear-gradient(135deg, var(--mint), var(--mint-d)); }
+.about-step-badge {
+  position: absolute; top: -14px; left: -14px; width: 44px; height: 44px; border-radius: 50%;
+  background: #fff; border: 1.5px solid var(--border); box-shadow: var(--sh);
+  display: flex; align-items: center; justify-content: center; font-size: 19px; z-index: 2;
+}
+.about-step-num {
+  position: absolute; bottom: -12px; right: -12px; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--lav); color: var(--lav-d); font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; justify-content: center; box-shadow: var(--sh); z-index: 2;
+}
+.about-step-body { flex: 1; min-width: 0; }
+.about-step-role {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--peach-d); margin-bottom: 6px;
+}
+.about-step-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500;
+  letter-spacing: -.5px; margin-bottom: 10px;
+}
+.about-step-text { font-size: 14.5px; color: var(--t2); line-height: 1.7; }
+
+.about-connector { position: relative; height: 120px; margin: 6px 0; display: flex; align-items: center; justify-content: center; }
+.about-path-bg { width: 100%; max-width: 640px; height: 100%; overflow: visible; }
+.about-path-bg path {
+  fill: none; stroke: var(--lav-d); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 1 5;
+  stroke-dashoffset: 100; transition: stroke-dashoffset 1.6s cubic-bezier(.3,.6,.2,1);
+}
+.about-connector.in-view .about-path-bg path { stroke-dashoffset: 0; }
+.about-plane {
+  position: absolute; top: 0; left: 0; width: 24px; height: 24px; opacity: 0;
+  filter: drop-shadow(0 2px 4px oklch(0% 0 0/.18)); will-change: offset-distance, opacity;
+  offset-rotate: auto;
+}
+.about-connector.in-view .about-plane { animation: aboutFlyPlane 1.7s cubic-bezier(.3,.55,.25,1) both; }
+.about-plane-end { position: absolute; width: 22px; height: 22px; top: 9px; }
+@keyframes aboutFlyPlane {
+  0% { offset-distance: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-path-bg path { transition: none; stroke-dashoffset: 0; }
+  .about-connector .about-plane { animation: none; opacity: 1; offset-distance: 50%; }
+}
+
+@media (max-width: 680px) {
+  .about-step, .about-step.reverse { flex-direction: column; gap: 20px; text-align: center; }
+  .about-step-media { flex: none; }
+  .about-step-photo-frame { width: 200px; height: 200px; margin: 0 auto; }
+  .about-step-body { text-align: left; }
+}
+
+.about-closing { text-align: center; padding: 64px 24px 96px; }
+.about-closing-title {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 400; letter-spacing: -1px; margin-bottom: 14px;
+}
+.about-closing-sub { font-size: 14px; color: var(--t2); max-width: 420px; margin: 0 auto 26px; }
