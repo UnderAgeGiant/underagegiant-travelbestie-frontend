@@ -299,8 +299,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "huaraz": {
-    "attempts": 3,
-    "radiusKm": 35
+  "paracas": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
