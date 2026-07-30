@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T21:55:32.730Z",
+  "generatedAt": "2026-07-30T22:06:05.922Z",
   "totalCities": 569,
   "citiesNeedingWork": 349,
   "goalMet": false,
@@ -2016,9 +2016,9 @@
     },
     {
       "city": "sidibousaid",
-      "count": 1,
+      "count": 8,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 7,
       "needsWork": true,
       "priorityRank": 239
     },
