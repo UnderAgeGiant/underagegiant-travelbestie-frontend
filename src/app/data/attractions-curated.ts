@@ -27716,7 +27716,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1583813365826-eb578f8bd5a3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYW5nYXJvYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI2OTMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Museo_Sebastian_Englert.JPG/1920px-Museo_Sebastian_Englert.JPG",
     },
     {
       id: "hangaroa_10",
