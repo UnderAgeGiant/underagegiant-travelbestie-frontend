@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T15:54:58.914Z",
+  "generatedAt": "2026-07-30T16:03:07.783Z",
   "totalCities": 569,
-  "citiesNeedingWork": 386,
+  "citiesNeedingWork": 385,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1263,17 +1263,17 @@
     },
     {
       "city": "salzburg",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 151
     },
     {
       "city": "innsbruck",
-      "count": 2,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 152
     },
