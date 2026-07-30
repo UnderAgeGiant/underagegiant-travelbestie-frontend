@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T17:57:40.124Z",
+  "generatedAt": "2026-07-30T18:04:06.268Z",
   "totalCities": 569,
   "citiesNeedingWork": 370,
   "goalMet": false,
@@ -1599,22 +1599,17 @@
     },
     {
       "city": "mexicocity",
-      "count": 7,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "mexicocity_0",
-            "mexicocity_1",
-            "mexicocity_2",
-            "mexicocity_3",
-            "mexicocity_4",
-            "mexicocity_5",
-            "mexicocity_6"
+            "mexicocity_5"
           ]
         }
       ],
-      "missingCount": 8,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 192
     },
