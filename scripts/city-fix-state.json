@@ -233,5 +233,10 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "giethoorn": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
