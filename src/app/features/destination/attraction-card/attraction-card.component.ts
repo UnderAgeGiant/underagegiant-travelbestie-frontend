@@ -7,7 +7,7 @@ import { getAttractions } from '../../../data/attractions.data';
 import { AttractionDetailModalComponent } from '../attraction-detail-modal/attraction-detail-modal.component';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
-import { CATEGORY_META } from '../../../core/models/attraction-category';
+import { getCategoryMeta } from '../../../core/models/attraction-category';
 import { formatEventChip } from '../../../core/utils/event-datetime.util';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 
@@ -315,7 +315,7 @@ export class AttractionCardComponent {
   readonly inPlan = computed(() => this.plannedEntries().length > 0);
 
   readonly activeStop   = computed(() => this.trip.activeStop());
-  readonly categoryBg   = computed(() => CATEGORY_META[this.attraction().category]?.bg ?? '#E8F0FD');
+  readonly categoryBg   = computed(() => getCategoryMeta()[this.attraction().category]?.bg ?? '#E8F0FD');
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 

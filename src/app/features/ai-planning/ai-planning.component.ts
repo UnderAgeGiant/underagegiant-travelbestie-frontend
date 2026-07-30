@@ -1,5 +1,5 @@
 import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
-import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
+import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
@@ -501,7 +501,7 @@ export class AiPlanningComponent {
   startDate   = signal('');
 
   readonly selectedCategories = signal<AttractionCategory[]>([]);
-  readonly allCategoryMeta = ALL_CATEGORIES;
+  readonly allCategoryMeta = getAllCategories();
 
   toggleCategory(code: AttractionCategory): void {
     this.selectedCategories.update(prev =>
@@ -513,7 +513,7 @@ export class AiPlanningComponent {
     const base = this.preferences().trim();
     const cats = this.selectedCategories();
     if (cats.length === 0) return base;
-    const labels = cats.map(c => CATEGORY_META[c].label).join(', ');
+    const labels = cats.map(c => getCategoryMeta()[c].label).join(', ');
     return base ? `${base}\nTipos de experiencia preferidos: ${labels}` : `Tipos de experiencia preferidos: ${labels}`;
   }
 

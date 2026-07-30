@@ -484,6 +484,24 @@
         <source>Todos</source>
         <target>All</target>
       </trans-unit>
+
+      <!-- ── attraction-category.ts: filter chip / category labels ── -->
+      <trans-unit id="category.poi" datatype="html">
+        <source>Puntos de interés</source>
+        <target>Points of interest</target>
+      </trans-unit>
+      <trans-unit id="category.freetour" datatype="html">
+        <source>Freetours</source>
+        <target>Freetours</target>
+      </trans-unit>
+      <trans-unit id="category.eventParty" datatype="html">
+        <source>Eventos/Fiestas</source>
+        <target>Events/Parties</target>
+      </trans-unit>
+      <trans-unit id="category.foodie" datatype="html">
+        <source>Foodie</source>
+        <target>Foodie</target>
+      </trans-unit>
       <trans-unit id="dest.searchPlaceholder" datatype="html">
         <source>Buscar atracción…</source>
         <target>Search attraction…</target>
