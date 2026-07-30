@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T19:37:18.439Z",
+  "generatedAt": "2026-07-30T19:48:22.590Z",
   "totalCities": 569,
-  "citiesNeedingWork": 361,
+  "citiesNeedingWork": 360,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1808,17 +1808,17 @@
     },
     {
       "city": "banos",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 213
     },
     {
       "city": "otavalo",
-      "count": 0,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 214
     },
