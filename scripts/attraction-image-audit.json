@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T18:04:06.268Z",
+  "generatedAt": "2026-07-30T18:15:42.349Z",
   "totalCities": 569,
   "citiesNeedingWork": 370,
   "goalMet": false,
@@ -1615,9 +1615,9 @@
     },
     {
       "city": "aguascalientes",
-      "count": 0,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 193
     },
