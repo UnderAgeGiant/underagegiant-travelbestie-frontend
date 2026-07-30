@@ -179,8 +179,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "stockholm": {
-    "attempts": 3,
-    "radiusKm": 35
+  "reykjavik": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
