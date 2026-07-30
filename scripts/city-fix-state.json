@@ -420,7 +420,12 @@
     "stuck": true
   },
   "avignon": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "nimes": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }

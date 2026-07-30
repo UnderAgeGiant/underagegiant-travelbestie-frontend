@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T23:17:23.183Z",
+  "generatedAt": "2026-07-30T23:29:23.271Z",
   "totalCities": 569,
-  "citiesNeedingWork": 344,
+  "citiesNeedingWork": 342,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2128,53 +2128,25 @@
     },
     {
       "city": "dijon",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "dijon_0",
-            "dijon_1",
-            "dijon_2",
-            "dijon_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 252
     },
     {
       "city": "carcassonne",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "carcassonne_0",
-            "carcassonne_1",
-            "carcassonne_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 253
     },
     {
       "city": "nimes",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "nimes_0",
-            "nimes_1",
-            "nimes_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 254
     },
