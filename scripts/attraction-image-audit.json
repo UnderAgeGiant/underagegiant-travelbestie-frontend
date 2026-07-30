@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T00:20:12.063Z",
+  "generatedAt": "2026-07-30T00:30:15.845Z",
   "totalCities": 569,
-  "citiesNeedingWork": 410,
+  "citiesNeedingWork": 408,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -751,26 +751,18 @@
     },
     {
       "city": "kyoto",
-      "count": 12,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 3,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 91
     },
     {
       "city": "hanoi",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1509822929954-3a29f4ca4f7b?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "hanoi_0",
-            "hanoi_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 92
     },
     {
@@ -783,9 +775,9 @@
     },
     {
       "city": "siemreap",
-      "count": 1,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 94
     },
