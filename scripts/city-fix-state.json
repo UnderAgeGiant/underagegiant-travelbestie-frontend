@@ -319,8 +319,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "cuenca": {
-    "attempts": 4,
-    "radiusKm": 53
+  "galapagos": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }

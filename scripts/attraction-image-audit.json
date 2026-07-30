@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T19:23:47.474Z",
+  "generatedAt": "2026-07-30T19:37:18.439Z",
   "totalCities": 569,
-  "citiesNeedingWork": 362,
+  "citiesNeedingWork": 361,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1792,17 +1792,17 @@
     },
     {
       "city": "cuenca",
-      "count": 12,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 3,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 211
     },
     {
       "city": "galapagos",
-      "count": 0,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 212
     },
