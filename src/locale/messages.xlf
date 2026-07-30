@@ -115,28 +115,28 @@
         <source>Directora de Diseño</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-team.data.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.team.ceci.bio" datatype="html">
-        <source>Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli</source>
+        <source>Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-team.data.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.team.miel.role" datatype="html">
         <source>Experta en IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-team.data.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.team.miel.bio" datatype="html">
         <source>Experta en IA y consejos de viajes. Sabe como huelen las mejores atracciones y donde encontrarlas. Se dice que no duerme.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-team.data.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.hero.eyebrow" datatype="html">

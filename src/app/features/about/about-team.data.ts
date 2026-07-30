@@ -20,7 +20,7 @@ export const ABOUT_TEAM: AboutTeamMember[] = [
   {
     id: 'yoli',
     role: $localize`:@@about.team.yoli.role:CEO`,
-    name: 'Yoli Fuentes',
+    name: 'Yoli',
     bio: $localize`:@@about.team.yoli.bio:Jefa y dueña del proyecto. Como buen C-level de la empresa, nadie sabe lo que dice pero todos corren si ella necesita algo.`,
     emoji: '✈️',
     accent: 'lav',
@@ -29,18 +29,17 @@ export const ABOUT_TEAM: AboutTeamMember[] = [
   {
     id: 'mati',
     role: $localize`:@@about.team.mati.role:Ingeniería`,
-    name: 'Maty Fuentes',
+    name: 'Mati Fuentes',
     bio: $localize`:@@about.team.mati.bio:Jefe de ingenieria y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de pañales.`,
     emoji: '🗺️',
     accent: 'peach',
-    // File is named maty.jpeg (matches "Maty Fuentes"), not mati.jpeg — the id and the filename differ on purpose, keep as-is.
-    photo: '/team/maty.jpeg',
+    photo: '/team/mati.jpeg',
   },
   {
     id: 'ceci',
     role: $localize`:@@about.team.ceci.role:Directora de Diseño`,
-    name: 'Ceci Calderon',
-    bio: $localize`:@@about.team.ceci.bio:Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli`,
+    name: 'Ceci Calderón',
+    bio: $localize`:@@about.team.ceci.bio:Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli.`,
     emoji: '🎨',
     accent: 'mint',
     photo: '/team/ceci.jpeg',
@@ -48,7 +47,7 @@ export const ABOUT_TEAM: AboutTeamMember[] = [
   {
     id: 'miel',
     role: $localize`:@@about.team.miel.role:Experta en IA`,
-    name: 'Maria Miel de las Mercedes Echevarria Echaurren',
+    name: 'María Miel de las Mercedes del Perpetuo Socorro Echaurren Echevarria',
     bio: $localize`:@@about.team.miel.bio:Experta en IA y consejos de viajes. Sabe como huelen las mejores atracciones y donde encontrarlas. Se dice que no duerme.`,
     emoji: '🌍',
     accent: 'lav',
