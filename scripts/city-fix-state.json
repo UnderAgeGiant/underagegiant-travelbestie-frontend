@@ -218,5 +218,10 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "geneva": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
