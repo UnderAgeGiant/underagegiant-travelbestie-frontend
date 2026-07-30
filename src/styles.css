@@ -2418,4 +2418,20 @@ app-nav { display: block; }
   font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 40px);
   font-weight: 400; letter-spacing: -1px; margin-bottom: 14px;
 }
+
+/* Language switcher */
+.lang-drop-btn { display:flex; align-items:center; gap:5px; padding:4px 9px; border-radius:8px;
+  background:transparent; border:1.5px solid var(--border);
+  font-size:12px; font-weight:600; color:var(--t2); cursor:pointer;
+  transition:background .12s, border-color .12s; white-space:nowrap; }
+.lang-drop-btn:hover { background:var(--cream); border-color:var(--lav-d); }
+.lang-nav-flag { width:18px; height:auto; border-radius:2px; display:block; flex-shrink:0; }
+.lang-drop-menu { position:absolute; top:calc(100% + 6px); right:0;
+  background:#fff; border:1.5px solid var(--border); border-radius:12px;
+  box-shadow:var(--sh-md); min-width:130px; overflow:hidden; z-index:200; }
+.lang-drop-item { display:flex; align-items:center; gap:8px; width:100%; padding:9px 12px;
+  background:transparent; border:none; font-size:13px; font-weight:500; color:var(--t2);
+  cursor:pointer; text-align:left; transition:background .1s; }
+.lang-drop-item:hover { background:var(--cream); }
+.lang-drop-item.active { font-weight:700; color:var(--lav-d); background:var(--lav); }
 .about-closing-sub { font-size: 14px; color: var(--t2); max-width: 420px; margin: 0 auto 26px; }

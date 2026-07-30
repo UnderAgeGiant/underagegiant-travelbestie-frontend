@@ -51,6 +51,35 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
       </div>
 
       <div class="nav-right">
+        <!-- Language switcher -->
+        <div style="position:relative">
+          <button class="lang-drop-btn" type="button"
+                  (click)="facade.langOpen.set(!facade.langOpen())"
+                  i18n-aria-label="@@nav.langSwitch" aria-label="Cambiar idioma">
+            <img [src]="facade.locale.current() === 'es-CL' ? 'https://flagcdn.com/w20/cl.jpg' : 'https://flagcdn.com/w20/us.jpg'"
+                 [alt]="facade.locale.current() === 'es-CL' ? 'ES' : 'EN'"
+                 class="lang-nav-flag" />
+            <span>{{ facade.locale.current() === 'es-CL' ? 'ES' : 'EN' }}</span>
+            <span style="font-size:9px;opacity:.55">▾</span>
+          </button>
+          @if (facade.langOpen()) {
+            <div style="position:fixed;inset:0;z-index:199" (click)="facade.langOpen.set(false)"></div>
+            <div class="lang-drop-menu">
+              <button class="lang-drop-item" type="button"
+                      [class.active]="facade.locale.current() === 'es-CL'"
+                      (click)="facade.switchLocale('es-CL')">
+                <img src="https://flagcdn.com/w20/cl.jpg" alt="ES" class="lang-nav-flag" />
+                <span>Español</span>
+              </button>
+              <button class="lang-drop-item" type="button"
+                      [class.active]="facade.locale.current() === 'en-US'"
+                      (click)="facade.switchLocale('en-US')">
+                <img src="https://flagcdn.com/w20/us.jpg" alt="EN" class="lang-nav-flag" />
+                <span>English</span>
+              </button>
+            </div>
+          }
+        </div>
         @if (facade.auth.isLoggedIn() && facade.karma.karma() !== null) {
           <div style="display:flex;align-items:center;gap:6px">
             <!-- karma pill wrapper — position:relative anchors the floating badge -->

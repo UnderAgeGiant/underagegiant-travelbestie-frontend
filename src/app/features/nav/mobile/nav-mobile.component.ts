@@ -11,6 +11,15 @@ import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
       <div style="flex:1"></div>
 
+      <button class="lang-drop-btn" type="button"
+              (click)="facade.switchLocale(facade.locale.other())"
+              i18n-aria-label="@@nav.langSwitch" aria-label="Cambiar idioma">
+        <img [src]="facade.locale.current() === 'es-CL' ? 'https://flagcdn.com/w20/cl.jpg' : 'https://flagcdn.com/w20/us.jpg'"
+             [alt]="facade.locale.current() === 'es-CL' ? 'ES' : 'EN'"
+             class="lang-nav-flag" />
+        <span>{{ facade.locale.current() === 'es-CL' ? 'ES' : 'EN' }}</span>
+      </button>
+
       @if (facade.auth.isLoggedIn() && facade.karma.karma() !== null) {
         <div [style]="facade.karmaPillStyle()"
              class="nav-m-karma"

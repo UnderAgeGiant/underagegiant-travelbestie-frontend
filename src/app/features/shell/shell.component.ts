@@ -1,6 +1,8 @@
-import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, effect, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../trip/trip.service';
 import { NavShellComponent } from '../nav/nav-shell.component';
+import { NavFacadeService } from '../nav/nav-facade.service';
+import { LocaleService } from '../../core/i18n/locale.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { StopListComponent } from '../trip/stop-list/stop-list.component';
 import { DestinationComponent } from '../destination/destination.component';
@@ -118,9 +120,29 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
 })
 export class ShellComponent {
   readonly trip  = inject(TripService);
+  private readonly facade = inject(NavFacadeService);
+  private readonly locale = inject(LocaleService);
   showAddModal   = signal(false);
   showProfile    = signal(false);
   showAiPlanning = signal(false);
   showMyTrips    = signal(false);
   toast          = signal<string | null>(null);
+
+  constructor() {
+    // Keep the facade informed of the open panel so a locale switch can restore it.
+    effect(() => {
+      this.facade.currentShellView.set(
+        this.showProfile()    ? 'profile'
+        : this.showAiPlanning() ? 'ai'
+        : this.showMyTrips()  ? 'mytrips'
+        : null,
+      );
+    });
+
+    // Reopen the panel the user was in before the locale-switch reload (one-shot).
+    const restore = this.locale.consumeRestoreView();
+    if (restore === 'profile') this.showProfile.set(true);
+    else if (restore === 'ai') this.showAiPlanning.set(true);
+    else if (restore === 'mytrips') this.showMyTrips.set(true);
+  }
 }
