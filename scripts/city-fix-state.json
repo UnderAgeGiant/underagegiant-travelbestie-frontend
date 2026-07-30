@@ -340,7 +340,12 @@
     "stuck": true
   },
   "leticia": {
-    "attempts": 2,
-    "radiusKm": 23
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "oaxaca": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }
