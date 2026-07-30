@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T14:17:14.875Z",
+  "generatedAt": "2026-07-30T14:25:15.606Z",
   "totalCities": 569,
   "citiesNeedingWork": 394,
   "goalMet": false,
@@ -1063,26 +1063,25 @@
     },
     {
       "city": "reykjavik",
-      "count": 12,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 130
     },
     {
       "city": "tallinn",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1568793220-d9f47e1bcc02?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "tallinn_0",
-            "tallinn_1",
             "tallinn_2"
           ]
         }
       ],
-      "missingCount": 12,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 131
     },
