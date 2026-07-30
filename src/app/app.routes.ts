@@ -6,6 +6,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/shell/shell.component').then(m => m.ShellComponent),
   },
   {
+    path: 'about',
+    loadComponent: () => import('./features/about/about.component').then(m => m.AboutComponent),
+  },
+  {
     path: 'shared/:id',
     loadComponent: () => import('./features/shared-trip/shared-trip.component').then(m => m.SharedTripComponent),
   },
