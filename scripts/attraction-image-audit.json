@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T01:13:23.236Z",
+  "generatedAt": "2026-07-30T01:22:09.558Z",
   "totalCities": 569,
   "citiesNeedingWork": 403,
   "goalMet": false,
@@ -903,9 +903,9 @@
     },
     {
       "city": "abudhabi",
-      "count": 3,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 110
     },
@@ -919,18 +919,9 @@
     },
     {
       "city": "amman",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "amman_0",
-            "amman_1",
-            "amman_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 112
     },

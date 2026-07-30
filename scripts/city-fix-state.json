@@ -148,5 +148,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "abudhabi": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "amman": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
