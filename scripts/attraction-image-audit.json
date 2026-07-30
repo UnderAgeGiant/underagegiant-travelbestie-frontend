@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T15:14:17.042Z",
+  "generatedAt": "2026-07-30T15:21:28.008Z",
   "totalCities": 569,
   "citiesNeedingWork": 389,
   "goalMet": false,
@@ -1183,9 +1183,9 @@
     },
     {
       "city": "bruges",
-      "count": 3,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 142
     },
