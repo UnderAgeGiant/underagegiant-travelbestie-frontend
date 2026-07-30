@@ -1370,6 +1370,70 @@
         <source>➕ Agregar lo seleccionado al plan</source>
         <target>➕ Add the selected ones to the plan</target>
       </trans-unit>
+      <trans-unit id="about.hero.eyebrow" datatype="html">
+        <source>Sobre nosotros</source>
+        <target>About us</target>
+      </trans-unit>
+      <trans-unit id="about.hero.title" datatype="html">
+        <source>Las <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>besties<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> detrás<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>del viaje</source>
+        <target>The <x id="START_EMPHASISED_TEXT" equiv-text="&lt;em&gt;"/>besties<x id="CLOSE_EMPHASISED_TEXT" equiv-text="&lt;/em&gt;"/> behind<x id="LINE_BREAK" equiv-text="&lt;br&gt;"/>the journey</target>
+      </trans-unit>
+      <trans-unit id="about.hero.sub" datatype="html">
+        <source>Cuatro personas, una idea: planificar un viaje debería sentirse como una aventura, no como una planilla de cálculo.</source>
+        <target>Four people, one idea: trip planning should feel like an adventure, not a spreadsheet.</target>
+      </trans-unit>
+      <trans-unit id="about.journey.label" datatype="html">
+        <source>Nuestra historia, una parada a la vez</source>
+        <target>Our story, one stop at a time</target>
+      </trans-unit>
+      <trans-unit id="about.journey.sub" datatype="html">
+        <source>Sigue la ruta de vuelo — cada parada presenta a alguien que ayudó a construir Tripilove.</source>
+        <target>Follow the flight path — every stop introduces someone who helped build Tripilove.</target>
+      </trans-unit>
+      <trans-unit id="about.closing.title" datatype="html">
+        <source>¿Listo para planificar tu próximo viaje?</source>
+        <target>Ready to plan your next trip?</target>
+      </trans-unit>
+      <trans-unit id="about.closing.sub" datatype="html">
+        <source>Únete a miles de besties que arman itinerarios juntos, un destino a la vez.</source>
+        <target>Join thousands of besties building itineraries together, one destination at a time.</target>
+      </trans-unit>
+      <trans-unit id="about.closing.cta" datatype="html">
+        <source>Comenzar a planificar ✈️</source>
+        <target>Start planning ✈️</target>
+      </trans-unit>
+      <trans-unit id="about.team.yoli.role" datatype="html">
+        <source>CEO</source>
+        <target>CEO</target>
+      </trans-unit>
+      <trans-unit id="about.team.yoli.bio" datatype="html">
+        <source>Jefa y dueña del proyecto. Como buen C-level de la empresa, nadie sabe lo que dice pero todos corren si ella necesita algo.</source>
+        <target>Boss and owner of the project. Like any good C-level exec, nobody understands what she says, but everyone runs when she needs something.</target>
+      </trans-unit>
+      <trans-unit id="about.team.mati.role" datatype="html">
+        <source>Ingeniería</source>
+        <target>Engineering</target>
+      </trans-unit>
+      <trans-unit id="about.team.mati.bio" datatype="html">
+        <source>Jefe de ingenieria y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de pañales.</source>
+        <target>Head of engineering and code monkey. In charge of keeping the system running and sprinting whenever Yoli needs a diaper change.</target>
+      </trans-unit>
+      <trans-unit id="about.team.ceci.role" datatype="html">
+        <source>Directora de Diseño</source>
+        <target>Director of Design</target>
+      </trans-unit>
+      <trans-unit id="about.team.ceci.bio" datatype="html">
+        <source>Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli</source>
+        <target>Process expert and lead designer. Knows better than anyone how the user should behave and what they actually need. She's also the only one allowed to feed Yoli.</target>
+      </trans-unit>
+      <trans-unit id="about.team.miel.role" datatype="html">
+        <source>Experta en IA</source>
+        <target>AI Expert</target>
+      </trans-unit>
+      <trans-unit id="about.team.miel.bio" datatype="html">
+        <source>Experta en IA y consejos de viajes. Sabe como huelen las mejores atracciones y donde encontrarlas. Se dice que no duerme.</source>
+        <target>AI and travel-tips expert. Knows what the best attractions smell like and where to find them. Rumor has it she never sleeps.</target>
+      </trans-unit>
 
     </body>
   </file>
