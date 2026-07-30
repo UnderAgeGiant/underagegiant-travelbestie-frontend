@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T22:06:05.922Z",
+  "generatedAt": "2026-07-30T22:15:09.678Z",
   "totalCities": 569,
   "citiesNeedingWork": 349,
   "goalMet": false,
@@ -2024,9 +2024,9 @@
     },
     {
       "city": "saintlouis",
-      "count": 1,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 240
     },
