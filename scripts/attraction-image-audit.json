@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T00:13:08.038Z",
+  "generatedAt": "2026-07-30T00:20:12.063Z",
   "totalCities": 569,
   "citiesNeedingWork": 410,
   "goalMet": false,
@@ -751,9 +751,9 @@
     },
     {
       "city": "kyoto",
-      "count": 1,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 91
     },
