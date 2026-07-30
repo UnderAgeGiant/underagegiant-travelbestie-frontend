@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T12:50:18.765Z",
+  "generatedAt": "2026-07-30T13:20:27.870Z",
   "totalCities": 569,
-  "citiesNeedingWork": 398,
+  "citiesNeedingWork": 397,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1023,17 +1023,17 @@
     },
     {
       "city": "dakar",
-      "count": 5,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 10,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 125
     },
     {
       "city": "addisababa",
-      "count": 1,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 126
     },
