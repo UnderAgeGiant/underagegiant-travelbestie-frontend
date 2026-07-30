@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T17:25:08.714Z",
+  "generatedAt": "2026-07-30T17:31:13.819Z",
   "totalCities": 569,
   "citiesNeedingWork": 373,
   "goalMet": false,
@@ -1527,9 +1527,9 @@
     },
     {
       "city": "varanasi",
-      "count": 7,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 183
     },
