@@ -3,10 +3,11 @@ import { TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/mo
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
+import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
 @Component({
     selector: 'app-trip-itinerary',
-    imports: [DurationPipe],
+    imports: [DurationPipe, FlagIconComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="itin">
@@ -34,7 +35,7 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
           <!-- City card -->
           <div class="itin-city">
             <div class="itin-city-head">
-              <span class="itin-city-flag">{{ city.flag }}</span>
+              <span class="itin-city-flag"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="24" /></span>
               <div>
                 <div class="itin-city-name">{{ city.name }}</div>
                 <div class="itin-city-country">{{ city.country }}</div>
@@ -97,7 +98,7 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
                 <span class="itin-no-transit">Sin transporte definido</span>
               }
               @if (nextCity) {
-                <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}</span>
+                <span class="itin-transit-dest">→ <app-flag-icon [flag]="nextCity.flag" [alt]="nextCity.name" [size]="16" /> {{ nextCity.name }}</span>
               }
             </div>
             <div class="itin-line"></div>

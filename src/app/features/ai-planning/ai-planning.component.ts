@@ -1,5 +1,5 @@
 import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
-import { AttractionCategory, CATEGORY_META, ALL_CATEGORIES } from '../../core/models/attraction-category';
+import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
@@ -14,12 +14,13 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { DatePickerComponent } from '../../shared/date-picker/date-picker.component';
+import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
 type Step = 'preferences' | 'options' | 'result';
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent],
+    imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -334,7 +335,7 @@ type Step = 'preferences' | 'options' | 'result';
                 @for (stop of generatedTrip()!.stops; track stop.cityId) {
                   @let city = cityFor(stop.cityId);
                   @if (city) {
-                    <span class="shared-header-flag" [title]="city.name">{{ city.flag }}</span>
+                    <span class="shared-header-flag" [title]="city.name"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="22" /></span>
                   }
                 }
               </div>
@@ -363,7 +364,7 @@ type Step = 'preferences' | 'options' | 'result';
                 @if (city) {
                   <div class="itin-city">
                     <div class="itin-city-head">
-                      <span class="itin-city-flag">{{ city.flag }}</span>
+                      <span class="itin-city-flag"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="24" /></span>
                       <div>
                         <div class="itin-city-name">{{ city.name }}</div>
                         <div class="itin-city-country">{{ city.country }}</div>
@@ -421,7 +422,7 @@ type Step = 'preferences' | 'options' | 'result';
                         <span class="itin-no-transit" i18n="@@aiplan.noTransit">Sin transporte definido</span>
                       }
                       @if (nextCity) {
-                        <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}</span>
+                        <span class="itin-transit-dest">→ <app-flag-icon [flag]="nextCity.flag" [alt]="nextCity.name" [size]="16" /> {{ nextCity.name }}</span>
                       }
                     </div>
                     <div class="itin-line"></div>
@@ -500,7 +501,7 @@ export class AiPlanningComponent {
   startDate   = signal('');
 
   readonly selectedCategories = signal<AttractionCategory[]>([]);
-  readonly allCategoryMeta = ALL_CATEGORIES;
+  readonly allCategoryMeta = getAllCategories();
 
   toggleCategory(code: AttractionCategory): void {
     this.selectedCategories.update(prev =>
@@ -512,7 +513,7 @@ export class AiPlanningComponent {
     const base = this.preferences().trim();
     const cats = this.selectedCategories();
     if (cats.length === 0) return base;
-    const labels = cats.map(c => CATEGORY_META[c].label).join(', ');
+    const labels = cats.map(c => getCategoryMeta()[c].label).join(', ');
     return base ? `${base}\nTipos de experiencia preferidos: ${labels}` : `Tipos de experiencia preferidos: ${labels}`;
   }
 

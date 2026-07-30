@@ -38,6 +38,10 @@
         <source>Cerrar sesión</source>
         <target>Sign out</target>
       </trans-unit>
+      <trans-unit id="nav.langSwitch" datatype="html">
+        <source>Cambiar idioma</source>
+        <target>Change language</target>
+      </trans-unit>
 
       <!-- ── notification-bell.component ── -->
       <trans-unit id="notif.bellAria" datatype="html">
@@ -480,6 +484,24 @@
         <source>Todos</source>
         <target>All</target>
       </trans-unit>
+
+      <!-- ── attraction-category.ts: filter chip / category labels ── -->
+      <trans-unit id="category.poi" datatype="html">
+        <source>Puntos de interés</source>
+        <target>Points of interest</target>
+      </trans-unit>
+      <trans-unit id="category.freetour" datatype="html">
+        <source>Freetours</source>
+        <target>Freetours</target>
+      </trans-unit>
+      <trans-unit id="category.eventParty" datatype="html">
+        <source>Eventos/Fiestas</source>
+        <target>Events/Parties</target>
+      </trans-unit>
+      <trans-unit id="category.foodie" datatype="html">
+        <source>Foodie</source>
+        <target>Foodie</target>
+      </trans-unit>
       <trans-unit id="dest.searchPlaceholder" datatype="html">
         <source>Buscar atracción…</source>
         <target>Search attraction…</target>
@@ -708,6 +730,22 @@
         <source>¡Listo!</source>
         <target>Done!</target>
       </trans-unit>
+      <trans-unit id="buyKarma.closeAriaLabel" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.doNotClose" datatype="html">
+        <source>No cierres esta ventana</source>
+        <target>Don't close this window</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.paypalLoading" datatype="html">
+        <source>Cargando botón de pago…</source>
+        <target>Loading payment button…</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.processingPayment" datatype="html">
+        <source>Procesando pago…</source>
+        <target>Processing payment…</target>
+      </trans-unit>
 
       <!-- ── insufficient-karma-modal ── -->
       <trans-unit id="kim.title" datatype="html">
@@ -872,6 +910,106 @@
       <trans-unit id="aiplan.categoriesLabel" datatype="html">
         <source>Tipos de experiencia (opcional)</source>
         <target>Experience types (optional)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.authDesc" datatype="html">
+        <source>Debes iniciar sesión para usar el planificador IA.</source>
+        <target>You must sign in to use the AI planner.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.authTitle" datatype="html">
+        <source>Inicia sesión para continuar</source>
+        <target>Sign in to continue</target>
+      </trans-unit>
+      <trans-unit id="aiplan.backBtn" datatype="html">
+        <source>← Volver</source>
+        <target>← Back</target>
+      </trans-unit>
+      <trans-unit id="aiplan.budgetLabel" datatype="html">
+        <source>Presupuesto estimado</source>
+        <target>Estimated budget</target>
+      </trans-unit>
+      <trans-unit id="aiplan.budgetPlaceholder" datatype="html">
+        <source>Ej: 500-1000 USD</source>
+        <target>E.g.: 500-1000 USD</target>
+      </trans-unit>
+      <trans-unit id="aiplan.departure" datatype="html">
+        <source>Salida 🏠</source>
+        <target>Departure 🏠</target>
+      </trans-unit>
+      <trans-unit id="aiplan.durationLabel" datatype="html">
+        <source>Duración (días)</source>
+        <target>Duration (days)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.durationPlaceholder" datatype="html">
+        <source>Ej: 14</source>
+        <target>E.g.: 14</target>
+      </trans-unit>
+      <trans-unit id="aiplan.karmaCost" datatype="html">
+        <source>Esta acción cuesta 10 karma ⭐ en total</source>
+        <target>This action costs 10 karma ⭐ in total</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingPlan" datatype="html">
+        <source>Creando tu plan de viaje 🗺️</source>
+        <target>Creating your trip plan 🗺️</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingSuggest" datatype="html">
+        <source>Generando sugerencias ✨</source>
+        <target>Generating suggestions ✨</target>
+      </trans-unit>
+      <trans-unit id="aiplan.optTitle" datatype="html">
+        <source>Elige una opción</source>
+        <target>Choose an option</target>
+      </trans-unit>
+      <trans-unit id="aiplan.planBtn" datatype="html">
+        <source>Generar plan completo</source>
+        <target>Generate full plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefLabel" datatype="html">
+        <source>Describe tu viaje ideal</source>
+        <target>Describe your ideal trip</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefPlaceholder" datatype="html">
+        <source>Ej: quiero un viaje romántico con mi pareja, priorizando gastronomía y museos, sin demasiado transporte…</source>
+        <target>E.g.: I want a romantic trip with my partner, prioritizing food and museums, without too much transit…</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefTitle" datatype="html">
+        <source>¿Qué tipo de viaje buscas?</source>
+        <target>What kind of trip are you looking for?</target>
+      </trans-unit>
+      <trans-unit id="aiplan.restartBtn" datatype="html">
+        <source>↩ Volver a empezar</source>
+        <target>↩ Start over</target>
+      </trans-unit>
+      <trans-unit id="aiplan.saveBtn" datatype="html">
+        <source>💾 Guardar plan</source>
+        <target>💾 Save plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.startDateLabel" datatype="html">
+        <source>Fecha de inicio</source>
+        <target>Start date</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step1" datatype="html">
+        <source>Preferencias</source>
+        <target>Preferences</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step2" datatype="html">
+        <source>Elige opción</source>
+        <target>Choose option</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step3" datatype="html">
+        <source>Tu plan</source>
+        <target>Your plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.subtitle" datatype="html">
+        <source>Cuéntanos qué buscas y generamos opciones personalizadas para ti</source>
+        <target>Tell us what you're looking for and we'll generate personalized options for you</target>
+      </trans-unit>
+      <trans-unit id="aiplan.suggestBtn" datatype="html">
+        <source>Generar opciones</source>
+        <target>Generate options</target>
+      </trans-unit>
+      <trans-unit id="aiplan.title" datatype="html">
+        <source>Tu próximo viaje, diseñado por IA</source>
+        <target>Your next trip, designed by AI</target>
       </trans-unit>
 
       <!-- ── shared-trip.component ── -->
@@ -1252,9 +1390,108 @@
         <source> 📤 Publicar </source>
         <target> 📤 Publish </target>
       </trans-unit>
+
+      <!-- ── my-trips.component: full translation pass ── -->
+      <trans-unit id="myTrips.title" datatype="html">
+        <source>Mis viajes</source>
+        <target>My trips</target>
+      </trans-unit>
+      <trans-unit id="myTrips.savedTripsTitle" datatype="html">
+        <source>Viajes guardados 🗺️</source>
+        <target>Saved trips 🗺️</target>
+      </trans-unit>
+      <trans-unit id="myTrips.loginToViewTrips" datatype="html">
+        <source>Inicia sesión para ver tus viajes guardados.</source>
+        <target>Sign in to see your saved trips.</target>
+      </trans-unit>
+      <trans-unit id="myTrips.noSavedTrips" datatype="html">
+        <source>Aún no tienes viajes guardados. Usa el botón &quot;Guardar viaje 🎉&quot; para guardar uno.</source>
+        <target>You don't have any saved trips yet. Use the "Save trip 🎉" button to save one.</target>
+      </trans-unit>
+      <trans-unit id="myTrips.searchPlaceholder" datatype="html">
+        <source>Buscar viaje guardado…</source>
+        <target>Search saved trip…</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cityCountOne" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> ciudad</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> city</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cityCountMany" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> ciudades</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> cities</target>
+      </trans-unit>
+      <trans-unit id="myTrips.duplicateTitle" datatype="html">
+        <source>Duplicar viaje</source>
+        <target>Duplicate trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteTitle" datatype="html">
+        <source>Eliminar viaje</source>
+        <target>Delete trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.insufficientKarma" datatype="html">
+        <source>Karma insuficiente</source>
+        <target>Insufficient karma</target>
+      </trans-unit>
+      <trans-unit id="myTrips.noResults" datatype="html">
+        <source>Sin resultados para &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</source>
+        <target>No results for &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneModalTitle" datatype="html">
+        <source>📋 Duplicar viaje</source>
+        <target>📋 Duplicate trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneModalBody" datatype="html">
+        <source> Se creará una copia de este viaje en tu lista de guardados.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Costo: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
+        <target> A copy of this trip will be created in your saved list.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Cost: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
+      </trans-unit>
+      <trans-unit id="myTrips.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneConfirmBtn" datatype="html">
+        <source>📋 Duplicar</source>
+        <target>📋 Duplicate</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteModalTitle" datatype="html">
+        <source>🗑️ Eliminar viaje</source>
+        <target>🗑️ Delete trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteModalSub" datatype="html">
+        <source>Esta acción no se puede deshacer</source>
+        <target>This action can't be undone</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteModalBody" datatype="html">
+        <source> ¿Eliminar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Perderás este viaje permanentemente. </source>
+        <target> Delete <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> You'll lose this trip permanently. </target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteConfirmBtn" datatype="html">
+        <source>🗑️ Eliminar</source>
+        <target>🗑️ Delete</target>
+      </trans-unit>
+      <trans-unit id="myTrips.excelNeedsBackend" datatype="html">
+        <source>La exportación Excel requiere el backend activo</source>
+        <target>Excel export requires the backend to be running</target>
+      </trans-unit>
+      <trans-unit id="myTrips.itineraryDownloaded" datatype="html">
+        <source>Itinerario descargado</source>
+        <target>Itinerary downloaded</target>
+      </trans-unit>
+      <trans-unit id="myTrips.itineraryDownloadError" datatype="html">
+        <source>Error al descargar el itinerario</source>
+        <target>Error downloading the itinerary</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneSavedToast" datatype="html">
+        <source>&quot;<x id="PH" equiv-text="cloned.title"/>&quot; guardado</source>
+        <target>&quot;<x id="PH" equiv-text="cloned.title"/>&quot; saved</target>
+      </trans-unit>
+
       <trans-unit id="nav.myTripsPage" datatype="html">
         <source>🗺 Mis viajes</source>
         <target>🗺 My trips</target>
+      </trans-unit>
+      <trans-unit id="nav.mySharedTrips" datatype="html">
+        <source>Mis viajes compartidos</source>
+        <target>My shared trips</target>
       </trans-unit>
       <trans-unit id="share.shareBtn" datatype="html">
         <source>📤 Compartir</source>
@@ -1331,6 +1568,64 @@
       <trans-unit id="timeline.daySlideshow" datatype="html">
         <source>🎬 Presentación del día</source>
         <target>🎬 Day slideshow</target>
+      </trans-unit>
+
+      <!-- ── day-timeline.component: full translation pass ── -->
+      <trans-unit id="timeline.flapAriaExpand" datatype="html">
+        <source>Expandir panel de horario</source>
+        <target>Expand schedule panel</target>
+      </trans-unit>
+      <trans-unit id="timeline.flapAriaCollapse" datatype="html">
+        <source>Colapsar panel de horario</source>
+        <target>Collapse schedule panel</target>
+      </trans-unit>
+      <trans-unit id="timeline.eyebrowTransport" datatype="html">
+        <source>Transporte</source>
+        <target>Transport</target>
+      </trans-unit>
+      <trans-unit id="timeline.eyebrowDayView" datatype="html">
+        <source>Vista del día</source>
+        <target>Day view</target>
+      </trans-unit>
+      <trans-unit id="timeline.noActivities" datatype="html">
+        <source>sin actividades</source>
+        <target>no activities</target>
+      </trans-unit>
+      <trans-unit id="timeline.activityOne" datatype="html">
+        <source>actividad</source>
+        <target>activity</target>
+      </trans-unit>
+      <trans-unit id="timeline.activityMany" datatype="html">
+        <source>actividades</source>
+        <target>activities</target>
+      </trans-unit>
+      <trans-unit id="timeline.transportOne" datatype="html">
+        <source>transporte</source>
+        <target>transport</target>
+      </trans-unit>
+      <trans-unit id="timeline.transportMany" datatype="html">
+        <source>transportes</source>
+        <target>transports</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeFlight" datatype="html">
+        <source>Vuelo</source>
+        <target>Flight</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeTrain" datatype="html">
+        <source>Tren</source>
+        <target>Train</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeBoat" datatype="html">
+        <source>Barco</source>
+        <target>Boat</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeBus" datatype="html">
+        <source>Bus</source>
+        <target>Bus</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeCar" datatype="html">
+        <source>Auto</source>
+        <target>Car</target>
       </trans-unit>
       <trans-unit id="timeline.planSlideshow" datatype="html">
         <source>🎞️ Presentación del plan</source>
@@ -1433,6 +1728,294 @@
       <trans-unit id="about.team.miel.bio" datatype="html">
         <source>Experta en IA y consejos de viajes. Sabe como huelen las mejores atracciones y donde encontrarlas. Se dice que no duerme.</source>
         <target>AI and travel-tips expert. Knows what the best attractions smell like and where to find them. Rumor has it she never sleeps.</target>
+      </trans-unit>
+
+      <!-- ── lodging.component ── -->
+      <trans-unit id="lodging.namePlaceholder" datatype="html">
+        <source>Hotel, Airbnb, hostal…</source>
+        <target>Hotel, Airbnb, hostel…</target>
+      </trans-unit>
+      <trans-unit id="lodging.urlPlaceholder" datatype="html">
+        <source>Link de reserva (opcional)</source>
+        <target>Booking link (optional)</target>
+      </trans-unit>
+      <trans-unit id="lodging.saveBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="lodging.linkTitle" datatype="html">
+        <source>Abrir reserva</source>
+        <target>Open booking</target>
+      </trans-unit>
+      <trans-unit id="lodging.addBtn" datatype="html">
+        <source>🏨 + Alojamiento</source>
+        <target>🏨 + Lodging</target>
+      </trans-unit>
+
+      <!-- ── nav-desktop / nav-mobile: my-profile button ── -->
+      <trans-unit id="nav.myProfile" datatype="html">
+        <source>👤 Mi perfil</source>
+        <target>👤 My profile</target>
+      </trans-unit>
+
+      <!-- ── plan-time-modal.component: date label ── -->
+      <trans-unit id="planModal.dateLabel" datatype="html">
+        <source>Fecha</source>
+        <target>Date</target>
+      </trans-unit>
+
+      <!-- ── profile.component: AI new-trip button ── -->
+      <trans-unit id="profile.aiBtn" datatype="html">
+        <source>✨ Nuevo viaje con IA</source>
+        <target>✨ New trip with AI</target>
+      </trans-unit>
+
+      <!-- ── profile.component: full translation pass ── -->
+      <trans-unit id="profile.title" datatype="html">
+        <source>Mi Perfil</source>
+        <target>My Profile</target>
+      </trans-unit>
+      <trans-unit id="profile.backBtn" datatype="html">
+        <source>← Volver</source>
+        <target>← Back</target>
+      </trans-unit>
+      <trans-unit id="profile.editAccountTitle" datatype="html">
+        <source>Editar cuenta ✏️</source>
+        <target>Edit account ✏️</target>
+      </trans-unit>
+      <trans-unit id="profile.nameTitle" datatype="html">
+        <source>Nombre</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="profile.displayNameLabel" datatype="html">
+        <source>Nombre para mostrar</source>
+        <target>Display name</target>
+      </trans-unit>
+      <trans-unit id="profile.namePlaceholder" datatype="html">
+        <source>Tu nombre</source>
+        <target>Your name</target>
+      </trans-unit>
+      <trans-unit id="profile.saveNameBtn" datatype="html">
+        <source>Guardar nombre</source>
+        <target>Save name</target>
+      </trans-unit>
+      <trans-unit id="profile.emailTitle" datatype="html">
+        <source>Correo electrónico</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="profile.newEmailLabel" datatype="html">
+        <source>Nueva dirección de correo</source>
+        <target>New email address</target>
+      </trans-unit>
+      <trans-unit id="profile.newEmailPlaceholder" datatype="html">
+        <source>nuevo@correo.com</source>
+        <target>new@email.com</target>
+      </trans-unit>
+      <trans-unit id="profile.sendingMsg" datatype="html">
+        <source>Enviando…</source>
+        <target>Sending…</target>
+      </trans-unit>
+      <trans-unit id="profile.sentMsg" datatype="html">
+        <source>Enviado</source>
+        <target>Sent</target>
+      </trans-unit>
+      <trans-unit id="profile.sendCodeBtn" datatype="html">
+        <source>Enviar código →</source>
+        <target>Send code →</target>
+      </trans-unit>
+      <trans-unit id="profile.checkEmailTitle" datatype="html">
+        <source>Revisa tu correo</source>
+        <target>Check your email</target>
+      </trans-unit>
+      <trans-unit id="profile.codeSentTo" datatype="html">
+        <source> Código enviado a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ editNewEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
+                    </source>
+        <target> Code sent to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ editNewEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
+                    </target>
+      </trans-unit>
+      <trans-unit id="profile.otpLabel" datatype="html">
+        <source>Código de verificación</source>
+        <target>Verification code</target>
+      </trans-unit>
+      <trans-unit id="profile.changeEmailBtn" datatype="html">
+        <source>← Cambiar correo</source>
+        <target>← Change email</target>
+      </trans-unit>
+      <trans-unit id="profile.resendCodeBtn" datatype="html">
+        <source>Reenviar código</source>
+        <target>Resend code</target>
+      </trans-unit>
+      <trans-unit id="profile.verifyingMsg" datatype="html">
+        <source>Verificando…</source>
+        <target>Verifying…</target>
+      </trans-unit>
+      <trans-unit id="profile.updatedMsg" datatype="html">
+        <source>Actualizado</source>
+        <target>Updated</target>
+      </trans-unit>
+      <trans-unit id="profile.updateEmailBtn" datatype="html">
+        <source>Actualizar correo →</source>
+        <target>Update email →</target>
+      </trans-unit>
+      <trans-unit id="profile.passwordTitle" datatype="html">
+        <source>Contraseña</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="profile.currentPasswordLabel" datatype="html">
+        <source>Contraseña actual</source>
+        <target>Current password</target>
+      </trans-unit>
+      <trans-unit id="profile.hideBtn" datatype="html">
+        <source>Ocultar</source>
+        <target>Hide</target>
+      </trans-unit>
+      <trans-unit id="profile.showBtn" datatype="html">
+        <source>Ver</source>
+        <target>Show</target>
+      </trans-unit>
+      <trans-unit id="profile.newPasswordLabel" datatype="html">
+        <source>Nueva contraseña</source>
+        <target>New password</target>
+      </trans-unit>
+      <trans-unit id="profile.strengthVulnerable" datatype="html">
+        <source>Vulnerable</source>
+        <target>Weak</target>
+      </trans-unit>
+      <trans-unit id="profile.strengthLight" datatype="html">
+        <source>Moderada</source>
+        <target>Moderate</target>
+      </trans-unit>
+      <trans-unit id="profile.strengthStrong" datatype="html">
+        <source>Fuerte</source>
+        <target>Strong</target>
+      </trans-unit>
+      <trans-unit id="profile.updatingMsg" datatype="html">
+        <source>Actualizando…</source>
+        <target>Updating…</target>
+      </trans-unit>
+      <trans-unit id="profile.passwordUpdatedMsg" datatype="html">
+        <source>Actualizada</source>
+        <target>Updated</target>
+      </trans-unit>
+      <trans-unit id="profile.updatePasswordBtn" datatype="html">
+        <source>Actualizar contraseña</source>
+        <target>Update password</target>
+      </trans-unit>
+      <trans-unit id="profile.myTripsTitle" datatype="html">
+        <source>Mis planificaciones ✈️</source>
+        <target>My trips ✈️</target>
+      </trans-unit>
+      <trans-unit id="profile.noTripsYet" datatype="html">
+        <source>Aún no tienes destinos planificados. ¡Agrega tu primera ciudad!</source>
+        <target>You haven't planned any destinations yet. Add your first city!</target>
+      </trans-unit>
+      <trans-unit id="profile.currentTripLabel" datatype="html">
+        <source>Viaje actual</source>
+        <target>Current trip</target>
+      </trans-unit>
+      <trans-unit id="profile.citiesLabel" datatype="html">
+        <source>Ciudades</source>
+        <target>Cities</target>
+      </trans-unit>
+      <trans-unit id="profile.attractionsLabel" datatype="html">
+        <source>Atracciones</source>
+        <target>Attractions</target>
+      </trans-unit>
+      <trans-unit id="profile.visitedPlacesTitle" datatype="html">
+        <source>Lugares visitados 🗺</source>
+        <target>Visited places 🗺</target>
+      </trans-unit>
+      <trans-unit id="profile.loginToSavePlaces" datatype="html">
+        <source>Inicia sesión para guardar tus lugares visitados en el mapa.</source>
+        <target>Sign in to save the places you've visited on the map.</target>
+      </trans-unit>
+      <trans-unit id="profile.mapHint" datatype="html">
+        <source> Haz clic en el mapa para marcar un lugar que ya visitaste. Pasa el cursor sobre un pin para eliminarlo. </source>
+        <target> Click the map to mark a place you've already visited. Hover over a pin to remove it. </target>
+      </trans-unit>
+      <trans-unit id="profile.worldMapAlt" datatype="html">
+        <source>World map</source>
+        <target>World map</target>
+      </trans-unit>
+      <trans-unit id="profile.placeVisitedPlaceholder" datatype="html">
+        <source>¿Qué lugar visitaste?</source>
+        <target>What place did you visit?</target>
+      </trans-unit>
+      <trans-unit id="profile.addPinBtn" datatype="html">
+        <source>Agregar</source>
+        <target>Add</target>
+      </trans-unit>
+      <trans-unit id="profile.pinsMarkedCountOne" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugar marcado</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> place marked</target>
+      </trans-unit>
+      <trans-unit id="profile.pinsMarkedCountMany" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugares marcados</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> places marked</target>
+      </trans-unit>
+      <trans-unit id="profile.errNameEmpty" datatype="html">
+        <source>El nombre no puede estar vacío.</source>
+        <target>Name can't be empty.</target>
+      </trans-unit>
+      <trans-unit id="profile.errEmailEmpty" datatype="html">
+        <source>Ingresa la nueva dirección de correo.</source>
+        <target>Enter the new email address.</target>
+      </trans-unit>
+      <trans-unit id="profile.errPasswordsMismatch" datatype="html">
+        <source>Las contraseñas no coinciden.</source>
+        <target>Passwords don't match.</target>
+      </trans-unit>
+      <trans-unit id="profile.errPasswordTooShort" datatype="html">
+        <source>La contraseña debe tener al menos 6 caracteres.</source>
+        <target>Password must be at least 6 characters.</target>
+      </trans-unit>
+
+      <!-- ── stop-list.component: date-save controls ── -->
+      <trans-unit id="stopList.saveDatesBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="stopList.savingMsg" datatype="html">
+        <source>Guardando…</source>
+        <target>Saving…</target>
+      </trans-unit>
+
+      <!-- ── transit-connector.component ── -->
+      <trans-unit id="transit.addBtn" datatype="html">
+        <source>+ Transporte</source>
+        <target>+ Transport</target>
+      </trans-unit>
+      <trans-unit id="transit.addConnection" datatype="html">
+        <source>+ Agregar conexión</source>
+        <target>+ Add connection</target>
+      </trans-unit>
+      <trans-unit id="transit.addSegBtn" datatype="html">
+        <source>+ Tramo</source>
+        <target>+ Leg</target>
+      </trans-unit>
+      <trans-unit id="transit.arrLabel" datatype="html">
+        <source>Llegada</source>
+        <target>Arrival</target>
+      </trans-unit>
+      <trans-unit id="transit.dateLabel" datatype="html">
+        <source>Fecha</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="transit.depLabel" datatype="html">
+        <source>Salida</source>
+        <target>Departure</target>
+      </trans-unit>
+      <trans-unit id="transit.notesPlaceholder" datatype="html">
+        <source>Nro. de vuelo, notas… (opcional)</source>
+        <target>Flight number, notes… (optional)</target>
+      </trans-unit>
+      <trans-unit id="transit.saveBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="transit.timeLabel" datatype="html">
+        <source>Hora</source>
+        <target>Time</target>
       </trans-unit>
 
     </body>

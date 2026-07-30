@@ -19,6 +19,8 @@ import { VisitedPlacesService } from '../../core/visited-places/visited-places.s
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
+import { LocaleService } from '../../core/i18n/locale.service';
+import { AppLocale, RestoreView } from '../../core/i18n/locale.util';
 
 @Injectable({ providedIn: 'root' })
 export class NavFacadeService {
@@ -34,11 +36,18 @@ export class NavFacadeService {
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
   private readonly router       = inject(Router);
+  readonly locale = inject(LocaleService);
 
   // ── search / menu state ──
   navQuery     = signal('');
   searchOpen   = signal(false);
   userMenuOpen = signal(false);
+
+  /** Language dropdown open state (desktop). */
+  langOpen = signal(false);
+
+  /** Which shell panel is open right now — synced by ShellComponent, consumed on locale switch. */
+  currentShellView = signal<RestoreView | null>(null);
 
   // ── saved-plans / favorites / shared-trips state ──
   plansOpen      = signal(false);
@@ -215,6 +224,11 @@ export class NavFacadeService {
   openSharedTrip(id: string): void { this.router.navigate(['/shared', id]); }
   goToSharedTrip(id: string): void { this.router.navigate(['/shared', id]); }
   commentCount(tripId: string): number { return this.sharedTrips.getCommentCount(tripId); }
+
+  switchLocale(target: AppLocale): void {
+    this.langOpen.set(false);
+    this.locale.switchTo(target, this.currentShellView());
+  }
 
   quickAdd(city: City): void {
     this.trip.addStop(city, '', '');

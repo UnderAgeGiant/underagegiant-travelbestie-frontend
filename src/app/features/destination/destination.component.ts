@@ -7,16 +7,17 @@ import { Comment } from '../../core/models/comment.model';
 import { ApiService } from '../../core/api/api.service';
 import { DeviceService } from '../../core/device/device.service';
 import { AttractionsListComponent } from './attractions-list/attractions-list.component';
+import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
 @Component({
     selector: 'app-destination',
-    imports: [AttractionsListComponent],
+    imports: [AttractionsListComponent, FlagIconComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="dest-view">
       @if (city() && !device.isMobile()) {
         <div class="dest-banner">
-          <div class="dest-banner-flag">{{ city()!.flag }}</div>
+          <div class="dest-banner-flag"><app-flag-icon [flag]="city()!.flag" [alt]="city()!.name" [size]="42" /></div>
           <div class="dest-banner-info">
             <div class="dest-banner-name">{{ city()!.name }}</div>
             <div class="dest-banner-country">📍 {{ city()!.country }}</div>

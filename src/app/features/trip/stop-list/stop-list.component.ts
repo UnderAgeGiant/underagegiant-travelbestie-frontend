@@ -16,10 +16,11 @@ import { DayTimelineComponent } from '../../planning/day-timeline/day-timeline.c
 import { DestinationModalService } from '../../destination/destination-modal.service';
 import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
+import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -76,7 +77,7 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 
           <!-- Departure flight connector -->
           <app-transit-connector fromId="__start__" toId="__start__"
-            type="departure" [cityLabel]="firstCityLabel()" />
+            type="departure" [cityLabel]="firstCityLabel()" [cityFlag]="firstCityFlag()" />
 
           @for (stop of trip.stops(); track stop.stopId; let i = $index) {
 
@@ -91,7 +92,7 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
               <div [class]="'stop-item' + (trip.activeId() === stop.stopId ? ' active' : '')"
                    (click)="trip.setActive(stop.stopId)">
                 <div class="stop-row">
-                  <span class="stop-flag">{{ city.flag }}</span>
+                  <app-flag-icon class="stop-flag" [flag]="city.flag" [alt]="city.name" [size]="22" />
                   <div class="stop-info">
                     <div class="stop-name">{{ city.name }}</div>
                     <div class="stop-country">{{ city.country }}</div>
@@ -224,7 +225,7 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 
           <!-- Return flight connector -->
           <app-transit-connector fromId="__end__" toId="__end__"
-            type="arrival" [cityLabel]="lastCityLabel()" />
+            type="arrival" [cityLabel]="lastCityLabel()" [cityFlag]="lastCityFlag()" />
 
         }
       </div>
@@ -359,14 +360,28 @@ export class StopListComponent {
     const stops = this.trip.stops();
     if (!stops.length) return '';
     const c = WORLD_CITIES.find(city => city.id === stops[0].cityId);
-    return c ? `${c.flag} ${c.name}` : '';
+    return c ? c.name : '';
+  });
+
+  readonly firstCityFlag = computed(() => {
+    const stops = this.trip.stops();
+    if (!stops.length) return '';
+    const c = WORLD_CITIES.find(city => city.id === stops[0].cityId);
+    return c?.flag ?? '';
   });
 
   readonly lastCityLabel = computed(() => {
     const stops = this.trip.stops();
     if (!stops.length) return '';
     const c = WORLD_CITIES.find(city => city.id === stops[stops.length - 1].cityId);
-    return c ? `${c.flag} ${c.name}` : '';
+    return c ? c.name : '';
+  });
+
+  readonly lastCityFlag = computed(() => {
+    const stops = this.trip.stops();
+    if (!stops.length) return '';
+    const c = WORLD_CITIES.find(city => city.id === stops[stops.length - 1].cityId);
+    return c?.flag ?? '';
   });
 
   readonly activeTripName = computed(() => {

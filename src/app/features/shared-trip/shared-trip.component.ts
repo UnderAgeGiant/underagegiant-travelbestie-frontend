@@ -28,10 +28,11 @@ import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
+import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent],
+    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -143,7 +144,7 @@ import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slides
             @for (stop of trip()!.stops; track stop.cityId; let i = $index; let last = $last) {
               @let city = cityFor(stop.cityId);
               @if (city) {
-                <span class="shared-header-flag" [title]="city.name">{{ city.flag }}</span>
+                <span class="shared-header-flag" [title]="city.name"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="22" /></span>
               }
               @if (!last) {
                 @let nextStop = trip()!.stops[i + 1];
@@ -199,7 +200,7 @@ import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slides
                    (click)="selectShareStop(stop)"
                    style="cursor:pointer">
                 <div class="itin-city-head">
-                  <span class="itin-city-flag">{{ city.flag }}</span>
+                  <span class="itin-city-flag"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="24" /></span>
                   <div>
                     <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
                       @if (!shouldShowComments(stopKey)) {
@@ -321,7 +322,7 @@ import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slides
                     <span class="itin-no-transit" i18n="@@sharedTrip.noTransit">Sin transporte definido</span>
                   }
                   @if (nextCity) {
-                    <span class="itin-transit-dest">→ {{ nextCity.flag }} {{ nextCity.name }}
+                    <span class="itin-transit-dest">→ <app-flag-icon [flag]="nextCity.flag" [alt]="nextCity.name" [size]="16" /> {{ nextCity.name }}
                       @if (!shouldShowComments(legKey)) {
                         <button class="step-comments-toggle" (click)="expandStep(legKey)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                       }

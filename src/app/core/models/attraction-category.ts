@@ -8,11 +8,23 @@ export interface CategoryMeta {
   defaultSubcategoryLabel: string;
 }
 
-export const CATEGORY_META: Record<AttractionCategory, CategoryMeta> = {
-  poi:         { code: 'poi',         label: 'Puntos de interés', icon: '🏛️', bg: '#E8F0FD', defaultSubcategoryLabel: 'Puntos de interés' },
-  freetour:    { code: 'freetour',    label: 'Freetours',         icon: '🚶', bg: '#E8FDE8', defaultSubcategoryLabel: 'Freetours'         },
-  event_party: { code: 'event_party', label: 'Eventos/Fiestas',   icon: '🎉', bg: '#FDE8F5', defaultSubcategoryLabel: 'Eventos/Fiestas'   },
-  foodie:      { code: 'foodie',      label: 'Foodie',            icon: '🍴', bg: '#FDF5E8', defaultSubcategoryLabel: 'Foodie'            },
-};
+/**
+ * Built by a function (not a module-level const) so the $localize calls
+ * run lazily, after the app has bootstrapped and the @angular/localize
+ * polyfill is loaded — a top-level const would evaluate $localize at
+ * module-import time, before that's guaranteed to be ready.
+ */
+export function getCategoryMeta(): Record<AttractionCategory, CategoryMeta> {
+  const poiLabel   = $localize`:@@category.poi:Puntos de interés`;
+  const eventLabel = $localize`:@@category.eventParty:Eventos/Fiestas`;
+  return {
+    poi:         { code: 'poi',         label: poiLabel,                             icon: '🏛️', bg: '#E8F0FD', defaultSubcategoryLabel: poiLabel },
+    freetour:    { code: 'freetour',    label: $localize`:@@category.freetour:Freetours`, icon: '🚶', bg: '#E8FDE8', defaultSubcategoryLabel: $localize`:@@category.freetour:Freetours` },
+    event_party: { code: 'event_party', label: eventLabel,                           icon: '🎉', bg: '#FDE8F5', defaultSubcategoryLabel: eventLabel },
+    foodie:      { code: 'foodie',      label: $localize`:@@category.foodie:Foodie`,       icon: '🍴', bg: '#FDF5E8', defaultSubcategoryLabel: $localize`:@@category.foodie:Foodie` },
+  };
+}
 
-export const ALL_CATEGORIES = Object.values(CATEGORY_META);
+export function getAllCategories(): CategoryMeta[] {
+  return Object.values(getCategoryMeta());
+}

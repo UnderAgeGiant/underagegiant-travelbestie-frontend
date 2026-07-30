@@ -2,14 +2,24 @@ import { Component, inject, output, signal } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
+import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 
 @Component({
   selector: 'app-nav-mobile',
-  imports: [NotificationBellComponent],
+  imports: [NotificationBellComponent, FlagIconComponent],
   template: `
     <nav class="nav-m-bar">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
       <div style="flex:1"></div>
+
+      <button class="lang-drop-btn" type="button"
+              (click)="facade.switchLocale(facade.locale.other())"
+              i18n-aria-label="@@nav.langSwitch" aria-label="Cambiar idioma">
+        <img [src]="facade.locale.current() === 'es-CL' ? 'https://flagcdn.com/w20/cl.jpg' : 'https://flagcdn.com/w20/us.jpg'"
+             [alt]="facade.locale.current() === 'es-CL' ? 'ES' : 'EN'"
+             class="lang-nav-flag" />
+        <span>{{ facade.locale.current() === 'es-CL' ? 'ES' : 'EN' }}</span>
+      </button>
 
       @if (facade.auth.isLoggedIn() && facade.karma.karma() !== null) {
         <div [style]="facade.karmaPillStyle()"
@@ -50,7 +60,7 @@ import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
                  (input)="facade.navQuery.set($any($event.target).value)" />
           @for (city of facade.navFiltered(); track city.id) {
             <button class="up-shared-trip-row" (click)="quickAdd(city)">
-              <div class="up-shared-trip-name">{{ city.flag }} {{ city.name }}</div>
+              <div class="up-shared-trip-name"><app-flag-icon [flag]="city.flag" [alt]="city.name" /> {{ city.name }}</div>
               <div class="up-shared-trip-meta">{{ city.country }}</div>
             </button>
           }
@@ -132,7 +142,7 @@ import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
         <!-- Shared trips -->
         @if (facade.mySharedTrips().length > 0) {
           <button class="up-plans-btn" (click)="facade.toggleMyTrips()">
-            <span>🔗</span><span>Mis viajes compartidos</span>
+            <span>🔗</span><span i18n="@@nav.mySharedTrips">Mis viajes compartidos</span>
             <span class="up-plans-badge">{{ facade.mySharedTrips().length }}</span>
             <span style="margin-left:auto">{{ facade.myTripsOpen() ? '▴' : '▾' }}</span>
           </button>

@@ -2,7 +2,7 @@ import { Component, input, output, signal, computed, effect, ChangeDetectionStra
 import { City } from '../../../core/models/city.model';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { AttractionCardComponent } from '../attraction-card/attraction-card.component';
-import { AttractionCategory, ALL_CATEGORIES } from '../../../core/models/attraction-category';
+import { AttractionCategory, getAllCategories } from '../../../core/models/attraction-category';
 
 @Component({
   selector: 'app-attractions-list',
@@ -80,7 +80,7 @@ export class AttractionsListComponent {
   readonly searchQuery    = signal('');
 
   readonly availableCategories = computed(() =>
-    ALL_CATEGORIES.filter(m => this.attractions().some(a => a.category === m.code))
+    getAllCategories().filter(m => this.attractions().some(a => a.category === m.code))
   );
 
   readonly filteredAttractions = computed(() => {
