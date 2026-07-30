@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T14:51:04.756Z",
+  "generatedAt": "2026-07-30T14:58:51.434Z",
   "totalCities": 569,
   "citiesNeedingWork": 391,
   "goalMet": false,
@@ -1135,33 +1135,16 @@
     },
     {
       "city": "sofia",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1544085701-4d8b4e31e05a?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "sofia_0",
-            "sofia_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 137
     },
     {
       "city": "edinburgh",
       "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558370894-bde8d39395c0?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "edinburgh_0",
-            "edinburgh_1",
-            "edinburgh_2"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 12,
       "needsWork": true,
       "priorityRank": 138
