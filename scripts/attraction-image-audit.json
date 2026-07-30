@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T22:43:15.137Z",
+  "generatedAt": "2026-07-30T22:58:06.143Z",
   "totalCities": 569,
   "citiesNeedingWork": 348,
   "goalMet": false,
@@ -2064,17 +2064,17 @@
     },
     {
       "city": "essaouira",
-      "count": 7,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 245
     },
     {
       "city": "ouarzazate",
-      "count": 2,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 246
     },
