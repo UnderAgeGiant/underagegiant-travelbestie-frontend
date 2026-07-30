@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T16:42:14.446Z",
+  "generatedAt": "2026-07-30T16:50:31.032Z",
   "totalCities": 569,
-  "citiesNeedingWork": 377,
+  "citiesNeedingWork": 376,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1399,10 +1399,10 @@
     },
     {
       "city": "killarney",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 168
     },
     {
@@ -1415,17 +1415,9 @@
     },
     {
       "city": "palermo",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1589815516038-dd14a9e9b58b?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "palermo_0",
-            "palermo_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 170
     },
