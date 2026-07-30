@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T15:47:13.894Z",
+  "generatedAt": "2026-07-30T15:54:58.914Z",
   "totalCities": 569,
   "citiesNeedingWork": 386,
   "goalMet": false,
@@ -1263,17 +1263,9 @@
     },
     {
       "city": "salzburg",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1595872205966-35cb574be62d?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "salzburg_0",
-            "salzburg_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 151
     },
