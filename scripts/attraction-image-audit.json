@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T22:58:06.143Z",
+  "generatedAt": "2026-07-30T23:08:08.195Z",
   "totalCities": 569,
-  "citiesNeedingWork": 348,
+  "citiesNeedingWork": 346,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2072,33 +2072,33 @@
     },
     {
       "city": "ouarzazate",
-      "count": 9,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 246
     },
     {
       "city": "brisbane",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 247
     },
     {
       "city": "saintpetersburg",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 248
     },
     {
       "city": "caen",
-      "count": 1,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 249
     },
