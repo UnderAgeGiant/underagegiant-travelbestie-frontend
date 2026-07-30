@@ -1423,7 +1423,7 @@
         <target>Director of Design</target>
       </trans-unit>
       <trans-unit id="about.team.ceci.bio" datatype="html">
-        <source>Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli</source>
+        <source>Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli.</source>
         <target>Process expert and lead designer. Knows better than anyone how the user should behave and what they actually need. She's also the only one allowed to feed Yoli.</target>
       </trans-unit>
       <trans-unit id="about.team.miel.role" datatype="html">

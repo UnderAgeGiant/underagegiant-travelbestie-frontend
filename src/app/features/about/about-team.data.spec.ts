@@ -19,10 +19,9 @@ describe('ABOUT_TEAM', () => {
   });
 
   it('points every member at their real photo in public/team/', () => {
-    // NOTE: mati's file is named maty.jpeg (matches "Maty Fuentes", not the `mati` id) — not a typo, keep as-is.
     expect(ABOUT_TEAM.map(m => m.photo)).toEqual([
       '/team/yoli.jpeg',
-      '/team/maty.jpeg',
+      '/team/mati.jpeg',
       '/team/ceci.jpeg',
       '/team/miel.jpeg',
     ]);
