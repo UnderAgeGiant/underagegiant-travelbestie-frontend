@@ -335,7 +335,12 @@
     "stuck": true
   },
   "salento": {
-    "attempts": 1,
-    "radiusKm": 15
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "villadeley": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
