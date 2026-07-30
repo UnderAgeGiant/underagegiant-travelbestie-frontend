@@ -14,6 +14,7 @@ import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../c
 import { SlideshowItem } from '../../../core/models/plan-slideshow.model';
 import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slideshow.component';
 import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
+import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -95,7 +96,7 @@ const TRANSIT_LABEL: Record<TransitMode, string> = {
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle, PlanSlideshowComponent],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -105,7 +106,10 @@ const TRANSIT_LABEL: Record<TransitMode, string> = {
       <!-- Header -->
       <div class="tl-head">
         <div class="tl-head-eyebrow">{{ eyebrow() }}</div>
-        <div class="tl-head-title">{{ title() }}</div>
+        <div class="tl-head-title">
+          @if (titleFlag()) { <app-flag-icon [flag]="titleFlag()!" [size]="16" /> }
+          {{ title() }}
+        </div>
         <div class="tl-head-sub">{{ subtitle() }}</div>
         @if (trip.loadedPlanId()) {
           <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
@@ -136,7 +140,7 @@ const TRANSIT_LABEL: Record<TransitMode, string> = {
           @for (day of days(); track day.key) {
             <button [ngClass]="['tl-day', day.key === selectedDay() ? 'active' : '']"
                     (click)="selectDay(day.key)">
-              <div class="tl-day-city">{{ day.cityFlag }}</div>
+              <div class="tl-day-city"><app-flag-icon [flag]="day.cityFlag" [size]="12" /></div>
               <div class="tl-day-dow">{{ day.dow }}</div>
               <div class="tl-day-num">{{ day.num }}</div>
               <div [ngClass]="['tl-day-dot', day.hasEvents ? '' : 'empty']"></div>
@@ -362,7 +366,14 @@ export class DayTimelineComponent {
     const stop = this.selectedStopForDay();
     if (!stop) return '';
     const city = WORLD_CITIES.find(c => c.id === stop.cityId);
-    return city ? `${city.flag} ${city.name}` : stop.cityId;
+    return city ? city.name : stop.cityId;
+  });
+
+  protected readonly titleFlag = computed<string | null>(() => {
+    if (this.transportMode()) return null;
+    const stop = this.selectedStopForDay();
+    if (!stop) return null;
+    return WORLD_CITIES.find(c => c.id === stop.cityId)?.flag ?? null;
   });
 
   protected readonly subtitle = computed<string>(() => {
