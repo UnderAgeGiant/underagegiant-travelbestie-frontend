@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T01:38:04.569Z",
+  "generatedAt": "2026-07-30T01:42:13.826Z",
   "totalCities": 569,
   "citiesNeedingWork": 400,
   "goalMet": false,
@@ -983,9 +983,9 @@
     },
     {
       "city": "luxor",
-      "count": 1,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 120
     },
