@@ -39,6 +39,12 @@
       "headers": [
         { "key": "Cache-Control", "value": "private, no-store" }
       ]
+    },
+    {
+      "source": "/((?!.*\\.[^/]+$).*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "private, no-store" }
+      ]
     }
   ]
 }
