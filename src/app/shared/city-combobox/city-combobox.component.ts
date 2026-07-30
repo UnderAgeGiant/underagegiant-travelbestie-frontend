@@ -1,16 +1,18 @@
 import { Component, input, output, signal, computed, HostListener, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { City, Region, REGION_LABELS } from '../../core/models/city.model';
 import { WORLD_CITIES } from '../../data/cities.data';
+import { FlagIconComponent } from '../flag-icon/flag-icon.component';
 
 @Component({
   selector: 'app-city-combobox',
   standalone: true,
+  imports: [FlagIconComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="combo-wrap">
       <div [class]="'combo-input' + (open() ? ' open' : '')" (click)="toggleOpen()">
         @if (selected()) {
-          <span style="font-size:20px">{{ selected()!.flag }}</span>
+          <app-flag-icon [flag]="selected()!.flag" [alt]="selected()!.name" [size]="20" />
           <span style="font-weight:500">{{ selected()!.name }}</span>
           <span style="color:var(--t3);font-size:12px">{{ selected()!.country }}</span>
         } @else {
@@ -34,7 +36,7 @@ import { WORLD_CITIES } from '../../data/cities.data';
               <div class="combo-group-label">{{ regionLabel(entry.region) }}</div>
               @for (city of entry.cities; track city.id) {
                 <div class="combo-item" (click)="select(city)">
-                  <span class="combo-item-flag">{{ city.flag }}</span>
+                  <app-flag-icon class="combo-item-flag" [flag]="city.flag" [alt]="city.name" [size]="18" />
                   <div>
                     <div class="combo-item-city">{{ city.name }}</div>
                     <div class="combo-item-country">{{ city.country }}</div>

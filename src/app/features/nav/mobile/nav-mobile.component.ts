@@ -2,10 +2,11 @@ import { Component, inject, output, signal } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
+import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 
 @Component({
   selector: 'app-nav-mobile',
-  imports: [NotificationBellComponent],
+  imports: [NotificationBellComponent, FlagIconComponent],
   template: `
     <nav class="nav-m-bar">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -59,7 +60,7 @@ import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
                  (input)="facade.navQuery.set($any($event.target).value)" />
           @for (city of facade.navFiltered(); track city.id) {
             <button class="up-shared-trip-row" (click)="quickAdd(city)">
-              <div class="up-shared-trip-name">{{ city.flag }} {{ city.name }}</div>
+              <div class="up-shared-trip-name"><app-flag-icon [flag]="city.flag" [alt]="city.name" /> {{ city.name }}</div>
               <div class="up-shared-trip-meta">{{ city.country }}</div>
             </button>
           }

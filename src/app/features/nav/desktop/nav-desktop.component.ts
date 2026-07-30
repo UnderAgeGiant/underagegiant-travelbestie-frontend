@@ -1,10 +1,11 @@
 import { Component, inject, output } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
+import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 
 @Component({
   selector: 'app-nav-desktop',
-  imports: [NotificationBellComponent],
+  imports: [NotificationBellComponent, FlagIconComponent],
   template: `
     <nav class="nav">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -23,7 +24,7 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
             <div class="combo-list">
               @for (city of facade.navFiltered(); track city.id) {
                 <div class="combo-item" (mousedown)="facade.quickAdd(city)">
-                  <span class="combo-item-flag">{{ city.flag }}</span>
+                  <app-flag-icon class="combo-item-flag" [flag]="city.flag" [alt]="city.name" [size]="18" />
                   <div>
                     <div class="combo-item-city">{{ city.name }}</div>
                     <div class="combo-item-country">{{ city.country }}</div>

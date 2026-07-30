@@ -4,10 +4,11 @@ import { TripService } from '../trip/trip.service';
 import { HomeAddressService } from '../../core/home-address/home-address.service';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
+import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
 @Component({
     selector: 'app-profile',
-    imports: [],
+    imports: [FlagIconComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -357,7 +358,7 @@ import { WORLD_CITIES } from '../../data/cities.data';
                   @let city = cityFor(stop.cityId);
                   @if (city) {
                     <div class="city-badge">
-                      <span>{{ city.flag }}</span>
+                      <app-flag-icon [flag]="city.flag" [alt]="city.name" />
                       <span>{{ city.name }}</span>
                       @if (stop.selectedAttractions.length > 0) {
                         <span class="city-badge-att">{{ stop.selectedAttractions.length }}★</span>
