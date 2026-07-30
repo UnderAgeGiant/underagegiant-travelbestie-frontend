@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T14:41:02.039Z",
+  "generatedAt": "2026-07-30T14:51:04.756Z",
   "totalCities": 569,
-  "citiesNeedingWork": 392,
+  "citiesNeedingWork": 391,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1111,37 +1111,26 @@
     },
     {
       "city": "budapest",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1568683254765-9bc96ca7e56a?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "budapest_0",
-            "budapest_1",
             "budapest_2"
           ]
         }
       ],
-      "missingCount": 12,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 135
     },
     {
       "city": "dubrovnik",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1527004220322-bbb26e87fbe2?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "dubrovnik_0",
-            "dubrovnik_1",
-            "dubrovnik_2",
-            "dubrovnik_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 136
     },
     {
