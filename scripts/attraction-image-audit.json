@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T18:15:42.349Z",
+  "generatedAt": "2026-07-30T18:22:04.539Z",
   "totalCities": 569,
-  "citiesNeedingWork": 370,
+  "citiesNeedingWork": 369,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1623,10 +1623,10 @@
     },
     {
       "city": "arequipa",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 194
     },
     {
