@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T16:03:07.783Z",
+  "generatedAt": "2026-07-30T16:11:44.172Z",
   "totalCities": 569,
-  "citiesNeedingWork": 385,
+  "citiesNeedingWork": 383,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1287,18 +1287,18 @@
     },
     {
       "city": "graz",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 154
     },
     {
       "city": "nice",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 155
     },
     {
