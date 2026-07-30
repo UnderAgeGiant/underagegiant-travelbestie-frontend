@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T01:42:13.826Z",
+  "generatedAt": "2026-07-30T11:59:19.614Z",
   "totalCities": 569,
   "citiesNeedingWork": 400,
   "goalMet": false,
@@ -983,17 +983,17 @@
     },
     {
       "city": "luxor",
-      "count": 10,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 5,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 120
     },
     {
       "city": "aswan",
-      "count": 3,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 121
     },
