@@ -264,8 +264,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "varanasi": {
-    "attempts": 2,
-    "radiusKm": 23
+  "hiroshima": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }

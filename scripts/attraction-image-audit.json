@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T17:31:13.819Z",
+  "generatedAt": "2026-07-30T17:39:05.442Z",
   "totalCities": 569,
-  "citiesNeedingWork": 373,
+  "citiesNeedingWork": 372,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1527,27 +1527,17 @@
     },
     {
       "city": "varanasi",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 183
     },
     {
       "city": "hiroshima",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "hiroshima_0",
-            "hiroshima_1",
-            "hiroshima_2",
-            "hiroshima_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 184
     },
