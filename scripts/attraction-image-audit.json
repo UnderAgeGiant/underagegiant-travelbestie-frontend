@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T00:30:15.845Z",
+  "generatedAt": "2026-07-30T00:37:56.534Z",
   "totalCities": 569,
   "citiesNeedingWork": 408,
   "goalMet": false,
@@ -775,9 +775,9 @@
     },
     {
       "city": "siemreap",
-      "count": 11,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 4,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 94
     },
@@ -791,9 +791,9 @@
     },
     {
       "city": "vientiane",
-      "count": 1,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 96
     },
