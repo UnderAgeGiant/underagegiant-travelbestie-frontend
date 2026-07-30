@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T11:59:19.614Z",
+  "generatedAt": "2026-07-30T12:22:48.752Z",
   "totalCities": 569,
   "citiesNeedingWork": 400,
   "goalMet": false,
@@ -991,17 +991,17 @@
     },
     {
       "city": "aswan",
-      "count": 12,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 121
     },
     {
       "city": "hurghada",
-      "count": 7,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 122
     },
