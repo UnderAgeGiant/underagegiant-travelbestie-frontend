@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T20:09:05.102Z",
+  "generatedAt": "2026-07-30T20:20:03.139Z",
   "totalCities": 569,
-  "citiesNeedingWork": 358,
+  "citiesNeedingWork": 357,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1840,17 +1840,17 @@
     },
     {
       "city": "montanita",
-      "count": 4,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 11,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 217
     },
     {
       "city": "tena",
-      "count": 0,
+      "count": 5,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 10,
       "needsWork": true,
       "priorityRank": 218
     },
