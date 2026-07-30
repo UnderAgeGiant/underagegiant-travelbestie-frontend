@@ -269,8 +269,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "pokhara": {
-    "attempts": 4,
-    "radiusKm": 53
+  "chitwan": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }

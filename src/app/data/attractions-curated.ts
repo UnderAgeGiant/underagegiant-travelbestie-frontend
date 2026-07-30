@@ -68370,6 +68370,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Nepal.Museum.JPG",
     },
+    {
+      id: "pokhara_14",
+      active: true,
+      name: "Tintale",
+      category: 'poi', type: "Histórico",
+      icon: "🏰",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Sindhulimadhi_2020.jpg",
+    },
   ],
   chitwan: [
     {
