@@ -1551,6 +1551,64 @@
         <source>🎬 Presentación del día</source>
         <target>🎬 Day slideshow</target>
       </trans-unit>
+
+      <!-- ── day-timeline.component: full translation pass ── -->
+      <trans-unit id="timeline.flapAriaExpand" datatype="html">
+        <source>Expandir panel de horario</source>
+        <target>Expand schedule panel</target>
+      </trans-unit>
+      <trans-unit id="timeline.flapAriaCollapse" datatype="html">
+        <source>Colapsar panel de horario</source>
+        <target>Collapse schedule panel</target>
+      </trans-unit>
+      <trans-unit id="timeline.eyebrowTransport" datatype="html">
+        <source>Transporte</source>
+        <target>Transport</target>
+      </trans-unit>
+      <trans-unit id="timeline.eyebrowDayView" datatype="html">
+        <source>Vista del día</source>
+        <target>Day view</target>
+      </trans-unit>
+      <trans-unit id="timeline.noActivities" datatype="html">
+        <source>sin actividades</source>
+        <target>no activities</target>
+      </trans-unit>
+      <trans-unit id="timeline.activityOne" datatype="html">
+        <source>actividad</source>
+        <target>activity</target>
+      </trans-unit>
+      <trans-unit id="timeline.activityMany" datatype="html">
+        <source>actividades</source>
+        <target>activities</target>
+      </trans-unit>
+      <trans-unit id="timeline.transportOne" datatype="html">
+        <source>transporte</source>
+        <target>transport</target>
+      </trans-unit>
+      <trans-unit id="timeline.transportMany" datatype="html">
+        <source>transportes</source>
+        <target>transports</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeFlight" datatype="html">
+        <source>Vuelo</source>
+        <target>Flight</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeTrain" datatype="html">
+        <source>Tren</source>
+        <target>Train</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeBoat" datatype="html">
+        <source>Barco</source>
+        <target>Boat</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeBus" datatype="html">
+        <source>Bus</source>
+        <target>Bus</target>
+      </trans-unit>
+      <trans-unit id="timeline.modeCar" datatype="html">
+        <source>Auto</source>
+        <target>Car</target>
+      </trans-unit>
       <trans-unit id="timeline.planSlideshow" datatype="html">
         <source>🎞️ Presentación del plan</source>
         <target>🎞️ Plan slideshow</target>

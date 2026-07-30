@@ -21,8 +21,6 @@ const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-
 const TL_H1 = 23;  // last  hour rendered (23:00)
 const TL_RH = 46;  // pixels per hour
 
-const DOW_ES = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
-
 interface DayTab {
   date: Date;
   dow:  string;
@@ -89,9 +87,15 @@ function transitIcon(mode: string): string {
   return icons[mode] ?? '🚀';
 }
 
-const TRANSIT_LABEL: Record<TransitMode, string> = {
-  flight: 'Vuelo', train: 'Tren', boat: 'Barco', bus: 'Bus', car: 'Auto',
-};
+function transitLabel(mode: TransitMode): string {
+  switch (mode) {
+    case 'flight': return $localize`:@@timeline.modeFlight:Vuelo`;
+    case 'train':  return $localize`:@@timeline.modeTrain:Tren`;
+    case 'boat':   return $localize`:@@timeline.modeBoat:Barco`;
+    case 'bus':    return $localize`:@@timeline.modeBus:Bus`;
+    case 'car':    return $localize`:@@timeline.modeCar:Auto`;
+  }
+}
 
 @Component({
     selector: 'tb-day-timeline',
@@ -196,7 +200,7 @@ const TRANSIT_LABEL: Record<TransitMode, string> = {
     <!-- Collapse / expand flap -->
     <button class="tl-flap"
             (click)="toggleCollapse()"
-            [attr.aria-label]="collapsed() ? 'Expandir panel de horario' : 'Colapsar panel de horario'">
+            [attr.aria-label]="flapAriaLabel()">
       <span class="tl-flap-chevron">{{ collapsed() ? '›' : '‹' }}</span>
       <span class="tl-flap-label">{{ flapLabel() }}</span>
     </button>
@@ -231,6 +235,12 @@ export class DayTimelineComponent {
     this.stop()
       ? $localize`:@@timeline.flapLabelCity:Ver itinerario de la ciudad`
       : $localize`:@@timeline.flapLabelPlan:Ver itinerario del plan`,
+  );
+
+  protected readonly flapAriaLabel = computed(() =>
+    this.collapsed()
+      ? $localize`:@@timeline.flapAriaExpand:Expandir panel de horario`
+      : $localize`:@@timeline.flapAriaCollapse:Colapsar panel de horario`,
   );
 
   protected readonly hours = Array.from(
@@ -311,7 +321,7 @@ export class DayTimelineComponent {
           ),
         );
         tabs.push({
-          date: new Date(d), dow: DOW_ES[d.getDay()], num: d.getDate(), key,
+          date: new Date(d), dow: d.toLocaleDateString(undefined, { weekday: 'short' }), num: d.getDate(), key,
           hasEvents: hasAtt || hasTransit, cityId: stop.cityId, cityFlag,
         });
       }
@@ -358,11 +368,13 @@ export class DayTimelineComponent {
 
   // ── Header content ────────────────────────────────────────────────────────
   protected readonly eyebrow = computed<string>(() =>
-    this.transportMode() ? 'Transporte' : 'Vista del día',
+    this.transportMode()
+      ? $localize`:@@timeline.eyebrowTransport:Transporte`
+      : $localize`:@@timeline.eyebrowDayView:Vista del día`,
   );
 
   protected readonly title = computed<string>(() => {
-    if (this.transportMode()) return 'Transporte';
+    if (this.transportMode()) return $localize`:@@timeline.eyebrowTransport:Transporte`;
     const stop = this.selectedStopForDay();
     if (!stop) return '';
     const city = WORLD_CITIES.find(c => c.id === stop.cityId);
@@ -384,12 +396,18 @@ export class DayTimelineComponent {
     const dayAtts = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime);
     const totalBlocks = this.blocks().length;
-    if (!totalBlocks) return `${day} · sin actividades`;
+    if (!totalBlocks) return `${day} · ${$localize`:@@timeline.noActivities:sin actividades`}`;
     const attCount = dayAtts.length;
     const transitCount = totalBlocks - attCount;
+    const activityWord = attCount === 1
+      ? $localize`:@@timeline.activityOne:actividad`
+      : $localize`:@@timeline.activityMany:actividades`;
+    const transportWord = transitCount === 1
+      ? $localize`:@@timeline.transportOne:transporte`
+      : $localize`:@@timeline.transportMany:transportes`;
     const parts: string[] = [];
-    if (attCount)     parts.push(`${attCount} ${attCount === 1 ? 'actividad' : 'actividades'}`);
-    if (transitCount) parts.push(`${transitCount} ${transitCount === 1 ? 'transporte' : 'transportes'}`);
+    if (attCount)     parts.push(`${attCount} ${activityWord}`);
+    if (transitCount) parts.push(`${transitCount} ${transportWord}`);
     return `${day} · ${parts.join(' · ')}`;
   });
 
@@ -639,7 +657,7 @@ export class DayTimelineComponent {
         items.push({
           id:        `transit:${leg.fromCityId}:${leg.toCityId}:${seg.departureDate}:${seg.departureTime}`,
           name:      `${this.cityLabel(leg.fromCityId)} → ${this.cityLabel(leg.toCityId)}`,
-          type:      TRANSIT_LABEL[seg.mode] ?? 'Transporte',
+          type:      transitLabel(seg.mode),
           icon:      transitIcon(seg.mode),
           imageUrl:  null,
           startDate: seg.departureDate,

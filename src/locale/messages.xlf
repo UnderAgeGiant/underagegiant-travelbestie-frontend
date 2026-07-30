@@ -2128,53 +2128,155 @@
           <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="timeline.modeFlight" datatype="html">
+        <source>Vuelo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.modeTrain" datatype="html">
+        <source>Tren</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.modeBoat" datatype="html">
+        <source>Barco</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.modeBus" datatype="html">
+        <source>Bus</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.modeCar" datatype="html">
+        <source>Auto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="plan.exportItinerary" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? &apos;⏳&apos; : &apos;📥&apos; }}"/> Exportar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">117,118</context>
+          <context context-type="linenumber">121,122</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.dayRoute" datatype="html">
         <source>🗺️ Ruta del día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">122,124</context>
+          <context context-type="linenumber">126,128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.daySlideshow" datatype="html">
         <source>🎬 Presentación del día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">128,130</context>
+          <context context-type="linenumber">132,134</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.planSlideshow" datatype="html">
         <source>🎞️ Presentación del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">133,136</context>
+          <context context-type="linenumber">137,140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.freeDay" datatype="html">
         <source>Día libre — sin planes aún</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">187,189</context>
+          <context context-type="linenumber">191,193</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.flapLabelCity" datatype="html">
         <source>Ver itinerario de la ciudad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">232</context>
+          <context context-type="linenumber">236</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.flapLabelPlan" datatype="html">
         <source>Ver itinerario del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">233</context>
+          <context context-type="linenumber">237</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.flapAriaExpand" datatype="html">
+        <source>Expandir panel de horario</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">242</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.flapAriaCollapse" datatype="html">
+        <source>Colapsar panel de horario</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">243</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.eyebrowTransport" datatype="html">
+        <source>Transporte</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">372</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">377</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.eyebrowDayView" datatype="html">
+        <source>Vista del día</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">373</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.noActivities" datatype="html">
+        <source>sin actividades</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">399</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.activityOne" datatype="html">
+        <source>actividad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">403</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.activityMany" datatype="html">
+        <source>actividades</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">404</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.transportOne" datatype="html">
+        <source>transporte</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">406</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.transportMany" datatype="html">
+        <source>transportes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">407</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.title" datatype="html">
