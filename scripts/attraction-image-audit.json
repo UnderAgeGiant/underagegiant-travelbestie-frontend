@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T19:59:08.503Z",
+  "generatedAt": "2026-07-30T20:09:05.102Z",
   "totalCities": 569,
   "citiesNeedingWork": 358,
   "goalMet": false,
@@ -1832,17 +1832,17 @@
     },
     {
       "city": "riobamba",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 216
     },
     {
       "city": "montanita",
-      "count": 0,
+      "count": 4,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 11,
       "needsWork": true,
       "priorityRank": 217
     },
