@@ -38,6 +38,10 @@
         <source>Cerrar sesión</source>
         <target>Sign out</target>
       </trans-unit>
+      <trans-unit id="nav.langSwitch" datatype="html">
+        <source>Cambiar idioma</source>
+        <target>Change language</target>
+      </trans-unit>
 
       <!-- ── notification-bell.component ── -->
       <trans-unit id="notif.bellAria" datatype="html">
@@ -708,6 +712,22 @@
         <source>¡Listo!</source>
         <target>Done!</target>
       </trans-unit>
+      <trans-unit id="buyKarma.closeAriaLabel" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.doNotClose" datatype="html">
+        <source>No cierres esta ventana</source>
+        <target>Don't close this window</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.paypalLoading" datatype="html">
+        <source>Cargando botón de pago…</source>
+        <target>Loading payment button…</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.processingPayment" datatype="html">
+        <source>Procesando pago…</source>
+        <target>Processing payment…</target>
+      </trans-unit>
 
       <!-- ── insufficient-karma-modal ── -->
       <trans-unit id="kim.title" datatype="html">
@@ -872,6 +892,106 @@
       <trans-unit id="aiplan.categoriesLabel" datatype="html">
         <source>Tipos de experiencia (opcional)</source>
         <target>Experience types (optional)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.authDesc" datatype="html">
+        <source>Debes iniciar sesión para usar el planificador IA.</source>
+        <target>You must sign in to use the AI planner.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.authTitle" datatype="html">
+        <source>Inicia sesión para continuar</source>
+        <target>Sign in to continue</target>
+      </trans-unit>
+      <trans-unit id="aiplan.backBtn" datatype="html">
+        <source>← Volver</source>
+        <target>← Back</target>
+      </trans-unit>
+      <trans-unit id="aiplan.budgetLabel" datatype="html">
+        <source>Presupuesto estimado</source>
+        <target>Estimated budget</target>
+      </trans-unit>
+      <trans-unit id="aiplan.budgetPlaceholder" datatype="html">
+        <source>Ej: 500-1000 USD</source>
+        <target>E.g.: 500-1000 USD</target>
+      </trans-unit>
+      <trans-unit id="aiplan.departure" datatype="html">
+        <source>Salida 🏠</source>
+        <target>Departure 🏠</target>
+      </trans-unit>
+      <trans-unit id="aiplan.durationLabel" datatype="html">
+        <source>Duración (días)</source>
+        <target>Duration (days)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.durationPlaceholder" datatype="html">
+        <source>Ej: 14</source>
+        <target>E.g.: 14</target>
+      </trans-unit>
+      <trans-unit id="aiplan.karmaCost" datatype="html">
+        <source>Esta acción cuesta 10 karma ⭐ en total</source>
+        <target>This action costs 10 karma ⭐ in total</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingPlan" datatype="html">
+        <source>Creando tu plan de viaje 🗺️</source>
+        <target>Creating your trip plan 🗺️</target>
+      </trans-unit>
+      <trans-unit id="aiplan.loadingSuggest" datatype="html">
+        <source>Generando sugerencias ✨</source>
+        <target>Generating suggestions ✨</target>
+      </trans-unit>
+      <trans-unit id="aiplan.optTitle" datatype="html">
+        <source>Elige una opción</source>
+        <target>Choose an option</target>
+      </trans-unit>
+      <trans-unit id="aiplan.planBtn" datatype="html">
+        <source>Generar plan completo</source>
+        <target>Generate full plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefLabel" datatype="html">
+        <source>Describe tu viaje ideal</source>
+        <target>Describe your ideal trip</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefPlaceholder" datatype="html">
+        <source>Ej: quiero un viaje romántico con mi pareja, priorizando gastronomía y museos, sin demasiado transporte…</source>
+        <target>E.g.: I want a romantic trip with my partner, prioritizing food and museums, without too much transit…</target>
+      </trans-unit>
+      <trans-unit id="aiplan.prefTitle" datatype="html">
+        <source>¿Qué tipo de viaje buscas?</source>
+        <target>What kind of trip are you looking for?</target>
+      </trans-unit>
+      <trans-unit id="aiplan.restartBtn" datatype="html">
+        <source>↩ Volver a empezar</source>
+        <target>↩ Start over</target>
+      </trans-unit>
+      <trans-unit id="aiplan.saveBtn" datatype="html">
+        <source>💾 Guardar plan</source>
+        <target>💾 Save plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.startDateLabel" datatype="html">
+        <source>Fecha de inicio</source>
+        <target>Start date</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step1" datatype="html">
+        <source>Preferencias</source>
+        <target>Preferences</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step2" datatype="html">
+        <source>Elige opción</source>
+        <target>Choose option</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step3" datatype="html">
+        <source>Tu plan</source>
+        <target>Your plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.subtitle" datatype="html">
+        <source>Cuéntanos qué buscas y generamos opciones personalizadas para ti</source>
+        <target>Tell us what you're looking for and we'll generate personalized options for you</target>
+      </trans-unit>
+      <trans-unit id="aiplan.suggestBtn" datatype="html">
+        <source>Generar opciones</source>
+        <target>Generate options</target>
+      </trans-unit>
+      <trans-unit id="aiplan.title" datatype="html">
+        <source>Tu próximo viaje, diseñado por IA</source>
+        <target>Your next trip, designed by AI</target>
       </trans-unit>
 
       <!-- ── shared-trip.component ── -->
@@ -1433,6 +1553,94 @@
       <trans-unit id="about.team.miel.bio" datatype="html">
         <source>Experta en IA y consejos de viajes. Sabe como huelen las mejores atracciones y donde encontrarlas. Se dice que no duerme.</source>
         <target>AI and travel-tips expert. Knows what the best attractions smell like and where to find them. Rumor has it she never sleeps.</target>
+      </trans-unit>
+
+      <!-- ── lodging.component ── -->
+      <trans-unit id="lodging.namePlaceholder" datatype="html">
+        <source>Hotel, Airbnb, hostal…</source>
+        <target>Hotel, Airbnb, hostel…</target>
+      </trans-unit>
+      <trans-unit id="lodging.urlPlaceholder" datatype="html">
+        <source>Link de reserva (opcional)</source>
+        <target>Booking link (optional)</target>
+      </trans-unit>
+      <trans-unit id="lodging.saveBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="lodging.linkTitle" datatype="html">
+        <source>Abrir reserva</source>
+        <target>Open booking</target>
+      </trans-unit>
+      <trans-unit id="lodging.addBtn" datatype="html">
+        <source>🏨 + Alojamiento</source>
+        <target>🏨 + Lodging</target>
+      </trans-unit>
+
+      <!-- ── nav-desktop / nav-mobile: my-profile button ── -->
+      <trans-unit id="nav.myProfile" datatype="html">
+        <source>👤 Mi perfil</source>
+        <target>👤 My profile</target>
+      </trans-unit>
+
+      <!-- ── plan-time-modal.component: date label ── -->
+      <trans-unit id="planModal.dateLabel" datatype="html">
+        <source>Fecha</source>
+        <target>Date</target>
+      </trans-unit>
+
+      <!-- ── profile.component: AI new-trip button ── -->
+      <trans-unit id="profile.aiBtn" datatype="html">
+        <source>✨ Nuevo viaje con IA</source>
+        <target>✨ New trip with AI</target>
+      </trans-unit>
+
+      <!-- ── stop-list.component: date-save controls ── -->
+      <trans-unit id="stopList.saveDatesBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="stopList.savingMsg" datatype="html">
+        <source>Guardando…</source>
+        <target>Saving…</target>
+      </trans-unit>
+
+      <!-- ── transit-connector.component ── -->
+      <trans-unit id="transit.addBtn" datatype="html">
+        <source>+ Transporte</source>
+        <target>+ Transport</target>
+      </trans-unit>
+      <trans-unit id="transit.addConnection" datatype="html">
+        <source>+ Agregar conexión</source>
+        <target>+ Add connection</target>
+      </trans-unit>
+      <trans-unit id="transit.addSegBtn" datatype="html">
+        <source>+ Tramo</source>
+        <target>+ Leg</target>
+      </trans-unit>
+      <trans-unit id="transit.arrLabel" datatype="html">
+        <source>Llegada</source>
+        <target>Arrival</target>
+      </trans-unit>
+      <trans-unit id="transit.dateLabel" datatype="html">
+        <source>Fecha</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="transit.depLabel" datatype="html">
+        <source>Salida</source>
+        <target>Departure</target>
+      </trans-unit>
+      <trans-unit id="transit.notesPlaceholder" datatype="html">
+        <source>Nro. de vuelo, notas… (opcional)</source>
+        <target>Flight number, notes… (optional)</target>
+      </trans-unit>
+      <trans-unit id="transit.saveBtn" datatype="html">
+        <source>✓ Guardar</source>
+        <target>✓ Save</target>
+      </trans-unit>
+      <trans-unit id="transit.timeLabel" datatype="html">
+        <source>Hora</source>
+        <target>Time</target>
       </trans-unit>
 
     </body>
