@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T20:45:48.353Z",
+  "generatedAt": "2026-07-30T20:55:20.379Z",
   "totalCities": 569,
-  "citiesNeedingWork": 355,
+  "citiesNeedingWork": 354,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1880,17 +1880,17 @@
     },
     {
       "city": "villadeley",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 222
     },
     {
       "city": "sanagustin",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 223
     },

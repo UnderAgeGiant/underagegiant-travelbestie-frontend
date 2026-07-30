@@ -339,8 +339,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "villadeley": {
-    "attempts": 2,
-    "radiusKm": 23
+  "sanagustin": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }
