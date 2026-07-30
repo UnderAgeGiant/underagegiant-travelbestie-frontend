@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T21:19:31.438Z",
+  "generatedAt": "2026-07-30T21:25:21.041Z",
   "totalCities": 569,
-  "citiesNeedingWork": 350,
+  "citiesNeedingWork": 349,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1928,9 +1928,9 @@
     },
     {
       "city": "kruger",
-      "count": 1,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 228
     },
@@ -1944,10 +1944,10 @@
     },
     {
       "city": "mombasa",
-      "count": 11,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 4,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 230
     },
     {
