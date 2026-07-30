@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T17:51:54.129Z",
+  "generatedAt": "2026-07-30T17:57:40.124Z",
   "totalCities": 569,
-  "citiesNeedingWork": 371,
+  "citiesNeedingWork": 370,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1559,18 +1559,10 @@
     },
     {
       "city": "hoian",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "hoian_0",
-            "hoian_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 187
     },
     {
