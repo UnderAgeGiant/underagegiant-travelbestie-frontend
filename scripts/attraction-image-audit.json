@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T22:33:06.504Z",
+  "generatedAt": "2026-07-30T22:43:15.137Z",
   "totalCities": 569,
   "citiesNeedingWork": 348,
   "goalMet": false,
@@ -2056,17 +2056,17 @@
     },
     {
       "city": "chefchaouen",
-      "count": 11,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 4,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 244
     },
     {
       "city": "essaouira",
-      "count": 0,
+      "count": 7,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 245
     },
