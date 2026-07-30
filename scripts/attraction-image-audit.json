@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T18:57:15.310Z",
+  "generatedAt": "2026-07-30T19:03:18.160Z",
   "totalCities": 569,
-  "citiesNeedingWork": 366,
+  "citiesNeedingWork": 364,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1688,18 +1688,9 @@
     {
       "city": "sanpedroatacama",
       "count": 29,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/nPHMhiwkgKI?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "sanpedroatacama_12",
-            "sanpedroatacama_23",
-            "sanpedroatacama_24"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 202
     },
     {
@@ -1713,19 +1704,9 @@
     {
       "city": "coquimbo",
       "count": 15,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "coquimbo_5",
-            "coquimbo_6",
-            "coquimbo_9",
-            "coquimbo_10"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 204
     },
     {

@@ -26076,7 +26076,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/nPHMhiwkgKI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Llamas%21_%2814295898451%29.jpg/1920px-Llamas%21_%2814295898451%29.jpg",
     },
     {
       id: "sanpedroatacama_24",
@@ -26087,7 +26087,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/nPHMhiwkgKI?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/95/Cordillera_de_la_costa.JPG",
     },
     {
       id: "sanpedroatacama_25",
@@ -26540,7 +26540,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.museoovni.cl",
-      imageUrl: "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/54/De_Elqui-vallei_in_Coquimbo-p1906-151.jpg",
     },
     {
       id: "coquimbo_7",
@@ -26573,7 +26573,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/ECH_515_20_-_Polca%2C_La.djvu/page1-1920px-ECH_515_20_-_Polca%2C_La.djvu.jpg",
     },
     {
       id: "coquimbo_10",
@@ -26584,7 +26584,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://images.unsplash.com/photo-1637667167522-f9569fad89c1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjb3F1aW1ibyUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzMzg0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/79/Domo_Cultura_Animas.jpg",
     },
     {
       id: "coquimbo_11",
