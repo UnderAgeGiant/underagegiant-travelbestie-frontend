@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T21:28:32.693Z",
+  "generatedAt": "2026-07-30T21:36:24.593Z",
   "totalCities": 569,
   "citiesNeedingWork": 349,
   "goalMet": false,
@@ -1968,9 +1968,9 @@
     },
     {
       "city": "arusha",
-      "count": 2,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 233
     },
