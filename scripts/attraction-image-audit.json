@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T19:48:22.590Z",
+  "generatedAt": "2026-07-30T19:59:08.503Z",
   "totalCities": 569,
-  "citiesNeedingWork": 360,
+  "citiesNeedingWork": 358,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1816,18 +1816,18 @@
     },
     {
       "city": "otavalo",
-      "count": 9,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 6,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 214
     },
     {
       "city": "mindo",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 215
     },
     {
