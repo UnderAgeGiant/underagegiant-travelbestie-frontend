@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T15:37:34.052Z",
+  "generatedAt": "2026-07-30T15:47:13.894Z",
   "totalCities": 569,
-  "citiesNeedingWork": 387,
+  "citiesNeedingWork": 386,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1231,17 +1231,17 @@
     },
     {
       "city": "lucerne",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 147
     },
     {
       "city": "interlaken",
-      "count": 2,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 148
     },
