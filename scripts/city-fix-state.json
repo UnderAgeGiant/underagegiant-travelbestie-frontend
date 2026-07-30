@@ -419,8 +419,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "caen": {
-    "attempts": 1,
-    "radiusKm": 15
+  "avignon": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }

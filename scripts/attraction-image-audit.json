@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T23:08:08.195Z",
+  "generatedAt": "2026-07-30T23:17:23.183Z",
   "totalCities": 569,
-  "citiesNeedingWork": 346,
+  "citiesNeedingWork": 344,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2096,42 +2096,33 @@
     },
     {
       "city": "caen",
-      "count": 13,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 2,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 249
     },
     {
       "city": "tours",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "tours_0",
-            "tours_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 250
     },
     {
       "city": "avignon",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "avignon_0",
-            "avignon_1",
             "avignon_2"
           ]
         }
       ],
-      "missingCount": 12,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 251
     },
