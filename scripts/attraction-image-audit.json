@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T23:29:23.271Z",
+  "generatedAt": "2026-07-30T23:42:15.485Z",
   "totalCities": 569,
-  "citiesNeedingWork": 342,
+  "citiesNeedingWork": 339,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2144,18 +2144,18 @@
     },
     {
       "city": "nimes",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 254
     },
     {
       "city": "marseille",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 12,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 255
     },
     {
@@ -2176,17 +2176,17 @@
     },
     {
       "city": "annecy",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 258
     },
     {
       "city": "montsaintmichel",
-      "count": 1,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 259
     },
