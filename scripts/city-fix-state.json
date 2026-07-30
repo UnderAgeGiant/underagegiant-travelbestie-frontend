@@ -208,5 +208,9 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "brussels": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }

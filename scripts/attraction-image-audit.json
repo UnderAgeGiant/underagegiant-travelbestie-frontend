@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T15:08:29.736Z",
+  "generatedAt": "2026-07-30T15:14:17.042Z",
   "totalCities": 569,
-  "citiesNeedingWork": 390,
+  "citiesNeedingWork": 389,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1159,10 +1159,10 @@
     },
     {
       "city": "galway",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 140
     },
     {
