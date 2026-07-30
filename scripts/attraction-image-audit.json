@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T22:15:09.678Z",
+  "generatedAt": "2026-07-30T22:22:13.512Z",
   "totalCities": 569,
   "citiesNeedingWork": 349,
   "goalMet": false,
@@ -2032,17 +2032,17 @@
     },
     {
       "city": "saly",
-      "count": 8,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 7,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 241
     },
     {
       "city": "alexandria",
-      "count": 3,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 242
     },
