@@ -363,5 +363,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "daressalaam": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "ngorongoro": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

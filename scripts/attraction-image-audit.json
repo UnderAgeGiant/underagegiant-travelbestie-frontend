@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T21:36:24.593Z",
+  "generatedAt": "2026-07-30T21:46:04.910Z",
   "totalCities": 569,
   "citiesNeedingWork": 349,
   "goalMet": false,
@@ -1976,9 +1976,9 @@
     },
     {
       "city": "daressalaam",
-      "count": 0,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 234
     },
