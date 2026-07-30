@@ -73,6 +73,7 @@
               "localize": ["en-US"]
             },
             "production": {
+              "localize": ["es-CL", "en-US"],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
