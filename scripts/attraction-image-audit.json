@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T18:30:09.117Z",
+  "generatedAt": "2026-07-30T18:38:18.167Z",
   "totalCities": 569,
   "citiesNeedingWork": 368,
   "goalMet": false,
@@ -1639,17 +1639,17 @@
     },
     {
       "city": "nazca",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 196
     },
     {
       "city": "iquitos",
-      "count": 0,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 197
     },
