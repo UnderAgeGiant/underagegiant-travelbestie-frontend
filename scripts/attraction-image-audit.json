@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T19:15:13.904Z",
+  "generatedAt": "2026-07-30T19:23:47.474Z",
   "totalCities": 569,
-  "citiesNeedingWork": 363,
+  "citiesNeedingWork": 362,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1784,17 +1784,17 @@
     },
     {
       "city": "guayaquil",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 210
     },
     {
       "city": "cuenca",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 211
     },
