@@ -10312,6 +10312,28 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Centro-fotografico-in-oaxaca-founded-by-toledo.jpg",
       website: "www.cfmab.co.mx",
     },
+    {
+      id: "oaxaca_13",
+      active: true,
+      name: "Zona Arqueológica de Yagul",
+      category: 'poi', type: "Histórico",
+      icon: "🏛️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Zona_Arqueol%C3%B3gica_Yagul%2C_Oaxaca.png",
+    },
+    {
+      id: "oaxaca_14",
+      active: true,
+      name: "Zona arqueológica de Mitla",
+      category: 'poi', type: "Histórico",
+      icon: "🏛️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Zona_Arqueol%C3%B3gica_de_Mitla_Oaxaca_02.jpg/1920px-Zona_Arqueol%C3%B3gica_de_Mitla_Oaxaca_02.jpg",
+    },
   ],
   osaka: [
     {
@@ -78147,7 +78169,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Suricate_Mitchell_Park.JPG",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/46/Durban%2C_South_Africa_by_Planet_Labs%2C_Burman_Bush_%26_Mitchell_Park_Zoo.jpg",
     },
     {
       id: "durban_7",

@@ -344,7 +344,7 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "oaxaca": {
+  "kruger": {
     "attempts": 3,
     "radiusKm": 35
   }
