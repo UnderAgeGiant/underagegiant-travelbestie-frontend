@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T20:20:03.139Z",
+  "generatedAt": "2026-07-30T20:29:11.915Z",
   "totalCities": 569,
   "citiesNeedingWork": 357,
   "goalMet": false,
@@ -1848,17 +1848,17 @@
     },
     {
       "city": "tena",
-      "count": 5,
+      "count": 7,
       "duplicateGroups": [],
-      "missingCount": 10,
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 218
     },
     {
       "city": "santamarta",
-      "count": 0,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 219
     },
