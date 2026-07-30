@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T17:01:15.224Z",
+  "generatedAt": "2026-07-30T17:10:12.462Z",
   "totalCities": 569,
-  "citiesNeedingWork": 375,
+  "citiesNeedingWork": 374,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1431,7 +1431,7 @@
     },
     {
       "city": "chiangmai",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1512553353614-82a7370096dc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxjaGlhbmdtYWklMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3NjUxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
@@ -1441,7 +1441,7 @@
           ]
         }
       ],
-      "missingCount": 1,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 172
     },
@@ -1463,17 +1463,17 @@
     },
     {
       "city": "hcmc",
-      "count": 7,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 8,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 175
     },
     {
       "city": "jaipur",
-      "count": 1,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 176
     },
