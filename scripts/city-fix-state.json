@@ -339,8 +339,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "sanagustin": {
-    "attempts": 3,
-    "radiusKm": 35
+  "leticia": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
