@@ -48,6 +48,17 @@ export interface PlanTripResponse {
   changeInfo?: PlanChangeInfo;
 }
 
+export interface SuggestionScheduleEntry {
+  date:      string;   // dd/mm/yyyy
+  startTime: string;   // HH:mm
+  endTime:   string;   // HH:mm
+}
+
+export interface SuggestionDeparture {
+  date: string;   // dd/mm/yyyy
+  time: string;   // HH:mm
+}
+
 export interface CityAttractionSuggestion {
   attractionId: string;
   date:         string;   // dd/mm/yyyy

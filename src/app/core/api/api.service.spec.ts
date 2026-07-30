@@ -187,7 +187,7 @@ describe('ApiService.suggestCityAttractions() — real HTTP', () => {
 
   afterEach(() => http.verify());
 
-  it('posts cityId, dates, existing IDs and the city catalog to /ai/suggest-attractions, defaulting isFollowUp to false', () => {
+  it('posts cityId, dates, existing IDs and the city catalog to /ai/suggest-attractions, defaulting isFollowUp, existingSchedule and departureTimes', () => {
     service.suggestCityAttractions(
       'paris', '01/07/2026', '05/07/2026', ['paris_0'],
       [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
@@ -201,7 +201,24 @@ describe('ApiService.suggestCityAttractions() — real HTTP', () => {
       existingAttractionIds: ['paris_0'],
       cityCatalog: [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
       isFollowUp: false,
+      existingSchedule: [],
+      departureTimes: [],
     });
+    req.flush({ suggestions: [] });
+  });
+
+  it('posts provided existingSchedule and departureTimes verbatim', () => {
+    service.suggestCityAttractions(
+      'paris', '01/07/2026', '05/07/2026', ['paris_0'],
+      [{ id: 'paris_0', name: 'Torre Eiffel' }],
+      true,
+      [{ date: '02/07/2026', startTime: '10:00', endTime: '11:00' }],
+      [{ date: '03/07/2026', time: '15:00' }],
+    ).subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions') && r.method === 'POST');
+    expect(req.request.body.existingSchedule).toEqual([{ date: '02/07/2026', startTime: '10:00', endTime: '11:00' }]);
+    expect(req.request.body.departureTimes).toEqual([{ date: '03/07/2026', time: '15:00' }]);
     req.flush({ suggestions: [] });
   });
 

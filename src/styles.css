@@ -646,6 +646,14 @@ app-nav { display: block; }
 
 /* ── AI Planning ── */
 .ai-plan-page .shared-bg { background: url('/ai-plannification.jpeg') center center / cover no-repeat; filter: blur(2px); }
+.ai-plan-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.ai-plan-header-row .shared-header { flex: 1; min-width: 0; margin-bottom: 0; }
+.ai-plan-header-dog-wrap { flex-shrink: 0; }
+.ai-plan-header-dog { width: 90px; height: 90px; margin-bottom: 0; }
+@media (max-width: 640px) {
+  .ai-plan-header-row { flex-direction: column; margin-bottom: 20px; }
+  .ai-plan-header-dog { width: 70px; height: 70px; }
+}
 .ai-loading-overlay { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.4); backdrop-filter: blur(6px); }
 .ai-loading-card { background: #fff; border-radius: 20px; padding: 36px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: var(--sh-lg); max-width: 300px; width: 90%; animation: scaleIn .2s ease; }
 .ai-loading-spinner { width: 52px; height: 52px; border: 3px solid var(--lav); border-top-color: var(--lav-d); border-radius: 50%; animation: spin .75s linear infinite; }
@@ -679,7 +687,7 @@ app-nav { display: block; }
 .ai-option-summary { font-size: 12px; color: var(--t2); line-height: 1.5; }
 .ai-option-highlights { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
 .ai-option-hl { background: var(--mint); color: var(--mint-d); padding: 2px 10px; border-radius: 99px; font-size: 10px; font-weight: 600; }
-.ai-plan-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.ai-plan-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
 .ai-plan-result-header { text-align: center; margin-bottom: 20px; padding: 20px 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .ai-plan-result-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: var(--t1); margin-bottom: 8px; }
 .ai-plan-result-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
@@ -690,6 +698,10 @@ app-nav { display: block; }
 .ai-karma-error-tip { font-size: 12px; color: var(--t3); background: rgba(255,255,255,.75); border-radius: 10px; padding: 10px 14px; line-height: 1.6; max-width: 340px; }
 .ai-plan-gate { text-align: center; padding: 60px 20px; }
 .ai-plan-page { position: fixed; inset: 0; z-index: 200; overflow-y: auto; overflow-x: hidden; }
+/* .ai-plan-page establishes its own stacking context (position+z-index), trapping <app-nav>
+   (z-index 200) and .shared-body (z-index 210) together — without this override the scrolling
+   body content paints over the fixed nav bar instead of scrolling underneath it. */
+.ai-plan-page .nav, .ai-plan-page .nav-m-bar { z-index: 220; }
 @media (max-width: 600px) {
   .ai-options { flex-direction: column; }
   .ai-plan-row { flex-direction: column; }

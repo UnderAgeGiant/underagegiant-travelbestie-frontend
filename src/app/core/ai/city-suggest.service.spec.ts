@@ -107,6 +107,39 @@ describe('CitySuggestService', () => {
     expect(service.suggestions()[0].attractionId).toBe('paris_2');
   });
 
+  it('sends the schedule of already-planned attractions and departing-transit times to the backend', async () => {
+    trip.addStop(PARIS, '01/07/2026', '05/07/2026');
+    const stop = trip.stops()[0];
+    trip.addAttraction(stop.stopId, 'paris_9', '10:00', '02/07/2026');
+    const entryId = trip.stops()[0].selectedAttractions[0].entryId;
+    trip.patchAttractionTime(stop.stopId, entryId, 'endTime', '11:00');
+    trip.setTransit({
+      fromCityId: 'paris', toCityId: 'rome',
+      segments: [{ mode: 'flight', departureDate: '03/07/2026', departureTime: '15:00', arrivalDate: '03/07/2026', arrivalTime: '17:00', notes: '' }],
+    });
+
+    service.request(trip.stops()[0]);
+    await flushAsync();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
+    expect(req.request.body.existingSchedule).toEqual([{ date: '02/07/2026', startTime: '10:00', endTime: '11:00' }]);
+    expect(req.request.body.departureTimes).toEqual([{ date: '03/07/2026', time: '15:00' }]);
+    req.flush({ suggestions: [] });
+  });
+
+  it('omits attractions without a full date/startTime/endTime from the schedule sent to the backend', async () => {
+    trip.addStop(PARIS, '01/07/2026', '05/07/2026');
+    const stop = trip.stops()[0];
+    trip.addAttraction(stop.stopId, 'paris_9', '10:00', '02/07/2026'); // no endTime set
+
+    service.request(trip.stops()[0]);
+    await flushAsync();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
+    expect(req.request.body.existingSchedule).toEqual([]);
+    req.flush({ suggestions: [] });
+  });
+
   it('routes a 402 response through KarmaModalService and closes the cloud', async () => {
     trip.addStop(PARIS, '01/07/2026', '05/07/2026');
     const stop = trip.stops()[0];

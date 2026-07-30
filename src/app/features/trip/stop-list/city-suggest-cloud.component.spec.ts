@@ -129,6 +129,22 @@ describe('CitySuggestCloudComponent', () => {
     expect(emitted).toBe(true);
   });
 
+  it('does not show a karma cost badge on the "Buscar más opciones" button (follow-up requests are free)', () => {
+    TestBed.configureTestingModule({ imports: [CitySuggestCloudComponent] });
+    const fixture = TestBed.createComponent(CitySuggestCloudComponent);
+    fixture.componentRef.setInput('cityId', 'paris');
+    fixture.componentRef.setInput('suggestions', [
+      { attractionId: 'paris_a', date: '02/07/2026', startTime: '10:00', endTime: '11:00', reason: 'x' },
+    ]);
+    fixture.componentRef.setInput('loading', false);
+    fixture.componentRef.setInput('error', null);
+    fixture.detectChanges();
+
+    const btn = fixture.nativeElement.querySelector('.city-suggest-more') as HTMLElement;
+    expect(btn.querySelector('.karma-cost')).toBeNull();
+    expect(btn.textContent).not.toContain('karma');
+  });
+
   it('emits dismiss when the close button is clicked', () => {
     TestBed.configureTestingModule({ imports: [CitySuggestCloudComponent] });
     const fixture = TestBed.createComponent(CitySuggestCloudComponent);
@@ -145,7 +161,7 @@ describe('CitySuggestCloudComponent', () => {
     expect(emitted).toBe(true);
   });
 
-  it('emits dismiss when the backdrop is clicked but not when the dog/bubble scene is clicked', () => {
+  it('does not emit dismiss when the backdrop or the dog/bubble scene is clicked — only the ✕ button closes it', () => {
     TestBed.configureTestingModule({ imports: [CitySuggestCloudComponent] });
     const fixture = TestBed.createComponent(CitySuggestCloudComponent);
     fixture.componentRef.setInput('cityId', 'paris');
@@ -160,6 +176,6 @@ describe('CitySuggestCloudComponent', () => {
     expect(emitted).toBe(false);
 
     (fixture.nativeElement.querySelector('.csc-overlay') as HTMLElement).click();
-    expect(emitted).toBe(true);
+    expect(emitted).toBe(false);
   });
 });

@@ -14,12 +14,12 @@ interface ResolvedSuggestion extends CityAttractionSuggestion {
   selector: 'app-city-suggest-cloud',
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
-    <div class="csc-overlay" (click)="dismiss.emit()">
+    <div class="csc-overlay">
       <button type="button" class="csc-close" (click)="dismiss.emit()"
               i18n-aria-label="@@citySuggest.closeAria" aria-label="Cerrar">✕</button>
 
-      <div class="csc-scene" (click)="$event.stopPropagation()">
-        <img class="csc-dog" src="/small-black-dog.jpg" alt="" aria-hidden="true" draggable="false" />
+      <div class="csc-scene">
+        <img class="csc-dog" src="/small-black-dog.png" alt="Asistente Miel" draggable="false" />
 
         <div class="csc-bubble">
           @if (loading()) {
@@ -51,9 +51,7 @@ interface ResolvedSuggestion extends CityAttractionSuggestion {
             <div class="csc-actions">
               <button type="button" class="btn-pill btn-outline city-suggest-more"
                       (click)="searchMore.emit()"
-                      i18n="@@citySuggest.searchMoreBtn">🔄 Buscar más opciones
-                <span class="karma-cost">−2 ✨ karma</span>
-              </button>
+                      i18n="@@citySuggest.searchMoreBtn">🔄 Buscar más opciones</button>
               <button type="button" class="btn-pill btn-primary city-suggest-add-all"
                       [disabled]="selectedIds().size === 0"
                       (click)="emitAddSelected()"

@@ -51,10 +51,15 @@ type Step = 'preferences' | 'options' | 'result';
           <div style="width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column">
 
           <!-- Header -->
-          <div class="shared-header">
-            <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
-            <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
-            <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 karma ⭐ en total</div>
+          <div class="ai-plan-header-row">
+            <div class="ai-plan-header-dog-wrap">
+              <img class="csc-dog ai-plan-header-dog" src="/small-black-dog.png" alt="Asistente Miel" draggable="false" />
+            </div>
+            <div class="shared-header">
+              <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
+              <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
+              <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 karma ⭐ en total</div>
+            </div>
           </div>
 
           <!-- Step indicator -->
@@ -303,6 +308,13 @@ type Step = 'preferences' | 'options' | 'result';
                         (click)="adjustOptions()"
                         type="button"
                         i18n="@@aiplan.adjustBtn">✏️ Ajustar opciones</button>
+                <button class="btn-pill btn-outline"
+                        [disabled]="loading()"
+                        (click)="suggest()"
+                        type="button">
+                  @if (loading()) { ⏳ } @else { 🔄 }
+                  <span i18n="@@aiplan.regenerateBtn">Generar nuevas opciones</span>
+                </button>
                 <button class="btn-pill btn-primary"
                         [disabled]="loading() || !selectedOption()"
                         (click)="plan()"
@@ -636,7 +648,7 @@ export class AiPlanningComponent {
       .subscribe({
         next: res => {
           this.suggestions.set(res);
-          this.selectedOption.set(res.options[0]);
+          this.selectedOption.set(null);
           this.loading.set(false);
           this.step.set('options');
           // Update suggest baseline so bar is reactive when user adjusts for re-suggest
