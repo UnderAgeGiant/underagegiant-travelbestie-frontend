@@ -100,7 +100,12 @@
     "stuck": true
   },
   "guilin": {
-    "attempts": 1,
-    "radiusKm": 15
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "hangzhou": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T23:58:22.656Z",
+  "generatedAt": "2026-07-30T00:06:07.772Z",
   "totalCities": 569,
   "citiesNeedingWork": 411,
   "goalMet": false,
@@ -703,17 +703,17 @@
     },
     {
       "city": "guilin",
-      "count": 10,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 5,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 85
     },
     {
       "city": "hangzhou",
-      "count": 1,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 86
     },
