@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T17:17:06.689Z",
+  "generatedAt": "2026-07-30T17:25:08.714Z",
   "totalCities": 569,
-  "citiesNeedingWork": 374,
+  "citiesNeedingWork": 373,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1495,25 +1495,17 @@
     },
     {
       "city": "hualien",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 179
     },
     {
       "city": "tbilisi",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "tbilisi_0",
-            "tbilisi_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 180
     },
