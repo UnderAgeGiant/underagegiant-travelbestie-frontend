@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T14:32:19.506Z",
+  "generatedAt": "2026-07-30T14:41:02.039Z",
   "totalCities": 569,
-  "citiesNeedingWork": 394,
+  "citiesNeedingWork": 392,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1095,28 +1095,18 @@
     },
     {
       "city": "warsaw",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 133
     },
     {
       "city": "krakow",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1548036161-3cac5c6c0e48?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "krakow_0",
-            "krakow_1",
-            "krakow_2",
-            "krakow_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 134
     },
     {
