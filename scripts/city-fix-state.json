@@ -250,7 +250,12 @@
     "stuck": true
   },
   "jaipur": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "tainan": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
