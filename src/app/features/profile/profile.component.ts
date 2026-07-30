@@ -422,10 +422,12 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             }
 
             @if (visitedPlaces.pins().length > 0) {
-              <div style="margin-top:12px;font-size:12px;color:var(--t3)" i18n="@@profile.pinsMarkedCount">
-                {{ visitedPlaces.pins().length }}
-                lugar{{ visitedPlaces.pins().length !== 1 ? 'es' : '' }}
-                marcado{{ visitedPlaces.pins().length !== 1 ? 's' : '' }}
+              <div style="margin-top:12px;font-size:12px;color:var(--t3)">
+                @if (visitedPlaces.pins().length === 1) {
+                  <ng-container i18n="@@profile.pinsMarkedCountOne">{{ visitedPlaces.pins().length }} lugar marcado</ng-container>
+                } @else {
+                  <ng-container i18n="@@profile.pinsMarkedCountMany">{{ visitedPlaces.pins().length }} lugares marcados</ng-container>
+                }
               </div>
             }
           }

@@ -25,17 +25,17 @@ import { environment } from '../../../environments/environment';
 
       <!-- Header bar -->
       <div class="prof-bar">
-        <button class="back-btn" (click)="close.emit()" type="button">← Volver</button>
-        <div class="prof-bar-title">Mis viajes</div>
+        <button class="back-btn" (click)="close.emit()" type="button" i18n="@@profile.backBtn">← Volver</button>
+        <div class="prof-bar-title" i18n="@@myTrips.title">Mis viajes</div>
       </div>
 
       <div class="prof-body">
 
         <!-- Saved trips with itinerary -->
         <section>
-          <div class="section-head">Viajes guardados 🗺️</div>
+          <div class="section-head" i18n="@@myTrips.savedTripsTitle">Viajes guardados 🗺️</div>
           @if (!auth.isLoggedIn()) {
-            <div class="section-empty">Inicia sesión para ver tus viajes guardados.</div>
+            <div class="section-empty" i18n="@@myTrips.loginToViewTrips">Inicia sesión para ver tus viajes guardados.</div>
           } @else {
             <!-- Tab switcher -->
             <div class="profile-tabs">
@@ -49,12 +49,13 @@ import { environment } from '../../../environments/environment';
 
             @if (favTab() === 'trips') {
               @if (savedPlans.plans().length === 0) {
-                <div class="section-empty">Aún no tienes viajes guardados. Usa el botón "Guardar viaje 🎉" para guardar uno.</div>
+                <div class="section-empty" i18n="@@myTrips.noSavedTrips">Aún no tienes viajes guardados. Usa el botón "Guardar viaje 🎉" para guardar uno.</div>
               } @else {
                 <div class="saved-plan-filter-row">
                   <input class="form-input"
                          type="search"
                          style="font-size:12px;padding:7px 10px"
+                         i18n-placeholder="@@myTrips.searchPlaceholder"
                          placeholder="Buscar viaje guardado…"
                          [value]="planSearch()"
                          (input)="planSearch.set($any($event.target).value)" />
@@ -76,7 +77,11 @@ import { environment } from '../../../environments/environment';
                           }
                         </div>
                         <div class="saved-plan-meta">
-                          {{ plan.stops.length }} ciudad{{ plan.stops.length !== 1 ? 'es' : '' }}
+                          @if (plan.stops.length === 1) {
+                            <ng-container i18n="@@myTrips.cityCountOne">{{ plan.stops.length }} ciudad</ng-container>
+                          } @else {
+                            <ng-container i18n="@@myTrips.cityCountMany">{{ plan.stops.length }} ciudades</ng-container>
+                          }
                           · {{ fmtDate(plan.savedAt) }}
                         </div>
                       </div>
@@ -84,12 +89,12 @@ import { environment } from '../../../environments/environment';
                         <button class="saved-plan-act-btn"
                                 [disabled]="cloningId() === plan.id"
                                 (click)="$event.stopPropagation(); confirmCloneId.set(plan.id)"
-                                title="Duplicar viaje">
+                                i18n-title="@@myTrips.duplicateTitle" title="Duplicar viaje">
                           {{ cloningId() === plan.id ? '⏳' : '📋' }} <span i18n="@@myTrips.cloneBtn">Duplicar</span>
                         </button>
                         <button class="saved-plan-act-btn"
                                 (click)="$event.stopPropagation(); confirmDeleteId.set(plan.id)"
-                                title="Eliminar viaje">
+                                i18n-title="@@myTrips.deleteTitle" title="Eliminar viaje">
                           🗑️ <span i18n="@@myTrips.deleteBtn">Eliminar</span>
                         </button>
                         <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
@@ -133,7 +138,7 @@ import { environment } from '../../../environments/environment';
                           }
                         </button>
                         @if (shareError() === plan.id) {
-                          <span class="share-error">Karma insuficiente</span>
+                          <span class="share-error" i18n="@@myTrips.insufficientKarma">Karma insuficiente</span>
                         }
                       </div>
                     }
@@ -146,7 +151,7 @@ import { environment } from '../../../environments/environment';
                   </div>
                 }
                 @if (filteredPlans().length === 0) {
-                  <div class="section-empty">Sin resultados para "{{ planSearch() }}" 🔍</div>
+                  <div class="section-empty" i18n="@@myTrips.noResults">Sin resultados para "{{ planSearch() }}" 🔍</div>
                 }
               }
             }
@@ -208,18 +213,18 @@ import { environment } from '../../../environments/environment';
       <div class="modal-backdrop" (click)="confirmCloneId.set(null)">
         <div class="modal" (click)="$event.stopPropagation()" style="max-width:340px">
           <div class="modal-head" style="background:linear-gradient(135deg,var(--lav),var(--peach))">
-            <div class="modal-title">📋 Duplicar viaje</div>
+            <div class="modal-title" i18n="@@myTrips.cloneModalTitle">📋 Duplicar viaje</div>
             <div class="modal-sub">{{ planName(confirmCloneId()!) }}</div>
           </div>
           <div class="modal-body" style="padding:20px 24px">
-            <p style="font-size:13px;color:var(--t2);margin:0;line-height:1.6">
+            <p style="font-size:13px;color:var(--t2);margin:0;line-height:1.6" i18n="@@myTrips.cloneModalBody">
               Se creará una copia de este viaje en tu lista de guardados.<br>
               Costo: <strong>−1 ✨ karma</strong>.
             </p>
           </div>
           <div class="modal-foot" style="gap:8px">
-            <button class="btn-pill btn-outline" style="flex:1" (click)="confirmCloneId.set(null)" type="button">Cancelar</button>
-            <button class="btn-pill btn-primary" style="flex:1" (click)="confirmClonePlan()" type="button">📋 Duplicar</button>
+            <button class="btn-pill btn-outline" style="flex:1" (click)="confirmCloneId.set(null)" type="button" i18n="@@myTrips.cancelBtn">Cancelar</button>
+            <button class="btn-pill btn-primary" style="flex:1" (click)="confirmClonePlan()" type="button" i18n="@@myTrips.cloneConfirmBtn">📋 Duplicar</button>
           </div>
         </div>
       </div>
@@ -230,19 +235,19 @@ import { environment } from '../../../environments/environment';
       <div class="modal-backdrop" (click)="confirmDeleteId.set(null)">
         <div class="modal" (click)="$event.stopPropagation()" style="max-width:340px">
           <div class="modal-head" style="background:linear-gradient(135deg,oklch(58% 0.2 25),oklch(46% 0.16 25))">
-            <div class="modal-title">🗑️ Eliminar viaje</div>
-            <div class="modal-sub">Esta acción no se puede deshacer</div>
+            <div class="modal-title" i18n="@@myTrips.deleteModalTitle">🗑️ Eliminar viaje</div>
+            <div class="modal-sub" i18n="@@myTrips.deleteModalSub">Esta acción no se puede deshacer</div>
           </div>
           <div class="modal-body" style="padding:20px 24px">
-            <p style="font-size:13px;color:var(--t2);margin:0;line-height:1.6">
+            <p style="font-size:13px;color:var(--t2);margin:0;line-height:1.6" i18n="@@myTrips.deleteModalBody">
               ¿Eliminar <strong>"{{ planName(confirmDeleteId()!) }}"</strong>?<br>
               Perderás este viaje permanentemente.
             </p>
           </div>
           <div class="modal-foot" style="gap:8px">
-            <button class="btn-pill btn-outline" style="flex:1" (click)="confirmDeleteId.set(null)" type="button">Cancelar</button>
+            <button class="btn-pill btn-outline" style="flex:1" (click)="confirmDeleteId.set(null)" type="button" i18n="@@myTrips.cancelBtn">Cancelar</button>
             <button class="btn-pill btn-primary" style="flex:1;background:oklch(48% 0.18 25);border-color:oklch(48% 0.18 25)"
-                    (click)="confirmDeletePlan()" type="button">🗑️ Eliminar</button>
+                    (click)="confirmDeletePlan()" type="button" i18n="@@myTrips.deleteConfirmBtn">🗑️ Eliminar</button>
           </div>
         </div>
       </div>
@@ -341,7 +346,7 @@ export class MyTripsComponent {
         this.karma.spend();
         this.savedPlans.markExported(user.email, plan.id);
       }
-      this.toast.set('La exportación Excel requiere el backend activo');
+      this.toast.set($localize`:@@myTrips.excelNeedsBackend:La exportación Excel requiere el backend activo`);
       return;
     }
 
@@ -363,7 +368,7 @@ export class MyTripsComponent {
         a.href = url; a.download = `itinerario-${slug}.xlsx`; a.click();
         URL.revokeObjectURL(url);
         this.exportingPlanId.set(null);
-        this.toast.set('Itinerario descargado');
+        this.toast.set($localize`:@@myTrips.itineraryDownloaded:Itinerario descargado`);
         if (!plan.exportedAt) {
           const user = this.auth.currentUser();
           if (user) { this.karma.spend(); this.savedPlans.markExported(user.email, plan.id); }
@@ -371,7 +376,7 @@ export class MyTripsComponent {
       },
       error: (err) => {
         this.exportingPlanId.set(null);
-        if (!this.karmaModal.handleKarmaError(err)) this.toast.set('Error al descargar el itinerario');
+        if (!this.karmaModal.handleKarmaError(err)) this.toast.set($localize`:@@myTrips.itineraryDownloadError:Error al descargar el itinerario`);
       },
     });
   }
@@ -410,7 +415,7 @@ export class MyTripsComponent {
           savedAt: cloned.createdAt ?? new Date().toISOString(),
           stops: cloned.stops, transits: cloned.transits ?? [],
         });
-        this.toast.set(`"${cloned.title}" guardado`);
+        this.toast.set($localize`:@@myTrips.cloneSavedToast:"${cloned.title}" guardado`);
       },
       error: err => { this.cloningId.set(null); this.karmaModal.handleKarmaError(err); },
     });
@@ -428,7 +433,7 @@ export class MyTripsComponent {
 
   fmtDate(iso: string): string {
     try {
-      return new Date(iso).toLocaleDateString('es-CL', { day: 'numeric', month: 'short', year: 'numeric' });
+      return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
     } catch { return iso; }
   }
 }

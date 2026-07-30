@@ -1372,6 +1372,101 @@
         <source> 📤 Publicar </source>
         <target> 📤 Publish </target>
       </trans-unit>
+
+      <!-- ── my-trips.component: full translation pass ── -->
+      <trans-unit id="myTrips.title" datatype="html">
+        <source>Mis viajes</source>
+        <target>My trips</target>
+      </trans-unit>
+      <trans-unit id="myTrips.savedTripsTitle" datatype="html">
+        <source>Viajes guardados 🗺️</source>
+        <target>Saved trips 🗺️</target>
+      </trans-unit>
+      <trans-unit id="myTrips.loginToViewTrips" datatype="html">
+        <source>Inicia sesión para ver tus viajes guardados.</source>
+        <target>Sign in to see your saved trips.</target>
+      </trans-unit>
+      <trans-unit id="myTrips.noSavedTrips" datatype="html">
+        <source>Aún no tienes viajes guardados. Usa el botón &quot;Guardar viaje 🎉&quot; para guardar uno.</source>
+        <target>You don't have any saved trips yet. Use the "Save trip 🎉" button to save one.</target>
+      </trans-unit>
+      <trans-unit id="myTrips.searchPlaceholder" datatype="html">
+        <source>Buscar viaje guardado…</source>
+        <target>Search saved trip…</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cityCountOne" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> ciudad</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> city</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cityCountMany" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> ciudades</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> cities</target>
+      </trans-unit>
+      <trans-unit id="myTrips.duplicateTitle" datatype="html">
+        <source>Duplicar viaje</source>
+        <target>Duplicate trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteTitle" datatype="html">
+        <source>Eliminar viaje</source>
+        <target>Delete trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.insufficientKarma" datatype="html">
+        <source>Karma insuficiente</source>
+        <target>Insufficient karma</target>
+      </trans-unit>
+      <trans-unit id="myTrips.noResults" datatype="html">
+        <source>Sin resultados para &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</source>
+        <target>No results for &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneModalTitle" datatype="html">
+        <source>📋 Duplicar viaje</source>
+        <target>📋 Duplicate trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneModalBody" datatype="html">
+        <source> Se creará una copia de este viaje en tu lista de guardados.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Costo: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
+        <target> A copy of this trip will be created in your saved list.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Cost: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
+      </trans-unit>
+      <trans-unit id="myTrips.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneConfirmBtn" datatype="html">
+        <source>📋 Duplicar</source>
+        <target>📋 Duplicate</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteModalTitle" datatype="html">
+        <source>🗑️ Eliminar viaje</source>
+        <target>🗑️ Delete trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteModalSub" datatype="html">
+        <source>Esta acción no se puede deshacer</source>
+        <target>This action can't be undone</target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteModalBody" datatype="html">
+        <source> ¿Eliminar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Perderás este viaje permanentemente. </source>
+        <target> Delete <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> You'll lose this trip permanently. </target>
+      </trans-unit>
+      <trans-unit id="myTrips.deleteConfirmBtn" datatype="html">
+        <source>🗑️ Eliminar</source>
+        <target>🗑️ Delete</target>
+      </trans-unit>
+      <trans-unit id="myTrips.excelNeedsBackend" datatype="html">
+        <source>La exportación Excel requiere el backend activo</source>
+        <target>Excel export requires the backend to be running</target>
+      </trans-unit>
+      <trans-unit id="myTrips.itineraryDownloaded" datatype="html">
+        <source>Itinerario descargado</source>
+        <target>Itinerary downloaded</target>
+      </trans-unit>
+      <trans-unit id="myTrips.itineraryDownloadError" datatype="html">
+        <source>Error al descargar el itinerario</source>
+        <target>Error downloading the itinerary</target>
+      </trans-unit>
+      <trans-unit id="myTrips.cloneSavedToast" datatype="html">
+        <source>&quot;<x id="PH" equiv-text="cloned.title"/>&quot; guardado</source>
+        <target>&quot;<x id="PH" equiv-text="cloned.title"/>&quot; saved</target>
+      </trans-unit>
+
       <trans-unit id="nav.myTripsPage" datatype="html">
         <source>🗺 Mis viajes</source>
         <target>🗺 My trips</target>
@@ -1774,9 +1869,13 @@
         <source>Agregar</source>
         <target>Add</target>
       </trans-unit>
-      <trans-unit id="profile.pinsMarkedCount" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugar<x id="INTERPOLATION_1" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;es&apos; : &apos;&apos; }}"/> marcado<x id="INTERPOLATION_2" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;s&apos; : &apos;&apos; }}"/> </source>
-        <target> <x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> place<x id="INTERPOLATION_1" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;es&apos; : &apos;&apos; }}"/> marked<x id="INTERPOLATION_2" equiv-text="{{ visitedPlaces.pins().length !== 1 ? &apos;s&apos; : &apos;&apos; }}"/></target>
+      <trans-unit id="profile.pinsMarkedCountOne" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugar marcado</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> place marked</target>
+      </trans-unit>
+      <trans-unit id="profile.pinsMarkedCountMany" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugares marcados</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> places marked</target>
       </trans-unit>
       <trans-unit id="profile.errNameEmpty" datatype="html">
         <source>El nombre no puede estar vacío.</source>
