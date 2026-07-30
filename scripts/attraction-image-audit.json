@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T18:22:04.539Z",
+  "generatedAt": "2026-07-30T18:30:09.117Z",
   "totalCities": 569,
-  "citiesNeedingWork": 369,
+  "citiesNeedingWork": 368,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -1631,10 +1631,10 @@
     },
     {
       "city": "puno",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 195
     },
     {
