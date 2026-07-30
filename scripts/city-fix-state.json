@@ -119,8 +119,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "vientiane": {
-    "attempts": 3,
-    "radiusKm": 35
+  "luangprabang": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
