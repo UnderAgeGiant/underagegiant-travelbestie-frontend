@@ -12,14 +12,14 @@
  * Usage:
  *   BACKEND_USE_MOCKS=true npm run build:vercel
  *   git restore src/environments/environment.production.ts
- *   node scripts/serve-preview.mjs                          # -> http://localhost:4300
+ *   node scripts/serve-preview.mjs                          # -> http://localhost:4200
  */
 import { createServer } from 'node:http';
 import { readFileSync, statSync } from 'node:fs';
 import { join, extname } from 'node:path';
 
 const DIST = 'dist/underagegiant-travelbestie-frontend/browser';
-const PORT = 4300;
+const PORT = 4200;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8', '.js': 'application/javascript',
