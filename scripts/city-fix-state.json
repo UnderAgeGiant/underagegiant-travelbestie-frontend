@@ -370,7 +370,12 @@
     "stuck": true
   },
   "ngorongoro": {
-    "attempts": 1,
-    "radiusKm": 15
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "abuja": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
