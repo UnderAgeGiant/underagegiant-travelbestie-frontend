@@ -3,7 +3,21 @@
   "outputDirectory": "dist/underagegiant-travelbestie-frontend/browser",
   "framework": null,
   "rewrites": [
-    { "source": "/((?!assets|favicon).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!assets|favicon).*)",
+      "has": [{ "type": "cookie", "key": "tb_locale", "value": "en-US" }],
+      "destination": "/index.en-US.html"
+    },
+    {
+      "source": "/((?!assets|favicon).*)",
+      "missing": [{ "type": "cookie", "key": "tb_locale" }],
+      "has": [{ "type": "header", "key": "accept-language", "value": "^en.*" }],
+      "destination": "/index.en-US.html"
+    },
+    {
+      "source": "/((?!assets|favicon).*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
@@ -18,6 +32,12 @@
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' https://challenges.cloudflare.com https://www.paypal.com https://www.paypalobjects.com; frame-src https://challenges.cloudflare.com https://www.paypal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://api.tripilove.com https://underagegiant-travelbestie-manager.vercel.app https://www.paypal.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
         }
+      ]
+    },
+    {
+      "source": "/(index.html|index.en-US.html)",
+      "headers": [
+        { "key": "Cache-Control", "value": "private, no-store" }
       ]
     }
   ]
