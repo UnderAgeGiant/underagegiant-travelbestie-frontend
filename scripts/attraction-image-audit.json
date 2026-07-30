@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T01:31:11.116Z",
+  "generatedAt": "2026-07-30T01:38:04.569Z",
   "totalCities": 569,
-  "citiesNeedingWork": 401,
+  "citiesNeedingWork": 400,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -975,21 +975,10 @@
     },
     {
       "city": "tunis",
-      "count": 5,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "tunis_0",
-            "tunis_1",
-            "tunis_2",
-            "tunis_3",
-            "tunis_4"
-          ]
-        }
-      ],
-      "missingCount": 10,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 119
     },
     {
