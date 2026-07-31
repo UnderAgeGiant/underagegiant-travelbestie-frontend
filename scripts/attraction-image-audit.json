@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T21:13:06.058Z",
+  "generatedAt": "2026-07-31T21:17:13.829Z",
   "totalCities": 569,
-  "citiesNeedingWork": 251,
+  "citiesNeedingWork": 249,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3974,26 +3974,18 @@
     },
     {
       "city": "bocasdeltoro",
-      "count": 10,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 5,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 466
     },
     {
       "city": "boquete",
       "count": 16,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Gaja_river.jpg",
-          "ids": [
-            "boquete_0",
-            "boquete_13"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 467
     },
     {
