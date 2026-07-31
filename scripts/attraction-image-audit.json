@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T21:45:25.398Z",
+  "generatedAt": "2026-07-31T21:49:17.352Z",
   "totalCities": 569,
   "citiesNeedingWork": 246,
   "goalMet": false,
@@ -4046,9 +4046,9 @@
     },
     {
       "city": "lasterrenas",
-      "count": 2,
+      "count": 4,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 11,
       "needsWork": true,
       "priorityRank": 475
     },
@@ -4062,9 +4062,9 @@
     },
     {
       "city": "laromana",
-      "count": 2,
+      "count": 6,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 9,
       "needsWork": true,
       "priorityRank": 477
     },
