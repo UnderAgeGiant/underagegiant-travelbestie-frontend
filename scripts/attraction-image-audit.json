@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T02:02:21.434Z",
+  "generatedAt": "2026-07-31T02:13:26.430Z",
   "totalCities": 569,
   "citiesNeedingWork": 322,
   "goalMet": false,
@@ -2473,18 +2473,9 @@
     },
     {
       "city": "delphi",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "delphi_0",
-            "delphi_1",
-            "delphi_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
       "needsWork": true,
       "priorityRank": 290
     },
