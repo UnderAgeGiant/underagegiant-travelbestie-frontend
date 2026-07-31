@@ -798,5 +798,9 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "roatan": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T19:15:43.955Z",
+  "generatedAt": "2026-07-31T19:22:36.687Z",
   "totalCities": 569,
-  "citiesNeedingWork": 268,
+  "citiesNeedingWork": 267,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3710,10 +3710,10 @@
     },
     {
       "city": "copanruinas",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 12,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 433
     },
     {
