@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T14:31:48.061Z",
+  "generatedAt": "2026-07-31T14:39:42.002Z",
   "totalCities": 569,
-  "citiesNeedingWork": 303,
+  "citiesNeedingWork": 301,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2881,18 +2881,18 @@
     },
     {
       "city": "philadelphia",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 340
     },
     {
       "city": "santafe",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 341
     },
     {
