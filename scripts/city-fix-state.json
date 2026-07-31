@@ -594,8 +594,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "bariloche": {
-    "attempts": 3,
-    "radiusKm": 35
+  "salta": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }

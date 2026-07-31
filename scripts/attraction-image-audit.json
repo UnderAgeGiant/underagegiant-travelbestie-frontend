@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T14:57:03.882Z",
+  "generatedAt": "2026-07-31T15:02:32.369Z",
   "totalCities": 569,
-  "citiesNeedingWork": 296,
+  "citiesNeedingWork": 295,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2977,17 +2977,17 @@
     },
     {
       "city": "bariloche",
-      "count": 12,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 3,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 352
     },
     {
       "city": "salta",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 353
     },
