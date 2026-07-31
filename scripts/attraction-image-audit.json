@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T01:21:34.646Z",
+  "generatedAt": "2026-07-31T01:29:06.866Z",
   "totalCities": 569,
   "citiesNeedingWork": 324,
   "goalMet": false,
@@ -2401,19 +2401,17 @@
     },
     {
       "city": "assisi",
-      "count": 4,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1504893050483-d32e84f476ff?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "assisi_0",
-            "assisi_1",
-            "assisi_2",
             "assisi_3"
           ]
         }
       ],
-      "missingCount": 11,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 283
     },
