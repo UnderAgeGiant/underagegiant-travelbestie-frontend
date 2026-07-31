@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T22:22:16.210Z",
+  "generatedAt": "2026-07-31T22:25:30.999Z",
   "totalCities": 569,
   "citiesNeedingWork": 242,
   "goalMet": false,
@@ -4134,9 +4134,9 @@
     },
     {
       "city": "echternach",
-      "count": 12,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 486
     },

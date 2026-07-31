@@ -66947,6 +66947,18 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Laufeld_in_WIL.svg/960px-Laufeld_in_WIL.svg.png",
       website: "http://www.spielzeugmuseum-trier.de",
     },
+    {
+      id: "echternach_12",
+      active: true,
+      name: "Château de Walferdange",
+      category: 'poi', type: "Histórico",
+      icon: "🏰",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Journal_de_La_Haye_17-07-1844_%28IA_ddd_010257409_mpeg21%29.pdf/page1-1920px-Journal_de_La_Haye_17-07-1844_%28IA_ddd_010257409_mpeg21%29.pdf.jpg",
+      website: "https://walfer.lu/virtual_visit/chateau/",
+    },
   ],
 
   rotterdam: [

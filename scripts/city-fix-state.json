@@ -910,7 +910,12 @@
     "stuck": true
   },
   "echternach": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "elnido": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
