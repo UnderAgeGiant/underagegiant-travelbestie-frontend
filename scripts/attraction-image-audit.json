@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T01:12:07.380Z",
+  "generatedAt": "2026-07-31T01:21:34.646Z",
   "totalCities": 569,
-  "citiesNeedingWork": 327,
+  "citiesNeedingWork": 324,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2361,10 +2361,10 @@
     },
     {
       "city": "liverpool",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 278
     },
     {
@@ -2385,26 +2385,18 @@
     },
     {
       "city": "glasgow",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 281
     },
     {
       "city": "pisa",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "pisa_0",
-            "pisa_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 282
     },
     {
