@@ -46795,7 +46795,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Walter_Roth_Museum_of_Anthropology_%2813695446384%29.jpg",
+      imageUrl: "https://live.staticflickr.com/7441/13695446384_fc63704abd_b.jpg",
     },
     {
       id: "georgetown_15",
@@ -46871,7 +46871,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.3,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Starboek_Market_%2823132264799%29.jpg/960px-Starboek_Market_%2823132264799%29.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Reformed_Church_and_Stabroek_Market_-_Georgetown_%2822850460464%29.jpg/1920px-Reformed_Church_and_Stabroek_Market_-_Georgetown_%2822850460464%29.jpg",
     },
   ],
   kaieteur: [

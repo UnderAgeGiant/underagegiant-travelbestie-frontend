@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T18:01:33.329Z",
+  "generatedAt": "2026-07-31T18:07:26.931Z",
   "totalCities": 569,
   "citiesNeedingWork": 275,
   "goalMet": false,
@@ -3497,17 +3497,9 @@
       "count": 22,
       "duplicateGroups": [
         {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Starboek_Market_%2823132264799%29.jpg/960px-Starboek_Market_%2823132264799%29.jpg",
-          "ids": [
-            "georgetown_5",
-            "georgetown_21"
-          ]
-        },
-        {
           "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Walter_Roth_Museum_of_Anthropology_%2813695446384%29.jpg",
           "ids": [
             "georgetown_13",
-            "georgetown_14",
             "georgetown_20"
           ]
         }

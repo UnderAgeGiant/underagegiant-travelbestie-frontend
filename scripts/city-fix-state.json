@@ -725,7 +725,13 @@
     "stuck": true
   },
   "filadelfia": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "georgetown": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
