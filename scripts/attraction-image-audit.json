@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T13:11:14.122Z",
+  "generatedAt": "2026-07-31T13:16:18.475Z",
   "totalCities": 569,
-  "citiesNeedingWork": 312,
+  "citiesNeedingWork": 311,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2769,33 +2769,25 @@
     },
     {
       "city": "algiers",
-      "count": 11,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 4,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 326
     },
     {
       "city": "oran",
       "count": 16,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oran_Santa_Cruz.JPG/960px-Oran_Santa_Cruz.JPG",
-          "ids": [
-            "oran_1",
-            "oran_6"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 327
     },
     {
       "city": "constantine",
-      "count": 13,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 2,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 328
     },

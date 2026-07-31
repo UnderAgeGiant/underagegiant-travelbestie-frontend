@@ -16068,6 +16068,18 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/A_catalogue_of_books_in_the_Malta_Garrison_Library_%3B_established_in_the_year_1806_-_with_the_laws_of_the_institution_-_as_revised_in_the_year_1823_%28IA_catalogueofbooks00malt%29.pdf/page1-500px-thumbnail.pdf.jpg",
       website: "http://www.ambalgeri.esteri.it/Ambasciata_Algeri",
     },
+    {
+      id: "algiers_11",
+      active: true,
+      name: "جامع الجزائر",
+      category: 'poi', type: "Iglesia",
+      icon: "⛪",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 45,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Djama%C3%A2_El-Djaza%C3%AFr_-_20240405_212406834.jpg/1920px-Djama%C3%A2_El-Djaza%C3%AFr_-_20240405_212406834.jpg",
+      website: "https://eldjamaa.dz/",
+    },
   ],
   amsterdam: [
     {
@@ -83333,7 +83345,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oran_Santa_Cruz.JPG/960px-Oran_Santa_Cruz.JPG",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/62/Sur_le_mont_murjajou_2.jpg",
     },
     {
       id: "oran_7",
@@ -83575,6 +83587,17 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1664567960558-641b3fc6213c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb25zdGFudGluZSUyMEJyaWRnZXMlMjAlMjYlMjBHb3JnZXMlMjBDb25zdGFudGluZSUyMEFsZ2VyaWF8ZW58MXwwfHx8MTc4MzI4Mjk0Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "constantine_13",
+      active: true,
+      name: "Ruines Romaines Tiddis",
+      category: 'poi', type: "Histórico",
+      icon: "🏛️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Annuaire_de_la_Societe_Archeologique_de_la_Province_de_Constantine_%28IA_annuairedelasoci01cons%29.pdf/page1-500px-Annuaire_de_la_Societe_Archeologique_de_la_Province_de_Constantine_%28IA_annuairedelasoci01cons%29.pdf.jpg",
     },
   ],
 

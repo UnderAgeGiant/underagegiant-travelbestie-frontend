@@ -565,6 +565,11 @@
     "stuck": true
   },
   "algiers": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "constantine": {
     "attempts": 3,
     "radiusKm": 35
   }
