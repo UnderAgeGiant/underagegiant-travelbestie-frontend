@@ -838,5 +838,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "esteli": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "cornislands": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
