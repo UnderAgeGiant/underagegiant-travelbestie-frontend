@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T23:11:19.038Z",
+  "generatedAt": "2026-07-31T23:20:21.043Z",
   "totalCities": 569,
   "citiesNeedingWork": 241,
   "goalMet": false,
@@ -4302,9 +4302,9 @@
     },
     {
       "city": "cholponata",
-      "count": 2,
+      "count": 3,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 12,
       "needsWork": true,
       "priorityRank": 507
     },

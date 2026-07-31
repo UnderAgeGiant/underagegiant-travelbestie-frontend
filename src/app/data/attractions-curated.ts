@@ -84374,6 +84374,17 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
     },
+    {
+      id: "cholponata_2",
+      active: true,
+      name: "Пионер",
+      category: 'poi', type: "Naturaleza",
+      icon: "🏔️",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Alykul_Osmonov_on_200_som_note.jpg",
+    },
   ],
   osh: [
     {

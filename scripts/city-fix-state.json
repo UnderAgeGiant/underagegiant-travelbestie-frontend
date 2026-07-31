@@ -955,7 +955,12 @@
     "stuck": true
   },
   "cholponata": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "osh": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
