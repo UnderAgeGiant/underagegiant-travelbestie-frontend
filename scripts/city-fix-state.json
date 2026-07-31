@@ -879,8 +879,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "colon": {
-    "attempts": 3,
-    "radiusKm": 35
+  "pedasi": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }

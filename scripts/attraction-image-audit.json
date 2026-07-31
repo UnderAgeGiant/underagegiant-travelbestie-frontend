@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T21:32:03.811Z",
+  "generatedAt": "2026-07-31T21:35:59.307Z",
   "totalCities": 569,
-  "citiesNeedingWork": 249,
+  "citiesNeedingWork": 248,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4006,17 +4006,17 @@
     },
     {
       "city": "colon",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 470
     },
     {
       "city": "pedasi",
-      "count": 0,
+      "count": 3,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 12,
       "needsWork": true,
       "priorityRank": 471
     },
