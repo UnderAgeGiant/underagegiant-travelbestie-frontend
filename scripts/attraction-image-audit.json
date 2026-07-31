@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T11:43:07.035Z",
+  "generatedAt": "2026-07-31T11:54:14.400Z",
   "totalCities": 569,
-  "citiesNeedingWork": 316,
+  "citiesNeedingWork": 315,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2633,44 +2633,25 @@
     },
     {
       "city": "mahabalipuram",
-      "count": 11,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 4,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 309
     },
     {
       "city": "kandy",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "kandy_0",
-            "kandy_1",
-            "kandy_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 310
     },
     {
       "city": "anuradhapura",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "anuradhapura_0",
-            "anuradhapura_1",
-            "anuradhapura_2",
-            "anuradhapura_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 311
     },
