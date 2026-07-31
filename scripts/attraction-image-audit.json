@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T17:47:03.409Z",
+  "generatedAt": "2026-07-31T17:51:03.271Z",
   "totalCities": 569,
   "citiesNeedingWork": 275,
   "goalMet": false,
@@ -3446,9 +3446,9 @@
     },
     {
       "city": "pilar",
-      "count": 0,
+      "count": 5,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 10,
       "needsWork": true,
       "priorityRank": 405
     },
