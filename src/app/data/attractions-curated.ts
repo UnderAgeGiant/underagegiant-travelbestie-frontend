@@ -53424,6 +53424,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/71/ManaguaNicCollage.jpg",
     },
+    {
+      id: "managua_14",
+      active: true,
+      name: "Volcán Apoyeque",
+      category: 'poi', type: "Volcán",
+      icon: "🌋",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Apoyeque_nicaragua_location_map.jpg",
+    },
   ],
   granada_ni: [
     {

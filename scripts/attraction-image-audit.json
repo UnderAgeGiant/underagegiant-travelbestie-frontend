@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T20:10:04.801Z",
+  "generatedAt": "2026-07-31T20:12:50.340Z",
   "totalCities": 569,
-  "citiesNeedingWork": 260,
+  "citiesNeedingWork": 259,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3822,10 +3822,10 @@
     },
     {
       "city": "managua",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 447
     },
     {

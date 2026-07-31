@@ -829,8 +829,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "managua": {
-    "attempts": 1,
-    "radiusKm": 15
+  "ometepe": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
