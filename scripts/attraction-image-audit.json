@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T18:25:36.075Z",
+  "generatedAt": "2026-07-31T18:29:11.660Z",
   "totalCities": 569,
   "citiesNeedingWork": 274,
   "goalMet": false,
@@ -3550,9 +3550,9 @@
     },
     {
       "city": "nieuwnikk",
-      "count": 1,
+      "count": 2,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 13,
       "needsWork": true,
       "priorityRank": 414
     },

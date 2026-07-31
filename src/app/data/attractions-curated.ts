@@ -47197,6 +47197,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Vooraanzicht_en_zijaanzicht_gevels_-_Nieuw-Nickerie_-_20418045_-_RCE.jpg/1920px-Vooraanzicht_en_zijaanzicht_gevels_-_Nieuw-Nickerie_-_20418045_-_RCE.jpg",
     },
+    {
+      id: "nieuwnikk_1",
+      active: true,
+      name: "No. 63 Beach",
+      category: 'poi', type: "Atracción",
+      icon: "✨",
+      bg: "#FDE8F5",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Rotterdamsche_courant_13-04-1857_%28IA_ddd_010397132_mpeg21%29.pdf/page1-1280px-Rotterdamsche_courant_13-04-1857_%28IA_ddd_010397132_mpeg21%29.pdf.jpg",
+    },
   ],
   brownsweg: [
     {
