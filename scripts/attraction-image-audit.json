@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T14:39:42.002Z",
+  "generatedAt": "2026-07-31T14:43:27.220Z",
   "totalCities": 569,
-  "citiesNeedingWork": 301,
+  "citiesNeedingWork": 296,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2898,17 +2898,9 @@
     {
       "city": "ouropreto",
       "count": 22,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/VYFhyu13vho?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "ouropreto_4",
-            "ouropreto_15"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 342
     },
     {
@@ -2922,18 +2914,9 @@
     {
       "city": "brasilia",
       "count": 30,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1641404073707-5dd3e01e1b8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmFzaWxpYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI3MDAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "brasilia_9",
-            "brasilia_19",
-            "brasilia_26"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 344
     },
     {
@@ -2947,17 +2930,9 @@
     {
       "city": "foziguacu",
       "count": 17,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/00_1854_Iguaz%C3%BA-Wasserf%C3%A4lle_-_S%C3%BCdamerika.jpg/960px-00_1854_Iguaz%C3%BA-Wasserf%C3%A4lle_-_S%C3%BCdamerika.jpg",
-          "ids": [
-            "foziguacu_3",
-            "foziguacu_6"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 346
     },
     {
@@ -2971,54 +2946,23 @@
     {
       "city": "manaus",
       "count": 17,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meeting_of_Waters_%28Manaus%29.jpg/960px-Meeting_of_Waters_%28Manaus%29.jpg",
-          "ids": [
-            "manaus_4",
-            "manaus_15"
-          ]
-        },
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Teatro_Amazonas_Atualmente_01.jpg/960px-Teatro_Amazonas_Atualmente_01.jpg",
-          "ids": [
-            "manaus_5",
-            "manaus_16"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 348
     },
     {
       "city": "fortaleza",
       "count": 25,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1777734794841-915df822ef26?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxmb3J0YWxlemElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIzMDQ5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "fortaleza_17",
-            "fortaleza_24"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 349
     },
     {
       "city": "iguazu",
       "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "iguazu_0",
-            "iguazu_1"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 13,
       "needsWork": true,
       "priorityRank": 350

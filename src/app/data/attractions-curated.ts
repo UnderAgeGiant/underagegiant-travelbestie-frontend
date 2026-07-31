@@ -21271,7 +21271,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cartel_Puerto_Iguaz%C3%BA_-_Iguazu_National_Park_4.JPG/1920px-Cartel_Puerto_Iguaz%C3%BA_-_Iguazu_National_Park_4.JPG",
       website: "https://www.iguazufalls-tickets.com/timings-opening-hours/",
       ticketPrices: {
         free: false,
@@ -37016,7 +37016,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1641404073707-5dd3e01e1b8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmFzaWxpYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI3MDAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Constru%C3%A7%C3%A3o_do_Teatro_de_Arena_e_a_BCE_ao_fundo._1973._Fonte_CEDOC-FAC_%2834451234431%29.jpg",
     },
     {
       id: "brasilia_20",
@@ -37096,7 +37096,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://images.unsplash.com/photo-1641404073707-5dd3e01e1b8d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxicmFzaWxpYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI3MDAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Um_suspeito_censor%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%28166732%29.pdf/page1-960px-Um_suspeito_censor%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%28166732%29.pdf.jpg",
     },
     {
       id: "brasilia_27",
@@ -37617,7 +37617,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "www.minaduveloso.blogspot.com",
-      imageUrl: "https://images.unsplash.com/VYFhyu13vho?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mina_de_Ouro_du_Veloso%2C_Ouro_Preto.jpg/1920px-Mina_de_Ouro_du_Veloso%2C_Ouro_Preto.jpg",
     },
     {
       id: "ouropreto_16",
@@ -37766,7 +37766,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/00_1854_Iguaz%C3%BA-Wasserf%C3%A4lle_-_S%C3%BCdamerika.jpg/960px-00_1854_Iguaz%C3%BA-Wasserf%C3%A4lle_-_S%C3%BCdamerika.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8a/A_section_of_the_Foz_do_Igua%C3%A7u_falls_in_Brazil_%28geminiann07008b%29.jpg",
     },
     {
       id: "foziguacu_7",
@@ -38392,7 +38392,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 180,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meeting_of_Waters_%28Manaus%29.jpg/960px-Meeting_of_Waters_%28Manaus%29.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Rio_Negro_-_Encontro_das_%C3%81guas_-_Manaus_-_Amazonas_-_panoramio.jpg/1920px-Rio_Negro_-_Encontro_das_%C3%81guas_-_Manaus_-_Amazonas_-_panoramio.jpg",
     },
     {
       id: "manaus_16",
@@ -38404,7 +38404,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 90,
       website: "https://www.teatroamazonas.am.gov.br/",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Teatro_Amazonas_Atualmente_01.jpg/960px-Teatro_Amazonas_Atualmente_01.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Noite_no_Teatro_Amazonas_%28cropped%29.jpg/1920px-Noite_no_Teatro_Amazonas_%28cropped%29.jpg",
     },
   ],
   fortaleza: [
@@ -38688,7 +38688,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://images.unsplash.com/photo-1777734794841-915df822ef26?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxmb3J0YWxlemElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIzMDQ5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Montage_of_Fortaleza.png",
     },
   ],
 
