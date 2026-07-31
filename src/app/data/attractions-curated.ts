@@ -46946,6 +46946,17 @@ export const CURATED_ALL: CuratedMap = {
   ],
   newamsterdam: [
 
+    {
+      id: "newamsterdam_0",
+      active: true,
+      name: "Fort St. Andries",
+      category: 'poi', type: "Histórico",
+      icon: "🏛️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Maurits_neem_de_schans_Sint-Andries_in%2C_1600%2C_BI-1958-935-241.jpg/1920px-Maurits_neem_de_schans_Sint-Andries_in%2C_1600%2C_BI-1958-935-241.jpg",
+    },
   ],
   lethem: [
     {
