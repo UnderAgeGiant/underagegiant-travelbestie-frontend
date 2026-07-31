@@ -623,5 +623,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "camaguey": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "cayosantamaria": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

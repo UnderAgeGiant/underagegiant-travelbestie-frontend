@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T15:48:27.948Z",
+  "generatedAt": "2026-07-31T15:56:24.587Z",
   "totalCities": 569,
   "citiesNeedingWork": 292,
   "goalMet": false,
@@ -3081,9 +3081,9 @@
     },
     {
       "city": "camaguey",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 365
     },
