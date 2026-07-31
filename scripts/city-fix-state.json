@@ -849,8 +849,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "lafortuna": {
-    "attempts": 1,
-    "radiusKm": 15
+  "manuelantonio": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T20:30:08.523Z",
+  "generatedAt": "2026-07-31T20:34:18.523Z",
   "totalCities": 569,
-  "citiesNeedingWork": 257,
+  "citiesNeedingWork": 256,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3894,24 +3894,16 @@
     },
     {
       "city": "lafortuna",
-      "count": 12,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 3,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 456
     },
     {
       "city": "manuelantonio",
       "count": 9,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Manuel_Antonio_CRI_07_2016_7495.jpg/960px-Manuel_Antonio_CRI_07_2016_7495.jpg",
-          "ids": [
-            "manuelantonio_0",
-            "manuelantonio_7"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 6,
       "needsWork": true,
       "priorityRank": 457
