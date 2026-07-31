@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T20:43:19.812Z",
+  "generatedAt": "2026-07-31T20:53:06.508Z",
   "totalCities": 569,
   "citiesNeedingWork": 254,
   "goalMet": false,
@@ -3926,17 +3926,17 @@
     },
     {
       "city": "tamarindo",
-      "count": 5,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 10,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 460
     },
     {
       "city": "tortuguero",
-      "count": 2,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 461
     },
