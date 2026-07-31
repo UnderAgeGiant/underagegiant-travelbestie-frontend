@@ -698,5 +698,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "morrocoy": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "sancristo": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

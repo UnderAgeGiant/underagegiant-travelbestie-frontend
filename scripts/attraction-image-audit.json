@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T17:24:19.678Z",
+  "generatedAt": "2026-07-31T17:33:08.982Z",
   "totalCities": 569,
   "citiesNeedingWork": 279,
   "goalMet": false,
@@ -3374,9 +3374,9 @@
     },
     {
       "city": "morrocoy",
-      "count": 2,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 396
     },
@@ -3390,9 +3390,9 @@
     },
     {
       "city": "sancristo",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 398
     },
