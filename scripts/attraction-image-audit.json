@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T12:57:04.967Z",
+  "generatedAt": "2026-07-31T13:01:31.992Z",
   "totalCities": 569,
   "citiesNeedingWork": 312,
   "goalMet": false,
@@ -2753,9 +2753,9 @@
     },
     {
       "city": "gondar",
-      "count": 7,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 324
     },
