@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T12:36:07.610Z",
+  "generatedAt": "2026-07-31T12:47:19.880Z",
   "totalCities": 569,
-  "citiesNeedingWork": 313,
+  "citiesNeedingWork": 312,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2721,10 +2721,10 @@
     },
     {
       "city": "mandalay",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 320
     },
     {
@@ -2737,9 +2737,9 @@
     },
     {
       "city": "lalibela",
-      "count": 1,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 322
     },

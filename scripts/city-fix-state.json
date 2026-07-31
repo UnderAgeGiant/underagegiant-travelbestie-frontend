@@ -544,8 +544,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "mandalay": {
-    "attempts": 2,
-    "radiusKm": 23
+  "lalibela": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
