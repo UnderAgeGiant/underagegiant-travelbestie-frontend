@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T17:33:08.982Z",
+  "generatedAt": "2026-07-31T17:40:19.561Z",
   "totalCities": 569,
-  "citiesNeedingWork": 279,
+  "citiesNeedingWork": 276,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3390,42 +3390,26 @@
     },
     {
       "city": "sancristo",
-      "count": 12,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 3,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 398
     },
     {
       "city": "puertolacru",
       "count": 22,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Jardin_de_la_Casa_Fuerte.jpg/960px-Jardin_de_la_Casa_Fuerte.jpg",
-          "ids": [
-            "puertolacru_2",
-            "puertolacru_5"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 399
     },
     {
       "city": "asuncion",
       "count": 27,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Asuncion_zoo.jpg/960px-Asuncion_zoo.jpg",
-          "ids": [
-            "asuncion_7",
-            "asuncion_25"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 400
     },
     {
@@ -3438,9 +3422,9 @@
     },
     {
       "city": "ciudaddeste",
-      "count": 2,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 402
     },
