@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T23:01:11.647Z",
+  "generatedAt": "2026-07-31T23:04:15.212Z",
   "totalCities": 569,
   "citiesNeedingWork": 241,
   "goalMet": false,
@@ -4278,9 +4278,9 @@
     },
     {
       "city": "turkistan",
-      "count": 12,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 504
     },

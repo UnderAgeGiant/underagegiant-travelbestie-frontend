@@ -83857,6 +83857,17 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
     },
+    {
+      id: "turkistan_12",
+      active: true,
+      name: "Қожа Ахмет Ясауи кесенесі",
+      category: 'poi', type: "Museo",
+      icon: "🖼️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 90,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan%2C_Kazakhstan.jpg/1920px-Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan%2C_Kazakhstan.jpg",
+    },
   ],
 
   kuwaitcity: [
