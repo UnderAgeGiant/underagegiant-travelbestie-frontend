@@ -960,7 +960,13 @@
     "stuck": true
   },
   "osh": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "byblos": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }

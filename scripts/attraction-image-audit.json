@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T23:20:21.043Z",
+  "generatedAt": "2026-07-31T23:29:13.150Z",
   "totalCities": 569,
   "citiesNeedingWork": 241,
   "goalMet": false,
@@ -4318,9 +4318,9 @@
     },
     {
       "city": "byblos",
-      "count": 3,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 509
     },
