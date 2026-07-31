@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T16:56:22.480Z",
+  "generatedAt": "2026-07-31T17:02:05.330Z",
   "totalCities": 569,
   "citiesNeedingWork": 281,
   "goalMet": false,
@@ -3297,9 +3297,9 @@
     },
     {
       "city": "caracas",
-      "count": 4,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 390
     },
