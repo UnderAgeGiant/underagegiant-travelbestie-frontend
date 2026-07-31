@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T14:51:11.458Z",
+  "generatedAt": "2026-07-31T14:57:03.882Z",
   "totalCities": 569,
   "citiesNeedingWork": 296,
   "goalMet": false,
@@ -2977,9 +2977,9 @@
     },
     {
       "city": "bariloche",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 352
     },
