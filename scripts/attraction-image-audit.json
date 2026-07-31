@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T19:07:05.036Z",
+  "generatedAt": "2026-07-31T19:12:23.647Z",
   "totalCities": 569,
   "citiesNeedingWork": 269,
   "goalMet": false,
@@ -3678,9 +3678,9 @@
     },
     {
       "city": "placencia",
-      "count": 6,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 9,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 429
     },
