@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T22:11:35.475Z",
+  "generatedAt": "2026-07-31T22:22:16.210Z",
   "totalCities": 569,
   "citiesNeedingWork": 242,
   "goalMet": false,
@@ -4126,17 +4126,17 @@
     },
     {
       "city": "vianden",
-      "count": 9,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 485
     },
     {
       "city": "echternach",
-      "count": 1,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 486
     },
