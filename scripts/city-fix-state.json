@@ -488,5 +488,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "izmir": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "pamukkale": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
