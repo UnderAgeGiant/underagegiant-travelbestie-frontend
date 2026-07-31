@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T22:25:30.999Z",
+  "generatedAt": "2026-07-31T22:31:19.095Z",
   "totalCities": 569,
-  "citiesNeedingWork": 242,
+  "citiesNeedingWork": 241,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4150,10 +4150,10 @@
     },
     {
       "city": "yerevan",
-      "count": 4,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 11,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 488
     },
     {
