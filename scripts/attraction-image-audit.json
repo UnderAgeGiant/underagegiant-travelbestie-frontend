@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T18:40:14.542Z",
+  "generatedAt": "2026-07-31T18:49:13.759Z",
   "totalCities": 569,
   "citiesNeedingWork": 272,
   "goalMet": false,
@@ -3614,9 +3614,9 @@
     },
     {
       "city": "chichicast",
-      "count": 7,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 421
     },
@@ -3630,9 +3630,9 @@
     },
     {
       "city": "livingston",
-      "count": 0,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 423
     },
