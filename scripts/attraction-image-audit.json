@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T15:28:09.521Z",
+  "generatedAt": "2026-07-31T15:35:35.485Z",
   "totalCities": 569,
-  "citiesNeedingWork": 293,
+  "citiesNeedingWork": 292,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3017,33 +3017,25 @@
     },
     {
       "city": "tilcara",
-      "count": 12,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 357
     },
     {
       "city": "rosario",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 358
     },
     {
       "city": "trinidadcuba",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "trinidadcuba_0",
-            "trinidadcuba_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 8,
+      "duplicateGroups": [],
+      "missingCount": 7,
       "needsWork": true,
       "priorityRank": 359
     },
