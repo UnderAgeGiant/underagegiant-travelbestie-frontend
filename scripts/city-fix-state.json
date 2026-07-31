@@ -484,8 +484,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "isfahan": {
-    "attempts": 1,
-    "radiusKm": 15
+  "tabriz": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
