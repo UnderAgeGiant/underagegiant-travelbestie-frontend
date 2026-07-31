@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T23:29:13.150Z",
+  "generatedAt": "2026-07-31T23:32:21.736Z",
   "totalCities": 569,
-  "citiesNeedingWork": 241,
+  "citiesNeedingWork": 240,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4326,10 +4326,10 @@
     },
     {
       "city": "baalbek",
-      "count": 10,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 5,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 510
     },
     {
