@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T17:20:19.567Z",
+  "generatedAt": "2026-07-31T17:24:19.678Z",
   "totalCities": 569,
   "citiesNeedingWork": 279,
   "goalMet": false,
@@ -3358,9 +3358,9 @@
     },
     {
       "city": "ciudadbolivar",
-      "count": 8,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 7,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 394
     },

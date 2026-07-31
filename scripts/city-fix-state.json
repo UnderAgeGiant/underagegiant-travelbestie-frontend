@@ -690,7 +690,13 @@
     "stuck": true
   },
   "ciudadbolivar": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "losroques": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
