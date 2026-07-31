@@ -615,7 +615,13 @@
     "stuck": true
   },
   "vinales": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "cienfuegos": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }

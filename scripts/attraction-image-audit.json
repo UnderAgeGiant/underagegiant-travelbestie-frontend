@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T15:42:32.134Z",
+  "generatedAt": "2026-07-31T15:48:27.948Z",
   "totalCities": 569,
   "citiesNeedingWork": 292,
   "goalMet": false,
@@ -3073,9 +3073,9 @@
     },
     {
       "city": "cienfuegos",
-      "count": 2,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 364
     },
