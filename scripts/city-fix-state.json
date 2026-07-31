@@ -449,8 +449,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "bamberg": {
-    "attempts": 4,
-    "radiusKm": 53
+  "potsdam": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
