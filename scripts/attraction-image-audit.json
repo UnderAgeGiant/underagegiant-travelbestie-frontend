@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T16:49:05.093Z",
+  "generatedAt": "2026-07-31T16:52:39.885Z",
   "totalCities": 569,
-  "citiesNeedingWork": 282,
+  "citiesNeedingWork": 281,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3257,10 +3257,10 @@
     },
     {
       "city": "copacabana_bo",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 386
     },
     {

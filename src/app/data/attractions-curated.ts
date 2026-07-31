@@ -43197,6 +43197,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Bolivia_adm_location_map.svg/langes-1920px-Bolivia_adm_location_map.svg.png",
     },
+    {
+      id: "copacabana_bo_14",
+      active: true,
+      name: "Cerro Khapía",
+      category: 'poi', type: "Naturaleza",
+      icon: "🏔️",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Copacabana_-_panoramio_%288%29.jpg/1920px-Copacabana_-_panoramio_%288%29.jpg",
+    },
   ],
   rurrenabaque: [
     {

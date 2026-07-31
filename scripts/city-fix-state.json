@@ -664,8 +664,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "copacabana_bo": {
-    "attempts": 2,
-    "radiusKm": 23
+  "rurrenabaque": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
