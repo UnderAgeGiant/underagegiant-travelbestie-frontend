@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T14:11:09.766Z",
+  "generatedAt": "2026-07-31T14:16:26.463Z",
   "totalCities": 569,
-  "citiesNeedingWork": 308,
+  "citiesNeedingWork": 306,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2825,26 +2825,18 @@
     },
     {
       "city": "guanajuato",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 333
     },
     {
       "city": "guadalajara",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "guadalajara_0",
-            "guadalajara_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 334
     },
     {
