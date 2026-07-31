@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T16:22:45.060Z",
+  "generatedAt": "2026-07-31T16:29:22.792Z",
   "totalCities": 569,
-  "citiesNeedingWork": 285,
+  "citiesNeedingWork": 284,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3193,18 +3193,18 @@
     },
     {
       "city": "tacuarembo",
-      "count": 8,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 7,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 378
     },
     {
       "city": "minas",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 379
     },
     {
