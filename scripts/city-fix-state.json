@@ -449,8 +449,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "weimar": {
-    "attempts": 2,
-    "radiusKm": 23
+  "bamberg": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }

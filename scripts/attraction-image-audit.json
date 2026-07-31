@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T00:32:03.717Z",
+  "generatedAt": "2026-07-31T00:39:35.728Z",
   "totalCities": 569,
-  "citiesNeedingWork": 336,
+  "citiesNeedingWork": 335,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2273,26 +2273,17 @@
     },
     {
       "city": "weimar",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 267
     },
     {
       "city": "bamberg",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1553152531-b98a2756f061?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "bamberg_0",
-            "bamberg_1",
-            "bamberg_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 268
     },
