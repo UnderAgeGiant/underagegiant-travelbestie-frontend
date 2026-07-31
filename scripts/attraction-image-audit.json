@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T22:47:14.235Z",
+  "generatedAt": "2026-07-31T22:54:19.899Z",
   "totalCities": 569,
   "citiesNeedingWork": 241,
   "goalMet": false,
@@ -4222,9 +4222,9 @@
     },
     {
       "city": "paro",
-      "count": 7,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 497
     },
