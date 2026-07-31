@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T19:22:36.687Z",
+  "generatedAt": "2026-07-31T19:26:16.763Z",
   "totalCities": 569,
   "citiesNeedingWork": 267,
   "goalMet": false,
@@ -3718,9 +3718,9 @@
     },
     {
       "city": "roatan",
-      "count": 12,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 434
     },

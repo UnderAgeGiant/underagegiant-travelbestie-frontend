@@ -51400,6 +51400,17 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
     },
+    {
+      id: "roatan_12",
+      active: true,
+      name: "Roatan Butterfly Gardens",
+      category: 'poi', type: "Atracción",
+      icon: "✨",
+      bg: "#FDE8F5",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Honduras_-_Roat%C3%A1n_-_Tropical_Butterfly_Garden_-_Capuchin_monkey_02.jpg/1920px-Honduras_-_Roat%C3%A1n_-_Tropical_Butterfly_Garden_-_Capuchin_monkey_02.jpg",
+    },
   ],
   laceiba: [
     {
