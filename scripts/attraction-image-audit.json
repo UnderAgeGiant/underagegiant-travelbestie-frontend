@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T17:40:19.561Z",
+  "generatedAt": "2026-07-31T17:47:03.409Z",
   "totalCities": 569,
-  "citiesNeedingWork": 276,
+  "citiesNeedingWork": 275,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3422,18 +3422,18 @@
     },
     {
       "city": "ciudaddeste",
-      "count": 12,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 402
     },
     {
       "city": "sanbernardinopy",
-      "count": 5,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 10,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 403
     },
     {
