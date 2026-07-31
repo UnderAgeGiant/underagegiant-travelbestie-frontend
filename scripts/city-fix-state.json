@@ -499,8 +499,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "aurangabad": {
-    "attempts": 3,
-    "radiusKm": 35
+  "bhopal": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
