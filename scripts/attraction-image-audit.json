@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T13:16:18.475Z",
+  "generatedAt": "2026-07-31T13:22:05.226Z",
   "totalCities": 569,
-  "citiesNeedingWork": 311,
+  "citiesNeedingWork": 310,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2801,10 +2801,10 @@
     },
     {
       "city": "capecoast",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 12,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 330
     },
     {
