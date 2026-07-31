@@ -445,7 +445,12 @@
     "stuck": true
   },
   "nuremberg": {
-    "attempts": 1,
-    "radiusKm": 15
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "weimar": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }

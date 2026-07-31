@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T00:21:13.198Z",
+  "generatedAt": "2026-07-31T00:32:03.717Z",
   "totalCities": 569,
   "citiesNeedingWork": 336,
   "goalMet": false,
@@ -2265,27 +2265,17 @@
     },
     {
       "city": "nuremberg",
-      "count": 1,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 266
     },
     {
       "city": "weimar",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1520756396-5c18b7f81e8f?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "weimar_0",
-            "weimar_1",
-            "weimar_2",
-            "weimar_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 267
     },
