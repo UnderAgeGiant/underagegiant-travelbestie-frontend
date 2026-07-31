@@ -849,8 +849,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "manuelantonio": {
-    "attempts": 2,
-    "radiusKm": 23
+  "puertoviejo": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
