@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T18:59:47.514Z",
+  "generatedAt": "2026-07-31T19:07:05.036Z",
   "totalCities": 569,
   "citiesNeedingWork": 269,
   "goalMet": false,
@@ -3670,9 +3670,9 @@
     },
     {
       "city": "cayecaulker",
-      "count": 6,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 9,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 428
     },
