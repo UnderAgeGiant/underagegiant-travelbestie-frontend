@@ -765,7 +765,12 @@
     "stuck": true
   },
   "albina": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "chichicast": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }

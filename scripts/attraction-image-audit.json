@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T18:33:39.527Z",
+  "generatedAt": "2026-07-31T18:40:14.542Z",
   "totalCities": 569,
-  "citiesNeedingWork": 274,
+  "citiesNeedingWork": 272,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3566,7 +3566,7 @@
     },
     {
       "city": "albina",
-      "count": 10,
+      "count": 12,
       "duplicateGroups": [
         {
           "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/langes-960px-Flag_of_Suriname.svg.png",
@@ -3576,24 +3576,16 @@
           ]
         }
       ],
-      "missingCount": 5,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 416
     },
     {
       "city": "guatemalacity",
       "count": 26,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1697382803280-0028941d4935?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYWxhY2lvJTIwTmFjaW9uYWwlMjBkZSUyMGxhJTIwQ3VsdHVyYSUyMENpdWRhZCUyMGRlJTIwR3VhdGVtYWxhJTIwR3VhdGVtYWxhfGVufDF8MHx8fDE3ODI4NjMzNDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "guatemalacity_4",
-            "guatemalacity_24"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 417
     },
     {
@@ -3607,17 +3599,9 @@
     {
       "city": "flores",
       "count": 16,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Fan_i_Vogel_River_Valley.jpg",
-          "ids": [
-            "flores_1",
-            "flores_14"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 419
     },
     {
@@ -3630,9 +3614,9 @@
     },
     {
       "city": "chichicast",
-      "count": 2,
+      "count": 7,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 421
     },
