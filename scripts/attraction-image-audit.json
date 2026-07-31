@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T16:05:19.485Z",
+  "generatedAt": "2026-07-31T16:09:07.173Z",
   "totalCities": 569,
   "citiesNeedingWork": 287,
   "goalMet": false,
@@ -3153,13 +3153,6 @@
             "piriapolis_2",
             "piriapolis_12"
           ]
-        },
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Cerro_San_Antonio.jpg",
-          "ids": [
-            "piriapolis_3",
-            "piriapolis_14"
-          ]
         }
       ],
       "missingCount": 0,
@@ -3168,9 +3161,9 @@
     },
     {
       "city": "fraybentos",
-      "count": 2,
+      "count": 6,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 9,
       "needsWork": true,
       "priorityRank": 374
     },
