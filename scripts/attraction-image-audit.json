@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T23:53:08.663Z",
+  "generatedAt": "2026-07-31T00:02:48.749Z",
   "totalCities": 569,
-  "citiesNeedingWork": 337,
+  "citiesNeedingWork": 336,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2216,34 +2216,17 @@
     },
     {
       "city": "compostela",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1561464402-da6f729b09c9?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "compostela_0",
-            "compostela_1",
-            "compostela_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 262
     },
     {
       "city": "bilbao",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "bilbao_0",
-            "bilbao_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 13,
+      "duplicateGroups": [],
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 263
     },
