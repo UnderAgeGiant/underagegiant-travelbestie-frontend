@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T18:29:11.660Z",
+  "generatedAt": "2026-07-31T18:33:39.527Z",
   "totalCities": 569,
   "citiesNeedingWork": 274,
   "goalMet": false,
@@ -3558,9 +3558,9 @@
     },
     {
       "city": "brownsweg",
-      "count": 9,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 415
     },

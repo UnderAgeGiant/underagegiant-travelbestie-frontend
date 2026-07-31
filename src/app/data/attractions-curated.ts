@@ -47304,6 +47304,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Trionfale_-_S._Pio_X_6.JPG/960px-Trionfale_-_S._Pio_X_6.JPG",
     },
+    {
+      id: "brownsweg_9",
+      active: true,
+      name: "Jodensavanne",
+      category: 'poi', type: "Histórico",
+      icon: "🏛️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/960px-Flag_of_Suriname.svg.png",
+    },
   ],
   albina: [
     {
