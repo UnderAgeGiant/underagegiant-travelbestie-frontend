@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T21:54:20.011Z",
+  "generatedAt": "2026-07-31T21:59:15.730Z",
   "totalCities": 569,
-  "citiesNeedingWork": 244,
+  "citiesNeedingWork": 243,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4078,17 +4078,17 @@
     },
     {
       "city": "montegobay",
-      "count": 13,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 2,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 479
     },
     {
       "city": "negril",
-      "count": 10,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 5,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 480
     },
