@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T19:42:31.947Z",
+  "generatedAt": "2026-07-31T19:48:16.558Z",
   "totalCities": 569,
-  "citiesNeedingWork": 266,
+  "citiesNeedingWork": 265,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3758,26 +3758,18 @@
     },
     {
       "city": "tela",
-      "count": 2,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 439
     },
     {
       "city": "sansalvador",
       "count": 29,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Parque_Cuscatl%C3%A1n.jpg/960px-Parque_Cuscatl%C3%A1n.jpg",
-          "ids": [
-            "sansalvador_20",
-            "sansalvador_26"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 440
     },
     {
