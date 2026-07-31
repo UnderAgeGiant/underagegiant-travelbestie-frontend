@@ -438,5 +438,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "dresden": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "nuremberg": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
