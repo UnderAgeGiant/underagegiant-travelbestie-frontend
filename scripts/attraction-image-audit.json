@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T18:53:15.192Z",
+  "generatedAt": "2026-07-31T18:59:47.514Z",
   "totalCities": 569,
-  "citiesNeedingWork": 271,
+  "citiesNeedingWork": 269,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3646,18 +3646,18 @@
     },
     {
       "city": "belizecity",
-      "count": 8,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 7,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 425
     },
     {
       "city": "sanignacio",
-      "count": 4,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 11,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 426
     },
     {
