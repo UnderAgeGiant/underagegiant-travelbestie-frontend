@@ -864,8 +864,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "jaco": {
-    "attempts": 4,
-    "radiusKm": 53
+  "quepos": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
