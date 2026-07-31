@@ -610,7 +610,12 @@
     "stuck": true
   },
   "trinidadcuba": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "vinales": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }

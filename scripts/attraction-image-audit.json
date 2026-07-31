@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T15:35:35.485Z",
+  "generatedAt": "2026-07-31T15:42:32.134Z",
   "totalCities": 569,
   "citiesNeedingWork": 292,
   "goalMet": false,
@@ -3033,17 +3033,17 @@
     },
     {
       "city": "trinidadcuba",
-      "count": 8,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 7,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 359
     },
     {
       "city": "vinales",
-      "count": 4,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 360
     },
