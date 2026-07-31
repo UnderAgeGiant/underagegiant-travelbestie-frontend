@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T01:29:06.866Z",
+  "generatedAt": "2026-07-31T01:40:38.435Z",
   "totalCities": 569,
   "citiesNeedingWork": 324,
   "goalMet": false,
@@ -2417,33 +2417,16 @@
     },
     {
       "city": "matera",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "matera_0",
-            "matera_1",
-            "matera_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 284
     },
     {
       "city": "agrigento",
       "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1500417148489-0a3840f6e197?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "agrigento_0",
-            "agrigento_1"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 13,
       "needsWork": true,
       "priorityRank": 285
