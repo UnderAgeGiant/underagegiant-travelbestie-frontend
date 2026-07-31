@@ -658,5 +658,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "uyuni": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "santacruz": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

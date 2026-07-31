@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T16:35:12.460Z",
+  "generatedAt": "2026-07-31T16:42:10.148Z",
   "totalCities": 569,
   "citiesNeedingWork": 283,
   "goalMet": false,
@@ -3233,17 +3233,17 @@
     },
     {
       "city": "uyuni",
-      "count": 4,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 383
     },
     {
       "city": "santacruz",
-      "count": 0,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 384
     },
