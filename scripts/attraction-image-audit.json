@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T11:37:43.091Z",
+  "generatedAt": "2026-07-31T11:43:07.035Z",
   "totalCities": 569,
   "citiesNeedingWork": 316,
   "goalMet": false,
@@ -2633,9 +2633,9 @@
     },
     {
       "city": "mahabalipuram",
-      "count": 1,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 309
     },

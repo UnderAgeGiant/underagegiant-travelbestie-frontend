@@ -510,7 +510,12 @@
     "stuck": true
   },
   "goa": {
-    "attempts": 2,
-    "radiusKm": 23
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "mahabalipuram": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }
