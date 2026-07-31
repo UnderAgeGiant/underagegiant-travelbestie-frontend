@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T00:02:48.749Z",
+  "generatedAt": "2026-07-31T00:10:24.383Z",
   "totalCities": 569,
   "citiesNeedingWork": 336,
   "goalMet": false,
@@ -2224,26 +2224,25 @@
     },
     {
       "city": "bilbao",
-      "count": 13,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 2,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 263
     },
     {
       "city": "cordoba",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "cordoba_0",
-            "cordoba_1",
             "cordoba_2"
           ]
         }
       ],
-      "missingCount": 12,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 264
     },
