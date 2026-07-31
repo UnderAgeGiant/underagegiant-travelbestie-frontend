@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T03:02:22.658Z",
+  "generatedAt": "2026-07-31T03:11:17.986Z",
   "totalCities": 569,
-  "citiesNeedingWork": 318,
+  "citiesNeedingWork": 317,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2593,25 +2593,17 @@
     },
     {
       "city": "kolkata",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 304
     },
     {
       "city": "aurangabad",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "aurangabad_0",
-            "aurangabad_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 12,
+      "duplicateGroups": [],
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 305
     },
