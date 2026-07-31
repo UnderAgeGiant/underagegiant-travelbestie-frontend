@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T12:47:19.880Z",
+  "generatedAt": "2026-07-31T12:57:04.967Z",
   "totalCities": 569,
   "citiesNeedingWork": 312,
   "goalMet": false,
@@ -2745,25 +2745,17 @@
     },
     {
       "city": "aksum",
-      "count": 1,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 323
     },
     {
       "city": "gondar",
-      "count": 2,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "gondar_0",
-            "gondar_1"
-          ]
-        }
-      ],
-      "missingCount": 13,
+      "count": 7,
+      "duplicateGroups": [],
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 324
     },

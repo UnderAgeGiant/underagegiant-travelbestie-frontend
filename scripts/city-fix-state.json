@@ -548,5 +548,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "aksum": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "gondar": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
