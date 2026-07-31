@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T19:37:23.614Z",
+  "generatedAt": "2026-07-31T19:42:31.947Z",
   "totalCities": 569,
-  "citiesNeedingWork": 267,
+  "citiesNeedingWork": 266,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3742,18 +3742,18 @@
     },
     {
       "city": "utila",
-      "count": 7,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 437
     },
     {
       "city": "comayagua",
-      "count": 12,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 3,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 438
     },
     {
