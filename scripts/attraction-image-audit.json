@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T19:56:05.593Z",
+  "generatedAt": "2026-07-31T20:03:11.912Z",
   "totalCities": 569,
-  "citiesNeedingWork": 263,
+  "citiesNeedingWork": 262,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3798,17 +3798,17 @@
     },
     {
       "city": "lalibertad",
-      "count": 5,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 10,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 444
     },
     {
       "city": "joyaceren",
-      "count": 7,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 445
     },
