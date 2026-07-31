@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T12:17:26.481Z",
+  "generatedAt": "2026-07-31T12:26:05.076Z",
   "totalCities": 569,
   "citiesNeedingWork": 313,
   "goalMet": false,
@@ -2705,9 +2705,9 @@
     },
     {
       "city": "lijiang",
-      "count": 1,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 318
     },

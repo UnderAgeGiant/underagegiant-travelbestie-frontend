@@ -533,5 +533,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "lijiang": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "chongqing": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
