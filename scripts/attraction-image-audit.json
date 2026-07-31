@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T01:40:38.435Z",
+  "generatedAt": "2026-07-31T01:49:32.007Z",
   "totalCities": 569,
-  "citiesNeedingWork": 324,
+  "citiesNeedingWork": 323,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2425,28 +2425,25 @@
     },
     {
       "city": "agrigento",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 285
     },
     {
       "city": "olomouc",
-      "count": 5,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
           "ids": [
             "olomouc_0",
-            "olomouc_1",
-            "olomouc_2",
-            "olomouc_3",
             "olomouc_4"
           ]
         }
       ],
-      "missingCount": 10,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 286
     },

@@ -459,8 +459,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "agrigento": {
-    "attempts": 1,
-    "radiusKm": 15
+  "olomouc": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
