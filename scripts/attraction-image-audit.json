@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T22:05:53.037Z",
+  "generatedAt": "2026-07-31T22:11:35.475Z",
   "totalCities": 569,
   "citiesNeedingWork": 242,
   "goalMet": false,
@@ -4110,9 +4110,9 @@
     },
     {
       "city": "treasurebeach",
-      "count": 9,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 483
     },
@@ -4126,9 +4126,9 @@
     },
     {
       "city": "vianden",
-      "count": 1,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 485
     },
