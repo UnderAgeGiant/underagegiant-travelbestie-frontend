@@ -823,5 +823,9 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "suchitoto": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
