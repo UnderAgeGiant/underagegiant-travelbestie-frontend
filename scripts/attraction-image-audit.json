@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T00:48:42.756Z",
+  "generatedAt": "2026-07-31T01:01:06.306Z",
   "totalCities": 569,
-  "citiesNeedingWork": 332,
+  "citiesNeedingWork": 329,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2321,45 +2321,26 @@
     },
     {
       "city": "potsdam",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 273
     },
     {
       "city": "bath",
-      "count": 4,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1603097890522-f2e22aa08e35?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "bath_0",
-            "bath_1",
-            "bath_2",
-            "bath_3"
-          ]
-        }
-      ],
-      "missingCount": 11,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 274
     },
     {
       "city": "york",
-      "count": 3,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1540202404-a2f29d0e0bc2?auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "york_0",
-            "york_1",
-            "york_2"
-          ]
-        }
-      ],
-      "missingCount": 12,
-      "needsWork": true,
+      "count": 15,
+      "duplicateGroups": [],
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 275
     },
     {
