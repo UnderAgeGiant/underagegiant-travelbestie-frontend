@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T23:32:21.736Z",
+  "generatedAt": "2026-07-31T23:38:07.181Z",
   "totalCities": 569,
-  "citiesNeedingWork": 240,
+  "citiesNeedingWork": 239,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4342,17 +4342,17 @@
     },
     {
       "city": "ulaanbaatar",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 12,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 512
     },
     {
       "city": "kharkhorin",
-      "count": 9,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 513
     },
