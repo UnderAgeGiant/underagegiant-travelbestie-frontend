@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T01:01:06.306Z",
+  "generatedAt": "2026-07-31T01:12:07.380Z",
   "totalCities": 569,
-  "citiesNeedingWork": 329,
+  "citiesNeedingWork": 327,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2345,25 +2345,25 @@
     },
     {
       "city": "cardiff",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 276
     },
     {
       "city": "manchester",
-      "count": 2,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 13,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 277
     },
     {
       "city": "liverpool",
-      "count": 2,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 278
     },
