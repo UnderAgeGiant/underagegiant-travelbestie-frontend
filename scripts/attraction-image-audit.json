@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T15:10:20.140Z",
+  "generatedAt": "2026-07-31T15:18:02.375Z",
   "totalCities": 569,
-  "citiesNeedingWork": 295,
+  "citiesNeedingWork": 294,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3001,17 +3001,17 @@
     },
     {
       "city": "ushuaia",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 355
     },
     {
       "city": "elcalafate",
-      "count": 0,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 356
     },
