@@ -643,9 +643,5 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
-  },
-  "rocha": {
-    "attempts": 2,
-    "radiusKm": 23
   }
 }
