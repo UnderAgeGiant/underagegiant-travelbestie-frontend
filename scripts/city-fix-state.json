@@ -604,8 +604,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "elcalafate": {
-    "attempts": 3,
-    "radiusKm": 35
+  "tilcara": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }

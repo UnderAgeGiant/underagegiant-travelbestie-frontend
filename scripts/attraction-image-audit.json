@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T15:18:02.375Z",
+  "generatedAt": "2026-07-31T15:28:09.521Z",
   "totalCities": 569,
-  "citiesNeedingWork": 294,
+  "citiesNeedingWork": 293,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3009,17 +3009,17 @@
     },
     {
       "city": "elcalafate",
-      "count": 10,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 5,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 356
     },
     {
       "city": "tilcara",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 357
     },
