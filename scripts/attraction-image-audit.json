@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T01:49:32.007Z",
+  "generatedAt": "2026-07-31T01:56:09.706Z",
   "totalCities": 569,
   "citiesNeedingWork": 323,
   "goalMet": false,
@@ -2449,9 +2449,9 @@
     },
     {
       "city": "bergen",
-      "count": 1,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 287
     },
