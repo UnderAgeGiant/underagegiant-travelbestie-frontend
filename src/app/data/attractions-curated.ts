@@ -23534,6 +23534,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8d/%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C_%DA%A9%D9%86%D8%AF%D9%88%D8%A7%D9%86_%D8%AA%D8%A8%D8%B1%DB%8C%D8%B2%3DKandovan%2C_Tabriz_-_panoramio.jpg",
     },
+    {
+      id: "tabriz_14",
+      active: true,
+      name: "کمال",
+      category: 'poi', type: "Volcán",
+      icon: "🌋",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/07/TwoKamal_2.jpeg",
+    },
   ],
   tours: [
     {
