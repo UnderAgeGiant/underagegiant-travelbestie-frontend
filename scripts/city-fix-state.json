@@ -494,8 +494,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "pamukkale": {
-    "attempts": 1,
-    "radiusKm": 15
+  "wadirum": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }

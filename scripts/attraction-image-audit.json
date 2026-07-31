@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T02:58:16.476Z",
+  "generatedAt": "2026-07-31T03:02:22.658Z",
   "totalCities": 569,
-  "citiesNeedingWork": 319,
+  "citiesNeedingWork": 318,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2561,10 +2561,10 @@
     },
     {
       "city": "pamukkale",
-      "count": 11,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 4,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 300
     },
     {
