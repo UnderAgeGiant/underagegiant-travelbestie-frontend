@@ -880,7 +880,12 @@
     "stuck": true
   },
   "pedasi": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "puertoplata": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }

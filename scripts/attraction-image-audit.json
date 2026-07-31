@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T21:35:59.307Z",
+  "generatedAt": "2026-07-31T21:40:46.118Z",
   "totalCities": 569,
-  "citiesNeedingWork": 248,
+  "citiesNeedingWork": 247,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4014,18 +4014,18 @@
     },
     {
       "city": "pedasi",
-      "count": 3,
+      "count": 4,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 11,
       "needsWork": true,
       "priorityRank": 471
     },
     {
       "city": "daviddechiriqui",
-      "count": 11,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 4,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 472
     },
     {
