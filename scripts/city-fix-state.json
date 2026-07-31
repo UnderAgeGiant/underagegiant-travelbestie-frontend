@@ -860,7 +860,12 @@
     "stuck": true
   },
   "tortuguero": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "jaco": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }

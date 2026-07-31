@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T20:53:06.508Z",
+  "generatedAt": "2026-07-31T21:03:04.240Z",
   "totalCities": 569,
   "citiesNeedingWork": 254,
   "goalMet": false,
@@ -3934,17 +3934,17 @@
     },
     {
       "city": "tortuguero",
-      "count": 9,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 461
     },
     {
       "city": "jaco",
-      "count": 0,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 462
     },
