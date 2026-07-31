@@ -643,5 +643,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "rivera": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "tacuarembo": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
