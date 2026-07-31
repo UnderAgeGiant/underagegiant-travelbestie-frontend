@@ -585,7 +585,12 @@
     "stuck": true
   },
   "iguazu": {
-    "attempts": 1,
-    "radiusKm": 15
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "mendoza": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }

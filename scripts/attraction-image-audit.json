@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T14:43:27.220Z",
+  "generatedAt": "2026-07-31T14:51:11.458Z",
   "totalCities": 569,
   "citiesNeedingWork": 296,
   "goalMet": false,
@@ -2961,17 +2961,17 @@
     },
     {
       "city": "iguazu",
-      "count": 2,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 350
     },
     {
       "city": "mendoza",
-      "count": 0,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 351
     },
