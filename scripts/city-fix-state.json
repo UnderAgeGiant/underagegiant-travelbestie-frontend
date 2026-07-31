@@ -810,7 +810,12 @@
     "stuck": true
   },
   "sanpedrosula": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "utila": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
