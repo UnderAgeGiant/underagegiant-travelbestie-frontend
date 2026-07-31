@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T19:26:16.763Z",
+  "generatedAt": "2026-07-31T19:31:54.763Z",
   "totalCities": 569,
   "citiesNeedingWork": 267,
   "goalMet": false,
@@ -3726,17 +3726,17 @@
     },
     {
       "city": "laceiba",
-      "count": 9,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 435
     },
     {
       "city": "sanpedrosula",
-      "count": 5,
+      "count": 6,
       "duplicateGroups": [],
-      "missingCount": 10,
+      "missingCount": 9,
       "needsWork": true,
       "priorityRank": 436
     },
