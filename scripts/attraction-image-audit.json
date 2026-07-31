@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T20:12:50.340Z",
+  "generatedAt": "2026-07-31T20:19:33.542Z",
   "totalCities": 569,
-  "citiesNeedingWork": 259,
+  "citiesNeedingWork": 258,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3854,26 +3854,18 @@
     },
     {
       "city": "sanjuandelsur",
-      "count": 0,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 451
     },
     {
       "city": "masaya",
       "count": 22,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Taurus_627-KLM_357MAG_008.jpg",
-          "ids": [
-            "masaya_0",
-            "masaya_20"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 452
     },
     {
