@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T17:51:03.271Z",
+  "generatedAt": "2026-07-31T17:56:34.187Z",
   "totalCities": 569,
   "citiesNeedingWork": 275,
   "goalMet": false,
@@ -3454,7 +3454,7 @@
     },
     {
       "city": "aregua",
-      "count": 12,
+      "count": 15,
       "duplicateGroups": [
         {
           "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
@@ -3465,7 +3465,7 @@
           ]
         }
       ],
-      "missingCount": 3,
+      "missingCount": 0,
       "needsWork": true,
       "priorityRank": 406
     },
