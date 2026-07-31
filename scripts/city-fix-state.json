@@ -845,6 +845,11 @@
     "stuck": true
   },
   "cornislands": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "lafortuna": {
     "attempts": 1,
     "radiusKm": 15
   }
