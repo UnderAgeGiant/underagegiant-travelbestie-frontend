@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T21:49:17.352Z",
+  "generatedAt": "2026-07-31T21:54:20.011Z",
   "totalCities": 569,
-  "citiesNeedingWork": 246,
+  "citiesNeedingWork": 244,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4062,18 +4062,18 @@
     },
     {
       "city": "laromana",
-      "count": 6,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 9,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 477
     },
     {
       "city": "santiago_dr",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 478
     },
     {

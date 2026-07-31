@@ -894,8 +894,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "laromana": {
-    "attempts": 2,
-    "radiusKm": 23
+  "montegobay": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
