@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T22:37:13.779Z",
+  "generatedAt": "2026-07-31T22:47:14.235Z",
   "totalCities": 569,
   "citiesNeedingWork": 241,
   "goalMet": false,
@@ -4206,17 +4206,17 @@
     },
     {
       "city": "sylhet",
-      "count": 7,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 495
     },
     {
       "city": "thimphu",
-      "count": 3,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 496
     },
