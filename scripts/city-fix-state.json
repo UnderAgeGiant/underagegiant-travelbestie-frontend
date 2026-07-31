@@ -938,5 +938,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "punakha": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "lantauisland": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
