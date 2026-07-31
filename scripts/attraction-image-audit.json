@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T17:02:05.330Z",
+  "generatedAt": "2026-07-31T17:08:09.777Z",
   "totalCities": 569,
-  "citiesNeedingWork": 281,
+  "citiesNeedingWork": 279,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3297,33 +3297,25 @@
     },
     {
       "city": "caracas",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 390
     },
     {
       "city": "merida",
-      "count": 4,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 11,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 391
     },
     {
       "city": "canaima",
-      "count": 11,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Albert_Anker_-_Die_Ziviltrauung_%281887%29.jpg/960px-Albert_Anker_-_Die_Ziviltrauung_%281887%29.jpg",
-          "ids": [
-            "canaima_1",
-            "canaima_9"
-          ]
-        }
-      ],
-      "missingCount": 4,
+      "count": 14,
+      "duplicateGroups": [],
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 392
     },
