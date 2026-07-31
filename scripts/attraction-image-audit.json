@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T15:02:32.369Z",
+  "generatedAt": "2026-07-31T15:10:20.140Z",
   "totalCities": 569,
   "citiesNeedingWork": 295,
   "goalMet": false,
@@ -2993,9 +2993,9 @@
     },
     {
       "city": "puertoiguazu",
-      "count": 0,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 354
     },
