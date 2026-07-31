@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T14:16:26.463Z",
+  "generatedAt": "2026-07-31T14:24:09.176Z",
   "totalCities": 569,
-  "citiesNeedingWork": 306,
+  "citiesNeedingWork": 305,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2841,18 +2841,18 @@
     },
     {
       "city": "tulum",
-      "count": 4,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 335
     },
     {
       "city": "sancristobal",
-      "count": 3,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 12,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 336
     },
     {

@@ -573,5 +573,10 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "tulum": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
