@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T19:53:20.738Z",
+  "generatedAt": "2026-07-31T19:56:05.593Z",
   "totalCities": 569,
-  "citiesNeedingWork": 264,
+  "citiesNeedingWork": 263,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3782,10 +3782,10 @@
     },
     {
       "city": "suchitoto",
-      "count": 11,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 4,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 442
     },
     {
