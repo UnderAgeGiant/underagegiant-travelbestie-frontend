@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T18:07:26.931Z",
+  "generatedAt": "2026-07-31T18:10:51.709Z",
   "totalCities": 569,
   "citiesNeedingWork": 275,
   "goalMet": false,
@@ -3510,9 +3510,9 @@
     },
     {
       "city": "kaieteur",
-      "count": 2,
+      "count": 3,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 12,
       "needsWork": true,
       "priorityRank": 409
     },

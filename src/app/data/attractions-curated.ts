@@ -46897,6 +46897,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 480,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Jan_Proch%C3%A1zka_%28Orbis%2C_1961%29.png",
     },
+    {
+      id: "kaieteur_2",
+      active: true,
+      name: "Kaieteur Falls",
+      category: 'poi', type: "Atracción",
+      icon: "✨",
+      bg: "#FDE8F5",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Kaieteur_Falls_Guyana_%282%29_2007.jpg/1920px-Kaieteur_Falls_Guyana_%282%29_2007.jpg",
+    },
   ],
   linden: [
     {
