@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T16:00:27.955Z",
+  "generatedAt": "2026-07-31T16:05:19.485Z",
   "totalCities": 569,
-  "citiesNeedingWork": 292,
+  "citiesNeedingWork": 287,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3097,18 +3097,18 @@
     },
     {
       "city": "cairns",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 367
     },
     {
       "city": "alicesprings",
-      "count": 5,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 10,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 368
     },
     {
@@ -3122,49 +3122,25 @@
     {
       "city": "puntadeleste",
       "count": 27,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Arboretum_Lussich_Observatory.jpg",
-          "ids": [
-            "puntadeleste_3",
-            "puntadeleste_9"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 370
     },
     {
       "city": "maldonado",
       "count": 25,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Arboretum_Lussich_Observatory.jpg",
-          "ids": [
-            "maldonado_3",
-            "maldonado_9"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 371
     },
     {
       "city": "salto",
       "count": 25,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1647436339799-f9e61e11720d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZXJtYXMlMjBkZWwlMjBEYXltJUMzJUExbiUyMFNhbHRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg3MTA1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "salto_15",
-            "salto_23"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 372
     },
     {
