@@ -664,8 +664,8 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "santacruz": {
-    "attempts": 1,
-    "radiusKm": 15
+  "copacabana_bo": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }

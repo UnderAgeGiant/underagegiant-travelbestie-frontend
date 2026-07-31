@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T16:42:10.148Z",
+  "generatedAt": "2026-07-31T16:49:05.093Z",
   "totalCities": 569,
-  "citiesNeedingWork": 283,
+  "citiesNeedingWork": 282,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3241,10 +3241,10 @@
     },
     {
       "city": "santacruz",
-      "count": 11,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 4,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 384
     },
     {
@@ -3257,9 +3257,9 @@
     },
     {
       "city": "copacabana_bo",
-      "count": 3,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 386
     },
