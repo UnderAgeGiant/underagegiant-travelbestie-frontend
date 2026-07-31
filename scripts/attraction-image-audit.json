@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T16:52:39.885Z",
+  "generatedAt": "2026-07-31T16:56:22.480Z",
   "totalCities": 569,
   "citiesNeedingWork": 281,
   "goalMet": false,
@@ -3273,9 +3273,9 @@
     },
     {
       "city": "oruro",
-      "count": 12,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 388
     },
@@ -3283,13 +3283,6 @@
       "city": "samaipata",
       "count": 14,
       "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Woodbine_NJ_Synagogue.JPG/960px-Woodbine_NJ_Synagogue.JPG",
-          "ids": [
-            "samaipata_0",
-            "samaipata_13"
-          ]
-        },
         {
           "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/JscFuerteSamaipata1.jpg",
           "ids": [

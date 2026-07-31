@@ -43419,6 +43419,28 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 480,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Q11_Portuense_-_Ges%C3%B9_Divino_Lavoratore_06.JPG/960px-Q11_Portuense_-_Ges%C3%B9_Divino_Lavoratore_06.JPG",
     },
+    {
+      id: "oruro_12",
+      active: true,
+      name: "Montaña",
+      category: 'poi', type: "Atracción",
+      icon: "✨",
+      bg: "#FDE8F5",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Oruro_y_sus_cumbres.jpg/1920px-Oruro_y_sus_cumbres.jpg",
+    },
+    {
+      id: "oruro_13",
+      active: true,
+      name: "Tobogán",
+      category: 'poi', type: "Atracción",
+      icon: "✨",
+      bg: "#FDE8F5",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/38/Julio_Mazziotti.jpg",
+    },
   ],
   samaipata: [
     {
@@ -43573,7 +43595,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 360,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Woodbine_NJ_Synagogue.JPG/960px-Woodbine_NJ_Synagogue.JPG",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Rio_Colorado_pr%C3%B3ximo_al_Parque_Nacional_Ambor%C3%B3.jpg",
     },
   ],
 
