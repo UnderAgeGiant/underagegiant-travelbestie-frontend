@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T01:56:09.706Z",
+  "generatedAt": "2026-07-31T02:02:21.434Z",
   "totalCities": 569,
-  "citiesNeedingWork": 323,
+  "citiesNeedingWork": 322,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -2457,10 +2457,10 @@
     },
     {
       "city": "goteborg",
-      "count": 1,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 14,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 288
     },
     {
