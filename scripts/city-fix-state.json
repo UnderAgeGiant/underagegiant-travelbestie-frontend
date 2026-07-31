@@ -774,8 +774,9 @@
     "radiusKm": 80,
     "stuck": true
   },
-  "livingston": {
-    "attempts": 4,
-    "radiusKm": 53
+  "coban": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }

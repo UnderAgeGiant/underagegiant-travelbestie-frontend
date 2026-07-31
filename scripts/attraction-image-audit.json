@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T18:49:13.759Z",
+  "generatedAt": "2026-07-31T18:53:15.192Z",
   "totalCities": 569,
-  "citiesNeedingWork": 272,
+  "citiesNeedingWork": 271,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3630,17 +3630,17 @@
     },
     {
       "city": "livingston",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 423
     },
     {
       "city": "coban",
-      "count": 13,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 2,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 424
     },

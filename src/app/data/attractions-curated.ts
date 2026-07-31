@@ -49627,6 +49627,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Atlas_of_Livingston_Co.%2C_Michigan_-_from_recent_and_actual_surveys_and_records_%28IA_3927841.0001.001.umich.edu%29.pdf/page1-1920px-Atlas_of_Livingston_Co.%2C_Michigan_-_from_recent_and_actual_surveys_and_records_%28IA_3927841.0001.001.umich.edu%29.pdf.jpg",
     },
+    {
+      id: "livingston_14",
+      active: true,
+      name: "Paynes Creek National Park",
+      category: 'poi', type: "Parque",
+      icon: "🌿",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Rules_and_regulations%2C_Glacier_National_Park%2C_1920%2C_June_15_to_September_15_%28IA_rules00regulationsunitrich%29.pdf/page1-500px-Rules_and_regulations%2C_Glacier_National_Park%2C_1920%2C_June_15_to_September_15_%28IA_rules00regulationsunitrich%29.pdf.jpg",
+    },
   ],
   coban: [
     {
@@ -49767,6 +49778,17 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1637167250688-f2e0dc8578d7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcnV0YXMlMjBkZSUyMExhbnF1JUMzJUFEbiUyMENvYiVDMyVBMW4lMjBHdWF0ZW1hbGF8ZW58MXwwfHx8MTc4Mjg3MDA3NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "coban_13",
+      active: true,
+      name: "Parque Municipal",
+      category: 'poi', type: "Atracción",
+      icon: "🎡",
+      bg: "#FDE8F5",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Coban_Alta_Verapaz_Guatemala_2.jpg",
     },
   ],
 
