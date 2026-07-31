@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T23:43:14.692Z",
+  "generatedAt": "2026-07-31T23:58:19.414Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4358,17 +4358,17 @@
     },
     {
       "city": "dalanzadgad",
-      "count": 4,
+      "count": 5,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 10,
       "needsWork": true,
       "priorityRank": 514
     },
     {
       "city": "salalah",
-      "count": 2,
+      "count": 6,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 9,
       "needsWork": true,
       "priorityRank": 515
     },
