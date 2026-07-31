@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T21:24:04.251Z",
+  "generatedAt": "2026-07-31T21:32:03.811Z",
   "totalCities": 569,
   "citiesNeedingWork": 249,
   "goalMet": false,
@@ -3998,17 +3998,17 @@
     },
     {
       "city": "elvalle",
-      "count": 10,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 5,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 469
     },
     {
       "city": "colon",
-      "count": 0,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 470
     },
