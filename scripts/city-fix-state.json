@@ -503,5 +503,9 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "hampi": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
