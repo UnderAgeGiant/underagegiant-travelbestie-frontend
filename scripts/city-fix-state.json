@@ -920,7 +920,12 @@
     "stuck": true
   },
   "coxsbazar": {
-    "attempts": 2,
-    "radiusKm": 23
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "sylhet": {
+    "attempts": 3,
+    "radiusKm": 35
   }
 }

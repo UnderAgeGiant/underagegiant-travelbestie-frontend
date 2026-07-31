@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T22:31:19.095Z",
+  "generatedAt": "2026-07-31T22:37:13.779Z",
   "totalCities": 569,
   "citiesNeedingWork": 241,
   "goalMet": false,
@@ -4198,17 +4198,17 @@
     },
     {
       "city": "coxsbazar",
-      "count": 7,
+      "count": 8,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 7,
       "needsWork": true,
       "priorityRank": 494
     },
     {
       "city": "sylhet",
-      "count": 3,
+      "count": 7,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 495
     },
