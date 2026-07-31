@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T15:56:24.587Z",
+  "generatedAt": "2026-07-31T16:00:27.955Z",
   "totalCities": 569,
   "citiesNeedingWork": 292,
   "goalMet": false,
@@ -3097,9 +3097,9 @@
     },
     {
       "city": "cairns",
-      "count": 6,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 9,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 367
     },
