@@ -51077,7 +51077,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 240,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/SanJuancito2010.jpg/960px-SanJuancito2010.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cf/SanJuancito2010.jpg",
     },
     {
       id: "tegucigalpa_24",

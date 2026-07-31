@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T19:12:23.647Z",
+  "generatedAt": "2026-07-31T19:15:43.955Z",
   "totalCities": 569,
-  "citiesNeedingWork": 269,
+  "citiesNeedingWork": 268,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -3703,17 +3703,9 @@
     {
       "city": "tegucigalpa",
       "count": 26,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/SanJuancito2010.jpg/960px-SanJuancito2010.jpg",
-          "ids": [
-            "tegucigalpa_9",
-            "tegucigalpa_23"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 432
     },
     {
