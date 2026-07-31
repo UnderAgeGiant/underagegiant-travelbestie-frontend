@@ -525,7 +525,12 @@
     "stuck": true
   },
   "sigiriya": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "gyeongju": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
