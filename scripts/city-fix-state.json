@@ -1115,7 +1115,12 @@
     "stuck": true
   },
   "entebbe": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "jinja": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
