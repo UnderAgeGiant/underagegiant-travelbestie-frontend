@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T00:50:14.803Z",
+  "generatedAt": "2026-08-01T00:58:17.528Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4510,17 +4510,17 @@
     },
     {
       "city": "kasane",
-      "count": 3,
+      "count": 5,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 10,
       "needsWork": true,
       "priorityRank": 533
     },
     {
       "city": "yaounde",
-      "count": 12,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 3,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 534
     },
