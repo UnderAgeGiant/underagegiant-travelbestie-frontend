@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T01:55:24.258Z",
+  "generatedAt": "2026-08-01T01:57:25.333Z",
   "totalCities": 569,
-  "citiesNeedingWork": 239,
+  "citiesNeedingWork": 238,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4590,10 +4590,10 @@
     },
     {
       "city": "portlouis",
-      "count": 14,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 1,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 543
     },
     {

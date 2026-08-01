@@ -96034,6 +96034,17 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Port_Louis_from_Le_Pouce.jpg",
     },
+    {
+      id: "portlouis_14",
+      active: true,
+      name: "Trou-aux-Cerfs",
+      category: 'poi', type: "Volcán",
+      icon: "🌋",
+      bg: "#E8FDE8",
+      rating: 4.5,
+      estimatedMinutes: 120,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Louis_de_Lyvron_-_Vercing%C3%A9torix%2C_1869.pdf/page1-1920px-Louis_de_Lyvron_-_Vercing%C3%A9torix%2C_1869.pdf.jpg",
+    },
   ],
   grandbaie: [
 
