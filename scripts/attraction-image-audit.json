@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T12:39:46.712Z",
+  "generatedAt": "2026-08-01T12:44:54.800Z",
   "totalCities": 569,
   "citiesNeedingWork": 231,
   "goalMet": false,
@@ -4782,9 +4782,9 @@
     },
     {
       "city": "bulawayo",
-      "count": 0,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 567
     },
