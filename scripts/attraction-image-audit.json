@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T01:42:35.163Z",
+  "generatedAt": "2026-08-01T01:47:09.181Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4574,17 +4574,17 @@
     },
     {
       "city": "nosybe",
-      "count": 8,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 7,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 541
     },
     {
       "city": "andasibe",
-      "count": 1,
+      "count": 4,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 11,
       "needsWork": true,
       "priorityRank": 542
     },
