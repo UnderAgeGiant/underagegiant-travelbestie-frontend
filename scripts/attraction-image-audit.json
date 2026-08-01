@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T00:09:14.181Z",
+  "generatedAt": "2026-08-01T00:16:19.717Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4406,9 +4406,9 @@
     },
     {
       "city": "alula",
-      "count": 7,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 520
     },
