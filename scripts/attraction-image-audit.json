@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T12:44:54.800Z",
+  "generatedAt": "2026-08-01T12:49:26.656Z",
   "totalCities": 569,
   "citiesNeedingWork": 231,
   "goalMet": false,
@@ -4790,9 +4790,9 @@
     },
     {
       "city": "masvingo",
-      "count": 4,
+      "count": 10,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 5,
       "needsWork": true,
       "priorityRank": 568
     }
