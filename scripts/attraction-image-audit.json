@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T01:57:25.333Z",
+  "generatedAt": "2026-08-01T02:04:02.676Z",
   "totalCities": 569,
-  "citiesNeedingWork": 238,
+  "citiesNeedingWork": 236,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4598,10 +4598,10 @@
     },
     {
       "city": "grandbaie",
-      "count": 0,
+      "count": 15,
       "duplicateGroups": [],
-      "missingCount": 15,
-      "needsWork": true,
+      "missingCount": 0,
+      "needsWork": false,
       "priorityRank": 544
     },
     {
@@ -4615,17 +4615,9 @@
     {
       "city": "maputo",
       "count": 22,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Fortaleza_Maputo-2.jpg/960px-Fortaleza_Maputo-2.jpg",
-          "ids": [
-            "maputo_1",
-            "maputo_20"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 546
     },
     {
