@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T01:10:38.593Z",
+  "generatedAt": "2026-08-01T01:15:26.412Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4542,9 +4542,9 @@
     },
     {
       "city": "abidjan",
-      "count": 0,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 537
     },

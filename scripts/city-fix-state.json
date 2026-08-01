@@ -1040,8 +1040,8 @@
     "stuck": true
   },
   "abidjan": {
-    "attempts": 0,
-    "radiusKm": 80
+    "attempts": 2,
+    "radiusKm": 180
   },
   "yamoussoukro": {
     "attempts": 0,
