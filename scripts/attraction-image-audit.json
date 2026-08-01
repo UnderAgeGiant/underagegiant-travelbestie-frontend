@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T12:33:19.663Z",
+  "generatedAt": "2026-08-01T12:35:43.160Z",
   "totalCities": 569,
-  "citiesNeedingWork": 232,
+  "citiesNeedingWork": 231,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4759,17 +4759,9 @@
     {
       "city": "livingstone",
       "count": 16,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Livingstone_Museum%2C_Livingstone%2C_Zambia_-_200310.jpg/960px-Livingstone_Museum%2C_Livingstone%2C_Zambia_-_200310.jpg",
-          "ids": [
-            "livingstone_1",
-            "livingstone_15"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 564
     },
     {

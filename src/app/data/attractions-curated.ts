@@ -100950,7 +100950,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.3,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Livingstone_Museum%2C_Livingstone%2C_Zambia_-_200310.jpg/960px-Livingstone_Museum%2C_Livingstone%2C_Zambia_-_200310.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/David_Livingstone_Centre.jpg/1920px-David_Livingstone_Centre.jpg",
     },
   ],
   southluangwa: [
