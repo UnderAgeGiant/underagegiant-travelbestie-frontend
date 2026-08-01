@@ -23278,8 +23278,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "marrakech_7",
       active: true,
-      name: "Musée Dar El Bacha
- دار الباشا",
+      name: "Musée Dar El Bacha دار الباشا",
       category: 'poi', type: "Museo",
       icon: "🖼️",
       bg: "#E8F0FD",
