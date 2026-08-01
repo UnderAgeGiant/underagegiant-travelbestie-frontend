@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T01:34:20.986Z",
+  "generatedAt": "2026-08-01T01:42:35.163Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4558,17 +4558,17 @@
     },
     {
       "city": "grandbassam",
-      "count": 10,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 5,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 539
     },
     {
       "city": "antananarivo",
-      "count": 1,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 540
     },

@@ -1050,7 +1050,13 @@
     "stuck": true
   },
   "grandbassam": {
-    "attempts": 4,
-    "radiusKm": 80
+    "attempts": 5,
+    "radiusKm": 120,
+    "stuck": true
+  },
+  "antananarivo": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }
