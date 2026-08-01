@@ -1080,7 +1080,13 @@
     "stuck": true
   },
   "swakopmund": {
-    "attempts": 4,
-    "radiusKm": 53
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "sossusvlei": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
   }
 }

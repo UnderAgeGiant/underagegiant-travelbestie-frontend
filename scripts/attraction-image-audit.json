@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T11:46:22.605Z",
+  "generatedAt": "2026-08-01T11:48:59.614Z",
   "totalCities": 569,
   "citiesNeedingWork": 235,
   "goalMet": false,
@@ -4646,9 +4646,9 @@
     },
     {
       "city": "swakopmund",
-      "count": 13,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 2,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 550
     },

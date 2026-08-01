@@ -97625,6 +97625,18 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Bird_Island_%28Namibia%29_wide.jpg",
     },
+    {
+      id: "swakopmund_13",
+      active: true,
+      name: "Regimental Badges",
+      category: 'poi', type: "Histórico",
+      icon: "🏛️",
+      bg: "#E8F0FD",
+      rating: 4.5,
+      estimatedMinutes: 60,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/en/4/49/RSA_Transvaal_Scottish_Logo.png",
+      website: "https://www.namibia-accommodation.com/listing/regimental-insignia-in-the-namib-desert",
+    },
   ],
   sossusvlei: [
     {
