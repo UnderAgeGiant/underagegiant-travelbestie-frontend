@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T01:15:26.412Z",
+  "generatedAt": "2026-08-01T01:25:22.011Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4542,17 +4542,17 @@
     },
     {
       "city": "abidjan",
-      "count": 9,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 6,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 537
     },
     {
       "city": "yamoussoukro",
-      "count": 5,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 10,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 538
     },
