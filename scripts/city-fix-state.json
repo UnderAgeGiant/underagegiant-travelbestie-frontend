@@ -1040,8 +1040,15 @@
     "stuck": true
   },
   "abidjan": {
-    "attempts": 5,
-    "radiusKm": 80,
-    "stuck": true
+    "attempts": 0,
+    "radiusKm": 80
+  },
+  "yamoussoukro": {
+    "attempts": 0,
+    "radiusKm": 80
+  },
+  "grandbassam": {
+    "attempts": 0,
+    "radiusKm": 15
   }
 }
