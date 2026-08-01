@@ -1088,5 +1088,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "etosha": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "walvisbay": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
