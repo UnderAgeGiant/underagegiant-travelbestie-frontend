@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T01:47:09.181Z",
+  "generatedAt": "2026-08-01T01:55:24.258Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4582,17 +4582,17 @@
     },
     {
       "city": "andasibe",
-      "count": 4,
+      "count": 5,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 10,
       "needsWork": true,
       "priorityRank": 542
     },
     {
       "city": "portlouis",
-      "count": 2,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 543
     },
