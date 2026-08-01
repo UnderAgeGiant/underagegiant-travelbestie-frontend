@@ -1045,11 +1045,12 @@
     "stuck": true
   },
   "yamoussoukro": {
-    "attempts": 3,
-    "radiusKm": 270
+    "attempts": 5,
+    "radiusKm": 608,
+    "stuck": true
   },
   "grandbassam": {
-    "attempts": 0,
-    "radiusKm": 15
+    "attempts": 4,
+    "radiusKm": 80
   }
 }
