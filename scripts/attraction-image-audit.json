@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T00:29:12.395Z",
+  "generatedAt": "2026-08-01T00:40:17.743Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4494,9 +4494,9 @@
     },
     {
       "city": "gaborone",
-      "count": 0,
+      "count": 13,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 2,
       "needsWork": true,
       "priorityRank": 531
     },
