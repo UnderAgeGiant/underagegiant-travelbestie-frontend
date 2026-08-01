@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T00:40:17.743Z",
+  "generatedAt": "2026-08-01T00:43:15.736Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4502,9 +4502,9 @@
     },
     {
       "city": "maun",
-      "count": 2,
+      "count": 8,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 7,
       "needsWork": true,
       "priorityRank": 532
     },
