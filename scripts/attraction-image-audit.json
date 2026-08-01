@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T23:58:19.414Z",
+  "generatedAt": "2026-08-01T00:09:14.181Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4374,9 +4374,9 @@
     },
     {
       "city": "nizwa",
-      "count": 2,
+      "count": 7,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 516
     },
@@ -4406,9 +4406,9 @@
     },
     {
       "city": "alula",
-      "count": 3,
+      "count": 7,
       "duplicateGroups": [],
-      "missingCount": 12,
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 520
     },

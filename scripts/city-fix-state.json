@@ -988,5 +988,14 @@
     "attempts": 5,
     "radiusKm": 80,
     "stuck": true
+  },
+  "nizwa": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "alula": {
+    "attempts": 1,
+    "radiusKm": 15
   }
 }
