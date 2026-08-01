@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T11:58:08.720Z",
+  "generatedAt": "2026-08-01T12:07:14.868Z",
   "totalCities": 569,
   "citiesNeedingWork": 233,
   "goalMet": false,
@@ -4686,9 +4686,9 @@
     },
     {
       "city": "musanze",
-      "count": 4,
+      "count": 12,
       "duplicateGroups": [],
-      "missingCount": 11,
+      "missingCount": 3,
       "needsWork": true,
       "priorityRank": 555
     },
