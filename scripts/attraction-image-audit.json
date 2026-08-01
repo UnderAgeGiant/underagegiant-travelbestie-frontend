@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T00:43:15.736Z",
+  "generatedAt": "2026-08-01T00:50:14.803Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4502,17 +4502,17 @@
     },
     {
       "city": "maun",
-      "count": 8,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 7,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 532
     },
     {
       "city": "kasane",
-      "count": 2,
+      "count": 3,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 12,
       "needsWork": true,
       "priorityRank": 533
     },

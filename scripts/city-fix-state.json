@@ -1020,7 +1020,12 @@
     "stuck": true
   },
   "maun": {
-    "attempts": 1,
-    "radiusKm": 15
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "kasane": {
+    "attempts": 2,
+    "radiusKm": 23
   }
 }
