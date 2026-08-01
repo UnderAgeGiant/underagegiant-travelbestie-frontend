@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T00:58:17.528Z",
+  "generatedAt": "2026-08-01T01:04:26.091Z",
   "totalCities": 569,
   "citiesNeedingWork": 239,
   "goalMet": false,
@@ -4534,9 +4534,9 @@
     },
     {
       "city": "limbe",
-      "count": 2,
+      "count": 11,
       "duplicateGroups": [],
-      "missingCount": 13,
+      "missingCount": 4,
       "needsWork": true,
       "priorityRank": 536
     },
