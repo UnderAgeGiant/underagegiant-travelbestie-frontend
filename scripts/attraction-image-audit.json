@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T12:24:19.204Z",
+  "generatedAt": "2026-08-01T12:33:19.663Z",
   "totalCities": 569,
   "citiesNeedingWork": 232,
   "goalMet": false,
@@ -4742,17 +4742,17 @@
     },
     {
       "city": "bwindi",
-      "count": 1,
+      "count": 8,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 7,
       "needsWork": true,
       "priorityRank": 562
     },
     {
       "city": "lusaka",
-      "count": 0,
+      "count": 9,
       "duplicateGroups": [],
-      "missingCount": 15,
+      "missingCount": 6,
       "needsWork": true,
       "priorityRank": 563
     },
