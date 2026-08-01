@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T02:04:02.676Z",
+  "generatedAt": "2026-08-01T02:08:16.861Z",
   "totalCities": 569,
   "citiesNeedingWork": 236,
   "goalMet": false,
@@ -4630,9 +4630,9 @@
     },
     {
       "city": "ilhademocambique",
-      "count": 1,
+      "count": 7,
       "duplicateGroups": [],
-      "missingCount": 14,
+      "missingCount": 8,
       "needsWork": true,
       "priorityRank": 548
     },

@@ -1070,7 +1070,12 @@
     "stuck": true
   },
   "vilanculos": {
-    "attempts": 3,
-    "radiusKm": 35
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "ilhademocambique": {
+    "attempts": 4,
+    "radiusKm": 53
   }
 }
