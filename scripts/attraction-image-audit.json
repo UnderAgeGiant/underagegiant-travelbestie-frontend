@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T12:11:29.601Z",
+  "generatedAt": "2026-08-01T12:16:04.760Z",
   "totalCities": 569,
-  "citiesNeedingWork": 233,
+  "citiesNeedingWork": 232,
   "goalMet": false,
   "nextCity": "istanbul",
   "cities": [
@@ -4719,31 +4719,16 @@
     {
       "city": "kampala",
       "count": 22,
-      "duplicateGroups": [
-        {
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Museum_Entrance_2.JPG/960px-Museum_Entrance_2.JPG",
-          "ids": [
-            "kampala_0",
-            "kampala_21"
-          ]
-        },
-        {
-          "imageUrl": "https://images.unsplash.com/photo-1614815684544-99ec63eebb3f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLYXN1YmklMjBUb21icyUyMEthbXBhbGElMjBVZ2FuZGF8ZW58MXwwfHx8MTc4MzI5NTU1NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-          "ids": [
-            "kampala_1",
-            "kampala_20"
-          ]
-        }
-      ],
+      "duplicateGroups": [],
       "missingCount": 0,
-      "needsWork": true,
+      "needsWork": false,
       "priorityRank": 559
     },
     {
       "city": "entebbe",
-      "count": 7,
+      "count": 14,
       "duplicateGroups": [],
-      "missingCount": 8,
+      "missingCount": 1,
       "needsWork": true,
       "priorityRank": 560
     },

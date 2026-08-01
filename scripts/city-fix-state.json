@@ -1110,6 +1110,11 @@
     "stuck": true
   },
   "ladigue": {
+    "attempts": 5,
+    "radiusKm": 80,
+    "stuck": true
+  },
+  "entebbe": {
     "attempts": 4,
     "radiusKm": 53
   }
