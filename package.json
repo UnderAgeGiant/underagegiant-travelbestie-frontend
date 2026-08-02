@@ -29,6 +29,7 @@
     "@angular/localize": "^22.0.2",
     "@angular/platform-browser": "^22.0.2",
     "@angular/router": "^22.0.2",
+    "@vercel/functions": "^3.7.6",
     "flatpickr": "^4.6.13",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

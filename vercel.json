@@ -2,23 +2,6 @@
   "buildCommand": "npm run build:vercel",
   "outputDirectory": "dist/underagegiant-travelbestie-frontend/browser",
   "framework": null,
-  "rewrites": [
-    {
-      "source": "/((?!assets|favicon).*)",
-      "has": [{ "type": "cookie", "key": "tb_locale", "value": "en-US" }],
-      "destination": "/index.en-US.html"
-    },
-    {
-      "source": "/((?!assets|favicon).*)",
-      "missing": [{ "type": "cookie", "key": "tb_locale" }],
-      "has": [{ "type": "header", "key": "accept-language", "value": "^en.*" }],
-      "destination": "/index.en-US.html"
-    },
-    {
-      "source": "/((?!assets|favicon).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
