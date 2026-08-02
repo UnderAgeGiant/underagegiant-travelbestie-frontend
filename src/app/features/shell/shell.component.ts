@@ -16,6 +16,7 @@ import { LandingAboutComponent } from '../landing/landing-about.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { MyTripsComponent } from '../my-trips/my-trips.component';
+import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
 
 @Component({
     selector: 'tb-shell',
@@ -34,6 +35,7 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
         AppFooterComponent,
         DayTimelineComponent,
         MyTripsComponent,
+        CompanionMascotComponent,
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -95,6 +97,8 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
     }
 
     <app-mobile-attractions-modal />
+
+    <app-companion-mascot />
 
     @if (toast()) {
       <app-toast [message]="toast()!" (done)="toast.set(null)" />

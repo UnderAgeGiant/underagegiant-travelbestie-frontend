@@ -14,6 +14,7 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
+import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 import { FavoritedTrip } from '../../core/models/trip.model';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
@@ -35,6 +36,7 @@ export class NavFacadeService {
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
+  private readonly companionSuggest = inject(CompanionSuggestionService);
   private readonly router       = inject(Router);
   readonly locale = inject(LocaleService);
 
@@ -373,6 +375,7 @@ export class NavFacadeService {
     this.savedPlans.clear();
     this.visited.clear();
     this.favorites.clear();
+    this.companionSuggest.clear();
     this.router.navigate(['/']);
   }
 }

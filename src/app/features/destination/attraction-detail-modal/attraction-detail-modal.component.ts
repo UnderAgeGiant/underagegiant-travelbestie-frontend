@@ -16,6 +16,7 @@ import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
+import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { attractionImages } from '../../../core/utils/attraction-images.util';
 import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/attraction-image-lightbox.component';
 
@@ -334,6 +335,7 @@ export class AttractionDetailModalComponent {
   heroIdx          = signal(0);
 
   private readonly trip       = inject(TripService);
+  private readonly companionSuggest = inject(CompanionSuggestionService);
   private readonly api        = inject(ApiService);
   private readonly cooldown   = inject(CommentCooldownService);
   private readonly karmaModal = inject(KarmaModalService);
@@ -428,12 +430,16 @@ export class AttractionDetailModalComponent {
 
   onPlanConfirmed(entry: PlanEntry): void {
     const date = entry.date || undefined;
-    if (this.inPlan()) {
+    const wasAlreadyPlanned = this.inPlan();
+    if (wasAlreadyPlanned) {
       this.trip.updateStartTime(this.stopId(), this.plannedEntry()!.entryId, entry.startTime, date);
     } else {
       this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, date);
     }
     this.showPlanModal.set(false);
+    if (!wasAlreadyPlanned) {
+      void this.companionSuggest.trigger(this.stopId(), this.attraction().id);
+    }
   }
 
   onPlanRemoved(): void {
