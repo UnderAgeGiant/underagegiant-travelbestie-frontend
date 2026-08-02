@@ -580,4 +580,6 @@ export const WORLD_CITIES: City[] = [
   { id: 'victoriafalls', name: 'Victoria Falls', country: 'Zimbabwe', flag: '🇿🇼', region: 'africa' },
   { id: 'bulawayo', name: 'Bulawayo', country: 'Zimbabwe', flag: '🇿🇼', region: 'africa' },
   { id: 'masvingo', name: 'Masvingo', country: 'Zimbabwe', flag: '🇿🇼', region: 'africa' },
+  { id: 'willemstad', name: 'Willemstad', country: 'Curaçao', flag: '🇨🇼', region: 'americas' },
+  { id: 'westpunt', name: 'Westpunt', country: 'Curaçao', flag: '🇨🇼', region: 'americas' },
 ];
