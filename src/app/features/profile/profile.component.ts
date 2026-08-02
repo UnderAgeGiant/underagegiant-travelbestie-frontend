@@ -5,10 +5,11 @@ import { HomeAddressService } from '../../core/home-address/home-address.service
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { CompanionBoostCardComponent } from './companion-boost-card.component';
 
 @Component({
     selector: 'app-profile',
-    imports: [FlagIconComponent],
+    imports: [FlagIconComponent, CompanionBoostCardComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -328,6 +329,12 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             }
 
           </div>
+        </section>
+
+        <!-- Asistente Miel boost -->
+        <section>
+          <div class="section-head" i18n="@@profile.companionBoostTitle">Asistente Miel 🐾</div>
+          <app-companion-boost-card />
         </section>
 
         <!-- Trip summary -->
