@@ -1,16 +1,18 @@
-import { ChangeDetectionStrategy, Component, computed, inject, OnDestroy, effect } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 import { findCuratedAttraction } from '../../data/attractions.data';
 
-const AUTO_DISMISS_MS = 12_000;
-
+// Closes only via the ✕ button or the "No, gracias"/"Agregar" actions — there is no
+// backdrop and no outside-click handler, so clicking anywhere else on the page never
+// dismisses it (same "only an explicit close" pattern as CitySuggestCloudComponent).
+// The bubble also has no auto-dismiss timer: it stays until the user closes it.
 @Component({
   selector: 'app-companion-mascot',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     @if (companion.state() === 'sniffing') {
-      <div class="companion-mascot">
+      <div class="companion-roam">
         <img class="companion-dog is-sniffing" src="/sniffing-back-dog.png" alt="Asistente Miel" draggable="false" />
       </div>
     } @else if (companion.state() === 'suggesting' && suggestionView(); as v) {
@@ -41,10 +43,8 @@ const AUTO_DISMISS_MS = 12_000;
     }
   `,
 })
-export class CompanionMascotComponent implements OnDestroy {
+export class CompanionMascotComponent {
   protected readonly companion = inject(CompanionSuggestionService);
-
-  private autoDismissTimer: ReturnType<typeof setTimeout> | null = null;
 
   protected readonly suggestionView = computed(() => {
     const suggestion = this.companion.suggestion();
@@ -64,18 +64,4 @@ export class CompanionMascotComponent implements OnDestroy {
       reason:    suggestion.reason,
     };
   });
-
-  constructor() {
-    effect(() => {
-      const state = this.companion.state();
-      if (this.autoDismissTimer) { clearTimeout(this.autoDismissTimer); this.autoDismissTimer = null; }
-      if (state === 'suggesting') {
-        this.autoDismissTimer = setTimeout(() => this.companion.dismiss(), AUTO_DISMISS_MS);
-      }
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.autoDismissTimer) clearTimeout(this.autoDismissTimer);
-  }
 }

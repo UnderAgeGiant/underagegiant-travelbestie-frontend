@@ -159,6 +159,39 @@ describe('CompanionSuggestionService', () => {
     jest.useRealTimers();
   });
 
+  it('overwrites a still-showing suggestion instead of being blocked when trigger() is called again', async () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true as any);
+    trip.addStop(PARIS, '01/07/2026', '05/07/2026');
+    const stop = trip.stops()[0];
+    trip.addAttraction(stop.stopId, 'paris_0', '09:00', '02/07/2026');
+    trip.addAttraction(stop.stopId, 'paris_2', '13:00', '02/07/2026');
+
+    const promise1 = service.trigger(stop.stopId, 'paris_0');
+    await flushAsync();
+    http.expectOne(r => r.url.includes('/ai/suggest-companion'))
+      .flush({ attractionId: 'paris_1', date: '02/07/2026', startTime: '11:00', endTime: '12:00', reason: 'first' });
+    await promise1;
+    expect(service.state()).toBe('sniffing');
+    expect(service.suggestion()?.attractionId).toBe('paris_1');
+
+    // A second attraction is added while the first suggestion is still sniffing/showing.
+    const promise2 = service.trigger(stop.stopId, 'paris_2');
+    await flushAsync();
+    jest.useFakeTimers(); // control the second suggestion's reveal delay from here on
+    http.expectOne(r => r.url.includes('/ai/suggest-companion'))
+      .flush({ attractionId: 'paris_3', date: '02/07/2026', startTime: '15:00', endTime: '16:00', reason: 'second' });
+    await promise2;
+
+    // No stacking — the second response overwrites the first outright.
+    expect(service.suggestion()?.attractionId).toBe('paris_3');
+    expect(service.state()).toBe('sniffing');
+
+    jest.advanceTimersByTime(2500);
+    expect(service.state()).toBe('suggesting');
+    expect(service.suggestion()?.attractionId).toBe('paris_3'); // still the overwritten one
+    jest.useRealTimers();
+  });
+
   it('starts with boosted() false and boostExpiresAt() null', () => {
     expect(service.boosted()).toBe(false);
     expect(service.boostExpiresAt()).toBeNull();

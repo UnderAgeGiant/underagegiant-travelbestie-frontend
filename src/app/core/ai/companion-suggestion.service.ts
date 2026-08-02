@@ -66,14 +66,20 @@ export class CompanionSuggestionService {
    *  call this from a loop that adds several attractions at once (e.g. Feature 52's
    *  CitySuggestService.addAll) — that would stack several mascot popups.
    *
-   *  Silent by design: _state stays 'idle' for the entire network round trip, so
-   *  the mascot never appears at all for a 204 (dice-roll miss / invalid suggestion)
-   *  or a network error. Only on a 200 does anything become visible — and even then,
-   *  the suggestion is fetched and stored immediately but held back behind a fixed
-   *  SUGGESTION_REVEAL_DELAY_MS 'sniffing' beat before flipping to 'suggesting'. */
+   *  Silent by design: a fresh trigger's network round trip never shows a loading
+   *  state — the mascot never appears at all for a 204 (dice-roll miss / invalid
+   *  suggestion) or a network error. Only on a 200 does anything become visible —
+   *  and even then, the suggestion is fetched and stored immediately but held back
+   *  behind a fixed SUGGESTION_REVEAL_DELAY_MS 'sniffing' beat before flipping to
+   *  'suggesting'.
+   *
+   *  Does NOT wait for state to be 'idle' before starting — if the user adds another
+   *  attraction while a previous suggestion is still being shown (sniffing or
+   *  suggesting), this simply overwrites it once the new response arrives, rather
+   *  than being dropped. A 204/error from the new call leaves whatever is currently
+   *  displayed untouched. */
   async trigger(stopId: string, attractionId: string): Promise<void> {
     if (!this.auth.isLoggedIn()) return;
-    if (this._state() !== 'idle') return;
 
     const stop = this.trip.stops().find(s => s.stopId === stopId);
     if (!stop) return;
@@ -98,7 +104,11 @@ export class CompanionSuggestionService {
         existingAttractionIds, cityCatalog, existingSchedule, departureTimes,
       ).subscribe({
         next: res => {
-          if (!res) { resolve(); return; } // no suggestion — stays silently idle, nothing is ever shown
+          if (!res) { resolve(); return; } // no suggestion — leaves whatever is currently shown (if anything) untouched
+
+          // Overwrite case: a previous suggestion may still be sniffing/showing —
+          // clear its pending reveal timer before replacing it with the new one.
+          if (this.revealTimer) { clearTimeout(this.revealTimer); this.revealTimer = null; }
 
           this._addedAttractionInfo.set({
             name: attraction?.name ?? attractionId,
