@@ -5,7 +5,7 @@ import { switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
-import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture } from '../models/ai.model';
+import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
@@ -215,6 +215,43 @@ export class ApiService {
     return this.http.post<SuggestCityAttractionsResponse>(`${this.base}/ai/suggest-attractions`, {
       cityId, checkIn, checkOut, existingAttractionIds, cityCatalog, isFollowUp, existingSchedule, departureTimes,
     });
+  }
+
+  suggestCompanion(
+    cityId: string,
+    addedAttractionId: string,
+    checkIn: string,
+    checkOut: string,
+    existingAttractionIds: string[],
+    cityCatalog: CatalogEntry[],
+    existingSchedule: SuggestionScheduleEntry[] = [],
+    departureTimes: SuggestionDeparture[] = [],
+  ): Observable<CompanionSuggestion | null> {
+    if (this.useMocks) {
+      const candidates = cityCatalog.filter(c => c.id !== addedAttractionId && !existingAttractionIds.includes(c.id));
+      if (candidates.length === 0 || Math.random() > 0.3) return of(null);
+      const pick = candidates[Math.floor(Math.random() * candidates.length)];
+      return of({
+        attractionId: pick.id,
+        date: checkIn,
+        startTime: '11:00',
+        endTime: '12:00',
+        reason: 'Muchos viajeros visitan esto justo después.',
+      });
+    }
+    return this.http.post<CompanionSuggestion | null>(`${this.base}/ai/suggest-companion`, {
+      cityId, addedAttractionId, checkIn, checkOut, existingAttractionIds, cityCatalog, existingSchedule, departureTimes,
+    });
+  }
+
+  boostCompanion(): Observable<CompanionStatusResponse> {
+    if (this.useMocks) return of({ boosted: true, secondsRemaining: 86400 });
+    return this.http.post<CompanionStatusResponse>(`${this.base}/companion/boost`, {});
+  }
+
+  getCompanionStatus(): Observable<CompanionStatusResponse> {
+    if (this.useMocks) return of({ boosted: false, secondsRemaining: 0 });
+    return this.http.get<CompanionStatusResponse>(`${this.base}/companion/status`);
   }
 
   getKarmaPackages(): Observable<{ packages: KarmaPackage[] }> {

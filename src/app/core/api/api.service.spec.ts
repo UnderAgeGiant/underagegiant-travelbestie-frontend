@@ -259,3 +259,97 @@ describe('ApiService.suggestCityAttractions() — mock mode', () => {
     });
   });
 });
+
+describe('ApiService.suggestCompanion() — real HTTP', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+  });
+
+  afterEach(() => http.verify());
+
+  it('posts cityId, addedAttractionId, dates, and the city catalog to /ai/suggest-companion', () => {
+    service.suggestCompanion(
+      'paris', 'paris_0', '01/07/2026', '05/07/2026', ['paris_0'],
+      [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
+    ).subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-companion') && r.method === 'POST');
+    expect(req.request.body.cityId).toBe('paris');
+    expect(req.request.body.addedAttractionId).toBe('paris_0');
+    expect(req.request.body.checkIn).toBe('01/07/2026');
+    expect(req.request.body.checkOut).toBe('05/07/2026');
+    req.flush(null, { status: 204, statusText: 'No Content' });
+  });
+});
+
+describe('ApiService.suggestCompanion() — mock mode', () => {
+  let service: ApiService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(withXhr()), provideHttpClientTesting(),
+        { provide: 'ENV', useValue: { useMocks: true, apiUrl: 'http://localhost:3000' } },
+      ],
+    });
+    service = TestBed.inject(ApiService);
+  });
+
+  it('never suggests the just-added attraction back to the caller', done => {
+    let sawNonNull = false;
+    let calls = 0;
+    const tryOnce = () => {
+      service.suggestCompanion(
+        'paris', 'paris_0', '01/07/2026', '05/07/2026', ['paris_0'],
+        [{ id: 'paris_0', name: 'Torre Eiffel' }, { id: 'paris_1', name: 'Louvre' }],
+      ).subscribe(res => {
+        if (res) { sawNonNull = true; expect(res.attractionId).not.toBe('paris_0'); }
+        calls++;
+        if (calls < 20) tryOnce(); else { expect(sawNonNull).toBe(true); done(); }
+      });
+    };
+    tryOnce();
+  });
+});
+
+describe('ApiService.boostCompanion() / getCompanionStatus() — real HTTP', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+  });
+
+  afterEach(() => http.verify());
+
+  it('POSTs to /companion/boost and passes through secondsRemaining', done => {
+    service.boostCompanion().subscribe(res => {
+      expect(res).toEqual({ boosted: true, secondsRemaining: 86400 });
+      done();
+    });
+    const req = http.expectOne(r => r.url.includes('/companion/boost') && r.method === 'POST');
+    req.flush({ boosted: true, secondsRemaining: 86400 });
+  });
+
+  it('GETs /companion/status and passes through secondsRemaining', done => {
+    service.getCompanionStatus().subscribe(res => {
+      expect(res).toEqual({ boosted: true, secondsRemaining: 43200 });
+      done();
+    });
+    const req = http.expectOne(r => r.url.includes('/companion/status') && r.method === 'GET');
+    req.flush({ boosted: true, secondsRemaining: 43200 });
+  });
+});
