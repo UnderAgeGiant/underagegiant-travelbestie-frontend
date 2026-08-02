@@ -24526,7 +24526,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Arc_de_triomphe_du_carrousel_in_Paris_France.jpg/1920px-Arc_de_triomphe_du_carrousel_in_Paris_France.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Arc_de_Triomphe%2C_Paris_21_October_2010.jpg/3840px-Arc_de_Triomphe%2C_Paris_21_October_2010.jpg",
       website: "https://www.paris-arc-de-triomphe.fr",
       ticketUrl: "https://www.musement.com/us/paris/entrance-tickets-to-the-arc-de-triomphe-s-rooftop-7766/",
       ticketPrices: {
@@ -24592,7 +24592,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 360,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Feu_de_camp_-_20150802_15h44_%2810722%29.jpg/1920px-Feu_de_camp_-_20150802_15h44_%2810722%29.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Disneyland_Park_05%2C_Paris_22_August_2013.jpg/1920px-Disneyland_Park_05%2C_Paris_22_August_2013.jpg",
       website: "http://www.disneylandparis.com",
       schedule: {
         mon: {
