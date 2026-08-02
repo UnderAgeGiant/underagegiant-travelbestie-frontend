@@ -2439,3 +2439,56 @@ app-nav { display: block; }
 .flag-icon { height: auto; display: inline-block; vertical-align: middle; border-radius: 2px; flex-shrink: 0; }
 .flag-icon-fallback { display: inline-block; line-height: 1; flex-shrink: 0; }
 .about-closing-sub { font-size: 14px; color: var(--t2); max-width: 420px; margin: 0 auto 26px; }
+
+/* ── Companion mascot: periodic "Asistente Miel" nudges (Feature 54) ── */
+.companion-mascot {
+  position: fixed; right: 20px; bottom: 20px; z-index: 500;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+  max-width: min(340px, calc(100vw - 40px));
+}
+.companion-dog {
+  width: 64px; height: 64px; object-fit: contain; border-radius: 50%;
+  background: #fff; box-shadow: 0 6px 16px oklch(0% 0 0/.25);
+}
+.companion-dog.is-sniffing { animation: companionSniff 1.6s ease-in-out infinite; }
+.companion-dog.is-suggesting { animation: cscBob 2.4s ease-in-out infinite; }
+@keyframes companionSniff {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25%      { transform: translateY(-3px) rotate(-4deg); }
+  75%      { transform: translateY(-3px) rotate(4deg); }
+}
+.companion-bubble {
+  position: relative;
+  background: #fff; border: 3px solid var(--t1); border-radius: 20px;
+  padding: 16px 18px 14px; box-shadow: 6px 6px 0 oklch(0% 0 0/.16);
+  width: 100%;
+  animation: scaleIn .22s cubic-bezier(.22,1,.36,1) both;
+}
+.companion-bubble-intro { font-size: 12.5px; color: var(--t2); line-height: 1.5; margin: 0 0 10px; }
+.companion-bubble-msg { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 12px; }
+.companion-bubble-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.companion-bubble-name { font-size: 13px; font-weight: 700; color: var(--t1); }
+.companion-bubble-time { font-size: 10.5px; color: var(--t3); margin-left: 6px; }
+.companion-bubble-reason { font-size: 12px; color: var(--t2); line-height: 1.45; margin: 2px 0 0; }
+.companion-bubble-actions { display: flex; gap: 8px; }
+.companion-bubble-actions .btn-pill { flex: 1; justify-content: center; }
+.companion-dismiss-x {
+  position: absolute; top: -10px; right: -10px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--t1); color: var(--t1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; cursor: pointer;
+}
+@media (max-width: 640px) {
+  .companion-mascot { right: 12px; bottom: 12px; }
+}
+
+/* Profile page boost card */
+.companion-boost-card {
+  border: 1px solid var(--border); border-radius: 16px; padding: 18px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+}
+.companion-boost-img { width: 96px; height: 96px; object-fit: contain; border-radius: 50%; background: var(--lav); }
+.companion-boost-copy { font-size: 13px; color: var(--t2); line-height: 1.5; }
+.companion-boost-boosted { font-size: 13px; font-weight: 700; color: var(--t1); }
+.companion-boost-timer { font-size: 12px; color: var(--t3); font-variant-numeric: tabular-nums; }

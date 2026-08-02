@@ -1665,6 +1665,43 @@
         <source>➕ Agregar lo seleccionado al plan</source>
         <target>➕ Add the selected ones to the plan</target>
       </trans-unit>
+      <!-- ── companion mascot: periodic "Asistente Miel" nudges ── -->
+      <trans-unit id="companion.dismissAria" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="companion.suggestIntro" datatype="html">
+        <source> Olí que agregaste la atracción <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> el día <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> a la hora <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. La siguiente atracción es muy popular junto con lo que seleccionaste: </source>
+        <target>I noticed you added the attraction <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> on <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> at <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. The following attraction is very popular alongside what you picked:</target>
+      </trans-unit>
+      <trans-unit id="companion.dismissBtn" datatype="html">
+        <source>No, gracias</source>
+        <target>No, thanks</target>
+      </trans-unit>
+      <trans-unit id="companion.addBtn" datatype="html">
+        <source>➕ Agregar</source>
+        <target>➕ Add</target>
+      </trans-unit>
+      <trans-unit id="companion.boostedLabel" datatype="html">
+        <source>¡Miel está atenta hoy! 🦴💕</source>
+        <target>Miel is paying attention today! 🦴💕</target>
+      </trans-unit>
+      <trans-unit id="companion.boostTimer" datatype="html">
+        <source>Termina en <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></source>
+        <target>Ends in <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></target>
+      </trans-unit>
+      <trans-unit id="companion.boostCopy" datatype="html">
+        <source> Por ahora la Asistente Miel está distraída con el resto de los usuarios. Dale un premio (−2 Karma) para que te ponga atención durante las próximas 24 horas </source>
+        <target> Right now Asistente Miel is busy with other users. Give her a treat (−2 Karma) so she pays attention to you for the next 24 hours </target>
+      </trans-unit>
+      <trans-unit id="companion.boostBtn" datatype="html">
+        <source>Dar premio</source>
+        <target>Give a treat</target>
+      </trans-unit>
+      <trans-unit id="profile.companionBoostTitle" datatype="html">
+        <source>Asistente Miel 🐾</source>
+        <target>Asistente Miel 🐾</target>
+      </trans-unit>
       <trans-unit id="about.hero.eyebrow" datatype="html">
         <source>Sobre nosotros</source>
         <target>About us</target>
