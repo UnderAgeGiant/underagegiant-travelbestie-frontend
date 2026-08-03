@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal, effect, OnInit, OnDestroy } from '@angular/core';
 import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 
+const CELEBRATE_MS = 2600;
+
 @Component({
   selector: 'app-companion-boost-card',
   standalone: true,
@@ -11,10 +13,22 @@ import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.s
         <img class="companion-boost-img" src="/snack-hearts-black-dog.png" alt="Asistente Miel" draggable="false" />
         <p class="companion-boost-boosted" i18n="@@companion.boostedLabel">¡Miel está atenta hoy! 🦴💕</p>
         <p class="companion-boost-timer" i18n="@@companion.boostTimer">Termina en {{ remainingLabel() }}</p>
+        @if (celebrating()) {
+          <div class="companion-celebrate" aria-hidden="true">
+            <span class="companion-celebrate-emoji">🎉</span>
+            <span class="companion-celebrate-emoji">❤️</span>
+            <span class="companion-celebrate-emoji">🎆</span>
+            <span class="companion-celebrate-emoji">💕</span>
+            <span class="companion-celebrate-emoji">✨</span>
+            <span class="companion-celebrate-emoji">🎉</span>
+            <span class="companion-celebrate-emoji">❤️</span>
+            <span class="companion-celebrate-emoji">🎆</span>
+          </div>
+        }
       } @else {
         <img class="companion-boost-img" src="/standing-black-dog.jpeg" alt="Asistente Miel" draggable="false" />
         <p class="companion-boost-copy" i18n="@@companion.boostCopy">
-          Por ahora la Asistente Miel está distraída con el resto de los usuarios. Dale un premio (−2 Karma) para que te ponga atención durante las próximas 24 horas
+          Por ahora la Asistente Miel está distraída con el resto de los usuarios. Dale un premio (−2 Karma 🦴) para que te ponga atención durante las próximas 24 horas. ¡En esas 24 horas, Miel te dará muchas más sugerencias!
         </p>
         <button type="button" class="btn-pill btn-primary companion-boost-btn" (click)="companion.boost()"
                 i18n="@@companion.boostBtn">Dar premio</button>
@@ -27,6 +41,7 @@ export class CompanionBoostCardComponent implements OnInit, OnDestroy {
 
   private readonly now = signal(Date.now());
   private tickTimer: ReturnType<typeof setInterval> | null = null;
+  private celebrateTimer: ReturnType<typeof setTimeout> | null = null;
 
   /** Derived from boostExpiresAt() vs a locally-ticking now() — NOT from
    *  companion.boosted() directly — so the card reverts to the unboosted state on
@@ -47,6 +62,11 @@ export class CompanionBoostCardComponent implements OnInit, OnDestroy {
     return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
   });
 
+  /** True for a few seconds right after a successful boost() purchase, to draw the
+   *  eye with a hearts/fireworks burst. Never fires just from refreshBoostStatus()
+   *  discovering an already-active boost (e.g. on page load). */
+  protected readonly celebrating = signal(false);
+
   constructor() {
     // Restart the 1 s ticking interval whenever a boost turns on/off.
     effect(() => {
@@ -57,6 +77,14 @@ export class CompanionBoostCardComponent implements OnInit, OnDestroy {
         this.tickTimer = setInterval(() => this.now.set(Date.now()), 1000);
       }
     });
+
+    effect(() => {
+      const tick = this.companion.boostJustPurchased();
+      if (tick === 0) return; // initial value — not an actual purchase
+      this.celebrating.set(true);
+      if (this.celebrateTimer) clearTimeout(this.celebrateTimer);
+      this.celebrateTimer = setTimeout(() => this.celebrating.set(false), CELEBRATE_MS);
+    });
   }
 
   ngOnInit(): void {
@@ -65,5 +93,6 @@ export class CompanionBoostCardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.tickTimer) clearInterval(this.tickTimer);
+    if (this.celebrateTimer) clearTimeout(this.celebrateTimer);
   }
 }

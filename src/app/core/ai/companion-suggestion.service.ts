@@ -42,6 +42,11 @@ export class CompanionSuggestionService {
   // it is NOT re-derived from wall-clock time here, so it never goes stale on its own;
   // the component compares it to a locally-ticking `now` signal for the live display.
   private readonly _boostExpiresAt     = signal<number | null>(null);
+  // Increments each time boost() itself succeeds (never on refreshBoostStatus()'s
+  // page-load/login discovery of an already-active boost). CompanionBoostCardComponent
+  // watches this to fire a one-time celebration effect only right after a purchase,
+  // not every time the card happens to render in a boosted state.
+  private readonly _boostJustPurchased = signal(0);
 
   readonly state               = this._state.asReadonly();
   readonly addedAttractionInfo = this._addedAttractionInfo.asReadonly();
@@ -49,6 +54,7 @@ export class CompanionSuggestionService {
   readonly cityId               = this._cityId.asReadonly(); // exposed so CompanionMascotComponent (Task 11) can resolve the suggested attraction's name/icon
   readonly boostExpiresAt      = this._boostExpiresAt.asReadonly();
   readonly boosted             = computed(() => this._boostExpiresAt() !== null);
+  readonly boostJustPurchased  = this._boostJustPurchased.asReadonly();
 
   /** Refreshes the boost flag + expiry from the backend. Call on app init (if a
    *  session may exist) and right after a successful login/register. No-ops (and
@@ -155,7 +161,11 @@ export class CompanionSuggestionService {
 
   boost(): void {
     this.api.boostCompanion().subscribe({
-      next: res => { this._boostExpiresAt.set(Date.now() + res.secondsRemaining * 1000); this.karma.spend(); },
+      next: res => {
+        this._boostExpiresAt.set(Date.now() + res.secondsRemaining * 1000);
+        this.karma.spend();
+        this._boostJustPurchased.update(n => n + 1);
+      },
       error: err => { this.karmaModal.handleKarmaError(err); },
     });
   }

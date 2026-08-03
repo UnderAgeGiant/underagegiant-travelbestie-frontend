@@ -2319,28 +2319,28 @@
         <source>¡Miel está atenta hoy! 🦴💕</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/companion-boost-card.component.ts</context>
-          <context context-type="linenumber">12,13</context>
+          <context context-type="linenumber">14,15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.boostTimer" datatype="html">
         <source>Termina en <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/companion-boost-card.component.ts</context>
-          <context context-type="linenumber">13,14</context>
+          <context context-type="linenumber">15,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.boostCopy" datatype="html">
-        <source> Por ahora la Asistente Miel está distraída con el resto de los usuarios. Dale un premio (−2 Karma) para que te ponga atención durante las próximas 24 horas </source>
+        <source> Por ahora la Asistente Miel está distraída con el resto de los usuarios. Dale un premio (−2 Karma 🦴) para que te ponga atención durante las próximas 24 horas. ¡En esas 24 horas, Miel te dará muchas más sugerencias! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/companion-boost-card.component.ts</context>
-          <context context-type="linenumber">17,19</context>
+          <context context-type="linenumber">31,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.boostBtn" datatype="html">
         <source>Dar premio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/companion-boost-card.component.ts</context>
-          <context context-type="linenumber">20,23</context>
+          <context context-type="linenumber">34,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.title" datatype="html">
@@ -3466,28 +3466,28 @@
         <source>Cerrar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/companion-mascot/companion-mascot.component.ts</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.suggestIntro" datatype="html">
-        <source> Olí que agregaste la atracción <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> el día <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> a la hora <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. La siguiente atracción es muy popular junto con lo que seleccionaste: </source>
+        <source> He olido que agregaste la atracción <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> el día <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> a la hora <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. La siguiente atracción es muy popular junto con lo que seleccionaste: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/companion-mascot/companion-mascot.component.ts</context>
-          <context context-type="linenumber">23,25</context>
+          <context context-type="linenumber">25,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.dismissBtn" datatype="html">
         <source>No, gracias</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/companion-mascot/companion-mascot.component.ts</context>
-          <context context-type="linenumber">35,36</context>
+          <context context-type="linenumber">37,38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.addBtn" datatype="html">
         <source>➕ Agregar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/companion-mascot/companion-mascot.component.ts</context>
-          <context context-type="linenumber">37,39</context>
+          <context context-type="linenumber">39,41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="datePicker.fromPlaceholder" datatype="html">

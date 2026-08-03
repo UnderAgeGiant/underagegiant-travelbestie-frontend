@@ -99,4 +99,32 @@ describe('CompanionBoostCardComponent', () => {
 
     jest.useRealTimers();
   });
+
+  it('shows a hearts/fireworks celebration right after a boost purchase succeeds, then hides it on its own', () => {
+    jest.useFakeTimers().setSystemTime(new Date('2026-08-02T12:00:00.000Z'));
+    const fixture = TestBed.createComponent(CompanionBoostCardComponent);
+    fixture.detectChanges();
+
+    (fixture.nativeElement.querySelector('.companion-boost-btn') as HTMLButtonElement).click();
+    http.expectOne(r => r.url.includes('/companion/boost')).flush({ boosted: true, secondsRemaining: 86400 });
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelectorAll('.companion-celebrate-emoji').length).toBeGreaterThan(0);
+
+    jest.advanceTimersByTime(2600);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.companion-celebrate')).toBeNull();
+
+    jest.useRealTimers();
+  });
+
+  it('does not celebrate just from refreshBoostStatus() discovering an already-active boost on init', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true as any);
+    const fixture = TestBed.createComponent(CompanionBoostCardComponent);
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/companion/status')).flush({ boosted: true, secondsRemaining: 86400 });
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.companion-celebrate')).toBeNull();
+  });
 });

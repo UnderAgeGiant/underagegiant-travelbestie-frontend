@@ -2508,10 +2508,32 @@ app-nav { display: block; }
 
 /* Profile page boost card */
 .companion-boost-card {
+  position: relative;
   border: 1px solid var(--border); border-radius: 16px; padding: 18px;
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+  overflow: hidden;
 }
 .companion-boost-img { width: 96px; height: 96px; object-fit: contain; border-radius: 50%; background: var(--lav); }
 .companion-boost-copy { font-size: 13px; color: var(--t2); line-height: 1.5; }
 .companion-boost-boosted { font-size: 13px; font-weight: 700; color: var(--t1); }
 .companion-boost-timer { font-size: 12px; color: var(--t3); font-variant-numeric: tabular-nums; }
+
+/* One-time hearts/fireworks burst right after a boost purchase succeeds */
+.companion-celebrate { position: absolute; inset: 0; pointer-events: none; }
+.companion-celebrate-emoji {
+  position: absolute; font-size: 22px; opacity: 0;
+  animation: companionCelebrate 1.8s ease-out forwards;
+}
+.companion-celebrate-emoji:nth-child(1) { left: 8%;  top: 72%; animation-delay: 0s; }
+.companion-celebrate-emoji:nth-child(2) { left: 22%; top: 55%; animation-delay: .12s; }
+.companion-celebrate-emoji:nth-child(3) { left: 38%; top: 68%; animation-delay: .05s; }
+.companion-celebrate-emoji:nth-child(4) { left: 52%; top: 50%; animation-delay: .2s; }
+.companion-celebrate-emoji:nth-child(5) { left: 66%; top: 66%; animation-delay: .08s; }
+.companion-celebrate-emoji:nth-child(6) { left: 80%; top: 52%; animation-delay: .18s; }
+.companion-celebrate-emoji:nth-child(7) { left: 46%; top: 78%; animation-delay: .25s; }
+.companion-celebrate-emoji:nth-child(8) { left: 14%; top: 42%; animation-delay: .3s; }
+@keyframes companionCelebrate {
+  0%   { opacity: 0; transform: translateY(10px) scale(.5) rotate(0deg); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-60px) scale(1.15) rotate(20deg); }
+}

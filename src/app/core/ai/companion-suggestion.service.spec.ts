@@ -234,6 +234,19 @@ describe('CompanionSuggestionService', () => {
     expect(service.boostExpiresAt()!).toBeGreaterThanOrEqual(before + 86400 * 1000);
   });
 
+  it('boost() increments boostJustPurchased() so listeners can fire a one-time celebration, but refreshBoostStatus() never does', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true as any);
+    expect(service.boostJustPurchased()).toBe(0);
+
+    service.refreshBoostStatus();
+    http.expectOne(r => r.url.includes('/companion/status')).flush({ boosted: true, secondsRemaining: 86400 });
+    expect(service.boostJustPurchased()).toBe(0); // discovering an existing boost is not a "purchase"
+
+    service.boost();
+    http.expectOne(r => r.url.includes('/companion/boost')).flush({ boosted: true, secondsRemaining: 86400 });
+    expect(service.boostJustPurchased()).toBe(1);
+  });
+
   it('clear() resets boostExpiresAt and any open suggestion', async () => {
     jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true as any);
     service.boost();
