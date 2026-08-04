@@ -22,7 +22,7 @@ import { findCuratedAttraction } from '../../data/attractions.data';
           <button type="button" class="companion-dismiss-x" (click)="companion.dismiss()"
                   i18n-aria-label="@@companion.dismissAria" aria-label="Cerrar">✕</button>
           <p class="companion-bubble-intro" i18n="@@companion.suggestIntro">
-            He olido que agregaste la atracción {{ v.addedName }} el día {{ v.addedDate }} a la hora {{ v.addedTime }}. La siguiente atracción es muy popular junto con lo que seleccionaste:
+            He olido que agregaste la atracción {{ v.addedName }} el día {{ v.addedDate }} a la hora {{ v.addedTime }}. Otra atracción que es muy popular junto con lo que seleccionaste:
           </p>
           <div class="companion-bubble-msg">
             <span class="companion-bubble-icon">{{ v.icon }}</span>

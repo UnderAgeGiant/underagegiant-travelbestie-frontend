@@ -15,6 +15,7 @@ import { TripItineraryComponent } from '../profile/trip-itinerary.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
+import { normalizeSearch } from '../../core/utils/normalize-search.util';
 
 @Component({
   selector: 'app-my-trips',
@@ -292,11 +293,11 @@ export class MyTripsComponent {
   cloningId       = signal<string | null>(null);
 
   readonly filteredPlans = computed(() => {
-    const q = this.planSearch().toLowerCase().trim();
+    const q = normalizeSearch(this.planSearch().trim());
     let plans = this.savedPlans.plans();
     if (this.publishedOnly()) plans = plans.filter(p => !!this.planShareId(p));
     if (!q) return plans;
-    return plans.filter(p => p.name.toLowerCase().includes(q));
+    return plans.filter(p => normalizeSearch(p.name).includes(q));
   });
 
   planShareId(plan: SavedPlan): string | undefined {

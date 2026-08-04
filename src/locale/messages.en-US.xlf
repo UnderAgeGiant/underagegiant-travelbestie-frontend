@@ -532,6 +532,10 @@
         <source>💌 Agregar comentario</source>
         <target>💌 Add a comment</target>
       </trans-unit>
+      <trans-unit id="attCard.addedToast" datatype="html">
+        <source>¡Ya se agregó a tu itinerario esta atracción!</source>
+        <target>This attraction has been added to your itinerary!</target>
+      </trans-unit>
       <trans-unit id="maps.viewOnMaps" datatype="html">
         <source>Ver en Google Maps</source>
         <target>View on Google Maps</target>
@@ -1671,8 +1675,8 @@
         <target>Close</target>
       </trans-unit>
       <trans-unit id="companion.suggestIntro" datatype="html">
-        <source> He olido que agregaste la atracción <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> el día <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> a la hora <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. La siguiente atracción es muy popular junto con lo que seleccionaste: </source>
-        <target>I smelled that you added the attraction <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> on <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> at <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. The following attraction is very popular alongside what you picked:</target>
+        <source> He olido que agregaste la atracción <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> el día <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> a la hora <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. Otra atracción que es muy popular junto con lo que seleccionaste: </source>
+        <target>I smelled that you added the attraction <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> on <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> at <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. Another attraction that is very popular alongside what you picked:</target>
       </trans-unit>
       <trans-unit id="companion.dismissBtn" datatype="html">
         <source>No, gracias</source>
@@ -1691,12 +1695,12 @@
         <target>Ends in <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></target>
       </trans-unit>
       <trans-unit id="companion.boostCopy" datatype="html">
-        <source> Por ahora la Asistente Miel está distraída con el resto de los usuarios. Dale un premio (−2 Karma 🦴) para que te ponga atención durante las próximas 24 horas. ¡En esas 24 horas, Miel te dará muchas más sugerencias! </source>
-        <target> Right now Asistente Miel is busy with other users. Give her a treat (−2 Karma 🦴) so she pays attention to you for the next 24 hours. In those 24 hours, Miel will give you a lot more suggestions! </target>
+        <source> Por ahora Miel está jugando con otro usuario. Dale un premio 🦴 para que juegue contigo. ¡Durante las próximas 24 horas Miel jugara contigo y te dará más sugerencias sobre tu viaje! </source>
+        <target> Right now Miel is playing with another user. Give her a treat 🦴 so she plays with you. For the next 24 hours Miel will play with you and give you more suggestions about your trip! </target>
       </trans-unit>
       <trans-unit id="companion.boostBtn" datatype="html">
-        <source>Dar premio</source>
-        <target>Give a treat</target>
+        <source>Dar premio (−2 Karma 🦴)</source>
+        <target>Give a treat (−2 Karma 🦴)</target>
       </trans-unit>
       <trans-unit id="profile.companionBoostTitle" datatype="html">
         <source>Asistente Miel 🐾</source>
@@ -1747,7 +1751,7 @@
         <target>Engineering</target>
       </trans-unit>
       <trans-unit id="about.team.mati.bio" datatype="html">
-        <source>Jefe de ingenieria y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de pañales.</source>
+        <source>Jefe de ingeniería y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de pañales.</source>
         <target>Head of engineering and code monkey. In charge of keeping the system running and sprinting whenever Yoli needs a diaper change.</target>
       </trans-unit>
       <trans-unit id="about.team.ceci.role" datatype="html">

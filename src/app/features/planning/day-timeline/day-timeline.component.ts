@@ -340,17 +340,27 @@ export class DayTimelineComponent {
   });
 
   // ── Auto-select first day with events on stop change ──────────────────────
+  // Only re-derives selectedDay() when the stop actually changed or the
+  // current selection fell off the tab list (e.g. a check-in/out edit
+  // shrank the range) — NOT on every stops() update. Adding/editing an
+  // attraction in the currently-selected day also produces a new stop
+  // object reference, but the day keys themselves don't change, so without
+  // this guard the day tab the user is looking at would jump back to the
+  // first day with events each time they plan something.
   constructor() {
     effect(() => {
       const stop = this.activeStop();
       if (!stop) { this.selectedDay.set(null); this.lastStopId = null; return; }
 
-      if (stop.stopId !== this.lastStopId && this.device.isMobile() && !this.inline()) {
+      const stopChanged = stop.stopId !== this.lastStopId;
+      if (stopChanged && this.device.isMobile() && !this.inline()) {
         this.collapsed.set(true);
       }
       this.lastStopId = stop.stopId;
 
       const tabs = this.days();
+      if (!stopChanged && tabs.some(t => t.key === this.selectedDay())) return;
+
       const firstWithEvents = tabs.find(t => t.hasEvents);
       this.selectedDay.set(firstWithEvents?.key ?? tabs[0]?.key ?? null);
     }, { allowSignalWrites: true });

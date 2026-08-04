@@ -28,10 +28,10 @@ const CELEBRATE_MS = 2600;
       } @else {
         <img class="companion-boost-img" src="/standing-black-dog.jpeg" alt="Asistente Miel" draggable="false" />
         <p class="companion-boost-copy" i18n="@@companion.boostCopy">
-          Por ahora la Asistente Miel está distraída con el resto de los usuarios. Dale un premio (−2 Karma 🦴) para que te ponga atención durante las próximas 24 horas. ¡En esas 24 horas, Miel te dará muchas más sugerencias!
+          Por ahora Miel está jugando con otro usuario. Dale un premio 🦴 para que juegue contigo. ¡Durante las próximas 24 horas Miel jugara contigo y te dará más sugerencias sobre tu viaje!
         </p>
         <button type="button" class="btn-pill btn-primary companion-boost-btn" (click)="companion.boost()"
-                i18n="@@companion.boostBtn">Dar premio</button>
+                i18n="@@companion.boostBtn">Dar premio (−2 Karma 🦴)</button>
       }
     </div>
   `,

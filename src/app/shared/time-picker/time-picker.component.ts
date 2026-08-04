@@ -67,6 +67,23 @@ export class TimePickerComponent implements AfterViewInit, OnDestroy {
         this.timeChange.emit(this.fmt(date));
       },
     }) as flatpickr.Instance;
+
+    // flatpickr only fires onChange once a typed hour/minute value is "committed"
+    // (blur, Enter, or the increment arrows) — typing digits directly and clicking
+    // "Confirmar" without first clicking away never emits, so the parent modal keeps
+    // the stale initial time. Listen on the raw inputs too so every keystroke updates
+    // the value the instant it forms a valid hh:mm.
+    const emitFromInputs = () => {
+      const hh = this.fp?.hourElement?.value;
+      const mm = this.fp?.minuteElement?.value;
+      if (hh === undefined || mm === undefined) return;
+      const h = Number(hh);
+      const m = Number(mm);
+      if (Number.isNaN(h) || Number.isNaN(m)) return;
+      this.timeChange.emit(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`);
+    };
+    this.fp.hourElement?.addEventListener('input', emitFromInputs);
+    this.fp.minuteElement?.addEventListener('input', emitFromInputs);
   }
 
   ngOnDestroy() {

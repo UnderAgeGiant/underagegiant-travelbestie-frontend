@@ -11,6 +11,7 @@ import { getCategoryMeta } from '../../../core/models/attraction-category';
 import { formatEventChip } from '../../../core/utils/event-datetime.util';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
+import { ToastService } from '../../../core/ui/toast.service';
 
 @Component({
     selector: 'app-attraction-card',
@@ -309,6 +310,7 @@ export class AttractionCardComponent {
 
   private readonly trip = inject(TripService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
+  private readonly toast = inject(ToastService);
 
   readonly plannedEntries = computed(() =>
     this.trip.getAllPlannedEntries(this.stopId(), this.attraction().id)
@@ -399,6 +401,7 @@ export class AttractionCardComponent {
   onPlanConfirmed(entry: PlanEntry): void {
     this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined, this.attraction().category);
     this.showPlanModal.set(false);
+    this.toast.show($localize`:@@attCard.addedToast:¡Ya se agregó a tu itinerario esta atracción!`);
     void this.companionSuggest.trigger(this.stopId(), this.attraction().id);
   }
 

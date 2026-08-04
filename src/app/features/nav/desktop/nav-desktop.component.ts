@@ -1,4 +1,4 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, output } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
@@ -361,6 +361,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
 })
 export class NavDesktopComponent {
   readonly facade = inject(NavFacadeService);
+  private readonly elRef = inject(ElementRef<HTMLElement>);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -369,4 +370,16 @@ export class NavDesktopComponent {
   onLogo(): void { this.facade.onLogoClick(); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.profileClick.emit(); }
   onMyTrips(): void { this.facade.userMenuOpen.set(false); this.myTripsClick.emit(); }
+
+  // Closes the floating user panel as soon as it loses focus (a click lands
+  // anywhere outside this nav bar) — mousedown fires before the panel's own
+  // click handlers run, so it can't out-race a legitimate in-panel click.
+  @HostListener('document:mousedown', ['$event'])
+  onDocumentMousedown(event: MouseEvent): void {
+    if (!this.facade.userMenuOpen()) return;
+    const target = event.target as Node | null;
+    if (target && !this.elRef.nativeElement.contains(target)) {
+      this.facade.userMenuOpen.set(false);
+    }
+  }
 }

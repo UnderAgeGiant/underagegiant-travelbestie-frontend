@@ -358,7 +358,14 @@ app-nav { display: block; }
 .av-opt.sel { border-color: var(--t1); transform: scale(1.12); }
 
 /* TOAST */
-.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--t1); color: #fff; border-radius: 99px; padding: 10px 20px; font-size: 13px; font-weight: 500; z-index: 700; box-shadow: var(--sh-md); display: flex; align-items: center; gap: 7px; white-space: nowrap; animation: fadeUp .28s ease both; }
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--t1); color: #fff; border-radius: 99px; padding: 10px 20px; font-size: 13px; font-weight: 500; z-index: 700; box-shadow: var(--sh-md); display: flex; align-items: center; gap: 7px; white-space: nowrap; animation: fadeUp .28s ease both; max-width: calc(100vw - 32px); box-sizing: border-box; }
+@media (max-width: 768px) {
+  /* Long messages (e.g. the "added to itinerary" toast) no longer fit on one
+     nowrap line at mobile widths — the centered pill would overflow past the
+     screen edge, cutting off half the text. Wrap instead, with a softer
+     rounded-rect shape sized for multi-line text. */
+  .toast { white-space: normal; text-align: center; border-radius: 16px; }
+}
 
 /* EMPTY STOP */
 .empty-stop { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 32px; text-align: center; }
@@ -367,6 +374,10 @@ app-nav { display: block; }
 /* FLATPICKR THEME */
 .flatpickr-calendar { font-family: 'DM Sans', sans-serif; border: 1.5px solid var(--border); border-radius: 14px; box-shadow: var(--sh-lg); overflow: hidden; }
 .flatpickr-calendar.arrowTop::before, .flatpickr-calendar.arrowTop::after { display: none; }
+/* Time-only popup (noCalendar) keeps flatpickr's default full-calendar width (307.875px)
+   even though it only renders hour:minute inputs — wide enough to spill outside a modal's
+   bounds (e.g. the narrow date/time columns in plan-time-modal). Shrink it to fit its content. */
+.flatpickr-calendar.noCalendar { width: 200px; }
 .flatpickr-months { background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 0; padding: 4px 0; }
 .flatpickr-months .flatpickr-month { height: 40px; }
 .flatpickr-current-month { font-size: 14px; font-weight: 600; color: var(--t1); padding-top: 8px; }
@@ -2439,6 +2450,7 @@ app-nav { display: block; }
 .flag-icon { height: auto; display: inline-block; vertical-align: middle; border-radius: 2px; flex-shrink: 0; }
 .flag-icon-fallback { display: inline-block; line-height: 1; flex-shrink: 0; }
 .about-closing-sub { font-size: 14px; color: var(--t2); max-width: 420px; margin: 0 auto 26px; }
+.about-closing-cta { padding: 16px 36px; font-size: 17px; font-weight: 600; }
 
 /* ── Companion mascot: periodic "Asistente Miel" nudges (Feature 54) ── */
 .companion-mascot {
@@ -2460,7 +2472,7 @@ app-nav { display: block; }
   width: var(--dog-size); height: var(--dog-size); object-fit: contain; border-radius: 50%;
   background: #fff; box-shadow: 0 6px 16px oklch(0% 0 0/.25);
 }
-.companion-dog.is-sniffing { --dog-size: 96px; }
+.companion-dog.is-sniffing { --dog-size: 96px; border-radius: 0; background: transparent; box-shadow: none; }
 .companion-dog.is-suggesting { animation: cscBob 2.4s ease-in-out infinite; }
 @media (min-width: 769px) {
   /* 30% bigger on web (desktop) than the mobile base sizes above */

@@ -30,7 +30,7 @@ export const ABOUT_TEAM: AboutTeamMember[] = [
     id: 'mati',
     role: $localize`:@@about.team.mati.role:Ingeniería`,
     name: 'Mati Fuentes',
-    bio: $localize`:@@about.team.mati.bio:Jefe de ingenieria y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de pañales.`,
+    bio: $localize`:@@about.team.mati.bio:Jefe de ingeniería y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de pañales.`,
     emoji: '🗺️',
     accent: 'peach',
     photo: '/team/mati.jpeg',
