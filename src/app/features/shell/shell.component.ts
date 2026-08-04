@@ -16,6 +16,8 @@ import { LandingAboutComponent } from '../landing/landing-about.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { MyTripsComponent } from '../my-trips/my-trips.component';
+import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
+import { ToastService } from '../../core/ui/toast.service';
 
 @Component({
     selector: 'tb-shell',
@@ -34,6 +36,7 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
         AppFooterComponent,
         DayTimelineComponent,
         MyTripsComponent,
+        CompanionMascotComponent,
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -96,8 +99,10 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
 
     <app-mobile-attractions-modal />
 
-    @if (toast()) {
-      <app-toast [message]="toast()!" (done)="toast.set(null)" />
+    <app-companion-mascot />
+
+    @if (toastService.message()) {
+      <app-toast [message]="toastService.message()!" (done)="toastService.clear()" />
     }
 
     @if (showProfile()) {
@@ -113,20 +118,20 @@ import { MyTripsComponent } from '../my-trips/my-trips.component';
     @defer (when showAiPlanning()) {
       @if (showAiPlanning()) {
         <app-ai-planning (close)="showAiPlanning.set(false)"
-                         (planSaved)="showAiPlanning.set(false); toast.set('Plan guardado')" />
+                         (planSaved)="showAiPlanning.set(false); toastService.show('Plan guardado')" />
       }
     }
   `
 })
 export class ShellComponent {
   readonly trip  = inject(TripService);
+  readonly toastService = inject(ToastService);
   private readonly facade = inject(NavFacadeService);
   private readonly locale = inject(LocaleService);
   showAddModal   = signal(false);
   showProfile    = signal(false);
   showAiPlanning = signal(false);
   showMyTrips    = signal(false);
-  toast          = signal<string | null>(null);
 
   constructor() {
     // Keep the facade informed of the open panel so a locale switch can restore it.

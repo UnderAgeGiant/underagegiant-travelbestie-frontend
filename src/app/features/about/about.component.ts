@@ -86,7 +86,7 @@ const CONNECTORS: AboutConnector[] = [
       <section class="about-closing">
         <div class="about-closing-title" i18n="@@about.closing.title">¿Listo para planificar tu próximo viaje?</div>
         <p class="about-closing-sub" i18n="@@about.closing.sub">Únete a miles de besties que arman itinerarios juntos, un destino a la vez.</p>
-        <a class="btn-pill btn-primary" routerLink="/" i18n="@@about.closing.cta">Comenzar a planificar ✈️</a>
+        <a class="btn-pill btn-primary about-closing-cta" routerLink="/" i18n="@@about.closing.cta">Comenzar a planificar ✈️</a>
       </section>
     </div>
   `,

@@ -16,7 +16,9 @@ import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
+import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { attractionImages } from '../../../core/utils/attraction-images.util';
+import { ToastService } from '../../../core/ui/toast.service';
 import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/attraction-image-lightbox.component';
 
 @Component({
@@ -334,6 +336,8 @@ export class AttractionDetailModalComponent {
   heroIdx          = signal(0);
 
   private readonly trip       = inject(TripService);
+  private readonly companionSuggest = inject(CompanionSuggestionService);
+  private readonly toast      = inject(ToastService);
   private readonly api        = inject(ApiService);
   private readonly cooldown   = inject(CommentCooldownService);
   private readonly karmaModal = inject(KarmaModalService);
@@ -428,12 +432,20 @@ export class AttractionDetailModalComponent {
 
   onPlanConfirmed(entry: PlanEntry): void {
     const date = entry.date || undefined;
-    if (this.inPlan()) {
+    const wasAlreadyPlanned = this.inPlan();
+    if (wasAlreadyPlanned) {
       this.trip.updateStartTime(this.stopId(), this.plannedEntry()!.entryId, entry.startTime, date);
     } else {
       this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, date);
     }
     this.showPlanModal.set(false);
+    if (!wasAlreadyPlanned) {
+      this.toast.show($localize`:@@attCard.addedToast:¡Ya se agregó a tu itinerario esta atracción!`);
+      void this.companionSuggest.trigger(this.stopId(), this.attraction().id);
+      // The user came here to add this attraction — close the detail view so the
+      // added-to-itinerary toast/mascot nudge isn't hidden behind it.
+      this.close.emit();
+    }
   }
 
   onPlanRemoved(): void {

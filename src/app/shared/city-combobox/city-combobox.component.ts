@@ -2,6 +2,7 @@ import { Component, input, output, signal, computed, HostListener, ViewChild, El
 import { City, Region, REGION_LABELS } from '../../core/models/city.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { FlagIconComponent } from '../flag-icon/flag-icon.component';
+import { normalizeSearch } from '../../core/utils/normalize-search.util';
 
 @Component({
   selector: 'app-city-combobox',
@@ -62,10 +63,10 @@ export class CityComboboxComponent {
   readonly selected = this.selectedCity.asReadonly();
 
   readonly filtered = computed(() => {
-    const q = this.query().toLowerCase();
+    const q = normalizeSearch(this.query());
     return WORLD_CITIES.filter(c =>
       !this.excludeIds().includes(c.id) &&
-      (c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q))
+      (normalizeSearch(c.name).includes(q) || normalizeSearch(c.country).includes(q))
     );
   });
 

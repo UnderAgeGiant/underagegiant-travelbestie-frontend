@@ -14,6 +14,7 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
+import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 import { FavoritedTrip } from '../../core/models/trip.model';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
@@ -21,6 +22,7 @@ import { WORLD_CITIES } from '../../data/cities.data';
 import { City } from '../../core/models/city.model';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale, RestoreView } from '../../core/i18n/locale.util';
+import { normalizeSearch } from '../../core/utils/normalize-search.util';
 
 @Injectable({ providedIn: 'root' })
 export class NavFacadeService {
@@ -35,6 +37,7 @@ export class NavFacadeService {
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
+  private readonly companionSuggest = inject(CompanionSuggestionService);
   private readonly router       = inject(Router);
   readonly locale = inject(LocaleService);
 
@@ -91,29 +94,29 @@ export class NavFacadeService {
   });
 
   readonly filteredPlans = computed(() => {
-    const q = this.planSearch().toLowerCase().trim();
+    const q = normalizeSearch(this.planSearch().trim());
     if (!q) return this.savedPlans.plans();
-    return this.savedPlans.plans().filter(p => p.name.toLowerCase().includes(q));
+    return this.savedPlans.plans().filter(p => normalizeSearch(p.name).includes(q));
   });
 
   readonly filteredFavorites = computed<FavoritedTrip[]>(() => {
-    const q = this.favoritesSearch().toLowerCase().trim();
+    const q = normalizeSearch(this.favoritesSearch().trim());
     if (!q) return this.favorites.favoritedTrips();
-    return this.favorites.favoritedTrips().filter(t => t.tripName.toLowerCase().includes(q));
+    return this.favorites.favoritedTrips().filter(t => normalizeSearch(t.tripName).includes(q));
   });
 
   readonly filteredSharedTrips = computed(() => {
-    const q = this.sharedTripsSearch().toLowerCase().trim();
+    const q = normalizeSearch(this.sharedTripsSearch().trim());
     if (!q) return this.mySharedTrips();
-    return this.mySharedTrips().filter(t => t.tripName.toLowerCase().includes(q));
+    return this.mySharedTrips().filter(t => normalizeSearch(t.tripName).includes(q));
   });
 
   readonly navFiltered = computed(() => {
-    const q = this.navQuery().toLowerCase();
+    const q = normalizeSearch(this.navQuery());
     if (!q) return [];
     return WORLD_CITIES
       .filter(c => !this.trip.existingCityIds().includes(c.id) &&
-        (c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q)))
+        (normalizeSearch(c.name).includes(q) || normalizeSearch(c.country).includes(q)))
       .slice(0, 8);
   });
 
@@ -373,6 +376,7 @@ export class NavFacadeService {
     this.savedPlans.clear();
     this.visited.clear();
     this.favorites.clear();
+    this.companionSuggest.clear();
     this.router.navigate(['/']);
   }
 }

@@ -17,6 +17,8 @@ import { DestinationModalService } from '../../destination/destination-modal.ser
 import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
+import { parseDMY } from '../../../core/utils/event-datetime.util';
+import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
 
 @Component({
     selector: 'app-stop-list',
@@ -180,7 +182,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
                     </button>
 
                     @if (isScheduledOpen(stop.stopId)) {
-                      @for (planned of stop.selectedAttractions; track planned.attractionId) {
+                      @for (planned of plannedSorted(stop); track planned.entryId) {
                         @let att = attractionFor(stop.cityId, planned.attractionId);
                         @if (att) {
                           @let collision = hasTimeCollision(stop, planned.entryId);
@@ -476,6 +478,15 @@ export class StopListComponent {
   shortDate(s: string): string {
     const p = s.split('/');
     return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
+  }
+
+  // Planned attractions are stored in add order — the panel should read as a
+  // timeline, so sort by date (falling back to the stop's check-in, same as
+  // the row's own date label) then by start time.
+  plannedSorted(stop: TripStop): PlannedAttraction[] {
+    const dateMs = (p: PlannedAttraction) => parseDMY(p.date || stop.checkIn)?.getTime() ?? 0;
+    return [...stop.selectedAttractions].sort((a, b) =>
+      dateMs(a) - dateMs(b) || (a.startTime ?? '').localeCompare(b.startTime ?? ''));
   }
 
   onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', event: Event): void {

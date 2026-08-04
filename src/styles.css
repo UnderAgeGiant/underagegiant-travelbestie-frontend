@@ -358,7 +358,14 @@ app-nav { display: block; }
 .av-opt.sel { border-color: var(--t1); transform: scale(1.12); }
 
 /* TOAST */
-.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--t1); color: #fff; border-radius: 99px; padding: 10px 20px; font-size: 13px; font-weight: 500; z-index: 700; box-shadow: var(--sh-md); display: flex; align-items: center; gap: 7px; white-space: nowrap; animation: fadeUp .28s ease both; }
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--t1); color: #fff; border-radius: 99px; padding: 10px 20px; font-size: 13px; font-weight: 500; z-index: 700; box-shadow: var(--sh-md); display: flex; align-items: center; gap: 7px; white-space: nowrap; animation: fadeUp .28s ease both; max-width: calc(100vw - 32px); box-sizing: border-box; }
+@media (max-width: 768px) {
+  /* Long messages (e.g. the "added to itinerary" toast) no longer fit on one
+     nowrap line at mobile widths — the centered pill would overflow past the
+     screen edge, cutting off half the text. Wrap instead, with a softer
+     rounded-rect shape sized for multi-line text. */
+  .toast { white-space: normal; text-align: center; border-radius: 16px; }
+}
 
 /* EMPTY STOP */
 .empty-stop { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 32px; text-align: center; }
@@ -367,6 +374,10 @@ app-nav { display: block; }
 /* FLATPICKR THEME */
 .flatpickr-calendar { font-family: 'DM Sans', sans-serif; border: 1.5px solid var(--border); border-radius: 14px; box-shadow: var(--sh-lg); overflow: hidden; }
 .flatpickr-calendar.arrowTop::before, .flatpickr-calendar.arrowTop::after { display: none; }
+/* Time-only popup (noCalendar) keeps flatpickr's default full-calendar width (307.875px)
+   even though it only renders hour:minute inputs — wide enough to spill outside a modal's
+   bounds (e.g. the narrow date/time columns in plan-time-modal). Shrink it to fit its content. */
+.flatpickr-calendar.noCalendar { width: 200px; }
 .flatpickr-months { background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 0; padding: 4px 0; }
 .flatpickr-months .flatpickr-month { height: 40px; }
 .flatpickr-current-month { font-size: 14px; font-weight: 600; color: var(--t1); padding-top: 8px; }
@@ -2439,3 +2450,102 @@ app-nav { display: block; }
 .flag-icon { height: auto; display: inline-block; vertical-align: middle; border-radius: 2px; flex-shrink: 0; }
 .flag-icon-fallback { display: inline-block; line-height: 1; flex-shrink: 0; }
 .about-closing-sub { font-size: 14px; color: var(--t2); max-width: 420px; margin: 0 auto 26px; }
+.about-closing-cta { padding: 16px 36px; font-size: 17px; font-weight: 600; }
+
+/* ── Companion mascot: periodic "Asistente Miel" nudges (Feature 54) ── */
+.companion-mascot {
+  position: fixed; right: 20px; bottom: 20px; z-index: 500;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+  max-width: min(340px, calc(100vw - 40px));
+}
+/* Full-width strip the sniffing dog roams across, bottom-anchored. pointer-events:none
+   so the roaming dog never blocks clicks/taps on the page content behind it — the
+   sniffing state has no interactive elements of its own. */
+.companion-roam {
+  position: fixed; left: 0; right: 0; bottom: 4px; z-index: 500;
+  height: 130px;
+  pointer-events: none;
+}
+.companion-roam .companion-dog { position: absolute; bottom: 0; animation: companionRoam 7s ease-in-out infinite; }
+.companion-dog {
+  --dog-size: 72px;
+  width: var(--dog-size); height: var(--dog-size); object-fit: contain; border-radius: 50%;
+  background: #fff; box-shadow: 0 6px 16px oklch(0% 0 0/.25);
+}
+.companion-dog.is-sniffing { --dog-size: 96px; border-radius: 0; background: transparent; box-shadow: none; }
+.companion-dog.is-suggesting { animation: cscBob 2.4s ease-in-out infinite; }
+@media (min-width: 769px) {
+  /* 30% bigger on web (desktop) than the mobile base sizes above */
+  .companion-dog { --dog-size: 94px; }
+  .companion-dog.is-sniffing { --dog-size: 125px; }
+}
+@keyframes companionRoam {
+  0%   { left: 3%; transform: scaleX(1)  translateY(0)    rotate(0deg); }
+  8%   { transform: scaleX(1)  translateY(-10px) rotate(-6deg); }
+  16%  { transform: scaleX(1)  translateY(0)    rotate(4deg); }
+  24%  { transform: scaleX(1)  translateY(-8px)  rotate(-3deg); }
+  45%  { left: calc(100% - 160px); transform: scaleX(1) translateY(0) rotate(0deg); }
+  50%  { transform: scaleX(-1) translateY(0)    rotate(0deg); }
+  58%  { transform: scaleX(-1) translateY(-10px) rotate(6deg); }
+  66%  { transform: scaleX(-1) translateY(0)    rotate(-4deg); }
+  74%  { transform: scaleX(-1) translateY(-8px)  rotate(3deg); }
+  95%  { left: 3%; transform: scaleX(-1) translateY(0) rotate(0deg); }
+  100% { left: 3%; transform: scaleX(1)  translateY(0) rotate(0deg); }
+}
+.companion-bubble {
+  position: relative;
+  background: #fff; border: 3px solid var(--t1); border-radius: 20px;
+  padding: 16px 18px 14px; box-shadow: 6px 6px 0 oklch(0% 0 0/.16);
+  width: 100%;
+  animation: scaleIn .22s cubic-bezier(.22,1,.36,1) both;
+}
+.companion-bubble-intro { font-size: 12.5px; color: var(--t2); line-height: 1.5; margin: 0 0 10px; }
+.companion-bubble-msg { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 12px; }
+.companion-bubble-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.companion-bubble-name { font-size: 13px; font-weight: 700; color: var(--t1); }
+.companion-bubble-time { font-size: 10.5px; font-weight: 700; color: var(--t2); margin-left: 6px; }
+.companion-bubble-reason { font-size: 12px; color: var(--t2); line-height: 1.45; margin: 2px 0 0; }
+.companion-bubble-actions { display: flex; gap: 8px; }
+.companion-bubble-actions .btn-pill { flex: 1; justify-content: center; }
+.companion-dismiss-x {
+  position: absolute; top: -10px; right: -10px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--t1); color: var(--t1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; cursor: pointer;
+}
+@media (max-width: 640px) {
+  .companion-mascot { right: 12px; bottom: 12px; }
+}
+
+/* Profile page boost card */
+.companion-boost-card {
+  position: relative;
+  border: 1px solid var(--border); border-radius: 16px; padding: 18px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+  overflow: hidden;
+}
+.companion-boost-img { width: 96px; height: 96px; object-fit: contain; border-radius: 50%; background: var(--lav); }
+.companion-boost-copy { font-size: 13px; color: var(--t2); line-height: 1.5; }
+.companion-boost-boosted { font-size: 13px; font-weight: 700; color: var(--t1); }
+.companion-boost-timer { font-size: 12px; color: var(--t3); font-variant-numeric: tabular-nums; }
+
+/* One-time hearts/fireworks burst right after a boost purchase succeeds */
+.companion-celebrate { position: absolute; inset: 0; pointer-events: none; }
+.companion-celebrate-emoji {
+  position: absolute; font-size: 22px; opacity: 0;
+  animation: companionCelebrate 1.8s ease-out forwards;
+}
+.companion-celebrate-emoji:nth-child(1) { left: 8%;  top: 72%; animation-delay: 0s; }
+.companion-celebrate-emoji:nth-child(2) { left: 22%; top: 55%; animation-delay: .12s; }
+.companion-celebrate-emoji:nth-child(3) { left: 38%; top: 68%; animation-delay: .05s; }
+.companion-celebrate-emoji:nth-child(4) { left: 52%; top: 50%; animation-delay: .2s; }
+.companion-celebrate-emoji:nth-child(5) { left: 66%; top: 66%; animation-delay: .08s; }
+.companion-celebrate-emoji:nth-child(6) { left: 80%; top: 52%; animation-delay: .18s; }
+.companion-celebrate-emoji:nth-child(7) { left: 46%; top: 78%; animation-delay: .25s; }
+.companion-celebrate-emoji:nth-child(8) { left: 14%; top: 42%; animation-delay: .3s; }
+@keyframes companionCelebrate {
+  0%   { opacity: 0; transform: translateY(10px) scale(.5) rotate(0deg); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-60px) scale(1.15) rotate(20deg); }
+}

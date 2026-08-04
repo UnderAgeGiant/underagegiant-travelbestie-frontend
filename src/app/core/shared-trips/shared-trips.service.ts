@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TripStop, TransitLeg } from '../models/trip.model';
+import { normalizeSearch } from '../utils/normalize-search.util';
 
 export interface SharedTrip {
   id:              string;
@@ -55,9 +56,9 @@ export class SharedTripsService {
 
   search(query: string): SharedTrip[] {
     if (!query.trim()) return [];
-    const q = query.toLowerCase();
+    const q = normalizeSearch(query);
     return this.allTrips()
-      .filter(t => t.tripName.toLowerCase().includes(q) || t.ownerName.toLowerCase().includes(q))
+      .filter(t => normalizeSearch(t.tripName).includes(q) || normalizeSearch(t.ownerName).includes(q))
       .slice(0, 5);
   }
 

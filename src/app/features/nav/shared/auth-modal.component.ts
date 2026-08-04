@@ -6,6 +6,7 @@ import { KarmaService } from '../../../core/karma/karma.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
 import { VisitedPlacesService } from '../../../core/visited-places/visited-places.service';
 import { FavoritesService } from '../../../core/favorites/favorites.service';
+import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -345,6 +346,7 @@ export class AuthModalComponent {
   private readonly savedPlans = inject(SavedPlansService);
   private readonly visited    = inject(VisitedPlacesService);
   private readonly favorites  = inject(FavoritesService);
+  private readonly companionSuggest = inject(CompanionSuggestionService);
 
   // auth form signals
   loginMode     = signal<'login' | 'register' | 'reset'>('login');
@@ -656,6 +658,7 @@ export class AuthModalComponent {
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
           this.favorites.loadFavorites();
+          this.companionSuggest.refreshBoostStatus();
           this.loginEmail.set('');
           this.loginPassword.set('');
           this.loginConfirmPassword.set('');
@@ -678,6 +681,7 @@ export class AuthModalComponent {
           this.savedPlans.loadForUser(res.user.email);
           this.visited.loadForUser(res.user.email);
           this.favorites.loadFavorites();
+          this.companionSuggest.refreshBoostStatus();
           this.registerSuccessName.set(res.user.name);
           this.loginName.set('');
           this.loginEmail.set('');

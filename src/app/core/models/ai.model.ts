@@ -70,3 +70,18 @@ export interface CityAttractionSuggestion {
 export interface SuggestCityAttractionsResponse {
   suggestions: CityAttractionSuggestion[];
 }
+
+export interface CompanionSuggestion {
+  attractionId: string;
+  date:         string;   // dd/mm/yyyy
+  startTime:    string;   // HH:mm
+  endTime:      string;   // HH:mm
+  reason:       string;
+}
+
+/** Shared shape for both /companion/boost and /companion/status responses —
+ *  secondsRemaining is 0 when boosted is false. */
+export interface CompanionStatusResponse {
+  boosted:          boolean;
+  secondsRemaining: number;
+}
