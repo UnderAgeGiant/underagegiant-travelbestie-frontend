@@ -274,6 +274,16 @@ export class TripService {
     ));
   }
 
+  setTicketPurchased(stopId: string, entryId: string, purchased: boolean): void {
+    this._stops.update(stops => stops.map(s =>
+      s.stopId === stopId
+        ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
+            a.entryId === entryId ? { ...a, ticketPurchased: purchased } : a
+          )}
+        : s
+    ));
+  }
+
   removeAttraction(stopId: string, entryId: string): void {
     this._stops.update(stops => stops.map(s =>
       s.stopId === stopId
