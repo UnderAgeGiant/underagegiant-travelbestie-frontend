@@ -91,11 +91,12 @@ export class ApiService {
     id: string,
     cityNames: Record<string, string>,
     attractionNames: Record<string, string>,
+    ticketRequiredIds: string[],
   ): Observable<Blob> {
     if (this.useMocks) return of(new Blob());
     return this.http.post(
       `${this.base}/trips/${id}/itinerary`,
-      { cityNames, attractionNames },
+      { cityNames, attractionNames, ticketRequiredIds },
       { responseType: 'blob' },
     );
   }
