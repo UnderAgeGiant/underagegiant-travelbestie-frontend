@@ -24,6 +24,20 @@ import { Lodging } from '../../../core/models/trip.model';
                  i18n-placeholder="@@lodging.urlPlaceholder"
                  placeholder="Link de reserva (opcional)"
                  (keydown.enter)="save()" />
+          <input class="form-input"
+                 style="font-size:11px;padding:5px 8px;margin-top:6px;width:100%;box-sizing:border-box"
+                 [value]="lAddress()"
+                 (input)="lAddress.set($any($event.target).value)"
+                 i18n-placeholder="@@lodging.addressPlaceholder"
+                 placeholder="Dirección (opcional)"
+                 (keydown.enter)="save()" />
+          <input class="form-input"
+                 style="font-size:11px;padding:5px 8px;margin-top:6px;width:100%;box-sizing:border-box"
+                 [value]="lNotes()"
+                 (input)="lNotes.set($any($event.target).value)"
+                 i18n-placeholder="@@lodging.notesPlaceholder"
+                 placeholder="Observaciones (opcional)"
+                 (keydown.enter)="save()" />
           <div style="display:flex;gap:6px;margin-top:8px">
             <button class="btn-pill btn-primary"
                     style="flex:1;justify-content:center;font-size:11px;padding:5px 8px"
@@ -77,11 +91,15 @@ export class LodgingComponent {
   editOpen = signal(false);
   lName    = signal('');
   lUrl     = signal('');
+  lAddress = signal('');
+  lNotes   = signal('');
 
   openEdit(): void {
     const l = this.lodging();
     this.lName.set(l?.name ?? '');
     this.lUrl.set(l?.url ?? '');
+    this.lAddress.set(l?.address ?? '');
+    this.lNotes.set(l?.notes ?? '');
     this.editOpen.set(true);
   }
 
@@ -89,7 +107,13 @@ export class LodgingComponent {
     const name = this.lName().trim();
     if (!name) return;
     const url = this.lUrl().trim();
-    this.trip.setLodging(this.stopId(), { name, url });
+    const address = this.lAddress().trim();
+    const notes = this.lNotes().trim();
+    this.trip.setLodging(this.stopId(), {
+      name, url,
+      ...(address ? { address } : {}),
+      ...(notes   ? { notes }   : {}),
+    });
     this.editOpen.set(false);
   }
 
