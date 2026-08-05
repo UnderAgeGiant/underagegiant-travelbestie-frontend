@@ -536,6 +536,10 @@
         <source>¡Ya se agregó a tu itinerario esta atracción!</source>
         <target>This attraction has been added to your itinerary!</target>
       </trans-unit>
+      <trans-unit id="attCard.ticketPurchasedLabel" datatype="html">
+        <source>🎟 Entrada comprada</source>
+        <target>🎟 Ticket purchased</target>
+      </trans-unit>
       <trans-unit id="maps.viewOnMaps" datatype="html">
         <source>Ver en Google Maps</source>
         <target>View on Google Maps</target>
@@ -1780,6 +1784,14 @@
         <source>Link de reserva (opcional)</source>
         <target>Booking link (optional)</target>
       </trans-unit>
+      <trans-unit id="lodging.addressPlaceholder" datatype="html">
+        <source>Dirección (opcional)</source>
+        <target>Address (optional)</target>
+      </trans-unit>
+      <trans-unit id="lodging.notesPlaceholder" datatype="html">
+        <source>Observaciones (opcional)</source>
+        <target>Notes (optional)</target>
+      </trans-unit>
       <trans-unit id="lodging.saveBtn" datatype="html">
         <source>✓ Guardar</source>
         <target>✓ Save</target>
@@ -2049,6 +2061,14 @@
       <trans-unit id="transit.notesPlaceholder" datatype="html">
         <source>Nro. de vuelo, notas… (opcional)</source>
         <target>Flight number, notes… (optional)</target>
+      </trans-unit>
+      <trans-unit id="transit.carrierPlaceholder" datatype="html">
+        <source>Empresa (aerolínea, tren…) (opcional)</source>
+        <target>Carrier (airline, train…) (optional)</target>
+      </trans-unit>
+      <trans-unit id="transit.locationPlaceholder" datatype="html">
+        <source>Estación / aeropuerto (opcional)</source>
+        <target>Station / airport (optional)</target>
       </trans-unit>
       <trans-unit id="transit.saveBtn" datatype="html">
         <source>✓ Guardar</source>
