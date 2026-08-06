@@ -173,7 +173,7 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
                                  placeholder="Correo del colaborador" />
                           <button class="btn-pill btn-outline"
                                   style="font-size:11px;padding:5px 10px;white-space:nowrap"
-                                  [disabled]="invitingPlanId() === plan.id || !(inviteEmailByPlan()[plan.id] ?? '').trim()"
+                                  [disabled]="invitingPlanId() === plan.id || !isEmailFormatValid(inviteEmailByPlan()[plan.id] ?? '')"
                                   (click)="inviteCollaborator(plan.id)" type="button">
                             {{ invitingPlanId() === plan.id ? '⏳' : '+ Invitar' }}
                           </button>
@@ -502,9 +502,15 @@ export class MyTripsComponent {
     this.inviteEmailByPlan.update(m => ({ ...m, [planId]: value }));
   }
 
+  // Same pattern as AuthModalComponent.isEmailValid — client-side format check only,
+  // so an obviously malformed address never round-trips to the backend's zod validation.
+  isEmailFormatValid(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
   inviteCollaborator(planId: string): void {
     const email = (this.inviteEmailByPlan()[planId] ?? '').trim();
-    if (!email) return;
+    if (!this.isEmailFormatValid(email)) return;
     this.invitingPlanId.set(planId);
     this.api.inviteCollaborator(planId, email).subscribe({
       next: (collaborator) => {
