@@ -49,6 +49,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .btn-ghost:hover { background: var(--lav-d); color: #fff; }
 .btn-outline { background: #fff; color: var(--t1); border: 1.5px solid var(--border); }
 .btn-outline:hover { border-color: var(--lav-d); color: var(--lav-d); }
+.btn-outline:disabled, .btn-outline[disabled] { opacity: .5; cursor: not-allowed; border-color: var(--border); color: var(--t1); }
 .badge { padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; }
 .karma-cost { display: inline-flex; align-items: center; gap: 2px; font-size: 10px; font-weight: 700; opacity: .65; background: oklch(90% .06 290 / .35); color: var(--lav-d); border-radius: 6px; padding: 1px 5px; letter-spacing: .2px; }
 .form-group { margin-bottom: 14px; }
