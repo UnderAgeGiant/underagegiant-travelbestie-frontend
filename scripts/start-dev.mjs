@@ -31,6 +31,14 @@ if (env.BACKEND_API_URL)                  patched = patched.replace(/apiUrl:\s*'
 if (env.BACKEND_USE_MOCKS)                patched = patched.replace(/useMocks:\s*(true|false)/,     `useMocks: ${env.BACKEND_USE_MOCKS === 'true'}`);
 if (env.BACKEND_RSA_PUBLIC_KEY != null)   patched = patched.replace(/rsaPublicKey:\s*'[^']*'/,      `rsaPublicKey: '${env.BACKEND_RSA_PUBLIC_KEY}'`);
 if (env.TURNSTILE_SITE_KEY)               patched = patched.replace(/turnstileSiteKey:\s*'[^']*'/, `turnstileSiteKey: '${env.TURNSTILE_SITE_KEY}'`);
+if (env.AUTOSAVE_INTERVAL_MS) {
+  const autoSaveIntervalMs = Number(env.AUTOSAVE_INTERVAL_MS);
+  if (Number.isFinite(autoSaveIntervalMs)) {
+    patched = patched.replace(/autoSaveIntervalMs:\s*[\d_]+(?:\s*\*\s*[\d_]+)*/, `autoSaveIntervalMs: ${autoSaveIntervalMs}`);
+  } else {
+    console.warn(`start-dev: ignoring non-numeric AUTOSAVE_INTERVAL_MS "${env.AUTOSAVE_INTERVAL_MS}"`);
+  }
+}
 
 if (patched !== original) {
   writeFileSync(ENV_FILE, patched, 'utf8');
