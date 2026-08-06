@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../api/api.service';
-import { TripStop, TransitLeg } from '../models/trip.model';
+import { TripStop, TransitLeg, PendingCollaboratorInvite } from '../models/trip.model';
 import { environment } from '../../../environments/environment';
 
 export interface SavedPlan {
@@ -14,6 +14,9 @@ export interface SavedPlan {
   transits?:  TransitLeg[];
   shareId?:   string;
   exportedAt?: string;
+  isCollaborator?: boolean;
+  ownerName?:      string;
+  ownerEmail?:     string;
 }
 
 const key = (email: string) => `tb_saved_plans_${email}`;
@@ -24,6 +27,14 @@ export class SavedPlansService {
   private readonly api  = inject(ApiService);
   private _plans = signal<SavedPlan[]>([]);
   readonly plans = this._plans.asReadonly();
+
+  private _pendingInvites = signal<PendingCollaboratorInvite[]>([]);
+  readonly pendingInvites = this._pendingInvites.asReadonly();
+
+  loadPendingInvites(): void {
+    if (environment.useMocks) { this._pendingInvites.set([]); return; }
+    this.api.getPendingInvites().subscribe(invites => this._pendingInvites.set(invites));
+  }
 
   constructor() {
     const user = this.auth.currentUser();
@@ -49,8 +60,10 @@ export class SavedPlansService {
         transits: t.transits ?? [],
         ...(t.shareId ? { shareId: t.shareId } : {}),
         ...(t.itineraryExportedAt ? { exportedAt: t.itineraryExportedAt } : {}),
+        ...(t.isCollaborator ? { isCollaborator: true, ownerName: t.ownerName, ownerEmail: t.ownerEmail } : {}),
       })));
     });
+    this.loadPendingInvites();
   }
 
   /** Create or update a plan. Returns the final id (server-assigned on create in real mode). */
@@ -134,5 +147,6 @@ export class SavedPlansService {
 
   clear(): void {
     this._plans.set([]);
+    this._pendingInvites.set([]);
   }
 }
