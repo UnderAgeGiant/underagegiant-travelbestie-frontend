@@ -63,6 +63,20 @@ describe('TripService', () => {
     expect(service.selectedAttractionsFor(stop1.stopId)).toHaveLength(1);
     expect(service.selectedAttractionsFor(stop2.stopId)).toHaveLength(0);
   });
+
+  it('setTicketPurchased toggles the flag on the matching entry only', () => {
+    service.addStop(PARIS, '2026-06-01', '2026-06-05');
+    const stopId = service.stops()[0].stopId;
+    service.addAttraction(stopId, 'paris_0', '10:00');
+    service.addAttraction(stopId, 'paris_1', '12:00');
+    const [entryA, entryB] = service.stops()[0].selectedAttractions;
+
+    service.setTicketPurchased(stopId, entryA.entryId, true);
+
+    const [updatedA, updatedB] = service.stops()[0].selectedAttractions;
+    expect(updatedA.ticketPurchased).toBe(true);
+    expect(updatedB.ticketPurchased).toBeUndefined();
+  });
 });
 
 describe('TripService.loadForUserPreservingAnonymous', () => {

@@ -353,15 +353,19 @@ export class MyTripsComponent {
 
     const cityNames: Record<string, string> = {};
     const attractionNames: Record<string, string> = {};
+    const ticketRequiredIds: string[] = [];
     for (const stop of plan.stops) {
       const city = WORLD_CITIES.find(c => c.id === stop.cityId);
       if (!city) continue;
       cityNames[stop.cityId] = city.name;
-      for (const att of getAttractions(city)) attractionNames[att.id] = att.name;
+      for (const att of getAttractions(city)) {
+        attractionNames[att.id] = att.name;
+        if (att.ticketUrl) ticketRequiredIds.push(att.id);
+      }
     }
 
     this.exportingPlanId.set(plan.id);
-    this.api.exportItinerary(plan.id, cityNames, attractionNames).subscribe({
+    this.api.exportItinerary(plan.id, cityNames, attractionNames, ticketRequiredIds).subscribe({
       next: (blob) => {
         const slug = plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         const url = URL.createObjectURL(blob);

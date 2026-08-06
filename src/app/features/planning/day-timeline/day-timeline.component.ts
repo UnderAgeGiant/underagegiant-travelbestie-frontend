@@ -576,14 +576,18 @@ export class DayTimelineComponent {
     if (!planId) return;
     const cityNames: Record<string, string> = {};
     const attractionNames: Record<string, string> = {};
+    const ticketRequiredIds: string[] = [];
     for (const stop of this.trip.stops()) {
       const city = WORLD_CITIES.find(c => c.id === stop.cityId);
       if (!city) continue;
       cityNames[stop.cityId] = city.name;
-      for (const att of getAttractions(city)) attractionNames[att.id] = att.name;
+      for (const att of getAttractions(city)) {
+        attractionNames[att.id] = att.name;
+        if (att.ticketUrl) ticketRequiredIds.push(att.id);
+      }
     }
     this.exporting.set(true);
-    this.api.exportItinerary(planId, cityNames, attractionNames).subscribe({
+    this.api.exportItinerary(planId, cityNames, attractionNames, ticketRequiredIds).subscribe({
       next: blob => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');

@@ -124,6 +124,19 @@ import { ToastService } from '../../../core/ui/toast.service';
       border: 1.5px dashed var(--lav-d);
     }
     .entry-chip-add:hover { background: var(--lav); }
+    .entry-ticket-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      color: var(--t2);
+      cursor: pointer;
+      margin-left: 4px;
+    }
+    .entry-ticket-check input[type="checkbox"] {
+      accent-color: var(--peach-d);
+      cursor: pointer;
+    }
     /* ── Enrichment strip ── */
     .card-enrich {
       padding: 4px 12px 8px;
@@ -242,6 +255,14 @@ import { ToastService } from '../../../core/ui/toast.service';
                     type="button">
               📌 {{ entry.date ? shortDate(entry.date) + ' ' : '' }}{{ entry.startTime }}
             </button>
+            @if (attraction().ticketUrl) {
+              <label class="entry-ticket-check" (click)="$event.stopPropagation()">
+                <input type="checkbox"
+                       [checked]="entry.ticketPurchased ?? false"
+                       (change)="toggleTicketPurchased(entry.entryId, $any($event.target).checked)" />
+                <span i18n="@@attCard.ticketPurchasedLabel">🎟 Entrada comprada</span>
+              </label>
+            }
           }
           <button class="entry-chip entry-chip-add"
                   (click)="$event.stopPropagation(); showPlanModal.set(true)"
@@ -416,5 +437,9 @@ export class AttractionCardComponent {
     if (!editId) return;
     this.trip.removeAttraction(this.stopId(), editId);
     this.editingEntry.set(null);
+  }
+
+  toggleTicketPurchased(entryId: string, purchased: boolean): void {
+    this.trip.setTicketPurchased(this.stopId(), entryId, purchased);
   }
 }

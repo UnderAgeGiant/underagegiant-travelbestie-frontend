@@ -7,11 +7,14 @@ export interface PlannedAttraction {
   endTime:      string | null;
   date?:        string;
   category?:    AttractionCategory;
+  ticketPurchased?: boolean;
 }
 
 export interface Lodging {
   name: string;
   url:  string;
+  address?: string;
+  notes?:   string;
 }
 
 export interface TripStop {
@@ -33,6 +36,8 @@ export interface TransitSegment {
   arrivalTime:     string;  // HH:mm
   notes:           string;
   durationMinutes?: number; // legacy — kept for backward compat with saved data
+  carrier?:        string;
+  locationUrl?:    string;
 }
 
 export interface TransitLeg {

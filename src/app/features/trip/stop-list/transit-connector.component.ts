@@ -4,6 +4,7 @@ import { HomeAddressService } from '../../../core/home-address/home-address.serv
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
 import { TransitMode, TransitSegment, TransitLeg } from '../../../core/models/trip.model';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
+import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 
 export type TransitConnectorType = 'default' | 'departure' | 'arrival';
 
@@ -32,6 +33,7 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
                   <span style="color:var(--t3)">{{ fmt(seg.durationMinutes!) }}</span>
                 }
                 @if (seg.notes) { <span style="color:var(--t3)">· {{ seg.notes }}</span> }
+                @if (seg.carrier) { <span style="color:var(--t3)">· {{ seg.carrier }}</span> }
               </span>
               <button class="transit-seg-del" (click)="removeSeg($index)" type="button">×</button>
             </div>
@@ -112,6 +114,20 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
                  i18n-placeholder="@@transit.notesPlaceholder"
                  placeholder="Nro. de vuelo, notas… (opcional)" />
 
+          <!-- Carrier + Location -->
+          <input class="form-input"
+                 style="font-size:11px;padding:5px 8px;margin-top:6px;width:100%;box-sizing:border-box"
+                 [value]="tCarrier()"
+                 (input)="tCarrier.set($any($event.target).value)"
+                 i18n-placeholder="@@transit.carrierPlaceholder"
+                 placeholder="Empresa (aerolínea, tren…) (opcional)" />
+          <input class="form-input"
+                 style="font-size:11px;padding:5px 8px;margin-top:6px;width:100%;box-sizing:border-box"
+                 [value]="tLocation()"
+                 (input)="tLocation.set($any($event.target).value)"
+                 i18n-placeholder="@@transit.locationPlaceholder"
+                 placeholder="Estación / aeropuerto (opcional)" />
+
           <!-- Actions -->
           <div style="display:flex;gap:6px;margin-top:8px">
             <button class="btn-pill btn-primary"
@@ -160,6 +176,7 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
                   <span>{{ fmt(seg.durationMinutes!) }}</span>
                 }
                 @if (seg.notes) { <span class="transit-badge-notes">· {{ seg.notes }}</span> }
+                @if (seg.carrier) { <span class="transit-badge-notes">· {{ seg.carrier }}</span> }
               </div>
               @if (!last) { <div class="transit-seg-arrow">↓</div> }
             }
@@ -223,6 +240,8 @@ export class TransitConnectorComponent {
   tArrDate  = signal('');
   tArrTime  = signal('');
   tNotes    = signal('');
+  tCarrier  = signal('');
+  tLocation = signal('');
 
   readonly arrivalBeforeDep = computed(() => {
     const dd = this.tDepDate(), dt = this.tDepTime();
@@ -268,6 +287,8 @@ export class TransitConnectorComponent {
     this.segs.set(existingSegs);
     this.tMode.set('flight');
     this.tNotes.set('');
+    this.tCarrier.set('');
+    this.tLocation.set('');
     const autoDate = this.departureDate() ?? '';
     const lastSeg  = existingSegs[existingSegs.length - 1];
     // For new transit: seed departure from auto-derived date
@@ -293,6 +314,8 @@ export class TransitConnectorComponent {
       arrivalDate:   this.tArrDate(),
       arrivalTime:   this.tArrTime(),
       notes:         this.tNotes().trim(),
+      ...(this.tCarrier().trim()  ? { carrier: this.tCarrier().trim() } : {}),
+      ...(this.tLocation().trim() ? { locationUrl: attractionMapsUrl(this.tLocation().trim(), this.toId()) } : {}),
     }]);
     const nextDep = { date: this.tArrDate(), time: this.tArrTime() };
     this.tMode.set('flight');
@@ -301,6 +324,8 @@ export class TransitConnectorComponent {
     this.tArrDate.set(nextDep.date);
     this.tArrTime.set('');
     this.tNotes.set('');
+    this.tCarrier.set('');
+    this.tLocation.set('');
   }
 
   removeSeg(idx: number): void {
@@ -309,7 +334,12 @@ export class TransitConnectorComponent {
 
   save(): void {
     const pending: TransitSegment[] = this.canAddSeg()
-      ? [{ mode: this.tMode(), departureDate: this.tDepDate(), departureTime: this.tDepTime(), arrivalDate: this.tArrDate(), arrivalTime: this.tArrTime(), notes: this.tNotes().trim() }]
+      ? [{
+          mode: this.tMode(), departureDate: this.tDepDate(), departureTime: this.tDepTime(),
+          arrivalDate: this.tArrDate(), arrivalTime: this.tArrTime(), notes: this.tNotes().trim(),
+          ...(this.tCarrier().trim()  ? { carrier: this.tCarrier().trim() } : {}),
+          ...(this.tLocation().trim() ? { locationUrl: attractionMapsUrl(this.tLocation().trim(), this.toId()) } : {}),
+        }]
       : [];
     const all = [...this.segs(), ...pending];
     if (!all.length) return;
