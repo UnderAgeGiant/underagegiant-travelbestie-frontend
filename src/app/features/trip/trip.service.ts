@@ -62,6 +62,7 @@ export class TripService {
   private _transits          = signal<TransitLeg[]>([]);
   private _activeId          = signal<string | null>(null);  // tracks stopId
   private _loadedPlanId      = signal<string | null>(null);
+  private _loadedPlanOwner   = signal<{ name: string; email: string } | null>(null);
   private _selectedTransitId = signal<string | null>(null);
   private _saving            = false;
 
@@ -69,6 +70,7 @@ export class TripService {
   readonly transits          = this._transits.asReadonly();
   readonly activeId          = this._activeId.asReadonly();
   readonly loadedPlanId      = this._loadedPlanId.asReadonly();
+  readonly loadedPlanOwner   = this._loadedPlanOwner.asReadonly();
   readonly selectedTransitId = this._selectedTransitId.asReadonly();
   readonly existingCityIds   = computed(() => this._stops().map(s => s.cityId));
   readonly activeStop        = computed(() => this._stops().find(s => s.stopId === this._activeId()) ?? null);
@@ -133,6 +135,7 @@ export class TripService {
       this._activeId.set(null);
     }
     this._loadedPlanId.set(activeId ?? null);
+    this._loadedPlanOwner.set(null);
     this._saving = false;
   }
 
@@ -163,15 +166,17 @@ export class TripService {
     this._transits.set([]);
     this._activeId.set(null);
     this._loadedPlanId.set(null);
+    this._loadedPlanOwner.set(null);
     this._saving = false;
   }
 
-  restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = []): void {
+  restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = [], owner: { name: string; email: string } | null = null): void {
     this._saving = true;
     this._stops.set(stops.map(migrateStop));
     this._transits.set(transits.map(migrateTransitLeg));
     this._activeId.set(stops[0]?.stopId ?? null);
     this._loadedPlanId.set(planId);
+    this._loadedPlanOwner.set(owner);
     this._saving = false;
   }
 
