@@ -74,6 +74,7 @@ export class AutoSaveService {
   start(): void {
     if (this.started) return;
     this.started = true;
+    if (environment.autoSaveIntervalMs <= 0) return; // 0 (or negative) disables auto-save/reminder ticks entirely
     setInterval(() => this.tick(), environment.autoSaveIntervalMs);
   }
 
