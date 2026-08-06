@@ -1534,6 +1534,76 @@
         <target>Got it</target>
       </trans-unit>
 
+      <!-- ── co-editing: my-trips.component collaborator UI ── -->
+      <trans-unit id="myTrips.tabCollaborations" datatype="html">
+        <source>Colaboraciones</source>
+        <target>Collaborations</target>
+      </trans-unit>
+      <trans-unit id="myTrips.tabInvites" datatype="html">
+        <source>Invitaciones pendientes (<x id="INTERPOLATION" equiv-text="{{ savedPlans.pendingInvites().length }}"/>)</source>
+        <target>Pending invites (<x id="INTERPOLATION" equiv-text="{{ savedPlans.pendingInvites().length }}"/>)</target>
+      </trans-unit>
+      <trans-unit id="myTrips.collaboratorsTitle" datatype="html">
+        <source>🤝 Colaboradores</source>
+        <target>🤝 Collaborators</target>
+      </trans-unit>
+      <trans-unit id="myTrips.invitePlaceholder" datatype="html">
+        <source>Correo del colaborador</source>
+        <target>Collaborator's email</target>
+      </trans-unit>
+      <trans-unit id="myTrips.collabEmpty" datatype="html">
+        <source>Todavía no colaboras en ningún viaje.</source>
+        <target>You don't collaborate on any trip yet.</target>
+      </trans-unit>
+      <trans-unit id="myTrips.collabWith" datatype="html">
+        <source>Colaborando con <x id="INTERPOLATION" equiv-text="{{ plan.ownerName }}"/></source>
+        <target>Collaborating with <x id="INTERPOLATION" equiv-text="{{ plan.ownerName }}"/></target>
+      </trans-unit>
+      <trans-unit id="myTrips.acceptInviteBtn" datatype="html">
+        <source>Aceptar</source>
+        <target>Accept</target>
+      </trans-unit>
+      <trans-unit id="myTrips.inviteSentToast" datatype="html">
+        <source>Invitación enviada</source>
+        <target>Invite sent</target>
+      </trans-unit>
+      <trans-unit id="myTrips.inviteErrorToast" datatype="html">
+        <source>No se pudo enviar la invitación</source>
+        <target>Couldn't send the invite</target>
+      </trans-unit>
+      <trans-unit id="myTrips.inviteAcceptedToast" datatype="html">
+        <source>¡Ahora colaboras en este viaje!</source>
+        <target>You're now collaborating on this trip!</target>
+      </trans-unit>
+
+      <!-- ── co-editing: stop-list.component owner badge + auto-save toggle ── -->
+      <trans-unit id="stopList.editingOwnerPlan" datatype="html">
+        <source>Editando el plan de <x id="INTERPOLATION" equiv-text="{{ owner.name }}"/> (<x id="INTERPOLATION_1" equiv-text="{{ owner.email }}"/>)</source>
+        <target>Editing <x id="INTERPOLATION" equiv-text="{{ owner.name }}"/>'s plan (<x id="INTERPOLATION_1" equiv-text="{{ owner.email }}"/>)</target>
+      </trans-unit>
+      <trans-unit id="stopList.autoSaveLabel" datatype="html">
+        <source>Auto-guardado</source>
+        <target>Auto-save</target>
+      </trans-unit>
+      <trans-unit id="stopList.autoSaveToggleOnTitle" datatype="html">
+        <source>Guardado automático activado — clic para desactivar</source>
+        <target>Auto-save is on — click to turn off</target>
+      </trans-unit>
+      <trans-unit id="stopList.autoSaveToggleOffTitle" datatype="html">
+        <source>Guardado automático desactivado — clic para activar</source>
+        <target>Auto-save is off — click to turn on</target>
+      </trans-unit>
+
+      <!-- ── autosave-reminder-banner.component ── -->
+      <trans-unit id="autosave.reminderMessage" datatype="html">
+        <source>Recuerda grabar tus avances en el plan y considera que este es un plan colaborativo por lo cual asegurate de estar sincronizados con tus amigos.</source>
+        <target>Remember to save your progress on the plan — keep in mind this is a collaborative plan, so make sure you're in sync with your friends.</target>
+      </trans-unit>
+      <trans-unit id="autosave.reminderDismiss" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+
       <!-- ── attraction image lightbox + hero carousel ── -->
       <trans-unit id="imgLightbox.close" datatype="html">
         <source>Cerrar imagen</source>
