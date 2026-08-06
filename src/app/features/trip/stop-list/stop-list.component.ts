@@ -19,6 +19,7 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
+import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 
 @Component({
     selector: 'app-stop-list',
@@ -43,6 +44,23 @@ import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
       opacity: 0; transition: opacity .15s; flex-shrink: 0; cursor: pointer;
     }
     .att-plan-row:hover .att-plan-del { opacity: 1; }
+    .autosave-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-left: 8px; padding: 2px; border: none; background: transparent;
+      cursor: pointer; vertical-align: middle;
+    }
+    .autosave-toggle-track {
+      width: 30px; height: 16px; border-radius: 999px; flex-shrink: 0;
+      background: oklch(55% 0.18 25); /* red = off */
+      position: relative; transition: background .15s;
+    }
+    .autosave-toggle.on .autosave-toggle-track { background: oklch(62% 0.15 145); /* green = on */ }
+    .autosave-toggle-thumb {
+      position: absolute; top: 2px; left: 2px; width: 12px; height: 12px;
+      border-radius: 50%; background: #fff; transition: left .15s;
+    }
+    .autosave-toggle.on .autosave-toggle-thumb { left: 16px; }
+    .autosave-toggle-label { font-size: 10px; color: var(--t3); white-space: nowrap; }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -54,7 +72,23 @@ import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
           } @else {
             <ng-container i18n="@@stopList.title">Mi viaje ✈️</ng-container>
           }
+          @if (trip.loadedPlanId()) {
+            <button type="button"
+                    class="autosave-toggle"
+                    [class.on]="autoSave.enabled()"
+                    (click)="autoSave.toggle()"
+                    [attr.aria-pressed]="autoSave.enabled()"
+                    [attr.title]="autoSave.enabled() ? offTitle : onTitle">
+              <span class="autosave-toggle-track"><span class="autosave-toggle-thumb"></span></span>
+              <span class="autosave-toggle-label" i18n="@@stopList.autoSaveLabel">Auto-guardado</span>
+            </button>
+          }
         </div>
+        @if (trip.loadedPlanOwner(); as owner) {
+          <div style="font-size:11px;color:var(--t2);background:var(--lav);border-radius:8px;padding:4px 8px;margin:4px 0;display:inline-block">
+            👤 <ng-container i18n="@@stopList.editingOwnerPlan">Editando el plan de {{ owner.name }} ({{ owner.email }})</ng-container>
+          </div>
+        }
         <div class="panel-head-sub">
           @if (trip.stops().length === 0) {
             <ng-container i18n="@@stopList.noStops">Agrega tu primer destino</ng-container>
@@ -309,7 +343,15 @@ export class StopListComponent {
   protected readonly device   = inject(DeviceService);
   private readonly destModal  = inject(DestinationModalService);
   protected readonly citySuggest = inject(CitySuggestService);
+  protected readonly autoSave = inject(AutoSaveService);
   addDestination = output<void>();
+
+  protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
+  protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
+
+  constructor() {
+    this.autoSave.start();
+  }
 
   protected readonly showScrollTop = signal(false);
 
@@ -413,7 +455,7 @@ export class StopListComponent {
       if (!email) return;
       this.bookSaving.set(true);
       this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits()).subscribe({
-        next: () => { this.bookSaving.set(false); this.flashSaved(); },
+        next: () => { this.bookSaving.set(false); this.autoSave.commitSnapshot(this.trip.loadedPlanId()!); this.flashSaved(); },
         error: () => { this.bookSaving.set(false); },
       });
     } else {
@@ -435,6 +477,7 @@ export class StopListComponent {
       next: newId => {
         this.bookSaving.set(false);
         this.trip.markAsLoadedPlan(newId);
+        this.autoSave.commitSnapshot(newId);
         this.bookOpen.set(false);
         this.bookName.set('');
         this.flashSaved();

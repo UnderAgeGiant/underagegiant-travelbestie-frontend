@@ -18,6 +18,8 @@ import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.comp
 import { MyTripsComponent } from '../my-trips/my-trips.component';
 import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
 import { ToastService } from '../../core/ui/toast.service';
+import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
+import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 
 @Component({
     selector: 'tb-shell',
@@ -37,6 +39,7 @@ import { ToastService } from '../../core/ui/toast.service';
         DayTimelineComponent,
         MyTripsComponent,
         CompanionMascotComponent,
+        AutosaveReminderBannerComponent,
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -105,6 +108,10 @@ import { ToastService } from '../../core/ui/toast.service';
       <app-toast [message]="toastService.message()!" (done)="toastService.clear()" />
     }
 
+    @if (autoSave.reminderVisible()) {
+      <app-autosave-reminder-banner (dismiss)="autoSave.dismissReminder()" />
+    }
+
     @if (showProfile()) {
       <app-profile (close)="showProfile.set(false)"
                    (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)" />
@@ -126,6 +133,7 @@ import { ToastService } from '../../core/ui/toast.service';
 export class ShellComponent {
   readonly trip  = inject(TripService);
   readonly toastService = inject(ToastService);
+  readonly autoSave = inject(AutoSaveService);
   private readonly facade = inject(NavFacadeService);
   private readonly locale = inject(LocaleService);
   showAddModal   = signal(false);
