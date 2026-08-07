@@ -157,5 +157,12 @@ export class ShellComponent {
     if (restore === 'profile') this.showProfile.set(true);
     else if (restore === 'ai') this.showAiPlanning.set(true);
     else if (restore === 'mytrips') this.showMyTrips.set(true);
+
+    // Opens My Trips when a notification (e.g. collaborator invite/accept)
+    // requests a specific tab. MyTripsComponent itself consumes the tab and
+    // clears the facade signal once it applies it.
+    effect(() => {
+      if (this.facade.pendingMyTripsTab()) this.showMyTrips.set(true);
+    });
   }
 }

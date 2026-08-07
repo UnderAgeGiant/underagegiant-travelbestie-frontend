@@ -10,6 +10,7 @@ import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { ApiService } from '../../core/api/api.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
+import { NavFacadeService } from '../nav/nav-facade.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
@@ -353,12 +354,24 @@ export class MyTripsComponent {
   private readonly api         = inject(ApiService);
   private readonly router      = inject(Router);
   protected readonly autoSave  = inject(AutoSaveService);
+  private readonly facade      = inject(NavFacadeService);
 
   close          = output<void>();
   openAiPlanning = output<void>();
 
   // ── Favorites tab ──
   favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites'>('trips');
+
+  constructor() {
+    // One-shot: a notification click (e.g. collaborator invite/accept) can
+    // request opening straight onto a specific tab. Consume + clear so a
+    // later plain "Mis viajes" open doesn't inherit a stale tab.
+    const pendingTab = this.facade.pendingMyTripsTab();
+    if (pendingTab) {
+      this.favTab.set(pendingTab);
+      this.facade.pendingMyTripsTab.set(null);
+    }
+  }
 
   openFavTab(): void {
     this.favTab.set('favorites');
