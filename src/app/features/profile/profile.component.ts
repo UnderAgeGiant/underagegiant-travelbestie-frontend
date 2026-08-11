@@ -6,13 +6,21 @@ import { VisitedPlacesService } from '../../core/visited-places/visited-places.s
 import { WORLD_CITIES } from '../../data/cities.data';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { CompanionBoostCardComponent } from './companion-boost-card.component';
+import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
+import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 
 @Component({
     selector: 'app-profile',
-    imports: [FlagIconComponent, CompanionBoostCardComponent],
+    imports: [FlagIconComponent, CompanionBoostCardComponent, AutosaveReminderBannerComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
+
+      <!-- The main app view's own banner (ShellComponent) is hidden while this page is open —
+           .profile-page is a full-screen overlay, so it needs its own copy to stay visible. -->
+      @if (autoSave.reminderVisible()) {
+        <app-autosave-reminder-banner (dismiss)="autoSave.dismissReminder()" />
+      }
 
       <!-- Header bar -->
       <div class="prof-bar">
@@ -450,6 +458,7 @@ export class ProfileComponent {
   readonly trip          = inject(TripService);
   readonly homeAddress   = inject(HomeAddressService);
   readonly visitedPlaces = inject(VisitedPlacesService);
+  readonly autoSave      = inject(AutoSaveService);
 
   close          = output<void>();
   openAiPlanning = output<void>();

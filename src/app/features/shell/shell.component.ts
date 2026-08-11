@@ -3,6 +3,8 @@ import { TripService } from '../trip/trip.service';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { LocaleService } from '../../core/i18n/locale.service';
+import { AuthService } from '../../core/auth/auth.service';
+import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { StopListComponent } from '../trip/stop-list/stop-list.component';
 import { DestinationComponent } from '../destination/destination.component';
@@ -108,7 +110,9 @@ import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-
       <app-toast [message]="toastService.message()!" (done)="toastService.clear()" />
     }
 
-    @if (autoSave.reminderVisible()) {
+    @if (autoSave.reminderVisible() && !showProfile()) {
+      <!-- ProfileComponent (a full-screen overlay) renders its own copy while it's open,
+           since this one — a fixed sibling — would otherwise render twice at once. -->
       <app-autosave-reminder-banner (dismiss)="autoSave.dismissReminder()" />
     }
 
@@ -136,12 +140,32 @@ export class ShellComponent {
   readonly autoSave = inject(AutoSaveService);
   private readonly facade = inject(NavFacadeService);
   private readonly locale = inject(LocaleService);
+  private readonly auth = inject(AuthService);
+  private readonly savedPlans = inject(SavedPlansService);
   showAddModal   = signal(false);
   showProfile    = signal(false);
   showAiPlanning = signal(false);
   showMyTrips    = signal(false);
 
   constructor() {
+    // SavedPlansService's own constructor only checks auth.currentUser() once, synchronously —
+    // on a page reload that user is restored asynchronously by AuthService's silent refresh
+    // (see auth.service.ts), which typically resolves AFTER that one-shot check already ran.
+    // Without this, a returning user's saved plans (including accepted collaborations) would
+    // stay empty until an explicit login re-triggered a fetch. Scoped to ShellComponent (the
+    // real app's root view) rather than the service itself, so it fires once per real session
+    // instead of on every unrelated unit test that merely injects AuthService + SavedPlansService.
+    let lastLoadedEmail: string | null = null;
+    effect(() => {
+      const email = this.auth.currentUser()?.email ?? null;
+      if (email && email !== lastLoadedEmail) {
+        lastLoadedEmail = email;
+        this.savedPlans.loadForUser(email);
+      } else if (!email) {
+        lastLoadedEmail = null;
+      }
+    });
+
     // Keep the facade informed of the open panel so a locale switch can restore it.
     effect(() => {
       this.facade.currentShellView.set(

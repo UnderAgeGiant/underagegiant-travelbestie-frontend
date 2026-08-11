@@ -46,6 +46,16 @@ export class AutoSaveService {
     this._reminderVisible.set(false);
   }
 
+  /** Shown immediately when entering a collaborative plan with auto-save off, instead of
+   *  waiting for the next tick to find a divergence — the user should know up front that
+   *  they're responsible for saving their own changes. */
+  showReminderNow(): void {
+    this._reminderVisible.set(true);
+  }
+
+  /** mm:ss remaining until the next auto-save tick, or null when there is no active plan. */
+  readonly secondsUntilNextTick = signal<number | null>(null);
+
   /** Call after any successful save (manual or automatic) so the next tick's diff is against fresh data. */
   commitSnapshot(planId: string): void {
     localStorage.setItem(this.snapshotKey(planId), this.serializeCurrent());
@@ -69,16 +79,31 @@ export class AutoSaveService {
   }
 
   private started = false;
+  private nextTickAt: number | null = null;
 
   /** Idempotent — safe to call from every mount of StopListComponent; the timer itself is a singleton. */
   start(): void {
     if (this.started) return;
     this.started = true;
     if (environment.autoSaveIntervalMs <= 0) return; // 0 (or negative) disables auto-save/reminder ticks entirely
+    this.nextTickAt = Date.now() + environment.autoSaveIntervalMs;
     setInterval(() => this.tick(), environment.autoSaveIntervalMs);
+    setInterval(() => this.updateCountdown(), 1000);
+    this.updateCountdown();
+  }
+
+  private updateCountdown(): void {
+    if (!this.trip.loadedPlanId() || this.nextTickAt === null) {
+      this.secondsUntilNextTick.set(null);
+      return;
+    }
+    this.secondsUntilNextTick.set(Math.max(0, Math.round((this.nextTickAt - Date.now()) / 1000)));
   }
 
   private tick(): void {
+    this.nextTickAt = Date.now() + environment.autoSaveIntervalMs;
+    this.updateCountdown();
+
     const planId = this.trip.loadedPlanId();
     if (!planId) return;                                // condition 1
     if (!this.hasChangedSinceLastSave(planId)) return;   // condition 3 — nothing to save either way, so no save AND no nag

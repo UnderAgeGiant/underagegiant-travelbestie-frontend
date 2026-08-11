@@ -140,15 +140,27 @@ function transitLabel(mode: TransitMode): string {
 
       <!-- Day tabs (hidden in transport mode) -->
       @if (!transportMode()) {
-        <div class="tl-days" #tlDaysEl>
-          @for (day of days(); track day.key) {
-            <button [ngClass]="['tl-day', day.key === selectedDay() ? 'active' : '']"
-                    (click)="selectDay(day.key)">
-              <div class="tl-day-city"><app-flag-icon [flag]="day.cityFlag" [size]="12" /></div>
-              <div class="tl-day-dow">{{ day.dow }}</div>
-              <div class="tl-day-num">{{ day.num }}</div>
-              <div [ngClass]="['tl-day-dot', day.hasEvents ? '' : 'empty']"></div>
-            </button>
+        <div class="tl-days-row">
+          @if (days().length > 6) {
+            <button type="button" class="tl-days-arrow tl-days-arrow-left"
+                    (click)="scrollDays(-1)"
+                    i18n-aria-label="@@timeline.scrollDaysLeft" aria-label="Ver días anteriores">‹</button>
+          }
+          <div class="tl-days" #tlDaysEl>
+            @for (day of days(); track day.key) {
+              <button [ngClass]="['tl-day', day.key === selectedDay() ? 'active' : '']"
+                      (click)="selectDay(day.key)">
+                <div class="tl-day-city"><app-flag-icon [flag]="day.cityFlag" [size]="12" /></div>
+                <div class="tl-day-dow">{{ day.dow }}</div>
+                <div class="tl-day-num">{{ day.num }}</div>
+                <div [ngClass]="['tl-day-dot', day.hasEvents ? '' : 'empty']"></div>
+              </button>
+            }
+          </div>
+          @if (days().length > 6) {
+            <button type="button" class="tl-days-arrow tl-days-arrow-right"
+                    (click)="scrollDays(1)"
+                    i18n-aria-label="@@timeline.scrollDaysRight" aria-label="Ver días siguientes">›</button>
           }
         </div>
       }
@@ -374,6 +386,23 @@ export class DayTimelineComponent {
 
   protected selectDay(key: string): void {
     this.selectedDay.set(key);
+    // Trip-wide mode only (no explicit `stop` input — the plan-editing page's main timeline,
+    // not the inline per-stop or shared-trip read-only instances): picking a day that belongs
+    // to a different city also switches the left panel's active stop to match, so the two
+    // panels never show different cities at once.
+    if (this.stop()) return;
+    const tab = this.days().find(t => t.key === key);
+    if (!tab) return;
+    const targetStop = this.trip.stops().find(s => s.cityId === tab.cityId);
+    if (targetStop && targetStop.stopId !== this.trip.activeId()) {
+      this.trip.setActive(targetStop.stopId);
+    }
+  }
+
+  protected scrollDays(direction: -1 | 1): void {
+    const el = this.tlDaysEl?.nativeElement;
+    if (!el) return;
+    el.scrollBy({ left: direction * 160, behavior: 'smooth' });
   }
 
   // ── Header content ────────────────────────────────────────────────────────

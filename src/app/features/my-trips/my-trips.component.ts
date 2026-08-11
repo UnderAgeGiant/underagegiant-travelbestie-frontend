@@ -50,7 +50,7 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
                       i18n="@@profile.tabFavorites">Mis favoritos</button>
               <button class="profile-tab" [class.active]="favTab() === 'collaborations'"
                       (click)="favTab.set('collaborations')"
-                      i18n="@@myTrips.tabCollaborations">Colaboraciones</button>
+                      i18n="@@myTrips.tabCollaborations">Ver planes compartidos</button>
               @if (savedPlans.pendingInvites().length > 0) {
                 <button class="profile-tab" [class.active]="favTab() === 'invites'"
                         (click)="favTab.set('invites')"
@@ -554,6 +554,7 @@ export class MyTripsComponent {
         this.acceptingTripId.set(null);
         this.savedPlans.loadForUser(this.auth.currentUser()!.email);
         this.toast.set($localize`:@@myTrips.inviteAcceptedToast:¡Ahora colaboras en este viaje!`);
+        this.favTab.set('collaborations');
       },
       error: () => { this.acceptingTripId.set(null); },
     });
@@ -562,7 +563,11 @@ export class MyTripsComponent {
   loadAndModify(plan: SavedPlan): void {
     const owner = plan.isCollaborator ? { name: plan.ownerName!, email: plan.ownerEmail! } : null;
     this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? [], owner);
+    if (plan.stops.length > 0) this.trip.setActive(plan.stops[0].stopId);
     this.autoSave.commitSnapshot(plan.id);
+    // Collaborative plans default to auto-save off — tell the user up front, right as they
+    // enter, instead of waiting for the first tick to discover an unsaved change.
+    if (owner && !this.autoSave.enabled()) this.autoSave.showReminderNow();
     this.close.emit();
   }
 

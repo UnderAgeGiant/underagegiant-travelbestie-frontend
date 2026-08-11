@@ -146,7 +146,7 @@ export class CompanionSuggestionService {
     const cityId = this._cityId();
     if (!suggestion || !stopId || !cityId) { this.dismiss(); return; }
     const attraction = findCuratedAttraction(cityId, suggestion.attractionId);
-    this.trip.addAttraction(stopId, suggestion.attractionId, suggestion.startTime, suggestion.date, attraction?.category);
+    this.trip.addAttraction(stopId, suggestion.attractionId, suggestion.startTime, suggestion.date, attraction?.category, attraction?.estimatedMinutes);
     this.dismiss();
   }
 

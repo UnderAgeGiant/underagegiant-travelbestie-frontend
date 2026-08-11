@@ -434,9 +434,9 @@ export class AttractionDetailModalComponent {
     const date = entry.date || undefined;
     const wasAlreadyPlanned = this.inPlan();
     if (wasAlreadyPlanned) {
-      this.trip.updateStartTime(this.stopId(), this.plannedEntry()!.entryId, entry.startTime, date);
+      this.trip.updateStartTime(this.stopId(), this.plannedEntry()!.entryId, entry.startTime, date, this.attraction().estimatedMinutes);
     } else {
-      this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, date);
+      this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, date, undefined, this.attraction().estimatedMinutes);
     }
     this.showPlanModal.set(false);
     if (!wasAlreadyPlanned) {

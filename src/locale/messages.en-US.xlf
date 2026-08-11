@@ -1536,8 +1536,8 @@
 
       <!-- ── co-editing: my-trips.component collaborator UI ── -->
       <trans-unit id="myTrips.tabCollaborations" datatype="html">
-        <source>Colaboraciones</source>
-        <target>Collaborations</target>
+        <source>Ver planes compartidos</source>
+        <target>View shared plans</target>
       </trans-unit>
       <trans-unit id="myTrips.tabInvites" datatype="html">
         <source>Invitaciones pendientes (<x id="INTERPOLATION" equiv-text="{{ savedPlans.pendingInvites().length }}"/>)</source>
@@ -1592,6 +1592,10 @@
       <trans-unit id="stopList.autoSaveToggleOffTitle" datatype="html">
         <source>Guardado automático desactivado — clic para activar</source>
         <target>Auto-save is off — click to turn on</target>
+      </trans-unit>
+      <trans-unit id="stopList.autoSaveCountdownTitle" datatype="html">
+        <source>Tiempo restante hasta el próximo intento de guardado automático</source>
+        <target>Time remaining until the next auto-save attempt</target>
       </trans-unit>
 
       <!-- ── autosave-reminder-banner.component ── -->
@@ -1656,6 +1660,14 @@
       <trans-unit id="timeline.flapAriaCollapse" datatype="html">
         <source>Colapsar panel de horario</source>
         <target>Collapse schedule panel</target>
+      </trans-unit>
+      <trans-unit id="timeline.scrollDaysLeft" datatype="html">
+        <source>Ver días anteriores</source>
+        <target>See previous days</target>
+      </trans-unit>
+      <trans-unit id="timeline.scrollDaysRight" datatype="html">
+        <source>Ver días siguientes</source>
+        <target>See next days</target>
       </trans-unit>
       <trans-unit id="timeline.eyebrowTransport" datatype="html">
         <source>Transporte</source>

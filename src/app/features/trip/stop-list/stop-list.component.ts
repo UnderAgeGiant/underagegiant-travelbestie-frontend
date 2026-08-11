@@ -61,6 +61,10 @@ import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
     }
     .autosave-toggle.on .autosave-toggle-thumb { left: 16px; }
     .autosave-toggle-label { font-size: 10px; color: var(--t3); white-space: nowrap; }
+    .autosave-countdown {
+      margin-left: 6px; font-size: 10px; color: var(--t3);
+      font-variant-numeric: tabular-nums; white-space: nowrap; vertical-align: middle;
+    }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -82,6 +86,9 @@ import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
               <span class="autosave-toggle-track"><span class="autosave-toggle-thumb"></span></span>
               <span class="autosave-toggle-label" i18n="@@stopList.autoSaveLabel">Auto-guardado</span>
             </button>
+            @if (autoSave.secondsUntilNextTick() !== null) {
+              <span class="autosave-countdown" [attr.title]="countdownTitle">⏱ {{ formatCountdown(autoSave.secondsUntilNextTick()!) }}</span>
+            }
           }
         </div>
         @if (trip.loadedPlanOwner(); as owner) {
@@ -239,7 +246,7 @@ import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
                             <div class="att-time-inputs">
                               <input type="time" class="att-time-input"
                                      [value]="planned.startTime ?? ''"
-                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event)"
+                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event, att.estimatedMinutes)"
                                      i18n-placeholder="@@timeline.startTimePlaceholder"
                                      placeholder="Inicio" />
                               <span class="att-time-sep">–</span>
@@ -348,6 +355,13 @@ export class StopListComponent {
 
   protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
   protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
+  protected readonly countdownTitle = $localize`:@@stopList.autoSaveCountdownTitle:Tiempo restante hasta el próximo intento de guardado automático`;
+
+  protected formatCountdown(totalSeconds: number): string {
+    const m = Math.floor(totalSeconds / 60);
+    const s = totalSeconds % 60;
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  }
 
   constructor() {
     this.autoSave.start();
@@ -532,9 +546,9 @@ export class StopListComponent {
       dateMs(a) - dateMs(b) || (a.startTime ?? '').localeCompare(b.startTime ?? ''));
   }
 
-  onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', event: Event): void {
+  onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', event: Event, estimatedMinutes?: number): void {
     const value = (event.target as HTMLInputElement).value || null;
-    this.trip.patchAttractionTime(stopId, entryId, field, value);
+    this.trip.patchAttractionTime(stopId, entryId, field, value, estimatedMinutes);
   }
 
   hasTimeCollision(stop: import('../../../core/models/trip.model').TripStop, targetEntryId: string): boolean {

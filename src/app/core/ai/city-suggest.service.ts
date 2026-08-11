@@ -83,7 +83,7 @@ export class CitySuggestService {
     for (const s of this._suggestions()) {
       if (!selectedAttractionIds.includes(s.attractionId)) continue;
       const attraction = findCuratedAttraction(cityId, s.attractionId);
-      this.trip.addAttraction(stopId, s.attractionId, s.startTime, s.date, attraction?.category);
+      this.trip.addAttraction(stopId, s.attractionId, s.startTime, s.date, attraction?.category, attraction?.estimatedMinutes);
     }
     this.close();
   }

@@ -420,7 +420,7 @@ export class AttractionCardComponent {
   }
 
   onPlanConfirmed(entry: PlanEntry): void {
-    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined, this.attraction().category);
+    this.trip.addAttraction(this.stopId(), this.attraction().id, entry.startTime, entry.date || undefined, this.attraction().category, this.attraction().estimatedMinutes);
     this.showPlanModal.set(false);
     this.toast.show($localize`:@@attCard.addedToast:¡Ya se agregó a tu itinerario esta atracción!`);
     void this.companionSuggest.trigger(this.stopId(), this.attraction().id);
