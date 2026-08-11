@@ -1498,8 +1498,8 @@
         <target>🗺 My trips</target>
       </trans-unit>
       <trans-unit id="nav.mySharedTrips" datatype="html">
-        <source>Mis viajes compartidos</source>
-        <target>My shared trips</target>
+        <source>Mis viajes publicados</source>
+        <target>My published trips</target>
       </trans-unit>
       <trans-unit id="share.shareBtn" datatype="html">
         <source>📤 Compartir</source>
@@ -1536,8 +1536,8 @@
 
       <!-- ── co-editing: my-trips.component collaborator UI ── -->
       <trans-unit id="myTrips.tabCollaborations" datatype="html">
-        <source>Ver planes compartidos</source>
-        <target>View shared plans</target>
+        <source>Colaborando en estos planes</source>
+        <target>Collaborating on these plans</target>
       </trans-unit>
       <trans-unit id="myTrips.tabInvites" datatype="html">
         <source>Invitaciones pendientes (<x id="INTERPOLATION" equiv-text="{{ savedPlans.pendingInvites().length }}"/>)</source>

@@ -14,17 +14,26 @@ import { NavFacadeService } from '../nav/nav-facade.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
+import { ProfileComponent } from '../profile/profile.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
+import { NavShellComponent } from '../nav/nav-shell.component';
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent, RouterLink],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink, ProfileComponent, NavShellComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
+
+      <app-nav (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
+
+      @if (showProfile()) {
+        <app-profile (close)="showProfile.set(false)"
+                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()" />
+      }
 
       <!-- Header bar -->
       <div class="prof-bar">
@@ -50,7 +59,7 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
                       i18n="@@profile.tabFavorites">Mis favoritos</button>
               <button class="profile-tab" [class.active]="favTab() === 'collaborations'"
                       (click)="favTab.set('collaborations')"
-                      i18n="@@myTrips.tabCollaborations">Ver planes compartidos</button>
+                      i18n="@@myTrips.tabCollaborations">Colaborando en estos planes</button>
               @if (savedPlans.pendingInvites().length > 0) {
                 <button class="profile-tab" [class.active]="favTab() === 'invites'"
                         (click)="favTab.set('invites')"
@@ -358,6 +367,8 @@ export class MyTripsComponent {
 
   close          = output<void>();
   openAiPlanning = output<void>();
+
+  showProfile = signal(false);
 
   // ── Favorites tab ──
   favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites'>('trips');

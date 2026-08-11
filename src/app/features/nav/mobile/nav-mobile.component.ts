@@ -142,7 +142,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
         <!-- Shared trips -->
         @if (facade.mySharedTrips().length > 0) {
           <button class="up-plans-btn" (click)="facade.toggleMyTrips()">
-            <span>🔗</span><span i18n="@@nav.mySharedTrips">Mis viajes compartidos</span>
+            <span>🔗</span><span i18n="@@nav.mySharedTrips">Mis viajes publicados</span>
             <span class="up-plans-badge">{{ facade.mySharedTrips().length }}</span>
             <span style="margin-left:auto">{{ facade.myTripsOpen() ? '▴' : '▾' }}</span>
           </button>

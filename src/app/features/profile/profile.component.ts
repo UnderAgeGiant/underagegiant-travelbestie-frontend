@@ -8,13 +8,16 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { CompanionBoostCardComponent } from './companion-boost-card.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
+import { NavShellComponent } from '../nav/nav-shell.component';
 
 @Component({
     selector: 'app-profile',
-    imports: [FlagIconComponent, CompanionBoostCardComponent, AutosaveReminderBannerComponent],
+    imports: [FlagIconComponent, CompanionBoostCardComponent, AutosaveReminderBannerComponent, NavShellComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
+
+      <app-nav (logoClick)="close.emit()" />
 
       <!-- The main app view's own banner (ShellComponent) is hidden while this page is open —
            .profile-page is a full-screen overlay, so it needs its own copy to stay visible. -->

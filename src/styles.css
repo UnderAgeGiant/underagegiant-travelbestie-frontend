@@ -440,7 +440,19 @@ app-nav { display: block; }
   display: flex; align-items: center; gap: 14px; padding: 0 20px;
   background: oklch(99% .008 80/.96); backdrop-filter: blur(18px);
   border-bottom: 1.5px solid var(--border);
+  /* .prof-bar is used only by .profile-page / MyTripsComponent, both of which now also render
+     <app-nav> above it. Desktop's .nav is position:fixed (72px tall) so it reserves no flow
+     space — offset .prof-bar down to clear it. Mobile's .nav-m-bar is in-flow (sticky), so it
+     already pushes .prof-bar down on its own; zero the offset there. */
+  margin-top: 72px;
 }
+@media (max-width: 768px) {
+  .prof-bar { margin-top: 0; }
+}
+/* .profile-page's animation sets a non-none `transform`, which (per spec) makes it the
+   containing block for its position:fixed <app-nav> descendant — same trap documented for
+   .ai-plan-page. Scoped z-index bump keeps it above .prof-bar/.prof-body's own content. */
+.profile-page .nav, .profile-page .nav-m-bar { z-index: 360; }
 .back-btn {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 6px 14px; border-radius: 99px;

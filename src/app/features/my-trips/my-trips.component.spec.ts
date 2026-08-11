@@ -6,6 +6,11 @@ import { MyTripsComponent } from './my-trips.component';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
 
+// MyTripsComponent now renders <app-nav>, whose DeviceService reads window.matchMedia.
+(window as any).matchMedia = (window as any).matchMedia ?? (() => ({
+  matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {},
+}));
+
 describe('MyTripsComponent — published-only filter', () => {
   let component: MyTripsComponent;
 
