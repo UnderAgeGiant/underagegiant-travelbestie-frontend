@@ -63,7 +63,8 @@ export interface CityAttractionSuggestion {
   attractionId: string;
   date:         string;   // dd/mm/yyyy
   startTime:    string;   // HH:mm
-  endTime:      string;   // HH:mm — display only, see TripService.addAttraction (no endTime param)
+  endTime:      string;   // HH:mm — informational only; TripService.addAttraction recomputes the
+                           // persisted endTime from the curated attraction's own estimatedMinutes
   reason:       string;
 }
 

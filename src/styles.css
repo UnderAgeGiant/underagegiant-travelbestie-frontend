@@ -49,6 +49,7 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .btn-ghost:hover { background: var(--lav-d); color: #fff; }
 .btn-outline { background: #fff; color: var(--t1); border: 1.5px solid var(--border); }
 .btn-outline:hover { border-color: var(--lav-d); color: var(--lav-d); }
+.btn-outline:disabled, .btn-outline[disabled] { opacity: .5; cursor: not-allowed; border-color: var(--border); color: var(--t1); }
 .badge { padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; }
 .karma-cost { display: inline-flex; align-items: center; gap: 2px; font-size: 10px; font-weight: 700; opacity: .65; background: oklch(90% .06 290 / .35); color: var(--lav-d); border-radius: 6px; padding: 1px 5px; letter-spacing: .2px; }
 .form-group { margin-bottom: 14px; }
@@ -233,6 +234,14 @@ app-nav { display: block; }
 .shared-bg { position: fixed; inset: 0; z-index: 0; background: url('/paper-planes.webp') repeat center center / 380px auto; filter: blur(1px); transform: scale(1.04); pointer-events: none; }
 .shared-bg-frost { position: fixed; inset: 0; z-index: 1; background: rgba(255,255,255,.45); pointer-events: none; }
 .shared-body { display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; margin: 58px auto 0; padding: 24px 20px 60px; position: relative; z-index: 210; }
+/* .shared-body's z-index (210) sits above .nav's (200) in the SAME (root) stacking context —
+   unlike .ai-plan-page, .shared-page itself never establishes its own stacking context (no
+   z-index of its own), so there is no local trap to escape here; the two are compared directly
+   at the root. Once the page scrolls far enough for .shared-body's content to overlap the fixed
+   nav bar's screen area, that content paints on top of it, silently swallowing clicks meant for
+   the nav's account dropdown (e.g. nothing in the logged-in user menu responds). Scoped bump so
+   the nav (and everything it renders, like .user-panel) always wins on this page. */
+.shared-page .nav, .shared-page .nav-m-bar { z-index: 220; }
 .shared-main { flex: 0 1 680px; min-width: 0; }
 .shared-not-found { position: relative; z-index: 2; }
 .shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
@@ -431,7 +440,19 @@ app-nav { display: block; }
   display: flex; align-items: center; gap: 14px; padding: 0 20px;
   background: oklch(99% .008 80/.96); backdrop-filter: blur(18px);
   border-bottom: 1.5px solid var(--border);
+  /* .prof-bar is used only by .profile-page / MyTripsComponent, both of which now also render
+     <app-nav> above it. Desktop's .nav is position:fixed (72px tall) so it reserves no flow
+     space — offset .prof-bar down to clear it. Mobile's .nav-m-bar is in-flow (sticky), so it
+     already pushes .prof-bar down on its own; zero the offset there. */
+  margin-top: 72px;
 }
+@media (max-width: 768px) {
+  .prof-bar { margin-top: 0; }
+}
+/* .profile-page's animation sets a non-none `transform`, which (per spec) makes it the
+   containing block for its position:fixed <app-nav> descendant — same trap documented for
+   .ai-plan-page. Scoped z-index bump keeps it above .prof-bar/.prof-body's own content. */
+.profile-page .nav, .profile-page .nav-m-bar { z-index: 360; }
 .back-btn {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 6px 14px; border-radius: 99px;
@@ -1296,6 +1317,17 @@ app-nav { display: block; }
   text-decoration: none;
 }
 
+.tl-days-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-bottom: 1px solid var(--border);
+  /* Nested flex items default to min-width: auto, so on a long trip the
+     row refuses to shrink below the width of every day tab — it grows past
+     its column instead of scrolling, pushing whatever comes after it down
+     the page. min-width: 0 lets it clip to its actual box. */
+  min-width: 0;
+}
 .tl-days {
   display: flex;
   flex-wrap: nowrap;
@@ -1303,21 +1335,27 @@ app-nav { display: block; }
   padding: 12px;
   overflow-x: auto;
   overflow-y: hidden;
-  /* Nested flex items default to min-width: auto, so on a long trip the
-     row refuses to shrink below the width of every day tab (flex-shrink:0
-     below) — it grows past its column instead of scrolling, pushing
-     whatever comes after it down the page. min-width: 0 lets it clip to
-     its actual box and hand overflow to overflow-x: auto instead. */
   min-width: 0;
-  border-bottom: 1px solid var(--border);
+  flex: 1;
+  /* The bubble arrows are the scroll affordance now — hide the native
+     scrollbar everywhere instead of only on mobile. */
+  scrollbar-width: none;
 }
-/* Visible on desktop — mouse users have no swipe gesture to fall back on,
-   so hiding the only way to see/grab the scroll affordance made the row
-   look un-scrollable there even though it was. Hidden again on mobile
-   below, where touch swipe already works. */
-.tl-days::-webkit-scrollbar { height: 5px; }
-.tl-days::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-.tl-days::-webkit-scrollbar-thumb:hover { background: var(--lav-d); }
+.tl-days::-webkit-scrollbar { display: none; }
+.tl-days-arrow {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--t2);
+  font-size: 15px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--sh);
+  transition: all .15s;
+}
+.tl-days-arrow:hover { border-color: var(--lav-d); color: var(--lav-d); }
 
 .tl-day {
   flex-shrink: 0;
@@ -1460,8 +1498,6 @@ app-nav { display: block; }
     gap: 8px;
   }
   .tl-flap-label { display: inline; }
-  .tl-days { scrollbar-width: none; }
-  .tl-days::-webkit-scrollbar { display: none; }
   .tl-grid-wrap { overflow-y: visible; }
 }
 @media (prefers-reduced-motion: reduce) {

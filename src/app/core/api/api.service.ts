@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, from, of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { Trip, FavoritedTrip } from '../models/trip.model';
+import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
 import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
@@ -378,5 +378,32 @@ export class ApiService {
   setNotificationsMuted(muted: boolean): Observable<{ muted: boolean }> {
     if (this.useMocks) return of({ muted });
     return this.http.put<{ muted: boolean }>(`${this.base}/notifications/mute`, { muted });
+  }
+
+  inviteCollaborator(tripId: string, email: string): Observable<Collaborator> {
+    if (this.useMocks) {
+      return of({ userId: `mock-user-${Date.now()}`, name: 'Mock Collaborator', email, invitedAt: new Date().toISOString(), acceptedAt: null });
+    }
+    return this.http.post<Collaborator>(`${this.base}/trips/${tripId}/collaborators`, { email });
+  }
+
+  acceptCollaboratorInvite(tripId: string): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/trips/${tripId}/collaborators/accept`, {});
+  }
+
+  removeCollaborator(tripId: string, userId: string): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.delete<void>(`${this.base}/trips/${tripId}/collaborators/${userId}`);
+  }
+
+  getCollaborators(tripId: string): Observable<Collaborator[]> {
+    if (this.useMocks) return of([]);
+    return this.http.get<Collaborator[]>(`${this.base}/trips/${tripId}/collaborators`);
+  }
+
+  getPendingInvites(): Observable<PendingCollaboratorInvite[]> {
+    if (this.useMocks) return of([]);
+    return this.http.get<PendingCollaboratorInvite[]>(`${this.base}/trips/invites`);
   }
 }

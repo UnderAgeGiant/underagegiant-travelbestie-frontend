@@ -80,7 +80,12 @@ export class TimePickerComponent implements AfterViewInit, OnDestroy {
       const h = Number(hh);
       const m = Number(mm);
       if (Number.isNaN(h) || Number.isNaN(m)) return;
-      this.timeChange.emit(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`);
+      // This raw `input` listener bypasses flatpickr's own commit-time clamping (which only
+      // runs on blur/Enter/arrows) — without clamping here, typing e.g. "99" into the hour
+      // field emits an invalid "99:mm" straight into the plan before the user ever blurs.
+      const clampedH = Math.min(23, Math.max(0, h));
+      const clampedM = Math.min(59, Math.max(0, m));
+      this.timeChange.emit(`${String(clampedH).padStart(2, '0')}:${String(clampedM).padStart(2, '0')}`);
     };
     this.fp.hourElement?.addEventListener('input', emitFromInputs);
     this.fp.minuteElement?.addEventListener('input', emitFromInputs);

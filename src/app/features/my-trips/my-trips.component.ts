@@ -4,25 +4,36 @@ import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
-import { FavoritedTrip } from '../../core/models/trip.model';
+import { FavoritedTrip, Collaborator } from '../../core/models/trip.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { ApiService } from '../../core/api/api.service';
+import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
+import { NavFacadeService } from '../nav/nav-facade.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
+import { ProfileComponent } from '../profile/profile.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
+import { NavShellComponent } from '../nav/nav-shell.component';
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent, RouterLink],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink, ProfileComponent, NavShellComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
+
+      <app-nav (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
+
+      @if (showProfile()) {
+        <app-profile (close)="showProfile.set(false)"
+                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()" />
+      }
 
       <!-- Header bar -->
       <div class="prof-bar">
@@ -46,6 +57,14 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
               <button class="profile-tab" [class.active]="favTab() === 'favorites'"
                       (click)="openFavTab()"
                       i18n="@@profile.tabFavorites">Mis favoritos</button>
+              <button class="profile-tab" [class.active]="favTab() === 'collaborations'"
+                      (click)="favTab.set('collaborations')"
+                      i18n="@@myTrips.tabCollaborations">Colaborando en estos planes</button>
+              @if (savedPlans.pendingInvites().length > 0) {
+                <button class="profile-tab" [class.active]="favTab() === 'invites'"
+                        (click)="favTab.set('invites')"
+                        i18n="@@myTrips.tabInvites">Invitaciones pendientes ({{ savedPlans.pendingInvites().length }})</button>
+              }
             </div>
 
             @if (favTab() === 'trips') {
@@ -145,6 +164,34 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
                     }
 
                     @if (selectedPlanId() === plan.id) {
+                      <div class="fav-card" style="margin:0 16px 12px;padding:14px 16px">
+                        <div style="font-size:12px;font-weight:600;color:var(--t2);margin-bottom:8px" i18n="@@myTrips.collaboratorsTitle">🤝 Colaboradores</div>
+                        @for (c of (collaboratorsByPlan()[plan.id] ?? []); track c.userId) {
+                          <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px">
+                            <span style="flex:1">{{ c.name }} ({{ c.email }})</span>
+                            <span style="color:var(--t3)">{{ c.acceptedAt ? '✓' : '⏳' }}</span>
+                            <button class="att-plan-del" (click)="removeCollaborator(plan.id, c.userId)" type="button">✕</button>
+                          </div>
+                        }
+                        <div style="display:flex;gap:6px;margin-top:8px">
+                          <input class="form-input"
+                                 style="font-size:11px;padding:5px 8px;flex:1"
+                                 type="email"
+                                 [value]="inviteEmailByPlan()[plan.id] ?? ''"
+                                 (input)="setInviteEmail(plan.id, $any($event.target).value)"
+                                 i18n-placeholder="@@myTrips.invitePlaceholder"
+                                 placeholder="Correo del colaborador" />
+                          <button class="btn-pill btn-outline"
+                                  style="font-size:11px;padding:5px 10px;white-space:nowrap"
+                                  [disabled]="invitingPlanId() === plan.id || !isEmailFormatValid(inviteEmailByPlan()[plan.id] ?? '')"
+                                  (click)="inviteCollaborator(plan.id)" type="button">
+                            {{ invitingPlanId() === plan.id ? '⏳' : '+ Invitar' }}
+                          </button>
+                        </div>
+                      </div>
+                    }
+
+                    @if (selectedPlanId() === plan.id) {
                       <div class="saved-plan-itin">
                         <app-trip-itinerary [stops]="plan.stops" [transits]="plan.transits ?? []" />
                       </div>
@@ -189,6 +236,56 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
                   }
                 </div>
               }
+            }
+
+            @if (favTab() === 'collaborations') {
+              @if (collaborationPlans().length === 0) {
+                <div class="fav-empty">
+                  <span class="fav-empty-icon">🤝</span>
+                  <p i18n="@@myTrips.collabEmpty">Todavía no colaboras en ningún viaje.</p>
+                </div>
+              } @else {
+                <div class="fav-list">
+                  @for (plan of collaborationPlans(); track plan.id) {
+                    <div class="fav-card">
+                      <div class="fav-card-header">
+                        <span class="fav-card-name">{{ plan.name }}</span>
+                        <span class="fav-card-owner" i18n="@@myTrips.collabWith">Colaborando con {{ plan.ownerName }}</span>
+                      </div>
+                      <div class="fav-card-meta">
+                        @if (plan.stops.length === 1) {
+                          <ng-container i18n="@@myTrips.cityCountOne">{{ plan.stops.length }} ciudad</ng-container>
+                        } @else {
+                          <ng-container i18n="@@myTrips.cityCountMany">{{ plan.stops.length }} ciudades</ng-container>
+                        }
+                      </div>
+                      <div class="fav-card-actions">
+                        <button class="btn-pill btn-outline" (click)="loadAndModify(plan)" type="button" i18n="@@myTrips.modifyPlanBtn">✏️ Modificar mi plan</button>
+                      </div>
+                    </div>
+                  }
+                </div>
+              }
+            }
+
+            @if (favTab() === 'invites') {
+              <div class="fav-list">
+                @for (invite of savedPlans.pendingInvites(); track invite.tripId) {
+                  <div class="fav-card">
+                    <div class="fav-card-header">
+                      <span class="fav-card-name">{{ invite.tripTitle }}</span>
+                      <span class="fav-card-owner" i18n="@@profile.favCardBy">por {{ invite.ownerName }}</span>
+                    </div>
+                    <div class="fav-card-actions">
+                      <button class="btn-pill btn-primary"
+                              [disabled]="acceptingTripId() === invite.tripId"
+                              (click)="acceptInvite(invite.tripId)" type="button">
+                        {{ acceptingTripId() === invite.tripId ? '⏳' : '✓' }} <ng-container i18n="@@myTrips.acceptInviteBtn">Aceptar</ng-container>
+                      </button>
+                    </div>
+                  </div>
+                }
+              </div>
             }
           }
         </section>
@@ -265,12 +362,27 @@ export class MyTripsComponent {
   private readonly karmaModal  = inject(KarmaModalService);
   private readonly api         = inject(ApiService);
   private readonly router      = inject(Router);
+  protected readonly autoSave  = inject(AutoSaveService);
+  private readonly facade      = inject(NavFacadeService);
 
   close          = output<void>();
   openAiPlanning = output<void>();
 
+  showProfile = signal(false);
+
   // ── Favorites tab ──
-  favTab = signal<'trips' | 'favorites'>('trips');
+  favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites'>('trips');
+
+  constructor() {
+    // One-shot: a notification click (e.g. collaborator invite/accept) can
+    // request opening straight onto a specific tab. Consume + clear so a
+    // later plain "Mis viajes" open doesn't inherit a stale tab.
+    const pendingTab = this.facade.pendingMyTripsTab();
+    if (pendingTab) {
+      this.favTab.set(pendingTab);
+      this.facade.pendingMyTripsTab.set(null);
+    }
+  }
 
   openFavTab(): void {
     this.favTab.set('favorites');
@@ -292,13 +404,20 @@ export class MyTripsComponent {
   confirmDeleteId = signal<string | null>(null);
   cloningId       = signal<string | null>(null);
 
+  inviteEmailByPlan = signal<Record<string, string>>({});
+  invitingPlanId    = signal<string | null>(null);
+  collaboratorsByPlan = signal<Record<string, Collaborator[]>>({});
+  acceptingTripId   = signal<string | null>(null);
+
   readonly filteredPlans = computed(() => {
     const q = normalizeSearch(this.planSearch().trim());
-    let plans = this.savedPlans.plans();
+    let plans = this.savedPlans.plans().filter(p => !p.isCollaborator);
     if (this.publishedOnly()) plans = plans.filter(p => !!this.planShareId(p));
     if (!q) return plans;
     return plans.filter(p => normalizeSearch(p.name).includes(q));
   });
+
+  readonly collaborationPlans = computed(() => this.savedPlans.plans().filter(p => p.isCollaborator));
 
   planShareId(plan: SavedPlan): string | undefined {
     if (plan.shareId) return plan.shareId;
@@ -396,10 +515,70 @@ export class MyTripsComponent {
 
   togglePlan(id: string): void {
     this.selectedPlanId.update(cur => cur === id ? null : id);
+    if (this.selectedPlanId() === id && !this.collaboratorsByPlan()[id]) {
+      this.api.getCollaborators(id).subscribe(list => {
+        this.collaboratorsByPlan.update(m => ({ ...m, [id]: list }));
+      });
+    }
+  }
+
+  setInviteEmail(planId: string, value: string): void {
+    this.inviteEmailByPlan.update(m => ({ ...m, [planId]: value }));
+  }
+
+  // Same pattern as AuthModalComponent.isEmailValid — client-side format check only,
+  // so an obviously malformed address never round-trips to the backend's zod validation.
+  isEmailFormatValid(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
+  inviteCollaborator(planId: string): void {
+    const email = (this.inviteEmailByPlan()[planId] ?? '').trim();
+    if (!this.isEmailFormatValid(email)) return;
+    this.invitingPlanId.set(planId);
+    this.api.inviteCollaborator(planId, email).subscribe({
+      next: (collaborator) => {
+        this.invitingPlanId.set(null);
+        this.setInviteEmail(planId, '');
+        this.collaboratorsByPlan.update(m => ({ ...m, [planId]: [...(m[planId] ?? []), collaborator] }));
+        this.toast.set($localize`:@@myTrips.inviteSentToast:Invitación enviada`);
+      },
+      error: (err) => {
+        this.invitingPlanId.set(null);
+        if (!this.karmaModal.handleKarmaError(err)) {
+          this.toast.set($localize`:@@myTrips.inviteErrorToast:No se pudo enviar la invitación`);
+        }
+      },
+    });
+  }
+
+  removeCollaborator(planId: string, userId: string): void {
+    this.api.removeCollaborator(planId, userId).subscribe(() => {
+      this.collaboratorsByPlan.update(m => ({ ...m, [planId]: (m[planId] ?? []).filter(c => c.userId !== userId) }));
+    });
+  }
+
+  acceptInvite(tripId: string): void {
+    this.acceptingTripId.set(tripId);
+    this.api.acceptCollaboratorInvite(tripId).subscribe({
+      next: () => {
+        this.acceptingTripId.set(null);
+        this.savedPlans.loadForUser(this.auth.currentUser()!.email);
+        this.toast.set($localize`:@@myTrips.inviteAcceptedToast:¡Ahora colaboras en este viaje!`);
+        this.favTab.set('collaborations');
+      },
+      error: () => { this.acceptingTripId.set(null); },
+    });
   }
 
   loadAndModify(plan: SavedPlan): void {
-    this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? []);
+    const owner = plan.isCollaborator ? { name: plan.ownerName!, email: plan.ownerEmail! } : null;
+    this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? [], owner);
+    if (plan.stops.length > 0) this.trip.setActive(plan.stops[0].stopId);
+    this.autoSave.commitSnapshot(plan.id);
+    // Collaborative plans default to auto-save off — tell the user up front, right as they
+    // enter, instead of waiting for the first tick to discover an unsaved change.
+    if (owner && !this.autoSave.enabled()) this.autoSave.showReminderNow();
     this.close.emit();
   }
 

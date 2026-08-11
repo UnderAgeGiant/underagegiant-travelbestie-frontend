@@ -61,6 +61,24 @@ export interface Trip {
   createdAt?: string;
   shareId?: string;
   itineraryExportedAt?: string;
+  isCollaborator?: boolean;
+  ownerName?: string;
+  ownerEmail?: string;
+}
+
+export interface Collaborator {
+  userId:     string;
+  name:       string;
+  email:      string;
+  invitedAt:  string;
+  acceptedAt: string | null;
+}
+
+export interface PendingCollaboratorInvite {
+  tripId:    string;
+  tripTitle: string;
+  ownerName: string;
+  invitedAt: string;
 }
 
 export interface FavoritedTrip {

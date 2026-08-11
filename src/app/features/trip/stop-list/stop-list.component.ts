@@ -19,6 +19,7 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
+import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 
 @Component({
     selector: 'app-stop-list',
@@ -43,6 +44,27 @@ import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
       opacity: 0; transition: opacity .15s; flex-shrink: 0; cursor: pointer;
     }
     .att-plan-row:hover .att-plan-del { opacity: 1; }
+    .autosave-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-left: 8px; padding: 2px; border: none; background: transparent;
+      cursor: pointer; vertical-align: middle;
+    }
+    .autosave-toggle-track {
+      width: 30px; height: 16px; border-radius: 999px; flex-shrink: 0;
+      background: oklch(55% 0.18 25); /* red = off */
+      position: relative; transition: background .15s;
+    }
+    .autosave-toggle.on .autosave-toggle-track { background: oklch(62% 0.15 145); /* green = on */ }
+    .autosave-toggle-thumb {
+      position: absolute; top: 2px; left: 2px; width: 12px; height: 12px;
+      border-radius: 50%; background: #fff; transition: left .15s;
+    }
+    .autosave-toggle.on .autosave-toggle-thumb { left: 16px; }
+    .autosave-toggle-label { font-size: 10px; color: var(--t3); white-space: nowrap; }
+    .autosave-countdown {
+      margin-left: 6px; font-size: 10px; color: var(--t3);
+      font-variant-numeric: tabular-nums; white-space: nowrap; vertical-align: middle;
+    }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -54,7 +76,26 @@ import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
           } @else {
             <ng-container i18n="@@stopList.title">Mi viaje ✈️</ng-container>
           }
+          @if (trip.loadedPlanId()) {
+            <button type="button"
+                    class="autosave-toggle"
+                    [class.on]="autoSave.enabled()"
+                    (click)="autoSave.toggle()"
+                    [attr.aria-pressed]="autoSave.enabled()"
+                    [attr.title]="autoSave.enabled() ? offTitle : onTitle">
+              <span class="autosave-toggle-track"><span class="autosave-toggle-thumb"></span></span>
+              <span class="autosave-toggle-label" i18n="@@stopList.autoSaveLabel">Auto-guardado</span>
+            </button>
+            @if (autoSave.secondsUntilNextTick() !== null) {
+              <span class="autosave-countdown" [attr.title]="countdownTitle">⏱ {{ formatCountdown(autoSave.secondsUntilNextTick()!) }}</span>
+            }
+          }
         </div>
+        @if (trip.loadedPlanOwner(); as owner) {
+          <div style="font-size:11px;color:var(--t2);background:var(--lav);border-radius:8px;padding:4px 8px;margin:4px 0;display:inline-block">
+            👤 <ng-container i18n="@@stopList.editingOwnerPlan">Editando el plan de {{ owner.name }} ({{ owner.email }})</ng-container>
+          </div>
+        }
         <div class="panel-head-sub">
           @if (trip.stops().length === 0) {
             <ng-container i18n="@@stopList.noStops">Agrega tu primer destino</ng-container>
@@ -205,7 +246,7 @@ import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
                             <div class="att-time-inputs">
                               <input type="time" class="att-time-input"
                                      [value]="planned.startTime ?? ''"
-                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event)"
+                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event, att.estimatedMinutes)"
                                      i18n-placeholder="@@timeline.startTimePlaceholder"
                                      placeholder="Inicio" />
                               <span class="att-time-sep">–</span>
@@ -309,7 +350,22 @@ export class StopListComponent {
   protected readonly device   = inject(DeviceService);
   private readonly destModal  = inject(DestinationModalService);
   protected readonly citySuggest = inject(CitySuggestService);
+  protected readonly autoSave = inject(AutoSaveService);
   addDestination = output<void>();
+
+  protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
+  protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
+  protected readonly countdownTitle = $localize`:@@stopList.autoSaveCountdownTitle:Tiempo restante hasta el próximo intento de guardado automático`;
+
+  protected formatCountdown(totalSeconds: number): string {
+    const m = Math.floor(totalSeconds / 60);
+    const s = totalSeconds % 60;
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  }
+
+  constructor() {
+    this.autoSave.start();
+  }
 
   protected readonly showScrollTop = signal(false);
 
@@ -413,7 +469,7 @@ export class StopListComponent {
       if (!email) return;
       this.bookSaving.set(true);
       this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits()).subscribe({
-        next: () => { this.bookSaving.set(false); this.flashSaved(); },
+        next: () => { this.bookSaving.set(false); this.autoSave.commitSnapshot(this.trip.loadedPlanId()!); this.flashSaved(); },
         error: () => { this.bookSaving.set(false); },
       });
     } else {
@@ -435,6 +491,7 @@ export class StopListComponent {
       next: newId => {
         this.bookSaving.set(false);
         this.trip.markAsLoadedPlan(newId);
+        this.autoSave.commitSnapshot(newId);
         this.bookOpen.set(false);
         this.bookName.set('');
         this.flashSaved();
@@ -489,9 +546,9 @@ export class StopListComponent {
       dateMs(a) - dateMs(b) || (a.startTime ?? '').localeCompare(b.startTime ?? ''));
   }
 
-  onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', event: Event): void {
+  onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', event: Event, estimatedMinutes?: number): void {
     const value = (event.target as HTMLInputElement).value || null;
-    this.trip.patchAttractionTime(stopId, entryId, field, value);
+    this.trip.patchAttractionTime(stopId, entryId, field, value, estimatedMinutes);
   }
 
   hasTimeCollision(stop: import('../../../core/models/trip.model').TripStop, targetEntryId: string): boolean {

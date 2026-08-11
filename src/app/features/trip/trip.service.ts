@@ -54,6 +54,13 @@ function migrateTransitLeg(raw: any): TransitLeg {
 const planKey       = (email: string) => `tb_plan_${email}`;
 const activePlanKey = (email: string) => `tb_active_plan_${email}`;
 
+/** startTime ('HH:mm') + a duration in minutes → the 'HH:mm' the attraction ends at (wraps past midnight). */
+export function addMinutesToTime(startTime: string, minutes: number): string {
+  const [h, m] = startTime.split(':').map(Number);
+  const total = ((h ?? 0) * 60 + (m ?? 0) + minutes + 1440) % 1440;
+  return `${String(Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`;
+}
+
 @Injectable({ providedIn: 'root' })
 export class TripService {
   private readonly auth = inject(AuthService);
@@ -62,6 +69,7 @@ export class TripService {
   private _transits          = signal<TransitLeg[]>([]);
   private _activeId          = signal<string | null>(null);  // tracks stopId
   private _loadedPlanId      = signal<string | null>(null);
+  private _loadedPlanOwner   = signal<{ name: string; email: string } | null>(null);
   private _selectedTransitId = signal<string | null>(null);
   private _saving            = false;
 
@@ -69,6 +77,7 @@ export class TripService {
   readonly transits          = this._transits.asReadonly();
   readonly activeId          = this._activeId.asReadonly();
   readonly loadedPlanId      = this._loadedPlanId.asReadonly();
+  readonly loadedPlanOwner   = this._loadedPlanOwner.asReadonly();
   readonly selectedTransitId = this._selectedTransitId.asReadonly();
   readonly existingCityIds   = computed(() => this._stops().map(s => s.cityId));
   readonly activeStop        = computed(() => this._stops().find(s => s.stopId === this._activeId()) ?? null);
@@ -133,6 +142,7 @@ export class TripService {
       this._activeId.set(null);
     }
     this._loadedPlanId.set(activeId ?? null);
+    this._loadedPlanOwner.set(null);
     this._saving = false;
   }
 
@@ -163,15 +173,17 @@ export class TripService {
     this._transits.set([]);
     this._activeId.set(null);
     this._loadedPlanId.set(null);
+    this._loadedPlanOwner.set(null);
     this._saving = false;
   }
 
-  restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = []): void {
+  restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = [], owner: { name: string; email: string } | null = null): void {
     this._saving = true;
     this._stops.set(stops.map(migrateStop));
     this._transits.set(transits.map(migrateTransitLeg));
     this._activeId.set(stops[0]?.stopId ?? null);
     this._loadedPlanId.set(planId);
+    this._loadedPlanOwner.set(owner);
     this._saving = false;
   }
 
@@ -255,21 +267,31 @@ export class TripService {
     }
   }
 
-  addAttraction(stopId: string, attractionId: string, startTime: string, date?: string, category?: AttractionCategory): void {
+  addAttraction(stopId: string, attractionId: string, startTime: string, date?: string, category?: AttractionCategory, estimatedMinutes?: number): void {
     const entryId = crypto.randomUUID();
+    // End time is computed and persisted immediately (start + the attraction's suggested
+    // duration) rather than left null and derived on the fly at render time — this is the
+    // value collision-detection and AI suggestion calls (existingSchedule) actually read.
+    const endTime = estimatedMinutes != null ? addMinutesToTime(startTime, estimatedMinutes) : null;
     this._stops.update(stops => stops.map(s =>
       s.stopId === stopId
-        ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, endTime: null, date, ...(category ? { category } : {}) }] }
+        ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, endTime, date, ...(category ? { category } : {}) }] }
         : s
     ));
   }
 
-  patchAttractionTime(stopId: string, entryId: string, field: 'startTime' | 'endTime', value: string | null): void {
+  patchAttractionTime(stopId: string, entryId: string, field: 'startTime' | 'endTime', value: string | null, estimatedMinutes?: number): void {
     this._stops.update(stops => stops.map(s =>
       s.stopId === stopId
-        ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
-            a.entryId === entryId ? { ...a, [field]: value } : a
-          )}
+        ? { ...s, selectedAttractions: s.selectedAttractions.map(a => {
+            if (a.entryId !== entryId) return a;
+            // Changing the start time recomputes the end time from the attraction's
+            // suggested duration too, immediately, so it stays the value that gets saved.
+            if (field === 'startTime' && value && estimatedMinutes != null) {
+              return { ...a, startTime: value, endTime: addMinutesToTime(value, estimatedMinutes) };
+            }
+            return { ...a, [field]: value };
+          })}
         : s
     ));
   }
@@ -292,12 +314,15 @@ export class TripService {
     ));
   }
 
-  updateStartTime(stopId: string, entryId: string, startTime: string, date?: string): void {
+  updateStartTime(stopId: string, entryId: string, startTime: string, date?: string, estimatedMinutes?: number): void {
     this._stops.update(stops => stops.map(s =>
       s.stopId === stopId
         ? { ...s, selectedAttractions: s.selectedAttractions.map(a =>
             a.entryId === entryId
-              ? { ...a, startTime, date: date ?? a.date }
+              ? {
+                  ...a, startTime, date: date ?? a.date,
+                  endTime: estimatedMinutes != null ? addMinutesToTime(startTime, estimatedMinutes) : a.endTime,
+                }
               : a
           )}
         : s

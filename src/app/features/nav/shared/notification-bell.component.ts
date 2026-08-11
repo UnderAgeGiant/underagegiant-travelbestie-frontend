@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from '../../../core/notifications/notification.service';
 import { AppNotification } from '../../../core/models/notification.model';
 import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
+import { NavFacadeService } from '../nav-facade.service';
 
 /**
  * Nav bell with unread badge + floating notification panel (mirrors the
@@ -61,6 +62,7 @@ import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
 export class NotificationBellComponent {
   readonly notif = inject(NotificationService);
   private readonly router = inject(Router);
+  private readonly facade = inject(NavFacadeService);
   readonly panelOpen = signal(false);
 
   togglePanel(): void {
@@ -71,6 +73,17 @@ export class NotificationBellComponent {
 
   open(n: AppNotification): void {
     this.panelOpen.set(false);
+
+    // Collaboration notifications route to My Trips → Colaboraciones instead
+    // of following n.url — the backend currently issues a bare "/" for these,
+    // and n.type is enough on its own to pick the right in-app tab without
+    // needing a URL-contract change on the backend.
+    if (n.type === 'collaborator_invite' || n.type === 'collaborator_accepted') {
+      this.facade.pendingMyTripsTab.set('collaborations');
+      this.router.navigateByUrl('/');
+      return;
+    }
+
     // Router navigation, not window.location.href — a hard reload would blank
     // the in-memory access token and flash the "signed out" nav state.
     // n.url is a backend-issued relative path, e.g. "/?share=abc" or "/" —

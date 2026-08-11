@@ -52,6 +52,9 @@ export class NavFacadeService {
   /** Which shell panel is open right now — synced by ShellComponent, consumed on locale switch. */
   currentShellView = signal<RestoreView | null>(null);
 
+  /** One-shot command: open My Trips to a specific tab (e.g. from a notification click). Consumed by MyTripsComponent. */
+  pendingMyTripsTab = signal<'collaborations' | null>(null);
+
   // ── saved-plans / favorites / shared-trips state ──
   plansOpen      = signal(false);
   planSearch     = signal('');
