@@ -1,7 +1,9 @@
-import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction } from '../../core/models/comment.model';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { formatTodayHours } from '../../core/utils/attraction-hours.util';
+import { localizedDescription } from '../../core/utils/attraction-description.util';
+import { LocaleService } from '../../core/i18n/locale.service';
 
 @Component({
     selector: 'app-attraction-preview-popover',
@@ -41,6 +43,10 @@ import { formatTodayHours } from '../../core/utils/attraction-hours.util';
           <span>{{ attraction().estimatedMinutes | duration }}</span>
         </div>
 
+        @if (description()) {
+          <p class="att-preview-desc">{{ description() }}</p>
+        }
+
         @if (websiteDomain()) {
           <div class="att-preview-enrich">
             <span class="att-enrich-icon">🌐</span>
@@ -73,6 +79,10 @@ export class AttractionPreviewPopoverComponent {
   readonly attraction = input.required<Attraction>();
   readonly x          = input.required<number>();
   readonly y          = input.required<number>();
+
+  private readonly locale = inject(LocaleService);
+
+  readonly description = computed(() => localizedDescription(this.attraction(), this.locale.current()));
 
   readonly stars = computed(() => {
     const r = Math.round(this.attraction().rating);
