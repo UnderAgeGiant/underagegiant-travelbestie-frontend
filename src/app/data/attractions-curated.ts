@@ -25,6 +25,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Taj_Mahal%2C_Agra%2C_India_edit2.jpg/1920px-Taj_Mahal%2C_Agra%2C_India_edit2.jpg",
       website: "https://www.tajmahal.gov.in/",
+      description: "El Taj Mahal es un mausoleo de mármol blanco construido en el siglo XVII por el emperador mogol Shah Jahan en memoria de su esposa Mumtaz Mahal. Declarado Patrimonio de la Humanidad por la UNESCO, es una de las obras maestras de la arquitectura mogola.",
+      descriptionEn: "The Taj Mahal is a white marble mausoleum built in the 17th century by the Mughal emperor Shah Jahan in memory of his wife Mumtaz Mahal. A UNESCO World Heritage Site, it is considered one of the finest examples of Mughal architecture and one of the most visited monuments in the world.",
     },
     {
       id: "agra_2",
