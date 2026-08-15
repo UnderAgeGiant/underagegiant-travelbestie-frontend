@@ -57,7 +57,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/UNESCO_WORLD_HERITAGE_SITE_IN_INDIAN.pdf/page1-960px-UNESCO_WORLD_HERITAGE_SITE_IN_INDIAN.pdf.jpg",
-      description: "Keoladeo National Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque nacional de Keoladeo, o Keoladeo Ghana, es un parque nacional en Rajastán, India. Alberga a miles de aves autóctonas, residentes y migratorias, especialmente durante el invierno, cuando numerosas especies llegan al subcontinente indio huyendo del frío.",
       descriptionEn: "Keoladeo National Park, or Keoladeo Ghana National Park, is a national park in Rajasthan, India. The national park hosts thousands of native, resident and migratory birds, especially during the winter season, when many different species fly to the Indian subcontinent to escape…",
     },
     {
@@ -72,8 +72,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra%2C_Cathedral_of_the_Immaculate_Conception.JPG/1920px-Agra%2C_Cathedral_of_the_Immaculate_Conception.JPG",
       website: "https://immaculateconceptionagra.org/",
-      description: "Iglesia catedral de la Diócesis de Danlí",
-      descriptionEn: "A cathedral is a Christian church which contains the seat of a bishop, thus serving as the central church of a diocese.",
+      description: "La Catedral de la Inmaculada Concepción es la iglesia catedral de la Diócesis católica de Agra, en el estado de Uttar Pradesh, India, construida durante el período colonial británico y sede episcopal de la región.",
+      descriptionEn: "The Cathedral of the Immaculate Conception is the Roman Catholic cathedral church of the Diocese of Agra, in Uttar Pradesh, India, built during the British colonial period and serving as the diocese's episcopal seat.",
     },
     {
       id: "agra_5",
@@ -86,8 +86,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Jhalkari_Bai_statue_Agra%2C_Uttar_Pradesh.jpg",
-      description: "Jhalkaribai Statue es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The Rani of Jhansi, also known as Rani Lakshmibai, was one of the leading figures of the Indian Rebellion of 1857.",
+      description: "Esta estatua honra a Jhalkaribai, una soldado del Durga Dal, el regimiento femenino de la Rani de Jhansi, célebre por hacerse pasar por la propia Rani en el campo de batalla durante la rebelión india de 1857 para permitirle escapar.",
+      descriptionEn: "This statue honors Jhalkaribai, a soldier of the Durga Dal, the women's regiment of the Rani of Jhansi, famed for impersonating the Rani herself on the battlefield during the 1857 Indian Rebellion to allow her to escape.",
     },
     {
       id: "agra_6",
@@ -114,7 +114,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Agra_03-2016_03_view_from_Mehtab_Bagh.jpg/1920px-Agra_03-2016_03_view_from_Mehtab_Bagh.jpg",
-      description: "Un jardín mogol es un tipo de jardín creado en el Imperio mogol con un estilo muy influido por los jardines persas.",
+      description: "Mehtab Bagh es un complejo de jardín mogol tipo charbagh en Agra, al norte de India. Se ubica frente al Taj Mahal y al fuerte de Agra, al otro lado del río Yamuna, en la llanura de inundación.",
       descriptionEn: "Mehtab Bagh is a charbagh complex in Agra, North India. It lies north of the Taj Mahal complex and the Agra Fort on the opposite side of the Yamuna River, in the flood plains.",
     },
     {
@@ -128,7 +128,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Jami_Masjid%2C_Agra.jpg/1920px-Jami_Masjid%2C_Agra.jpg",
-      description: "La Masjid-i Jahān-Numā, conocida sencillamente como mezquita aljama, es una mezquita situada en Delhi, una de las más grandes de la India.",
+      description: "La mezquita Jama Masjid de Agra es una mezquita congregacional del siglo XVII situada en el casco histórico de la ciudad. Fue construida por Jahanara Begum, hija mayor del emperador mogol Shah Jahan, durante el reinado de este último.",
       descriptionEn: "The Jama Mosque is a 17th-century congregational mosque located in the historic core of Agra, Uttar Pradesh. It was built by Jahanara Begum, the eldest daughter of Mughal Emperor Shah Jahan, during the latter's reign.",
     },
     {
@@ -142,7 +142,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Akbar%27s_Tomb_020.jpg/1920px-Akbar%27s_Tomb_020.jpg",
-      description: "Akbar's tomb and mausoleum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El mausoleo de Akbar es la tumba del tercer y más grande emperador mogol, Akbar. Fue construida entre 1605 y 1613 por su hijo Jahangir, y se sitúa sobre 48 hectáreas de terreno en Sikandra, un suburbio de Agra, Uttar Pradesh, India.",
       descriptionEn: "Akbar's tomb is the mausoleum of the third and greatest Mughal emperor Akbar. The tomb was built in 1605–1613 by his son, Jahangir and is situated on 119 acres of grounds in Sikandra, a suburb of Agra, Uttar Pradesh, India.",
     },
     {
@@ -156,7 +156,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Mariam%27s_Tomb%2C_Sikandra%2C_Agra.JPG/1920px-Mariam%27s_Tomb%2C_Sikandra%2C_Agra.JPG",
-      description: "Mariam's Tomb es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Tumba de Mariam es el mausoleo de Mariam-uz-Zamani, comúnmente conocida por el nombre erróneo de Jodha Bai, la esposa favorita del emperador mogol Akbar.",
       descriptionEn: "The Tomb of Mariam-uz-Zamani or Mariam's tomb is the mausoleum of Mariam-uz-Zamani, commonly known by the misnomer Jodha Bai, the favorite wife of the Mughal Emperor Akbar.",
     },
     {
@@ -170,7 +170,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Chini_ki_Rauza_10.jpg/1920px-Chini_ki_Rauza_10.jpg",
-      description: "Agra es una ciudad situada a orillas del río Yamuna, en el estado de Uttar Pradesh, en la India. Es una de las ciudades más pobladas del estado de Uttar Pradesh y la vigésima cuarta más poblada del país. Fue la capital del Imperio mogol entre 1556 y 1658.",
+      description: "Chini ka Rauza es un monumento funerario en Agra, India, que contiene la tumba de Afzal Khan Shirazi, erudito y poeta que fue gran visir del emperador mogol Shah Jahan. La tumba fue construida en 1635.",
       descriptionEn: "Chini ka Rauza is a funerary monument, rauza in Agra, India, containing the tomb of Afzal Khan Shirazi, a scholar and poet who was the Grand Vizier of the Mughal Emperor Shah Jahan. The tomb was built in 1635.",
     },
     {
@@ -184,7 +184,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/Paliwal_Park_Agra_Uttar_Pradesh.jpg",
-      description: "KD Paliwal Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El KD Paliwal Park, también conocido como Hewitt Park, se ubica en el centro de Agra, India, y se extiende sobre unas 28 hectáreas. Es uno de los principales atractivos de la ciudad para pasear y descansar en un entorno tranquilo.",
       descriptionEn: "K.D.Paliwal Park also known as Hewitt Park is located in the heart of Agra, India. It is spread over an area of around 70 acres (280,000 m2). Kd Paliwal Park, one of the top attractions in Agra, is where visitors go to unwind and spend some quiet time in a peaceful environment.",
     },
     {
@@ -212,8 +212,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Red_Fort%2C_Delhi_by_alexfurr.jpg",
-      description: "El fuerte de Delhi, ubicado en la ciudad india de Delhi, es llamado también Fuerte rojo o Lal Qila por el color de la piedra arenisca con que se construyó. No debe confundirse con el Fuerte de Agra al que se llama del mismo modo.",
-      descriptionEn: "Lohagarh Fort is an 18th-century fort located at Bharatpur in Rajasthan, India.Maharaja Suraj Mal commissioned its construction in 1732. The British army attempted to conquer this fort 13 times.",
+      description: "El fuerte de Lohagarh es un fuerte del siglo XVIII situado en Bharatpur, Rajastán, India. El maharajá Suraj Mal ordenó su construcción en 1732. El ejército británico intentó conquistarlo hasta 13 veces sin éxito.",
+      descriptionEn: "Lohagarh Fort is an 18th-century fort located at Bharatpur in Rajasthan, India. Maharaja Suraj Mal commissioned its construction in 1732. The British army attempted to conquer this fort 13 times.",
     },
   ],
   amman: [
@@ -470,7 +470,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Lion_Gate_-_Mycenae_by_Joy_of_Museums.jpg/1920px-Lion_Gate_-_Mycenae_by_Joy_of_Museums.jpg",
-      description: "Archaeological Sites of Mycenae and Tiryns es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Micenas y Tirinto son dos yacimientos arqueológicos del Peloponeso, Grecia, que dan nombre a la civilización micénica de la Edad del Bronce. Micenas, asociada al mítico rey Agamenón, es célebre por su Puerta de los Leones y sus tumbas de tholos.",
       descriptionEn: "Tiryns is a Mycenaean archaeological site in Argolis in the Peloponnese, and the location from which the mythical hero Heracles was said to have performed his Twelve Labours. It lies 20 km (12 mi) south of Mycenae.",
     },
     {
@@ -484,7 +484,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/NEA_MONH.jpg/3840px-NEA_MONH.jpg",
-      description: "Monasteries of Daphni, Hosios Loukas and Nea Moni of Chios es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Los Monasterios de Dafni, Hosios Lukás y Nea Moní de Quíos son tres monasterios bizantinos del siglo XI declarados Patrimonio de la Humanidad, célebres por sus mosaicos dorados que representan la cúspide del arte religioso bizantino de mediados de dicho período.",
       descriptionEn: "Nea Moni is an 11th-century Greek Orthodox former monastery complex, now convent and history museum, located on the island of Chios, in the North Aegean region of Greece. The complex is located on the Provateio Oros Mt.",
     },
     {
@@ -499,8 +499,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/57/Pan-Pontian_Congress_1921_%28cropped%29_with_I_Efkarpidis_in_top_right.jpg",
       website: "http://epm.gr",
-      description: "Επιτροπή Ποντιακών Μελετών es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Pontic Greek, also referred to as Pontic, is a variety of Modern Greek indigenous to the Pontus region on the southern shores of the Black Sea, northeastern Anatolia, and the Eastern Turkish and Caucasus region.",
+      description: "La Comisión de Estudios Pónticos es una asociación científica sin fines de lucro fundada en Atenas en 1927 por intelectuales griegos pónticos, dedicada a la recopilación y estudio del idioma, folclore e historia del Ponto, y sede del Museo Digital del Helenismo Póntico.",
+      descriptionEn: "The Committee for Pontic Studies is a scientific, non-profit association founded in Athens in 1927 by Pontic Greek intellectuals, dedicated to collecting and studying the language, folklore, and history of Pontus, and home to the Digital Museum of Pontic Hellenism.",
     },
     {
       id: "athens_5",
@@ -514,8 +514,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/2004_Athens_Olympic_Torch.png/1920px-2004_Athens_Olympic_Torch.png",
       website: "https://athensolympicmuseum.org/",
-      description: "Ολυμπιακό Μουσείο Αθήνας es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Ολυμπιακό Μουσείο Αθήνας is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Olímpico de Atenas alberga una exposición permanente de recuerdos de los Juegos Olímpicos, testimonios de atletas y objetos desde la Antigüedad griega hasta la actualidad, centrada en los tres grandes hitos: la Antigua Olimpia, Atenas 1896 y Atenas 2004.",
+      descriptionEn: "The Athens Olympic Museum holds a permanent exhibition of Olympic Games memorabilia, athletes' testimonies, and artefacts from Greek antiquity to the present, spotlighting the three great milestones of the Games: Ancient Olympia, Athens 1896, and Athens 2004.",
     },
     {
       id: "athens_6",
@@ -529,7 +529,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Maria_Callas_Museum%2C_Athens.jpg/1920px-Maria_Callas_Museum%2C_Athens.jpg",
       website: "https://mariacallasmuseum.gr/en/",
-      description: "El Monasterio de Petrákis, también conocido como el Monasterio de los Taxiarcas de los Asomatos. o «Monasterio de Asomato» , es un edificio de arquitectura bizantina situado en el distrito ateniense de Kolonáki.",
+      description: "El Museo Maria Callas es un museo biográfico dedicado a la célebre soprano griega Maria Callas. Abrió sus puertas el 26 de octubre de 2023 cerca de la plaza Syntagma, en la calle Mitropoleos 44, en Atenas.",
       descriptionEn: "The Maria Callas Museum is a biographical museum dedicated to the renowned Greek soprano Maria Callas. It opened on 26 October 2023, and is situated near Syntagma Square at 44 Mitropoleos Street in Athens, Greece.",
     },
     {
@@ -544,8 +544,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a2/2011_Dimos_Chaidariou.png",
       website: "https://diomedes-bg.gr/",
-      description: "Βοτανικός Κήπος Διομήδους es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Haidari is a suburban town in the western part of the Athens agglomeration, west of the city center of Athens, in Greece.",
+      description: "El Jardín Botánico Diomedes es el mayor jardín botánico de Grecia, fundado en 1951 gracias al legado del profesor Alexandros Diomedes y abierto al público en 1975. Ubicado en Jaidari, al oeste de Atenas, alberga más de 3000 especies vegetales en unas 186 hectáreas.",
+      descriptionEn: "The Diomedes Botanical Garden is the largest botanical garden in Greece, founded in 1951 through the bequest of Professor Alexandros Diomedes and opened to the public in 1975. Located in Haidari, west of Athens, it holds over 3,000 plant species across roughly 186 hectares.",
     },
     {
       id: "athens_8",
@@ -559,7 +559,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/%CE%A0%CE%B5%CE%B4%CE%AF%CE%BF%CE%BD_%CE%86%CF%81%CE%B5%CF%89%CF%82._%CE%9D%CE%B9%CE%BA%CE%B7%CF%84%CE%B1%CF%81%CE%AC%CF%82.jpg",
       website: "https://pediontouareostoparkomas.gr/",
-      description: "Πεδίον Άρεως es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Pedión tu Áreos es uno de los parques públicos más grandes de Atenas, Grecia.",
       descriptionEn: "The Pedion tou Areos or Pedion Areos is one of the largest public parks in Athens, Greece.",
     },
     {
@@ -574,8 +574,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/B_Greek_Evangelical_Church.jpg/1920px-B_Greek_Evangelical_Church.jpg",
       website: "https://beeea.gr",
-      description: "Β' ΕΛΛΗΝΙΚΗ ΕΥΑΓΓΕΛΙΚΗ ΕΚΚΛΗΣΙΑ es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Β' ΕΛΛΗΝΙΚΗ ΕΥΑΓΓΕΛΙΚΗ ΕΚΚΛΗΣΙΑ is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Segunda Iglesia Evangélica Griega de Atenas fue fundada en 1924 por refugiados llegados tras la Catástrofe de Asia Menor. En 1929 construyeron su propio templo en el barrio de Kukaki, donde la iglesia sigue funcionando en la actualidad.",
+      descriptionEn: "The Second Greek Evangelical Church of Athens was founded in 1924 by refugees who arrived after the Asia Minor Catastrophe. In 1929 they built their own church building in the Koukaki neighborhood, where the congregation still meets today.",
     },
     {
       id: "athens_10",
@@ -604,7 +604,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/%CE%9C%CE%BF%CF%85%CF%83%CE%B5%CE%AF%CE%BF_%CE%93%CE%BF%CF%85%CE%BB%CE%B1%CE%BD%CE%B4%CF%81%CE%AE_7886.jpg/3840px-%CE%9C%CE%BF%CF%85%CF%83%CE%B5%CE%AF%CE%BF_%CE%93%CE%BF%CF%85%CE%BB%CE%B1%CE%BD%CE%B4%CF%81%CE%AE_7886.jpg",
       website: "https://gnhm.gr/the-museum/",
-      description: "Μουσείο Γουλανδρή Φυσικής Ιστορίας es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Goulandris de Historia Natural es un museo situado en Kifisiá, un suburbio al noreste de Atenas, Grecia. Fue fundado por Ángelos y Niki Goulandris en 1965 para promover el interés por las ciencias naturales.",
       descriptionEn: "The Goulandris Museum of Natural History is a museum in Kifisia, a northeastern suburb of Athens, Greece. It was founded by Angelos Goulandris and Niki Goulandris in 1965 in order to promote interest in the natural sciences, to raise the awareness of the public, in general, and…",
     },
   ],
@@ -1153,7 +1153,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1508804185452-ba3aa94f3d23?auto=format&fit=crop&w=800&q=80",
-      description: "La República Popular China, mayormente conocida como China, es un país soberano de Asia Oriental con capital en Pekín. Es el segundo país más poblado del mundo.",
+      description: "El Templo del Cielo es un complejo de edificios religiosos imperiales confucianos situado en la parte sureste del centro de Pekín, donde los emperadores de las dinastías Ming y Qing realizaban ceremonias anuales de sacrificio y oración por buenas cosechas.",
       descriptionEn: "The Temple of Heaven is a complex of imperial religious Confucian buildings situated in the southeastern part of central Beijing.",
     },
     {
@@ -1167,7 +1167,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/%E9%A2%90%E5%92%8C%E5%9B%AD_Summer_Palace%2C_an_Imperial_Garden_in_Beijing_-_panoramio.jpg/1920px-%E9%A2%90%E5%92%8C%E5%9B%AD_Summer_Palace%2C_an_Imperial_Garden_in_Beijing_-_panoramio.jpg",
-      description: "El Antiguo Palacio de Verano es el nombre con el que se conoce en Occidente al Jardín del Perfecto Brillo, originalmente llamado Jardines Imperiales.",
+      description: "El Palacio de Verano, o Jardín Yihe, fue construido por la emperatriz china Cixi como un pabellón de retiro. Es un vasto conjunto de lagos, jardines y palacios en Pekín.",
       descriptionEn: "The Summer Palace or Yihe Garden was built by the Chinese Empress Cixi as a pavilion for quiet retreat. It is a vast ensemble of lakes, gardens and palaces in Beijing.",
     },
     {
@@ -1181,7 +1181,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/20220104_Peking_and_Shandingdong_man_statues_in_the_Zhoukoudian_Site_Museum.jpg/1920px-20220104_Peking_and_Shandingdong_man_statues_in_the_Zhoukoudian_Site_Museum.jpg",
-      description: "La República Popular China, mayormente conocida como China, es un país soberano de Asia Oriental con capital en Pekín. Es el segundo país más poblado del mundo.",
+      description: "El Hombre de Pekín es una subespecie de Homo erectus que habitó lo que hoy es el norte de China durante el Pleistoceno Medio. Sus fósiles fueron hallados en una cueva situada unos 50 km al sudoeste de Pekín, conocida como el yacimiento de Zhoukoudian.",
       descriptionEn: "Peking Man is a subspecies of H. erectus which inhabited what is now northern China during the Middle Pleistocene. Its fossils have been found in a cave some 50 km (31 mi) southwest of Beijing, known as the Zhoukoudian Peking Man Site.",
     },
     {
@@ -1196,8 +1196,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/The_Great_Wall_Hotel_Beijing_%2820240306151953%29.jpg/1920px-The_Great_Wall_Hotel_Beijing_%2820240306151953%29.jpg",
       website: "https://www.uphe.com/movies/the-great-wall",
-      description: "Great Wall Motor Company Limited es un fabricante de automóviles cuya sede central se ubica en Baoding, Hebei, China. El nombre de la empresa es una referencia en inglés a la Gran Muralla China. Fue fundada en 1984.",
-      descriptionEn: "Beijing Great Wall is a Chinese professional women's basketball club based in Beijing, playing in the Women's Chinese Basketball Association (WCBA). The team is owned by Beijing Shougang Co., Ltd., which also owns the Beijing Ducks men's basketball team.",
+      description: "La Gran Muralla China es una antigua serie de fortificaciones construidas a lo largo de las fronteras históricas del norte de China para proteger a los estados y dinastías chinas de las incursiones de los pueblos nómadas de las estepas. Los tramos cercanos a Pekín, como Badaling y Mutianyu, son los más visitados.",
+      descriptionEn: "The Great Wall of China is a series of fortifications built along the historical northern borders of China to protect Chinese states and empires against raids by nomadic peoples of the steppe. The sections nearest Beijing, such as Badaling and Mutianyu, are the most visited.",
     },
     {
       id: "beijing_4",
@@ -1211,7 +1211,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/15/The_Forbidden_City%2C_Beijing%2C_China_%28%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%29.jpg",
       website: "https://www.dpm.org.cn/",
-      description: "Shan Jixiang, en chino 单霁翔 es un político, erudito y arquitecto chino, que fue Decano de la Academia Gugong del Museo del Palacio. Fue curador del museo de la Ciudad Prohibida entre 2012 y 2019 y anteriormente fue director de la Administración Nacional del Patrimonio Cultural.",
+      description: "El Museo del Palacio, también conocido como Museo del Palacio de Pekín, es un gran complejo museístico nacional alojado en la Ciudad Prohibida, en el corazón de Pekín, China.",
       descriptionEn: "The Palace Museum, also known as the Beijing Palace Museum, is a large national museum complex housed in the Forbidden City at the core of Beijing, China.",
     },
     {
@@ -1226,8 +1226,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/aa/SZ_Art_Center.jpg",
       website: "http://www.todayartmuseum.com/cnindex.aspx",
-      description: "今日美术馆 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The Beijing Subway is the rapid transit system of Beijing Municipality that consists of 30 lines including 25 rapid transit lines, two airport rail links, one maglev line and two light rail tram lines, and 541 stations.",
+      description: "El Museo de Arte Today, fundado en 2002 por el empresario Zhang Baoquan, fue el primer museo privado sin fines de lucro de China. Su edificio principal, antigua sala de calderas de una cervecería, alberga exposiciones dedicadas al arte contemporáneo chino.",
+      descriptionEn: "Today Art Museum, founded in 2002 by businessman Zhang Baoquan, was the first not-for-profit private museum in China. Its main building, a converted former brewery boiler room, hosts exhibitions dedicated to Chinese contemporary art.",
     },
     {
       id: "beijing_6",
@@ -1241,8 +1241,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/%E5%9B%BD%E5%AE%B6%E5%85%B8%E7%B1%8D%E5%8D%9A%E7%89%A9%E9%A6%86_1.jpg/1920px-%E5%9B%BD%E5%AE%B6%E5%85%B8%E7%B1%8D%E5%8D%9A%E7%89%A9%E9%A6%86_1.jpg",
       website: "https://www.nlc.cn/nmcb/",
-      description: "国家典籍博物馆 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "This is a list of the various polities that existed during the Shang dynasty in ancient China, attested in oracle bones, bronze inscriptions, and the Chinese classics.",
+      description: "El Museo Nacional de Clásicos, ubicado junto a la Biblioteca Nacional de China en el distrito de Haidian, es el primer museo nacional de libros clásicos del país. Exhibe huesos oraculares, manuscritos de Dunhuang y otros libros antiguos raros de las colecciones de la biblioteca.",
+      descriptionEn: "The National Museum of Classic Books, located alongside the National Library of China in Haidian District, is the country's first national-level museum dedicated to classic books. It exhibits oracle bones, Dunhuang manuscripts, and other rare ancient books from the library's collections.",
     },
     {
       id: "beijing_7",
@@ -1256,7 +1256,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Model_of_Beijing.JPG/1920px-Model_of_Beijing.JPG",
       website: "http://www.bjghzl.com.cn/",
-      description: "北京市规划展览馆 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Salón de Exposición de Planificación de Pekín es un museo de urbanismo situado en el antiguo edificio de la estación de ferrocarril de 1903, junto a la plaza de Tiananmén, en Pekín, China.",
       descriptionEn: "The Beijing Planning Exhibition Hall is an urban planning museum located at 20 Qianmen E St in the old main railway station building from 1903, beside Tiananmen Square in Beijing, China.",
     },
     {
@@ -1271,7 +1271,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Beijing_Museum_of_Natural_History_2.jpg/1920px-Beijing_Museum_of_Natural_History_2.jpg",
       website: "https://www.nnhm.org.cn/",
-      description: "国家自然博物馆 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Nacional de Historia Natural de China, antes Museo de Historia Natural de Pekín, es un museo público municipal de historia natural situado en el distrito de Dongcheng, Pekín, China.",
       descriptionEn: "The National Natural History Museum of China, previously the Beijing Museum of Natural History, is a municipal public natural history museum in Dongcheng, Beijing, China.",
     },
     {
@@ -1286,8 +1286,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/%E5%A4%A9%E5%9D%9B%E5%85%AC%E5%9B%AD_-_panoramio.jpg/1920px-%E5%A4%A9%E5%9D%9B%E5%85%AC%E5%9B%AD_-_panoramio.jpg",
       website: "https://www.tiantanpark.cn/",
-      description: "天坛公园 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Beijing Zoo is a zoological park in Xizhimen, Xicheng District, Beijing. Founded in 1906 during the late Qing dynasty, it is the oldest zoo in China and oldest public park in northern China.",
+      description: "El Parque del Templo del Cielo rodea el complejo de altares imperiales del Templo del Cielo, en el sureste de Pekín. Es un extenso parque público con antiguos cipreses centenarios, muy popular entre los residentes locales para hacer ejercicio y actividades recreativas.",
+      descriptionEn: "Temple of Heaven Park surrounds the imperial altar complex of the Temple of Heaven in southeastern Beijing. It is a large public park with centuries-old cypress trees, popular among local residents for exercise and recreational activities.",
     },
     {
       id: "beijing_10",
@@ -1301,8 +1301,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/%E9%9B%8D%E5%92%8C%E5%AE%AB_20181125.jpg",
       website: "http://www.yonghegong.cn/",
-      description: "雍和宫 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Yonghegong Lama Temple station is an interchange station on Line 2 and Line 5 of the Beijing Subway.",
+      description: "El Templo de Yonghegong, o Templo del Lama, es un templo y monasterio del budismo tibetano situado en el distrito de Dongcheng, Pekín. Fue en su origen la residencia oficial de eunucos de la corte durante la dinastía Qing, y hoy es uno de los templos budistas tibetanos más grandes fuera del Tíbet.",
+      descriptionEn: "The Yonghe Temple, or Lama Temple, is a Tibetan Buddhist temple and monastery in Dongcheng District, Beijing. Originally an official residence for court eunuchs during the Qing dynasty, it is today one of the largest Tibetan Buddhist temples outside of Tibet.",
     },
     {
       id: "beijing_11",
@@ -1315,8 +1315,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/%E5%BE%B7%E8%83%9C%E9%97%A8%E7%AE%AD%E6%A5%BC_-_panoramio.jpg/1920px-%E5%BE%B7%E8%83%9C%E9%97%A8%E7%AE%AD%E6%A5%BC_-_panoramio.jpg",
-      description: "德胜门箭楼 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "This list is of Major Sites Protected for their Historical and Cultural Value at the National Level in the Municipality of Beijing.",
+      description: "La Torre del Arco de Deshengmen es el único vestigio superviviente de la antigua puerta Deshengmen de la muralla norte de Pekín, construida originalmente en 1437. Hoy alberga el Museo de Monedas Antiguas de Pekín y es uno de los pocos accesos históricos de la ciudad aún en pie.",
+      descriptionEn: "The Deshengmen Arrow Tower is the sole surviving remnant of Beijing's former Deshengmen city gate on the northern city wall, originally built in 1437. It now houses the Beijing Ancient Coin Museum and is one of the city's few preserved historic gates.",
     },
     {
       id: "beijing_12",
@@ -1330,8 +1330,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/82/Second_door_of_Beijing_Dongyue_Temple.jpg",
       website: "https://dym.com.cn",
-      description: "东岳庙 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Dongyue Temple may refer to several Taoist/folk religious temples dedicated to the Great Deity of the Eastern Peak, that is Mount Tai:Dongyue miao 东岳庙 (Beijing), Beijing Dongyue Temple Dongyue guan 东岳观 Dongyue guan 东岳观 Dongyue miao 东岳庙 Dongyue miao 东岳庙 (Shandong) Jiexiu Dongyue…",
+      description: "El Templo de Dongyue de Pekín es un templo taoísta dedicado a la Gran Deidad del Pico Oriental, es decir, al monte Tai. Situado en el distrito de Chaoyang, es uno de los templos taoístas más importantes del norte de China.",
+      descriptionEn: "The Beijing Dongyue Temple is a Taoist temple dedicated to the Great Deity of the Eastern Peak, that is, Mount Tai. Located in Chaoyang District, it is one of the most important Taoist temples in northern China.",
     },
     {
       id: "beijing_13",
@@ -1345,7 +1345,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Beihai_Park_Br%C3%BCcke-20110104-RM-110001.jpg/1920px-Beihai_Park_Br%C3%BCcke-20110104-RM-110001.jpg",
       website: "https://www.beihaipark.com.cn/",
-      description: "北海公园 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Beihai es un parque público y antiguo jardín imperial situado inmediatamente al noroeste de la Ciudad Prohibida, en Pekín, China.",
       descriptionEn: "Beihai Park is a public park and former imperial garden immediately northwest of the Forbidden City in Beijing, China.",
     },
     {
@@ -1359,7 +1359,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg/1920px-The_Forbidden_City_-_View_from_Coal_Hill.jpg",
-      description: "Shan Jixiang, en chino 单霁翔 es un político, erudito y arquitecto chino, que fue Decano de la Academia Gugong del Museo del Palacio. Fue curador del museo de la Ciudad Prohibida entre 2012 y 2019 y anteriormente fue director de la Administración Nacional del Patrimonio Cultural.",
+      description: "La Ciudad Prohibida es el complejo de palacios imperiales situado en el centro de la Ciudad Imperial de Pekín, China. Fue residencia de 24 emperadores de las dinastías Ming y Qing, y centro del poder político en China durante más de 500 años, entre 1420 y 1924.",
       descriptionEn: "The Forbidden City is the imperial palace complex in the center of the Imperial City in Beijing, China. It was the residence of 24 Ming and Qing dynasty Emperors, and the center of political power in China for over 500 years from 1420 to 1924.",
     },
   ],
@@ -1828,7 +1828,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Kettos-Koros-Bekes.jpg",
-      description: "Las áreas protegidas de Hungría, según la IUCN, son 896 que ocupan 21 051 km2, el 22,6 % del territorio. De las 326 designaciones nacionales, 10 son parques nacionales, 39 son áreas paisajísticas protegidas, 103 son monumentos naturales y 174 son áreas de conservación de la…",
+      description: "Hollókő es un pueblo del norte de Hungría, en el condado de Nógrád. Construido en el siglo XIII y desarrollado en los siglos XVIII y XIX, es un pueblo etnográfico bien conservado del pueblo paloc, con arquitectura tradicional de madera declarada Patrimonio de la Humanidad.",
       descriptionEn: "Hollókő is a village in northern Hungary, located in Nógrád County. The village, which was constructed in the 13th century and developed in the 18th and 19th centuries, is a well-preserved ethnographic village of the Palóc people, with traditional wooden architecture and layout…",
     },
     {
@@ -1842,7 +1842,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1568683254765-9bc96ca7e56a?auto=format&fit=crop&w=800&q=80",
-      description: "Las áreas protegidas de Hungría, según la IUCN, son 896 que ocupan 21 051 km2, el 22,6 % del territorio. De las 326 designaciones nacionales, 10 son parques nacionales, 39 son áreas paisajísticas protegidas, 103 son monumentos naturales y 174 son áreas de conservación de la…",
+      description: "La Archiabadía de Pannonhalma es un edificio medieval en Pannonhalma y uno de los monumentos históricos más antiguos de Hungría. Fundada en el año 996, se ubica cerca de la localidad, en lo alto de una colina, y sigue habitada por monjes benedictinos.",
       descriptionEn: "The Benedictine Pannonhalma Archabbey or Territorial Abbey of Saint Martin on Mount Pannonhalma is a medieval building in Pannonhalma and one of the oldest historical monuments in Hungary. Founded in 996, it is located near the town, on top of a hill.",
     },
     {
@@ -1857,8 +1857,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FranzLisztPiano.jpg/1920px-FranzLisztPiano.jpg",
       website: "https://www.lisztmuseum.hu/",
-      description: "Liszt Ferenc Emlékmúzeum és Kutatóközpont es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Liszt Ferenc Emlékmúzeum és Kutatóközpont is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Conmemorativo y Centro de Investigación Ferenc Liszt abrió en 1986 en el antiguo apartamento del compositor en la Academia de Música de Budapest, donde vivió entre 1881 y 1886. Conserva sus instrumentos, muebles, partituras y objetos personales originales.",
+      descriptionEn: "The Ferenc Liszt Memorial Museum and Research Centre opened in 1986 in the composer's former apartment at the Budapest Academy of Music, where he lived from 1881 to 1886. It preserves his original instruments, furniture, scores, and personal belongings.",
     },
     {
       id: "budapest_4",
@@ -1872,7 +1872,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Budapest%2C_F%C3%B6ldalatti_Vas%C3%BAti_M%C3%BAzeum%2C_metr%C3%B3_m%C3%BAzeum%2C_17.jpg/1920px-Budapest%2C_F%C3%B6ldalatti_Vas%C3%BAti_M%C3%BAzeum%2C_metr%C3%B3_m%C3%BAzeum%2C_17.jpg",
       website: "https://www.bkv.hu/hu/muzeumok/foldalatti_vasuti_muzeum_budapest",
-      description: "Földalatti Vasúti Múzeum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo del Ferrocarril Subterráneo está dedicado a la Línea 1 del metro de Budapest, la más antigua de la ciudad, construida entre 1894 y 1896 y conocida localmente como \"el pequeño subterráneo\".",
       descriptionEn: "Line 1 is the oldest line of the Budapest Metro, built from 1894 to 1896. It is known locally as \"the small underground\", while the M2, M3 and M4 are called \"metró\".",
     },
     {
@@ -1887,8 +1887,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arany_Sas_Patikam%C3%BAzeum_-_panoramio.jpg/1920px-Arany_Sas_Patikam%C3%BAzeum_-_panoramio.jpg",
       website: "https://semmelweismuseum.hu/arany-sas-patikamuzeum/",
-      description: "Arany Sas Patikamúzeum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Arany Sas Patikamúzeum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de la Farmacia Águila Dorada ocupa el edificio de la primera farmacia de Buda, fundada en 1681, en el Barrio del Castillo. Abrió como museo en 1973 y conserva armarios de madera, tarros de cerámica y una recreación de un laboratorio alquimista del siglo XVII.",
+      descriptionEn: "The Golden Eagle Pharmacy Museum occupies the building of Buda's first pharmacy, founded in 1681, in the Castle District. It opened as a museum in 1973 and preserves wooden cabinets, ceramic jars, and a reconstructed 17th-century alchemist's laboratory.",
     },
     {
       id: "budapest_6",
@@ -1902,7 +1902,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hungarian_National_Gallery%2C_Budapest.jpg/1920px-Hungarian_National_Gallery%2C_Budapest.jpg",
       website: "https://mng.hu/",
-      description: "László Paál fue un pintor húngaro que interpretó en una forma muy personal los lineamientos e ideas de la Escuela de Barbizon, la pintura a plein air y el paisajismo característico de los impresionistas franceses, imprimiéndole su personalidad \"magyar\".",
+      description: "La Galería Nacional Húngara se estableció en 1957 como el museo de arte nacional del país. Está ubicada en el Castillo de Buda, en Budapest, y alberga la mayor colección de arte húngaro del mundo.",
       descriptionEn: "The Hungarian National Gallery was established in 1957 as the national art museum. It is located in Buda Castle in Budapest, Hungary.",
     },
     {
@@ -1917,8 +1917,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Budapesti_T%C3%B6rt%C3%A9neti_M%C3%BAzeum._Fortepan_77634.jpg/1920px-Budapesti_T%C3%B6rt%C3%A9neti_M%C3%BAzeum._Fortepan_77634.jpg",
       website: "https://www.varmuzeum.hu/",
-      description: "Budapesti Történeti Múzeum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The population of Budapest was 1,682,426 in 2022. According to the 2011 census, the Budapest metropolitan area was home to 2,530,167 people and the Budapest commuter area had 3.3 million inhabitants.",
+      description: "El Museo Histórico de Budapest, también llamado Museo del Castillo, ocupa parte del Palacio Real en el Castillo de Buda y presenta la historia de la ciudad desde la prehistoria hasta la actualidad, incluyendo restos del castillo medieval original.",
+      descriptionEn: "The Budapest History Museum, also known as the Castle Museum, occupies part of the Royal Palace in Buda Castle and traces the city's history from prehistoric times to the present, including remains of the original medieval castle.",
     },
     {
       id: "budapest_8",
@@ -1932,8 +1932,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Fani_kny_%28IA_fanikny37magy%29.pdf/page1-500px-Fani_kny_%28IA_fanikny37magy%29.pdf.jpg",
       website: "http://www.solymarivar.hu",
-      description: "Solymári vár es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Solymári vár is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El castillo de Solymár es una fortaleza medieval del siglo XIV que se alza en una colina entre Solymár y las colinas de Buda, con muros de piedra y torres bien conservados. Sirvió como residencia de la familia noble Lackfi.",
+      descriptionEn: "Solymár Castle is a 14th-century medieval fortress rising on a hill between Solymár and the Buda Hills, with well-preserved stone walls and towers. It served as a residence for the noble Lackfi family.",
     },
     {
       id: "budapest_9",
@@ -1947,8 +1947,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Oesterreichische_botanische_Zeitschrift_%28IA_oesterreichische39wien%29.pdf/page1-500px-Oesterreichische_botanische_Zeitschrift_%28IA_oesterreichische39wien%29.pdf.jpg",
       website: "http://www.erdcenter.hu/pub/ec/erd/muemlekek/kutyavar.html",
-      description: "Érd es un condado urbano en el Condado de Pest, en Hungría. La ciudad se encuentra en el área metropolitana de Budapest, a 21 km al sudoeste del centro de la capital húngara, y también se encuentra cerca del río Danubio.",
-      descriptionEn: "Kutyavár is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Kutyavár, o «Castillo del Perro», es el edificio gótico más antiguo de Érd, del siglo XV, mencionado por primera vez en 1417. Según la leyenda fue construido por el rey Matías Corvino para sus perros de caza; hoy solo se conserva un muro en pie.",
+      descriptionEn: "Kutyavár, or \"Dog Castle,\" is Érd's oldest Gothic building, dating to the 15th century and first mentioned in 1417. According to legend it was built by King Matthias Corvinus for his hunting dogs; today only a single standing wall remains.",
     },
     {
       id: "budapest_10",
@@ -1962,8 +1962,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Portrait_of_Istv%C3%A1n_Tisza.jpg",
       website: "https://scoutevent.hu/teleki-tisza-kastely/",
-      description: "Teleki–Tisza-kastély es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Count István Imre Lajos Pál Tisza de Borosjenő et Szeged ; was a politician who served as prime minister of Hungary from 1903 to 1905 and from 1913 until 1917.",
+      description: "El castillo Teleki-Tisza es una mansión clásica de un piso construida hacia 1840 en Nagykovácsi, perteneciente primero a la familia Teleki y luego a la familia Tisza, que la usó como pabellón de caza.",
+      descriptionEn: "Teleki–Tisza Mansion is a single-story classical manor built around 1840 in Nagykovácsi, owned first by the Teleki family and later by the Tisza family, who used it as a hunting lodge.",
     },
     {
       id: "budapest_11",
@@ -1977,8 +1977,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Mail%C3%A1th-palota.jpg/1920px-Mail%C3%A1th-palota.jpg",
       website: "https://muemlekem.hu/muemlek/show/11185",
-      description: "Mailáth-palota es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The House of Zichy is the name of an ancient Magyar family of the Hungarian nobility, conspicuous in Hungarian history from the latter part of the 13th century onwards.",
+      description: "El Palacio Mailáth es un edificio histórico de Budapest vinculado a la familia noble húngara Majláth, cuyos miembros ocuparon altos cargos como jueces reales y cancilleres del Reino de Hungría durante el siglo XIX.",
+      descriptionEn: "Mailáth Palace is a historic building in Budapest linked to the Hungarian noble Majláth family, whose members held high offices such as Royal Judge and Chancellor of the Kingdom of Hungary during the 19th century.",
     },
     {
       id: "budapest_12",
@@ -1992,8 +1992,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Budapest_ferences_templom.jpg/1920px-Budapest_ferences_templom.jpg",
       website: "https://muemlekem.hu/muemlek/show/1195?logsall=1",
-      description: "Ferences templom es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The list below arranges churches in Budapest by city district.",
+      description: "La Iglesia Franciscana del Centro se originó como una capilla gótica de 1260, destruida durante la ocupación otomana. El edificio actual, terminado en 1759 en estilo barroco italiano, alberga estucos, frescos y altares dorados, y es el lugar de reposo del primer primer ministro húngaro, Lajos Batthyány.",
+      descriptionEn: "The Inner City Franciscan Church originated as a Gothic chapel in 1260, destroyed during the Ottoman occupation. The current building, completed in 1759 in Italian Baroque style, holds stuccowork, frescoes, and gilded altars, and is the resting place of Hungary's first prime minister, Lajos Batthyány.",
     },
     {
       id: "budapest_13",
@@ -2007,8 +2007,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Paracanthurus_hepatus_in_Tropicarium-Oceanarium_Budapest.jpg/1920px-Paracanthurus_hepatus_in_Tropicarium-Oceanarium_Budapest.jpg",
       website: "https://www.tropicarium.hu/",
-      description: "Cladiella es un género de corales de la familia Alcyoniidae, subclase Octocorallia, clase Anthozoa.",
-      descriptionEn: "Tropicarium Kolmården is a public aquarium and terrarium, situated outside Kolmården Wildlife Park, close to Bråviken and 25 km from Norrköping town in Sweden.",
+      description: "El Tropicarium de Budapest, en el centro comercial Campona, es el mayor acuario de agua salada de Europa Central, célebre por su túnel de tiburones de 12 metros. También alberga rayas, cocodrilos, aves tropicales en vuelo libre y monos.",
+      descriptionEn: "The Budapest Tropicarium, at the Campona shopping mall, is Central Europe's largest saltwater aquarium, famous for its 12-metre shark tunnel. It also houses stingrays, alligators, free-flying tropical birds, and monkeys.",
     },
     {
       id: "budapest_14",
@@ -2022,8 +2022,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/70/Paulinerweg%2C_Station_1.5%2C_Wegweiser%2C_2023_Budapest.jpg",
       website: "http://www.palosepiteszet.hu/budapest-es-kornyekenek-palos-kolostorai/budaszentlorinc/",
-      description: "Pálos kolostorrom es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The Jakab Hill castle was an early Iron Age castle built as a circular rampart of earth and stone in the Mecsek, on the Jakab Hill, Hungary. The Celtic was situated on the Jakab-hegy overlooking the Drave flood plain.",
+      description: "Las ruinas del monasterio paulino de Budaszentlőrinc fueron erigidas hacia 1300 por maestros italianos y destruidas por los otomanos en la década de 1540. Se ubican cerca de la Budakeszi út, en el distrito II de Budapest, y conservan los cimientos de su iglesia gótica y claustro.",
+      descriptionEn: "The ruins of the Budaszentlőrinc Pauline Monastery were built around 1300 by Italian masters and destroyed by the Ottomans in the 1540s. Located near Budakeszi Road in Budapest's District II, they preserve the foundations of its Gothic church and cloister.",
     },
   ],
   buenosaires: [
@@ -2038,7 +2038,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1591871937573-b6c028c23a0b?auto=format&fit=crop&w=800&q=80",
-      description: "Uruguay es conocido por tener un relieve muy homogéneo y plano, su altitud promedio es de 140 metros sobre el nivel del mar, mientras que los países vecinos de Argentina y Brasil tienen una elevación media de entre 800 y 1000 m s. n. m.",
+      description: "Colonia del Sacramento es una ciudad del suroeste de Uruguay, a orillas del Río de la Plata, frente a Buenos Aires. Es una de las ciudades más antiguas de Uruguay y su barrio histórico es Patrimonio de la Humanidad por su arquitectura colonial portuguesa y española.",
       descriptionEn: "Colonia del Sacramento is a city in southwestern Uruguay, by the Río de la Plata, facing Buenos Aires, Argentina. It is one of the oldest towns in Uruguay and the capital of the Colonia Department. As of the 2023 census, it has a population of around 32,174.",
     },
     {
@@ -2054,7 +2054,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/01/Museo_Nacional_Ferroviario_Ra%C3%BAl_Scalabrini_Ortiz.jpg",
       website: "https://www.argentina.gob.ar/museoferroviario",
       description: "El Museo Nacional Ferroviario \"Raúl Scalabrini Ortiz\" de la Argentina se encuentra en la Ciudad de Buenos Aires, en Avenida del Libertador 405, en Retiro.",
-      descriptionEn: "La Plata is the capital city of Buenos Aires province, Argentina. According to the 2022 census, the Partido has a population of 772,618 and its metropolitan area, the Greater La Plata, has 938,287 inhabitants.",
+      descriptionEn: "The \"Raúl Scalabrini Ortiz\" National Railway Museum of Argentina is located in the City of Buenos Aires, at Avenida del Libertador 405, in the Retiro neighborhood.",
     },
     {
       id: "buenosaires_2",
@@ -2084,7 +2084,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Museo_de_Arte_Popular_Jos%C3%A9_Hern%C3%A1ndez_001.jpg/1920px-Museo_de_Arte_Popular_Jos%C3%A9_Hern%C3%A1ndez_001.jpg",
       website: "https://www.buenosaires.gob.ar/museos/museo-de-arte-popular-jose-hernandez",
       description: "El Museo de Arte Popular José Hernández integra la red de museos públicos del Gobierno de la Ciudad de Buenos Aires. Su objetivo es coleccionar, investigar, preservar, exhibir y promover el arte popular argentino en sus diferentes variantes.",
-      descriptionEn: "Buenos Aires, officially the Autonomous City of Buenos Aires, is the capital and largest city of Argentina. It is located on the southwest of the Río de la Plata. Buenos Aires is classified as an Alpha− global city, according to the GaWC 2024 ranking.",
+      descriptionEn: "The José Hernández Museum of Popular Art is part of the network of public museums of the Government of the City of Buenos Aires. Its mission is to collect, research, preserve, exhibit, and promote Argentine folk art in its various forms.",
     },
     {
       id: "buenosaires_4",
@@ -2114,7 +2114,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Museo_del_Holocausto%2C_Buenos_Aires.jpg/1920px-Museo_del_Holocausto%2C_Buenos_Aires.jpg",
       website: "https://www.museodelholocausto.org.ar/",
       description: "El Museo del Holocausto de Buenos Aires está destinado a mantener viva la memoria de la Shoá y difundir lo ocurrido durante el genocidio del pueblo judío a la sociedad argentina, recolecta un amplio archivo de documentos y objetos personales donados por aquellos que sufrieron la…",
-      descriptionEn: "Otto Adolf Eichmann was a German-Austrian official of the Nazi Party, an officer of the Schutzstaffel (SS), a convicted war criminal, and one of the major organizers of the Holocaust.",
+      descriptionEn: "The Buenos Aires Holocaust Museum is dedicated to keeping alive the memory of the Shoah and spreading awareness of the genocide of the Jewish people among Argentine society, gathering a large archive of documents and personal objects donated by survivors and their families.",
     },
     {
       id: "buenosaires_6",
@@ -2128,8 +2128,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/95/Buenos_Aires-Synagogue-1133263056.jpg",
       website: "http://www.templolibertad.org.ar/",
-      description: "El Seminario Rabínico Latinoamericano es un centro educativo, académico, cultural, plural, y religioso del Movimiento Masortí de América Latina dedicado a la formación y ordenación de rabinos para difundir y perpetuar la religión judía en las comunidades latinoamericanas que…",
-      descriptionEn: "Sinagoga de la Congregación Israelita (CIRA) is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Templo Libertad es la primera sinagoga de la Ciudad de Buenos Aires y sede de la Congregación Israelita de la República Argentina (CIRA), fundada en 1862. Su piedra fundacional se colocó en 1897 y fue declarado Monumento Histórico Nacional en el año 2000.",
+      descriptionEn: "Templo Libertad is the first synagogue of the City of Buenos Aires and headquarters of the Congregación Israelita de la República Argentina (CIRA), founded in 1862. Its cornerstone was laid in 1897, and it was declared a National Historical Monument in 2000.",
     },
     {
       id: "buenosaires_7",
@@ -2144,7 +2144,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Iglesia_Sueca%2C_Buenos_Aires_02.jpg/1920px-Iglesia_Sueca%2C_Buenos_Aires_02.jpg",
       website: "http://www.iglesiasueca.com.ar/",
       description: "La Iglesia Nórdica de Buenos Aires es un templo religioso evangélico luterano, perteneciente a las iglesias sueca, noruega y finlandesa, ubicada en la calle Azopardo 1428 del barrio de San Telmo, en la Ciudad Autónoma de Buenos Aires, en Argentina.",
-      descriptionEn: "Iglesia Nórdica is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Nordic Church of Buenos Aires is a Lutheran evangelical temple shared by the Swedish, Norwegian, and Finnish churches, located on Azopardo Street 1428 in the San Telmo neighborhood of the Autonomous City of Buenos Aires, Argentina.",
     },
     {
       id: "buenosaires_8",
@@ -2158,8 +2158,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Chinatown%2C_Belgrano%2C_Buenos_Aires_01.jpg/1920px-Chinatown%2C_Belgrano%2C_Buenos_Aires_01.jpg",
       website: "https://tzongkuan.org/",
-      description: "Templo Tzong Kuan es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Chinese Argentines are Argentine citizens of Chinese ancestry or Chinese-born immigrants. The Chinese Argentine community is one of the fastest-growing communities in Argentina. As of 2023, the community was made up of 350,000 people.",
+      description: "El Templo Tzong Kuan, inaugurado en 1988 por el maestro Pu Hsien con apoyo de la comunidad taiwanesa, es un templo budista ubicado en la calle Montañeses del Barrio Chino de Belgrano, Buenos Aires. Su nombre significa \"Visión del Medio\", en referencia a la escuela filosófica Madhyamaka.",
+      descriptionEn: "Tzong Kuan Temple, opened in 1988 by Master Pu Hsien with support from the Taiwanese community, is a Buddhist temple on Montañeses street in Belgrano's Chinatown, Buenos Aires. Its name means \"Middle Way\", referencing the Madhyamaka philosophical school.",
     },
     {
       id: "buenosaires_9",
@@ -2174,7 +2174,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Tan_distintos_tan_iguales%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%28106334%29.pdf/page1-960px-Tan_distintos_tan_iguales%2C_Hist%C3%B3ria_no_Museu_da_Pessoa_%28106334%29.pdf.jpg",
       website: "https://es.wikipedia.org/wiki/Buenos_Aires_Football_Club",
       description: "El Buenos Aires Football Club, fue un club argentino de fútbol, con sede en la Ciudad de Buenos Aires. Está considerado el primer club de fútbol de América del Sur. Si bien el equipo comenzó practicando fútbol, posteriormente adoptaría las leyes del rugby.",
-      descriptionEn: "The Estadio Monumental, also known as Estadio River Plate and currently known as Mâs Monumental for sponsorship reasons, is an association football stadium in Buenos Aires, Argentina. Located in the Belgrano neighbourhood, it is the home of River Plate.",
+      descriptionEn: "Buenos Aires Football Club was an Argentine football club based in the City of Buenos Aires, considered the first football club in South America. Although the team began playing football, it later adopted the laws of rugby.",
     },
     {
       id: "buenosaires_10",
@@ -2188,8 +2188,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/La_Revolucion_de_Buenos_Aires_de_1890.pdf/page1-330px-La_Revolucion_de_Buenos_Aires_de_1890.pdf.jpg",
       website: "https://palermonline.com.ar/wordpress/?p=39290",
-      description: "Almirante Brown es uno de los 135 partidos de la provincia argentina de Buenos Aires. Forma parte del conglomerado urbano conocido como Gran Buenos Aires, ubicándose en la zona sur del mismo. Su cabecera es la ciudad de Adrogué.",
-      descriptionEn: "Lanús is the capital of Lanús Partido, Buenos Aires Province in Argentina. It lies just south of the capital city Buenos Aires, in the Greater Buenos Aires metropolitan area. The city has a population of 212,152, and the Partido de Lanús has a total population of 453,500.",
+      description: "La Plaza Almirante Ramón González Fernández se encuentra en el corazón del Parque Tres de Febrero, en Palermo, cerca del Planetario Galileo Galilei. Rinde homenaje al marino y comandante naval que dio nombre a la plaza, y cuenta con un busto obra de Juan Carlos Ferraro.",
+      descriptionEn: "Plaza Almirante Ramón González Fernández sits in the heart of Parque Tres de Febrero, in Palermo, near the Galileo Galilei Planetarium. It honors the naval commander for whom it is named, and features a bust by sculptor Juan Carlos Ferraro.",
     },
     {
       id: "buenosaires_11",
@@ -2218,8 +2218,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Bas%C3%ADlica_de_San_Jos%C3%A9_de_Flores_vista_desde_la_plaza_2.JPG/1920px-Bas%C3%ADlica_de_San_Jos%C3%A9_de_Flores_vista_desde_la_plaza_2.JPG",
       website: "http://www.basilicadeflores.com.ar/",
-      description: "San José de Flores es una estación de la línea A del Subte de Buenos Aires. Debido a su cercanía con la estación Flores de la línea Sarmiento, es un importante nodo de combinación.",
-      descriptionEn: "San José de Flores is a station on Line A of the Buenos Aires Underground. The station connects with Flores station on the Sarmiento Line commuter rail service. The station was opened on 27 September 2013 as part of the extension of the line from Carabobo to San Pedrito.",
+      description: "La Basílica de San José de Flores fue inaugurada en 1883, diseñada por los arquitectos italianos Rómulo y Benito Ginocchio en estilo neorrenacentista. Es célebre por ser la iglesia donde el joven Jorge Bergoglio, luego el papa Francisco, decidió su vocación sacerdotal.",
+      descriptionEn: "The Basilica of San José de Flores was inaugurated in 1883, designed by Italian architects Rómulo and Benito Ginocchio in Neo-Renaissance style. It is famous as the church where a young Jorge Bergoglio, later Pope Francis, decided his priestly vocation.",
     },
     {
       id: "buenosaires_13",
@@ -2234,7 +2234,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Intervenci%C3%B3n_de_vitrinas_en_la_sala_del_escritorio_del_Museo_Casa_Ricardo_Rojas_de_la_Ciudad_Aut%C3%B3noma_de_Buenos_Aires_%28CABA%29.jpg/1920px-Intervenci%C3%B3n_de_vitrinas_en_la_sala_del_escritorio_del_Museo_Casa_Ricardo_Rojas_de_la_Ciudad_Aut%C3%B3noma_de_Buenos_Aires_%28CABA%29.jpg",
       website: "https://museorojas.cultura.gob.ar/",
       description: "La Casa Museo de Ricardo Rojas es una casa museo ubicada en Buenos Aires. En 1927 Ricardo Rojas encargó la construcción de su casa al arquitecto Ángel Guido, dando pie al encuentro de dos protagonistas de la cultura nacional.",
-      descriptionEn: "The Casa Rosada, lit. 'the pink house', is the president of the Argentine Republic's official workplace, located in Buenos Aires. The palatial mansion is known officially as Casa de Gobierno.",
+      descriptionEn: "The Ricardo Rojas House Museum is a house museum located in Buenos Aires. In 1927 Ricardo Rojas commissioned architect Ángel Guido to build his house, bringing together two protagonists of national culture.",
     },
     {
       id: "buenosaires_14",
@@ -2269,7 +2269,7 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
       },
       description: "El Cairo histórico se ubica en el centro de El Cairo y se caracteriza por sus mezquitas y otros monumentos islámicos de importancia histórica.",
-      descriptionEn: "Cairo is the southernmost city in the U.S. state of Illinois and the county seat of Alexander County. A river city, Cairo has the lowest elevation of any location in Illinois and is the state's only city to be surrounded by levees.",
+      descriptionEn: "Historic Cairo is located in the center of Cairo, Egypt, and is characterized by its mosques and other Islamic monuments of historical importance.",
     },
     {
       id: "cairo_1",
@@ -2327,8 +2327,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/71/%D9%84%D9%88%D8%AD%D8%A9_%D9%85%D9%86_%D8%A7%D9%84%D8%AE%D8%B2%D9%81.jpg",
       website: "http://www.icm.gov.eg/",
-      description: "متحف الخزف الإسلامي es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "متحف الخزف الإسلامي is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de Cerámica Islámica ocupa el antiguo palacio de verano del príncipe Amr Ibrahim, construido en 1921 en Zamalek. Reabierto en 2024 tras 14 años de restauración, exhibe más de 300 piezas cerámicas de los siglos X al XIX.",
+      descriptionEn: "The Museum of Islamic Ceramics occupies the former summer palace of Prince Amr Ibrahim, built in 1921 in Zamalek. Reopened in 2024 after a 14-year restoration, it displays over 300 ceramic pieces spanning the 10th to 19th centuries.",
     },
     {
       id: "cairo_5",
@@ -2342,7 +2342,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/National_Museum_of_Egyptian_Civilization_2025_83.jpg/1920px-National_Museum_of_Egyptian_Civilization_2025_83.jpg",
       website: "https://nmec.gov.eg/",
-      description: "المتحف القومي للحضارة المصرية es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Nacional de la Civilización Egipcia (NMEC) es un gran museo ubicado en El Cairo Viejo, un distrito de El Cairo, Egipto.",
       descriptionEn: "The National Museum of Egyptian Civilization (NMEC) is a large museum located in Old Cairo, a district of Cairo, Egypt.",
     },
     {
@@ -2372,7 +2372,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Al-Azhar_park_%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1.jpg/1920px-Al-Azhar_park_%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1.jpg",
       website: "https://azharpark.com/index.html",
-      description: "حديقة الأزهر es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Al-Azhar es un parque público situado en el distrito de Al-Darb al-Ahmar, en El Cairo histórico, Egipto.",
       descriptionEn: "Al-Azhar Park is a public park located in qism al-Darb al-Ahmar, in Historic Cairo, Egypt.",
     },
     {
@@ -2386,8 +2386,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5d/The_exterior_of_the_Baron_Empain_palace.jpg",
-      description: "قصر بارون أمبان es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "قصر بارون أمبان is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Palacio del Barón Empain es un palacio de estilo hindú construido en 1911 por el industrial belga Édouard Empain en el barrio de Heliópolis, El Cairo, que él mismo fundó. Es célebre por su arquitectura inspirada en los templos de Angkor y Orissa.",
+      descriptionEn: "Baron Empain Palace is a Hindu-style palace built in 1911 by Belgian industrialist Édouard Empain in Heliopolis, Cairo, the district he himself founded. It is renowned for its architecture inspired by the temples of Angkor and Orissa.",
     },
     {
       id: "cairo_9",
@@ -2415,7 +2415,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/17/Abdeen_Palace.jpg",
       description: "El Palacio de Abdín es un histórico palacio de El Cairo, y una de las residencias oficiales y el lugar de trabajo principal del Presidente de Egipto, que se encuentra por encima de la calle Qasr el-Nil, en el centro este de El Cairo, Egipto.",
-      descriptionEn: "Egypt is one of the oldest civilizations in the world. Therefore, it has been in contact with many other civilizations and nations, and has gone through many eras, from prehistoric times to the modern era, passing through many eras such as: Egyptian, Roman, Greek, Islamic, and…",
+      descriptionEn: "Abdeen Palace is a historic palace in Cairo, and one of the official residences and main workplaces of the President of Egypt, located above Qasr el-Nil Street in east-central Cairo, Egypt.",
     },
     {
       id: "cairo_11",
@@ -2428,7 +2428,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/52/Heliopolis_Palace_in_Cairo.JPG",
-      description: "قصر رئاسة es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Palacio de Heliópolis es uno de los cinco palacios y residencias presidenciales de Egipto, junto con el Palacio de Abdín, el Palacio de Koubbeh, el Palacio de Montaza y el Palacio de Ras el-Tin, para la oficina ejecutiva del Presidente de Egipto.",
       descriptionEn: "The Heliopolis Palace is one of the five Egyptian presidential palaces and residences, the others being Abdeen Palace, Koubbeh Palace, Montaza Palace and Ras El Tin Palace, for the executive office of the President of Egypt.",
     },
     {
@@ -2442,7 +2442,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/60/CairoSakakini1.jpg",
-      description: "قصر السكاكيني es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Palacio Habib Pasha El Sakakini es un palacio en el distrito de al-Zahir de El Cairo, Egipto. Construido para el contratista Gabriel Habib Sakakini y terminado en 1897, se alza sobre el emplazamiento de un antiguo lago en el punto de encuentro de ocho calles.",
       descriptionEn: "Habib Pasha El Sakakini Palace is a palace in the al-Zahir district of Cairo, Egypt. Built for the contractor Gabriel Habib Sakakini and completed in 1897, it stands on the site of a former lake at the meeting point of eight roads.",
     },
     {
@@ -2457,8 +2457,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/37/%D8%AF%D9%8A%D8%B1_%D8%A7%D9%84%D8%A3%D9%86%D8%A8%D8%A7_%D8%B3%D9%85%D8%B9%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D8%B1%D8%A7%D8%B2.jpg",
       website: "http://www.samaanchurch.com/",
-      description: "دير الأنبا سمعان الخراز es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "دير الأنبا سمعان الخراز is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Monasterio de San Simón el Curtidor, conocido como la «Iglesia de la Cueva», está tallado en la roca de la montaña Mocatam, en el barrio de la Ciudad de la Basura de El Cairo. Es la iglesia más grande de Oriente Medio, con capacidad para unas 20 000 personas.",
+      descriptionEn: "The Monastery of Saint Simon the Tanner, known as the \"Cave Church,\" is carved into the rock of Mokattam Mountain in Cairo's Garbage City district. It is the largest church in the Middle East, with capacity for roughly 20,000 people.",
     },
     {
       id: "cairo_14",
@@ -2472,7 +2472,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/b/b6/Nmec-logo-dec.jpg",
       website: "https://nmec.gov.eg",
-      description: "المتحف القومى للحضارة المصرية es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Nacional de la Civilización Egipcia (NMEC) es un gran museo ubicado en El Cairo Viejo, un distrito de El Cairo, Egipto.",
       descriptionEn: "The National Museum of Egyptian Civilization (NMEC) is a large museum located in Old Cairo, a district of Cairo, Egypt.",
     },
   ],
@@ -2489,7 +2489,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=80",
       website: "http://www.robben-island.org.za",
-      description: "Ciudad del Cabo comparte capital con Pretoria y Bloemfontein además de ser la segunda ciudad más poblada de Sudáfrica, después de Johannesburgo. Forma parte del municipio metropolitano de la Ciudad del Cabo.",
+      description: "La isla Robben es una antigua prisión situada en la bahía de Table, frente a la costa de Ciudad del Cabo, Sudáfrica. Allí estuvo recluido Nelson Mandela durante 18 años; hoy es Patrimonio de la Humanidad y funciona como museo.",
       descriptionEn: "Robben Island Prison is an inactive prison on Robben Island in Table Bay, 6.9 kilometers (4.3 mi) west of the coast of Bloubergstrand, Cape Town, South Africa.",
     },
     {
@@ -2503,7 +2503,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Cape_Town_%28ZA%29%2C_Cape_Point_Nature_Reserve%2C_Cape_Point_--_2024_--_3344.jpg/1920px-Cape_Town_%28ZA%29%2C_Cape_Point_Nature_Reserve%2C_Cape_Point_--_2024_--_3344.jpg",
-      description: "Cape Floral Region Protected Areas es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Cape Floral Region Protected Areas es una región florística situada cerca del extremo sur de Sudáfrica, la única del Reino Floral del Cabo. Alberga una vegetación de fynbos excepcionalmente diversa y está declarada Patrimonio de la Humanidad por la Unesco.",
       descriptionEn: "The Cape Floral Region is a floristic region located near the southern tip of South Africa. It is the only floristic region of the Cape Floristic Kingdom, and includes only one floristic province, known as the Cape Floristic Province.",
     },
     {
@@ -2518,7 +2518,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Cape_Town_%28ZA%29%2C_Waterfront%2C_Chavonnes_Battery_Museum_--_2024_--_2946.jpg/1920px-Cape_Town_%28ZA%29%2C_Waterfront%2C_Chavonnes_Battery_Museum_--_2024_--_2946.jpg",
       website: "https://www.chavonnesbattery.co.za/",
-      description: "Chavonnes Battery Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de la Batería Chavonnes conserva los restos de una fortificación construida a principios del siglo XVIII para proteger Ciudad del Cabo. Hoy funciona como museo y espacio de eventos en el Victoria & Alfred Waterfront.",
       descriptionEn: "The Chavonnes Battery was a fortification protecting Cape Town, South Africa, built in the early 18th century. It is now a museum and function venue.",
     },
     {
@@ -2533,7 +2533,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/District_Six_Museum%2C_Cape_Town_2018_05.jpg/1920px-District_Six_Museum%2C_Cape_Town_2018_05.jpg",
       website: "https://heartofcapetown.co.za/",
-      description: "Grace Beverly Jones es una cantante, compositora, modelo, productora y actriz jamaicana.",
+      description: "El Heart of Cape Town Museum se encuentra en el antiguo quirófano del Hospital Groote Schuur, donde el cirujano Christiaan Barnard realizó en 1967 el primer trasplante de corazón humano del mundo.",
       descriptionEn: "Cape Town is the legislative capital of South Africa. It is the country's oldest city and the seat of the Parliament of South Africa. Cape Town is the country's second-largest city by population, after Johannesburg, and the largest city in the Western Cape.",
     },
     {
@@ -2548,7 +2548,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Zeitz_Museum_of_Contemporary_Art_Kapstadt.jpg/1920px-Zeitz_Museum_of_Contemporary_Art_Kapstadt.jpg",
       website: "https://zeitzmocaa.museum",
-      description: "Mary Sibande es una artista sudafricana especializada en escultura, pintura, fotografía y diseño. Con estos lenguajes artísticos explora la construcción de la identidad en el contexto de la Sudáfrica poscolonial y critica la representación estereotipada del cuerpo femenino…",
+      description: "El Zeitz MOCAA es un museo público sin fines de lucro de Ciudad del Cabo, Sudáfrica. Inaugurado en 2017 en un antiguo silo de granos del Waterfront, es el mayor museo dedicado al arte contemporáneo africano y su diáspora.",
       descriptionEn: "Zeitz Museum of Contemporary Art Africa is a public non-profit museum in Cape Town, South Africa. Zeitz MOCAA opened on September 22, 2017 as the largest museum of contemporary art from Africa and its diaspora.",
     },
     {
@@ -2563,8 +2563,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/The_International_status_of_education_about_the_Holocaust.pdf/page1-960px-The_International_status_of_education_about_the_Holocaust.pdf.jpg",
       website: "https://www.ctholocaust.co.za/",
-      description: "El Servicio Austriaco de la Memoria es una alternativa al servicio militar austríaco. Los participantes trabajan en instituciones del mundo entero que se dedican a perpetuar la memoria del Holocausto.",
-      descriptionEn: "Gardens is an affluent, predominantly residential suburb of Cape Town, South Africa. It is located just to the south of the CBD, in the higher elevations of the City Bowl area, and directly beneath Table Mountain and Lion's Head.",
+      description: "El Cape Town Holocaust & Genocide Centre es un museo educativo ubicado en el barrio de Gardens, Ciudad del Cabo, dedicado a la memoria del Holocausto y a la educación en derechos humanos y tolerancia.",
+      descriptionEn: "The Cape Town Holocaust & Genocide Centre is an educational museum in the Gardens neighbourhood of Cape Town, South Africa, dedicated to Holocaust remembrance and human rights education.",
     },
     {
       id: "capetown_6",
@@ -2578,7 +2578,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Reconstruction_of_a_shtetl_in_the_South_African_Jewish_Museum%2C_Cape_Town.jpg/1920px-Reconstruction_of_a_shtetl_in_the_South_African_Jewish_Museum%2C_Cape_Town.jpg",
       website: "https://www.sajewishmuseum.co.za/",
-      description: "Candice Breitz es una artista judía sudafricana que trabaja principalmente con vídeo y fotografía. Su obra se caracteriza por instalaciones de imágenes en movimiento multicanal, enfocadas en la \"economía de la atención\" en los medios y la cultura contemporánea.",
+      description: "El Museo Judío Sudafricano, ubicado en el barrio de Gardens de Ciudad del Cabo, narra la historia y la identidad de la comunidad judía en Sudáfrica a través de exhibiciones interactivas.",
       descriptionEn: "The South African Jewish Museum is a museum of South African Jewish life, history and identity. The museum is situated in the downtown neighbourhood of Gardens in Cape Town.",
     },
     {
@@ -2593,7 +2593,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Castle_of_Good_Hope_Entrance_%281682%29.jpg/1920px-Castle_of_Good_Hope_Entrance_%281682%29.jpg",
       website: "https://www.castleofgoodhope.co.za/",
-      description: "Peter Kolb, también llamado Kolbe o Kolben en la literatura antigua, fue un astrónomo, etnólogo y explorador alemán, recordado por su publicación Caput Bonae Spei Hodiernum.",
+      description: "El Castillo de Buena Esperanza es un fuerte pentagonal del siglo XVII ubicado en Ciudad del Cabo, Sudáfrica. Es el edificio colonial más antiguo del país y en su origen se situaba sobre la línea de costa de la bahía de Table.",
       descriptionEn: "The Castle of Good Hope is a 17th century pentagonal bastion fort in Cape Town, South Africa. Originally located on the coastline of Table Bay, following land reclamation in the Foreshore area, the fort is now located inland. The Castle is surrounded by a canal.",
     },
     {
@@ -2608,7 +2608,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Arderne_Gardens_2022_-_5.jpg/1920px-Arderne_Gardens_2022_-_5.jpg",
       website: "https://www.ardernegardens.org.za/",
-      description: "Arderne Gardens es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Arderne Gardens es un parque público y arboreto en Claremont, Ciudad del Cabo, en la provincia del Cabo Occidental de Sudáfrica. Fue fundado en 1845 por Ralph Henry Arderne, un comerciante de maderas originario de Cheshire, Inglaterra.",
       descriptionEn: "Arderne Gardens is a public park and arboretum in Claremont, Cape Town, located in the Western Cape of South Africa. It was established in 1845 by Ralph Henry Arderne, a timber merchant originally from Cheshire, England.",
     },
     {
@@ -2623,7 +2623,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/The_Evileye_pufferfish_exhibit_in_Two_Oceans_Aquarium%2C_Cape_Town%2C_South_Africa.jpg/1920px-The_Evileye_pufferfish_exhibit_in_Two_Oceans_Aquarium%2C_Cape_Town%2C_South_Africa.jpg",
       website: "https://www.aquarium.co.za/",
-      description: "El Instituto 5 Giros o 5 Gyres es una organización sin ánimo de lucro 501(c)(3) que se enfoca en reducir la contaminación por plásticos centrándose en investigación primaria. Los programas se concentran en ciencia, educación y aventura.",
+      description: "El Two Oceans Aquarium es un acuario ubicado en el Victoria & Alfred Waterfront de Ciudad del Cabo, Sudáfrica, que exhibe la vida marina de los océanos Atlántico e Índico que confluyen en la región.",
       descriptionEn: "The Two Oceans Aquarium is an aquarium located at the Victoria & Alfred Waterfront in Cape Town, Western Cape, South Africa.",
     },
     {
@@ -2639,7 +2639,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Cape_Town_%28ZA%29%2C_Tikvath_Israel_Synagogue_--_2024_--_3440.jpg/1920px-Cape_Town_%28ZA%29%2C_Tikvath_Israel_Synagogue_--_2024_--_3440.jpg",
       website: "https://www.gardensshul.org/",
       description: "La Gardens Shul fue fundada en 1841, está ubicada en el Jardín Botánico de Ciudad del Cabo, en el barrio Gardens de la misma ciudad, se trata de la congregación judía más antigua de Sudáfrica.",
-      descriptionEn: "Gardens is an affluent, predominantly residential suburb of Cape Town, South Africa. It is located just to the south of the CBD, in the higher elevations of the City Bowl area, and directly beneath Table Mountain and Lion's Head.",
+      descriptionEn: "Gardens Shul, founded in 1841 next to the Company's Garden in the Gardens neighbourhood of Cape Town, is the oldest Jewish congregation in South Africa.",
     },
     {
       id: "capetown_11",
@@ -2654,7 +2654,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/St_Mary%27s_4.jpg/1920px-St_Mary%27s_4.jpg",
       website: "https://stmaryscathedral.org.za/",
       description: "La Catedral de Santa María es el nombre que recibe un edificio religioso que pertenece a la iglesia católica y que está ubicado en Ciudad del Cabo, en Sudáfrica. Es la sede de la arquidiócesis de Ciudad del Cabo y la catedral más antigua de la Iglesia católica en Sudáfrica.",
-      descriptionEn: "St George's Cathedral is the Anglican cathedral in Cape Town, South Africa, and the seat of the Archbishop of Cape Town. St. George's Cathedral is both the metropolitical church of the Anglican Church of Southern Africa and a congregation in the Diocese of Cape Town.",
+      descriptionEn: "St Mary's Cathedral is a Roman Catholic cathedral in Cape Town, South Africa. It is the seat of the Archdiocese of Cape Town and the oldest Catholic cathedral in South Africa.",
     },
     {
       id: "capetown_12",
@@ -2668,7 +2668,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Cape_Town_%28ZA%29%2C_Central_Methodist_Church_--_2024_--_3516.jpg/1920px-Cape_Town_%28ZA%29%2C_Central_Methodist_Church_--_2024_--_3516.jpg",
       website: "https://cmm.org.za/",
-      description: "Inhambane — históricamente conocida en los registros de los exploradores portugueses como Terra de Boa Gente — era una antigua entidad política marítima en forma de ciudad-estado y centro comercial costero que se desarrolló a lo largo de la bahía de Inhambane, en la región sur…",
+      description: "La Iglesia Metodista Central, también conocida como Misión Metodista Central, es una iglesia metodista histórica e importante ubicada en Greenmarket Square, Ciudad del Cabo, Sudáfrica.",
       descriptionEn: "The Central Methodist Church, also known as the Central Methodist Mission or Metropolitan Methodist Church, is a large and historically important Methodist church located on Greenmarket Square in Cape Town, South Africa.",
     },
     {
@@ -2683,8 +2683,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Auwal_Masjid%2C_Cape_Town_02.jpg",
       website: "https://www.auwalmasjid.co.za/",
-      description: "Auwal Masjid es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Crawford is a suburb of Cape Town, South Africa, located to the east of the City Centre (CBD) on the Cape Flats to the south of the N2 highway. The suburb is surrounded by the suburbs of Lansdowne, Rondebosch East, Athlone, Belthorn Estate, Rylands, and Belgravia.",
+      description: "La mezquita Auwal, fundada en 1794 en el barrio de Bo-Kaap de Ciudad del Cabo, es la mezquita más antigua de Sudáfrica.",
+      descriptionEn: "The Auwal Mosque, founded in 1794 in the Bo-Kaap neighbourhood of Cape Town, is the oldest mosque in South Africa.",
     },
     {
       id: "capetown_14",
@@ -2698,7 +2698,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/District_Six_Museum%2C_Cape_Town_2018_34.jpg/1920px-District_Six_Museum%2C_Cape_Town_2018_34.jpg",
       website: "https://www.districtsix.co.za/",
-      description: "Esta lista de masacres de indígenas australianos detalla grupos de aborígenes e isleños del estrecho de Torres que fueron asesinados tras la colonización de Australia por el Imperio británico en 1788.",
+      description: "El Museo District Six, en Ciudad del Cabo, conmemora el barrio del mismo nombre, cuyos habitantes fueron desplazados por la fuerza a partir de 1966, cuando el régimen del apartheid lo declaró zona exclusiva para blancos.",
       descriptionEn: "District Six is a residential neighborhood in Cape Town, South Africa, located next to the city's CBD. In 1959, people of color were banned from the area and most of them were resettled in Gugulethu.",
     },
   ],
@@ -3595,7 +3595,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=800&q=80",
-      description: "The par force hunting landscape in North Zealand es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El paisaje de caza a la par force del norte de Selandia es un conjunto de cotos de caza y bosques al norte de Copenhague, diseñados en el siglo XVII para la caza real. Fue declarado Patrimonio de la Humanidad por la Unesco en 2015.",
       descriptionEn: "The Par force hunting landscape in North Zealand is a collection of hunting grounds and forests north of Copenhagen. The landscape was submitted for admission to the UNESCO List of World Heritage Sites on 1 August 2010 and was inscribed on 4 July 2015.",
     },
     {
@@ -3610,7 +3610,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/59/Roskilde_-_Cathedral_%283350734857%29.jpg",
       website: "https://www.roskildedomkirke.dk/",
-      description: "Royal Copenhagen, oficialmente la Real Fábrica de Porcelana, es un fabricante danés de productos de porcelana y fue fundado en Copenhague en 1775 bajo la protección de la reina viuda danesa Juliane Marie.",
+      description: "La catedral de Roskilde, en la ciudad de Roskilde, en la isla de Selandia, es una catedral de la Iglesia luterana de Dinamarca y el panteón tradicional de los monarcas daneses. Fue declarada Patrimonio de la Humanidad por la Unesco en 1995.",
       descriptionEn: "Roskilde Cathedral, in the city of Roskilde on the island of Zealand (Sjælland) in eastern Denmark, is a cathedral of the Lutheran Church of Denmark.",
     },
     {
@@ -3625,7 +3625,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/27/Kronborg_Castle_%281739_painting%29.jpg",
       website: "https://www.kronborg.dk",
-      description: "Royal Copenhagen, oficialmente la Real Fábrica de Porcelana, es un fabricante danés de productos de porcelana y fue fundado en Copenhague en 1775 bajo la protección de la reina viuda danesa Juliane Marie.",
+      description: "El castillo de Kronborg es una fortaleza histórica situada en la ciudad de Helsingør, Dinamarca. Inmortalizado como Elsinor en la obra Hamlet de William Shakespeare, es uno de los castillos renacentistas más importantes del norte de Europa.",
       descriptionEn: "Kronborg is a castle and historical stronghold in the town of Helsingør, Denmark. Immortalised as Elsinore in William Shakespeare's play Hamlet, Kronborg is one of the most important Renaissance castles in Northern Europe.",
     },
     {
@@ -3639,8 +3639,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Georg_Emil_Libert_-_Parti_af_Stevns_Klint_-_1856.png/1920px-Georg_Emil_Libert_-_Parti_af_Stevns_Klint_-_1856.png",
-      description: "Dinamarca es una de las tres naciones constituyentes del Reino de Dinamarca. Está ubicada en el norte de Europa y es el más meridional de los países nórdicos y también el de menor extensión.",
-      descriptionEn: "Stevns Municipality is a kommune in the Region Sjælland on the southeast coast of the island of Zealand in south Denmark. The municipality covers an area of 250 square kilometres (97 sq mi), and has a population of 23,842. The municipality covers most of Stevns Peninsula.",
+      description: "El acantilado de Stevns es un acantilado de tiza de 15 km situado en la costa este de Selandia, Dinamarca, célebre por conservar en sus estratos el límite geológico Cretácico-Paleógeno, asociado a la extinción de los dinosaurios. Fue declarado Patrimonio de la Humanidad por la Unesco en 2014.",
+      descriptionEn: "Stevns Klint is a 15 km chalk cliff on the east coast of Zealand, Denmark, famous for preserving in its strata the Cretaceous–Paleogene boundary layer linked to the dinosaur extinction event. It was inscribed as a UNESCO World Heritage Site in 2014.",
     },
     {
       id: "copenhagen_4",
@@ -3654,8 +3654,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Teatermuseet_Christiansborg.jpg/1920px-Teatermuseet_Christiansborg.jpg",
       website: "https://www.teatermuseet.dk/",
-      description: "El Palacio de Christiansborg es un palacio y edificio gubernamental situado en el islote de Slotsholmen en Copenhague, Dinamarca. Es la sede del Folketing, la oficina del primer ministro danés y la Corte Suprema danesa.",
-      descriptionEn: "Christiansborg Palace is a palace and government building on the islet of Slotsholmen in central Copenhagen, Denmark. It is the seat of the Danish Parliament, the Danish Prime Minister's Office, and the Supreme Court of Denmark.",
+      description: "El Teatermuseet i Hofteatret ocupa el antiguo Teatro de la Corte, inaugurado en 1767 dentro del Palacio de Christiansborg, el edificio teatral más antiguo en funcionamiento de Dinamarca. Su colección de vestuario, escenografías y bocetos recorre la historia del teatro danés desde el siglo XVIII.",
+      descriptionEn: "The Theatre Museum in the Court Theatre occupies the former Court Theatre, opened in 1767 within Christiansborg Palace and the oldest surviving theatre building in Denmark. Its collection of costumes, stage designs, and sketches traces Danish theatre history from the 18th century to today.",
     },
     {
       id: "copenhagen_5",
@@ -3669,7 +3669,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Kopenhagen_%28DK%29%2C_Dansk_J%C3%B8disk_Museum_--_2017_--_1495.jpg/1920px-Kopenhagen_%28DK%29%2C_Dansk_J%C3%B8disk_Museum_--_2017_--_1495.jpg",
       website: "https://jewmus.dk/",
-      description: "Dansk Jødisk Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Judío Danés, en Copenhague, se encuentra en la antigua Casa de la Galera de la Biblioteca Real y exhibe artefactos históricos y arte de la comunidad judía danesa.",
       descriptionEn: "The Danish Jewish Museum, in Copenhagen, Denmark, sits inside the Danish Royal Library’s old Galley House and exhibits Danish Jewish historical artifacts and art.",
     },
     {
@@ -3684,7 +3684,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cd/FVNP_-_Medicinsk_Museion.jpg",
       website: "https://www.museion.ku.dk/",
-      description: "Medicinsk Museion es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Medicinsk Museion es un museo y unidad de investigación de Copenhague dedicado a la historia de la salud y la enfermedad desde una perspectiva cultural, con colecciones de instrumental médico histórico.",
       descriptionEn: "Medical Museion is a museum and research unit in Copenhagen, Denmark, dedicated to the history of health and disease in a cultural perspective.",
     },
     {
@@ -3699,7 +3699,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Davids_Samling_-_Cooker.jpg/1920px-Davids_Samling_-_Cooker.jpg",
       website: "https://www.davidmus.dk/",
-      description: "Davids Samling es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Colección David es un museo de bellas artes y artes aplicadas en Copenhague, construido en torno a las colecciones privadas del abogado, empresario y coleccionista de arte C. L. David, con una destacada sección de arte islámico.",
       descriptionEn: "The David Collection is a museum of fine and applied art in Copenhagen, Denmark, built around the private collections of lawyer, businessman and art collector C. L. David.",
     },
     {
@@ -3714,7 +3714,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/02/Overgaden_Oven_Vandet_18-28.jpg",
       website: "https://overgaden.org/",
-      description: "Overgaden es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Overgaden es un espacio de arte contemporáneo sin fines de lucro situado en el barrio de Christianshavn, en el centro de Copenhague, que organiza alrededor de ocho grandes exposiciones al año.",
       descriptionEn: "O – Overgaden, or simply Overgaden, is a non-profit contemporary art venue situated at Overgaden Neden Vandet 17 in the Christianshavn neighbourhood of central Copenhagen, Denmark. It hosts approximately eight major exhibitions each year.",
     },
     {
@@ -3729,7 +3729,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/View_to_Copenhagen_from_the_island_of_Flakfortet_-_panoramio.jpg/1920px-View_to_Copenhagen_from_the_island_of_Flakfortet_-_panoramio.jpg",
       website: "http://www.flakfortet.dk/",
-      description: "El estrecho de Øresund —o simplemente Sund, como se conoce tradicionalmente en español; Øresund en danés, Öresund en sueco— separa la isla danesa de Selandia de la provincia sueca de Escania.",
+      description: "Flakfortet, que significa \"fortaleza del banco de arena\", es un fuerte marítimo construido en la isla artificial de Saltholmrev, en el estrecho de Øresund entre Copenhague y Saltholm, hoy reconvertido en destino turístico.",
       descriptionEn: "Flakfortet, meaning sand-shoal fortress, is a sea fort located on the artificially built island of Saltholmrev, in the Øresund between Copenhagen and Saltholm.",
     },
     {
@@ -3744,7 +3744,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Rosenborg_Castle_in_Copenhagen2.jpg/1920px-Rosenborg_Castle_in_Copenhagen2.jpg",
       website: "https://www.kongernessamling.dk/rosenborg/",
-      description: "La Orden del Elefante es una orden de caballería danesa, la más alta distinción del Reino de Dinamarca. Tiene orígenes en el siglo XV, pero existe oficialmente desde 1693, y desde el establecimiento de la monarquía constitucional en 1849, ahora se usa casi exclusivamente para…",
+      description: "El castillo de Rosenborg es un castillo renacentista en Copenhague, Dinamarca. Fue construido originalmente como casa de verano en 1606 y es un ejemplo de los numerosos proyectos arquitectónicos del rey Cristián IV.",
       descriptionEn: "Rosenborg Castle is a renaissance castle in Copenhagen, Denmark. The castle was originally built as a country summerhouse in 1606 and is an example of Christian IV's many architectural projects.",
     },
     {
@@ -3760,7 +3760,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Christiansborg_Slot_Copenhagen_2014_01.jpg/1920px-Christiansborg_Slot_Copenhagen_2014_01.jpg",
       website: "https://denkongeligesamling.dk/christiansborg-slot/",
       description: "El Palacio de Christiansborg es un palacio y edificio gubernamental situado en el islote de Slotsholmen en Copenhague, Dinamarca. Es la sede del Folketing, la oficina del primer ministro danés y la Corte Suprema danesa.",
-      descriptionEn: "Copenhagen Castle was a castle on the islet of Slotsholmen in central Copenhagen, Denmark. It was built in the late 14th century and was located at the site of the current Christiansborg Palace.",
+      descriptionEn: "Christiansborg Palace is a palace and government building on the islet of Slotsholmen in central Copenhagen, Denmark. It is the seat of the Danish Parliament (Folketing), the Danish Prime Minister's Office, and the Supreme Court of Denmark.",
     },
     {
       id: "copenhagen_12",
@@ -3774,8 +3774,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Mindeankeret_ved_Nyhavn.jpg/1920px-Mindeankeret_ved_Nyhavn.jpg",
       website: "http://www.navalhistory.dk/danish/mindesmaerker/maerkerne/mindeankeret_nyhavn.htm",
-      description: "Mindeankeret ved Nyhavn es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mindeankeret ved Nyhavn is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Ancla Conmemorativa (Mindeankeret) es un monumento marítimo situado al inicio del canal de Nyhavn, en Copenhague, que rinde homenaje a más de 1700 marinos daneses de la flota mercante y naval que murieron durante la Segunda Guerra Mundial. El ancla, de una fragata de 1857, fue instalada en 1951.",
+      descriptionEn: "The Memorial Anchor (Mindeankeret) is a maritime memorial at the mouth of the Nyhavn canal in Copenhagen, honoring more than 1,700 Danish merchant and naval sailors who died during the Second World War. The anchor, from an 1857 frigate, was installed at the site in 1951.",
     },
     {
       id: "copenhagen_13",
@@ -3789,7 +3789,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Linjeskibet_Dannebroge_br%C3%A6nder_under_Slaget_i_K%C3%B8ge_Bugt_%28cropped%29.jpg",
       website: "http://www.navalhistory.dk/danish/mindesmaerker/Maerkerne/Iver_Huitfeldt.htm",
-      description: "Slaget i Køge Bugt 1710 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Batalla de la bahía de Køge de 1710, también conocida como la segunda batalla de la bahía de Køge, fue un enfrentamiento naval indeciso ocurrido el 4 de octubre de 1710 durante la Gran Guerra del Norte, al sur de Copenhague.",
       descriptionEn: "The Battle of Køge Bay, also known to as the Second Battle of Køge Bay, was an indecisive battle that took place on 4 October 1710 during the Great Northern War in Køge Bay, just south of Copenhagen.",
     },
     {
@@ -3870,7 +3870,7 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
         notes: "20-200",
       },
-      description: "Proctoporus es un género de lagartos de la familia Gymnophthalmidae. Incluye especies que se distribuyen por la vertiente amazónica de los Andes del centro y sur de Perú, Bolivia y norte de Argentina. Habitan en bosques de yungas y en pastizales de alta montaña.",
+      description: "El Santuario Histórico de Machu Picchu es una ciudadela inca del siglo XV situada en la Cordillera Oriental del sur de Perú, sobre una cresta montañosa a 2430 metros de altitud. Fue declarada Patrimonio de la Humanidad por la Unesco en 1983.",
       descriptionEn: "Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a mountain ridge at 2,430 meters (7,970 ft).",
     },
     {
@@ -3914,8 +3914,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Temple_du_Soleil_%28Qurikancha%29_a_Cusco_%28Peru%29_1757.jpg",
-      description: "El Cusco o Cuzco es una ciudad del sureste del Perú ubicada en la vertiente oriental de la cordillera de los Andes, en la cuenca del río Huatanay, afluente del Vilcanota.",
-      descriptionEn: "Cusco or Cuzco is a city in southeastern Peru, near the Sacred Valley of the Andes mountain range, and the Huatanay and Urubamba rivers. It is the capital and largest city of the eponymous Cusco Province and Cusco Department.",
+      description: "El Qorikancha, o Templo del Sol, fue el templo más importante del Imperio inca, dedicado al dios Inti. Sobre sus muros de piedra incaica los españoles construyeron el convento de Santo Domingo, que se conserva hasta hoy en el centro histórico del Cusco.",
+      descriptionEn: "The Qorikancha, or Temple of the Sun, was the most important temple of the Inca Empire, dedicated to the sun god Inti. The Spanish built the Convento de Santo Domingo atop its Inca stone walls, which still stand today in the historic center of Cusco.",
     },
     {
       id: "cusco_5",
@@ -3930,7 +3930,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Cusco_Piedra_de_los_doce_angulos.jpg/1920px-Cusco_Piedra_de_los_doce_angulos.jpg",
       website: "http://www.lageoguia.org/la-piedra-de-los-doce-angulos-cusco-peru/",
       description: "La piedra de los doce ángulos es un bloque de piedra de la cultura inca que forma parte de un palacio ubicado en la calle Hatun Rumiyoq, en la ciudad de Cuzco, Perú, popularmente conocido por su gran acabado y bordeado perfeccionista, propio de la arquitectura inca y actualmente…",
-      descriptionEn: "The Kingdom of Cusco, also called the Cusco confederation, was a small polity based in the Andean city of Cusco that began as a small city-state founded by the Incas around the start of 13th century.",
+      descriptionEn: "The Twelve-Angled Stone is a famous Inca stone block forming part of a former Inca palace wall on Hatun Rumiyoc street in Cusco, Peru, renowned for its precise, tightly interlocking masonry typical of Inca architecture.",
     },
     {
       id: "cusco_6",
@@ -3943,7 +3943,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Colegio_Salesiano_del_Cusco.jpg/3840px-Colegio_Salesiano_del_Cusco.jpg",
-      description: "El Colegio Salesiano de Cusco, es una institución educativa de la Congregación Salesiana inaugurada en 1905 ubicada en la ciudad de Cusco, Perú. La institución educativa ofrece servicios educativos en los niveles de inicial, primaria y secundaria.",
+      description: "Muyuqmarka es un sitio arqueológico del Perú, base de lo que fue una torre circular incaica, situada dentro de la fortaleza de Saksaywaman, sobre la ciudad del Cusco.",
       descriptionEn: "Muyuq Marka, also Muyuqmarka, is an archaeological site in Peru. It is the base of what was a round Incan tower, which is situated within the fortress Saksaywaman above Cuzco.",
     },
     {
@@ -3958,7 +3958,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Museo_de_Arte_Religioso_del_Arzobispado%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_62.JPG/1920px-Museo_de_Arte_Religioso_del_Arzobispado%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_62.JPG",
       description: "El Museo de Arte Religioso del Palacio Arzobispal del Cusco alberga la muestra más completa de arte religioso virreinal de la conocida como Escuela Cusqueña, que se desarrolló principalmente durante los siglos XVII y XVIII.",
-      descriptionEn: "In the Inca Empire the ushnu was an altar for cults to the deities, a throne for the Sapa Inca (emperor), an elevated place for judgment and a reviewing stand of military command. In several cases the ushnu may have been used as a solar observatory.",
+      descriptionEn: "The Museum of Religious Art, housed in the Archbishop's Palace of Cusco, holds the most complete collection of viceregal religious art from the Cusco School, which flourished mainly during the 17th and 18th centuries.",
     },
     {
       id: "cusco_8",
@@ -3971,8 +3971,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Estaci%C3%B3n_de_San_Pedro.jpg/1920px-Estaci%C3%B3n_de_San_Pedro.jpg",
-      description: "La estación San Pedro es una estación de trenes ubicada en la ciudad de Cusco, Perú. Administrada por la empresa Ferrocarril Trasandino, funciona como la cabecera del tramo Sur Oriente del Ferrocarril del Sur desde donde partían los servicios con rumbo a la ciudad de…",
-      descriptionEn: "Cusco or Cuzco is a city in southeastern Peru, near the Sacred Valley of the Andes mountain range, and the Huatanay and Urubamba rivers. It is the capital and largest city of the eponymous Cusco Province and Cusco Department.",
+      description: "La Iglesia de San Pedro fue construida en 1688 con piedras de estructuras incas, en el lugar de la capilla del antiguo Hospital General de Naturales. De estilo barroco cusqueño, es obra del maestro indígena Juan Tomás Tuyro Túpac y se ubica frente al Mercado de San Pedro.",
+      descriptionEn: "The Church of San Pedro was built in 1688 using stones from Inca structures, on the site of the chapel of the former Hospital General de Naturales. Designed in Cusco Baroque style by indigenous master builder Juan Tomás Tuyro Túpac, it stands opposite the San Pedro Market.",
     },
     {
       id: "cusco_9",
@@ -3985,7 +3985,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Sitio_arqueol%C3%B3gico_Rumiwasi_20221112_080444_05.jpg/1920px-Sitio_arqueol%C3%B3gico_Rumiwasi_20221112_080444_05.jpg",
-      description: "El distrito de Curahuasi es uno de los nueve distritos que conforman la provincia de Abancay ubicada en el departamento de Apurímac, bajo la administración del Gobierno regional de Apurímac, en el sudeste del Perú.",
+      description: "El sitio arqueológico RumiWasi, también conocido como Phaqchayuq, es un conjunto incaico ubicado en la región del Cusco, provincia de Cusco, distrito de San Sebastián, al norte de la plaza central de San Sebastián.",
       descriptionEn: "Rumiwasi or Phaqchayuq is an archaeological site in Peru. It is located in the Cusco Region, Cusco Province, San Sebastián District, north of the central square of San Sebastián.",
     },
     {
@@ -4014,7 +4014,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Iglesia_Santa_Clara%2C_Cusco_3.jpg/1920px-Iglesia_Santa_Clara%2C_Cusco_3.jpg",
       description: "La Iglesia y Convento de Santa Clara es un convento de monjas de clausura ubicada en la ciudad del Cusco, Perú. Se encuentra ubicada en la Calle Santa Clara, a 500 metros al sudoeste de la Plaza de Armas.",
-      descriptionEn: "Cusco or Cuzco is a city in southeastern Peru, near the Sacred Valley of the Andes mountain range, and the Huatanay and Urubamba rivers. It is the capital and largest city of the eponymous Cusco Province and Cusco Department.",
+      descriptionEn: "The Church and Convent of Santa Clara is a cloistered convent of nuns located in the city of Cusco, Peru, on Santa Clara street, 500 meters southwest of the Plaza de Armas.",
     },
     {
       id: "cusco_12",
@@ -4028,7 +4028,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Templo_de_San_Blas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_64.JPG/1920px-Templo_de_San_Blas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_64.JPG",
       description: "La iglesia de San Blas es un templo religioso de culto católico bajo la advocación de San Blas ubicado en el centro histórico de la ciudad del Cuzco, Perú.",
-      descriptionEn: "Cusco or Cuzco is a city in southeastern Peru, near the Sacred Valley of the Andes mountain range, and the Huatanay and Urubamba rivers. It is the capital and largest city of the eponymous Cusco Province and Cusco Department.",
+      descriptionEn: "The Church of San Blas is a Catholic temple dedicated to Saint Blaise, located in the historic center of the city of Cusco, Peru.",
     },
     {
       id: "cusco_13",
@@ -4056,8 +4056,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Ciudadela_de_Machu_Picchu_al_atardecer_2.jpg",
       website: "https://www.culturacusco.gob.pe/museo-de-los-pueblos-de-paucartambo/",
-      description: "El departamento del Cusco es uno de los veinticuatro departamentos que conforman la República del Perú ubicado en el sureste del país, con capital en la homónima ciudad del Cusco.",
-      descriptionEn: "Museo de los Pueblos de Paucartambo is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de los Pueblos de Paucartambo, inaugurado en 2013 en la plaza de Kukuli, exhibe bienes arqueológicos de sitios como Plaza Kancha, Watoqto y Ninamarka, y difunde las expresiones artísticas, religiosas y sociales de Paucartambo, conocida como la \"Capital del Folklore\".",
+      descriptionEn: "The Museo de los Pueblos de Paucartambo, opened in 2013 on Kukuli plaza, displays archaeological artifacts from sites such as Plaza Kancha, Watoqto, and Ninamarka, and showcases the artistic, religious, and social traditions of Paucartambo, known as the \"Capital of Folklore.\"",
     },
   ],
   dakar: [
@@ -4292,7 +4292,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1587474043843-d0c3cc087c29?auto=format&fit=crop&w=800&q=80",
       website: "http://whc.unesco.org/en/list/232",
-      description: "Delhi, oficialmente el Territorio de la Capital Nacional de Delhi, es un estado de la India. Contiene la ciudad de Nueva Delhi, la cual ha dejado de ser un área urbana distinguible pero contiene la mayoría de las instituciones administrativas del gobierno nacional y es…",
+      description: "La tumba de Humayún es el mausoleo del emperador mogol Humayún, ubicado en Delhi, India. Fue encargada por Bega Begum, la primera esposa y consorte principal de Humayún, en 1558, y diseñada por los arquitectos persas Mirak Mirza Ghiyas y su hijo Sayyid Muhammad.",
       descriptionEn: "Humayun's tomb is the tomb of the Mughal Emperor Humayun located in Delhi, India. The tomb was commissioned by Humayun's first wife and chief consort, Empress Bega Begum, under her patronage in 1558, and designed by Persian architects Mirak Mirza Ghiyas and his son, Sayyid…",
     },
     {
@@ -4306,7 +4306,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Tourists_at_the_historic_Red_Fort_complex_in_New_Delhi.jpg",
-      description: "Nueva Delhi o Nueva Deli es la capital federal de la República de la India y sede del poder ejecutivo, legislativo y judicial. Es parte del Territorio de la Capital Nacional de Delhi y del distrito de Nueva Delhi.",
+      description: "El Fuerte Rojo es un histórico fuerte mogol situado en la zona de la Vieja Delhi, en Delhi, India. Fue la residencia principal de los emperadores mogoles, encargado por el emperador Shah Jahan el 12 de mayo de 1639 tras su decisión de trasladar la capital mogol.",
       descriptionEn: "The Red Fort is a historic Mughal fort located in the Old Delhi area of Delhi, India. Serving as the main residence of the Mughal emperors, it was commissioned by Emperor Shah Jahan on the 12th of May 1639; the fort was constructed following his decision to shift the Mughal…",
     },
     {
@@ -4320,7 +4320,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Complejo_de_Qutb-Delhi-India029.JPG/1920px-Complejo_de_Qutb-Delhi-India029.JPG",
-      description: "Jahanpanah fue la cuarta ciudad medieval erigida en Delhi, establecida en 1326-1327 por Muhammad bin Tughluq (1325-1351), gobernante del sultanato de Delhi.",
+      description: "El Qutb Minar es un minarete y torre de la victoria construido durante el sultanato de Delhi, que forma parte del complejo Qutb, declarado Patrimonio de la Humanidad por la Unesco en Mehrauli, en el sur de Delhi, India.",
       descriptionEn: "The Qutb Minar, also spelled Qutub Minar and Qutab Minar, is a minaret and victory tower, built during the Delhi sultanate, and comprising the Qutb complex, a UNESCO World Heritage Site in Mehrauli, South Delhi, India.",
     },
     {
@@ -4335,7 +4335,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/The_Vice_President%2C_Shri_M._Venkaiah_Naidu_addressing_the_gathering_during_his_visit_to_the_Kiran_Nadar_Museum_of_Art%2C_in_New_Delhi_on_February_14%2C_2018.jpg/1920px-The_Vice_President%2C_Shri_M._Venkaiah_Naidu_addressing_the_gathering_during_his_visit_to_the_Kiran_Nadar_Museum_of_Art%2C_in_New_Delhi_on_February_14%2C_2018.jpg",
       website: "https://knma.in/",
-      description: "Sheela Gowda es una artista contemporánea que vive y trabaja en Bangalore. Gowda estudió pintura en la Escuela de Arte Ken, Bangalore, India (1979), obtuvo un diploma de posgrado en la Universidad Visva-Bharati, Santiniketan, India (1982) y una maestría en pintura del Royal…",
+      description: "El Museo de Arte Kiran Nadar (KNMA) es un museo privado de arte moderno y contemporáneo situado en Nueva Delhi. Fundado en 2010, es el primer museo privado de la India dedicado al arte moderno y contemporáneo.",
       descriptionEn: "The Kiran Nadar Museum of Art (KNMA) is a private modern and contemporary art museum located in New Delhi. Established in 2010, it is India's first private museum dedicated to modern and contemporary art.",
     },
     {
@@ -4350,7 +4350,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Selections_from_the_prose_of_Macaulay_%28IA_selectionsfrompr00maca%29.pdf/page1-500px-Selections_from_the_prose_of_Macaulay_%28IA_selectionsfrompr00maca%29.pdf.jpg",
       website: "http://MadameTussauds.com",
-      description: "Madame Tussaud’s Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de Madame Tussauds Delhi fue un museo de cera y atracción turística ubicado en Delhi, India. Fue la vigésimo segunda sede de Tussauds, cadena fundada por la escultora francesa Marie Tussaud, y es propiedad y está operado por Merlin Entertainments.",
       descriptionEn: "Madame Tussauds Delhi was a wax museum and tourist attraction located in Delhi, India. It was the twenty-second location for the Tussauds, which was set up by French sculptor Marie Tussaud. Madame Tussauds is owned and operated by Merlin Entertainments.",
     },
     {
@@ -4380,7 +4380,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/10/The_Prime_Minister%2C_Dr._Manmohan_Singh_addressing_at_the_inauguration_of_the_Parliament_Museum%2C_in_New_Delhi_on_August_14%2C_2006.jpg",
       website: "https://www.pmsangrahalaya.gov.in/",
-      description: "Bagale Thapa o Bagalya Thapa es un clan o subgrupo prominente dentro de Thapa de la comunidad de Khas. Pertenecen a Aatreya Gotra en el sistema Gotra del hinduismo.",
+      description: "El Pradhanmantri Sangrahalaya, o Museo y Biblioteca de los Primeros Ministros, es un museo público y biblioteca situado en el complejo Teen Murti Bhavan, en Nueva Delhi, India.",
       descriptionEn: "Pradhanmantri Sangrahalaya or the Prime Ministers' Museum and Library, is a public museum and library in the Teen Murti Bhavan complex in New Delhi, India.",
     },
     {
@@ -4395,7 +4395,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Rashtrapati_Bhavan-Delhi-India4445.JPG/1920px-Rashtrapati_Bhavan-Delhi-India4445.JPG",
       website: "https://rashtrapatisachivalaya.gov.in/rbtour",
-      description: "La Delhi de Lutyens es una zona de Nueva Delhi, India, llamada así en honor al arquitecto británico Edwin Lutyens (1869–1944), responsable del diseño y construcción de gran parte de los edificios de la zona cuando India formaba parte del Imperio británico, en los años veinte,…",
+      description: "El Rashtrapati Bhavan, antes Casa del Virrey (1931-1947) y Government House (1947-1950), es la residencia oficial del presidente de la India, ubicada en el extremo occidental del Rajpath, en la colina de Raisina, en Nueva Delhi.",
       descriptionEn: "The Rashtrapati Bhavan, formerly Viceroy's House (1931–1947) and Government House (1947–1950) is the official residence of the President of India, located at the western end of Rajpath, Raisina Hill in New Delhi.",
     },
     {
@@ -4409,7 +4409,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Siri_Fort%2C_New_Delhi%2C_India_%282018%29_2.jpg/1920px-Siri_Fort%2C_New_Delhi%2C_India_%282018%29_2.jpg",
-      description: "Nueva Delhi o Nueva Deli es la capital federal de la República de la India y sede del poder ejecutivo, legislativo y judicial. Es parte del Territorio de la Capital Nacional de Delhi y del distrito de Nueva Delhi.",
+      description: "El fuerte de Siri, en la ciudad de Delhi, fue construido durante el gobierno de Alauddin Khalji, segundo gobernante de la dinastía Khalji del sultanato de Delhi, para defender la ciudad de los ataques mongoles.",
       descriptionEn: "Siri Fort, in the city of Delhi, was built during the rule of Alauddin Khalji, second ruler of Khalji Dynasty, of Delhi Sultanate to defend the city from the onslaught of the Mongols.",
     },
     {
@@ -4423,8 +4423,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lal_Kot_walls_%283701532716%29.jpg/1920px-Lal_Kot_walls_%283701532716%29.jpg",
-      description: "Delhi, oficialmente el Territorio de la Capital Nacional de Delhi, es un estado de la India. Contiene la ciudad de Nueva Delhi, la cual ha dejado de ser un área urbana distinguible pero contiene la mayoría de las instituciones administrativas del gobierno nacional y es…",
-      descriptionEn: "The Red Fort is a historic Mughal fort located in the Old Delhi area of Delhi, India. Serving as the main residence of the Mughal emperors, it was commissioned by Emperor Shah Jahan on the 12th of May 1639; the fort was constructed following his decision to shift the Mughal…",
+      description: "Lal Kot, conocida como la «primera ciudad de Delhi», fue construida por el gobernante rajput tomar Anangpal entre c. 1052 y c. 1060 en la región de Mehrauli, en el sur de Delhi. Sus gruesas murallas de piedra sirvieron luego de base suroeste para el Qila Rai Pithora de Prithviraj III.",
+      descriptionEn: "Lal Kot, known as the \"first city of Delhi\", was built by the Tomar Rajput ruler Anangpal between c. 1052 and c. 1060 in the Mehrauli area of south Delhi. Its thick stone ramparts later formed the southwestern base of Prithviraj III's Qila Rai Pithora.",
     },
     {
       id: "delhi_10",
@@ -4437,7 +4437,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Red_Fort_drawing.svg/1920px-Red_Fort_drawing.svg.png",
-      description: "El fuerte de Delhi, ubicado en la ciudad india de Delhi, es llamado también Fuerte rojo o Lal Qila por el color de la piedra arenisca con que se construyó. No debe confundirse con el Fuerte de Agra al que se llama del mismo modo.",
+      description: "El fuerte de Salimgarh fue construido en 1546 en la Vieja Delhi, sobre lo que entonces era una isla del río Yamuna, por Salim Shah Suri, hijo de Sher Shah Suri.",
       descriptionEn: "Salimgarh Fort was built in 1546 CE in Old Delhi, on what was then an island of the Yamuna River, by Salim Shah Suri, the son of Sher Shah Suri.",
     },
     {
@@ -4451,7 +4451,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Later_Building_in_Qudsia_Bagh_%287987847661%29.jpg/1920px-Later_Building_in_Qudsia_Bagh_%287987847661%29.jpg",
-      description: "Qudsia Bagh es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Qudsia Bagh es un complejo de jardín y palacio mogol del siglo XVIII situado en Civil Lines, Delhi, justo afuera de la ciudad amurallada de la Vieja Delhi, India.",
       descriptionEn: "Qudsia Bagh is an 18th-century Mughal garden complex and palace located in Civil Lines, Delhi, just outside the Walled City of Old Delhi, India.",
     },
     {
@@ -4466,7 +4466,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/PXL_20231129_032632995_Lakkar_Wala_Burj_130%2C_Nizamuddin%2C_National_Zoological_Park%2C_Sundar_Nagar%2C_New_Delhi%2C_Delhi_110003_10.jpg/1920px-PXL_20231129_032632995_Lakkar_Wala_Burj_130%2C_Nizamuddin%2C_National_Zoological_Park%2C_Sundar_Nagar%2C_New_Delhi%2C_Delhi_110003_10.jpg",
       website: "https://nzpnewdelhi.gov.in",
-      description: "El Proyecto Tigre es un programa de conservación del tigre lanzado en 1973 por el gobierno de la India durante el mandato de la primera ministra Indira Gandhi.",
+      description: "El Parque Zoológico Nacional es un zoológico de 71 hectáreas ubicado en Nueva Delhi, India.",
       descriptionEn: "The National Zoological Park is a 176-acre (71 ha) zoo in New Delhi, India.",
     },
     {
@@ -4481,8 +4481,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/New_Delhi_Temple.jpg",
       website: "https://www.worldsofwonder.in/",
-      description: "Ernest Gary Gygax fue un escritor estadounidense y diseñador de juegos, conocido por ser uno de los creadores del juego de rol Dungeons & Dragons junto a Dave Arneson, y uno de los cofundadores de la empresa TSR, Inc. con Don Kaye en 1974.",
-      descriptionEn: "The 2012 Delhi gang rape and murder, commonly known as the Nirbhaya case, involved the gang rape and murder of a 22-year-old woman, Jyoti Singh Pandey, in a moving bus on 16 December 2012 in Munirka, a neighbourhood in Delhi, India.",
+      description: "Worlds of Wonder es un parque de diversiones y parque acuático de 4 hectáreas situado en Noida, en el área metropolitana de Delhi. Inaugurado en 2007, ofrece más de 20 atracciones, entre ellas montañas rusas, una piscina de olas y un río lento.",
+      descriptionEn: "Worlds of Wonder is a 10-acre amusement and water park located in Noida, in the Delhi metropolitan area. Opened in 2007, it offers more than 20 attractions, including roller coasters, a wave pool, and a lazy river.",
     },
   ],
   dublin: [
@@ -4497,7 +4497,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1563202678-75bfa0bbb0e0?auto=format&fit=crop&w=800&q=80",
-      description: "Bru na Boinne - Archaeological Ensemble of the Bend of the Boyne es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Brú na Bóinne, o Recinto arqueológico de la Curva del Boyne, es un complejo de monumentos neolíticos y paisaje ritual en el condado de Meath, Irlanda, situado en un meandro del río Boyne. Incluye las célebres tumbas de paso de Newgrange, Knowth y Dowth.",
       descriptionEn: "Brú na Bóinne, also called the Boyne Valley tombs, is an ancient monument complex and ritual landscape in County Meath, Ireland, located in a bend of the River Boyne.",
     },
     {
@@ -4512,8 +4512,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Dublin_-_Old_Jameson_Distillery_-_20210918161608.jpg/1920px-Dublin_-_Old_Jameson_Distillery_-_20210918161608.jpg",
       website: "http://www.tours.jamesonwhiskey.com/Home/The-Old-Jameson-Distillery-Dublin.aspx",
-      description: "El Norte de Dublín es la zona de Dublín (Irlanda), limitada al sur por el río Liffey, al este por la Bahía de Dublín y al norte y oeste por la M50.",
-      descriptionEn: "The Old Midleton Distillery, also known as the Jameson Experience, Midleton, is a former Irish whiskey distillery that was turned into a museum and visitor centre located in Midleton, County Cork, Ireland.",
+      description: "La Old Jameson Distillery, hoy conocida como Jameson Distillery Bow St., fue la destilería original de whiskey Jameson en Dublín desde 1780 hasta que la producción se trasladó a Midleton en 1971. El edificio de Bow Street se convirtió en centro de visitantes en 1997.",
+      descriptionEn: "The Old Jameson Distillery, today known as Jameson Distillery Bow St., was the original home of Jameson whiskey production in Dublin from 1780 until distilling moved to Midleton in 1971. The Bow Street building was converted into a visitor centre in 1997.",
     },
     {
       id: "dublin_2",
@@ -4527,7 +4527,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Wall_plaques_Irish_Jewish_museum.jpg",
       website: "http://www.jewishireland.org/museum.html",
-      description: "Jean Paul Leon es un artista francés/español, escultor y escritor, conocido por su trabajo Unison que conjunta cuatro colecciones de arte sobre las religiones del mediterráneo y el Budismo y Taoísmo, haciendo una llamada al entendimiento y al diálogo entre todas las gentes.",
+      description: "El Museo Judío de Irlanda es un pequeño museo situado en la zona de Portobello, antiguo barrio de gran población judía en Dublín, dedicado a la historia de la comunidad judía irlandesa. Incluye una antigua sinagoga con su mobiliario ritual.",
       descriptionEn: "The Irish Jewish Museum is a small museum located in the once highly Jewish-populated area of Portobello, around the South Circular Road, Dublin, dedicated to the history of the Irish Jewish community. It includes a former synagogue with ritual fittings.",
     },
     {
@@ -4543,7 +4543,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/The_Douglas_Hyde_Gallery.jpg/1920px-The_Douglas_Hyde_Gallery.jpg",
       website: "https://www.douglashydegallery.com",
       description: "La Douglas Hyde Gallery ubicada en el Trinity College (Dublín) es una galería de arte contemporáneo que ofrece y cura exhibiciones temporales de arte visual.",
-      descriptionEn: "Douglas Ross Hyde, known as An Craoibhín Aoibhinn, was an Irish academic, linguist, scholar of the Irish language, politician, and diplomat who served as the first president of Ireland from June 1938 to June 1945.",
+      descriptionEn: "The Douglas Hyde Gallery, located within Trinity College Dublin, is a contemporary art gallery that curates and hosts temporary exhibitions of visual art.",
     },
     {
       id: "dublin_4",
@@ -4557,7 +4557,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/94/The_Little_Museum_of_Dublin_-_geograph.org.uk_-_6031060.jpg",
       website: "https://www.littlemuseum.ie/",
-      description: "Dublín es la capital de la República de Irlanda y la ciudad más poblada de la isla. Está ubicada cerca del centro de la costa este sobre el mar de Irlanda, en la desembocadura del río Liffey y en el centro del condado de Dublín.",
+      description: "El Little Museum of Dublin es un museo de historia local situado en St Stephen's Green, Dublín. Ocupa una casa georgiana del siglo XVIII propiedad del ayuntamiento y busca presentar la historia social y cultural de Dublín a través de objetos cotidianos.",
       descriptionEn: "The Little Museum of Dublin is a local history museum situated at St Stephen's Green, Dublin, Ireland. The museum, which is located in an 18th-century Georgian townhouse owned by Dublin City Council, aims to present the \"social and cultural history of Dublin through everyday…",
     },
     {
@@ -4572,7 +4572,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Garda_Museum%2C_Dublin.jpg/1920px-Garda_Museum%2C_Dublin.jpg",
       website: "https://www.garda.ie/en/about-us/our-history/the-garda-museum-at-dublin-castle/",
-      description: "La Oficina General de Correos en Dublín es la sede de An Post, la Oficina de Correos de Irlanda y la oficina de correos principal de Dublín.",
+      description: "El Museo de la Garda es un museo policial ubicado en el edificio Treasury del Castillo de Dublín, Irlanda, dedicado a la historia de la Garda Síochána, la policía nacional irlandesa.",
       descriptionEn: "The Garda Museum is a police museum located in Dublin, Ireland, located in the Treasury Building of Dublin Castle.",
     },
     {
@@ -4587,7 +4587,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Dublin_Irland-58.jpg/1920px-Dublin_Irland-58.jpg",
       website: "https://heritageireland.ie/2025/12/restoring-history-the-magazine-fort-revival/",
-      description: "Dallas Area Rapid Transit (DART) es una agencia de transporte público que presta servicio al área metropolitana de Dallas-Fort Worth, Texas. Opera autobuses, tren ligero, tren de cercanías y carriles para vehículos de alta ocupación en Dallas y doce de sus suburbios.",
+      description: "El Magazine Fort es un fuerte bastionado y polvorín ubicado en el Phoenix Park de Dublín, Irlanda. Construido en 1735, fue ocupado por las fuerzas armadas británicas hasta 1922, cuando pasó a manos de las Fuerzas de Defensa irlandesas tras el Tratado anglo-irlandés.",
       descriptionEn: "The Magazine Fort is a bastion fort and magazine located within the Phoenix Park, in Dublin, Ireland. Built in 1735, it was occupied by British Armed Forces until 1922 when it was turned over to the Irish Defence Forces after the Anglo-Irish Treaty.",
     },
     {
@@ -4617,8 +4617,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Monkstown_Castle_near_Dublin.jpg",
       website: "https://www.archaeology.ie/MonumentoftheMonth/MonkstownCastleMonkstownCoDublin/",
-      description: "«Bullet the Blue Sky» es una canción de la banda de rock irlandesa U2 y es la cuarta pista de su álbum de estudio de 1987 The Joshua Tree.",
-      descriptionEn: "Monkstown, historically known as Carrickbrennan, is a suburb on the southside of Dublin, Ireland. 10 km south-east of Dublin city centre, it is in the Dún Laoghaire–Rathdown council area.",
+      description: "El Castillo de Monkstown es una casa-torre medieval en ruinas situada en Monkstown, condado de Dublín, que se cree data de los siglos XV o XVI, uno de los pocos vestigios de fortificación que sobreviven en la zona.",
+      descriptionEn: "Monkstown Castle is a ruined medieval tower house in Monkstown, County Dublin, believed to date from the 15th or 16th century, one of the few surviving fortified remains in the area.",
     },
     {
       id: "dublin_9",
@@ -4662,7 +4662,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/George%27s_Street_Arcade%2C_Dublin_%2812893361005%29.jpg/1920px-George%27s_Street_Arcade%2C_Dublin_%2812893361005%29.jpg",
       website: "https://www.georgesstreetarcade.ie/",
-      description: "Arquitectura victoriana es una denominación historiográfica que comprende una serie de estilos arquitectónicos que florecieron en el Imperio británico desde mediados a finales del siglo XIX y que tenían reminiscencias historicistas y eclécticas de estilos anteriores, en…",
+      description: "George's Street Arcade es un centro comercial en South Great George's Street, Dublín. Es un mercado cubierto de estilo victoriano, de ladrillo rojo, con puestos y tiendas, inaugurado en 1881 como South City Markets.",
       descriptionEn: "George's Street Arcade is a shopping centre on South Great George's Street in Dublin. It is a Victorian style red-bricked indoor market of stalls and stores. It opened in 1881 as the South City Markets.",
     },
     {
@@ -5222,8 +5222,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/An_outline_of_the_system_of_education_at_New_Lanark_%28IA_outlineofsystemo00owen%29.pdf/page1-500px-An_outline_of_the_system_of_education_at_New_Lanark_%28IA_outlineofsystemo00owen%29.pdf.jpg",
       website: "https://www.newlanark.org/",
-      description: "El cúmbrico, cumbrio, címbrico o cámbrico era un idioma celta britónico centrado en Cumbria, en el noroeste de Inglaterra, que se hablaba desde el sur de Escocia hasta el Gran Mánchester, es decir, en la región a la que los galeses llaman Yr Hen Ogledd 'El Viejo Norte'.",
-      descriptionEn: "Lanark is a historic market town in South Lanarkshire, Scotland, located 12 miles to the south-east of Hamilton. The town lies on the River Clyde, at its confluence with Mouse Water. It had a population of 8,943 in 2022.",
+      description: "New Lanark es un pueblo fabril del siglo XVIII a orillas del río Clyde, en South Lanarkshire, Escocia, célebre por el experimento social y educativo del reformador Robert Owen en sus hilaturas de algodón. Es Patrimonio de la Humanidad por la Unesco.",
+      descriptionEn: "New Lanark is an 18th-century cotton mill village on the River Clyde in South Lanarkshire, Scotland, renowned for social reformer Robert Owen's model industrial community and educational experiments. It is a UNESCO World Heritage Site.",
     },
     {
       id: "edinburgh_3",
@@ -5237,7 +5237,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/38/Lucy_Skaer%2C_%27Sticks_and_Stones_%28Part_1%29%27%2C_2013-15._Mahogany_with_inserts_of_porcelain%2C_limestone%2C_tin%2C_coins%2C_American_walnut%2C_Tasmanian_black_wood._Installation_view%2C_Green_Man%2C_2018._Image_courtesy_Talbot_Rice_Gallery.jpg",
       website: "https://www.trg.ed.ac.uk/",
-      description: "Richard Wright es un artista visual y músico británico ganador del Premio Turner en 2009",
+      description: "La Talbot Rice Gallery es la galería de arte pública de la Universidad de Edimburgo, en Escocia, y forma parte del Edinburgh College of Art.",
       descriptionEn: "The Talbot Rice Gallery is the public art gallery of the University of Edinburgh in Scotland and part of Edinburgh College of Art.",
     },
     {
@@ -5252,8 +5252,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/UNIVERSITY_OF_EDINBURGH_-_Wikimedia_and_the_Library_%26_University_Collections_Report_%282021%29.pdf/page1-960px-UNIVERSITY_OF_EDINBURGH_-_Wikimedia_and_the_Library_%26_University_Collections_Report_%282021%29.pdf.jpg",
       website: "http://mocft.co.uk",
-      description: "Atsushi Ebihara (1965) es un botánico, y pteridólogo japonés. Es especialista en la sistemática de los helechos, y particularmente de la familia de las himenofilláceas.",
-      descriptionEn: "HMS Edinburgh was a Type 42-class guided missile destroyer of the Royal Navy. Edinburgh was built by Cammell Laird of Birkenhead. She was launched on 14 April 1983 and commissioned on 17 December 1985.",
+      description: "El Museo de la Comunicación, en Burntisland, Fife, cerca de Edimburgo, alberga la colección de telegrafía, telefonía, radio, radar, televisión y electrónica reunida por Harry Matthews desde 1973 y gestionada hoy por una fundación benéfica.",
+      descriptionEn: "The Museum of Communication, in Burntisland, Fife, near Edinburgh, houses a collection of telegraphy, telephony, radio, radar, television, and electronics equipment assembled by Harry Matthews from 1973 onward, now managed by a charitable trust.",
     },
     {
       id: "edinburgh_5",
@@ -5267,8 +5267,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/The_castle_of_Edinburgh_%28IA_castleofedinburg00mainrich%29.pdf/page1-960px-The_castle_of_Edinburgh_%28IA_castleofedinburg00mainrich%29.pdf.jpg",
       website: "https://www.edinburghmuseums.org.uk/venue/queensferry-museum",
-      description: "Robert Adam fue un arquitecto británico, diseñador de interiores y también de muebles. Era hijo de William Adam (1689-1748), el arquitecto más importante de la época de Escocia, y aprendió el oficio con él.",
-      descriptionEn: "The following outline is provided as an overview of and topical guide to Edinburgh:",
+      description: "El Museo de Queensferry recorre la historia del antiguo paso en balsa hacia Fife, la construcción de los puentes ferroviario y vial sobre el Forth, y la tradición local del Burry Man, además de la fauna del estuario del Forth.",
+      descriptionEn: "Queensferry Museum traces the history of the historic ferry crossing to Fife, the building of the Forth road and rail bridges, and the local Burry Man tradition, alongside the wildlife of the Forth estuary.",
     },
     {
       id: "edinburgh_6",
@@ -5282,7 +5282,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Museum_of_Childhood%2C_Edinburgh%2C_November_2024_-_04.jpg/1920px-Museum_of_Childhood%2C_Edinburgh%2C_November_2024_-_04.jpg",
       website: "https://www.edinburghmuseums.org.uk/venue/museum-childhood",
-      description: "Ronald B. Kitaj fue un pintor de estilo pop art, de origen estadounidense y pasó gran parte de su vida en Inglaterra.",
+      description: "El Museo de la Infancia es un museo que alberga una colección de juguetes y objetos infantiles, situado en la Royal Mile de Edimburgo, Escocia. Fue el primer museo del mundo especializado en la historia de la infancia. La entrada es gratuita.",
       descriptionEn: "The Museum of Childhood is a museum that houses a collection of children's toys and playthings, situated on the Royal Mile, in Edinburgh, Scotland. It is the first museum in the world to specialise in the history of childhood. Admission to the museum is free.",
     },
     {
@@ -5297,8 +5297,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Musselburgh_Bridge%2C_Edinburgh.jpg/1920px-Musselburgh_Bridge%2C_Edinburgh.jpg",
       website: "https://www.musselburghmuseum.org.uk/",
-      description: "Comenzó a inicios de 1457, aunque se desconocen con certeza los orígenes del deporte llamado golf. La teoría más aceptada es que el deporte tuvo su origen en Escocia durante la Alta Edad Media.",
-      descriptionEn: "Trams operated in Edinburgh from 1871 to 1956, and resumed in 2014. The first systems were horse-drawn, while cable-haulage appeared in the city in 1888.",
+      description: "El Museo de Musselburgh recorre la historia del antiguo burgo escocés, incluida su tradición pesquera, cervecera, orfebre y golfística — Musselburgh alberga uno de los campos de golf en uso continuo más antiguos del mundo.",
+      descriptionEn: "Musselburgh Museum traces the history of the historic Scottish burgh, including its fishing, brewing, silversmithing, and golfing heritage — Musselburgh is home to one of the oldest continuously used golf courses in the world.",
     },
     {
       id: "edinburgh_8",
@@ -5312,7 +5312,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Edinburgh_Castle_from_Grass_Market.jpg/1920px-Edinburgh_Castle_from_Grass_Market.jpg",
       website: "https://www.edinburghcastle.scot/",
-      description: "El Castillo Edinburgh o Castillo de Edimburgo es el nombre que recibe una finca y casa grande ahora en ruinas en la parroquia de Santa Ana, fue construido por el primer asesino en serie en Jamaica, Lewis Hutchinson. Tenía dos torres circulares, diagonales en esquinas opuestas.",
+      description: "El Castillo de Edimburgo es un castillo histórico de Edimburgo, Escocia. Se alza sobre Castle Rock, ocupada por el ser humano desde al menos la Edad de Hierro, y es uno de los monumentos más visitados del Reino Unido.",
       descriptionEn: "Edinburgh Castle is a historic castle in Edinburgh, Scotland. It stands on Castle Rock, which has been occupied by humans since at least the Iron Age.",
     },
     {
@@ -5342,7 +5342,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Carberry_Tower_near_Edinburgh_in_2021.jpg/1920px-Carberry_Tower_near_Edinburgh_in_2021.jpg",
       website: "https://carberrytower.com/",
-      description: "Escocia en la Edad Moderna se refiere, a efectos de este artículo, a los acontecimientos acaecidos en Escocia en el período comprendido entre la muerte de Jacobo IV en 1513 y el final de las rebeliones jacobitas a mediados del siglo XVIII.",
+      description: "Carberry Tower es una casa histórica en East Lothian, Escocia, situada junto a la carretera A6124, a 3,2 km al sureste de Musselburgh. Al igual que Musselburgh, pertenece a la parroquia de Inveresk y está protegida como edificio catalogado de Categoría B.",
       descriptionEn: "Carberry Tower is a historic house in East Lothian, Scotland. The house is situated off the A6124 road, 2 miles (3.2 km) south-east of Musselburgh. Carberry, like Musselburgh is in the parish of Inveresk. It is protected as a Category B listed building.",
     },
     {
@@ -5387,7 +5387,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Edinburgh_Canongate_Kirk-20110902-RM-153622.jpg/1920px-Edinburgh_Canongate_Kirk-20110902-RM-153622.jpg",
       website: "https://www.canongatekirk.org.uk/",
-      description: "La Abadía de Holyrood es una abadía agustina que se encuentra en ruinas en Edimburgo, Escocia. Esta abadía fue construida en 1128 por orden del rey David I de Escocia.",
+      description: "Canongate Kirk es la iglesia parroquial del barrio de Canongate, en el Casco Antiguo de Edimburgo, Escocia, y pertenece a la Iglesia de Escocia. Su parroquia incluye el Palacio de Holyroodhouse y el Parlamento escocés.",
       descriptionEn: "The Kirk of the Canongate, or Canongate Kirk, serves the Parish of Canongate in Edinburgh's Old Town, in Scotland. It is a congregation of the Church of Scotland. The parish includes the Palace of Holyroodhouse and the Scottish Parliament.",
     },
     {
@@ -5402,8 +5402,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Duddingston_Kirk_-_geograph.org.uk_-_1507676.jpg",
       website: "http://www.duddingstonkirk.co.uk/",
-      description: "Escocia en la Edad Moderna se refiere, a efectos de este artículo, a los acontecimientos acaecidos en Escocia en el período comprendido entre la muerte de Jacobo IV en 1513 y el final de las rebeliones jacobitas a mediados del siglo XVIII.",
-      descriptionEn: "Duddingston is a district of Edinburgh, Scotland; comprising a neighbourhood, conservation area and the historic Duddingston Village. The area is situated at the foot of Arthur’s Seat, within Holyrood Park and beside Duddingston Loch.",
+      description: "Duddingston Kirk es una iglesia parroquial de origen normando, construida hacia 1124, una de las más antiguas de Escocia aún en uso. Se encuentra en el pueblo de Duddingston, a los pies de Arthur's Seat, junto al lago Duddingston.",
+      descriptionEn: "Duddingston Kirk is a parish church of Norman origin, built around 1124, one of the oldest churches in Scotland still in use. It stands in Duddingston village, at the foot of Arthur's Seat, beside Duddingston Loch.",
     },
   ],
   fez: [
@@ -6735,7 +6735,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1536687618274-01fcbe6ffd82?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYXZhbmElMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE2OTE3NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Malecón hace referencia a varios cócteles, cuyo nombre hace honor al Malecón, una famosa avenida frente a la playa de La Habana, Cuba, donde se originó.",
+      description: "El Malecón es un amplio malecón, avenida y muro de contención que se extiende por 8 km a lo largo de la costa de La Habana, Cuba, desde la boca de la bahía en La Habana Vieja hasta el barrio de El Vedado.",
       descriptionEn: "The Malecón is a broad esplanade, roadway, and seawall that stretches for 8 km along the coast in Havana, Cuba, from the mouth of Havana Harbor in Old Havana, along the north side of the Centro Habana neighborhood and the Vedado neighborhood, ending at the mouth of the…",
     },
     {
@@ -6749,7 +6749,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1581266148726-56611a910e4b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbCUyMENhcGl0b2xpbyUyMGhhdmFuYXxlbnwxfDB8fHwxNzgyMTY5MTc3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "La Fuente de la India o de la Noble Habana es una representación donde figura la imagen de la mítica india Habana, esposa del cacique Habaguanex, regente de la zona antes de la llegada de Cristóbal Colón, del cual se cree que toma el nombre la capital de Cuba.",
+      description: "El Capitolio Nacional de Cuba, conocido simplemente como El Capitolio, es un edificio público de La Habana, capital de Cuba. Inaugurado en 1929, alberga hoy la sede de la Academia de Ciencias de Cuba y de la Asamblea Nacional del Poder Popular.",
       descriptionEn: "The National Capitol of Cuba, also known as Capitolio Nacional de La Habana , and often simply referred to as El Capitolio (The Capitol), is a public edifice in Havana, the capital of Cuba.",
     },
     {
@@ -6791,7 +6791,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 360,
       imageUrl: "https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaSVDMyVCMWFsZXMlMjBWYWxsZXklMjBoYXZhbmF8ZW58MXwwfHx8MTc4MjE2OTE4NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Ernesto Daranas Serrano (nacido el 7 de diciembre de 1961 en La Habana) es un director y guionista de cine cubano.",
+      description: "El valle de Viñales es una depresión kárstica de Cuba, de 132 km² de superficie, situada en la sierra de los Órganos, al norte de Viñales, en la provincia de Pinar del Río. Es célebre por sus mogotes y sus plantaciones de tabaco.",
       descriptionEn: "Viñales Valley is a karstic depression in Cuba. The valley has an area of 132 km2 (51 sq mi) and is located in the Sierra de los Órganos mountains, just north of Viñales in the Pinar del Río Province.",
     },
     {
@@ -6806,8 +6806,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/63/CheFishing.jpg",
       website: "https://www.hemingwayhavana.com/",
-      description: "Ernest Miller Hemingway fue un escritor y periodista estadounidense, uno de los principales novelistas y cuentistas del siglo XX.",
-      descriptionEn: "Floridita or El Floridita is a historic fish restaurant and cocktail bar in the older part of Havana, Cuba. It lies at the end of Calle Obispo, across Monserrate Street from the National Museum of Fine Arts of Havana.",
+      description: "El Museo Ernest Hemingway ocupa la Finca Vigía, la residencia del escritor en el barrio de San Francisco de Paula, donde vivió desde 1940 hasta su muerte en 1961. Convertida en museo en 1962, es la primera institución del mundo dedicada a divulgar su vida y obra.",
+      descriptionEn: "The Ernest Hemingway Museum occupies Finca Vigía, the writer's residence in the San Francisco de Paula neighborhood of Havana, where he lived from 1940 until his death in 1961. Turned into a museum in 1962, it was the first institution in the world dedicated to his life and work.",
     },
     {
       id: "havana_7",
@@ -6821,8 +6821,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/38/National_Music_Museum_-_Vermillion_SD.jpg",
       website: "https://www.centenariobenny.home.blog/",
-      description: "Por música cubana o música de Cuba se entiende aquella música desarrollada en el país e isla de Cuba, con raíces en la música española así como también en ritmos y cantos africanos, surgida desde el siglo XVI.",
-      descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      description: "El Museo Nacional de la Música, fundado en 1971, ocupa una mansión ecléctica de 1905 en La Habana Vieja. Recorre la evolución de la música y los instrumentos cubanos desde el siglo XVI hasta el XX, con una colección de instrumentos, partituras y documentos.",
+      descriptionEn: "The National Museum of Music, founded in 1971, occupies an eclectic 1905 mansion in Old Havana. It traces the development of Cuban music and instruments from the 16th to the 20th century through a collection of instruments, scores, and documents.",
     },
     {
       id: "havana_8",
@@ -6850,8 +6850,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Muzeo_de_Kuba_Po%C5%9Dto_01.jpg/1920px-Muzeo_de_Kuba_Po%C5%9Dto_01.jpg",
-      description: "El deshielo cubano fue un proceso de acercamiento y normalización parcial de las relaciones diplomáticas entre Cuba y Estados Unidos desarrollado entre 2014 y 2017, tras más de cinco décadas de hostilidad bilateral iniciada después de la Revolución cubana de 1959 y del…",
-      descriptionEn: "The Cuban thaw was a normalization of Cuba–United States relations from July 2015 to June 2017, ending a 54-year stretch of hostility between the nations. In March 2016, Barack Obama became the first U.S. president to visit Cuba since Calvin Coolidge in 1928.",
+      description: "El Museo Postal Cubano \"José Luis Guerra Aguiar\", fundado en 1965, exhibe la historia postal y filatélica de Cuba desde su primera emisión de sellos en 1855, junto con correspondencia circulada desde 1760 y una colección de sellos internacionales.",
+      descriptionEn: "The Cuban Postal Museum \"José Luis Guerra Aguiar,\" founded in 1965, showcases Cuba's postal and philatelic history from its first stamp issue in 1855, alongside mail circulated since 1760 and a collection of international stamps.",
     },
     {
       id: "havana_10",
@@ -6865,7 +6865,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Hasekura_in_Rome.JPG",
       website: "https://arkarstudios.com/hasekura-tsunenaga-en-la-habana-el-primer-samurai-que-puso-pie-en-cuba/",
-      description: "Hasekura Rokuemon Tsunenaga es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El monumento a Hasekura Tsunenaga, obra del escultor Tsuchiya Mizuho, se ubica en un parque de estilo japonés junto a la bahía de La Habana. Fue inaugurado en 2001 en homenaje al samurái que visitó Cuba en 1614, primer japonés conocido en pisar la isla.",
       descriptionEn: "Hasekura Rokuemon Tsunenaga was a kirishitan Japanese samurai and retainer of Date Masamune, the daimyō of Sendai. He was of Japanese imperial descent with ancestral ties to Emperor Kanmu.",
     },
     {
@@ -6879,8 +6879,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Castillo_de_San_Salvador_de_la_Punta_DSC0781s.jpg/1920px-Castillo_de_San_Salvador_de_la_Punta_DSC0781s.jpg",
-      description: "La Habana es la capital de Cuba, su ciudad más poblada y el principal centro político, económico, cultural y turístico del país. Situada en la costa noroccidental de la isla, junto al estrecho de la Florida, constituye además uno de los principales puertos del Caribe.",
-      descriptionEn: "Castillo San Salvador de la Punta is a fortress at the entrance to the bay in Havana, Cuba.",
+      description: "El castillo de San Salvador de la Punta es una fortaleza situada en la entrada de la bahía de La Habana, Cuba, construida entre 1590 y 1630 para defender la ciudad junto al castillo del Morro, en la orilla opuesta del canal de entrada.",
+      descriptionEn: "Castillo San Salvador de la Punta is a fortress at the entrance to the bay in Havana, Cuba, built between 1590 and 1630 to defend the city alongside the Morro Castle on the opposite side of the harbor channel.",
     },
     {
       id: "havana_12",
@@ -6893,8 +6893,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cuba_y_Quisqueya_%28IA_cubayquisqueya00henr%29.pdf/page1-500px-Cuba_y_Quisqueya_%28IA_cubayquisqueya00henr%29.pdf.jpg",
-      description: "Cayo Hueso es un consejo popular (barrio) del municipio Centro Habana, La Habana, Cuba. Era un barrio tradicionalmente obrero, poblado por afrocubanos, y en la actualidad es conocido por sus numerosos lugares de interés cultural, como el Callejón de Hamel, el Museo Fragua…",
-      descriptionEn: "Havana is the capital and largest city of Cuba. The heart of La Habana Province, Havana is the country's main port and commercial center. It is the most populous city, the largest by area, and the second-largest metropolitan area in the Caribbean region.",
+      description: "La Casa Natal de José Martí, construida a comienzos del siglo XIX, es donde nació el héroe nacional cubano el 28 de enero de 1853. Convertida en museo en 1925, es el museo más antiguo de La Habana y se ubica en La Habana Vieja, Patrimonio de la Humanidad.",
+      descriptionEn: "The José Martí Birthplace House, built in the early 19th century, is where the Cuban national hero was born on January 28, 1853. Turned into a museum in 1925, it is Havana's oldest museum, located in the World Heritage site of Old Havana.",
     },
   ],
   hiroshima: [
@@ -7368,8 +7368,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1553660148-d3ffd5cfe5a8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIaXN0b3JpYyUyMENlbnRyZSUyMG9mJTIwTWFjYW8lMjBob25na29uZ3xlbnwxfDB8fHwxNzgyMTY5MTg2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El puente Hong Kong-Zhuhai-Macao es un proyecto de ingeniería civil que consiste en una serie de puentes y túneles de 55 kilómetros que conectan Hong Kong con Macao y Zhuhai, las tres ciudades principales del delta del río de las Perlas y regiones administrativas especiales de…",
-      descriptionEn: "Hong Kong is a special administrative region of China. Situated on China's southern coast just south of Shenzhen, it consists of Hong Kong Island, Kowloon, and the New Territories.",
+      description: "El Centro Histórico de Macao es un conjunto de más de veinte lugares históricos que reflejan la fusión de las culturas china y portuguesa en el antiguo enclave colonial. Fue declarado Patrimonio de la Humanidad por la Unesco en 2005.",
+      descriptionEn: "The Historic Centre of Macao is a UNESCO World Heritage Site comprising more than twenty historic locations that reflect the fusion of Chinese and Portuguese cultures in the former colony, inscribed in 2005.",
     },
     {
       id: "hongkong_1",
@@ -7403,7 +7403,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1580441610352-94ebf9707f39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUc2ltJTIwU2hhJTIwVHN1aSUyMFByb21lbmFkZSUyMGhvbmdrb25nfGVufDF8MHx8fDE3ODIxNjkxOTF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Siempre hay un chileno es un programa de televisión chileno emitido por Canal 13. Creado, dirigido y presentado en camara desde 2022 por el realizador audiovisual Marcelo Kiwi, consiste en un recorrido por una ciudad del mundo cada semana para encontrarse con chilenos que…",
+      description: "El Paseo de Tsim Sha Tsui, frente al puerto Victoria en Kowloon, es uno de los miradores más famosos de Hong Kong, conocido por su Avenida de las Estrellas y las vistas del perfil urbano de la isla de Hong Kong.",
       descriptionEn: "Tsim Sha Tsui, often abbreviated as TST, is an area in southern Kowloon, Hong Kong. The area is administratively part of the Yau Tsim Mong District. Tsim Sha Tsui East is a piece of land reclaimed from the Hung Hom Bay now east of Tsim Sha Tsui.",
     },
     {
@@ -7424,7 +7424,7 @@ export const CURATED_ALL: CuratedMap = {
         currency: "USD",
         adult: "USD 14.55",
       },
-      description: "Sylvia Chang es una actriz, escritora, cantante, productora y directora de cine taiwanesa. En 1992, fue miembro del jurado en el 42 º Festival Internacional de Cine de Berlín.",
+      description: "El Mercado Nocturno de Temple Street es uno de los mercados callejeros más animados de Hong Kong, conocido por sus puestos de comida, ropa, artículos varios y adivinos callejeros.",
       descriptionEn: "Night markets in Hong Kong are bazaars usually located in older areas like Sham Shui Po, Mong Kok or Sheung Wan. Besides selling toys, clothes and food, some Hong Kong night markets also provide divination to visitors, such as the Temple Street Night Market, which is popular…",
     },
     {
@@ -7514,7 +7514,7 @@ export const CURATED_ALL: CuratedMap = {
           close: "17:30",
         },
       },
-      description: "Lantau Island & Big Buddha es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Gran Buda es una gran escultura de bronce de Buda, terminada en 1993, ubicada en Ngong Ping, cerca del Monasterio Po Lin, en la isla de Lantau, Hong Kong.",
       descriptionEn: "The Big Buddha is a large bronze sculpture of Buddha, completed in 1993, and located at Ngong Ping, near Po Lin Monastery on Lantau Island, Hong Kong.",
     },
     {
@@ -7535,7 +7535,7 @@ export const CURATED_ALL: CuratedMap = {
         currency: "USD",
         adult: "USD 21.83",
       },
-      description: "El Centro de Conferencias y Exhibiciones de Hong Kong es uno de los dos principales centros de exposiciones en Hong Kong, junto con AsiaWorld-Expo. Se encuentra en Wan Chai Norte, en la isla de Hong Kong.",
+      description: "El Star Ferry es un servicio de transbordadores de pasajeros y una atracción turística de Hong Kong. Sus principales rutas cruzan el puerto Victoria, conectando la isla de Hong Kong con Kowloon, y opera desde 1888.",
       descriptionEn: "The Star Ferry is a passenger ferry service operator and tourist attraction in Hong Kong. Its principal routes carry passengers across Victoria Harbour, between Hong Kong Island and Kowloon.",
     },
     {
@@ -7554,7 +7554,7 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
       },
       description: "Hong Kong Disneyland Resort es un complejo turístico construido por el gobierno de Hong Kong y The Walt Disney Company. Está constituido por un parque temático, Hong Kong Disneyland, tres hoteles y áreas de entretenimiento, gastronomía y compras.",
-      descriptionEn: "The handover of Hong Kong from the United Kingdom of Great Britain and Northern Ireland to the People's Republic of China occurred at midnight on 1 July 1997.",
+      descriptionEn: "Hong Kong Disneyland Resort is a theme park resort built by the Hong Kong government and The Walt Disney Company, comprising the Hong Kong Disneyland theme park, three hotels, and entertainment, dining, and shopping areas.",
     },
     {
       id: "hongkong_8",
@@ -7568,7 +7568,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/HKU_%E9%A6%99%E6%B8%AF%E5%A4%A7%E5%AD%B8%E7%BE%8E%E8%A1%93%E5%8D%9A%E7%89%A9%E9%A4%A8_University_Museum_and_Art_Gallery_UMAG_May-2012_Chinese_writing_sign.JPG/1920px-HKU_%E9%A6%99%E6%B8%AF%E5%A4%A7%E5%AD%B8%E7%BE%8E%E8%A1%93%E5%8D%9A%E7%89%A9%E9%A4%A8_University_Museum_and_Art_Gallery_UMAG_May-2012_Chinese_writing_sign.JPG",
       website: "https://umag.hku.hk",
-      description: "香港大學美術博物館 University Museum & Art Gallery es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo y Galería de Arte de la Universidad de Hong Kong (UMAG) está ubicado en el número 90 de Bonham Road, junto a la entrada este de la Universidad de Hong Kong.",
       descriptionEn: "The University Museum and Art Gallery (UMAG) is located at 90 Bonham Road, next to the University of Hong Kong's East Gate entrance.",
     },
     {
@@ -7583,7 +7583,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a2/HK_Victoria_Peak_Tower_%E9%A6%99%E6%B8%AF%E6%9D%9C%E8%8E%8E%E5%A4%AB%E4%BA%BA%E8%A0%9F%E5%83%8F%E9%A4%A8_Madame_Tussauds_Hong_Kong_May-2014_-_staircase_interior_001.JPG",
       website: "https://www.madametussauds.com/hong-kong/",
-      description: "香港杜莎夫人蠟像館 Madame Tussauds Hong Kong es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Madame Tussauds Hong Kong es un museo de cera situado en la Peak Tower, en la isla de Hong Kong. Abrió en 2000 y fue la primera sede de Madame Tussauds establecida en Asia.",
       descriptionEn: "Madame Tussauds Hong Kong is a wax museum situated in the Peak Tower on Hong Kong Island. It opened in 2000 and was the first branch of the Madame Tussauds museum to be established in Asia.",
     },
     {
@@ -7598,7 +7598,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/HKU_%E9%A6%99%E6%B8%AF%E5%A4%A7%E5%AD%B8_Stephen_Hui_Geological_Museum_%E8%A8%B1%E5%A3%AB%E8%8A%AC%E5%9C%B0%E8%B3%AA%E5%8D%9A%E7%89%A9%E9%A4%A8_Globe_%E5%9C%B0%E7%90%83%E5%84%80_Oct_2016_Lnv.jpg/1920px-HKU_%E9%A6%99%E6%B8%AF%E5%A4%A7%E5%AD%B8_Stephen_Hui_Geological_Museum_%E8%A8%B1%E5%A3%AB%E8%8A%AC%E5%9C%B0%E8%B3%AA%E5%8D%9A%E7%89%A9%E9%A4%A8_Globe_%E5%9C%B0%E7%90%83%E5%84%80_Oct_2016_Lnv.jpg",
       website: "https://www.earthsciences.hku.hk/shmuseum/",
-      description: "許士芬地質博物館 Stephen Hui Geological Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Geológico Stephen Hui es el primer y único museo geológico de Hong Kong, ubicado en el edificio James Hsioung Lee del campus principal de la Universidad de Hong Kong.",
       descriptionEn: "The Stephen Hui Geological Museum is the first and only geological museum in Hong Kong. It is located on the ground and first floors of the James Hsioung Lee Building (厲樹雄科學館), in the University of Hong Kong Main Campus.",
     },
     {
@@ -7613,7 +7613,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/53/PoLeungKuk_Museum_ExhHall.jpg",
       website: "https://www.poleungkuk.org.hk/service/po-leung-kuk-museum",
-      description: "保良局歷史博物館 Po Leung Kuk Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Po Leung Kuk, o Archivo Po Leung Kuk, es un museo y archivo ubicado en el edificio principal de la sede de Po Leung Kuk, en Causeway Bay, Hong Kong.",
       descriptionEn: "The Po Leung Kuk Museum, or Po Leung Kuk Archives is a museum and an archive housed in the Main Building of Po Leung Kuk's Headquarters, located at 66 Leighton Road, Causeway Bay, Hong Kong.",
     },
     {
@@ -7628,8 +7628,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/55/TheHongKongRacingMuseum.jpg",
       website: "https://corporate.hkjc.com/corporate/english/history-and-reports/plan-your-visit.aspx",
-      description: "香港賽馬博物館 The Hong Kong Racing Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "香港賽馬博物館 The Hong Kong Racing Museum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de las Carreras de Hong Kong exhibe la historia de las carreras de caballos en la ciudad, organizadas por el Hong Kong Jockey Club desde el siglo XIX.",
+      descriptionEn: "The Hong Kong Racing Museum showcases the history of horse racing in the city, organized by the Hong Kong Jockey Club since the 19th century.",
     },
     {
       id: "hongkong_13",
@@ -7643,7 +7643,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Lei_Yue_Mun_Park_and_Holiday_Village_2018.jpg",
       website: "https://www.lcsd.gov.hk/camp/b5/p_lymp.php",
-      description: "鯉魚門公園及度假村 Lei Yue Mun Park and Holiday Village es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque y Aldea Vacacional de Lei Yue Mun es una zona recreativa al este de Shau Kei Wan, frente a Lei Yue Mun, con una superficie de casi 23 hectáreas.",
       descriptionEn: "Lei Yue Mun Park and Holiday Village is a holiday village in the east of Shau Kei Wan, facing Lei Yue Mun, with an area of 22.97 hectares (0.2297 km2).",
     },
     {
@@ -7658,8 +7658,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2d/%E6%B4%AA%E5%AD%90%E5%81%A5_Andy_Hung_Chi-kin.jpg",
       website: "https://www.legolanddiscoverycentre.com/hong-kong/",
-      description: "香港樂高探索中心 LEGOLAND Discovery Centre es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "香港樂高探索中心 LEGOLAND Discovery Centre is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El LEGOLAND Discovery Centre de Hong Kong es un centro de entretenimiento familiar bajo techo con atracciones, talleres de construcción y exhibiciones temáticas de LEGO.",
+      descriptionEn: "LEGOLAND Discovery Centre Hong Kong is an indoor family entertainment centre featuring LEGO-themed rides, building workshops, and exhibits.",
     },
   ],
   istanbul: [
@@ -8632,7 +8632,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/47/Umschlagplatz_loading.jpg",
-      description: "Los trenes del Holocausto fueron una red de trenes operada por el sistema ferroviario nacional Deutsche Reichsbahn bajo la estricta supervisión de los nazis alemanes y sus aliados, con el propósito de la deportación forzada de los judíos, así como de otras víctimas del…",
+      description: "Auschwitz, también conocido como Oświęcim, fue un complejo de más de 40 campos de concentración y exterminio operado por la Alemania nazi en la Polonia ocupada durante la Segunda Guerra Mundial y el Holocausto.",
       descriptionEn: "Auschwitz, also known as Oświęcim, was a complex of over 40 concentration and extermination camps operated by Nazi Germany in occupied Poland during World War II and the Holocaust.",
     },
     {
@@ -8646,8 +8646,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/CERKIEW_PW._%C5%9AW._DYMITRA_W_S%C4%84DECKIM_PARKU_ETNOGRAFICZNYM_W_NOWYM_S%C4%84CZU%2C_fot._M._Klag_%28MIK%2C_2001%29_%283531653637%29.jpg/1920px-CERKIEW_PW._%C5%9AW._DYMITRA_W_S%C4%84DECKIM_PARKU_ETNOGRAFICZNYM_W_NOWYM_S%C4%84CZU%2C_fot._M._Klag_%28MIK%2C_2001%29_%283531653637%29.jpg",
-      description: "Wooden Churches of Southern Malopolska es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Kraków, officially the Royal Capital City of Kraków, is the second-largest and one of the oldest cities in Poland.",
+      description: "Las iglesias de madera del sur de la Pequeña Polonia son un conjunto de iglesias católicas de construcción gótica en madera, erigidas entre los siglos XV y XVIII, inscritas como Patrimonio de la Humanidad por la Unesco por su arquitectura tradicional y su valor artístico e histórico.",
+      descriptionEn: "The Wooden Churches of Southern Małopolska are a group of late-medieval Catholic churches built of horizontal log construction between the 15th and 18th centuries, inscribed as a UNESCO World Heritage Site for their traditional architecture and artistic and historical value.",
     },
     {
       id: "krakow_4",
@@ -8661,8 +8661,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Kurjer_Warszawski._R.53%2C_nr_23_%288_lutego_1873%29_%28IA_jbc.bj.uj.edu_pl.0007_NDIGCZAS035218_113008932%29.pdf/page1-1280px-Kurjer_Warszawski._R.53%2C_nr_23_%288_lutego_1873%29_%28IA_jbc.bj.uj.edu_pl.0007_NDIGCZAS035218_113008932%29.pdf.jpg",
       website: "http://muzeum.farmacja.uj.edu.pl",
-      description: "Muzeum Farmacji UJ es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Muzeum Farmacji UJ is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Muzeum Farmacji Collegium Medicum de la Universidad Jaguelónica es un museo en la calle Floriańska de Cracovia, especializado en la historia de la farmacia y la tecnología farmacéutica. Fue fundado en 1946.",
+      descriptionEn: "Muzeum Farmacji Collegium Medicum Uniwersytetu Jagiellońskiego is a museum on Floriańska Street, Kraków, Poland, specializing in the history of pharmacy and pharmaceutical technology. It was established in 1946.",
     },
     {
       id: "krakow_5",
@@ -8676,8 +8676,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Bookwheel_in_Jagiellonian_University_Museum_Krakow.jpg/1920px-Bookwheel_in_Jagiellonian_University_Museum_Krakow.jpg",
       website: "https://maius.uj.edu.pl/",
-      description: "Anna Nakwaska, de soltera Krajewska fue una escritora de ficción, memorista, autora de libros infantiles y pedagoga polaca.",
-      descriptionEn: "Muzeum Farmacji Collegium Medicum Uniwersytetu Jagiellońskiego is a museum on Floriańska Street, Kraków, Poland, specializing in the history of pharmacy and pharmaceutical technology. It was established in 1946.",
+      description: "El Museo de la Universidad Jaguelónica ocupa el Collegium Maius, el edificio más antiguo de la Universidad Jaguelónica de Cracovia, y exhibe instrumentos científicos históricos, globos terráqueos antiguos y la célebre rueda giratoria de libros (bookwheel).",
+      descriptionEn: "The Jagiellonian University Museum occupies the Collegium Maius, the oldest building of Kraków's Jagiellonian University, and displays historic scientific instruments, antique globes, and the famous rotating bookwheel.",
     },
     {
       id: "krakow_6",
@@ -8706,7 +8706,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Muzeum_%C5%BBydowskie_Galicja_%28cropped%29.jpg/1920px-Muzeum_%C5%BBydowskie_Galicja_%28cropped%29.jpg",
       website: "https://galiciajewishmuseum.org/",
-      description: "Żydowskie Muzeum Galicja es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Judío Galicia se ubica en la calle Dajwór, en Kazimierz, el histórico barrio judío de Cracovia. Presenta una exposición fotográfica que documenta los vestigios de la cultura y vida judías en la región polaca de Galicia.",
       descriptionEn: "The Galicia Jewish Museum is located at 18 Dajwór Street in Kazimierz the historic Jewish district of Kraków, Poland. It is a photo exhibition documenting the remnants of Jewish culture and life in Polish Galicia, which used to be very vibrant in this area.",
     },
     {
@@ -8736,8 +8736,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Krak%C3%B3w_ul_Forteczna_146_Fort_52_Borek_CK_Podg%C3%B3rza.jpg/1920px-Krak%C3%B3w_ul_Forteczna_146_Fort_52_Borek_CK_Podg%C3%B3rza.jpg",
       website: "https://borek.ckpodgorza.pl/",
-      description: "Centrum Kultury Podgórza - Fort Borek es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Centrum Kultury Podgórza - Fort Borek is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Fort Borek es un fuerte del siglo XIX, parte del antiguo anillo defensivo de la Fortaleza de Cracovia construido por Austria-Hungría, ubicado en el distrito de Podgórze. Hoy funciona como centro cultural del barrio.",
+      descriptionEn: "Fort Borek is a 19th-century fort, part of the former defensive ring of the Kraków Fortress built by Austria-Hungary, located in the Podgórze district. It now operates as the neighborhood's cultural center.",
     },
     {
       id: "krakow_10",
@@ -8751,8 +8751,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Krak%C3%B3w_ul._Ksi%C4%99cia_J%C3%B3zefa_Poniatowskiego_359_pomnik_Jak_23.jpg/1920px-Krak%C3%B3w_ul._Ksi%C4%99cia_J%C3%B3zefa_Poniatowskiego_359_pomnik_Jak_23.jpg",
       website: "www.lotnictwo.jpe.com.pl/pomniki/malopolskie/krakow-jak-23/",
-      description: "Artur Sarnat fue un futbolista polaco que jugó en la posición de guardameta. Es recordado por la excelsa actuación que tuvo en el Nou Camp enfrentándose al FC Barcelona. Comenzó su carrera futbolística en Wawel Cracovia.",
-      descriptionEn: "Wieczysta Kraków is a Polish football club, based in Kraków. As of the 2026–27 season, they compete in the Ekstraklasa, after winning the 2025–26 I liga promotion play-offs.",
+      description: "El Jak-23 es un caza a reacción de fabricación soviética conservado como monumento aeronáutico al aire libre en Cracovia, en homenaje a la aviación militar polaca de posguerra.",
+      descriptionEn: "The Jak-23 is a Soviet-built jet fighter preserved as an outdoor aviation monument in Kraków, honoring Poland's postwar military aviation.",
     },
     {
       id: "krakow_11",
@@ -8765,8 +8765,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/%C5%81obz%C3%B3w333.jpg/1920px-%C5%81obz%C3%B3w333.jpg",
-      description: "Pałac Królewski w Łobzowie es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Pałac Królewski w Łobzowie is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Palacio Real de Łobzów fue una residencia real polaca del siglo XVI en el distrito de Łobzów, Cracovia, posteriormente reconvertida en cuartel militar y, más tarde, en escuela.",
+      descriptionEn: "The Łobzów Royal Palace was a 16th-century Polish royal residence in the Łobzów district of Kraków, later converted into a military barracks and subsequently a school.",
     },
     {
       id: "krakow_12",
@@ -8780,8 +8780,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Cerkiew_ul.Szpitalna_Krak%C3%B3w.JPG",
       website: "https://www.krakow.cerkiew.pl/",
-      description: "Cerkiew Zaśnięcia Najświętszej Marii Panny es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Church of the Dormition of the Mother of God is a Greek Orthodox filial church in Szczebrzeszyn. It belongs to the parish of Saint George in Biłgoraj, in the Zamość Deanery of the Diocese of Lublin and Chełm of the Polish Orthodox Church.",
+      description: "La Cerkiew Zaśnięcia Najświętszej Marii Panny es una iglesia ortodoxa de la Dormición de la Madre de Dios situada en la calle Szpitalna de Cracovia, que sirve a la comunidad ortodoxa de la ciudad.",
+      descriptionEn: "The Cerkiew Zaśnięcia Najświętszej Marii Panny is an Orthodox church of the Dormition of the Mother of God located on Szpitalna Street in Kraków, serving the city's Orthodox community.",
     },
     {
       id: "krakow_13",
@@ -8794,8 +8794,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/FortReditowy9%E2%80%9EKrowodrza%E2%80%9D-Relikty-ParkIm.Stanis%C5%82awaWyspia%C5%84skiego-Pr%C4%85dnikBia%C5%82y-POL%2C_Krak%C3%B3w.jpg/1920px-FortReditowy9%E2%80%9EKrowodrza%E2%80%9D-Relikty-ParkIm.Stanis%C5%82awaWyspia%C5%84skiego-Pr%C4%85dnikBia%C5%82y-POL%2C_Krak%C3%B3w.jpg",
-      description: "Relikty fortu 9 \"Krowodrza\" es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Relikty fortu 9 \"Krowodrza\" is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Los vestigios del Fuerte 9 \"Krowodrza\" son los restos de un fuerte reducto del siglo XIX, parte del anillo defensivo de la Fortaleza de Cracovia, conservados en el Parque Stanisław Wyspiański, en el distrito de Prądnik Biały.",
+      descriptionEn: "The remnants of Fort 9 \"Krowodrza\" are the surviving remains of a 19th-century redoubt fort, part of the Kraków Fortress defensive ring, preserved within Stanisław Wyspiański Park in the Prądnik Biały district.",
     },
     {
       id: "krakow_14",
@@ -8809,7 +8809,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Krak%C3%B3w%2C_Galeria_Sztuki_Wsp%C3%B3%C5%82czesnej_Bunkier_Sztuki_-_fotopolska.eu_%28240303%29.jpg",
       website: "https://bunkier.art.pl/",
-      description: "David Campany es un escritor, comisario, artista y profesor británico que trabaja principalmente con la fotografía.",
+      description: "Bunkier Sztuki es una galería de arte contemporáneo en Cracovia.",
       descriptionEn: "Bunkier Sztuki is a contemporary art gallery in Kraków.",
     },
   ],
@@ -8840,8 +8840,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ningenkan%2C_Kyoto_University_of_Arts_and_Design_20100108.jpg/1920px-Ningenkan%2C_Kyoto_University_of_Arts_and_Design_20100108.jpg",
       website: "https://kyoto-geijutsu-kan.com/",
-      description: "京都芸術大学芸術館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Kyoto, officially Kyoto City , is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan.",
+      description: "El Museo de Arte de la Universidad de las Artes de Kioto (Ningenkan) es un espacio expositivo dedicado al arte contemporáneo, vinculado a la formación artística de la universidad.",
+      descriptionEn: "The Kyoto University of the Arts Art Museum (Ningenkan) is an exhibition space for contemporary art connected to the university's art education programs.",
     },
     {
       id: "kyoto_2",
@@ -8855,8 +8855,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/National_Museum_of_Modern_Art_Kyoto_2010.jpg/1920px-National_Museum_of_Modern_Art_Kyoto_2010.jpg",
       website: "https://www.momak.go.jp/",
-      description: "京都国立近代美術館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Kyoto, officially Kyoto City , is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan.",
+      description: "El Museo Nacional de Arte Moderno de Kioto (MOMAK), inaugurado en 1963 cerca del Santuario Heian, exhibe arte moderno y contemporáneo japonés, incluyendo cerámica y artesanía de Kioto.",
+      descriptionEn: "The National Museum of Modern Art, Kyoto (MOMAK), opened in 1963 near Heian Shrine, exhibits modern and contemporary Japanese art, including Kyoto ceramics and crafts.",
     },
     {
       id: "kyoto_3",
@@ -8870,8 +8870,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Shimadzu-Foundation-Memorial-Hall-01.jpg/1920px-Shimadzu-Foundation-Memorial-Hall-01.jpg",
       website: "https://www.shimadzu.co.jp/visionary/memorial-hall/",
-      description: "島津製作所創業記念資料館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "島津製作所創業記念資料館 is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Salón Conmemorativo Shimadzu narra la historia de Shimadzu Corporation, fabricante japonés de instrumentos científicos y de precisión fundado en Kioto en 1875 por Shimadzu Genzō.",
+      descriptionEn: "The Shimadzu Founder's Memorial Hall chronicles the history of Shimadzu Corporation, a Japanese manufacturer of precision and scientific instruments founded in Kyoto in 1875 by Genzo Shimadzu.",
     },
     {
       id: "kyoto_4",
@@ -8885,8 +8885,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/3840px-Kyoto%2C_Japan_%2849667780482%29.jpg",
       website: "https://nomura-museum.or.jp/",
-      description: "野村美術館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Kyoto, officially Kyoto City , is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan.",
+      description: "El Museo Nomura, en Kioto, exhibe la colección de arte relacionada con la ceremonia del té reunida por Nomura Tokushichi, fundador del grupo empresarial Nomura.",
+      descriptionEn: "The Nomura Museum in Kyoto displays a collection of tea-ceremony art and antiques amassed by Tokushichi Nomura, founder of the Nomura business group.",
     },
     {
       id: "kyoto_5",
@@ -8900,8 +8900,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Le_Temple_Shint%C3%B4_Shikichi-jinja_-_Le_haiden_%28La_construction_du_culte%29.jpg/1920px-Le_Temple_Shint%C3%B4_Shikichi-jinja_-_Le_haiden_%28La_construction_du_culte%29.jpg",
       website: "http://www.kyoto-jinjacho.or.jp/shrine/03/060/",
-      description: "わら天神宮 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "わら天神宮 is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El santuario Wara Tenjingu, en el barrio de Kita-ku de Kioto, está dedicado a la protección del parto seguro y es popular entre las mujeres embarazadas.",
+      descriptionEn: "Wara Tenjingu Shrine, in Kyoto's Kita-ku ward, is dedicated to safe childbirth and is a popular destination for expectant mothers.",
     },
     {
       id: "kyoto_6",
@@ -8915,8 +8915,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/%E4%B8%89%E9%88%B7%E5%AF%BA.jpg/1920px-%E4%B8%89%E9%88%B7%E5%AF%BA.jpg",
       website: "http://www.sankoji.com/",
-      description: "三鈷寺 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Yoshimine-dera (善峯寺) is a Buddhist temple located in the Ōharano neighborhood of Nishikyō-ku, Kyoto, Japan. It belongs to the Tendai sect of Japanese Buddhism and its honzon are two hibutsu statues of Jūichimen Kannon. The temple's full name is Nishiyama Yoshimine-dera.",
+      description: "Sankō-ji es un templo budista de la secta Tendai situado en el monte Nishiyama de Kioto, cerca de Yoshimine-dera, conocido por las vistas panorámicas de la ciudad desde su jardín.",
+      descriptionEn: "Sankō-ji is a Tendai Buddhist temple on Mount Nishiyama in Kyoto, near Yoshimine-dera, known for the panoramic views of the city from its garden.",
     },
     {
       id: "kyoto_7",
@@ -8930,7 +8930,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/26/%E5%85%AD%E6%B3%A2%E7%BE%85%E8%9C%9C%E5%AF%BA_Rokuharamitsu-Ji_-_panoramio.jpg",
       website: "https://rokuhara.or.jp/",
-      description: "六波羅蜜寺 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Rokuharamitsu-ji es un templo budista situado en el distrito de Higashiyama-ku de Kioto, Japón, célebre por su estatua de madera del monje Kūya.",
       descriptionEn: "Rokuharamitsu-ji (六波羅蜜寺) is a Buddhist temple located in the Rokkaku-dori Matsubara-dori Yamato-oji Higashiiru neighborhood of Higashiyama-ku, Kyoto, Japan.",
     },
     {
@@ -8945,7 +8945,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Shinsenen_Kyoto_Japan07s3.jpg/1920px-Shinsenen_Kyoto_Japan07s3.jpg",
       website: "https://www.shinsenen.org/",
-      description: "神泉苑 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Shinsen-en es un jardín con templo budista situado en el centro de la ciudad de Kioto, Japón, perteneciente a la rama Tō-ji del budismo Shingon.",
       descriptionEn: "Shinsen-en (神泉苑) is a garden with Buddhist temple located in the approximate center of the modern city of Kyoto, Japan. The temple belongs to the Tō-ji-branch of Shingon-shū and its honzon is a statue of Sho-Kannon.",
     },
     {
@@ -8959,8 +8959,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/40/Shougun-jij01.jpg",
-      description: "将軍山城 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Miyoshi Nagayoshi , or Miyoshi Choukei, the eldest son of Miyoshi Motonaga, was a Japanese samurai and daimyō who ruled seven provinces in Kansai.",
+      description: "El castillo de Shōgunyama fue una fortaleza de montaña situada en la región de Kioto, utilizada durante el periodo Sengoku de Japón.",
+      descriptionEn: "Shōgunyama Castle was a mountain fortress in the Kyoto region, used during Japan's Sengoku period.",
     },
     {
       id: "kyoto_10",
@@ -8974,7 +8974,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Stone_Sign%2C_Seiryuen_Garden%2C_Nij%C5%8D_Castle%2C_Kyoto_-_Jul_15%2C_2015.jpg/1920px-Stone_Sign%2C_Seiryuen_Garden%2C_Nij%C5%8D_Castle%2C_Kyoto_-_Jul_15%2C_2015.jpg",
       website: "https://nijo-jocastle.city.kyoto.lg.jp/",
-      description: "El Metro de Kioto es el ferrocarril metropolitano de la ciudad japonesa de Kioto, y consta de dos líneas, la Tozai, y la Karasuma, ambas operadas por la Oficina Municipal de Transportes de Kioto.",
+      description: "El castillo Nijō es un castillo de llanura situado en Kioto, Japón. Consta de dos anillos concéntricos de fortificaciones, el Palacio Ninomaru, las ruinas del Palacio Honmaru y varios jardines.",
       descriptionEn: "Nijō Castle is a flatland castle in Kyoto, Japan. The castle consists of two concentric rings (Kuruwa) of fortifications, the Ninomaru Palace, the ruins of the Honmaru Palace, various support buildings and several gardens.",
     },
     {
@@ -8990,7 +8990,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Round_fountain_surrounded_by_trees_under_a_stormy_sky_in_Kyoto_Botanical_Garden_Japan.jpg/1920px-Round_fountain_surrounded_by_trees_under_a_stormy_sky_in_Kyoto_Botanical_Garden_Japan.jpg",
       website: "https://www.kyotobotanicalgardens.jp",
       description: "El Jardín Botánico de Kioto o en japonés デジタル植物園, Kyōto Furitsu Shokubutsuen, es un jardín botánico e invernadero, con unos 240 000 m² de extensión, en Kioto, Japón.",
-      descriptionEn: "Kyoto, officially Kyoto City , is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan.",
+      descriptionEn: "The Kyoto Botanical Garden is a botanical garden and greenhouse covering about 240,000 square meters in Kyoto, Japan.",
     },
     {
       id: "kyoto_12",
@@ -9004,8 +9004,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/%C5%8ChashiRy%C5%8Dkai-1928-33-A_House_on_the_Outskirts.png/1920px-%C5%8ChashiRy%C5%8Dkai-1928-33-A_House_on_the_Outskirts.png",
       website: "https://www.shigamuseum.jp/",
-      description: "滋賀県立美術館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Yoshio Kitayama is a Japanese artist born in Shiga prefecture in 1948 and based in Kyoto. He represented Japan for the 40th Venice Biennale in 1982 and has participated in the Echigo-Tsumari Art Triennial and the Setouchi Triennial.",
+      description: "El Museo de Arte de la Prefectura de Shiga exhibe arte moderno y contemporáneo japonés, con especial atención a artistas vinculados a la región de Shiga.",
+      descriptionEn: "The Shiga Museum of Art exhibits modern and contemporary Japanese art, with a particular focus on artists connected to the Shiga region.",
     },
     {
       id: "kyoto_13",
@@ -9019,8 +9019,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Kyoto_Municipal_Museum_of_Art_1933_%E2%85%B1.jpg/1920px-Kyoto_Municipal_Museum_of_Art_1933_%E2%85%B1.jpg",
       website: "http://www.city.kyoto.jp/bunshi/kmma/",
-      description: "京都市美術館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Kyoto, officially Kyoto City , is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan.",
+      description: "El Museo Municipal de Arte de Kioto, inaugurado en 1933, es uno de los museos de arte más antiguos de Japón y exhibe principalmente obras de arte japonés tradicional y moderno.",
+      descriptionEn: "The Kyoto Municipal Museum of Art, opened in 1933, is one of Japan's oldest art museums, primarily exhibiting traditional and modern Japanese art.",
     },
     {
       id: "kyoto_14",
@@ -9034,7 +9034,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/Tokaido51_Ishibe.jpg",
       website: "https://www.city.shiga-konan.lg.jp/soshiki/kankyou_keizai/shoko_kanko/6/11413.html",
-      description: "東海道石部宿歴史民俗資料館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Histórico y Folclórico de la Posta de Ishibe, en la antigua ruta Tōkaidō, conserva objetos y documentos relacionados con la quincuagésimo primera estación de la histórica carretera que unía Edo con Kioto.",
       descriptionEn: "Ishibe-juku (石部宿) was the fifty-first of the fifty-three stations of the Tōkaidō highway connecting Edo with Kyoto in Edo period Japan. It was located in the present-day city of Konan, Shiga Prefecture, Japan.",
     },
   ],
@@ -9308,7 +9308,7 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
       },
       description: "La torre de Belém es una antigua construcción militar situada en la ciudad de Lisboa, capital de Portugal. Es una obra de Francisco de Arruda y Diogo de Boitaca que tuvo gran importancia en la Era de los Descubrimientos de Europa, ya que sirvió como fortaleza y como puerto desde…",
-      descriptionEn: "Belém is a freguesia and district of Lisbon, the capital of Portugal. Belém is located in western Lisbon, to the west of Ajuda and Alcântara and directly east of Lisbon's border with Oeiras.",
+      descriptionEn: "The Jerónimos Monastery is a former monastery in the Belém district of Lisbon, and the Tower of Belém a fortified tower nearby, both built in the 16th century in the Manueline style to commemorate Vasco da Gama's voyage to India. Together they form a UNESCO World Heritage Site.",
     },
     {
       id: "lisbon_1",
@@ -9325,8 +9325,8 @@ export const CURATED_ALL: CuratedMap = {
       ticketPrices: {
         free: false,
       },
-      description: "Cultural Landscape of Sintra es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Sintra, officially the Town of Sintra, is a town and municipality in the Greater Lisbon region of Portugal, located on the Portuguese Riviera. The population of the municipality in 2021 was 385,654, in an area of 319.23 square kilometres (123.26 sq mi).",
+      description: "El Paisaje Cultural de Sintra, Patrimonio de la Humanidad por la Unesco, es un conjunto de palacios, castillos y jardines románticos del siglo XIX enclavados en las colinas boscosas de Sintra, en la región de Lisboa, incluyendo el Palacio da Pena y el Castillo de los Moros.",
+      descriptionEn: "The Cultural Landscape of Sintra, a UNESCO World Heritage Site, is a collection of 19th-century Romantic palaces, castles, and gardens set among the wooded hills of Sintra, in the Lisbon region, including Pena Palace and the Moorish Castle.",
     },
     {
       id: "lisbon_2",
@@ -9343,7 +9343,7 @@ export const CURATED_ALL: CuratedMap = {
       ticketPrices: {
         free: false,
       },
-      description: "Monastery of Alcobaca es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Monasterio de Alcobaça es un complejo monástico católico situado en la localidad de Alcobaça, región del Oeste de Portugal, a 120 km al norte de Lisboa y 110 km al sur de Coímbra.",
       descriptionEn: "The Alcobaça Monastery or Alcobasa Monastery is a Catholic monastic complex located in the town of Alcobaça, Oeste region of Portugal, 120 km (75 mi) north of Lisbon and 110 km (68 mi) south of Coimbra.",
     },
     {
@@ -9358,8 +9358,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Museu_de_Arte_Contempor%C3%A2nea_do_CCB_abre_com_um_fundo_de_aquisi%C3%A7%C3%B5es_de_2ME.webm/1920px--Museu_de_Arte_Contempor%C3%A2nea_do_CCB_abre_com_um_fundo_de_aquisi%C3%A7%C3%B5es_de_2ME.webm.jpg",
       website: "https://www.ccb.pt/macccb/",
-      description: "Museu de Arte Contemporânea MAC/CCB es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museu de Arte Contemporânea MAC/CCB is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museu de Arte Contemporânea MAC/CCB, integrado en el Centro Cultural de Belém, en Lisboa, exhibe una colección de arte contemporáneo portugués e internacional.",
+      descriptionEn: "The Museu de Arte Contemporânea MAC/CCB, part of Lisbon's Centro Cultural de Belém, exhibits a collection of Portuguese and international contemporary art.",
     },
     {
       id: "lisbon_4",
@@ -9373,7 +9373,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e4/M%C3%A1rio_Varela_Gomes_na_inaugura%C3%A7%C3%A3o_da_exposi%C3%A7%C3%A3o_Identity_and_Culture%2C_Sharjah_Archaeological_Heritage_%28UAE%29%2C_Museu_Nacional_de_Arqueologia%2C_Lisboa_-_2019-11-14_-_Image_201102.jpg",
       website: "https://www.mnarqueologia-ipmuseus.pt/",
-      description: "La Iglesia de San Roque (Igreja de São Roque en portugués) es una iglesia católica en Lisboa, Portugal. Fue la primera iglesia de los jesuitas en el mundo portugués, y una de las primeras iglesias de los jesuitas en todo el mundo.",
+      description: "El Museo Nacional de Arqueología, del Dr. Leite de Vasconcelos, es el mayor museo arqueológico de Portugal y uno de los más importantes dedicados al arte antiguo de la península ibérica.",
       descriptionEn: "The National Museum of Archaeology, of Doctor Leite de Vasconcelos is the largest archaeological museum in Portugal and one of the most important museums devoted to ancient art found in the Iberian Peninsula.",
     },
     {
@@ -9388,8 +9388,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Pepetela_-_%22O_quase_fim_do_mundo%22_%28%22Almost_the_world%27s_end%22%29_%2818830099015%29.jpg/1920px-Pepetela_-_%22O_quase_fim_do_mundo%22_%28%22Almost_the_world%27s_end%22%29_%2818830099015%29.jpg",
       website: "https://lisboastorycentre.pt/en/content/reduced-mobility",
-      description: "Aristides de Sousa Mendes do Amaral e Abranches fue un cónsul portugués. Entre el 16 y el 23 de junio de 1940, expidió visados portugueses de forma frenética e indiscriminada, durante los primeros días de la invasión de Francia por parte de la Alemania Nazi, al comienzo de la…",
-      descriptionEn: "The municipal flag of Lisbon, also known as the flag of Saint Vincent, is the municipal flag of Lisbon, consisting of a gyronny alternating between black and white defaced with the coat of arms of Lisbon in the center. For civil use the flag is flown without the coat of arms.",
+      description: "El Lisboa Story Centre, en la Praça do Comércio, es un museo interactivo que narra la historia de Lisboa desde sus primeros asentamientos hasta la actualidad, con un recorrido audioguiado que incluye una recreación inmersiva del terremoto de 1755.",
+      descriptionEn: "The Lisboa Story Centre, on Praça do Comércio, is an interactive museum tracing Lisbon's history from its earliest settlements to the present day, with an audio-guided tour that includes an immersive recreation of the 1755 earthquake.",
     },
     {
       id: "lisbon_6",
@@ -9403,8 +9403,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cartas_de_Camilo_Castelo_Branco_%281918%29.djvu/page1-960px-Cartas_de_Camilo_Castelo_Branco_%281918%29.djvu.jpg",
       website: "https://www.versobranco.pt/",
-      description: "Maria Lígia Valente da Fonseca Severino fue una periodista y escritora feminista portuguesa y angoleña. Utilizó el seudónimo de Lília da Fonseca en sus escritos.",
-      descriptionEn: "Carlos Manuel de Marques Paião was a singer and songwriter from Portugal. He represented Portugal at the Eurovision Song Contest 1981 with the song \"Playback\". Carlos Paião was also a doctor, having graduated in medicine in 1983.",
+      description: "Verso Branco es un espacio de tienda, galería y taller dedicado al diseño, el arte y la arquitectura, instalado en un edificio pombalino de Lisboa, punto de encuentro para ideas y proyectos creativos contemporáneos.",
+      descriptionEn: "Verso Branco is a shop, gallery, and atelier space dedicated to design, art, and architecture, housed in a Pombaline-era building in Lisbon, serving as a meeting point for contemporary creative ideas and projects.",
     },
     {
       id: "lisbon_7",
@@ -9418,7 +9418,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Museu_da_Marioneta.jpg/1920px-Museu_da_Marioneta.jpg",
       website: "https://museudamarioneta.pt",
-      description: "Museu da Marioneta es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museu da Marioneta se ubica desde 2001 en el Convento das Bernardas de Lisboa y es el primer museo de Portugal dedicado por completo a la interpretación y difusión de la historia de los títeres.",
       descriptionEn: "The Museu da Marioneta has been located since November 2001 in the Convent of Bernardas in Lisbon, Portugal, establishing itself as the first museum in Portugal entirely dedicated to the interpretation and dissemination of the history of puppetry, covering the history of this…",
     },
     {
@@ -9433,8 +9433,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Map_of_the_Portuguese_Diaspora_in_the_World.svg/3840px-Map_of_the_Portuguese_Diaspora_in_the_World.svg.png",
       website: "https://lissabon.diplo.de/",
-      description: "Embaixada da República Federal da Alemanha es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The Portuguese people (Portuguese: Portugueses generic plural, Português, or Portuguesa are a Romance group and nation indigenous to Portugal, a country that occupies the west side of the Iberian Peninsula in south-west Europe, who share culture, ancestry and language.",
+      description: "La Embajada de la República Federal de Alemania en Lisboa es la sede diplomática alemana en Portugal.",
+      descriptionEn: "The Embassy of the Federal Republic of Germany in Lisbon is Germany's diplomatic mission in Portugal.",
     },
     {
       id: "lisbon_9",
@@ -9448,7 +9448,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Jules_passing_over_a_shadow_cast_of_window_bars%2C_Biblioteca_das_Galveias%2C_Lisbon%2C_Portugal_julesvernex2.jpg/1920px-Jules_passing_over_a_shadow_cast_of_window_bars%2C_Biblioteca_das_Galveias%2C_Lisbon%2C_Portugal_julesvernex2.jpg",
       website: "https://blx.cm-lisboa.pt/horarios-e-contactos/biblioteca-palacio-galveias/",
-      description: "Palácio Galveias es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Palácio Galveias es un palacio portugués situado en Lisboa, en la freguesia de Avenidas Novas, que hoy alberga una de las bibliotecas municipales de la ciudad.",
       descriptionEn: "Galveias Palace is a Portuguese palace located in Lisbon, Portugal, in Avenidas Novas freguesia.",
     },
     {
@@ -9463,7 +9463,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/The_Planets_%28Pal%C3%A1cio_Fronteira%29-1a.jpg/1920px-The_Planets_%28Pal%C3%A1cio_Fronteira%29-1a.jpg",
       website: "https://www.fronteira-alorna.pt/",
-      description: "Sancho de Tovar, sexto señor de Cevico, Caracena y Boca de Huérgano fue un noble portugués de nacimiento castellano, recordado como navegante y explorador durante la era portuguesa de los descubrimientos.",
+      description: "El Palacio de los Marqueses de Fronteira es un palacio portugués situado en Lisboa, célebre por sus jardines barrocos decorados con paneles de azulejos históricos.",
       descriptionEn: "The Palace of the Marquesses of Fronteira is a Portuguese palace located in Lisbon, Portugal.",
     },
     {
@@ -9478,7 +9478,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Imprensa_Nacional_Casa_da_Moeda_-_Lisbon_%2852748753596%29.jpg",
       website: "https://www.incm.pt",
-      description: "José Mattoso fue un historiador y medievalista portugués.",
+      description: "La Imprensa Nacional - Casa da Moeda (INCM) es una empresa pública portuguesa que actúa como casa de moneda nacional e imprenta editorial del Estado, administrativamente subordinada al Ministerio de Finanzas.",
       descriptionEn: "The National Printing House and Mint (INCM), is a public limited company of anonymous shareholders administratively subordinated by the Ministry of Finance that acts as the national mint and state publisher of Portugal.",
     },
     {
@@ -9493,8 +9493,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/15/Fonte_no_Jardim_do_Pal%C3%A1cio_Pimenta%2C_Museu_de_Lisboa_01.jpg",
       website: "https://www.museudelisboa.pt/",
-      description: "Campo Grande era una freguesia portuguesa del municipio de Lisboa, distrito de Lisboa.",
-      descriptionEn: "Lisbon is the capital and most populous city of Portugal, with an estimated population of 658,236 as of 2025, within its administrative limits and 3,353,000 within the metropolis, as of 2025.",
+      description: "El Palácio Pimenta es un palacio del siglo XVIII en Lisboa que alberga el Museu de Lisboa, dedicado a la historia de la ciudad, con jardines históricos abiertos al público.",
+      descriptionEn: "The Palácio Pimenta is an 18th-century palace in Lisbon that houses the Museu de Lisboa, dedicated to the city's history, with historic gardens open to the public.",
     },
     {
       id: "lisbon_13",
@@ -9508,7 +9508,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Pante%C3%A3o_Nacional%2C_Igreja_de_Santa_Engr%C3%A1cia%2C_Lisboa%2C_Portugal.jpg/1920px-Pante%C3%A3o_Nacional%2C_Igreja_de_Santa_Engr%C3%A1cia%2C_Lisboa%2C_Portugal.jpg",
       website: "https://www.panteaonacional.pt/",
-      description: "La Alfama es un histórico barrio de Lisboa (Portugal) formado por las freguesias de São Miguel, Santo Estêvão y São Vicente de Fora. Queda más elevando respecto a la Baixa Pombalina y frente al Barrio Alto.",
+      description: "La Iglesia de Santa Engrácia es un monumento del siglo XVII en Lisboa, Portugal. Originalmente una iglesia, fue convertida en el Panteão Nacional, donde reposan importantes personalidades portuguesas.",
       descriptionEn: "The Church of Santa Engrácia is a 17th-century monument in Lisbon, Portugal. Originally a church, it was converted into the National Pantheon, in which important Portuguese personalities are buried.",
     },
     {
@@ -9523,8 +9523,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Jardim_Vasco_da_Gama_Santa_Maria_de_Bel%C3%A9m_01.jpg",
       website: "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/jardim-vasco-da-gama",
-      description: "Belém es una freguesia y distrito de Lisboa, la capital de Portugal. Fue creada el 8 de noviembre de 2012, en aplicación de una resolución de la Asamblea de la República de Portugal, con la unión de las freguesias de São Francisco Xabier y Santa Maria de Belém.",
-      descriptionEn: "Belém is a freguesia and district of Lisbon, the capital of Portugal. Belém is located in western Lisbon, to the west of Ajuda and Alcântara and directly east of Lisbon's border with Oeiras.",
+      description: "El Jardim Vasco da Gama es un jardín público cercano al Monasterio de los Jerónimos, en el barrio de Belém, Lisboa, con un estanque y un monumento dedicado al navegante Vasco da Gama.",
+      descriptionEn: "The Jardim Vasco da Gama is a public garden near the Jerónimos Monastery in Lisbon's Belém district, featuring a pond and a monument dedicated to explorer Vasco da Gama.",
     },
   ],
   luangprabang: [
@@ -11028,7 +11028,7 @@ export const CURATED_ALL: CuratedMap = {
         free: true,
       },
       description: "La Universidad Nacional Autónoma de México (UNAM) es una universidad pública mexicana destacada. Mantiene una tasa de aceptación muy selectiva; debido a una alta demanda y a su carácter público, laico y gratuito.",
-      descriptionEn: "Mexico City is the capital and largest city of Mexico, as well as the most populous city in North America. It is one of the world's leading cultural and financial centers and, according to the Globalization and World Cities Research Network's 2024 ranking, is classified as an…",
+      descriptionEn: "The Central University City Campus of UNAM is a UNESCO World Heritage Site in Mexico City, recognized for its 20th-century modernist architecture, murals, and urban planning integrating art, science, and Mexican culture.",
     },
     {
       id: "mexicocity_3",
@@ -11059,7 +11059,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2c/2006_03_19_Tepoztlan_21.JPG",
-      description: "Earliest 16th-Century Monasteries on the Slopes of Popocatepetl es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Los primeros monasterios del siglo XVI en las laderas del Popocatépetl son dieciséis conventos construidos por agustinos, franciscanos y dominicos para evangelizar las zonas al sur y este del volcán Popocatépetl, en el centro de México.",
       descriptionEn: "The Earliest Monasteries on the Slopes of Popocatepetl are sixteen early 16th-century monasteries which were built by the Augustinians, the Franciscans and the Dominicans in order to evangelize the areas south and east of the Popocatépetl volcano in central Mexico.",
     },
     {
@@ -11073,8 +11073,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80",
-      description: "Aqueduct of Padre Tembleque Hydraulic System es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The United Nations Educational, Scientific and Cultural Organization (UNESCO) World Heritage Sites are places of importance to cultural or natural heritage as described in the UNESCO World Heritage Convention, established in 1972.",
+      description: "El Acueducto del Padre Tembleque es un sistema hidráulico del siglo XVI construido bajo la dirección del fraile franciscano Francisco Tembleque para llevar agua a la región de Zempoala, en el centro de México. Su arquería más alta alcanza los 38,75 metros.",
+      descriptionEn: "The Aqueduct of Padre Tembleque Hydraulic System is a 16th-century engineering work built under Franciscan friar Francisco Tembleque to carry water to the Zempoala region of central Mexico, notable for its tallest arcade reaching 38.75 meters.",
     },
     {
       id: "mexicocity_6",
@@ -11087,7 +11087,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Travels_in_Mexico_and_life_among_the_Mexicans.djvu/page1-1920px-Travels_in_Mexico_and_life_among_the_Mexicans.djvu.jpg",
-      description: "Archaeological Monuments Zone of Xochicalco es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Xochicalco es un sitio arqueológico precolombino ubicado en Miacatlán, en la parte occidental del estado mexicano de Morelos. El nombre Xochicalco puede traducirse del náhuatl como \"en la casa de las flores\".",
       descriptionEn: "Xochicalco is a pre-Columbian archaeological site in Miacatlán in the western part of the Mexican state of Morelos. The name Xochicalco may be translated from Nahuatl as \"in the house of Flowers\".",
     },
     {
@@ -11117,7 +11117,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/07/Estela_MI_Zapata_01.jpg",
       website: "https://sic.gob.mx/ficha.php?table=museo&table_id=1877",
-      description: "El transporte de la Ciudad de México está conformado por una compleja red de infraestructura pública y privada de sistemas de transporte con amplias conexiones, bajo la administración de los gobiernos de la Ciudad de México y del Estado de México Zona Metropolitana del Valle de…",
+      description: "El Museo del Servicio de Transportes Eléctricos narra la historia del transporte eléctrico —tranvías y trolebuses— de la Ciudad de México, exhibiendo vehículos históricos y documentación de la red.",
       descriptionEn: "Servicio de Transportes Eléctricos de la Ciudad de México is a public transport agency responsible for the operation of all trolleybus and light rail services in Mexico City. As its name implies, its routes use only electrically powered vehicles.",
     },
     {
@@ -11132,8 +11132,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Jean_Jacques_Pradier_-_Bacante_-_1823_-_Museo_Nacional_de_San_Carlos_02.jpg/1920px-Jean_Jacques_Pradier_-_Bacante_-_1823_-_Museo_Nacional_de_San_Carlos_02.jpg",
       website: "https://mnsancarlos.inba.gob.mx/",
-      description: "El Museo Nacional de Arte (MUNAL) de México se encuentra en el Centro Histórico de la Ciudad de México, en un edificio marcado con el número 8 de la calle Tacuba, en la plaza Manuel Tolsá.",
-      descriptionEn: "The Museo Nacional de Arte (MUNAL) is the Mexican national art museum, located in the historical center of Mexico City. The museum is housed in a neoclassical building at No. 8 Tacuba, Col. Centro, Mexico City.",
+      description: "El Museo Nacional de San Carlos alberga una de las colecciones de arte europeo más importantes de México, con obras del siglo XIV al XIX, en un edificio neoclásico del siglo XVIII diseñado por Manuel Tolsá.",
+      descriptionEn: "The Museo Nacional de San Carlos houses one of Mexico's most important European art collections, spanning the 14th to 19th centuries, in an 18th-century neoclassical building designed by Manuel Tolsá.",
     },
     {
       id: "mexicocity_10",
@@ -11147,7 +11147,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1920px-Palace_of_Fine_Arts_%2816794p%29.jpg",
       website: "https://museopalaciodebellasartes.inba.gob.mx/",
-      description: "El Museo Nacional de Arte (MUNAL) de México se encuentra en el Centro Histórico de la Ciudad de México, en un edificio marcado con el número 8 de la calle Tacuba, en la plaza Manuel Tolsá.",
+      description: "El Museo del Palacio de Bellas Artes, dentro del emblemático Palacio de Bellas Artes de Ciudad de México, exhibe murales de grandes artistas mexicanos como Diego Rivera, David Alfaro Siqueiros y José Clemente Orozco.",
       descriptionEn: "The Palacio de Bellas Artes is a prominent cultural center in Mexico City. It hosts performing arts events, literature events and plastic arts galleries and exhibitions.",
     },
     {
@@ -11162,8 +11162,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Interior_del_El_Museo_Nacional_de_Arte_de_M%C3%A9xico.jpg/1920px-Interior_del_El_Museo_Nacional_de_Arte_de_M%C3%A9xico.jpg",
       website: "https://munarq.inba.gob.mx/",
-      description: "El Museo Nacional de Arte (MUNAL) de México se encuentra en el Centro Histórico de la Ciudad de México, en un edificio marcado con el número 8 de la calle Tacuba, en la plaza Manuel Tolsá.",
-      descriptionEn: "Museo Rufino Tamayo is a public contemporary art museum located in Mexico City's Chapultepec Park, that produces contemporary art exhibitions, using its collection of modern and contemporary art, as well as artworks from the collection of its founder, the artist Rufino Tamayo.",
+      description: "El Museo Nacional de Arquitectura, ubicado en el Palacio de Bellas Artes de Ciudad de México, está dedicado a la difusión y conservación del patrimonio arquitectónico mexicano.",
+      descriptionEn: "The Museo Nacional de Arquitectura, located within the Palacio de Bellas Artes in Mexico City, is dedicated to preserving and showcasing Mexico's architectural heritage.",
     },
     {
       id: "mexicocity_12",
@@ -11176,7 +11176,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Exposed_lava_bedrock_on_UNAM_campus%2C_Mexico_City.jpg/1920px-Exposed_lava_bedrock_on_UNAM_campus%2C_Mexico_City.jpg",
-      description: "La Ciudad de México es la capital de los Estados Unidos Mexicanos y una de sus treinta y dos entidades federativas. Tiene una superficie de 1497 kilómetros cuadrados, donde viven casi 23 millones de personas.",
+      description: "El Xitle es un volcán monogenético ubicado en la sierra del Ajusco, dentro del Parque Nacional Cumbres del Ajusco, en la alcaldía de Tlalpan, al suroeste de la Ciudad de México.",
       descriptionEn: "Xitle is a monogenetic volcano in the Ajusco range in Cumbres del Ajusco National Park. It is located in the Tlalpan borough in the southwestern part of Mexico City.",
     },
     {
@@ -11190,8 +11190,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Volcan_Yuhualixqui_visto_desde_San_Pedro_Tl%C3%A1huac.jpg/1920px-Volcan_Yuhualixqui_visto_desde_San_Pedro_Tl%C3%A1huac.jpg",
-      description: "Yuhualixqui es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Iztapalapa is a borough in Mexico City located on the eastern side of the city. The borough is named after and centered on the formerly independent municipality of Iztapalapa. The rest is made up of a number of other communities which are governed by the city of Iztapalapa.",
+      description: "Yuhualixqui es un volcán ubicado en el sureste de la Ciudad de México, cerca de la alcaldía de Tláhuac, y forma parte de la sierra volcánica que rodea la cuenca del Valle de México.",
+      descriptionEn: "Yuhualixqui is a volcano in the southeastern part of Mexico City, near the Tláhuac borough, part of the volcanic range surrounding the Valley of Mexico.",
     },
     {
       id: "mexicocity_14",
@@ -11204,8 +11204,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Vista_a%C3%A9rea_del_Volc%C3%A1n_Guadalupe_o_Tetamanche.jpg/1920px-Vista_a%C3%A9rea_del_Volc%C3%A1n_Guadalupe_o_Tetamanche.jpg",
-      description: "La Ciudad de México es la capital de los Estados Unidos Mexicanos y una de sus treinta y dos entidades federativas. Tiene una superficie de 1497 kilómetros cuadrados, donde viven casi 23 millones de personas.",
-      descriptionEn: "This article comprises three sortable tables of major mountain peaks of Mexico.",
+      description: "El Volcán Guadalupe, también conocido como Tetamanche, es una elevación volcánica ubicada en la Ciudad de México, parte del cinturón volcánico que rodea la cuenca del Valle de México.",
+      descriptionEn: "Volcán Guadalupe, also known as Tetamanche, is a volcanic elevation in Mexico City, part of the volcanic belt surrounding the Valley of Mexico.",
     },
   ],
   miami: [
@@ -11639,7 +11639,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Adda_and_A4_bridge_with_whitewater_from_Crespi_d%27Adda_footbridge.jpg/1920px-Adda_and_A4_bridge_with_whitewater_from_Crespi_d%27Adda_footbridge.jpg",
       website: "http://crespidaddaunesco.org/",
-      description: "Cristoforo Benigno Crespi, fue un empresario italiano de la industria textil.",
+      description: "Crespi d'Adda es un pueblo obrero fundado en 1878 por el industrial textil Cristoforo Benigno Crespi junto al río Adda, en el norte de Italia. Es un ejemplo excepcionalmente bien conservado de las ciudades industriales construidas por empresarios europeos y norteamericanos en los siglos XIX y XX, declarado Patrimonio de la Humanidad por la Unesco en 1995.",
       descriptionEn: "Crespi d'Adda is a village in northern Italy and hamlet (frazione) of Capriate San Gervasio, a municipality in the province of Bergamo, Lombardy.",
     },
     {
@@ -11669,8 +11669,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_Sacro_Monte_%28Rosary_Sanctuary%29_of_Varese_2008_Touring_Club_Italiano_GR_Lombardia%400208.tif/lossy-page1-500px-The_Sacro_Monte_%28Rosary_Sanctuary%29_of_Varese_2008_Touring_Club_Italiano_GR_Lombardia%400208.tif.jpg",
       website: "http://www.sacri-monti.com",
-      description: "Sacri Monti of Piedmont and Lombardy es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Lombardy is an administrative region of Italy that covers 23,844 km2 (9,206 sq mi); it is located in northern Italy and has a population of about 10 million people, constituting more than one-sixth of Italy's population.",
+      description: "Los Sacros Montes del Piamonte y Lombardía son un conjunto de nueve santuarios devocionales construidos entre los siglos XVI y XVII sobre colinas, con capillas y estatuas que recrean escenas de la vida de Cristo y de santos. Fueron declarados Patrimonio de la Humanidad por la Unesco en 2003.",
+      descriptionEn: "The Sacri Monti of Piedmont and Lombardy are a group of nine devotional complexes built on hillsides between the 16th and 17th centuries, featuring chapels and statues depicting scenes from the life of Christ and various saints. They were inscribed as a UNESCO World Heritage Site in 2003.",
     },
     {
       id: "milan_4",
@@ -11683,7 +11683,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/CHE_Bellinzona_Flag_Cambin.svg/langes-960px-CHE_Bellinzona_Flag_Cambin.svg.png",
-      description: "Bellinzona es una ciudad suiza, capital del cantón del Tesino y del distrito de Bellinzona.",
+      description: "Los tres castillos, la muralla defensiva y las murallas de la ciudad-mercado de Bellinzona son un conjunto de fortificaciones medievales que rodean la ciudad de Bellinzona, capital del cantón del Tesino en Suiza. Fueron declarados Patrimonio de la Humanidad por la Unesco en 2000.",
       descriptionEn: "The Castles of Bellinzona are a group of fortifications located around the town of Bellinzona, the capital of the Swiss canton of Ticino.",
     },
     {
@@ -11698,8 +11698,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b8/1594_-_Milano_-_San_Sisto_%28Museo_Messina%29_-_Foto_Giovanni_Dall%27Orto_-_18-May-2007.jpg",
       website: "https://www.studiomuseofrancescomessina.it/",
-      description: "Antonello di Giovanni d'Antonio llamado Antonello da Messina, fue un pintor cuatrocentista italiano. Nacido en Sicilia, formado en Nápoles y activo durante varios años en Venecia y Milán, está considerado como uno de los introductores de la pintura al óleo en Italia.",
-      descriptionEn: "Francesco Messina was an Italian sculptor of the 20th century.",
+      description: "El Studio Museo Francesco Messina ocupa la antigua iglesia deconsagrada de San Sisto en Milán y conserva el estudio, las obras y la colección personal del escultor italiano Francesco Messina (1900-1995).",
+      descriptionEn: "The Studio Museo Francesco Messina occupies the former deconsecrated church of San Sisto in Milan and preserves the studio, works, and personal collection of Italian sculptor Francesco Messina (1900-1995).",
     },
     {
       id: "milan_6",
@@ -11743,8 +11743,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Bambola%2C_1850_ca._%28cormani_-_mi%2C_museo_del_giocattolo_e_del_bambino%29.jpg",
       website: "https://www.museodelgiocattolo.it/mi/home_mi.html",
-      description: "Museo del Giocattolo e del Bambino es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "This is a list of buildings in Milan.",
+      description: "El Museo del Giocattolo e del Bambino, en Milán, alberga una colección de juguetes, muñecas y objetos de la infancia que abarca desde el siglo XIX hasta la actualidad.",
+      descriptionEn: "The Museo del Giocattolo e del Bambino (Museum of Toys and Childhood), in Milan, houses a collection of toys, dolls, and childhood objects spanning from the 19th century to the present.",
     },
     {
       id: "milan_9",
@@ -11759,7 +11759,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Donato_Montorfano_Crocifissione_di_Santa_Maria_delle_Grazie_Milano.jpg/1920px-Donato_Montorfano_Crocifissione_di_Santa_Maria_delle_Grazie_Milano.jpg",
       website: "https://cenacolovinciano.org/",
       description: "La última cena es una pintura mural obra de Leonardo da Vinci, realizada entre 1495 y 1498. Permanece en la pared sobre la que se pintó originalmente, en el refectorio del convento dominico de Santa Maria delle Grazie, en Milán (Italia).",
-      descriptionEn: "Below is a list of museums in Milan. The city of Milan is an important cultural, artistic, design and fashion center in the north of Italy and it has an excellent museum complex both civic and private.",
+      descriptionEn: "The Last Supper is a mural painting by Leonardo da Vinci, created between 1495 and 1498. It remains on the wall where it was originally painted, in the refectory of the Dominican convent of Santa Maria delle Grazie in Milan, Italy.",
     },
     {
       id: "milan_10",
@@ -11773,8 +11773,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Milano_e_le_sue_vie_-_studi_storici_%28IA_milanoelesuevies00veno%29.pdf/page1-500px-Milano_e_le_sue_vie_-_studi_storici_%28IA_milanoelesuevies00veno%29.pdf.jpg",
       website: "https://www.lombardiabeniculturali.it/architetture/schede/MI100-02902/",
-      description: "El Palacio Marino, situado en la plaza de la Scala en Milán, es la sede civil de la administración municipal milanesa desde el 9 de septiembre de 1861.",
-      descriptionEn: "Palazzo Marino is a 16th-century palace located in Piazza della Scala, in the centre of Milan, Italy. It has been Milan's city hall since 9 September 1861. It borders on Piazza San Fedele, Piazza della Scala, Via Case Rotte and Via Tommaso Marino.",
+      description: "El Palazzo Omodei, también conocido como Palazzo Manriquez, es un palacio barroco del siglo XVII en Cusano Milanino, mandado construir por la familia Omodei, nobles de origen español, tras adquirir el feudo de Cusano a los marqueses Manriquez en 1675. Destaca por sus frescos y su sala de perspectiva.",
+      descriptionEn: "Palazzo Omodei, also known as Palazzo Manriquez, is a 17th-century Baroque palace in Cusano Milanino, built for the Omodei family, Spanish-descended nobles who acquired the Cusano fief from the Manriquez marquises in 1675. It is known for its frescoes and trompe-l'œil perspective hall.",
     },
     {
       id: "milan_11",
@@ -11818,8 +11818,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Parco_delle_Cave%2C_a_public_park_in_Milano%2C_Italy.jpg/1920px-Parco_delle_Cave%2C_a_public_park_in_Milano%2C_Italy.jpg",
       website: "https://www.parcodellecave.it/",
-      description: "Selinunte es una antigua ciudad griega del sur de la isla de Sicilia, en la actual provincia de Trapani, en la costa sudoeste, en la desembocadura del río Selinunte, a unos 6 km al oeste del río Hipsa.",
-      descriptionEn: "Milan is the regional capital of Lombardy, in northern Italy, and the seat of the Metropolitan City of Milan. It is the second-most populous city in Italy after Rome, with a population of 1,362,863 in 2026.",
+      description: "El Parco delle Cave nació de antiguas canteras de grava y arena explotadas desde los años 1920 y abandonadas a fines de los 60. Inaugurado en 2002 tras más de dos décadas de recuperación, sus cuatro antiguas canteras se convirtieron en lagos rodeados de 135 hectáreas de bosques y praderas, el tercer parque más grande de Milán.",
+      descriptionEn: "Parco delle Cave originated from former gravel and sand quarries worked from the 1920s and abandoned in the late 1960s. Opened in 2002 after more than two decades of restoration, its four former quarries became lakes surrounded by 135 hectares of woods and meadows, making it Milan's third-largest park.",
     },
     {
       id: "milan_14",
@@ -11863,7 +11863,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Chhatrapati_Shivaji_Terminus_%28Victoria_Terminus%29.jpg/1920px-Chhatrapati_Shivaji_Terminus_%28Victoria_Terminus%29.jpg",
-      description: "El estado indio de Maharashtra es conocido por sus famosas cuevas y acantilados. Se dice que las variedades encontradas en Maharashtra son mayores que las de las cuevas y la arquitectura rupestre de Egipto, Asiria, Persia y Grecia.[cita requerida] Los monjes budistas fueron los…",
+      description: "La Terminal Chhatrapati Shivaji (CST), oficialmente Chhatrapati Shivaji Maharaj Terminus (CSMT), y antes conocida como Victoria Terminus (VT) hasta 1996, es una histórica terminal ferroviaria y Patrimonio de la Humanidad por la Unesco en Bombay, Maharashtra, India.",
       descriptionEn: "Chhatrapati Shivaji Terminus (CST), officially Chhatrapati Shivaji Maharaj Terminus (CSMT), and also known as Victoria Terminus (VT), its official name until 1996, is a historic railway terminus and UNESCO World Heritage Site in Mumbai (Bombay), Maharashtra, India.",
     },
     {
@@ -11878,7 +11878,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Prince_of_Wales_Museum%2C_Mumbai_01.jpg/1920px-Prince_of_Wales_Museum%2C_Mumbai_01.jpg",
       website: "https://csmvs.in/",
-      description: "El estado indio de Maharashtra es conocido por sus famosas cuevas y acantilados. Se dice que las variedades encontradas en Maharashtra son mayores que las de las cuevas y la arquitectura rupestre de Egipto, Asiria, Persia y Grecia.[cita requerida] Los monjes budistas fueron los…",
+      description: "El Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS), antes llamado Museo Príncipe de Gales de India Occidental, es un museo en Bombay que documenta la historia de la India desde la prehistoria hasta la época moderna.",
       descriptionEn: "Chhatrapati Shivaji Maharaj Vastu Sangrahalaya, (CSMVS) formerly named the Prince of Wales Museum of Western India, is a museum in Mumbai (Bombay) which documents the history of India from prehistoric to modern times.",
     },
     {
@@ -11893,8 +11893,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Sion_Fort_as_seen_from_the_base.jpg/1920px-Sion_Fort_as_seen_from_the_base.jpg",
       website: "https://www.maharashtratourism.gov.in/",
-      description: "सायन किल्ला es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "सायन किल्ला is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El fuerte de Sion fue construido por la Compañía Británica de las Indias Orientales entre 1669 y 1677, sobre una colina cónica, durante el mandato del gobernador Gerard Aungier. Marcaba la frontera entre la isla británica de Parel y la portuguesa isla de Salsette. Hoy es una ruina declarada patrimonio de Grado I.",
+      descriptionEn: "Sion Fort was built by the British East India Company between 1669 and 1677 atop a conical hillock, during the governorship of Gerard Aungier. It marked the boundary between British-held Parel Island and Portuguese-held Salsette Island. Today it survives as a ruin listed as a Grade I heritage structure.",
     },
     {
       id: "mumbai_4",
@@ -11908,7 +11908,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/69/Mahim_Fort_3.jpg",
       description: "El fuerte Mahim es un fuerte en Mahim en Bombay, estado de Maharashtra, India. Estratégicamente ubicado en la bahía homónima, el fuerte Mahim domina Worli al sur, Bandra al norte y Mahim al este.",
-      descriptionEn: "माहीम किल्ला is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Mahim Fort is a fort in Mahim in Mumbai, Maharashtra state, India. Strategically located on the bay of the same name, Mahim Fort overlooks Worli to the south, Bandra to the north, and Mahim to the east.",
     },
     {
       id: "mumbai_5",
@@ -11921,7 +11921,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Belapur_fort_7.jpg/1920px-Belapur_fort_7.jpg",
-      description: "El Fuerte es un distrito comercial y artístico de la ciudad de Bombay, Maharashtra, India. La zona recibe su nombre del fuerte defensivo, Fort George, construido por la Compañía Británica de las Indias Orientales alrededor del Castillo de Bombay.",
+      description: "El fuerte de Belapur se ubica cerca del municipio de Belapur, en Navi Mumbai, Maharashtra, India. Fue construido por los sidis de Janjira, luego conquistado por los portugueses y más tarde por los marathas. A comienzos del siglo XIX fue tomado por los británicos.",
       descriptionEn: "Belapur Fort is a fort near the township of Belapur in Navi Mumbai, Maharashtra, India. The fort was built by the Siddhis of Janjira. It was later conquered by the Portuguese, and then Marathas. In the early 19th century, the fort was captured by the British.",
     },
     {
@@ -11935,7 +11935,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Madh-fort3.jpg",
-      description: "El estado indio de Maharashtra es conocido por sus famosas cuevas y acantilados. Se dice que las variedades encontradas en Maharashtra son mayores que las de las cuevas y la arquitectura rupestre de Egipto, Asiria, Persia y Grecia.[cita requerida] Los monjes budistas fueron los…",
+      description: "Madh es una localidad peninsular en el norte del distrito suburbano de Bombay, Maharashtra, India. Históricamente fue una isla, pero las ganancias de tierra del siglo XX la conectaron con el poblado de Malad, en la isla de Salsette. El fuerte de Madh se sitúa en esta zona costera.",
       descriptionEn: "Madh is a peninsular locality in the northern part of the Mumbai Suburban District, Maharashtra, India. Historically, it was an island, but land reclamations in the 20th century connected it to Malad village on Salsette Island.",
     },
     {
@@ -11950,8 +11950,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Mumbai_03-2016_13_Haji_Ali_Dargah.jpg/1920px-Mumbai_03-2016_13_Haji_Ali_Dargah.jpg",
       website: "https://www.hajialidargah.in/",
-      description: "हाजी अली दर्गा es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "हाजी अली दर्गा is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El dargah de Haji Ali es una mezquita y mausoleo situado en un islote frente a la costa de Worli, en Bombay. Alberga la tumba del santo musulmán Pir Haji Ali Shah Bukhari y se accede a él por una estrecha calzada peatonal visible solo durante la marea baja.",
+      descriptionEn: "Haji Ali Dargah is a mosque and mausoleum located on an islet off the coast of Worli in Mumbai. It houses the tomb of the Muslim saint Pir Haji Ali Shah Bukhari and is reached via a narrow pedestrian causeway that is only visible at low tide.",
     },
     {
       id: "mumbai_8",
@@ -11964,8 +11964,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Dr._Bhau_Daji_Lad_Museum%2C_esterno_01.jpg/1920px-Dr._Bhau_Daji_Lad_Museum%2C_esterno_01.jpg",
-      description: "भाऊ दाजी लाड संग्रहालय es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "भाऊ दाजी लाड संग्रहालय is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Dr. Bhau Daji Lad está dedicado a la historia, el arte y la cultura de Bombay, India. Es el museo más antiguo de la ciudad y se sitúa cerca del zoológico de Byculla, en el suburbio de Byculla East.",
+      descriptionEn: "The Dr. Bhau Daji Lad Museum is a museum dedicated to the history, art and culture of Mumbai, India. It is the oldest museum in the city and is situated in the vicinity of the Byculla Zoo, in the suburb of Byculla East.",
     },
     {
       id: "mumbai_9",
@@ -11978,7 +11978,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Worli_Fort_Mumbai.jpg/1920px-Worli_Fort_Mumbai.jpg",
-      description: "Mahim es un suburbio de Bombay, India, conocido a menudo como \"el corazón de Bombay\". Mahim defiende los valores del secularismo y la diversidad.",
+      description: "El fuerte de Worli es un fuerte en Worli, Bombay, India. Aunque a menudo se cree erróneamente que fue construido por los portugueses, en realidad fue erigido por los británicos alrededor de 1675 en la colina de Worli.",
       descriptionEn: "The Worli Fort is a fort in Worli, Mumbai, India. Though often incorrectly assumed to have been built by the Portuguese, the fort was built by the British around 1675 on Worli Hill.",
     },
     {
@@ -12006,7 +12006,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Bhau_Daji_Lad_Museum_09.jpg/1920px-Bhau_Daji_Lad_Museum_09.jpg",
-      description: "Dr. Bhau Daji Lad Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Dr. Bhau Daji Lad está dedicado a la historia, el arte y la cultura de Bombay, India. Es el museo más antiguo de la ciudad y se sitúa cerca del zoológico de Byculla, en el suburbio de Byculla East.",
       descriptionEn: "The Dr. Bhau Daji Lad Museum is a museum dedicated to the history, art and culture, of Mumbai, India. It is the oldest museum in the city. It is situated in the vicinity of the Byculla Zoo, in the suburb of Byculla East.",
     },
     {
@@ -12067,8 +12067,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Spielzeugmuseum_M%C3%BCnchen_17.jpg/1920px-Spielzeugmuseum_M%C3%BCnchen_17.jpg",
       website: "https://www.spielzeugmuseummuenchen.de/",
-      description: "El Antiguo Ayuntamiento es un edificio histórico de la ciudad de Múnich, Alemania.",
-      descriptionEn: "This is a list of museums and galleries in Germany.",
+      description: "El Spielzeugmuseum ocupa la torre del Antiguo Ayuntamiento de Múnich y alberga desde 1983 la colección del caricaturista Ivan Steiger: juguetes de madera y hojalata, muñecas, osos de peluche, trenes y máquinas de vapor que datan desde el año 1800.",
+      descriptionEn: "The Spielzeugmuseum (Toy Museum) occupies the tower of Munich's Old Town Hall and has housed the collection of caricaturist Ivan Steiger since 1983: wooden and tin toys, dolls, teddy bears, trains, and steam engines dating back to the year 1800.",
     },
     {
       id: "munich_2",
@@ -12082,8 +12082,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Calau_Heimatmuseum_03.jpg/1920px-Calau_Heimatmuseum_03.jpg",
       website: "https://www.heimatmuseum-unterhaching.de/",
-      description: "Plieningen es el distrito municipal más meridional de Stuttgart, estado de Baden-Wurtemberg. Se encuentra a unos 10 km del centro de la ciudad de Stuttgart, en la llanura de Filder.",
-      descriptionEn: "Fritz Koenig was a German sculptor, considered one of the most important international German sculptors of the 20th century.",
+      description: "El Heimatmuseum de Unterhaching, fundado en 1995, muestra más de 4500 años de historia de la localidad bávara, con hallazgos arqueológicos de las épocas del cobre, del bronce y romana, además de aperos agrícolas y oficios artesanales tradicionales.",
+      descriptionEn: "The Heimatmuseum Unterhaching, founded in 1995, showcases over 4,500 years of local history in this Bavarian municipality near Munich, featuring archaeological finds from the Copper, Bronze, and Roman periods alongside traditional farming tools and crafts.",
     },
     {
       id: "munich_3",
@@ -12097,7 +12097,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Front_MAN_Bus_4632_im_MVG_Museum_M%C3%BCnchen_2025-02-09.jpg/1920px-Front_MAN_Bus_4632_im_MVG_Museum_M%C3%BCnchen_2025-02-09.jpg",
       website: "https://www.mvg.de/ueber-die-mvg/mvg-museum.html",
-      description: "MVG-Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El MVG-Museum, de la empresa municipal de transporte de Múnich (Münchner Verkehrsgesellschaft), presenta la historia del transporte público de la ciudad a través de vehículos históricos y modernos, incluyendo tranvías, autobuses y trenes de metro.",
       descriptionEn: "The MVG Museum of the Münchner Verkehrsgesellschaft is a public transportation museum for the presentation of historical and modern public transportation in Munich.",
     },
     {
@@ -12127,7 +12127,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Museum_Mensch_und_Natur_Die_Geschichte_des_Lebens.jpg/1920px-Museum_Mensch_und_Natur_Die_Geschichte_des_Lebens.jpg",
       website: "https://mmn-muenchen.snsb.de",
-      description: "Ehrentraud Bayer (1953) es una botánica y exploradora alemana, líder de recolecciones y jefa del Jardín botánico de la Universidad de Múnich y asociada a las relaciones públicas del jardín.",
+      description: "El Museum Mensch und Natur es un museo de historia natural instalado como inquilino del Palacio de Nymphenburg, en Múnich, Alemania, dedicado a la evolución del ser humano y su relación con la naturaleza.",
       descriptionEn: "The Museum Mensch und Natur is a natural history museum. It is a tenant of the Nymphenburg Palace in Munich, Germany.",
     },
     {
@@ -12142,8 +12142,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/20220410_Badenburg_03.jpg/1920px-20220410_Badenburg_03.jpg",
       website: "https://www.schloss-nymphenburg.de/deutsch/p-burgen/baden.htm",
-      description: "Joseph Effner fue un arquitecto, paisajista y decorador alemán en la época del Barroco bávaro.",
-      descriptionEn: "The Nymphenburg Palace is a Baroque palace situated in Munich's western district Neuhausen-Nymphenburg, in Bavaria, southern Germany. The Nymphenburg served as the main summer residence for the former rulers of Bavaria of the House of Wittelsbach.",
+      description: "La Badenburg es un pabellón de baños construido en 1721 por el arquitecto Joseph Effner en los jardines del Palacio de Nymphenburg, en Múnich. Fue una de las primeras casas de baños con calefacción de Europa continental tras la Antigüedad.",
+      descriptionEn: "The Badenburg is a bathing pavilion built in 1721 by architect Joseph Effner in the gardens of Nymphenburg Palace, Munich. It was one of the first heated bathhouses in continental Europe since antiquity.",
     },
     {
       id: "munich_7",
@@ -12172,8 +12172,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Pagodenburg_Nymphenburg_Palace_Munich_lars20070.jpg/1920px-Pagodenburg_Nymphenburg_Palace_Munich_lars20070.jpg",
       website: "https://www.schloss-nymphenburg.de/deutsch/p-burgen/pagoden.htm",
-      description: "La Torre de la Pagoda es un pabellón barroco rodeado de jardines en la ciudad de Rastatt, Baden-Württemberg, Alemania.",
-      descriptionEn: "The Nymphenburg Palace is a Baroque palace situated in Munich's western district Neuhausen-Nymphenburg, in Bavaria, southern Germany. The Nymphenburg served as the main summer residence for the former rulers of Bavaria of the House of Wittelsbach.",
+      description: "La Pagodenburg es un pabellón de recreo construido entre 1716 y 1719 en los jardines del Palacio de Nymphenburg, en Múnich, decorado con motivos chinos y azulejos de estilo oriental en su interior, reflejo de la moda de la chinoiserie del siglo XVIII.",
+      descriptionEn: "The Pagodenburg is a pleasure pavilion built between 1716 and 1719 in the gardens of Nymphenburg Palace, Munich, decorated inside with Chinese motifs and oriental-style tiles reflecting the 18th-century fashion for chinoiserie.",
     },
     {
       id: "munich_9",
@@ -12187,8 +12187,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Aerial_image_of_the_Blutenburg_Castle_%28view_from_the_southeast%29.jpg/1920px-Aerial_image_of_the_Blutenburg_Castle_%28view_from_the_southeast%29.jpg",
       website: "https://www.blutenburg.de/",
-      description: "Schloss es el término en alemán para designar varios tipos de residencias nobiliarias y estructuras defensivas, muchas de ellas palaciegas. En líneas generales es similar al château francés, y, los de medidas más pequeñas, a una casa señorial.",
-      descriptionEn: "Munich is the capital and most populous city of Bavaria, Germany. As of 30 November 2024, its population was 1,604,384, making it the third-largest city in Germany after Berlin and Hamburg.",
+      description: "El castillo de Blutenburg es un castillo gótico rodeado de agua en el distrito de Obermenzing de Múnich, construido en el siglo XV como residencia de caza de los duques de Baviera. Hoy alberga la Biblioteca Internacional de Literatura Juvenil.",
+      descriptionEn: "Blutenburg Castle is a moated Gothic castle in Munich's Obermenzing district, built in the 15th century as a hunting residence for the Dukes of Bavaria. It today houses the International Youth Library.",
     },
     {
       id: "munich_10",
@@ -12202,8 +12202,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Illustrierter_Katalog_der_internationalen_Kunstausstellung_im_k%C3%B6nigl._Glaspalaste_in_M%C3%BCnchen_%28IA_illustrierterkat00inte%29.pdf/page1-500px-Illustrierter_Katalog_der_internationalen_Kunstausstellung_im_k%C3%B6nigl._Glaspalaste_in_M%C3%BCnchen_%28IA_illustrierterkat00inte%29.pdf.jpg",
       website: "https://www.burgschwaneck.de/deutsch/home",
-      description: "Burg Schwaneck es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Burg Schwaneck is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El castillo de Schwaneck, en Pullach, junto al río Isar, fue construido en 1843 por el escultor Ludwig von Schwanthaler en un terreno que le obsequió el rey Luis I de Baviera. Hoy funciona como albergue juvenil y centro de educación.",
+      descriptionEn: "Burg Schwaneck, in Pullach on the Isar river, was built in 1843 by sculptor Ludwig von Schwanthaler on land gifted to him by King Ludwig I of Bavaria. It now operates as a youth hostel and education center.",
     },
     {
       id: "munich_11",
@@ -12217,8 +12217,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Neuried%2C_neue_Nikolauskirche_v_S%2C_1.jpeg/1920px-Neuried%2C_neue_Nikolauskirche_v_S%2C_1.jpeg",
       website: "https://www.st-nikolaus-neuried.de/",
-      description: "El exarcado apostólico de Alemania y Escandinavia es una circunscripción eclesiástica de la Iglesia católica en Alemania, Dinamarca, Suecia, Noruega y Finlandia. Se trata de un exarcado apostólico greco-católico ucraniano, inmediatamente sujeto a la Santa Sede.",
-      descriptionEn: "Nicolas de Beauharnais is a claimant to the Dukedom of Leuchtenberg and the head of the noble house Beauharnais.",
+      description: "La moderna iglesia parroquial de San Nicolás en Neuried, cerca de Múnich, fue diseñada por el estudio de arquitectura Andreas Meck y consagrada en 2008 por el arzobispo Reinhard Marx, junto al centro parroquial del municipio.",
+      descriptionEn: "The modern St. Nikolaus parish church in Neuried, near Munich, was designed by the architecture firm Andreas Meck and consecrated in 2008 by Archbishop Reinhard Marx, alongside the municipality's parish center.",
     },
     {
       id: "munich_12",
@@ -12232,8 +12232,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Bonn_zoological_bulletin_%28IA_bonnzoological6112012zool%29.pdf/page1-1280px-Bonn_zoological_bulletin_%28IA_bonnzoological6112012zool%29.pdf.jpg",
       website: "https://kallmann-museum.de/",
-      description: "Arte degenerado fue una expresión adoptada por el régimen nazi en Alemania, a partir de la exposición con el mismo nombre en Múnich de julio de 1937, para describir prácticamente todo el arte moderno y prohibirlo en detrimento de lo que los nazis llamaban \"arte heroico\".",
-      descriptionEn: "Hans Jürgen Kallmann was a German artist.",
+      description: "El Kallmann-Museum, en el parque del castillo de Ismaning, cerca de Múnich, está dedicado a la obra del pintor y dibujante Hans Jürgen Kallmann (1908-1991), especializado en retratos, animales y paisajes, y exhibe además arte moderno y contemporáneo.",
+      descriptionEn: "The Kallmann-Museum, in the castle park of Ismaning near Munich, is dedicated to the work of painter and draughtsman Hans Jürgen Kallmann (1908-1991), known for his portraits, animal paintings, and landscapes, and also exhibits modern and contemporary art.",
     },
     {
       id: "munich_13",
@@ -12247,8 +12247,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/13/Marstallmuseum_Nymphenburg-1.jpg",
       website: "https://www.schloss-nymphenburg.de/deutsch/marstall/index.htm",
-      description: "Marstallmuseum Nymphenburg es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "The Nymphenburg Palace is a Baroque palace situated in Munich's western district Neuhausen-Nymphenburg, in Bavaria, southern Germany. The Nymphenburg served as the main summer residence for the former rulers of Bavaria of the House of Wittelsbach.",
+      description: "El Marstallmuseum, en las antiguas caballerizas del Palacio de Nymphenburg de Múnich, exhibe una colección de carrozas, trineos y arreos ceremoniales de los antiguos gobernantes de Baviera de la Casa de Wittelsbach.",
+      descriptionEn: "The Marstallmuseum, in the former royal stables of Nymphenburg Palace in Munich, displays a collection of ceremonial coaches, sleighs, and harnesses of the former Bavarian rulers of the House of Wittelsbach.",
     },
     {
       id: "munich_14",
@@ -12263,7 +12263,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Bayerisches_Nationalmuseum_Munich%2C_April_2018.jpg/1920px-Bayerisches_Nationalmuseum_Munich%2C_April_2018.jpg",
       website: "https://www.bayerisches-nationalmuseum.de/",
       description: "El Bayerische Nationalmuseum en Múnich contiene una colección de obras de arte e histórico-culturales de rango europeo.",
-      descriptionEn: "Tilman Riemenschneider was a German woodcarver and sculptor active in Würzburg from 1483. A master in limewood and stone, he was one of the most prolific and versatile sculptors of the transition period between the Late Gothic, to which he essentially belonged, and Northern…",
+      descriptionEn: "The Bayerisches Nationalmuseum in Munich holds a collection of European decorative arts and cultural-historical works of art of the highest rank, spanning from late antiquity to the present.",
     },
   ],
   naples: [
@@ -14825,7 +14825,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Korean_art-Donggwoldo-Changdeokgung_and_Changgyeonggung-Dong-A_University-01.jpg/1920px-Korean_art-Donggwoldo-Changdeokgung_and_Changgyeonggung-Dong-A_University-01.jpg",
-      description: "Seúl, pronunciado: [sʌ.ul] (), oficialmente Ciudad Especial de Seúl, es la capital y ciudad más poblada de Corea del Sur desde la creación de esta república en 1948, la capital histórica de Corea desde hace más de 600 años y la ciudad más poblada de la península de Corea.",
+      description: "Changdeokgung es un antiguo palacio real situado en Seúl, Corea del Sur. Declarado Patrimonio de la Humanidad por la Unesco, es uno de los palacios mejor conservados de Corea. Junto al vecino palacio de Changgyeonggung, conforman lo que se conoce como el «Palacio del Este».",
       descriptionEn: "Changdeokgung is a former royal palace in Seoul, South Korea. A UNESCO World Heritage Site and a Historic Site of South Korea, it is among the best preserved of all Korean palaces. It and its neighboring palace Changgyeonggung have together been called the \"East Palace\".",
     },
     {
@@ -14839,7 +14839,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seoul-metro-822-Namhansanseong-station-platform-20181124-132444.jpg/1920px-Seoul-metro-822-Namhansanseong-station-platform-20181124-132444.jpg",
-      description: "Seúl, pronunciado: [sʌ.ul] (), oficialmente Ciudad Especial de Seúl, es la capital y ciudad más poblada de Corea del Sur desde la creación de esta república en 1948, la capital histórica de Corea desde hace más de 600 años y la ciudad más poblada de la península de Corea.",
+      description: "Namhansanseong es una histórica fortaleza coreana ubicada en Gwangju, provincia de Gyeonggi, Corea del Sur. Declarada Patrimonio de la Humanidad por la Unesco, se extiende a lo largo de 12 km sobre el monte Namhansan y sirvió como capital de emergencia durante la dinastía Joseon (1392-1910).",
       descriptionEn: "Namhansanseong is a historic Korean fortress city in Gwangju, Gyeonggi Province, South Korea. A UNESCO World Heritage Site, the fortress lies atop the mountain Namhansan and stretches 12 km in length. It served as an emergency capital city during the 1392–1910 Joseon period.",
     },
     {
@@ -14854,7 +14854,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Hwaseong_Fortress-001.jpg/1920px-Hwaseong_Fortress-001.jpg",
       website: "https://www.swcf.or.kr/english/",
-      description: "Suwon, oficialmente Ciudad de Suwon, es la ciudad capital en la provincia de Gyeonggi al norte de la república de Corea del Sur. Está ubicada al sur de Seúl a unos 30 km y su área es de 121.08 km² y su población total es de 1.098.000 habitantes.",
+      description: "La Fortaleza Hwaseong, o Suwon Hwaseong, es una fortaleza coreana que rodea el centro de Suwon, capital de la provincia de Gyeonggi, Corea del Sur. Construida entre 1794 y 1796 por orden del rey Jeongjo, fue declarada Patrimonio de la Humanidad por la Unesco en 1997.",
       descriptionEn: "Hwaseong Fortress or Suwon Hwaseong is a Korean fortress surrounding the centre of Suwon, the provincial capital of Gyeonggi Province, South Korea.",
     },
     {
@@ -14868,7 +14868,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Koryo_Songgyungwan_University.jpg/3840px-Koryo_Songgyungwan_University.jpg",
-      description: "Historic Monuments and Sites in Kaesong es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Los Monumentos y Sitios Históricos de Kaesong son un conjunto de doce lugares declarados Patrimonio de la Humanidad por la Unesco en 2013, que documentan la historia y cultura del antiguo reino de Goryeo (918-1392) en la ciudad de Kaesong, Corea del Norte.",
       descriptionEn: "Kaesong is a special city in the southern part of North Korea, and the capital of Korea during the Taebong kingdom and subsequent Goryeo dynasty. The city is near the Kaesong Industrial Region close to the border with South Korea and contains the remains of the Manwoldae palace.",
     },
     {
@@ -14883,8 +14883,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Savina_museum_20200328_01.jpg/1920px-Savina_museum_20200328_01.jpg",
       website: "http://www.savinamuseum.com/",
-      description: "사비나 미술관 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "사비나 미술관 is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Savina de Arte Contemporáneo es un museo privado situado en Eunpyeong-gu, Seúl, fundado en 1996 como Galería Savina. Organiza exposiciones temáticas multidisciplinarias de pintura, escultura, fotografía y arte multimedia, y alberga la primera sala de exposición VR de Corea.",
+      descriptionEn: "The Savina Museum of Contemporary Art is a private museum in Eunpyeong-gu, Seoul, founded in 1996 as Gallery Savina. It hosts multidisciplinary themed exhibitions of painting, sculpture, photography, and media art, and houses Korea's first VR exhibition hall.",
     },
     {
       id: "seoul_6",
@@ -14898,8 +14898,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/%EA%B0%80%ED%9A%8C%EB%AF%BC%ED%99%94%EB%B0%95%EB%AC%BC%EA%B4%80.jpg",
       website: "https://www.gahoemuseum.org/new",
-      description: "가회민화박물관 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "가회민화박물관 is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Gahoe de Pintura Popular, situado en el barrio de Bukchon Hanok en Seúl, exhibe más de 1500 objetos, entre ellos amuletos y pinturas populares (minhwa) de la dinastía Joseon. Fundado en 2002, ofrece también talleres de pintura y confección de amuletos tradicionales.",
+      descriptionEn: "The Gahoe Museum of Korean Folk Painting, in Seoul's Bukchon Hanok Village, displays over 1,500 artifacts including Joseon-era folk paintings (minhwa) and amulets. Founded in 2002, it also offers hands-on workshops in traditional painting and amulet-making.",
     },
     {
       id: "seoul_7",
@@ -14943,7 +14943,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Korea-Gyeonghuigung-01.jpg",
       website: "www.museum.seoul.kr/www/guide/vis/GHPShow/GHPInfo.jsp?sso=ok 더보기",
-      description: "경희궁 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Gyeonghuigung es un palacio situado en Seúl, Corea del Sur. Fue uno de los «Cinco Grandes Palacios» construidos por la dinastía Joseon.",
       descriptionEn: "Gyeonghuigung is a palace located in Seoul, South Korea. It was one of the \"Five Grand Palaces\" built by the Joseon Dynasty.",
     },
     {
@@ -14958,8 +14958,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fb/%EB%8D%95%EC%88%98%EA%B6%81_%EC%A4%91%EB%AA%85%EC%A0%84.jpg",
       website: "https://www.deoksugung.go.kr/",
-      description: "덕수궁 중명전 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Deoksugung, also called Deoksu Palace or Deoksugung Palace, is a former royal palace in Seoul, South Korea. It was the main palace during the Korean Empire (1897–1910) and is now a major tourist attraction.",
+      description: "El Jungmyeongjeon es un edificio de estilo occidental construido en 1899 como biblioteca imperial cerca del palacio de Deoksugung, en Seúl. Tras el incendio del palacio en 1904 fue residencia temporal del emperador Gojong, y en 1905 fue el lugar donde se firmó el forzado Tratado de Eulsa con Japón.",
+      descriptionEn: "Jungmyeongjeon is a red-brick Western-style building built in 1899 as the imperial library near Deoksugung Palace in Seoul. After the palace fire of 1904 it became Emperor Gojong's temporary residence, and in 1905 it was the site where Japan forced Korea to sign the Eulsa Treaty.",
     },
     {
       id: "seoul_11",
@@ -14973,7 +14973,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/%EC%B0%BD%EB%8D%95%EA%B6%81_%EC%A0%84%EA%B2%BD_%282012%29.jpg/3840px-%EC%B0%BD%EB%8D%95%EA%B6%81_%EC%A0%84%EA%B2%BD_%282012%29.jpg",
       website: "www.cdg.go.kr",
-      description: "창덕궁 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Changdeokgung es un antiguo palacio real situado en Seúl, uno de los mejor conservados de la dinastía Joseon. Junto al vecino palacio de Changgyeonggung conforma el llamado «Palacio del Este», y fue declarado Patrimonio de la Humanidad por la Unesco.",
       descriptionEn: "Changdeokgung is a former royal palace in Seoul, South Korea. A UNESCO World Heritage Site and a Historic Site of South Korea, it is among the best preserved of all Korean palaces. It and its neighboring palace Changgyeonggung have together been called the \"East Palace\".",
     },
     {
@@ -14988,7 +14988,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1c/%EA%B8%88%EC%84%A0%EC%82%AC1.jpg",
       website: "http://www.geumsunsa.org/",
-      description: "금선사 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Geumseonsa es un templo budista de la orden Jogye situado en Seúl, Corea del Sur. Se cree que fue fundado antes de 1405, y se encuentra en el distrito de Jongno, dentro del Parque Nacional de Bukhansan.",
       descriptionEn: "Geumseonsa is a Buddhist temple of the Jogye Order in Seoul, South Korea. Believed to have been established before 1405, it is located in 196-1 Gugi-dong in the Jongno District area of the city, in Bukhansan National Park.",
     },
   ],
@@ -15277,7 +15277,7 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
         currency: "CNY",
       },
-      description: "At the Top es una plataforma de observación al aire libre en el Burj Khalifa. Se inauguró el 5 de enero de 2010 en el piso 124. En 452 m (1483 pies), era la plataforma de observación al aire libre más alta del mundo cuando se abrió.",
+      description: "La torre Shanghai es un rascacielos ultra-alto de 128 plantas y 632 metros de altura situado en Lujiazui, Pudong, Shanghái. Es actualmente el edificio más alto de China y el tercero más alto del mundo por altura arquitectónica.",
       descriptionEn: "The Shanghai Tower is a 128-story, 632-meter-tall (2,073-foot) megatall skyscraper located in Lujiazui, Pudong, Shanghai. It is currently the tallest building in China, and the world's third-tallest building by height to architectural top.",
     },
     {
@@ -15306,8 +15306,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-1713006947005-70c6b2796b68?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaGFuZ2hhaSUyME11c2V1bSUyMHNoYW5naGFpfGVufDF8MHx8fDE3ODIxNzI5NDN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.shanghaimuseum.net/mu/frontend/pg/en/index",
-      description: "El Museo de Ciencia y Tecnología de Shanghái es un museo situado en el distrito de Pudong de Shanghái (China), cerca del Parque del Siglo, el espacio verde más grande del centro de la ciudad.",
-      descriptionEn: "Shanghaiing or crimping is the practice of kidnapping people to serve as sailors by coercive techniques such as trickery, intimidation, or violence. Those engaged in this form of kidnapping were known as crimps.",
+      description: "El Museo de Shanghái, abierto en 1996 en la Plaza del Pueblo, ocupa un edificio de 38 000 m² con forma de recipiente ritual de bronce. Su colección supera las 120 000 piezas que recorren la historia dinástica china, desde la cerámica antigua hasta el arte de la dinastía Qing.",
+      descriptionEn: "The Shanghai Museum, opened in 1996 on People's Square, occupies a 38,000 m² building shaped like an ancient bronze ritual vessel. Its collection of over 120,000 artifacts spans China's dynastic history, from early pottery to Qing dynasty craftsmanship.",
     },
     {
       id: "shanghai_6",
@@ -15320,7 +15320,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1715905398791-771de97e6976?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxaaHVqaWFqaWFvJTIwV2F0ZXIlMjBUb3duJTIwc2hhbmdoYWl8ZW58MXwwfHx8MTc4MjE3Mjk0NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Zhujiajiao Water Town es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Zhujiajiao es una antigua ciudad de agua ubicada en el distrito de Qingpu de Shanghái, con canales, puentes de piedra y arquitectura tradicional. Tiene una población de 95 536 habitantes.",
       descriptionEn: "Zhujiajiao is an ancient town located in the Qingpu District of Shanghai. The population of Zhujiajiao is 95,536.",
     },
     {
@@ -15335,8 +15335,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9c/CONTINUOUS_2012_Coll._Long_Museum_West_Bund_-_Shanghai_-_China_WEB.jpg",
       website: "http://thelongmuseum.org/",
-      description: "龙美术馆（西岸馆） es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "龙美术馆（西岸馆） is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Long (sede West Bund), fundado por los coleccionistas Liu Yiqian y Wang Wei y abierto en 2014, fue el mayor museo privado de China. Su edificio, construido en torno a un antiguo puente de carga de carbón de los años 50, alberga arte revolucionario, tradicional y contemporáneo chino e internacional.",
+      descriptionEn: "The Long Museum (West Bund), founded by collectors Liu Yiqian and Wang Wei and opened in 2014, was China's largest private museum. Its building, constructed around a 1950s coal-loading bridge, houses revolutionary, traditional, and contemporary Chinese and international art.",
     },
     {
       id: "shanghai_8",
@@ -15350,7 +15350,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/RAM_building.jpg/1920px-RAM_building.jpg",
       website: "https://www.rockbundartmuseum.org/",
-      description: "上海外滩美术馆 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de Arte Rockbund es un museo de arte contemporáneo en el centro de Shanghái, ubicado en Huqiu Road, en el antiguo edificio de la Royal Asiatic Society, terminado en 1933, cerca del Bund. No cuenta con colección permanente.",
       descriptionEn: "The Rockbund Art Museum is a contemporary art museum in central Shanghai. The museum is on Huqiu Road, in the former Royal Asiatic Society building completed in 1933 near The Bund waterfront. There are no permanent collections.",
     },
     {
@@ -15365,7 +15365,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/China-Shanghai_-_Propaganda_Poster_Art_Centre_%282024%29_-_img_05.jpg/1920px-China-Shanghai_-_Propaganda_Poster_Art_Centre_%282024%29_-_img_05.jpg",
       website: "http://www.shanghaipropagandaart.com",
-      description: "上海宣传画艺术中心 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Centro de Arte del Cartel de Propaganda es un museo de Shanghái que exhibe carteles del periodo maoísta de la China comunista, especialmente de la Revolución Cultural.",
       descriptionEn: "The Propaganda Poster Art Centre is a museum located in Shanghai which exhibits posters from the Maoist period of communist China, especially from the Cultural Revolution period.",
     },
     {
@@ -15395,8 +15395,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/2024-Apr_Shanghai_Yu_Yuan_Garden_%E8%B1%AB%E5%9B%AD_-_img_20.jpg/1920px-2024-Apr_Shanghai_Yu_Yuan_Garden_%E8%B1%AB%E5%9B%AD_-_img_20.jpg",
       website: "https://www.yugarden.com.cn/",
-      description: "La línea 10 es una línea suroeste-noreste de la red del Metro de Shanghái. Tiene una línea principal y una línea ramal.",
-      descriptionEn: "Yuyuan Garden is an interchange station on Line 10 and Line 14 of the Shanghai Metro. It is located near its namesake, the Yu Garden in Huangpu District, Shanghai. The station entered operation on April 10, 2010.",
+      description: "El Jardín Yuyuan de la ciudad de Shanghái es uno de los jardines más famosos de la República Popular China. Está situado en la zona norte de la ciudad, cerca de la antigua muralla, en el distrito de Huangpu.",
+      descriptionEn: "Yu Garden (Yuyuan) is an extensive classical Chinese garden located beside the City God Temple in the old city of Shanghai, in Huangpu District. It is one of the most famous gardens in China.",
     },
     {
       id: "shanghai_12",
@@ -15410,7 +15410,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/%E5%9F%8E%E9%9A%8D%E5%BA%99%C2%B7%E4%B8%8A%E6%B5%B7%E5%8D%97%E5%B8%82.jpg/1920px-%E5%9F%8E%E9%9A%8D%E5%BA%99%C2%B7%E4%B8%8A%E6%B5%B7%E5%8D%97%E5%B8%82.jpg",
       website: "https://www.shchm.org",
-      description: "上海城隍庙 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Templo del Dios de la Ciudad de Shanghái es un templo taoísta y de religión popular china dedicado al dios protector de la ciudad, ubicado en el casco antiguo de Shanghái.",
       descriptionEn: "The City God Temple or Temple of the City Gods, officially the City Temple of Shanghai, is a Chinese folk religion, Taoist and city god temple located in the old city of Shanghai.",
     },
     {
@@ -15426,7 +15426,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Shanghai_Chenshan_Garden_-20150517-RM-173827.jpg/1920px-Shanghai_Chenshan_Garden_-20150517-RM-173827.jpg",
       website: "https://www.shbg.org",
       description: "El jardín botánico de Shanghai o en pinyin, Shanghai Zhiwuyuan, es un jardín botánico de 81 hectáreas que se encuentra en la ciudad de Shanghái en China.",
-      descriptionEn: "Shanghai is a provincial-level direct-administered municipality in China. It has a population of 30,050,000 in the urban area as of 2026, thus making it China's most populous city and more broadly the fifth-largest city in the world by population.",
+      descriptionEn: "The Shanghai Botanical Garden, or Shanghai Zhiwuyuan, is an 81-hectare botanical garden located in the city of Shanghai, China.",
     },
   ],
   siemreap: [
@@ -18704,8 +18704,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Calendar_of_the_patent_and_close_rolls_of_chancery_in_Ireland%2C_of_the_reigns_of_Henry_VIII.%2C_Edward_VI.%2C_Mary%2C_and_Elizabeth_%28IA_cu31924084250640%29.pdf/page1-500px-Calendar_of_the_patent_and_close_rolls_of_chancery_in_Ireland%2C_of_the_reigns_of_Henry_VIII.%2C_Edward_VI.%2C_Mary%2C_and_Elizabeth_%28IA_cu31924084250640%29.pdf.jpg",
-      description: "Monastic Island of Reichenau es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Lake Constance refers to three bodies of water on the Rhine at the northern foot of the Alps: Upper Lake Constance (Obersee), Lower Lake Constance (Untersee), and a connecting stretch of the Rhine, called the Seerhein.",
+      description: "La Isla Monástica de Reichenau, en el lago Constanza, alberga un monasterio benedictino fundado en 724 que fue un importante centro de vida monástica, arte y erudición en la Europa medieval. Fue declarada Patrimonio de la Humanidad por la Unesco en 2000.",
+      descriptionEn: "The Monastic Island of Reichenau, in Lake Constance, is home to a Benedictine monastery founded in 724 that was a leading center of monastic life, art, and scholarship in medieval Europe. It was inscribed as a UNESCO World Heritage Site in 2000.",
     },
     {
       id: "zurich_2",
@@ -18777,8 +18777,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Zivilschutzmuseum_Schindlert%C3%BCrme.JPG/1920px-Zivilschutzmuseum_Schindlert%C3%BCrme.JPG",
       website: "https://www.stadt-zuerich.ch/pd/de/index/schutz_u_rettung_zuerich/zivilschutz/zivilschutz-museum.html",
-      description: "Zivilschutzmuseum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Zivilschutzmuseum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Zivilschutzmuseum ocupa un búnker circular subterráneo de tres pisos de 1941, en el barrio de Wipkingen de Zúrich, y exhibe la historia de la protección civil y sanitaria suiza durante la Segunda Guerra Mundial, con refugios y equipos de emergencia originales.",
+      descriptionEn: "The Zivilschutz-Museum occupies an underground, three-story circular bunker from 1941 in Zürich's Wipkingen district, exhibiting the history of Swiss civil and medical defense during the Second World War, with original shelters and emergency equipment.",
     },
     {
       id: "zurich_7",
@@ -18807,8 +18807,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Bahnhofstrasse%2C_Zurich_%28Ank_Kumar%2C_Infosys%29_03.jpg/1920px-Bahnhofstrasse%2C_Zurich_%28Ank_Kumar%2C_Infosys%29_03.jpg",
       website: "https://www.beyer-ch.com/de/uhrenmuseum/",
-      description: "Uhrenmuseum Beyer Zürich es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Zurich is the largest city in Switzerland and the capital of the canton of Zurich. It is in north-central Switzerland, at the northwestern tip of Lake Zurich.",
+      description: "El Uhrenmuseum Beyer, en el sótano de la joyería Beyer sobre la Bahnhofstrasse de Zúrich, exhibe una colección de instrumentos de medición del tiempo que abarca 3000 años, desde relojes de sol y de arena egipcios hasta relojes suizos de precisión.",
+      descriptionEn: "The Uhrenmuseum Beyer, in the basement of the Beyer jewelry store on Zurich's Bahnhofstrasse, exhibits a collection of timekeeping instruments spanning 3,000 years, from ancient Egyptian sundials and hourglasses to precision Swiss watches.",
     },
     {
       id: "zurich_9",
@@ -18822,7 +18822,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/B%C3%B6rse_%26_EWZ_Unterwerk_Selnau_%28Haus_Konstruktiv%29_-_Sihlbr%C3%BCcke_2011-08-13_19-58-22_ShiftN.jpg/1920px-B%C3%B6rse_%26_EWZ_Unterwerk_Selnau_%28Haus_Konstruktiv%29_-_Sihlbr%C3%BCcke_2011-08-13_19-58-22_ShiftN.jpg",
       website: "https://hauskonstruktiv.ch/",
-      description: "Camille Graeser (1892–1980) fue un pintor suizo y miembro del círculo de artistas de Zúrich de arte concreto. Nació en Suiza pero creció en Stuttgart, Alemania, donde se convirtió en diseñador de muebles.",
+      description: "Haus Konstruktiv, o Museum Haus Konstruktiv, es una fundación de arte creada por particulares en 1986 en Zúrich, Suiza, dedicada al arte concreto, constructivista y conceptual.",
       descriptionEn: "Haus Konstruktiv, or Museum Haus Konstruktiv, is an arts foundation founded by private individuals in 1986 in Zürich, Switzerland.",
     },
     {
@@ -18837,8 +18837,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/D%C3%BCbelstein_Turmfundament.jpg/1920px-D%C3%BCbelstein_Turmfundament.jpg",
       website: "https://waldmannmuseum.ch/vonderruinezummuseum.htm",
-      description: "Ruine Dübelstein es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Ruine Dübelstein is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La ruina de Dübelstein, también llamada Waldmannsburg, es un castillo medieval en ruinas en la ladera norte del Adlisberg, cerca de Dübendorf. Mencionado desde el siglo XIII, fue destruido por un incendio en 1611 y hoy es un memorial dedicado al alcalde Hans Waldmann.",
+      descriptionEn: "The Ruine Dübelstein, also called Waldmannsburg, is a ruined medieval castle on the northern slope of the Adlisberg near Dübendorf. First recorded in the 13th century, it was destroyed by fire in 1611 and today serves as a memorial to mayor Hans Waldmann.",
     },
     {
       id: "zurich_11",
@@ -18851,8 +18851,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Rapperswil_-_Schloss_-_Holzbr%C3%BCcke_IMG_3874.JPG/3840px-Rapperswil_-_Schloss_-_Holzbr%C3%BCcke_IMG_3874.JPG",
-      description: "Burgruine Friesenberg es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "This list includes castles and fortresses in Switzerland.",
+      description: "La Burgruine Friesenberg es un castillo medieval en ruinas, mencionado desde 1218, situado en la ladera oriental del Uetliberg, en el distrito de Wiedikon de Zúrich. Abandonado a fines del siglo XIV, sus muros visibles hoy son reconstrucciones de una excavación de la década de 1920.",
+      descriptionEn: "The Burgruine Friesenberg is a ruined medieval castle, first recorded in 1218, located on the eastern slope of the Uetliberg in Zurich's Wiedikon district. Abandoned by the late 14th century, its visible walls today are reconstructions from a 1920s excavation.",
     },
     {
       id: "zurich_12",
@@ -18866,8 +18866,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Lindenhof-Keller_-_%C3%9Cbersicht_Lindenhof-Altstadt_2013-04-03_15-18-38.JPG/1920px-Lindenhof-Keller_-_%C3%9Cbersicht_Lindenhof-Altstadt_2013-04-03_15-18-38.JPG",
       website: "https://www.stadt-zuerich.ch/hbd/de/index/staedtebau/archaeo_denkmal/archaeo/geschichte/a_fenster/lindenhofkeller.html",
-      description: "La iglesia de San Pedro es una de las cuatro principales iglesias del Zúrich antiguo. Las otras tres son el Grossmünster, la Fraumünster y la Predigerkirche.",
-      descriptionEn: "The Lindenhof is a moraine hill and public square in the historic center of Zurich, Switzerland. It is the site of the Roman and Carolingian era Kaiserpfalz around which the city has historically grown.",
+      description: "El Lindenhof-Keller es una de las \"ventanas arqueológicas\" de Zúrich: un sótano en la colina del Lindenhof donde se conservan restos de muros del fuerte romano y del palacio real medieval que dieron origen a la ciudad.",
+      descriptionEn: "The Lindenhof-Keller is one of Zurich's \"archaeological windows\": a cellar on the Lindenhof hill preserving wall remains of the Roman fort and medieval royal palace from which the city originated.",
     },
     {
       id: "zurich_13",
@@ -18881,8 +18881,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Z%C3%BCrich_Wikipedia-Sommerfest_2010_1000936.jpg/1920px-Z%C3%BCrich_Wikipedia-Sommerfest_2010_1000936.jpg",
       website: "https://www.bahnhofkirche.ch/",
-      description: "Bahnhofkirche es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Zürich Hauptbahnhof, often shortened to Zürich HB or just HB, and known in English as Zurich Main Station, is the largest railway station in Switzerland and one of the busiest in Europe.",
+      description: "La Bahnhofkirche es una capilla ecuménica situada en el nivel B de la estación central de Zúrich, inaugurada en 2001 como la primera iglesia de estación de Suiza, hospitalaria con personas de distintas religiones.",
+      descriptionEn: "The Bahnhofkirche is an ecumenical chapel on level B of Zurich's main railway station, opened in 2001 as Switzerland's first station church, offering hospitality to people of different faiths.",
     },
     {
       id: "zurich_14",
@@ -18895,8 +18895,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d2/BurgSellenb%C3%BCren01.jpg",
-      description: "Burgstelle Sellenbüren es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Stallikon is a municipality in the district of Affoltern in the canton of Zürich in Switzerland.",
+      description: "La Burgstelle Sellenbüren es el emplazamiento de un castillo medieval construido hacia 1075 en el saliente rocoso del Ofengüpf, en el municipio de Stallikon, sobre la ladera oeste del Uetliberg. Fue abandonado y destruido hacia 1125.",
+      descriptionEn: "The Burgstelle Sellenbüren is the site of a medieval castle built around 1075 on the rocky Ofengüpf ledge in the municipality of Stallikon, on the western flank of the Uetliberg. It was abandoned and destroyed around 1125.",
     },
   ],
   accra: [
@@ -28626,7 +28626,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Le_jardin_des_majorelle_16.JPG/1920px-Le_jardin_des_majorelle_16.JPG",
       website: "http://www.jardinmajorelle.com/",
-      description: "Majorelle Garden es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Jardín Majorelle es un jardín botánico y paisajístico de artista de una hectárea situado en Marrakech, Marruecos, diseñado por el pintor francés Jacques Majorelle en 1924.",
       descriptionEn: "The Majorelle Garden is a one-hectare (two-acre) botanical garden and artist's landscape garden in Marrakesh, Morocco.",
     },
     {
@@ -28640,8 +28640,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Tanner_at_work%2C_Medina_of_Marrakesh.jpg/1920px-Tanner_at_work%2C_Medina_of_Marrakesh.jpg",
-      description: "Bab Agnaou es una de las diecinueve puertas de Marrakech, Marruecos. Fue construido en el siglo XII en la época del imperio almohade.",
-      descriptionEn: "Marrakesh or Marrakech is the fourth-largest city in Morocco. It is one of the four imperial cities of Morocco and is the capital of the Marrakesh-Safi region. The city lies west of the foothills of the Atlas Mountains.",
+      description: "La medina de Marrakech es el casco histórico amurallado de la ciudad, declarado Patrimonio de la Humanidad por la Unesco. Fundada en el siglo XI, alberga zocos, mezquitas, palacios y monumentos como la plaza de Yamaa el Fna y la mezquita Kutubía.",
+      descriptionEn: "The Medina of Marrakesh is the city's historic walled old town, a UNESCO World Heritage Site. Founded in the 11th century, it houses souks, mosques, palaces, and landmarks such as Jemaa el-Fnaa square and the Koutoubia Mosque.",
     },
     {
       id: "marrakech_3",
@@ -28703,8 +28703,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Puesto_de_frutos_en_el_Zoco_--_2014_--_Marrakech%2C_Marruecos.jpg/1920px-Puesto_de_frutos_en_el_Zoco_--_2014_--_Marrakech%2C_Marruecos.jpg",
-      description: "Souks of Marrakesh es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "This article describes notable landmarks, architecture, and museums in the city of Marrakesh, Morocco.",
+      description: "Los zocos de Marrakech son un laberinto de mercados tradicionales en la medina, donde artesanos y comerciantes venden especias, textiles, cerámica, cuero y joyería, organizados históricamente por gremio en distintas calles y callejones.",
+      descriptionEn: "The souks of Marrakesh are a maze of traditional markets in the medina, where craftspeople and traders sell spices, textiles, ceramics, leather goods, and jewelry, historically organized by guild across different streets and alleys.",
     },
     {
       id: "marrakech_5",
@@ -28736,8 +28736,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Dome_tiles_of_the_Mouassine_mosque_in_Marrakech.jpg/1920px-Dome_tiles_of_the_Mouassine_mosque_in_Marrakech.jpg",
       website: "https://museedelamusique.ma/",
-      description: "La música de Marruecos se caracteriza por su gran diversidades de canciones de una región a otra. Incluye música árabe como el chaâbi y el aita de las llanuras del Atlántico, la melhoune de las ciudades andaluzas así como el Hassani del Sahara Marroquí.",
-      descriptionEn: "Marrakesh or Marrakech is the fourth-largest city in Morocco. It is one of the four imperial cities of Morocco and is the capital of the Marrakesh-Safi region. The city lies west of the foothills of the Atlas Mountains.",
+      description: "El Musée de la Musique de Marrakech está dedicado a la música y los instrumentos tradicionales de Marruecos, exhibiendo piezas relacionadas con los géneros musicales del país en un edificio próximo a la mezquita de Mouassine, en la medina.",
+      descriptionEn: "The Musée de la Musique in Marrakesh is dedicated to Morocco's traditional music and instruments, displaying pieces related to the country's musical genres in a building near the Mouassine Mosque, in the medina.",
     },
     {
       id: "marrakech_7",
@@ -28766,8 +28766,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/09/Museo_de_Marrakech_06.JPG",
       website: "https://marrakechmuseum.com",
-      description: "Musée de Marrakech متحف مراكش es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Musée de Marrakech متحف مراكش is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Musée de Marrakech ocupa el Palacio Mnebhi, construido a fines del siglo XIX, y fue convertido en museo en 1997 tras su restauración. Exhibe arte marroquí en torno a un patio central decorado con arcos de cedro, vitrales y azulejos zellige.",
+      descriptionEn: "The Musée de Marrakech occupies the Mnebhi Palace, built in the late 19th century, and was converted into a museum in 1997 after restoration. It displays Moroccan art around a central courtyard decorated with cedar archways, stained glass, and zellige tilework.",
     },
     {
       id: "marrakech_9",
@@ -28781,7 +28781,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/17/Micro0.25255751_palais_la_bahia_de_marrakech-_%D9%82%D8%B5%D8%B1_%D8%A7%D9%84%D8%A8%D8%A7%D9%87%D9%8A%D8%A9_%D8%A8%D9%85%D8%B1%D8%A7%D9%83%D8%B4.jpg",
       website: "https://e-services.minculture.gov.ma/fr/tickets/palais-bahia",
-      description: "Palais Bahia قصر الباهية es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Palacio de la Bahía es un palacio de finales del siglo XIX en Marrakech, Marruecos, iniciado por Si Musa, gran visir del sultán alauí Muhammad ibn Abd al-Rahman, en la década de 1860.",
       descriptionEn: "The Bahia Palace is a mid to late 19th-century palace in Marrakesh, Morocco. The palace was first begun by Si Musa, grand vizier under the Alawi sultan Muhammad ibn Abd al-Rahman, in the 1860s.",
     },
     {
@@ -28795,8 +28795,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Marrakech_-_Salat_Al_Azama_%28Laazama%29_Synagogue_-_interior.jpg/1920px-Marrakech_-_Salat_Al_Azama_%28Laazama%29_Synagogue_-_interior.jpg",
-      description: "Synagogue Laazama es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Synagogue Laazama is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La sinagoga Salat Al Azama, considerada la más antigua de Marrakech, se encuentra en el mellah (barrio judío) de la medina. Fue fundada por judíos sefardíes llegados de España tras 1492, y su patio sirvió de yeshivá para cientos de niños de la comunidad.",
+      descriptionEn: "The Slat al-Azama Synagogue, considered the oldest in Marrakesh, is located in the mellah (Jewish quarter) of the medina. It was founded by Sephardic Jews who arrived from Spain after 1492, and its courtyard once served as a yeshiva for hundreds of children in the community.",
     },
     {
       id: "marrakech_11",
@@ -28839,8 +28839,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Bab_Ksiba%2C_Marrakech.jpg/1920px-Bab_Ksiba%2C_Marrakech.jpg",
-      description: "Bab Ksiba es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Kawkab Athletic Club of Marrakesh is a Moroccan professional football club based in Marrakesh. The club was founded on 20 September 1947 by Hadj Idriss Talbi.",
+      description: "Bab Ksiba es una de las diecinueve puertas de Marrakech, construida en el siglo XII bajo la dinastía almohade. Junto con la cercana Bab Agnaou, servía de acceso a la Kasbah, el distrito fortificado del sur de la medina.",
+      descriptionEn: "Bab Ksiba is one of the nineteen gates of Marrakesh, built in the 12th century under the Almohad dynasty. Together with the nearby Bab Agnaou, it served as an entrance to the Kasbah, the fortified district in the southern part of the medina.",
     },
   ],
   matera: [
@@ -32928,7 +32928,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sydney_%28AU%29%2C_Bondi_Beach_--_2019_--_2354.jpg/1920px-Sydney_%28AU%29%2C_Bondi_Beach_--_2019_--_2354.jpg",
-      description: "Bondi Beach es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Bondi Beach es una playa y el barrio que la rodea en Sídney, Nueva Gales del Sur, Australia, ubicada a 7 kilómetros al este del distrito central de negocios, en los suburbios orientales de la ciudad.",
       descriptionEn: "Bondi Beach is a beach and the surrounding suburb in Sydney, New South Wales, Australia. Bondi Beach is located 7 kilometres east of the Sydney central business district, in the local government area of Waverley Council, in the Eastern Suburbs.",
     },
     {
@@ -33010,7 +33010,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Justice_and_Police_Museum_%28Former_Water_Police_Courts%29_-_Sydney%2C_NSW_%287889991666%29.jpg/1920px-Justice_and_Police_Museum_%28Former_Water_Police_Courts%29_-_Sydney%2C_NSW_%287889991666%29.jpg",
       website: "https://mhnsw.au/visit-us/justice-and-police-museum/",
-      description: "Las protestas por la muerte de George Floyd fueron una serie de manifestaciones y disturbios contra la brutalidad policial que comenzaron en Mineápolis, Estados Unidos, el 26 de mayo de 2020.",
+      description: "El Justice & Police Museum ocupa una antigua comisaría, oficinas y tribunal patrimonial situado en la esquina de Phillip Street y Albert Street, en el distrito central de negocios de Sídney, y exhibe historias de crimen y justicia de Nueva Gales del Sur.",
       descriptionEn: "The Justice and Police Museum is a heritage-listed former water police station, offices and courthouse and now justice and police museum located at 4–8 Phillip Street on the corner of Albert Street, in the Sydney central business district, New South Wales, Australia.",
     },
     {
@@ -33025,8 +33025,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Journals_of_the_House_of_Commons_of_Canada_%28IA_hcc59192200uoft%29.pdf/page1-960px-Journals_of_the_House_of_Commons_of_Canada_%28IA_hcc59192200uoft%29.pdf.jpg",
       website: "https://www.marymackillopplace.org.au/visit/museum/",
-      description: "Mary MacKillop Place Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mary Helen MacKillop RSJ was an Australian religious sister. She was born in Melbourne but is best known for her activities in South Australia.",
+      description: "Mary MacKillop Place es un museo y santuario en Sídney dedicado a santa Mary MacKillop, la primera santa australiana, con su tumba, una capilla y una exhibición sobre su vida y su labor educativa y social en el siglo XIX.",
+      descriptionEn: "Mary MacKillop Place is a museum and shrine in Sydney dedicated to Saint Mary MacKillop, Australia's first canonised saint, featuring her tomb, a chapel, and an exhibition on her 19th-century life and social and educational work.",
     },
     {
       id: "sydney_8",
@@ -33040,8 +33040,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sydney_The_Rocks_Discovery_Museum_entrance_2.jpg/1920px-Sydney_The_Rocks_Discovery_Museum_entrance_2.jpg",
       website: "https://rocksdiscoverymuseum.com/",
-      description: "El puente de la bahía de Sídney es un arco de tablero pasante metálico, localizado en Sídney, Nueva Gales del Sur (Australia). Cruza la bahía de Sídney, uniendo el centro financiero de la ciudad con la Costa Norte.",
-      descriptionEn: "Sailors' Home Sydney is a building once used by seamen and later as a prison in Sydney, Australia. Sailors used the home until 1980, but the building now houses a restaurant.",
+      description: "El Rocks Discovery Museum ocupa un almacén de arenisca restaurado de la década de 1850 y exhibe de forma gratuita la historia del barrio The Rocks a través de artefactos arqueológicos, desde la vida del pueblo Gadigal hasta la colonización europea y el presente.",
+      descriptionEn: "The Rocks Discovery Museum occupies a restored 1850s sandstone warehouse and freely displays the history of The Rocks precinct through archaeological artefacts, spanning from Gadigal life before 1788 to European settlement and the present day.",
     },
     {
       id: "sydney_9",
@@ -33055,7 +33055,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Sydney_The_Rocks_Susannah_Place_Museum_seen_from_the_northwest.jpg/1920px-Sydney_The_Rocks_Susannah_Place_Museum_seen_from_the_northwest.jpg",
       website: "https://mhnsw.au/visit-us/susannah-place/",
-      description: "El capitán Matthew Flinders fue un reputado navegante y cartógrafo inglés que dirigió la primera circunnavegación de Australia, entonces llamada Nueva Holanda, y la identificó como un solo continente.",
+      description: "Susannah Place es un antiguo almacén de comestibles y conjunto de viviendas obreras, hoy convertido en museo histórico, ubicado en Gloucester Street, en el barrio de The Rocks, en el centro de Sídney, Nueva Gales del Sur, Australia.",
       descriptionEn: "Susannah Place is a heritage-listed former grocery store and workers' cottages and now historic house museum located at 58–64 Gloucester Street in the inner city Sydney suburb of The Rocks in the City of Sydney local government area of New South Wales, Australia.",
     },
     {
@@ -33070,7 +33070,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/S._H._Ervin_Gallery_2.jpg/1920px-S._H._Ervin_Gallery_2.jpg",
       website: "https://www.shervingallery.com.au/",
-      description: "Guy Wilkie Warren AM fue un pintor australiano que ganó el Premio Archibald en 1985 con «Flugelman with Wingman». Sus obras también han sido exhibidas como finalistas en el Premio Dobell y recibió el Premio de Acuarela de los Fideicomisarios en el Premio Wynne en 1980.",
+      description: "La S.H. Ervin Gallery es una importante institución pública de arte alojada en el histórico National Trust Centre, en Observatory Park, Sídney, dedicada a exposiciones de arte australiano.",
       descriptionEn: "The S. H. Ervin Gallery is a major public art institution housed in the historic National Trust Centre in Observatory Park, Sydney.",
     },
     {
@@ -33085,7 +33085,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/S%C3%ADdney-Australia33.JPG/1920px-S%C3%ADdney-Australia33.JPG",
       website: "https://www.nationalparks.nsw.gov.au/things-to-do/historic-buildings-places/fort-denison",
-      description: "El asedio de Pinchgut es un thriller británico de 1959 filmado en Sídney, Australia, y dirigido por Harry Watt. Fue la última película producida por Ealing Studios y se inscribió en el 9.º Festival Internacional de Cine de Berlín, donde fue nominada al premio Golden Bear.",
+      description: "Fort Denison, parte del Parque Nacional del Puerto de Sídney, es un antiguo sitio penal y fortificación patrimonial situado en una pequeña isla al noreste del Real Jardín Botánico, a aproximadamente 1 km al este de la Ópera de Sídney.",
       descriptionEn: "Fort Denison, part of the Sydney Harbour National Park, is a heritage-listed former penal site and defensive facility occupying a small island located north-east of the Royal Botanic Garden and approximately 1 kilometre (0.62 mi) east of the Opera House in Sydney Harbour, New…",
     },
     {
@@ -33100,7 +33100,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/St_Peter_Julians_Catholic_Church_007.jpg/1920px-St_Peter_Julians_Catholic_Church_007.jpg",
       website: "https://stpeterjuliansydney.com/",
-      description: "St. Peter Julian's Catholic Church es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "St Peter Julian's Church es una iglesia católica romana y santuario de adoración eucarística en Sídney, a cargo de la Congregación del Santísimo Sacramento.",
       descriptionEn: "St Peter Julian's Church is a Roman Catholic church and shrine of eucharistic adoration in Sydney in the care of the Congregation of the Blessed Sacrament.",
     },
     {
@@ -33114,7 +33114,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Shark_point_battery.jpg/1920px-Shark_point_battery.jpg",
-      description: "Como con los metales y los no metales, los semimetales comprenden una de las tres categorías de elementos químicos siguiendo una clasificación de acuerdo con las propiedades de enlace e ionización.",
+      description: "Steele Point Battery es un pequeño fuerte situado a orillas de Port Jackson, en el suburbio oriental de Vaucluse, Sídney, Australia.",
       descriptionEn: "The Steele Point Battery is a small fort, on the shores of Port Jackson in the eastern Sydney suburb of Vaucluse, Australia.",
     },
     {
@@ -33129,8 +33129,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Chippendale_Green_at_Central_Park%2C_Sydney_08.jpg/1920px-Chippendale_Green_at_Central_Park%2C_Sydney_08.jpg",
       website: "https://www.cityofsydney.nsw.gov.au/parks/green-park",
-      description: "El Sydney Women's Football Club es un club de fútbol femenino australiano con sede en Sídney, Nueva Gales del Sur. Es la sección femenina del Sídney FC de la A-League. Fue fundado en 2008 y juega en la A-League Women, máxima categoría del fútbol femenino en Australia.",
-      descriptionEn: "Sydney is well endowed with open spaces and has many natural areas. Many of these exist even within the compact city centre. These include the Chinese Garden of Friendship and Hyde Park.",
+      description: "Green Park es un parque público situado en el suburbio de Darlinghurst, en la ciudad de Sídney, Nueva Gales del Sur, Australia, administrado por el Ayuntamiento de Sídney.",
+      descriptionEn: "Green Park is a public park located in the suburb of Darlinghurst, in the City of Sydney, New South Wales, Australia, managed by the City of Sydney council.",
     },
   ],
   tabriz: [
@@ -37377,7 +37377,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-2b8fiQ-6rjo?auto=format&fit=crop&w=800&q=80",
       website: "http://www.lacma.org",
       description: "El Museo de Arte del Condado de Los Ángeles - LACMA está localizado en Los Ángeles, Estados Unidos, en el Bulevar Wilshire del distrito Miracle Mile.",
-      descriptionEn: "Chatsworth is a suburban neighborhood in Los Angeles, California, in the San Fernando Valley. The area around the town was home to Native Americans, who left caves containing rock art. Chatsworth was discovered and settled by the Spanish beginning in the 18th century.",
+      descriptionEn: "The Los Angeles County Museum of Art (LACMA) is the largest art museum in the western United States, located on Wilshire Boulevard in the Miracle Mile district, with a collection spanning ancient to contemporary art.",
     },
     {
       id: "losangeles_7",
@@ -37406,7 +37406,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Gene_Autry%2C_NPG_94_39.jpg/1920px-Gene_Autry%2C_NPG_94_39.jpg",
       website: "https://theautry.org/",
-      description: "Jackie Autry (Jacqueline Evelyn Ellam) nació el 2 de octubre de 1941 en Newark, Nueva Jersey, Estados Unidos. Es dueña del equipo de béisbol Los Angeles Angels of Anaheim. Su marido era el cantante, actor y empresario Gene Autry, del que enviudó.",
+      description: "El Autry Museum of the American West es un museo de Los Ángeles, California, dedicado a explorar una historia inclusiva del Oeste americano a través de arte, artefactos históricos y culturas indígenas.",
       descriptionEn: "The Autry Museum of the American West is a museum in Los Angeles, California, dedicated to exploring an inclusive history of the American West.",
     },
     {
@@ -37421,7 +37421,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Pasadena_Museum_of_History_-_sign.JPG/1920px-Pasadena_Museum_of_History_-_sign.JPG",
       website: "https://pasadenahistory.org/",
-      description: "Pasadena, fundada en 1874, es una ciudad de Estados Unidos del condado de Los Ángeles en el estado estadounidense de California. En 2009 tenía una población de 143 667 habitantes y una densidad poblacional de 2477,1 personas por kilómetro cuadrado.",
+      description: "El Pasadena Museum of History es un museo y biblioteca de investigación sin fines de lucro ubicado en Pasadena, California. Es la única institución dedicada a la historia, el arte y la cultura de la Pasadena histórica y el oeste del valle de San Gabriel.",
       descriptionEn: "Pasadena Museum of History is a private, nonprofit museum and research library located in Pasadena, California. It is the only institution dedicated to the history, art and culture of historic Pasadena and the west San Gabriel Valley.",
     },
     {
@@ -37436,7 +37436,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Russian_Central_Asia%2C_including_Kuldja%2C_Bokhara%2C_Khiva_and_Merv_%28IA_russiancentralas01lansiala%29.pdf/page1-500px-Russian_Central_Asia%2C_including_Kuldja%2C_Bokhara%2C_Khiva_and_Merv_%28IA_russiancentralas01lansiala%29.pdf.jpg",
       website: "https://pacificasiamuseum.usc.edu/",
-      description: "Los Ángeles oficialmente y abreviado LA, es la ciudad más poblada del estado de California y la segunda ciudad más poblada de Estados Unidos, tras Nueva York.",
+      description: "El USC Pacific Asia Museum es un museo de arte asiático ubicado en la avenida N. Los Robles, en Pasadena, California, Estados Unidos.",
       descriptionEn: "USC Pacific Asia Museum is an Asian art museum located at 46 N. Los Robles Avenue, Pasadena, California, United States.",
     },
     {
@@ -37466,8 +37466,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Chinese_American_Museum.jpg/1920px-Chinese_American_Museum.jpg",
       website: "https://camla.org",
-      description: "Bessie Loo fue una actriz, directora de casting y agente de talentos estadounidense. Fue propietaria de la Agencia de Talento Bessie Loo durante más de 40 años, y representó a muchos de los actores asiático-estadounidenses en Hollywood del siglo XX.",
-      descriptionEn: "Chinese American Museum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Chinese American Museum es un museo de Los Ángeles ubicado en el edificio Garnier, dentro del Monumento Histórico El Pueblo de Los Ángeles, dedicado a la historia y cultura chino-estadounidense en el sur de California.",
+      descriptionEn: "The Chinese American Museum is a museum in Los Angeles housed in the Garnier Building within the El Pueblo de Los Ángeles Historical Monument, dedicated to Chinese American history and culture in Southern California.",
     },
     {
       id: "losangeles_13",
@@ -37481,7 +37481,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Los_Angeles%2C_the_old_and_the_new%2C_1911_%28IA_losangelesassumm00losa%29.pdf/page1-500px-Los_Angeles%2C_the_old_and_the_new%2C_1911_%28IA_losangelesassumm00losa%29.pdf.jpg",
       website: "https://www.lakeave.org/about/directions",
-      description: "Los samoanos estadounidenses son los estadounidenses de origen samoano, incluidos aquéllos que emigraron desde el Estado Independiente de Samoa, o desde la Samoa Americana, a los Estados Unidos.",
+      description: "Lake Avenue Congregational Church, conocida como Lake Avenue Church, es una congregación protestante evangélica ubicada en el número 393 de N. Lake Avenue, en Pasadena, California, afiliada a la Conservative Congregational Christian Conference.",
       descriptionEn: "Lake Avenue Congregational Church, commonly known and branded as Lake Avenue Church, is an evangelical Protestant congregation at 393 N. Lake Avenue in Pasadena, California. It is affiliated with the Conservative Congregational Christian Conference.",
     },
     {
@@ -37496,8 +37496,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/First_Baptist_Church%2C_Los_Angeles.jpg/1920px-First_Baptist_Church%2C_Los_Angeles.jpg",
       website: "https://fbcofla.org/",
-      description: "Westchester es un distrito de Los Ángeles (California). En él se halla el Aeropuerto Internacional de Los Ángeles (LAX), la Universidad Loyola Marymount (LMU) y el Colegio Otis de Diseño y Arte.",
-      descriptionEn: "First Baptist Church of Los Angeles is a recommended place to visit and one of the standout attractions in the area.",
+      description: "First Baptist Church of Los Angeles es una iglesia bautista estadounidense fundada en 1874, ubicada en el número 760 de South Westmoreland Avenue, Los Ángeles. Fue declarada Monumento Histórico-Cultural de Los Ángeles n.º 237 en 1981.",
+      descriptionEn: "First Baptist Church of Los Angeles is an American Baptist church founded in 1874, located at 760 South Westmoreland Avenue, Los Angeles. It was designated Los Angeles Historic-Cultural Monument No. 237 in 1981.",
     },
   ],
   chicago: [
@@ -37621,7 +37621,7 @@ export const CURATED_ALL: CuratedMap = {
           close: "23:00",
         },
       },
-      description: "Chicago Riverwalk es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Chicago Riverwalk es un espacio público de uso múltiple ubicado en la orilla sur del ramal principal del río Chicago, que se extiende desde el lago Míchigan hasta el área de Wolf Point.",
       descriptionEn: "The Chicago Riverwalk is a multi-use public open space located on the south bank of the main branch of the Chicago River in Chicago, extending from Lake Michigan and the Outer Drive Bridge westward to the Wolf Point area and Lake Street.",
     },
     {
@@ -37643,7 +37643,7 @@ export const CURATED_ALL: CuratedMap = {
         child: "USD 22",
       },
       description: "La Torre Willis, conocida anteriormente como Torre Sears, es un rascacielos de 442 metros en Chicago, Illinois. En el momento de su inauguración, en 1973, fue el edificio más alto del mundo durante veinte años.",
-      descriptionEn: "Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States. Located on the western shore of Lake Michigan, it is the third-most populous city in the United States, with a population of 2.74 million at the 2020 census.",
+      descriptionEn: "Willis Tower, formerly known as Sears Tower, is a 442-metre skyscraper in Chicago, Illinois. Upon its completion in 1973, it was the tallest building in the world for nearly 25 years, and its Skydeck observation deck remains a top visitor attraction.",
     },
     {
       id: "chicago_5",
@@ -37682,7 +37682,7 @@ export const CURATED_ALL: CuratedMap = {
       ticketPrices: {
         free: true,
       },
-      description: "Lincoln Park es un área comunitaria en el lado norte de Chicago, Illinois, Estados Unidos. Ubicado al oeste de Lincoln Park, el parque más grande de Chicago, es uno de los barrios más prósperos de la ciudad.",
+      description: "El Lincoln Park Zoo, también conocido como Jardines Zoológicos de Lincoln Park, es un zoológico de 14 hectáreas situado en Lincoln Park, Chicago. Fundado en 1868, es uno de los zoológicos más antiguos de Estados Unidos y uno de los pocos con entrada gratuita.",
       descriptionEn: "Lincoln Park Zoo, also known as Lincoln Park Zoological Gardens, is a 35-acre (14 ha) zoo in Lincoln Park in Chicago, Illinois. The zoo was founded in 1868 and is one of the oldest zoos in the United States. It is also one of a small number of zoos to offer free admission.",
     },
     {
@@ -37712,7 +37712,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1724320660920-b0d0a62b5155?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjA2MDYlMjBUcmFpbCUyMGNoaWNhZ298ZW58MXwwfHx8MTc4MjIxODk5OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.bloomingdaletrail.org/",
-      description: "Faron Young fue un cantante y compositor estadounidense de country entre los primeros años de la década de 1950 hasta mediados de los 80 y uno de sus estrellas más coloridas.",
+      description: "El Bloomingdale Trail Park, conocido como The 606, es un parque lineal elevado de 4,3 km de longitud que discurre de este a oeste junto a Bloomingdale Avenue, entre Ashland Avenue y Lawndale Avenue, en el noroeste de Chicago.",
       descriptionEn: "Bloomingdale Trail Park, previously Park No. 572, is a 15.6-acre (6.3 ha) 2.7-mile (4.3 km) long elevated linear park running east–west along Bloomingdale Avenue between Ashland Avenue and Lawndale Avenue on the northwest side of Chicago.",
     },
     {
@@ -37727,7 +37727,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/61/Federal_Reserve_Bank_of_Chicago_Money_Museum_entrance._%28October_14%2C_2025%29.jpg",
       website: "https://www.chicagofed.org/education/money-museum/",
-      description: "Sewell Lee Avery fue un hombre de negocios estadounidense que logró una prominencia temprana en la extracción de yeso y se convirtió en presidente de United States Gypsum Company (1905-1936). Al comienzo de la Gran Depresión, JP Morgan & Co.",
+      description: "El Money Museum es un museo dedicado al dinero y la economía, gestionado por el Banco de la Reserva Federal de Chicago, uno de los doce bancos que junto con la Junta de Gobernadores conforman el Sistema de la Reserva Federal de Estados Unidos.",
       descriptionEn: "The Federal Reserve Bank of Chicago is one of twelve Federal Reserve Banks that, along with the Federal Reserve Board of Governors, make up the Federal Reserve System, the United States' central bank.",
     },
     {
@@ -37742,7 +37742,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9d/McCormick_Bridgehouse_2015.jpg",
       website: "https://www.bridgehousemuseum.org/",
-      description: "El río Chicago es un curso de agua de 251 km de largo, que fluye a través de la ciudad de Chicago, atravesando el centro de la misma.",
+      description: "El McCormick Bridgehouse & Chicago River Museum es un pequeño museo alojado en la torreta del puente de Michigan Avenue, dedicado a la historia y a los mecanismos de los puentes basculantes del río Chicago.",
       descriptionEn: "The Chicago River is a system of rivers and canals with a combined length of 156 miles (251 km) that runs through the city of Chicago, including its center.",
     },
     {
@@ -37757,7 +37757,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Humboldt_Park_Stables_and_Receptory--National_Museum_of_Puerto_Rican_Arts_%26_Culture_Chicago_2020-0630.jpg/1920px-Humboldt_Park_Stables_and_Receptory--National_Museum_of_Puerto_Rican_Arts_%26_Culture_Chicago_2020-0630.jpg",
       website: "https://nmprac.org/",
-      description: "María de Mater O'Neill [Mari Mater O’Neill] es una artista de la pintura, diseñadora, gestora cultural, comunicadora visual y educadora puertorriqueña egresada del Cooper Union School of Arts and Sciences y graduada de un doctorado en Prácticas de Diseño de la Universidad de…",
+      description: "El National Museum of Puerto Rican Arts & Culture es un museo de Chicago dedicado a interpretar el arte y la cultura del pueblo puertorriqueño y de la comunidad puertorriqueña en Chicago.",
       descriptionEn: "The National Museum of Puerto Rican Arts and Culture is a museum in Chicago dedicated to interpreting the arts and culture of the Puerto Rican people and of the Puerto Ricans in Chicago.",
     },
     {
@@ -37772,7 +37772,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Renaissance_Society.jpg/1920px-Renaissance_Society.jpg",
       website: "https://www.renaissancesociety.org/",
-      description: "Laura Peternellie van Pappelendam fue una pintora y maestra estadounidense.",
+      description: "The Renaissance Society, fundada en 1915, es un museo independiente de arte contemporáneo ubicado en el campus de la Universidad de Chicago, centrado en la producción de nuevas obras de artistas internacionales.",
       descriptionEn: "The Renaissance Society, founded in 1915, is an independent contemporary art museum located on the campus of the University of Chicago, with a focus on the commissioning and production of new works by international artists.",
     },
     {
@@ -37787,7 +37787,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/20070822_Polish_Museum.JPG/1920px-20070822_Polish_Museum.JPG",
       website: "https://www.polishmuseumofamerica.org/",
-      description: "La inmigración polaca en los Estados Unidos se produjo de igual forma que las demás inmigraciones de europeos en hacia el Continente Americano. La colectividad polaca es trascendente en conjunto con los descendientes polaco-estadounidenses.",
+      description: "El Polish Museum of America está ubicado en West Town, en el histórico barrio conocido como Polish Downtown de Chicago. Alberga numerosos artefactos, obras de arte y trajes folclóricos bordados polacos en su creciente colección.",
       descriptionEn: "The Polish Museum of America is located in West Town, in what had been the historical Polish Downtown neighborhood of Chicago. It is home to numerous Polish artifacts, artwork, and embroidered folk costumes in its growing collection.",
     },
     {
@@ -37990,8 +37990,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Alameda%2C_Alameda_Co.%2C_California%2C_situated_on_the_eastern_shore_of_the_Bay_of_San_Francisco._A_city_of_homes._Being_a_brief_description_of_the_beauties_of_Alameda%2C_and_its_surroundings_on_land_and_%2814742568726%29.jpg/1920px-thumbnail.jpg",
       website: "https://alamedamuseum.org/",
-      description: "San Francisco, de forma oficial Ciudad y Condado de San Francisco, es una ciudad que ocupa la cuarta posición de ciudad más poblada del estado de California y la 17.ª de Estados Unidos, con una población estimada de 827 526 habitantes a mediados de 2024.",
-      descriptionEn: "Alameda is a city in Alameda County, California, United States, located in the East Bay region of the Bay Area. The city is built on an informal archipelago in San Francisco Bay, consisting of Alameda Island, Bay Farm Island and Coast Guard Island, along with other smaller…",
+      description: "El Alameda Museum es un pequeño museo histórico local dedicado a preservar y exhibir la historia de la ciudad de Alameda, California, en el Área de la Bahía de San Francisco.",
+      descriptionEn: "The Alameda Museum is a small local history museum dedicated to preserving and exhibiting the history of the city of Alameda, California, in the San Francisco Bay Area.",
     },
     {
       id: "sanfrancisco_9",
@@ -38005,7 +38005,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Historic_American_Buildings_Survey_Collection_of_Society_of_California_Pioneers_and_Wells_Fargo_Bank_Historical_Museum%2C_San_Francisco_F._Marryat%2C_Watercolor_1850_-_Sansome_HABS_CAL%2C38-SANFRA%2C128-1.tif/lossy-page1-1920px-thumbnail.tif.jpg",
       website: "https://www.californiapioneers.org/",
-      description: "La Biblia del Pony Express es una biblia protestante, versión del rey Jacobo (1611), que se distribuyó a los jinetes del servicio de correo rápido Pony Express en 1860 y 1861.",
+      description: "La Sociedad de Pioneros de California, fundada en 1850, está dedicada al estudio y difusión del arte, la historia y la cultura de California a través de su museo y biblioteca en San Francisco.",
       descriptionEn: "The Society of California Pioneers, established in 1850, is dedicated to the study and enjoyment of California art, history, and culture.",
     },
     {
@@ -38020,7 +38020,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Nike_missile_site_SF-88_-_January_2024_%288767%29.webm/1920px--Nike_missile_site_SF-88_-_January_2024_%288767%29.webm.jpg",
       website: "https://www.nps.gov/goga/nike-missile-site.htm",
-      description: "Nike Missile Site SF-88 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "SF-88 es un antiguo emplazamiento de misiles Nike ubicado en Fort Barry, en las Marin Headlands, al norte de San Francisco, California, preservado como museo militar de la Guerra Fría.",
       descriptionEn: "SF-88 is a former Nike Missile launch site at Fort Barry, in the Marin Headlands to the north of San Francisco, California, United States.",
     },
     {
@@ -38050,8 +38050,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Truhlsen-Marmor_Museum_of_the_Eye%2C_San_Francisco%2C_California%2C_US.jpg/1920px-Truhlsen-Marmor_Museum_of_the_Eye%2C_San_Francisco%2C_California%2C_US.jpg",
       website: "https://www.aao.org/museum-of-the-eye",
-      description: "Truhlsen-Marmor Museum of the Eye es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Truhlsen-Marmor Museum of the Eye is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Truhlsen-Marmor Museum of the Eye, operado por la Academia Estadounidense de Oftalmología, es el único museo público y gratuito del mundo dedicado a la ciencia de la visión, con casi 4000 objetos históricos relacionados con la vista.",
+      descriptionEn: "The Truhlsen-Marmor Museum of the Eye, operated by the American Academy of Ophthalmology, is the world's only free, public museum dedicated to the science of sight, with nearly 4,000 vision-related artifacts.",
     },
     {
       id: "sanfrancisco_13",
@@ -38065,7 +38065,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_%28CA%2C_USA%29%2C_Golden_Gate_Bridge_--_2022_--_3023_%28bw%29.jpg/1920px-San_Francisco_%28CA%2C_USA%29%2C_Golden_Gate_Bridge_--_2022_--_3023_%28bw%29.jpg",
       website: "https://www.nps.gov/fopo/",
-      description: "El Presidio de San Francisco es un parque situado en la punta norte de la península de San Francisco, en San Francisco (California) y dentro del Área de Recreo Nacional Golden Gate.",
+      description: "Fort Point, conocido históricamente como el Castillo de San Joaquín, es una fortificación costera de mampostería situada en el lado sur del Golden Gate, en la entrada de la bahía de San Francisco.",
       descriptionEn: "Fort Point, known historically as the Castillo de San Joaquín is a masonry seacoast fortification located on the southern side of the Golden Gate at the entrance to San Francisco Bay.",
     },
     {
@@ -38079,8 +38079,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Presidio_and_Fort_Winfield_Scott%2C_San_Francisco%2C_Calif_LCCN2007664170.tif/lossy-page1-1920px-Presidio_and_Fort_Winfield_Scott%2C_San_Francisco%2C_Calif_LCCN2007664170.tif.jpg",
-      description: "Un Hito Histórico Nacional, en los Estados Unidos, es un edificio, lugar, estructura, objeto o distrito, que es oficialmente reconocido por el gobierno federal por su importancia histórica.",
-      descriptionEn: "Fort Point, known historically as the Castillo de San Joaquín is a masonry seacoast fortification located on the southern side of the Golden Gate at the entrance to San Francisco Bay.",
+      description: "Fort Winfield Scott es un antiguo puesto de artillería costera construido entre 1909 y 1912 en la parte occidental del Presidio de San Francisco, que sirvió como cuartel general de la defensa costera de la bahía durante medio siglo.",
+      descriptionEn: "Fort Winfield Scott is a former coast artillery post built between 1909 and 1912 in the western Presidio of San Francisco, which served as the headquarters for the Bay Area's coastal defense for half a century.",
     },
   ],
   lasvegas: [
@@ -38096,7 +38096,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-9qFcebFl7Vo?auto=format&fit=crop&w=800&q=80",
       description: "Las Vegas Strip, también conocido como The Strip, es una sección de aproximadamente 6,4 km de la avenida Las Vegas Boulevard en las localidades de Paradise y Winchester, Nevada, al sur de los límites de la ciudad de Las Vegas.",
-      descriptionEn: "Horseshoe Las Vegas is a casino hotel on the Las Vegas Strip in Paradise, Nevada. It is owned and operated by Caesars Entertainment. It originally opened as the MGM Grand Hotel and Casino on December 4, 1973.",
+      descriptionEn: "The Las Vegas Strip is an approximately 4-mile (6.4 km) stretch of Las Vegas Boulevard in Clark County, Nevada, known for its concentration of resort hotels and casinos, just south of the Las Vegas city limits.",
     },
     {
       id: "lasvegas_1",
@@ -38113,7 +38113,7 @@ export const CURATED_ALL: CuratedMap = {
       ticketPrices: {
         free: true,
       },
-      description: "Bellagio es un lujoso hotel y casino de 5 diamantes calificado por la AAA localizado en el Strip de Las Vegas en Paradise, Nevada, EE. UU.. Los dueños son del MGM Resorts International y fue construido en el mismo sitio del demolido hotel y casino Dunes.",
+      description: "Las Fuentes del Bellagio son una atracción gratuita del resort Bellagio, ubicada en el Strip de Las Vegas, en Paradise, Nevada. Consisten en un espectáculo de fuentes musicales realizado en un lago artificial de 3,4 hectáreas frente al hotel.",
       descriptionEn: "Fountains of Bellagio is a free attraction at the Bellagio resort, located on the Las Vegas Strip in Paradise, Nevada. It consists of a musical fountain show performed in an 8.5-acre (3.4 ha) man-made lake in front of the resort.",
     },
     {
@@ -38131,7 +38131,7 @@ export const CURATED_ALL: CuratedMap = {
       ticketPrices: {
         free: false,
       },
-      description: "Ain Dubai es la noria más grande y alta del mundo ubicada en la isla artificial Bluewaters Island, cerca del distrito de Dubai Marina en Dubái, Emiratos Árabes Unidos. Mide 250 metros de altura.",
+      description: "High Roller es una noria gigante de 167,6 m de altura y 158,5 m de diámetro en el Strip de Las Vegas, Paradise, Nevada. Operada por Caesars Entertainment, abrió al público el 31 de marzo de 2014 como la noria más alta del mundo en su momento.",
       descriptionEn: "High Roller is a 550-foot-tall (167.6 m), 520-foot (158.5 m) diameter giant Ferris wheel on the Las Vegas Strip in Paradise, Nevada, United States. Owned and operated by Caesars Entertainment, it opened to the public on March 31, 2014 as the world's tallest Ferris wheel.",
     },
     {
@@ -38203,7 +38203,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Lied_Discovery_Children%27s_Museum%2C_opened_in_1990%2C_Las_Vegas%2C_Nevada_LCCN2011634432.tif/lossy-page1-1920px-Lied_Discovery_Children%27s_Museum%2C_opened_in_1990%2C_Las_Vegas%2C_Nevada_LCCN2011634432.tif.jpg",
       website: "https://www.discoverykidslv.org/",
-      description: "El área metropolitana de Las Vegas incluye el valle de Las Vegas, una cuenca de 1600 km², y el área de alrededor, que forman parte del condado de Clark al sur de Nevada. Es el área con mayor densidad de población del estado.",
+      description: "El DISCOVERY Children's Museum es un museo infantil sin fines de lucro en Las Vegas, Nevada. Antes conocido como Lied Discovery Children's Museum, este espacio de tres pisos y 5400 m² se ubica junto al The Smith Center, en el centro de Las Vegas.",
       descriptionEn: "DISCOVERY Children's Museum is a nonprofit children's museum in Las Vegas, Nevada. Formerly known as Lied Discovery Children's museum, this 58,000-square-foot (5,400 m2), three-story space is now located adjacent to The Smith Center in Downtown Las Vegas.",
     },
     {
@@ -38218,7 +38218,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Las_Vegas_Mob_Museum_2012.jpg",
       website: "https://themobmuseum.org",
-      description: "Las Vegas es la ciudad más grande del estado de Nevada, en Estados Unidos. Ubicada en el desierto de Mojave, es uno de los principales destinos turísticos del país debido a sus hoteles, zonas comerciales y vacacionales, pero sobre todo gracias a sus casinos.",
+      description: "The Mob Museum, oficialmente el Museo Nacional del Crimen Organizado y la Aplicación de la Ley, es un museo de historia ubicado en el centro de Las Vegas, Nevada, Estados Unidos.",
       descriptionEn: "The Mob Museum, officially the National Museum of Organized Crime and Law Enforcement, is a history museum located in Downtown Las Vegas, Nevada, United States.",
     },
     {
@@ -38233,7 +38233,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Erotic_Heritage_Museum%2C_Las_Vegas_interior_2009_-_02.jpg/1920px-Erotic_Heritage_Museum%2C_Las_Vegas_interior_2009_-_02.jpg",
       website: "https://www.eroticmuseumvegas.com",
-      description: "Ulorin Vex, nombre artístico de Christiane Shillito, es una modelo alternativa y artista británica asentada en los Estados Unidos, entre Los Ángeles (California) y Portland (Oregón).",
+      description: "El Erotic Heritage Museum es un espacio de 2200 m², de los cuales 1600 m² están dedicados a la historia de la erótica, ubicado en Las Vegas. Su principal patrocinador es Harry Mohney, fundador de Déjà Vu.",
       descriptionEn: "The Erotic Heritage Museum (EHM) is a 24,000-square-foot (2,200 m2) space with 17,000 square feet (1,600 m2) dedicated to the history of erotica, located in Las Vegas. The grand patron of the museum is Harry Mohney, founder of Déjà Vu.",
     },
     {
@@ -38248,8 +38248,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Atomic_Testing_Museum%2C_Las_Vegas_14.jpg/1920px-Atomic_Testing_Museum%2C_Las_Vegas_14.jpg",
       website: "https://www.nationalatomictestingmuseum.org/",
-      description: "El área metropolitana de Las Vegas incluye el valle de Las Vegas, una cuenca de 1600 km², y el área de alrededor, que forman parte del condado de Clark al sur de Nevada. Es el área con mayor densidad de población del estado.",
-      descriptionEn: "The settlement of Las Vegas, Nevada was founded in 1905 before the opening of a railroad that linked Los Angeles and Salt Lake City. The stopover attracted some farmers to the area, and fresh water was irrigated to the settlement.",
+      description: "El Atomic Museum (National Atomic Testing Museum) es un museo afiliado al Smithsonian ubicado en Las Vegas, Nevada, dedicado a la historia de las pruebas nucleares en el Sitio de Pruebas de Nevada y la era atómica en el suroeste del país.",
+      descriptionEn: "The Atomic Museum (National Atomic Testing Museum) is a Smithsonian-affiliated museum in Las Vegas, Nevada, dedicated to the history of nuclear testing at the Nevada Test Site and the atomic age in the American Southwest.",
     },
     {
       id: "lasvegas_11",
@@ -38263,7 +38263,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Burlesque_Hall_of_Fame.jpg/1920px-Burlesque_Hall_of_Fame.jpg",
       website: "https://www.burlesquehall.com/",
-      description: "Toni Elling, también conocida por su nombre artístico Satin Doll, fue una bailarina de burlesque estadounidense.",
+      description: "El Burlesque Hall of Fame fue el único museo del mundo dedicado a la historia, preservación y futuro del arte del burlesque. Se ubica en el distrito de las Artes de Las Vegas, en el número 1027 de South Main Street.",
       descriptionEn: "The Burlesque Hall of Fame (BHOF) was the world's only museum dedicated to the history, preservation, and future of the art of burlesque. Located in the Las Vegas Arts district at 1027 S Main St.",
     },
     {
@@ -38278,8 +38278,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mid-day_traffic_in_Las_Vegas%2C_NM_%280f90231b3d964640a8c5c1158f10d0d2%29.JPG/1920px-Mid-day_traffic_in_Las_Vegas%2C_NM_%280f90231b3d964640a8c5c1158f10d0d2%29.JPG",
       website: "https://summerlink.com/parks",
-      description: "Bob Wills fue un músico, compositor, y líder de banda estadounidense, considerado por muchos como uno de los padres del estilo Western swing y llamado por sus admiradores \"El Rey del Western Swing\".",
-      descriptionEn: "Las Vegas Sands Corp. is an American casino and resort company with corporate headquarters in Las Vegas, Nevada. It was founded by Sheldon G. Adelson and his partners out of the Sands Hotel and Casino on the Las Vegas Strip.",
+      description: "The Trails Park es un parque de casi 6 hectáreas en el barrio The Trails, en Summerlin, Las Vegas, con canchas de béisbol y sóftbol iluminadas, área de juegos infantiles, canchas de baloncesto y una red de senderos muy usada por corredores y ciclistas.",
+      descriptionEn: "The Trails Park is a nearly 15-acre park in the Trails neighborhood of Summerlin, Las Vegas, featuring lighted baseball and softball fields, a children's play area, basketball courts, and a network of walking trails popular with runners and cyclists.",
     },
     {
       id: "lasvegas_13",
@@ -38293,8 +38293,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Las_Vegas_Hot_Springs_and_vicinity_%28IA_lasvegashotsprin00higgrich%29.pdf/page1-500px-Las_Vegas_Hot_Springs_and_vicinity_%28IA_lasvegashotsprin00higgrich%29.pdf.jpg",
       website: "https://summerlink.com/parks",
-      description: "Las elecciones presidenciales de Estados Unidos de 2024, celebradas el martes 5 de noviembre de 2024, fueron las sexagésimas elecciones presidenciales en dicho país.La fórmula del Partido Republicano liderada por Donald Trump y J. D.",
-      descriptionEn: "The Trails Park & Pool is a recommended place to visit and one of the standout attractions in the area.",
+      description: "The Trails Park & Pool es el mismo parque comunitario The Trails, en Summerlin, Las Vegas, que además cuenta con una piscina con caseta de baños y una piscina infantil para los residentes del barrio.",
+      descriptionEn: "The Trails Park & Pool is the same Trails community park in Summerlin, Las Vegas, which also features a swimming pool with a bathhouse and a wading pool for neighborhood residents.",
     },
     {
       id: "lasvegas_14",
@@ -38308,8 +38308,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/DSCF5942_-_Monte_Carlo_Resort_and_Casino.jpg/1920px-DSCF5942_-_Monte_Carlo_Resort_and_Casino.jpg",
       website: "https://parkslocator.clarkcountynv.gov/Search/ParkDetail?parkId=12",
-      description: "El área metropolitana de Las Vegas incluye el valle de Las Vegas, una cuenca de 1600 km², y el área de alrededor, que forman parte del condado de Clark al sur de Nevada. Es el área con mayor densidad de población del estado.",
-      descriptionEn: "New Las Vegas Stadium is the project name of an indoor ballpark on the Las Vegas Strip in Paradise, Nevada, U.S., scheduled to open in 2028.",
+      description: "Paradise Park, construido originalmente en 1964 y ampliado en 1977, es uno de los parques más antiguos del condado de Clark, Nevada. Cuenta con áreas de picnic, senderos con estaciones de ejercicio, canchas deportivas, parque infantil y una piscina estacional.",
+      descriptionEn: "Paradise Park, originally built in 1964 and expanded in 1977, is one of the oldest parks in Clark County, Nevada. It features picnic areas, a walking path with fitness stations, sports fields, a playground, and a seasonal pool.",
     },
   ],
   toronto: [
@@ -38354,7 +38354,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 240,
       imageUrl: "https://images.unsplash.com/photo-54ETr06aYSk?auto=format&fit=crop&w=800&q=80",
-      description: "La Terminal de tránsito de Niagara Falls está ubicada al sur de Bridge Street en Erie Avenue en Niagara Falls, Ontario, Canadá, directamente frente a la estación de tren de Niagara Falls.",
+      description: "Las cataratas del Niágara son un conjunto de tres cataratas situadas en el extremo sur del cañón del Niágara, en la frontera entre la provincia canadiense de Ontario y el estado de Nueva York (EE.UU.).",
       descriptionEn: "Niagara Falls is a group of three waterfalls at the southern end of Niagara Gorge, spanning the border between the Canadian province of Ontario and the U.S. state of New York.",
     },
     {
@@ -38368,7 +38368,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1488331531757-77fd056ebe43?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEaXN0aWxsZXJ5JTIwRGlzdHJpY3QlMjB0b3JvbnRvfGVufDF8MHx8fDE3ODIyMTkwNDR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Downtown Toronto es el downtown principal de Toronto. Situado en su totalidad dentro del distrito de Old Toronto, tiene una superficie de aproximadamente 16.6 km² y está delimitado por Bloor Street al noreste, una línea del Canadian Pacific Railway al noroeste, el lago Ontario…",
+      description: "El Distillery District es un barrio comercial y residencial de Toronto, Ontario, Canadá, situado al este del centro. Contiene numerosos cafés, restaurantes y tiendas alojados en edificios patrimoniales de la antigua destilería Gooderham and Worts.",
       descriptionEn: "The Distillery District is a commercial and residential district in Toronto, Ontario, Canada, located east of downtown. It contains numerous cafés, restaurants, and shops housed within heritage buildings of the former Gooderham and Worts Distillery.",
     },
     {
@@ -38386,7 +38386,7 @@ export const CURATED_ALL: CuratedMap = {
       ticketPrices: {
         free: true,
       },
-      description: "La Anshei Minsk es una sinagoga del barrio de Kensington Market de Toronto, Canadá. Fue fundada por inmigrantes judíos pobres provenientes del Imperio ruso en 1912. El actual edificio del renacimiento bizantino fue terminado en 1930.",
+      description: "Kensington Market es un barrio multicultural distintivo del centro de Toronto, Ontario, Canadá. Es uno de los barrios más antiguos y reconocidos de la ciudad, designado Sitio Histórico Nacional de Canadá en noviembre de 2006.",
       descriptionEn: "Kensington Market is a distinctive multicultural neighbourhood in Downtown Toronto, Ontario, Canada. The Market is an older neighbourhood and one of the city's best-known. In November 2006, it was designated a National Historic Site of Canada.",
     },
     {
@@ -38448,7 +38448,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1603466182843-75f713ba06b3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUb3JvbnRvJTIwSXNsYW5kcyUyMHRvcm9udG98ZW58MXwwfHx8MTc4MjIxOTA1NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Aeropuerto Internacional Toronto Pearson es un aeropuerto internacional en Mississauga, Ontario, que sirve principalmente a la ciudad de Toronto.",
+      description: "Las Islas de Toronto son una cadena de 15 pequeñas islas en el lago Ontario, al sur del centro de Toronto, Ontario, Canadá.",
       descriptionEn: "The Toronto Islands are a chain of 15 small islands in Lake Ontario, south of mainland Toronto, Ontario, Canada.",
     },
     {
@@ -38463,7 +38463,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1488331531757-77fd056ebe43?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdC4lMjBMYXdyZW5jZSUyME1hcmtldCUyMHRvcm9udG98ZW58MXwwfHx8MTc4MjIxOTA1NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.stlawrencemarket.com/",
-      description: "Downtown Toronto es el downtown principal de Toronto. Situado en su totalidad dentro del distrito de Old Toronto, tiene una superficie de aproximadamente 16.6 km² y está delimitado por Bloor Street al noreste, una línea del Canadian Pacific Railway al noroeste, el lago Ontario…",
+      description: "El St. Lawrence Market es un importante mercado público de Toronto, Ontario, Canadá, ubicado a lo largo de Front Street East y Jarvis Street, en el barrio de St. Lawrence, en el centro de la ciudad.",
       descriptionEn: "St. Lawrence Market is a major public market in Toronto, Ontario, Canada. It is located along Front Street East and Jarvis Street in the St. Lawrence neighbourhood of downtown Toronto. The public market is made up of two sites adjacent to one another west of Jarvis Street, St.",
     },
     {
@@ -38478,7 +38478,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Spadina_House%2C_Toronto.jpg/1920px-Spadina_House%2C_Toronto.jpg",
       website: "https://www.toronto.ca/explore-enjoy/history-art-culture/museums/spadina-museum/",
-      description: "Toronto es la capital de la provincia de Ontario y, con una población de 2 794 356 de habitantes, la ciudad más grande y más poblada de Canadá, además del centro financiero de dicho país. Su área metropolitana suma más de 6 202 225 habitantes en total.",
+      description: "El Museo Spadina, también conocido como Spadina House, es una mansión histórica ubicada en el 285 de Spadina Road, en Toronto, Ontario. Es hoy una casa museo operada por la división de Desarrollo Económico y Cultura de la ciudad de Toronto.",
       descriptionEn: "Spadina Museum, also known as Spadina House, is a historic mansion at 285 Spadina Road in Toronto, Ontario. It is now a historic house museum operated by the City of Toronto's Economic Development & Culture division.",
     },
     {
@@ -38493,7 +38493,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Textile_Museum_of_Canada_12163603575.jpg",
       website: "http://www.textilemuseum.ca/",
-      description: "Toronto es la capital de la provincia de Ontario y, con una población de 2 794 356 de habitantes, la ciudad más grande y más poblada de Canadá, además del centro financiero de dicho país. Su área metropolitana suma más de 6 202 225 habitantes en total.",
+      description: "El Museo Textil de Canadá, ubicado en Toronto, Ontario, Canadá, es un museo dedicado a la colección, exhibición y documentación de textiles.",
       descriptionEn: "The Textile Museum of Canada, located in Toronto, Ontario, Canada, is a museum dedicated to the collection, exhibition, and documentation of textiles.",
     },
     {
@@ -38508,7 +38508,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Design_Exchange%2C_Toronto.jpg/1920px-Design_Exchange%2C_Toronto.jpg",
       website: "https://designexchangetoronto.com/",
-      description: "Knoll, Inc. es una empresa de diseño estadounidense que produce mobiliario de oficina, asientos, archivadores, almacenamiento, mesas, escritorios, telas (KnollTextiles) y accesorios para la oficina y domésticos.",
+      description: "El Design Exchange (DX) es un espacio para eventos en Toronto, Ontario, Canadá. Se ubica en el Distrito Financiero, en el histórico edificio de la Bolsa de Valores de Toronto, que en 1991 fue incorporado a un rascacielos, el Toronto-Dominion Centre.",
       descriptionEn: "The Design Exchange (DX) is an event venue in Toronto, Ontario, Canada. It is located in the Financial District in the historical Toronto Stock Exchange building, which in 1991 was incorporated into a skyscraper, the Toronto-Dominion Centre.",
     },
     {
@@ -38523,7 +38523,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Gallery_Arcturus_-_80_Gerrard_St_E%2C_Toronto%2C_ON_M5B_1G6%2C_Canada.jpg/1920px-Gallery_Arcturus_-_80_Gerrard_St_E%2C_Toronto%2C_ON_M5B_1G6%2C_Canada.jpg",
       website: "https://arcturus.ca/",
-      description: "Gallery Arcturus es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Gallery Arcturus es una galería de arte y museo en el centro de Toronto, Ontario, Canadá, ubicada en el barrio de Garden District, en Gerrard Street East, cerca de la Toronto Metropolitan University y la zona de Church and Wellesley.",
       descriptionEn: "Gallery Arcturus is an art gallery and museum in downtown Toronto, Ontario, Canada. It is located in the Garden District neighbourhood on Gerrard Street East near Toronto Metropolitan University and the Church and Wellesley area.",
     },
     {
@@ -38538,8 +38538,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Steam_locomotive_l_6213_in_Railway_Museum_Toronto%2C_Canada..jpg/1920px-Steam_locomotive_l_6213_in_Railway_Museum_Toronto%2C_Canada..jpg",
       website: "https://torontorailwaymuseum.com",
-      description: "Toronto es la capital de la provincia de Ontario y, con una población de 2 794 356 de habitantes, la ciudad más grande y más poblada de Canadá, además del centro financiero de dicho país. Su área metropolitana suma más de 6 202 225 habitantes en total.",
-      descriptionEn: "Toronto is the most populous city in Canada and the capital city of the Canadian province of Ontario. It is located on a harbour at the northwestern shore of Lake Ontario.",
+      description: "El Museo Ferroviario de Toronto, fundado en 2010, ocupa la histórica rotonda ferroviaria John Street, construida en 1929-1931 para el Canadian Pacific Railway, en el Roundhouse Park. Exhibe locomotoras y vagones a tamaño real que narran la historia del ferrocarril en Toronto.",
+      descriptionEn: "The Toronto Railway Museum, founded in 2010, occupies the historic John Street Roundhouse, built in 1929–1931 for the Canadian Pacific Railway, in Roundhouse Park. It displays full-size locomotives and rolling stock telling the story of rail in Toronto.",
     },
     {
       id: "toronto_13",
@@ -38568,8 +38568,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/St._Lawrence_Market%2C_Toronto_%2827287411124%29.jpg/1920px-St._Lawrence_Market%2C_Toronto_%2827287411124%29.jpg",
       website: "https://www.facebook.com/MarketGallery",
-      description: "Toronto es la capital de la provincia de Ontario y, con una población de 2 794 356 de habitantes, la ciudad más grande y más poblada de Canadá, además del centro financiero de dicho país. Su área metropolitana suma más de 6 202 225 habitantes en total.",
-      descriptionEn: "The St. Lawrence Market South building is a major public market building in Toronto, Ontario, Canada. It is located on the southwest corner of Front and Lower Jarvis Streets. Along with the St. Lawrence Market North and St. Lawrence Hall, it comprises the St.",
+      description: "The Market Gallery ocupa lo que fueron las primeras cámaras del Concejo Municipal de Toronto, dentro del edificio del St. Lawrence Market. Tras la restauración del mercado entre 1974 y 1978, el espacio se convirtió en una galería con exposiciones rotativas sobre la historia, el arte y la cultura de Toronto.",
+      descriptionEn: "The Market Gallery occupies what was once Toronto's first purpose-built City Council Chambers, within the St. Lawrence Market building. Following the market's restoration between 1974 and 1978, the space became a gallery with changing exhibits on Toronto's history, art, and culture.",
     },
   ],
   vancouver: [
@@ -44362,8 +44362,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://museudarepublica.museus.gov.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg/960px-Pal%C3%A1cio_do_Catete_-_Museu_da_Rep%C3%BAblica.jpg",
-      description: "Museu da República es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museu da República is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museu da República ocupa el Palácio do Catete, antigua sede de la presidencia de Brasil entre 1897 y 1960. El museo exhibe objetos y documentos sobre la historia política del país durante el período republicano.",
+      descriptionEn: "The Museu da República occupies the Palácio do Catete, the former seat of the Brazilian presidency between 1897 and 1960. The museum displays objects and documents on the country's political history during the republican period.",
     },
     {
       id: "rio_1",
@@ -44377,8 +44377,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "http://www.museu.cbmerj.rj.gov.br/",
       imageUrl: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxyaW8lMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjIyNjk1MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Museu do Corpo de Bombeiros es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museu do Corpo de Bombeiros is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museu do Corpo de Bombeiros exhibe uniformes, equipamiento y documentos históricos relacionados con la trayectoria del Cuerpo de Bomberos del estado de Río de Janeiro.",
+      descriptionEn: "The Fire Department Museum displays uniforms, equipment, and historical documents related to the history of the Rio de Janeiro state Fire Brigade.",
     },
     {
       id: "rio_2",
@@ -44391,8 +44391,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Archivos_do_Museu_Nacional_do_Rio_de_Janeiro_%28IA_archivosdomuseu63museb%29.pdf/page1-1280px-Archivos_do_Museu_Nacional_do_Rio_de_Janeiro_%28IA_archivosdomuseu63museb%29.pdf.jpg",
-      description: "Museu Ciência e Vida es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museu Ciência e Vida is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museu Ciência e Vida es un museo de ciencias interactivo situado en Duque de Caxias, Río de Janeiro, con exhibiciones prácticas sobre física, biología y astronomía, además de un planetario.",
+      descriptionEn: "The Museu Ciência e Vida is an interactive science museum located in Duque de Caxias, Rio de Janeiro, featuring hands-on exhibits on physics, biology, and astronomy, along with a planetarium.",
     },
     {
       id: "rio_3",
@@ -44406,8 +44406,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "http://www.museus.gov.br/os-museus/museus-ibram/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Mai_patio.jpg/960px-Mai_patio.jpg",
-      description: "Museu de Arqueologia de Itaipu es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museu de Arqueologia de Itaipu is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museu de Arqueologia de Itaipu, fundado en 1977 en Niterói, preserva y difunde el patrimonio arqueológico de la región, incluyendo restos de los sambaquis (concheros) de hasta 8000 años de antigüedad dejados por antiguos pueblos pescadores-recolectores.",
+      descriptionEn: "The Museu de Arqueologia de Itaipu, founded in 1977 in Niterói, preserves and showcases the region's archaeological heritage, including remains from sambaquis (shell mounds) up to 8,000 years old left by ancient fisher-gatherer peoples.",
     },
     {
       id: "rio_4",
@@ -44421,8 +44421,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "http://www.macniteroi.com.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Museu_de_Arte_Contempor%C3%A2nea.jpg/960px-Museu_de_Arte_Contempor%C3%A2nea.jpg",
-      description: "Museu de Arte Contemporânea es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museu de Arte Contemporânea is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de Arte Contemporánea de Niterói (MAC) es un museo diseñado por el arquitecto Oscar Niemeyer, inaugurado en 1996, célebre por su forma de platillo volador sobre un mirador con vistas a la bahía de Guanabara y la ciudad de Río de Janeiro.",
+      descriptionEn: "The Niterói Contemporary Art Museum (MAC) was designed by architect Oscar Niemeyer and opened in 1996, famous for its flying-saucer shape perched on a belvedere overlooking Guanabara Bay and the city of Rio de Janeiro.",
     },
     {
       id: "rio_5",
@@ -44436,8 +44436,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       website: "https://parquenacionaldatijuca.rio/locais/capela-mayrink/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Floresta_da_Tijuca_18.jpg/960px-Floresta_da_Tijuca_18.jpg",
-      description: "Capela Mayrink es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Capela Mayrink is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Capela Mayrink es una pequeña capilla situada en el Parque Nacional da Tijuca, en Río de Janeiro, conocida por albergar reproducciones de los murales pintados originalmente por el artista Cândido Portinari.",
+      descriptionEn: "Capela Mayrink is a small chapel located in Tijuca National Park, Rio de Janeiro, known for housing reproductions of murals originally painted by artist Cândido Portinari.",
     },
     {
       id: "rio_6",
@@ -44451,8 +44451,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       website: "http://www.igrejadapenna.org/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Igreja_de_Nossa_Senhora_da_Pena_em_Jacarepagu%C3%A1_%28I%29.jpg/960px-Igreja_de_Nossa_Senhora_da_Pena_em_Jacarepagu%C3%A1_%28I%29.jpg",
-      description: "Igreja de Nossa Senhora da Penna es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Igreja de Nossa Senhora da Penna is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Igreja de Nossa Senhora da Penna es una iglesia católica situada en el barrio de Jacarepaguá, en Río de Janeiro.",
+      descriptionEn: "Igreja de Nossa Senhora da Penna is a Catholic church located in the Jacarepaguá neighborhood of Rio de Janeiro.",
     },
     {
       id: "rio_7",
@@ -44466,8 +44466,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.aquariomarinhodorio.com.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Crivella_no_AquaRio.jpg/960px-Crivella_no_AquaRio.jpg",
-      description: "AquaRio es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "AquaRio is a recommended place to visit and one of the standout attractions in the area.",
+      description: "AquaRio es el mayor acuario marino de Sudamérica, inaugurado en 2016 en la zona portuaria de Río de Janeiro. Alberga más de 8000 animales marinos, incluyendo tiburones, en un gran tanque oceánico.",
+      descriptionEn: "AquaRio is South America's largest marine aquarium, opened in 2016 in Rio de Janeiro's port district. It houses more than 8,000 marine animals, including sharks, in a large ocean tank.",
     },
     {
       id: "rio_8",
@@ -44481,8 +44481,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       website: "http://www.osb.org.br/mosteiro/index.php",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Mosteiro_de_S%C3%A3o_Bento_do_Rio_de_Janeiro_-_Fachada.jpg/960px-Mosteiro_de_S%C3%A3o_Bento_do_Rio_de_Janeiro_-_Fachada.jpg",
-      description: "Igreja e Mosteiro de São Bento es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Igreja e Mosteiro de São Bento is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Igreja e Mosteiro de São Bento es un monasterio benedictino fundado a finales del siglo XVI en Río de Janeiro, célebre por su interior barroco cubierto de talla dorada, considerado uno de los más ricos de Brasil.",
+      descriptionEn: "Igreja e Mosteiro de São Bento is a Benedictine monastery founded in the late 16th century in Rio de Janeiro, renowned for its Baroque interior covered in gilded woodwork, considered one of the richest in Brazil.",
     },
     {
       id: "rio_9",
@@ -44495,8 +44495,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Pal%C3%A1cio_do_Catete_-_Rio_de_Janeiro_-_20220826065059.jpg/1920px-Pal%C3%A1cio_do_Catete_-_Rio_de_Janeiro_-_20220826065059.jpg",
-      description: "Palácio do Catete es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Palácio do Catete is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Palácio do Catete es un antiguo palacio construido en el siglo XIX que sirvió como sede de la presidencia de Brasil entre 1897 y 1960, año en que la capital se trasladó a Brasilia. Hoy alberga el Museu da República.",
+      descriptionEn: "The Palácio do Catete is a 19th-century palace that served as the seat of the Brazilian presidency between 1897 and 1960, when the capital moved to Brasília. It now houses the Museu da República.",
     },
     {
       id: "rio_10",
@@ -44510,8 +44510,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://bioparquedorio.com.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Quinta_da_Boa_Vista_18.jpg/960px-Quinta_da_Boa_Vista_18.jpg",
-      description: "Bio Parque do Rio es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Bio Parque do Rio is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El BioParque do Rio, ubicado en la Quinta da Boa Vista, es el nuevo modelo del histórico Jardim Zoológico de Río de Janeiro, reabierto en 2022 con recintos naturalizados enfocados en la conservación de la fauna.",
+      descriptionEn: "BioParque do Rio, located in Quinta da Boa Vista, is the reimagined successor to Rio de Janeiro's historic zoo, reopened in 2022 with naturalized habitats focused on wildlife conservation.",
     },
     {
       id: "rio_11",
@@ -44524,8 +44524,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Forte_tamandare_da_laje_rj_brasil.JPG/960px-Forte_tamandare_da_laje_rj_brasil.JPG",
-      description: "Forte Tamandaré da Lage es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Forte Tamandaré da Lage is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Forte Tamandaré da Laje se ubica en la isla da Laje, en la entrada de la bahía de Guanabara, Río de Janeiro. Su construcción se inició en 1644 y defendió la entrada de la bahía hasta su desactivación en 1997.",
+      descriptionEn: "Forte Tamandaré da Laje sits on Laje Island, at the entrance to Guanabara Bay, Rio de Janeiro. Construction began in 1644, and the fort defended the bay's entrance until it was deactivated in 1997.",
     },
     {
       id: "rio_12",
@@ -44538,8 +44538,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pal%C3%A1cio_das_Laranjeiras_-_Rio_de_Janeiro_-_20220924171845.jpg/960px-Pal%C3%A1cio_das_Laranjeiras_-_Rio_de_Janeiro_-_20220924171845.jpg",
-      description: "Palácio Laranjeiras es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Palácio Laranjeiras is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Palácio Laranjeiras es la residencia oficial del gobernador del estado de Río de Janeiro, situado en el barrio de Laranjeiras.",
+      descriptionEn: "Palácio Laranjeiras is the official residence of the Governor of Rio de Janeiro state, located in the Laranjeiras neighborhood.",
     },
     {
       id: "rio_13",
@@ -44553,8 +44553,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "http://www.mnmsgm.ensino.eb.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Pracinhas-CCBY.jpg/960px-Pracinhas-CCBY.jpg",
-      description: "Monumento Nacional aos Mortos da Segunda Guerra Mundial es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Monumento Nacional aos Mortos da Segunda Guerra Mundial is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Monumento Nacional a los Muertos de la Segunda Guerra Mundial, en el Parque do Flamengo, Río de Janeiro, honra a los soldados brasileños caídos en el conflicto. Incluye la tumba del soldado desconocido y un museo militar.",
+      descriptionEn: "The National Monument to the Dead of World War II, in Flamengo Park, Rio de Janeiro, honors the Brazilian soldiers who died in the conflict. It includes the tomb of the unknown soldier and a military museum.",
     },
     {
       id: "rio_14",
@@ -44568,8 +44568,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       website: "https://igrejadoscapuchinhos.org.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Igreja_dos_Capuchinhos.JPG",
-      description: "Paróquia São Sebastião dos Capuchinhos es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Paróquia São Sebastião dos Capuchinhos is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Paróquia São Sebastião dos Capuchinhos es una iglesia católica a cargo de la orden de los Capuchinos, situada en Río de Janeiro.",
+      descriptionEn: "Paróquia São Sebastião dos Capuchinhos is a Catholic church run by the Capuchin order, located in Rio de Janeiro.",
     },
     {
       id: "rio_15",
@@ -44583,8 +44583,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.parquesitie.org/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Ipanema_PDS.jpg/960px-Ipanema_PDS.jpg",
-      description: "Morro Dois Irmãos es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Morro Dois Irmãos is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Morro Dois Irmãos («Cerro de los Dos Hermanos») es una formación montañosa de dos picos gemelos entre los barrios de Ipanema, Leblon y la favela del Vidigal, en Río de Janeiro, popular por sus senderos de trekking y vistas panorámicas.",
+      descriptionEn: "Morro Dois Irmãos (\"Two Brothers Hill\") is a twin-peaked mountain formation between the Ipanema and Leblon neighborhoods and the Vidigal favela in Rio de Janeiro, popular for hiking trails and panoramic views.",
     },
     {
       id: "rio_16",
@@ -44598,8 +44598,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       website: "https://www.bcsrio.org.br/cchurch/default.asp",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Rio_de_Janeiro_-_Christ_Church_-_10.jpg/960px-Rio_de_Janeiro_-_Christ_Church_-_10.jpg",
-      description: "Christ Church es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Christ Church is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Christ Church es una iglesia anglicana situada en el barrio de Botafogo, Río de Janeiro, que atiende históricamente a la comunidad de habla inglesa de la ciudad.",
+      descriptionEn: "Christ Church is an Anglican church located in the Botafogo neighborhood of Rio de Janeiro, historically serving the city's English-speaking community.",
     },
     {
       id: "rio_17",
@@ -44613,8 +44613,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.facebook.com/parqueshanghaioficial",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Shanghai_by_Diego_Baravelli_03.jpg/960px-Parque_Shanghai_by_Diego_Baravelli_03.jpg",
-      description: "Parque Shanghai es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Parque Shanghai is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Parque Shanghai es un parque de diversiones y área de recreación familiar situado en Río de Janeiro.",
+      descriptionEn: "Parque Shanghai is an amusement park and family recreation area located in Rio de Janeiro.",
     },
     {
       id: "rio_18",
@@ -44628,8 +44628,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "https://www.salaceciliameireles.com.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Sala_Cec%C3%ADlia_Meireles.jpg/960px-Sala_Cec%C3%ADlia_Meireles.jpg",
-      description: "Sala Cecília Meireles es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Sala Cecília Meireles is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Sala Cecília Meireles es una sala de conciertos de música de cámara situada en el barrio de Lapa, Río de Janeiro, que lleva el nombre de la poetisa brasileña Cecília Meireles.",
+      descriptionEn: "Sala Cecília Meireles is a chamber music concert hall located in the Lapa neighborhood of Rio de Janeiro, named after Brazilian poet Cecília Meireles.",
     },
     {
       id: "rio_19",
@@ -44642,8 +44642,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/At_Rio_de_Janeiro_2019_148.jpg/960px-At_Rio_de_Janeiro_2019_148.jpg",
-      description: "Mahatma Gandhi es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mahatma Gandhi is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La estatua de Mahatma Gandhi se encuentra en una plaza homónima del centro de Río de Janeiro, un homenaje al líder pacifista indio.",
+      descriptionEn: "The statue of Mahatma Gandhi stands in a namesake square in downtown Rio de Janeiro, a tribute to the Indian pacifist leader.",
     },
     {
       id: "rio_20",
@@ -44657,8 +44657,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "http://www.jbrj.gov.br/cultura/espaco_tom_jobim.html",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/JBRJ_-_Espa%C3%A7o_Tom_Jobim_02.jpg/1920px-JBRJ_-_Espa%C3%A7o_Tom_Jobim_02.jpg",
-      description: "Espaço Tom Jobim es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Espaço Tom Jobim is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Espaço Tom Jobim, situado en el Jardín Botánico de Río de Janeiro, es un centro cultural dedicado a la vida y obra del compositor Antônio Carlos Jobim, uno de los creadores de la bossa nova.",
+      descriptionEn: "Espaço Tom Jobim, located in the Rio de Janeiro Botanical Garden, is a cultural center dedicated to the life and work of composer Antônio Carlos Jobim, one of the creators of bossa nova.",
     },
     {
       id: "rio_21",
@@ -44672,8 +44672,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://parquenacionaldatijuca.rio/locais/cascatinha-taunay/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cachoeira_das_Almas_Rio_de_Janeiro_en_2005_%283%29.jpg/960px-Cachoeira_das_Almas_Rio_de_Janeiro_en_2005_%283%29.jpg",
-      description: "Cascatinha Taunay es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Cascatinha Taunay is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Cascatinha Taunay es una cascada situada en el Parque Nacional da Tijuca, Río de Janeiro, que debe su nombre al pintor francés Nicolas-Antoine Taunay.",
+      descriptionEn: "Cascatinha Taunay is a waterfall located in Tijuca National Park, Rio de Janeiro, named after French painter Nicolas-Antoine Taunay.",
     },
     {
       id: "rio_22",
@@ -44687,8 +44687,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "https://estatua.institutomariellefranco.org/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Est%C3%A1tua_Marielle_Franco_-_Buraco_do_Lume%2C_28-07-2022_12.jpg/960px-Est%C3%A1tua_Marielle_Franco_-_Buraco_do_Lume%2C_28-07-2022_12.jpg",
-      description: "Marielle Franco es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Marielle Franco is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El monumento a Marielle Franco rinde homenaje a la concejala, socióloga y activista de derechos humanos carioca, asesinada en 2018, situado en el centro de Río de Janeiro.",
+      descriptionEn: "The monument to Marielle Franco honors the Rio city councilwoman, sociologist, and human rights activist who was assassinated in 2018, located in downtown Rio de Janeiro.",
     },
     {
       id: "rio_23",
@@ -44701,8 +44701,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pra%C3%A7a_General_Tib%C3%BArcio_-_RJ.jpg/960px-Pra%C3%A7a_General_Tib%C3%BArcio_-_RJ.jpg",
-      description: "Praça General Tibúrcio es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Praça General Tibúrcio is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Praça General Tibúrcio es una plaza pública situada en el barrio de Urca, Río de Janeiro.",
+      descriptionEn: "Praça General Tibúrcio is a public square located in the Urca neighborhood of Rio de Janeiro.",
     },
     {
       id: "rio_24",
@@ -44715,8 +44715,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Monumento_a_Pinheiro_Machado.jpg/960px-Monumento_a_Pinheiro_Machado.jpg",
-      description: "Praça Nossa Senhora da Paz es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Praça Nossa Senhora da Paz is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Praça Nossa Senhora da Paz es una plaza pública en el barrio de Ipanema, Río de Janeiro, rodeada de árboles y utilizada por los vecinos para actividades recreativas y culturales.",
+      descriptionEn: "Praça Nossa Senhora da Paz is a public square in the Ipanema neighborhood of Rio de Janeiro, lined with trees and used by residents for recreational and cultural activities.",
     },
     {
       id: "rio_25",
@@ -44729,8 +44729,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Chafariz_da_Pra%C3%A7a_S%C3%A3o_Salvador.jpg/960px-Chafariz_da_Pra%C3%A7a_S%C3%A3o_Salvador.jpg",
-      description: "Praça São Salvador es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Praça São Salvador is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Praça São Salvador es una plaza pública situada en el barrio de Laranjeiras, Río de Janeiro.",
+      descriptionEn: "Praça São Salvador is a public square located in the Laranjeiras neighborhood of Rio de Janeiro.",
     },
     {
       id: "rio_26",
@@ -44743,8 +44743,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Parque_-_Pal%C3%A1cio_do_Catete.jpg/960px-Parque_-_Pal%C3%A1cio_do_Catete.jpg",
-      description: "Jardins do Palácio do Catete es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Jardins do Palácio do Catete is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Los Jardins do Palácio do Catete son un parque público que rodea el antiguo Palácio do Catete, en Río de Janeiro, con senderos arbolados, un lago con peces koi y esculturas.",
+      descriptionEn: "The gardens of Palácio do Catete form a public park surrounding the former presidential palace in Rio de Janeiro, featuring tree-lined paths, a koi pond, and sculptures.",
     },
     {
       id: "rio_27",
@@ -44758,8 +44758,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.feiradesaocristovao.org.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Mercado_by_Diego_Baravelli.jpg/960px-Mercado_by_Diego_Baravelli.jpg",
-      description: "Centro Luiz Gonzaga de Tradições Nordestinas es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Centro Luiz Gonzaga de Tradições Nordestinas is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Centro Luiz Gonzaga de Tradições Nordestinas, conocido como Feira de São Cristóvão, es un mercado y centro cultural en Río de Janeiro dedicado a la gastronomía, música y artesanía del nordeste brasileño.",
+      descriptionEn: "The Centro Luiz Gonzaga de Tradições Nordestinas, known as the Feira de São Cristóvão, is a market and cultural center in Rio de Janeiro dedicated to the food, music, and crafts of northeastern Brazil.",
     },
     {
       id: "rio_28",
@@ -44773,8 +44773,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "http://www.theatromunicipal.rj.gov.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Teatro_Municipal_-_panoramio_%284%29.jpg/960px-Teatro_Municipal_-_panoramio_%284%29.jpg",
-      description: "Theatro Municipal es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Theatro Municipal is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Theatro Municipal do Rio de Janeiro es un teatro de ópera inaugurado en 1909, inspirado en la Ópera de París, y considerado uno de los edificios más emblemáticos del centro de la ciudad.",
+      descriptionEn: "The Theatro Municipal do Rio de Janeiro is an opera house that opened in 1909, inspired by the Paris Opera, and considered one of the most iconic buildings in the city center.",
     },
     {
       id: "rio_29",
@@ -44788,8 +44788,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "https://www.funarj.rj.gov.br/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/TeatroJoaoCaetanoRJ.JPG/960px-TeatroJoaoCaetanoRJ.JPG",
-      description: "Teatro João Caetano es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Teatro João Caetano is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Teatro João Caetano, inaugurado en 1813, es uno de los teatros más antiguos de Río de Janeiro, situado en la Praça Tiradentes.",
+      descriptionEn: "Teatro João Caetano, opened in 1813, is one of the oldest theaters in Rio de Janeiro, located on Praça Tiradentes.",
     },
     {
       id: "rio_30",
@@ -44803,8 +44803,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://cristoredentor.com.br/",
       imageUrl: "https://images.unsplash.com/photo-1518639192441-8fce0a366e2e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDcmlzdG8lMjBSZWRlbnRvciUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTU1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Cristo Redentor es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Cristo Redentor is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Cristo Redentor es una estatua art déco de Jesucristo, de 38 metros de altura, situada en la cima del monte Corcovado, en Río de Janeiro. Inaugurada en 1931, es uno de los símbolos más reconocidos de Brasil y una de las Nuevas Siete Maravillas del Mundo.",
+      descriptionEn: "Christ the Redeemer is a 38-meter-tall Art Deco statue of Jesus Christ atop Corcovado Mountain in Rio de Janeiro. Inaugurated in 1931, it is one of Brazil's most recognized symbols and one of the New Seven Wonders of the World.",
     },
     {
       id: "rio_31",
@@ -44818,8 +44818,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://bondinho.com.br/",
       imageUrl: "https://images.unsplash.com/photo-1651776526733-6e0f98ad6e55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQJUMzJUEzbyUyMGRlJTIwQSVDMyVBNyVDMyVCQWNhciUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTYxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Pão de Açúcar es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Pão de Açúcar is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Pan de Azúcar es un monolito de granito y cuarzo de 396 metros de altura situado en la bahía de Guanabara, Río de Janeiro. Se accede a su cima mediante un teleférico inaugurado en 1912, con vistas panorámicas de la ciudad.",
+      descriptionEn: "Sugarloaf Mountain is a 396-meter granite and quartz monolith located in Guanabara Bay, Rio de Janeiro. Its summit is reached by a cable car inaugurated in 1912, offering panoramic views of the city.",
     },
     {
       id: "rio_32",
@@ -44833,8 +44833,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.jbrj.gov.br/",
       imageUrl: "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKYXJkaW0lMjBCb3QlQzMlQTJuaWNvJTIwZG8lMjBSaW8lMjBkZSUyMEphbmVpcm8lMjByaW98ZW58MXwwfHx8MTc4MjIyNjk2NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Jardim Botânico do Rio de Janeiro es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Jardim Botânico do Rio de Janeiro is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Jardín Botánico de Río de Janeiro fue fundado en 1808 por orden del rey Don João VI y alberga más de 6500 especies vegetales, incluyendo una famosa avenida de palmeras reales.",
+      descriptionEn: "The Rio de Janeiro Botanical Garden was founded in 1808 by order of King João VI and is home to more than 6,500 plant species, including a famous avenue of royal palms.",
     },
     {
       id: "rio_33",
@@ -44847,8 +44847,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1637876308735-74230b34461a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmFpYSUyMGRlJTIwQ29wYWNhYmFuYSUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTY2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Praia de Copacabana es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Praia de Copacabana is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La playa de Copacabana es una de las playas más famosas del mundo, un arco de 4 kilómetros de arena en la zona sur de Río de Janeiro, bordeado por el icónico paseo de mosaicos ondulados de Roberto Burle Marx.",
+      descriptionEn: "Copacabana Beach is one of the most famous beaches in the world, a 4-kilometer arc of sand in Rio de Janeiro's South Zone, lined by the iconic wave-patterned mosaic promenade designed by Roberto Burle Marx.",
     },
     {
       id: "rio_34",
@@ -44861,8 +44861,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1597928384490-3c67d7d17558?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmFpYSUyMGRlJTIwSXBhbmVtYSUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTY4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Praia de Ipanema es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Praia de Ipanema is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La playa de Ipanema es una de las playas más célebres de Río de Janeiro, inmortalizada en la canción «Garota de Ipanema» de Tom Jobim y Vinicius de Moraes, y conocida por su ambiente bohemio y sus atardeceres.",
+      descriptionEn: "Ipanema Beach is one of Rio de Janeiro's most famous beaches, immortalized in the song \"The Girl from Ipanema\" by Tom Jobim and Vinicius de Moraes, known for its bohemian atmosphere and sunsets.",
     },
     {
       id: "rio_35",
@@ -44876,8 +44876,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       website: "https://parquenacionaldatijuca.rio/",
       imageUrl: "https://images.unsplash.com/photo-1568391224315-9e9e5d6c60f2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBOYWNpb25hbCUyMGRhJTIwVGlqdWNhJTIwcmlvfGVufDF8MHx8fDE3ODIyMjY5NzF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Parque Nacional da Tijuca es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Parque Nacional da Tijuca is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Parque Nacional da Tijuca es el mayor bosque urbano del mundo, un macizo montañoso de selva atlántica reforestada en el siglo XIX en el corazón de Río de Janeiro, que alberga cascadas, senderos y el pico Corcovado.",
+      descriptionEn: "Tijuca National Park is the world's largest urban forest, a mountainous mass of Atlantic rainforest replanted in the 19th century in the heart of Rio de Janeiro, home to waterfalls, hiking trails, and Corcovado peak.",
     },
     {
       id: "rio_36",
@@ -44890,8 +44890,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1626568939799-7bfecb41b61c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBcmNvcyUyMGRhJTIwTGFwYSUyMHJpb3xlbnwxfDB8fHwxNzgyMjI2OTc0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Arcos da Lapa es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Arcos da Lapa is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Los Arcos da Lapa, o Acueducto de la Carioca, son un antiguo acueducto de arcos de piedra del siglo XVIII que hoy sirve como viaducto para el tranvía de Santa Teresa, uno de los símbolos del centro de Río de Janeiro.",
+      descriptionEn: "Arcos da Lapa, or the Carioca Aqueduct, is a stone-arched 18th-century aqueduct that today serves as a viaduct for the Santa Teresa tram, one of the symbols of downtown Rio de Janeiro.",
     },
     {
       id: "rio_37",
@@ -44905,8 +44905,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.exercito.gov.br/fortedecopacabana",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Boca_da_Ba%C3%ADa_de_Guanabara_e_orlas_artificiais_-_Parque_do_Flamengo%2C_Fortes_Hist%C3%B3ricos_de_Niter%C3%B3i%2C_Monumento_Natural_do_P%C3%A3o_de_A%C3%A7%C3%BAcar%2C_orla_mar%C3%ADtima_de_Copacabana_-_Rio_de_Janeiro_-_20240623064031.jpg/1920px-thumbnail.jpg",
-      description: "Forte de Copacabana es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Forte de Copacabana is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Forte de Copacabana es una fortificación militar construida a principios del siglo XX en el extremo sur de la playa de Copacabana, Río de Janeiro, que hoy alberga un museo histórico del Ejército brasileño.",
+      descriptionEn: "Forte de Copacabana is a military fortification built in the early 20th century at the southern end of Copacabana beach, Rio de Janeiro, which today houses a historical museum of the Brazilian Army.",
     },
     {
       id: "rio_38",
@@ -44920,8 +44920,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       website: "https://www.rio.rj.gov.br/web/riotur/exibirconteudo?id=1231808",
       imageUrl: "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYW1iJUMzJUIzZHJvbW8lMjBNYXJxdSVDMyVBQXMlMjBkZSUyMFNhcHVjYSVDMyVBRCUyMFJpbyUyMGRlJTIwSmFuZWlybyUyMEJyYXppbHxlbnwxfDB8fHwxNzgzNTU4MDA2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Sambódromo Marquês de Sapucaí es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Sambódromo Marquês de Sapucaí is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Sambódromo Marquês de Sapucaí, diseñado por el arquitecto Oscar Niemeyer e inaugurado en 1984, es el recinto donde desfilan las escuelas de samba durante el Carnaval de Río de Janeiro.",
+      descriptionEn: "The Sambódromo Marquês de Sapucaí, designed by architect Oscar Niemeyer and opened in 1984, is the venue where samba schools parade during Rio de Janeiro's Carnival.",
     },
     {
       id: "rio_39",
@@ -44948,8 +44948,8 @@ export const CURATED_ALL: CuratedMap = {
         notes: "4, 5, 6, 7, 11, 12 y 13 sep 2026",
       },
       imageUrl: "https://static-amplitur.s3.eu-central-1.amazonaws.com/images/thumbnail2x-61cdfe7a50b4e-rock-in-rio-brasil.webp",
-      description: "Rock in Rio es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Rock in Rio is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Rock in Rio es uno de los festivales de música más grandes del mundo, fundado en Río de Janeiro en 1985, que reúne a artistas internacionales de rock, pop y otros géneros en ediciones celebradas periódicamente en Brasil y otros países.",
+      descriptionEn: "Rock in Rio is one of the largest music festivals in the world, founded in Rio de Janeiro in 1985, bringing together international rock, pop, and other genre artists in editions held periodically in Brazil and other countries.",
     },
   ],
   saopaulo: [
@@ -49304,7 +49304,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1616959313137-186688889054?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYXBhdGFpYSUyMFB1bnRhJTIwZGVsJTIwRXN0ZSUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NDk4Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La bahía Lapataia es en verdad un fiordo ubicado en la margen septentrional del canal Beagle, en el extremo sudoeste del sector argentino de la isla Grande de Tierra del Fuego, perteneciente al Departamento Ushuaia de la Provincia de Tierra del Fuego, Antártida e Islas del…",
-      descriptionEn: "Laetitia Marie Madeleine Susanne Valentine de Belzunce d'Arenberg, mostly known as Laetitia d'Arenberg, is a French-Uruguayan businesswoman, socialite and philanthropist.",
+      descriptionEn: "Lapataia Bay is a fjord-like bay on the northern shore of the Beagle Channel, at the southwestern tip of the Argentine side of Tierra del Fuego, within Tierra del Fuego National Park near Ushuaia.",
     },
     {
       id: "puntadeleste_15",
@@ -49317,8 +49317,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1589550552885-7ca9f2088974?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWVqbyUyME1vbGlubyUyMEhpc3QlQzMlQjNyaWNvJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg1MDYyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Según la declaración de bien de interés cultural publicada en el BOE n.º 282 de fecha 24 de noviembre de 2000, el molino de viento La Unión, en el municipio de Camuñas, fue posiblemente construido en 1866, fecha que figura sobre la puerta, pero parece ser que en realidad esta es…",
-      descriptionEn: "La Plata is the capital city of Buenos Aires province, Argentina. According to the 2022 census, the Partido has a population of 772,618 and its metropolitan area, the Greater La Plata, has 938,287 inhabitants.",
+      description: "El Molino de Giot es un antiguo molino de viento reconvertido en vivienda, construido a comienzos del siglo XX por el arquitecto francés Eduardo Le Monnier en el barrio Beverly Hills de Punta del Este. Fue residencia del artista francés André Giot de Badet y es hoy un ícono arquitectónico de la ciudad.",
+      descriptionEn: "The Molino de Giot (Giot Mill) is a historic windmill-turned-residence built in the early 20th century by French architect Eduardo Le Monnier in the Beverly Hills neighborhood of Punta del Este, Uruguay. It was once home to French artist André Giot de Badet and remains one of the city's architectural landmarks.",
     },
     {
       id: "puntadeleste_16",
@@ -49717,7 +49717,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1692707863207-c3be405ac813?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWVqbyUyME1vbGlubyUyMEhpc3QlQzMlQjNyaWNvJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg2MjczfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Molino Lavagna es un histórico molino ubicado en la ciudad de San Carlos, en el departamento de Maldonado, y forma parte del patrimonio cultural de la ciudad.",
-      descriptionEn: "La Plata is the capital city of Buenos Aires province, Argentina. According to the 2022 census, the Partido has a population of 772,618 and its metropolitan area, the Greater La Plata, has 938,287 inhabitants.",
+      descriptionEn: "The Molino Lavagna is a historic mill located in the city of San Carlos, in the Maldonado department of Uruguay, and forms part of the city's cultural heritage.",
     },
     {
       id: "maldonado_17",
@@ -52695,8 +52695,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/17/The_City_of_Santa_Cruz.jpg",
       website: "https://distritomunicipal11.gmsantacruz.gob.bo/museo-de-la-ciudad-altillo-beni/",
-      description: "Santa Cruz de la Sierra, también conocida como Santa Cruz, es una ciudad de Bolivia, ubicada en los llanos orientales del país, en la cuenca del Amazonas, a orillas del río Piraí. Es también la capital del departamento de Santa Cruz.",
-      descriptionEn: "Alejandro Ros is an Argentine graphic designer and occasional music video director. Known for designing the album covers for Argentine singers and musicians, including Luis Alberto Spinetta, Gustavo Cerati, Juana Molina, Babasónicos, Fito Páez and Miranda!, amongst others, as…",
+      description: "El Museo de la Ciudad Altillo Beni funciona en un edificio patrimonial de más de 170 años, uno de los referentes de la arquitectura cruceña del siglo XIX. Restaurado en 2016, alberga siete salas permanentes que recorren la historia, morfología e identidad cultural de Santa Cruz de la Sierra.",
+      descriptionEn: "The Museo de la Ciudad Altillo Beni occupies a heritage building over 170 years old, a landmark of 19th-century Santa Cruz architecture. Restored in 2016, it houses seven permanent exhibition halls tracing the history, morphology, and cultural identity of Santa Cruz de la Sierra, Bolivia.",
     },
     {
       id: "santacruz_6",
@@ -52709,8 +52709,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Memoria_le%C3%ADda_en_la_solemne_apertura_del_curso_acad%C3%A9mico_de_1861_a_1862%2C_del_Real_Colegio_de_San_Bartolom%C3%A9_y_Santiago_Instituto_de_Segunda_Ense%C3%B1anza_de_la_Provincia_de_Granadda_en_el_d%C3%ADa_16_de_%28IA_A11406907%29.pdf/page1-330px-thumbnail.pdf.jpg",
-      description: "Fray Juan de los Ríos y Berriz Castañeda de Santa Cruz O.P., fue un religioso dominico que ocupó altos cargos eclesiásticos y académicos en el Virreinato del Perú. Rector de la Universidad de San Marcos, provincial de su Orden y obispo de Santa Cruz de la Sierra.",
-      descriptionEn: "La Plata is the capital city of Buenos Aires province, Argentina. According to the 2022 census, the Partido has a population of 772,618 and its metropolitan area, the Greater La Plata, has 938,287 inhabitants.",
+      description: "El edificio del Rectorado de la Universidad Autónoma Gabriel René Moreno, construido en 1940 en la esquina de las calles Junín y Libertad, es el centro administrativo histórico de la principal casa de estudios superiores de Santa Cruz de la Sierra, fundada en 1880.",
+      descriptionEn: "The Rectorado building of the Gabriel René Moreno Autonomous University, built in 1940 at the corner of Junín and Libertad streets, is the historic administrative center of Santa Cruz de la Sierra's main institution of higher education, founded in 1880.",
     },
     {
       id: "santacruz_7",
@@ -57037,8 +57037,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b4/QuilmesCityMontage.jpg",
-      description: "Quilmes es una ciudad argentina ubicada sobre la costa del Río de la Plata, en el sudeste del área metropolitana de Buenos Aires, a 19 km de su acceso más cercano a la Ciudad Autónoma de Buenos Aires.",
-      descriptionEn: "Buenos Aires, officially the Autonomous City of Buenos Aires, is the capital and largest city of Argentina. It is located on the southwest of the Río de la Plata. Buenos Aires is classified as an Alpha− global city, according to the GaWC 2024 ranking.",
+      description: "El Museo Regional Puerto Bemberg reúne material arqueológico, geológico e histórico de la zona de Puerto Bemberg, antiguo nombre de la localidad fundada por el inmigrante alemán Otto Bemberg cerca de las Cataratas del Iguazú, en la provincia de Misiones, Argentina.",
+      descriptionEn: "The Museo Regional Puerto Bemberg brings together archaeological, geological, and historical material from the Puerto Bemberg area, the original name of the settlement founded by German immigrant Otto Bemberg near Iguazú Falls in Argentina's Misiones province.",
     },
   ],
   sanbernardinopy: [
@@ -57311,8 +57311,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Cat%C3%A1logo_de_la_Exposici%C3%B3n_de_retratos%2C_paisajes_y_otros_grabados_-_C._E._Pellegrini.pdf/page1-330px-Cat%C3%A1logo_de_la_Exposici%C3%B3n_de_retratos%2C_paisajes_y_otros_grabados_-_C._E._Pellegrini.pdf.jpg",
-      description: "Isla Umbú es una pujante localidad del Paraguay, localizada en el Departamento de Ñeembucú, a 12 km de Pilar. Es conocida como la \"Cuenca Lechera del Ñeembucú\".",
-      descriptionEn: "Buenos Aires, officially the Autonomous City of Buenos Aires, is the capital and largest city of Argentina. It is located on the southwest of the Río de la Plata. Buenos Aires is classified as an Alpha− global city, according to the GaWC 2024 ranking.",
+      description: "El Museo Histórico Coronel Pedro Hermosa ocupa el antiguo Cabildo de Isla Umbú, construido en 1862, que sirvió como cuartel de campaña del mariscal Francisco Solano López durante la Guerra de la Triple Alianza. Exhibe pinturas y objetos relacionados con esa guerra y con los antiguos pobladores del Ñeembucú.",
+      descriptionEn: "The Museo Histórico Coronel Pedro Hermosa occupies the former Cabildo (town council building) of Isla Umbú, built in 1862, which served as a field headquarters for Marshal Francisco Solano López during the War of the Triple Alliance. It exhibits paintings and objects related to that war and to the early settlers of the Ñeembucú region.",
     },
     {
       id: "pilar_1",
@@ -69775,8 +69775,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Catedral_Panam%C3%A1_Viejo.jpg",
-      description: "Panamá la Vieja o Panamá Viejo es el nombre que recibe el sitio arqueológico donde se localizaba la ciudad de Panamá desde su fundación en 1519 hasta 1671. Su denominación original fue Nuestra Señora de la Asunción de Panamá.",
-      descriptionEn: "Casas Terrin is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Casas Terrín es el nombre dado, dentro del sitio arqueológico de Panamá Viejo, a otro grupo de viviendas coloniales del siglo XVI que bordeaban la plaza principal de la ciudad, de las que hoy solo se conservan las bases.",
+      descriptionEn: "Casas Terrín is the name given, within the Panamá Viejo archaeological site, to another group of 16th-century colonial houses that bordered the city's main plaza, of which only the foundations survive today.",
     },
     {
       id: "panamacity_14",
@@ -69789,8 +69789,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Panam%C3%A1_y_el_canal%2C_con_ciento_cuarenta_y_una_ilustraciones%3B_%28IA_panamyelcanalc00hall%29.pdf/page1-500px-Panam%C3%A1_y_el_canal%2C_con_ciento_cuarenta_y_una_ilustraciones%3B_%28IA_panamyelcanalc00hall%29.pdf.jpg",
-      description: "La Ciudad de Panamá es la capital y ciudad más poblada de la República de Panamá, de la Provincia de Panamá y cabecera del Distrito de Panamá. Está ubicada a orillas del océano Pacífico y del golfo de Panamá, sobre la margen oriental de la desembocadura del Canal de Panamá.",
-      descriptionEn: "Buenos Aires, officially the Autonomous City of Buenos Aires, is the capital and largest city of Argentina. It is located on the southwest of the Río de la Plata. Buenos Aires is classified as an Alpha− global city, according to the GaWC 2024 ranking.",
+      description: "Casas Oeste es el nombre dado en el sitio arqueológico de Panamá Viejo a un conjunto de viviendas coloniales del siglo XVI que rodeaban la plaza principal de la ciudad, de las que hoy solo se conservan las bases. Panamá Viejo fue la primera ciudad hispánica fundada en el Pacífico, en 1519.",
+      descriptionEn: "Casas Oeste is the name given, within the Panamá Viejo archaeological site, to a group of 16th-century colonial houses that once surrounded the city's main plaza, of which only the foundations survive today. Panamá Viejo was the first Hispanic settlement on the Pacific, founded in 1519.",
     },
   ],
   bocasdeltoro: [
@@ -73094,8 +73094,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Puerto Plata es una de las 32 provincias de la República Dominicana. Creada el 4 de junio de 1877, se encuentra ubicada a 207 km al norte de Santo Domingo, capital del país, y a 72 km de Santiago de los Caballeros.",
-      descriptionEn: "La Plata is the capital city of Buenos Aires province, Argentina. According to the 2022 census, the Partido has a population of 772,618 and its metropolitan area, the Greater La Plata, has 938,287 inhabitants.",
+      description: "El Anfiteatro Juan Lockward es un anfiteatro al aire libre de 2,062 m² frente al mar, con capacidad para 4,000 espectadores, ubicado en el sector La Puntilla del malecón de Puerto Plata, junto a la Fortaleza San Felipe. Inaugurado en 2017, alberga conciertos y eventos culturales.",
+      descriptionEn: "The Juan Lockward Amphitheater is a 2,062 m² open-air, oceanfront venue with capacity for 4,000 spectators, located in the La Puntilla area of Puerto Plata's Malecón, next to the San Felipe Fortress. Opened in 2017, it hosts concerts and cultural events.",
     },
     {
       id: "puertoplata_8",
