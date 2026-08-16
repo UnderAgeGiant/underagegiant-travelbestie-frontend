@@ -10,6 +10,7 @@ import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../mode
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
+import { HighlightType, HighlightStatus } from '../models/highlight.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
@@ -358,6 +359,16 @@ export class ApiService {
   getFavorites(): Observable<FavoritedTrip[]> {
     if (this.useMocks) return of([]);
     return this.http.get<FavoritedTrip[]>(`${this.base}/favorites`);
+  }
+
+  getHighlightStatus(type: HighlightType): Observable<HighlightStatus> {
+    if (this.useMocks) return of({ seen: false });
+    return this.http.get<HighlightStatus>(`${this.base}/highlights/${type}/status`);
+  }
+
+  markHighlightSeen(type: HighlightType): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/highlights/${type}/seen`, {});
   }
 
   getNotifications(): Observable<{ notifications: AppNotification[] }> {
