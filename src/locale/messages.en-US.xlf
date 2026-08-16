@@ -2161,6 +2161,23 @@
         <target>Time</target>
       </trans-unit>
 
+      <trans-unit id="highlightTour.closeAria" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="highlightTour.prevBtn" datatype="html">
+        <source>← Atrás</source>
+        <target>← Back</target>
+      </trans-unit>
+      <trans-unit id="highlightTour.nextBtn" datatype="html">
+        <source>Siguiente →</source>
+        <target>Next →</target>
+      </trans-unit>
+      <trans-unit id="highlightTour.finishBtn" datatype="html">
+        <source>¡Entendido!</source>
+        <target>Got it!</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
