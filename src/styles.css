@@ -2611,7 +2611,6 @@ app-nav { display: block; }
   position: fixed; z-index: 5002;
   display: flex; align-items: flex-start; gap: 12px;
   width: min(340px, calc(100vw - 32px));
-  max-height: calc(100vh - 32px);
   animation: fadeUp .22s cubic-bezier(.22,1,.36,1) both;
 }
 .tour-dog {
@@ -2625,10 +2624,9 @@ app-nav { display: block; }
   background: #fff; border: 3px solid var(--t1); border-radius: 20px;
   padding: 16px 18px; box-shadow: 6px 6px 0 oklch(0% 0 0/.16);
   width: 100%;
-  max-height: calc(100vh - 32px); overflow-y: auto;
 }
 .tour-close {
-  position: absolute; top: -12px; right: -12px;
+  position: absolute; top: -34px; right: 0;
   width: 28px; height: 28px; border-radius: 50%;
   background: #fff; border: 2px solid var(--t1); color: var(--t1);
   display: flex; align-items: center; justify-content: center;
