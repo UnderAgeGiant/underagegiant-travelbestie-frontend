@@ -2610,7 +2610,8 @@ app-nav { display: block; }
 .tour-scene {
   position: fixed; z-index: 5002;
   display: flex; align-items: flex-start; gap: 12px;
-  width: 340px;
+  width: min(340px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
   animation: fadeUp .22s cubic-bezier(.22,1,.36,1) both;
 }
 .tour-dog {
@@ -2624,6 +2625,7 @@ app-nav { display: block; }
   background: #fff; border: 3px solid var(--t1); border-radius: 20px;
   padding: 16px 18px; box-shadow: 6px 6px 0 oklch(0% 0 0/.16);
   width: 100%;
+  max-height: calc(100vh - 32px); overflow-y: auto;
 }
 .tour-close {
   position: absolute; top: -12px; right: -12px;
@@ -2636,7 +2638,3 @@ app-nav { display: block; }
 .tour-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .tour-step-counter { font-size: 11px; color: var(--t3); font-weight: 700; }
 .tour-nav-buttons { display: flex; gap: 8px; margin-left: auto; }
-
-@media (max-width: 640px) {
-  .tour-scene { width: calc(100vw - 32px); }
-}

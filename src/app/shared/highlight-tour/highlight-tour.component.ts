@@ -62,6 +62,9 @@ export class HighlightTourComponent implements OnInit, OnDestroy {
 
   protected readonly dogImage = computed(() => DOG_LOOP_IMAGES[this.frameIndex()]);
 
+  // Bound once so removeEventListener (capture-phase, see ngOnInit) can find the same reference.
+  private readonly onScroll = (): void => this.tour.recomputeRect();
+
   ngOnInit(): void {
     // Must always win the stacking order against <app-nav> regardless of where this
     // component is declared — same reparent-to-<body> technique as CitySuggestCloudComponent.
@@ -72,11 +75,18 @@ export class HighlightTourComponent implements OnInit, OnDestroy {
     this.loopHandle = setInterval(() => {
       this.frameIndex.update(i => (i + 1) % DOG_LOOP_IMAGES.length);
     }, DOG_LOOP_FRAME_MS);
+
+    // Scroll events on an inner scrollable element (e.g. `.landing-scroll`, the scroll-snap
+    // container) don't bubble to window — a plain `window:scroll` HostListener would miss them.
+    // Capture-phase listeners on window DO see every scroll in the tree, bubbling or not, so
+    // the spotlight ring stays glued to its target as any ancestor scrolls, not just the window.
+    window.addEventListener('scroll', this.onScroll, true);
   }
 
   ngOnDestroy(): void {
     this.elementRef.nativeElement.remove();
     if (this.loopHandle !== null) clearInterval(this.loopHandle);
+    window.removeEventListener('scroll', this.onScroll, true);
   }
 
   protected stepText(step: HighlightStep): string {
@@ -93,10 +103,21 @@ export class HighlightTourComponent implements OnInit, OnDestroy {
   protected sceneStyle(): string {
     const r = this.tour.targetRect();
     if (!r) return 'top:50%;left:50%;transform:translate(-50%,-50%)';
+
+    // Matches the CSS `width: min(340px, calc(100vw - 32px))` — the JS placement math has to
+    // agree with the actual rendered width, or a narrow viewport clamps left/top against a
+    // box size that's wider than what's really on screen and the bubble spills off the edge.
+    const width = Math.min(BUBBLE_WIDTH, window.innerWidth - 32);
+
     const spaceBelow = window.innerHeight - r.bottom;
     const placeBelow = spaceBelow > BUBBLE_HEIGHT_ESTIMATE + 24;
-    const top = placeBelow ? r.bottom + 16 : Math.max(16, r.top - BUBBLE_HEIGHT_ESTIMATE);
-    const left = Math.min(Math.max(16, r.left), window.innerWidth - BUBBLE_WIDTH - 16);
+    const rawTop = placeBelow ? r.bottom + 16 : r.top - BUBBLE_HEIGHT_ESTIMATE;
+    // Clamp against BOTH edges — the previous version only floored at 16, so a step whose
+    // target sits near the bottom of a tall page (nothing below it to place the bubble under,
+    // and not enough room above either) could still push the bubble's estimated height past
+    // the bottom of the viewport.
+    const top = Math.min(Math.max(16, rawTop), Math.max(16, window.innerHeight - BUBBLE_HEIGHT_ESTIMATE - 16));
+    const left = Math.min(Math.max(16, r.left), Math.max(16, window.innerWidth - width - 16));
     return `top:${top}px;left:${left}px`;
   }
 
