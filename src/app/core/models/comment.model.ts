@@ -50,7 +50,8 @@ export interface Attraction {
   estimatedMinutes: number;
   imageUrl?:        string;
   images?:          string[];  // extra photos, shown as a carousel in AttractionDetailModalComponent (imageUrl is always the cover/first photo)
-  description?:     string;
+  description?:     string;   // Spanish (default-locale) description
+  descriptionEn?:   string;   // English description; falls back to `description` when absent
   website?:         string | null;
   schedule?:        WeeklySchedule | null;
   ticketUrl?:       string | null;

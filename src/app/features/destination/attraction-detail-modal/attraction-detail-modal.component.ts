@@ -18,6 +18,8 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { attractionImages } from '../../../core/utils/attraction-images.util';
+import { localizedDescription } from '../../../core/utils/attraction-description.util';
+import { LocaleService } from '../../../core/i18n/locale.service';
 import { ToastService } from '../../../core/ui/toast.service';
 import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/attraction-image-lightbox.component';
 
@@ -118,6 +120,10 @@ import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/a
       letter-spacing: .6px; font-weight: 600;
     }
     .dur-value { font-size: 22px; font-weight: 800; color: var(--t1); margin-top: 2px; }
+    .detail-description {
+      font-size: 13.5px; line-height: 1.5; color: var(--t2);
+      margin: 0 0 16px;
+    }
     .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
     .comments-head {
       display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
@@ -212,6 +218,10 @@ import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/a
           </div>
 
           <hr class="divider">
+
+          @if (description()) {
+            <p class="detail-description">{{ description() }}</p>
+          }
 
           <!-- Enrichment: hours / ticket / website / maps -->
           <div class="detail-enrich">
@@ -338,6 +348,7 @@ export class AttractionDetailModalComponent {
   private readonly trip       = inject(TripService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
   private readonly toast      = inject(ToastService);
+  private readonly locale     = inject(LocaleService);
   private readonly api        = inject(ApiService);
   private readonly cooldown   = inject(CommentCooldownService);
   private readonly karmaModal = inject(KarmaModalService);
@@ -355,6 +366,8 @@ export class AttractionDetailModalComponent {
   readonly activeStop = computed(() => this.trip.activeStop());
 
   readonly images = computed(() => attractionImages(this.attraction()));
+
+  readonly description = computed(() => localizedDescription(this.attraction(), this.locale.current()));
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 
