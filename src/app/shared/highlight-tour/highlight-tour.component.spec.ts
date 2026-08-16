@@ -12,10 +12,7 @@ describe('HighlightTourComponent', () => {
   let registry: HighlightRegistryService;
 
   beforeEach(() => {
-    document.cookie.split(';').forEach(c => {
-      const name = c.split('=')[0].trim();
-      if (name.startsWith('tb_highlight_seen_')) document.cookie = `${name}=; path=/; max-age=0`;
-    });
+    sessionStorage.clear();
     TestBed.configureTestingModule({
       imports: [HighlightTourComponent],
       providers: [

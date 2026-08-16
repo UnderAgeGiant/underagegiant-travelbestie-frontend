@@ -35,19 +35,20 @@ export class HighlightTourService {
    * *calling* `start()` can only reflect state as of that call; if the caller's condition
    * flips false while the HTTP request for this call is still in flight (e.g. the visitor
    * finishes logging in during those ~100–300 ms), showing the tour anyway would be wrong.
-   * A `false` result silently aborts — no cookie/Redis/DB write, exactly as if `start()`
-   * had never been called, since nothing was ever actually shown.
+   * A `false` result silently aborts — no Redis/DB write, exactly as if `start()` had never
+   * been called, since nothing was ever actually shown.
+   *
+   * No separate "already seen locally" pre-check here — `checkServerStatus` already
+   * consults its own sessionStorage cache first and only calls the network when nothing is
+   * cached yet, so this is already a no-op HTTP-wise on every `start()` after the first one
+   * in a given tab session (see HighlightSeenService).
    */
   start(type: HighlightType, options?: { shouldStillShow?: () => boolean }): void {
     if (this._activeType()) return; // a tour is already showing — never stack two
-    if (this.seen.hasSeenLocally(type)) return;
 
     this.seen.checkServerStatus(type).subscribe({
       next: seenOnServer => {
-        if (seenOnServer) {
-          this.seen.markSeenLocally(type); // heal the cookie so future loads skip the network round trip
-          return;
-        }
+        if (seenOnServer) return;
         if (options?.shouldStillShow && !options.shouldStillShow()) return;
         this._activeType.set(type);
         this._stepIndex.set(0);

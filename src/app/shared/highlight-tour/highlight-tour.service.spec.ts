@@ -17,10 +17,7 @@ describe('HighlightTourService', () => {
   }
 
   beforeEach(() => {
-    document.cookie.split(';').forEach(c => {
-      const name = c.split('=')[0].trim();
-      if (name.startsWith('tb_highlight_seen_')) document.cookie = `${name}=; path=/; max-age=0`;
-    });
+    sessionStorage.clear();
     TestBed.configureTestingModule({
       providers: [
         provideHttpClient(withXhr()), provideHttpClientTesting(),
@@ -35,7 +32,7 @@ describe('HighlightTourService', () => {
 
   afterEach(() => http.verify());
 
-  it('start() does nothing (no request) when the cookie already marks it seen', () => {
+  it('start() does nothing (no request) when the session cache already marks it seen', () => {
     seen.markSeenLocally('landing_welcome');
     service.start('landing_welcome');
     http.expectNone(r => r.url.includes('/highlights/'));
@@ -52,7 +49,7 @@ describe('HighlightTourService', () => {
     expect(service.currentStep()?.targetId).toBe('login-btn');
   });
 
-  it('start() does not open the tour when the server says already seen, and heals the local cookie', () => {
+  it('start() does not open the tour when the server says already seen, and caches that answer locally', () => {
     registerAllLandingTargets();
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/highlights/landing_welcome/status')).flush({ seen: true });
@@ -139,7 +136,7 @@ describe('HighlightTourService', () => {
     jest.useRealTimers();
   });
 
-  it('start() with shouldStillShow: does not open the tour when the guard fails, and touches no seen-state at all', () => {
+  it('start() with shouldStillShow: does not open the tour when the guard fails, and never marks it seen', () => {
     registerAllLandingTargets();
     service.start('landing_welcome', { shouldStillShow: () => false });
     http.expectOne(r => r.url.includes('/highlights/landing_welcome/status')).flush({ seen: false });
