@@ -2595,3 +2595,48 @@ app-nav { display: block; }
   15%  { opacity: 1; }
   100% { opacity: 0; transform: translateY(-60px) scale(1.15) rotate(20deg); }
 }
+
+/* ── Highlight tour (onboarding spotlight) ─────────────────────────────── */
+.tour-blocker {
+  position: fixed; inset: 0; z-index: 5000;
+  background: transparent;
+}
+.tour-spotlight-ring {
+  position: fixed; z-index: 5001; pointer-events: none;
+  border-radius: 14px;
+  box-shadow: 0 0 0 3px var(--lav-d), 0 0 0 9999px oklch(20% 0.02 280 / .6);
+  transition: top .25s ease, left .25s ease, width .25s ease, height .25s ease;
+}
+.tour-scene {
+  position: fixed; z-index: 5002;
+  display: flex; align-items: flex-start; gap: 12px;
+  width: 340px;
+  animation: fadeUp .22s cubic-bezier(.22,1,.36,1) both;
+}
+.tour-dog {
+  width: 64px; height: 64px; object-fit: contain; border-radius: 50%;
+  background: #fff; flex-shrink: 0;
+  box-shadow: 0 8px 20px oklch(0% 0 0/.3);
+  animation: cscBob 2.4s ease-in-out infinite;
+}
+.tour-bubble {
+  position: relative;
+  background: #fff; border: 3px solid var(--t1); border-radius: 20px;
+  padding: 16px 18px; box-shadow: 6px 6px 0 oklch(0% 0 0/.16);
+  width: 100%;
+}
+.tour-close {
+  position: absolute; top: -12px; right: -12px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--t1); color: var(--t1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; cursor: pointer; box-shadow: var(--sh-lg);
+}
+.tour-bubble-text { font-size: 13px; color: var(--t2); line-height: 1.5; margin: 0 0 12px; }
+.tour-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tour-step-counter { font-size: 11px; color: var(--t3); font-weight: 700; }
+.tour-nav-buttons { display: flex; gap: 8px; margin-left: auto; }
+
+@media (max-width: 640px) {
+  .tour-scene { width: calc(100vw - 32px); }
+}
