@@ -13,7 +13,7 @@ const DOG_LOOP_IMAGES = [
 ];
 const DOG_LOOP_FRAME_MS = 400;
 
-const BUBBLE_WIDTH = 340;
+const BUBBLE_WIDTH = 380;
 const BUBBLE_HEIGHT_ESTIMATE = 220;
 
 @Component({
