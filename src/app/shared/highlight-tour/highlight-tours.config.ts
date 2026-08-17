@@ -11,8 +11,8 @@ const LANDING_WELCOME_STEP_1 = {
 };
 
 const LANDING_WELCOME_STEP_2 = {
-  'es-CL': 'Presiona el botón Crear con IA para que comencemos a jugar. ¡Yo te acompaño!',
-  'en-US': "Press the Crear con IA button so we can start playing. I'll be right there with you!",
+  'es-CL': 'Luego de eso, presiona el botón "🐾 Crear con IA" para que comencemos a jugar. ¡Yo te acompaño!',
+  'en-US': "After that, press the \"🐾 Crear con IA\" button so we can start playing. I'll be right there with you!",
 };
 
 export const HIGHLIGHT_TOURS: Record<HighlightType, HighlightStep[]> = {
