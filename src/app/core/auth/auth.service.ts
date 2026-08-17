@@ -1,8 +1,9 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError, from } from 'rxjs';
 import { tap, switchMap, catchError, map, finalize, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
 export interface AuthUser {
   name: string;
@@ -15,6 +16,7 @@ const SESSION_KEY = 'tb_session_user';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly http = inject(HttpClient);
+  private readonly anonymousId = inject(AnonymousIdService);
 
   // Access token lives in memory only — XSS cannot steal it.
   private _token = signal<string | null>(null);
@@ -60,7 +62,8 @@ export class AuthService {
     }
     return from(this.encryptPayload({ email, password })).pipe(
       switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
-        `${environment.apiUrl}/auth/login`, body, { withCredentials: true },
+        `${environment.apiUrl}/auth/login`, body,
+        { withCredentials: true, headers: this.anonymousIdHeaders() },
       )),
       tap(res => this.setTokens(res.token, res.user)),
       catchError((err: unknown) => {
@@ -76,7 +79,8 @@ export class AuthService {
     }
     return from(this.encryptPayload({ name, email, password, otp })).pipe(
       switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
-        `${environment.apiUrl}/auth/register`, body, { withCredentials: true },
+        `${environment.apiUrl}/auth/register`, body,
+        { withCredentials: true, headers: this.anonymousIdHeaders() },
       )),
       tap(res => this.setTokens(res.token, res.user)),
       catchError((err: unknown) => {
@@ -223,6 +227,13 @@ export class AuthService {
     const user: AuthUser = { name, email, homeCity: null };
     this.setTokens(token, user);
     return { token, user };
+  }
+
+  // Lets the backend fold a visitor's anonymous "seen" state (highlights, etc.) onto their
+  // new/returning account on login/register — see AnonymousIdService and the backend's
+  // migrateAnonymousHighlights middleware.
+  private anonymousIdHeaders(): HttpHeaders {
+    return new HttpHeaders({ 'X-Anonymous-Id': this.anonymousId.get() });
   }
 
   private classifyHttpStatus(err: unknown): string {
