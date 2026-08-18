@@ -3,6 +3,7 @@ import { HighlightRegistryService } from './highlight-registry.service';
 import { HighlightSeenService } from './highlight-seen.service';
 import { HIGHLIGHT_TOURS, HighlightStep } from './highlight-tours.config';
 import { HighlightType } from '../../core/models/highlight.model';
+import { DeviceService } from '../../core/device/device.service';
 
 const TARGET_POLL_INTERVAL_MS = 100;
 const TARGET_POLL_MAX_ATTEMPTS = 10;
@@ -11,6 +12,7 @@ const TARGET_POLL_MAX_ATTEMPTS = 10;
 export class HighlightTourService {
   private readonly registry = inject(HighlightRegistryService);
   private readonly seen = inject(HighlightSeenService);
+  private readonly device = inject(DeviceService);
 
   private readonly _activeType = signal<HighlightType | null>(null);
   private readonly _stepIndex = signal(0);
@@ -130,6 +132,14 @@ export class HighlightTourService {
       const el = this.registry.get(step.targetId);
       if (el) {
         this._targetRect.set(el.getBoundingClientRect());
+        // On mobile the landing page stacks its sections vertically (scroll-snap is disabled
+        // there, see styles.css) and a step's target routinely sits outside the current
+        // viewport — unlike desktop, where both landing_welcome targets are already visible
+        // together. Center it into view so every step actually shows something on screen
+        // instead of a spotlight ring pointing off-screen. The existing capture-phase
+        // window:scroll listener (HighlightTourComponent) keeps recomputing the rect as this
+        // scroll animates, so the ring/bubble track it smoothly rather than jumping once done.
+        if (this.device.isMobile()) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
         return;
       }
       await new Promise(resolve => setTimeout(resolve, TARGET_POLL_INTERVAL_MS));

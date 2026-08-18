@@ -5,19 +5,44 @@ import { HighlightTourService } from './highlight-tour.service';
 import { HighlightRegistryService } from './highlight-registry.service';
 import { HighlightSeenService } from './highlight-seen.service';
 
+type MediaListener = (e: { matches: boolean }) => void;
+
+// Same helper as device.service.spec.ts — HighlightTourService now injects DeviceService
+// (for the mobile scroll-into-view behavior below), so every test in this file needs
+// window.matchMedia stubbed before that first injection or DeviceService's constructor throws.
+function installMatchMediaMock(initialMatches: boolean) {
+  let listener: MediaListener | null = null;
+  const mql = {
+    matches: initialMatches,
+    media: '(max-width: 768px)',
+    addEventListener: (_: string, cb: MediaListener) => { listener = cb; },
+    removeEventListener: () => { listener = null; },
+  };
+  (window as any).matchMedia = () => mql;
+  return { fire(matches: boolean) { mql.matches = matches; listener?.({ matches }); } };
+}
+
 describe('HighlightTourService', () => {
   let service: HighlightTourService;
   let registry: HighlightRegistryService;
   let seen: HighlightSeenService;
   let http: HttpTestingController;
+  let media: ReturnType<typeof installMatchMediaMock>;
 
   function registerAllLandingTargets(): void {
-    registry.register('login-btn', document.createElement('div'));
-    registry.register('ai-plan-btn', document.createElement('div'));
+    // jsdom doesn't implement scrollIntoView on a plain element — stub it so any test that
+    // flips media.fire(true) doesn't crash on a target it isn't specifically asserting on.
+    const login = document.createElement('div');
+    const aiPlan = document.createElement('div');
+    login.scrollIntoView = () => {};
+    aiPlan.scrollIntoView = () => {};
+    registry.register('login-btn', login);
+    registry.register('ai-plan-btn', aiPlan);
   }
 
   beforeEach(() => {
     sessionStorage.clear();
+    media = installMatchMediaMock(false); // desktop by default — individual tests opt into mobile via media.fire(true)
     TestBed.configureTestingModule({
       providers: [
         provideHttpClient(withXhr()), provideHttpClientTesting(),
@@ -152,5 +177,44 @@ describe('HighlightTourService', () => {
     http.expectOne(r => r.url.includes('/highlights/landing_welcome/status')).flush({ seen: false });
 
     expect(service.activeType()).toBe('landing_welcome');
+  });
+
+  it('scrolls the step target into view on mobile at the start of the tour', () => {
+    media.fire(true);
+    registerAllLandingTargets();
+    const loginBtn = registry.get('login-btn')!;
+    const scrollSpy = jest.fn();
+    loginBtn.scrollIntoView = scrollSpy;
+
+    service.start('landing_welcome');
+    http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
+
+    expect(scrollSpy).toHaveBeenCalledWith({ block: 'center', behavior: 'smooth' });
+  });
+
+  it('scrolls the new step target into view again on mobile when advancing with next()', () => {
+    media.fire(true);
+    registerAllLandingTargets();
+    const aiBtn = registry.get('ai-plan-btn')!;
+    const scrollSpy = jest.fn();
+    aiBtn.scrollIntoView = scrollSpy;
+
+    service.start('landing_welcome');
+    http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
+    service.next();
+
+    expect(scrollSpy).toHaveBeenCalledWith({ block: 'center', behavior: 'smooth' });
+  });
+
+  it('does not scroll the step target into view on desktop', () => {
+    registerAllLandingTargets();
+    const loginBtn = registry.get('login-btn')!;
+    const scrollSpy = jest.fn();
+    loginBtn.scrollIntoView = scrollSpy;
+
+    service.start('landing_welcome');
+    http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
+
+    expect(scrollSpy).not.toHaveBeenCalled();
   });
 });
