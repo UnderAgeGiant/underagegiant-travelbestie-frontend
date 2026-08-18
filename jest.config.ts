@@ -20,6 +20,8 @@ const config: Config = {
     '^@data/(.*)$': '<rootDir>/src/app/data/$1',
   },
   collectCoverageFrom: ['src/app/**/*.ts', '!src/app/**/*.module.ts'],
+  maxWorkers: '50%',
+  workerIdleMemoryLimit: '512MB',
 };
 
 export default config;
