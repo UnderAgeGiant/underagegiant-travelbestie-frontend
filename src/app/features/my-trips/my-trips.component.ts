@@ -11,14 +11,13 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { ApiService } from '../../core/api/api.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
-import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
+import { buildItineraryExportMaps } from '../../core/utils/itinerary-export.util';
 import { NavShellComponent } from '../nav/nav-shell.component';
 
 @Component({
@@ -470,18 +469,7 @@ export class MyTripsComponent {
       return;
     }
 
-    const cityNames: Record<string, string> = {};
-    const attractionNames: Record<string, string> = {};
-    const ticketRequiredIds: string[] = [];
-    for (const stop of plan.stops) {
-      const city = WORLD_CITIES.find(c => c.id === stop.cityId);
-      if (!city) continue;
-      cityNames[stop.cityId] = city.name;
-      for (const att of getAttractions(city)) {
-        attractionNames[att.id] = att.name;
-        if (att.ticketUrl) ticketRequiredIds.push(att.id);
-      }
-    }
+    const { cityNames, attractionNames, ticketRequiredIds } = buildItineraryExportMaps(plan.stops);
 
     this.exportingPlanId.set(plan.id);
     this.api.exportItinerary(plan.id, cityNames, attractionNames, ticketRequiredIds).subscribe({
