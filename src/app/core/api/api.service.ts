@@ -1,5 +1,5 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, from, of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
@@ -10,9 +10,11 @@ import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../mode
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
+import { HighlightType, HighlightStatus } from '../models/highlight.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
+import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
 const MOCK_KARMA_PACKAGES: KarmaPackage[] = [
   { id: 'karma_10',  karma: 10,  price: '0.99', currency: 'USD', label: '10 Karma'  },
@@ -26,6 +28,7 @@ export class ApiService {
   private readonly http = inject(HttpClient);
   private readonly sharedTripsService = inject(SharedTripsService);
   private readonly catalog = inject(AttractionCatalogService);
+  private readonly anonymousId = inject(AnonymousIdService);
 
   constructor(@Optional() @Inject('ENV') private injectedEnv: typeof environment | null) {}
 
@@ -358,6 +361,34 @@ export class ApiService {
   getFavorites(): Observable<FavoritedTrip[]> {
     if (this.useMocks) return of([]);
     return this.http.get<FavoritedTrip[]>(`${this.base}/favorites`);
+  }
+
+  getHighlightStatus(type: HighlightType): Observable<HighlightStatus> {
+    if (this.useMocks) return of({ seen: false });
+    return this.http.get<HighlightStatus>(`${this.base}/highlights/${type}/status`, {
+      headers: this.anonymousIdHeaders(),
+    });
+  }
+
+  markHighlightSeen(type: HighlightType): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/highlights/${type}/seen`, {}, {
+      headers: this.anonymousIdHeaders(),
+    });
+  }
+
+  markHighlightDismissed(type: HighlightType): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/highlights/${type}/dismiss`, {}, {
+      headers: this.anonymousIdHeaders(),
+    });
+  }
+
+  // Lets the backend recognize a returning anonymous (not-yet-logged-in) visitor
+  // individually instead of lumping everyone behind the same IP/NAT together. Harmless to
+  // send while logged in too — the backend prioritizes the authenticated user id over this.
+  private anonymousIdHeaders(): HttpHeaders {
+    return new HttpHeaders({ 'X-Anonymous-Id': this.anonymousId.get() });
   }
 
   getNotifications(): Observable<{ notifications: AppNotification[] }> {

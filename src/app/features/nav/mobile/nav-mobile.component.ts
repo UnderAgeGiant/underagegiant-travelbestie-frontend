@@ -3,10 +3,11 @@ import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
+import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
 
 @Component({
   selector: 'app-nav-mobile',
-  imports: [NotificationBellComponent, FlagIconComponent],
+  imports: [NotificationBellComponent, FlagIconComponent, HighlightTargetDirective],
   template: `
     <nav class="nav-m-bar">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -35,7 +36,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
       }
 
       @if (!facade.auth.isLoggedIn()) {
-        <button class="btn-pill btn-ghost" (click)="facade.authModal.openLogin()"
+        <button class="btn-pill btn-ghost" tbHighlightTarget="login-btn" (click)="facade.authModal.openLogin()"
                 i18n="@@nav.signInBtn">Iniciar sesión</button>
       } @else {
         <button class="nav-m-burger" (click)="drawerOpen.set(true)"

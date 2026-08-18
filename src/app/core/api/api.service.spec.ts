@@ -73,6 +73,33 @@ describe('ApiService (useMocks=false via spy)', () => {
     const req = http.expectOne(r => r.url.includes('/comments/paris_0') && r.method === 'POST');
     req.flush({ id: 'c1', ...comment });
   });
+
+  it('getHighlightStatus sends X-Anonymous-Id on GET /highlights/:type/status', () => {
+    service.getHighlightStatus('landing_welcome').subscribe();
+    const req = http.expectOne(r => r.url.includes('/highlights/landing_welcome/status') && r.method === 'GET');
+    expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush({ seen: false });
+  });
+
+  it('markHighlightSeen sends the same X-Anonymous-Id on POST /highlights/:type/seen', () => {
+    const first = service.getHighlightStatus('landing_welcome');
+    first.subscribe();
+    const statusReq = http.expectOne(r => r.url.includes('/status'));
+    const anonId = statusReq.request.headers.get('X-Anonymous-Id');
+    statusReq.flush({ seen: false });
+
+    service.markHighlightSeen('landing_welcome').subscribe();
+    const seenReq = http.expectOne(r => r.url.includes('/highlights/landing_welcome/seen') && r.method === 'POST');
+    expect(seenReq.request.headers.get('X-Anonymous-Id')).toBe(anonId); // same id across calls, same browser
+    seenReq.flush(null);
+  });
+
+  it('markHighlightDismissed sends X-Anonymous-Id on POST /highlights/:type/dismiss', () => {
+    service.markHighlightDismissed('landing_welcome').subscribe();
+    const req = http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss') && r.method === 'POST');
+    expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush(null);
+  });
 });
 
 describe('ApiService.getStats() caching', () => {

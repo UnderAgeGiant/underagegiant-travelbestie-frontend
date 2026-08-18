@@ -45,6 +45,24 @@ describe('AuthService', () => {
     expect(localStorage.getItem('tb_refresh_token')).toBeNull();
   });
 
+  it('login sends X-Anonymous-Id so the backend can migrate anon seen-state onto this account', () => {
+    jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
+    service.login('test@test.com', 'pass').subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/auth/login'));
+    expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
+  });
+
+  it('register sends X-Anonymous-Id too', () => {
+    jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
+    service.register('Test', 'test@test.com', 'pass', '123456').subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/auth/register'));
+    expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
+  });
+
   it('isLoggedIn returns false when no token', () => {
     expect(service.isLoggedIn()).toBe(false);
   });

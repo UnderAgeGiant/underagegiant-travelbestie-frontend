@@ -22,6 +22,8 @@ import { CompanionMascotComponent } from '../../shared/companion-mascot/companio
 import { ToastService } from '../../core/ui/toast.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
+import { HighlightTourComponent } from '../../shared/highlight-tour/highlight-tour.component';
+import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
 
 @Component({
     selector: 'tb-shell',
@@ -42,6 +44,7 @@ import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-
         MyTripsComponent,
         CompanionMascotComponent,
         AutosaveReminderBannerComponent,
+        HighlightTourComponent,
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -106,6 +109,8 @@ import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-
 
     <app-companion-mascot />
 
+    <app-highlight-tour />
+
     @if (toastService.message()) {
       <app-toast [message]="toastService.message()!" (done)="toastService.clear()" />
     }
@@ -142,6 +147,7 @@ export class ShellComponent {
   private readonly locale = inject(LocaleService);
   private readonly auth = inject(AuthService);
   private readonly savedPlans = inject(SavedPlansService);
+  private readonly highlightTour = inject(HighlightTourService);
   showAddModal   = signal(false);
   showProfile    = signal(false);
   showAiPlanning = signal(false);
@@ -187,6 +193,32 @@ export class ShellComponent {
     // clears the facade signal once it applies it.
     effect(() => {
       if (this.facade.pendingMyTripsTab()) this.showMyTrips.set(true);
+    });
+
+    // First-touch onboarding: show the landing_welcome tour to an anonymous
+    // (not-yet-logged-in) visitor looking at the empty-state landing page (S1,
+    // trip.stops().length === 0) — its two targets are the "Iniciar sesión" login
+    // button (only rendered while logged out) and the "Crear con IA" button in
+    // <app-welcome>. HighlightTourService.start() is itself idempotent/safe to call
+    // repeatedly — the cookie/Redis seen-check makes every call after the first a no-op.
+    //
+    // auth.sessionMayExist() gates the OTHER direction: a returning visitor who is
+    // still genuinely logged in reads isLoggedIn() === false for a brief window on
+    // every page load, before the boot-time silent refresh (AuthService constructor,
+    // queueMicrotask) restores the in-memory access token — sessionMayExist() is
+    // exactly "token not restored yet, but a session marker says one probably exists"
+    // for that window. Without this check, a real existing user would flash through
+    // as "anonymous" and could get shown the "create an account" tour by mistake.
+    // Once the refresh resolves, isLoggedIn()/sessionMayExist() both read the same
+    // _token signal, so this effect re-evaluates automatically and the gate closes.
+    //
+    // shouldStillShow closes the narrower remaining race: login completing while the
+    // /highlights/landing_welcome/status round trip (started by this call) is still
+    // in flight — see HighlightTourService.start()'s doc comment.
+    effect(() => {
+      if (!this.auth.isLoggedIn() && !this.auth.sessionMayExist() && this.trip.stops().length === 0) {
+        this.highlightTour.start('landing_welcome', { shouldStillShow: () => !this.auth.isLoggedIn() });
+      }
     });
   }
 }

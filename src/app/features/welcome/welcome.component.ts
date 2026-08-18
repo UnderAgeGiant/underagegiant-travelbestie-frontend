@@ -2,10 +2,11 @@ import { Component, output, signal, OnInit, OnDestroy, ChangeDetectionStrategy, 
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
+import { HighlightTargetDirective } from '../../shared/highlight-tour/highlight-target.directive';
 
 @Component({
     selector: 'app-welcome',
-    imports: [BackgroundSliderComponent],
+    imports: [BackgroundSliderComponent, HighlightTargetDirective],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <app-background-slider
@@ -22,7 +23,7 @@ import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slide
         <div class="welcome-ctas">
           <button class="welcome-cta welcome-cta-primary" (click)="addDestination.emit()"
                   i18n="@@welcome.ctaCreatePlan">Crear Plan</button>
-          <button class="welcome-cta welcome-cta-ai" (click)="openAiPlanning.emit()"
+          <button class="welcome-cta welcome-cta-ai" tbHighlightTarget="ai-plan-btn" (click)="openAiPlanning.emit()"
                   i18n="@@welcome.ctaCreateAi">🐾 Crear con IA</button>
           <button class="welcome-cta welcome-cta-karma" (click)="howKarmaOpen.set(true)"
                   i18n="@@welcome.ctaHowKarma">⭐ Cómo ganar Karma</button>

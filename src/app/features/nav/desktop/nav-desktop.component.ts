@@ -2,10 +2,11 @@ import { Component, ElementRef, HostListener, inject, output } from '@angular/co
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
+import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
 
 @Component({
   selector: 'app-nav-desktop',
-  imports: [NotificationBellComponent, FlagIconComponent],
+  imports: [NotificationBellComponent, FlagIconComponent, HighlightTargetDirective],
   template: `
     <nav class="nav">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -118,7 +119,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
         }
 
         @if (!facade.auth.isLoggedIn()) {
-          <button class="btn-pill btn-ghost" (click)="facade.authModal.openLogin()" i18n="@@nav.signInBtn">Iniciar sesión</button>
+          <button class="btn-pill btn-ghost" tbHighlightTarget="login-btn" (click)="facade.authModal.openLogin()" i18n="@@nav.signInBtn">Iniciar sesión</button>
         } @else {
           <div style="position:relative">
             <button class="user-btn" (click)="facade.toggleUserMenu()">
