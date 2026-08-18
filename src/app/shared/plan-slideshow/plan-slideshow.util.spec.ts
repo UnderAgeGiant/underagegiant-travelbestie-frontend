@@ -1,7 +1,7 @@
 import { buildPlanSlideshowItems } from './plan-slideshow.util';
 import { TripStop, TransitLeg } from '../../core/models/trip.model';
 
-const PARIS_0_IMAGE = 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80';
+const PARIS_0_IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg/1920px-Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg';
 
 const PARIS_STOP: TripStop = {
   stopId: 'stop-1',
