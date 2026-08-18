@@ -93,6 +93,13 @@ describe('ApiService (useMocks=false via spy)', () => {
     expect(seenReq.request.headers.get('X-Anonymous-Id')).toBe(anonId); // same id across calls, same browser
     seenReq.flush(null);
   });
+
+  it('markHighlightDismissed sends X-Anonymous-Id on POST /highlights/:type/dismiss', () => {
+    service.markHighlightDismissed('landing_welcome').subscribe();
+    const req = http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss') && r.method === 'POST');
+    expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush(null);
+  });
 });
 
 describe('ApiService.getStats() caching', () => {

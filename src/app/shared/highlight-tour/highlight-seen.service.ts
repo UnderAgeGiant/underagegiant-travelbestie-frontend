@@ -50,4 +50,17 @@ export class HighlightSeenService {
   markSeenOnServer(type: HighlightType): void {
     this.api.markHighlightSeen(type).subscribe({ error: () => { /* non-fatal */ } });
   }
+
+  /**
+   * Called when the visitor closes the tour WITHOUT confirming it (✕/Escape — never reaching
+   * "¡Entendido!" on the last step). Does NOT touch the local cache or call markSeenLocally —
+   * the backend owns the 3-strikes count (`HIGHLIGHT_DISMISS_LIMIT`) and only escalates to
+   * "seen" once that's exhausted, so the frontend has no way to know from this 204 response
+   * whether this particular dismissal was the one that crossed the limit. Leaving the local
+   * cache untouched means the next real `checkServerStatus()` call (a later tab session) asks
+   * the server fresh and gets the authoritative answer either way.
+   */
+  markDismissedOnServer(type: HighlightType): void {
+    this.api.markHighlightDismissed(type).subscribe({ error: () => { /* non-fatal */ } });
+  }
 }

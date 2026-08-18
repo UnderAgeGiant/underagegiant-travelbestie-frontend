@@ -63,4 +63,16 @@ describe('HighlightSeenService', () => {
     const req = http.expectOne(r => r.url.includes('/highlights/landing_welcome/seen') && r.method === 'POST');
     req.flush(null, { status: 500, statusText: 'Server Error' });
   });
+
+  it('markDismissedOnServer() fires the POST to /dismiss and swallows an error (fire-and-forget)', () => {
+    expect(() => service.markDismissedOnServer('landing_welcome')).not.toThrow();
+    const req = http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss') && r.method === 'POST');
+    req.flush(null, { status: 500, statusText: 'Server Error' });
+  });
+
+  it('markDismissedOnServer() does not touch the local cache', () => {
+    service.markDismissedOnServer('landing_welcome');
+    http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss')).flush(null);
+    expect(service.hasSeenLocally('landing_welcome')).toBe(false);
+  });
 });

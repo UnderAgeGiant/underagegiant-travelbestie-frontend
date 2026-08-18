@@ -377,6 +377,13 @@ export class ApiService {
     });
   }
 
+  markHighlightDismissed(type: HighlightType): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/highlights/${type}/dismiss`, {}, {
+      headers: this.anonymousIdHeaders(),
+    });
+  }
+
   // Lets the backend recognize a returning anonymous (not-yet-logged-in) visitor
   // individually instead of lumping everyone behind the same IP/NAT together. Harmless to
   // send while logged in too — the backend prioritizes the authenticated user id over this.

@@ -62,7 +62,7 @@ describe('HighlightTourComponent', () => {
     (document.body.querySelector('.tour-close') as HTMLButtonElement).click();
     expect(closeSpy).toHaveBeenCalled();
 
-    http.expectOne(r => r.url.includes('/highlights/landing_welcome/seen')).flush(null);
+    http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss')).flush(null);
   });
 
   it('cycles the dog image through all 3 frames in order, then loops back to the first', () => {

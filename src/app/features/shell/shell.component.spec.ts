@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { ShellComponent } from './shell.component';
 import { TripService } from '../trip/trip.service';
+import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
 
 describe('ShellComponent', () => {
-  beforeEach(() => localStorage.clear());
+  beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
 
   function setup(stopsLen: number) {
     (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -46,5 +47,33 @@ describe('ShellComponent', () => {
     const el = setup(2).nativeElement as HTMLElement;
     expect(el.querySelector('.layout')).toBeTruthy();
     expect(el.querySelector('.landing-scroll')).toBeFalsy();
+  });
+
+  // Regression test — see docs/superpowers/plans/2026-08-16-highlights-module.md
+  // ("Post-Implementation Changes" §6 follow-up). HighlightTourService.start() is called
+  // directly from inside this component's own effect() (the landing_welcome trigger). Its
+  // internal `_activeType()` guard read used to leak in as a dependency of THAT effect —
+  // Angular attributes every signal read during an effect's synchronous execution to that
+  // effect, regardless of which function performed the read. Dismissing the tour cleared
+  // `_activeType`, which (having leaked in as a dependency) re-triggered this effect, which
+  // called start() again — and since a dismissal never marks the tour "seen" locally (only
+  // an explicit "¡Entendido!" does), the tour reopened immediately after being closed, with
+  // no way to actually dismiss it. Fixed by wrapping HighlightTourService.start()'s body in
+  // untracked().
+  it('does not reopen the landing_welcome tour after it is dismissed via close()', () => {
+    const fixture = setup(0);
+    const http = TestBed.inject(HttpTestingController);
+    const tour = TestBed.inject(HighlightTourService);
+
+    http.expectOne(r => r.url.includes('/highlights/landing_welcome/status')).flush({ seen: false });
+    fixture.detectChanges(); // flushes the effect's scheduled re-run after _activeType is set
+
+    expect(tour.activeType()).toBe('landing_welcome');
+
+    tour.close(); // same call the ✕ button/Escape make
+    http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss')).flush(null);
+    fixture.detectChanges(); // would silently reopen the tour pre-fix
+
+    expect(tour.activeType()).toBeNull();
   });
 });

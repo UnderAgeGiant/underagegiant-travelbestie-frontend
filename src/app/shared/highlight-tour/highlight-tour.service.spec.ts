@@ -82,7 +82,7 @@ describe('HighlightTourService', () => {
     postReq.flush(null);
   });
 
-  it('close() completes the tour immediately regardless of step index', () => {
+  it('close() dismisses the tour immediately regardless of step index, without marking it seen', () => {
     registerAllLandingTargets();
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
@@ -90,8 +90,8 @@ describe('HighlightTourService', () => {
     service.close();
 
     expect(service.activeType()).toBeNull();
-    expect(seen.hasSeenLocally('landing_welcome')).toBe(true);
-    http.expectOne(r => r.url.includes('/highlights/landing_welcome/seen')).flush(null);
+    expect(seen.hasSeenLocally('landing_welcome')).toBe(false);
+    http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss') && r.method === 'POST').flush(null);
   });
 
   it('prev() at step 0 is a no-op', () => {
