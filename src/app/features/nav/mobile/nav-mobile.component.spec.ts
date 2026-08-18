@@ -41,3 +41,42 @@ describe('NavMobileComponent — loading a saved plan from the drawer', () => {
     expect(fixture.nativeElement.querySelector('.nav-m-drawer')).toBeNull();
   });
 });
+
+describe('NavMobileComponent — signing out from the drawer', () => {
+  let fixture: ComponentFixture<NavMobileComponent>;
+  let facade: NavFacadeService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+
+    fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+    fixture.detectChanges();
+  });
+
+  afterEach(() => TestBed.inject(HttpTestingController).verify());
+
+  // Regression test — facade.doLogout() clears app-wide state (auth, trip, karma, etc.) but
+  // has no way to reach into NavMobileComponent's own local drawerOpen signal. The "Cerrar
+  // sesión" button used to call facade.doLogout() directly, so the drawer stayed open — still
+  // showing the now-stale account/plans/favorites sections — right behind the "Iniciar sesión"
+  // button that replaces the burger menu once logged out.
+  it('closes the drawer when signing out', () => {
+    const logoutSpy = jest.spyOn(facade, 'doLogout').mockImplementation(() => {});
+    const signOutBtn = fixture.nativeElement.querySelector('.signout-btn') as HTMLButtonElement;
+    expect(signOutBtn).toBeTruthy();
+
+    signOutBtn.click();
+    fixture.detectChanges();
+
+    expect(logoutSpy).toHaveBeenCalled();
+    expect(fixture.componentInstance.drawerOpen()).toBe(false);
+    expect(fixture.nativeElement.querySelector('.nav-m-drawer')).toBeNull();
+  });
+});

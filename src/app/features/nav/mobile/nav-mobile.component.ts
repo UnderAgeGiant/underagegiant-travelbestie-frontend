@@ -158,7 +158,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           }
         }
 
-        <button class="signout-btn" (click)="facade.doLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
+        <button class="signout-btn" (click)="onLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
       </aside>
     }
   `,
@@ -175,6 +175,12 @@ export class NavMobileComponent {
   onLogo(): void { this.facade.onLogoClick(); this.drawerOpen.set(false); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.drawerOpen.set(false); this.profileClick.emit(); }
   onMyTrips(): void { this.facade.userMenuOpen.set(false); this.drawerOpen.set(false); this.myTripsClick.emit(); }
+
+  // The account drawer is local component state (drawerOpen) — facade.doLogout() has no way
+  // to close it itself, unlike userMenuOpen (owned by the facade). Without this, signing out
+  // from the drawer left it open afterward, still showing the now-stale account/plans/favorites
+  // sections behind the "Iniciar sesión" button that replaces the burger menu once logged out.
+  onLogout(): void { this.facade.doLogout(); this.drawerOpen.set(false); }
 
   quickAdd = this.facade.quickAdd.bind(this.facade);
   openSharedTrip = this.facade.openSharedTrip.bind(this.facade);

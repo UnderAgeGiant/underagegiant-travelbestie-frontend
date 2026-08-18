@@ -260,9 +260,15 @@ import { environment } from '../../../../environments/environment';
                 }
               } @else if (loginMode() === 'login') {
                 <button class="btn-pill btn-primary" (click)="doAuth()"
-                        [disabled]="!captchaToken()"
-                        [style.opacity]="captchaToken() ? '1' : '0.5'"
-                        style="flex:2" i18n="@@nav.signInSubmit">Iniciar sesión →</button>
+                        [disabled]="!captchaToken() || loginLoading()"
+                        [style.opacity]="(!captchaToken() || loginLoading()) ? '0.5' : '1'"
+                        style="flex:2">
+                  @if (loginLoading()) {
+                    <span class="btn-spinner"></span> <ng-container i18n="@@nav.signInLoading">Iniciando…</ng-container>
+                  } @else {
+                    <ng-container i18n="@@nav.signInSubmit">Iniciar sesión →</ng-container>
+                  }
+                </button>
               } @else if (!otpStep()) {
                 <button class="btn-pill btn-primary" (click)="sendOtp()"
                         [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()"
@@ -370,6 +376,7 @@ export class AuthModalComponent {
   otpCode        = signal('');
   otpLoading     = signal(false);
   registerLoading = signal(false);
+  loginLoading    = signal(false);
 
   // password recovery
   failedLoginAttempts = signal(0);
@@ -442,6 +449,7 @@ export class AuthModalComponent {
         this.showPassword.set(false);
         this.showConfirmPassword.set(false);
         this.registerLoading.set(false);
+        this.loginLoading.set(false);
         this.loginError.set('');
         this.loginErrorCode.set('');
         this.authErrorContext.set('');
@@ -650,8 +658,10 @@ export class AuthModalComponent {
       return;
     }
     if (this.loginMode() === 'login') {
+      this.loginLoading.set(true);
       this.auth.login(this.loginEmail(), this.loginPassword()).subscribe({
         next: res => {
+          this.loginLoading.set(false);
           this.failedLoginAttempts.set(0);
           this.trip.loadForUserPreservingAnonymous(res.user.email);
           this.karma.loadForUser(res.user.email);
@@ -665,6 +675,7 @@ export class AuthModalComponent {
           this.authModal.executePostLogin();
         },
         error: (err: unknown) => {
+          this.loginLoading.set(false);
           this.failedLoginAttempts.update(n => n + 1);
           this.loginErrorCode.set((err as any)?.code ?? 'UNKNOWN');
           this.authErrorContext.set('login');
