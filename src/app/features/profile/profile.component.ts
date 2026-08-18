@@ -9,6 +9,7 @@ import { CompanionBoostCardComponent } from './companion-boost-card.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
+import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../core/utils/password-strength.util';
 
 @Component({
     selector: 'app-profile',
@@ -491,37 +492,12 @@ export class ProfileComponent {
     !this.editConfirmPwd() || this.editNewPwd() === this.editConfirmPwd()
   );
 
-  readonly editPasswordStrength = computed((): 'none' | 'vulnerable' | 'light' | 'strong' => {
-    const p = this.editNewPwd();
-    if (!p) return 'none';
-    let score = 0;
-    if (p.length >= 8)          score++;
-    if (/[A-Z]/.test(p))        score++;
-    if (/[a-z]/.test(p))        score++;
-    if (/\d/.test(p))           score++;
-    if (/[^A-Za-z0-9]/.test(p)) score++;
-    if (p.length < 6)  return 'vulnerable';
-    if (score <= 2)    return 'vulnerable';
-    if (score === 3)   return 'light';
-    return 'strong';
-  });
+  readonly editPasswordStrength = computed(() => computePasswordStrength(this.editNewPwd()));
 
-  readonly editStrengthColor = computed((): string => {
-    switch (this.editPasswordStrength()) {
-      case 'vulnerable': return 'oklch(55% 0.22 25)';
-      case 'light':      return 'oklch(62% 0.14 60)';
-      case 'strong':     return 'oklch(50% 0.16 145)';
-      default:           return 'var(--t3)';
-    }
-  });
+  readonly editStrengthColor = computed(() => passwordStrengthColor(this.editPasswordStrength()));
 
   editStrengthBarActive(index: number): boolean {
-    switch (this.editPasswordStrength()) {
-      case 'vulnerable': return index === 0;
-      case 'light':      return index <= 1;
-      case 'strong':     return true;
-      default:           return false;
-    }
+    return isPasswordStrengthBarActive(this.editPasswordStrength(), index);
   }
 
   editStrengthLabel(): string {

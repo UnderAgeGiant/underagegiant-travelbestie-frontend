@@ -8,6 +8,7 @@ import { VisitedPlacesService } from '../../../core/visited-places/visited-place
 import { FavoritesService } from '../../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { environment } from '../../../../environments/environment';
+import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../../core/utils/password-strength.util';
 
 @Component({
   selector: 'app-auth-modal',
@@ -393,37 +394,12 @@ export class AuthModalComponent {
     !this.loginConfirmPassword() || this.loginPassword() === this.loginConfirmPassword()
   );
 
-  readonly passwordStrength = computed((): 'none' | 'vulnerable' | 'light' | 'strong' => {
-    const p = this.loginPassword();
-    if (!p) return 'none';
-    let score = 0;
-    if (p.length >= 8)          score++;
-    if (/[A-Z]/.test(p))        score++;
-    if (/[a-z]/.test(p))        score++;
-    if (/\d/.test(p))           score++;
-    if (/[^A-Za-z0-9]/.test(p)) score++;
-    if (p.length < 6)  return 'vulnerable';
-    if (score <= 2)    return 'vulnerable';
-    if (score === 3)   return 'light';
-    return 'strong';
-  });
+  readonly passwordStrength = computed(() => computePasswordStrength(this.loginPassword()));
 
-  readonly strengthColor = computed((): string => {
-    switch (this.passwordStrength()) {
-      case 'vulnerable': return 'oklch(55% 0.22 25)';
-      case 'light':      return 'oklch(62% 0.14 60)';
-      case 'strong':     return 'oklch(50% 0.16 145)';
-      default:           return 'var(--t3)';
-    }
-  });
+  readonly strengthColor = computed(() => passwordStrengthColor(this.passwordStrength()));
 
   strengthBarActive(index: number): boolean {
-    switch (this.passwordStrength()) {
-      case 'vulnerable': return index === 0;
-      case 'light':      return index <= 1;
-      case 'strong':     return true;
-      default:           return false;
-    }
+    return isPasswordStrengthBarActive(this.passwordStrength(), index);
   }
 
   strengthLabel(): string {
