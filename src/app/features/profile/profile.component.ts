@@ -58,22 +58,6 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                       <ng-container i18n="@@profile.errUpdateName">No se pudo actualizar tu nombre. Intenta de nuevo.</ng-container>
                     }
                   }
-                  @case ('email-otp') {
-                    @if (editErrorCode() === 'UNAUTHORIZED') {
-                      <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
-                    } @else if (editErrorCode() === 'RATE_LIMITED') {
-                      <ng-container i18n="@@profile.errRateLimited">Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</ng-container>
-                    } @else {
-                      <ng-container i18n="@@profile.errSendEmailOtp">No se pudo enviar el código. Verifica que el correo no esté ya registrado.</ng-container>
-                    }
-                  }
-                  @case ('email') {
-                    @if (editErrorCode() === 'UNAUTHORIZED') {
-                      <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
-                    } @else {
-                      <ng-container i18n="@@profile.errUpdateEmail">Código incorrecto o vencido. Solicita uno nuevo.</ng-container>
-                    }
-                  }
                   @case ('password') {
                     @if (editErrorCode() === 'UNAUTHORIZED') {
                       <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
@@ -132,82 +116,6 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                     <ng-container i18n="@@profile.saveNameBtn">Guardar nombre</ng-container>
                   }
                 </button>
-              </div>
-            }
-
-            <div class="profile-accordion-sep"></div>
-
-            <!-- Email -->
-            <button class="profile-accordion-hd" (click)="toggleEditSection('email')" type="button">
-              <span style="font-size:17px">✉️</span>
-              <div style="flex:1;text-align:left">
-                <div class="profile-accordion-title" i18n="@@profile.emailTitle">Correo electrónico</div>
-                @if (editSection() !== 'email') {
-                  <div class="profile-accordion-sub">{{ auth.currentUser()?.email }}</div>
-                }
-              </div>
-              @if (editSavedTab() === 'email') {
-                <span class="profile-accordion-check">✓</span>
-              } @else {
-                <span class="profile-accordion-chevron">{{ editSection() === 'email' ? '▴' : '▾' }}</span>
-              }
-            </button>
-            @if (editSection() === 'email') {
-              <div class="profile-accordion-bd">
-                @if (!editEmailOtpSent()) {
-                  <div class="form-group" style="margin-bottom:14px">
-                    <label class="form-label" i18n="@@profile.newEmailLabel">Nueva dirección de correo</label>
-                    <input class="form-input" type="email" i18n-placeholder="@@profile.newEmailPlaceholder" placeholder="nuevo@correo.com"
-                           [value]="editNewEmail()"
-                           (input)="editNewEmail.set($any($event.target).value)" />
-                  </div>
-                  <button class="btn-pill btn-primary" style="width:100%;justify-content:center"
-                          (click)="editRequestOtp()"
-                          [disabled]="editLoading() || (editSavedTab() !== 'email-otp' && !editNewEmail())"
-                          [style.opacity]="editLoading() ? '0.5' : (editSavedTab() !== 'email-otp' && !editNewEmail()) ? '0.5' : '1'"
-                          [style.background]="editSavedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''"
-                          [style.border-color]="editSavedTab() === 'email-otp' ? 'oklch(50% 0.16 145)' : ''">
-                    @if (editLoading()) {
-                      <span class="btn-spinner"></span> <ng-container i18n="@@profile.sendingMsg">Enviando…</ng-container>
-                    } @else if (editSavedTab() === 'email-otp') {
-                      ✓ <ng-container i18n="@@profile.sentMsg">Enviado</ng-container>
-                    } @else {
-                      <ng-container i18n="@@profile.sendCodeBtn">Enviar código →</ng-container>
-                    }
-                  </button>
-                } @else {
-                  <div style="text-align:center;padding:4px 0 12px">
-                    <div style="font-size:28px">📧</div>
-                    <div style="font-size:13px;font-weight:600;color:var(--t1);margin-top:6px" i18n="@@profile.checkEmailTitle">Revisa tu correo</div>
-                    <div style="font-size:12px;color:var(--t3);margin-top:3px" i18n="@@profile.codeSentTo">
-                      Código enviado a <strong>{{ editNewEmail() }}</strong>
-                    </div>
-                  </div>
-                  <div class="form-group" style="margin-bottom:4px">
-                    <label class="form-label" i18n="@@profile.otpLabel">Código de verificación</label>
-                    <input class="form-input" type="text" inputmode="numeric" maxlength="6" placeholder="000000"
-                           [value]="editEmailOtp()"
-                           (input)="editEmailOtp.set($any($event.target).value)" />
-                  </div>
-                  <div style="display:flex;justify-content:space-between;margin-bottom:14px;font-size:11px">
-                    <span style="color:var(--lav-d);cursor:pointer" (click)="editEmailOtpSent.set(false)" i18n="@@profile.changeEmailBtn">← Cambiar correo</span>
-                    <span style="color:var(--lav-d);cursor:pointer" (click)="editRequestOtp()" i18n="@@profile.resendCodeBtn">Reenviar código</span>
-                  </div>
-                  <button class="btn-pill btn-primary" style="width:100%;justify-content:center"
-                          (click)="editUpdateEmail()"
-                          [disabled]="editLoading() || (editSavedTab() !== 'email' && editEmailOtp().length < 6)"
-                          [style.opacity]="editLoading() ? '0.5' : (editSavedTab() !== 'email' && editEmailOtp().length < 6) ? '0.5' : '1'"
-                          [style.background]="editSavedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''"
-                          [style.border-color]="editSavedTab() === 'email' ? 'oklch(50% 0.16 145)' : ''">
-                    @if (editLoading()) {
-                      <span class="btn-spinner"></span> <ng-container i18n="@@profile.verifyingMsg">Verificando…</ng-container>
-                    } @else if (editSavedTab() === 'email') {
-                      ✓ <ng-container i18n="@@profile.updatedMsg">Actualizado</ng-container>
-                    } @else {
-                      <ng-container i18n="@@profile.updateEmailBtn">Actualizar correo →</ng-container>
-                    }
-                  </button>
-                }
               </div>
             }
 
@@ -468,19 +376,16 @@ export class ProfileComponent {
   openAiPlanning = output<void>();
 
   // ── Edit account accordion ──────────────────────────────────
-  editSection       = signal<'name' | 'email' | 'password' | 'homeCity' | null>(null);
+  editSection       = signal<'name' | 'password' | 'homeCity' | null>(null);
   editDisplayName   = signal(this.auth.currentUser()?.name ?? '');
-  editNewEmail      = signal('');
-  editEmailOtp      = signal('');
-  editEmailOtpSent  = signal(false);
   editCurrentPwd    = signal('');
   editNewPwd        = signal('');
   editConfirmPwd    = signal('');
   editLoading       = signal(false);
-  editSavedTab      = signal<'name' | 'email-otp' | 'email' | 'password' | 'homeCity' | null>(null);
+  editSavedTab      = signal<'name' | 'password' | 'homeCity' | null>(null);
   editError         = signal('');
   editErrorCode     = signal<string>('');
-  editErrorContext  = signal<'name' | 'email-otp' | 'email' | 'password' | 'homeCity' | ''>('');
+  editErrorContext  = signal<'name' | 'password' | 'homeCity' | ''>('');
   editShowCurrentPwd  = signal(false);
   editShowNewPwd      = signal(false);
   editShowConfirmPwd  = signal(false);
@@ -511,7 +416,7 @@ export class ProfileComponent {
 
   private editSavedTimer: ReturnType<typeof setTimeout> | null = null;
 
-  toggleEditSection(section: 'name' | 'email' | 'password' | 'homeCity'): void {
+  toggleEditSection(section: 'name' | 'password' | 'homeCity'): void {
     this.editSection.update(cur => cur === section ? null : section);
     this.editError.set('');
     this.editErrorCode.set('');
@@ -531,48 +436,6 @@ export class ProfileComponent {
       error: (err: unknown) => {
         this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
         this.editErrorContext.set('name');
-        this.editLoading.set(false);
-      },
-    });
-  }
-
-  editRequestOtp(): void {
-    const email = this.editNewEmail().trim();
-    if (!email) { this.editError.set($localize`:@@profile.errEmailEmpty:Ingresa la nueva dirección de correo.`); return; }
-    this.editLoading.set(true);
-    this.editError.set('');
-    this.editErrorCode.set('');
-    this.editErrorContext.set('');
-    this.auth.requestProfileOtp(email).subscribe({
-      next: () => {
-        this.editLoading.set(false);
-        this.editMarkSaved('email-otp', () => { this.editEmailOtpSent.set(true); });
-      },
-      error: (err: unknown) => {
-        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
-        this.editErrorContext.set('email-otp');
-        this.editLoading.set(false);
-      },
-    });
-  }
-
-  editUpdateEmail(): void {
-    this.editLoading.set(true);
-    this.editError.set('');
-    this.editErrorCode.set('');
-    this.editErrorContext.set('');
-    this.auth.updateProfile({ newEmail: this.editNewEmail().trim(), otp: this.editEmailOtp() }).subscribe({
-      next: () => {
-        this.editLoading.set(false);
-        this.editMarkSaved('email', () => {
-          this.editEmailOtpSent.set(false);
-          this.editEmailOtp.set('');
-          this.editNewEmail.set('');
-        });
-      },
-      error: (err: unknown) => {
-        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
-        this.editErrorContext.set('email');
         this.editLoading.set(false);
       },
     });
@@ -614,7 +477,7 @@ export class ProfileComponent {
     });
   }
 
-  private editMarkSaved(tab: 'name' | 'email-otp' | 'email' | 'password' | 'homeCity', onComplete?: () => void): void {
+  private editMarkSaved(tab: 'name' | 'password' | 'homeCity', onComplete?: () => void): void {
     if (this.editSavedTimer) clearTimeout(this.editSavedTimer);
     this.editSavedTab.set(tab);
     this.editSavedTimer = setTimeout(() => { this.editSavedTab.set(null); onComplete?.(); }, 2500);
