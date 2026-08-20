@@ -78,8 +78,8 @@ export class ApiService {
     if (this.useMocks) {
       const key = `tb_karma_${email}`;
       const stored = localStorage.getItem(key);
-      const karma = stored !== null ? parseInt(stored, 10) : 3;
-      if (stored === null) localStorage.setItem(key, '3');
+      const karma = stored !== null ? parseInt(stored, 10) : 10;
+      if (stored === null) localStorage.setItem(key, '10');
       return of({ karma });
     }
     return this.http.get<{ karma: number }>(`${this.base}/karma`);
@@ -108,7 +108,7 @@ export class ApiService {
   // of POST /trips and POST /comments. No PATCH /karma endpoint exists.
   updateKarmaMock(email: string, delta: number): void {
     const key = `tb_karma_${email}`;
-    const current = parseInt(localStorage.getItem(key) ?? '3', 10);
+    const current = parseInt(localStorage.getItem(key) ?? '10', 10);
     localStorage.setItem(key, String(current + delta));
   }
 

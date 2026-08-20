@@ -39,6 +39,19 @@ describe('ApiService (useMocks=true)', () => {
       done();
     });
   });
+
+  it('getKarma seeds a brand-new user with 10 karma in mock mode', done => {
+    service.getKarma('brand-new-karma-user@test.com').subscribe(res => {
+      expect(res.karma).toBe(10);
+      expect(localStorage.getItem('tb_karma_brand-new-karma-user@test.com')).toBe('10');
+      done();
+    });
+  });
+
+  it('updateKarmaMock falls back to a base of 10 when no karma has been stored yet', () => {
+    service.updateKarmaMock('another-new-user@test.com', -1);
+    expect(localStorage.getItem('tb_karma_another-new-user@test.com')).toBe('9');
+  });
 });
 
 describe('ApiService (useMocks=false via spy)', () => {
