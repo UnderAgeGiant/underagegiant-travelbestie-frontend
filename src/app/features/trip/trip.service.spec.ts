@@ -77,6 +77,18 @@ describe('TripService', () => {
     expect(updatedA.ticketPurchased).toBe(true);
     expect(updatedB.ticketPurchased).toBeUndefined();
   });
+
+  it('restoreStops auto-selects the first stop even when the incoming stops have no stopId (AI-generated plan)', () => {
+    // AI-generated trips (POST /ai/plan response) never carry a stopId — it's a
+    // frontend-only concept the AI is never told about. restoreStops must still
+    // land on the first stop as active once migrateStop assigns it a fresh id.
+    service.restoreStops([
+      { cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] } as any,
+      { cityId: 'tokyo', checkIn: '06/06/2026', checkOut: '10/06/2026', selectedAttractions: [] } as any,
+    ], null, []);
+
+    expect(service.activeStop()?.cityId).toBe('paris');
+  });
 });
 
 describe('TripService.loadForUserPreservingAnonymous', () => {
