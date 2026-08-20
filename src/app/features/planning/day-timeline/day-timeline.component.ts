@@ -16,6 +16,8 @@ import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slid
 import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
+import { LocaleService } from '../../../core/i18n/locale.service';
+import { localizedDescription } from '../../../core/utils/attraction-description.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -271,6 +273,7 @@ export class DayTimelineComponent {
   private  readonly device  = inject(DeviceService);
   private  readonly api     = inject(ApiService);
   private  readonly karmaModal = inject(KarmaModalService);
+  private  readonly locale     = inject(LocaleService);
   protected readonly exporting = signal(false);
 
   // ── Collapse / expand ─────────────────────────────────────────────────────
@@ -652,15 +655,16 @@ export class DayTimelineComponent {
         const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + (att?.estimatedMinutes ?? 60);
         const date     = a.date ?? dateStr;
         return {
-          id:        `att:${a.entryId}`,
-          name:      att?.name ?? a.attractionId,
-          type:      att?.type ?? '',
-          icon:      typeIcon(att?.type ?? ''),
-          imageUrl:  att?.imageUrl ?? null,
-          startDate: date,
-          startTime: a.startTime!,
-          endDate:   date,
-          endTime:   minToHm(endMin),
+          id:          `att:${a.entryId}`,
+          name:        att?.name ?? a.attractionId,
+          type:        att?.type ?? '',
+          icon:        typeIcon(att?.type ?? ''),
+          imageUrl:    att?.imageUrl ?? null,
+          description: (att ? localizedDescription(att, this.locale.current()) : undefined) ?? null,
+          startDate:   date,
+          startTime:   a.startTime!,
+          endDate:     date,
+          endTime:     minToHm(endMin),
         };
       });
 
@@ -671,7 +675,7 @@ export class DayTimelineComponent {
   protected readonly planSlideItems = computed<SlideshowItem[]>(() => {
     if (!this.showPlanSlideshow()) return [];
     const stops = this.stop() ? [this.stop()!] : this.trip.stops();
-    return buildPlanSlideshowItems(stops, this.allTransits());
+    return buildPlanSlideshowItems(stops, this.allTransits(), this.locale.current());
   });
 
   private transitSlideItemsForDay(day: string, cityId: string): SlideshowItem[] {
@@ -688,15 +692,16 @@ export class DayTimelineComponent {
         if (depKey !== day && arrKey !== day) continue;
 
         items.push({
-          id:        `transit:${leg.fromCityId}:${leg.toCityId}:${seg.departureDate}:${seg.departureTime}`,
-          name:      `${this.cityLabel(leg.fromCityId)} → ${this.cityLabel(leg.toCityId)}`,
-          type:      transitLabel(seg.mode),
-          icon:      transitIcon(seg.mode),
-          imageUrl:  null,
-          startDate: seg.departureDate,
-          startTime: seg.departureTime,
-          endDate:   seg.arrivalDate || seg.departureDate,
-          endTime:   seg.arrivalTime || null,
+          id:          `transit:${leg.fromCityId}:${leg.toCityId}:${seg.departureDate}:${seg.departureTime}`,
+          name:        `${this.cityLabel(leg.fromCityId)} → ${this.cityLabel(leg.toCityId)}`,
+          type:        transitLabel(seg.mode),
+          icon:        transitIcon(seg.mode),
+          imageUrl:    null,
+          description: null,
+          startDate:   seg.departureDate,
+          startTime:   seg.departureTime,
+          endDate:     seg.arrivalDate || seg.departureDate,
+          endTime:     seg.arrivalTime || null,
         });
       }
     }

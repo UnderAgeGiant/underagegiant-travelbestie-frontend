@@ -18,6 +18,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
+import { LocaleService } from '../../core/i18n/locale.service';
 
 type Step = 'preferences' | 'options' | 'result';
 
@@ -492,6 +493,7 @@ export class AiPlanningComponent {
   private readonly tripSvc    = inject(TripService);
   private readonly savedPlans = inject(SavedPlansService);
   private readonly karmaModal = inject(KarmaModalService);
+  private readonly locale     = inject(LocaleService);
 
   showProfile     = signal(false);
   step            = signal<Step>('preferences');
@@ -610,7 +612,7 @@ export class AiPlanningComponent {
   protected readonly planSlideItems = computed<SlideshowItem[]>(() => {
     const trip = this.generatedTrip();
     if (!trip) return [];
-    return buildPlanSlideshowItems(trip.stops, trip.transits ?? []);
+    return buildPlanSlideshowItems(trip.stops, trip.transits ?? [], this.locale.current());
   });
 
   setDuration(val: string): void {
