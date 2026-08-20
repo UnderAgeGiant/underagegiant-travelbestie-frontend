@@ -3,8 +3,8 @@ import { PlanSlideshowComponent } from './plan-slideshow.component';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 
 const ITEMS: SlideshowItem[] = [
-  { id: 'a', name: 'Eiffel Tower', type: 'Histórico', icon: '🏛️', imageUrl: 'https://img/a.jpg', startDate: '10/08/2026', startTime: '09:00', endDate: '10/08/2026', endTime: '11:00' },
-  { id: 'b', name: 'Paris → Rome', type: 'Vuelo', icon: '✈️', imageUrl: null, startDate: '11/08/2026', startTime: '14:00', endDate: '11/08/2026', endTime: '16:00' },
+  { id: 'a', name: 'Eiffel Tower', type: 'Histórico', icon: '🏛️', imageUrl: 'https://img/a.jpg', description: 'An iron lattice tower on the Champ de Mars.', startDate: '10/08/2026', startTime: '09:00', endDate: '10/08/2026', endTime: '11:00' },
+  { id: 'b', name: 'Paris → Rome', type: 'Vuelo', icon: '✈️', imageUrl: null, description: null, startDate: '11/08/2026', startTime: '14:00', endDate: '11/08/2026', endTime: '16:00' },
 ];
 
 describe('PlanSlideshowComponent', () => {
@@ -112,5 +112,18 @@ describe('PlanSlideshowComponent', () => {
     instance.onTouchEnd({ changedTouches: [{ clientX: 280 }] }); // 20px — below 50px threshold
     fixture.detectChanges();
     expect((fixture.nativeElement as HTMLElement).textContent).toContain('Eiffel Tower');
+  });
+
+  it('shows the description caption when the item has one', () => {
+    fixture.componentRef.setInput('items', ITEMS);
+    fixture.detectChanges();
+    const caption = fixture.nativeElement.querySelector('.ps-caption-desc');
+    expect(caption?.textContent?.trim()).toBe('An iron lattice tower on the Champ de Mars.');
+  });
+
+  it('hides the description caption when the item has none', () => {
+    fixture.componentRef.setInput('items', [ITEMS[1]]);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.ps-caption-desc')).toBeNull();
   });
 });

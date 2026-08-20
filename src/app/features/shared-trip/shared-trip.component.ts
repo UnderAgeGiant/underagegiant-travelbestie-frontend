@@ -29,6 +29,7 @@ import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { LocaleService } from '../../core/i18n/locale.service';
 
 @Component({
     selector: 'app-shared-trip',
@@ -438,6 +439,7 @@ export class SharedTripComponent {
   private readonly savedPlans  = inject(SavedPlansService);
   private readonly tripService = inject(TripService);
   private readonly cooldown    = inject(CommentCooldownService);
+  private readonly locale      = inject(LocaleService);
 
   showProfile        = signal(false);
   showSimilarModal   = signal(false);
@@ -483,7 +485,7 @@ export class SharedTripComponent {
 
   planSlideItems = computed<SlideshowItem[]>(() => {
     const t = this.trip();
-    return t ? buildPlanSlideshowItems(t.stops, t.transits ?? []) : [];
+    return t ? buildPlanSlideshowItems(t.stops, t.transits ?? [], this.locale.current()) : [];
   });
 
   constructor() {

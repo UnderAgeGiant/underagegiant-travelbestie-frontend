@@ -1225,18 +1225,6 @@
         <source>No se pudo actualizar tu nombre. Intenta de nuevo.</source>
         <target>We couldn't update your name. Please try again.</target>
       </trans-unit>
-      <trans-unit id="profile.errRateLimited" datatype="html">
-        <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
-        <target>Too many attempts. Please wait a few minutes and try again.</target>
-      </trans-unit>
-      <trans-unit id="profile.errSendEmailOtp" datatype="html">
-        <source>No se pudo enviar el código. Verifica que el correo no esté ya registrado.</source>
-        <target>We couldn't send the code. Make sure that email isn't already registered.</target>
-      </trans-unit>
-      <trans-unit id="profile.errUpdateEmail" datatype="html">
-        <source>Código incorrecto o vencido. Solicita uno nuevo.</source>
-        <target>Incorrect or expired code. Request a new one.</target>
-      </trans-unit>
       <trans-unit id="profile.errUpdatePassword" datatype="html">
         <source>No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</source>
         <target>We couldn't update your password. Check your current password.</target>
@@ -1938,64 +1926,6 @@
         <source>Guardar nombre</source>
         <target>Save name</target>
       </trans-unit>
-      <trans-unit id="profile.emailTitle" datatype="html">
-        <source>Correo electrónico</source>
-        <target>Email</target>
-      </trans-unit>
-      <trans-unit id="profile.newEmailLabel" datatype="html">
-        <source>Nueva dirección de correo</source>
-        <target>New email address</target>
-      </trans-unit>
-      <trans-unit id="profile.newEmailPlaceholder" datatype="html">
-        <source>nuevo@correo.com</source>
-        <target>new@email.com</target>
-      </trans-unit>
-      <trans-unit id="profile.sendingMsg" datatype="html">
-        <source>Enviando…</source>
-        <target>Sending…</target>
-      </trans-unit>
-      <trans-unit id="profile.sentMsg" datatype="html">
-        <source>Enviado</source>
-        <target>Sent</target>
-      </trans-unit>
-      <trans-unit id="profile.sendCodeBtn" datatype="html">
-        <source>Enviar código →</source>
-        <target>Send code →</target>
-      </trans-unit>
-      <trans-unit id="profile.checkEmailTitle" datatype="html">
-        <source>Revisa tu correo</source>
-        <target>Check your email</target>
-      </trans-unit>
-      <trans-unit id="profile.codeSentTo" datatype="html">
-        <source> Código enviado a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ editNewEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
-                    </source>
-        <target> Code sent to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ editNewEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
-                    </target>
-      </trans-unit>
-      <trans-unit id="profile.otpLabel" datatype="html">
-        <source>Código de verificación</source>
-        <target>Verification code</target>
-      </trans-unit>
-      <trans-unit id="profile.changeEmailBtn" datatype="html">
-        <source>← Cambiar correo</source>
-        <target>← Change email</target>
-      </trans-unit>
-      <trans-unit id="profile.resendCodeBtn" datatype="html">
-        <source>Reenviar código</source>
-        <target>Resend code</target>
-      </trans-unit>
-      <trans-unit id="profile.verifyingMsg" datatype="html">
-        <source>Verificando…</source>
-        <target>Verifying…</target>
-      </trans-unit>
-      <trans-unit id="profile.updatedMsg" datatype="html">
-        <source>Actualizado</source>
-        <target>Updated</target>
-      </trans-unit>
-      <trans-unit id="profile.updateEmailBtn" datatype="html">
-        <source>Actualizar correo →</source>
-        <target>Update email →</target>
-      </trans-unit>
       <trans-unit id="profile.passwordTitle" datatype="html">
         <source>Contraseña</source>
         <target>Password</target>
@@ -2095,10 +2025,6 @@
       <trans-unit id="profile.errNameEmpty" datatype="html">
         <source>El nombre no puede estar vacío.</source>
         <target>Name can't be empty.</target>
-      </trans-unit>
-      <trans-unit id="profile.errEmailEmpty" datatype="html">
-        <source>Ingresa la nueva dirección de correo.</source>
-        <target>Enter the new email address.</target>
       </trans-unit>
       <trans-unit id="profile.errPasswordsMismatch" datatype="html">
         <source>Las contraseñas no coinciden.</source>

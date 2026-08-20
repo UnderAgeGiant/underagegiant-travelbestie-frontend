@@ -2,6 +2,8 @@ import { TripStop, TransitLeg, PlannedAttraction, TransitMode } from '../../core
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
+import { localizedDescription } from '../../core/utils/attraction-description.util';
+import { AppLocale } from '../../core/i18n/locale.util';
 
 function hmToMin(hm: string): number {
   const [h, m] = hm.split(':').map(Number);
@@ -33,7 +35,7 @@ function cityLabel(cityId: string): string {
   return WORLD_CITIES.find(c => c.id === cityId)?.name ?? cityId;
 }
 
-function attractionSlideItem(stop: TripStop, planned: PlannedAttraction): SlideshowItem | null {
+function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale: AppLocale): SlideshowItem | null {
   if (!planned.startTime) return null;
   const city = WORLD_CITIES.find(c => c.id === stop.cityId);
   const att = (city ? getAttractions(city) : []).find(a => a.id === planned.attractionId)
@@ -44,15 +46,16 @@ function attractionSlideItem(stop: TripStop, planned: PlannedAttraction): Slides
   const date     = planned.date ?? stop.checkIn ?? null;
 
   return {
-    id:        `att:${planned.entryId}`,
-    name:      att?.name ?? planned.attractionId,
-    type:      att?.type ?? '',
-    icon:      typeIcon(att?.type ?? ''),
-    imageUrl:  att?.imageUrl ?? null,
-    startDate: date,
-    startTime: planned.startTime,
-    endDate:   date,
-    endTime:   minToHm(endMin),
+    id:          `att:${planned.entryId}`,
+    name:        att?.name ?? planned.attractionId,
+    type:        att?.type ?? '',
+    icon:        typeIcon(att?.type ?? ''),
+    imageUrl:    att?.imageUrl ?? null,
+    description: (att ? localizedDescription(att, locale) : undefined) ?? null,
+    startDate:   date,
+    startTime:   planned.startTime,
+    endDate:     date,
+    endTime:     minToHm(endMin),
   };
 }
 
@@ -60,15 +63,16 @@ function transitSlideItems(leg: TransitLeg): SlideshowItem[] {
   return leg.segments
     .filter(seg => !!seg.departureDate && !!seg.departureTime)
     .map((seg, i) => ({
-      id:        `transit:${leg.fromCityId}:${leg.toCityId}:${i}`,
-      name:      `${cityLabel(leg.fromCityId)} → ${cityLabel(leg.toCityId)}`,
-      type:      TRANSIT_LABEL[seg.mode] ?? 'Transporte',
-      icon:      TRANSIT_ICON[seg.mode] ?? '🚀',
-      imageUrl:  null,
-      startDate: seg.departureDate,
-      startTime: seg.departureTime,
-      endDate:   seg.arrivalDate || seg.departureDate,
-      endTime:   seg.arrivalTime || null,
+      id:          `transit:${leg.fromCityId}:${leg.toCityId}:${i}`,
+      name:        `${cityLabel(leg.fromCityId)} → ${cityLabel(leg.toCityId)}`,
+      type:        TRANSIT_LABEL[seg.mode] ?? 'Transporte',
+      icon:        TRANSIT_ICON[seg.mode] ?? '🚀',
+      imageUrl:    null,
+      description: null,
+      startDate:   seg.departureDate,
+      startTime:   seg.departureTime,
+      endDate:     seg.arrivalDate || seg.departureDate,
+      endTime:     seg.arrivalTime || null,
     }));
 }
 
@@ -80,12 +84,12 @@ function sortKey(item: SlideshowItem): number {
   return isNaN(t) ? Number.MAX_SAFE_INTEGER : t;
 }
 
-/** Chronologically-sorted slideshow items for an entire trip: every timed attraction across every stop, plus every transit segment. */
-export function buildPlanSlideshowItems(stops: TripStop[], transits: TransitLeg[]): SlideshowItem[] {
+/** Chronologically-sorted slideshow items for an entire trip: every timed attraction across every stop, plus every transit segment. `locale` picks the language of each attraction's description caption. */
+export function buildPlanSlideshowItems(stops: TripStop[], transits: TransitLeg[], locale: AppLocale): SlideshowItem[] {
   const items: SlideshowItem[] = [];
   for (const stop of stops) {
     for (const planned of stop.selectedAttractions) {
-      const item = attractionSlideItem(stop, planned);
+      const item = attractionSlideItem(stop, planned, locale);
       if (item) items.push(item);
     }
   }

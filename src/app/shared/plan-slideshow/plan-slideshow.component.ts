@@ -38,6 +38,9 @@ const SWIPE_THRESHOLD_PX = 50;
           <span>{{ dateTimeLabel(item.endDate, item.endTime) }}</span>
         }
       </div>
+      @if (item.description) {
+        <div class="ps-caption-desc">{{ item.description }}</div>
+      }
     </div>
 
     <div class="ps-dots">

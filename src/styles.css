@@ -2324,6 +2324,12 @@ app-nav { display: block; }
   animation: captionUp .5s .14s ease both;
 }
 .ps-caption-arrow { opacity: .6; }
+.ps-caption-desc {
+  font-size: 14px; line-height: 1.5; color: oklch(100% 0 0/.85);
+  margin-top: 12px; max-width: 640px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  animation: captionUp .5s .21s ease both;
+}
 .ps-dots {
   position: absolute; bottom: 40px; right: 56px; z-index: 3;
   display: flex; gap: 7px;
@@ -2353,6 +2359,7 @@ app-nav { display: block; }
 @media (max-width: 768px) {
   .ps-caption { padding: 24px 24px 32px; }
   .ps-caption-name { font-size: 36px; }
+  .ps-caption-desc { font-size: 13px; -webkit-line-clamp: 2; }
   .ps-dots { right: 24px; bottom: 24px; }
   .ps-arrows { left: 8px; right: 8px; }
   .ps-arrow { width: 40px; height: 40px; font-size: 18px; }
