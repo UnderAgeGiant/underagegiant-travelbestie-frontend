@@ -117,3 +117,74 @@ describe('AuthModalComponent — sign-in button loading state', () => {
     expect(submitBtn().disabled).toBe(false);
   });
 });
+
+describe('AuthModalComponent — OTP input digit filtering', () => {
+  let fixture: ComponentFixture<AuthModalComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    (window as any).turnstile = {
+      render: () => 'widget-1',
+      remove: () => {},
+      reset: () => {},
+    };
+    TestBed.configureTestingModule({
+      imports: [AuthModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    const authModal = TestBed.inject(AuthModalService);
+    fixture = TestBed.createComponent(AuthModalComponent);
+    authModal.openLogin();
+  });
+
+  afterEach(() => {
+    delete (window as any).turnstile;
+  });
+
+  function otpField(): HTMLInputElement {
+    return fixture.nativeElement.querySelector('input[maxlength="6"]') as HTMLInputElement;
+  }
+
+  it('strips a rejected non-digit character from the DOM value, not just the model — register OTP step', () => {
+    fixture.componentInstance.loginMode.set('register');
+    fixture.componentInstance.otpStep.set(true);
+    fixture.detectChanges();
+
+    const input = otpField();
+    input.value = 'a'; // simulates the browser inserting the typed character
+    input.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.otpCode()).toBe('');
+    expect(input.value).toBe('');
+  });
+
+  it('strips non-digit characters from typed input and keeps at most 6 digits — register OTP step', () => {
+    fixture.componentInstance.loginMode.set('register');
+    fixture.componentInstance.otpStep.set(true);
+    fixture.detectChanges();
+
+    const input = otpField();
+    input.value = 'a1b2c3d4';
+    input.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.otpCode()).toBe('1234');
+    expect(input.value).toBe('1234');
+  });
+
+  it('strips a rejected non-digit character from the DOM value, not just the model — password reset OTP step', () => {
+    fixture.componentInstance.loginMode.set('reset');
+    fixture.componentInstance.resetStep.set('verify');
+    fixture.detectChanges();
+
+    const input = otpField();
+    input.value = '#';
+    input.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.resetOtp()).toBe('');
+    expect(input.value).toBe('');
+  });
+});

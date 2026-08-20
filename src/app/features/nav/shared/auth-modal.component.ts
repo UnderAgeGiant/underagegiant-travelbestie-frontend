@@ -159,7 +159,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                          type="text" inputmode="numeric" maxlength="6"
                          i18n-placeholder="@@nav.otpPlaceholder" placeholder="000000"
                          [value]="otpCode()"
-                         (input)="onOtpInput($any($event.target).value)" />
+                         (input)="onOtpInput($event)" />
                 </div>
                 <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px">
                   <span style="color:var(--lav-d);cursor:pointer" (click)="goBackFromOtp()"
@@ -193,7 +193,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                   <input class="form-input" type="text" inputmode="numeric" maxlength="6"
                          i18n-placeholder="@@nav.otpPlaceholder" placeholder="000000"
                          [value]="resetOtp()"
-                         (input)="onResetOtpInput($any($event.target).value)" />
+                         (input)="onResetOtpInput($event)" />
                 </div>
                 <div class="form-group" style="margin-bottom:0">
                   <label class="form-label" i18n="@@nav.resetNewPasswordLabel">Nueva contraseña</label>
@@ -568,8 +568,12 @@ export class AuthModalComponent {
     setTimeout(() => this.renderTurnstile(), 0);
   }
 
-  onResetOtpInput(value: string): void {
-    this.resetOtp.set(value.replace(/\D/g, '').slice(0, 6));
+  onResetOtpInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const digits = input.value.replace(/\D/g, '').slice(0, 6);
+    // Same Angular controlled-input gotcha as onOtpInput above — see its comment.
+    input.value = digits;
+    this.resetOtp.set(digits);
   }
 
   sendOtp(): void {
@@ -613,8 +617,15 @@ export class AuthModalComponent {
     });
   }
 
-  onOtpInput(value: string): void {
-    const digits = value.replace(/\D/g, '').slice(0, 6);
+  onOtpInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const digits = input.value.replace(/\D/g, '').slice(0, 6);
+    // Angular's [value] binding only re-applies the DOM property when the *bound* value differs
+    // from the previous render. Typing a rejected character into an otherwise-empty field leaves
+    // the filtered result unchanged ('' -> ''), so Angular skips the DOM update and the character
+    // stays visibly stuck in the input even though the model is already clean. Writing back to
+    // the live element directly closes that gap.
+    input.value = digits;
     this.otpCode.set(digits);
     if (digits.length === 6) {
       this.doAuth();
