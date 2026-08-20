@@ -821,7 +821,13 @@ export class AiPlanningComponent {
     this.tripSvc.restoreStops(trip.stops, null, trip.transits ?? []);
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [])
       .subscribe({
-        next: () => this.planSaved.emit(),
+        next: id => {
+          // Record the server-assigned id so the editor recognizes this trip as
+          // already saved (export button, "Guardar viaje" footer, autosave all
+          // key off TripService.loadedPlanId()) instead of treating it as new.
+          this.tripSvc.markAsLoadedPlan(id);
+          this.planSaved.emit();
+        },
         error: err => { this.karmaModal.handleKarmaError(err); },
       });
   }

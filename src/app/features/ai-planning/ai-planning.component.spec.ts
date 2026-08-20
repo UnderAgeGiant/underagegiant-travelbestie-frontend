@@ -3,6 +3,7 @@ import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { AiPlanningComponent } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
+import { TripService } from '../trip/trip.service';
 import { Trip } from '../../core/models/trip.model';
 import { TripSuggestion } from '../../core/models/ai.model';
 
@@ -67,5 +68,55 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     expect(component.planSlideshowOpen()).toBe(false);
     expect(component.step()).toBe('result');
     expect(component.generatedTrip()).toEqual(TRIP);
+  });
+});
+
+describe('AiPlanningComponent — save() marks the plan as loaded', () => {
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let trip: TripService;
+  let http: HttpTestingController;
+
+  const TRIP: Trip = {
+    title: 'Viaje de prueba',
+    stops: [
+      { stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] },
+      { stopId: 's2', cityId: 'london', checkIn: '06/06/2026', checkOut: '10/06/2026', selectedAttractions: [] },
+    ],
+    transits: [],
+  };
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    trip = TestBed.inject(TripService);
+    http = TestBed.inject(HttpTestingController);
+    // Create the component (and its injected SavedPlansService) BEFORE logging in —
+    // SavedPlansService's constructor fires a real GET /trips if a user is already
+    // logged in at construction time, which would otherwise leave an unexpected
+    // request outstanding for http.verify() to trip over.
+    component = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    component.generatedTrip.set(TRIP);
+  });
+
+  afterEach(() => http.verify());
+
+  it('selects the first city and records the server-assigned trip id after saving', () => {
+    let saved = false;
+    component.planSaved.subscribe(() => { saved = true; });
+
+    component.save();
+
+    const req = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
+    req.flush({ id: 'trip-42', ...TRIP });
+
+    expect(trip.activeStop()?.stopId).toBe('s1');
+    expect(trip.loadedPlanId()).toBe('trip-42');
+    expect(saved).toBe(true);
   });
 });
