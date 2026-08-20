@@ -15,12 +15,15 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { DatePickerComponent } from '../../shared/date-picker/date-picker.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
+import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
+import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 
 type Step = 'preferences' | 'options' | 'result';
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent],
+    imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -463,6 +466,10 @@ type Step = 'preferences' | 'options' | 'result';
         }
       </div>
 
+      @if (planSlideshowOpen()) {
+        <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
+      }
+
       @if (loading()) {
         <div class="ai-loading-overlay">
           <div class="ai-loading-card">
@@ -494,6 +501,8 @@ export class AiPlanningComponent {
   suggestions     = signal<SuggestTripsResponse | null>(null);
   selectedOption  = signal<TripSuggestion | null>(null);
   generatedTrip   = signal<Trip | null>(null);
+  /** Auto-opened as soon as a plan finishes generating, as if the user had pressed "🎞️ Presentación del plan". */
+  planSlideshowOpen = signal(false);
 
   preferences = signal('');
   duration    = signal<number | undefined>(undefined);
@@ -595,6 +604,13 @@ export class AiPlanningComponent {
       map.set(`${t.fromCityId}|${t.toCityId}`, t);
     }
     return map;
+  });
+
+  /** Slideshow items for the auto-opened plan presentation — built from the generated trip's stops + transits. */
+  protected readonly planSlideItems = computed<SlideshowItem[]>(() => {
+    const trip = this.generatedTrip();
+    if (!trip) return [];
+    return buildPlanSlideshowItems(trip.stops, trip.transits ?? []);
   });
 
   setDuration(val: string): void {
@@ -748,6 +764,9 @@ export class AiPlanningComponent {
         this.generatedTrip.set(tripData as Trip);
         this.loading.set(false);
         this.step.set('result');
+        // Auto-open the fullscreen presentation, as if the user had pressed
+        // "🎞️ Presentación del plan" themselves.
+        this.planSlideshowOpen.set(true);
 
         if (changeInfo) {
           this.handleChangeInfo(changeInfo);
@@ -802,7 +821,13 @@ export class AiPlanningComponent {
     this.tripSvc.restoreStops(trip.stops, null, trip.transits ?? []);
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [])
       .subscribe({
-        next: () => this.planSaved.emit(),
+        next: id => {
+          // Record the server-assigned id so the editor recognizes this trip as
+          // already saved (export button, "Guardar viaje" footer, autosave all
+          // key off TripService.loadedPlanId()) instead of treating it as new.
+          this.tripSvc.markAsLoadedPlan(id);
+          this.planSaved.emit();
+        },
         error: err => { this.karmaModal.handleKarmaError(err); },
       });
   }

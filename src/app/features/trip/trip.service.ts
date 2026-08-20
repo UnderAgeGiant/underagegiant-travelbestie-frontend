@@ -179,9 +179,14 @@ export class TripService {
 
   restoreStops(stops: TripStop[], planId: string | null = null, transits: TransitLeg[] = [], owner: { name: string; email: string } | null = null): void {
     this._saving = true;
-    this._stops.set(stops.map(migrateStop));
+    const migratedStops = stops.map(migrateStop);
+    this._stops.set(migratedStops);
     this._transits.set(transits.map(migrateTransitLeg));
-    this._activeId.set(stops[0]?.stopId ?? null);
+    // Derive activeId from the migrated stops, not the raw input — a stop that
+    // arrives without a stopId (e.g. a freshly AI-generated plan, which never
+    // carries one) gets a brand-new one from migrateStop, so reading stopId off
+    // the raw stops[0] here would set an id that no stop in _stops actually has.
+    this._activeId.set(migratedStops[0]?.stopId ?? null);
     this._loadedPlanId.set(planId);
     this._loadedPlanOwner.set(owner);
     this._saving = false;
