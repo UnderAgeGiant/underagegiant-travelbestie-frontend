@@ -84,6 +84,14 @@ export class NotificationBellComponent {
       return;
     }
 
+    // Same pattern for AI plan completion/failure — route to My Trips → Mis
+    // Planes IA rather than parsing n.url (which is just '/' for these too).
+    if (n.type === 'ai_plan_ready' || n.type === 'ai_plan_failed') {
+      this.facade.pendingMyTripsTab.set('aiplans');
+      this.router.navigateByUrl('/');
+      return;
+    }
+
     // Router navigation, not window.location.href — a hard reload would blank
     // the in-memory access token and flash the "signed out" nav state.
     // n.url is a backend-issued relative path, e.g. "/?share=abc" or "/" —
