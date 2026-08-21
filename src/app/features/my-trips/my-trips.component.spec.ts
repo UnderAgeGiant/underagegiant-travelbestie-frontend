@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
+import { of } from 'rxjs';
 import { MyTripsComponent } from './my-trips.component';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -105,5 +106,42 @@ describe('MyTripsComponent — saved-plan-actions visibility', () => {
     fixture.detectChanges();
     expect(cards[0].querySelector('.saved-plan-actions')).toBeNull();
     expect(cards[1].querySelector('.saved-plan-actions')).not.toBeNull();
+  });
+});
+
+describe('MyTripsComponent — Mis Planes IA tab', () => {
+  let component: MyTripsComponent;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    component = TestBed.createComponent(MyTripsComponent).componentInstance;
+  });
+
+  it('fetches and lists AI plan history when the aiplans tab is opened', () => {
+    const historyItem = {
+      requestId: 'req-1', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    jest.spyOn((component as any).api, 'getAiPlanHistory').mockReturnValue(of([historyItem]));
+
+    component.openAiPlansTab();
+
+    expect(component.favTab()).toBe('aiplans');
+    expect(component.aiPlanHistory()).toEqual([historyItem]);
+  });
+
+  it('opens straight onto Mis Planes IA when facade.pendingMyTripsTab is aiplans', () => {
+    (component as any).facade.pendingMyTripsTab.set('aiplans');
+    jest.spyOn((component as any).api, 'getAiPlanHistory').mockReturnValue(of([]));
+
+    const reconstructed = TestBed.createComponent(MyTripsComponent).componentInstance;
+
+    expect(reconstructed.favTab()).toBe('aiplans');
   });
 });

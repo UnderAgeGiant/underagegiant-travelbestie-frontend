@@ -1660,6 +1660,12 @@ app-nav { display: block; }
 .fav-remove-btn   { color: var(--t3); font-size: 12px; }
 .fav-remove-btn:hover { color: oklch(52% .18 25); }
 
+.aiplan-card-title { font-size: 13px; font-weight: 700; color: var(--t1); }
+.aiplan-card-meta { font-size: 11.5px; color: var(--t2); margin-top: 2px; }
+.aiplan-card-date { font-size: 10.5px; color: var(--t2); margin-top: 6px; }
+.aiplan-card-failed { opacity: 0.75; }
+.aiplan-card-refund { font-size: 10.5px; font-weight: 700; color: var(--warn, #b45309); margin-top: 4px; }
+
 /* ── Attraction preview popover ─────────────────────────────────────────── */
 .att-preview-backdrop {
   position: fixed;

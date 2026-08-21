@@ -1,10 +1,12 @@
 import { Component, computed, inject, signal, output, ChangeDetectionStrategy } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { FavoritedTrip, Collaborator } from '../../core/models/trip.model';
+import { AiPlanHistoryItem } from '../../core/models/ai.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
@@ -22,7 +24,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent, RouterLink, ProfileComponent, NavShellComponent],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink, ProfileComponent, NavShellComponent, DatePipe],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
@@ -64,6 +66,9 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                         (click)="favTab.set('invites')"
                         i18n="@@myTrips.tabInvites">Invitaciones pendientes ({{ savedPlans.pendingInvites().length }})</button>
               }
+              <button class="profile-tab" [class.active]="favTab() === 'aiplans'"
+                      (click)="openAiPlansTab()"
+                      i18n="@@mytrips.tabAiPlans">Mis Planes IA</button>
             </div>
 
             @if (favTab() === 'trips') {
@@ -286,6 +291,32 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                 }
               </div>
             }
+
+            @if (favTab() === 'aiplans') {
+              <div class="fav-list">
+                @if (aiPlanHistoryLoading()) {
+                  <div class="fav-empty" i18n="@@mytrips.aiPlansLoading">Cargando tus planes…</div>
+                } @else if (aiPlanHistory().length === 0) {
+                  <div class="fav-empty" i18n="@@mytrips.aiPlansEmpty">Aún no has generado ningún plan con IA.</div>
+                } @else {
+                  @for (item of aiPlanHistory(); track item.requestId) {
+                    <div class="fav-card aiplan-card" [class.aiplan-card-failed]="item.status === 'failed'">
+                      @if (item.status === 'completed') {
+                        <div class="aiplan-card-title">{{ item.result?.title }}</div>
+                        <div class="aiplan-card-meta" i18n="@@mytrips.aiPlanBasedOn">Basado en: {{ item.requestParams.selectedOption.title }}</div>
+                      } @else {
+                        <div class="aiplan-card-title" i18n="@@mytrips.aiPlanFailedTitle">No se pudo generar</div>
+                        <div class="aiplan-card-meta">{{ item.requestParams.selectedOption.title }}</div>
+                        @if (item.karmaCharged > 0) {
+                          <div class="aiplan-card-refund" i18n="@@mytrips.aiPlanRefunded">Karma reembolsado</div>
+                        }
+                      }
+                      <div class="aiplan-card-date">{{ item.createdAt | date:'dd/MM/yyyy HH:mm' }}</div>
+                    </div>
+                  }
+                }
+              </div>
+            }
           }
         </section>
 
@@ -370,22 +401,38 @@ export class MyTripsComponent {
   showProfile = signal(false);
 
   // ── Favorites tab ──
-  favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites'>('trips');
+  favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans'>('trips');
+  aiPlanHistory = signal<AiPlanHistoryItem[]>([]);
+  aiPlanHistoryLoading = signal(false);
 
   constructor() {
-    // One-shot: a notification click (e.g. collaborator invite/accept) can
-    // request opening straight onto a specific tab. Consume + clear so a
-    // later plain "Mis viajes" open doesn't inherit a stale tab.
+    // One-shot: a notification click (e.g. collaborator invite/accept, AI plan
+    // ready/failed) can request opening straight onto a specific tab. Consume
+    // + clear so a later plain "Mis viajes" open doesn't inherit a stale tab.
     const pendingTab = this.facade.pendingMyTripsTab();
     if (pendingTab) {
       this.favTab.set(pendingTab);
       this.facade.pendingMyTripsTab.set(null);
+      if (pendingTab === 'aiplans') this.loadAiPlanHistory();
     }
   }
 
   openFavTab(): void {
     this.favTab.set('favorites');
     this.favorites.loadFavorites();
+  }
+
+  openAiPlansTab(): void {
+    this.favTab.set('aiplans');
+    this.loadAiPlanHistory();
+  }
+
+  private loadAiPlanHistory(): void {
+    this.aiPlanHistoryLoading.set(true);
+    this.api.getAiPlanHistory().subscribe({
+      next: items => { this.aiPlanHistory.set(items); this.aiPlanHistoryLoading.set(false); },
+      error: () => { this.aiPlanHistoryLoading.set(false); },
+    });
   }
 
   removeFavorite(trip: FavoritedTrip): void {
