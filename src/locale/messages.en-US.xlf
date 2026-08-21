@@ -2108,6 +2108,44 @@
         <target>Got it!</target>
       </trans-unit>
 
+      <!-- ── AI plan timeout resilience & history: taking-long dog + My Trips "Mis Planes IA" tab ── -->
+      <trans-unit id="aiplan.takingLongIntro" datatype="html">
+        <source> Me estoy demorando en encontrar las atracciones correctas. Si quieres puedes esperar o te puedo avisar mediante las notificaciones cuando el plan ya esté listo. </source>
+        <target> I'm taking a while to find the right attractions. You can wait, or I can let you know via notifications once the plan is ready. </target>
+      </trans-unit>
+      <trans-unit id="aiplan.takingLongWait" datatype="html">
+        <source>Esperar</source>
+        <target>Wait</target>
+      </trans-unit>
+      <trans-unit id="aiplan.takingLongNotify" datatype="html">
+        <source>Notificarme</source>
+        <target>Notify me</target>
+      </trans-unit>
+      <trans-unit id="mytrips.tabAiPlans" datatype="html">
+        <source>Mis Planes IA</source>
+        <target>My AI Plans</target>
+      </trans-unit>
+      <trans-unit id="mytrips.aiPlansLoading" datatype="html">
+        <source>Cargando tus planes…</source>
+        <target>Loading your plans…</target>
+      </trans-unit>
+      <trans-unit id="mytrips.aiPlansEmpty" datatype="html">
+        <source>Aún no has generado ningún plan con IA.</source>
+        <target>You haven't generated any AI plans yet.</target>
+      </trans-unit>
+      <trans-unit id="mytrips.aiPlanBasedOn" datatype="html">
+        <source>Basado en: <x id="INTERPOLATION" equiv-text="{{ item.requestParams.selectedOption.title }}"/></source>
+        <target>Based on: <x id="INTERPOLATION" equiv-text="{{ item.requestParams.selectedOption.title }}"/></target>
+      </trans-unit>
+      <trans-unit id="mytrips.aiPlanFailedTitle" datatype="html">
+        <source>No se pudo generar</source>
+        <target>Couldn't be generated</target>
+      </trans-unit>
+      <trans-unit id="mytrips.aiPlanRefunded" datatype="html">
+        <source>Karma reembolsado</source>
+        <target>Karma refunded</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
