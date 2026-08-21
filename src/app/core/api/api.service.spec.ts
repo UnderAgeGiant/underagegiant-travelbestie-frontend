@@ -246,6 +246,11 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     req.flush({ options: [] });
   });
 
+  // Not fakeAsync: getCityCatalog() resolves through a real dynamic import()
+  // (see AttractionCatalogService), which fakeAsync's tick()/flushMicrotasks()
+  // cannot drain — it needs a genuine event-loop turn, hence the real await
+  // below (same pattern the pre-existing suggestTrips test above already uses
+  // for the analogous getCityIndex() import).
   it('planTrip sends an attractions catalog filtered to the selected option\'s cityIds', async () => {
     service.planTrip({
       selectedOption: { id: 1, title: 'T', summary: 'S', highlights: [], cityIds: ['paris', 'rome'] },
@@ -254,19 +259,31 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     await new Promise(resolve => setTimeout(resolve, 0));
     const req = http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST');
     expect(Object.keys(req.request.body.cityCatalog).sort()).toEqual(['paris', 'rome']);
-    req.flush({ title: 'T', stops: [], transits: [] });
+    req.flush({ requestId: 'req-x' });
+
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.includes('/ai/plan/req-x/status')).flush({
+      status: 'completed',
+      result: { title: 'T', stops: [], transits: [] },
+    });
   });
 
-  it('planTrip sends no cityCatalog when the selected option has no cityIds', async () => {
+  it('planTrip sends no cityCatalog when the selected option has no cityIds', fakeAsync(() => {
     service.planTrip({
       selectedOption: { id: 1, title: 'T', summary: 'S', highlights: [] },
       preferences: 'arte',
     }).subscribe();
-    await new Promise(resolve => setTimeout(resolve, 0));
+    tick(0);
     const req = http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST');
     expect(req.request.body.cityCatalog).toBeUndefined();
-    req.flush({ title: 'T', stops: [], transits: [] });
-  });
+    req.flush({ requestId: 'req-x' });
+
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/plan/req-x/status')).flush({
+      status: 'completed',
+      result: { title: 'T', stops: [], transits: [] },
+    });
+  }));
 });
 
 describe('ApiService.suggestCityAttractions() — real HTTP', () => {
