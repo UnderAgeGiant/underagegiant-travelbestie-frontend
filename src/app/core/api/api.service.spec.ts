@@ -1,7 +1,9 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { ApiService } from './api.service';
+import { environment } from '../../../environments/environment';
+import { PlanTripRequest } from '../models/ai.model';
 
 describe('ApiService (useMocks=true)', () => {
   let service: ApiService;
@@ -52,6 +54,61 @@ describe('ApiService (useMocks=true)', () => {
     service.updateKarmaMock('another-new-user@test.com', -1);
     expect(localStorage.getItem('tb_karma_another-new-user@test.com')).toBe('9');
   });
+});
+
+describe('ApiService — planTrip (async kickoff + poll)', () => {
+  let httpMock: HttpTestingController;
+  let svc: ApiService;
+
+  const req: PlanTripRequest = {
+    selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] },
+    preferences: 'viaje romántico',
+  };
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    httpMock = TestBed.inject(HttpTestingController);
+    svc = TestBed.inject(ApiService);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('kicks off, polls, and resolves with the plan once status flips to completed', fakeAsync(() => {
+    let result: any;
+    svc.planTrip(req).subscribe(r => (result = r));
+
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan`).flush({ requestId: 'req-1' });
+
+    // First poll tick — still pending
+    tick(0);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({ status: 'pending' });
+
+    // Second poll tick, 5s later — completed
+    tick(5000);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({
+      status: 'completed',
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      changeInfo: { type: 'new_session', freeChangesUsed: 0, freeChangesRemaining: 3 },
+    });
+
+    expect(result.title).toBe('Mi Plan Europa');
+    expect(result.changeInfo).toMatchObject({ type: 'new_session' });
+  }));
+
+  it('errors when status flips to failed', fakeAsync(() => {
+    let error: any;
+    svc.planTrip(req).subscribe({ error: e => (error = e) });
+
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan`).flush({ requestId: 'req-2' });
+    tick(0);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-2/status`).flush({
+      status: 'failed', error: 'DeepSeek unavailable',
+    });
+
+    expect(error.error.error).toBe('DeepSeek unavailable');
+  }));
 });
 
 describe('ApiService (useMocks=false via spy)', () => {
