@@ -86,3 +86,43 @@ export interface CompanionStatusResponse {
   boosted:          boolean;
   secondsRemaining: number;
 }
+
+export type AiPlanRequestStatus = 'pending' | 'completed' | 'failed';
+
+/** Response shape of POST /ai/plan now that it kicks off a background job instead of returning the plan directly. */
+export interface AiPlanKickoffResponse {
+  requestId: string;
+}
+
+/** Data shape both GET /ai/plan/:requestId/status and GET /ai/plan/history's `result` field carry — matches backend PlanTripResponse minus changeInfo (that's a sibling field, not nested). */
+export interface AiPlanResultData {
+  title:    string;
+  stops:    unknown[];
+  transits: unknown[];
+}
+
+/** Response shape of GET /ai/plan/:requestId/status. */
+export interface AiPlanStatusResponse {
+  status:      AiPlanRequestStatus;
+  result?:     AiPlanResultData;
+  changeInfo?: PlanChangeInfo;
+  error?:      string;
+}
+
+/** One row from GET /ai/plan/history — a past AI-generated plan the user can revisit read-only. */
+export interface AiPlanHistoryItem {
+  requestId:     string;
+  status:        'completed' | 'failed';
+  requestParams: {
+    selectedOption: TripSuggestion;
+    preferences:    string;
+    duration?:      number;
+    budget?:        string;
+    startDate?:     string;
+  };
+  result?:       AiPlanResultData;
+  error?:        string;
+  karmaCharged:  number;
+  createdAt:     string;
+  completedAt?:  string;
+}
