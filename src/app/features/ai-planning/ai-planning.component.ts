@@ -1,4 +1,5 @@
 import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -477,6 +478,23 @@ type Step = 'preferences' | 'options' | 'result';
             <div class="ai-loading-spinner"></div>
             <div class="ai-loading-title">{{ loadingMessage() }}</div>
             <div class="ai-loading-sub" i18n="@@aiplan.loadingSub">Esto puede tardar unos segundos…</div>
+
+            @if (planTakingLong()) {
+              <div class="companion-mascot plan-wait-mascot">
+                <img class="companion-dog is-waiting" src="/Dog-waiting-1.png" alt="Asistente Miel" draggable="false" />
+                <div class="companion-bubble">
+                  <p class="companion-bubble-intro" i18n="@@aiplan.takingLongIntro">
+                    Me estoy demorando en encontrar las atracciones correctas. Si quieres puedes esperar o te puedo avisar mediante las notificaciones cuando el plan ya esté listo.
+                  </p>
+                  <div class="companion-bubble-actions">
+                    <button type="button" class="btn-pill btn-outline" (click)="waitForPlan()"
+                            i18n="@@aiplan.takingLongWait">Esperar</button>
+                    <button type="button" class="btn-pill btn-primary" (click)="notifyMeInstead()"
+                            i18n="@@aiplan.takingLongNotify">Notificarme</button>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
         </div>
       }
@@ -505,6 +523,11 @@ export class AiPlanningComponent {
   generatedTrip   = signal<Trip | null>(null);
   /** Auto-opened as soon as a plan finishes generating, as if the user had pressed "🎞️ Presentación del plan". */
   planSlideshowOpen = signal(false);
+  /** Flips true once executePlan()'s request has been pending for AI_PLAN_LONG_WAIT_MS. */
+  planTakingLong = signal(false);
+  private planSub: Subscription | null = null;
+  private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
+  private static readonly AI_PLAN_LONG_WAIT_MS = 15_000;
 
   preferences = signal('');
   duration    = signal<number | undefined>(undefined);
@@ -748,12 +771,19 @@ export class AiPlanningComponent {
     this.planConfirmPending.set(null);
     this.changeWarning.set(null);
     this.changeCharged.set(null);
+    this.planTakingLong.set(false);
 
     this.loadingMessage.set($localize`:@@aiplan.loadingPlan:Creando tu plan de viaje 🗺️`);
     this.loading.set(true);
     this.error.set(null);
 
-    this.api.planTrip({
+    this.clearPlanTakingLongTimer();
+    this.planTakingLongTimer = setTimeout(
+      () => this.planTakingLong.set(true),
+      AiPlanningComponent.AI_PLAN_LONG_WAIT_MS,
+    );
+
+    this.planSub = this.api.planTrip({
       selectedOption: opt,
       preferences:    this.buildPreferences(),
       duration:       this.duration(),
@@ -762,6 +792,8 @@ export class AiPlanningComponent {
       planSessionId:  this.planSessionId() ?? undefined,
     }).subscribe({
       next: response => {
+        this.clearPlanTakingLongTimer();
+        this.planTakingLong.set(false);
         const { changeInfo, ...tripData } = response;
         this.generatedTrip.set(tripData as Trip);
         this.loading.set(false);
@@ -775,12 +807,40 @@ export class AiPlanningComponent {
         }
       },
       error: err => {
+        this.clearPlanTakingLongTimer();
+        this.planTakingLong.set(false);
         this.loading.set(false);
         if (!this.karmaModal.handleKarmaError(err)) {
           this.error.set(err?.error?.error ?? 'Error al generar el plan');
         }
       },
     });
+  }
+
+  /** User chose "Esperar" in the taking-long dog bubble — no-op, the existing poll subscription keeps running. */
+  waitForPlan(): void {
+    this.planTakingLong.set(false);
+  }
+
+  /**
+   * User chose "Notificarme" in the taking-long dog bubble — stops the frontend
+   * poll and returns to a normal state. The backend keeps generating regardless
+   * (background job, see manager repo's ai-plan-job.ts) and will notify the user
+   * via the bell when it finishes, whether they're still on this screen or not.
+   */
+  notifyMeInstead(): void {
+    this.planSub?.unsubscribe();
+    this.planSub = null;
+    this.clearPlanTakingLongTimer();
+    this.planTakingLong.set(false);
+    this.loading.set(false);
+  }
+
+  private clearPlanTakingLongTimer(): void {
+    if (this.planTakingLongTimer) {
+      clearTimeout(this.planTakingLongTimer);
+      this.planTakingLongTimer = null;
+    }
   }
 
   /** Updates local session state from the backend's changeInfo response. */
