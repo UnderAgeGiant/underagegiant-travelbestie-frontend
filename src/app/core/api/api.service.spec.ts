@@ -85,8 +85,8 @@ describe('ApiService — planTrip (async kickoff + poll)', () => {
     tick(0);
     httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({ status: 'pending' });
 
-    // Second poll tick, 5s later — completed
-    tick(5000);
+    // Second poll tick, 15s later — completed
+    tick(15000);
     httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({
       status: 'completed',
       result: { title: 'Mi Plan Europa', stops: [], transits: [] },

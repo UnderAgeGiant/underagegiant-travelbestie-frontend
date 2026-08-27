@@ -164,7 +164,7 @@ export class ApiService {
     if (this.useMocks) return of(this.sharedTripsService.search(query));
     return this.http.get<SharedTrip[]>(`${this.base}/shared?q=${encodeURIComponent(query)}`);
   }
-  private static readonly AI_PLAN_POLL_INTERVAL_MS = 5000;
+  private static readonly AI_PLAN_POLL_INTERVAL_MS = 15000;
 
   planTrip(req: PlanTripRequest): Observable<PlanTripResponse> {
     if (this.useMocks) {
