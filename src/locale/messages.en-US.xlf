@@ -2121,6 +2121,14 @@
         <source>Notificarme</source>
         <target>Notify me</target>
       </trans-unit>
+      <trans-unit id="aiplan.notifyConfirmText" datatype="html">
+        <source> ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas. </source>
+        <target> Great! You can browse the most popular plans from other users while you wait. </target>
+      </trans-unit>
+      <trans-unit id="aiplan.notifyConfirmOk" datatype="html">
+        <source>Ok</source>
+        <target>Ok</target>
+      </trans-unit>
       <trans-unit id="mytrips.tabAiPlans" datatype="html">
         <source>Mis Planes IA</source>
         <target>My AI Plans</target>
@@ -2144,6 +2152,10 @@
       <trans-unit id="mytrips.aiPlanRefunded" datatype="html">
         <source>Karma reembolsado</source>
         <target>Karma refunded</target>
+      </trans-unit>
+      <trans-unit id="mytrips.aiPlanViewHint" datatype="html">
+        <source>Ver plan →</source>
+        <target>View plan →</target>
       </trans-unit>
 
     </body>

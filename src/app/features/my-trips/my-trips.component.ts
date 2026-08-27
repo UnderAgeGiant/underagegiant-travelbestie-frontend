@@ -6,7 +6,7 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { FavoritedTrip, Collaborator } from '../../core/models/trip.model';
-import { AiPlanHistoryItem } from '../../core/models/ai.model';
+import { AiPlanHistoryItem, AiPlanResultData } from '../../core/models/ai.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
@@ -300,10 +300,18 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                   <div class="fav-empty" i18n="@@mytrips.aiPlansEmpty">Aún no has generado ningún plan con IA.</div>
                 } @else {
                   @for (item of aiPlanHistory(); track item.requestId) {
-                    <div class="fav-card aiplan-card" [class.aiplan-card-failed]="item.status === 'failed'">
+                    <div class="fav-card aiplan-card"
+                         [class.aiplan-card-failed]="item.status === 'failed'"
+                         [class.aiplan-card-clickable]="item.status === 'completed'"
+                         [attr.role]="item.status === 'completed' ? 'button' : null"
+                         [attr.tabindex]="item.status === 'completed' ? 0 : null"
+                         (click)="openAiPlanResult(item)"
+                         (keydown.enter)="openAiPlanResult(item)"
+                         (keydown.space)="$event.preventDefault(); openAiPlanResult(item)">
                       @if (item.status === 'completed') {
                         <div class="aiplan-card-title">{{ item.result?.title }}</div>
                         <div class="aiplan-card-meta" i18n="@@mytrips.aiPlanBasedOn">Basado en: {{ item.requestParams.selectedOption.title }}</div>
+                        <div class="aiplan-card-hint" i18n="@@mytrips.aiPlanViewHint">Ver plan →</div>
                       } @else {
                         <div class="aiplan-card-title" i18n="@@mytrips.aiPlanFailedTitle">No se pudo generar</div>
                         <div class="aiplan-card-meta">{{ item.requestParams.selectedOption.title }}</div>
@@ -397,6 +405,8 @@ export class MyTripsComponent {
 
   close          = output<void>();
   openAiPlanning = output<void>();
+  /** A completed "Mis Planes IA" card was clicked — parent opens AiPlanningComponent straight onto Step 3 with this plan + its slideshow auto-playing. */
+  viewAiPlan     = output<AiPlanResultData>();
 
   showProfile = signal(false);
 
@@ -433,6 +443,11 @@ export class MyTripsComponent {
       next: items => { this.aiPlanHistory.set(items); this.aiPlanHistoryLoading.set(false); },
       error: () => { this.aiPlanHistoryLoading.set(false); },
     });
+  }
+
+  /** Only completed rows carry a `result` to revisit — failed rows are inert. */
+  openAiPlanResult(item: AiPlanHistoryItem): void {
+    if (item.status === 'completed' && item.result) this.viewAiPlan.emit(item.result);
   }
 
   removeFavorite(trip: FavoritedTrip): void {

@@ -161,7 +161,7 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     expect(component.planTakingLong()).toBe(false);   // cleared once it resolves
   }));
 
-  it('notifyMeInstead unsubscribes, hides the dog, and stops loading', fakeAsync(() => {
+  it('notifyMeInstead unsubscribes, hides the dog, stops loading, and shows the hand-off confirmation', fakeAsync(() => {
     const planTrip$ = new Subject<PlanTripResponse>();
     (component as any).api.planTrip = jest.fn().mockReturnValue(planTrip$.asObservable());
     component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
@@ -174,10 +174,61 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
 
     expect(component.planTakingLong()).toBe(false);
     expect(component.loading()).toBe(false);
+    expect(component.notifyConfirmVisible()).toBe(true);
 
     // Late resolution after the user opted out must not resurrect loading state
     planTrip$.next({ title: 'Plan', stops: [], transits: [] });
     tick(0);
     expect(component.loading()).toBe(false);
   }));
+
+  it('confirmNotify hides the hand-off card and emits viewFeaturedTrips', fakeAsync(() => {
+    const planTrip$ = new Subject<PlanTripResponse>();
+    (component as any).api.planTrip = jest.fn().mockReturnValue(planTrip$.asObservable());
+    component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
+    component.executePlan();
+    tick(15000);
+    component.notifyMeInstead();
+
+    let emitted = false;
+    component.viewFeaturedTrips.subscribe(() => { emitted = true; });
+
+    component.confirmNotify();
+
+    expect(component.notifyConfirmVisible()).toBe(false);
+    expect(emitted).toBe(true);
+  }));
+});
+
+describe('AiPlanningComponent — initialResult (revisiting a past "Mis Planes IA" plan)', () => {
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+  });
+
+  it('jumps straight to Step 3 with the slideshow open when initialResult is set', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    fixture.componentRef.setInput('initialResult', TRIP);
+    fixture.detectChanges();
+
+    const component = fixture.componentInstance;
+    expect(component.step()).toBe('result');
+    expect(component.generatedTrip()).toEqual(TRIP);
+    expect(component.planSlideshowOpen()).toBe(true);
+  });
+
+  it('stays on Step 1 when no initialResult is provided', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.step()).toBe('preferences');
+  });
 });

@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
@@ -6,7 +6,7 @@ import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
-import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions } from '../../core/models/ai.model';
+import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanResultData } from '../../core/models/ai.model';
 import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -472,14 +472,16 @@ type Step = 'preferences' | 'options' | 'result';
         <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
       }
 
-      @if (loading()) {
+      @if (loading() || notifyConfirmVisible()) {
         <div class="ai-loading-overlay">
           <div class="ai-loading-card">
-            <div class="ai-loading-spinner"></div>
-            <div class="ai-loading-title">{{ loadingMessage() }}</div>
-            <div class="ai-loading-sub" i18n="@@aiplan.loadingSub">Esto puede tardar unos segundos…</div>
+            @if (loading() && !notifyConfirmVisible()) {
+              <div class="ai-loading-spinner"></div>
+              <div class="ai-loading-title">{{ loadingMessage() }}</div>
+              <div class="ai-loading-sub" i18n="@@aiplan.loadingSub">Esto puede tardar unos segundos…</div>
+            }
 
-            @if (planTakingLong()) {
+            @if (planTakingLong() && !notifyConfirmVisible()) {
               <div class="companion-mascot plan-wait-mascot">
                 <img class="companion-dog is-waiting" src="/Dog-waiting-1.png" alt="Asistente Miel" draggable="false" />
                 <div class="companion-bubble">
@@ -495,6 +497,21 @@ type Step = 'preferences' | 'options' | 'result';
                 </div>
               </div>
             }
+
+            @if (notifyConfirmVisible()) {
+              <div class="companion-mascot plan-wait-mascot">
+                <img class="companion-dog is-waiting" src="/Dog-waiting-1.png" alt="Asistente Miel" draggable="false" />
+                <div class="companion-bubble">
+                  <p class="companion-bubble-intro" i18n="@@aiplan.notifyConfirmText">
+                    ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas.
+                  </p>
+                  <div class="companion-bubble-actions">
+                    <button type="button" class="btn-pill btn-primary" style="flex:1" (click)="confirmNotify()"
+                            i18n="@@aiplan.notifyConfirmOk">Ok</button>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
         </div>
       }
@@ -505,6 +522,14 @@ type Step = 'preferences' | 'options' | 'result';
 export class AiPlanningComponent {
   close     = output<void>();
   planSaved = output<void>();
+  /** User confirmed the "Notificarme" hand-off — parent should close this overlay and take them to the landing page's featured-plans section (S2) to browse while they wait. */
+  viewFeaturedTrips = output<void>();
+  /**
+   * Set when opened from "Mis Planes IA" (MyTripsComponent) to revisit a past
+   * completed plan — jumps straight to Step 3 with the slideshow auto-playing,
+   * the same experience as just having waited for a fresh /ai/plan response.
+   */
+  initialResult = input<AiPlanResultData | null>(null);
 
   readonly auth = inject(AuthService);
   private readonly api        = inject(ApiService);
@@ -525,6 +550,8 @@ export class AiPlanningComponent {
   planSlideshowOpen = signal(false);
   /** Flips true once executePlan()'s request has been pending for AI_PLAN_LONG_WAIT_MS. */
   planTakingLong = signal(false);
+  /** Shown after "Notificarme" is clicked — a hand-off message pointing the user at the featured plans while they wait. */
+  notifyConfirmVisible = signal(false);
   private planSub: Subscription | null = null;
   private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
   private static readonly AI_PLAN_LONG_WAIT_MS = 15_000;
@@ -536,6 +563,19 @@ export class AiPlanningComponent {
 
   readonly selectedCategories = signal<AttractionCategory[]>([]);
   readonly allCategoryMeta = getAllCategories();
+
+  constructor() {
+    // Component is created fresh each time (ShellComponent structurally toggles
+    // it via @if), so this only ever needs to fire once per instance.
+    effect(() => {
+      const initial = this.initialResult();
+      if (initial && !this.generatedTrip()) {
+        this.generatedTrip.set(initial as Trip);
+        this.step.set('result');
+        this.planSlideshowOpen.set(true);
+      }
+    }, { allowSignalWrites: true });
+  }
 
   toggleCategory(code: AttractionCategory): void {
     this.selectedCategories.update(prev =>
@@ -827,6 +867,8 @@ export class AiPlanningComponent {
    * poll and returns to a normal state. The backend keeps generating regardless
    * (background job, see manager repo's ai-plan-job.ts) and will notify the user
    * via the bell when it finishes, whether they're still on this screen or not.
+   * Swaps the dog bubble for a hand-off message instead of dismissing the card
+   * outright — confirmNotify() (the "Ok" button) is what actually closes it.
    */
   notifyMeInstead(): void {
     this.planSub?.unsubscribe();
@@ -834,6 +876,13 @@ export class AiPlanningComponent {
     this.clearPlanTakingLongTimer();
     this.planTakingLong.set(false);
     this.loading.set(false);
+    this.notifyConfirmVisible.set(true);
+  }
+
+  /** "Ok" on the post-Notificarme hand-off message — sends the user to browse the landing page's featured plans while they wait. */
+  confirmNotify(): void {
+    this.notifyConfirmVisible.set(false);
+    this.viewFeaturedTrips.emit();
   }
 
   private clearPlanTakingLongTimer(): void {
@@ -896,6 +945,7 @@ export class AiPlanningComponent {
 
   reset(): void {
     this.step.set('preferences');
+    this.notifyConfirmVisible.set(false);
     this.generatedTrip.set(null);
     this.suggestions.set(null);
     this.selectedOption.set(null);

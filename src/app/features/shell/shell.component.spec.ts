@@ -76,4 +76,46 @@ describe('ShellComponent', () => {
 
     expect(tour.activeType()).toBeNull();
   });
+
+  // "Mis Planes IA" card click (MyTripsComponent's viewAiPlan output) → straight
+  // to AiPlanningComponent's Step 3 with the slideshow running.
+  it('openAiPlanResult stores the result and opens AI planning', () => {
+    const fixture = setup(0);
+    const component = fixture.componentInstance;
+    const result = { title: 'Plan histórico', stops: [], transits: [] };
+
+    component.openAiPlanResult(result);
+
+    expect(component.pendingAiPlanResult()).toEqual(result);
+    expect(component.showAiPlanning()).toBe(true);
+  });
+
+  it('closeAiPlanning clears pendingAiPlanResult so the next fresh open starts at Step 1', () => {
+    const fixture = setup(0);
+    const component = fixture.componentInstance;
+    component.openAiPlanResult({ title: 'Plan histórico', stops: [], transits: [] });
+
+    component.closeAiPlanning();
+
+    expect(component.showAiPlanning()).toBe(false);
+    expect(component.pendingAiPlanResult()).toBeNull();
+  });
+
+  // AiPlanningComponent's post-"Notificarme" hand-off ("Ok" button) → scroll the
+  // landing page's S2 featured-plans section into view.
+  it('scrollToFeatured scrolls the S2 featured section into view in landing mode', () => {
+    const fixture = setup(0);
+    const el = fixture.nativeElement.querySelector('tb-featured-slideshow') as HTMLElement;
+    const scrollSpy = jest.fn();
+    el.scrollIntoView = scrollSpy;
+
+    fixture.componentInstance.scrollToFeatured();
+
+    expect(scrollSpy).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+  });
+
+  it('scrollToFeatured is a no-op in app mode (no landing scroll section to scroll)', () => {
+    const fixture = setup(2);
+    expect(() => fixture.componentInstance.scrollToFeatured()).not.toThrow();
+  });
 });

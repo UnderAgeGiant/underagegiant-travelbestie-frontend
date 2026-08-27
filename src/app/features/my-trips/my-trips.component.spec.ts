@@ -144,4 +144,34 @@ describe('MyTripsComponent — Mis Planes IA tab', () => {
 
     expect(reconstructed.favTab()).toBe('aiplans');
   });
+
+  it('emits viewAiPlan with the result when a completed card is opened', () => {
+    const completed = {
+      requestId: 'req-1', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    let emitted: unknown = null;
+    component.viewAiPlan.subscribe(r => { emitted = r; });
+
+    component.openAiPlanResult(completed);
+
+    expect(emitted).toEqual(completed.result);
+  });
+
+  it('does not emit viewAiPlan for a failed card', () => {
+    const failed = {
+      requestId: 'req-2', status: 'failed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      error: 'DeepSeek timed out',
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    let emitted = false;
+    component.viewAiPlan.subscribe(() => { emitted = true; });
+
+    component.openAiPlanResult(failed);
+
+    expect(emitted).toBe(false);
+  });
 });
