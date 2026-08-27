@@ -252,7 +252,7 @@ type Step = 'preferences' | 'options' | 'result';
               <!-- Progress bar -->
               <div class="ai-change-bar-track">
                 <div class="ai-change-bar-fill"
-                     [style.width]="planChangeBarWidth() + '%'"
+                     [style.transform]="'scaleX(' + (planChangeBarWidth() / 100) + ')'"
                      [style.background]="analysis.ratio > CHANGE_THRESHOLD_PCT ? '#e53e3e' : '#48bb78'">
                 </div>
                 <!-- 20% threshold marker -->
