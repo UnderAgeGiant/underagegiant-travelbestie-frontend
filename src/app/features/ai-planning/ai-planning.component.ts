@@ -500,10 +500,10 @@ type Step = 'preferences' | 'options' | 'result';
 
             @if (notifyConfirmVisible()) {
               <div class="companion-mascot plan-wait-mascot">
-                <img class="companion-dog is-waiting" src="/Dog-waiting-1.png" alt="Asistente Miel" draggable="false" />
+                <img class="companion-dog is-standing" src="/standing-black-dog.jpeg" alt="Asistente Miel" draggable="false" />
                 <div class="companion-bubble">
                   <p class="companion-bubble-intro" i18n="@@aiplan.notifyConfirmText">
-                    ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas.
+                    ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas. ¡Yo te llevo!
                   </p>
                   <div class="companion-bubble-actions">
                     <button type="button" class="btn-pill btn-primary" style="flex:1" (click)="confirmNotify()"

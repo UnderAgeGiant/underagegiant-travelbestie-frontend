@@ -2537,6 +2537,7 @@ app-nav { display: block; }
 .companion-dog.is-sniffing { --dog-size: 96px; border-radius: 0; background: transparent; box-shadow: none; }
 .companion-dog.is-suggesting { animation: cscBob 2.4s ease-in-out infinite; }
 .companion-dog.is-waiting { animation: cscBob 2.4s ease-in-out infinite; }
+.companion-dog.is-standing { animation: cscBob 2.4s ease-in-out infinite; }
 .plan-wait-mascot { position: static; margin-top: 16px; align-items: center; }
 @media (min-width: 769px) {
   /* 30% bigger on web (desktop) than the mobile base sizes above */

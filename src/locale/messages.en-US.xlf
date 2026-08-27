@@ -2122,8 +2122,8 @@
         <target>Notify me</target>
       </trans-unit>
       <trans-unit id="aiplan.notifyConfirmText" datatype="html">
-        <source> ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas. </source>
-        <target> Great! You can browse the most popular plans from other users while you wait. </target>
+        <source> ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas. ¡Yo te llevo! </source>
+        <target> Great! You can browse the most popular plans from other users while you wait. I'll take you there! </target>
       </trans-unit>
       <trans-unit id="aiplan.notifyConfirmOk" datatype="html">
         <source>Ok</source>
