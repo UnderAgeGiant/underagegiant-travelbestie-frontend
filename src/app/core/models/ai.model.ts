@@ -128,3 +128,9 @@ export interface AiPlanHistoryItem {
   createdAt:     string;
   completedAt?:  string;
 }
+
+/** Carried from a "Planes IA Pendientes" card click, through ShellComponent, into AiPlanningComponent's `initialResult` input — pairs the plan data with the ai_plan_requests row id backing it, so Step 3's save() can delete that row once the plan is kept. */
+export interface AiPlanViewPayload {
+  result:    AiPlanResultData;
+  requestId: string;
+}

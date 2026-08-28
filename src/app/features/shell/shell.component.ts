@@ -1,5 +1,5 @@
 import { Component, effect, inject, signal, viewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
-import { AiPlanResultData } from '../../core/models/ai.model';
+import { AiPlanViewPayload } from '../../core/models/ai.model';
 import { TripService } from '../trip/trip.service';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
@@ -156,8 +156,8 @@ export class ShellComponent {
   showProfile    = signal(false);
   showAiPlanning = signal(false);
   showMyTrips    = signal(false);
-  /** Set right before opening AI planning from a "Mis Planes IA" card click — see openAiPlanResult(). */
-  pendingAiPlanResult = signal<AiPlanResultData | null>(null);
+  /** Set right before opening AI planning from a "Planes IA Pendientes" card click — see openAiPlanResult(). */
+  pendingAiPlanResult = signal<AiPlanViewPayload | null>(null);
   // read: ElementRef is required here — #featuredSection sits on a component tag
   // (<tb-featured-slideshow>), so without it the template ref resolves to the
   // FeaturedSlideshowComponent instance instead of its host DOM element.
@@ -232,9 +232,9 @@ export class ShellComponent {
     });
   }
 
-  /** From a "Mis Planes IA" card click — opens AI planning straight onto Step 3 with that past plan. */
-  openAiPlanResult(result: AiPlanResultData): void {
-    this.pendingAiPlanResult.set(result);
+  /** From a "Planes IA Pendientes" card click — opens AI planning straight onto Step 3 with that past plan. */
+  openAiPlanResult(payload: AiPlanViewPayload): void {
+    this.pendingAiPlanResult.set(payload);
     this.showAiPlanning.set(true);
   }
 

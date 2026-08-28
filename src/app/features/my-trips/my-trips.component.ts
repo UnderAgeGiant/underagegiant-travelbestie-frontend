@@ -6,7 +6,7 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { FavoritedTrip, Collaborator } from '../../core/models/trip.model';
-import { AiPlanHistoryItem, AiPlanResultData } from '../../core/models/ai.model';
+import { AiPlanHistoryItem, AiPlanViewPayload } from '../../core/models/ai.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
@@ -405,8 +405,8 @@ export class MyTripsComponent {
 
   close          = output<void>();
   openAiPlanning = output<void>();
-  /** A completed "Mis Planes IA" card was clicked — parent opens AiPlanningComponent straight onto Step 3 with this plan + its slideshow auto-playing. */
-  viewAiPlan     = output<AiPlanResultData>();
+  /** A completed "Planes IA Pendientes" card was clicked — parent opens AiPlanningComponent straight onto Step 3 with this plan + its slideshow auto-playing. */
+  viewAiPlan     = output<AiPlanViewPayload>();
 
   showProfile = signal(false);
 
@@ -445,9 +445,11 @@ export class MyTripsComponent {
     });
   }
 
-  /** Only completed rows carry a `result` to revisit — failed rows are inert. */
+  /** Only completed rows carry a `result` to revisit — failed rows are inert (their only action is "Descartar", see discardAiPlan()). */
   openAiPlanResult(item: AiPlanHistoryItem): void {
-    if (item.status === 'completed' && item.result) this.viewAiPlan.emit(item.result);
+    if (item.status === 'completed' && item.result) {
+      this.viewAiPlan.emit({ result: item.result, requestId: item.requestId });
+    }
   }
 
   removeFavorite(trip: FavoritedTrip): void {

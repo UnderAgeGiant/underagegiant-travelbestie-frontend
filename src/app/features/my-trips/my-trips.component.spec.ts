@@ -157,7 +157,7 @@ describe('MyTripsComponent — Mis Planes IA tab', () => {
 
     component.openAiPlanResult(completed);
 
-    expect(emitted).toEqual(completed.result);
+    expect(emitted).toEqual({ result: completed.result, requestId: completed.requestId });
   });
 
   it('does not emit viewAiPlan for a failed card', () => {
