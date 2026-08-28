@@ -318,11 +318,11 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                         @if (item.karmaCharged > 0) {
                           <div class="aiplan-card-refund" i18n="@@mytrips.aiPlanRefunded">Karma reembolsado</div>
                         }
-                        <button class="btn-pill btn-outline aiplan-card-discard-btn"
-                                [disabled]="discardingRequestId() === item.requestId"
-                                (click)="$event.stopPropagation(); discardAiPlan(item)" type="button"
-                                i18n="@@mytrips.aiPlanDiscardBtn">🗑️ Descartar</button>
                       }
+                      <button class="btn-pill btn-outline aiplan-card-discard-btn"
+                              [disabled]="discardingRequestId() === item.requestId"
+                              (click)="$event.stopPropagation(); discardAiPlan(item)" type="button"
+                              i18n="@@mytrips.aiPlanDiscardBtn">🗑️ Descartar</button>
                       <div class="aiplan-card-date">{{ item.createdAt | date:'dd/MM/yyyy HH:mm' }}</div>
                     </div>
                   }
@@ -457,7 +457,7 @@ export class MyTripsComponent {
     }
   }
 
-  /** "Descartar" on a failed card — a failed generation can never be saved, so this is its only way to leave Planes IA Pendientes. Removes it from the local list on success rather than re-fetching the whole history. */
+  /** "Descartar" on any card, completed or failed — a row only ever leaves "Planes IA Pendientes" via an explicit save() in AiPlanningComponent or this manual discard, never as a side effect of viewing/regenerating a plan (Post-Implementation Rework, 2026-08-28). Removes it from the local list on success rather than re-fetching the whole history. */
   discardAiPlan(item: AiPlanHistoryItem): void {
     this.discardingRequestId.set(item.requestId);
     this.api.deleteAiPlanHistoryItem(item.requestId).subscribe({

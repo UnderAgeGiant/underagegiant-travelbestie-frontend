@@ -192,6 +192,23 @@ describe('MyTripsComponent — Planes IA Pendientes tab', () => {
     expect(component.discardingRequestId()).toBeNull();
   });
 
+  it('discards a completed card and removes it from the list on success', () => {
+    const completed = {
+      requestId: 'req-4', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    component.aiPlanHistory.set([completed]);
+    jest.spyOn((component as any).api, 'deleteAiPlanHistoryItem').mockReturnValue(of(undefined));
+
+    component.discardAiPlan(completed);
+
+    expect((component as any).api.deleteAiPlanHistoryItem).toHaveBeenCalledWith('req-4');
+    expect(component.aiPlanHistory()).toEqual([]);
+    expect(component.discardingRequestId()).toBeNull();
+  });
+
   it('clears discardingRequestId even when the delete call fails', () => {
     const failed = {
       requestId: 'req-3', status: 'failed' as const,

@@ -149,6 +149,29 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
 
     http.verify();   // fails if any unexpected (e.g. DELETE) request was made
   });
+
+  it('sets saving to true while the request is in flight, guarding against a double-click', () => {
+    expect(component.saving()).toBe(false);
+
+    component.save();
+    expect(component.saving()).toBe(true);
+
+    // A second click while saving must not fire a second POST /trips.
+    component.save();
+
+    const tripReq = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
+    tripReq.flush({ id: 'trip-42', ...TRIP });
+  });
+
+  it('resets saving to false when the save request errors, so the button re-enables', () => {
+    component.save();
+    expect(component.saving()).toBe(true);
+
+    const tripReq = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
+    tripReq.flush({ error: 'Insufficient karma: need 1, have 0' }, { status: 402, statusText: 'Payment Required' });
+
+    expect(component.saving()).toBe(false);
+  });
 });
 
 describe('AiPlanningComponent — 15s taking-long dog', () => {
@@ -260,7 +283,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
   });
 });
 
-describe('AiPlanningComponent — supersedes prior ai_plan_requests rows on regenerate/reset', () => {
+describe('AiPlanningComponent — never deletes ai_plan_requests rows except via save()', () => {
   let component: AiPlanningComponent;
   let auth: AuthService;
   let http: HttpTestingController;
@@ -279,7 +302,7 @@ describe('AiPlanningComponent — supersedes prior ai_plan_requests rows on rege
 
   afterEach(() => http.verify());
 
-  it('deletes the superseded request row when executePlan() completes again while one is already tracked', fakeAsync(() => {
+  it('does not delete the previously-tracked row when executePlan() completes again — just starts tracking the new one', fakeAsync(() => {
     component.currentAiPlanRequestId.set('req-old');
     component.selectedOption.set(OPTION);
 
@@ -288,10 +311,8 @@ describe('AiPlanningComponent — supersedes prior ai_plan_requests rows on rege
     tick(0);
     http.expectOne(r => r.url.includes('/ai/plan/req-new/status')).flush({ status: 'completed', result: TRIP });
 
-    const delReq = http.expectOne(r => r.url.includes('/ai/plan/req-old') && r.method === 'DELETE');
-    delReq.flush(null);
-
     expect(component.currentAiPlanRequestId()).toBe('req-new');
+    http.verify();   // fails if a DELETE (or any other unexpected request) was made — the "req-old" row must survive
   }));
 
   it('does not call DELETE on the first successful generation when nothing was previously tracked', fakeAsync(() => {
@@ -305,15 +326,13 @@ describe('AiPlanningComponent — supersedes prior ai_plan_requests rows on rege
     http.verify();   // fails if a DELETE (or any other unexpected request) was made
   }));
 
-  it('deletes the tracked request row when reset() is called', () => {
+  it('does not delete the tracked row when reset() is called — it just stops tracking it', () => {
     component.currentAiPlanRequestId.set('req-abandoned');
 
     component.reset();
 
-    const delReq = http.expectOne(r => r.url.includes('/ai/plan/req-abandoned') && r.method === 'DELETE');
-    delReq.flush(null);
-
     expect(component.currentAiPlanRequestId()).toBeNull();
+    http.verify();   // fails if a DELETE (or any other unexpected request) was made — the row must survive in Planes IA Pendientes
   });
 
   it('does not call DELETE from reset() when currentAiPlanRequestId is null', () => {
