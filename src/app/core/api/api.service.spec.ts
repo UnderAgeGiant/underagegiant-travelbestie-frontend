@@ -95,6 +95,7 @@ describe('ApiService — planTrip (async kickoff + poll)', () => {
 
     expect(result.title).toBe('Mi Plan Europa');
     expect(result.changeInfo).toMatchObject({ type: 'new_session' });
+    expect(result.requestId).toBe('req-1');
   }));
 
   it('errors when status flips to failed', fakeAsync(() => {
@@ -168,6 +169,12 @@ describe('ApiService (useMocks=false via spy)', () => {
     service.markHighlightDismissed('landing_welcome').subscribe();
     const req = http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss') && r.method === 'POST');
     expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush(null);
+  });
+
+  it('deleteAiPlanHistoryItem calls DELETE /ai/plan/:requestId', () => {
+    service.deleteAiPlanHistoryItem('req-1').subscribe();
+    const req = http.expectOne(r => r.url.includes('/ai/plan/req-1') && r.method === 'DELETE');
     req.flush(null);
   });
 });

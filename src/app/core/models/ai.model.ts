@@ -46,6 +46,8 @@ export interface PlanTripResponse {
   stops:      unknown[];    // matches Trip.stops shape; component casts to Trip
   transits:   unknown[];
   changeInfo?: PlanChangeInfo;
+  /** The backing ai_plan_requests row id — carried through so AiPlanningComponent.save() can delete it once the plan is kept. Not part of the backend's PlanTripResponse type; ApiService.pollAiPlanStatus() stitches it in from its own requestId parameter. */
+  requestId?: string;
 }
 
 export interface SuggestionScheduleEntry {

@@ -207,7 +207,7 @@ export class ApiService {
         if (r.status === 'failed') {
           throw { error: { error: r.error ?? 'Error al generar el plan' } };
         }
-        return { ...(r.result as AiPlanResultData), changeInfo: r.changeInfo } as PlanTripResponse;
+        return { ...(r.result as AiPlanResultData), changeInfo: r.changeInfo, requestId } as PlanTripResponse;
       }),
     );
   }
@@ -215,6 +215,12 @@ export class ApiService {
   getAiPlanHistory(): Observable<AiPlanHistoryItem[]> {
     if (this.useMocks) return of([]);
     return this.http.get<AiPlanHistoryItem[]>(`${this.base}/ai/plan/history`);
+  }
+
+  /** Deletes one ai_plan_requests row — called by AiPlanningComponent.save() right after a successful save, and by MyTripsComponent's "Descartar" button on a failed card. */
+  deleteAiPlanHistoryItem(requestId: string): Observable<void> {
+    if (this.useMocks) return of(void 0);
+    return this.http.delete<void>(`${this.base}/ai/plan/${requestId}`);
   }
 
   suggestCityAttractions(
