@@ -58,6 +58,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
 
     expect(component.step()).toBe('result');
     expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.currentAiPlanRequestId()).toBe('req-1');
   }));
 
   it('closing the presentation returns to the static result view without discarding the plan', fakeAsync(() => {
@@ -122,6 +123,31 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     expect(trip.activeStop()?.stopId).toBe('s1');
     expect(trip.loadedPlanId()).toBe('trip-42');
     expect(saved).toBe(true);
+  });
+
+  it('deletes the backing ai_plan_requests row after a successful save when currentAiPlanRequestId is set', () => {
+    component.currentAiPlanRequestId.set('req-99');
+
+    component.save();
+
+    const tripReq = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
+    tripReq.flush({ id: 'trip-42', ...TRIP });
+
+    const delReq = http.expectOne(r => r.url.includes('/ai/plan/req-99') && r.method === 'DELETE');
+    delReq.flush(null);
+
+    expect(component.currentAiPlanRequestId()).toBeNull();
+  });
+
+  it('does not call DELETE when currentAiPlanRequestId is null', () => {
+    expect(component.currentAiPlanRequestId()).toBeNull();
+
+    component.save();
+
+    const tripReq = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
+    tripReq.flush({ id: 'trip-42', ...TRIP });
+
+    http.verify();   // fails if any unexpected (e.g. DELETE) request was made
   });
 });
 
@@ -200,7 +226,7 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
   }));
 });
 
-describe('AiPlanningComponent — initialResult (revisiting a past "Mis Planes IA" plan)', () => {
+describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pendientes" plan)', () => {
   let auth: AuthService;
 
   beforeEach(() => {
@@ -212,16 +238,17 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Mis Planes I
     auth = TestBed.inject(AuthService);
   });
 
-  it('jumps straight to Step 3 with the slideshow open when initialResult is set', () => {
+  it('jumps straight to Step 3 with the slideshow open and records requestId when initialResult is set', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
-    fixture.componentRef.setInput('initialResult', TRIP);
+    fixture.componentRef.setInput('initialResult', { result: TRIP, requestId: 'req-77' });
     fixture.detectChanges();
 
     const component = fixture.componentInstance;
     expect(component.step()).toBe('result');
     expect(component.generatedTrip()).toEqual(TRIP);
     expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.currentAiPlanRequestId()).toBe('req-77');
   });
 
   it('stays on Step 1 when no initialResult is provided', () => {
@@ -230,5 +257,70 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Mis Planes I
     fixture.detectChanges();
 
     expect(fixture.componentInstance.step()).toBe('preferences');
+  });
+});
+
+describe('AiPlanningComponent — supersedes prior ai_plan_requests rows on regenerate/reset', () => {
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    http = TestBed.inject(HttpTestingController);
+    component = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+  });
+
+  afterEach(() => http.verify());
+
+  it('deletes the superseded request row when executePlan() completes again while one is already tracked', fakeAsync(() => {
+    component.currentAiPlanRequestId.set('req-old');
+    component.selectedOption.set(OPTION);
+
+    component.executePlan();
+    http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-new' });
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/plan/req-new/status')).flush({ status: 'completed', result: TRIP });
+
+    const delReq = http.expectOne(r => r.url.includes('/ai/plan/req-old') && r.method === 'DELETE');
+    delReq.flush(null);
+
+    expect(component.currentAiPlanRequestId()).toBe('req-new');
+  }));
+
+  it('does not call DELETE on the first successful generation when nothing was previously tracked', fakeAsync(() => {
+    component.selectedOption.set(OPTION);
+
+    component.executePlan();
+    http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-1' });
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
+
+    http.verify();   // fails if a DELETE (or any other unexpected request) was made
+  }));
+
+  it('deletes the tracked request row when reset() is called', () => {
+    component.currentAiPlanRequestId.set('req-abandoned');
+
+    component.reset();
+
+    const delReq = http.expectOne(r => r.url.includes('/ai/plan/req-abandoned') && r.method === 'DELETE');
+    delReq.flush(null);
+
+    expect(component.currentAiPlanRequestId()).toBeNull();
+  });
+
+  it('does not call DELETE from reset() when currentAiPlanRequestId is null', () => {
+    expect(component.currentAiPlanRequestId()).toBeNull();
+
+    component.reset();
+
+    http.verify();   // fails if any unexpected (e.g. DELETE) request was made
   });
 });

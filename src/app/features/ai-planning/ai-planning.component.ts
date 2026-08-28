@@ -6,7 +6,7 @@ import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
-import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanResultData } from '../../core/models/ai.model';
+import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload } from '../../core/models/ai.model';
 import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -529,7 +529,7 @@ export class AiPlanningComponent {
    * completed plan — jumps straight to Step 3 with the slideshow auto-playing,
    * the same experience as just having waited for a fresh /ai/plan response.
    */
-  initialResult = input<AiPlanResultData | null>(null);
+  initialResult = input<AiPlanViewPayload | null>(null);
 
   readonly auth = inject(AuthService);
   private readonly api        = inject(ApiService);
@@ -546,6 +546,8 @@ export class AiPlanningComponent {
   suggestions     = signal<SuggestTripsResponse | null>(null);
   selectedOption  = signal<TripSuggestion | null>(null);
   generatedTrip   = signal<Trip | null>(null);
+  /** The ai_plan_requests row backing generatedTrip(), if any — set by executePlan() on a fresh generation or by the initialResult effect when revisiting a past plan. Deleted (not just cleared) by save(), by executePlan() itself right before it overwrites an already-tracked row (a re-generation superseding an earlier one), and by reset() ("↩ Volver a empezar" abandoning the result outright). Null for a plan that never went through the async job (shouldn't happen in practice, but save()/reset() guard on it anyway). */
+  currentAiPlanRequestId = signal<string | null>(null);
   /** Auto-opened as soon as a plan finishes generating, as if the user had pressed "🎞️ Presentación del plan". */
   planSlideshowOpen = signal(false);
   /** Flips true once executePlan()'s request has been pending for AI_PLAN_LONG_WAIT_MS. */
@@ -570,7 +572,8 @@ export class AiPlanningComponent {
     effect(() => {
       const initial = this.initialResult();
       if (initial && !this.generatedTrip()) {
-        this.generatedTrip.set(initial as Trip);
+        this.generatedTrip.set(initial.result as Trip);
+        this.currentAiPlanRequestId.set(initial.requestId);
         this.step.set('result');
         this.planSlideshowOpen.set(true);
       }
@@ -834,8 +837,20 @@ export class AiPlanningComponent {
       next: response => {
         this.clearPlanTakingLongTimer();
         this.planTakingLong.set(false);
-        const { changeInfo, ...tripData } = response;
+        const { changeInfo, requestId, ...tripData } = response;
+        // A completed generation is about to replace whatever this component
+        // was already tracking — either an earlier executePlan() call in the
+        // same session (re-generated via "Ajustar preferencias") or a past
+        // plan the user revisited via initialResult. That row would otherwise
+        // never get deleted (only the one backing whatever the user finally
+        // saves does — see save() below), so delete it here too. Fire-and-forget,
+        // same as save()'s delete: a failed delete just leaves a harmless stale row.
+        const supersededRequestId = this.currentAiPlanRequestId();
+        if (supersededRequestId && supersededRequestId !== requestId) {
+          this.api.deleteAiPlanHistoryItem(supersededRequestId).subscribe({ next: () => {}, error: () => {} });
+        }
         this.generatedTrip.set(tripData as Trip);
+        this.currentAiPlanRequestId.set(requestId ?? null);
         this.loading.set(false);
         this.step.set('result');
         // Auto-open the fullscreen presentation, as if the user had pressed
@@ -937,6 +952,16 @@ export class AiPlanningComponent {
           // already saved (export button, "Guardar viaje" footer, autosave all
           // key off TripService.loadedPlanId()) instead of treating it as new.
           this.tripSvc.markAsLoadedPlan(id);
+          // The plan is now a real trip — it no longer needs a "pending" entry
+          // in Planes IA Pendientes. Fire-and-forget: a failed delete here just
+          // leaves a harmless stale row the user can "Descartar" manually later
+          // (only failed rows show that button today, but the row itself isn't
+          // otherwise reachable once its result stops matching any saved trip).
+          const requestId = this.currentAiPlanRequestId();
+          if (requestId) {
+            this.api.deleteAiPlanHistoryItem(requestId).subscribe({ next: () => {}, error: () => {} });
+            this.currentAiPlanRequestId.set(null);
+          }
           this.planSaved.emit();
         },
         error: err => { this.karmaModal.handleKarmaError(err); },
@@ -947,6 +972,14 @@ export class AiPlanningComponent {
     this.step.set('preferences');
     this.notifyConfirmVisible.set(false);
     this.generatedTrip.set(null);
+    // Abandoning the result without saving it — delete its backing row so it
+    // doesn't linger in "Planes IA Pendientes" forever. Fire-and-forget, same
+    // as save()'s delete (Step 5) and executePlan()'s supersession delete (Step 4).
+    const abandonedRequestId = this.currentAiPlanRequestId();
+    if (abandonedRequestId) {
+      this.api.deleteAiPlanHistoryItem(abandonedRequestId).subscribe({ next: () => {}, error: () => {} });
+    }
+    this.currentAiPlanRequestId.set(null);
     this.suggestions.set(null);
     this.selectedOption.set(null);
     this.error.set(null);
