@@ -77,7 +77,7 @@ describe('ShellComponent', () => {
     expect(tour.activeType()).toBeNull();
   });
 
-  // "Mis Planes IA" card click (MyTripsComponent's viewAiPlan output) → straight
+  // "Planes IA Pendientes" card click (MyTripsComponent's viewAiPlan output) → straight
   // to AiPlanningComponent's Step 3 with the slideshow running.
   it('openAiPlanResult stores the result and opens AI planning', () => {
     const fixture = setup(0);

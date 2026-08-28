@@ -2130,16 +2130,16 @@
         <target>Ok</target>
       </trans-unit>
       <trans-unit id="mytrips.tabAiPlans" datatype="html">
-        <source>Mis Planes IA</source>
-        <target>My AI Plans</target>
+        <source>Planes IA Pendientes</source>
+        <target>Pending AI Plans</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlansLoading" datatype="html">
         <source>Cargando tus planes…</source>
         <target>Loading your plans…</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlansEmpty" datatype="html">
-        <source>Aún no has generado ningún plan con IA.</source>
-        <target>You haven't generated any AI plans yet.</target>
+        <source>Aún no tienes planes de IA pendientes.</source>
+        <target>You have no pending AI plans yet.</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanBasedOn" datatype="html">
         <source>Basado en: <x id="INTERPOLATION" equiv-text="{{ item.requestParams.selectedOption.title }}"/></source>

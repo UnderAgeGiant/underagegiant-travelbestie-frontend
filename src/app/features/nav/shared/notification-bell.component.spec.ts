@@ -32,7 +32,7 @@ describe('NotificationBellComponent — open() routing for ai_plan_ready/ai_plan
 
   afterEach(() => http.verify());
 
-  it('routes ai_plan_ready notifications to My Trips → Mis Planes IA instead of following n.url', () => {
+  it('routes ai_plan_ready notifications to My Trips → Planes IA Pendientes instead of following n.url', () => {
     const n: AppNotification = {
       notificationId: 'n1', type: 'ai_plan_ready', title: 't', body: 'b',
       url: '/', read: false, createdAt: new Date().toISOString(),
@@ -42,7 +42,7 @@ describe('NotificationBellComponent — open() routing for ai_plan_ready/ai_plan
     expect(router.navigateByUrl).toHaveBeenCalledWith('/');
   });
 
-  it('routes ai_plan_failed notifications to My Trips → Mis Planes IA instead of following n.url', () => {
+  it('routes ai_plan_failed notifications to My Trips → Planes IA Pendientes instead of following n.url', () => {
     const n: AppNotification = {
       notificationId: 'n2', type: 'ai_plan_failed', title: 't', body: 'b',
       url: '/', read: false, createdAt: new Date().toISOString(),

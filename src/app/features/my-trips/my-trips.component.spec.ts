@@ -109,7 +109,7 @@ describe('MyTripsComponent — saved-plan-actions visibility', () => {
   });
 });
 
-describe('MyTripsComponent — Mis Planes IA tab', () => {
+describe('MyTripsComponent — Planes IA Pendientes tab', () => {
   let component: MyTripsComponent;
 
   beforeEach(() => {
@@ -136,7 +136,7 @@ describe('MyTripsComponent — Mis Planes IA tab', () => {
     expect(component.aiPlanHistory()).toEqual([historyItem]);
   });
 
-  it('opens straight onto Mis Planes IA when facade.pendingMyTripsTab is aiplans', () => {
+  it('opens straight onto Planes IA Pendientes when facade.pendingMyTripsTab is aiplans', () => {
     (component as any).facade.pendingMyTripsTab.set('aiplans');
     jest.spyOn((component as any).api, 'getAiPlanHistory').mockReturnValue(of([]));
 

@@ -68,7 +68,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
               }
               <button class="profile-tab" [class.active]="favTab() === 'aiplans'"
                       (click)="openAiPlansTab()"
-                      i18n="@@mytrips.tabAiPlans">Mis Planes IA</button>
+                      i18n="@@mytrips.tabAiPlans">Planes IA Pendientes</button>
             </div>
 
             @if (favTab() === 'trips') {
@@ -297,7 +297,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                 @if (aiPlanHistoryLoading()) {
                   <div class="fav-empty" i18n="@@mytrips.aiPlansLoading">Cargando tus planes…</div>
                 } @else if (aiPlanHistory().length === 0) {
-                  <div class="fav-empty" i18n="@@mytrips.aiPlansEmpty">Aún no has generado ningún plan con IA.</div>
+                  <div class="fav-empty" i18n="@@mytrips.aiPlansEmpty">Aún no tienes planes de IA pendientes.</div>
                 } @else {
                   @for (item of aiPlanHistory(); track item.requestId) {
                     <div class="fav-card aiplan-card"
