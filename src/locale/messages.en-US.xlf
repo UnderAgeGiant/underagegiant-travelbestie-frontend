@@ -2153,6 +2153,10 @@
         <source>Karma reembolsado</source>
         <target>Karma refunded</target>
       </trans-unit>
+      <trans-unit id="mytrips.aiPlanDiscardBtn" datatype="html">
+        <source>🗑️ Descartar</source>
+        <target>🗑️ Discard</target>
+      </trans-unit>
       <trans-unit id="mytrips.aiPlanViewHint" datatype="html">
         <source>Ver plan →</source>
         <target>View plan →</target>

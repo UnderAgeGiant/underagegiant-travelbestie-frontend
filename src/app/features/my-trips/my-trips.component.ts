@@ -318,6 +318,10 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                         @if (item.karmaCharged > 0) {
                           <div class="aiplan-card-refund" i18n="@@mytrips.aiPlanRefunded">Karma reembolsado</div>
                         }
+                        <button class="btn-pill btn-outline aiplan-card-discard-btn"
+                                [disabled]="discardingRequestId() === item.requestId"
+                                (click)="$event.stopPropagation(); discardAiPlan(item)" type="button"
+                                i18n="@@mytrips.aiPlanDiscardBtn">🗑️ Descartar</button>
                       }
                       <div class="aiplan-card-date">{{ item.createdAt | date:'dd/MM/yyyy HH:mm' }}</div>
                     </div>
@@ -414,6 +418,7 @@ export class MyTripsComponent {
   favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans'>('trips');
   aiPlanHistory = signal<AiPlanHistoryItem[]>([]);
   aiPlanHistoryLoading = signal(false);
+  discardingRequestId = signal<string | null>(null);
 
   constructor() {
     // One-shot: a notification click (e.g. collaborator invite/accept, AI plan
@@ -450,6 +455,18 @@ export class MyTripsComponent {
     if (item.status === 'completed' && item.result) {
       this.viewAiPlan.emit({ result: item.result, requestId: item.requestId });
     }
+  }
+
+  /** "Descartar" on a failed card — a failed generation can never be saved, so this is its only way to leave Planes IA Pendientes. Removes it from the local list on success rather than re-fetching the whole history. */
+  discardAiPlan(item: AiPlanHistoryItem): void {
+    this.discardingRequestId.set(item.requestId);
+    this.api.deleteAiPlanHistoryItem(item.requestId).subscribe({
+      next: () => {
+        this.aiPlanHistory.update(items => items.filter(i => i.requestId !== item.requestId));
+        this.discardingRequestId.set(null);
+      },
+      error: () => { this.discardingRequestId.set(null); },
+    });
   }
 
   removeFavorite(trip: FavoritedTrip): void {
