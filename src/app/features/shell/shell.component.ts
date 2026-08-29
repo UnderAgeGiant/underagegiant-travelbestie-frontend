@@ -1,4 +1,5 @@
-import { Component, effect, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, effect, inject, signal, viewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+import { AiPlanViewPayload } from '../../core/models/ai.model';
 import { TripService } from '../trip/trip.service';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
@@ -71,7 +72,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         </section>
 
         <!-- S2: cinematic slideshow (hidden when no featured trips) -->
-        <tb-featured-slideshow />
+        <tb-featured-slideshow #featuredSection />
 
         <!-- S3: about -->
         <tb-landing-about />
@@ -128,13 +129,16 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
     @if (showMyTrips()) {
       <app-my-trips (close)="showMyTrips.set(false)"
-                    (openAiPlanning)="showMyTrips.set(false); showAiPlanning.set(true)" />
+                    (openAiPlanning)="showMyTrips.set(false); showAiPlanning.set(true)"
+                    (viewAiPlan)="showMyTrips.set(false); openAiPlanResult($event)" />
     }
 
     @defer (when showAiPlanning()) {
       @if (showAiPlanning()) {
-        <app-ai-planning (close)="showAiPlanning.set(false)"
-                         (planSaved)="showAiPlanning.set(false); toastService.show('Plan guardado')" />
+        <app-ai-planning [initialResult]="pendingAiPlanResult()"
+                         (close)="closeAiPlanning()"
+                         (viewFeaturedTrips)="closeAiPlanning(); scrollToFeatured()"
+                         (planSaved)="closeAiPlanning(); toastService.show('Plan guardado')" />
       }
     }
   `
@@ -152,6 +156,12 @@ export class ShellComponent {
   showProfile    = signal(false);
   showAiPlanning = signal(false);
   showMyTrips    = signal(false);
+  /** Set right before opening AI planning from a "Planes IA Pendientes" card click — see openAiPlanResult(). */
+  pendingAiPlanResult = signal<AiPlanViewPayload | null>(null);
+  // read: ElementRef is required here — #featuredSection sits on a component tag
+  // (<tb-featured-slideshow>), so without it the template ref resolves to the
+  // FeaturedSlideshowComponent instance instead of its host DOM element.
+  private readonly featuredSection = viewChild('featuredSection', { read: ElementRef<HTMLElement> });
 
   constructor() {
     // SavedPlansService's own constructor only checks auth.currentUser() once, synchronously —
@@ -220,5 +230,22 @@ export class ShellComponent {
         this.highlightTour.start('landing_welcome', { shouldStillShow: () => !this.auth.isLoggedIn() });
       }
     });
+  }
+
+  /** From a "Planes IA Pendientes" card click — opens AI planning straight onto Step 3 with that past plan. */
+  openAiPlanResult(payload: AiPlanViewPayload): void {
+    this.pendingAiPlanResult.set(payload);
+    this.showAiPlanning.set(true);
+  }
+
+  /** Closes AI planning and clears any pending history result so the next fresh open (e.g. "✨ Nuevo viaje con IA") starts at Step 1 as usual. */
+  closeAiPlanning(): void {
+    this.showAiPlanning.set(false);
+    this.pendingAiPlanResult.set(null);
+  }
+
+  /** "Ok" on AiPlanningComponent's post-Notificarme hand-off — scrolls the landing page's S2 featured-plans section into view. No-op if the visitor currently has stops (app mode, no landing scroll to scroll). */
+  scrollToFeatured(): void {
+    this.featuredSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

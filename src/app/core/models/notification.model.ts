@@ -1,5 +1,5 @@
 /** Mirrors the backend NotificationType union — new backend types render fine untyped-wise via string fallback. */
-export type NotificationType = 'comment' | 'favorite' | 'clone' | 'purchase' | 'collaborator_invite' | 'collaborator_accepted';
+export type NotificationType = 'comment' | 'favorite' | 'clone' | 'purchase' | 'collaborator_invite' | 'collaborator_accepted' | 'ai_plan_ready' | 'ai_plan_failed';
 
 export interface AppNotification {
   notificationId: string;

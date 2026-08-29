@@ -1,11 +1,11 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, from, of } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { Observable, from, of, timer } from 'rxjs';
+import { switchMap, tap, first, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
-import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse } from '../models/ai.model';
+import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
@@ -164,6 +164,8 @@ export class ApiService {
     if (this.useMocks) return of(this.sharedTripsService.search(query));
     return this.http.get<SharedTrip[]>(`${this.base}/shared?q=${encodeURIComponent(query)}`);
   }
+  private static readonly AI_PLAN_POLL_INTERVAL_MS = 15000;
+
   planTrip(req: PlanTripRequest): Observable<PlanTripResponse> {
     if (this.useMocks) {
       return of({
@@ -182,11 +184,43 @@ export class ApiService {
       : of(undefined);
 
     return catalog$.pipe(
-      switchMap(cityCatalog => this.http.post<PlanTripResponse>(
+      switchMap(cityCatalog => this.http.post<AiPlanKickoffResponse>(
         `${this.base}/ai/plan`,
         { ...req, cityCatalog },
       )),
+      switchMap(({ requestId }) => this.pollAiPlanStatus(requestId)),
     );
+  }
+
+  /**
+   * Polls GET /ai/plan/:requestId/status every AI_PLAN_POLL_INTERVAL_MS until
+   * the job is no longer 'pending'. Under ~15s this resolves after one or two
+   * ticks — visually identical to the old single-request flow. The caller
+   * (AiPlanningComponent) layers its own 15s "taking long" UI timer on top of
+   * the subscription; this method only knows about polling, not about UX timing.
+   */
+  private pollAiPlanStatus(requestId: string): Observable<PlanTripResponse> {
+    return timer(0, ApiService.AI_PLAN_POLL_INTERVAL_MS).pipe(
+      switchMap(() => this.http.get<AiPlanStatusResponse>(`${this.base}/ai/plan/${requestId}/status`)),
+      first(r => r.status !== 'pending'),
+      map(r => {
+        if (r.status === 'failed') {
+          throw { error: { error: r.error ?? 'Error al generar el plan' } };
+        }
+        return { ...(r.result as AiPlanResultData), changeInfo: r.changeInfo, requestId } as PlanTripResponse;
+      }),
+    );
+  }
+
+  getAiPlanHistory(): Observable<AiPlanHistoryItem[]> {
+    if (this.useMocks) return of([]);
+    return this.http.get<AiPlanHistoryItem[]>(`${this.base}/ai/plan/history`);
+  }
+
+  /** Deletes one ai_plan_requests row — called by AiPlanningComponent.save() right after a successful save, and by MyTripsComponent's "Descartar" button on a failed card. */
+  deleteAiPlanHistoryItem(requestId: string): Observable<void> {
+    if (this.useMocks) return of(void 0);
+    return this.http.delete<void>(`${this.base}/ai/plan/${requestId}`);
   }
 
   suggestCityAttractions(

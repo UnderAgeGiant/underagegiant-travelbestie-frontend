@@ -53,7 +53,7 @@ export class NavFacadeService {
   currentShellView = signal<RestoreView | null>(null);
 
   /** One-shot command: open My Trips to a specific tab (e.g. from a notification click). Consumed by MyTripsComponent. */
-  pendingMyTripsTab = signal<'collaborations' | null>(null);
+  pendingMyTripsTab = signal<'collaborations' | 'aiplans' | null>(null);
 
   // ── saved-plans / favorites / shared-trips state ──
   plansOpen      = signal(false);

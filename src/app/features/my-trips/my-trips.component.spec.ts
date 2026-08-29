@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
+import { of, throwError } from 'rxjs';
 import { MyTripsComponent } from './my-trips.component';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -105,5 +106,126 @@ describe('MyTripsComponent — saved-plan-actions visibility', () => {
     fixture.detectChanges();
     expect(cards[0].querySelector('.saved-plan-actions')).toBeNull();
     expect(cards[1].querySelector('.saved-plan-actions')).not.toBeNull();
+  });
+});
+
+describe('MyTripsComponent — Planes IA Pendientes tab', () => {
+  let component: MyTripsComponent;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    component = TestBed.createComponent(MyTripsComponent).componentInstance;
+  });
+
+  it('fetches and lists AI plan history when the aiplans tab is opened', () => {
+    const historyItem = {
+      requestId: 'req-1', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    jest.spyOn((component as any).api, 'getAiPlanHistory').mockReturnValue(of([historyItem]));
+
+    component.openAiPlansTab();
+
+    expect(component.favTab()).toBe('aiplans');
+    expect(component.aiPlanHistory()).toEqual([historyItem]);
+  });
+
+  it('opens straight onto Planes IA Pendientes when facade.pendingMyTripsTab is aiplans', () => {
+    (component as any).facade.pendingMyTripsTab.set('aiplans');
+    jest.spyOn((component as any).api, 'getAiPlanHistory').mockReturnValue(of([]));
+
+    const reconstructed = TestBed.createComponent(MyTripsComponent).componentInstance;
+
+    expect(reconstructed.favTab()).toBe('aiplans');
+  });
+
+  it('emits viewAiPlan with the result when a completed card is opened', () => {
+    const completed = {
+      requestId: 'req-1', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    let emitted: unknown = null;
+    component.viewAiPlan.subscribe(r => { emitted = r; });
+
+    component.openAiPlanResult(completed);
+
+    expect(emitted).toEqual({
+      result: completed.result,
+      requestId: completed.requestId,
+      requestParams: completed.requestParams,
+    });
+  });
+
+  it('does not emit viewAiPlan for a failed card', () => {
+    const failed = {
+      requestId: 'req-2', status: 'failed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      error: 'DeepSeek timed out',
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    let emitted = false;
+    component.viewAiPlan.subscribe(() => { emitted = true; });
+
+    component.openAiPlanResult(failed);
+
+    expect(emitted).toBe(false);
+  });
+
+  it('discards a failed card and removes it from the list on success', () => {
+    const failed = {
+      requestId: 'req-2', status: 'failed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      error: 'DeepSeek timed out',
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    component.aiPlanHistory.set([failed]);
+    jest.spyOn((component as any).api, 'deleteAiPlanHistoryItem').mockReturnValue(of(undefined));
+
+    component.discardAiPlan(failed);
+
+    expect((component as any).api.deleteAiPlanHistoryItem).toHaveBeenCalledWith('req-2');
+    expect(component.aiPlanHistory()).toEqual([]);
+    expect(component.discardingRequestId()).toBeNull();
+  });
+
+  it('discards a completed card and removes it from the list on success', () => {
+    const completed = {
+      requestId: 'req-4', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      karmaCharged: 1, createdAt: new Date().toISOString(),
+    };
+    component.aiPlanHistory.set([completed]);
+    jest.spyOn((component as any).api, 'deleteAiPlanHistoryItem').mockReturnValue(of(undefined));
+
+    component.discardAiPlan(completed);
+
+    expect((component as any).api.deleteAiPlanHistoryItem).toHaveBeenCalledWith('req-4');
+    expect(component.aiPlanHistory()).toEqual([]);
+    expect(component.discardingRequestId()).toBeNull();
+  });
+
+  it('clears discardingRequestId even when the delete call fails', () => {
+    const failed = {
+      requestId: 'req-3', status: 'failed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] }, preferences: 'p' },
+      error: 'DeepSeek timed out',
+      karmaCharged: 0, createdAt: new Date().toISOString(),
+    };
+    component.aiPlanHistory.set([failed]);
+    jest.spyOn((component as any).api, 'deleteAiPlanHistoryItem').mockReturnValue(throwError(() => new Error('network error')));
+
+    component.discardAiPlan(failed);
+
+    expect(component.aiPlanHistory()).toEqual([failed]);   // still there — delete failed
+    expect(component.discardingRequestId()).toBeNull();
   });
 });

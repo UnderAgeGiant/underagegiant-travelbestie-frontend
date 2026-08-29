@@ -756,7 +756,7 @@ app-nav { display: block; }
 .ai-change-stats { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 4px; font-size: 13px; color: var(--t2); flex-wrap: wrap; }
 /* Progress bar */
 .ai-change-bar-track { height: 6px; background: #e2e8f0; border-radius: 3px; margin: 4px 0 10px; position: relative; overflow: visible; }
-.ai-change-bar-fill { height: 100%; border-radius: 3px; transition: width .3s ease, background .3s ease; }
+.ai-change-bar-fill { width: 100%; height: 100%; border-radius: 3px; transform-origin: left; transition: transform .3s ease, background .3s ease; }
 .ai-change-bar-marker { position: absolute; top: -3px; transform: translateX(-50%); width: 2px; height: 12px; background: #718096; border-radius: 1px; }
 
 /* ── Karma purchase celebration (NavComponent) ── */
@@ -1660,6 +1660,16 @@ app-nav { display: block; }
 .fav-remove-btn   { color: var(--t3); font-size: 12px; }
 .fav-remove-btn:hover { color: oklch(52% .18 25); }
 
+.aiplan-card-title { font-size: 13px; font-weight: 700; color: var(--t1); }
+.aiplan-card-meta { font-size: 11.5px; color: var(--t2); margin-top: 2px; }
+.aiplan-card-date { font-size: 10.5px; color: var(--t2); margin-top: 6px; }
+.aiplan-card-failed { opacity: 0.75; }
+.aiplan-card-refund { font-size: 10.5px; font-weight: 700; color: var(--warn, #b45309); margin-top: 4px; }
+.aiplan-card-clickable { cursor: pointer; }
+.aiplan-card-clickable:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
+.aiplan-card-hint { font-size: 11px; font-weight: 600; color: var(--lav-d); margin-top: 8px; }
+.aiplan-card-discard-btn { margin-top: 8px; font-size: 10.5px; padding: 4px 10px; }
+
 /* ── Attraction preview popover ─────────────────────────────────────────── */
 .att-preview-backdrop {
   position: fixed;
@@ -2527,6 +2537,9 @@ app-nav { display: block; }
 }
 .companion-dog.is-sniffing { --dog-size: 96px; border-radius: 0; background: transparent; box-shadow: none; }
 .companion-dog.is-suggesting { animation: cscBob 2.4s ease-in-out infinite; }
+.companion-dog.is-waiting { animation: cscBob 2.4s ease-in-out infinite; }
+.companion-dog.is-standing { animation: cscBob 2.4s ease-in-out infinite; }
+.plan-wait-mascot { position: static; margin-top: 16px; align-items: center; }
 @media (min-width: 769px) {
   /* 30% bigger on web (desktop) than the mobile base sizes above */
   .companion-dog { --dog-size: 94px; }

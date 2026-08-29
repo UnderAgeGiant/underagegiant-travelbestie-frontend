@@ -1,11 +1,12 @@
-import { Component, inject, signal, computed, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
-import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions } from '../../core/models/ai.model';
+import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload } from '../../core/models/ai.model';
 import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { WORLD_CITIES } from '../../data/cities.data';
@@ -251,7 +252,7 @@ type Step = 'preferences' | 'options' | 'result';
               <!-- Progress bar -->
               <div class="ai-change-bar-track">
                 <div class="ai-change-bar-fill"
-                     [style.width]="planChangeBarWidth() + '%'"
+                     [style.transform]="'scaleX(' + (planChangeBarWidth() / 100) + ')'"
                      [style.background]="analysis.ratio > CHANGE_THRESHOLD_PCT ? '#e53e3e' : '#48bb78'">
                 </div>
                 <!-- 20% threshold marker -->
@@ -452,11 +453,12 @@ type Step = 'preferences' | 'options' | 'result';
 
             <div class="ai-plan-actions" style="margin-top:24px">
               <button class="btn-pill btn-outline"
-                      (click)="reset()"
+                      (click)="restart()"
                       type="button"
                       i18n="@@aiplan.restartBtn">↩ Volver a empezar</button>
               <button class="btn-pill btn-primary"
                       (click)="save()"
+                      [disabled]="saving()"
                       type="button"
                       i18n="@@aiplan.saveBtn">💾 Guardar plan</button>
             </div>
@@ -471,12 +473,46 @@ type Step = 'preferences' | 'options' | 'result';
         <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
       }
 
-      @if (loading()) {
+      @if (loading() || notifyConfirmVisible()) {
         <div class="ai-loading-overlay">
           <div class="ai-loading-card">
-            <div class="ai-loading-spinner"></div>
-            <div class="ai-loading-title">{{ loadingMessage() }}</div>
-            <div class="ai-loading-sub" i18n="@@aiplan.loadingSub">Esto puede tardar unos segundos…</div>
+            @if (loading() && !notifyConfirmVisible()) {
+              <div class="ai-loading-spinner"></div>
+              <div class="ai-loading-title">{{ loadingMessage() }}</div>
+              <div class="ai-loading-sub" i18n="@@aiplan.loadingSub">Esto puede tardar unos segundos…</div>
+            }
+
+            @if (planTakingLong() && !notifyConfirmVisible()) {
+              <div class="companion-mascot plan-wait-mascot">
+                <img class="companion-dog is-waiting" src="/Dog-waiting-1.png" alt="Asistente Miel" draggable="false" />
+                <div class="companion-bubble">
+                  <p class="companion-bubble-intro" i18n="@@aiplan.takingLongIntro">
+                    Me estoy demorando en encontrar las atracciones correctas. Si quieres puedes esperar o te puedo avisar mediante las notificaciones cuando el plan ya esté listo.
+                  </p>
+                  <div class="companion-bubble-actions">
+                    <button type="button" class="btn-pill btn-outline" (click)="waitForPlan()"
+                            i18n="@@aiplan.takingLongWait">Esperar</button>
+                    <button type="button" class="btn-pill btn-primary" (click)="notifyMeInstead()"
+                            i18n="@@aiplan.takingLongNotify">Notificarme</button>
+                  </div>
+                </div>
+              </div>
+            }
+
+            @if (notifyConfirmVisible()) {
+              <div class="companion-mascot plan-wait-mascot">
+                <img class="companion-dog is-standing" src="/standing-black-dog.jpeg" alt="Asistente Miel" draggable="false" />
+                <div class="companion-bubble">
+                  <p class="companion-bubble-intro" i18n="@@aiplan.notifyConfirmText">
+                    ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas. ¡Yo te llevo!
+                  </p>
+                  <div class="companion-bubble-actions">
+                    <button type="button" class="btn-pill btn-primary" style="flex:1" (click)="confirmNotify()"
+                            i18n="@@aiplan.notifyConfirmOk">Ok</button>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
         </div>
       }
@@ -487,6 +523,14 @@ type Step = 'preferences' | 'options' | 'result';
 export class AiPlanningComponent {
   close     = output<void>();
   planSaved = output<void>();
+  /** User confirmed the "Notificarme" hand-off — parent should close this overlay and take them to the landing page's featured-plans section (S2) to browse while they wait. */
+  viewFeaturedTrips = output<void>();
+  /**
+   * Set when opened from "Mis Planes IA" (MyTripsComponent) to revisit a past
+   * completed plan — jumps straight to Step 3 with the slideshow auto-playing,
+   * the same experience as just having waited for a fresh /ai/plan response.
+   */
+  initialResult = input<AiPlanViewPayload | null>(null);
 
   readonly auth = inject(AuthService);
   private readonly api        = inject(ApiService);
@@ -503,8 +547,19 @@ export class AiPlanningComponent {
   suggestions     = signal<SuggestTripsResponse | null>(null);
   selectedOption  = signal<TripSuggestion | null>(null);
   generatedTrip   = signal<Trip | null>(null);
+  /** The ai_plan_requests row backing generatedTrip(), if any — set by executePlan() on a fresh generation or by the initialResult effect when revisiting a past plan. Only save() deletes it (the plan became a real trip, so the pending row is redundant); a re-generation via executePlan() or an abandon via reset() just stop tracking it locally — the row itself stays in "Planes IA Pendientes" until the user saves it or discards it manually from that page. Null for a plan that never went through the async job (shouldn't happen in practice, but save() guards on it anyway). */
+  currentAiPlanRequestId = signal<string | null>(null);
+  /** True while save()'s upsert request is in flight — disables the "💾 Guardar plan" button so a double-click can't fire two saves. */
+  saving = signal(false);
   /** Auto-opened as soon as a plan finishes generating, as if the user had pressed "🎞️ Presentación del plan". */
   planSlideshowOpen = signal(false);
+  /** Flips true once executePlan()'s request has been pending for AI_PLAN_LONG_WAIT_MS. */
+  planTakingLong = signal(false);
+  /** Shown after "Notificarme" is clicked — a hand-off message pointing the user at the featured plans while they wait. */
+  notifyConfirmVisible = signal(false);
+  private planSub: Subscription | null = null;
+  private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
+  private static readonly AI_PLAN_LONG_WAIT_MS = 15_000;
 
   preferences = signal('');
   duration    = signal<number | undefined>(undefined);
@@ -513,6 +568,44 @@ export class AiPlanningComponent {
 
   readonly selectedCategories = signal<AttractionCategory[]>([]);
   readonly allCategoryMeta = getAllCategories();
+
+  /**
+   * Guards the constructor effect below so it only ever applies `initialResult`
+   * once. A plain instance flag rather than a signal read: the effect used to
+   * gate on `!this.generatedTrip()`, but reading a signal inside an effect makes
+   * it a dependency — so restart()/reset() clearing generatedTrip() back to null
+   * made the effect re-run and immediately restore the revisited plan (Step 3 +
+   * fullscreen slideshow), making "↩ Volver a empezar" appear to do nothing.
+   */
+  private initialResultApplied = false;
+
+  constructor() {
+    // Component is created fresh each time (ShellComponent structurally toggles
+    // it via @if), so this only ever needs to fire once per instance.
+    effect(() => {
+      const initial = this.initialResult();
+      if (initial && !this.initialResultApplied) {
+        this.initialResultApplied = true;
+        this.generatedTrip.set(initial.result as Trip);
+        this.currentAiPlanRequestId.set(initial.requestId);
+        this.step.set('result');
+        this.planSlideshowOpen.set(true);
+        // Pre-fill the Step 1 form with whatever generated this plan, so
+        // restart()/"↩ Volver a empezar" lands on a filled-in form instead of a
+        // blank one — the user never typed these in *this* session (they came
+        // straight here from a "Planes IA Pendientes" card), so restart()'s
+        // usual "just keep what's already on the signals" approach has nothing
+        // to keep unless we seed it here first.
+        const params = initial.requestParams;
+        if (params) {
+          this.preferences.set(params.preferences);
+          this.duration.set(params.duration);
+          this.budget.set(params.budget ?? '');
+          this.startDate.set(params.startDate ?? '');
+        }
+      }
+    }, { allowSignalWrites: true });
+  }
 
   toggleCategory(code: AttractionCategory): void {
     this.selectedCategories.update(prev =>
@@ -667,7 +760,10 @@ export class AiPlanningComponent {
       .subscribe({
         next: res => {
           this.suggestions.set(res);
-          this.selectedOption.set(null);
+          // Preselect the first option so Step 2 opens with a valid choice
+          // already highlighted (and "Generar plan completo" enabled) — the
+          // user can still switch to the second option before continuing.
+          this.selectedOption.set(res.options[0] ?? null);
           this.loading.set(false);
           this.step.set('options');
           // Update suggest baseline so bar is reactive when user adjusts for re-suggest
@@ -748,12 +844,19 @@ export class AiPlanningComponent {
     this.planConfirmPending.set(null);
     this.changeWarning.set(null);
     this.changeCharged.set(null);
+    this.planTakingLong.set(false);
 
     this.loadingMessage.set($localize`:@@aiplan.loadingPlan:Creando tu plan de viaje 🗺️`);
     this.loading.set(true);
     this.error.set(null);
 
-    this.api.planTrip({
+    this.clearPlanTakingLongTimer();
+    this.planTakingLongTimer = setTimeout(
+      () => this.planTakingLong.set(true),
+      AiPlanningComponent.AI_PLAN_LONG_WAIT_MS,
+    );
+
+    this.planSub = this.api.planTrip({
       selectedOption: opt,
       preferences:    this.buildPreferences(),
       duration:       this.duration(),
@@ -762,8 +865,20 @@ export class AiPlanningComponent {
       planSessionId:  this.planSessionId() ?? undefined,
     }).subscribe({
       next: response => {
-        const { changeInfo, ...tripData } = response;
+        this.clearPlanTakingLongTimer();
+        this.planTakingLong.set(false);
+        const { changeInfo, requestId, ...tripData } = response;
+        // A re-generation (via "Ajustar preferencias", or generating fresh
+        // after revisiting a past plan) inserts its own new ai_plan_requests
+        // row rather than overwriting whatever this component was previously
+        // tracking — the superseded row is intentionally left alone in
+        // "Planes IA Pendientes" (Post-Implementation Rework, 2026-08-28):
+        // pending rows should only disappear when the user explicitly saves
+        // (see save() below) or discards them, never as a side effect of
+        // generating another option. currentAiPlanRequestId just moves on to
+        // track whichever generation is now on screen.
         this.generatedTrip.set(tripData as Trip);
+        this.currentAiPlanRequestId.set(requestId ?? null);
         this.loading.set(false);
         this.step.set('result');
         // Auto-open the fullscreen presentation, as if the user had pressed
@@ -775,12 +890,49 @@ export class AiPlanningComponent {
         }
       },
       error: err => {
+        this.clearPlanTakingLongTimer();
+        this.planTakingLong.set(false);
         this.loading.set(false);
         if (!this.karmaModal.handleKarmaError(err)) {
           this.error.set(err?.error?.error ?? 'Error al generar el plan');
         }
       },
     });
+  }
+
+  /** User chose "Esperar" in the taking-long dog bubble — no-op, the existing poll subscription keeps running. */
+  waitForPlan(): void {
+    this.planTakingLong.set(false);
+  }
+
+  /**
+   * User chose "Notificarme" in the taking-long dog bubble — stops the frontend
+   * poll and returns to a normal state. The backend keeps generating regardless
+   * (background job, see manager repo's ai-plan-job.ts) and will notify the user
+   * via the bell when it finishes, whether they're still on this screen or not.
+   * Swaps the dog bubble for a hand-off message instead of dismissing the card
+   * outright — confirmNotify() (the "Ok" button) is what actually closes it.
+   */
+  notifyMeInstead(): void {
+    this.planSub?.unsubscribe();
+    this.planSub = null;
+    this.clearPlanTakingLongTimer();
+    this.planTakingLong.set(false);
+    this.loading.set(false);
+    this.notifyConfirmVisible.set(true);
+  }
+
+  /** "Ok" on the post-Notificarme hand-off message — sends the user to browse the landing page's featured plans while they wait. */
+  confirmNotify(): void {
+    this.notifyConfirmVisible.set(false);
+    this.viewFeaturedTrips.emit();
+  }
+
+  private clearPlanTakingLongTimer(): void {
+    if (this.planTakingLongTimer) {
+      clearTimeout(this.planTakingLongTimer);
+      this.planTakingLongTimer = null;
+    }
   }
 
   /** Updates local session state from the backend's changeInfo response. */
@@ -819,7 +971,8 @@ export class AiPlanningComponent {
   save(): void {
     const trip  = this.generatedTrip();
     const email = this.auth.currentUser()?.email;
-    if (!trip || !email) return;
+    if (!trip || !email || this.saving()) return;
+    this.saving.set(true);
     this.tripSvc.restoreStops(trip.stops, null, trip.transits ?? []);
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [])
       .subscribe({
@@ -828,15 +981,46 @@ export class AiPlanningComponent {
           // already saved (export button, "Guardar viaje" footer, autosave all
           // key off TripService.loadedPlanId()) instead of treating it as new.
           this.tripSvc.markAsLoadedPlan(id);
+          // The plan is now a real trip — it no longer needs a "pending" entry
+          // in Planes IA Pendientes. Fire-and-forget: a failed delete here just
+          // leaves a harmless stale row the user can "Descartar" manually later
+          // from that page (every row there — completed or failed — has its
+          // own discard button).
+          const requestId = this.currentAiPlanRequestId();
+          if (requestId) {
+            this.api.deleteAiPlanHistoryItem(requestId).subscribe({ next: () => {}, error: () => {} });
+            this.currentAiPlanRequestId.set(null);
+          }
           this.planSaved.emit();
         },
-        error: err => { this.karmaModal.handleKarmaError(err); },
+        error: err => {
+          this.saving.set(false);
+          this.karmaModal.handleKarmaError(err);
+        },
       });
   }
 
-  reset(): void {
+  /**
+   * Shared by reset() and restart(): clears the generated plan, the AI session
+   * (planSessionId/baselines/free-change counter), and every change-tracking
+   * banner/confirmation — everything EXCEPT the Step 1 form fields
+   * (preferences/duration/budget/startDate/selectedCategories), which the two
+   * callers handle differently.
+   */
+  private clearSession(): void {
     this.step.set('preferences');
+    this.notifyConfirmVisible.set(false);
+    // The fullscreen slideshow overlay (auto-opened by executePlan()) reparents
+    // itself on top of everything — leaving it open would hide Step 1 behind it
+    // even after step is switched back to 'preferences'.
+    this.planSlideshowOpen.set(false);
     this.generatedTrip.set(null);
+    // Abandons the current *view* of the result, not the underlying
+    // ai_plan_requests row — that row stays put in "Planes IA Pendientes"
+    // exactly like any other unsaved generation, removable only by an
+    // explicit save() or a manual "Descartar" from that page (Post-
+    // Implementation Rework, 2026-08-28). Just stop tracking it locally.
+    this.currentAiPlanRequestId.set(null);
     this.suggestions.set(null);
     this.selectedOption.set(null);
     this.error.set(null);
@@ -848,7 +1032,26 @@ export class AiPlanningComponent {
     this.changeCharged.set(null);
     this.planConfirmPending.set(null);
     this.suggestConfirmPending.set(null);
+  }
+
+  /** Full reset — also blanks the Step 1 form fields. */
+  reset(): void {
+    this.clearSession();
+    this.preferences.set('');
+    this.duration.set(undefined);
+    this.budget.set('');
+    this.startDate.set('');
     this.selectedCategories.set([]);
+  }
+
+  /**
+   * "↩ Volver a empezar" on the result step (Step 3): returns to Step 1 with
+   * a clean session (new plan required, no stale karma/change tracking) but
+   * keeps the Step 1 form fields exactly as the user left them, so they land
+   * on a pre-filled form rather than a blank one.
+   */
+  restart(): void {
+    this.clearSession();
   }
 
   legFor(from: string, to: string): TransitLeg | null {

@@ -46,6 +46,8 @@ export interface PlanTripResponse {
   stops:      unknown[];    // matches Trip.stops shape; component casts to Trip
   transits:   unknown[];
   changeInfo?: PlanChangeInfo;
+  /** The backing ai_plan_requests row id — carried through so AiPlanningComponent.save() can delete it once the plan is kept. Not part of the backend's PlanTripResponse type; ApiService.pollAiPlanStatus() stitches it in from its own requestId parameter. */
+  requestId?: string;
 }
 
 export interface SuggestionScheduleEntry {
@@ -85,4 +87,64 @@ export interface CompanionSuggestion {
 export interface CompanionStatusResponse {
   boosted:          boolean;
   secondsRemaining: number;
+}
+
+export type AiPlanRequestStatus = 'pending' | 'completed' | 'failed';
+
+/** Response shape of POST /ai/plan now that it kicks off a background job instead of returning the plan directly. */
+export interface AiPlanKickoffResponse {
+  requestId: string;
+}
+
+/** Data shape both GET /ai/plan/:requestId/status and GET /ai/plan/history's `result` field carry — matches backend PlanTripResponse minus changeInfo (that's a sibling field, not nested). */
+export interface AiPlanResultData {
+  title:    string;
+  stops:    unknown[];
+  transits: unknown[];
+}
+
+/** Response shape of GET /ai/plan/:requestId/status. */
+export interface AiPlanStatusResponse {
+  status:      AiPlanRequestStatus;
+  result?:     AiPlanResultData;
+  changeInfo?: PlanChangeInfo;
+  error?:      string;
+}
+
+/** One row from GET /ai/plan/history — a past AI-generated plan the user can revisit read-only. */
+export interface AiPlanHistoryItem {
+  requestId:     string;
+  status:        'completed' | 'failed';
+  requestParams: {
+    selectedOption: TripSuggestion;
+    preferences:    string;
+    duration?:      number;
+    budget?:        string;
+    startDate?:     string;
+  };
+  result?:       AiPlanResultData;
+  error?:        string;
+  karmaCharged:  number;
+  createdAt:     string;
+  completedAt?:  string;
+}
+
+/** Carried from a "Planes IA Pendientes" card click, through ShellComponent, into AiPlanningComponent's `initialResult` input — pairs the plan data with the ai_plan_requests row id backing it, so Step 3's save() can delete that row once the plan is kept. */
+export interface AiPlanViewPayload {
+  result:    AiPlanResultData;
+  requestId: string;
+  /**
+   * The form values that generated this plan (same shape as
+   * `AiPlanHistoryItem['requestParams']`). Optional for backward compat with
+   * any other future caller of the `initialResult` input, but MyTripsComponent
+   * always includes it — it's what lets "↩ Volver a empezar" land on a
+   * pre-filled Step 1 instead of a blank one when revisiting a past plan.
+   */
+  requestParams?: {
+    selectedOption: TripSuggestion;
+    preferences:    string;
+    duration?:      number;
+    budget?:        string;
+    startDate?:     string;
+  };
 }

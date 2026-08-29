@@ -1,7 +1,9 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { ApiService } from './api.service';
+import { environment } from '../../../environments/environment';
+import { PlanTripRequest } from '../models/ai.model';
 
 describe('ApiService (useMocks=true)', () => {
   let service: ApiService;
@@ -52,6 +54,62 @@ describe('ApiService (useMocks=true)', () => {
     service.updateKarmaMock('another-new-user@test.com', -1);
     expect(localStorage.getItem('tb_karma_another-new-user@test.com')).toBe('9');
   });
+});
+
+describe('ApiService — planTrip (async kickoff + poll)', () => {
+  let httpMock: HttpTestingController;
+  let svc: ApiService;
+
+  const req: PlanTripRequest = {
+    selectedOption: { id: 1, title: 'Ruta Clásica por Europa', summary: 's', highlights: [] },
+    preferences: 'viaje romántico',
+  };
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    httpMock = TestBed.inject(HttpTestingController);
+    svc = TestBed.inject(ApiService);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('kicks off, polls, and resolves with the plan once status flips to completed', fakeAsync(() => {
+    let result: any;
+    svc.planTrip(req).subscribe(r => (result = r));
+
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan`).flush({ requestId: 'req-1' });
+
+    // First poll tick — still pending
+    tick(0);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({ status: 'pending' });
+
+    // Second poll tick, 15s later — completed
+    tick(15000);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({
+      status: 'completed',
+      result: { title: 'Mi Plan Europa', stops: [], transits: [] },
+      changeInfo: { type: 'new_session', freeChangesUsed: 0, freeChangesRemaining: 3 },
+    });
+
+    expect(result.title).toBe('Mi Plan Europa');
+    expect(result.changeInfo).toMatchObject({ type: 'new_session' });
+    expect(result.requestId).toBe('req-1');
+  }));
+
+  it('errors when status flips to failed', fakeAsync(() => {
+    let error: any;
+    svc.planTrip(req).subscribe({ error: e => (error = e) });
+
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan`).flush({ requestId: 'req-2' });
+    tick(0);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-2/status`).flush({
+      status: 'failed', error: 'DeepSeek unavailable',
+    });
+
+    expect(error.error.error).toBe('DeepSeek unavailable');
+  }));
 });
 
 describe('ApiService (useMocks=false via spy)', () => {
@@ -111,6 +169,12 @@ describe('ApiService (useMocks=false via spy)', () => {
     service.markHighlightDismissed('landing_welcome').subscribe();
     const req = http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss') && r.method === 'POST');
     expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush(null);
+  });
+
+  it('deleteAiPlanHistoryItem calls DELETE /ai/plan/:requestId', () => {
+    service.deleteAiPlanHistoryItem('req-1').subscribe();
+    const req = http.expectOne(r => r.url.includes('/ai/plan/req-1') && r.method === 'DELETE');
     req.flush(null);
   });
 });
@@ -189,6 +253,11 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     req.flush({ options: [] });
   });
 
+  // Not fakeAsync: getCityCatalog() resolves through a real dynamic import()
+  // (see AttractionCatalogService), which fakeAsync's tick()/flushMicrotasks()
+  // cannot drain — it needs a genuine event-loop turn, hence the real await
+  // below (same pattern the pre-existing suggestTrips test above already uses
+  // for the analogous getCityIndex() import).
   it('planTrip sends an attractions catalog filtered to the selected option\'s cityIds', async () => {
     service.planTrip({
       selectedOption: { id: 1, title: 'T', summary: 'S', highlights: [], cityIds: ['paris', 'rome'] },
@@ -197,19 +266,31 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     await new Promise(resolve => setTimeout(resolve, 0));
     const req = http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST');
     expect(Object.keys(req.request.body.cityCatalog).sort()).toEqual(['paris', 'rome']);
-    req.flush({ title: 'T', stops: [], transits: [] });
+    req.flush({ requestId: 'req-x' });
+
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.includes('/ai/plan/req-x/status')).flush({
+      status: 'completed',
+      result: { title: 'T', stops: [], transits: [] },
+    });
   });
 
-  it('planTrip sends no cityCatalog when the selected option has no cityIds', async () => {
+  it('planTrip sends no cityCatalog when the selected option has no cityIds', fakeAsync(() => {
     service.planTrip({
       selectedOption: { id: 1, title: 'T', summary: 'S', highlights: [] },
       preferences: 'arte',
     }).subscribe();
-    await new Promise(resolve => setTimeout(resolve, 0));
+    tick(0);
     const req = http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST');
     expect(req.request.body.cityCatalog).toBeUndefined();
-    req.flush({ title: 'T', stops: [], transits: [] });
-  });
+    req.flush({ requestId: 'req-x' });
+
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/plan/req-x/status')).flush({
+      status: 'completed',
+      result: { title: 'T', stops: [], transits: [] },
+    });
+  }));
 });
 
 describe('ApiService.suggestCityAttractions() — real HTTP', () => {
