@@ -376,10 +376,15 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     tick(0);
     http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
     expect(component.step()).toBe('result');
+    expect(component.planSlideshowOpen()).toBe(true);
 
     component.restart();
 
     expect(component.step()).toBe('preferences');
+    // The fullscreen slideshow overlay auto-opened by executePlan() must also
+    // close — otherwise it stays reparented on top and visually hides Step 1
+    // even though `step` already switched back to 'preferences'.
+    expect(component.planSlideshowOpen()).toBe(false);
     expect(component.preferences()).toBe('playa y museos');
     expect(component.duration()).toBe(7);
     expect(component.budget()).toBe('500-1000 USD');

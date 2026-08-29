@@ -983,6 +983,10 @@ export class AiPlanningComponent {
   private clearSession(): void {
     this.step.set('preferences');
     this.notifyConfirmVisible.set(false);
+    // The fullscreen slideshow overlay (auto-opened by executePlan()) reparents
+    // itself on top of everything — leaving it open would hide Step 1 behind it
+    // even after step is switched back to 'preferences'.
+    this.planSlideshowOpen.set(false);
     this.generatedTrip.set(null);
     // Abandons the current *view* of the result, not the underlying
     // ai_plan_requests row — that row stays put in "Planes IA Pendientes"
