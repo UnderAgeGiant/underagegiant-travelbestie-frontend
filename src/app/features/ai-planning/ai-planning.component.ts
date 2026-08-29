@@ -760,7 +760,10 @@ export class AiPlanningComponent {
       .subscribe({
         next: res => {
           this.suggestions.set(res);
-          this.selectedOption.set(null);
+          // Preselect the first option so Step 2 opens with a valid choice
+          // already highlighted (and "Generar plan completo" enabled) — the
+          // user can still switch to the second option before continuing.
+          this.selectedOption.set(res.options[0] ?? null);
           this.loading.set(false);
           this.step.set('options');
           // Update suggest baseline so bar is reactive when user adjusts for re-suggest

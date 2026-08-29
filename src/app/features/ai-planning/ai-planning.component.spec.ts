@@ -473,3 +473,58 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     expect(component.selectedCategories()).toEqual([]);
   });
 });
+
+describe('AiPlanningComponent — executeSuggest() preselects the first option', () => {
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let http: HttpTestingController;
+
+  const OPTIONS = {
+    options: [
+      { id: 1, title: 'Opción A', summary: 'Resumen A', highlights: ['a1'] },
+      { id: 2, title: 'Opción B', summary: 'Resumen B', highlights: ['b1'] },
+    ],
+  };
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    http = TestBed.inject(HttpTestingController);
+    component = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+  });
+
+  afterEach(() => http.verify());
+
+  it('selects options[0] as soon as suggestions arrive, so "Generar plan completo" is enabled without a click', fakeAsync(() => {
+    component.preferences.set('playa y museos');
+
+    component.suggest();
+    // suggestTrips() resolves AttractionCatalogService.getCityIndex() (a Promise)
+    // before posting, so the request isn't in flight until a microtask flush.
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+
+    expect(component.step()).toBe('options');
+    expect(component.selectedOption()).toEqual(OPTIONS.options[0]);
+  }));
+
+  it('a fresh re-suggest overrides any previously selected (e.g. second) option back to the new first option', fakeAsync(() => {
+    component.preferences.set('playa y museos');
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+
+    // User picked the second option, then regenerates.
+    component.selectedOption.set(OPTIONS.options[1]);
+    component.executeSuggest('fresh');
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+
+    expect(component.selectedOption()).toEqual(OPTIONS.options[0]);
+  }));
+});
