@@ -569,12 +569,23 @@ export class AiPlanningComponent {
   readonly selectedCategories = signal<AttractionCategory[]>([]);
   readonly allCategoryMeta = getAllCategories();
 
+  /**
+   * Guards the constructor effect below so it only ever applies `initialResult`
+   * once. A plain instance flag rather than a signal read: the effect used to
+   * gate on `!this.generatedTrip()`, but reading a signal inside an effect makes
+   * it a dependency — so restart()/reset() clearing generatedTrip() back to null
+   * made the effect re-run and immediately restore the revisited plan (Step 3 +
+   * fullscreen slideshow), making "↩ Volver a empezar" appear to do nothing.
+   */
+  private initialResultApplied = false;
+
   constructor() {
     // Component is created fresh each time (ShellComponent structurally toggles
     // it via @if), so this only ever needs to fire once per instance.
     effect(() => {
       const initial = this.initialResult();
-      if (initial && !this.generatedTrip()) {
+      if (initial && !this.initialResultApplied) {
+        this.initialResultApplied = true;
         this.generatedTrip.set(initial.result as Trip);
         this.currentAiPlanRequestId.set(initial.requestId);
         this.step.set('result');

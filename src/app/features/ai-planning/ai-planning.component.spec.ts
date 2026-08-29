@@ -281,6 +281,26 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
 
     expect(fixture.componentInstance.step()).toBe('preferences');
   });
+
+  it('restart() sticks on Step 1 even though initialResult is still set — the effect must not reapply it', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    fixture.componentRef.setInput('initialResult', { result: TRIP, requestId: 'req-77' });
+    fixture.detectChanges();
+
+    const component = fixture.componentInstance;
+    expect(component.step()).toBe('result');
+
+    component.restart();
+    fixture.detectChanges();
+
+    // Regression: clearing generatedTrip() used to re-trigger the initialResult
+    // effect (it read generatedTrip() as a dependency) and immediately snap the
+    // view back to Step 3 + the fullscreen slideshow, as if restart() had no effect.
+    expect(component.step()).toBe('preferences');
+    expect(component.generatedTrip()).toBeNull();
+    expect(component.planSlideshowOpen()).toBe(false);
+  });
 });
 
 describe('AiPlanningComponent — never deletes ai_plan_requests rows except via save()', () => {
