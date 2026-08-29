@@ -120,3 +120,75 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     expect(saved).toBe(true);
   });
 });
+
+describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Step 1 form filled', () => {
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    http = TestBed.inject(HttpTestingController);
+    component = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+  });
+
+  afterEach(() => http.verify());
+
+  it('returns to Step 1 without clearing the form fields', () => {
+    component.preferences.set('playa y museos');
+    component.duration.set(7);
+    component.budget.set('500-1000 USD');
+    component.startDate.set('01/06/2026');
+    component.selectedCategories.set(['poi']);
+    component.selectedOption.set(OPTION);
+
+    component.executePlan();
+    http.expectOne(r => r.url.includes('/ai/plan')).flush(TRIP);
+    expect(component.step()).toBe('result');
+
+    component.restart();
+
+    expect(component.step()).toBe('preferences');
+    expect(component.preferences()).toBe('playa y museos');
+    expect(component.duration()).toBe(7);
+    expect(component.budget()).toBe('500-1000 USD');
+    expect(component.startDate()).toBe('01/06/2026');
+    expect(component.selectedCategories()).toEqual(['poi']);
+  });
+
+  it('clears the generated plan and selection/suggestion state', () => {
+    component.preferences.set('playa y museos');
+    component.selectedOption.set(OPTION);
+
+    component.executePlan();
+    http.expectOne(r => r.url.includes('/ai/plan')).flush(TRIP);
+
+    component.restart();
+
+    expect(component.generatedTrip()).toBeNull();
+    expect(component.suggestions()).toBeNull();
+    expect(component.selectedOption()).toBeNull();
+  });
+
+  it('reset() (unlike restart()) blanks the form fields back to empty', () => {
+    component.preferences.set('playa y museos');
+    component.duration.set(7);
+    component.budget.set('500-1000 USD');
+    component.startDate.set('01/06/2026');
+    component.selectedCategories.set(['poi']);
+
+    component.reset();
+
+    expect(component.preferences()).toBe('');
+    expect(component.duration()).toBeUndefined();
+    expect(component.budget()).toBe('');
+    expect(component.startDate()).toBe('');
+    expect(component.selectedCategories()).toEqual([]);
+  });
+});

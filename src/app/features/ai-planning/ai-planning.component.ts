@@ -452,7 +452,7 @@ type Step = 'preferences' | 'options' | 'result';
 
             <div class="ai-plan-actions" style="margin-top:24px">
               <button class="btn-pill btn-outline"
-                      (click)="reset()"
+                      (click)="restart()"
                       type="button"
                       i18n="@@aiplan.restartBtn">↩ Volver a empezar</button>
               <button class="btn-pill btn-primary"
@@ -834,7 +834,14 @@ export class AiPlanningComponent {
       });
   }
 
-  reset(): void {
+  /**
+   * Shared by reset() and restart(): clears the generated plan, the AI session
+   * (planSessionId/baselines/free-change counter), and every change-tracking
+   * banner/confirmation — everything EXCEPT the Step 1 form fields
+   * (preferences/duration/budget/startDate/selectedCategories), which the two
+   * callers handle differently.
+   */
+  private clearSession(): void {
     this.step.set('preferences');
     this.generatedTrip.set(null);
     this.suggestions.set(null);
@@ -848,7 +855,26 @@ export class AiPlanningComponent {
     this.changeCharged.set(null);
     this.planConfirmPending.set(null);
     this.suggestConfirmPending.set(null);
+  }
+
+  /** Full reset — also blanks the Step 1 form fields. */
+  reset(): void {
+    this.clearSession();
+    this.preferences.set('');
+    this.duration.set(undefined);
+    this.budget.set('');
+    this.startDate.set('');
     this.selectedCategories.set([]);
+  }
+
+  /**
+   * "↩ Volver a empezar" on the result step (Step 3): returns to Step 1 with
+   * a clean session (new plan required, no stale karma/change tracking) but
+   * keeps the Step 1 form fields exactly as the user left them, so they land
+   * on a pre-filled form rather than a blank one.
+   */
+  restart(): void {
+    this.clearSession();
   }
 
   legFor(from: string, to: string): TransitLeg | null {
