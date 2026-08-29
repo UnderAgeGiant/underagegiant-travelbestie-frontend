@@ -274,6 +274,23 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     expect(component.currentAiPlanRequestId()).toBe('req-77');
   });
 
+  it('seeds the Step 1 form fields from requestParams when initialResult is set', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    fixture.componentRef.setInput('initialResult', {
+      result: TRIP,
+      requestId: 'req-77',
+      requestParams: { selectedOption: OPTION, preferences: 'playa y museos', duration: 7, budget: '500-1000 USD', startDate: '01/06/2026' },
+    });
+    fixture.detectChanges();
+
+    const component = fixture.componentInstance;
+    expect(component.preferences()).toBe('playa y museos');
+    expect(component.duration()).toBe(7);
+    expect(component.budget()).toBe('500-1000 USD');
+    expect(component.startDate()).toBe('01/06/2026');
+  });
+
   it('stays on Step 1 when no initialResult is provided', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
@@ -282,10 +299,14 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     expect(fixture.componentInstance.step()).toBe('preferences');
   });
 
-  it('restart() sticks on Step 1 even though initialResult is still set — the effect must not reapply it', () => {
+  it('restart() sticks on Step 1, still filled from requestParams, even though initialResult is still set', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
-    fixture.componentRef.setInput('initialResult', { result: TRIP, requestId: 'req-77' });
+    fixture.componentRef.setInput('initialResult', {
+      result: TRIP,
+      requestId: 'req-77',
+      requestParams: { selectedOption: OPTION, preferences: 'playa y museos', duration: 7, budget: '500-1000 USD', startDate: '01/06/2026' },
+    });
     fixture.detectChanges();
 
     const component = fixture.componentInstance;
@@ -300,6 +321,12 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     expect(component.step()).toBe('preferences');
     expect(component.generatedTrip()).toBeNull();
     expect(component.planSlideshowOpen()).toBe(false);
+    // restart() doesn't touch the form fields — since requestParams seeded them
+    // when initialResult first landed, they're still filled in on Step 1.
+    expect(component.preferences()).toBe('playa y museos');
+    expect(component.duration()).toBe(7);
+    expect(component.budget()).toBe('500-1000 USD');
+    expect(component.startDate()).toBe('01/06/2026');
   });
 });
 

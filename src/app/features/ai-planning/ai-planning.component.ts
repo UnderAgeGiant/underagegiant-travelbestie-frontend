@@ -590,6 +590,19 @@ export class AiPlanningComponent {
         this.currentAiPlanRequestId.set(initial.requestId);
         this.step.set('result');
         this.planSlideshowOpen.set(true);
+        // Pre-fill the Step 1 form with whatever generated this plan, so
+        // restart()/"↩ Volver a empezar" lands on a filled-in form instead of a
+        // blank one — the user never typed these in *this* session (they came
+        // straight here from a "Planes IA Pendientes" card), so restart()'s
+        // usual "just keep what's already on the signals" approach has nothing
+        // to keep unless we seed it here first.
+        const params = initial.requestParams;
+        if (params) {
+          this.preferences.set(params.preferences);
+          this.duration.set(params.duration);
+          this.budget.set(params.budget ?? '');
+          this.startDate.set(params.startDate ?? '');
+        }
       }
     }, { allowSignalWrites: true });
   }

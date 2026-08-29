@@ -157,7 +157,11 @@ describe('MyTripsComponent — Planes IA Pendientes tab', () => {
 
     component.openAiPlanResult(completed);
 
-    expect(emitted).toEqual({ result: completed.result, requestId: completed.requestId });
+    expect(emitted).toEqual({
+      result: completed.result,
+      requestId: completed.requestId,
+      requestParams: completed.requestParams,
+    });
   });
 
   it('does not emit viewAiPlan for a failed card', () => {

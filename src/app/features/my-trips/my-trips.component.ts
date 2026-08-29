@@ -453,7 +453,7 @@ export class MyTripsComponent {
   /** Only completed rows carry a `result` to revisit — failed rows are inert (their only action is "Descartar", see discardAiPlan()). */
   openAiPlanResult(item: AiPlanHistoryItem): void {
     if (item.status === 'completed' && item.result) {
-      this.viewAiPlan.emit({ result: item.result, requestId: item.requestId });
+      this.viewAiPlan.emit({ result: item.result, requestId: item.requestId, requestParams: item.requestParams });
     }
   }
 

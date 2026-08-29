@@ -133,4 +133,18 @@ export interface AiPlanHistoryItem {
 export interface AiPlanViewPayload {
   result:    AiPlanResultData;
   requestId: string;
+  /**
+   * The form values that generated this plan (same shape as
+   * `AiPlanHistoryItem['requestParams']`). Optional for backward compat with
+   * any other future caller of the `initialResult` input, but MyTripsComponent
+   * always includes it — it's what lets "↩ Volver a empezar" land on a
+   * pre-filled Step 1 instead of a blank one when revisiting a past plan.
+   */
+  requestParams?: {
+    selectedOption: TripSuggestion;
+    preferences:    string;
+    duration?:      number;
+    budget?:        string;
+    startDate?:     string;
+  };
 }
