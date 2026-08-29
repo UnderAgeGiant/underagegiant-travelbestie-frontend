@@ -343,3 +343,81 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     http.verify();   // fails if any unexpected (e.g. DELETE) request was made
   });
 });
+
+describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Step 1 form filled', () => {
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    http = TestBed.inject(HttpTestingController);
+    component = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+  });
+
+  afterEach(() => http.verify());
+
+  it('returns to Step 1 without clearing the form fields', fakeAsync(() => {
+    component.preferences.set('playa y museos');
+    component.duration.set(7);
+    component.budget.set('500-1000 USD');
+    component.startDate.set('01/06/2026');
+    component.selectedCategories.set(['poi']);
+    component.selectedOption.set(OPTION);
+
+    component.executePlan();
+    http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-1' });
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
+    expect(component.step()).toBe('result');
+
+    component.restart();
+
+    expect(component.step()).toBe('preferences');
+    expect(component.preferences()).toBe('playa y museos');
+    expect(component.duration()).toBe(7);
+    expect(component.budget()).toBe('500-1000 USD');
+    expect(component.startDate()).toBe('01/06/2026');
+    expect(component.selectedCategories()).toEqual(['poi']);
+  }));
+
+  it('clears the generated plan and session/change tracking, but keeps tracking the abandoned row unless saved', fakeAsync(() => {
+    component.preferences.set('playa y museos');
+    component.selectedOption.set(OPTION);
+
+    component.executePlan();
+    http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-2' });
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/plan/req-2/status')).flush({ status: 'completed', result: TRIP });
+
+    component.restart();
+
+    expect(component.generatedTrip()).toBeNull();
+    expect(component.currentAiPlanRequestId()).toBeNull();
+    expect(component.suggestions()).toBeNull();
+    expect(component.selectedOption()).toBeNull();
+    http.verify();   // no DELETE fired — the abandoned row survives in Planes IA Pendientes
+  }));
+
+  it('reset() (unlike restart()) blanks the form fields back to empty', () => {
+    component.preferences.set('playa y museos');
+    component.duration.set(7);
+    component.budget.set('500-1000 USD');
+    component.startDate.set('01/06/2026');
+    component.selectedCategories.set(['poi']);
+
+    component.reset();
+
+    expect(component.preferences()).toBe('');
+    expect(component.duration()).toBeUndefined();
+    expect(component.budget()).toBe('');
+    expect(component.startDate()).toBe('');
+    expect(component.selectedCategories()).toEqual([]);
+  });
+});
