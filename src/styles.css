@@ -1317,10 +1317,22 @@ app-nav { display: block; }
   color: var(--t2);
   margin-top: 2px;
 }
+/* One flex row for every tl-head action (export, route, day/plan slideshows) — replaces each
+   button's own ad hoc margin-top (and .tl-route-btn's extra margin-left) with a single gap,
+   so spacing stays even regardless of which subset of the four is showing at once. */
+.tl-head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.tl-head-action {
+  font-size: 11px;
+  padding: 4px 12px;
+}
 .tl-route-btn {
   display: inline-flex; align-items: center; gap: 4px;
-  margin-top: 6px; margin-left: 6px;
-  font-size: 11px; padding: 4px 12px;
   text-decoration: none;
 }
 

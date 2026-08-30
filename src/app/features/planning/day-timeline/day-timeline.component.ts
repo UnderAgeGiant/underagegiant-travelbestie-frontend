@@ -138,26 +138,32 @@ function transitLabel(mode: TransitMode): string {
           {{ title() }}
         </div>
         <div class="tl-head-sub">{{ subtitle() }}</div>
-        @if (trip.loadedPlanId()) {
-          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
-                  [disabled]="exporting()" (click)="exportItinerary()" type="button"
-                  i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
-        }
-        @if (routeUrl()) {
-          <a class="btn-pill btn-outline tl-route-btn"
-             [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
-            <span i18n="@@timeline.dayRoute">🗺️ Ruta del día</span>
-          </a>
-        }
-        @if (blocks().length > 0) {
-          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
-                  (click)="daySlideshowOpen.set(true)" type="button"
-                  i18n="@@timeline.daySlideshow">🎬 Presentación del día</button>
-        }
-        @if (showPlanSlideshow() && planSlideItems().length > 0) {
-          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
-                  (click)="planSlideshowOpen.set(true)" type="button"
-                  i18n="@@timeline.planSlideshow">🎞️ Presentación del plan</button>
+        @if (trip.loadedPlanId() || routeUrl() || blocks().length > 0 || (showPlanSlideshow() && planSlideItems().length > 0)) {
+          <div class="tl-head-actions">
+            <!-- Day-scoped actions first (this component's own subject), then plan-scoped —
+                 grouped by what they act on, not the order they happened to be added in. -->
+            @if (routeUrl()) {
+              <a class="btn-pill btn-outline tl-head-action tl-route-btn"
+                 [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
+                <span i18n="@@timeline.dayRoute">🗺️ Ruta del día</span>
+              </a>
+            }
+            @if (blocks().length > 0) {
+              <button class="btn-pill btn-outline tl-head-action"
+                      (click)="daySlideshowOpen.set(true)" type="button"
+                      i18n="@@timeline.daySlideshow">🎬 Presentación del día</button>
+            }
+            @if (trip.loadedPlanId()) {
+              <button class="btn-pill btn-outline tl-head-action"
+                      [disabled]="exporting()" (click)="exportItinerary()" type="button"
+                      i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
+            }
+            @if (showPlanSlideshow() && planSlideItems().length > 0) {
+              <button class="btn-pill btn-outline tl-head-action"
+                      (click)="planSlideshowOpen.set(true)" type="button"
+                      i18n="@@timeline.planSlideshow">🎞️ Presentación del plan</button>
+            }
+          </div>
         }
       </div>
 

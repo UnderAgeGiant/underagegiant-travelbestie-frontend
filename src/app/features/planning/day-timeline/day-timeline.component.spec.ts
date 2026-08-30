@@ -223,6 +223,65 @@ describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => 
   });
 });
 
+describe('DayTimelineComponent — header actions row (aligned, sorted by scope)', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    installMatchMediaMock(false);
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+  });
+
+  function actionTexts(): string[] {
+    return Array.from(fixture.nativeElement.querySelectorAll('.tl-head-actions > .tl-head-action'))
+      .map((el: any) => el.textContent.trim());
+  }
+
+  it('renders no actions row at all when none of the four actions apply', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.tl-head-actions')).toBeNull();
+  });
+
+  it('groups day-scoped actions (route, day slideshow) before plan-scoped actions (export, plan slideshow), all in one aligned row', () => {
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      lodging: { name: 'Hotel Le Central', url: '' },
+      selectedAttractions: [
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' },
+      ],
+    }] as any, null, [{
+      fromCityId: '__start__', toCityId: 'paris',
+      segments: [{ mode: 'flight', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
+    }] as any);
+    fixture.componentRef.setInput('showPlanSlideshow', true);
+    fixture.detectChanges();
+    (component as any).selectedDay.set('01/06');
+    (trip as any)._loadedPlanId.set('plan-1');
+    fixture.detectChanges();
+
+    const row = fixture.nativeElement.querySelector('.tl-head-actions');
+    expect(row).not.toBeNull();
+    const texts = actionTexts();
+    expect(texts.length).toBe(4);
+    // Day-scoped first…
+    expect(texts[0]).toContain('Ruta del día');
+    expect(texts[1]).toContain('Presentación del día');
+    // …then plan-scoped.
+    expect(texts[2]).toContain('Exportar');
+    expect(texts[3]).toContain('Presentación del plan');
+  });
+});
+
 describe('DayTimelineComponent — hour grid range', () => {
   it('renders the full day from 00:00 to 23:00', () => {
     installMatchMediaMock(false);
