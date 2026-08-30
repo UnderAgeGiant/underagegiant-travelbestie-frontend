@@ -27,6 +27,8 @@ SECURITY-SCAN.md
 .settings/
 *.sublime-workspace
 .claude/settings.local.json
+.impeccable/*
+.superpowers/*
 
 # Visual Studio Code
 .vscode/*
