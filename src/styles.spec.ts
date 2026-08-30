@@ -13,7 +13,8 @@ describe('nav drawer stacking (src/styles.css)', () => {
 
   it('gives the mobile drawer/backdrop a page-independent z-index above every known page overlay', () => {
     // Highest page-level z-indices currently in styles.css: .shared-body (210),
-    // .ai-plan-page (~300 via its own base rule), .profile-page (350).
+    // .ai-plan-page (200 — its own base rule; the nested .ai-loading-overlay
+    // is what sits at 300), .profile-page (350).
     expect(zIndexOf('.nav-m-drawer')).toBeGreaterThan(350);
     expect(zIndexOf('.nav-m-backdrop')).toBeGreaterThan(350);
     expect(zIndexOf('.nav-m-drawer')).toBeGreaterThan(zIndexOf('.nav-m-backdrop'));

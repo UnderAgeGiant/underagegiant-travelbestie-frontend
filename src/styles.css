@@ -2001,7 +2001,8 @@ app-nav { display: block; }
   /* Was z-index: 81, which only ever had to beat .nav-m-bar's own content.
      .shared-page/.profile-page/.ai-plan-page all render a page-level fixed
      overlay ABOVE the app's normal flow (.shared-body z-index 210, .profile-page
-     350, .ai-plan-page ~300) — .profile-page/.ai-plan-page happened to still
+     350, .ai-plan-page 200 — the 300 nearby belongs to its nested .ai-loading-overlay,
+     not the page's own rule) — .profile-page/.ai-plan-page happened to still
      work because their entrance @keyframes set a transform, which makes them
      the containing block AND stacking context for position:fixed descendants,
      trapping this drawer inside their own local context. .shared-page has no

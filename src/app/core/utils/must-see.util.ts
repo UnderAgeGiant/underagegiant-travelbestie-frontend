@@ -4,7 +4,7 @@
  * Deliberately reuses the `rating` every curated attraction already carries
  * instead of adding a new curated data field or pipeline step.
  */
-export const MUST_SEE_RATING_THRESHOLD = 4.5;
+export const MUST_SEE_RATING_THRESHOLD = 4.7;
 
 export function isMustSeeAttraction(attraction: { rating: number }): boolean {
   return attraction.rating >= MUST_SEE_RATING_THRESHOLD;
