@@ -14,6 +14,7 @@ import { CompanionSuggestionService } from '../../../core/ai/companion-suggestio
 import { ToastService } from '../../../core/ui/toast.service';
 import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-icon.component';
 import { isMustSeeAttraction } from '../../../core/utils/must-see.util';
+import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/utils/day-timeline-drag.util';
 
 @Component({
     selector: 'app-attraction-card',
@@ -165,7 +166,8 @@ import { isMustSeeAttraction } from '../../../core/utils/must-see.util';
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
-    <div class="att-card" [style.background-color]="categoryBg()" (click)="showDetailModal.set(true)">
+    <div class="att-card" draggable="true" [style.background-color]="categoryBg()"
+         (click)="showDetailModal.set(true)" (dragstart)="onDragStart($event)">
       <!-- Image / visual area -->
       <div class="card-visual" [style.background-color]="attraction().bg">
         @if (attraction().imageUrl && !imgError()) {
@@ -453,5 +455,15 @@ export class AttractionCardComponent {
 
   toggleTicketPurchased(entryId: string, purchased: boolean): void {
     this.trip.setTicketPurchased(this.stopId(), entryId, purchased);
+  }
+
+  protected onDragStart(event: DragEvent): void {
+    const payload: NewAttractionDragPayload = {
+      attractionId: this.attraction().id,
+      category: this.attraction().category,
+      estimatedMinutes: this.attraction().estimatedMinutes,
+    };
+    event.dataTransfer?.setData(NEW_ATTRACTION_MIME, JSON.stringify(payload));
+    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'copy';
   }
 }

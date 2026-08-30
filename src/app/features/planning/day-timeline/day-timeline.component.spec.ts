@@ -259,3 +259,61 @@ describe('DayTimelineComponent — hour grid range', () => {
     expect(blocks[0].top).toBe(5 * 46);  // 05:00 = 5 hours after the 00:00 grid origin
   });
 });
+
+describe('DayTimelineComponent — drag scheduling', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+  });
+
+  it('adds a new attraction at the dropped, 15-minute-snapped time', () => {
+    jest.spyOn(trip, 'addAttraction');
+    // Grid offset 0 → the grid's first displayed hour (00:00); no real DOM
+    // layout happens in jsdom, so getBoundingClientRect() on the (unrendered)
+    // #tlGridEl returns a zeroed rect — clientY 0 therefore maps to offset 0.
+    // getData is keyed by MIME type, same as the real DataTransfer API — Task 9
+    // extends onGridDrop to check RESCHEDULE_MIME first, so a fake that returned
+    // this payload regardless of the requested type would break once that lands.
+    const newAttractionJson = JSON.stringify({ attractionId: 'paris_louvre', category: 'poi', estimatedMinutes: 150 });
+    const fakeEvent = {
+      preventDefault: jest.fn(),
+      clientY: 0,
+      dataTransfer: {
+        types: ['application/x-tb-new-attraction'],
+        getData: (mime: string) => (mime === 'application/x-tb-new-attraction' ? newAttractionJson : ''),
+      },
+    } as unknown as DragEvent;
+
+    component['onGridDrop'](fakeEvent);
+
+    expect(trip.addAttraction).toHaveBeenCalledWith(
+      trip.activeStop()!.stopId, 'paris_louvre', '00:00', expect.stringMatching(/^\d{2}\/\d{2}\/2026$/), 'poi', 150,
+    );
+  });
+
+  it('ignores a drop whose payload is not a recognized drag type', () => {
+    jest.spyOn(trip, 'addAttraction');
+    const fakeEvent = {
+      preventDefault: jest.fn(),
+      clientY: 0,
+      dataTransfer: { types: ['text/plain'], getData: () => '' },
+    } as unknown as DragEvent;
+
+    component['onGridDrop'](fakeEvent);
+
+    expect(trip.addAttraction).not.toHaveBeenCalled();
+  });
+});

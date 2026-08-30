@@ -18,6 +18,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
+import { NEW_ATTRACTION_MIME, NewAttractionDragPayload, snapMinutesFromOffset, minutesToHm } from '../../../core/utils/day-timeline-drag.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -170,7 +171,8 @@ function transitLabel(mode: TransitMode): string {
 
       <!-- Hour grid -->
       <div class="tl-grid-wrap" #tlGridWrap>
-        <div class="tl-grid" [ngStyle]="{ height: gridHeight() + 'px' }">
+        <div class="tl-grid" #tlGridEl [ngStyle]="{ height: gridHeight() + 'px' }"
+             (dragover)="onGridDragOver($event)" (drop)="onGridDrop($event)">
 
           <!-- Hour lines -->
           @for (h of hours; track h) {
@@ -268,6 +270,7 @@ export class DayTimelineComponent {
 
   @ViewChild('tlGridWrap') private tlGridWrap?: ElementRef<HTMLElement>;
   @ViewChild('tlDaysEl')   private tlDaysEl?:   ElementRef<HTMLElement>;
+  @ViewChild('tlGridEl')   private tlGridEl?:   ElementRef<HTMLElement>;
 
   protected readonly trip   = inject(TripService);
   private  readonly device  = inject(DeviceService);
@@ -619,6 +622,40 @@ export class DayTimelineComponent {
       },
       error: err => { this.exporting.set(false); this.karmaModal.handleKarmaError(err); },
     });
+  }
+
+  protected onGridDragOver(event: DragEvent): void {
+    if (this.transportMode()) return;
+    const types = event.dataTransfer?.types ?? [];
+    if (!Array.from(types).includes(NEW_ATTRACTION_MIME)) return;
+    event.preventDefault(); // required to allow a drop
+    if (event.dataTransfer) event.dataTransfer.dropEffect = 'copy';
+  }
+
+  protected onGridDrop(event: DragEvent): void {
+    if (this.transportMode()) return;
+    event.preventDefault();
+    const stop = this.selectedStopForDay();
+    const day  = this.selectedDay();
+    if (!stop || !day) return;
+
+    const raw = event.dataTransfer?.getData(NEW_ATTRACTION_MIME);
+    if (!raw) return;
+    const payload: NewAttractionDragPayload = JSON.parse(raw);
+
+    const offsetY = this.offsetWithinGrid(event.clientY);
+    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+    const startTime = minutesToHm(snappedMin);
+
+    const tab = this.days().find(t => t.key === day);
+    const fullDate = tab ? this.fmtDate(tab.date) : undefined;
+
+    this.trip.addAttraction(stop.stopId, payload.attractionId, startTime, fullDate, payload.category, payload.estimatedMinutes);
+  }
+
+  private offsetWithinGrid(clientY: number): number {
+    const rect = this.tlGridEl?.nativeElement.getBoundingClientRect();
+    return rect ? clientY - rect.top : 0;
   }
 
   private scrollToFirstBlock(): void {
