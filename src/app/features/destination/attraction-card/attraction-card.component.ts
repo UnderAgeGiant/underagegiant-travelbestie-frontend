@@ -13,6 +13,7 @@ import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { ToastService } from '../../../core/ui/toast.service';
 import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-icon.component';
+import { isMustSeeAttraction } from '../../../core/utils/must-see.util';
 
 @Component({
     selector: 'app-attraction-card',
@@ -155,6 +156,12 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
       border: 1px solid var(--peach);
       font-variant-numeric: tabular-nums;
     }
+    .card-must-see-badge {
+      position: absolute; top: 8px; left: 8px; z-index: 2;
+      background: oklch(85% .14 85); color: oklch(32% .12 85);
+      font-size: 10px; font-weight: 800; padding: 3px 8px;
+      border-radius: 99px; box-shadow: var(--sh);
+    }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -172,6 +179,9 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
         }
         <div class="card-gradient"></div>
         <div class="card-frame"></div>
+        @if (isMustSee()) {
+          <div class="card-must-see-badge" i18n="@@attCard.mustSee">⭐ Imperdible</div>
+        }
 
         <!-- Plan button — top-right; opens edit when single entry, add when none/multiple -->
         <button [class]="'card-plan-btn ' + (inPlan() ? 'planned' : 'idle')"
@@ -342,6 +352,7 @@ export class AttractionCardComponent {
 
   readonly activeStop   = computed(() => this.trip.activeStop());
   readonly categoryBg   = computed(() => getCategoryMeta()[this.attraction().category]?.bg ?? '#E8F0FD');
+  protected readonly isMustSee = computed(() => isMustSeeAttraction(this.attraction()));
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 
