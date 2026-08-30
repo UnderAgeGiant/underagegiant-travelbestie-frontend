@@ -79,6 +79,17 @@ describe('AttractionCardComponent — touch drag to schedule (mobile only)', () 
 
   afterEach(() => jest.useRealTimers());
 
+  // Regression test — the native HTML5 draggable="true" attribute must be OFF on mobile.
+  // WebKit/iOS Safari (and several Android WebViews) give a draggable="true" element its own
+  // native touch-driven long-press-then-drag recognition, which fights the touch handlers below
+  // for the exact same gesture on the exact same element and wins — this was the actual root
+  // cause of "drag still doesn't work on mobile" after the first touch-support pass, which added
+  // these handlers but left the attribute unconditionally "true" for every device.
+  it('does not mark the card as HTML5-draggable on mobile (would fight the touch handlers)', () => {
+    const card = fixture.nativeElement.querySelector('.att-card');
+    expect(card.getAttribute('draggable')).toBeNull();
+  });
+
   it('does nothing on touchstart until the long-press delay elapses', () => {
     fixture.componentInstance['onTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent);
 

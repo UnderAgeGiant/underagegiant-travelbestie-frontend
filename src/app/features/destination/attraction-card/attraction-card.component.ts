@@ -168,7 +168,7 @@ import { DeviceService } from '../../../core/device/device.service';
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
-    <div class="att-card" draggable="true" [style.background-color]="categoryBg()"
+    <div class="att-card" [attr.draggable]="device.isMobile() ? null : true" [style.background-color]="categoryBg()"
          (click)="showDetailModal.set(true)" (dragstart)="onDragStart($event)"
          (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
          (touchend)="onTouchEnd($event)" (touchcancel)="onTouchCancel()">
@@ -480,6 +480,16 @@ export class AttractionCardComponent {
   // DayTimelineComponent through TouchDragService (see that service's doc comment for why a
   // shared service, not a DOM event, is the coordination channel here).
   //
+  // CRITICAL — the template's `[attr.draggable]` binding must stay OFF on mobile
+  // (`device.isMobile() ? null : true`, not a bare `draggable="true"`): WebKit/iOS Safari
+  // (and several Android WebViews) give a `draggable="true"` element its OWN native
+  // touch-driven long-press-then-drag recognition. Leaving the attribute on unconditionally
+  // means that native gesture and the custom touchstart/touchmove/touchend handlers below are
+  // both trying to interpret the exact same touch sequence on the exact same element, and the
+  // native one wins — this was the actual root cause of "drag still doesn't work on mobile"
+  // after the first touch-support pass, which added the handlers below but left the attribute
+  // unconditional. Root-caused via superpowers:systematic-debugging, not guessed.
+  //
   // A short delay before "arming" the drag (rather than starting it the instant a finger moves,
   // like desktop's native drag does) is what lets a normal tap-to-open or a vertical swipe-to-
   // scroll keep working: if the finger moves more than a few pixels before the timer fires, this
@@ -487,7 +497,7 @@ export class AttractionCardComponent {
   private static readonly TOUCH_ARM_DELAY_MS = 350;
   private static readonly TOUCH_MOVE_CANCEL_PX = 10;
 
-  private readonly device    = inject(DeviceService);
+  protected readonly device  = inject(DeviceService);
   private readonly touchDrag = inject(TouchDragService);
   private touchArmTimer: ReturnType<typeof setTimeout> | null = null;
   private touchArmed = false;

@@ -596,6 +596,21 @@ describe('DayTimelineComponent — touch drag-to-reschedule (mobile)', () => {
 
   afterEach(() => jest.useRealTimers());
 
+  // Regression test — same root cause as AttractionCardComponent: a bare draggable="true" on
+  // .tl-block would give WebKit/iOS Safari (and several Android WebViews) native touch-driven
+  // drag recognition on the block, fighting the touch handlers below for the same gesture. This
+  // was the actual root cause of drag-to-reschedule also not working on mobile after the first
+  // touch-support pass, which added these handlers but left the [attr.draggable] binding
+  // unconditional on block eligibility alone (not gated on device.isMobile() too).
+  it('never marks an otherwise-draggable block as HTML5-draggable on mobile', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+
+    const block = fixture.nativeElement.querySelector('.tl-block');
+    expect(block).not.toBeNull();
+    expect(block.getAttribute('draggable')).toBeNull();
+  });
+
   it('does nothing on touchstart until the long-press delay elapses', () => {
     trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
     fixture.detectChanges();

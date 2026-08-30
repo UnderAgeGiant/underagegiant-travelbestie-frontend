@@ -212,7 +212,7 @@ function transitLabel(mode: TransitMode): string {
           @for (block of blocks(); track block.name + block.top) {
             <div class="tl-block"
                  [class.tl-block-draggable]="block.kind === 'attraction' && block.draggable"
-                 [attr.draggable]="block.kind === 'attraction' && block.draggable ? true : null"
+                 [attr.draggable]="block.kind === 'attraction' && block.draggable && !device.isMobile() ? true : null"
                  (dragstart)="block.entryId && onBlockDragStart($event, block.entryId)"
                  (dragend)="onBlockDragEnd()"
                  (touchstart)="block.kind === 'attraction' && block.draggable && block.entryId && onBlockTouchStart($event, block.entryId)"
@@ -316,7 +316,7 @@ export class DayTimelineComponent {
   @ViewChild('tlGridEl')   private tlGridEl?:   ElementRef<HTMLElement>;
 
   protected readonly trip   = inject(TripService);
-  private  readonly device  = inject(DeviceService);
+  protected readonly device = inject(DeviceService);
   private  readonly api     = inject(ApiService);
   private  readonly karmaModal = inject(KarmaModalService);
   private  readonly locale     = inject(LocaleService);
@@ -795,6 +795,13 @@ export class DayTimelineComponent {
   // AttractionCardComponent is cross-component, so that half is driven by watching
   // TouchDragService (see the effect() in the constructor and the window:touchend/touchcancel
   // listeners further down) instead of a template binding here.
+  //
+  // CRITICAL — `[attr.draggable]` on .tl-block (above, in the template) must stay OFF on
+  // mobile (`&& !device.isMobile()`), same reasoning as AttractionCardComponent's .att-card:
+  // WebKit/iOS Safari and several Android WebViews give a `draggable="true"` element its own
+  // native touch-driven drag recognition, which otherwise fights the touch handlers below for
+  // the same gesture on the same element — this was the actual root cause of drag-to-reschedule
+  // also not working on mobile after the first touch-support pass.
   private static readonly TOUCH_ARM_DELAY_MS   = 350;
   private static readonly TOUCH_MOVE_CANCEL_PX = 10;
 
