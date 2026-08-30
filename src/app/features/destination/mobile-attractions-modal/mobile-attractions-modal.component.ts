@@ -2,6 +2,7 @@ import { Component, inject, signal, computed, effect, ChangeDetectionStrategy } 
 import { TripService } from '../../trip/trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
+import { sortMustSeeFirst } from '../../../core/utils/must-see.util';
 import { Comment } from '../../../core/models/comment.model';
 import { ApiService } from '../../../core/api/api.service';
 import { DeviceService } from '../../../core/device/device.service';
@@ -52,7 +53,7 @@ export class MobileAttractionsModalComponent {
   });
 
   readonly activeStop = computed(() => this.trip.activeStop());
-  readonly attractions = computed(() => this.city() ? getAttractions(this.city()!) : []);
+  readonly attractions = computed(() => this.city() ? sortMustSeeFirst(getAttractions(this.city()!)) : []);
 
   protected readonly allComments = signal<Record<string, Comment[]>>({});
   protected readonly scrolled = signal(false);
