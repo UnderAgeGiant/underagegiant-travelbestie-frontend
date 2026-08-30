@@ -129,7 +129,8 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
     @if (showProfile()) {
       <app-profile (close)="showProfile.set(false)"
-                   (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)" />
+                   (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)"
+                   (openMyTrips)="showProfile.set(false); showMyTrips.set(true)" />
     }
 
     @if (showMyTrips()) {

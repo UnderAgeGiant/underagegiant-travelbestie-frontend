@@ -37,7 +37,8 @@ type Step = 'preferences' | 'options' | 'result';
 
       @if (showProfile()) {
         <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false)" />
+                     (openAiPlanning)="showProfile.set(false)"
+                     (openMyTrips)="showProfile.set(false)" />
       }
 
       <div class="shared-body">

@@ -61,7 +61,8 @@ import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.c
     <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
 
     @if (showProfile()) {
-      <app-profile (close)="showProfile.set(false)" />
+      <app-profile (close)="showProfile.set(false)"
+                   (openMyTrips)="showProfile.set(false)" />
     }
 
     @if (showSimilarModal()) {
