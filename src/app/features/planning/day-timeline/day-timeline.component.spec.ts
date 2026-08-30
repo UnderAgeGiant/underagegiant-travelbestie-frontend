@@ -378,3 +378,105 @@ describe('DayTimelineComponent — drag scheduling', () => {
     expect(trip.updateStartTime).not.toHaveBeenCalled();
   });
 });
+
+describe('DayTimelineComponent — readOnly (public shared-trip view)', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_louvre', '09:00', undefined, 'poi', 150);
+    fixture.detectChanges();
+  });
+
+  it('marks attraction blocks non-draggable when readOnly is true', () => {
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+    const blocks = component['blocks']();
+    expect(blocks.length).toBeGreaterThan(0);
+    expect(blocks.every(b => b.draggable === false)).toBe(true);
+  });
+
+  it('keeps attraction blocks draggable when readOnly is false (default)', () => {
+    fixture.detectChanges();
+    const blocks = component['blocks']();
+    expect(blocks.length).toBeGreaterThan(0);
+    expect(blocks.some(b => b.draggable === true)).toBe(true);
+  });
+
+  it('ignores onBlockDragStart when readOnly is true', () => {
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    const startEvent = { dataTransfer: { setData: jest.fn(), effectAllowed: '' } } as unknown as DragEvent;
+
+    component['onBlockDragStart'](startEvent, entryId);
+
+    expect(component['draggingEntryId']()).toBeNull();
+    expect(startEvent.dataTransfer!.setData).not.toHaveBeenCalled();
+  });
+
+  it('ignores a reschedule drop when readOnly is true', () => {
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+    const stopId  = trip.activeStop()!.stopId;
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    jest.spyOn(trip, 'updateStartTime');
+
+    const dropEvent = {
+      preventDefault: jest.fn(), clientY: 46 * 2,
+      dataTransfer: {
+        types: ['application/x-tb-reschedule'],
+        getData: () => JSON.stringify({ stopId, entryId }),
+      },
+    } as unknown as DragEvent;
+
+    component['onGridDrop'](dropEvent);
+
+    expect(trip.updateStartTime).not.toHaveBeenCalled();
+  });
+
+  it('ignores a new-attraction drop when readOnly is true', () => {
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+    jest.spyOn(trip, 'addAttraction');
+
+    const newAttractionJson = JSON.stringify({ attractionId: 'paris_notredame', category: 'poi', estimatedMinutes: 90 });
+    const dropEvent = {
+      preventDefault: jest.fn(),
+      clientY: 0,
+      dataTransfer: {
+        types: ['application/x-tb-new-attraction'],
+        getData: (mime: string) => (mime === 'application/x-tb-new-attraction' ? newAttractionJson : ''),
+      },
+    } as unknown as DragEvent;
+
+    component['onGridDrop'](dropEvent);
+
+    expect(trip.addAttraction).not.toHaveBeenCalled();
+  });
+
+  it('does not show a drag preview on dragover when readOnly is true', () => {
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+
+    const overEvent = {
+      preventDefault: jest.fn(), clientY: 0,
+      dataTransfer: { types: ['application/x-tb-reschedule'], dropEffect: '' },
+    } as unknown as DragEvent;
+    component['onGridDragOver'](overEvent);
+
+    expect(component['dragPreview']()).toBeNull();
+    expect(overEvent.preventDefault).not.toHaveBeenCalled();
+  });
+});

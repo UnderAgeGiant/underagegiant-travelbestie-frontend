@@ -257,6 +257,12 @@ export class DayTimelineComponent {
   // Whole-plan slideshow switch — only set true on the single trip-wide
   // instance rendered by ShellComponent (see Task 5).
   readonly showPlanSlideshow = input(false);
+  // Disables all drag-to-schedule affordances (draggable blocks, drag-start,
+  // drag-over preview, and drop handling) — set true on the read-only public
+  // shared-trip view, where the viewer's own TripService has no matching
+  // stopId so a drop would silently no-op. Left false (default) everywhere
+  // else, including the editable per-stop inline timeline in StopListComponent.
+  readonly readOnly = input(false);
 
   // Flap label depends on scope: a single stop shows that city; otherwise the whole plan.
   protected readonly flapLabel = computed(() =>
@@ -542,7 +548,7 @@ export class DayTimelineComponent {
           time: `${a.startTime}–${minToHm(endMin)}`,
           kind: 'attraction' as const,
           entryId: a.entryId,
-          draggable: !this.isRescheduleLocked(a),
+          draggable: !this.readOnly() && !this.isRescheduleLocked(a),
         };
       });
 
@@ -650,6 +656,7 @@ export class DayTimelineComponent {
   }
 
   protected onBlockDragStart(event: DragEvent, entryId: string): void {
+    if (this.readOnly()) return;
     const stop = this.selectedStopForDay();
     if (!stop) return;
     const payload: RescheduleDragPayload = { stopId: stop.stopId, entryId };
@@ -664,7 +671,7 @@ export class DayTimelineComponent {
   }
 
   protected onGridDragOver(event: DragEvent): void {
-    if (this.transportMode()) return;
+    if (this.transportMode() || this.readOnly()) return;
     const types = Array.from(event.dataTransfer?.types ?? []);
     const isNew         = types.includes(NEW_ATTRACTION_MIME);
     const isReschedule  = types.includes(RESCHEDULE_MIME);
@@ -683,7 +690,7 @@ export class DayTimelineComponent {
   }
 
   protected onGridDrop(event: DragEvent): void {
-    if (this.transportMode()) return;
+    if (this.transportMode() || this.readOnly()) return;
     event.preventDefault();
     const stop = this.selectedStopForDay();
     const day  = this.selectedDay();

@@ -302,7 +302,7 @@ import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.c
               <!-- Inline day timeline (mobile only) -->
               @if (selectedShareStop()?.cityId === stop.cityId) {
                 <div class="itin-inline-timeline">
-                  <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" />
+                  <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" [readOnly]="true" />
                 </div>
               }
 
@@ -380,7 +380,7 @@ import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.c
         </div>
 
         </div><!-- /shared-main -->
-        <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" />
+        <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" [readOnly]="true" />
 
       </div>
 
