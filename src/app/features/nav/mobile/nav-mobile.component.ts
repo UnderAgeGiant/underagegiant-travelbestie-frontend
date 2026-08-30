@@ -66,7 +66,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
             </button>
           }
           @for (t of facade.navSharedTrips(); track t.id) {
-            <button class="up-shared-trip-row" (click)="openSharedTrip(t.id)">
+            <button class="up-shared-trip-row" (click)="onOpenSharedTrip(t.id)">
               <div class="up-shared-trip-name">🗺️ {{ t.tripName }}</div>
               <div class="up-shared-trip-meta">Por {{ t.ownerName }}</div>
             </button>
@@ -129,7 +129,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
         @if (facade.favoritesOpen()) {
           <div class="up-plans-panel">
             @for (t of facade.filteredFavorites(); track t.shareId) {
-              <button class="up-shared-trip-row" (click)="goToShared(t.shareId)">
+              <button class="up-shared-trip-row" (click)="onGoToShared(t.shareId)">
                 <div class="up-shared-trip-name">{{ t.tripName }}</div>
                 <div class="up-shared-trip-meta">Por {{ t.ownerName }}</div>
               </button>
@@ -150,7 +150,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           @if (facade.myTripsOpen()) {
             <div class="up-plans-panel">
               @for (t of facade.filteredSharedTrips(); track t.id) {
-                <button class="up-shared-trip-row" (click)="goToShared(t.id)">
+                <button class="up-shared-trip-row" (click)="onGoToShared(t.id)">
                   <div class="up-shared-trip-name">{{ t.tripName }}</div>
                 </button>
               }
@@ -184,8 +184,13 @@ export class NavMobileComponent {
   onLogout(): void { this.facade.doLogout(); this.drawerOpen.set(false); }
 
   quickAdd = this.facade.quickAdd.bind(this.facade);
-  openSharedTrip = this.facade.openSharedTrip.bind(this.facade);
-  goToShared = this.facade.goToSharedTrip.bind(this.facade);
+
+  // Both navigate away from whatever page the drawer is open over (to /shared/:id) —
+  // like every other drawer action, they must close the drawer themselves first,
+  // or it's left open on top of the shared-trip page underneath (bug: selecting a
+  // shared trip from the drawer left the drawer covering the trip that just loaded).
+  onOpenSharedTrip(id: string): void { this.drawerOpen.set(false); this.facade.openSharedTrip(id); }
+  onGoToShared(id: string): void { this.drawerOpen.set(false); this.facade.goToSharedTrip(id); }
 
   onLoadPlan(plan: SavedPlan): void {
     this.facade.doLoadPlan(plan);
