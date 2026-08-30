@@ -316,4 +316,65 @@ describe('DayTimelineComponent — drag scheduling', () => {
 
     expect(trip.addAttraction).not.toHaveBeenCalled();
   });
+
+  it('shows a live time-preview bubble while dragging an unlocked attraction block', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_louvre', '09:00', undefined, 'poi', 150);
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    const startEvent = { dataTransfer: { setData: jest.fn(), effectAllowed: '' } } as unknown as DragEvent;
+    component['onBlockDragStart'](startEvent, entryId);
+    expect(component['draggingEntryId']()).toBe(entryId);
+
+    const overEvent = {
+      preventDefault: jest.fn(), clientY: 0,
+      dataTransfer: { types: ['application/x-tb-reschedule'], dropEffect: '' },
+    } as unknown as DragEvent;
+    component['onGridDragOver'](overEvent);
+    expect(component['dragPreview']()).not.toBeNull();
+    expect(component['dragPreview']()!.time).toBe('00:00');
+
+    component['onBlockDragEnd']();
+    expect(component['draggingEntryId']()).toBeNull();
+    expect(component['dragPreview']()).toBeNull();
+  });
+
+  it('reschedules a dropped attraction block, preserving its original duration', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_louvre', '09:00', undefined, 'poi', 150);
+    fixture.detectChanges();
+    const stopId  = trip.activeStop()!.stopId;
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    jest.spyOn(trip, 'updateStartTime');
+
+    const dropEvent = {
+      preventDefault: jest.fn(), clientY: 46 * 2, // 2 hours down the grid → 02:00
+      dataTransfer: {
+        types: ['application/x-tb-reschedule'],
+        getData: () => JSON.stringify({ stopId, entryId }),
+      },
+    } as unknown as DragEvent;
+
+    component['onGridDrop'](dropEvent);
+
+    // Original block was 09:00–11:30 (150 min) — the reschedule must keep that
+    // 150-minute duration, not reset it to the attraction's catalog default.
+    expect(trip.updateStartTime).toHaveBeenCalledWith(stopId, entryId, '02:00', undefined, 150);
+  });
+
+  it('does not reschedule a locked (fixed-schedule) attraction', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'freetour_1', '09:00', '01/06/2026', 'freetour', 120);
+    fixture.detectChanges();
+    const stopId  = trip.activeStop()!.stopId;
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    jest.spyOn(trip, 'updateStartTime');
+
+    const dropEvent = {
+      preventDefault: jest.fn(), clientY: 0,
+      dataTransfer: { types: ['application/x-tb-reschedule'], getData: () => JSON.stringify({ stopId, entryId }) },
+    } as unknown as DragEvent;
+
+    component['onGridDrop'](dropEvent);
+
+    expect(trip.updateStartTime).not.toHaveBeenCalled();
+  });
 });

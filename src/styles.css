@@ -1460,6 +1460,16 @@ app-nav { display: block; }
   font-variant-numeric: tabular-nums;
 }
 
+.tl-block.tl-block-draggable { cursor: grab; }
+.tl-block.tl-block-draggable:active { cursor: grabbing; }
+.tl-drag-bubble {
+  position: absolute; left: 50px; z-index: 5;
+  background: var(--t1); color: #fff; font-size: 11px; font-weight: 700;
+  padding: 3px 9px; border-radius: 99px; pointer-events: none;
+  transform: translateY(-50%); box-shadow: var(--sh);
+  font-variant-numeric: tabular-nums;
+}
+
 .tl-free {
   position: absolute;
   left: 50px;

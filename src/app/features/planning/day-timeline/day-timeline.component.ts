@@ -18,7 +18,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
-import { NEW_ATTRACTION_MIME, NewAttractionDragPayload, snapMinutesFromOffset, minutesToHm } from '../../../core/utils/day-timeline-drag.util';
+import { NEW_ATTRACTION_MIME, RESCHEDULE_MIME, NewAttractionDragPayload, RescheduleDragPayload, snapMinutesFromOffset, minutesToHm } from '../../../core/utils/day-timeline-drag.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -43,6 +43,9 @@ interface TimeBlock {
   icon:   string;
   name:   string;
   time:   string;
+  kind:   'attraction' | 'transit';
+  entryId?: string;
+  draggable?: boolean;
 }
 
 function hmToMin(hm: string): number {
@@ -186,6 +189,10 @@ function transitLabel(mode: TransitMode): string {
           <!-- All blocks (attractions + transits) -->
           @for (block of blocks(); track block.name + block.top) {
             <div class="tl-block"
+                 [class.tl-block-draggable]="block.kind === 'attraction' && block.draggable"
+                 [attr.draggable]="block.kind === 'attraction' && block.draggable ? true : null"
+                 (dragstart)="block.entryId && onBlockDragStart($event, block.entryId)"
+                 (dragend)="onBlockDragEnd()"
                  [ngStyle]="{
                    top:         block.top    + 'px',
                    height:      block.height + 'px',
@@ -199,6 +206,10 @@ function transitLabel(mode: TransitMode): string {
               </div>
               <div class="tl-block-time">{{ block.time }}</div>
             </div>
+          }
+
+          @if (dragPreview(); as dp) {
+            <div class="tl-drag-bubble" [ngStyle]="{ top: dp.top + 'px' }">{{ dp.time }}</div>
           }
 
           <!-- Empty day state -->
@@ -283,6 +294,8 @@ export class DayTimelineComponent {
   protected readonly collapsed = signal(false);
   protected readonly daySlideshowOpen  = signal(false);
   protected readonly planSlideshowOpen = signal(false);
+  protected readonly draggingEntryId = signal<string | null>(null);
+  protected readonly dragPreview = signal<{ top: number; time: string } | null>(null);
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
   /** Public: open the timeline (used by the mobile 'Ver itinerario' button). */
   expand(): void { this.collapsed.set(false); }
@@ -527,6 +540,9 @@ export class DayTimelineComponent {
           icon: typeIcon(att?.type ?? ''),
           name: att?.name ?? a.attractionId,
           time: `${a.startTime}–${minToHm(endMin)}`,
+          kind: 'attraction' as const,
+          entryId: a.entryId,
+          draggable: !this.isRescheduleLocked(a),
         };
       });
 
@@ -536,6 +552,13 @@ export class DayTimelineComponent {
   });
 
   // ── Helpers ───────────────────────────────────────────────────────────────
+  // Fixed real-world schedule — cannot be dragged to a new time. Mirrors
+  // PlanTimeModalComponent's isFixedEvent gate, plus freetours per the
+  // family's explicit request (Task 9).
+  private isRescheduleLocked(a: PlannedAttraction): boolean {
+    return a.category === 'freetour' || (a.category === 'event_party' && !!a.date);
+  }
+
   private attractionsForDay(atts: PlannedAttraction[], dayKey: string): PlannedAttraction[] {
     return atts.filter((a: PlannedAttraction) =>
       !a.date || a.date.slice(0, 5) === dayKey,
@@ -595,6 +618,8 @@ export class DayTimelineComponent {
           icon: transitIcon(seg.mode),
           name: `${fromLabel} → ${toLabel}`,
           time: timeStr + (seg.notes ? ` · ${seg.notes}` : ''),
+          kind: 'transit' as const,
+          draggable: false,
         });
       }
     }
@@ -624,12 +649,37 @@ export class DayTimelineComponent {
     });
   }
 
+  protected onBlockDragStart(event: DragEvent, entryId: string): void {
+    const stop = this.selectedStopForDay();
+    if (!stop) return;
+    const payload: RescheduleDragPayload = { stopId: stop.stopId, entryId };
+    event.dataTransfer?.setData(RESCHEDULE_MIME, JSON.stringify(payload));
+    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move';
+    this.draggingEntryId.set(entryId);
+  }
+
+  protected onBlockDragEnd(): void {
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
+
   protected onGridDragOver(event: DragEvent): void {
     if (this.transportMode()) return;
-    const types = event.dataTransfer?.types ?? [];
-    if (!Array.from(types).includes(NEW_ATTRACTION_MIME)) return;
+    const types = Array.from(event.dataTransfer?.types ?? []);
+    const isNew         = types.includes(NEW_ATTRACTION_MIME);
+    const isReschedule  = types.includes(RESCHEDULE_MIME);
+    if (!isNew && !isReschedule) return;
     event.preventDefault(); // required to allow a drop
-    if (event.dataTransfer) event.dataTransfer.dropEffect = 'copy';
+    if (event.dataTransfer) event.dataTransfer.dropEffect = isReschedule ? 'move' : 'copy';
+
+    if (isReschedule && this.draggingEntryId()) {
+      const offsetY    = this.offsetWithinGrid(event.clientY);
+      const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+      this.dragPreview.set({
+        top:  (snappedMin - TL_H0 * 60) / 60 * TL_RH,
+        time: minutesToHm(snappedMin),
+      });
+    }
   }
 
   protected onGridDrop(event: DragEvent): void {
@@ -639,17 +689,44 @@ export class DayTimelineComponent {
     const day  = this.selectedDay();
     if (!stop || !day) return;
 
+    const offsetY    = this.offsetWithinGrid(event.clientY);
+    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+    const startTime  = minutesToHm(snappedMin);
+
+    const reschedule = event.dataTransfer?.getData(RESCHEDULE_MIME);
+    if (reschedule) {
+      let payload: RescheduleDragPayload | null = null;
+      try {
+        payload = JSON.parse(reschedule);
+      } catch {
+        payload = null;
+      }
+      if (payload?.entryId) {
+        const { entryId } = payload;
+        const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
+        if (original && !this.isRescheduleLocked(original)) {
+          const durationMin = original.startTime && original.endTime
+            ? hmToMin(original.endTime) - hmToMin(original.startTime)
+            : 60;
+          this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
+        }
+      }
+      this.draggingEntryId.set(null);
+      this.dragPreview.set(null);
+      return;
+    }
+
     const raw = event.dataTransfer?.getData(NEW_ATTRACTION_MIME);
     if (!raw) return;
-    const payload: NewAttractionDragPayload = JSON.parse(raw);
-
-    const offsetY = this.offsetWithinGrid(event.clientY);
-    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
-    const startTime = minutesToHm(snappedMin);
-
+    let payload: NewAttractionDragPayload | null = null;
+    try {
+      payload = JSON.parse(raw);
+    } catch {
+      payload = null;
+    }
+    if (!payload?.attractionId) return;
     const tab = this.days().find(t => t.key === day);
     const fullDate = tab ? this.fmtDate(tab.date) : undefined;
-
     this.trip.addAttraction(stop.stopId, payload.attractionId, startTime, fullDate, payload.category, payload.estimatedMinutes);
   }
 
