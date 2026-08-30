@@ -1,7 +1,8 @@
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { forkJoin, of, switchMap, catchError } from 'rxjs';
+import { forkJoin, of, switchMap, catchError, map } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -429,9 +430,19 @@ export class SharedTripComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   readonly tripIdInput = input<string | undefined>(undefined, { alias: 'tripId' });
-  readonly tripId = computed(() =>
-    this.tripIdInput() ?? this.route.snapshot.paramMap.get('id') ?? '',
+  // route.snapshot is a plain, non-reactive object — reading it inside a computed() gave
+  // a value that was correct only for the FIRST navigation into this component. Angular's
+  // default route-reuse strategy keeps the SAME SharedTripComponent instance alive when
+  // navigating from one /shared/:id to another (only the route param changes, not the
+  // route config), so nothing ever re-ran this computed — selecting a second shared trip
+  // from the nav drawer left the page showing the first trip's data forever. `route.paramMap`
+  // (an Observable, unlike `.snapshot`) DOES emit again on every param-only navigation;
+  // toSignal() bridges that into something computed()/effect() can actually react to.
+  private readonly routeId = toSignal(
+    this.route.paramMap.pipe(map(pm => pm.get('id') ?? '')),
+    { initialValue: this.route.snapshot.paramMap.get('id') ?? '' },
   );
+  readonly tripId = computed(() => this.tripIdInput() ?? this.routeId());
 
   private readonly api        = inject(ApiService);
   private readonly svc        = inject(SharedTripsService);
