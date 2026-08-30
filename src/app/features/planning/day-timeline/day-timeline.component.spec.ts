@@ -4,6 +4,8 @@ import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DayTimelineComponent } from './day-timeline.component';
 import { TripService } from '../../trip/trip.service';
 import { City } from '../../../core/models/city.model';
+import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { NEW_ATTRACTION_MIME } from '../../../core/utils/day-timeline-drag.util';
 
 const PARIS: City  = { id: 'paris',  name: 'Paris',  country: 'France', flag: '🇫🇷', region: 'europe' };
 const LONDON: City = { id: 'london', name: 'London', country: 'United Kingdom', flag: '🇬🇧', region: 'europe' };
@@ -506,5 +508,212 @@ describe('DayTimelineComponent — readOnly (public shared-trip view)', () => {
 
     expect(component['dragPreview']()).toBeNull();
     expect(overEvent.preventDefault).not.toHaveBeenCalled();
+  });
+});
+
+function fakeTouch(x: number, y: number): Touch {
+  return { clientX: x, clientY: y } as Touch;
+}
+
+describe('DayTimelineComponent — touch drag-to-reschedule (mobile)', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    localStorage.clear();
+    installMatchMediaMock(true);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+  });
+
+  afterEach(() => jest.useRealTimers());
+
+  it('does nothing on touchstart until the long-press delay elapses', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+
+    expect(component['draggingEntryId']()).toBeNull();
+  });
+
+  it('arms the drag and updates the preview after the long-press delay, once the finger moves', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    jest.advanceTimersByTime(350);
+    expect(component['draggingEntryId']()).toBe(entryId);
+
+    const preventDefault = jest.fn();
+    component['onBlockTouchMove']({ touches: [fakeTouch(10, 46 * 2)], preventDefault } as unknown as TouchEvent);
+
+    expect(preventDefault).toHaveBeenCalled();
+    expect(component['dragPreview']()!.time).toBe('02:00');
+  });
+
+  it('cancels the pending long-press if the finger moves before it fires (treated as a scroll)', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    component['onBlockTouchMove']({ touches: [fakeTouch(30, 20)], preventDefault: jest.fn() } as unknown as TouchEvent);
+    jest.advanceTimersByTime(350);
+
+    expect(component['draggingEntryId']()).toBeNull();
+  });
+
+  it('reschedules the block, preserving its catalog duration, on touchend', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00'); // no endTime — catalog duration is 120
+    fixture.detectChanges();
+    const stopId  = trip.activeStop()!.stopId;
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    jest.spyOn(trip, 'updateStartTime');
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    jest.advanceTimersByTime(350);
+    component['onBlockTouchMove']({ touches: [fakeTouch(10, 46 * 2)], preventDefault: jest.fn() } as unknown as TouchEvent);
+    component['onBlockTouchEnd']({
+      preventDefault: jest.fn(), changedTouches: [fakeTouch(10, 46 * 2)],
+    } as unknown as TouchEvent);
+
+    expect(trip.updateStartTime).toHaveBeenCalledWith(stopId, entryId, '02:00', undefined, 120);
+    expect(component['draggingEntryId']()).toBeNull();
+    expect(component['dragPreview']()).toBeNull();
+  });
+
+  it('does not arm a reschedule drag when readOnly is true', () => {
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    jest.advanceTimersByTime(350);
+
+    expect(component['draggingEntryId']()).toBeNull();
+  });
+
+  it('onBlockTouchCancel clears drag state', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    jest.advanceTimersByTime(350);
+    component['onBlockTouchCancel']();
+
+    expect(component['draggingEntryId']()).toBeNull();
+    expect(component['dragPreview']()).toBeNull();
+  });
+});
+
+describe('DayTimelineComponent — touch drag-in a new attraction (mobile, cross-component via TouchDragService)', () => {
+  let trip: TripService;
+  let touchDrag: TouchDragService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  const GRID_RECT = { top: 100, bottom: 1200, left: 0, right: 400, width: 400, height: 1100 } as DOMRect;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(true);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    touchDrag = TestBed.inject(TouchDragService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const gridEl: HTMLElement = component['tlGridEl']!.nativeElement;
+    jest.spyOn(gridEl, 'getBoundingClientRect').mockReturnValue(GRID_RECT);
+  });
+
+  it('shows a live preview while a touch drag from the attraction list hovers over the grid', () => {
+    const payload = JSON.stringify({ attractionId: 'paris_0', category: 'poi', estimatedMinutes: 120 });
+
+    touchDrag.start(NEW_ATTRACTION_MIME, payload, 50, 100 + 46 * 2); // 2h down the grid
+
+    fixture.detectChanges();
+    expect(component['dragPreview']()!.time).toBe('02:00');
+  });
+
+  it('does not show a preview while the touch point is outside the grid', () => {
+    const payload = JSON.stringify({ attractionId: 'paris_0', category: 'poi', estimatedMinutes: 120 });
+
+    touchDrag.start(NEW_ATTRACTION_MIME, payload, 50, 50); // above GRID_RECT.top (100)
+    fixture.detectChanges();
+
+    expect(component['dragPreview']()).toBeNull();
+  });
+
+  it('adds the attraction on window touchend when released over the grid', () => {
+    jest.spyOn(trip, 'addAttraction');
+    const payload = JSON.stringify({ attractionId: 'paris_0', category: 'poi', estimatedMinutes: 120 });
+    touchDrag.start(NEW_ATTRACTION_MIME, payload, 50, 100 + 46 * 2);
+    fixture.detectChanges();
+
+    component['onWindowTouchEnd']();
+
+    expect(trip.addAttraction).toHaveBeenCalledWith(
+      trip.activeStop()!.stopId, 'paris_0', '02:00', expect.stringMatching(/^\d{2}\/\d{2}\/2026$/), 'poi', 120,
+    );
+    expect(touchDrag.state()).toBeNull();
+    expect(component['dragPreview']()).toBeNull();
+  });
+
+  it('does not add the attraction when released outside the grid', () => {
+    jest.spyOn(trip, 'addAttraction');
+    const payload = JSON.stringify({ attractionId: 'paris_0', category: 'poi', estimatedMinutes: 120 });
+    touchDrag.start(NEW_ATTRACTION_MIME, payload, 50, 50); // above the grid
+    fixture.detectChanges();
+
+    component['onWindowTouchEnd']();
+
+    expect(trip.addAttraction).not.toHaveBeenCalled();
+    expect(touchDrag.state()).toBeNull();
+  });
+
+  it('does not add the attraction when readOnly is true, even if released over the grid', () => {
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+    jest.spyOn(trip, 'addAttraction');
+    const payload = JSON.stringify({ attractionId: 'paris_0', category: 'poi', estimatedMinutes: 120 });
+    touchDrag.start(NEW_ATTRACTION_MIME, payload, 50, 100 + 46 * 2);
+    fixture.detectChanges();
+
+    component['onWindowTouchEnd']();
+
+    expect(trip.addAttraction).not.toHaveBeenCalled();
+  });
+
+  it('onWindowTouchCancel clears the preview and the shared drag state', () => {
+    const payload = JSON.stringify({ attractionId: 'paris_0', category: 'poi', estimatedMinutes: 120 });
+    touchDrag.start(NEW_ATTRACTION_MIME, payload, 50, 100 + 46 * 2);
+    fixture.detectChanges();
+    expect(component['dragPreview']()).not.toBeNull();
+
+    component['onWindowTouchCancel']();
+
+    expect(touchDrag.state()).toBeNull();
+    expect(component['dragPreview']()).toBeNull();
   });
 });

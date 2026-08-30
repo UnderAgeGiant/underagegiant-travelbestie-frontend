@@ -15,6 +15,8 @@ import { ToastService } from '../../../core/ui/toast.service';
 import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-icon.component';
 import { isMustSeeAttraction } from '../../../core/utils/must-see.util';
 import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/utils/day-timeline-drag.util';
+import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { DeviceService } from '../../../core/device/device.service';
 
 @Component({
     selector: 'app-attraction-card',
@@ -167,7 +169,9 @@ import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/uti
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="att-card" draggable="true" [style.background-color]="categoryBg()"
-         (click)="showDetailModal.set(true)" (dragstart)="onDragStart($event)">
+         (click)="showDetailModal.set(true)" (dragstart)="onDragStart($event)"
+         (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+         (touchend)="onTouchEnd($event)" (touchcancel)="onTouchCancel()">
       <!-- Image / visual area -->
       <div class="card-visual" [style.background-color]="attraction().bg">
         @if (attraction().imageUrl && !imgError()) {
@@ -458,12 +462,90 @@ export class AttractionCardComponent {
   }
 
   protected onDragStart(event: DragEvent): void {
-    const payload: NewAttractionDragPayload = {
+    event.dataTransfer?.setData(NEW_ATTRACTION_MIME, JSON.stringify(this.dragPayload()));
+    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'copy';
+  }
+
+  private dragPayload(): NewAttractionDragPayload {
+    return {
       attractionId: this.attraction().id,
       category: this.attraction().category,
       estimatedMinutes: this.attraction().estimatedMinutes,
     };
-    event.dataTransfer?.setData(NEW_ATTRACTION_MIME, JSON.stringify(payload));
-    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'copy';
+  }
+
+  // ── Touch drag-and-drop (family feedback: "the move/drag is not allowed on mobile") ────────
+  // Native HTML5 Drag and Drop (draggable="true" + dragstart above) never fires from touch
+  // input on any mobile browser, so mobile needs its own gesture handling, coordinated with
+  // DayTimelineComponent through TouchDragService (see that service's doc comment for why a
+  // shared service, not a DOM event, is the coordination channel here).
+  //
+  // A short delay before "arming" the drag (rather than starting it the instant a finger moves,
+  // like desktop's native drag does) is what lets a normal tap-to-open or a vertical swipe-to-
+  // scroll keep working: if the finger moves more than a few pixels before the timer fires, this
+  // is treated as a scroll, not a drag-and-drop gesture, and the timer is simply cancelled.
+  private static readonly TOUCH_ARM_DELAY_MS = 350;
+  private static readonly TOUCH_MOVE_CANCEL_PX = 10;
+
+  private readonly device    = inject(DeviceService);
+  private readonly touchDrag = inject(TouchDragService);
+  private touchArmTimer: ReturnType<typeof setTimeout> | null = null;
+  private touchArmed = false;
+  private touchStart: { x: number; y: number } | null = null;
+
+  protected onTouchStart(event: TouchEvent): void {
+    if (!this.device.isMobile()) return;
+    const touch = event.touches[0];
+    if (!touch) return;
+    this.touchStart = { x: touch.clientX, y: touch.clientY };
+    this.touchArmed = false;
+    this.clearTouchArmTimer();
+    this.touchArmTimer = setTimeout(() => {
+      this.touchArmed = true;
+      this.touchDrag.start(NEW_ATTRACTION_MIME, JSON.stringify(this.dragPayload()), touch.clientX, touch.clientY);
+    }, AttractionCardComponent.TOUCH_ARM_DELAY_MS);
+  }
+
+  protected onTouchMove(event: TouchEvent): void {
+    if (!this.device.isMobile()) return;
+    const touch = event.touches[0];
+    if (!touch || !this.touchStart) return;
+
+    if (!this.touchArmed) {
+      const dx = touch.clientX - this.touchStart.x;
+      const dy = touch.clientY - this.touchStart.y;
+      if (Math.hypot(dx, dy) > AttractionCardComponent.TOUCH_MOVE_CANCEL_PX) this.clearTouchArmTimer();
+      return;
+    }
+
+    event.preventDefault(); // stop the page from scrolling while a drag is actively in progress
+    this.touchDrag.move(touch.clientX, touch.clientY);
+  }
+
+  protected onTouchEnd(event: TouchEvent): void {
+    this.clearTouchArmTimer();
+    if (this.touchArmed) {
+      // Suppresses the synthetic `click` mobile browsers fire after touchend — without this,
+      // finishing a drag also reopened the attraction detail modal underneath the finger.
+      event.preventDefault();
+      this.touchArmed = false;
+      // Safety net only: DayTimelineComponent's window:touchend listener is a later (bubble-phase)
+      // listener for this SAME event and runs first — it's the one that actually resolves the
+      // drop and clears TouchDragService's state via consume(). This scheduled cancel() only
+      // matters if nothing consumed the drag (e.g. it was released outside any timeline).
+      setTimeout(() => this.touchDrag.cancel(), 0);
+    }
+    this.touchStart = null;
+  }
+
+  protected onTouchCancel(): void {
+    this.clearTouchArmTimer();
+    this.touchArmed = false;
+    this.touchStart = null;
+    this.touchDrag.cancel();
+  }
+
+  private clearTouchArmTimer(): void {
+    if (this.touchArmTimer !== null) { clearTimeout(this.touchArmTimer); this.touchArmTimer = null; }
   }
 }

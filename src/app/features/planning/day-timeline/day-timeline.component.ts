@@ -1,8 +1,9 @@
 import {
   ChangeDetectionStrategy, Component, computed, effect, ElementRef,
-  inject, input, signal, ViewChild,
+  HostListener, inject, input, signal, ViewChild,
 } from '@angular/core';
 import { DeviceService } from '../../../core/device/device.service';
+import { TouchDragService } from '../../../core/utils/touch-drag.service';
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
 import { TripStop, PlannedAttraction, TransitLeg, TransitMode } from '../../../core/models/trip.model';
@@ -208,6 +209,10 @@ function transitLabel(mode: TransitMode): string {
                  [attr.draggable]="block.kind === 'attraction' && block.draggable ? true : null"
                  (dragstart)="block.entryId && onBlockDragStart($event, block.entryId)"
                  (dragend)="onBlockDragEnd()"
+                 (touchstart)="block.kind === 'attraction' && block.draggable && block.entryId && onBlockTouchStart($event, block.entryId)"
+                 (touchmove)="onBlockTouchMove($event)"
+                 (touchend)="onBlockTouchEnd($event)"
+                 (touchcancel)="onBlockTouchCancel()"
                  [ngStyle]="{
                    top:         block.top    + 'px',
                    height:      block.height + 'px',
@@ -711,41 +716,58 @@ export class DayTimelineComponent {
   protected onGridDrop(event: DragEvent): void {
     if (this.transportMode() || this.readOnly()) return;
     event.preventDefault();
+
+    const reschedule = event.dataTransfer?.getData(RESCHEDULE_MIME);
+    if (reschedule) { this.applyReschedule(reschedule, event.clientY); return; }
+
+    const raw = event.dataTransfer?.getData(NEW_ATTRACTION_MIME);
+    if (raw) this.applyNewAttraction(raw, event.clientY);
+  }
+
+  // Shared by native-drag (onGridDrop above) and touch-drag (onBlockTouchEnd / window:touchend
+  // below) — both resolve to the exact same MIME-payload shape, they just arrive through a
+  // DataTransfer vs. TouchDragService. See TouchDragService's doc comment for why touch needs
+  // a separate delivery channel at all.
+  private applyReschedule(rawPayload: string, clientY: number): void {
     const stop = this.selectedStopForDay();
     const day  = this.selectedDay();
     if (!stop || !day) return;
 
-    const offsetY    = this.offsetWithinGrid(event.clientY);
+    const offsetY    = this.offsetWithinGrid(clientY);
     const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
     const startTime  = minutesToHm(snappedMin);
 
-    const reschedule = event.dataTransfer?.getData(RESCHEDULE_MIME);
-    if (reschedule) {
-      let payload: RescheduleDragPayload | null = null;
-      try {
-        payload = JSON.parse(reschedule);
-      } catch {
-        payload = null;
-      }
-      if (payload?.entryId) {
-        const { entryId } = payload;
-        const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
-        if (original && !this.isRescheduleLocked(original)) {
-          const att = this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null;
-          const durationMin = resolveDuration(original, att);
-          this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
-        }
-      }
-      this.draggingEntryId.set(null);
-      this.dragPreview.set(null);
-      return;
+    let payload: RescheduleDragPayload | null = null;
+    try {
+      payload = JSON.parse(rawPayload);
+    } catch {
+      payload = null;
     }
+    if (payload?.entryId) {
+      const { entryId } = payload;
+      const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
+      if (original && !this.isRescheduleLocked(original)) {
+        const att = this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null;
+        const durationMin = resolveDuration(original, att);
+        this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
+      }
+    }
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
 
-    const raw = event.dataTransfer?.getData(NEW_ATTRACTION_MIME);
-    if (!raw) return;
+  private applyNewAttraction(rawPayload: string, clientY: number): void {
+    const stop = this.selectedStopForDay();
+    const day  = this.selectedDay();
+    if (!stop || !day) return;
+
+    const offsetY    = this.offsetWithinGrid(clientY);
+    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+    const startTime  = minutesToHm(snappedMin);
+
     let payload: NewAttractionDragPayload | null = null;
     try {
-      payload = JSON.parse(raw);
+      payload = JSON.parse(rawPayload);
     } catch {
       payload = null;
     }
@@ -758,6 +780,127 @@ export class DayTimelineComponent {
   private offsetWithinGrid(clientY: number): number {
     const rect = this.tlGridEl?.nativeElement.getBoundingClientRect();
     return rect ? clientY - rect.top : 0;
+  }
+
+  // ── Touch drag-and-drop (family feedback: "the move/drag is not allowed on mobile") ────────
+  // Reschedule (dragging an existing .tl-block) is entirely self-contained in this component —
+  // the block IS this component's own template, so its touch handlers below are bound directly,
+  // same as the native (dragstart)/(dragend) handlers above. Dragging a NEW attraction in from
+  // AttractionCardComponent is cross-component, so that half is driven by watching
+  // TouchDragService (see the effect() in the constructor and the window:touchend/touchcancel
+  // listeners further down) instead of a template binding here.
+  private static readonly TOUCH_ARM_DELAY_MS   = 350;
+  private static readonly TOUCH_MOVE_CANCEL_PX = 10;
+
+  private readonly touchDrag = inject(TouchDragService);
+  private blockTouchArmTimer: ReturnType<typeof setTimeout> | null = null;
+  private blockTouchArmed = false;
+  private blockTouchStart: { x: number; y: number } | null = null;
+  private blockTouchEntryId: string | null = null;
+
+  protected onBlockTouchStart(event: TouchEvent, entryId: string): void {
+    if (this.readOnly()) return;
+    const touch = event.touches[0];
+    if (!touch) return;
+    this.blockTouchArmed = false;
+    this.blockTouchStart = { x: touch.clientX, y: touch.clientY };
+    this.blockTouchEntryId = entryId;
+    this.clearBlockTouchArmTimer();
+    this.blockTouchArmTimer = setTimeout(() => {
+      this.blockTouchArmed = true;
+      this.draggingEntryId.set(entryId);
+    }, DayTimelineComponent.TOUCH_ARM_DELAY_MS);
+  }
+
+  protected onBlockTouchMove(event: TouchEvent): void {
+    const touch = event.touches[0];
+    if (!touch || !this.blockTouchStart) return;
+
+    if (!this.blockTouchArmed) {
+      const dx = touch.clientX - this.blockTouchStart.x;
+      const dy = touch.clientY - this.blockTouchStart.y;
+      if (Math.hypot(dx, dy) > DayTimelineComponent.TOUCH_MOVE_CANCEL_PX) this.clearBlockTouchArmTimer();
+      return;
+    }
+
+    event.preventDefault(); // stop the grid from scrolling while a block is being dragged
+    const offsetY    = this.offsetWithinGrid(touch.clientY);
+    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+    this.dragPreview.set({
+      top:  (snappedMin - TL_H0 * 60) / 60 * TL_RH,
+      time: minutesToHm(snappedMin),
+    });
+  }
+
+  protected onBlockTouchEnd(event: TouchEvent): void {
+    this.clearBlockTouchArmTimer();
+    if (this.blockTouchArmed && this.blockTouchEntryId) {
+      event.preventDefault();
+      const touch = event.changedTouches[0];
+      const stop  = this.selectedStopForDay();
+      if (touch && stop) {
+        const payload: RescheduleDragPayload = { stopId: stop.stopId, entryId: this.blockTouchEntryId };
+        this.applyReschedule(JSON.stringify(payload), touch.clientY);
+      }
+    }
+    this.blockTouchArmed = false;
+    this.blockTouchStart = null;
+    this.blockTouchEntryId = null;
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
+
+  protected onBlockTouchCancel(): void {
+    this.clearBlockTouchArmTimer();
+    this.blockTouchArmed = false;
+    this.blockTouchStart = null;
+    this.blockTouchEntryId = null;
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
+
+  private clearBlockTouchArmTimer(): void {
+    if (this.blockTouchArmTimer !== null) { clearTimeout(this.blockTouchArmTimer); this.blockTouchArmTimer = null; }
+  }
+
+  // New-attraction (card -> grid) touch drag: TouchDragService is the shared source of truth,
+  // since AttractionCardComponent (the source) and this component (the target) aren't in the
+  // same subtree. This effect drives the live preview bubble the same way onGridDragOver's
+  // native-drag branch does; window:touchend below resolves the actual drop.
+  private touchDragPreviewEffect = effect(() => {
+    const state = this.touchDrag.state();
+    if (!state || state.mime !== NEW_ATTRACTION_MIME || this.readOnly() || this.transportMode()) return;
+    const rect = this.tlGridEl?.nativeElement.getBoundingClientRect();
+    if (!rect || !this.pointWithinRect(state.x, state.y, rect)) return;
+    const snappedMin = snapMinutesFromOffset(state.y - rect.top, TL_H0, TL_H1, TL_RH);
+    this.dragPreview.set({
+      top:  (snappedMin - TL_H0 * 60) / 60 * TL_RH,
+      time: minutesToHm(snappedMin),
+    });
+  }, { allowSignalWrites: true });
+
+  private pointWithinRect(x: number, y: number, rect: DOMRect): boolean {
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+  }
+
+  @HostListener('window:touchend')
+  protected onWindowTouchEnd(): void {
+    const state = this.touchDrag.consume();
+    if (!state || state.mime !== NEW_ATTRACTION_MIME) return;
+    this.dragPreview.set(null);
+    if (this.readOnly() || this.transportMode()) return;
+    const rect = this.tlGridEl?.nativeElement.getBoundingClientRect();
+    if (!rect || !this.pointWithinRect(state.x, state.y, rect)) return;
+    this.applyNewAttraction(state.payload, state.y);
+  }
+
+  @HostListener('window:touchcancel')
+  protected onWindowTouchCancel(): void {
+    const state = this.touchDrag.state();
+    if (state?.mime === NEW_ATTRACTION_MIME) {
+      this.touchDrag.cancel();
+      this.dragPreview.set(null);
+    }
   }
 
   private scrollToFirstBlock(): void {
