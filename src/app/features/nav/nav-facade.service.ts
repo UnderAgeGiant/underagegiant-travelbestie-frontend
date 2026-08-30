@@ -139,7 +139,7 @@ export class NavFacadeService {
     const currentId = this.trip.loadedPlanId();
     if (!email || !currentId || this.trip.stops().length === 0) return;
     const name = this.savedPlans.plans().find(p => p.id === currentId)?.name;
-    if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops(), this.trip.transits()).subscribe();
+    if (name) this.savedPlans.upsert(email, currentId, name, this.trip.stops(), this.trip.transits(), { background: true }).subscribe();
   }
 
   karmaIcon(): string {

@@ -68,8 +68,18 @@ export class SavedPlansService {
     this.loadPendingInvites();
   }
 
-  /** Create or update a plan. Returns the final id (server-assigned on create in real mode). */
-  upsert(email: string, id: string | null, name: string, stops: TripStop[], transits: TransitLeg[] = []): Observable<string> {
+  /**
+   * Create or update a plan. Returns the final id (server-assigned on create in real mode).
+   * `opts.background` marks a silent autosave call (background timer tick, or the
+   * logo-click/load-plan/new-trip autosave-before-navigating-away helper) — these
+   * should never trigger the "on first save" travel-docs reminder, which is meant
+   * to fire only after a deliberate, explicit user save (the "Guardar viaje" button,
+   * or the AI-planning save flow).
+   */
+  upsert(
+    email: string, id: string | null, name: string, stops: TripStop[], transits: TransitLeg[] = [],
+    opts?: { background?: boolean },
+  ): Observable<string> {
     if (environment.useMocks) {
       const now = new Date().toISOString();
       if (id) {
@@ -78,14 +88,14 @@ export class SavedPlansService {
         );
         this._plans.set(updated);
         localStorage.setItem(key(email), JSON.stringify(updated));
-        this.travelDocsReminder.maybeShow();
+        if (!opts?.background) this.travelDocsReminder.maybeShow();
         return of(id);
       }
       const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits };
       const updated = [...this._plans(), plan];
       this._plans.set(updated);
       localStorage.setItem(key(email), JSON.stringify(updated));
-      this.travelDocsReminder.maybeShow();
+      if (!opts?.background) this.travelDocsReminder.maybeShow();
       return of(plan.id);
     }
 
@@ -96,7 +106,7 @@ export class SavedPlansService {
           this._plans.set(this._plans().map(p =>
             p.id === id ? { ...p, name, stops, transits, savedAt: now } : p
           ));
-          this.travelDocsReminder.maybeShow();
+          if (!opts?.background) this.travelDocsReminder.maybeShow();
         }),
         map(() => id)
       );
@@ -111,7 +121,7 @@ export class SavedPlansService {
           transits: trip.transits ?? [],
         };
         this._plans.set([...this._plans(), plan]);
-        this.travelDocsReminder.maybeShow();
+        if (!opts?.background) this.travelDocsReminder.maybeShow();
       }),
       map(trip => trip.id!)
     );

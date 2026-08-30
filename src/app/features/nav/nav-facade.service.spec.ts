@@ -5,6 +5,10 @@ import { provideRouter } from '@angular/router';
 import { NavFacadeService } from './nav-facade.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
+import { AuthService } from '../../core/auth/auth.service';
+import { City } from '../../core/models/city.model';
+
+const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
 describe('NavFacadeService — favorites list', () => {
   let facade: NavFacadeService;
@@ -67,6 +71,7 @@ describe('NavFacadeService — favorites list', () => {
 describe('NavFacadeService — shared trips + logo', () => {
   let facade: NavFacadeService;
   let savedPlans: SavedPlansService;
+  let http: HttpTestingController;
 
   beforeEach(() => {
     localStorage.clear();
@@ -76,7 +81,10 @@ describe('NavFacadeService — shared trips + logo', () => {
     });
     facade = TestBed.inject(NavFacadeService);
     savedPlans = TestBed.inject(SavedPlansService);
+    http = TestBed.inject(HttpTestingController);
   });
+
+  afterEach(() => http.verify());
 
   it('lists only saved plans that have a shareId', () => {
     savedPlans.register({ id: '1', name: 'Paris Trip', savedAt: '2026-01-01', stops: [], shareId: 'share-1' });
@@ -101,5 +109,22 @@ describe('NavFacadeService — shared trips + logo', () => {
     expect(facade.userMenuOpen()).toBe(false);
     expect(facade.plansOpen()).toBe(false);
     expect(trip.stops().length).toBe(0);
+  });
+
+  it('autoSaveCurrentTrip() (invoked by onLogoClick) passes { background: true } to upsert() (Finding 4 fix)', () => {
+    const trip = TestBed.inject(TripService);
+    const auth = TestBed.inject(AuthService);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    trip.addStop(PARIS, '01/06/2026', '02/06/2026');
+    trip.markAsLoadedPlan('trip-1');
+    savedPlans.register({ id: 'trip-1', name: 'My Trip', savedAt: '2026-01-01', stops: [] });
+
+    const spy = jest.spyOn(savedPlans, 'upsert');
+    facade.onLogoClick();
+
+    expect(spy).toHaveBeenCalledWith(
+      'ana@test.com', 'trip-1', 'My Trip', expect.any(Array), expect.any(Array), { background: true },
+    );
+    http.expectOne(r => r.url.includes('/trips/trip-1')).flush({ id: 'trip-1', title: 'My Trip', stops: [], transits: [] });
   });
 });
