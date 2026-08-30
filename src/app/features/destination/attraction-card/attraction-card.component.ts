@@ -12,10 +12,11 @@ import { formatEventChip } from '../../../core/utils/event-datetime.util';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { ToastService } from '../../../core/ui/toast.service';
+import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-icon.component';
 
 @Component({
     selector: 'app-attraction-card',
-    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent],
+    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent, MapsPinIconComponent],
     styles: [`
     .att-card {
       padding: 0 !important;
@@ -237,7 +238,7 @@ import { ToastService } from '../../../core/ui/toast.service';
             </div>
           }
           <div class="att-preview-enrich">
-            <span class="att-enrich-icon">📍</span>
+            <span class="att-enrich-icon"><app-maps-pin-icon /></span>
             <a class="att-enrich-value att-enrich-link"
                [attr.href]="mapsUrl()"
                target="_blank" rel="noopener noreferrer"

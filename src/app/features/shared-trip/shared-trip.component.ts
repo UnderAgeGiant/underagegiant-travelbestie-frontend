@@ -30,10 +30,11 @@ import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slidesh
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
+import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.component';
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent],
+    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -268,7 +269,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
                                [attr.href]="mapsUrl(att.name, stop.cityId)"
                                target="_blank" rel="noopener noreferrer"
                                (click)="$event.stopPropagation()"
-                               i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps">📍</a>
+                               i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps"><app-maps-pin-icon /></a>
                           </span>
                         </div>
                         @if (shouldShowComments(attKey)) {
