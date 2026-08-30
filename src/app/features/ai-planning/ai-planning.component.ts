@@ -200,7 +200,7 @@ type Step = 'preferences' | 'options' | 'result';
                          placeholder="Ej: 14" />
                 </div>
                 <div class="ai-plan-field">
-                  <label class="ai-plan-label" i18n="@@aiplan.budgetLabel">Presupuesto estimado</label>
+                  <label class="ai-plan-label" i18n="@@aiplan.budgetLabel">Presupuesto estimado para todo el viaje</label>
                   <input class="form-input"
                          type="text"
                          [value]="budget()"

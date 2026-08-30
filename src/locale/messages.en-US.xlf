@@ -936,8 +936,8 @@
         <target>← Back</target>
       </trans-unit>
       <trans-unit id="aiplan.budgetLabel" datatype="html">
-        <source>Presupuesto estimado</source>
-        <target>Estimated budget</target>
+        <source>Presupuesto estimado para todo el viaje</source>
+        <target>Estimated budget for the whole trip</target>
       </trans-unit>
       <trans-unit id="aiplan.budgetPlaceholder" datatype="html">
         <source>Ej: 500-1000 USD</source>
