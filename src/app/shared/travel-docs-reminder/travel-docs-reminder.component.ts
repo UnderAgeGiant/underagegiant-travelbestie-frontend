@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TravelDocsReminderService } from '../../core/reminders/travel-docs-reminder.service';
+import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 
 @Component({
   selector: 'app-travel-docs-reminder',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
-    @if (reminder.visible()) {
+    @if (reminder.visible() && companion.state() === 'idle') {
       <div class="companion-mascot travel-docs-reminder">
         <img class="companion-dog is-suggesting" src="/small-black-dog.png" alt="Asistente Miel" draggable="false" />
         <div class="companion-bubble">
@@ -26,4 +27,5 @@ import { TravelDocsReminderService } from '../../core/reminders/travel-docs-remi
 })
 export class TravelDocsReminderComponent {
   protected readonly reminder = inject(TravelDocsReminderService);
+  protected readonly companion = inject(CompanionSuggestionService);
 }
