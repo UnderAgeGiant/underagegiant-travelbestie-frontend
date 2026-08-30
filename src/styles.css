@@ -992,6 +992,8 @@ app-nav { display: block; }
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
+  box-sizing: border-box;
+  border: 3px solid var(--lav-d);
   animation: ken-burns 10s ease-in-out both;
 }
 @media (prefers-reduced-motion: reduce) { .s2-slide img { animation: none; } }
@@ -1020,13 +1022,19 @@ app-nav { display: block; }
   animation: fadeUp .6s .15s ease both;
 }
 .s2-featured-badge {
+  /* Pinned to the slide's own top-left corner (not inline in .s2-trip-block, which lives at
+     the bottom of the slide) — clamp() matches .s2-content's own edge padding below, so the
+     badge sits at the same inset as the rest of the frame instead of hugging the image border. */
+  position: absolute;
+  top:  clamp(24px, 5vw, 56px);
+  left: clamp(24px, 5vw, 56px);
+  z-index: 3;
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 11px; font-weight: 700; letter-spacing: .05em;
   color: var(--lav);
   background: oklch(20% .04 290 / .55);
   border: 1.5px solid var(--lav-d);
   border-radius: 99px; padding: 4px 13px;
-  margin-bottom: 12px;
   backdrop-filter: blur(6px);
   box-shadow: 0 0 0 1px oklch(88% .06 290 / .15), 0 3px 14px oklch(55% .16 290 / .4);
   animation: fadeUp .6s .05s ease both;

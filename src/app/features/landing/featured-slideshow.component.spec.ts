@@ -27,14 +27,19 @@ describe('FeaturedSlideshowComponent — "Destacado" badge', () => {
 
   afterEach(() => httpMock.verify());
 
-  it('shows a "¡Destacado!" badge on each featured trip card', () => {
+  it('shows a "¡Plan destacado!" badge, pinned to the slide itself rather than the bottom text block', () => {
     fixture.detectChanges();
     httpMock.expectOne(req => req.url.endsWith('/featured')).flush([TRIP]);
     fixture.detectChanges();
 
-    const badge = fixture.nativeElement.querySelector('.s2-featured-badge');
+    const slide = fixture.nativeElement.querySelector('.s2-slide');
+    const badge = slide.querySelector('.s2-featured-badge');
     expect(badge).not.toBeNull();
-    expect(badge.textContent).toContain('Destacado');
+    expect(badge.textContent).toContain('Plan destacado');
+    // Direct child of .s2-slide (a sibling of the image), not nested inside .s2-trip-block —
+    // it's positioned relative to the slide/image, not the bottom-anchored text content.
+    expect(badge.parentElement).toBe(slide);
+    expect(slide.querySelector('.s2-trip-block .s2-featured-badge')).toBeNull();
   });
 
   it('renders one badge per slide when there are multiple featured trips', () => {

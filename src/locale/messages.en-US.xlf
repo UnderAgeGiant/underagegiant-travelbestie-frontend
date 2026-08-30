@@ -1140,8 +1140,8 @@
         <target>by</target>
       </trans-unit>
       <trans-unit id="landing.featuredBadge" datatype="html">
-        <source>✨ ¡Destacado!</source>
-        <target>✨ Featured!</target>
+        <source>✨ ¡Plan destacado!</source>
+        <target>✨ Featured plan!</target>
       </trans-unit>
       <trans-unit id="landing.cloneBtn" datatype="html">
         <source>⿻ Copia este viaje para ti</source>
