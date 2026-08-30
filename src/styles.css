@@ -219,6 +219,7 @@ app-nav { display: block; }
 .itin-item-lodging { color: var(--t1); font-weight: 500; }
 .itin-item-icon { font-size: 14px; flex-shrink: 0; width: 20px; text-align: center; }
 .itin-item-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.itin-item-meta-row { display: contents; }
 .itin-item-meta { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
 .itin-link { font-size: 12px; text-decoration: none; flex-shrink: 0; opacity: .7; transition: opacity .15s; }
 .itin-link:hover { opacity: 1; }
@@ -1553,7 +1554,11 @@ app-nav { display: block; }
   .itin-seg { white-space: normal; }
   .itin-transit-dest { white-space: normal; }
   .itin-item { flex-wrap: wrap; align-items: flex-start; }
-  .itin-item-meta { width: 100%; padding-left: 27px; margin-top: 1px; }
+  /* .itin-item-meta and .itin-link (the 📍 maps button) must wrap onto their
+     own full-width row TOGETHER — giving .itin-item-meta its own width:100%
+     pushed .itin-link (next in flex order) onto a THIRD line by itself. */
+  .itin-item-meta-row { display: flex; align-items: center; justify-content: space-between; width: 100%; padding-left: 27px; margin-top: 1px; }
+  .itin-item-meta { flex-shrink: 1; }
 }
 
 

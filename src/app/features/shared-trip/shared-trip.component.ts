@@ -260,14 +260,16 @@ import { LocaleService } from '../../core/i18n/locale.service';
                           @if (!shouldShowComments(attKey)) {
                             <button class="step-comments-toggle" (click)="expandStepInCity($event, attKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
-                          <span class="itin-item-meta">
-                            @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                          <span class="itin-item-meta-row">
+                            <span class="itin-item-meta">
+                              @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                            </span>
+                            <a class="itin-link"
+                               [attr.href]="mapsUrl(att.name, stop.cityId)"
+                               target="_blank" rel="noopener noreferrer"
+                               (click)="$event.stopPropagation()"
+                               i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps">📍</a>
                           </span>
-                          <a class="itin-link"
-                             [attr.href]="mapsUrl(att.name, stop.cityId)"
-                             target="_blank" rel="noopener noreferrer"
-                             (click)="$event.stopPropagation()"
-                             i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps">📍</a>
                         </div>
                         @if (shouldShowComments(attKey)) {
                           <app-step-comments
