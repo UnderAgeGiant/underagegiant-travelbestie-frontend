@@ -80,3 +80,42 @@ describe('NavMobileComponent — signing out from the drawer', () => {
     expect(fixture.nativeElement.querySelector('.nav-m-drawer')).toBeNull();
   });
 });
+
+describe('NavMobileComponent — opening Comprar Karma from the drawer', () => {
+  let fixture: ComponentFixture<NavMobileComponent>;
+  let facade: NavFacadeService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+
+    fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+    fixture.detectChanges();
+  });
+
+  afterEach(() => TestBed.inject(HttpTestingController).verify());
+
+  // Regression test — the "Comprar Karma" button in the drawer used to call facade.openBuyKarma()
+  // directly without closing drawerOpen. With z-index raised to 950/951, the drawer backdrop/panel
+  // would obscure the karma-purchase modal underneath (z-index 400), making it inaccessible. This
+  // test verifies the button now closes the drawer as it opens the modal.
+  it('closes the drawer and opens buy karma modal when Comprar Karma is clicked', () => {
+    const openBuyKarmaSpy = jest.spyOn(facade, 'openBuyKarma').mockImplementation(() => {});
+    const karmaBtn = Array.from(fixture.nativeElement.querySelectorAll('.up-plans-btn'))
+      .find((btn: any) => btn.textContent.includes('Comprar Karma')) as HTMLButtonElement;
+    expect(karmaBtn).toBeTruthy();
+
+    karmaBtn.click();
+    fixture.detectChanges();
+
+    expect(openBuyKarmaSpy).toHaveBeenCalled();
+    expect(fixture.componentInstance.drawerOpen()).toBe(false);
+    expect(fixture.nativeElement.querySelector('.nav-m-drawer')).toBeNull();
+  });
+});

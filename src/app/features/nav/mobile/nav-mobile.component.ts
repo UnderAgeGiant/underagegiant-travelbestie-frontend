@@ -84,7 +84,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
 
         <button class="up-plans-btn" (click)="onProfile()" i18n="@@nav.myProfile">👤 Mi perfil</button>
         <button class="up-plans-btn" (click)="onMyTrips()" i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
-        <button class="up-plans-btn" (click)="facade.openBuyKarma()">
+        <button class="up-plans-btn" (click)="onBuyKarma()">
           <span>✨</span><span i18n="@@nav.buyKarmaBtn">Comprar Karma</span>
         </button>
 
@@ -175,6 +175,7 @@ export class NavMobileComponent {
   onLogo(): void { this.facade.onLogoClick(); this.drawerOpen.set(false); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.drawerOpen.set(false); this.profileClick.emit(); }
   onMyTrips(): void { this.facade.userMenuOpen.set(false); this.drawerOpen.set(false); this.myTripsClick.emit(); }
+  onBuyKarma(): void { this.facade.openBuyKarma(); this.drawerOpen.set(false); }
 
   // The account drawer is local component state (drawerOpen) — facade.doLogout() has no way
   // to close it itself, unlike userMenuOpen (owned by the facade). Without this, signing out
