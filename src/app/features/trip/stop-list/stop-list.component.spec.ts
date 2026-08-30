@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { StopListComponent } from './stop-list.component';
@@ -110,5 +110,64 @@ describe('StopListComponent — AI city suggestions', () => {
 
     expect(citySuggest.openForStopId()).toBe(stop.stopId);
     http.expectOne(r => r.url.includes('/ai/suggest-attractions')).flush({ suggestions: [] });
+  });
+});
+
+describe('StopListComponent — attraction time inputs (24-hour, via TimePickerComponent)', () => {
+  let component: StopListComponent;
+  let fixture: ComponentFixture<StopListComponent>;
+  let trip: TripService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture = TestBed.createComponent(StopListComponent);
+    component = fixture.componentInstance;
+  });
+
+  it('renders an app-time-picker (not a native <input type="time">) for a planned attraction', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    const stopId = trip.activeStop()!.stopId;
+    fixture.detectChanges();
+
+    component['toggleScheduled'](stopId);
+    fixture.detectChanges();
+
+    const pickers = fixture.nativeElement.querySelectorAll('app-time-picker.att-time-input');
+    expect(pickers.length).toBe(2); // start + end
+    expect(fixture.nativeElement.querySelector('input[type="time"]')).toBeNull();
+  });
+
+  // Regression coverage for the switch from a native <input type="time"> (whose 12h/24h
+  // display follows the browser/OS locale, unforceable to 24h on every browser) to
+  // app-time-picker (flatpickr, time_24hr) — onAttractionTimeChange used to read
+  // (event.target as HTMLInputElement).value from a native `change` event; TimePickerComponent's
+  // timeChange output emits the already-formatted "HH:mm" string directly.
+  it('patches the attraction time from a plain "HH:mm" string, not a DOM event', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    const stopId  = trip.activeStop()!.stopId;
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    jest.spyOn(trip, 'patchAttractionTime');
+
+    component.onAttractionTimeChange(stopId, entryId, 'startTime', '14:30', 120);
+
+    expect(trip.patchAttractionTime).toHaveBeenCalledWith(stopId, entryId, 'startTime', '14:30', 120);
+  });
+
+  it('patches a null value when given an empty string (time cleared)', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    const stopId  = trip.activeStop()!.stopId;
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    jest.spyOn(trip, 'patchAttractionTime');
+
+    component.onAttractionTimeChange(stopId, entryId, 'endTime', '');
+
+    expect(trip.patchAttractionTime).toHaveBeenCalledWith(stopId, entryId, 'endTime', null, undefined);
   });
 });

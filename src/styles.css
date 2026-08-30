@@ -1224,7 +1224,13 @@ app-nav { display: block; }
   width: 100%;
   padding-left: 20px;
 }
-.att-time-input {
+/* .att-time-input now sits on <app-time-picker> (see stop-list.component.ts) rather than a
+   bare <input> directly — display:contents removes the component's own host box from the flex
+   row so only its rendered .form-input participates in .att-time-inputs' layout, and the rules
+   below re-target that inner input to keep the exact same compact look the native
+   <input type="time"> had (which .form-input's own global sizing is much too large for). */
+.att-time-input { display: contents; }
+.att-time-input .form-input {
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 2px 5px;
@@ -1236,7 +1242,7 @@ app-nav { display: block; }
   cursor: pointer;
   transition: border-color .15s;
 }
-.att-time-input:focus { outline: none; border-color: var(--lav-d); }
+.att-time-input .form-input:focus { outline: none; border-color: var(--lav-d); }
 .att-time-sep { font-size: 10px; color: var(--t3); }
 
 /* ── Day-view timeline panel ────────────────────────────────────────────── */

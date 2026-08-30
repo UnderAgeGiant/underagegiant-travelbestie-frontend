@@ -1312,16 +1312,6 @@
         <target>View plan itinerary</target>
       </trans-unit>
 
-      <!-- ── stop-list.component (timeline time inputs) ── -->
-      <trans-unit id="timeline.startTimePlaceholder" datatype="html">
-        <source>Inicio</source>
-        <target>Start</target>
-      </trans-unit>
-      <trans-unit id="timeline.endTimePlaceholder" datatype="html">
-        <source>Fin</source>
-        <target>End</target>
-      </trans-unit>
-
       <!-- ── event date/time ── -->
       <trans-unit id="attCard.eventDateTime" datatype="html">
         <source>Fecha y hora del evento</source>
