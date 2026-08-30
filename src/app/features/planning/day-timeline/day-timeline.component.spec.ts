@@ -361,6 +361,34 @@ describe('DayTimelineComponent — drag scheduling', () => {
     expect(trip.updateStartTime).toHaveBeenCalledWith(stopId, entryId, '02:00', undefined, 150);
   });
 
+  it('reschedules a block that never got an explicit endTime, using the catalog attraction\'s own duration instead of a flat 60-minute fallback (family feedback bugfix)', () => {
+    // No estimatedMinutes passed here — TripService.addAttraction only sets `endTime`
+    // when it's given one, so this is the common real-world case: a stop's own
+    // selectedAttractions entry has startTime but no endTime, and the block's DISPLAYED
+    // duration on the timeline comes entirely from the curated catalog attraction's own
+    // estimatedMinutes (paris_0 in this fixture's curated data: 120 minutes). The old
+    // reschedule code ignored the catalog entirely and fell back to a flat 60 whenever
+    // endTime wasn't set, silently shrinking this block on every drag.
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const stopId  = trip.activeStop()!.stopId;
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    expect(trip.activeStop()!.selectedAttractions[0].endTime).toBeFalsy();
+    jest.spyOn(trip, 'updateStartTime');
+
+    const dropEvent = {
+      preventDefault: jest.fn(), clientY: 46 * 2, // 2 hours down the grid → 02:00
+      dataTransfer: {
+        types: ['application/x-tb-reschedule'],
+        getData: () => JSON.stringify({ stopId, entryId }),
+      },
+    } as unknown as DragEvent;
+
+    component['onGridDrop'](dropEvent);
+
+    expect(trip.updateStartTime).toHaveBeenCalledWith(stopId, entryId, '02:00', undefined, 120);
+  });
+
   it('does not reschedule a locked (fixed-schedule) attraction', () => {
     trip.addAttraction(trip.activeStop()!.stopId, 'freetour_1', '09:00', '01/06/2026', 'freetour', 120);
     fixture.detectChanges();

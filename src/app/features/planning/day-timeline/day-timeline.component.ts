@@ -57,6 +57,21 @@ function minToHm(min: number): string {
   return `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
 }
 
+/**
+ * A planned attraction's real duration in minutes: the explicit endTime-startTime gap when
+ * one was set, otherwise the curated catalog attraction's own suggested duration — NEVER a
+ * flat fallback. This must be the single source of truth for both what the block's HEIGHT
+ * shows (blocks()) and what a DRAG-TO-RESCHEDULE preserves (onGridDrop) — they used to
+ * disagree (blocks() fell back to att?.estimatedMinutes, onGridDrop's reschedule fell back to
+ * a flat 60), so dragging any attraction whose endTime was never explicitly set (the common
+ * case — see TripService.addAttraction's own comment on this) silently shrank/grew a visibly
+ * multi-hour block down to exactly 60 minutes on drop. Family feedback bugfix.
+ */
+function resolveDuration(a: PlannedAttraction, att: { estimatedMinutes?: number } | null): number {
+  if (a.startTime && a.endTime) return hmToMin(a.endTime) - hmToMin(a.startTime);
+  return att?.estimatedMinutes ?? 60;
+}
+
 function dateKey(d: Date): string {
   return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}`;
 }
@@ -529,15 +544,14 @@ export class DayTimelineComponent {
     const day  = this.selectedDay();
     if (!stop || !day) return [];
 
-    const city = WORLD_CITIES.find(c => c.id === stop.cityId);
-    const attractions = city ? getAttractions(city) : [];
+    const attractions = this.attractionsFor(stop.cityId);
 
     const attBlocks: TimeBlock[] = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime)
       .map((a: PlannedAttraction) => {
         const att      = attractions.find(x => x.id === a.attractionId) ?? null;
         const startMin = hmToMin(a.startTime!);
-        const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + (att?.estimatedMinutes ?? 60);
+        const endMin   = startMin + resolveDuration(a, att);
         const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
         const height   = Math.max(30, (endMin - startMin) / 60 * TL_RH - 4);
         const [bg, fg] = typeColors(att?.type ?? '');
@@ -563,6 +577,11 @@ export class DayTimelineComponent {
   // family's explicit request (Task 9).
   private isRescheduleLocked(a: PlannedAttraction): boolean {
     return a.category === 'freetour' || (a.category === 'event_party' && !!a.date);
+  }
+
+  private attractionsFor(cityId: string) {
+    const city = WORLD_CITIES.find(c => c.id === cityId);
+    return city ? getAttractions(city) : [];
   }
 
   private attractionsForDay(atts: PlannedAttraction[], dayKey: string): PlannedAttraction[] {
@@ -712,9 +731,8 @@ export class DayTimelineComponent {
         const { entryId } = payload;
         const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
         if (original && !this.isRescheduleLocked(original)) {
-          const durationMin = original.startTime && original.endTime
-            ? hmToMin(original.endTime) - hmToMin(original.startTime)
-            : 60;
+          const att = this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null;
+          const durationMin = resolveDuration(original, att);
           this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
         }
       }
