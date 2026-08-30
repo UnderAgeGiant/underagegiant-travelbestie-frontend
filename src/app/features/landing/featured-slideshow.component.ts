@@ -81,6 +81,7 @@ const CITY_COVER_PHOTOS: Record<string, string> = {
     <div class="s2-overlay"></div>
     <div class="s2-content">
       <div class="s2-trip-block">
+        <div class="s2-featured-badge" i18n="@@landing.featuredBadge">✨ ¡Destacado!</div>
         <div class="s2-city-chips">
           @for (stop of trip.stops.slice(0,3); track stop.cityId) {
             <span class="s2-chip">{{ cityName(stop.cityId) }}</span>

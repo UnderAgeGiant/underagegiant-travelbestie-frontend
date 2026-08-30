@@ -1019,6 +1019,18 @@ app-nav { display: block; }
   margin-bottom: 2rem;
   animation: fadeUp .6s .15s ease both;
 }
+.s2-featured-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; letter-spacing: .05em;
+  color: var(--lav);
+  background: oklch(20% .04 290 / .55);
+  border: 1.5px solid var(--lav-d);
+  border-radius: 99px; padding: 4px 13px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 1px oklch(88% .06 290 / .15), 0 3px 14px oklch(55% .16 290 / .4);
+  animation: fadeUp .6s .05s ease both;
+}
 .s2-city-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .s2-chip {
   font-size: 10px; font-weight: 600;
