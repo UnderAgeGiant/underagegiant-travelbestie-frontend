@@ -544,6 +544,10 @@
         <source>🎟 Entrada comprada</source>
         <target>🎟 Ticket purchased</target>
       </trans-unit>
+      <trans-unit id="attCard.mustSee" datatype="html">
+        <source>⭐ Imperdible</source>
+        <target>⭐ Must-see</target>
+      </trans-unit>
       <trans-unit id="maps.viewOnMaps" datatype="html">
         <source>Ver en Google Maps</source>
         <target>View on Google Maps</target>

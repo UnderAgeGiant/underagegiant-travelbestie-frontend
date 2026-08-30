@@ -657,11 +657,18 @@
           <context context-type="linenumber">27,29</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="attCard.mustSee" datatype="html">
+        <source>⭐ Imperdible</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
+          <context context-type="linenumber">183,186</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="attCard.addToPlan" datatype="html">
         <source>Planificar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">188,190</context>
+          <context context-type="linenumber">198,200</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
@@ -672,14 +679,14 @@
         <source>Fecha y hora del evento</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">213,214</context>
+          <context context-type="linenumber">223,224</context>
         </context-group>
       </trans-unit>
       <trans-unit id="maps.viewOnMaps" datatype="html">
         <source>Ver en Google Maps</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">246,248</context>
+          <context context-type="linenumber">256,258</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
@@ -694,14 +701,14 @@
         <source>🎟 Entrada comprada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">264,266</context>
+          <context context-type="linenumber">274,276</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.addedToast" datatype="html">
         <source>¡Ya se agregó a tu itinerario esta atracción!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">426</context>
+          <context context-type="linenumber">437</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
@@ -859,14 +866,14 @@
         <source>atracción</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/destination.component.ts</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dest.manyAttractions" datatype="html">
         <source>atracciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/destination.component.ts</context>
-          <context context-type="linenumber">33,34</context>
+          <context context-type="linenumber">34,35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dest.addAttractionsClose" datatype="html">
