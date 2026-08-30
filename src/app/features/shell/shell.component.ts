@@ -5,7 +5,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AuthService } from '../../core/auth/auth.service';
-import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
+import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { StopListComponent } from '../trip/stop-list/stop-list.component';
 import { DestinationComponent } from '../destination/destination.component';
@@ -64,7 +64,8 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
           <app-stop-list (addDestination)="showAddModal.set(true)" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
-                         (openAiPlanning)="showAiPlanning.set(true)" />
+                         (openAiPlanning)="showAiPlanning.set(true)"
+                         (loadLastEditedPlan)="loadLastEditedPlan($event)" />
           </div>
           <!-- Scroll hint -->
           <div class="scroll-hint">
@@ -251,5 +252,10 @@ export class ShellComponent {
   /** "Ok" on AiPlanningComponent's post-Notificarme hand-off — scrolls the landing page's S2 featured-plans section into view. No-op if the visitor currently has stops (app mode, no landing scroll to scroll). */
   scrollToFeatured(): void {
     this.featuredSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /** "Último viaje que editaste" on the landing welcome screen (Task 7). */
+  protected loadLastEditedPlan(plan: SavedPlan): void {
+    this.facade.doLoadPlan(plan);
   }
 }

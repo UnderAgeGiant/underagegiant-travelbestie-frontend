@@ -3078,21 +3078,21 @@
         <source>Desliza para explorar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shell/shell.component.ts</context>
-          <context context-type="linenumber">71,72</context>
+          <context context-type="linenumber">72,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="app.selectStop" datatype="html">
         <source>Selecciona una parada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shell/shell.component.ts</context>
-          <context context-type="linenumber">96,97</context>
+          <context context-type="linenumber">97,98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="app.selectStopDesc" datatype="html">
         <source>Haz clic en un destino del panel para explorar sus atracciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shell/shell.component.ts</context>
-          <context context-type="linenumber">98,100</context>
+          <context context-type="linenumber">99,101</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.title" datatype="html">
@@ -3534,63 +3534,70 @@
         <source>Planifica · Comparte · Explora</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">20,21</context>
+          <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.title" datatype="html">
         <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>mejor amig@<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.subtitle" datatype="html">
         <source>Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">22,23</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaCreatePlan" datatype="html">
         <source>Crear Plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">25,26</context>
+          <context context-type="linenumber">26,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaCreateAi" datatype="html">
         <source>🐾 Crear con IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">27,28</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaHowKarma" datatype="html">
         <source>⭐ Cómo ganar Karma</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">29,32</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="welcome.ctaLastPlan" datatype="html">
+        <source>🕓 Último viaje que editaste</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaTitle" datatype="html">
         <source>Cómo ganar Karma ⭐</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">35,36</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaBody" datatype="html">
         <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">36,37</context>
+          <context context-type="linenumber">43,44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaClose" datatype="html">
         <source>Entendido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">38,40</context>
+          <context context-type="linenumber">45,47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autosave.reminderMessage" datatype="html">
@@ -3755,21 +3762,21 @@
         <source>Cerrar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/travel-docs-reminder/travel-docs-reminder.component.ts</context>
-          <context context-type="linenumber">14,15</context>
+          <context context-type="linenumber">15,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="travelDocs.message" datatype="html">
         <source> Recuerda verificar si necesitas visa, vacunas y/o pasaporte para los lugares que visitas. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/travel-docs-reminder/travel-docs-reminder.component.ts</context>
-          <context context-type="linenumber">16,18</context>
+          <context context-type="linenumber">17,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="travelDocs.dismissBtn" datatype="html">
         <source>Entendido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/travel-docs-reminder/travel-docs-reminder.component.ts</context>
-          <context context-type="linenumber">20,22</context>
+          <context context-type="linenumber">21,23</context>
         </context-group>
       </trans-unit>
     </body>

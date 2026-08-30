@@ -1517,6 +1517,10 @@
         <source>⭐ Cómo ganar Karma</source>
         <target>⭐ How to earn Karma</target>
       </trans-unit>
+      <trans-unit id="welcome.ctaLastPlan" datatype="html">
+        <source>🕓 Último viaje que editaste</source>
+        <target>🕓 Last trip you edited</target>
+      </trans-unit>
       <trans-unit id="welcome.karmaTitle" datatype="html">
         <source>Cómo ganar Karma ⭐</source>
         <target>How to earn Karma ⭐</target>
