@@ -234,13 +234,13 @@ app-nav { display: block; }
 .shared-bg { position: fixed; inset: 0; z-index: 0; background: url('/paper-planes.webp') repeat center center / 380px auto; filter: blur(1px); transform: scale(1.04); pointer-events: none; }
 .shared-bg-frost { position: fixed; inset: 0; z-index: 1; background: rgba(255,255,255,.45); pointer-events: none; }
 .shared-body { display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; margin: 58px auto 0; padding: 24px 20px 60px; position: relative; z-index: 210; }
-/* .shared-body's z-index (210) sits above .nav's (200) in the SAME (root) stacking context —
-   unlike .ai-plan-page, .shared-page itself never establishes its own stacking context (no
-   z-index of its own), so there is no local trap to escape here; the two are compared directly
-   at the root. Once the page scrolls far enough for .shared-body's content to overlap the fixed
-   nav bar's screen area, that content paints on top of it, silently swallowing clicks meant for
-   the nav's account dropdown (e.g. nothing in the logged-in user menu responds). Scoped bump so
-   the nav (and everything it renders, like .user-panel) always wins on this page. */
+/* .shared-body's z-index (210) sits above .nav's (200) in the SAME (root)
+   stacking context — .shared-page itself never establishes its own stacking
+   context (no z-index of its own), so there is no local trap to escape here.
+   Once the page scrolls far enough for .shared-body's content to overlap the
+   fixed nav bar's screen area, that content paints on top of it unless the
+   bar is bumped too. The mobile drawer/backdrop no longer need a matching
+   per-page bump — see the page-independent z-index on .nav-m-drawer/.nav-m-backdrop above. */
 .shared-page .nav, .shared-page .nav-m-bar { z-index: 220; }
 .shared-main { flex: 0 1 680px; min-width: 0; }
 .shared-not-found { position: relative; z-index: 2; }
@@ -1974,12 +1974,27 @@ app-nav { display: block; }
   color: var(--t1); cursor: pointer; padding: 4px 8px;
 }
 .nav-m-backdrop {
-  position: fixed; inset: 0; z-index: 80;
+  /* Page-independent: this is a position:fixed sibling of .nav-m-bar (not a
+     descendant), so per-page overrides on .nav/.nav-m-bar never reach it. It
+     must outrank every page-level z-index in this file on its own — see the
+     .nav-m-drawer comment below for the full story. */
+  position: fixed; inset: 0; z-index: 950;
   background: rgba(15,10,30,0.45);
   animation: fadeIn .15s ease;
 }
 .nav-m-drawer {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 81;
+  /* Was z-index: 81, which only ever had to beat .nav-m-bar's own content.
+     .shared-page/.profile-page/.ai-plan-page all render a page-level fixed
+     overlay ABOVE the app's normal flow (.shared-body z-index 210, .profile-page
+     350, .ai-plan-page ~300) — .profile-page/.ai-plan-page happened to still
+     work because their entrance @keyframes set a transform, which makes them
+     the containing block AND stacking context for position:fixed descendants,
+     trapping this drawer inside their own local context. .shared-page has no
+     transform, so its drawer/backdrop escape to the root context and lost to
+     .shared-body (81 < 210) — the "user menu behind the trip panel" bug.
+     Fix: one page-independent z-index high enough to beat all of the above,
+     instead of patching per page. Keep this above .nav-m-backdrop always. */
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 951;
   width: min(86vw, 360px); background: #fff;
   box-shadow: var(--sh-lg); overflow-y: auto;
   padding: 0 12px 24px;
