@@ -2166,6 +2166,20 @@
         <target>View plan →</target>
       </trans-unit>
 
+      <!-- ── travel-docs-reminder.component ── -->
+      <trans-unit id="travelDocs.dismissAria" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="travelDocs.message" datatype="html">
+        <source> Recuerda verificar si necesitas visa, vacunas y/o pasaporte para los lugares que visitas. </source>
+        <target> Remember to check whether you need a visa, vaccines, and/or a passport for the places you're visiting. </target>
+      </trans-unit>
+      <trans-unit id="travelDocs.dismissBtn" datatype="html">
+        <source>Entendido</source>
+        <target>Got it</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

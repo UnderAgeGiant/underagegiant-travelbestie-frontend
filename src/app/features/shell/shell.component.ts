@@ -20,6 +20,7 @@ import { AppFooterComponent } from '../landing/app-footer.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { MyTripsComponent } from '../my-trips/my-trips.component';
 import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
+import { TravelDocsReminderComponent } from '../../shared/travel-docs-reminder/travel-docs-reminder.component';
 import { ToastService } from '../../core/ui/toast.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
@@ -44,6 +45,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         DayTimelineComponent,
         MyTripsComponent,
         CompanionMascotComponent,
+        TravelDocsReminderComponent,
         AutosaveReminderBannerComponent,
         HighlightTourComponent,
     ],
@@ -109,6 +111,8 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
     <app-mobile-attractions-modal />
 
     <app-companion-mascot />
+
+    <app-travel-docs-reminder />
 
     <app-highlight-tour />
 

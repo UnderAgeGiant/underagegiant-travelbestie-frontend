@@ -5,6 +5,7 @@ import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../api/api.service';
 import { TripStop, TransitLeg, PendingCollaboratorInvite } from '../models/trip.model';
 import { environment } from '../../../environments/environment';
+import { TravelDocsReminderService } from '../reminders/travel-docs-reminder.service';
 
 export interface SavedPlan {
   id:         string;
@@ -25,6 +26,7 @@ const key = (email: string) => `tb_saved_plans_${email}`;
 export class SavedPlansService {
   private readonly auth = inject(AuthService);
   private readonly api  = inject(ApiService);
+  private readonly travelDocsReminder = inject(TravelDocsReminderService);
   private _plans = signal<SavedPlan[]>([]);
   readonly plans = this._plans.asReadonly();
 
@@ -76,12 +78,14 @@ export class SavedPlansService {
         );
         this._plans.set(updated);
         localStorage.setItem(key(email), JSON.stringify(updated));
+        this.travelDocsReminder.maybeShow();
         return of(id);
       }
       const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits };
       const updated = [...this._plans(), plan];
       this._plans.set(updated);
       localStorage.setItem(key(email), JSON.stringify(updated));
+      this.travelDocsReminder.maybeShow();
       return of(plan.id);
     }
 
@@ -92,6 +96,7 @@ export class SavedPlansService {
           this._plans.set(this._plans().map(p =>
             p.id === id ? { ...p, name, stops, transits, savedAt: now } : p
           ));
+          this.travelDocsReminder.maybeShow();
         }),
         map(() => id)
       );
@@ -106,6 +111,7 @@ export class SavedPlansService {
           transits: trip.transits ?? [],
         };
         this._plans.set([...this._plans(), plan]);
+        this.travelDocsReminder.maybeShow();
       }),
       map(trip => trip.id!)
     );
