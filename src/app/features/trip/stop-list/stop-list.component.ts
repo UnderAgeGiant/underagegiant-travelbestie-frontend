@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
+import { Component, inject, signal, computed, effect, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { TripService } from '../trip.service';
 import { DeviceService } from '../../../core/device/device.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
@@ -21,6 +21,8 @@ import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
+import { WeatherService } from '../../../core/weather/weather.service';
+import { getWeatherCodeMeta } from '../../../core/models/weather.model';
 
 @Component({
     selector: 'app-stop-list',
@@ -65,6 +67,18 @@ import { TimePickerComponent } from '../../../shared/time-picker/time-picker.com
     .autosave-countdown {
       margin-left: 6px; font-size: 10px; color: var(--t3);
       font-variant-numeric: tabular-nums; white-space: nowrap; vertical-align: middle;
+    }
+    .stop-weather-chip {
+      display: inline-flex; align-items: center; gap: 3px;
+      margin-left: 6px; font-size: 11px; font-weight: 600;
+      color: var(--t3); vertical-align: middle;
+    }
+    .stop-weather-chip-historic .stop-weather-icon { filter: grayscale(1); opacity: .75; }
+    .stop-weather-mark {
+      font-size: 8px; font-weight: 700; color: var(--t3);
+      background: var(--border); border-radius: 50%;
+      width: 10px; height: 10px; display: inline-flex;
+      align-items: center; justify-content: center; margin-left: 1px;
     }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
@@ -138,7 +152,16 @@ import { TimePickerComponent } from '../../../shared/time-picker/time-picker.com
                 <div class="stop-row">
                   <app-flag-icon class="stop-flag" [flag]="city.flag" [alt]="city.name" [size]="22" />
                   <div class="stop-info">
-                    <div class="stop-name">{{ city.name }}</div>
+                    <div class="stop-name">
+                      {{ city.name }}
+                      @if (stopWeatherChips()[stop.stopId ?? '']; as w) {
+                        <span class="stop-weather-chip" [class.stop-weather-chip-historic]="w.historic"
+                              [attr.title]="w.historic ? historicWeatherTooltip : null">
+                          <span class="stop-weather-icon">{{ w.icon }}</span> {{ w.tempMinC }}°/{{ w.tempMaxC }}°
+                          @if (w.historic) { <span class="stop-weather-mark">?</span> }
+                        </span>
+                      }
+                    </div>
                     <div class="stop-country">{{ city.country }}</div>
                   </div>
                   <button class="stop-del"
@@ -351,11 +374,13 @@ export class StopListComponent {
   private readonly destModal  = inject(DestinationModalService);
   protected readonly citySuggest = inject(CitySuggestService);
   protected readonly autoSave = inject(AutoSaveService);
+  private readonly weather = inject(WeatherService);
   addDestination = output<void>();
 
   protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
   protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
   protected readonly countdownTitle = $localize`:@@stopList.autoSaveCountdownTitle:Tiempo restante hasta el próximo intento de guardado automático`;
+  protected readonly historicWeatherTooltip = $localize`:@@stopList.weatherHistoricTooltip:Estimado según el clima del mismo día el año pasado — no es un pronóstico real.`;
 
   protected formatCountdown(totalSeconds: number): string {
     const m = Math.floor(totalSeconds / 60);
@@ -363,9 +388,55 @@ export class StopListComponent {
     return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
   }
 
+  private lastWeatherSignature: string | null = null;
+
   constructor() {
     this.autoSave.start();
+
+    // Loads weather for every stop's first day (checkIn) so the city card can show a
+    // min/max temperature chip next to the name. Only re-derives when the set of
+    // (cityId, checkIn, checkOut) tuples actually changes, same discipline as
+    // DayTimelineComponent's own weather-trigger effect — WeatherService.load() is
+    // safe to call from multiple sites (it de-dupes concurrent/repeat requests via
+    // its own in-flight guard + ETag/304 caching), so this doesn't duplicate network
+    // traffic against tb-day-timeline's trip-wide instance doing the same thing.
+    effect(() => {
+      const stops = this.trip.stops();
+      const signature = stops
+        .filter(s => s.checkIn && s.checkOut)
+        .map(s => `${s.cityId}|${s.checkIn}|${s.checkOut}`)
+        .join(',');
+      if (signature === this.lastWeatherSignature) return;
+      this.lastWeatherSignature = signature;
+
+      for (const stop of stops) {
+        if (!stop.checkIn || !stop.checkOut) continue;
+        this.weather.load(stop.cityId, stop.checkIn, stop.checkOut);
+      }
+    });
   }
+
+  // Keyed by stopId. Only the stop's first day (checkIn) is shown on the city card —
+  // a single min/max temperature summary, not the full day-by-day breakdown
+  // tb-day-timeline renders per day-tab.
+  protected readonly stopWeatherChips = computed(() => {
+    this.weather.dayMap(); // establish the reactive dependency
+    const map: Record<string, { icon: string; tempMinC: number; tempMaxC: number; historic: boolean } | null> = {};
+    for (const stop of this.trip.stops()) {
+      const key = stop.stopId ?? '';
+      if (!key || !stop.checkIn) { continue; }
+      const w = this.weather.get(stop.cityId, stop.checkIn);
+      map[key] = (w && w.type !== 'unavailable' && w.tempMinC !== undefined && w.tempMaxC !== undefined)
+        ? {
+            icon: getWeatherCodeMeta(w.weatherCode!).icon,
+            tempMinC: Math.round(w.tempMinC),
+            tempMaxC: Math.round(w.tempMaxC),
+            historic: w.type === 'historic',
+          }
+        : null;
+    }
+    return map;
+  });
 
   protected readonly showScrollTop = signal(false);
 

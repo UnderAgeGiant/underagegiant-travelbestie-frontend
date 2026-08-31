@@ -171,3 +171,81 @@ describe('StopListComponent — attraction time inputs (24-hour, via TimePickerC
     expect(trip.patchAttractionTime).toHaveBeenCalledWith(stopId, entryId, 'endTime', null, undefined);
   });
 });
+
+describe('StopListComponent — first-day weather chip on the city card', () => {
+  let trip: TripService;
+  let http: HttpTestingController;
+  let fixture: ComponentFixture<StopListComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    http = TestBed.inject(HttpTestingController);
+    fixture = TestBed.createComponent(StopListComponent);
+  });
+
+  it('requests weather for a stop as soon as it is added', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const req = http.expectOne(r => r.url.includes('/weather') && r.params.get('cityId') === 'paris');
+    expect(req.request.params.get('checkIn')).toBe('01/06/2026');
+    expect(req.request.params.get('checkOut')).toBe('05/06/2026');
+    req.flush({ days: [] }, { headers: { ETag: '"etag-1"' } });
+  });
+
+  it('renders a min/max temperature chip next to the city name once weather resolves', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.stop-weather-chip')).toBeNull();
+
+    const req = http.expectOne(r => r.url.includes('/weather'));
+    req.flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
+    expect(chip).not.toBeNull();
+    expect(chip.textContent).toContain('14°');
+    expect(chip.textContent).toContain('23°');
+    expect(chip.classList.contains('stop-weather-chip-historic')).toBe(false);
+  });
+
+  it('renders the chip in grayscale-historic mode with a "?" mark when the day is a historic estimate', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const req = http.expectOne(r => r.url.includes('/weather'));
+    req.flush(
+      { days: [{ date: '01/06/2026', type: 'historic', tempMinC: 9, tempMaxC: 18, weatherCode: 61 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
+    expect(chip.classList.contains('stop-weather-chip-historic')).toBe(true);
+    expect(chip.querySelector('.stop-weather-mark')).not.toBeNull();
+  });
+
+  it('does not render a chip when the day is unavailable', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const req = http.expectOne(r => r.url.includes('/weather'));
+    req.flush(
+      { days: [{ date: '01/06/2026', type: 'unavailable' }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.stop-weather-chip')).toBeNull();
+  });
+});
