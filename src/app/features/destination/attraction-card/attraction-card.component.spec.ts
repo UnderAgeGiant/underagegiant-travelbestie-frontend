@@ -119,6 +119,38 @@ describe('AttractionCardComponent — touch drag to schedule (mobile only)', () 
     expect(touchDrag.state()).toBeNull();
   });
 
+  // Regression test — round 6 of family feedback: mobile drag still didn't work on a real device
+  // even after the draggable="true" fix, because a real touch device commits to native-scrolling
+  // the list on the very first touchmove of the gesture, before this component's long-press arm
+  // timer ever fires — a later preventDefault() call (once armed) is then a no-op. `.att-card`
+  // now carries `touch-action: none` (see the styles block above) so the browser never starts
+  // that native scroll at all; this component instead replays the vertical delta by hand onto the
+  // real scrollable ancestor so a plain swipe still scrolls the list normally.
+  it('replays a pre-armed swipe onto the scrollable ancestor since native scroll is disabled on the card', () => {
+    const card = fixture.nativeElement.querySelector('.att-card') as HTMLElement;
+    const scrollWrap = document.createElement('div');
+    Object.defineProperty(scrollWrap, 'scrollHeight', { value: 2000, configurable: true });
+    Object.defineProperty(scrollWrap, 'clientHeight', { value: 400, configurable: true });
+    scrollWrap.style.overflowY = 'auto';
+    scrollWrap.appendChild(fixture.nativeElement);
+    document.body.appendChild(scrollWrap);
+    scrollWrap.scrollTop = 100;
+
+    fixture.componentInstance['onTouchStart']({
+      touches: [fakeTouch(10, 100)], currentTarget: card,
+    } as unknown as TouchEvent);
+    // Finger moves 30px up, past the cancel threshold but well before the 350ms arm delay —
+    // treated as a scroll, not a drag, and must still move the list the way native scroll would.
+    fixture.componentInstance['onTouchMove']({
+      touches: [fakeTouch(10, 70)], preventDefault: jest.fn(),
+    } as unknown as TouchEvent);
+
+    expect(scrollWrap.scrollTop).toBe(130);
+    expect(touchDrag.state()).toBeNull();
+
+    document.body.removeChild(scrollWrap);
+  });
+
   it('updates TouchDragService position and prevents page scroll once armed', () => {
     fixture.componentInstance['onTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent);
     jest.advanceTimersByTime(350);

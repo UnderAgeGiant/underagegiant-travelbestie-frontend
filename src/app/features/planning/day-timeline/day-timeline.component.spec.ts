@@ -649,6 +649,37 @@ describe('DayTimelineComponent — touch drag-to-reschedule (mobile)', () => {
     expect(component['draggingEntryId']()).toBeNull();
   });
 
+  // Regression test — round 6 of family feedback: mobile drag-to-reschedule still didn't work
+  // on a real device even after the draggable="true" fix above, because a real touch device
+  // commits to native-scrolling the grid on the very first touchmove of the gesture, before this
+  // component's long-press arm timer ever fires — a later preventDefault() call (once armed) is
+  // then a no-op. `.tl-block-draggable` now carries `touch-action: none` (src/styles.css) so the
+  // browser never starts that native scroll at all; this component instead replays the vertical
+  // delta by hand onto the real scrollable grid ancestor so a plain swipe still scrolls normally.
+  it('replays a pre-armed swipe onto the scrollable grid ancestor since native scroll is disabled on the block', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId  = trip.activeStop()!.selectedAttractions[0].entryId!;
+    const block    = fixture.nativeElement.querySelector('.tl-block') as HTMLElement;
+    const gridWrap = fixture.nativeElement.querySelector('.tl-grid-wrap') as HTMLElement;
+    Object.defineProperty(gridWrap, 'scrollHeight', { value: 2000, configurable: true });
+    Object.defineProperty(gridWrap, 'clientHeight', { value: 400, configurable: true });
+    gridWrap.style.overflowY = 'auto';
+    gridWrap.scrollTop = 100;
+
+    component['onBlockTouchStart']({
+      touches: [fakeTouch(10, 100)], currentTarget: block,
+    } as unknown as TouchEvent, entryId);
+    // Finger moves 30px up, past the cancel threshold but well before the 350ms arm delay —
+    // treated as a scroll, not a drag, and must still move the grid the way native scroll would.
+    component['onBlockTouchMove']({
+      touches: [fakeTouch(10, 70)], preventDefault: jest.fn(),
+    } as unknown as TouchEvent);
+
+    expect(gridWrap.scrollTop).toBe(130);
+    expect(component['draggingEntryId']()).toBeNull();
+  });
+
   it('reschedules the block, preserving its catalog duration, on touchend', () => {
     trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00'); // no endTime — catalog duration is 120
     fixture.detectChanges();

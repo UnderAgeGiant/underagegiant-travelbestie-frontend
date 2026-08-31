@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { DeviceService } from '../../../core/device/device.service';
 import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.util';
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
 import { TripStop, PlannedAttraction, TransitLeg, TransitMode } from '../../../core/models/trip.model';
@@ -802,6 +803,19 @@ export class DayTimelineComponent {
   // native touch-driven drag recognition, which otherwise fights the touch handlers below for
   // the same gesture on the same element — this was the actual root cause of drag-to-reschedule
   // also not working on mobile after the first touch-support pass.
+  // CRITICAL — `.tl-block.tl-block-draggable` carries `touch-action: none` (see src/styles.css).
+  // Without it, a real touch device decides scroll-vs-drag from the FIRST touchmove of the
+  // gesture — long before this arm timer ever fires — and once it commits to a native scroll,
+  // this component calling `preventDefault()` later (once armed) does nothing; the grid just
+  // keeps scrolling under the finger and no drag starts. `touch-action: none` hands 100% of that
+  // decision to this component instead. The trade-off is that the browser no longer scrolls on
+  // its own for a touch that starts on a block, so the pre-armed branch below replays the
+  // vertical delta by hand onto the real scrollable grid ancestor (`findScrollableAncestor`) to
+  // keep a plain swipe feeling exactly like a normal scroll. Root-caused via
+  // superpowers:systematic-debugging after a synthetic (JS-dispatched) TouchEvent test had looked
+  // fully working but a real phone still couldn't drag — synthetic dispatch never exercises the
+  // real browser scroll-commit race this depends on. Same fix, same reasoning, as
+  // AttractionCardComponent's onTouchStart/onTouchMove — see that component's CRITICAL comment.
   private static readonly TOUCH_ARM_DELAY_MS   = 350;
   private static readonly TOUCH_MOVE_CANCEL_PX = 10;
 
@@ -810,6 +824,8 @@ export class DayTimelineComponent {
   private blockTouchArmed = false;
   private blockTouchStart: { x: number; y: number } | null = null;
   private blockTouchEntryId: string | null = null;
+  private blockTouchScrollAncestor: HTMLElement | null = null;
+  private blockLastTouchY = 0;
 
   protected onBlockTouchStart(event: TouchEvent, entryId: string): void {
     if (this.readOnly()) return;
@@ -818,6 +834,8 @@ export class DayTimelineComponent {
     this.blockTouchArmed = false;
     this.blockTouchStart = { x: touch.clientX, y: touch.clientY };
     this.blockTouchEntryId = entryId;
+    this.blockTouchScrollAncestor = findScrollableAncestor(event.currentTarget as HTMLElement);
+    this.blockLastTouchY = touch.clientY;
     this.clearBlockTouchArmTimer();
     this.blockTouchArmTimer = setTimeout(() => {
       this.blockTouchArmed = true;
@@ -833,6 +851,11 @@ export class DayTimelineComponent {
       const dx = touch.clientX - this.blockTouchStart.x;
       const dy = touch.clientY - this.blockTouchStart.y;
       if (Math.hypot(dx, dy) > DayTimelineComponent.TOUCH_MOVE_CANCEL_PX) this.clearBlockTouchArmTimer();
+      // Native scrolling is disabled on this element (`touch-action: none`) — replay the
+      // vertical delta by hand so a plain swipe that never reaches the long-press threshold
+      // still scrolls the grid normally.
+      if (this.blockTouchScrollAncestor) this.blockTouchScrollAncestor.scrollTop -= (touch.clientY - this.blockLastTouchY);
+      this.blockLastTouchY = touch.clientY;
       return;
     }
 
@@ -859,6 +882,7 @@ export class DayTimelineComponent {
     this.blockTouchArmed = false;
     this.blockTouchStart = null;
     this.blockTouchEntryId = null;
+    this.blockTouchScrollAncestor = null;
     this.draggingEntryId.set(null);
     this.dragPreview.set(null);
   }
@@ -868,6 +892,7 @@ export class DayTimelineComponent {
     this.blockTouchArmed = false;
     this.blockTouchStart = null;
     this.blockTouchEntryId = null;
+    this.blockTouchScrollAncestor = null;
     this.draggingEntryId.set(null);
     this.dragPreview.set(null);
   }

@@ -17,6 +17,7 @@ import { isMustSeeAttraction } from '../../../core/utils/must-see.util';
 import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/utils/day-timeline-drag.util';
 import { TouchDragService } from '../../../core/utils/touch-drag.service';
 import { DeviceService } from '../../../core/device/device.service';
+import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.util';
 
 @Component({
     selector: 'app-attraction-card',
@@ -165,6 +166,11 @@ import { DeviceService } from '../../../core/device/device.service';
       font-size: 10px; font-weight: 800; padding: 3px 8px;
       border-radius: 99px; box-shadow: var(--sh);
     }
+    /* See the onTouchStart/onTouchMove CRITICAL comment below and
+       core/utils/scroll-passthrough.util.ts for why this is required — without it, a real touch
+       device commits to native-scrolling the list on the first touchmove, before our long-press
+       timer ever arms, and drag never engages no matter what the JS below does. */
+    .att-card { touch-action: none; }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -494,6 +500,18 @@ export class AttractionCardComponent {
   // like desktop's native drag does) is what lets a normal tap-to-open or a vertical swipe-to-
   // scroll keep working: if the finger moves more than a few pixels before the timer fires, this
   // is treated as a scroll, not a drag-and-drop gesture, and the timer is simply cancelled.
+  //
+  // CRITICAL — `.att-card` carries `touch-action: none` (see the styles block above). Without
+  // it, a real touch device decides scroll-vs-drag from the FIRST touchmove of the gesture — long
+  // before this timer ever fires — and once it commits to a native scroll, this component calling
+  // `preventDefault()` later (once armed) does nothing; the list just keeps scrolling under the
+  // finger and no drag starts. `touch-action: none` hands 100% of that decision to this component
+  // instead. The trade-off is that the browser no longer scrolls on its own for a touch that
+  // starts on a card, so the pre-armed branch below replays the vertical delta by hand onto the
+  // nearest real scrollable ancestor (`findScrollableAncestor`) to keep a plain swipe feeling
+  // exactly like a normal scroll. Root-caused via superpowers:systematic-debugging after a synthetic
+  // (JS-dispatched) TouchEvent test had looked fully working but a real phone still couldn't drag
+  // — synthetic dispatch never exercises the real browser scroll-commit race this depends on.
   private static readonly TOUCH_ARM_DELAY_MS = 350;
   private static readonly TOUCH_MOVE_CANCEL_PX = 10;
 
@@ -502,12 +520,16 @@ export class AttractionCardComponent {
   private touchArmTimer: ReturnType<typeof setTimeout> | null = null;
   private touchArmed = false;
   private touchStart: { x: number; y: number } | null = null;
+  private touchScrollAncestor: HTMLElement | null = null;
+  private lastTouchY = 0;
 
   protected onTouchStart(event: TouchEvent): void {
     if (!this.device.isMobile()) return;
     const touch = event.touches[0];
     if (!touch) return;
     this.touchStart = { x: touch.clientX, y: touch.clientY };
+    this.lastTouchY = touch.clientY;
+    this.touchScrollAncestor = findScrollableAncestor(event.currentTarget as HTMLElement);
     this.touchArmed = false;
     this.clearTouchArmTimer();
     this.touchArmTimer = setTimeout(() => {
@@ -525,6 +547,11 @@ export class AttractionCardComponent {
       const dx = touch.clientX - this.touchStart.x;
       const dy = touch.clientY - this.touchStart.y;
       if (Math.hypot(dx, dy) > AttractionCardComponent.TOUCH_MOVE_CANCEL_PX) this.clearTouchArmTimer();
+      // Native scrolling is disabled on this element (`touch-action: none`) — replay the
+      // vertical delta by hand so a plain swipe that never reaches the long-press threshold
+      // still scrolls the list normally.
+      if (this.touchScrollAncestor) this.touchScrollAncestor.scrollTop -= (touch.clientY - this.lastTouchY);
+      this.lastTouchY = touch.clientY;
       return;
     }
 
@@ -546,12 +573,14 @@ export class AttractionCardComponent {
       setTimeout(() => this.touchDrag.cancel(), 0);
     }
     this.touchStart = null;
+    this.touchScrollAncestor = null;
   }
 
   protected onTouchCancel(): void {
     this.clearTouchArmTimer();
     this.touchArmed = false;
     this.touchStart = null;
+    this.touchScrollAncestor = null;
     this.touchDrag.cancel();
   }
 
