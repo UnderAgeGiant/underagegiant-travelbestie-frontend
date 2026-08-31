@@ -873,4 +873,19 @@ describe('DayTimelineComponent — weather chip trigger', () => {
     expect(req.request.params.get('checkIn')).toBe('02/06/2026');
     req.flush({ days: [] }, { headers: { ETag: '"etag-2"' } });
   });
+
+  it('renders both the min and max temperature on the day-tab chip, not just the max', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const req = http.expectOne(r => r.url.includes('/weather'));
+    req.flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const temp = fixture.nativeElement.querySelector('.tl-day-weather-temp');
+    expect(temp.textContent.trim()).toBe('14°/23°');
+  });
 });

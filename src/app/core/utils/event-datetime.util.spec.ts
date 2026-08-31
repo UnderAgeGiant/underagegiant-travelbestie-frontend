@@ -3,6 +3,8 @@ import {
   isDateInRange,
   formatEventChip,
   formatEventLong,
+  formatDMY,
+  iterateDMYRange,
 } from './event-datetime.util';
 
 describe('parseDMY', () => {
@@ -68,5 +70,43 @@ describe('formatEventLong', () => {
 
   it('returns null when there is no date', () => {
     expect(formatEventLong(null, null)).toBeNull();
+  });
+});
+
+describe('formatDMY', () => {
+  it('formats a local Date back to dd/mm/yyyy, zero-padded', () => {
+    expect(formatDMY(new Date(2026, 5, 9))).toBe('09/06/2026'); // June = 5
+  });
+
+  it('round-trips with parseDMY', () => {
+    expect(formatDMY(parseDMY('19/06/2026')!)).toBe('19/06/2026');
+  });
+});
+
+describe('iterateDMYRange', () => {
+  it('returns every dd/mm/yyyy date from checkIn to checkOut, inclusive', () => {
+    expect(iterateDMYRange('01/06/2026', '04/06/2026')).toEqual([
+      '01/06/2026', '02/06/2026', '03/06/2026', '04/06/2026',
+    ]);
+  });
+
+  it('returns a single-day range unchanged', () => {
+    expect(iterateDMYRange('01/06/2026', '01/06/2026')).toEqual(['01/06/2026']);
+  });
+
+  it('spans a month/year boundary', () => {
+    expect(iterateDMYRange('30/12/2026', '02/01/2027')).toEqual([
+      '30/12/2026', '31/12/2026', '01/01/2027', '02/01/2027',
+    ]);
+  });
+
+  it('returns an empty array when checkOut is before checkIn', () => {
+    expect(iterateDMYRange('05/06/2026', '01/06/2026')).toEqual([]);
+  });
+
+  it('returns an empty array when either date is missing or malformed', () => {
+    expect(iterateDMYRange('', '04/06/2026')).toEqual([]);
+    expect(iterateDMYRange('01/06/2026', '')).toEqual([]);
+    expect(iterateDMYRange(null, undefined)).toEqual([]);
   });
 });

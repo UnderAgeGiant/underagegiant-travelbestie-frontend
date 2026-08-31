@@ -44,3 +44,29 @@ export function formatEventLong(
   if (!date) return null;
   return time ? `📅 ${date} · ${time}` : `📅 ${date}`;
 }
+
+/** Formats a local Date back to dd/mm/yyyy, zero-padded — the inverse of parseDMY. */
+export function formatDMY(d: Date): string {
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${dd}/${mm}/${d.getFullYear()}`;
+}
+
+/**
+ * Every dd/mm/yyyy date from checkIn to checkOut, inclusive. Returns an empty array
+ * when either date is missing/malformed or checkOut is before checkIn.
+ */
+export function iterateDMYRange(
+  checkIn: string | null | undefined,
+  checkOut: string | null | undefined,
+): string[] {
+  const from = parseDMY(checkIn);
+  const to = parseDMY(checkOut);
+  if (!from || !to || from.getTime() > to.getTime()) return [];
+
+  const dates: string[] = [];
+  for (let d = new Date(from); d.getTime() <= to.getTime(); d = new Date(d.getTime() + 86_400_000)) {
+    dates.push(formatDMY(d));
+  }
+  return dates;
+}

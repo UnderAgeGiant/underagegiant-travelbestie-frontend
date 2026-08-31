@@ -248,4 +248,113 @@ describe('StopListComponent — first-day weather chip on the city card', () => 
 
     expect(fixture.nativeElement.querySelector('.stop-weather-chip')).toBeNull();
   });
+
+  afterEach(() => jest.useRealTimers());
+
+  it('opens a popover on hover listing every day in the stop\'s range with icon, min/max, and a forecast/historic tag', () => {
+    jest.useFakeTimers();
+    trip.addStop(PARIS, '01/06/2026', '03/06/2026');
+    fixture.detectChanges();
+
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      {
+        days: [
+          { date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 },
+          { date: '02/06/2026', type: 'forecast', tempMinC: 15, tempMaxC: 24, weatherCode: 0 },
+          { date: '03/06/2026', type: 'historic', tempMinC: 9,  tempMaxC: 18, weatherCode: 61 },
+        ],
+      },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
+
+    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
+    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(150);
+    fixture.detectChanges();
+
+    const rows = fixture.nativeElement.querySelectorAll('.stop-weather-popover-row');
+    expect(rows.length).toBe(3);
+    expect(rows[0].textContent).toContain('14°/23°');
+    expect(rows[0].classList.contains('stop-weather-popover-row-historic')).toBe(false);
+    expect(rows[2].textContent).toContain('9°/18°');
+    expect(rows[2].classList.contains('stop-weather-popover-row-historic')).toBe(true);
+  });
+
+  it('does not open the popover before the 150ms hover delay elapses', () => {
+    jest.useFakeTimers();
+    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
+    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(100);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
+  });
+
+  it('closes the popover on mouseleave', () => {
+    jest.useFakeTimers();
+    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
+    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(150);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).not.toBeNull();
+
+    chip.dispatchEvent(new MouseEvent('mouseleave'));
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
+  });
+
+  it('toggles the popover on click for touch devices with no hover capability', () => {
+    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    installMatchMediaMock(true); // simulate '(hover: none)' matching (touch device)
+    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
+    chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).not.toBeNull();
+
+    chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
+  });
+
+  it('does not open the popover on click when the device can hover (desktop)', () => {
+    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
+    chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
+  });
 });

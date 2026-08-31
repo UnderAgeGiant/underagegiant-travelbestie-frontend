@@ -190,7 +190,7 @@ function transitLabel(mode: TransitMode): string {
                   <div class="tl-day-weather" [ngClass]="{ 'tl-day-weather-historic': w.type === 'historic' }"
                        [attr.title]="w.type === 'historic' ? historicTooltip : null">
                     <span class="tl-day-weather-icon">{{ w.icon }}</span>
-                    <span class="tl-day-weather-temp">{{ w.tempMaxC }}°</span>
+                    <span class="tl-day-weather-temp">{{ w.tempMinC }}°/{{ w.tempMaxC }}°</span>
                     @if (w.type === 'historic') { <span class="tl-day-weather-mark">?</span> }
                   </div>
                 }
@@ -412,12 +412,12 @@ export class DayTimelineComponent {
   // that would re-run getWeatherCodeMeta on every change-detection pass.
   protected readonly weatherChip = computed(() => {
     this.weather.dayMap(); // establish the reactive dependency
-    const map: Record<string, { icon: string; tempMaxC: number; type: 'forecast' | 'historic' } | null> = {};
+    const map: Record<string, { icon: string; tempMinC: number; tempMaxC: number; type: 'forecast' | 'historic' } | null> = {};
     for (const day of this.days()) {
       const fullDate = this.fmtDate(day.date);
       const w = this.weather.get(day.cityId, fullDate);
-      map[day.key + ':' + day.cityId] = (w && w.type !== 'unavailable' && w.tempMaxC !== undefined)
-        ? { icon: getWeatherCodeMeta(w.weatherCode!).icon, tempMaxC: Math.round(w.tempMaxC), type: w.type }
+      map[day.key + ':' + day.cityId] = (w && w.type !== 'unavailable' && w.tempMinC !== undefined && w.tempMaxC !== undefined)
+        ? { icon: getWeatherCodeMeta(w.weatherCode!).icon, tempMinC: Math.round(w.tempMinC), tempMaxC: Math.round(w.tempMaxC), type: w.type }
         : null;
     }
     return map;

@@ -2054,9 +2054,17 @@
         <source>Guardando…</source>
         <target>Saving…</target>
       </trans-unit>
-      <trans-unit id="stopList.weatherHistoricTooltip" datatype="html">
-        <source>Estimado según el clima del mismo día el año pasado — no es un pronóstico real.</source>
-        <target>Estimated from the same day's weather last year — not a real forecast.</target>
+      <trans-unit id="stopList.weatherForecastTag" datatype="html">
+        <source>Pronóstico</source>
+        <target>Forecast</target>
+      </trans-unit>
+      <trans-unit id="stopList.weatherHistoricTag" datatype="html">
+        <source>Estimado</source>
+        <target>Estimated</target>
+      </trans-unit>
+      <trans-unit id="stopList.weatherLoadingLabel" datatype="html">
+        <source>Cargando pronóstico…</source>
+        <target>Loading forecast…</target>
       </trans-unit>
 
       <!-- ── transit-connector.component ── -->
