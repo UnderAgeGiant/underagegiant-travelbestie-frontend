@@ -5,6 +5,7 @@ import { DayTimelineComponent } from './day-timeline.component';
 import { TripService } from '../../trip/trip.service';
 import { City } from '../../../core/models/city.model';
 import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { TouchDragGhostService } from '../../../core/utils/touch-drag-ghost.service';
 import { NEW_ATTRACTION_MIME } from '../../../core/utils/day-timeline-drag.util';
 
 const PARIS: City  = { id: 'paris',  name: 'Paris',  country: 'France', flag: '🇫🇷', region: 'europe' };
@@ -576,6 +577,7 @@ function fakeTouch(x: number, y: number): Touch {
 
 describe('DayTimelineComponent — touch drag-to-reschedule (mobile)', () => {
   let trip: TripService;
+  let touchDragGhost: TouchDragGhostService;
   let component: DayTimelineComponent;
   let fixture: ComponentFixture<DayTimelineComponent>;
 
@@ -588,6 +590,7 @@ describe('DayTimelineComponent — touch drag-to-reschedule (mobile)', () => {
       providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
     trip = TestBed.inject(TripService);
+    touchDragGhost = TestBed.inject(TouchDragGhostService);
     fixture = TestBed.createComponent(DayTimelineComponent);
     component = fixture.componentInstance;
     trip.addStop(PARIS, '01/06/2026', '05/06/2026');
@@ -723,6 +726,62 @@ describe('DayTimelineComponent — touch drag-to-reschedule (mobile)', () => {
 
     expect(component['draggingEntryId']()).toBeNull();
     expect(component['dragPreview']()).toBeNull();
+  });
+
+  // Ghost pill (family feedback follow-up — mobile touch-drag had no visual of *what* was
+  // being dragged, unlike desktop's native HTML5 drag image). Purely additive to the existing
+  // draggingEntryId/dragPreview mechanics above.
+  it('shows the drag ghost with the block icon/name once the long-press arms', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+    const block = component['blocks']().find(b => b.entryId === entryId)!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    expect(touchDragGhost.ghost()).toBeNull();
+
+    jest.advanceTimersByTime(350);
+
+    expect(touchDragGhost.ghost()).toEqual({ icon: block.icon, label: block.name, x: 10, y: 20 });
+  });
+
+  it('moves the drag ghost along with the finger once armed', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    jest.advanceTimersByTime(350);
+
+    component['onBlockTouchMove']({ touches: [fakeTouch(10, 46 * 2)], preventDefault: jest.fn() } as unknown as TouchEvent);
+
+    expect(touchDragGhost.ghost()).toEqual(expect.objectContaining({ x: 10, y: 46 * 2 }));
+  });
+
+  it('hides the drag ghost on touchend', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    jest.advanceTimersByTime(350);
+    component['onBlockTouchEnd']({
+      preventDefault: jest.fn(), changedTouches: [fakeTouch(10, 46 * 2)],
+    } as unknown as TouchEvent);
+
+    expect(touchDragGhost.ghost()).toBeNull();
+  });
+
+  it('hides the drag ghost on touchcancel', () => {
+    trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+    fixture.detectChanges();
+    const entryId = trip.activeStop()!.selectedAttractions[0].entryId!;
+
+    component['onBlockTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent, entryId);
+    jest.advanceTimersByTime(350);
+    component['onBlockTouchCancel']();
+
+    expect(touchDragGhost.ghost()).toBeNull();
   });
 });
 

@@ -5,6 +5,7 @@ import { AttractionCardComponent } from './attraction-card.component';
 import { Attraction } from '../../../core/models/comment.model';
 import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/utils/day-timeline-drag.util';
 import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { TouchDragGhostService } from '../../../core/utils/touch-drag-ghost.service';
 
 const ATTRACTION: Attraction = {
   id: 'paris_louvre', name: 'Louvre', type: 'Histórico', category: 'poi',
@@ -60,6 +61,7 @@ describe('AttractionCardComponent — drag to schedule', () => {
 describe('AttractionCardComponent — touch drag to schedule (mobile only)', () => {
   let fixture: ComponentFixture<AttractionCardComponent>;
   let touchDrag: TouchDragService;
+  let touchDragGhost: TouchDragGhostService;
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -69,6 +71,7 @@ describe('AttractionCardComponent — touch drag to schedule (mobile only)', () 
       providers: [provideHttpClient(), provideHttpClientTesting()],
     });
     touchDrag = TestBed.inject(TouchDragService);
+    touchDragGhost = TestBed.inject(TouchDragGhostService);
     fixture = TestBed.createComponent(AttractionCardComponent);
     fixture.componentRef.setInput('attraction', ATTRACTION);
     fixture.componentRef.setInput('cityName', 'Paris');
@@ -194,6 +197,48 @@ describe('AttractionCardComponent — touch drag to schedule (mobile only)', () 
     fixture.componentInstance['onTouchCancel']();
 
     expect(touchDrag.state()).toBeNull();
+  });
+
+  // Ghost pill (family feedback follow-up — mobile touch-drag had no visual of *what* was
+  // being dragged, unlike desktop's native HTML5 drag image). Purely additive to the existing
+  // TouchDragService-driven drop mechanics above.
+  it('shows the drag ghost with the attraction icon/name once the long-press arms', () => {
+    fixture.componentInstance['onTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent);
+
+    expect(touchDragGhost.ghost()).toBeNull();
+
+    jest.advanceTimersByTime(350);
+
+    expect(touchDragGhost.ghost()).toEqual({ icon: '🏛️', label: 'Louvre', x: 10, y: 20 });
+  });
+
+  it('moves the drag ghost along with the finger once armed', () => {
+    fixture.componentInstance['onTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent);
+    jest.advanceTimersByTime(350);
+
+    fixture.componentInstance['onTouchMove']({
+      touches: [fakeTouch(15, 60)], preventDefault: jest.fn(),
+    } as unknown as TouchEvent);
+
+    expect(touchDragGhost.ghost()).toEqual(expect.objectContaining({ x: 15, y: 60 }));
+  });
+
+  it('hides the drag ghost on touchend', () => {
+    fixture.componentInstance['onTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent);
+    jest.advanceTimersByTime(350);
+
+    fixture.componentInstance['onTouchEnd']({ preventDefault: jest.fn() } as unknown as TouchEvent);
+
+    expect(touchDragGhost.ghost()).toBeNull();
+  });
+
+  it('hides the drag ghost on touchcancel', () => {
+    fixture.componentInstance['onTouchStart']({ touches: [fakeTouch(10, 20)] } as unknown as TouchEvent);
+    jest.advanceTimersByTime(350);
+
+    fixture.componentInstance['onTouchCancel']();
+
+    expect(touchDragGhost.ghost()).toBeNull();
   });
 });
 

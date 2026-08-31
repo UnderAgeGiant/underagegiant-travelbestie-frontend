@@ -16,6 +16,7 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
 import { isMustSeeAttraction } from '../../../core/utils/must-see.util';
 import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/utils/day-timeline-drag.util';
 import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { TouchDragGhostService } from '../../../core/utils/touch-drag-ghost.service';
 import { DeviceService } from '../../../core/device/device.service';
 import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.util';
 
@@ -517,6 +518,7 @@ export class AttractionCardComponent {
 
   protected readonly device  = inject(DeviceService);
   private readonly touchDrag = inject(TouchDragService);
+  private readonly touchDragGhost = inject(TouchDragGhostService);
   private touchArmTimer: ReturnType<typeof setTimeout> | null = null;
   private touchArmed = false;
   private touchStart: { x: number; y: number } | null = null;
@@ -535,6 +537,7 @@ export class AttractionCardComponent {
     this.touchArmTimer = setTimeout(() => {
       this.touchArmed = true;
       this.touchDrag.start(NEW_ATTRACTION_MIME, JSON.stringify(this.dragPayload()), touch.clientX, touch.clientY);
+      this.touchDragGhost.show(this.attraction().icon, this.attraction().name, touch.clientX, touch.clientY);
     }, AttractionCardComponent.TOUCH_ARM_DELAY_MS);
   }
 
@@ -557,6 +560,7 @@ export class AttractionCardComponent {
 
     event.preventDefault(); // stop the page from scrolling while a drag is actively in progress
     this.touchDrag.move(touch.clientX, touch.clientY);
+    this.touchDragGhost.move(touch.clientX, touch.clientY);
   }
 
   protected onTouchEnd(event: TouchEvent): void {
@@ -571,6 +575,7 @@ export class AttractionCardComponent {
       // drop and clears TouchDragService's state via consume(). This scheduled cancel() only
       // matters if nothing consumed the drag (e.g. it was released outside any timeline).
       setTimeout(() => this.touchDrag.cancel(), 0);
+      this.touchDragGhost.hide();
     }
     this.touchStart = null;
     this.touchScrollAncestor = null;
@@ -582,6 +587,7 @@ export class AttractionCardComponent {
     this.touchStart = null;
     this.touchScrollAncestor = null;
     this.touchDrag.cancel();
+    this.touchDragGhost.hide();
   }
 
   private clearTouchArmTimer(): void {

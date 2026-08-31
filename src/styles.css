@@ -1509,6 +1509,26 @@ app-nav { display: block; }
   font-variant-numeric: tabular-nums;
 }
 
+/* Mobile touch-drag ghost pill (TouchDragGhostComponent, mounted once at root in
+   ShellComponent) — the "what am I dragging" clone that desktop gets for free from native
+   HTML5 drag's auto drag-image. .tl-drag-bubble above only ever told you WHEN a drop would
+   land; this tells you WHAT is being dragged. Positioned via left/top (js-driven, matches the
+   raw touch clientX/clientY) rather than transform:translate to keep the follow perfectly
+   1:1 with the finger on every touchmove. z-index 2000 clears the mobile attractions bottom
+   sheet (.att-sheet, 200) it's commonly dragged out of, and everything else short of a true
+   modal overlay (highlight-tour veil is the only thing above it, and the two never coexist). */
+.touch-drag-ghost {
+  position: fixed; z-index: 2000;
+  transform: translate(-50%, -130%);
+  display: flex; align-items: center; gap: 6px;
+  background: var(--t1); color: #fff; font-size: 12px; font-weight: 700;
+  padding: 6px 12px; border-radius: 99px; pointer-events: none;
+  box-shadow: var(--sh-lg); opacity: .92;
+  max-width: 220px; white-space: nowrap;
+}
+.touch-drag-ghost-icon { font-size: 15px; line-height: 1; flex: none; }
+.touch-drag-ghost-label { overflow: hidden; text-overflow: ellipsis; }
+
 .tl-free {
   position: absolute;
   left: 50px;
