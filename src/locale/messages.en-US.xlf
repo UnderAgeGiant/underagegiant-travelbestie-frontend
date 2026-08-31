@@ -1356,6 +1356,10 @@
         <source>Cerrar</source>
         <target>Close</target>
       </trans-unit>
+      <trans-unit id="dest.addAttractionsToggleHeight" datatype="html">
+        <source>Expandir o contraer</source>
+        <target>Expand or collapse</target>
+      </trans-unit>
       <trans-unit id="nav.sharePlan" datatype="html">
         <source>Publicar</source>
         <target>Publish</target>

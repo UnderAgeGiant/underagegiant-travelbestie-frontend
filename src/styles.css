@@ -2210,26 +2210,55 @@ app-nav { display: block; }
 .timeline-panel.timeline-accent .tl-head { background: var(--lav); border-radius: 10px 10px 0 0; }
 .tl-day-city { font-size: 11px; line-height: 1; margin-bottom: 1px; }
 
-/* Mobile 'Ir arriba' FAB */
+/* Mobile 'Ir arriba' FAB — positioned relative to .att-sheet (not the viewport): the sheet no
+   longer covers the full screen, so a viewport-anchored fixed FAB would float in the exposed
+   area above it instead of sitting inside the scrollable list it controls. */
 .scroll-top-fab {
-  position: fixed; right: 16px; bottom: 84px; z-index: 60;
+  position: absolute; right: 16px; bottom: 20px; z-index: 60;
   width: 44px; height: 44px; border-radius: 50%;
   background: var(--lav-d); color: #fff; border: none;
   font-size: 20px; line-height: 1; cursor: pointer;
   box-shadow: var(--sh-lg);
 }
 
-/* Mobile attractions full-screen modal */
-.att-modal-backdrop {
-  position: fixed; inset: 0; z-index: 200; background: rgba(15,10,30,0.5);
-  display: flex; align-items: stretch; justify-content: stretch;
+/* Mobile attractions BOTTOM SHEET (was a fullscreen modal — see the component's own doc
+   comment for why: a fullscreen overlay completely hid tb-day-timeline underneath, so
+   dragging an attraction onto it had no visible target to aim at even though the drag
+   mechanism itself worked). Deliberately no backdrop/scrim over the exposed area above the
+   sheet — that area (the day timeline) must stay fully interactive, not just visible. */
+.att-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+  height: 58vh; max-height: 58vh;
+  background: var(--cream);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 32px oklch(0% 0 0/.22);
+  display: flex; flex-direction: column;
+  transition: height .3s cubic-bezier(.4,0,.2,1), max-height .3s cubic-bezier(.4,0,.2,1);
 }
-.att-modal {
-  position: relative; background: var(--cream); width: 100%; height: 100%;
-  overflow-y: auto; padding: 44px 14px 24px;
+.att-sheet.expanded { height: 92vh; max-height: 92vh; }
+.att-sheet-handle {
+  flex-shrink: 0; width: 100%; padding: 10px 0 6px;
+  background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
 }
+.att-sheet-handle-bar {
+  width: 40px; height: 4px; border-radius: 99px;
+  background: var(--border);
+  transition: background .15s;
+}
+.att-sheet-handle:hover .att-sheet-handle-bar,
+.att-sheet-handle:active .att-sheet-handle-bar { background: var(--lav-d); }
+.att-sheet-body {
+  position: relative;
+  flex: 1; min-height: 0;
+  overflow-y: auto;
+  padding: 4px 14px 24px;
+}
+/* Anchored to the sheet's own top-right corner (not the viewport, like the old fullscreen
+   modal used) — position:fixed with a viewport offset would float disconnected from the
+   sheet now that the sheet itself only occupies the bottom portion of the screen. */
 .att-modal-close {
-  position: fixed; top: 10px; right: 12px; z-index: 210;
+  position: absolute; top: 8px; right: 12px; z-index: 210;
   background: #fff; border: 1px solid var(--border); border-radius: 50%;
   width: 34px; height: 34px; font-size: 16px; cursor: pointer;
   box-shadow: var(--sh-md);
