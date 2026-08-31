@@ -26,7 +26,6 @@ import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { HighlightTourComponent } from '../../shared/highlight-tour/highlight-tour.component';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
-import { TouchDragGhostComponent } from '../../shared/touch-drag-ghost/touch-drag-ghost.component';
 
 @Component({
     selector: 'tb-shell',
@@ -49,7 +48,6 @@ import { TouchDragGhostComponent } from '../../shared/touch-drag-ghost/touch-dra
         TravelDocsReminderComponent,
         AutosaveReminderBannerComponent,
         HighlightTourComponent,
-        TouchDragGhostComponent,
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -118,8 +116,6 @@ import { TouchDragGhostComponent } from '../../shared/touch-drag-ghost/touch-dra
     <app-travel-docs-reminder />
 
     <app-highlight-tour />
-
-    <app-touch-drag-ghost />
 
     @if (toastService.message()) {
       <app-toast [message]="toastService.message()!" (done)="toastService.clear()" />

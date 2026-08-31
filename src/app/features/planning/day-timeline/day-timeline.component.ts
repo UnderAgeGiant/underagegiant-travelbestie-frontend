@@ -4,7 +4,6 @@ import {
 } from '@angular/core';
 import { DeviceService } from '../../../core/device/device.service';
 import { TouchDragService } from '../../../core/utils/touch-drag.service';
-import { TouchDragGhostService } from '../../../core/utils/touch-drag-ghost.service';
 import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.util';
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
@@ -821,7 +820,6 @@ export class DayTimelineComponent {
   private static readonly TOUCH_MOVE_CANCEL_PX = 10;
 
   private readonly touchDrag = inject(TouchDragService);
-  private readonly touchDragGhost = inject(TouchDragGhostService);
   private blockTouchArmTimer: ReturnType<typeof setTimeout> | null = null;
   private blockTouchArmed = false;
   private blockTouchStart: { x: number; y: number } | null = null;
@@ -842,8 +840,6 @@ export class DayTimelineComponent {
     this.blockTouchArmTimer = setTimeout(() => {
       this.blockTouchArmed = true;
       this.draggingEntryId.set(entryId);
-      const block = this.blocks().find(b => b.entryId === entryId);
-      if (block) this.touchDragGhost.show(block.icon, block.name, touch.clientX, touch.clientY);
     }, DayTimelineComponent.TOUCH_ARM_DELAY_MS);
   }
 
@@ -870,7 +866,6 @@ export class DayTimelineComponent {
       top:  (snappedMin - TL_H0 * 60) / 60 * TL_RH,
       time: minutesToHm(snappedMin),
     });
-    this.touchDragGhost.move(touch.clientX, touch.clientY);
   }
 
   protected onBlockTouchEnd(event: TouchEvent): void {
@@ -890,7 +885,6 @@ export class DayTimelineComponent {
     this.blockTouchScrollAncestor = null;
     this.draggingEntryId.set(null);
     this.dragPreview.set(null);
-    this.touchDragGhost.hide();
   }
 
   protected onBlockTouchCancel(): void {
@@ -901,7 +895,6 @@ export class DayTimelineComponent {
     this.blockTouchScrollAncestor = null;
     this.draggingEntryId.set(null);
     this.dragPreview.set(null);
-    this.touchDragGhost.hide();
   }
 
   private clearBlockTouchArmTimer(): void {
