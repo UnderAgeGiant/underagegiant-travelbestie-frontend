@@ -1,10 +1,11 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, from, of, timer } from 'rxjs';
-import { switchMap, tap, first, map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { Observable, from, of, timer, throwError } from 'rxjs';
+import { switchMap, tap, first, map, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
+import { WeatherDay } from '../models/weather.model';
 import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
@@ -470,5 +471,36 @@ export class ApiService {
   getPendingInvites(): Observable<PendingCollaboratorInvite[]> {
     if (this.useMocks) return of([]);
     return this.http.get<PendingCollaboratorInvite[]>(`${this.base}/trips/invites`);
+  }
+
+  getWeather(
+    cityId: string,
+    checkIn: string,
+    checkOut: string,
+    ifNoneMatch?: string,
+  ): Observable<{ status: number; days: WeatherDay[] | null; etag: string | null }> {
+    if (this.useMocks) {
+      return of({
+        status: 200,
+        etag: 'mock-etag',
+        days: [{ date: checkIn, type: 'forecast', tempMaxC: 22, tempMinC: 13, weatherCode: 1 }],
+      });
+    }
+
+    const params = new HttpParams().set('cityId', cityId).set('checkIn', checkIn).set('checkOut', checkOut);
+    const headers = ifNoneMatch ? new HttpHeaders({ 'If-None-Match': ifNoneMatch }) : undefined;
+
+    return this.http
+      .get<{ days: WeatherDay[] }>(`${this.base}/weather`, { params, headers, observe: 'response' })
+      .pipe(
+        map(res => ({ status: res.status, days: res.body?.days ?? null, etag: res.headers.get('ETag') })),
+        catchError((err: HttpErrorResponse) => {
+          // Angular's HttpClient routes any non-2xx status, 304 included, through
+          // the error channel — fold a real 304 back into a normal return value
+          // so WeatherService (Task 11) never has to special-case HttpErrorResponse.
+          if (err.status === 304) return of({ status: 304, days: null, etag: ifNoneMatch ?? null });
+          return throwError(() => err);
+        }),
+      );
   }
 }
