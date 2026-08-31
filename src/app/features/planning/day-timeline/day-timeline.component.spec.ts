@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { DayTimelineComponent } from './day-timeline.component';
 import { TripService } from '../../trip/trip.service';
 import { City } from '../../../core/models/city.model';
@@ -820,5 +820,57 @@ describe('DayTimelineComponent — touch drag-in a new attraction (mobile, cross
 
     expect(touchDrag.state()).toBeNull();
     expect(component['dragPreview']()).toBeNull();
+  });
+});
+
+describe('DayTimelineComponent — weather chip trigger', () => {
+  let trip: TripService;
+  let http: HttpTestingController;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    installMatchMediaMock(false);
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    http = TestBed.inject(HttpTestingController);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    fixture.detectChanges();
+  });
+
+  it('requests weather for a stop as soon as it is added', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const req = http.expectOne(r => r.url.includes('/weather') && r.params.get('cityId') === 'paris');
+    expect(req.request.params.get('checkIn')).toBe('01/06/2026');
+    expect(req.request.params.get('checkOut')).toBe('05/06/2026');
+    req.flush({ days: [] }, { headers: { ETag: '"etag-1"' } });
+  });
+
+  it('does not re-request when an unrelated signal changes (e.g. selecting a different day tab)', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush({ days: [] }, { headers: { ETag: '"etag-1"' } });
+
+    (fixture.componentInstance as any).selectDay('01/06'); // doesn't touch any stop's cityId/checkIn/checkOut
+    fixture.detectChanges();
+    http.expectNone(r => r.url.includes('/weather'));
+  });
+
+  it('requests again when the stop dates change', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush({ days: [] }, { headers: { ETag: '"etag-1"' } });
+
+    trip.updateDates(trip.activeStop()!.stopId, '02/06/2026', '06/06/2026');
+    fixture.detectChanges();
+
+    const req = http.expectOne(r => r.url.includes('/weather'));
+    expect(req.request.params.get('checkIn')).toBe('02/06/2026');
+    req.flush({ days: [] }, { headers: { ETag: '"etag-2"' } });
   });
 });

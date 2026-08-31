@@ -1434,6 +1434,32 @@ app-nav { display: block; }
 }
 .tl-day-dot.empty { background: transparent; }
 
+.tl-day-weather {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 2px;
+  font-size: 10px;
+  line-height: 1;
+  position: relative;
+}
+.tl-day-weather-icon { filter: none; }
+.tl-day-weather-historic .tl-day-weather-icon { filter: grayscale(1); opacity: .75; }
+.tl-day-weather-temp { color: var(--t3); font-weight: 600; }
+.tl-day-weather-mark {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--t3);
+  background: var(--border);
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1px;
+}
+
 .tl-grid-wrap {
   flex: 1;
   min-height: 0;

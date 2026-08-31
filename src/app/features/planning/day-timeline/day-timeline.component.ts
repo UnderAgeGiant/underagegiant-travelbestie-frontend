@@ -21,6 +21,8 @@ import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.u
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
 import { NEW_ATTRACTION_MIME, RESCHEDULE_MIME, NewAttractionDragPayload, RescheduleDragPayload, snapMinutesFromOffset, minutesToHm } from '../../../core/utils/day-timeline-drag.util';
+import { WeatherService } from '../../../core/weather/weather.service';
+import { getWeatherCodeMeta } from '../../../core/models/weather.model';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -184,6 +186,14 @@ function transitLabel(mode: TransitMode): string {
                 <div class="tl-day-dow">{{ day.dow }}</div>
                 <div class="tl-day-num">{{ day.num }}</div>
                 <div [ngClass]="['tl-day-dot', day.hasEvents ? '' : 'empty']"></div>
+                @if (weatherChip()[day.key + ':' + day.cityId]; as w) {
+                  <div class="tl-day-weather" [ngClass]="{ 'tl-day-weather-historic': w.type === 'historic' }"
+                       [attr.title]="w.type === 'historic' ? historicTooltip : null">
+                    <span class="tl-day-weather-icon">{{ w.icon }}</span>
+                    <span class="tl-day-weather-temp">{{ w.tempMaxC }}°</span>
+                    @if (w.type === 'historic') { <span class="tl-day-weather-mark">?</span> }
+                  </div>
+                }
               </button>
             }
           </div>
@@ -321,6 +331,7 @@ export class DayTimelineComponent {
   private  readonly api     = inject(ApiService);
   private  readonly karmaModal = inject(KarmaModalService);
   private  readonly locale     = inject(LocaleService);
+  private  readonly weather    = inject(WeatherService);
   protected readonly exporting = signal(false);
 
   // ── Collapse / expand ─────────────────────────────────────────────────────
@@ -334,6 +345,7 @@ export class DayTimelineComponent {
   expand(): void { this.collapsed.set(false); }
 
   private lastStopId: string | null = null;
+  private lastWeatherSignature: string | null = null;
 
   // ── Active stop + transits (input override or service) ────────────────────
   private activeStop(): TripStop | null {
@@ -394,6 +406,25 @@ export class DayTimelineComponent {
     return tabs;
   });
 
+  // ── Weather chip per day-tab ────────────────────────────────────────────────
+  // Recomputed whenever weather.dayMap() changes, keyed the same way days() is,
+  // so the template can do a plain lookup per day-tab without a method call
+  // that would re-run getWeatherCodeMeta on every change-detection pass.
+  protected readonly weatherChip = computed(() => {
+    this.weather.dayMap(); // establish the reactive dependency
+    const map: Record<string, { icon: string; tempMaxC: number; type: 'forecast' | 'historic' } | null> = {};
+    for (const day of this.days()) {
+      const fullDate = this.fmtDate(day.date);
+      const w = this.weather.get(day.cityId, fullDate);
+      map[day.key + ':' + day.cityId] = (w && w.type !== 'unavailable' && w.tempMaxC !== undefined)
+        ? { icon: getWeatherCodeMeta(w.weatherCode!).icon, tempMaxC: Math.round(w.tempMaxC), type: w.type }
+        : null;
+    }
+    return map;
+  });
+
+  protected readonly historicTooltip = $localize`:@@timeline.weatherHistoricTooltip:Estimado según el clima del mismo día el año pasado — no es un pronóstico real.`;
+
   // The stop that owns the currently-selected day (for trip-wide tabs).
   private readonly selectedStopForDay = computed<TripStop | null>(() => {
     const key   = this.selectedDay();
@@ -434,6 +465,30 @@ export class DayTimelineComponent {
       const day = this.selectedDay();
       if (!day) return;
       setTimeout(() => this.scrollToFirstBlock(), 50);
+    });
+
+    // ── Weather fetch trigger ────────────────────────────────────────────────
+    // Fetches weather for every relevant stop whenever the *set* of
+    // (cityId, checkIn, checkOut) tuples actually changes — not on every
+    // stops() mutation (same "don't re-derive on every signal write"
+    // discipline as the day-tab-selection effect above). More than one
+    // DayTimelineComponent instance can be mounted at once (the trip-wide
+    // instance plus an inline per-stop instance), so this effect only needs
+    // to call load() for THIS instance's relevant stop(s) — WeatherService
+    // de-duplicates concurrent identical requests itself.
+    effect(() => {
+      const stops = this.stop() ? [this.stop()!] : this.trip.stops();
+      const signature = stops
+        .filter(s => s.checkIn && s.checkOut)
+        .map(s => `${s.cityId}|${s.checkIn}|${s.checkOut}`)
+        .join(',');
+      if (signature === this.lastWeatherSignature) return;
+      this.lastWeatherSignature = signature;
+
+      for (const stop of stops) {
+        if (!stop.checkIn || !stop.checkOut) continue;
+        this.weather.load(stop.cityId, stop.checkIn, stop.checkOut);
+      }
     });
   }
 
