@@ -1315,6 +1315,10 @@
         <source>Ver itinerario del plan</source>
         <target>View plan itinerary</target>
       </trans-unit>
+      <trans-unit id="timeline.weatherHistoricTooltip" datatype="html">
+        <source>Estimado según el clima del mismo día el año pasado — no es un pronóstico real.</source>
+        <target>Estimated from the same day's weather last year — not a real forecast.</target>
+      </trans-unit>
 
       <!-- ── event date/time ── -->
       <trans-unit id="attCard.eventDateTime" datatype="html">
