@@ -12,10 +12,16 @@ import { formatEventChip } from '../../../core/utils/event-datetime.util';
 import { attractionMapsUrl } from '../../../core/maps/google-maps-url.util';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { ToastService } from '../../../core/ui/toast.service';
+import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-icon.component';
+import { isMustSeeAttraction } from '../../../core/utils/must-see.util';
+import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/utils/day-timeline-drag.util';
+import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { DeviceService } from '../../../core/device/device.service';
+import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.util';
 
 @Component({
     selector: 'app-attraction-card',
-    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent],
+    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent, MapsPinIconComponent],
     styles: [`
     .att-card {
       padding: 0 !important;
@@ -154,10 +160,24 @@ import { ToastService } from '../../../core/ui/toast.service';
       border: 1px solid var(--peach);
       font-variant-numeric: tabular-nums;
     }
+    .card-must-see-badge {
+      position: absolute; top: 8px; left: 8px; z-index: 2;
+      background: oklch(85% .14 85); color: oklch(32% .12 85);
+      font-size: 10px; font-weight: 800; padding: 3px 8px;
+      border-radius: 99px; box-shadow: var(--sh);
+    }
+    /* See the onTouchStart/onTouchMove CRITICAL comment below and
+       core/utils/scroll-passthrough.util.ts for why this is required — without it, a real touch
+       device commits to native-scrolling the list on the first touchmove, before our long-press
+       timer ever arms, and drag never engages no matter what the JS below does. */
+    .att-card { touch-action: none; }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
-    <div class="att-card" [style.background-color]="categoryBg()" (click)="showDetailModal.set(true)">
+    <div class="att-card" [attr.draggable]="device.isMobile() ? null : true" [style.background-color]="categoryBg()"
+         (click)="showDetailModal.set(true)" (dragstart)="onDragStart($event)"
+         (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+         (touchend)="onTouchEnd($event)" (touchcancel)="onTouchCancel()">
       <!-- Image / visual area -->
       <div class="card-visual" [style.background-color]="attraction().bg">
         @if (attraction().imageUrl && !imgError()) {
@@ -171,6 +191,9 @@ import { ToastService } from '../../../core/ui/toast.service';
         }
         <div class="card-gradient"></div>
         <div class="card-frame"></div>
+        @if (isMustSee()) {
+          <div class="card-must-see-badge" i18n="@@attCard.mustSee">⭐ Imperdible</div>
+        }
 
         <!-- Plan button — top-right; opens edit when single entry, add when none/multiple -->
         <button [class]="'card-plan-btn ' + (inPlan() ? 'planned' : 'idle')"
@@ -237,7 +260,7 @@ import { ToastService } from '../../../core/ui/toast.service';
             </div>
           }
           <div class="att-preview-enrich">
-            <span class="att-enrich-icon">📍</span>
+            <span class="att-enrich-icon"><app-maps-pin-icon /></span>
             <a class="att-enrich-value att-enrich-link"
                [attr.href]="mapsUrl()"
                target="_blank" rel="noopener noreferrer"
@@ -341,6 +364,7 @@ export class AttractionCardComponent {
 
   readonly activeStop   = computed(() => this.trip.activeStop());
   readonly categoryBg   = computed(() => getCategoryMeta()[this.attraction().category]?.bg ?? '#E8F0FD');
+  protected readonly isMustSee = computed(() => isMustSeeAttraction(this.attraction()));
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 
@@ -441,5 +465,126 @@ export class AttractionCardComponent {
 
   toggleTicketPurchased(entryId: string, purchased: boolean): void {
     this.trip.setTicketPurchased(this.stopId(), entryId, purchased);
+  }
+
+  protected onDragStart(event: DragEvent): void {
+    event.dataTransfer?.setData(NEW_ATTRACTION_MIME, JSON.stringify(this.dragPayload()));
+    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'copy';
+  }
+
+  private dragPayload(): NewAttractionDragPayload {
+    return {
+      attractionId: this.attraction().id,
+      category: this.attraction().category,
+      estimatedMinutes: this.attraction().estimatedMinutes,
+    };
+  }
+
+  // ── Touch drag-and-drop (family feedback: "the move/drag is not allowed on mobile") ────────
+  // Native HTML5 Drag and Drop (draggable="true" + dragstart above) never fires from touch
+  // input on any mobile browser, so mobile needs its own gesture handling, coordinated with
+  // DayTimelineComponent through TouchDragService (see that service's doc comment for why a
+  // shared service, not a DOM event, is the coordination channel here).
+  //
+  // CRITICAL — the template's `[attr.draggable]` binding must stay OFF on mobile
+  // (`device.isMobile() ? null : true`, not a bare `draggable="true"`): WebKit/iOS Safari
+  // (and several Android WebViews) give a `draggable="true"` element its OWN native
+  // touch-driven long-press-then-drag recognition. Leaving the attribute on unconditionally
+  // means that native gesture and the custom touchstart/touchmove/touchend handlers below are
+  // both trying to interpret the exact same touch sequence on the exact same element, and the
+  // native one wins — this was the actual root cause of "drag still doesn't work on mobile"
+  // after the first touch-support pass, which added the handlers below but left the attribute
+  // unconditional. Root-caused via superpowers:systematic-debugging, not guessed.
+  //
+  // A short delay before "arming" the drag (rather than starting it the instant a finger moves,
+  // like desktop's native drag does) is what lets a normal tap-to-open or a vertical swipe-to-
+  // scroll keep working: if the finger moves more than a few pixels before the timer fires, this
+  // is treated as a scroll, not a drag-and-drop gesture, and the timer is simply cancelled.
+  //
+  // CRITICAL — `.att-card` carries `touch-action: none` (see the styles block above). Without
+  // it, a real touch device decides scroll-vs-drag from the FIRST touchmove of the gesture — long
+  // before this timer ever fires — and once it commits to a native scroll, this component calling
+  // `preventDefault()` later (once armed) does nothing; the list just keeps scrolling under the
+  // finger and no drag starts. `touch-action: none` hands 100% of that decision to this component
+  // instead. The trade-off is that the browser no longer scrolls on its own for a touch that
+  // starts on a card, so the pre-armed branch below replays the vertical delta by hand onto the
+  // nearest real scrollable ancestor (`findScrollableAncestor`) to keep a plain swipe feeling
+  // exactly like a normal scroll. Root-caused via superpowers:systematic-debugging after a synthetic
+  // (JS-dispatched) TouchEvent test had looked fully working but a real phone still couldn't drag
+  // — synthetic dispatch never exercises the real browser scroll-commit race this depends on.
+  private static readonly TOUCH_ARM_DELAY_MS = 350;
+  private static readonly TOUCH_MOVE_CANCEL_PX = 10;
+
+  protected readonly device  = inject(DeviceService);
+  private readonly touchDrag = inject(TouchDragService);
+  private touchArmTimer: ReturnType<typeof setTimeout> | null = null;
+  private touchArmed = false;
+  private touchStart: { x: number; y: number } | null = null;
+  private touchScrollAncestor: HTMLElement | null = null;
+  private lastTouchY = 0;
+
+  protected onTouchStart(event: TouchEvent): void {
+    if (!this.device.isMobile()) return;
+    const touch = event.touches[0];
+    if (!touch) return;
+    this.touchStart = { x: touch.clientX, y: touch.clientY };
+    this.lastTouchY = touch.clientY;
+    this.touchScrollAncestor = findScrollableAncestor(event.currentTarget as HTMLElement);
+    this.touchArmed = false;
+    this.clearTouchArmTimer();
+    this.touchArmTimer = setTimeout(() => {
+      this.touchArmed = true;
+      this.touchDrag.start(NEW_ATTRACTION_MIME, JSON.stringify(this.dragPayload()), touch.clientX, touch.clientY);
+    }, AttractionCardComponent.TOUCH_ARM_DELAY_MS);
+  }
+
+  protected onTouchMove(event: TouchEvent): void {
+    if (!this.device.isMobile()) return;
+    const touch = event.touches[0];
+    if (!touch || !this.touchStart) return;
+
+    if (!this.touchArmed) {
+      const dx = touch.clientX - this.touchStart.x;
+      const dy = touch.clientY - this.touchStart.y;
+      if (Math.hypot(dx, dy) > AttractionCardComponent.TOUCH_MOVE_CANCEL_PX) this.clearTouchArmTimer();
+      // Native scrolling is disabled on this element (`touch-action: none`) — replay the
+      // vertical delta by hand so a plain swipe that never reaches the long-press threshold
+      // still scrolls the list normally.
+      if (this.touchScrollAncestor) this.touchScrollAncestor.scrollTop -= (touch.clientY - this.lastTouchY);
+      this.lastTouchY = touch.clientY;
+      return;
+    }
+
+    event.preventDefault(); // stop the page from scrolling while a drag is actively in progress
+    this.touchDrag.move(touch.clientX, touch.clientY);
+  }
+
+  protected onTouchEnd(event: TouchEvent): void {
+    this.clearTouchArmTimer();
+    if (this.touchArmed) {
+      // Suppresses the synthetic `click` mobile browsers fire after touchend — without this,
+      // finishing a drag also reopened the attraction detail modal underneath the finger.
+      event.preventDefault();
+      this.touchArmed = false;
+      // Safety net only: DayTimelineComponent's window:touchend listener is a later (bubble-phase)
+      // listener for this SAME event and runs first — it's the one that actually resolves the
+      // drop and clears TouchDragService's state via consume(). This scheduled cancel() only
+      // matters if nothing consumed the drag (e.g. it was released outside any timeline).
+      setTimeout(() => this.touchDrag.cancel(), 0);
+    }
+    this.touchStart = null;
+    this.touchScrollAncestor = null;
+  }
+
+  protected onTouchCancel(): void {
+    this.clearTouchArmTimer();
+    this.touchArmed = false;
+    this.touchStart = null;
+    this.touchScrollAncestor = null;
+    this.touchDrag.cancel();
+  }
+
+  private clearTouchArmTimer(): void {
+    if (this.touchArmTimer !== null) { clearTimeout(this.touchArmTimer); this.touchArmTimer = null; }
   }
 }

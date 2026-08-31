@@ -37,7 +37,8 @@ type Step = 'preferences' | 'options' | 'result';
 
       @if (showProfile()) {
         <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false)" />
+                     (openAiPlanning)="showProfile.set(false)"
+                     (openMyTrips)="showProfile.set(false)" />
       }
 
       <div class="shared-body">
@@ -200,7 +201,7 @@ type Step = 'preferences' | 'options' | 'result';
                          placeholder="Ej: 14" />
                 </div>
                 <div class="ai-plan-field">
-                  <label class="ai-plan-label" i18n="@@aiplan.budgetLabel">Presupuesto estimado</label>
+                  <label class="ai-plan-label" i18n="@@aiplan.budgetLabel">Presupuesto estimado para todo el viaje</label>
                   <input class="form-input"
                          type="text"
                          [value]="budget()"

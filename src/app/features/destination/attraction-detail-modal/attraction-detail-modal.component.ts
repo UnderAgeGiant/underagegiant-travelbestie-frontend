@@ -22,10 +22,11 @@ import { localizedDescription } from '../../../core/utils/attraction-description
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { ToastService } from '../../../core/ui/toast.service';
 import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/attraction-image-lightbox.component';
+import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-icon.component';
 
 @Component({
     selector: 'app-attraction-detail-modal',
-    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent],
+    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent, MapsPinIconComponent],
     styles: [`
     .detail-modal {
       background: #fff;
@@ -248,7 +249,7 @@ import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/a
                 </div>
               }
               <div class="att-preview-enrich">
-                <span class="att-enrich-icon">📍</span>
+                <span class="att-enrich-icon"><app-maps-pin-icon /></span>
                 <a class="att-enrich-value att-enrich-link"
                    [attr.href]="mapsUrl()"
                    target="_blank" rel="noopener noreferrer"

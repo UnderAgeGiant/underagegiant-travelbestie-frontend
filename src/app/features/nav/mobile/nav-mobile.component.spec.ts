@@ -5,6 +5,7 @@ import { provideRouter } from '@angular/router';
 import { NavMobileComponent } from './nav-mobile.component';
 import { NavFacadeService } from '../nav-facade.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
+import { SharedTrip } from '../../../core/shared-trips/shared-trips.service';
 
 describe('NavMobileComponent — loading a saved plan from the drawer', () => {
   let fixture: ComponentFixture<NavMobileComponent>;
@@ -78,5 +79,98 @@ describe('NavMobileComponent — signing out from the drawer', () => {
     expect(logoutSpy).toHaveBeenCalled();
     expect(fixture.componentInstance.drawerOpen()).toBe(false);
     expect(fixture.nativeElement.querySelector('.nav-m-drawer')).toBeNull();
+  });
+});
+
+describe('NavMobileComponent — opening Comprar Karma from the drawer', () => {
+  let fixture: ComponentFixture<NavMobileComponent>;
+  let facade: NavFacadeService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+
+    fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+    fixture.detectChanges();
+  });
+
+  afterEach(() => TestBed.inject(HttpTestingController).verify());
+
+  // Regression test — the "Comprar Karma" button in the drawer used to call facade.openBuyKarma()
+  // directly without closing drawerOpen. With z-index raised to 950/951, the drawer backdrop/panel
+  // would obscure the karma-purchase modal underneath (z-index 400), making it inaccessible. This
+  // test verifies the button now closes the drawer as it opens the modal.
+  it('closes the drawer and opens buy karma modal when Comprar Karma is clicked', () => {
+    const openBuyKarmaSpy = jest.spyOn(facade, 'openBuyKarma').mockImplementation(() => {});
+    const karmaBtn = Array.from(fixture.nativeElement.querySelectorAll('.up-plans-btn'))
+      .find((btn: any) => btn.textContent.includes('Comprar Karma')) as HTMLButtonElement;
+    expect(karmaBtn).toBeTruthy();
+
+    karmaBtn.click();
+    fixture.detectChanges();
+
+    expect(openBuyKarmaSpy).toHaveBeenCalled();
+    expect(fixture.componentInstance.drawerOpen()).toBe(false);
+    expect(fixture.nativeElement.querySelector('.nav-m-drawer')).toBeNull();
+  });
+});
+
+describe('NavMobileComponent — selecting a shared trip from the drawer', () => {
+  let fixture: ComponentFixture<NavMobileComponent>;
+  let facade: NavFacadeService;
+
+  const SHARED: SharedTrip = {
+    id: 'share-1', ownerEmail: 'a@b.com', ownerName: 'Ana', tripName: 'Roma 2026',
+    createdAt: '2026-07-01T00:00:00Z', stops: [], transits: [],
+  };
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+    facade.navSharedTrips.set([SHARED]);
+
+    fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+    fixture.detectChanges();
+  });
+
+  afterEach(() => TestBed.inject(HttpTestingController).verify());
+
+  // Regression test — the shared-trip search-result row used to call facade.openSharedTrip(id)
+  // directly, never closing drawerOpen, so navigating to the trip left the drawer covering it.
+  it('closes the drawer and navigates when a shared-trip search result is clicked', () => {
+    const openSharedTripSpy = jest.spyOn(facade, 'openSharedTrip').mockImplementation(() => {});
+    const row = fixture.nativeElement.querySelector('.up-shared-trip-row') as HTMLButtonElement;
+    expect(row).toBeTruthy();
+
+    row.click();
+    fixture.detectChanges();
+
+    expect(openSharedTripSpy).toHaveBeenCalledWith('share-1');
+    expect(fixture.componentInstance.drawerOpen()).toBe(false);
+    expect(fixture.nativeElement.querySelector('.nav-m-drawer')).toBeNull();
+  });
+
+  // Same bug, the favorites/"mis viajes publicados" panel's rows share the same handler
+  // (goToSharedTrip) — verified directly on the component since driving through the
+  // accordion-expand UI to reach the same code path adds no extra coverage.
+  it('onGoToShared closes the drawer and delegates to facade.goToSharedTrip', () => {
+    const goToSharedTripSpy = jest.spyOn(facade, 'goToSharedTrip').mockImplementation(() => {});
+
+    fixture.componentInstance.onGoToShared('share-2');
+
+    expect(goToSharedTripSpy).toHaveBeenCalledWith('share-2');
+    expect(fixture.componentInstance.drawerOpen()).toBe(false);
   });
 });

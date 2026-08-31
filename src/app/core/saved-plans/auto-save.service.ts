@@ -119,7 +119,7 @@ export class AutoSaveService {
     const email = this.auth.currentUser()?.email;
     const name  = this.savedPlans.plans().find(p => p.id === planId)?.name;
     if (!email || !name) return;
-    this.savedPlans.upsert(email, planId, name, this.trip.stops(), this.trip.transits()).subscribe({
+    this.savedPlans.upsert(email, planId, name, this.trip.stops(), this.trip.transits(), { background: true }).subscribe({
       next: () => this.commitSnapshot(planId),
       // Silent on failure — this is a background convenience save, not a user-initiated
       // action; the next tick will simply retry since the snapshot was never committed.

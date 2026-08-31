@@ -1,8 +1,9 @@
-import { Component, output, signal, OnInit, OnDestroy, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, output, signal, computed, OnInit, OnDestroy, ChangeDetectionStrategy, inject } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
 import { HighlightTargetDirective } from '../../shared/highlight-tour/highlight-target.directive';
+import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 
 @Component({
     selector: 'app-welcome',
@@ -27,6 +28,12 @@ import { HighlightTargetDirective } from '../../shared/highlight-tour/highlight-
                   i18n="@@welcome.ctaCreateAi">🐾 Crear con IA</button>
           <button class="welcome-cta welcome-cta-karma" (click)="howKarmaOpen.set(true)"
                   i18n="@@welcome.ctaHowKarma">⭐ Cómo ganar Karma</button>
+          @if (lastEditedPlan(); as plan) {
+            <button class="welcome-cta welcome-cta-last" (click)="loadLastEditedPlan.emit(plan)">
+              <span i18n="@@welcome.ctaLastPlan">🕓 Último viaje que editaste</span>
+              <span class="welcome-cta-last-name">{{ plan.name }}</span>
+            </button>
+          }
         </div>
 
         @if (howKarmaOpen()) {
@@ -44,12 +51,23 @@ import { HighlightTargetDirective } from '../../shared/highlight-tour/highlight-
   `
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
+  private readonly auth = inject(AuthService);
+  private readonly savedPlans = inject(SavedPlansService);
+
   addDestination = output<void>();
   openAiPlanning = output<void>();
+  loadLastEditedPlan = output<SavedPlan>();
   slideIdx = signal(0);
   readonly slides = SLIDES;
   readonly howKarmaOpen = signal(false);
   private timer?: ReturnType<typeof setInterval>;
+
+  readonly lastEditedPlan = computed<SavedPlan | null>(() => {
+    if (!this.auth.isLoggedIn()) return null;
+    const plans = this.savedPlans.plans();
+    if (plans.length === 0) return null;
+    return [...plans].sort((a, b) => b.savedAt.localeCompare(a.savedAt))[0];
+  });
 
   prevSlide() { this.slideIdx.update(i => (i - 1 + this.slides.length) % this.slides.length); }
   nextSlide() { this.slideIdx.update(i => (i + 1) % this.slides.length); }

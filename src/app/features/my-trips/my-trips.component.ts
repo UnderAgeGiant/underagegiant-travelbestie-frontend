@@ -33,7 +33,8 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 
       @if (showProfile()) {
         <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()" />
+                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()"
+                     (openMyTrips)="showProfile.set(false)" />
       }
 
       <!-- Header bar -->

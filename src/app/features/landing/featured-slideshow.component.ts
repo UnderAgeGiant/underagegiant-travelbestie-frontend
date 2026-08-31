@@ -79,6 +79,7 @@ const CITY_COVER_PHOTOS: Record<string, string> = {
   <div [ngClass]="['s2-slide', activeIdx() === i ? 'active' : '']">
     <img [src]="coverUrl(trip)" [alt]="trip.tripName" />
     <div class="s2-overlay"></div>
+    <div class="s2-featured-badge" i18n="@@landing.featuredBadge">✨ ¡Plan destacado!</div>
     <div class="s2-content">
       <div class="s2-trip-block">
         <div class="s2-city-chips">

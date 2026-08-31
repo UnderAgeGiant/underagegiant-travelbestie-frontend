@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy, Component, computed, effect, ElementRef,
-  inject, input, signal, ViewChild,
+  HostListener, inject, input, signal, ViewChild,
 } from '@angular/core';
 import { DeviceService } from '../../../core/device/device.service';
+import { TouchDragService } from '../../../core/utils/touch-drag.service';
+import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.util';
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
 import { TripStop, PlannedAttraction, TransitLeg, TransitMode } from '../../../core/models/trip.model';
@@ -18,6 +20,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
+import { NEW_ATTRACTION_MIME, RESCHEDULE_MIME, NewAttractionDragPayload, RescheduleDragPayload, snapMinutesFromOffset, minutesToHm } from '../../../core/utils/day-timeline-drag.util';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -42,6 +45,9 @@ interface TimeBlock {
   icon:   string;
   name:   string;
   time:   string;
+  kind:   'attraction' | 'transit';
+  entryId?: string;
+  draggable?: boolean;
 }
 
 function hmToMin(hm: string): number {
@@ -51,6 +57,21 @@ function hmToMin(hm: string): number {
 
 function minToHm(min: number): string {
   return `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
+}
+
+/**
+ * A planned attraction's real duration in minutes: the explicit endTime-startTime gap when
+ * one was set, otherwise the curated catalog attraction's own suggested duration — NEVER a
+ * flat fallback. This must be the single source of truth for both what the block's HEIGHT
+ * shows (blocks()) and what a DRAG-TO-RESCHEDULE preserves (onGridDrop) — they used to
+ * disagree (blocks() fell back to att?.estimatedMinutes, onGridDrop's reschedule fell back to
+ * a flat 60), so dragging any attraction whose endTime was never explicitly set (the common
+ * case — see TripService.addAttraction's own comment on this) silently shrank/grew a visibly
+ * multi-hour block down to exactly 60 minutes on drop. Family feedback bugfix.
+ */
+function resolveDuration(a: PlannedAttraction, att: { estimatedMinutes?: number } | null): number {
+  if (a.startTime && a.endTime) return hmToMin(a.endTime) - hmToMin(a.startTime);
+  return att?.estimatedMinutes ?? 60;
 }
 
 function dateKey(d: Date): string {
@@ -118,26 +139,32 @@ function transitLabel(mode: TransitMode): string {
           {{ title() }}
         </div>
         <div class="tl-head-sub">{{ subtitle() }}</div>
-        @if (trip.loadedPlanId()) {
-          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
-                  [disabled]="exporting()" (click)="exportItinerary()" type="button"
-                  i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
-        }
-        @if (routeUrl()) {
-          <a class="btn-pill btn-outline tl-route-btn"
-             [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
-            <span i18n="@@timeline.dayRoute">🗺️ Ruta del día</span>
-          </a>
-        }
-        @if (blocks().length > 0) {
-          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
-                  (click)="daySlideshowOpen.set(true)" type="button"
-                  i18n="@@timeline.daySlideshow">🎬 Presentación del día</button>
-        }
-        @if (showPlanSlideshow() && planSlideItems().length > 0) {
-          <button class="btn-pill btn-outline" style="margin-top:6px;font-size:11px;padding:4px 12px"
-                  (click)="planSlideshowOpen.set(true)" type="button"
-                  i18n="@@timeline.planSlideshow">🎞️ Presentación del plan</button>
+        @if (trip.loadedPlanId() || routeUrl() || blocks().length > 0 || (showPlanSlideshow() && planSlideItems().length > 0)) {
+          <div class="tl-head-actions">
+            <!-- Day-scoped actions first (this component's own subject), then plan-scoped —
+                 grouped by what they act on, not the order they happened to be added in. -->
+            @if (routeUrl()) {
+              <a class="btn-pill btn-outline tl-head-action tl-route-btn"
+                 [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
+                <span i18n="@@timeline.dayRoute">🗺️ Ruta del día</span>
+              </a>
+            }
+            @if (blocks().length > 0) {
+              <button class="btn-pill btn-outline tl-head-action"
+                      (click)="daySlideshowOpen.set(true)" type="button"
+                      i18n="@@timeline.daySlideshow">🎬 Presentación del día</button>
+            }
+            @if (trip.loadedPlanId()) {
+              <button class="btn-pill btn-outline tl-head-action"
+                      [disabled]="exporting()" (click)="exportItinerary()" type="button"
+                      i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
+            }
+            @if (showPlanSlideshow() && planSlideItems().length > 0) {
+              <button class="btn-pill btn-outline tl-head-action"
+                      (click)="planSlideshowOpen.set(true)" type="button"
+                      i18n="@@timeline.planSlideshow">🎞️ Presentación del plan</button>
+            }
+          </div>
         }
       </div>
 
@@ -170,7 +197,8 @@ function transitLabel(mode: TransitMode): string {
 
       <!-- Hour grid -->
       <div class="tl-grid-wrap" #tlGridWrap>
-        <div class="tl-grid" [ngStyle]="{ height: gridHeight() + 'px' }">
+        <div class="tl-grid" #tlGridEl [ngStyle]="{ height: gridHeight() + 'px' }"
+             (dragover)="onGridDragOver($event)" (drop)="onGridDrop($event)">
 
           <!-- Hour lines -->
           @for (h of hours; track h) {
@@ -184,6 +212,14 @@ function transitLabel(mode: TransitMode): string {
           <!-- All blocks (attractions + transits) -->
           @for (block of blocks(); track block.name + block.top) {
             <div class="tl-block"
+                 [class.tl-block-draggable]="block.kind === 'attraction' && block.draggable"
+                 [attr.draggable]="block.kind === 'attraction' && block.draggable && !device.isMobile() ? true : null"
+                 (dragstart)="block.entryId && onBlockDragStart($event, block.entryId)"
+                 (dragend)="onBlockDragEnd()"
+                 (touchstart)="block.kind === 'attraction' && block.draggable && block.entryId && onBlockTouchStart($event, block.entryId)"
+                 (touchmove)="onBlockTouchMove($event)"
+                 (touchend)="onBlockTouchEnd($event)"
+                 (touchcancel)="onBlockTouchCancel()"
                  [ngStyle]="{
                    top:         block.top    + 'px',
                    height:      block.height + 'px',
@@ -197,6 +233,10 @@ function transitLabel(mode: TransitMode): string {
               </div>
               <div class="tl-block-time">{{ block.time }}</div>
             </div>
+          }
+
+          @if (dragPreview(); as dp) {
+            <div class="tl-drag-bubble" [ngStyle]="{ top: dp.top + 'px' }">{{ dp.time }}</div>
           }
 
           <!-- Empty day state -->
@@ -244,6 +284,12 @@ export class DayTimelineComponent {
   // Whole-plan slideshow switch — only set true on the single trip-wide
   // instance rendered by ShellComponent (see Task 5).
   readonly showPlanSlideshow = input(false);
+  // Disables all drag-to-schedule affordances (draggable blocks, drag-start,
+  // drag-over preview, and drop handling) — set true on the read-only public
+  // shared-trip view, where the viewer's own TripService has no matching
+  // stopId so a drop would silently no-op. Left false (default) everywhere
+  // else, including the editable per-stop inline timeline in StopListComponent.
+  readonly readOnly = input(false);
 
   // Flap label depends on scope: a single stop shows that city; otherwise the whole plan.
   protected readonly flapLabel = computed(() =>
@@ -268,9 +314,10 @@ export class DayTimelineComponent {
 
   @ViewChild('tlGridWrap') private tlGridWrap?: ElementRef<HTMLElement>;
   @ViewChild('tlDaysEl')   private tlDaysEl?:   ElementRef<HTMLElement>;
+  @ViewChild('tlGridEl')   private tlGridEl?:   ElementRef<HTMLElement>;
 
   protected readonly trip   = inject(TripService);
-  private  readonly device  = inject(DeviceService);
+  protected readonly device = inject(DeviceService);
   private  readonly api     = inject(ApiService);
   private  readonly karmaModal = inject(KarmaModalService);
   private  readonly locale     = inject(LocaleService);
@@ -280,6 +327,8 @@ export class DayTimelineComponent {
   protected readonly collapsed = signal(false);
   protected readonly daySlideshowOpen  = signal(false);
   protected readonly planSlideshowOpen = signal(false);
+  protected readonly draggingEntryId = signal<string | null>(null);
+  protected readonly dragPreview = signal<{ top: number; time: string } | null>(null);
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
   /** Public: open the timeline (used by the mobile 'Ver itinerario' button). */
   expand(): void { this.collapsed.set(false); }
@@ -507,15 +556,14 @@ export class DayTimelineComponent {
     const day  = this.selectedDay();
     if (!stop || !day) return [];
 
-    const city = WORLD_CITIES.find(c => c.id === stop.cityId);
-    const attractions = city ? getAttractions(city) : [];
+    const attractions = this.attractionsFor(stop.cityId);
 
     const attBlocks: TimeBlock[] = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime)
       .map((a: PlannedAttraction) => {
         const att      = attractions.find(x => x.id === a.attractionId) ?? null;
         const startMin = hmToMin(a.startTime!);
-        const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + (att?.estimatedMinutes ?? 60);
+        const endMin   = startMin + resolveDuration(a, att);
         const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
         const height   = Math.max(30, (endMin - startMin) / 60 * TL_RH - 4);
         const [bg, fg] = typeColors(att?.type ?? '');
@@ -524,6 +572,9 @@ export class DayTimelineComponent {
           icon: typeIcon(att?.type ?? ''),
           name: att?.name ?? a.attractionId,
           time: `${a.startTime}–${minToHm(endMin)}`,
+          kind: 'attraction' as const,
+          entryId: a.entryId,
+          draggable: !this.readOnly() && !this.isRescheduleLocked(a),
         };
       });
 
@@ -533,6 +584,18 @@ export class DayTimelineComponent {
   });
 
   // ── Helpers ───────────────────────────────────────────────────────────────
+  // Fixed real-world schedule — cannot be dragged to a new time. Mirrors
+  // PlanTimeModalComponent's isFixedEvent gate, plus freetours per the
+  // family's explicit request (Task 9).
+  private isRescheduleLocked(a: PlannedAttraction): boolean {
+    return a.category === 'freetour' || (a.category === 'event_party' && !!a.date);
+  }
+
+  private attractionsFor(cityId: string) {
+    const city = WORLD_CITIES.find(c => c.id === cityId);
+    return city ? getAttractions(city) : [];
+  }
+
   private attractionsForDay(atts: PlannedAttraction[], dayKey: string): PlannedAttraction[] {
     return atts.filter((a: PlannedAttraction) =>
       !a.date || a.date.slice(0, 5) === dayKey,
@@ -592,6 +655,8 @@ export class DayTimelineComponent {
           icon: transitIcon(seg.mode),
           name: `${fromLabel} → ${toLabel}`,
           time: timeStr + (seg.notes ? ` · ${seg.notes}` : ''),
+          kind: 'transit' as const,
+          draggable: false,
         });
       }
     }
@@ -619,6 +684,261 @@ export class DayTimelineComponent {
       },
       error: err => { this.exporting.set(false); this.karmaModal.handleKarmaError(err); },
     });
+  }
+
+  protected onBlockDragStart(event: DragEvent, entryId: string): void {
+    if (this.readOnly()) return;
+    const stop = this.selectedStopForDay();
+    if (!stop) return;
+    const payload: RescheduleDragPayload = { stopId: stop.stopId, entryId };
+    event.dataTransfer?.setData(RESCHEDULE_MIME, JSON.stringify(payload));
+    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move';
+    this.draggingEntryId.set(entryId);
+  }
+
+  protected onBlockDragEnd(): void {
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
+
+  protected onGridDragOver(event: DragEvent): void {
+    if (this.transportMode() || this.readOnly()) return;
+    const types = Array.from(event.dataTransfer?.types ?? []);
+    const isNew         = types.includes(NEW_ATTRACTION_MIME);
+    const isReschedule  = types.includes(RESCHEDULE_MIME);
+    if (!isNew && !isReschedule) return;
+    event.preventDefault(); // required to allow a drop
+    if (event.dataTransfer) event.dataTransfer.dropEffect = isReschedule ? 'move' : 'copy';
+
+    if (isReschedule && this.draggingEntryId()) {
+      const offsetY    = this.offsetWithinGrid(event.clientY);
+      const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+      this.dragPreview.set({
+        top:  (snappedMin - TL_H0 * 60) / 60 * TL_RH,
+        time: minutesToHm(snappedMin),
+      });
+    }
+  }
+
+  protected onGridDrop(event: DragEvent): void {
+    if (this.transportMode() || this.readOnly()) return;
+    event.preventDefault();
+
+    const reschedule = event.dataTransfer?.getData(RESCHEDULE_MIME);
+    if (reschedule) { this.applyReschedule(reschedule, event.clientY); return; }
+
+    const raw = event.dataTransfer?.getData(NEW_ATTRACTION_MIME);
+    if (raw) this.applyNewAttraction(raw, event.clientY);
+  }
+
+  // Shared by native-drag (onGridDrop above) and touch-drag (onBlockTouchEnd / window:touchend
+  // below) — both resolve to the exact same MIME-payload shape, they just arrive through a
+  // DataTransfer vs. TouchDragService. See TouchDragService's doc comment for why touch needs
+  // a separate delivery channel at all.
+  private applyReschedule(rawPayload: string, clientY: number): void {
+    const stop = this.selectedStopForDay();
+    const day  = this.selectedDay();
+    if (!stop || !day) return;
+
+    const offsetY    = this.offsetWithinGrid(clientY);
+    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+    const startTime  = minutesToHm(snappedMin);
+
+    let payload: RescheduleDragPayload | null = null;
+    try {
+      payload = JSON.parse(rawPayload);
+    } catch {
+      payload = null;
+    }
+    if (payload?.entryId) {
+      const { entryId } = payload;
+      const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
+      if (original && !this.isRescheduleLocked(original)) {
+        const att = this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null;
+        const durationMin = resolveDuration(original, att);
+        this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
+      }
+    }
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
+
+  private applyNewAttraction(rawPayload: string, clientY: number): void {
+    const stop = this.selectedStopForDay();
+    const day  = this.selectedDay();
+    if (!stop || !day) return;
+
+    const offsetY    = this.offsetWithinGrid(clientY);
+    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+    const startTime  = minutesToHm(snappedMin);
+
+    let payload: NewAttractionDragPayload | null = null;
+    try {
+      payload = JSON.parse(rawPayload);
+    } catch {
+      payload = null;
+    }
+    if (!payload?.attractionId) return;
+    const tab = this.days().find(t => t.key === day);
+    const fullDate = tab ? this.fmtDate(tab.date) : undefined;
+    this.trip.addAttraction(stop.stopId, payload.attractionId, startTime, fullDate, payload.category, payload.estimatedMinutes);
+  }
+
+  private offsetWithinGrid(clientY: number): number {
+    const rect = this.tlGridEl?.nativeElement.getBoundingClientRect();
+    return rect ? clientY - rect.top : 0;
+  }
+
+  // ── Touch drag-and-drop (family feedback: "the move/drag is not allowed on mobile") ────────
+  // Reschedule (dragging an existing .tl-block) is entirely self-contained in this component —
+  // the block IS this component's own template, so its touch handlers below are bound directly,
+  // same as the native (dragstart)/(dragend) handlers above. Dragging a NEW attraction in from
+  // AttractionCardComponent is cross-component, so that half is driven by watching
+  // TouchDragService (see the effect() in the constructor and the window:touchend/touchcancel
+  // listeners further down) instead of a template binding here.
+  //
+  // CRITICAL — `[attr.draggable]` on .tl-block (above, in the template) must stay OFF on
+  // mobile (`&& !device.isMobile()`), same reasoning as AttractionCardComponent's .att-card:
+  // WebKit/iOS Safari and several Android WebViews give a `draggable="true"` element its own
+  // native touch-driven drag recognition, which otherwise fights the touch handlers below for
+  // the same gesture on the same element — this was the actual root cause of drag-to-reschedule
+  // also not working on mobile after the first touch-support pass.
+  // CRITICAL — `.tl-block.tl-block-draggable` carries `touch-action: none` (see src/styles.css).
+  // Without it, a real touch device decides scroll-vs-drag from the FIRST touchmove of the
+  // gesture — long before this arm timer ever fires — and once it commits to a native scroll,
+  // this component calling `preventDefault()` later (once armed) does nothing; the grid just
+  // keeps scrolling under the finger and no drag starts. `touch-action: none` hands 100% of that
+  // decision to this component instead. The trade-off is that the browser no longer scrolls on
+  // its own for a touch that starts on a block, so the pre-armed branch below replays the
+  // vertical delta by hand onto the real scrollable grid ancestor (`findScrollableAncestor`) to
+  // keep a plain swipe feeling exactly like a normal scroll. Root-caused via
+  // superpowers:systematic-debugging after a synthetic (JS-dispatched) TouchEvent test had looked
+  // fully working but a real phone still couldn't drag — synthetic dispatch never exercises the
+  // real browser scroll-commit race this depends on. Same fix, same reasoning, as
+  // AttractionCardComponent's onTouchStart/onTouchMove — see that component's CRITICAL comment.
+  private static readonly TOUCH_ARM_DELAY_MS   = 350;
+  private static readonly TOUCH_MOVE_CANCEL_PX = 10;
+
+  private readonly touchDrag = inject(TouchDragService);
+  private blockTouchArmTimer: ReturnType<typeof setTimeout> | null = null;
+  private blockTouchArmed = false;
+  private blockTouchStart: { x: number; y: number } | null = null;
+  private blockTouchEntryId: string | null = null;
+  private blockTouchScrollAncestor: HTMLElement | null = null;
+  private blockLastTouchY = 0;
+
+  protected onBlockTouchStart(event: TouchEvent, entryId: string): void {
+    if (this.readOnly()) return;
+    const touch = event.touches[0];
+    if (!touch) return;
+    this.blockTouchArmed = false;
+    this.blockTouchStart = { x: touch.clientX, y: touch.clientY };
+    this.blockTouchEntryId = entryId;
+    this.blockTouchScrollAncestor = findScrollableAncestor(event.currentTarget as HTMLElement);
+    this.blockLastTouchY = touch.clientY;
+    this.clearBlockTouchArmTimer();
+    this.blockTouchArmTimer = setTimeout(() => {
+      this.blockTouchArmed = true;
+      this.draggingEntryId.set(entryId);
+    }, DayTimelineComponent.TOUCH_ARM_DELAY_MS);
+  }
+
+  protected onBlockTouchMove(event: TouchEvent): void {
+    const touch = event.touches[0];
+    if (!touch || !this.blockTouchStart) return;
+
+    if (!this.blockTouchArmed) {
+      const dx = touch.clientX - this.blockTouchStart.x;
+      const dy = touch.clientY - this.blockTouchStart.y;
+      if (Math.hypot(dx, dy) > DayTimelineComponent.TOUCH_MOVE_CANCEL_PX) this.clearBlockTouchArmTimer();
+      // Native scrolling is disabled on this element (`touch-action: none`) — replay the
+      // vertical delta by hand so a plain swipe that never reaches the long-press threshold
+      // still scrolls the grid normally.
+      if (this.blockTouchScrollAncestor) this.blockTouchScrollAncestor.scrollTop -= (touch.clientY - this.blockLastTouchY);
+      this.blockLastTouchY = touch.clientY;
+      return;
+    }
+
+    event.preventDefault(); // stop the grid from scrolling while a block is being dragged
+    const offsetY    = this.offsetWithinGrid(touch.clientY);
+    const snappedMin = snapMinutesFromOffset(offsetY, TL_H0, TL_H1, TL_RH);
+    this.dragPreview.set({
+      top:  (snappedMin - TL_H0 * 60) / 60 * TL_RH,
+      time: minutesToHm(snappedMin),
+    });
+  }
+
+  protected onBlockTouchEnd(event: TouchEvent): void {
+    this.clearBlockTouchArmTimer();
+    if (this.blockTouchArmed && this.blockTouchEntryId) {
+      event.preventDefault();
+      const touch = event.changedTouches[0];
+      const stop  = this.selectedStopForDay();
+      if (touch && stop) {
+        const payload: RescheduleDragPayload = { stopId: stop.stopId, entryId: this.blockTouchEntryId };
+        this.applyReschedule(JSON.stringify(payload), touch.clientY);
+      }
+    }
+    this.blockTouchArmed = false;
+    this.blockTouchStart = null;
+    this.blockTouchEntryId = null;
+    this.blockTouchScrollAncestor = null;
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
+
+  protected onBlockTouchCancel(): void {
+    this.clearBlockTouchArmTimer();
+    this.blockTouchArmed = false;
+    this.blockTouchStart = null;
+    this.blockTouchEntryId = null;
+    this.blockTouchScrollAncestor = null;
+    this.draggingEntryId.set(null);
+    this.dragPreview.set(null);
+  }
+
+  private clearBlockTouchArmTimer(): void {
+    if (this.blockTouchArmTimer !== null) { clearTimeout(this.blockTouchArmTimer); this.blockTouchArmTimer = null; }
+  }
+
+  // New-attraction (card -> grid) touch drag: TouchDragService is the shared source of truth,
+  // since AttractionCardComponent (the source) and this component (the target) aren't in the
+  // same subtree. This effect drives the live preview bubble the same way onGridDragOver's
+  // native-drag branch does; window:touchend below resolves the actual drop.
+  private touchDragPreviewEffect = effect(() => {
+    const state = this.touchDrag.state();
+    if (!state || state.mime !== NEW_ATTRACTION_MIME || this.readOnly() || this.transportMode()) return;
+    const rect = this.tlGridEl?.nativeElement.getBoundingClientRect();
+    if (!rect || !this.pointWithinRect(state.x, state.y, rect)) return;
+    const snappedMin = snapMinutesFromOffset(state.y - rect.top, TL_H0, TL_H1, TL_RH);
+    this.dragPreview.set({
+      top:  (snappedMin - TL_H0 * 60) / 60 * TL_RH,
+      time: minutesToHm(snappedMin),
+    });
+  }, { allowSignalWrites: true });
+
+  private pointWithinRect(x: number, y: number, rect: DOMRect): boolean {
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+  }
+
+  @HostListener('window:touchend')
+  protected onWindowTouchEnd(): void {
+    const state = this.touchDrag.consume();
+    if (!state || state.mime !== NEW_ATTRACTION_MIME) return;
+    this.dragPreview.set(null);
+    if (this.readOnly() || this.transportMode()) return;
+    const rect = this.tlGridEl?.nativeElement.getBoundingClientRect();
+    if (!rect || !this.pointWithinRect(state.x, state.y, rect)) return;
+    this.applyNewAttraction(state.payload, state.y);
+  }
+
+  @HostListener('window:touchcancel')
+  protected onWindowTouchCancel(): void {
+    const state = this.touchDrag.state();
+    if (state?.mime === NEW_ATTRACTION_MIME) {
+      this.touchDrag.cancel();
+      this.dragPreview.set(null);
+    }
   }
 
   private scrollToFirstBlock(): void {

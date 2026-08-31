@@ -20,10 +20,11 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
 import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
+import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -242,19 +243,18 @@ import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
                                     (click)="trip.removeAttraction(stop.stopId, planned.entryId)"
                                     i18n-title="@@stopList.removeAttTitle"
                                     title="Quitar del plan">×</button>
-                            <!-- Inline time inputs for timeline -->
+                            <!-- Inline time inputs for timeline — app-time-picker (flatpickr,
+                                 time_24hr) rather than a native <input type="time">, whose
+                                 12h/24h display otherwise follows the browser/OS locale and
+                                 can't be forced to 24h on every browser (notably Firefox). -->
                             <div class="att-time-inputs">
-                              <input type="time" class="att-time-input"
-                                     [value]="planned.startTime ?? ''"
-                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event, att.estimatedMinutes)"
-                                     i18n-placeholder="@@timeline.startTimePlaceholder"
-                                     placeholder="Inicio" />
+                              <app-time-picker class="att-time-input"
+                                     [initialTime]="planned.startTime ?? ''"
+                                     (timeChange)="onAttractionTimeChange(stop.stopId, planned.entryId, 'startTime', $event, att.estimatedMinutes)" />
                               <span class="att-time-sep">–</span>
-                              <input type="time" class="att-time-input"
-                                     [value]="planned.endTime || endTimeFor(planned.startTime, att.estimatedMinutes)"
-                                     (change)="onAttractionTimeChange(stop.stopId, planned.entryId, 'endTime', $event)"
-                                     i18n-placeholder="@@timeline.endTimePlaceholder"
-                                     placeholder="Fin" />
+                              <app-time-picker class="att-time-input"
+                                     [initialTime]="planned.endTime || endTimeFor(planned.startTime, att.estimatedMinutes)"
+                                     (timeChange)="onAttractionTimeChange(stop.stopId, planned.entryId, 'endTime', $event)" />
                             </div>
                           </div>
                         }
@@ -546,9 +546,8 @@ export class StopListComponent {
       dateMs(a) - dateMs(b) || (a.startTime ?? '').localeCompare(b.startTime ?? ''));
   }
 
-  onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', event: Event, estimatedMinutes?: number): void {
-    const value = (event.target as HTMLInputElement).value || null;
-    this.trip.patchAttractionTime(stopId, entryId, field, value, estimatedMinutes);
+  onAttractionTimeChange(stopId: string, entryId: string, field: 'startTime' | 'endTime', time: string, estimatedMinutes?: number): void {
+    this.trip.patchAttractionTime(stopId, entryId, field, time || null, estimatedMinutes);
   }
 
   hasTimeCollision(stop: import('../../../core/models/trip.model').TripStop, targetEntryId: string): boolean {

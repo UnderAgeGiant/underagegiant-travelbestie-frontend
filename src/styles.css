@@ -219,6 +219,7 @@ app-nav { display: block; }
 .itin-item-lodging { color: var(--t1); font-weight: 500; }
 .itin-item-icon { font-size: 14px; flex-shrink: 0; width: 20px; text-align: center; }
 .itin-item-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.itin-item-meta-row { display: contents; }
 .itin-item-meta { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
 .itin-link { font-size: 12px; text-decoration: none; flex-shrink: 0; opacity: .7; transition: opacity .15s; }
 .itin-link:hover { opacity: 1; }
@@ -234,13 +235,13 @@ app-nav { display: block; }
 .shared-bg { position: fixed; inset: 0; z-index: 0; background: url('/paper-planes.webp') repeat center center / 380px auto; filter: blur(1px); transform: scale(1.04); pointer-events: none; }
 .shared-bg-frost { position: fixed; inset: 0; z-index: 1; background: rgba(255,255,255,.45); pointer-events: none; }
 .shared-body { display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; margin: 58px auto 0; padding: 24px 20px 60px; position: relative; z-index: 210; }
-/* .shared-body's z-index (210) sits above .nav's (200) in the SAME (root) stacking context —
-   unlike .ai-plan-page, .shared-page itself never establishes its own stacking context (no
-   z-index of its own), so there is no local trap to escape here; the two are compared directly
-   at the root. Once the page scrolls far enough for .shared-body's content to overlap the fixed
-   nav bar's screen area, that content paints on top of it, silently swallowing clicks meant for
-   the nav's account dropdown (e.g. nothing in the logged-in user menu responds). Scoped bump so
-   the nav (and everything it renders, like .user-panel) always wins on this page. */
+/* .shared-body's z-index (210) sits above .nav's (200) in the SAME (root)
+   stacking context — .shared-page itself never establishes its own stacking
+   context (no z-index of its own), so there is no local trap to escape here.
+   Once the page scrolls far enough for .shared-body's content to overlap the
+   fixed nav bar's screen area, that content paints on top of it unless the
+   bar is bumped too. The mobile drawer/backdrop no longer need a matching
+   per-page bump — see the page-independent z-index on .nav-m-drawer/.nav-m-backdrop above. */
 .shared-page .nav, .shared-page .nav-m-bar { z-index: 220; }
 .shared-main { flex: 0 1 680px; min-width: 0; }
 .shared-not-found { position: relative; z-index: 2; }
@@ -1018,6 +1019,24 @@ app-nav { display: block; }
   margin-bottom: 2rem;
   animation: fadeUp .6s .15s ease both;
 }
+.s2-featured-badge {
+  /* Pinned to the slide's own top-left corner (not inline in .s2-trip-block, which lives at
+     the bottom of the slide) — clamp() matches .s2-content's own edge padding below, so the
+     badge sits at the same inset as the rest of the frame instead of hugging the image border. */
+  position: absolute;
+  top:  clamp(24px, 5vw, 56px);
+  left: clamp(24px, 5vw, 56px);
+  z-index: 3;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; letter-spacing: .05em;
+  color: var(--lav);
+  background: oklch(20% .04 290 / .55);
+  border: 1.5px solid var(--lav-d);
+  border-radius: 99px; padding: 4px 13px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 1px oklch(88% .06 290 / .15), 0 3px 14px oklch(55% .16 290 / .4);
+  animation: fadeUp .6s .05s ease both;
+}
 .s2-city-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .s2-chip {
   font-size: 10px; font-weight: 600;
@@ -1223,7 +1242,13 @@ app-nav { display: block; }
   width: 100%;
   padding-left: 20px;
 }
-.att-time-input {
+/* .att-time-input now sits on <app-time-picker> (see stop-list.component.ts) rather than a
+   bare <input> directly — display:contents removes the component's own host box from the flex
+   row so only its rendered .form-input participates in .att-time-inputs' layout, and the rules
+   below re-target that inner input to keep the exact same compact look the native
+   <input type="time"> had (which .form-input's own global sizing is much too large for). */
+.att-time-input { display: contents; }
+.att-time-input .form-input {
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 2px 5px;
@@ -1235,7 +1260,7 @@ app-nav { display: block; }
   cursor: pointer;
   transition: border-color .15s;
 }
-.att-time-input:focus { outline: none; border-color: var(--lav-d); }
+.att-time-input .form-input:focus { outline: none; border-color: var(--lav-d); }
 .att-time-sep { font-size: 10px; color: var(--t3); }
 
 /* ── Day-view timeline panel ────────────────────────────────────────────── */
@@ -1310,10 +1335,22 @@ app-nav { display: block; }
   color: var(--t2);
   margin-top: 2px;
 }
+/* One flex row for every tl-head action (export, route, day/plan slideshows) — replaces each
+   button's own ad hoc margin-top (and .tl-route-btn's extra margin-left) with a single gap,
+   so spacing stays even regardless of which subset of the four is showing at once. */
+.tl-head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.tl-head-action {
+  font-size: 11px;
+  padding: 4px 12px;
+}
 .tl-route-btn {
   display: inline-flex; align-items: center; gap: 4px;
-  margin-top: 6px; margin-left: 6px;
-  font-size: 11px; padding: 4px 12px;
   text-decoration: none;
 }
 
@@ -1459,6 +1496,19 @@ app-nav { display: block; }
   font-variant-numeric: tabular-nums;
 }
 
+/* touch-action: none is required for mobile drag-to-reschedule to actually work on a real
+   device — see DayTimelineComponent's onBlockTouchStart/onBlockTouchMove CRITICAL comment for
+   the full root-cause explanation (family feedback round 6). */
+.tl-block.tl-block-draggable { cursor: grab; touch-action: none; }
+.tl-block.tl-block-draggable:active { cursor: grabbing; }
+.tl-drag-bubble {
+  position: absolute; left: 50px; z-index: 5;
+  background: var(--t1); color: #fff; font-size: 11px; font-weight: 700;
+  padding: 3px 9px; border-radius: 99px; pointer-events: none;
+  transform: translateY(-50%); box-shadow: var(--sh);
+  font-variant-numeric: tabular-nums;
+}
+
 .tl-free {
   position: absolute;
   left: 50px;
@@ -1553,7 +1603,11 @@ app-nav { display: block; }
   .itin-seg { white-space: normal; }
   .itin-transit-dest { white-space: normal; }
   .itin-item { flex-wrap: wrap; align-items: flex-start; }
-  .itin-item-meta { width: 100%; padding-left: 27px; margin-top: 1px; }
+  /* .itin-item-meta and .itin-link (the 📍 maps button) must wrap onto their
+     own full-width row TOGETHER — giving .itin-item-meta its own width:100%
+     pushed .itin-link (next in flex order) onto a THIRD line by itself. */
+  .itin-item-meta-row { display: flex; align-items: center; justify-content: space-between; width: 100%; padding-left: 27px; margin-top: 1px; }
+  .itin-item-meta { flex-shrink: 1; }
 }
 
 
@@ -1974,12 +2028,28 @@ app-nav { display: block; }
   color: var(--t1); cursor: pointer; padding: 4px 8px;
 }
 .nav-m-backdrop {
-  position: fixed; inset: 0; z-index: 80;
+  /* Page-independent: this is a position:fixed sibling of .nav-m-bar (not a
+     descendant), so per-page overrides on .nav/.nav-m-bar never reach it. It
+     must outrank every page-level z-index in this file on its own — see the
+     .nav-m-drawer comment below for the full story. */
+  position: fixed; inset: 0; z-index: 950;
   background: rgba(15,10,30,0.45);
   animation: fadeIn .15s ease;
 }
 .nav-m-drawer {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 81;
+  /* Was z-index: 81, which only ever had to beat .nav-m-bar's own content.
+     .shared-page/.profile-page/.ai-plan-page all render a page-level fixed
+     overlay ABOVE the app's normal flow (.shared-body z-index 210, .profile-page
+     350, .ai-plan-page 200 — the 300 nearby belongs to its nested .ai-loading-overlay,
+     not the page's own rule) — .profile-page/.ai-plan-page happened to still
+     work because their entrance @keyframes set a transform, which makes them
+     the containing block AND stacking context for position:fixed descendants,
+     trapping this drawer inside their own local context. .shared-page has no
+     transform, so its drawer/backdrop escape to the root context and lost to
+     .shared-body (81 < 210) — the "user menu behind the trip panel" bug.
+     Fix: one page-independent z-index high enough to beat all of the above,
+     instead of patching per page. Keep this above .nav-m-backdrop always. */
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 951;
   width: min(86vw, 360px); background: #fff;
   box-shadow: var(--sh-lg); overflow-y: auto;
   padding: 0 12px 24px;
@@ -2143,26 +2213,55 @@ app-nav { display: block; }
 .timeline-panel.timeline-accent .tl-head { background: var(--lav); border-radius: 10px 10px 0 0; }
 .tl-day-city { font-size: 11px; line-height: 1; margin-bottom: 1px; }
 
-/* Mobile 'Ir arriba' FAB */
+/* Mobile 'Ir arriba' FAB — positioned relative to .att-sheet (not the viewport): the sheet no
+   longer covers the full screen, so a viewport-anchored fixed FAB would float in the exposed
+   area above it instead of sitting inside the scrollable list it controls. */
 .scroll-top-fab {
-  position: fixed; right: 16px; bottom: 84px; z-index: 60;
+  position: absolute; right: 16px; bottom: 20px; z-index: 60;
   width: 44px; height: 44px; border-radius: 50%;
   background: var(--lav-d); color: #fff; border: none;
   font-size: 20px; line-height: 1; cursor: pointer;
   box-shadow: var(--sh-lg);
 }
 
-/* Mobile attractions full-screen modal */
-.att-modal-backdrop {
-  position: fixed; inset: 0; z-index: 200; background: rgba(15,10,30,0.5);
-  display: flex; align-items: stretch; justify-content: stretch;
+/* Mobile attractions BOTTOM SHEET (was a fullscreen modal — see the component's own doc
+   comment for why: a fullscreen overlay completely hid tb-day-timeline underneath, so
+   dragging an attraction onto it had no visible target to aim at even though the drag
+   mechanism itself worked). Deliberately no backdrop/scrim over the exposed area above the
+   sheet — that area (the day timeline) must stay fully interactive, not just visible. */
+.att-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+  height: 58vh; max-height: 58vh;
+  background: var(--cream);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 32px oklch(0% 0 0/.22);
+  display: flex; flex-direction: column;
+  transition: height .3s cubic-bezier(.4,0,.2,1), max-height .3s cubic-bezier(.4,0,.2,1);
 }
-.att-modal {
-  position: relative; background: var(--cream); width: 100%; height: 100%;
-  overflow-y: auto; padding: 44px 14px 24px;
+.att-sheet.expanded { height: 92vh; max-height: 92vh; }
+.att-sheet-handle {
+  flex-shrink: 0; width: 100%; padding: 10px 0 6px;
+  background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
 }
+.att-sheet-handle-bar {
+  width: 40px; height: 4px; border-radius: 99px;
+  background: var(--border);
+  transition: background .15s;
+}
+.att-sheet-handle:hover .att-sheet-handle-bar,
+.att-sheet-handle:active .att-sheet-handle-bar { background: var(--lav-d); }
+.att-sheet-body {
+  position: relative;
+  flex: 1; min-height: 0;
+  overflow-y: auto;
+  padding: 4px 14px 24px;
+}
+/* Anchored to the sheet's own top-right corner (not the viewport, like the old fullscreen
+   modal used) — position:fixed with a viewport offset would float disconnected from the
+   sheet now that the sheet itself only occupies the bottom portion of the screen. */
 .att-modal-close {
-  position: fixed; top: 10px; right: 12px; z-index: 210;
+  position: absolute; top: 8px; right: 12px; z-index: 210;
   background: #fff; border: 1px solid var(--border); border-radius: 50%;
   width: 34px; height: 34px; font-size: 16px; cursor: pointer;
   box-shadow: var(--sh-md);
@@ -2196,6 +2295,16 @@ app-nav { display: block; }
   background: oklch(84% .10 50); color: oklch(42% .15 50);     /* pale peach */
   border-color: oklch(76% .12 50);
   box-shadow: 0 3px 12px oklch(56% .16 50/.22);
+}
+.welcome-cta-last {
+  background: oklch(84% .09 145); color: oklch(38% .15 145);   /* pale mint */
+  border-color: oklch(76% .11 145);
+  box-shadow: 0 3px 12px oklch(55% .15 145/.22);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.welcome-cta-last-name {
+  font-size: 11px; font-weight: 500; opacity: .8;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%;
 }
 .welcome-karma-modal-backdrop {
   position: fixed; inset: 0; z-index: 300; background: rgba(15,10,30,0.55);

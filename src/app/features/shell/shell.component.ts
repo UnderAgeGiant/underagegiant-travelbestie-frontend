@@ -5,7 +5,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AuthService } from '../../core/auth/auth.service';
-import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
+import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { StopListComponent } from '../trip/stop-list/stop-list.component';
 import { DestinationComponent } from '../destination/destination.component';
@@ -20,6 +20,7 @@ import { AppFooterComponent } from '../landing/app-footer.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { MyTripsComponent } from '../my-trips/my-trips.component';
 import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
+import { TravelDocsReminderComponent } from '../../shared/travel-docs-reminder/travel-docs-reminder.component';
 import { ToastService } from '../../core/ui/toast.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
@@ -44,6 +45,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         DayTimelineComponent,
         MyTripsComponent,
         CompanionMascotComponent,
+        TravelDocsReminderComponent,
         AutosaveReminderBannerComponent,
         HighlightTourComponent,
     ],
@@ -62,7 +64,8 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
           <app-stop-list (addDestination)="showAddModal.set(true)" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
-                         (openAiPlanning)="showAiPlanning.set(true)" />
+                         (openAiPlanning)="showAiPlanning.set(true)"
+                         (loadLastEditedPlan)="loadLastEditedPlan($event)" />
           </div>
           <!-- Scroll hint -->
           <div class="scroll-hint">
@@ -110,6 +113,8 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
     <app-companion-mascot />
 
+    <app-travel-docs-reminder />
+
     <app-highlight-tour />
 
     @if (toastService.message()) {
@@ -124,7 +129,8 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
     @if (showProfile()) {
       <app-profile (close)="showProfile.set(false)"
-                   (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)" />
+                   (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)"
+                   (openMyTrips)="showProfile.set(false); showMyTrips.set(true)" />
     }
 
     @if (showMyTrips()) {
@@ -247,5 +253,10 @@ export class ShellComponent {
   /** "Ok" on AiPlanningComponent's post-Notificarme hand-off — scrolls the landing page's S2 featured-plans section into view. No-op if the visitor currently has stops (app mode, no landing scroll to scroll). */
   scrollToFeatured(): void {
     this.featuredSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /** "Último viaje que editaste" on the landing welcome screen (Task 7). */
+  protected loadLastEditedPlan(plan: SavedPlan): void {
+    this.facade.doLoadPlan(plan);
   }
 }

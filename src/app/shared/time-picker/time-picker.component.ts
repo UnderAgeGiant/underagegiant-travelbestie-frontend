@@ -17,20 +17,37 @@ import flatpickr from 'flatpickr';
 export class TimePickerComponent implements AfterViewInit, OnDestroy {
   @ViewChild('el') private el!: ElementRef<HTMLInputElement>;
 
-  @Input() initialTime = '';
+  // A plain field would only ever be read once, in ngAfterViewInit — fine for a one-shot modal
+  // (PlanTimeModalComponent creates a fresh instance every time it opens), but StopListComponent
+  // embeds this in an @for loop keyed by entryId: editing the START time recomputes the END
+  // time's *derived* initialTime (planned.endTime || startTime + estimatedMinutes) on every
+  // render, while the END picker's own component instance stays mounted (same entryId). Without
+  // this setter, that recomputed value would never reach flatpickr, leaving the displayed end
+  // time silently stale after editing the start time.
+  @Input() set initialTime(value: string) {
+    this._initialTime = value;
+    if (!this.fp) return; // not yet created — ngAfterViewInit's own defaultDate covers this
+    const d = this.parseTime(value);
+    // `false` = don't fire flatpickr's onChange — this is an external/derived value syncing
+    // IN, not a user edit; emitting here would misreport a "user changed the time" event.
+    this.fp.setDate(d ?? '', false);
+  }
+  get initialTime(): string { return this._initialTime; }
+  private _initialTime = '';
 
   timeChange = output<string>();
 
   private fp?: flatpickr.Instance;
 
+  private parseTime(s: string): Date | undefined {
+    const [hh, mm] = s.split(':').map(Number);
+    if (Number.isNaN(hh) || Number.isNaN(mm)) return undefined;
+    const d = new Date();
+    d.setHours(hh, mm, 0, 0);
+    return d;
+  }
+
   ngAfterViewInit() {
-    const parseInitial = (s: string): Date | undefined => {
-      const [hh, mm] = s.split(':').map(Number);
-      if (Number.isNaN(hh) || Number.isNaN(mm)) return undefined;
-      const d = new Date();
-      d.setHours(hh, mm, 0, 0);
-      return d;
-    };
 
     // Same custom positioner as DateRangeComponent (see makePosition there) — flatpickr's
     // default sums children.offsetHeight (can be 0 on first open inside a fixed modal) and
@@ -60,7 +77,7 @@ export class TimePickerComponent implements AfterViewInit, OnDestroy {
       dateFormat:    'H:i',
       time_24hr:     true,
       disableMobile: true,
-      defaultDate:   parseInitial(this.initialTime),
+      defaultDate:   this.parseTime(this.initialTime),
       position,
       onChange: ([date]) => {
         if (!date) return;

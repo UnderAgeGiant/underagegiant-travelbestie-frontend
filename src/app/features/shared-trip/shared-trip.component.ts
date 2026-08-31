@@ -1,7 +1,8 @@
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { forkJoin, of, switchMap, catchError } from 'rxjs';
+import { forkJoin, of, switchMap, catchError, map } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -30,10 +31,11 @@ import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slidesh
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
+import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.component';
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent],
+    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -60,7 +62,8 @@ import { LocaleService } from '../../core/i18n/locale.service';
     <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
 
     @if (showProfile()) {
-      <app-profile (close)="showProfile.set(false)" />
+      <app-profile (close)="showProfile.set(false)"
+                   (openMyTrips)="showProfile.set(false)" />
     }
 
     @if (showSimilarModal()) {
@@ -260,14 +263,16 @@ import { LocaleService } from '../../core/i18n/locale.service';
                           @if (!shouldShowComments(attKey)) {
                             <button class="step-comments-toggle" (click)="expandStepInCity($event, attKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
-                          <span class="itin-item-meta">
-                            @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                          <span class="itin-item-meta-row">
+                            <span class="itin-item-meta">
+                              @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                            </span>
+                            <a class="itin-link"
+                               [attr.href]="mapsUrl(att.name, stop.cityId)"
+                               target="_blank" rel="noopener noreferrer"
+                               (click)="$event.stopPropagation()"
+                               i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps"><app-maps-pin-icon /></a>
                           </span>
-                          <a class="itin-link"
-                             [attr.href]="mapsUrl(att.name, stop.cityId)"
-                             target="_blank" rel="noopener noreferrer"
-                             (click)="$event.stopPropagation()"
-                             i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps">📍</a>
                         </div>
                         @if (shouldShowComments(attKey)) {
                           <app-step-comments
@@ -299,7 +304,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
               <!-- Inline day timeline (mobile only) -->
               @if (selectedShareStop()?.cityId === stop.cityId) {
                 <div class="itin-inline-timeline">
-                  <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" />
+                  <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" [readOnly]="true" />
                 </div>
               }
 
@@ -377,7 +382,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
         </div>
 
         </div><!-- /shared-main -->
-        <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" />
+        <tb-day-timeline [stop]="selectedShareStop()" [transits]="trip()?.transits ?? []" [readOnly]="true" />
 
       </div>
 
@@ -425,9 +430,19 @@ export class SharedTripComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   readonly tripIdInput = input<string | undefined>(undefined, { alias: 'tripId' });
-  readonly tripId = computed(() =>
-    this.tripIdInput() ?? this.route.snapshot.paramMap.get('id') ?? '',
+  // route.snapshot is a plain, non-reactive object — reading it inside a computed() gave
+  // a value that was correct only for the FIRST navigation into this component. Angular's
+  // default route-reuse strategy keeps the SAME SharedTripComponent instance alive when
+  // navigating from one /shared/:id to another (only the route param changes, not the
+  // route config), so nothing ever re-ran this computed — selecting a second shared trip
+  // from the nav drawer left the page showing the first trip's data forever. `route.paramMap`
+  // (an Observable, unlike `.snapshot`) DOES emit again on every param-only navigation;
+  // toSignal() bridges that into something computed()/effect() can actually react to.
+  private readonly routeId = toSignal(
+    this.route.paramMap.pipe(map(pm => pm.get('id') ?? '')),
+    { initialValue: this.route.snapshot.paramMap.get('id') ?? '' },
   );
+  readonly tripId = computed(() => this.tripIdInput() ?? this.routeId());
 
   private readonly api        = inject(ApiService);
   private readonly svc        = inject(SharedTripsService);
