@@ -661,14 +661,14 @@
         <source>⭐ Imperdible</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">189,192</context>
+          <context context-type="linenumber">195,198</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.addToPlan" datatype="html">
         <source>Planificar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">204,206</context>
+          <context context-type="linenumber">210,212</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
@@ -679,14 +679,14 @@
         <source>Fecha y hora del evento</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">229,230</context>
+          <context context-type="linenumber">235,236</context>
         </context-group>
       </trans-unit>
       <trans-unit id="maps.viewOnMaps" datatype="html">
         <source>Ver en Google Maps</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">262,264</context>
+          <context context-type="linenumber">268,270</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
@@ -701,14 +701,14 @@
         <source>🎟 Entrada comprada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">280,282</context>
+          <context context-type="linenumber">286,288</context>
         </context-group>
       </trans-unit>
       <trans-unit id="attCard.addedToast" datatype="html">
         <source>¡Ya se agregó a tu itinerario esta atracción!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-card/attraction-card.component.ts</context>
-          <context context-type="linenumber">443</context>
+          <context context-type="linenumber">449</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/destination/attraction-detail-modal/attraction-detail-modal.component.ts</context>
@@ -898,7 +898,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">318,321</context>
+          <context context-type="linenumber">386,389</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.title" datatype="html">
@@ -2391,165 +2391,172 @@
         <source>Vuelo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">115</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.modeTrain" datatype="html">
         <source>Tren</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">116</context>
+          <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.modeBoat" datatype="html">
         <source>Barco</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">117</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.modeBus" datatype="html">
         <source>Bus</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">121</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.modeCar" datatype="html">
         <source>Auto</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">119</context>
+          <context context-type="linenumber">122</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.dayRoute" datatype="html">
         <source>🗺️ Ruta del día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">148,150</context>
+          <context context-type="linenumber">151,153</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.daySlideshow" datatype="html">
         <source>🎬 Presentación del día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">154,156</context>
+          <context context-type="linenumber">157,159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="plan.exportItinerary" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? &apos;⏳&apos; : &apos;📥&apos; }}"/> Exportar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">159,160</context>
+          <context context-type="linenumber">162,163</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.planSlideshow" datatype="html">
         <source>🎞️ Presentación del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">164,166</context>
+          <context context-type="linenumber">167,169</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.scrollDaysLeft" datatype="html">
         <source>Ver días anteriores</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">176,178</context>
+          <context context-type="linenumber">179,181</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.scrollDaysRight" datatype="html">
         <source>Ver días siguientes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">192,194</context>
+          <context context-type="linenumber">203,205</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.freeDay" datatype="html">
         <source>Día libre — sin planes aún</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">245,247</context>
+          <context context-type="linenumber">256,258</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.flapLabelCity" datatype="html">
         <source>Ver itinerario de la ciudad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">296</context>
+          <context context-type="linenumber">307</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.flapLabelPlan" datatype="html">
         <source>Ver itinerario del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">297</context>
+          <context context-type="linenumber">308</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.flapAriaExpand" datatype="html">
         <source>Expandir panel de horario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">302</context>
+          <context context-type="linenumber">313</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.flapAriaCollapse" datatype="html">
         <source>Colapsar panel de horario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">303</context>
+          <context context-type="linenumber">314</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="timeline.weatherHistoricTooltip" datatype="html">
+        <source>Estimado según el clima del mismo día el año pasado — no es un pronóstico real.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
+          <context context-type="linenumber">426</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.eyebrowTransport" datatype="html">
         <source>Transporte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">463</context>
+          <context context-type="linenumber">519</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">468</context>
+          <context context-type="linenumber">524</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.eyebrowDayView" datatype="html">
         <source>Vista del día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">464</context>
+          <context context-type="linenumber">520</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.noActivities" datatype="html">
         <source>sin actividades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">490</context>
+          <context context-type="linenumber">546</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.activityOne" datatype="html">
         <source>actividad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">494</context>
+          <context context-type="linenumber">550</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.activityMany" datatype="html">
         <source>actividades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">495</context>
+          <context context-type="linenumber">551</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.transportOne" datatype="html">
         <source>transporte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">497</context>
+          <context context-type="linenumber">553</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.transportMany" datatype="html">
         <source>transportes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">498</context>
+          <context context-type="linenumber">554</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.boostedLabel" datatype="html">
@@ -3260,182 +3267,203 @@
         <source>Mi viaje ✈️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">78,79</context>
+          <context context-type="linenumber">116,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveLabel" datatype="html">
         <source>Auto-guardado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">88,90</context>
+          <context context-type="linenumber">126,128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.editingOwnerPlan" datatype="html">
         <source>Editando el plan de <x id="INTERPOLATION" equiv-text="{{ owner.name }}"/> (<x id="INTERPOLATION_1" equiv-text="{{ owner.email }}"/>)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">97,98</context>
+          <context context-type="linenumber">135,136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.noStops" datatype="html">
         <source>Agrega tu primer destino</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">102,103</context>
+          <context context-type="linenumber">140,141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.oneStopPlanned" datatype="html">
         <source>destino planificado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">104,106</context>
+          <context context-type="linenumber">142,144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.manyStopsPlanned" datatype="html">
         <source>destinos planificados</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">106,108</context>
+          <context context-type="linenumber">144,146</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.emptyLine1" datatype="html">
         <source>Busca una ciudad arriba</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">116,117</context>
+          <context context-type="linenumber">154,155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.emptyOr" datatype="html">
         <source>o haz clic en</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">117</context>
+          <context context-type="linenumber">155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.emptyAddBtn" datatype="html">
         <source>+ Agregar destino</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">117,119</context>
+          <context context-type="linenumber">155,157</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.saveDatesBtn" datatype="html">
         <source>✓ Guardar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">160,161</context>
+          <context context-type="linenumber">212,213</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.checkInLabel" datatype="html">
         <source>Llegada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">170,171</context>
+          <context context-type="linenumber">222,223</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.checkOutLabel" datatype="html">
         <source>Salida</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">175,176</context>
+          <context context-type="linenumber">227,228</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.viewItinerary" datatype="html">
         <source>📅 Ver itinerario de la ciudad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">186,187</context>
+          <context context-type="linenumber">238,239</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.aiSuggestBtn" datatype="html">
         <source>🐾 Sugiere qué hacer en esta ciudad <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">189,191</context>
+          <context context-type="linenumber">241,243</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.addAttractionBtn" datatype="html">
         <source>➕ Agregar atracción</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">195,197</context>
+          <context context-type="linenumber">247,249</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.plannedLabel" datatype="html">
         <source>Planificado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">220,221</context>
+          <context context-type="linenumber">272,273</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.removeAttTitle" datatype="html">
         <source>Quitar del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">245,246</context>
+          <context context-type="linenumber">297,298</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.addBtn" datatype="html">
         <source>+ Agregar destino</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">279,280</context>
+          <context context-type="linenumber">347,348</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookBtn" datatype="html">
         <source>Guardar viaje 🎉 <x id="START_BLOCK_IF" equiv-text="@if (!trip.loadedPlanId()) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">286,290</context>
+          <context context-type="linenumber">354,358</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookNamePlaceholder" datatype="html">
         <source>Nombre del viaje…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">296,297</context>
+          <context context-type="linenumber">364,365</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
         <source>Guardar ✓ <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">302,303</context>
+          <context context-type="linenumber">370,371</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.savingMsg" datatype="html">
         <source>Guardando…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">326,328</context>
+          <context context-type="linenumber">394,396</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookSavedMsg" datatype="html">
         <source>Viaje guardado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">336,338</context>
+          <context context-type="linenumber">404,406</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOnTitle" datatype="html">
         <source>Guardado automático activado — clic para desactivar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">356</context>
+          <context context-type="linenumber">425</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOffTitle" datatype="html">
         <source>Guardado automático desactivado — clic para activar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">357</context>
+          <context context-type="linenumber">426</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveCountdownTitle" datatype="html">
         <source>Tiempo restante hasta el próximo intento de guardado automático</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">358</context>
+          <context context-type="linenumber">427</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stopList.weatherForecastTag" datatype="html">
+        <source>Pronóstico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
+          <context context-type="linenumber">428</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stopList.weatherHistoricTag" datatype="html">
+        <source>Estimado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
+          <context context-type="linenumber">429</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stopList.weatherLoadingLabel" datatype="html">
+        <source>Cargando pronóstico…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
+          <context context-type="linenumber">430</context>
         </context-group>
       </trans-unit>
       <trans-unit id="transit.addConnection" datatype="html">

@@ -1,10 +1,11 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, from, of, timer } from 'rxjs';
-import { switchMap, tap, first, map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { Observable, from, of, timer, throwError } from 'rxjs';
+import { switchMap, tap, first, map, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
+import { WeatherDay } from '../models/weather.model';
 import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
@@ -470,5 +471,72 @@ export class ApiService {
   getPendingInvites(): Observable<PendingCollaboratorInvite[]> {
     if (this.useMocks) return of([]);
     return this.http.get<PendingCollaboratorInvite[]>(`${this.base}/trips/invites`);
+  }
+
+  getWeather(
+    cityId: string,
+    checkIn: string,
+    checkOut: string,
+    ifNoneMatch?: string,
+  ): Observable<{ status: number; days: WeatherDay[] | null; etag: string | null }> {
+    if (this.useMocks) {
+      return of({
+        status: 200,
+        etag: 'mock-etag',
+        days: this.mockWeatherDays(checkIn, checkOut),
+      });
+    }
+
+    const params = new HttpParams().set('cityId', cityId).set('checkIn', checkIn).set('checkOut', checkOut);
+    const headers = ifNoneMatch ? new HttpHeaders({ 'If-None-Match': ifNoneMatch }) : undefined;
+
+    return this.http
+      .get<{ days: WeatherDay[] }>(`${this.base}/weather`, { params, headers, observe: 'response' })
+      .pipe(
+        map(res => ({ status: res.status, days: res.body?.days ?? null, etag: res.headers.get('ETag') })),
+        catchError((err: HttpErrorResponse) => {
+          // Angular's HttpClient routes any non-2xx status, 304 included, through
+          // the error channel — fold a real 304 back into a normal return value
+          // so WeatherService (Task 11) never has to special-case HttpErrorResponse.
+          if (err.status === 304) return of({ status: 304, days: null, etag: ifNoneMatch ?? null });
+          return throwError(() => err);
+        }),
+      );
+  }
+
+  /** Mock-mode stand-in for the real backend's day-by-day weather response: builds
+   *  one WeatherDay per calendar day from checkIn to checkOut inclusive (both
+   *  dd/mm/yyyy), classifying each day 'forecast' if it falls within
+   *  [today, today+15] and 'historic' otherwise — mirroring the real backend's own
+   *  16-day forecast-horizon rule (see docs/superpowers/plans/2026-08-30-weather-forecast.md).
+   *  Without this, useMocks dev/e2e runs could never exercise the historic/
+   *  grayscale chip styling since every mock day used to be a hardcoded 'forecast'. */
+  private mockWeatherDays(checkIn: string, checkOut: string): WeatherDay[] {
+    const parseDMY = (dmy: string): Date => {
+      const [d, m, y] = dmy.split('/').map(Number);
+      return new Date(y, m - 1, d);
+    };
+    const formatDMY = (date: Date): string =>
+      `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+
+    const start = parseDMY(checkIn);
+    const end = parseDMY(checkOut);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const horizonEnd = new Date(today);
+    horizonEnd.setDate(horizonEnd.getDate() + 15);
+
+    const days: WeatherDay[] = [];
+    for (const d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      const isForecast = d >= today && d <= horizonEnd;
+      days.push({
+        date: formatDMY(d),
+        type: isForecast ? 'forecast' : 'historic',
+        tempMaxC: 22,
+        tempMinC: 13,
+        weatherCode: isForecast ? 1 : 61,
+      });
+    }
+    return days;
   }
 }

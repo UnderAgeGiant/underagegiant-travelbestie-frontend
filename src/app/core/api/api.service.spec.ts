@@ -1,5 +1,5 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { provideHttpClient, withXhr } from '@angular/common/http';
+import { provideHttpClient, withXhr, HttpErrorResponse } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { ApiService } from './api.service';
 import { environment } from '../../../environments/environment';
@@ -53,6 +53,35 @@ describe('ApiService (useMocks=true)', () => {
   it('updateKarmaMock falls back to a base of 10 when no karma has been stored yet', () => {
     service.updateKarmaMock('another-new-user@test.com', -1);
     expect(localStorage.getItem('tb_karma_another-new-user@test.com')).toBe('9');
+  });
+
+  it('getWeather (mock mode) returns one day per date in a fully past-horizon range, all marked historic', done => {
+    // Build a range that starts more than 15 days from today (outside the
+    // 16-day forecast horizon) so the whole range must classify as 'historic' —
+    // computed relative to `new Date()` so this isn't date-flaky.
+    const formatDMY = (date: Date) =>
+      `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+
+    const today = new Date();
+    const checkInDate = new Date(today);
+    checkInDate.setDate(checkInDate.getDate() + 20);
+    const checkOutDate = new Date(checkInDate);
+    checkOutDate.setDate(checkOutDate.getDate() + 3);
+
+    const checkIn = formatDMY(checkInDate);
+    const checkOut = formatDMY(checkOutDate);
+
+    service.getWeather('paris', checkIn, checkOut).subscribe(res => {
+      expect(res.days).not.toBeNull();
+      const days = res.days!;
+      expect(days.length).toBe(4); // inclusive of both endpoints, 4 calendar days apart -> +1
+      for (const day of days) {
+        expect(day.type).toBe('historic');
+      }
+      expect(days[0].date).toBe(checkIn);
+      expect(days[days.length - 1].date).toBe(checkOut);
+      done();
+    });
   });
 });
 
@@ -472,5 +501,58 @@ describe('ApiService.boostCompanion() / getCompanionStatus() — real HTTP', () 
     });
     const req = http.expectOne(r => r.url.includes('/companion/status') && r.method === 'GET');
     req.flush({ boosted: true, secondsRemaining: 43200 });
+  });
+});
+
+describe('ApiService.getWeather', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => http.verify());
+
+  it('sends cityId/checkIn/checkOut as query params and returns days + etag on 200', done => {
+    service.getWeather('paris', '30/08/2026', '30/08/2026').subscribe(res => {
+      expect(res.status).toBe(200);
+      expect(res.etag).toBe('"abc123"');
+      expect(res.days).toEqual([{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }]);
+      done();
+    });
+
+    const req = http.expectOne(r => r.url.includes('/weather') && r.params.get('cityId') === 'paris');
+    expect(req.request.params.get('checkIn')).toBe('30/08/2026');
+    expect(req.request.params.get('checkOut')).toBe('30/08/2026');
+    req.flush(
+      { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }] },
+      { headers: { ETag: '"abc123"' } },
+    );
+  });
+
+  it('sends If-None-Match when an etag is passed, and normalizes a 304 into status 304 with null days', done => {
+    service.getWeather('paris', '30/08/2026', '30/08/2026', '"abc123"').subscribe(res => {
+      expect(res.status).toBe(304);
+      expect(res.days).toBeNull();
+      done();
+    });
+
+    const req = http.expectOne(r => r.url.includes('/weather'));
+    expect(req.request.headers.get('If-None-Match')).toBe('"abc123"');
+    req.flush(null, { status: 304, statusText: 'Not Modified' });
+  });
+
+  it('propagates a real error (not 304) as an error', done => {
+    service.getWeather('paris', '30/08/2026', '30/08/2026').subscribe({
+      next: () => fail('expected an error'),
+      error: (err: HttpErrorResponse) => { expect(err.status).toBe(500); done(); },
+    });
+
+    http.expectOne(r => r.url.includes('/weather')).flush('boom', { status: 500, statusText: 'Server Error' });
   });
 });
