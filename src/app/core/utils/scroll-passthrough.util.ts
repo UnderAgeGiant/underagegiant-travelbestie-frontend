@@ -21,6 +21,19 @@
  * trade-off is that native scrolling no longer works for a touch that starts directly on that
  * element, so this helper replays the vertical delta by hand onto the real scrollable ancestor
  * during the pre-armed phase, keeping a plain swipe-to-scroll feeling identical to before.
+ *
+ * Round 7 fix (real Android Chrome, reported after round 6 shipped: "nothing happens, no drag or
+ * scroll" — a regression, not just "still doesn't drag"): `.tl-grid-wrap` (the day-timeline's own
+ * scroll container) deliberately switches to `overflow-y: visible` under the same `max-width:
+ * 768px` breakpoint DeviceService uses for `isMobile()` (src/styles.css) — on a real phone it is
+ * NOT a scroll container at all; the day grid sits in the page's normal flow and the PAGE itself
+ * scrolls instead. This function used to stop before ever considering `document.body`/
+ * `documentElement`, so on a real mobile viewport it returned `null` here — meaning the scroll
+ * passthrough silently did nothing, and combined with `touch-action: none` blocking the browser's
+ * own scroll too, the net result was no scrolling at all. It now falls back to the page's own
+ * `document.scrollingElement` (the standards-compliant way to scroll the whole document,
+ * abstracting over the `<html>`-vs-`<body>` quirks-mode difference) when nothing in between
+ * actually scrolls.
  */
 export function findScrollableAncestor(el: HTMLElement | null): HTMLElement | null {
   let node = el?.parentElement ?? null;
@@ -31,5 +44,7 @@ export function findScrollableAncestor(el: HTMLElement | null): HTMLElement | nu
     if (canScrollY) return node;
     node = node.parentElement;
   }
+  const page = document.scrollingElement as HTMLElement | null;
+  if (page && page.scrollHeight > page.clientHeight) return page;
   return null;
 }
