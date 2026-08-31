@@ -483,7 +483,7 @@ export class ApiService {
       return of({
         status: 200,
         etag: 'mock-etag',
-        days: [{ date: checkIn, type: 'forecast', tempMaxC: 22, tempMinC: 13, weatherCode: 1 }],
+        days: this.mockWeatherDays(checkIn, checkOut),
       });
     }
 
@@ -502,5 +502,41 @@ export class ApiService {
           return throwError(() => err);
         }),
       );
+  }
+
+  /** Mock-mode stand-in for the real backend's day-by-day weather response: builds
+   *  one WeatherDay per calendar day from checkIn to checkOut inclusive (both
+   *  dd/mm/yyyy), classifying each day 'forecast' if it falls within
+   *  [today, today+15] and 'historic' otherwise — mirroring the real backend's own
+   *  16-day forecast-horizon rule (see docs/superpowers/plans/2026-08-30-weather-forecast.md).
+   *  Without this, useMocks dev/e2e runs could never exercise the historic/
+   *  grayscale chip styling since every mock day used to be a hardcoded 'forecast'. */
+  private mockWeatherDays(checkIn: string, checkOut: string): WeatherDay[] {
+    const parseDMY = (dmy: string): Date => {
+      const [d, m, y] = dmy.split('/').map(Number);
+      return new Date(y, m - 1, d);
+    };
+    const formatDMY = (date: Date): string =>
+      `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+
+    const start = parseDMY(checkIn);
+    const end = parseDMY(checkOut);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const horizonEnd = new Date(today);
+    horizonEnd.setDate(horizonEnd.getDate() + 15);
+
+    const days: WeatherDay[] = [];
+    for (const d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      const isForecast = d >= today && d <= horizonEnd;
+      days.push({
+        date: formatDMY(d),
+        type: isForecast ? 'forecast' : 'historic',
+        tempMaxC: 22,
+        tempMinC: 13,
+        weatherCode: isForecast ? 1 : 61,
+      });
+    }
+    return days;
   }
 }

@@ -54,6 +54,35 @@ describe('ApiService (useMocks=true)', () => {
     service.updateKarmaMock('another-new-user@test.com', -1);
     expect(localStorage.getItem('tb_karma_another-new-user@test.com')).toBe('9');
   });
+
+  it('getWeather (mock mode) returns one day per date in a fully past-horizon range, all marked historic', done => {
+    // Build a range that starts more than 15 days from today (outside the
+    // 16-day forecast horizon) so the whole range must classify as 'historic' —
+    // computed relative to `new Date()` so this isn't date-flaky.
+    const formatDMY = (date: Date) =>
+      `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+
+    const today = new Date();
+    const checkInDate = new Date(today);
+    checkInDate.setDate(checkInDate.getDate() + 20);
+    const checkOutDate = new Date(checkInDate);
+    checkOutDate.setDate(checkOutDate.getDate() + 3);
+
+    const checkIn = formatDMY(checkInDate);
+    const checkOut = formatDMY(checkOutDate);
+
+    service.getWeather('paris', checkIn, checkOut).subscribe(res => {
+      expect(res.days).not.toBeNull();
+      const days = res.days!;
+      expect(days.length).toBe(4); // inclusive of both endpoints, 4 calendar days apart -> +1
+      for (const day of days) {
+        expect(day.type).toBe('historic');
+      }
+      expect(days[0].date).toBe(checkIn);
+      expect(days[days.length - 1].date).toBe(checkOut);
+      done();
+    });
+  });
 });
 
 describe('ApiService — planTrip (async kickoff + poll)', () => {

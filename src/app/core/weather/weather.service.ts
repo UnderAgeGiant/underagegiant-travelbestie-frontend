@@ -6,7 +6,12 @@ import { WeatherDay } from '../models/weather.model';
 interface CachedEntry {
   days: WeatherDay[];
   etag: string;
+  cachedAt: number;
 }
+
+const CACHE_PREFIX = 'tb:weather:';
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const MAX_CACHE_ENTRIES = 100;
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
@@ -25,7 +30,7 @@ export class WeatherService {
   private readonly inFlight = new Set<string>();
 
   private cacheKey(cityId: string, checkIn: string, checkOut: string): string {
-    return `tb:weather:${cityId}:${checkIn}:${checkOut}`;
+    return `${CACHE_PREFIX}${cityId}:${checkIn}:${checkOut}`;
   }
 
   private readCache(key: string): CachedEntry | null {
@@ -35,8 +40,43 @@ export class WeatherService {
     } catch { return null; }
   }
 
-  private writeCache(key: string, entry: CachedEntry): void {
-    try { localStorage.setItem(key, JSON.stringify(entry)); } catch { /* non-fatal */ }
+  private writeCache(key: string, entry: Omit<CachedEntry, 'cachedAt'>): void {
+    try {
+      localStorage.setItem(key, JSON.stringify({ ...entry, cachedAt: Date.now() }));
+    } catch { /* non-fatal */ }
+    this.pruneCache();
+  }
+
+  /** Bounds the weather cache's contribution to the shared localStorage origin
+   *  quota: every date edit on a stop mints a brand-new key
+   *  (`tb:weather:{cityId}:{checkIn}:{checkOut}`) with no natural eviction, so
+   *  this drops entries older than CACHE_TTL_MS and, if still over
+   *  MAX_CACHE_ENTRIES, the oldest survivors until back at the cap. Runs after
+   *  every cache write. Non-fatal — localStorage access can throw in some
+   *  browser contexts (matching this file's existing convention). */
+  private pruneCache(): void {
+    try {
+      const survivors: { key: string; cachedAt: number }[] = [];
+      const now = Date.now();
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (!key || !key.startsWith(CACHE_PREFIX)) continue;
+
+        const entry = this.readCache(key);
+        if (!entry || now - entry.cachedAt > CACHE_TTL_MS) {
+          localStorage.removeItem(key);
+          continue;
+        }
+        survivors.push({ key, cachedAt: entry.cachedAt });
+      }
+
+      if (survivors.length > MAX_CACHE_ENTRIES) {
+        survivors.sort((a, b) => a.cachedAt - b.cachedAt);
+        const excess = survivors.length - MAX_CACHE_ENTRIES;
+        for (let i = 0; i < excess; i++) localStorage.removeItem(survivors[i].key);
+      }
+    } catch { /* non-fatal */ }
   }
 
   /** Fire-and-forget: fetches (or revalidates) weather for a city + date range and
@@ -59,8 +99,11 @@ export class WeatherService {
             if (cached) this.mergeIntoDayMap(cityId, cached.days);
             return;
           }
-          if (res.days && res.etag) {
-            this.writeCache(key, { days: res.days, etag: res.etag });
+          if (res.days) {
+            // A missing etag (e.g. the backend didn't expose it cross-origin via
+            // Access-Control-Expose-Headers) must not block showing the data — it only
+            // means this response can't be cached for future revalidation.
+            if (res.etag) this.writeCache(key, { days: res.days, etag: res.etag });
             this.mergeIntoDayMap(cityId, res.days);
           }
         },
