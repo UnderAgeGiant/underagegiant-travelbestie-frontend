@@ -61,7 +61,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
         <!-- S1: full app shell (left panel + welcome) -->
         <section class="landing-snap-child s1-shell">
-          <app-stop-list (addDestination)="showAddModal.set(true)" />
+          <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="showProfile.set(true)" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
                          (openAiPlanning)="showAiPlanning.set(true)"

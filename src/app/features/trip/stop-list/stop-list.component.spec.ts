@@ -113,6 +113,47 @@ describe('StopListComponent — AI city suggestions', () => {
   });
 });
 
+describe('StopListComponent — visa requirement badge', () => {
+  let fixture: ComponentFixture<StopListComponent>;
+  let trip: TripService;
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false); // desktop viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture = TestBed.createComponent(StopListComponent);
+  });
+
+  it('shows a visa badge on a stop when the user has a countryOfResidence set (CL -> FR is visa-free for 90 days)', () => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'CL' });
+    fixture.detectChanges();
+
+    const badge = fixture.nativeElement.querySelector('.stop-visa-badge');
+    expect(badge?.textContent).toContain('90');
+  });
+
+  it('shows a CTA chip instead of a badge when logged in with no countryOfResidence set', () => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    fixture.detectChanges();
+
+    const cta = fixture.nativeElement.querySelector('.stop-visa-badge.stop-visa-cta');
+    expect(cta).toBeTruthy();
+  });
+
+  it('shows nothing when not logged in', () => {
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.stop-visa-badge')).toBeNull();
+  });
+});
+
 describe('StopListComponent — attraction time inputs (24-hour, via TimePickerComponent)', () => {
   let component: StopListComponent;
   let fixture: ComponentFixture<StopListComponent>;

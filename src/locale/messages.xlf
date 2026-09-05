@@ -108,6 +108,55 @@
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="visa.freeDays" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="days"/> días sin visa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/visa-requirement.model.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visa.free" datatype="html">
+        <source>Sin visa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/visa-requirement.model.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visa.onArrival" datatype="html">
+        <source>Visa a la llegada</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/visa-requirement.model.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visa.eta" datatype="html">
+        <source>Autorización electrónica (ETA)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/visa-requirement.model.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visa.eVisa" datatype="html">
+        <source>Visa electrónica</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/visa-requirement.model.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visa.required" datatype="html">
+        <source>Visa requerida</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/visa-requirement.model.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visa.noAdmission" datatype="html">
+        <source>Entrada no permitida</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/visa-requirement.model.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="share.message" datatype="html">
         <source>✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳</source>
         <context-group purpose="location">
@@ -898,7 +947,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">386,389</context>
+          <context context-type="linenumber">396,399</context>
         </context-group>
       </trans-unit>
       <trans-unit id="planModal.title" datatype="html">
@@ -1287,7 +1336,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.title" datatype="html">
@@ -1620,7 +1669,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">266,267</context>
+          <context context-type="linenumber">256,257</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.cloneModalTitle" datatype="html">
@@ -2106,7 +2155,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">180,181</context>
+          <context context-type="linenumber">182,183</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.confirmPasswordMismatch" datatype="html">
@@ -2117,7 +2166,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">193,195</context>
+          <context context-type="linenumber">195,197</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.otpSentTitle" datatype="html">
@@ -2591,340 +2640,318 @@
         <source>Mi Perfil</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">32,35</context>
+          <context context-type="linenumber">34,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.editAccountTitle" datatype="html">
         <source>Editar cuenta ✏️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">49,50</context>
+          <context context-type="linenumber">51,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errSessionExpired" datatype="html">
         <source>Tu sesión expiró. Vuelve a iniciar sesión.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">56,57</context>
+          <context context-type="linenumber">58,59</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">63,64</context>
+          <context context-type="linenumber">65,66</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">70,71</context>
+          <context context-type="linenumber">72,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errUpdateName" datatype="html">
         <source>No se pudo actualizar tu nombre. Intenta de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">58,59</context>
+          <context context-type="linenumber">60,61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errUpdatePassword" datatype="html">
         <source>No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">65,67</context>
+          <context context-type="linenumber">67,69</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile.errUpdateHomeCity" datatype="html">
-        <source>No se pudo guardar la ciudad. Intenta de nuevo.</source>
+      <trans-unit id="profile.errUpdateCountryOfResidence" datatype="html">
+        <source>No se pudo guardar el país de residencia. Intenta de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">72,74</context>
+          <context context-type="linenumber">74,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.nameTitle" datatype="html">
         <source>Nombre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">87,88</context>
+          <context context-type="linenumber">89,90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.displayNameLabel" datatype="html">
         <source>Nombre para mostrar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">101,102</context>
+          <context context-type="linenumber">103,104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.namePlaceholder" datatype="html">
         <source>Tu nombre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">102,103</context>
+          <context context-type="linenumber">104,105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.saving" datatype="html">
         <source>Guardando…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">112,113</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">241,242</context>
+          <context context-type="linenumber">114,115</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.saved" datatype="html">
         <source>Guardado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">114,115</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">243,244</context>
+          <context context-type="linenumber">116,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.saveNameBtn" datatype="html">
         <source>Guardar nombre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">116,117</context>
+          <context context-type="linenumber">118,119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.passwordTitle" datatype="html">
         <source>Contraseña</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">128,129</context>
+          <context context-type="linenumber">130,131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.currentPasswordLabel" datatype="html">
         <source>Contraseña actual</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">142,143</context>
+          <context context-type="linenumber">144,145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.hideBtn" datatype="html">
         <source>Ocultar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">150</context>
+          <context context-type="linenumber">152</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">163</context>
+          <context context-type="linenumber">165</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">189</context>
+          <context context-type="linenumber">191</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.showBtn" datatype="html">
         <source>Ver</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">150,151</context>
+          <context context-type="linenumber">152,153</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">163,164</context>
+          <context context-type="linenumber">165,166</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">189,190</context>
+          <context context-type="linenumber">191,192</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.newPasswordLabel" datatype="html">
         <source>Nueva contraseña</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">155,156</context>
+          <context context-type="linenumber">157,158</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.updatingMsg" datatype="html">
         <source>Actualizando…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">203,204</context>
+          <context context-type="linenumber">205,206</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.passwordUpdatedMsg" datatype="html">
         <source>Actualizada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">205,206</context>
+          <context context-type="linenumber">207,208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.updatePasswordBtn" datatype="html">
         <source>Actualizar contraseña</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">207,209</context>
+          <context context-type="linenumber">209,211</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile.homeCityTitle" datatype="html">
-        <source>Ciudad de origen</source>
+      <trans-unit id="profile.countryOfResidenceTitle" datatype="html">
+        <source>País de residencia</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">220,221</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.homeCityPlaceholder" datatype="html">
-        <source>Ciudad o dirección de inicio…</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">233,234</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile.homeCitySave" datatype="html">
-        <source>Guardar ciudad</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">245,246</context>
+          <context context-type="linenumber">222,223</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.companionBoostTitle" datatype="html">
         <source>Asistente Miel 🐾</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">256,257</context>
+          <context context-type="linenumber">246,247</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.myTripsTitle" datatype="html">
         <source>Mis planificaciones ✈️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">263,264</context>
+          <context context-type="linenumber">253,254</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.noTripsYet" datatype="html">
         <source>Aún no tienes destinos planificados. ¡Agrega tu primera ciudad!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">269,271</context>
+          <context context-type="linenumber">259,261</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.currentTripLabel" datatype="html">
         <source>Viaje actual</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">272,273</context>
+          <context context-type="linenumber">262,263</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.citiesLabel" datatype="html">
         <source>Ciudades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">276,278</context>
+          <context context-type="linenumber">266,268</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.attractionsLabel" datatype="html">
         <source>Atracciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">280,282</context>
+          <context context-type="linenumber">270,272</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.visitedPlacesTitle" datatype="html">
         <source>Lugares visitados 🗺</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">303,304</context>
+          <context context-type="linenumber">293,294</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.loginToSavePlaces" datatype="html">
         <source>Inicia sesión para guardar tus lugares visitados en el mapa.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">305,307</context>
+          <context context-type="linenumber">295,297</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.mapHint" datatype="html">
         <source> Haz clic en el mapa para marcar un lugar que ya visitaste. Pasa el cursor sobre un pin para eliminarlo. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">308,309</context>
+          <context context-type="linenumber">298,299</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.worldMapAlt" datatype="html">
         <source>World map</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">313,315</context>
+          <context context-type="linenumber">303,305</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.placeVisitedPlaceholder" datatype="html">
         <source>¿Qué lugar visitaste?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">342,343</context>
+          <context context-type="linenumber">332,333</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.addPinBtn" datatype="html">
         <source>Agregar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">345,346</context>
+          <context context-type="linenumber">335,336</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.pinsMarkedCountOne" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugar marcado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">354,355</context>
+          <context context-type="linenumber">344,345</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.pinsMarkedCountMany" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugares marcados</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">356,357</context>
+          <context context-type="linenumber">346,347</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile.homeCitySub" datatype="html">
+      <trans-unit id="profile.countryOfResidenceSub" datatype="html">
         <source>Sin definir</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">395</context>
+          <context context-type="linenumber">385</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.strengthVulnerable" datatype="html">
         <source>Vulnerable</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">411</context>
+          <context context-type="linenumber">407</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.strengthLight" datatype="html">
         <source>Moderada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">412</context>
+          <context context-type="linenumber">408</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.strengthStrong" datatype="html">
         <source>Fuerte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">413</context>
+          <context context-type="linenumber">409</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errNameEmpty" datatype="html">
         <source>El nombre no puede estar vacío.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">430</context>
+          <context context-type="linenumber">426</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errPasswordsMismatch" datatype="html">
         <source>Las contraseñas no coinciden.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">446</context>
+          <context context-type="linenumber">442</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.errPasswordTooShort" datatype="html">
         <source>La contraseña debe tener al menos 6 caracteres.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.component.ts</context>
-          <context context-type="linenumber">447</context>
+          <context context-type="linenumber">443</context>
         </context-group>
       </trans-unit>
       <trans-unit id="sharedTrip.tripBy" datatype="html">
@@ -3267,203 +3294,210 @@
         <source>Mi viaje ✈️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">116,117</context>
+          <context context-type="linenumber">120,121</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveLabel" datatype="html">
         <source>Auto-guardado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">126,128</context>
+          <context context-type="linenumber">130,132</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.editingOwnerPlan" datatype="html">
         <source>Editando el plan de <x id="INTERPOLATION" equiv-text="{{ owner.name }}"/> (<x id="INTERPOLATION_1" equiv-text="{{ owner.email }}"/>)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">135,136</context>
+          <context context-type="linenumber">139,140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.noStops" datatype="html">
         <source>Agrega tu primer destino</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">140,141</context>
+          <context context-type="linenumber">144,145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.oneStopPlanned" datatype="html">
         <source>destino planificado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">142,144</context>
+          <context context-type="linenumber">146,148</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.manyStopsPlanned" datatype="html">
         <source>destinos planificados</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">144,146</context>
+          <context context-type="linenumber">148,150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.emptyLine1" datatype="html">
         <source>Busca una ciudad arriba</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">154,155</context>
+          <context context-type="linenumber">158,159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.emptyOr" datatype="html">
         <source>o haz clic en</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">155</context>
+          <context context-type="linenumber">159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.emptyAddBtn" datatype="html">
         <source>+ Agregar destino</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">155,157</context>
+          <context context-type="linenumber">159,161</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.saveDatesBtn" datatype="html">
         <source>✓ Guardar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">212,213</context>
+          <context context-type="linenumber">222,223</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.checkInLabel" datatype="html">
         <source>Llegada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">222,223</context>
+          <context context-type="linenumber">232,233</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.checkOutLabel" datatype="html">
         <source>Salida</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">227,228</context>
+          <context context-type="linenumber">237,238</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.viewItinerary" datatype="html">
         <source>📅 Ver itinerario de la ciudad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">238,239</context>
+          <context context-type="linenumber">248,249</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.aiSuggestBtn" datatype="html">
         <source>🐾 Sugiere qué hacer en esta ciudad <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">241,243</context>
+          <context context-type="linenumber">251,253</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.addAttractionBtn" datatype="html">
         <source>➕ Agregar atracción</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">247,249</context>
+          <context context-type="linenumber">257,259</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.plannedLabel" datatype="html">
         <source>Planificado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">272,273</context>
+          <context context-type="linenumber">282,283</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.removeAttTitle" datatype="html">
         <source>Quitar del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">297,298</context>
+          <context context-type="linenumber">307,308</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.addBtn" datatype="html">
         <source>+ Agregar destino</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">347,348</context>
+          <context context-type="linenumber">357,358</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookBtn" datatype="html">
         <source>Guardar viaje 🎉 <x id="START_BLOCK_IF" equiv-text="@if (!trip.loadedPlanId()) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">354,358</context>
+          <context context-type="linenumber">364,368</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookNamePlaceholder" datatype="html">
         <source>Nombre del viaje…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">364,365</context>
+          <context context-type="linenumber">374,375</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
         <source>Guardar ✓ <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">370,371</context>
+          <context context-type="linenumber">380,381</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.savingMsg" datatype="html">
         <source>Guardando…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">394,396</context>
+          <context context-type="linenumber">404,406</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookSavedMsg" datatype="html">
         <source>Viaje guardado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">404,406</context>
+          <context context-type="linenumber">414,416</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOnTitle" datatype="html">
         <source>Guardado automático activado — clic para desactivar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">425</context>
+          <context context-type="linenumber">437</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOffTitle" datatype="html">
         <source>Guardado automático desactivado — clic para activar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">426</context>
+          <context context-type="linenumber">438</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveCountdownTitle" datatype="html">
         <source>Tiempo restante hasta el próximo intento de guardado automático</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">427</context>
+          <context context-type="linenumber">439</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.weatherForecastTag" datatype="html">
         <source>Pronóstico</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">428</context>
+          <context context-type="linenumber">440</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.weatherHistoricTag" datatype="html">
         <source>Estimado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">429</context>
+          <context context-type="linenumber">441</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.weatherLoadingLabel" datatype="html">
         <source>Cargando pronóstico…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">430</context>
+          <context context-type="linenumber">442</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stopList.setCountryCta" datatype="html">
+        <source>Agrega tu país de residencia para ver info de visa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
+          <context context-type="linenumber">443</context>
         </context-group>
       </trans-unit>
       <trans-unit id="transit.addConnection" datatype="html">
@@ -3689,6 +3723,27 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/companion-mascot/companion-mascot.component.ts</context>
           <context context-type="linenumber">39,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="combobox.countryPlaceholder" datatype="html">
+        <source>Buscar país…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/country-combobox/country-combobox.component.ts</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="combobox.countrySearchPlaceholder" datatype="html">
+        <source>Escribe para buscar…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/country-combobox/country-combobox.component.ts</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="combobox.noCountries" datatype="html">
+        <source>No se encontraron países</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/country-combobox/country-combobox.component.ts</context>
+          <context context-type="linenumber">30,32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="datePicker.fromPlaceholder" datatype="html">

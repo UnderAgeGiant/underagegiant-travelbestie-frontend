@@ -23,6 +23,10 @@ import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { WeatherService } from '../../../core/weather/weather.service';
 import { getWeatherCodeMeta } from '../../../core/models/weather.model';
+import { VisaRequirementService } from '../../../core/visa/visa-requirement.service';
+import { getVisaRequirementMeta } from '../../../core/models/visa-requirement.model';
+import { countryCodeFromFlagEmoji } from '../../../shared/flag-icon/flag-emoji.util';
+import { City } from '../../../core/models/city.model';
 
 @Component({
     selector: 'app-stop-list',
@@ -192,6 +196,12 @@ import { getWeatherCodeMeta } from '../../../core/models/weather.model';
                       }
                     </div>
                     <div class="stop-country">{{ city.country }}</div>
+                    @if (visaBadge(city); as visa) {
+                      <div class="stop-visa-badge" [class.stop-visa-cta]="visa.cta"
+                           (click)="visa.cta ? onVisaCtaClick($event) : null">
+                        <span>{{ visa.icon }}</span> {{ visa.label }}
+                      </div>
+                    }
                   </div>
                   <button class="stop-del"
                           (click)="$event.stopPropagation(); trip.removeStop(stop.stopId)">×</button>
@@ -420,7 +430,9 @@ export class StopListComponent {
   protected readonly citySuggest = inject(CitySuggestService);
   protected readonly autoSave = inject(AutoSaveService);
   private readonly weather = inject(WeatherService);
+  private readonly visaRequirement = inject(VisaRequirementService);
   addDestination = output<void>();
+  openProfile = output<void>();
 
   protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
   protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
@@ -428,6 +440,24 @@ export class StopListComponent {
   protected readonly weatherForecastTag = $localize`:@@stopList.weatherForecastTag:Pronóstico`;
   protected readonly weatherHistoricTag = $localize`:@@stopList.weatherHistoricTag:Estimado`;
   protected readonly weatherLoadingLabel = $localize`:@@stopList.weatherLoadingLabel:Cargando pronóstico…`;
+  readonly setCountryCta = $localize`:@@stopList.setCountryCta:Agrega tu país de residencia para ver info de visa`;
+
+  visaBadge(city: City): { cta: boolean; icon: string; label: string } | null {
+    if (!this.auth.isLoggedIn()) return null;
+    const home = this.auth.currentUser()?.countryOfResidence;
+    if (!home) return { cta: true, icon: '🛂', label: this.setCountryCta };
+    const destCode = countryCodeFromFlagEmoji(city.flag);
+    if (!destCode) return null;
+    const result = this.visaRequirement.requirement(home, destCode);
+    if (!result) return null;
+    const meta = getVisaRequirementMeta(result.category, result.days);
+    return { cta: false, icon: meta.icon, label: meta.label };
+  }
+
+  onVisaCtaClick(event: MouseEvent): void {
+    event.stopPropagation();
+    this.openProfile.emit();
+  }
 
   protected formatCountdown(totalSeconds: number): string {
     const m = Math.floor(totalSeconds / 60);
