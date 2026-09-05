@@ -877,6 +877,14 @@ app-nav { display: block; }
   transition: background .12s;
 }
 .profile-accordion-hd:hover { background: var(--cream); }
+/* The card wrapper around these rows used to be overflow:hidden purely to keep this
+   hover fill inside its own 14px rounded corners — but that also clipped any child
+   popover (e.g. the país-de-residencia `<app-country-combobox>` dropdown) that needs to
+   extend past the card's bottom edge, hiding it entirely. The wrapper is overflow:visible
+   now; round the flush top/bottom rows directly instead so the hover fill still respects
+   the card's corners. */
+.profile-accordion-hd:first-of-type:hover { border-radius: 14px 14px 0 0; }
+.profile-accordion-hd:last-of-type:hover  { border-radius: 0 0 14px 14px; }
 .profile-accordion-title {
   font-size: 13px; font-weight: 600; color: var(--t1);
 }

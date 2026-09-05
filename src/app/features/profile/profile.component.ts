@@ -80,7 +80,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               }
             </div>
           }
-          <div style="border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff">
+          <div style="border:1px solid var(--border);border-radius:14px;background:#fff">
 
             <!-- Name -->
             <button class="profile-accordion-hd" (click)="toggleEditSection('name')" type="button">
