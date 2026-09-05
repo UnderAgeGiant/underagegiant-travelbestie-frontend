@@ -1,16 +1,18 @@
 import { Component, input, output, signal, computed, effect, HostListener, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { Country, WORLD_COUNTRIES } from '../../data/countries.data';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
+import { FlagIconComponent } from '../flag-icon/flag-icon.component';
 
 @Component({
   selector: 'app-country-combobox',
   standalone: true,
+  imports: [FlagIconComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="combo-wrap">
       <div [class]="'combo-input' + (open() ? ' open' : '')" (click)="toggleOpen()">
         @if (selected()) {
-          <span style="font-size:20px">{{ selected()!.flag }}</span>
+          <app-flag-icon [flag]="selected()!.flag" [alt]="selected()!.name" [size]="20" />
           <span style="font-weight:500">{{ selected()!.name }}</span>
         } @else {
           <span class="combo-placeholder" i18n="@@combobox.countryPlaceholder">Buscar país…</span>
@@ -31,7 +33,7 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
             }
             @for (country of filtered(); track country.code) {
               <div class="combo-item" (click)="select(country)">
-                <span style="font-size:18px">{{ country.flag }}</span>
+                <app-flag-icon class="combo-item-flag" [flag]="country.flag" [alt]="country.name" [size]="18" />
                 <div class="combo-item-city">{{ country.name }}</div>
               </div>
             }
