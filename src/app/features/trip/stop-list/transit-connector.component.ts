@@ -221,7 +221,7 @@ export class TransitConnectorComponent {
     this.trip.transitMap().get(`${this.fromId()}|${this.toId()}`) ?? null
   );
 
-  readonly homeLabel = computed(() => this.homeService.address() || '🏠');
+  readonly homeLabel = computed(() => this.homeService.countryCode() || '🏠');
 
   readonly departureDate = computed((): string | null => {
     const from  = this.fromId();

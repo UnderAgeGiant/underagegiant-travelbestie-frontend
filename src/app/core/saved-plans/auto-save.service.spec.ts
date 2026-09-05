@@ -29,7 +29,7 @@ describe('AutoSaveService — background tick passes { background: true } to ups
     trip       = TestBed.inject(TripService);
     auth       = TestBed.inject(AuthService);
     http       = TestBed.inject(HttpTestingController);
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
   afterEach(() => http.verify());

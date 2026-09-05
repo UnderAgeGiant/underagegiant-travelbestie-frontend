@@ -42,7 +42,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     // logged in at construction time, which would otherwise leave an unexpected
     // request outstanding for http.verify() to trip over.
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
   afterEach(() => http.verify());
@@ -105,7 +105,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     // logged in at construction time, which would otherwise leave an unexpected
     // request outstanding for http.verify() to trip over.
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     component.generatedTrip.set(TRIP);
   });
 
@@ -190,7 +190,7 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     // logged in at construction time, which would otherwise leave an unexpected
     // request outstanding for http.verify() to trip over.
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
   it('shows planTakingLong after 15s while the plan request is still pending', fakeAsync(() => {
@@ -263,7 +263,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
 
   it('jumps straight to Step 3 with the slideshow open and records requestId when initialResult is set', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.componentRef.setInput('initialResult', { result: TRIP, requestId: 'req-77' });
     fixture.detectChanges();
 
@@ -276,7 +276,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
 
   it('seeds the Step 1 form fields from requestParams when initialResult is set', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.componentRef.setInput('initialResult', {
       result: TRIP,
       requestId: 'req-77',
@@ -293,7 +293,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
 
   it('stays on Step 1 when no initialResult is provided', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.detectChanges();
 
     expect(fixture.componentInstance.step()).toBe('preferences');
@@ -301,7 +301,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
 
   it('restart() sticks on Step 1, still filled from requestParams, even though initialResult is still set', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.componentRef.setInput('initialResult', {
       result: TRIP,
       requestId: 'req-77',
@@ -344,7 +344,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
   afterEach(() => http.verify());
@@ -405,7 +405,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
   afterEach(() => http.verify());
@@ -495,7 +495,7 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
   afterEach(() => http.verify());
