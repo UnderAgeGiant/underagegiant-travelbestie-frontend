@@ -8,7 +8,7 @@ import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 export interface AuthUser {
   name: string;
   email: string;
-  homeCity?: string | null;
+  countryOfResidence?: string | null;
 }
 
 const SESSION_KEY = 'tb_session_user';
@@ -106,16 +106,16 @@ export class AuthService {
 
   updateProfile(fields: {
     name?: string; newEmail?: string; otp?: string;
-    currentPassword?: string; newPassword?: string; homeCity?: string;
+    currentPassword?: string; newPassword?: string; countryOfResidence?: string;
   }): Observable<{ user: AuthUser }> {
     if (environment.useMocks) {
       const current = this._user();
       if (!current) return throwError(() => Object.assign(new Error('UNAUTHORIZED'), { code: 'UNAUTHORIZED' }));
       const updated: AuthUser = {
         ...current,
-        name:     fields.name ?? current.name,
-        email:    fields.newEmail ?? current.email,
-        homeCity: fields.homeCity !== undefined ? fields.homeCity : (current.homeCity ?? null),
+        name:               fields.name ?? current.name,
+        email:              fields.newEmail ?? current.email,
+        countryOfResidence: fields.countryOfResidence !== undefined ? fields.countryOfResidence : (current.countryOfResidence ?? null),
       };
       localStorage.setItem(SESSION_KEY, JSON.stringify(updated));
       this._user.set(updated);
@@ -224,7 +224,7 @@ export class AuthService {
 
   private mockSession(name: string, email: string): { token: string; user: AuthUser } {
     const token = `mock_${Date.now()}`;
-    const user: AuthUser = { name, email, homeCity: null };
+    const user: AuthUser = { name, email, countryOfResidence: null };
     this.setTokens(token, user);
     return { token, user };
   }

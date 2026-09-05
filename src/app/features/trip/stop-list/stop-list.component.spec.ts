@@ -88,7 +88,7 @@ describe('StopListComponent — AI city suggestions', () => {
   });
 
   it('requests suggestions immediately when already logged in', async () => {
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     const stop = trip.stops()[0];
 
     component.suggestForCity(stop);
@@ -104,12 +104,53 @@ describe('StopListComponent — AI city suggestions', () => {
     component.suggestForCity(stop);
     expect(citySuggest.openForStopId()).toBeNull();
 
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     authModal.executePostLogin();
     await new Promise(resolve => setTimeout(resolve, 0));
 
     expect(citySuggest.openForStopId()).toBe(stop.stopId);
     http.expectOne(r => r.url.includes('/ai/suggest-attractions')).flush({ suggestions: [] });
+  });
+});
+
+describe('StopListComponent — visa requirement badge', () => {
+  let fixture: ComponentFixture<StopListComponent>;
+  let trip: TripService;
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false); // desktop viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture = TestBed.createComponent(StopListComponent);
+  });
+
+  it('shows a visa badge on a stop when the user has a countryOfResidence set (CL -> FR is visa-free for 90 days)', () => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'CL' });
+    fixture.detectChanges();
+
+    const badge = fixture.nativeElement.querySelector('.stop-visa-badge');
+    expect(badge?.textContent).toContain('90');
+  });
+
+  it('shows a CTA chip instead of a badge when logged in with no countryOfResidence set', () => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    fixture.detectChanges();
+
+    const cta = fixture.nativeElement.querySelector('.stop-visa-badge.stop-visa-cta');
+    expect(cta).toBeTruthy();
+  });
+
+  it('shows nothing when not logged in', () => {
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.stop-visa-badge')).toBeNull();
   });
 });
 

@@ -28,11 +28,11 @@ describe('ProfileComponent — edit account accordion', () => {
     expect(text).not.toContain('Correo electrónico');
   });
 
-  it('still shows the Nombre, Contraseña, and Ciudad de origen accordion rows', () => {
+  it('still shows the Nombre, Contraseña, and País de residencia accordion rows', () => {
     const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
     expect(text).toContain('Nombre');
     expect(text).toContain('Contraseña');
-    expect(text).toContain('Ciudad de origen');
+    expect(text).toContain('País de residencia');
   });
 
   it('bubbles a myTripsClick from its <app-nav> as its own openMyTrips output (bug: "Mis viajes" did nothing from the profile page drawer)', () => {
@@ -48,5 +48,14 @@ describe('ProfileComponent — edit account accordion', () => {
   it('has exactly three accordion toggle buttons in the edit-account section', () => {
     const buttons = fixture.nativeElement.querySelectorAll('.profile-accordion-hd');
     expect(buttons.length).toBe(3);
+  });
+
+  it('renders the country combobox when the País de residencia section is opened', () => {
+    const buttons = fixture.nativeElement.querySelectorAll('.profile-accordion-hd');
+    (buttons[2] as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    const combobox = fixture.nativeElement.querySelector('app-country-combobox');
+    expect(combobox).toBeTruthy();
   });
 });

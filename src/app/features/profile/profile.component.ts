@@ -5,6 +5,8 @@ import { HomeAddressService } from '../../core/home-address/home-address.service
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { CountryComboboxComponent } from '../../shared/country-combobox/country-combobox.component';
+import { Country, WORLD_COUNTRIES } from '../../data/countries.data';
 import { CompanionBoostCardComponent } from './companion-boost-card.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
@@ -13,7 +15,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
 @Component({
     selector: 'app-profile',
-    imports: [FlagIconComponent, CompanionBoostCardComponent, AutosaveReminderBannerComponent, NavShellComponent],
+    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, AutosaveReminderBannerComponent, NavShellComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -65,11 +67,11 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                       <ng-container i18n="@@profile.errUpdatePassword">No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</ng-container>
                     }
                   }
-                  @case ('homeCity') {
+                  @case ('countryOfResidence') {
                     @if (editErrorCode() === 'UNAUTHORIZED') {
                       <ng-container i18n="@@profile.errSessionExpired">Tu sesión expiró. Vuelve a iniciar sesión.</ng-container>
                     } @else {
-                      <ng-container i18n="@@profile.errUpdateHomeCity">No se pudo guardar la ciudad. Intenta de nuevo.</ng-container>
+                      <ng-container i18n="@@profile.errUpdateCountryOfResidence">No se pudo guardar el país de residencia. Intenta de nuevo.</ng-container>
                     }
                   }
                 }
@@ -78,7 +80,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               }
             </div>
           }
-          <div style="border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff">
+          <div style="border:1px solid var(--border);border-radius:14px;background:#fff">
 
             <!-- Name -->
             <button class="profile-accordion-hd" (click)="toggleEditSection('name')" type="button">
@@ -212,39 +214,27 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
             <div class="profile-accordion-sep"></div>
 
-            <!-- Home city -->
-            <button class="profile-accordion-hd" (click)="toggleEditSection('homeCity')" type="button">
+            <!-- Country of residence -->
+            <button class="profile-accordion-hd" (click)="toggleEditSection('countryOfResidence')" type="button">
               <div style="display:flex;align-items:center;gap:10px">
-                <span>🏠</span>
+                <span>🌎</span>
                 <div style="text-align:left">
-                  <div class="profile-accordion-title" i18n="@@profile.homeCityTitle">Ciudad de origen</div>
-                  <div class="profile-accordion-sub">{{ homeAddress.address() || sinDefinir }}</div>
+                  <div class="profile-accordion-title" i18n="@@profile.countryOfResidenceTitle">País de residencia</div>
+                  <div class="profile-accordion-sub">{{ countryOfResidenceLabel() || sinDefinir }}</div>
                 </div>
               </div>
-              @if (editSavedTab() === 'homeCity') {
+              @if (editSavedTab() === 'countryOfResidence') {
                 <span class="profile-accordion-check">✓</span>
               } @else {
-                <span class="profile-accordion-chevron">{{ editSection() === 'homeCity' ? '▴' : '▾' }}</span>
+                <span class="profile-accordion-chevron">{{ editSection() === 'countryOfResidence' ? '▴' : '▾' }}</span>
               }
             </button>
-            @if (editSection() === 'homeCity') {
+            @if (editSection() === 'countryOfResidence') {
               <div class="profile-accordion-bd">
-                <input class="form-input"
-                       i18n-placeholder="@@profile.homeCityPlaceholder" placeholder="Ciudad o dirección de inicio…"
-                       [value]="editHomeCity()"
-                       (input)="editHomeCity.set($any($event.target).value)"
-                       (keydown.enter)="editSaveHomeCity()" />
-                <button class="btn-pill btn-primary" style="margin-top:10px;width:100%;justify-content:center"
-                        [disabled]="editLoading()"
-                        (click)="editSaveHomeCity()">
-                  @if (editLoading()) {
-                    <span class="btn-spinner"></span> <ng-container i18n="@@profile.saving">Guardando…</ng-container>
-                  } @else if (editSavedTab() === 'homeCity') {
-                    ✓ <ng-container i18n="@@profile.saved">Guardado</ng-container>
-                  } @else {
-                    <ng-container i18n="@@profile.homeCitySave">Guardar ciudad</ng-container>
-                  }
-                </button>
+                <app-country-combobox [initialCode]="editCountryOfResidence()" (countryChange)="editSaveCountryOfResidence($event)" />
+                @if (editLoading() && editErrorContext() === 'countryOfResidence') {
+                  <span class="btn-spinner" style="margin-top:10px;display:inline-block"></span>
+                }
               </div>
             }
 
@@ -377,22 +367,28 @@ export class ProfileComponent {
   openMyTrips    = output<void>();
 
   // ── Edit account accordion ──────────────────────────────────
-  editSection       = signal<'name' | 'password' | 'homeCity' | null>(null);
+  editSection       = signal<'name' | 'password' | 'countryOfResidence' | null>(null);
   editDisplayName   = signal(this.auth.currentUser()?.name ?? '');
   editCurrentPwd    = signal('');
   editNewPwd        = signal('');
   editConfirmPwd    = signal('');
   editLoading       = signal(false);
-  editSavedTab      = signal<'name' | 'password' | 'homeCity' | null>(null);
+  editSavedTab      = signal<'name' | 'password' | 'countryOfResidence' | null>(null);
   editError         = signal('');
   editErrorCode     = signal<string>('');
-  editErrorContext  = signal<'name' | 'password' | 'homeCity' | ''>('');
+  editErrorContext  = signal<'name' | 'password' | 'countryOfResidence' | ''>('');
   editShowCurrentPwd  = signal(false);
   editShowNewPwd      = signal(false);
   editShowConfirmPwd  = signal(false);
-  editHomeCity        = signal(this.homeAddress.address());
+  editCountryOfResidence = signal<string | null>(this.homeAddress.countryCode());
 
-  readonly sinDefinir = $localize`:@@profile.homeCitySub:Sin definir`;
+  readonly sinDefinir = $localize`:@@profile.countryOfResidenceSub:Sin definir`;
+
+  readonly countryOfResidenceLabel = computed(() => {
+    const code = this.homeAddress.countryCode();
+    if (!code) return '';
+    return WORLD_COUNTRIES.find((c: Country) => c.code === code)?.name ?? code;
+  });
 
   readonly editPasswordsMatch = computed(() =>
     !this.editConfirmPwd() || this.editNewPwd() === this.editConfirmPwd()
@@ -417,12 +413,12 @@ export class ProfileComponent {
 
   private editSavedTimer: ReturnType<typeof setTimeout> | null = null;
 
-  toggleEditSection(section: 'name' | 'password' | 'homeCity'): void {
+  toggleEditSection(section: 'name' | 'password' | 'countryOfResidence'): void {
     this.editSection.update(cur => cur === section ? null : section);
     this.editError.set('');
     this.editErrorCode.set('');
     this.editErrorContext.set('');
-    if (section === 'homeCity') this.editHomeCity.set(this.homeAddress.address());
+    if (section === 'countryOfResidence') this.editCountryOfResidence.set(this.homeAddress.countryCode());
   }
 
   editSaveName(): void {
@@ -463,22 +459,22 @@ export class ProfileComponent {
     });
   }
 
-  editSaveHomeCity(): void {
+  editSaveCountryOfResidence(country: Country): void {
     this.editLoading.set(true);
     this.editError.set('');
     this.editErrorCode.set('');
     this.editErrorContext.set('');
-    this.homeAddress.save(this.editHomeCity().trim()).subscribe({
-      next: () => { this.editLoading.set(false); this.editMarkSaved('homeCity'); },
+    this.homeAddress.save(country.code).subscribe({
+      next: () => { this.editLoading.set(false); this.editMarkSaved('countryOfResidence'); },
       error: (err: unknown) => {
         this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
-        this.editErrorContext.set('homeCity');
+        this.editErrorContext.set('countryOfResidence');
         this.editLoading.set(false);
       },
     });
   }
 
-  private editMarkSaved(tab: 'name' | 'password' | 'homeCity', onComplete?: () => void): void {
+  private editMarkSaved(tab: 'name' | 'password' | 'countryOfResidence', onComplete?: () => void): void {
     if (this.editSavedTimer) clearTimeout(this.editSavedTimer);
     this.editSavedTab.set(tab);
     this.editSavedTimer = setTimeout(() => { this.editSavedTab.set(null); onComplete?.(); }, 2500);

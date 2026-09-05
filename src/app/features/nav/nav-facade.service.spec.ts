@@ -114,7 +114,7 @@ describe('NavFacadeService — shared trips + logo', () => {
   it('autoSaveCurrentTrip() (invoked by onLogoClick) passes { background: true } to upsert() (Finding 4 fix)', () => {
     const trip = TestBed.inject(TripService);
     const auth = TestBed.inject(AuthService);
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', homeCity: null });
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     trip.addStop(PARIS, '01/06/2026', '02/06/2026');
     trip.markAsLoadedPlan('trip-1');
     savedPlans.register({ id: 'trip-1', name: 'My Trip', savedAt: '2026-01-01', stops: [] });

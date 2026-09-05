@@ -13,6 +13,36 @@
         <target>Click any destination in the panel to explore its attractions</target>
       </trans-unit>
 
+      <!-- ── visa-requirement.model ── -->
+      <trans-unit id="visa.freeDays" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="days"/> días sin visa</source>
+        <target><x id="INTERPOLATION" equiv-text="days"/> visa-free days</target>
+      </trans-unit>
+      <trans-unit id="visa.free" datatype="html">
+        <source>Sin visa</source>
+        <target>Visa-free</target>
+      </trans-unit>
+      <trans-unit id="visa.onArrival" datatype="html">
+        <source>Visa a la llegada</source>
+        <target>Visa on arrival</target>
+      </trans-unit>
+      <trans-unit id="visa.eta" datatype="html">
+        <source>Autorización electrónica (ETA)</source>
+        <target>Electronic travel authorization (ETA)</target>
+      </trans-unit>
+      <trans-unit id="visa.eVisa" datatype="html">
+        <source>Visa electrónica</source>
+        <target>E-visa</target>
+      </trans-unit>
+      <trans-unit id="visa.required" datatype="html">
+        <source>Visa requerida</source>
+        <target>Visa required</target>
+      </trans-unit>
+      <trans-unit id="visa.noAdmission" datatype="html">
+        <source>Entrada no permitida</source>
+        <target>Admission not permitted</target>
+      </trans-unit>
+
       <!-- ── nav.component ── -->
       <trans-unit id="nav.searchPlaceholder" datatype="html">
         <source>Agregar ciudad…</source>
@@ -161,6 +191,10 @@
       <trans-unit id="stopList.bookSavedMsg" datatype="html">
         <source>Viaje guardado</source>
         <target>Trip saved</target>
+      </trans-unit>
+      <trans-unit id="stopList.setCountryCta" datatype="html">
+        <source>Agrega tu país de residencia para ver info de visa</source>
+        <target>Add your country of residence to see visa info</target>
       </trans-unit>
       <trans-unit id="nav.loginTitle" datatype="html">
         <source>¡Bienvenido de vuelta! 👋</source>
@@ -661,6 +695,20 @@
       <trans-unit id="combobox.noCities" datatype="html">
         <source>No se encontraron ciudades</source>
         <target>No cities found</target>
+      </trans-unit>
+
+      <!-- ── country-combobox.component ── -->
+      <trans-unit id="combobox.countryPlaceholder" datatype="html">
+        <source>Buscar país…</source>
+        <target>Search country…</target>
+      </trans-unit>
+      <trans-unit id="combobox.countrySearchPlaceholder" datatype="html">
+        <source>Escribe para buscar…</source>
+        <target>Type to search…</target>
+      </trans-unit>
+      <trans-unit id="combobox.noCountries" datatype="html">
+        <source>No se encontraron países</source>
+        <target>No countries found</target>
       </trans-unit>
 
       <!-- ── region labels (city.model.ts via $localize) ── -->
@@ -1237,23 +1285,15 @@
         <source>No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</source>
         <target>We couldn't update your password. Check your current password.</target>
       </trans-unit>
-      <trans-unit id="profile.errUpdateHomeCity" datatype="html">
-        <source>No se pudo guardar la ciudad. Intenta de nuevo.</source>
-        <target>We couldn't save the city. Please try again.</target>
+      <trans-unit id="profile.errUpdateCountryOfResidence" datatype="html">
+        <source>No se pudo guardar el país de residencia. Intenta de nuevo.</source>
+        <target>We couldn't save your country of residence. Please try again.</target>
       </trans-unit>
-      <trans-unit id="profile.homeCityTitle" datatype="html">
-        <source>Ciudad de origen</source>
-        <target>Home city</target>
+      <trans-unit id="profile.countryOfResidenceTitle" datatype="html">
+        <source>País de residencia</source>
+        <target>Country of residence</target>
       </trans-unit>
-      <trans-unit id="profile.homeCityPlaceholder" datatype="html">
-        <source>Ciudad o dirección de inicio…</source>
-        <target>City or starting address…</target>
-      </trans-unit>
-      <trans-unit id="profile.homeCitySave" datatype="html">
-        <source>Guardar ciudad</source>
-        <target>Save city</target>
-      </trans-unit>
-      <trans-unit id="profile.homeCitySub" datatype="html">
+      <trans-unit id="profile.countryOfResidenceSub" datatype="html">
         <source>Sin definir</source>
         <target>Not set</target>
       </trans-unit>
