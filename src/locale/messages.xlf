@@ -115,18 +115,25 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="stopList.plugTypeWord" datatype="html">
+        <source>Tipo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/travel-info-badge.model.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="stopList.plugBadgeAdapterNeeded" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/> — necesitas adaptador</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/travel-info-badge.model.ts</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.plugBadgeLabel" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/travel-info-badge.model.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="visa.freeDays" datatype="html">

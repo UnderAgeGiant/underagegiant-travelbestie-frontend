@@ -200,6 +200,10 @@
         <source><x id="INTERPOLATION" equiv-text="name"/> (<x id="INTERPOLATION_1" equiv-text="symbol"/>)</source>
         <target><x id="INTERPOLATION" equiv-text="name"/> (<x id="INTERPOLATION_1" equiv-text="symbol"/>)</target>
       </trans-unit>
+      <trans-unit id="stopList.plugTypeWord" datatype="html">
+        <source>Tipo</source>
+        <target>Type</target>
+      </trans-unit>
       <trans-unit id="stopList.plugBadgeAdapterNeeded" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/> — necesitas adaptador</source>
         <target><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/> — adapter needed</target>

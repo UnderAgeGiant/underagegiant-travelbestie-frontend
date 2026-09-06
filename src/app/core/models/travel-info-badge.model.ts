@@ -7,7 +7,8 @@ export function formatCurrencyLabel(name: string, symbol: string): string {
 }
 
 export function formatPlugLabel(plugTypes: string[], voltages: string[], adapterNeeded: boolean | null): string {
-  const types = plugTypes.map(t => `Tipo ${t}`).join('/');
+  const typeWord = $localize`:@@stopList.plugTypeWord:Tipo`;
+  const types = plugTypes.map(t => `${typeWord} ${t}`).join('/');
   const voltage = voltages.join(' / ');
   if (adapterNeeded === true) {
     return $localize`:@@stopList.plugBadgeAdapterNeeded:${types}:INTERPOLATION: · ${voltage}:INTERPOLATION_1: — necesitas adaptador`;
