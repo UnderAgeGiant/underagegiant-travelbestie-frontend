@@ -95,7 +95,7 @@ app-nav { display: block; }
 }
 .stop-item.active { border-color: var(--lav-d); background: var(--lav); transform: translateX(3px); box-shadow: 0 2px 12px oklch(55% .16 290/.18); }
 .stop-connector { width: 2px; height: 14px; background: var(--border); margin: 0 0 8px 22px; border-radius: 99px; }
-.stop-row { display: flex; align-items: center; gap: 10px; }
+.stop-row { display: flex; align-items: center; gap: 10px; padding-right: 32px; }
 .stop-flag { font-size: 22px; line-height: 1; flex-shrink: 0; }
 .stop-info { flex: 1; min-width: 0; }
 .stop-name { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -105,7 +105,7 @@ app-nav { display: block; }
 .stop-currency-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; color: var(--t2); background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; margin-top: 4px; }
 .stop-plug-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; color: var(--t2); background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; margin-top: 4px; }
 .stop-comments { font-size: 11px; color: var(--lav-d); margin-top: 3px; }
-.stop-del { width: 22px; height: 22px; border-radius: 50%; background: var(--blush); color: var(--peach-d); display: flex; align-items: center; justify-content: center; font-size: 13px; opacity: 0; transition: opacity .2s; flex-shrink: 0; }
+.stop-del { position: absolute; top: 10px; right: 10px; width: 22px; height: 22px; border-radius: 50%; background: var(--blush); color: var(--peach-d); display: flex; align-items: center; justify-content: center; font-size: 13px; opacity: 0; transition: opacity .2s; z-index: 1; }
 .stop-item:hover .stop-del { opacity: 1; }
 .stop-dates { display: flex; gap: 6px; margin-top: 8px; }
 .date-chip { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 5px 8px; font-size: 11px; color: var(--t2); }
