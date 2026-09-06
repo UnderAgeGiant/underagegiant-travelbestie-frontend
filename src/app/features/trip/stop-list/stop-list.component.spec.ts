@@ -154,6 +154,56 @@ describe('StopListComponent — visa requirement badge', () => {
   });
 });
 
+describe('StopListComponent — currency and plug badges', () => {
+  let fixture: ComponentFixture<StopListComponent>;
+  let trip: TripService;
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false); // desktop viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture = TestBed.createComponent(StopListComponent);
+  });
+
+  it('shows the currency badge to an anonymous visitor (Paris -> EUR)', () => {
+    fixture.detectChanges();
+
+    const badge = fixture.nativeElement.querySelector('.stop-currency-badge');
+    expect(badge?.textContent).toContain('€');
+  });
+
+  it('shows the plug badge to an anonymous visitor without an adapter-needed flag', () => {
+    fixture.detectChanges();
+
+    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
+    expect(badge?.textContent).toContain('Tipo');
+    expect(badge?.textContent).not.toContain('adaptador');
+  });
+
+  it('flags adapter needed when the logged-in user\'s country uses no shared plug type with the destination', () => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'US' });
+    fixture.detectChanges();
+
+    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
+    expect(badge?.textContent).toContain('adaptador');
+  });
+
+  it('does not flag adapter needed when the logged-in user\'s country shares a plug type with the destination', () => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'FR' });
+    fixture.detectChanges();
+
+    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
+    expect(badge?.textContent).not.toContain('adaptador');
+  });
+});
+
 describe('StopListComponent — attraction time inputs (24-hour, via TimePickerComponent)', () => {
   let component: StopListComponent;
   let fixture: ComponentFixture<StopListComponent>;
