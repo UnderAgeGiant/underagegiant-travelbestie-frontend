@@ -53,7 +53,7 @@ export class NavFacadeService {
   currentShellView = signal<RestoreView | null>(null);
 
   /** One-shot command: open My Trips to a specific tab (e.g. from a notification click). Consumed by MyTripsComponent. */
-  pendingMyTripsTab = signal<'collaborations' | 'aiplans' | null>(null);
+  pendingMyTripsTab = signal<'trips' | 'collaborations' | 'aiplans' | null>(null);
 
   // ── saved-plans / favorites / shared-trips state ──
   plansOpen      = signal(false);
@@ -195,6 +195,20 @@ export class NavFacadeService {
   // adapted from nav.component.ts:1070-1073 — emit moved to the bar component
   openProfile(): void {
     this.userMenuOpen.set(false);
+  }
+
+  // Centralizes "go to My Trips from wherever the user currently is" — every
+  // other approach (an output bubbled up through however many nested overlays
+  // happen to be open) requires each host to correctly interpret it, and three
+  // of five got it wrong (2026-09-07 UX-improvements round, Feedback #7). Safe
+  // to call even when already on '/': Angular's default onSameUrlNavigation
+  // ('ignore') makes navigateByUrl('/') a no-op there, and ShellComponent's own
+  // pendingMyTripsTab effect (see shell.component.ts) still reacts to the
+  // signal write regardless of whether the URL actually changed.
+  openMyTrips(tab: 'trips' | 'collaborations' | 'aiplans' = 'trips'): void {
+    this.userMenuOpen.set(false);
+    this.pendingMyTripsTab.set(tab);
+    this.router.navigateByUrl('/');
   }
 
   openBuyKarma(): void {

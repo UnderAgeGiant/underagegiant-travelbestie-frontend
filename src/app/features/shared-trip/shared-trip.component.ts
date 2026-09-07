@@ -64,8 +64,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
     <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
 
     @if (showProfile()) {
-      <app-profile (close)="showProfile.set(false)"
-                   (openMyTrips)="showProfile.set(false)" />
+      <app-profile (close)="showProfile.set(false)" />
     }
 
     @if (showSimilarModal()) {

@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
@@ -29,12 +29,11 @@ import { NavShellComponent } from '../nav/nav-shell.component';
   template: `
     <div class="profile-page">
 
-      <app-nav (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
+      <app-nav [activeView]="'mytrips'" (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
 
       @if (showProfile()) {
         <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()"
-                     (openMyTrips)="showProfile.set(false)" />
+                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()" />
       }
 
       <!-- Header bar -->
@@ -422,15 +421,22 @@ export class MyTripsComponent {
   discardingRequestId = signal<string | null>(null);
 
   constructor() {
-    // One-shot: a notification click (e.g. collaborator invite/accept, AI plan
-    // ready/failed) can request opening straight onto a specific tab. Consume
-    // + clear so a later plain "Mis viajes" open doesn't inherit a stale tab.
-    const pendingTab = this.facade.pendingMyTripsTab();
-    if (pendingTab) {
+    // Reactive (not one-shot): handles both "arrived here fresh via a
+    // notification or the nav's Mis viajes button" (pendingMyTripsTab was
+    // already set before this component was created) and "already on My
+    // Trips with its own nested <app-profile> open, user clicks Mis viajes
+    // again" (pendingMyTripsTab gets set while this instance is still alive —
+    // closing the nested profile is what that second case needs, since
+    // ShellComponent's own pendingMyTripsTab effect only reaches its own
+    // showProfile/showAiPlanning, not this component's local one).
+    effect(() => {
+      const pendingTab = this.facade.pendingMyTripsTab();
+      if (!pendingTab) return;
+      this.showProfile.set(false);
       this.favTab.set(pendingTab);
       this.facade.pendingMyTripsTab.set(null);
       if (pendingTab === 'aiplans') this.loadAiPlanHistory();
-    }
+    }, { allowSignalWrites: true });
   }
 
   openFavTab(): void {

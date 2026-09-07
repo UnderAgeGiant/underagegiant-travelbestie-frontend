@@ -1956,6 +1956,10 @@ app-nav { display: block; }
   transition: background .12s;
 }
 .up-plans-btn:hover { background: var(--cream); }
+/* Feedback #7 (2026-09-07 UX-improvements round): highlights whichever of
+   "Mi perfil"/"Mis viajes" corresponds to the page the current <app-nav>
+   instance lives on — see NavShellComponent's activeView input. */
+.nav-page-btn.active { background: var(--lav-d); color: #fff; }
 .up-plans-badge {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 18px; height: 18px; border-radius: 99px; padding: 0 5px;

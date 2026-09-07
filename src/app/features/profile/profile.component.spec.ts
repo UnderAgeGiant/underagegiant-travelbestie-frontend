@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { ProfileComponent } from './profile.component';
-import { NavShellComponent } from '../nav/nav-shell.component';
+import { NavFacadeService } from '../nav/nav-facade.service';
 
 // ProfileComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -35,14 +34,12 @@ describe('ProfileComponent — edit account accordion', () => {
     expect(text).toContain('País de residencia');
   });
 
-  it('bubbles a myTripsClick from its <app-nav> as its own openMyTrips output (bug: "Mis viajes" did nothing from the profile page drawer)', () => {
-    const navShell = fixture.debugElement.query(By.directive(NavShellComponent)).componentInstance as NavShellComponent;
-    let emitted = false;
-    fixture.componentInstance.openMyTrips.subscribe(() => (emitted = true));
-
-    navShell.myTripsClick.emit();
-
-    expect(emitted).toBe(true);
+  it('clicking "Mis viajes" navigates to My Trips regardless of which page opened this profile overlay (Feedback #7, 2026-09-07 UX-improvements round)', () => {
+    // This test verifies that ProfileComponent no longer emits its own openMyTrips
+    // output, and instead relies on NavFacadeService.openMyTrips() being called
+    // from NavDesktopComponent/NavMobileComponent directly.
+    const component = fixture.componentInstance;
+    expect(component.openMyTrips).toBeUndefined();
   });
 
   it('has exactly three accordion toggle buttons in the edit-account section', () => {

@@ -52,8 +52,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <app-nav (logoClick)="null"
-             (profileClick)="showProfile.set(true)"
-             (myTripsClick)="showMyTrips.set(true)" />
+             (profileClick)="showProfile.set(true)" />
 
     @if (trip.stops().length === 0) {
       <!-- ── LANDING MODE: scroll-snap container ── -->
@@ -129,8 +128,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
     @if (showProfile()) {
       <app-profile (close)="showProfile.set(false)"
-                   (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)"
-                   (openMyTrips)="showProfile.set(false); showMyTrips.set(true)" />
+                   (openAiPlanning)="showProfile.set(false); showAiPlanning.set(true)" />
     }
 
     @if (showMyTrips()) {
@@ -206,9 +204,14 @@ export class ShellComponent {
 
     // Opens My Trips when a notification (e.g. collaborator invite/accept)
     // requests a specific tab. MyTripsComponent itself consumes the tab and
-    // clears the facade signal once it applies it.
+    // clears the facade signal once it applies it. Close any other open overlays
+    // (showProfile/showAiPlanning) so My Trips is the only page visible.
     effect(() => {
-      if (this.facade.pendingMyTripsTab()) this.showMyTrips.set(true);
+      if (this.facade.pendingMyTripsTab()) {
+        this.showProfile.set(false);
+        this.showAiPlanning.set(false);
+        this.showMyTrips.set(true);
+      }
     });
 
     // First-touch onboarding: show the landing_welcome tour to an anonymous

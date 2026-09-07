@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
 import { NavFacadeService } from './nav-facade.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
@@ -126,5 +126,34 @@ describe('NavFacadeService — shared trips + logo', () => {
       'ana@test.com', 'trip-1', 'My Trip', expect.any(Array), expect.any(Array), { background: true },
     );
     http.expectOne(r => r.url.includes('/trips/trip-1')).flush({ id: 'trip-1', title: 'My Trip', stops: [], transits: [] });
+  });
+});
+
+describe('NavFacadeService — openMyTrips()', () => {
+  it('closes the user menu, sets pendingMyTripsTab, and navigates to /', () => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const facade = TestBed.inject(NavFacadeService);
+    const router = TestBed.inject(Router);
+    const navSpy = jest.spyOn(router, 'navigateByUrl');
+    facade.userMenuOpen.set(true);
+
+    facade.openMyTrips();
+
+    expect(facade.userMenuOpen()).toBe(false);
+    expect(facade.pendingMyTripsTab()).toBe('trips');
+    expect(navSpy).toHaveBeenCalledWith('/');
+  });
+
+  it('accepts an explicit tab', () => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const facade = TestBed.inject(NavFacadeService);
+
+    facade.openMyTrips('aiplans');
+
+    expect(facade.pendingMyTripsTab()).toBe('aiplans');
   });
 });

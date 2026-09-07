@@ -39,8 +39,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
 
       @if (showProfile()) {
         <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false)"
-                     (openMyTrips)="showProfile.set(false)" />
+                     (openAiPlanning)="showProfile.set(false)" />
       }
 
       <div class="shared-body">

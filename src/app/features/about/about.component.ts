@@ -32,8 +32,7 @@ const CONNECTORS: AboutConnector[] = [
       <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
 
       @if (showProfile()) {
-        <app-profile (close)="showProfile.set(false)"
-                     (openMyTrips)="showProfile.set(false)" />
+        <app-profile (close)="showProfile.set(false)" />
       }
 
       <header class="about-hero">

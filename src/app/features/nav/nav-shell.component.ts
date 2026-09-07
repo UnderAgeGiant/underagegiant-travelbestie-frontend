@@ -1,4 +1,4 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, output, input } from '@angular/core';
 import { DeviceService } from '../../core/device/device.service';
 import { NavFacadeService } from './nav-facade.service';
 import { NavDesktopComponent } from './desktop/nav-desktop.component';
@@ -16,9 +16,9 @@ import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-mod
   ],
   template: `
     @if (device.isMobile()) {
-      <app-nav-mobile (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" (myTripsClick)="myTripsClick.emit()" />
+      <app-nav-mobile [activeView]="activeView()" (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" />
     } @else {
-      <app-nav-desktop (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" (myTripsClick)="myTripsClick.emit()" />
+      <app-nav-desktop [activeView]="activeView()" (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" />
     }
 
     <app-auth-modal />
@@ -49,5 +49,5 @@ export class NavShellComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
-  myTripsClick = output<void>();
+  activeView   = input<'profile' | 'mytrips' | null>(null);
 }

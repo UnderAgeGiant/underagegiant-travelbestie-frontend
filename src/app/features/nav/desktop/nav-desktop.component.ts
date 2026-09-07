@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject, output } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, output, input } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
@@ -145,11 +145,11 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                     </div>
                   </div>
 
-                  <button class="btn-pill btn-ghost"
+                  <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'profile'"
                           style="width:100%;justify-content:center;margin-bottom:4px"
                           (click)="onProfile()" type="button"
                           i18n="@@nav.myProfile">👤 Mi perfil</button>
-                  <button class="btn-pill btn-ghost"
+                  <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'mytrips'"
                           style="width:100%;justify-content:center;margin-bottom:8px"
                           (click)="onMyTrips()" type="button"
                           i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
@@ -366,11 +366,11 @@ export class NavDesktopComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
-  myTripsClick = output<void>();
+  activeView   = input<'profile' | 'mytrips' | null>(null);
 
   onLogo(): void { this.facade.onLogoClick(); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.profileClick.emit(); }
-  onMyTrips(): void { this.facade.userMenuOpen.set(false); this.myTripsClick.emit(); }
+  onMyTrips(): void { this.facade.openMyTrips(); }
 
   // Closes the floating user panel as soon as it loses focus (a click lands
   // anywhere outside this nav bar) — mousedown fires before the panel's own

@@ -42,4 +42,12 @@ describe('NavShellComponent', () => {
     const el = setup(false).nativeElement as HTMLElement;
     expect(el.querySelector('app-auth-modal')).toBeTruthy();
   });
+
+  it('passes activeView through to the rendered nav bar', () => {
+    const fixture = setup(false);
+    const component = fixture.componentInstance;
+    fixture.componentRef.setInput('activeView', 'profile');
+    fixture.detectChanges();
+    expect(component.activeView()).toBe('profile');
+  });
 });
