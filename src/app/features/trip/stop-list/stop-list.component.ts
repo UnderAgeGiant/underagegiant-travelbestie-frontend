@@ -391,11 +391,6 @@ export class StopListComponent {
   // pattern as SharedTripComponent's onAttHover/onAttClick for the attraction preview
   // popover — see that component if this pattern needs to change in both places.
 
-
-    }
-    return days;
-  });
-
   protected readonly showScrollTop = signal(false);
 
   // Which stop's inline city timeline is currently open (null = none).

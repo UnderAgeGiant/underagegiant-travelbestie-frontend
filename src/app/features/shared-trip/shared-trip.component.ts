@@ -32,6 +32,8 @@ import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slides
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.component';
+import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-weather-chip.component';
+import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-badge.component';
 
 @Component({
     selector: 'app-shared-trip',
