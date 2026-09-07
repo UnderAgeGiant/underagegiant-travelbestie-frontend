@@ -2114,18 +2114,6 @@
         <source>Guardando…</source>
         <target>Saving…</target>
       </trans-unit>
-      <trans-unit id="stopList.weatherForecastTag" datatype="html">
-        <source>Pronóstico</source>
-        <target>Forecast</target>
-      </trans-unit>
-      <trans-unit id="stopList.weatherHistoricTag" datatype="html">
-        <source>Estimado</source>
-        <target>Estimated</target>
-      </trans-unit>
-      <trans-unit id="stopList.weatherLoadingLabel" datatype="html">
-        <source>Cargando pronóstico…</source>
-        <target>Loading forecast…</target>
-      </trans-unit>
 
       <!-- ── transit-connector.component ── -->
       <trans-unit id="transit.addBtn" datatype="html">

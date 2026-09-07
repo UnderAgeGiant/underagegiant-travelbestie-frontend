@@ -35,7 +35,7 @@ import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.c
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent],
+    imports: [CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -207,6 +207,7 @@ import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.c
                   <span class="itin-city-flag"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="24" /></span>
                   <div>
                     <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
+                      <app-city-weather-chip [stop]="stop" />
                       @if (!shouldShowComments(stopKey)) {
                         <button class="step-comments-toggle" (click)="expandStepInCity($event, stopKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                       }
@@ -215,6 +216,10 @@ import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.c
                     @if (stop.checkIn) {
                       <div class="itin-city-dates">{{ stop.checkIn }} → {{ stop.checkOut }}</div>
                     }
+                    <app-city-info-badge [city]="city"
+                        [homeIso2]="auth.currentUser()?.countryOfResidence ?? null"
+                        [isLoggedIn]="auth.isLoggedIn()"
+                        (ctaClick)="showProfile.set(true)" />
                   </div>
                 </div>
 
