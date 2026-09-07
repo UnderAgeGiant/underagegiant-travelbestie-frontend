@@ -23,16 +23,12 @@ import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { WeatherService } from '../../../core/weather/weather.service';
 import { getWeatherCodeMeta } from '../../../core/models/weather.model';
-import { VisaRequirementService } from '../../../core/visa/visa-requirement.service';
-import { getVisaRequirementMeta } from '../../../core/models/visa-requirement.model';
-import { countryCodeFromFlagEmoji } from '../../../shared/flag-icon/flag-emoji.util';
 import { City } from '../../../core/models/city.model';
-import { TravelInfoService } from '../../../core/travel-info/travel-info.service';
-import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/travel-info-badge.model';
+import { CityInfoBadgeComponent } from '../../../shared/city-info-badge/city-info-badge.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -198,22 +194,10 @@ import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/trave
                       }
                     </div>
                     <div class="stop-country">{{ city.country }}</div>
-                    @if (visaBadge(city); as visa) {
-                      <div class="stop-visa-badge" [class.stop-visa-cta]="visa.cta"
-                           (click)="visa.cta ? onVisaCtaClick($event) : null">
-                        <span>{{ visa.icon }}</span> {{ visa.label }}
-                      </div>
-                    }
-                    @if (currencyBadge(city); as currency) {
-                      <div class="stop-currency-badge">
-                        <span>{{ currency.icon }}</span> {{ currency.label }}
-                      </div>
-                    }
-                    @if (plugBadge(city); as plug) {
-                      <div class="stop-plug-badge">
-                        <span>{{ plug.icon }}</span> {{ plug.label }}
-                      </div>
-                    }
+                    <app-city-info-badge [city]="city"
+                        [homeIso2]="auth.currentUser()?.countryOfResidence ?? null"
+                        [isLoggedIn]="auth.isLoggedIn()"
+                        (ctaClick)="openProfile.emit()" />
                   </div>
                   <button class="stop-del"
                           (click)="$event.stopPropagation(); trip.removeStop(stop.stopId)">×</button>
@@ -434,7 +418,7 @@ import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/trave
 export class StopListComponent {
   readonly trip       = inject(TripService);
   readonly savedPlans = inject(SavedPlansService);
-  private readonly auth       = inject(AuthService);
+  protected readonly auth     = inject(AuthService);
   private readonly authModal  = inject(AuthModalService);
   private readonly karmaModal = inject(KarmaModalService);
   protected readonly device   = inject(DeviceService);
@@ -442,8 +426,6 @@ export class StopListComponent {
   protected readonly citySuggest = inject(CitySuggestService);
   protected readonly autoSave = inject(AutoSaveService);
   private readonly weather = inject(WeatherService);
-  private readonly visaRequirement = inject(VisaRequirementService);
-  private readonly travelInfo = inject(TravelInfoService);
   addDestination = output<void>();
   openProfile = output<void>();
 
@@ -453,42 +435,6 @@ export class StopListComponent {
   protected readonly weatherForecastTag = $localize`:@@stopList.weatherForecastTag:Pronóstico`;
   protected readonly weatherHistoricTag = $localize`:@@stopList.weatherHistoricTag:Estimado`;
   protected readonly weatherLoadingLabel = $localize`:@@stopList.weatherLoadingLabel:Cargando pronóstico…`;
-  readonly setCountryCta = $localize`:@@stopList.setCountryCta:Agrega tu país de residencia para ver info de visa`;
-
-  visaBadge(city: City): { cta: boolean; icon: string; label: string } | null {
-    if (!this.auth.isLoggedIn()) return null;
-    const home = this.auth.currentUser()?.countryOfResidence;
-    if (!home) return { cta: true, icon: '🛂', label: this.setCountryCta };
-    const destCode = countryCodeFromFlagEmoji(city.flag);
-    if (!destCode) return null;
-    const result = this.visaRequirement.requirement(home, destCode);
-    if (!result) return null;
-    const meta = getVisaRequirementMeta(result.category, result.days);
-    return { cta: false, icon: meta.icon, label: meta.label };
-  }
-
-  onVisaCtaClick(event: MouseEvent): void {
-    event.stopPropagation();
-    this.openProfile.emit();
-  }
-
-  currencyBadge(city: City): { icon: string; label: string } | null {
-    const destCode = countryCodeFromFlagEmoji(city.flag);
-    if (!destCode) return null;
-    const currency = this.travelInfo.currencyInfo(destCode);
-    if (!currency) return null;
-    return { icon: '🪙', label: formatCurrencyLabel(currency.name, currency.symbol) };
-  }
-
-  plugBadge(city: City): { icon: string; label: string } | null {
-    const destCode = countryCodeFromFlagEmoji(city.flag);
-    if (!destCode) return null;
-    const home = this.auth.isLoggedIn() ? this.auth.currentUser()?.countryOfResidence : null;
-    const plug = this.travelInfo.plugInfo(destCode, home);
-    if (!plug) return null;
-    const icon = plug.adapterNeeded === true ? '🔌⚠️' : '🔌';
-    return { icon, label: formatPlugLabel(plug.plugTypes, plug.voltages, plug.adapterNeeded) };
-  }
 
   protected formatCountdown(totalSeconds: number): string {
     const m = Math.floor(totalSeconds / 60);

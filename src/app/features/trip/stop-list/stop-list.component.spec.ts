@@ -1,4 +1,4 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { StopListComponent } from './stop-list.component';
@@ -113,7 +113,7 @@ describe('StopListComponent — AI city suggestions', () => {
   });
 });
 
-describe('StopListComponent — visa requirement badge', () => {
+describe('StopListComponent — city info badge (visa/currency/plug)', () => {
   let fixture: ComponentFixture<StopListComponent>;
   let trip: TripService;
   let auth: AuthService;
@@ -131,77 +131,54 @@ describe('StopListComponent — visa requirement badge', () => {
     fixture = TestBed.createComponent(StopListComponent);
   });
 
-  it('shows a visa badge on a stop when the user has a countryOfResidence set (CL -> FR is visa-free for 90 days)', () => {
+  function openPopover(): void {
+    fixture.detectChanges();
+    const trigger = fixture.nativeElement.querySelector('.city-info-trigger') as HTMLElement;
+    trigger.dispatchEvent(new MouseEvent('mouseenter'));
+    tick(150);
+    fixture.detectChanges();
+  }
+
+  it('shows a visa row in the popover when logged in with a countryOfResidence set (CL -> FR is visa-free for 90 days)', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'CL' });
-    fixture.detectChanges();
+    openPopover();
 
-    const badge = fixture.nativeElement.querySelector('.stop-visa-badge');
-    expect(badge?.textContent).toContain('90');
-  });
+    const popover = fixture.nativeElement.querySelector('.city-info-popover');
+    expect(popover.textContent).toContain('90');
+  }));
 
-  it('shows a CTA chip instead of a badge when logged in with no countryOfResidence set', () => {
+  it('shows a CTA row instead of a visa result when logged in with no countryOfResidence set', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
-    fixture.detectChanges();
+    openPopover();
 
-    const cta = fixture.nativeElement.querySelector('.stop-visa-badge.stop-visa-cta');
-    expect(cta).toBeTruthy();
-  });
+    expect(fixture.nativeElement.querySelector('.city-info-row.city-info-cta')).toBeTruthy();
+  }));
 
-  it('shows nothing when not logged in', () => {
-    fixture.detectChanges();
+  it('emits openProfile when the CTA row is clicked', fakeAsync(() => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    openPopover();
 
-    expect(fixture.nativeElement.querySelector('.stop-visa-badge')).toBeNull();
-  });
-});
+    let emitted = false;
+    fixture.componentInstance.openProfile.subscribe(() => { emitted = true; });
+    (fixture.nativeElement.querySelector('.city-info-row.city-info-cta') as HTMLElement).click();
+    expect(emitted).toBe(true);
+  }));
 
-describe('StopListComponent — currency and plug badges', () => {
-  let fixture: ComponentFixture<StopListComponent>;
-  let trip: TripService;
-  let auth: AuthService;
+  it('shows currency and plug rows to an anonymous visitor (Paris -> EUR, no adapter flag without a home country)', fakeAsync(() => {
+    openPopover();
 
-  beforeEach(() => {
-    localStorage.clear();
-    installMatchMediaMock(false); // desktop viewport
-    TestBed.configureTestingModule({
-      imports: [StopListComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
-    });
-    trip = TestBed.inject(TripService);
-    auth = TestBed.inject(AuthService);
-    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
-    fixture = TestBed.createComponent(StopListComponent);
-  });
+    const popover = fixture.nativeElement.querySelector('.city-info-popover');
+    expect(popover.textContent).toContain('€');
+    expect(popover.textContent).toContain('Tipo');
+    expect(popover.textContent).not.toContain('adaptador');
+  }));
 
-  it('shows the currency badge to an anonymous visitor (Paris -> EUR)', () => {
-    fixture.detectChanges();
-
-    const badge = fixture.nativeElement.querySelector('.stop-currency-badge');
-    expect(badge?.textContent).toContain('€');
-  });
-
-  it('shows the plug badge to an anonymous visitor without an adapter-needed flag', () => {
-    fixture.detectChanges();
-
-    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
-    expect(badge?.textContent).toContain('Tipo');
-    expect(badge?.textContent).not.toContain('adaptador');
-  });
-
-  it('flags adapter needed when the logged-in user\'s country uses no shared plug type with the destination', () => {
+  it('flags adapter needed when the logged-in user\'s country uses no shared plug type with the destination', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'US' });
-    fixture.detectChanges();
+    openPopover();
 
-    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
-    expect(badge?.textContent).toContain('adaptador');
-  });
-
-  it('does not flag adapter needed when the logged-in user\'s country shares a plug type with the destination', () => {
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'FR' });
-    fixture.detectChanges();
-
-    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
-    expect(badge?.textContent).not.toContain('adaptador');
-  });
+    expect(fixture.nativeElement.querySelector('.city-info-popover').textContent).toContain('adaptador');
+  }));
 });
 
 describe('StopListComponent — attraction time inputs (24-hour, via TimePickerComponent)', () => {

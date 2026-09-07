@@ -192,7 +192,11 @@
         <source>Viaje guardado</source>
         <target>Trip saved</target>
       </trans-unit>
-      <trans-unit id="stopList.setCountryCta" datatype="html">
+      <trans-unit id="cityInfo.trigger" datatype="html">
+        <source>Información sobre la ciudad</source>
+        <target>City information</target>
+      </trans-unit>
+      <trans-unit id="cityInfo.setCountryCta" datatype="html">
         <source>Agrega tu país de residencia para ver info de visa</source>
         <target>Add your country of residence to see visa info</target>
       </trans-unit>
