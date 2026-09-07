@@ -610,6 +610,8 @@ export class AiPlanningComponent implements OnDestroy {
       const initial = this.initialResult();
       if (initial && !this.initialResultApplied) {
         this.initialResultApplied = true;
+        // Preload the celebration GIF so it's ready when the celebration triggers
+        new Image().src = '/ai-plan-ready.gif';
         this.generatedTrip.set(initial.result as Trip);
         this.currentAiPlanRequestId.set(initial.requestId);
         this.step.set('result');
@@ -865,6 +867,9 @@ export class AiPlanningComponent implements OnDestroy {
     const opt = this.selectedOption();
     if (!opt) return;
 
+    // Preload the celebration GIF so it's ready when the plan finishes generating
+    new Image().src = '/ai-plan-ready.gif';
+
     this.planConfirmPending.set(null);
     this.changeWarning.set(null);
     this.changeCharged.set(null);
@@ -955,6 +960,8 @@ export class AiPlanningComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     if (this.celebrateTimer) clearTimeout(this.celebrateTimer);
+    this.planSub?.unsubscribe();
+    this.clearPlanTakingLongTimer();
   }
 
   private triggerPlanReadyCelebration(): void {

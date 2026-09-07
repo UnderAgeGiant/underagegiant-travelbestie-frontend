@@ -36,7 +36,7 @@ describe('CityInfoBadgeComponent', () => {
     expect(popover.textContent).toContain('Tipo');
   }));
 
-  it('closes the popover on hover-leave', fakeAsync(() => {
+  it('closes the popover on hover-leave after a small delay (allowing time to move to popover)', fakeAsync(() => {
     setup('CL', true);
     const trigger = fixture.nativeElement.querySelector('.city-info-trigger') as HTMLElement;
     trigger.dispatchEvent(new MouseEvent('mouseenter'));
@@ -45,6 +45,12 @@ describe('CityInfoBadgeComponent', () => {
     expect(fixture.nativeElement.querySelector('.city-info-popover')).toBeTruthy();
 
     trigger.dispatchEvent(new MouseEvent('mouseleave'));
+    fixture.detectChanges();
+    // Popover still visible due to 50ms delay on trigger mouseleave
+    expect(fixture.nativeElement.querySelector('.city-info-popover')).toBeTruthy();
+
+    // After the delay, popover closes
+    tick(50);
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.city-info-popover')).toBeNull();
   }));
@@ -76,5 +82,47 @@ describe('CityInfoBadgeComponent', () => {
 
     expect(fixture.nativeElement.querySelector('.city-info-row.city-info-cta')).toBeNull();
     expect(fixture.nativeElement.querySelector('.city-info-popover')!.textContent).toContain('€');
+  }));
+
+  it('keeps popover open when moving mouse from trigger to popover, allowing CTA click', fakeAsync(() => {
+    setup(null, true);
+    const trigger = fixture.nativeElement.querySelector('.city-info-trigger') as HTMLElement;
+
+    // Open by hovering trigger
+    trigger.dispatchEvent(new MouseEvent('mouseenter'));
+    tick(150);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.city-info-popover')).toBeTruthy();
+
+    // Leave trigger (starts 50ms close timer)
+    trigger.dispatchEvent(new MouseEvent('mouseleave'));
+    // Immediately enter popover BEFORE the close timer fires (only 30ms of the 50ms delay has passed)
+    tick(30);
+    const popover = fixture.nativeElement.querySelector('.city-info-popover') as HTMLElement;
+    popover.dispatchEvent(new MouseEvent('mouseenter'));
+    fixture.detectChanges();
+
+    // Popover should still be visible because we cancelled the close timer
+    expect(fixture.nativeElement.querySelector('.city-info-popover')).toBeTruthy();
+
+    // Click the CTA (visa "set country" button)
+    let emitted = false;
+    fixture.componentInstance.ctaClick.subscribe(() => { emitted = true; });
+    const cta = fixture.nativeElement.querySelector('.city-info-row.city-info-cta') as HTMLElement;
+    cta.dispatchEvent(new MouseEvent('click'));
+    expect(emitted).toBe(true);
+  }));
+
+  it('CTA is a keyboard-accessible button element', fakeAsync(() => {
+    setup(null, true);
+    const trigger = fixture.nativeElement.querySelector('.city-info-trigger') as HTMLElement;
+
+    trigger.dispatchEvent(new MouseEvent('mouseenter'));
+    tick(150);
+    fixture.detectChanges();
+
+    const cta = fixture.nativeElement.querySelector('.city-info-row.city-info-cta') as HTMLElement;
+    expect(cta.tagName.toLowerCase()).toBe('button');
+    expect(cta.getAttribute('type')).toBe('button');
   }));
 });

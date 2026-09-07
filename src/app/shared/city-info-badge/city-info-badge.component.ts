@@ -39,8 +39,10 @@ import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
       display: flex; flex-direction: column; gap: 4px;
       animation: fadeIn .15s ease;
     }
-    .city-info-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--t2); }
-    .city-info-row.city-info-cta { color: var(--t3); font-style: italic; pointer-events: auto; cursor: pointer; }
+    .city-info-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--t2); pointer-events: auto; }
+    .city-info-row.city-info-cta { color: var(--t3); font-style: italic; cursor: pointer; background: none; border: none; padding: 0; font: inherit; text-align: left; }
+    .city-info-row.city-info-cta:focus-visible { outline: 2px solid var(--lav-d); outline-offset: -2px; border-radius: 2px; }
+    .city-info-popover { pointer-events: auto; }
   `],
   template: `
     @if (hasInfo()) {
@@ -53,11 +55,16 @@ import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
       </span>
     }
     @if (open(); as pos) {
-      <div class="city-info-popover" role="tooltip" [style.left.px]="pos.x" [style.top.px]="pos.y">
+      <div class="city-info-popover" role="tooltip" [style.left.px]="pos.x" [style.top.px]="pos.y"
+           (mouseenter)="onHover($event)" (mouseleave)="onHoverLeave()">
         @if (visaItem(); as v) {
-          <div class="city-info-row" [class.city-info-cta]="v.cta" (click)="v.cta ? onCtaClick($event) : null">
-            <span>{{ v.icon }}</span> {{ v.label }}
-          </div>
+          @if (v.cta) {
+            <button type="button" class="city-info-row city-info-cta" (click)="onCtaClick($event)">
+              <span>{{ v.icon }}</span> {{ v.label }}
+            </button>
+          } @else {
+            <div class="city-info-row"><span>{{ v.icon }}</span> {{ v.label }}</div>
+          }
         }
         @if (currencyItem(); as c) {
           <div class="city-info-row"><span>{{ c.icon }}</span> {{ c.label }}</div>
@@ -140,8 +147,11 @@ export class CityInfoBadgeComponent {
 
   protected onHoverLeave(): void {
     if (this.hoverTimer) clearTimeout(this.hoverTimer);
-    this.hoverTimer = null;
-    this.open.set(null);
+    // Use a small delay (50ms) to allow moving from trigger to popover without closing
+    this.hoverTimer = setTimeout(() => {
+      this.open.set(null);
+      this.hoverTimer = null;
+    }, 50);
   }
 
   protected onClick(e: MouseEvent): void {
