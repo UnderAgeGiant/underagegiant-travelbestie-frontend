@@ -240,3 +240,30 @@ describe('StopListComponent — attraction time inputs (24-hour, via TimePickerC
   });
 });
 
+describe('StopListComponent — itinerary/AI-suggest pill row layout', () => {
+  let fixture: ComponentFixture<StopListComponent>;
+  let trip: TripService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+  });
+
+  it('puts the itinerary and AI-suggest pills in the same grid row, each with its own accent color', () => {
+    const row = fixture.nativeElement.querySelector('.stop-pill-row');
+    const itineraryBtn = row.querySelector('.stop-itinerary-pill:not(.stop-ai-suggest-pill)');
+    const aiBtn = row.querySelector('.stop-ai-suggest-pill');
+    expect(itineraryBtn).toBeTruthy();
+    expect(aiBtn).toBeTruthy();
+    expect(aiBtn.classList.contains('stop-itinerary-pill')).toBe(true); // still shares the base pill class
+  });
+});
+

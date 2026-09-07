@@ -2115,19 +2115,26 @@ app-nav { display: block; }
 
 /* Pill beneath each stop's lodging to open the city timeline */
 .stop-itinerary-pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  margin-top: 8px; padding: 5px 12px; border-radius: 99px;
-  font-size: 11px; font-weight: 600; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  flex-direction: column;
+  margin-top: 8px; padding: 8px 10px; border-radius: 14px;
+  font-size: 11px; font-weight: 600; cursor: pointer; text-align: center;
   color: var(--lav-d); background: var(--lav);
   border: 1px solid var(--lav-d); transition: all .15s;
 }
 .stop-itinerary-pill:hover { filter: brightness(.97); transform: translateY(-1px); }
 .stop-itinerary-pill.active { background: var(--lav-d); color: #fff; }
 
-/* Row holding the itinerary pill + (mobile) add-attraction pill side by side */
-.stop-pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+/* Two equal-width columns for "Ver itinerario"/"Sugiere qué hacer" so neither
+   button's extra content (the AI pill's karma-cost badge) throws off the row's
+   alignment; the mobile-only add-attraction pill spans both columns beneath. */
+.stop-pill-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;
+}
 .stop-pill-row .stop-itinerary-pill { margin-top: 0; }
-.stop-add-attraction-pill { color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
+.stop-ai-suggest-pill { color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
+.stop-ai-suggest-pill .karma-cost { margin-top: 1px; }
+.stop-add-attraction-pill { grid-column: 1 / -1; color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
 
 /* AI city-attraction suggestion cloud (Feature 52) — fullscreen comic-chat modal */
 .csc-overlay {
