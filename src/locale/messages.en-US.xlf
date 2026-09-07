@@ -2246,6 +2246,17 @@
         <target>Got it</target>
       </trans-unit>
 
-    </body>
-  </file>
+      <trans-unit id="cityWeather.forecastTag" datatype="html">
+        <source>Pronóstico</source>
+        <target>Forecast</target>
+      </trans-unit>
+      <trans-unit id="cityWeather.historicTag" datatype="html">
+        <source>Estimado</source>
+        <target>Estimate</target>
+      </trans-unit>
+      <trans-unit id="cityWeather.loadingLabel" datatype="html">
+        <source>Cargando pronóstico…</source>
+        <target>Loading forecast…</target>
+      </trans-unit>
+    </body>  </file>
 </xliff>

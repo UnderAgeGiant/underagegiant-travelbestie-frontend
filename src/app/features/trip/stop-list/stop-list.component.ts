@@ -284,11 +284,6 @@ import { CityWeatherChipComponent } from '../../../shared/city-weather-chip/city
         }
       </div>
 
-       @empty {
-            <div class="stop-weather-popover-empty">{{ weatherLoadingLabel }}</div>
-          }
-        </div>
-      }
 
       <div class="panel-footer">
         <button class="btn-pill btn-ghost" style="width:100%;justify-content:center"
@@ -396,11 +391,6 @@ export class StopListComponent {
   // pattern as SharedTripComponent's onAttHover/onAttClick for the attraction preview
   // popover — see that component if this pattern needs to change in both places.
 
-  protected onWeatherChipHoverLeave(): void {
-    if (this.weatherHoverTimer) clearTimeout(this.weatherHoverTimer);
-    this.weatherHoverTimer = null;
-    this.activeWeatherPreview.set(null);
-  }
 
     }
     return days;
