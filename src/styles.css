@@ -1690,12 +1690,20 @@ app-nav { display: block; }
 /* ── Profile page — tabs ────────────────────────────────────────────────── */
 .profile-tabs {
   display: flex;
+  flex-wrap: nowrap;
   gap: 4px;
   margin-bottom: 16px;
   border-bottom: 1.5px solid var(--border);
   padding-bottom: 0;
+  /* Up to 5 tabs (trips/favorites/collaborations/invites/aiplans) can outgrow a
+     narrow viewport — scroll horizontally instead of overflowing the page,
+     same fix already applied to .tl-days (day tabs) in DayTimelineComponent. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .profile-tab {
+  flex-shrink: 0;
+  white-space: nowrap;
   padding: 8px 18px;
   background: none;
   border: none;
