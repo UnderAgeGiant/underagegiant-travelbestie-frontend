@@ -1347,15 +1347,29 @@ app-nav { display: block; }
   color: var(--t2);
   margin-top: 2px;
 }
-/* One flex row for every tl-head action (export, route, day/plan slideshows) — replaces each
-   button's own ad hoc margin-top (and .tl-route-btn's extra margin-left) with a single gap,
-   so spacing stays even regardless of which subset of the four is showing at once. */
 .tl-head-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 14px;
   margin-top: 8px;
+}
+.tl-head-actions-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+/* Subtle divider between the day-scoped and plan-scoped clusters — only
+   renders when both groups are present, since this selector only matches a
+   group with a preceding sibling group. */
+.tl-head-actions-group + .tl-head-actions-group::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 2px; bottom: 2px;
+  width: 1px;
+  background: var(--border);
 }
 .tl-head-action {
   font-size: 11px;

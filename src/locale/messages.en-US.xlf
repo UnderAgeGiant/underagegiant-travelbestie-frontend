@@ -1368,8 +1368,8 @@
         <target>Free day — no plans yet</target>
       </trans-unit>
       <trans-unit id="timeline.dayRoute" datatype="html">
-        <source>🗺️ Ruta del día</source>
-        <target>🗺️ Day route</target>
+        <source>🗺️ Ruta del día en Google Maps</source>
+        <target>🗺️ Day route on Google Maps</target>
       </trans-unit>
       <trans-unit id="timeline.flapLabelCity" datatype="html">
         <source>Ver itinerario de la ciudad</source>
