@@ -2245,6 +2245,18 @@
         <source>Entendido</source>
         <target>Got it</target>
       </trans-unit>
+      <trans-unit id="travelDocs.visaDetail" datatype="html">
+        <source> 🛂 Necesitas revisar la visa para: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </source>
+        <target> 🛂 You need to check the visa for: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </target>
+      </trans-unit>
+      <trans-unit id="travelDocs.currencyDetail" datatype="html">
+        <source> 🪙 Monedas de tu viaje: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </source>
+        <target> 🪙 Currencies for your trip: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </target>
+      </trans-unit>
+      <trans-unit id="travelDocs.adapterDetail" datatype="html">
+        <source> 🔌 Necesitas adaptador de enchufe para: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </source>
+        <target> 🔌 You need a plug adapter for: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </target>
+      </trans-unit>
 
       <trans-unit id="cityWeather.forecastTag" datatype="html">
         <source>Pronóstico</source>
