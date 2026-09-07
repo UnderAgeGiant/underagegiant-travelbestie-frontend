@@ -966,6 +966,10 @@
         <source>Generar nuevas opciones</source>
         <target>Generate new options</target>
       </trans-unit>
+      <trans-unit id="aiplan.celebrationMessage" datatype="html">
+        <source>¡Tu plan hecho por IA está terminado! Estos son los lugares que visitarás</source>
+        <target>Your AI-made plan is ready! Here are the places you'll visit</target>
+      </trans-unit>
 
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
         <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?</source>

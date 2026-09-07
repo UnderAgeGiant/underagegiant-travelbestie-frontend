@@ -2778,6 +2778,41 @@ app-nav { display: block; }
   100% { opacity: 0; transform: translateY(-60px) scale(1.15) rotate(20deg); }
 }
 
+/* AI Plan celebration overlay (2.6s before slideshow opens) */
+.ai-plan-celebration {
+  position: fixed; inset: 0; z-index: 955;
+  background: linear-gradient(160deg, oklch(22% 0.05 290), oklch(14% 0.04 290));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 24px; text-align: center;
+  animation: fadeIn .2s ease;
+}
+.ai-plan-celebration-burst { position: absolute; inset: 0; pointer-events: none; }
+.ai-plan-celebration-emoji {
+  position: absolute; font-size: 30px; opacity: 0;
+  animation: aiPlanCelebrate 2.2s ease-out forwards;
+}
+.ai-plan-celebration-emoji:nth-child(1) { left: 10%; top: 78%; animation-delay: 0s; }
+.ai-plan-celebration-emoji:nth-child(2) { left: 24%; top: 20%; animation-delay: .12s; }
+.ai-plan-celebration-emoji:nth-child(3) { left: 40%; top: 70%; animation-delay: .05s; }
+.ai-plan-celebration-emoji:nth-child(4) { left: 55%; top: 15%; animation-delay: .2s; }
+.ai-plan-celebration-emoji:nth-child(5) { left: 68%; top: 65%; animation-delay: .08s; }
+.ai-plan-celebration-emoji:nth-child(6) { left: 82%; top: 18%; animation-delay: .18s; }
+.ai-plan-celebration-emoji:nth-child(7) { left: 46%; top: 82%; animation-delay: .25s; }
+.ai-plan-celebration-emoji:nth-child(8) { left: 15%; top: 40%; animation-delay: .3s; }
+@keyframes aiPlanCelebrate {
+  0%   { opacity: 0; transform: translateY(20px) scale(.5) rotate(0deg); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-100px) scale(1.2) rotate(24deg); }
+}
+.ai-plan-celebration-gif {
+  width: 220px; max-width: 70vw; border-radius: 16px;
+  box-shadow: var(--sh-lg); position: relative; z-index: 1;
+}
+.ai-plan-celebration-message {
+  position: relative; z-index: 1;
+  color: #fff; font-size: 18px; font-weight: 700; max-width: 480px; line-height: 1.4;
+}
+
 /* ── Highlight tour (onboarding spotlight) ─────────────────────────────── */
 .tour-blocker {
   position: fixed; inset: 0; z-index: 5000;
