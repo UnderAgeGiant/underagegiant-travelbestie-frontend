@@ -1710,6 +1710,16 @@ app-nav { display: block; }
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  /* .profile-tabs' immediate scrolling ancestor, .prof-body, scrolls
+     VERTICALLY (overflow-y: auto) — a touch device has to decide, from the
+     very first touchmove of the gesture, which of the two nested scroll
+     axes (this row's horizontal, .prof-body's vertical) a swipe belongs to.
+     Left to "auto", browsers commonly resolve that ambiguity in favor of
+     the outer/vertical-scrolling ancestor, so a horizontal swipe here never
+     reaches this row at all. touch-action: pan-x claims horizontal panning
+     for this element up front, while still leaving vertical swipes (pan-y)
+     to fall through to .prof-body as before. */
+  touch-action: pan-x;
 }
 .profile-tab {
   flex-shrink: 0;
