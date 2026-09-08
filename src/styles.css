@@ -831,28 +831,16 @@ app-nav { display: block; }
 .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
 
 /* ── Profile modal ───────────────────────────────────────────── */
-.profile-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--brd, #e8e0f0);
-  padding: 0 16px;
-  background: #fff;
-}
-.profile-tab {
-  flex: 1;
-  padding: 10px 0;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--t3, #9c84c0);
-  cursor: pointer;
-  transition: color .15s, border-color .15s;
-}
-.profile-tab.active {
-  color: var(--lav-d, #7C3AED);
-  border-bottom-color: var(--lav-d, #7C3AED);
-}
+/* .profile-tabs / .profile-tab used to be defined here too (a stale block
+   from before MyTripsComponent became its own full page) — it's the ONLY
+   consumer of these classes (confirmed by a project-wide grep), so that
+   duplicate definition was deleted rather than kept "for a modal" that no
+   longer exists. It was also actively harmful: its `.profile-tab { flex: 1;
+   ... }` left `flex-grow:1`/`flex-basis:0%` in effect alongside the later,
+   real block's `flex-shrink:0` (same-specificity rules only override the
+   individual longhand properties they actually set), which fought the
+   later block's horizontal-scroll fix below. See that block's own comment
+   for the actual current rules. */
 .profile-success {
   margin: 10px 16px 0;
   padding: 10px 14px;
@@ -1711,8 +1699,16 @@ app-nav { display: block; }
   padding-bottom: 0;
   /* Up to 5 tabs (trips/favorites/collaborations/invites/aiplans) can outgrow a
      narrow viewport — scroll horizontally instead of overflowing the page,
-     same fix already applied to .tl-days (day tabs) in DayTimelineComponent. */
+     same fix already applied to .tl-days (day tabs) in DayTimelineComponent.
+     .profile-tabs sits inside .prof-body (display:flex; flex-direction:column),
+     making it a flex item on the CROSS axis there too — without min-width: 0
+     it defaults to min-width: auto and grows to fit its own un-shrinkable tabs
+     instead of clipping to the available width, so overflow-x: auto never
+     actually gets anything to scroll (the exact .tl-days gotcha). overflow-y:
+     hidden guards against a stray vertical scrollbar on this single-row strip. */
+  min-width: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .profile-tab {
