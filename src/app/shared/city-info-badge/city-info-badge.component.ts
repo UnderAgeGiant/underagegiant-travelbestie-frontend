@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, ElementRef, OnDestroy, Renderer2,
+  computed, effect, inject, input, output, signal, viewChild,
+} from '@angular/core';
 import { City } from '../../core/models/city.model';
 import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
 import { getVisaRequirementMeta } from '../../core/models/visa-requirement.model';
@@ -13,6 +16,14 @@ import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
  * viewport-flip/touch-click pattern as StopListComponent's weather-chip popover
  * (now itself extracted into CityWeatherChipComponent, see Task 2). Renders nothing
  * at all when none of the three rows have anything to show for this city.
+ *
+ * The popover itself is reparented to <body> (same Renderer2.appendChild technique
+ * CitySuggestCloudComponent/HighlightTourComponent use for their whole host, applied
+ * here to just the popover child) because the trigger normally lives inside a
+ * `.stop-item` card, and that card's hover/active `transform` establishes a new
+ * containing block *and* stacking context for any `position: fixed` descendant —
+ * without reparenting, the popover gets visually trapped behind later sibling cards
+ * instead of floating above the whole page next to the cursor.
  */
 @Component({
   selector: 'app-city-info-badge',
@@ -55,7 +66,7 @@ import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
       </span>
     }
     @if (open(); as pos) {
-      <div class="city-info-popover" role="tooltip" [style.left.px]="pos.x" [style.top.px]="pos.y"
+      <div class="city-info-popover" #popoverEl role="tooltip" [style.left.px]="pos.x" [style.top.px]="pos.y"
            (mouseenter)="onHover($event)" (mouseleave)="onHoverLeave()">
         @if (visaItem(); as v) {
           @if (v.cta) {
@@ -76,9 +87,10 @@ import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
     }
   `,
 })
-export class CityInfoBadgeComponent {
+export class CityInfoBadgeComponent implements OnDestroy {
   private readonly visaRequirement = inject(VisaRequirementService);
   private readonly travelInfo = inject(TravelInfoService);
+  private readonly renderer = inject(Renderer2);
 
   readonly city = input.required<City>();
   readonly homeIso2 = input<string | null>(null);
@@ -123,6 +135,18 @@ export class CityInfoBadgeComponent {
 
   protected readonly open = signal<{ x: number; y: number } | null>(null);
   private hoverTimer: ReturnType<typeof setTimeout> | null = null;
+
+  // Reparents the popover to <body> every time it's (re)created by the @if above,
+  // so it always escapes the trigger's card — see the class doc comment.
+  protected readonly popoverEl = viewChild<ElementRef<HTMLElement>>('popoverEl');
+  private readonly reparentPopover = effect(() => {
+    const el = this.popoverEl();
+    if (el) this.renderer.appendChild(document.body, el.nativeElement);
+  });
+
+  ngOnDestroy(): void {
+    this.popoverEl()?.nativeElement.remove();
+  }
 
   protected onHover(e: MouseEvent | FocusEvent): void {
     if (this.hoverTimer) clearTimeout(this.hoverTimer);

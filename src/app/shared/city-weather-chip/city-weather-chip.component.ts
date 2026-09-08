@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, ElementRef, OnDestroy, Renderer2,
+  computed, effect, inject, input, signal, viewChild,
+} from '@angular/core';
 import { TripStop } from '../../core/models/trip.model';
 import { WeatherService } from '../../core/weather/weather.service';
 import { getWeatherCodeMeta } from '../../core/models/weather.model';
@@ -11,6 +14,15 @@ import { iterateDMYRange } from '../../core/utils/event-datetime.util';
  * WeatherService.load() de-dupes concurrent/repeat requests and caches via
  * ETag, so it's safe for multiple instances (or the pre-existing
  * DayTimelineComponent instance) to call it for the same city/range.
+ *
+ * The popover itself is reparented to <body> (same Renderer2.appendChild technique
+ * CitySuggestCloudComponent/HighlightTourComponent use for their whole host, applied
+ * here to just the popover child — see CityInfoBadgeComponent's identical fix) because
+ * the chip normally lives inside a `.stop-item` card, and that card's hover/active
+ * `transform` establishes a new containing block *and* stacking context for any
+ * `position: fixed` descendant — without reparenting, the popover gets visually
+ * trapped behind later sibling cards instead of floating above the whole page next
+ * to the cursor.
  */
 @Component({
   selector: 'app-city-weather-chip',
@@ -60,7 +72,7 @@ import { iterateDMYRange } from '../../core/utils/event-datetime.util';
       </span>
     }
     @if (open(); as pos) {
-      <div class="city-weather-popover" role="tooltip" [style.left.px]="pos.x" [style.top.px]="pos.y">
+      <div class="city-weather-popover" #popoverEl role="tooltip" [style.left.px]="pos.x" [style.top.px]="pos.y">
         @for (d of previewDays(); track d.date) {
           <div class="city-weather-popover-row" [class.city-weather-popover-row-historic]="d.historic">
             <span class="city-weather-popover-date">{{ d.date.slice(0, 5) }}</span>
@@ -75,8 +87,9 @@ import { iterateDMYRange } from '../../core/utils/event-datetime.util';
     }
   `,
 })
-export class CityWeatherChipComponent {
+export class CityWeatherChipComponent implements OnDestroy {
   private readonly weather = inject(WeatherService);
+  private readonly renderer = inject(Renderer2);
 
   readonly stop = input.required<TripStop>();
 
@@ -113,6 +126,18 @@ export class CityWeatherChipComponent {
 
   protected readonly open = signal<{ x: number; y: number } | null>(null);
   private hoverTimer: ReturnType<typeof setTimeout> | null = null;
+
+  // Reparents the popover to <body> every time it's (re)created by the @if above,
+  // so it always escapes the chip's card — see the class doc comment.
+  protected readonly popoverEl = viewChild<ElementRef<HTMLElement>>('popoverEl');
+  private readonly reparentPopover = effect(() => {
+    const el = this.popoverEl();
+    if (el) this.renderer.appendChild(document.body, el.nativeElement);
+  });
+
+  ngOnDestroy(): void {
+    this.popoverEl()?.nativeElement.remove();
+  }
 
   protected readonly previewDays = computed(() => {
     if (!this.open()) return [];

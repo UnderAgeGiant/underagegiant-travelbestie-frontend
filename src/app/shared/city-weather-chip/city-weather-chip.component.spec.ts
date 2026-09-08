@@ -8,6 +8,13 @@ function stop(checkIn: string, checkOut: string): TripStop {
   return { stopId: 's1', cityId: 'paris', checkIn, checkOut, selectedAttractions: [] };
 }
 
+// The popover is reparented to <body> (see the component's own doc comment) so it
+// always escapes a transformed ancestor card — query it from document.body, not
+// fixture.nativeElement, which now only ever contains the chip itself.
+function popover(): HTMLElement | null {
+  return document.body.querySelector('.city-weather-popover');
+}
+
 // jsdom has no matchMedia — mirrors the helper already used in stop-list.component.spec.ts.
 function installMatchMediaMock(initialMatches: boolean): void {
   (window as any).matchMedia = () => ({
@@ -102,14 +109,14 @@ describe('CityWeatherChipComponent', () => {
     );
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('.city-weather-popover')).toBeNull();
+    expect(popover()).toBeNull();
 
     const chip = fixture.nativeElement.querySelector('.city-weather-chip');
     chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
     jest.advanceTimersByTime(150);
     fixture.detectChanges();
 
-    const rows = fixture.nativeElement.querySelectorAll('.city-weather-popover-row');
+    const rows = popover()!.querySelectorAll('.city-weather-popover-row');
     expect(rows.length).toBe(3);
     expect(rows[0].textContent).toContain('14°/23°');
     expect(rows[0].classList.contains('city-weather-popover-row-historic')).toBe(false);
@@ -132,7 +139,7 @@ describe('CityWeatherChipComponent', () => {
     jest.advanceTimersByTime(100);
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('.city-weather-popover')).toBeNull();
+    expect(popover()).toBeNull();
   });
 
   it('closes the popover on mouseleave', () => {
@@ -149,11 +156,11 @@ describe('CityWeatherChipComponent', () => {
     chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
     jest.advanceTimersByTime(150);
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.city-weather-popover')).not.toBeNull();
+    expect(popover()).not.toBeNull();
 
     chip.dispatchEvent(new MouseEvent('mouseleave'));
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.city-weather-popover')).toBeNull();
+    expect(popover()).toBeNull();
   });
 
   it('toggles the popover on click for touch devices with no hover capability', () => {
@@ -169,11 +176,11 @@ describe('CityWeatherChipComponent', () => {
     const chip = fixture.nativeElement.querySelector('.city-weather-chip');
     chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.city-weather-popover')).not.toBeNull();
+    expect(popover()).not.toBeNull();
 
     chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.city-weather-popover')).toBeNull();
+    expect(popover()).toBeNull();
   });
 
   it('does not open the popover on click when the device can hover (desktop)', () => {
@@ -189,6 +196,47 @@ describe('CityWeatherChipComponent', () => {
     chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('.city-weather-popover')).toBeNull();
+    expect(popover()).toBeNull();
+  });
+
+  it('reparents the popover to document.body so it always escapes a transformed ancestor card', () => {
+    jest.useFakeTimers();
+    fixture.componentRef.setInput('stop', stop('01/06/2026', '01/06/2026'));
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const chip = fixture.nativeElement.querySelector('.city-weather-chip');
+    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(150);
+    fixture.detectChanges();
+
+    const pop = popover();
+    expect(pop).toBeTruthy();
+    expect(pop!.parentElement).toBe(document.body);
+    expect(fixture.nativeElement.contains(pop)).toBe(false);
+  });
+
+  it('removes the popover from document.body when the component is destroyed', () => {
+    jest.useFakeTimers();
+    fixture.componentRef.setInput('stop', stop('01/06/2026', '01/06/2026'));
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+    fixture.detectChanges();
+
+    const chip = fixture.nativeElement.querySelector('.city-weather-chip');
+    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(150);
+    fixture.detectChanges();
+    expect(popover()).toBeTruthy();
+
+    fixture.destroy();
+    expect(popover()).toBeNull();
   });
 });

@@ -139,19 +139,26 @@ describe('StopListComponent — city info badge (visa/currency/plug)', () => {
     fixture.detectChanges();
   }
 
+  // CityInfoBadgeComponent reparents its popover to document.body (so it always
+  // escapes the .stop-item card's hover/active transform, which would otherwise
+  // trap a position:fixed popover behind other stop cards) — query it there, not
+  // under fixture.nativeElement, which only ever contains the trigger now.
+  function popover(): HTMLElement | null {
+    return document.body.querySelector('.city-info-popover');
+  }
+
   it('shows a visa row in the popover when logged in with a countryOfResidence set (CL -> FR is visa-free for 90 days)', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'CL' });
     openPopover();
 
-    const popover = fixture.nativeElement.querySelector('.city-info-popover');
-    expect(popover.textContent).toContain('90');
+    expect(popover()!.textContent).toContain('90');
   }));
 
   it('shows a CTA row instead of a visa result when logged in with no countryOfResidence set', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     openPopover();
 
-    expect(fixture.nativeElement.querySelector('.city-info-row.city-info-cta')).toBeTruthy();
+    expect(popover()!.querySelector('.city-info-row.city-info-cta')).toBeTruthy();
   }));
 
   it('emits openProfile when the CTA row is clicked', fakeAsync(() => {
@@ -160,24 +167,24 @@ describe('StopListComponent — city info badge (visa/currency/plug)', () => {
 
     let emitted = false;
     fixture.componentInstance.openProfile.subscribe(() => { emitted = true; });
-    (fixture.nativeElement.querySelector('.city-info-row.city-info-cta') as HTMLElement).click();
+    (popover()!.querySelector('.city-info-row.city-info-cta') as HTMLElement).click();
     expect(emitted).toBe(true);
   }));
 
   it('shows currency and plug rows to an anonymous visitor (Paris -> EUR, no adapter flag without a home country)', fakeAsync(() => {
     openPopover();
 
-    const popover = fixture.nativeElement.querySelector('.city-info-popover');
-    expect(popover.textContent).toContain('€');
-    expect(popover.textContent).toContain('Tipo');
-    expect(popover.textContent).not.toContain('adaptador');
+    const pop = popover()!;
+    expect(pop.textContent).toContain('€');
+    expect(pop.textContent).toContain('Tipo');
+    expect(pop.textContent).not.toContain('adaptador');
   }));
 
   it('flags adapter needed when the logged-in user\'s country uses no shared plug type with the destination', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'US' });
     openPopover();
 
-    expect(fixture.nativeElement.querySelector('.city-info-popover').textContent).toContain('adaptador');
+    expect(popover()!.textContent).toContain('adaptador');
   }));
 });
 
