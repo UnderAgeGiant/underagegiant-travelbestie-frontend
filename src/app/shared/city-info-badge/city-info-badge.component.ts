@@ -50,8 +50,11 @@ import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
       display: flex; flex-direction: column; gap: 4px;
       animation: fadeIn .15s ease;
     }
-    .city-info-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--t2); pointer-events: auto; }
-    .city-info-row.city-info-cta { color: var(--t3); font-style: italic; cursor: pointer; background: none; border: none; padding: 0; font: inherit; text-align: left; }
+    .city-info-row { display: flex; align-items: center; gap: 6px; font-size: 11px; font-family: inherit; color: var(--t2); pointer-events: auto; }
+    .city-info-row.city-info-cta {
+      color: var(--t3); font-style: italic; font-size: 11px; font-family: inherit; font-weight: 400;
+      cursor: pointer; background: none; border: none; padding: 0; text-align: left;
+    }
     .city-info-row.city-info-cta:focus-visible { outline: 2px solid var(--lav-d); outline-offset: -2px; border-radius: 2px; }
     .city-info-popover { pointer-events: auto; }
   `],
