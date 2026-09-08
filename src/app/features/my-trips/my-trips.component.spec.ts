@@ -72,6 +72,53 @@ describe('MyTripsComponent — clone button label', () => {
   });
 });
 
+describe('MyTripsComponent — profile-tabs scroll arrows', () => {
+  let fixture: ComponentFixture<MyTripsComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    const auth = TestBed.inject(AuthService);
+    auth.setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    fixture = TestBed.createComponent(MyTripsComponent);
+    fixture.detectChanges();
+  });
+
+  it('renders a left and right scroll arrow around the tabs row', () => {
+    const row = fixture.nativeElement.querySelector('.profile-tabs-row');
+    const arrows = row.querySelectorAll('.tl-days-arrow');
+    expect(arrows.length).toBe(2);
+    expect(arrows[0].getAttribute('aria-label')).toBe('Ver pestañas anteriores');
+    expect(arrows[1].getAttribute('aria-label')).toBe('Ver pestañas siguientes');
+  });
+
+  it('scrolls the tabs row right when the right arrow is clicked', () => {
+    const tabsEl = fixture.nativeElement.querySelector('.profile-tabs') as HTMLElement;
+    // jsdom doesn't implement Element.scrollBy — define it as a spy rather than spyOn().
+    const scrollBySpy = jest.fn();
+    tabsEl.scrollBy = scrollBySpy;
+    const rightArrow = fixture.nativeElement.querySelectorAll('.tl-days-arrow')[1] as HTMLElement;
+
+    rightArrow.click();
+
+    expect(scrollBySpy).toHaveBeenCalledWith({ left: 160, behavior: 'smooth' });
+  });
+
+  it('scrolls the tabs row left when the left arrow is clicked', () => {
+    const tabsEl = fixture.nativeElement.querySelector('.profile-tabs') as HTMLElement;
+    const scrollBySpy = jest.fn();
+    tabsEl.scrollBy = scrollBySpy;
+    const leftArrow = fixture.nativeElement.querySelectorAll('.tl-days-arrow')[0] as HTMLElement;
+
+    leftArrow.click();
+
+    expect(scrollBySpy).toHaveBeenCalledWith({ left: -160, behavior: 'smooth' });
+  });
+});
+
 describe('MyTripsComponent — saved-plan-actions visibility', () => {
   let fixture: ComponentFixture<MyTripsComponent>;
 

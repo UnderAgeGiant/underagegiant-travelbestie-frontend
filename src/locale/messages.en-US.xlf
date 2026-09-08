@@ -1470,6 +1470,14 @@
         <source>Viajes guardados 🗺️</source>
         <target>Saved trips 🗺️</target>
       </trans-unit>
+      <trans-unit id="myTrips.scrollTabsLeftAria" datatype="html">
+        <source>Ver pestañas anteriores</source>
+        <target>See previous tabs</target>
+      </trans-unit>
+      <trans-unit id="myTrips.scrollTabsRightAria" datatype="html">
+        <source>Ver pestañas siguientes</source>
+        <target>See next tabs</target>
+      </trans-unit>
       <trans-unit id="myTrips.loginToViewTrips" datatype="html">
         <source>Inicia sesión para ver tus viajes guardados.</source>
         <target>Sign in to see your saved trips.</target>

@@ -1690,35 +1690,43 @@ app-nav { display: block; }
 }
 
 /* ── Profile page — tabs ────────────────────────────────────────────────── */
+/* Same day-scoped-vs-full-row split as .tl-days-row/.tl-days: the border and
+   spacing live on the row (arrows + tabs together), not the scrollable inner
+   element, so the underline reads as one continuous strip. */
+.profile-tabs-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1.5px solid var(--border);
+  min-width: 0;
+}
 .profile-tabs {
   display: flex;
   flex-wrap: nowrap;
   gap: 4px;
-  margin-bottom: 16px;
-  border-bottom: 1.5px solid var(--border);
   padding-bottom: 0;
   /* Up to 5 tabs (trips/favorites/collaborations/invites/aiplans) can outgrow a
-     narrow viewport — scroll horizontally instead of overflowing the page,
-     same fix already applied to .tl-days (day tabs) in DayTimelineComponent.
-     .profile-tabs sits inside .prof-body (display:flex; flex-direction:column),
-     making it a flex item on the CROSS axis there too — without min-width: 0
-     it defaults to min-width: auto and grows to fit its own un-shrinkable tabs
-     instead of clipping to the available width, so overflow-x: auto never
-     actually gets anything to scroll (the exact .tl-days gotcha). overflow-y:
-     hidden guards against a stray vertical scrollbar on this single-row strip. */
+     narrow viewport. .profile-tabs sits inside .prof-body (display:flex;
+     flex-direction:column), making it a flex item on the CROSS axis there too
+     — without min-width: 0 it defaults to min-width: auto and grows to fit
+     its own un-shrinkable tabs instead of clipping to the available width
+     (the exact .tl-days gotcha). overflow-x: auto + overflow-y: hidden clip
+     it to its box; touch-action: pan-x claims horizontal panning so a swipe
+     isn't hijacked by .prof-body's own vertical scroll.
+     Belt-and-suspenders: native touch-drag scrolling on this row did not
+     reliably trigger in testing (Chrome DevTools device-toolbar touch
+     emulation), even though the CSS mechanics check out and match .tl-days'
+     already-shipped pattern exactly — same symptom reproduced on .tl-days
+     itself in that same test, so it isn't specific to this element. Rather
+     than keep chasing why native touch-scroll wasn't engaging, .tl-days-arrow
+     buttons (see .profile-tabs-row above) give an explicit, gesture-independent
+     way to reach the hidden tabs — the primary way to scroll this row now,
+     not just a fallback for when a swipe fails. */
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  /* .profile-tabs' immediate scrolling ancestor, .prof-body, scrolls
-     VERTICALLY (overflow-y: auto) — a touch device has to decide, from the
-     very first touchmove of the gesture, which of the two nested scroll
-     axes (this row's horizontal, .prof-body's vertical) a swipe belongs to.
-     Left to "auto", browsers commonly resolve that ambiguity in favor of
-     the outer/vertical-scrolling ancestor, so a horizontal swipe here never
-     reaches this row at all. touch-action: pan-x claims horizontal panning
-     for this element up front, while still leaving vertical swipes (pan-y)
-     to fall through to .prof-body as before. */
   touch-action: pan-x;
 }
 .profile-tab {
