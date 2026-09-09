@@ -183,7 +183,7 @@ function transitLabel(mode: TransitMode): string {
       <!-- Day tabs (hidden in transport mode) -->
       @if (!transportMode()) {
         <div class="tl-days-row">
-          @if (days().length > 6) {
+          @if (days().length > 3) {
             <button type="button" class="tl-days-arrow tl-days-arrow-left"
                     (click)="scrollDays(-1)"
                     i18n-aria-label="@@timeline.scrollDaysLeft" aria-label="Ver días anteriores">‹</button>
@@ -207,7 +207,7 @@ function transitLabel(mode: TransitMode): string {
               </button>
             }
           </div>
-          @if (days().length > 6) {
+          @if (days().length > 3) {
             <button type="button" class="tl-days-arrow tl-days-arrow-right"
                     (click)="scrollDays(1)"
                     i18n-aria-label="@@timeline.scrollDaysRight" aria-label="Ver días siguientes">›</button>

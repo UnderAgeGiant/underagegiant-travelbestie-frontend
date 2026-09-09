@@ -131,6 +131,42 @@ describe('DayTimelineComponent — trip-wide days', () => {
   });
 });
 
+describe('DayTimelineComponent — day-tabs scroll arrows threshold (user-requested 2026-09-09)', () => {
+  it('does not show scroll arrows with exactly 3 day tabs', () => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    trip.addStop(PARIS, '01/06/2026', '03/06/2026'); // 3 day tabs: 01, 02, 03
+    fixture.detectChanges();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.tl-days-arrow-left')).toBeNull();
+    expect(el.querySelector('.tl-days-arrow-right')).toBeNull();
+  });
+
+  it('shows scroll arrows once there are more than 3 day tabs', () => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    trip.addStop(PARIS, '01/06/2026', '04/06/2026'); // 4 day tabs: 01, 02, 03, 04
+    fixture.detectChanges();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.tl-days-arrow-left')).not.toBeNull();
+    expect(el.querySelector('.tl-days-arrow-right')).not.toBeNull();
+  });
+});
+
 describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => {
   let trip: TripService;
   let component: DayTimelineComponent;
