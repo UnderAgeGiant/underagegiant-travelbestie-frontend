@@ -84,7 +84,7 @@ app-nav { display: block; }
 .panel-head { padding: 18px 18px 12px; border-bottom: 1px solid var(--border); background: linear-gradient(135deg, var(--lav), var(--peach)); }
 .panel-head-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: -.5px; margin-bottom: 2px; }
 .panel-head-sub { font-size: 12px; color: var(--t2); }
-.panel-body { flex: 1; min-height: 0; overflow-y: auto; padding: 12px; }
+.panel-body { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding: 12px; }
 .panel-footer { padding: 12px; border-top: 1px solid var(--border); position: relative; }
 .right-panel { flex: 1; overflow-y: auto; overflow-x: hidden; background: var(--cream); position: relative; }
 
@@ -725,6 +725,33 @@ app-nav { display: block; }
 .ai-option-highlights { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
 .ai-option-hl { background: var(--mint); color: var(--mint-d); padding: 2px 10px; border-radius: 99px; font-size: 10px; font-weight: 600; }
 .ai-plan-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+
+/* ── "Guardar plan" attention beacon (AiPlanningComponent, final step) ──
+   The user has reached the one decision the whole flow was building toward;
+   a periodic bounce+glow keeps drawing the eye back to it without being a
+   constant distraction from reading the itinerary above. A burst plays for
+   ~600ms out of every 2.8s cycle, then rests — same "beacon", not "wobble",
+   cadence as the karma-pulse/notif-shake attention cues elsewhere in this
+   file. Removed via [class.ai-save-cta]="!saving()" the moment a save is
+   in flight, since the button is disabled and mid-request at that point. */
+@keyframes aiSaveCta {
+  0%, 78%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 14px oklch(55% .16 290 / .3);
+  }
+  8%  { transform: translateY(-7px); box-shadow: 0 10px 20px oklch(55% .16 290 / .55), 0 2px 34px oklch(55% .16 290 / .4); }
+  16% { transform: translateY(1px);  box-shadow: 0 6px 16px oklch(55% .16 290 / .48), 0 2px 30px oklch(55% .16 290 / .34); }
+  24% { transform: translateY(-3px); box-shadow: 0 8px 18px oklch(55% .16 290 / .5),  0 2px 32px oklch(55% .16 290 / .36); }
+  34% { transform: translateY(0);    box-shadow: 0 4px 14px oklch(55% .16 290 / .3); }
+}
+@keyframes aiSaveCtaReduced {
+  0%, 78%, 100% { box-shadow: 0 4px 14px oklch(55% .16 290 / .3); }
+  20%           { box-shadow: 0 4px 14px oklch(55% .16 290 / .55), 0 2px 30px oklch(55% .16 290 / .32); }
+}
+.ai-save-cta { animation: aiSaveCta 2.8s cubic-bezier(.36,.07,.19,.97) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ai-save-cta { animation: aiSaveCtaReduced 2.8s ease-in-out infinite; }
+}
 .ai-plan-result-header { text-align: center; margin-bottom: 20px; padding: 20px 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .ai-plan-result-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: var(--t1); margin-bottom: 8px; }
 .ai-plan-result-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
@@ -831,28 +858,16 @@ app-nav { display: block; }
 .karma-icon-sparkle { display: inline-block; animation: karma-icon-sparkle 0.75s ease-out; }
 
 /* ── Profile modal ───────────────────────────────────────────── */
-.profile-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--brd, #e8e0f0);
-  padding: 0 16px;
-  background: #fff;
-}
-.profile-tab {
-  flex: 1;
-  padding: 10px 0;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--t3, #9c84c0);
-  cursor: pointer;
-  transition: color .15s, border-color .15s;
-}
-.profile-tab.active {
-  color: var(--lav-d, #7C3AED);
-  border-bottom-color: var(--lav-d, #7C3AED);
-}
+/* .profile-tabs / .profile-tab used to be defined here too (a stale block
+   from before MyTripsComponent became its own full page) — it's the ONLY
+   consumer of these classes (confirmed by a project-wide grep), so that
+   duplicate definition was deleted rather than kept "for a modal" that no
+   longer exists. It was also actively harmful: its `.profile-tab { flex: 1;
+   ... }` left `flex-grow:1`/`flex-basis:0%` in effect alongside the later,
+   real block's `flex-shrink:0` (same-specificity rules only override the
+   individual longhand properties they actually set), which fought the
+   later block's horizontal-scroll fix below. See that block's own comment
+   for the actual current rules. */
 .profile-success {
   margin: 10px 16px 0;
   padding: 10px 14px;
@@ -1347,15 +1362,29 @@ app-nav { display: block; }
   color: var(--t2);
   margin-top: 2px;
 }
-/* One flex row for every tl-head action (export, route, day/plan slideshows) — replaces each
-   button's own ad hoc margin-top (and .tl-route-btn's extra margin-left) with a single gap,
-   so spacing stays even regardless of which subset of the four is showing at once. */
 .tl-head-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 14px;
   margin-top: 8px;
+}
+.tl-head-actions-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+/* Subtle divider between the day-scoped and plan-scoped clusters — only
+   renders when both groups are present, since this selector only matches a
+   group with a preceding sibling group. */
+.tl-head-actions-group + .tl-head-actions-group::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 2px; bottom: 2px;
+  width: 1px;
+  background: var(--border);
 }
 .tl-head-action {
   font-size: 11px;
@@ -1688,14 +1717,48 @@ app-nav { display: block; }
 }
 
 /* ── Profile page — tabs ────────────────────────────────────────────────── */
-.profile-tabs {
+/* Same day-scoped-vs-full-row split as .tl-days-row/.tl-days: the border and
+   spacing live on the row (arrows + tabs together), not the scrollable inner
+   element, so the underline reads as one continuous strip. */
+.profile-tabs-row {
   display: flex;
+  align-items: center;
   gap: 4px;
   margin-bottom: 16px;
   border-bottom: 1.5px solid var(--border);
+  min-width: 0;
+}
+.profile-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
   padding-bottom: 0;
+  /* Up to 5 tabs (trips/favorites/collaborations/invites/aiplans) can outgrow a
+     narrow viewport. .profile-tabs sits inside .prof-body (display:flex;
+     flex-direction:column), making it a flex item on the CROSS axis there too
+     — without min-width: 0 it defaults to min-width: auto and grows to fit
+     its own un-shrinkable tabs instead of clipping to the available width
+     (the exact .tl-days gotcha). overflow-x: auto + overflow-y: hidden clip
+     it to its box; touch-action: pan-x claims horizontal panning so a swipe
+     isn't hijacked by .prof-body's own vertical scroll.
+     Belt-and-suspenders: native touch-drag scrolling on this row did not
+     reliably trigger in testing (Chrome DevTools device-toolbar touch
+     emulation), even though the CSS mechanics check out and match .tl-days'
+     already-shipped pattern exactly — same symptom reproduced on .tl-days
+     itself in that same test, so it isn't specific to this element. Rather
+     than keep chasing why native touch-scroll wasn't engaging, .tl-days-arrow
+     buttons (see .profile-tabs-row above) give an explicit, gesture-independent
+     way to reach the hidden tabs — the primary way to scroll this row now,
+     not just a fallback for when a swipe fails. */
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
 .profile-tab {
+  flex-shrink: 0;
+  white-space: nowrap;
   padding: 8px 18px;
   background: none;
   border: none;
@@ -1948,6 +2011,10 @@ app-nav { display: block; }
   transition: background .12s;
 }
 .up-plans-btn:hover { background: var(--cream); }
+/* Feedback #7 (2026-09-07 UX-improvements round): highlights whichever of
+   "Mi perfil"/"Mis viajes" corresponds to the page the current <app-nav>
+   instance lives on — see NavShellComponent's activeView input. */
+.nav-page-btn.active { background: var(--lav-d); color: #fff; }
 .up-plans-badge {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 18px; height: 18px; border-radius: 99px; padding: 0 5px;
@@ -2115,19 +2182,26 @@ app-nav { display: block; }
 
 /* Pill beneath each stop's lodging to open the city timeline */
 .stop-itinerary-pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  margin-top: 8px; padding: 5px 12px; border-radius: 99px;
-  font-size: 11px; font-weight: 600; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  flex-direction: column;
+  margin-top: 8px; padding: 8px 10px; border-radius: 14px;
+  font-size: 11px; font-weight: 600; cursor: pointer; text-align: center;
   color: var(--lav-d); background: var(--lav);
   border: 1px solid var(--lav-d); transition: all .15s;
 }
 .stop-itinerary-pill:hover { filter: brightness(.97); transform: translateY(-1px); }
 .stop-itinerary-pill.active { background: var(--lav-d); color: #fff; }
 
-/* Row holding the itinerary pill + (mobile) add-attraction pill side by side */
-.stop-pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+/* Two equal-width columns for "Ver itinerario"/"Sugiere qué hacer" so neither
+   button's extra content (the AI pill's karma-cost badge) throws off the row's
+   alignment; the mobile-only add-attraction pill spans both columns beneath. */
+.stop-pill-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;
+}
 .stop-pill-row .stop-itinerary-pill { margin-top: 0; }
-.stop-add-attraction-pill { color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
+.stop-ai-suggest-pill { color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
+.stop-ai-suggest-pill .karma-cost { margin-top: 1px; }
+.stop-add-attraction-pill { grid-column: 1 / -1; color: var(--peach-d); background: var(--peach); border-color: var(--peach-d); }
 
 /* AI city-attraction suggestion cloud (Feature 52) — fullscreen comic-chat modal */
 .csc-overlay {
@@ -2761,6 +2835,41 @@ app-nav { display: block; }
   0%   { opacity: 0; transform: translateY(10px) scale(.5) rotate(0deg); }
   15%  { opacity: 1; }
   100% { opacity: 0; transform: translateY(-60px) scale(1.15) rotate(20deg); }
+}
+
+/* AI Plan celebration overlay (2.6s before slideshow opens) */
+.ai-plan-celebration {
+  position: fixed; inset: 0; z-index: 955;
+  background: linear-gradient(160deg, oklch(22% 0.05 290), oklch(14% 0.04 290));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 24px; text-align: center;
+  animation: fadeIn .2s ease;
+}
+.ai-plan-celebration-burst { position: absolute; inset: 0; pointer-events: none; }
+.ai-plan-celebration-emoji {
+  position: absolute; font-size: 30px; opacity: 0;
+  animation: aiPlanCelebrate 2.2s ease-out forwards;
+}
+.ai-plan-celebration-emoji:nth-child(1) { left: 10%; top: 78%; animation-delay: 0s; }
+.ai-plan-celebration-emoji:nth-child(2) { left: 24%; top: 20%; animation-delay: .12s; }
+.ai-plan-celebration-emoji:nth-child(3) { left: 40%; top: 70%; animation-delay: .05s; }
+.ai-plan-celebration-emoji:nth-child(4) { left: 55%; top: 15%; animation-delay: .2s; }
+.ai-plan-celebration-emoji:nth-child(5) { left: 68%; top: 65%; animation-delay: .08s; }
+.ai-plan-celebration-emoji:nth-child(6) { left: 82%; top: 18%; animation-delay: .18s; }
+.ai-plan-celebration-emoji:nth-child(7) { left: 46%; top: 82%; animation-delay: .25s; }
+.ai-plan-celebration-emoji:nth-child(8) { left: 15%; top: 40%; animation-delay: .3s; }
+@keyframes aiPlanCelebrate {
+  0%   { opacity: 0; transform: translateY(20px) scale(.5) rotate(0deg); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-100px) scale(1.2) rotate(24deg); }
+}
+.ai-plan-celebration-gif {
+  width: 220px; max-width: 70vw; border-radius: 16px;
+  box-shadow: var(--sh-lg); position: relative; z-index: 1;
+}
+.ai-plan-celebration-message {
+  position: relative; z-index: 1;
+  color: #fff; font-size: 18px; font-weight: 700; max-width: 480px; line-height: 1.4;
 }
 
 /* ── Highlight tour (onboarding spotlight) ─────────────────────────────── */

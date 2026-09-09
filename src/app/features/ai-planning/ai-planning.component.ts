@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
@@ -23,6 +23,8 @@ import { LocaleService } from '../../core/i18n/locale.service';
 
 type Step = 'preferences' | 'options' | 'result';
 
+const AI_PLAN_CELEBRATE_MS = 2600;
+
 @Component({
     selector: 'app-ai-planning',
     imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
@@ -37,8 +39,7 @@ type Step = 'preferences' | 'options' | 'result';
 
       @if (showProfile()) {
         <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false)"
-                     (openMyTrips)="showProfile.set(false)" />
+                     (openAiPlanning)="showProfile.set(false)" />
       }
 
       <div class="shared-body">
@@ -458,6 +459,7 @@ type Step = 'preferences' | 'options' | 'result';
                       type="button"
                       i18n="@@aiplan.restartBtn">↩ Volver a empezar</button>
               <button class="btn-pill btn-primary"
+                      [class.ai-save-cta]="!saving()"
                       (click)="save()"
                       [disabled]="saving()"
                       type="button"
@@ -469,6 +471,25 @@ type Step = 'preferences' | 'options' | 'result';
 
         }
       </div>
+
+      @if (celebratingPlanReady()) {
+        <div class="ai-plan-celebration" role="status" aria-live="polite">
+          <div class="ai-plan-celebration-burst" aria-hidden="true">
+            <span class="ai-plan-celebration-emoji">🎉</span>
+            <span class="ai-plan-celebration-emoji">✈️</span>
+            <span class="ai-plan-celebration-emoji">✨</span>
+            <span class="ai-plan-celebration-emoji">🎊</span>
+            <span class="ai-plan-celebration-emoji">🛫</span>
+            <span class="ai-plan-celebration-emoji">🎉</span>
+            <span class="ai-plan-celebration-emoji">✨</span>
+            <span class="ai-plan-celebration-emoji">🎊</span>
+          </div>
+          <img class="ai-plan-celebration-gif" src="/ai-plan-ready.gif" alt="" aria-hidden="true" />
+          <p class="ai-plan-celebration-message" i18n="@@aiplan.celebrationMessage">
+            ¡Tu plan hecho por IA está terminado! Estos son los lugares que visitarás
+          </p>
+        </div>
+      }
 
       @if (planSlideshowOpen()) {
         <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
@@ -521,7 +542,7 @@ type Step = 'preferences' | 'options' | 'result';
     </div>
   `
 })
-export class AiPlanningComponent {
+export class AiPlanningComponent implements OnDestroy {
   close     = output<void>();
   planSaved = output<void>();
   /** User confirmed the "Notificarme" hand-off — parent should close this overlay and take them to the landing page's featured-plans section (S2) to browse while they wait. */
@@ -554,12 +575,15 @@ export class AiPlanningComponent {
   saving = signal(false);
   /** Auto-opened as soon as a plan finishes generating, as if the user had pressed "🎞️ Presentación del plan". */
   planSlideshowOpen = signal(false);
+  /** True while the 2.6s celebration animation is playing before the slideshow opens. */
+  celebratingPlanReady = signal(false);
   /** Flips true once executePlan()'s request has been pending for AI_PLAN_LONG_WAIT_MS. */
   planTakingLong = signal(false);
   /** Shown after "Notificarme" is clicked — a hand-off message pointing the user at the featured plans while they wait. */
   notifyConfirmVisible = signal(false);
   private planSub: Subscription | null = null;
   private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
+  private celebrateTimer: ReturnType<typeof setTimeout> | null = null;
   private static readonly AI_PLAN_LONG_WAIT_MS = 15_000;
 
   preferences = signal('');
@@ -587,10 +611,12 @@ export class AiPlanningComponent {
       const initial = this.initialResult();
       if (initial && !this.initialResultApplied) {
         this.initialResultApplied = true;
+        // Preload the celebration GIF so it's ready when the celebration triggers
+        new Image().src = '/ai-plan-ready.gif';
         this.generatedTrip.set(initial.result as Trip);
         this.currentAiPlanRequestId.set(initial.requestId);
         this.step.set('result');
-        this.planSlideshowOpen.set(true);
+        this.triggerPlanReadyCelebration();
         // Pre-fill the Step 1 form with whatever generated this plan, so
         // restart()/"↩ Volver a empezar" lands on a filled-in form instead of a
         // blank one — the user never typed these in *this* session (they came
@@ -842,6 +868,9 @@ export class AiPlanningComponent {
     const opt = this.selectedOption();
     if (!opt) return;
 
+    // Preload the celebration GIF so it's ready when the plan finishes generating
+    new Image().src = '/ai-plan-ready.gif';
+
     this.planConfirmPending.set(null);
     this.changeWarning.set(null);
     this.changeCharged.set(null);
@@ -883,8 +912,9 @@ export class AiPlanningComponent {
         this.loading.set(false);
         this.step.set('result');
         // Auto-open the fullscreen presentation, as if the user had pressed
-        // "🎞️ Presentación del plan" themselves.
-        this.planSlideshowOpen.set(true);
+        // "🎞️ Presentación del plan" themselves — after a 2.6s cheering
+        // celebration (triggerPlanReadyCelebration) rather than immediately.
+        this.triggerPlanReadyCelebration();
 
         if (changeInfo) {
           this.handleChangeInfo(changeInfo);
@@ -927,6 +957,21 @@ export class AiPlanningComponent {
   confirmNotify(): void {
     this.notifyConfirmVisible.set(false);
     this.viewFeaturedTrips.emit();
+  }
+
+  ngOnDestroy(): void {
+    if (this.celebrateTimer) clearTimeout(this.celebrateTimer);
+    this.planSub?.unsubscribe();
+    this.clearPlanTakingLongTimer();
+  }
+
+  private triggerPlanReadyCelebration(): void {
+    this.celebratingPlanReady.set(true);
+    if (this.celebrateTimer) clearTimeout(this.celebrateTimer);
+    this.celebrateTimer = setTimeout(() => {
+      this.celebratingPlanReady.set(false);
+      this.planSlideshowOpen.set(true);
+    }, AI_PLAN_CELEBRATE_MS);
   }
 
   private clearPlanTakingLongTimer(): void {

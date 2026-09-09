@@ -174,3 +174,25 @@ describe('NavMobileComponent — selecting a shared trip from the drawer', () =>
     expect(fixture.componentInstance.drawerOpen()).toBe(false);
   });
 });
+
+describe('NavMobileComponent — active page indication', () => {
+  let fixture: ComponentFixture<NavMobileComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+  });
+
+  it('marks "Mis viajes" active when activeView is "mytrips"', () => {
+    fixture.componentRef.setInput('activeView', 'mytrips');
+    fixture.detectChanges();
+    const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
+    expect(active?.textContent).toContain('Mis viajes');
+  });
+});

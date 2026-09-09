@@ -118,4 +118,17 @@ describe('ShellComponent', () => {
     const fixture = setup(2);
     expect(() => fixture.componentInstance.scrollToFeatured()).not.toThrow();
   });
+
+  it('closes showProfile/showAiPlanning and opens showMyTrips when pendingMyTripsTab is set', () => {
+    const fixture = setup(0);
+    const component = fixture.componentInstance;
+    component.showAiPlanning.set(true);
+    fixture.detectChanges();
+
+    (component as any).facade.pendingMyTripsTab.set('trips');
+    fixture.detectChanges();
+
+    expect(component.showAiPlanning()).toBe(false);
+    expect(component.showMyTrips()).toBe(true);
+  });
 });

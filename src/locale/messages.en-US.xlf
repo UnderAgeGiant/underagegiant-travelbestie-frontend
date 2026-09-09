@@ -192,7 +192,11 @@
         <source>Viaje guardado</source>
         <target>Trip saved</target>
       </trans-unit>
-      <trans-unit id="stopList.setCountryCta" datatype="html">
+      <trans-unit id="cityInfo.trigger" datatype="html">
+        <source>Información sobre la ciudad</source>
+        <target>City information</target>
+      </trans-unit>
+      <trans-unit id="cityInfo.setCountryCta" datatype="html">
         <source>Agrega tu país de residencia para ver info de visa</source>
         <target>Add your country of residence to see visa info</target>
       </trans-unit>
@@ -962,6 +966,10 @@
         <source>Generar nuevas opciones</source>
         <target>Generate new options</target>
       </trans-unit>
+      <trans-unit id="aiplan.celebrationMessage" datatype="html">
+        <source>¡Tu plan hecho por IA está terminado! Estos son los lugares que visitarás</source>
+        <target>Your AI-made plan is ready! Here are the places you'll visit</target>
+      </trans-unit>
 
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
         <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?</source>
@@ -1360,8 +1368,8 @@
         <target>Free day — no plans yet</target>
       </trans-unit>
       <trans-unit id="timeline.dayRoute" datatype="html">
-        <source>🗺️ Ruta del día</source>
-        <target>🗺️ Day route</target>
+        <source>🗺️ Ruta del día en Google Maps</source>
+        <target>🗺️ Day route on Google Maps</target>
       </trans-unit>
       <trans-unit id="timeline.flapLabelCity" datatype="html">
         <source>Ver itinerario de la ciudad</source>
@@ -1461,6 +1469,14 @@
       <trans-unit id="myTrips.savedTripsTitle" datatype="html">
         <source>Viajes guardados 🗺️</source>
         <target>Saved trips 🗺️</target>
+      </trans-unit>
+      <trans-unit id="myTrips.scrollTabsLeftAria" datatype="html">
+        <source>Ver pestañas anteriores</source>
+        <target>See previous tabs</target>
+      </trans-unit>
+      <trans-unit id="myTrips.scrollTabsRightAria" datatype="html">
+        <source>Ver pestañas siguientes</source>
+        <target>See next tabs</target>
       </trans-unit>
       <trans-unit id="myTrips.loginToViewTrips" datatype="html">
         <source>Inicia sesión para ver tus viajes guardados.</source>
@@ -2110,18 +2126,6 @@
         <source>Guardando…</source>
         <target>Saving…</target>
       </trans-unit>
-      <trans-unit id="stopList.weatherForecastTag" datatype="html">
-        <source>Pronóstico</source>
-        <target>Forecast</target>
-      </trans-unit>
-      <trans-unit id="stopList.weatherHistoricTag" datatype="html">
-        <source>Estimado</source>
-        <target>Estimated</target>
-      </trans-unit>
-      <trans-unit id="stopList.weatherLoadingLabel" datatype="html">
-        <source>Cargando pronóstico…</source>
-        <target>Loading forecast…</target>
-      </trans-unit>
 
       <!-- ── transit-connector.component ── -->
       <trans-unit id="transit.addBtn" datatype="html">
@@ -2253,7 +2257,30 @@
         <source>Entendido</source>
         <target>Got it</target>
       </trans-unit>
+      <trans-unit id="travelDocs.visaDetail" datatype="html">
+        <source> 🛂 Necesitas revisar la visa para: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </source>
+        <target> 🛂 You need to check the visa for: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </target>
+      </trans-unit>
+      <trans-unit id="travelDocs.currencyDetail" datatype="html">
+        <source> 🪙 Monedas de tu viaje: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </source>
+        <target> 🪙 Currencies for your trip: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </target>
+      </trans-unit>
+      <trans-unit id="travelDocs.adapterDetail" datatype="html">
+        <source> 🔌 Necesitas adaptador de enchufe para: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </source>
+        <target> 🔌 You need a plug adapter for: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </target>
+      </trans-unit>
 
-    </body>
-  </file>
+      <trans-unit id="cityWeather.forecastTag" datatype="html">
+        <source>Pronóstico</source>
+        <target>Forecast</target>
+      </trans-unit>
+      <trans-unit id="cityWeather.historicTag" datatype="html">
+        <source>Estimado</source>
+        <target>Estimate</target>
+      </trans-unit>
+      <trans-unit id="cityWeather.loadingLabel" datatype="html">
+        <source>Cargando pronóstico…</source>
+        <target>Loading forecast…</target>
+      </trans-unit>
+    </body>  </file>
 </xliff>

@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { ProfileComponent } from './profile.component';
-import { NavShellComponent } from '../nav/nav-shell.component';
+import { NavFacadeService } from '../nav/nav-facade.service';
+import { AuthService } from '../../core/auth/auth.service';
 
 // ProfileComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -35,14 +35,27 @@ describe('ProfileComponent — edit account accordion', () => {
     expect(text).toContain('País de residencia');
   });
 
-  it('bubbles a myTripsClick from its <app-nav> as its own openMyTrips output (bug: "Mis viajes" did nothing from the profile page drawer)', () => {
-    const navShell = fixture.debugElement.query(By.directive(NavShellComponent)).componentInstance as NavShellComponent;
-    let emitted = false;
-    fixture.componentInstance.openMyTrips.subscribe(() => (emitted = true));
+  it('clicking "Mis viajes" navigates to My Trips regardless of which page opened this profile overlay (Feedback #7, 2026-09-07 UX-improvements round)', () => {
+    // This test verifies the bug fix: clicking "Mis viajes" in the nav (rendered via ProfileComponent's own <app-nav>)
+    // calls facade.openMyTrips() instead of a now-removed local output binding, which centralizes navigation
+    // through NavFacadeService where it can route through pendingMyTripsTab to handle overlays nested in multiple hosts.
+    const auth = TestBed.inject(AuthService);
+    const facade = TestBed.inject(NavFacadeService);
+    const navSpy = jest.spyOn(facade, 'openMyTrips');
 
-    navShell.myTripsClick.emit();
+    // Log in so the "Mi perfil" and "Mis viajes" buttons appear in the rendered nav
+    auth.setTokens('dummy-token', { name: 'Test User', email: 'test@example.com', countryOfResidence: 'US' });
+    facade.userMenuOpen.set(true); // Desktop nav keeps Mi perfil/Mis viajes inside the collapsible user-menu panel
+    fixture.detectChanges();
 
-    expect(emitted).toBe(true);
+    // Find and click the "Mis viajes" button
+    const myTripsBtn = Array.from(fixture.nativeElement.querySelectorAll('button'))
+      .find((b: any) => b.textContent.includes('Mis viajes')) as HTMLButtonElement;
+    expect(myTripsBtn).toBeTruthy();
+    myTripsBtn.click();
+
+    // Verify the facade method was called, proving the button no longer fires a now-deleted output
+    expect(navSpy).toHaveBeenCalled();
   });
 
   it('has exactly three accordion toggle buttons in the edit-account section', () => {

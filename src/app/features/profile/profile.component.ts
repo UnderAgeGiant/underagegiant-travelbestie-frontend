@@ -20,7 +20,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
     template: `
     <div class="profile-page">
 
-      <app-nav (logoClick)="close.emit()" (myTripsClick)="openMyTrips.emit()" />
+      <app-nav [activeView]="'profile'" (logoClick)="close.emit()" />
 
       <!-- The main app view's own banner (ShellComponent) is hidden while this page is open —
            .profile-page is a full-screen overlay, so it needs its own copy to stay visible. -->
@@ -364,7 +364,6 @@ export class ProfileComponent {
 
   close          = output<void>();
   openAiPlanning = output<void>();
-  openMyTrips    = output<void>();
 
   // ── Edit account accordion ──────────────────────────────────
   editSection       = signal<'name' | 'password' | 'countryOfResidence' | null>(null);

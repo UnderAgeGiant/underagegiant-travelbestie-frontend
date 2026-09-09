@@ -17,22 +17,17 @@ import { DestinationModalService } from '../../destination/destination-modal.ser
 import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
-import { parseDMY, iterateDMYRange } from '../../../core/utils/event-datetime.util';
+import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
-import { WeatherService } from '../../../core/weather/weather.service';
-import { getWeatherCodeMeta } from '../../../core/models/weather.model';
-import { VisaRequirementService } from '../../../core/visa/visa-requirement.service';
-import { getVisaRequirementMeta } from '../../../core/models/visa-requirement.model';
-import { countryCodeFromFlagEmoji } from '../../../shared/flag-icon/flag-emoji.util';
 import { City } from '../../../core/models/city.model';
-import { TravelInfoService } from '../../../core/travel-info/travel-info.service';
-import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/travel-info-badge.model';
+import { CityInfoBadgeComponent } from '../../../shared/city-info-badge/city-info-badge.component';
+import { CityWeatherChipComponent } from '../../../shared/city-weather-chip/city-weather-chip.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -74,42 +69,7 @@ import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/trave
       margin-left: 6px; font-size: 10px; color: var(--t3);
       font-variant-numeric: tabular-nums; white-space: nowrap; vertical-align: middle;
     }
-    .stop-weather-chip {
-      display: inline-flex; align-items: center; gap: 3px;
-      margin-left: 6px; font-size: 11px; font-weight: 600;
-      color: var(--t3); vertical-align: middle; cursor: pointer;
-      border-radius: 6px;
-    }
-    .stop-weather-chip:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
-    .stop-weather-chip-historic .stop-weather-icon { filter: grayscale(1); opacity: .75; }
-    .stop-weather-mark {
-      font-size: 8px; font-weight: 700; color: var(--t3);
-      background: var(--border); border-radius: 50%;
-      width: 10px; height: 10px; display: inline-flex;
-      align-items: center; justify-content: center; margin-left: 1px;
-    }
-    .stop-weather-popover {
-      position: fixed; z-index: 900;
-      min-width: 170px; max-width: 220px; max-height: 280px;
-      overflow-y: auto;
-      background: #fff; border-radius: 12px; box-shadow: var(--sh-lg);
-      padding: 6px; pointer-events: none;
-      animation: fadeIn .15s ease;
-    }
-    .stop-weather-popover-row {
-      display: flex; align-items: center; gap: 6px;
-      padding: 4px 4px; font-size: 11px; color: var(--t2);
-    }
-    .stop-weather-popover-row-historic { opacity: .7; }
-    .stop-weather-popover-row-historic .stop-weather-popover-icon { filter: grayscale(1); }
-    .stop-weather-popover-date {
-      width: 32px; flex-shrink: 0; color: var(--t3);
-      font-variant-numeric: tabular-nums;
-    }
-    .stop-weather-popover-icon { flex-shrink: 0; }
-    .stop-weather-popover-temp { flex: 1; font-weight: 600; white-space: nowrap; }
-    .stop-weather-popover-tag { font-size: 9px; color: var(--t3); flex-shrink: 0; }
-    .stop-weather-popover-empty { font-size: 11px; color: var(--t3); padding: 6px 4px; }
+
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -184,36 +144,13 @@ import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/trave
                   <div class="stop-info">
                     <div class="stop-name">
                       {{ city.name }}
-                      @if (stopWeatherChips()[stop.stopId ?? '']; as w) {
-                        <span class="stop-weather-chip" [class.stop-weather-chip-historic]="w.historic"
-                              tabindex="0"
-                              (mouseenter)="onWeatherChipHover($event, stop)"
-                              (mouseleave)="onWeatherChipHoverLeave()"
-                              (focus)="onWeatherChipHover($event, stop)"
-                              (blur)="onWeatherChipHoverLeave()"
-                              (click)="onWeatherChipClick($event, stop)">
-                          <span class="stop-weather-icon">{{ w.icon }}</span> {{ w.tempMinC }}°/{{ w.tempMaxC }}°
-                          @if (w.historic) { <span class="stop-weather-mark">?</span> }
-                        </span>
-                      }
+                      <app-city-weather-chip [stop]="stop" />
                     </div>
                     <div class="stop-country">{{ city.country }}</div>
-                    @if (visaBadge(city); as visa) {
-                      <div class="stop-visa-badge" [class.stop-visa-cta]="visa.cta"
-                           (click)="visa.cta ? onVisaCtaClick($event) : null">
-                        <span>{{ visa.icon }}</span> {{ visa.label }}
-                      </div>
-                    }
-                    @if (currencyBadge(city); as currency) {
-                      <div class="stop-currency-badge">
-                        <span>{{ currency.icon }}</span> {{ currency.label }}
-                      </div>
-                    }
-                    @if (plugBadge(city); as plug) {
-                      <div class="stop-plug-badge">
-                        <span>{{ plug.icon }}</span> {{ plug.label }}
-                      </div>
-                    }
+                    <app-city-info-badge [city]="city"
+                        [homeIso2]="auth.currentUser()?.countryOfResidence ?? null"
+                        [isLoggedIn]="auth.isLoggedIn()"
+                        (ctaClick)="openProfile.emit()" />
                   </div>
                   <button class="stop-del"
                           (click)="$event.stopPropagation(); trip.removeStop(stop.stopId)">×</button>
@@ -347,21 +284,6 @@ import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/trave
         }
       </div>
 
-      @if (activeWeatherPreview(); as p) {
-        <div class="stop-weather-popover" role="tooltip"
-             [style.left.px]="p.x" [style.top.px]="p.y">
-          @for (d of activeWeatherDays(); track d.date) {
-            <div class="stop-weather-popover-row" [class.stop-weather-popover-row-historic]="d.historic">
-              <span class="stop-weather-popover-date">{{ d.date.slice(0, 5) }}</span>
-              <span class="stop-weather-popover-icon">{{ d.icon }}</span>
-              <span class="stop-weather-popover-temp">{{ d.tempMinC }}°/{{ d.tempMaxC }}°</span>
-              <span class="stop-weather-popover-tag">{{ d.historic ? weatherHistoricTag : weatherForecastTag }}</span>
-            </div>
-          } @empty {
-            <div class="stop-weather-popover-empty">{{ weatherLoadingLabel }}</div>
-          }
-        </div>
-      }
 
       <div class="panel-footer">
         <button class="btn-pill btn-ghost" style="width:100%;justify-content:center"
@@ -434,61 +356,19 @@ import { formatCurrencyLabel, formatPlugLabel } from '../../../core/models/trave
 export class StopListComponent {
   readonly trip       = inject(TripService);
   readonly savedPlans = inject(SavedPlansService);
-  private readonly auth       = inject(AuthService);
+  protected readonly auth     = inject(AuthService);
   private readonly authModal  = inject(AuthModalService);
   private readonly karmaModal = inject(KarmaModalService);
   protected readonly device   = inject(DeviceService);
   private readonly destModal  = inject(DestinationModalService);
   protected readonly citySuggest = inject(CitySuggestService);
   protected readonly autoSave = inject(AutoSaveService);
-  private readonly weather = inject(WeatherService);
-  private readonly visaRequirement = inject(VisaRequirementService);
-  private readonly travelInfo = inject(TravelInfoService);
   addDestination = output<void>();
   openProfile = output<void>();
 
   protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
   protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
   protected readonly countdownTitle = $localize`:@@stopList.autoSaveCountdownTitle:Tiempo restante hasta el próximo intento de guardado automático`;
-  protected readonly weatherForecastTag = $localize`:@@stopList.weatherForecastTag:Pronóstico`;
-  protected readonly weatherHistoricTag = $localize`:@@stopList.weatherHistoricTag:Estimado`;
-  protected readonly weatherLoadingLabel = $localize`:@@stopList.weatherLoadingLabel:Cargando pronóstico…`;
-  readonly setCountryCta = $localize`:@@stopList.setCountryCta:Agrega tu país de residencia para ver info de visa`;
-
-  visaBadge(city: City): { cta: boolean; icon: string; label: string } | null {
-    if (!this.auth.isLoggedIn()) return null;
-    const home = this.auth.currentUser()?.countryOfResidence;
-    if (!home) return { cta: true, icon: '🛂', label: this.setCountryCta };
-    const destCode = countryCodeFromFlagEmoji(city.flag);
-    if (!destCode) return null;
-    const result = this.visaRequirement.requirement(home, destCode);
-    if (!result) return null;
-    const meta = getVisaRequirementMeta(result.category, result.days);
-    return { cta: false, icon: meta.icon, label: meta.label };
-  }
-
-  onVisaCtaClick(event: MouseEvent): void {
-    event.stopPropagation();
-    this.openProfile.emit();
-  }
-
-  currencyBadge(city: City): { icon: string; label: string } | null {
-    const destCode = countryCodeFromFlagEmoji(city.flag);
-    if (!destCode) return null;
-    const currency = this.travelInfo.currencyInfo(destCode);
-    if (!currency) return null;
-    return { icon: '🪙', label: formatCurrencyLabel(currency.name, currency.symbol) };
-  }
-
-  plugBadge(city: City): { icon: string; label: string } | null {
-    const destCode = countryCodeFromFlagEmoji(city.flag);
-    if (!destCode) return null;
-    const home = this.auth.isLoggedIn() ? this.auth.currentUser()?.countryOfResidence : null;
-    const plug = this.travelInfo.plugInfo(destCode, home);
-    if (!plug) return null;
-    const icon = plug.adapterNeeded === true ? '🔌⚠️' : '🔌';
-    return { icon, label: formatPlugLabel(plug.plugTypes, plug.voltages, plug.adapterNeeded) };
-  }
 
   protected formatCountdown(totalSeconds: number): string {
     const m = Math.floor(totalSeconds / 60);
@@ -496,123 +376,20 @@ export class StopListComponent {
     return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
   }
 
-  private lastWeatherSignature: string | null = null;
-
   constructor() {
     this.autoSave.start();
 
-    // Loads weather for every stop's first day (checkIn) so the city card can show a
-    // min/max temperature chip next to the name. Only re-derives when the set of
-    // (cityId, checkIn, checkOut) tuples actually changes, same discipline as
-    // DayTimelineComponent's own weather-trigger effect — WeatherService.load() is
-    // safe to call from multiple sites (it de-dupes concurrent/repeat requests via
-    // its own in-flight guard + ETag/304 caching), so this doesn't duplicate network
-    // traffic against tb-day-timeline's trip-wide instance doing the same thing.
-    effect(() => {
-      const stops = this.trip.stops();
-      const signature = stops
-        .filter(s => s.checkIn && s.checkOut)
-        .map(s => `${s.cityId}|${s.checkIn}|${s.checkOut}`)
-        .join(',');
-      if (signature === this.lastWeatherSignature) return;
-      this.lastWeatherSignature = signature;
-
-      for (const stop of stops) {
-        if (!stop.checkIn || !stop.checkOut) continue;
-        this.weather.load(stop.cityId, stop.checkIn, stop.checkOut);
-      }
-    });
   }
 
   // Keyed by stopId. Only the stop's first day (checkIn) is shown on the city card —
   // a single min/max temperature summary, not the full day-by-day breakdown
   // tb-day-timeline renders per day-tab.
-  protected readonly stopWeatherChips = computed(() => {
-    this.weather.dayMap(); // establish the reactive dependency
-    const map: Record<string, { icon: string; tempMinC: number; tempMaxC: number; historic: boolean } | null> = {};
-    for (const stop of this.trip.stops()) {
-      const key = stop.stopId ?? '';
-      if (!key || !stop.checkIn) { continue; }
-      const w = this.weather.get(stop.cityId, stop.checkIn);
-      map[key] = (w && w.type !== 'unavailable' && w.tempMinC !== undefined && w.tempMaxC !== undefined)
-        ? {
-            icon: getWeatherCodeMeta(w.weatherCode!).icon,
-            tempMinC: Math.round(w.tempMinC),
-            tempMaxC: Math.round(w.tempMaxC),
-            historic: w.type === 'historic',
-          }
-        : null;
-    }
-    return map;
-  });
 
   // ── Weather popover: hover/focus/click on a stop's weather chip shows every day
   // in that stop's range (icon + min/max temp + forecast/historic tag), not just the
   // first-day summary the chip itself shows. Same hover-delay/viewport-flip/touch-click
   // pattern as SharedTripComponent's onAttHover/onAttClick for the attraction preview
   // popover — see that component if this pattern needs to change in both places.
-  protected readonly activeWeatherPreview = signal<{ stop: TripStop; x: number; y: number } | null>(null);
-  private weatherHoverTimer: ReturnType<typeof setTimeout> | null = null;
-
-  protected onWeatherChipHover(e: MouseEvent | FocusEvent, stop: TripStop): void {
-    if (this.weatherHoverTimer) clearTimeout(this.weatherHoverTimer);
-    this.weatherHoverTimer = setTimeout(() => {
-      const cardW = 200;
-      const cardH = Math.min(300, 50 + iterateDMYRange(stop.checkIn, stop.checkOut).length * 26);
-      let x: number;
-      let y: number;
-      if (e instanceof MouseEvent) {
-        x = e.clientX + 14;
-        y = e.clientY + 14;
-      } else {
-        const rect = (e.target as HTMLElement).getBoundingClientRect();
-        x = rect.right + 10;
-        y = rect.top;
-      }
-      if (x + cardW > window.innerWidth) x -= cardW + 28;
-      y = Math.min(y, window.innerHeight - cardH);
-      this.activeWeatherPreview.set({ stop, x, y });
-    }, 150);
-  }
-
-  protected onWeatherChipHoverLeave(): void {
-    if (this.weatherHoverTimer) clearTimeout(this.weatherHoverTimer);
-    this.weatherHoverTimer = null;
-    this.activeWeatherPreview.set(null);
-  }
-
-  protected onWeatherChipClick(e: MouseEvent, stop: TripStop): void {
-    e.stopPropagation();
-    if (!window.matchMedia('(hover: none)').matches) return; // desktop/hover-capable: hover already handles it
-    if (this.activeWeatherPreview()?.stop === stop) {
-      this.activeWeatherPreview.set(null);
-      return;
-    }
-    const cardW = 200;
-    const cardH = Math.min(300, 50 + iterateDMYRange(stop.checkIn, stop.checkOut).length * 26);
-    const x = Math.max(12, Math.min(e.clientX - cardW / 2, window.innerWidth - cardW - 12));
-    const y = Math.min(e.clientY + 16, window.innerHeight - cardH - 12);
-    this.activeWeatherPreview.set({ stop, x, y });
-  }
-
-  protected readonly activeWeatherDays = computed(() => {
-    const preview = this.activeWeatherPreview();
-    if (!preview) return [];
-    this.weather.dayMap(); // establish the reactive dependency
-    const days: Array<{ date: string; icon: string; tempMinC: number; tempMaxC: number; historic: boolean }> = [];
-    for (const date of iterateDMYRange(preview.stop.checkIn, preview.stop.checkOut)) {
-      const w = this.weather.get(preview.stop.cityId, date);
-      if (!w || w.type === 'unavailable' || w.tempMinC === undefined || w.tempMaxC === undefined) continue;
-      days.push({
-        date,
-        icon: getWeatherCodeMeta(w.weatherCode!).icon,
-        tempMinC: Math.round(w.tempMinC),
-        tempMaxC: Math.round(w.tempMaxC),
-        historic: w.type === 'historic',
-      });
-    }
-    return days;
-  });
 
   protected readonly showScrollTop = signal(false);
 

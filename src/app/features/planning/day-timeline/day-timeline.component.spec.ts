@@ -241,7 +241,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
   });
 
   function actionTexts(): string[] {
-    return Array.from(fixture.nativeElement.querySelectorAll('.tl-head-actions > .tl-head-action'))
+    return Array.from(fixture.nativeElement.querySelectorAll('.tl-head-actions .tl-head-action'))
       .map((el: any) => el.textContent.trim());
   }
 
@@ -252,7 +252,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(fixture.nativeElement.querySelector('.tl-head-actions')).toBeNull();
   });
 
-  it('groups day-scoped actions (route, day slideshow) before plan-scoped actions (export, plan slideshow), all in one aligned row', () => {
+  it('groups day-scoped actions (route, day slideshow) before plan-scoped actions (export, plan slideshow), with a divider between the two clusters', () => {
     trip.restoreStops([{
       stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
       lodging: { name: 'Hotel Le Central', url: '' },
@@ -279,6 +279,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     // …then plan-scoped.
     expect(texts[2]).toContain('Exportar');
     expect(texts[3]).toContain('Presentación del plan');
+    expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
   });
 });
 

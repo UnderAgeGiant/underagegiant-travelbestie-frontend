@@ -72,6 +72,72 @@ describe('MyTripsComponent — clone button label', () => {
   });
 });
 
+describe('MyTripsComponent — profile-tabs scroll arrows', () => {
+  let fixture: ComponentFixture<MyTripsComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    const auth = TestBed.inject(AuthService);
+    auth.setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    fixture = TestBed.createComponent(MyTripsComponent);
+    fixture.detectChanges();
+  });
+
+  /** jsdom never lays out real widths, so scrollWidth/clientWidth both default to 0
+      (no overflow) — this exercises the "wide enough, nothing to scroll to" case for
+      free, and lets the two mock-overflow tests below prove the arrows do appear when
+      the row genuinely overflows. */
+  it('hides the scroll arrows when the tabs fit without overflowing (wide viewport)', () => {
+    const row = fixture.nativeElement.querySelector('.profile-tabs-row');
+    expect(row.querySelectorAll('.tl-days-arrow').length).toBe(0);
+  });
+
+  function mockOverflow(fixture: ComponentFixture<MyTripsComponent>): HTMLElement {
+    const tabsEl = fixture.nativeElement.querySelector('.profile-tabs') as HTMLElement;
+    Object.defineProperty(tabsEl, 'scrollWidth', { value: 400, configurable: true });
+    Object.defineProperty(tabsEl, 'clientWidth', { value: 200, configurable: true });
+    window.dispatchEvent(new Event('resize'));
+    fixture.detectChanges();
+    return tabsEl;
+  }
+
+  it('shows a left and right scroll arrow once the tabs overflow their available width', () => {
+    mockOverflow(fixture);
+    const row = fixture.nativeElement.querySelector('.profile-tabs-row');
+    const arrows = row.querySelectorAll('.tl-days-arrow');
+    expect(arrows.length).toBe(2);
+    expect(arrows[0].getAttribute('aria-label')).toBe('Ver pestañas anteriores');
+    expect(arrows[1].getAttribute('aria-label')).toBe('Ver pestañas siguientes');
+  });
+
+  it('scrolls the tabs row right when the right arrow is clicked', () => {
+    const tabsEl = mockOverflow(fixture);
+    // jsdom doesn't implement Element.scrollBy — define it as a spy rather than spyOn().
+    const scrollBySpy = jest.fn();
+    tabsEl.scrollBy = scrollBySpy;
+    const rightArrow = fixture.nativeElement.querySelectorAll('.tl-days-arrow')[1] as HTMLElement;
+
+    rightArrow.click();
+
+    expect(scrollBySpy).toHaveBeenCalledWith({ left: 160, behavior: 'smooth' });
+  });
+
+  it('scrolls the tabs row left when the left arrow is clicked', () => {
+    const tabsEl = mockOverflow(fixture);
+    const scrollBySpy = jest.fn();
+    tabsEl.scrollBy = scrollBySpy;
+    const leftArrow = fixture.nativeElement.querySelectorAll('.tl-days-arrow')[0] as HTMLElement;
+
+    leftArrow.click();
+
+    expect(scrollBySpy).toHaveBeenCalledWith({ left: -160, behavior: 'smooth' });
+  });
+});
+
 describe('MyTripsComponent — saved-plan-actions visibility', () => {
   let fixture: ComponentFixture<MyTripsComponent>;
 
@@ -140,9 +206,23 @@ describe('MyTripsComponent — Planes IA Pendientes tab', () => {
     (component as any).facade.pendingMyTripsTab.set('aiplans');
     jest.spyOn((component as any).api, 'getAiPlanHistory').mockReturnValue(of([]));
 
-    const reconstructed = TestBed.createComponent(MyTripsComponent).componentInstance;
+    const fixture = TestBed.createComponent(MyTripsComponent);
+    fixture.detectChanges();
 
-    expect(reconstructed.favTab()).toBe('aiplans');
+    expect(fixture.componentInstance.favTab()).toBe('aiplans');
+  });
+
+  it('closes its own nested profile overlay when pendingMyTripsTab is set while already mounted', () => {
+    const fixture = TestBed.createComponent(MyTripsComponent);
+    fixture.detectChanges();
+    fixture.componentInstance.showProfile.set(true);
+    fixture.detectChanges();
+    expect(fixture.componentInstance.showProfile()).toBe(true);
+
+    (fixture.componentInstance as any).facade.pendingMyTripsTab.set('trips');
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.showProfile()).toBe(false);
   });
 
   it('emits viewAiPlan with the result when a completed card is opened', () => {

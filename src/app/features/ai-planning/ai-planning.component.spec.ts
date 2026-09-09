@@ -47,9 +47,10 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
 
   afterEach(() => http.verify());
 
-  it('auto-opens the presentation once the plan finishes generating', fakeAsync(() => {
+  it('shows a 2.6s celebration before auto-opening the presentation once the plan finishes generating', fakeAsync(() => {
     component.selectedOption.set(OPTION);
     expect(component.planSlideshowOpen()).toBe(false);
+    expect(component.celebratingPlanReady()).toBe(false);
 
     component.executePlan();
     http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-1' });
@@ -57,8 +58,13 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
 
     expect(component.step()).toBe('result');
-    expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.celebratingPlanReady()).toBe(true);
+    expect(component.planSlideshowOpen()).toBe(false);
     expect(component.currentAiPlanRequestId()).toBe('req-1');
+
+    tick(2600);
+    expect(component.celebratingPlanReady()).toBe(false);
+    expect(component.planSlideshowOpen()).toBe(true);
   }));
 
   it('closing the presentation returns to the static result view without discarding the plan', fakeAsync(() => {
@@ -67,6 +73,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-2' });
     tick(0);
     http.expectOne(r => r.url.includes('/ai/plan/req-2/status')).flush({ status: 'completed', result: TRIP });
+    tick(2600);
 
     component.planSlideshowOpen.set(false);
 
@@ -261,7 +268,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     auth = TestBed.inject(AuthService);
   });
 
-  it('jumps straight to Step 3 with the slideshow open and records requestId when initialResult is set', () => {
+  it('jumps straight to Step 3 with the slideshow open (after the celebration) and records requestId when initialResult is set', fakeAsync(() => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.componentRef.setInput('initialResult', { result: TRIP, requestId: 'req-77' });
@@ -270,9 +277,12 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     const component = fixture.componentInstance;
     expect(component.step()).toBe('result');
     expect(component.generatedTrip()).toEqual(TRIP);
-    expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.celebratingPlanReady()).toBe(true);
     expect(component.currentAiPlanRequestId()).toBe('req-77');
-  });
+
+    tick(2600);
+    expect(component.planSlideshowOpen()).toBe(true);
+  }));
 
   it('seeds the Step 1 form fields from requestParams when initialResult is set', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
@@ -299,7 +309,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     expect(fixture.componentInstance.step()).toBe('preferences');
   });
 
-  it('restart() sticks on Step 1, still filled from requestParams, even though initialResult is still set', () => {
+  it('restart() sticks on Step 1, still filled from requestParams, even though initialResult is still set', fakeAsync(() => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.componentRef.setInput('initialResult', {
@@ -308,6 +318,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
       requestParams: { selectedOption: OPTION, preferences: 'playa y museos', duration: 7, budget: '500-1000 USD', startDate: '01/06/2026' },
     });
     fixture.detectChanges();
+    tick(2600);
 
     const component = fixture.componentInstance;
     expect(component.step()).toBe('result');
@@ -327,7 +338,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     expect(component.duration()).toBe(7);
     expect(component.budget()).toBe('500-1000 USD');
     expect(component.startDate()).toBe('01/06/2026');
-  });
+  }));
 });
 
 describe('AiPlanningComponent — never deletes ai_plan_requests rows except via save()', () => {
@@ -357,6 +368,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-new' });
     tick(0);
     http.expectOne(r => r.url.includes('/ai/plan/req-new/status')).flush({ status: 'completed', result: TRIP });
+    tick(2600);
 
     expect(component.currentAiPlanRequestId()).toBe('req-new');
     http.verify();   // fails if a DELETE (or any other unexpected request) was made — the "req-old" row must survive
@@ -369,6 +381,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-1' });
     tick(0);
     http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
+    tick(2600);
 
     http.verify();   // fails if a DELETE (or any other unexpected request) was made
   }));
@@ -422,6 +435,8 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     http.expectOne(r => r.url.includes('/ai/plan') && r.method === 'POST').flush({ requestId: 'req-1' });
     tick(0);
     http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
+    tick(2600);
+
     expect(component.step()).toBe('result');
     expect(component.planSlideshowOpen()).toBe(true);
 
@@ -527,4 +542,38 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
 
     expect(component.selectedOption()).toEqual(OPTIONS.options[0]);
   }));
+});
+
+describe('AiPlanningComponent — "Guardar plan" attention beacon', () => {
+  let fixture: ReturnType<typeof TestBed.createComponent<AiPlanningComponent>>;
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    fixture.componentRef.setInput('initialResult', { result: TRIP, requestId: 'req-77' });
+    fixture.detectChanges();
+  });
+
+  function saveBtn(): HTMLButtonElement {
+    return fixture.nativeElement.querySelector('.ai-plan-actions .btn-primary') as HTMLButtonElement;
+  }
+
+  it('applies the bounce/glow class to "Guardar plan" once the result step renders', () => {
+    expect(saveBtn().classList.contains('ai-save-cta')).toBe(true);
+  });
+
+  it('drops the bounce/glow class while a save is in flight, so a disabled button never animates', () => {
+    fixture.componentInstance.saving.set(true);
+    fixture.detectChanges();
+
+    expect(saveBtn().classList.contains('ai-save-cta')).toBe(false);
+    expect(saveBtn().disabled).toBe(true);
+  });
 });

@@ -1,4 +1,4 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { StopListComponent } from './stop-list.component';
@@ -113,7 +113,7 @@ describe('StopListComponent — AI city suggestions', () => {
   });
 });
 
-describe('StopListComponent — visa requirement badge', () => {
+describe('StopListComponent — city info badge (visa/currency/plug)', () => {
   let fixture: ComponentFixture<StopListComponent>;
   let trip: TripService;
   let auth: AuthService;
@@ -131,77 +131,61 @@ describe('StopListComponent — visa requirement badge', () => {
     fixture = TestBed.createComponent(StopListComponent);
   });
 
-  it('shows a visa badge on a stop when the user has a countryOfResidence set (CL -> FR is visa-free for 90 days)', () => {
+  function openPopover(): void {
+    fixture.detectChanges();
+    const trigger = fixture.nativeElement.querySelector('.city-info-trigger') as HTMLElement;
+    trigger.dispatchEvent(new MouseEvent('mouseenter'));
+    tick(150);
+    fixture.detectChanges();
+  }
+
+  // CityInfoBadgeComponent reparents its popover to document.body (so it always
+  // escapes the .stop-item card's hover/active transform, which would otherwise
+  // trap a position:fixed popover behind other stop cards) — query it there, not
+  // under fixture.nativeElement, which only ever contains the trigger now.
+  function popover(): HTMLElement | null {
+    return document.body.querySelector('.city-info-popover');
+  }
+
+  it('shows a visa row in the popover when logged in with a countryOfResidence set (CL -> FR is visa-free for 90 days)', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'CL' });
-    fixture.detectChanges();
+    openPopover();
 
-    const badge = fixture.nativeElement.querySelector('.stop-visa-badge');
-    expect(badge?.textContent).toContain('90');
-  });
+    expect(popover()!.textContent).toContain('90');
+  }));
 
-  it('shows a CTA chip instead of a badge when logged in with no countryOfResidence set', () => {
+  it('shows a CTA row instead of a visa result when logged in with no countryOfResidence set', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
-    fixture.detectChanges();
+    openPopover();
 
-    const cta = fixture.nativeElement.querySelector('.stop-visa-badge.stop-visa-cta');
-    expect(cta).toBeTruthy();
-  });
+    expect(popover()!.querySelector('.city-info-row.city-info-cta')).toBeTruthy();
+  }));
 
-  it('shows nothing when not logged in', () => {
-    fixture.detectChanges();
+  it('emits openProfile when the CTA row is clicked', fakeAsync(() => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    openPopover();
 
-    expect(fixture.nativeElement.querySelector('.stop-visa-badge')).toBeNull();
-  });
-});
+    let emitted = false;
+    fixture.componentInstance.openProfile.subscribe(() => { emitted = true; });
+    (popover()!.querySelector('.city-info-row.city-info-cta') as HTMLElement).click();
+    expect(emitted).toBe(true);
+  }));
 
-describe('StopListComponent — currency and plug badges', () => {
-  let fixture: ComponentFixture<StopListComponent>;
-  let trip: TripService;
-  let auth: AuthService;
+  it('shows currency and plug rows to an anonymous visitor (Paris -> EUR, no adapter flag without a home country)', fakeAsync(() => {
+    openPopover();
 
-  beforeEach(() => {
-    localStorage.clear();
-    installMatchMediaMock(false); // desktop viewport
-    TestBed.configureTestingModule({
-      imports: [StopListComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
-    });
-    trip = TestBed.inject(TripService);
-    auth = TestBed.inject(AuthService);
-    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
-    fixture = TestBed.createComponent(StopListComponent);
-  });
+    const pop = popover()!;
+    expect(pop.textContent).toContain('€');
+    expect(pop.textContent).toContain('Tipo');
+    expect(pop.textContent).not.toContain('adaptador');
+  }));
 
-  it('shows the currency badge to an anonymous visitor (Paris -> EUR)', () => {
-    fixture.detectChanges();
-
-    const badge = fixture.nativeElement.querySelector('.stop-currency-badge');
-    expect(badge?.textContent).toContain('€');
-  });
-
-  it('shows the plug badge to an anonymous visitor without an adapter-needed flag', () => {
-    fixture.detectChanges();
-
-    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
-    expect(badge?.textContent).toContain('Tipo');
-    expect(badge?.textContent).not.toContain('adaptador');
-  });
-
-  it('flags adapter needed when the logged-in user\'s country uses no shared plug type with the destination', () => {
+  it('flags adapter needed when the logged-in user\'s country uses no shared plug type with the destination', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'US' });
-    fixture.detectChanges();
+    openPopover();
 
-    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
-    expect(badge?.textContent).toContain('adaptador');
-  });
-
-  it('does not flag adapter needed when the logged-in user\'s country shares a plug type with the destination', () => {
-    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: 'FR' });
-    fixture.detectChanges();
-
-    const badge = fixture.nativeElement.querySelector('.stop-plug-badge');
-    expect(badge?.textContent).not.toContain('adaptador');
-  });
+    expect(popover()!.textContent).toContain('adaptador');
+  }));
 });
 
 describe('StopListComponent — attraction time inputs (24-hour, via TimePickerComponent)', () => {
@@ -263,10 +247,9 @@ describe('StopListComponent — attraction time inputs (24-hour, via TimePickerC
   });
 });
 
-describe('StopListComponent — first-day weather chip on the city card', () => {
-  let trip: TripService;
-  let http: HttpTestingController;
+describe('StopListComponent — itinerary/AI-suggest pill row layout', () => {
   let fixture: ComponentFixture<StopListComponent>;
+  let trip: TripService;
 
   beforeEach(() => {
     localStorage.clear();
@@ -276,176 +259,18 @@ describe('StopListComponent — first-day weather chip on the city card', () => 
       providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
     });
     trip = TestBed.inject(TripService);
-    http = TestBed.inject(HttpTestingController);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
     fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
   });
 
-  it('requests weather for a stop as soon as it is added', () => {
-    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
-    fixture.detectChanges();
-
-    const req = http.expectOne(r => r.url.includes('/weather') && r.params.get('cityId') === 'paris');
-    expect(req.request.params.get('checkIn')).toBe('01/06/2026');
-    expect(req.request.params.get('checkOut')).toBe('05/06/2026');
-    req.flush({ days: [] }, { headers: { ETag: '"etag-1"' } });
-  });
-
-  it('renders a min/max temperature chip next to the city name once weather resolves', () => {
-    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
-    fixture.detectChanges();
-
-    expect(fixture.nativeElement.querySelector('.stop-weather-chip')).toBeNull();
-
-    const req = http.expectOne(r => r.url.includes('/weather'));
-    req.flush(
-      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
-    expect(chip).not.toBeNull();
-    expect(chip.textContent).toContain('14°');
-    expect(chip.textContent).toContain('23°');
-    expect(chip.classList.contains('stop-weather-chip-historic')).toBe(false);
-  });
-
-  it('renders the chip in grayscale-historic mode with a "?" mark when the day is a historic estimate', () => {
-    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
-    fixture.detectChanges();
-
-    const req = http.expectOne(r => r.url.includes('/weather'));
-    req.flush(
-      { days: [{ date: '01/06/2026', type: 'historic', tempMinC: 9, tempMaxC: 18, weatherCode: 61 }] },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
-    expect(chip.classList.contains('stop-weather-chip-historic')).toBe(true);
-    expect(chip.querySelector('.stop-weather-mark')).not.toBeNull();
-  });
-
-  it('does not render a chip when the day is unavailable', () => {
-    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
-    fixture.detectChanges();
-
-    const req = http.expectOne(r => r.url.includes('/weather'));
-    req.flush(
-      { days: [{ date: '01/06/2026', type: 'unavailable' }] },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    expect(fixture.nativeElement.querySelector('.stop-weather-chip')).toBeNull();
-  });
-
-  afterEach(() => jest.useRealTimers());
-
-  it('opens a popover on hover listing every day in the stop\'s range with icon, min/max, and a forecast/historic tag', () => {
-    jest.useFakeTimers();
-    trip.addStop(PARIS, '01/06/2026', '03/06/2026');
-    fixture.detectChanges();
-
-    http.expectOne(r => r.url.includes('/weather')).flush(
-      {
-        days: [
-          { date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 },
-          { date: '02/06/2026', type: 'forecast', tempMinC: 15, tempMaxC: 24, weatherCode: 0 },
-          { date: '03/06/2026', type: 'historic', tempMinC: 9,  tempMaxC: 18, weatherCode: 61 },
-        ],
-      },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
-
-    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
-    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
-    jest.advanceTimersByTime(150);
-    fixture.detectChanges();
-
-    const rows = fixture.nativeElement.querySelectorAll('.stop-weather-popover-row');
-    expect(rows.length).toBe(3);
-    expect(rows[0].textContent).toContain('14°/23°');
-    expect(rows[0].classList.contains('stop-weather-popover-row-historic')).toBe(false);
-    expect(rows[2].textContent).toContain('9°/18°');
-    expect(rows[2].classList.contains('stop-weather-popover-row-historic')).toBe(true);
-  });
-
-  it('does not open the popover before the 150ms hover delay elapses', () => {
-    jest.useFakeTimers();
-    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
-    fixture.detectChanges();
-    http.expectOne(r => r.url.includes('/weather')).flush(
-      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
-    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
-    jest.advanceTimersByTime(100);
-    fixture.detectChanges();
-
-    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
-  });
-
-  it('closes the popover on mouseleave', () => {
-    jest.useFakeTimers();
-    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
-    fixture.detectChanges();
-    http.expectOne(r => r.url.includes('/weather')).flush(
-      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
-    chip.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
-    jest.advanceTimersByTime(150);
-    fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).not.toBeNull();
-
-    chip.dispatchEvent(new MouseEvent('mouseleave'));
-    fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
-  });
-
-  it('toggles the popover on click for touch devices with no hover capability', () => {
-    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
-    fixture.detectChanges();
-    http.expectOne(r => r.url.includes('/weather')).flush(
-      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    installMatchMediaMock(true); // simulate '(hover: none)' matching (touch device)
-    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
-    chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
-    fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).not.toBeNull();
-
-    chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
-    fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
-  });
-
-  it('does not open the popover on click when the device can hover (desktop)', () => {
-    trip.addStop(PARIS, '01/06/2026', '01/06/2026');
-    fixture.detectChanges();
-    http.expectOne(r => r.url.includes('/weather')).flush(
-      { days: [{ date: '01/06/2026', type: 'forecast', tempMinC: 14, tempMaxC: 23, weatherCode: 3 }] },
-      { headers: { ETag: '"etag-1"' } },
-    );
-    fixture.detectChanges();
-
-    const chip = fixture.nativeElement.querySelector('.stop-weather-chip');
-    chip.dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100 }));
-    fixture.detectChanges();
-
-    expect(fixture.nativeElement.querySelector('.stop-weather-popover')).toBeNull();
+  it('puts the itinerary and AI-suggest pills in the same grid row, each with its own accent color', () => {
+    const row = fixture.nativeElement.querySelector('.stop-pill-row');
+    const itineraryBtn = row.querySelector('.stop-itinerary-pill:not(.stop-ai-suggest-pill)');
+    const aiBtn = row.querySelector('.stop-ai-suggest-pill');
+    expect(itineraryBtn).toBeTruthy();
+    expect(aiBtn).toBeTruthy();
+    expect(aiBtn.classList.contains('stop-itinerary-pill')).toBe(true); // still shares the base pill class
   });
 });
+

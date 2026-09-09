@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
@@ -29,12 +29,11 @@ import { NavShellComponent } from '../nav/nav-shell.component';
   template: `
     <div class="profile-page">
 
-      <app-nav (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
+      <app-nav [activeView]="'mytrips'" (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
 
       @if (showProfile()) {
         <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()"
-                     (openMyTrips)="showProfile.set(false)" />
+                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()" />
       }
 
       <!-- Header bar -->
@@ -51,25 +50,44 @@ import { NavShellComponent } from '../nav/nav-shell.component';
           @if (!auth.isLoggedIn()) {
             <div class="section-empty" i18n="@@myTrips.loginToViewTrips">Inicia sesión para ver tus viajes guardados.</div>
           } @else {
-            <!-- Tab switcher -->
-            <div class="profile-tabs">
-              <button class="profile-tab" [class.active]="favTab() === 'trips'"
-                      (click)="favTab.set('trips')"
-                      i18n="@@profile.tabTrips">Mis viajes</button>
-              <button class="profile-tab" [class.active]="favTab() === 'favorites'"
-                      (click)="openFavTab()"
-                      i18n="@@profile.tabFavorites">Mis favoritos</button>
-              <button class="profile-tab" [class.active]="favTab() === 'collaborations'"
-                      (click)="favTab.set('collaborations')"
-                      i18n="@@myTrips.tabCollaborations">Colaborando en estos planes</button>
-              @if (savedPlans.pendingInvites().length > 0) {
-                <button class="profile-tab" [class.active]="favTab() === 'invites'"
-                        (click)="favTab.set('invites')"
-                        i18n="@@myTrips.tabInvites">Invitaciones pendientes ({{ savedPlans.pendingInvites().length }})</button>
+            <!-- Tab switcher — arrows are the scroll affordance on narrow/mobile
+                 viewports where the tabs overflow, same tl-days-arrow pattern
+                 DayTimelineComponent uses for its day tabs (native touch-drag
+                 scrolling on this row isn't reliable to trigger, so an explicit
+                 tap target is the primary way to reach the hidden tabs, not a
+                 fallback for one). Arrows only render when the tabs actually
+                 overflow (canScrollProfileTabs) — a wide viewport fits every
+                 tab with nothing to scroll to, so there's nothing for them to do. -->
+            <div class="profile-tabs-row">
+              @if (canScrollProfileTabs()) {
+                <button type="button" class="tl-days-arrow"
+                        (click)="scrollProfileTabs(-1)"
+                        i18n-aria-label="@@myTrips.scrollTabsLeftAria" aria-label="Ver pestañas anteriores">‹</button>
               }
-              <button class="profile-tab" [class.active]="favTab() === 'aiplans'"
-                      (click)="openAiPlansTab()"
-                      i18n="@@mytrips.tabAiPlans">Planes IA Pendientes</button>
+              <div class="profile-tabs" #profileTabsEl>
+                <button class="profile-tab" [class.active]="favTab() === 'trips'"
+                        (click)="favTab.set('trips')"
+                        i18n="@@profile.tabTrips">Mis viajes</button>
+                <button class="profile-tab" [class.active]="favTab() === 'favorites'"
+                        (click)="openFavTab()"
+                        i18n="@@profile.tabFavorites">Mis favoritos</button>
+                <button class="profile-tab" [class.active]="favTab() === 'collaborations'"
+                        (click)="favTab.set('collaborations')"
+                        i18n="@@myTrips.tabCollaborations">Colaborando en estos planes</button>
+                @if (savedPlans.pendingInvites().length > 0) {
+                  <button class="profile-tab" [class.active]="favTab() === 'invites'"
+                          (click)="favTab.set('invites')"
+                          i18n="@@myTrips.tabInvites">Invitaciones pendientes ({{ savedPlans.pendingInvites().length }})</button>
+                }
+                <button class="profile-tab" [class.active]="favTab() === 'aiplans'"
+                        (click)="openAiPlansTab()"
+                        i18n="@@mytrips.tabAiPlans">Planes IA Pendientes</button>
+              </div>
+              @if (canScrollProfileTabs()) {
+                <button type="button" class="tl-days-arrow"
+                        (click)="scrollProfileTabs(1)"
+                        i18n-aria-label="@@myTrips.scrollTabsRightAria" aria-label="Ver pestañas siguientes">›</button>
+              }
             </div>
 
             @if (favTab() === 'trips') {
@@ -395,7 +413,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
     }
   `,
 })
-export class MyTripsComponent {
+export class MyTripsComponent implements AfterViewInit {
   readonly auth       = inject(AuthService);
   readonly trip       = inject(TripService);
   readonly savedPlans = inject(SavedPlansService);
@@ -415,22 +433,64 @@ export class MyTripsComponent {
 
   showProfile = signal(false);
 
+  @ViewChild('profileTabsEl') private profileTabsEl?: ElementRef<HTMLElement>;
+
   // ── Favorites tab ──
   favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans'>('trips');
   aiPlanHistory = signal<AiPlanHistoryItem[]>([]);
   aiPlanHistoryLoading = signal(false);
   discardingRequestId = signal<string | null>(null);
 
+  /** Whether .profile-tabs actually overflows its available width — the .tl-days-arrow
+      scroll buttons only render when true, so a wide viewport that fits every tab shows
+      no arrows (there'd be nothing to scroll to). Recomputed on view init, on window
+      resize, and whenever the tab count can change (the "Invitaciones pendientes" tab
+      only renders once savedPlans.pendingInvites() is non-empty). */
+  canScrollProfileTabs = signal(false);
+
   constructor() {
-    // One-shot: a notification click (e.g. collaborator invite/accept, AI plan
-    // ready/failed) can request opening straight onto a specific tab. Consume
-    // + clear so a later plain "Mis viajes" open doesn't inherit a stale tab.
-    const pendingTab = this.facade.pendingMyTripsTab();
-    if (pendingTab) {
+    // Reactive (not one-shot): handles both "arrived here fresh via a
+    // notification or the nav's Mis viajes button" (pendingMyTripsTab was
+    // already set before this component was created) and "already on My
+    // Trips with its own nested <app-profile> open, user clicks Mis viajes
+    // again" (pendingMyTripsTab gets set while this instance is still alive —
+    // closing the nested profile is what that second case needs, since
+    // ShellComponent's own pendingMyTripsTab effect only reaches its own
+    // showProfile/showAiPlanning, not this component's local one).
+    effect(() => {
+      const pendingTab = this.facade.pendingMyTripsTab();
+      if (!pendingTab) return;
+      this.showProfile.set(false);
       this.favTab.set(pendingTab);
       this.facade.pendingMyTripsTab.set(null);
       if (pendingTab === 'aiplans') this.loadAiPlanHistory();
-    }
+    }, { allowSignalWrites: true });
+
+    // The "Invitaciones pendientes" tab is the one tab whose presence isn't
+    // known up front — it only renders once there's a pending invite. Adding/
+    // removing it changes .profile-tabs' scrollWidth without changing its own
+    // clientWidth (the row's outer box is fixed by its flex container), so a
+    // window-resize listener alone wouldn't catch it — recompute explicitly.
+    effect(() => {
+      this.savedPlans.pendingInvites().length;
+      this.updateCanScrollProfileTabs();
+    }, { allowSignalWrites: true });
+  }
+
+  ngAfterViewInit(): void {
+    this.updateCanScrollProfileTabs();
+  }
+
+  @HostListener('window:resize')
+  protected onWindowResize(): void {
+    this.updateCanScrollProfileTabs();
+  }
+
+  private updateCanScrollProfileTabs(): void {
+    const el = this.profileTabsEl?.nativeElement;
+    // +1 tolerance for sub-pixel rounding so a row that just barely fits
+    // doesn't flash a pair of arrows with nothing meaningful to scroll.
+    this.canScrollProfileTabs.set(!!el && el.scrollWidth > el.clientWidth + 1);
   }
 
   openFavTab(): void {
@@ -441,6 +501,16 @@ export class MyTripsComponent {
   openAiPlansTab(): void {
     this.favTab.set('aiplans');
     this.loadAiPlanHistory();
+  }
+
+  // Explicit scroll affordance for .profile-tabs, mirroring DayTimelineComponent's
+  // scrollDays()/.tl-days-arrow — native touch-drag scrolling on this row wasn't
+  // reliably triggering a native scroll gesture, so arrows are the primary way
+  // to reach tabs hidden by overflow on a narrow viewport, not just a fallback.
+  protected scrollProfileTabs(direction: -1 | 1): void {
+    const el = this.profileTabsEl?.nativeElement;
+    if (!el) return;
+    el.scrollBy({ left: direction * 160, behavior: 'smooth' });
   }
 
   private loadAiPlanHistory(): void {
