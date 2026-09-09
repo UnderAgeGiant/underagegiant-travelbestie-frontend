@@ -467,11 +467,16 @@ export class AuthModalComponent {
     this.captchaToken.set('');
   }
 
+  // ts.reset(id) doesn't reliably re-arm a widget that just errored/expired — a known
+  // Cloudflare Turnstile limitation. A full destroy + fresh render always produces an
+  // interactive widget, instead of sometimes leaving a stuck/blank one whose callback can
+  // never fire again — which is what silently kept "Enviar código →" disabled forever after
+  // a failed login → switch-to-register (2026-09-08 feedback #2). destroyTurnstile() already
+  // clears captchaToken(), and renderTurnstile()'s own initAttempts-guarded polling handles
+  // the case where window.turnstile isn't ready yet.
   private resetTurnstile(): void {
-    const id = this.turnstileWidgetId();
-    const ts = (window as any).turnstile;
-    if (id !== null && ts) ts.reset(id);
-    this.captchaToken.set('');
+    this.destroyTurnstile();
+    setTimeout(() => this.renderTurnstile(), 0);
   }
 
   switchToRegister(): void {

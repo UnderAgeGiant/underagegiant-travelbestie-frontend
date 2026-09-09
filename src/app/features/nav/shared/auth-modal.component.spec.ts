@@ -116,6 +116,42 @@ describe('AuthModalComponent — sign-in button loading state', () => {
     fixture.detectChanges();
     expect(submitBtn().disabled).toBe(false);
   });
+
+  it('fully re-mounts the Turnstile widget after a failed login instead of relying on ts.reset() (2026-09-08 feedback #2 — reset() can leave a stuck widget that never re-arms, permanently disabling the register submit button)', async () => {
+    const renderSpy = jest.fn(() => 'widget-2');
+    const removeSpy = jest.fn();
+    const resetSpy = jest.fn();
+    (window as any).turnstile = { render: renderSpy, remove: removeSpy, reset: resetSpy };
+    // Re-open so this test's fresh spies are the ones renderTurnstile() actually calls.
+    authModal.close();
+    fixture.detectChanges();
+    authModal.openLogin();
+    fixture.componentInstance.loginEmail.set('test@test.com');
+    fixture.componentInstance.loginPassword.set('secret123');
+    fixture.componentInstance.captchaToken.set('captcha-token');
+    fixture.detectChanges();
+    // Flush the effect's pending setTimeout so it renders before we clear spies.
+    await new Promise(resolve => setTimeout(resolve, 10));
+    renderSpy.mockClear();
+
+    submitBtn().click();
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/auth/login')).flush(
+      { code: 'WRONG_PASSWORD' },
+      { status: 401, statusText: 'Unauthorized' },
+    );
+    fixture.detectChanges();
+
+    // The old bug: resetTurnstile() only called ts.reset(id), which can leave the widget stuck.
+    expect(resetSpy).not.toHaveBeenCalled();
+    expect(removeSpy).toHaveBeenCalledWith('widget-2');
+
+    // resetTurnstile() scheduled renderTurnstile() via setTimeout(0) — let that macrotask run.
+    await new Promise(resolve => setTimeout(resolve, 10));
+    fixture.detectChanges();
+
+    expect(renderSpy).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('AuthModalComponent — OTP input digit filtering', () => {
