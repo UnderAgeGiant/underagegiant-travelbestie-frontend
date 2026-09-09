@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
+import { of } from 'rxjs';
 import { ProfileComponent } from './profile.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -70,5 +71,29 @@ describe('ProfileComponent — edit account accordion', () => {
 
     const combobox = fixture.nativeElement.querySelector('app-country-combobox');
     expect(combobox).toBeTruthy();
+  });
+
+  it('editCountryOfResidenceChanged is false until a different country is picked', () => {
+    fixture.componentInstance.toggleEditSection('countryOfResidence');
+    fixture.detectChanges();
+    // No user logged in ⇒ homeAddress.countryCode() is null, and toggleEditSection() just
+    // seeded editCountryOfResidence to match it — no pending change yet.
+    expect(fixture.componentInstance.editCountryOfResidenceChanged()).toBe(false);
+
+    fixture.componentInstance.editCountryOfResidence.set('AR');
+    expect(fixture.componentInstance.editCountryOfResidenceChanged()).toBe(true);
+  });
+
+  it('editDeleteCountryOfResidence calls AuthService.updateProfile with countryOfResidence: null and resets the pending selection', () => {
+    const auth = TestBed.inject(AuthService);
+    const spy = jest.spyOn(auth, 'updateProfile').mockReturnValue(
+      of({ user: { name: 'Test User', email: 'test@example.com', countryOfResidence: null } }),
+    );
+    fixture.componentInstance.editCountryOfResidence.set('CL');
+
+    fixture.componentInstance.editDeleteCountryOfResidence();
+
+    expect(spy).toHaveBeenCalledWith({ countryOfResidence: null });
+    expect(fixture.componentInstance.editCountryOfResidence()).toBeNull();
   });
 });

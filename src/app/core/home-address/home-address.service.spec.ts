@@ -26,4 +26,9 @@ describe('HomeAddressService', () => {
     service.save('FR').subscribe();
     expect(authStub.updateProfile).toHaveBeenCalledWith({ countryOfResidence: 'FR' });
   });
+
+  it('clear() calls AuthService.updateProfile with countryOfResidence: null', () => {
+    service.clear().subscribe();
+    expect(authStub.updateProfile).toHaveBeenCalledWith({ countryOfResidence: null });
+  });
 });

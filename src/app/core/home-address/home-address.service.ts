@@ -11,4 +11,8 @@ export class HomeAddressService {
   save(countryCode: string): Observable<{ user: { countryOfResidence?: string | null } }> {
     return this.auth.updateProfile({ countryOfResidence: countryCode });
   }
+
+  clear(): Observable<{ user: { countryOfResidence?: string | null } }> {
+    return this.auth.updateProfile({ countryOfResidence: null });
+  }
 }

@@ -231,10 +231,31 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
             </button>
             @if (editSection() === 'countryOfResidence') {
               <div class="profile-accordion-bd">
-                <app-country-combobox [initialCode]="editCountryOfResidence()" (countryChange)="editSaveCountryOfResidence($event)" />
-                @if (editLoading() && editErrorContext() === 'countryOfResidence') {
-                  <span class="btn-spinner" style="margin-top:10px;display:inline-block"></span>
-                }
+                <app-country-combobox [initialCode]="editCountryOfResidence()" (countryChange)="editCountryOfResidence.set($event.code)" />
+                <div style="display:flex;gap:8px;margin-top:14px">
+                  <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
+                          (click)="editSaveCountryOfResidence()"
+                          [disabled]="editLoading() || !editCountryOfResidenceChanged()"
+                          [style.opacity]="(editLoading() || !editCountryOfResidenceChanged()) ? '0.5' : '1'"
+                          [style.background]="editSavedTab() === 'countryOfResidence' ? 'oklch(50% 0.16 145)' : ''"
+                          [style.border-color]="editSavedTab() === 'countryOfResidence' ? 'oklch(50% 0.16 145)' : ''">
+                    @if (editLoading() && editErrorContext() === 'countryOfResidence') {
+                      <span class="btn-spinner"></span> <ng-container i18n="@@profile.saving">Guardando…</ng-container>
+                    } @else if (editSavedTab() === 'countryOfResidence') {
+                      ✓ <ng-container i18n="@@profile.saved">Guardado</ng-container>
+                    } @else {
+                      <ng-container i18n="@@profile.saveCountryBtn">Guardar</ng-container>
+                    }
+                  </button>
+                  @if (homeAddress.countryCode()) {
+                    <button class="btn-pill btn-outline" style="justify-content:center"
+                            (click)="editDeleteCountryOfResidence()" [disabled]="editLoading()"
+                            [style.opacity]="editLoading() ? '0.5' : '1'"
+                            i18n="@@profile.deleteCountryBtn">
+                      Eliminar
+                    </button>
+                  }
+                </div>
               </div>
             }
 
@@ -458,13 +479,38 @@ export class ProfileComponent {
     });
   }
 
-  editSaveCountryOfResidence(country: Country): void {
+  readonly editCountryOfResidenceChanged = computed(() =>
+    !!this.editCountryOfResidence() && this.editCountryOfResidence() !== this.homeAddress.countryCode()
+  );
+
+  editSaveCountryOfResidence(): void {
+    const code = this.editCountryOfResidence();
+    if (!code) return;
     this.editLoading.set(true);
     this.editError.set('');
     this.editErrorCode.set('');
     this.editErrorContext.set('');
-    this.homeAddress.save(country.code).subscribe({
+    this.homeAddress.save(code).subscribe({
       next: () => { this.editLoading.set(false); this.editMarkSaved('countryOfResidence'); },
+      error: (err: unknown) => {
+        this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
+        this.editErrorContext.set('countryOfResidence');
+        this.editLoading.set(false);
+      },
+    });
+  }
+
+  editDeleteCountryOfResidence(): void {
+    this.editLoading.set(true);
+    this.editError.set('');
+    this.editErrorCode.set('');
+    this.editErrorContext.set('');
+    this.homeAddress.clear().subscribe({
+      next: () => {
+        this.editLoading.set(false);
+        this.editCountryOfResidence.set(null);
+        this.editMarkSaved('countryOfResidence');
+      },
       error: (err: unknown) => {
         this.editErrorCode.set((err as any)?.code ?? 'UNKNOWN');
         this.editErrorContext.set('countryOfResidence');

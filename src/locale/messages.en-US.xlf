@@ -1321,6 +1321,14 @@
         <source>Sin definir</source>
         <target>Not set</target>
       </trans-unit>
+      <trans-unit id="profile.saveCountryBtn" datatype="html">
+        <source>Guardar</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="profile.deleteCountryBtn" datatype="html">
+        <source>Eliminar</source>
+        <target>Delete</target>
+      </trans-unit>
       <trans-unit id="profile.saving" datatype="html">
         <source>Guardando…</source>
         <target>Saving…</target>
