@@ -459,6 +459,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                       type="button"
                       i18n="@@aiplan.restartBtn">↩ Volver a empezar</button>
               <button class="btn-pill btn-primary"
+                      [class.ai-save-cta]="!saving()"
                       (click)="save()"
                       [disabled]="saving()"
                       type="button"

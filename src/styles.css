@@ -725,6 +725,33 @@ app-nav { display: block; }
 .ai-option-highlights { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
 .ai-option-hl { background: var(--mint); color: var(--mint-d); padding: 2px 10px; border-radius: 99px; font-size: 10px; font-weight: 600; }
 .ai-plan-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+
+/* ── "Guardar plan" attention beacon (AiPlanningComponent, final step) ──
+   The user has reached the one decision the whole flow was building toward;
+   a periodic bounce+glow keeps drawing the eye back to it without being a
+   constant distraction from reading the itinerary above. A burst plays for
+   ~600ms out of every 2.8s cycle, then rests — same "beacon", not "wobble",
+   cadence as the karma-pulse/notif-shake attention cues elsewhere in this
+   file. Removed via [class.ai-save-cta]="!saving()" the moment a save is
+   in flight, since the button is disabled and mid-request at that point. */
+@keyframes aiSaveCta {
+  0%, 78%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 14px oklch(55% .16 290 / .3);
+  }
+  8%  { transform: translateY(-7px); box-shadow: 0 10px 20px oklch(55% .16 290 / .55), 0 2px 34px oklch(55% .16 290 / .4); }
+  16% { transform: translateY(1px);  box-shadow: 0 6px 16px oklch(55% .16 290 / .48), 0 2px 30px oklch(55% .16 290 / .34); }
+  24% { transform: translateY(-3px); box-shadow: 0 8px 18px oklch(55% .16 290 / .5),  0 2px 32px oklch(55% .16 290 / .36); }
+  34% { transform: translateY(0);    box-shadow: 0 4px 14px oklch(55% .16 290 / .3); }
+}
+@keyframes aiSaveCtaReduced {
+  0%, 78%, 100% { box-shadow: 0 4px 14px oklch(55% .16 290 / .3); }
+  20%           { box-shadow: 0 4px 14px oklch(55% .16 290 / .55), 0 2px 30px oklch(55% .16 290 / .32); }
+}
+.ai-save-cta { animation: aiSaveCta 2.8s cubic-bezier(.36,.07,.19,.97) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ai-save-cta { animation: aiSaveCtaReduced 2.8s ease-in-out infinite; }
+}
 .ai-plan-result-header { text-align: center; margin-bottom: 20px; padding: 20px 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .ai-plan-result-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: var(--t1); margin-bottom: 8px; }
 .ai-plan-result-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }

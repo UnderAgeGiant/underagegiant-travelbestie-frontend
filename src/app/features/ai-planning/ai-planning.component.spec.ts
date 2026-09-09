@@ -543,3 +543,37 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
     expect(component.selectedOption()).toEqual(OPTIONS.options[0]);
   }));
 });
+
+describe('AiPlanningComponent — "Guardar plan" attention beacon', () => {
+  let fixture: ReturnType<typeof TestBed.createComponent<AiPlanningComponent>>;
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    fixture.componentRef.setInput('initialResult', { result: TRIP, requestId: 'req-77' });
+    fixture.detectChanges();
+  });
+
+  function saveBtn(): HTMLButtonElement {
+    return fixture.nativeElement.querySelector('.ai-plan-actions .btn-primary') as HTMLButtonElement;
+  }
+
+  it('applies the bounce/glow class to "Guardar plan" once the result step renders', () => {
+    expect(saveBtn().classList.contains('ai-save-cta')).toBe(true);
+  });
+
+  it('drops the bounce/glow class while a save is in flight, so a disabled button never animates', () => {
+    fixture.componentInstance.saving.set(true);
+    fixture.detectChanges();
+
+    expect(saveBtn().classList.contains('ai-save-cta')).toBe(false);
+    expect(saveBtn().disabled).toBe(true);
+  });
+});
