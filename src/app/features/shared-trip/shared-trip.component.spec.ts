@@ -120,3 +120,79 @@ describe('SharedTripComponent — city info + weather on itin-city-head', () => 
     expect(fixture.nativeElement.querySelector('app-city-info-badge')).toBeTruthy();
   });
 });
+
+describe('SharedTripComponent — day-boundary divider between itin-items (feedback round 2, item 4)', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
+          },
+        },
+      ],
+    });
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  function flushTrip(selectedAttractions: any[]): void {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush({
+      tripName: 'Viaje a París', ownerName: 'Ana',
+      stops: [{ cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions }],
+      transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    fixture.detectChanges();
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+    fixture.detectChanges();
+  }
+
+  it('renders one divider between two attractions on different days', () => {
+    flushTrip([
+      { attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
+      { attractionId: 'paris_1', date: '03/06/2026', startTime: '10:00' },
+    ]);
+
+    expect(fixture.nativeElement.querySelectorAll('.itin-day-divider').length).toBe(1);
+  });
+
+  it('renders no divider when every attraction falls on the same day', () => {
+    flushTrip([
+      { attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
+      { attractionId: 'paris_1', date: '02/06/2026', startTime: '14:00' },
+    ]);
+
+    expect(fixture.nativeElement.querySelectorAll('.itin-day-divider').length).toBe(0);
+  });
+
+  it('displays out-of-storage-order attractions sorted by date, with the divider in the right place', () => {
+    // Stored day-2 first, day-1 second — display should still read day 1 then day 2.
+    flushTrip([
+      { attractionId: 'paris_1', date: '03/06/2026', startTime: '10:00' },
+      { attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
+    ]);
+
+    const dividers = fixture.nativeElement.querySelectorAll('.itin-day-divider');
+    expect(dividers.length).toBe(1);
+    // The divider must sit strictly between the two .itin-item rows, not before both or after both.
+    const items = fixture.nativeElement.querySelectorAll('.itin-item');
+    expect(items.length).toBe(2);
+    const firstItemIndex = Array.from(items[0].parentElement!.children).indexOf(items[0]);
+    const dividerIndex = Array.from(items[0].parentElement!.children).indexOf(dividers[0]);
+    const secondItemIndex = Array.from(items[0].parentElement!.children).indexOf(items[1]);
+    expect(dividerIndex).toBeGreaterThan(firstItemIndex);
+    expect(dividerIndex).toBeLessThan(secondItemIndex);
+  });
+});

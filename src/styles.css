@@ -227,6 +227,7 @@ app-nav { display: block; }
 .itin-item-meta { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
 .itin-link { font-size: 12px; text-decoration: none; flex-shrink: 0; opacity: .7; transition: opacity .15s; }
 .itin-link:hover { opacity: 1; }
+.itin-day-divider { height: 1px; background: var(--border); margin: 6px 0; }
 
 /* SHARE BUTTON (profile) */
 .saved-plan-share-btn { font-size: 14px; padding: 2px 6px; border-radius: 8px; background: none; border: none; cursor: pointer; opacity: .65; transition: opacity .15s, background .15s; flex-shrink: 0; }

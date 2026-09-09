@@ -13,7 +13,7 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { StepComment, Attraction } from '../../core/models/comment.model';
-import { Trip, TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
+import { Trip, TripStop, PlannedAttraction, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { TripService } from '../trip/trip.service';
 import { StepCommentsComponent } from './step-comments.component';
 import { CommentSimilarModalComponent } from '../comments/comment-similar-modal.component';
@@ -252,11 +252,15 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                       }
                     }
 
-                    @for (planned of stop.selectedAttractions; track planned.attractionId) {
+                    @let sortedAtts = sortedAttractions(stop);
+                    @for (planned of sortedAtts; track planned.attractionId; let attIdx = $index) {
                       @let att = attFor(stop.cityId, planned.attractionId);
                       @if (att) {
                         @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
                         @let attDate = planned.date || stop.checkIn;
+                        @if (attIdx > 0 && attDate !== (sortedAtts[attIdx - 1].date || stop.checkIn)) {
+                          <div class="itin-day-divider"></div>
+                        }
                         <div class="itin-item"
                              (mouseenter)="onAttHover($event, att)"
                              (mouseleave)="onAttHoverLeave()">
@@ -680,6 +684,23 @@ export class SharedTripComponent {
     const city = this.cityFor(cityId);
     if (!city) return null;
     return getAttractions(city).find(a => a.id === attractionId) ?? null;
+  }
+
+  // Display-only ordering for the read-only shared itinerary view — selectedAttractions is
+  // stored in insertion order, not date order, so an itinerary edited non-linearly (e.g. day
+  // 2 planned before day 1) would otherwise render out of sequence. Never mutates the stop;
+  // never used by any editable view (2026-09-09 feedback round 2, item 4).
+  sortedAttractions(stop: TripStop): PlannedAttraction[] {
+    return [...stop.selectedAttractions].sort((a, b) => {
+      const dateA = a.date || stop.checkIn;
+      const dateB = b.date || stop.checkIn;
+      if (dateA !== dateB) {
+        const [da, ma, ya] = dateA.split('/').map(Number);
+        const [db, mb, yb] = dateB.split('/').map(Number);
+        return new Date(ya, ma - 1, da).getTime() - new Date(yb, mb - 1, db).getTime();
+      }
+      return (a.startTime || '').localeCompare(b.startTime || '');
+    });
   }
 
   onAttHover(e: MouseEvent | FocusEvent, att: Attraction): void {
