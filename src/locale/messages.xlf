@@ -1363,6 +1363,216 @@
           <context context-type="linenumber">39,42</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="terms.eyebrow" datatype="html">
+        <source>Legal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.title" datatype="html">
+        <source>Términos de servicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.updated" datatype="html">
+        <source>Última actualización: 8 de septiembre de 2026</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s1.title" datatype="html">
+        <source>1. Aceptación de los términos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s1.body" datatype="html">
+        <source>Al crear una cuenta o usar Tripilove (&quot;la aplicación&quot;, &quot;el servicio&quot;) aceptas estos Términos de servicio en su totalidad. Si no estás de acuerdo con alguna parte, no debes usar el servicio.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">25,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s2.title" datatype="html">
+        <source>2. Qué es Tripilove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s2.body" datatype="html">
+        <source>Tripilove es una herramienta de planificación de viajes: te permite armar itinerarios con paradas, alojamiento y transporte, descubrir atracciones, compartir tus planes con otras personas, co-editar un viaje con amigos y generar sugerencias de itinerario asistidas por inteligencia artificial. No somos una agencia de viajes ni un proveedor de reservas — no vendemos vuelos, hoteles ni entradas, y no procesamos pagos en tu nombre a terceros proveedores turísticos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">30,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s3.title" datatype="html">
+        <source>3. Tu cuenta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s3.body" datatype="html">
+        <source>Debes registrarte con un correo electrónico válido y una contraseña. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 años para crear una cuenta. Puedes actualizar tu nombre, correo, contraseña y país de residencia desde tu perfil en cualquier momento.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">35,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s4.title" datatype="html">
+        <source>4. El sistema de Karma</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s4.body1" datatype="html">
+        <source>Karma es una moneda virtual interna de la aplicación, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Karma cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificación con inteligencia artificial.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s4.body2" datatype="html">
+        <source>Puedes comprar paquetes de Karma con dinero real a través de PayPal. Las compras de Karma son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">41,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s5.title" datatype="html">
+        <source>5. Contenido generado por inteligencia artificial</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s5.body" datatype="html">
+        <source>Las sugerencias de viaje y los itinerarios generados por nuestro asistente de IA (&quot;ARIA&quot;) son orientativos. Pueden contener errores, información desactualizada o inexacta sobre horarios, precios, disponibilidad, requisitos de visa o documentación. Es tu responsabilidad verificar cualquier dato crítico directamente con la fuente oficial (el sitio del lugar, la aerolínea, la embajada correspondiente, etc.) antes de viajar.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">46,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s6.title" datatype="html">
+        <source>6. Contenido de terceros</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s6.body" datatype="html">
+        <source>La información de atracciones, freetours y eventos que se muestra en la aplicación proviene de fuentes públicas y de terceros (incluyendo UNESCO, Civitatis y Ticketmaster) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">51,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s7.title" datatype="html">
+        <source>7. Planes colaborativos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s7.body" datatype="html">
+        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores (&quot;last write wins&quot;). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">56,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s8.title" datatype="html">
+        <source>8. Conducta esperada</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s8.body" datatype="html">
+        <source>Al comentar atracciones o viajes compartidos, no debes publicar contenido ofensivo, spam, ni información falsa. Aplicamos límites automáticos de frecuencia y similitud a los comentarios para prevenir spam. Podemos eliminar contenido o suspender cuentas que incumplan estas reglas.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">61,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s9.title" datatype="html">
+        <source>9. Propiedad intelectual</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s9.body" datatype="html">
+        <source>El software, diseño, marca y contenido propio de Tripilove son propiedad de sus creadores. Conservas los derechos sobre el contenido que publicas (comentarios, nombres de viajes), pero nos otorgas una licencia para mostrarlo dentro del servicio, incluyendo en vistas compartidas públicamente.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">66,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s10.title" datatype="html">
+        <source>10. Limitación de responsabilidad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">70,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s10.body" datatype="html">
+        <source>Tripilove se ofrece &quot;tal cual&quot;, sin garantías de disponibilidad ininterrumpida. En la máxima medida permitida por la ley, no somos responsables de daños indirectos derivados del uso de la aplicación, incluyendo decisiones de viaje tomadas a partir de información incorrecta mostrada en el servicio.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">71,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s11.title" datatype="html">
+        <source>11. Terminación de cuenta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s11.body" datatype="html">
+        <source>Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos términos, incluyendo uso abusivo del sistema de Karma o de las funciones de inteligencia artificial.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">76,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s12.title" datatype="html">
+        <source>12. Cambios a estos términos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">80,81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s12.body" datatype="html">
+        <source>Podemos actualizar estos términos ocasionalmente. Publicaremos la fecha de la última actualización al inicio de esta página. El uso continuado del servicio después de un cambio implica la aceptación de los nuevos términos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">81,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s13.title" datatype="html">
+        <source>13. Contacto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="terms.s13.body" datatype="html">
+        <source>Si tienes preguntas sobre estos términos, puedes contactarnos a través de los canales indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/terms.component.ts</context>
+          <context context-type="linenumber">86,87</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="profile.backBtn" datatype="html">
         <source>← Volver</source>
         <context-group purpose="location">
