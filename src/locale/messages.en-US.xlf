@@ -2061,6 +2061,100 @@
         <target>If you have questions about these terms, you can reach us through the channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
       </trans-unit>
 
+      <!-- ── privacy.component ── -->
+      <trans-unit id="privacy.eyebrow" datatype="html">
+        <source>Legal</source>
+        <target>Legal</target>
+      </trans-unit>
+      <trans-unit id="privacy.title" datatype="html">
+        <source>Política de privacidad</source>
+        <target>Privacy Policy</target>
+      </trans-unit>
+      <trans-unit id="privacy.updated" datatype="html">
+        <source>Última actualización: 8 de septiembre de 2026</source>
+        <target>Last updated: September 8, 2026</target>
+      </trans-unit>
+      <trans-unit id="privacy.s1.title" datatype="html">
+        <source>1. Qué información recopilamos</source>
+        <target>1. What information we collect</target>
+      </trans-unit>
+      <trans-unit id="privacy.s1.body" datatype="html">
+        <source>Recopilamos la información que nos entregas directamente: nombre, correo electrónico, contraseña (almacenada como hash, nunca en texto plano) y, opcionalmente, tu país de residencia. También guardamos los datos de tus planes de viaje (paradas, fechas, alojamiento, transporte, atracciones seleccionadas), tus comentarios en atracciones y viajes compartidos, los lugares que marcas como "visitados" en el mapa de tu perfil, y un identificador anónimo generado automáticamente en tu navegador (independiente de tu cuenta) que nos permite reconocer visitas recurrentes antes de que inicies sesión.</source>
+        <target>We collect the information you give us directly: name, email, password (stored as a hash, never in plain text) and, optionally, your country of residence. We also store your trip planning data (stops, dates, lodging, transport, selected attractions), your comments on attractions and shared trips, the places you mark as "visited" on your profile's map, and an anonymous identifier automatically generated in your browser (independent of your account) that lets us recognize returning visits before you log in.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s2.title" datatype="html">
+        <source>2. Cómo usamos tu información</source>
+        <target>2. How we use your information</target>
+      </trans-unit>
+      <trans-unit id="privacy.s2.body" datatype="html">
+        <source>Usamos tu información para operar el servicio: mostrar y guardar tus planes de viaje, generar sugerencias con inteligencia artificial, calcular tu saldo de Karma, enviarte notificaciones dentro de la aplicación y por correo (por ejemplo, confirmaciones de compra o invitaciones de colaboración), y mejorar el producto. No usamos tu información para publicidad dirigida.</source>
+        <target>We use your information to operate the service: displaying and saving your trip plans, generating AI suggestions, calculating your Karma balance, sending you in-app and email notifications (e.g. purchase confirmations or collaboration invites), and improving the product. We do not use your information for targeted advertising.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s3.title" datatype="html">
+        <source>3. Con quién compartimos información</source>
+        <target>3. Who we share information with</target>
+      </trans-unit>
+      <trans-unit id="privacy.s3.body" datatype="html">
+        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
+        <target>We share limited information with external providers strictly necessary to operate the service: PayPal to process Karma purchases, DeepSeek to generate AI trip suggestions (it only receives your travel preferences, not your account data), Cloudflare Turnstile to verify you're not a bot when registering or logging in, and our outbound email provider to send you transactional notifications. We never sell your personal information to third parties.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s4.title" datatype="html">
+        <source>4. Cookies y almacenamiento local</source>
+        <target>4. Cookies and local storage</target>
+      </trans-unit>
+      <trans-unit id="privacy.s4.body" datatype="html">
+        <source>Usamos el almacenamiento local de tu navegador (localStorage) para guardar tu sesión, tus preferencias (como el idioma) y una copia de tu plan de viaje en progreso. Usamos una cookie técnica HttpOnly para mantener tu sesión de forma segura, y una cookie para recordar tu idioma preferido. No usamos cookies de rastreo publicitario.</source>
+        <target>We use your browser's local storage (localStorage) to save your session, your preferences (like language), and a copy of your in-progress trip plan. We use a technical HttpOnly cookie to keep your session secure, and a cookie to remember your preferred language. We do not use advertising tracking cookies.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s5.title" datatype="html">
+        <source>5. Seguridad</source>
+        <target>5. Security</target>
+      </trans-unit>
+      <trans-unit id="privacy.s5.body" datatype="html">
+        <source>Tu contraseña se almacena usando bcrypt (un algoritmo de hash unidireccional, nunca en texto plano). Las credenciales viajan cifradas entre tu navegador y nuestros servidores. Las sesiones se gestionan con tokens de corta duración que se renuevan automáticamente.</source>
+        <target>Your password is stored using bcrypt (a one-way hashing algorithm, never in plain text). Credentials travel encrypted between your browser and our servers. Sessions are managed with short-lived tokens that renew automatically.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s6.title" datatype="html">
+        <source>6. Retención de datos</source>
+        <target>6. Data retention</target>
+      </trans-unit>
+      <trans-unit id="privacy.s6.body" datatype="html">
+        <source>Conservamos tu información mientras tu cuenta esté activa. Si eliminas tu cuenta, eliminamos tus datos personales identificables, salvo la información que debamos conservar por obligación legal (por ejemplo, registros de transacciones de pago).</source>
+        <target>We keep your information while your account is active. If you delete your account, we remove your identifiable personal data, except information we must keep for legal reasons (for example, payment transaction records).</target>
+      </trans-unit>
+      <trans-unit id="privacy.s7.title" datatype="html">
+        <source>7. Tus derechos</source>
+        <target>7. Your rights</target>
+      </trans-unit>
+      <trans-unit id="privacy.s7.body" datatype="html">
+        <source>Puedes acceder, corregir o eliminar tu información personal en cualquier momento desde tu perfil (nombre, contraseña, país de residencia), o solicitando la eliminación completa de tu cuenta a través de los canales de contacto indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>You can access, correct, or delete your personal information at any time from your profile (name, password, country of residence), or request full account deletion through the contact channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s8.title" datatype="html">
+        <source>8. Menores de edad</source>
+        <target>8. Minors</target>
+      </trans-unit>
+      <trans-unit id="privacy.s8.body" datatype="html">
+        <source>El servicio no está dirigido a menores de 13 años y no recopilamos intencionalmente información de menores de esa edad.</source>
+        <target>The service is not directed at children under 13 and we do not knowingly collect information from anyone under that age.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s9.title" datatype="html">
+        <source>9. Cambios a esta política</source>
+        <target>9. Changes to this policy</target>
+      </trans-unit>
+      <trans-unit id="privacy.s9.body" datatype="html">
+        <source>Podemos actualizar esta política ocasionalmente. Publicaremos la fecha de la última actualización al inicio de esta página.</source>
+        <target>We may update this policy occasionally. We will publish the last-updated date at the top of this page.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s10.title" datatype="html">
+        <source>10. Contacto</source>
+        <target>10. Contact</target>
+      </trans-unit>
+      <trans-unit id="privacy.s10.body" datatype="html">
+        <source>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos a través de los canales indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>If you have questions about this privacy policy, you can reach us through the channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
+      </trans-unit>
+
       <!-- ── lodging.component ── -->
       <trans-unit id="lodging.namePlaceholder" datatype="html">
         <source>Hotel, Airbnb, hostal…</source>

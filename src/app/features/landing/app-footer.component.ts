@@ -32,8 +32,8 @@ import { RouterLink } from '@angular/router';
     </div>
     <div class="landing-footer-col">
       <h3 class="landing-footer-col-head" i18n="@@landing.footerColLegal">Legal</h3>
-      <a class="landing-footer-link" href="/privacy" i18n="@@landing.footerLinkPrivacy">Política de privacidad</a>
-      <a class="landing-footer-link" href="/terms"   i18n="@@landing.footerLinkTerms">Términos de servicio</a>
+      <a class="landing-footer-link" routerLink="/privacy" i18n="@@landing.footerLinkPrivacy">Política de privacidad</a>
+      <a class="landing-footer-link" routerLink="/terms"   i18n="@@landing.footerLinkTerms">Términos de servicio</a>
     </div>
   </nav>
 

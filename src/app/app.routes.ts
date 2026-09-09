@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/legal/terms.component').then(m => m.TermsComponent),
   },
   {
+    path: 'privacy',
+    loadComponent: () => import('./features/legal/privacy.component').then(m => m.PrivacyComponent),
+  },
+  {
     path: 'shared/:id',
     loadComponent: () => import('./features/shared-trip/shared-trip.component').then(m => m.SharedTripComponent),
   },

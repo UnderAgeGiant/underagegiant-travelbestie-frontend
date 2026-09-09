@@ -1363,6 +1363,167 @@
           <context context-type="linenumber">39,42</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="privacy.eyebrow" datatype="html">
+        <source>Legal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.title" datatype="html">
+        <source>Política de privacidad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.updated" datatype="html">
+        <source>Última actualización: 8 de septiembre de 2026</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s1.title" datatype="html">
+        <source>1. Qué información recopilamos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s1.body" datatype="html">
+        <source>Recopilamos la información que nos entregas directamente: nombre, correo electrónico, contraseña (almacenada como hash, nunca en texto plano) y, opcionalmente, tu país de residencia. También guardamos los datos de tus planes de viaje (paradas, fechas, alojamiento, transporte, atracciones seleccionadas), tus comentarios en atracciones y viajes compartidos, los lugares que marcas como &quot;visitados&quot; en el mapa de tu perfil, y un identificador anónimo generado automáticamente en tu navegador (independiente de tu cuenta) que nos permite reconocer visitas recurrentes antes de que inicies sesión.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">25,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s2.title" datatype="html">
+        <source>2. Cómo usamos tu información</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s2.body" datatype="html">
+        <source>Usamos tu información para operar el servicio: mostrar y guardar tus planes de viaje, generar sugerencias con inteligencia artificial, calcular tu saldo de Karma, enviarte notificaciones dentro de la aplicación y por correo (por ejemplo, confirmaciones de compra o invitaciones de colaboración), y mejorar el producto. No usamos tu información para publicidad dirigida.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">30,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s3.title" datatype="html">
+        <source>3. Con quién compartimos información</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s3.body" datatype="html">
+        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">35,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s4.title" datatype="html">
+        <source>4. Cookies y almacenamiento local</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s4.body" datatype="html">
+        <source>Usamos el almacenamiento local de tu navegador (localStorage) para guardar tu sesión, tus preferencias (como el idioma) y una copia de tu plan de viaje en progreso. Usamos una cookie técnica HttpOnly para mantener tu sesión de forma segura, y una cookie para recordar tu idioma preferido. No usamos cookies de rastreo publicitario.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">40,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s5.title" datatype="html">
+        <source>5. Seguridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s5.body" datatype="html">
+        <source>Tu contraseña se almacena usando bcrypt (un algoritmo de hash unidireccional, nunca en texto plano). Las credenciales viajan cifradas entre tu navegador y nuestros servidores. Las sesiones se gestionan con tokens de corta duración que se renuevan automáticamente.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">45,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s6.title" datatype="html">
+        <source>6. Retención de datos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s6.body" datatype="html">
+        <source>Conservamos tu información mientras tu cuenta esté activa. Si eliminas tu cuenta, eliminamos tus datos personales identificables, salvo la información que debamos conservar por obligación legal (por ejemplo, registros de transacciones de pago).</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">50,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s7.title" datatype="html">
+        <source>7. Tus derechos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s7.body" datatype="html">
+        <source>Puedes acceder, corregir o eliminar tu información personal en cualquier momento desde tu perfil (nombre, contraseña, país de residencia), o solicitando la eliminación completa de tu cuenta a través de los canales de contacto indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s8.title" datatype="html">
+        <source>8. Menores de edad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s8.body" datatype="html">
+        <source>El servicio no está dirigido a menores de 13 años y no recopilamos intencionalmente información de menores de esa edad.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">60,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s9.title" datatype="html">
+        <source>9. Cambios a esta política</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s9.body" datatype="html">
+        <source>Podemos actualizar esta política ocasionalmente. Publicaremos la fecha de la última actualización al inicio de esta página.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">65,68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s10.title" datatype="html">
+        <source>10. Contacto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacy.s10.body" datatype="html">
+        <source>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos a través de los canales indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
+          <context context-type="linenumber">70,71</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="terms.eyebrow" datatype="html">
         <source>Legal</source>
         <context-group purpose="location">
