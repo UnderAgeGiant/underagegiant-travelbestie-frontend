@@ -146,7 +146,14 @@ export class CompanionSuggestionService {
     const cityId = this._cityId();
     if (!suggestion || !stopId || !cityId) { this.dismiss(); return; }
     const attraction = findCuratedAttraction(cityId, suggestion.attractionId);
+    // Re-activate the suggestion's own stop and ask whichever day-timeline is currently
+    // open to jump to the day the new attraction landed on — the user may have switched
+    // stops while the mascot's (auto-dismiss-free) bubble was showing, and even if not,
+    // the accepted day isn't guaranteed to be the day tab currently selected (2026-09-09
+    // feedback round 2, item 2).
+    this.trip.setActive(stopId);
     this.trip.addAttraction(stopId, suggestion.attractionId, suggestion.startTime, suggestion.date, attraction?.category, attraction?.estimatedMinutes);
+    this.trip.requestDayJump(stopId, suggestion.date.slice(0, 5));
     this.dismiss();
   }
 

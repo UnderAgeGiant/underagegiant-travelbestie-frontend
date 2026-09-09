@@ -500,6 +500,23 @@ export class DayTimelineComponent {
         this.weather.load(stop.cityId, stop.checkIn, stop.checkOut);
       }
     });
+
+    // Consumes TripService.dayJumpRequest — see that service for why this exists (2026-09-09
+    // feedback round 2, item 2). Only the instance currently showing the requested stopId
+    // (the inline per-stop instance via its `stop` input, or the main instance via
+    // trip.activeStop() when no `stop` input is bound) reacts; every other mounted instance
+    // leaves the request untouched for whichever one actually matches.
+    effect(() => {
+      const req = this.trip.dayJumpRequest();
+      if (!req) return;
+      const stop = this.activeStop();
+      if (!stop || stop.stopId !== req.stopId) return;
+      if (!this.days().some(d => d.key === req.dayKey)) return;
+      this.selectedDay.set(req.dayKey);
+      this.lastStopId = stop.stopId;
+      if (this.device.isMobile() && !this.inline()) this.collapsed.set(false);
+      this.trip.consumeDayJumpRequest();
+    }, { allowSignalWrites: true });
   }
 
   protected selectDay(key: string): void {

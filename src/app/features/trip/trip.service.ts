@@ -71,6 +71,15 @@ export class TripService {
   private _loadedPlanId      = signal<string | null>(null);
   private _loadedPlanOwner   = signal<{ name: string; email: string } | null>(null);
   private _selectedTransitId = signal<string | null>(null);
+  // One-shot "jump the open day-timeline to this day" request — consumed by whichever
+  // DayTimelineComponent instance is currently showing the requested stopId (2026-09-09
+  // feedback round 2, item 2: an attraction added via a Companion Suggestion should make
+  // the open timeline visibly show it, not just update its data silently behind the
+  // currently-viewed day). Same "counter/request the child can't reach into, parent reacts
+  // to any change" pattern as NavFacadeService.closeOverlaysRequestId, but here the payload
+  // itself (which stop, which day) is the useful part, so it's a nullable value + explicit
+  // consume() rather than a monotonic counter.
+  private _dayJumpRequest    = signal<{ stopId: string; dayKey: string } | null>(null);
   private _saving            = false;
 
   readonly stops             = this._stops.asReadonly();
@@ -79,6 +88,7 @@ export class TripService {
   readonly loadedPlanId      = this._loadedPlanId.asReadonly();
   readonly loadedPlanOwner   = this._loadedPlanOwner.asReadonly();
   readonly selectedTransitId = this._selectedTransitId.asReadonly();
+  readonly dayJumpRequest    = this._dayJumpRequest.asReadonly();
   readonly existingCityIds   = computed(() => this._stops().map(s => s.cityId));
   readonly activeStop        = computed(() => this._stops().find(s => s.stopId === this._activeId()) ?? null);
 
@@ -270,6 +280,14 @@ export class TripService {
     if (transitId !== null) {
       this._activeId.set(null);
     }
+  }
+
+  requestDayJump(stopId: string, dayKey: string): void {
+    this._dayJumpRequest.set({ stopId, dayKey });
+  }
+
+  consumeDayJumpRequest(): void {
+    this._dayJumpRequest.set(null);
   }
 
   addAttraction(stopId: string, attractionId: string, startTime: string, date?: string, category?: AttractionCategory, estimatedMinutes?: number): void {

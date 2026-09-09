@@ -890,3 +890,45 @@ describe('DayTimelineComponent — weather chip trigger', () => {
     expect(temp.textContent.trim()).toBe('14°/23°');
   });
 });
+
+describe('DayTimelineComponent — consumes TripService.dayJumpRequest (feedback round 2, item 2)', () => {
+  let trip: TripService;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+  let component: DayTimelineComponent;
+
+  beforeEach(() => {
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('jumps to the requested day and clears the request when it matches the currently-shown stop', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    const stopId = trip.activeStop()!.stopId;
+    fixture.detectChanges();
+
+    trip.requestDayJump(stopId, '03/06');
+    fixture.detectChanges();
+
+    expect(component['selectedDay']()).toBe('03/06');
+    expect(trip.dayJumpRequest()).toBeNull();
+  });
+
+  it('ignores a request for a different stopId and leaves the request pending for whichever instance does match', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+    const before = component['selectedDay']();
+
+    trip.requestDayJump('some-other-stop-id', '03/06');
+    fixture.detectChanges();
+
+    expect(component['selectedDay']()).toBe(before);
+    expect(trip.dayJumpRequest()).toEqual({ stopId: 'some-other-stop-id', dayKey: '03/06' });
+  });
+});

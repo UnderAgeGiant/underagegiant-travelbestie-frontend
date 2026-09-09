@@ -116,6 +116,9 @@ describe('CompanionSuggestionService', () => {
     expect(updatedStop.selectedAttractions.some(a => a.attractionId === 'paris_1')).toBe(true);
     expect(service.state()).toBe('idle');
     expect(service.suggestion()).toBeNull();
+    // New in this task: the currently-open day-timeline must be told which stop/day to show.
+    expect(trip.activeId()).toBe(stop.stopId);
+    expect(trip.dayJumpRequest()).toEqual({ stopId: stop.stopId, dayKey: '02/07' });
   });
 
   it('dismiss() returns to idle without adding anything', async () => {
