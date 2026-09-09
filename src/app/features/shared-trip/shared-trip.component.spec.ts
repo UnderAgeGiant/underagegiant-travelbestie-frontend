@@ -196,3 +196,58 @@ describe('SharedTripComponent — day-boundary divider between itin-items (feedb
     expect(dividerIndex).toBeLessThan(secondItemIndex);
   });
 });
+
+describe('SharedTripComponent — duplicate attractionId on different days (NG0955 regression)', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
+          },
+        },
+      ],
+    });
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('renders the same attraction twice on different days without throwing NG0955', () => {
+    // Bug fix: track by $index instead of attractionId, so the same attraction ID
+    // appearing twice (e.g., breakfast and dinner at the same restaurant) doesn't
+    // trigger "NG0955: Duplicate key in @for loop".
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush({
+      tripName: 'Viaje a París', ownerName: 'Ana',
+      stops: [{
+        cityId: 'paris',
+        checkIn: '01/06/2026',
+        checkOut: '05/06/2026',
+        selectedAttractions: [
+          { attractionId: 'paris_5', date: '02/06/2026', startTime: '09:00' },
+          { attractionId: 'paris_5', date: '02/06/2026', startTime: '19:00' }, // Same attraction, different time
+        ]
+      }],
+      transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    fixture.detectChanges();
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+    fixture.detectChanges();
+
+    // If NG0955 were thrown, the component would fail to render. Verifying that there are
+    // exactly 2 .itin-item rows confirms that both entries rendered successfully.
+    const items = fixture.nativeElement.querySelectorAll('.itin-item');
+    expect(items.length).toBe(2);
+  });
+});
