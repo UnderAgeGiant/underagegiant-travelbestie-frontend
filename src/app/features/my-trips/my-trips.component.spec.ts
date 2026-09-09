@@ -87,7 +87,26 @@ describe('MyTripsComponent — profile-tabs scroll arrows', () => {
     fixture.detectChanges();
   });
 
-  it('renders a left and right scroll arrow around the tabs row', () => {
+  /** jsdom never lays out real widths, so scrollWidth/clientWidth both default to 0
+      (no overflow) — this exercises the "wide enough, nothing to scroll to" case for
+      free, and lets the two mock-overflow tests below prove the arrows do appear when
+      the row genuinely overflows. */
+  it('hides the scroll arrows when the tabs fit without overflowing (wide viewport)', () => {
+    const row = fixture.nativeElement.querySelector('.profile-tabs-row');
+    expect(row.querySelectorAll('.tl-days-arrow').length).toBe(0);
+  });
+
+  function mockOverflow(fixture: ComponentFixture<MyTripsComponent>): HTMLElement {
+    const tabsEl = fixture.nativeElement.querySelector('.profile-tabs') as HTMLElement;
+    Object.defineProperty(tabsEl, 'scrollWidth', { value: 400, configurable: true });
+    Object.defineProperty(tabsEl, 'clientWidth', { value: 200, configurable: true });
+    window.dispatchEvent(new Event('resize'));
+    fixture.detectChanges();
+    return tabsEl;
+  }
+
+  it('shows a left and right scroll arrow once the tabs overflow their available width', () => {
+    mockOverflow(fixture);
     const row = fixture.nativeElement.querySelector('.profile-tabs-row');
     const arrows = row.querySelectorAll('.tl-days-arrow');
     expect(arrows.length).toBe(2);
@@ -96,7 +115,7 @@ describe('MyTripsComponent — profile-tabs scroll arrows', () => {
   });
 
   it('scrolls the tabs row right when the right arrow is clicked', () => {
-    const tabsEl = fixture.nativeElement.querySelector('.profile-tabs') as HTMLElement;
+    const tabsEl = mockOverflow(fixture);
     // jsdom doesn't implement Element.scrollBy — define it as a spy rather than spyOn().
     const scrollBySpy = jest.fn();
     tabsEl.scrollBy = scrollBySpy;
@@ -108,7 +127,7 @@ describe('MyTripsComponent — profile-tabs scroll arrows', () => {
   });
 
   it('scrolls the tabs row left when the left arrow is clicked', () => {
-    const tabsEl = fixture.nativeElement.querySelector('.profile-tabs') as HTMLElement;
+    const tabsEl = mockOverflow(fixture);
     const scrollBySpy = jest.fn();
     tabsEl.scrollBy = scrollBySpy;
     const leftArrow = fixture.nativeElement.querySelectorAll('.tl-days-arrow')[0] as HTMLElement;

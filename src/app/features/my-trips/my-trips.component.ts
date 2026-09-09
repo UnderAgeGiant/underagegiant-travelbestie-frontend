@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild } from '@angular/core';
+import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
@@ -55,11 +55,15 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                  DayTimelineComponent uses for its day tabs (native touch-drag
                  scrolling on this row isn't reliable to trigger, so an explicit
                  tap target is the primary way to reach the hidden tabs, not a
-                 fallback for one). -->
+                 fallback for one). Arrows only render when the tabs actually
+                 overflow (canScrollProfileTabs) — a wide viewport fits every
+                 tab with nothing to scroll to, so there's nothing for them to do. -->
             <div class="profile-tabs-row">
-              <button type="button" class="tl-days-arrow"
-                      (click)="scrollProfileTabs(-1)"
-                      i18n-aria-label="@@myTrips.scrollTabsLeftAria" aria-label="Ver pestañas anteriores">‹</button>
+              @if (canScrollProfileTabs()) {
+                <button type="button" class="tl-days-arrow"
+                        (click)="scrollProfileTabs(-1)"
+                        i18n-aria-label="@@myTrips.scrollTabsLeftAria" aria-label="Ver pestañas anteriores">‹</button>
+              }
               <div class="profile-tabs" #profileTabsEl>
                 <button class="profile-tab" [class.active]="favTab() === 'trips'"
                         (click)="favTab.set('trips')"
@@ -79,9 +83,11 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                         (click)="openAiPlansTab()"
                         i18n="@@mytrips.tabAiPlans">Planes IA Pendientes</button>
               </div>
-              <button type="button" class="tl-days-arrow"
-                      (click)="scrollProfileTabs(1)"
-                      i18n-aria-label="@@myTrips.scrollTabsRightAria" aria-label="Ver pestañas siguientes">›</button>
+              @if (canScrollProfileTabs()) {
+                <button type="button" class="tl-days-arrow"
+                        (click)="scrollProfileTabs(1)"
+                        i18n-aria-label="@@myTrips.scrollTabsRightAria" aria-label="Ver pestañas siguientes">›</button>
+              }
             </div>
 
             @if (favTab() === 'trips') {
@@ -407,7 +413,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
     }
   `,
 })
-export class MyTripsComponent {
+export class MyTripsComponent implements AfterViewInit {
   readonly auth       = inject(AuthService);
   readonly trip       = inject(TripService);
   readonly savedPlans = inject(SavedPlansService);
@@ -435,6 +441,13 @@ export class MyTripsComponent {
   aiPlanHistoryLoading = signal(false);
   discardingRequestId = signal<string | null>(null);
 
+  /** Whether .profile-tabs actually overflows its available width — the .tl-days-arrow
+      scroll buttons only render when true, so a wide viewport that fits every tab shows
+      no arrows (there'd be nothing to scroll to). Recomputed on view init, on window
+      resize, and whenever the tab count can change (the "Invitaciones pendientes" tab
+      only renders once savedPlans.pendingInvites() is non-empty). */
+  canScrollProfileTabs = signal(false);
+
   constructor() {
     // Reactive (not one-shot): handles both "arrived here fresh via a
     // notification or the nav's Mis viajes button" (pendingMyTripsTab was
@@ -452,6 +465,32 @@ export class MyTripsComponent {
       this.facade.pendingMyTripsTab.set(null);
       if (pendingTab === 'aiplans') this.loadAiPlanHistory();
     }, { allowSignalWrites: true });
+
+    // The "Invitaciones pendientes" tab is the one tab whose presence isn't
+    // known up front — it only renders once there's a pending invite. Adding/
+    // removing it changes .profile-tabs' scrollWidth without changing its own
+    // clientWidth (the row's outer box is fixed by its flex container), so a
+    // window-resize listener alone wouldn't catch it — recompute explicitly.
+    effect(() => {
+      this.savedPlans.pendingInvites().length;
+      this.updateCanScrollProfileTabs();
+    }, { allowSignalWrites: true });
+  }
+
+  ngAfterViewInit(): void {
+    this.updateCanScrollProfileTabs();
+  }
+
+  @HostListener('window:resize')
+  protected onWindowResize(): void {
+    this.updateCanScrollProfileTabs();
+  }
+
+  private updateCanScrollProfileTabs(): void {
+    const el = this.profileTabsEl?.nativeElement;
+    // +1 tolerance for sub-pixel rounding so a row that just barely fits
+    // doesn't flash a pair of arrows with nothing meaningful to scroll.
+    this.canScrollProfileTabs.set(!!el && el.scrollWidth > el.clientWidth + 1);
   }
 
   openFavTab(): void {
