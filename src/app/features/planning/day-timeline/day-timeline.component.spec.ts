@@ -1,6 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { LOCALE_ID } from '@angular/core';
 import { DayTimelineComponent } from './day-timeline.component';
 import { TripService } from '../../trip/trip.service';
 import { City } from '../../../core/models/city.model';
@@ -930,5 +931,55 @@ describe('DayTimelineComponent — consumes TripService.dayJumpRequest (feedback
 
     expect(component['selectedDay']()).toBe(before);
     expect(trip.dayJumpRequest()).toEqual({ stopId: 'some-other-stop-id', dayKey: '03/06' });
+  });
+});
+
+describe('DayTimelineComponent — locale-aware day-tab weekday labels (feedback round 2, item 3)', () => {
+  function setup(localeId: string): { trip: TripService; fixture: ComponentFixture<DayTimelineComponent> } {
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [
+        provideHttpClient(withXhr()), provideHttpClientTesting(),
+        { provide: LOCALE_ID, useValue: localeId },
+      ],
+    });
+    const trip = TestBed.inject(TripService);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    fixture.detectChanges();
+    return { trip, fixture };
+  }
+
+  it('renders Spanish weekday abbreviations when the compiled bundle locale is es-CL', () => {
+    const { trip, fixture } = setup('es-CL');
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026'); // 01/06/2026 is a Monday
+    fixture.detectChanges();
+
+    const days = fixture.componentInstance['days']();
+    expect(days[0].dow).toBe(new Date(2026, 5, 1).toLocaleDateString('es-CL', { weekday: 'short' }));
+  });
+
+  it('renders English weekday abbreviations when the compiled bundle locale is en-US', () => {
+    const { trip, fixture } = setup('en-US');
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const days = fixture.componentInstance['days']();
+    expect(days[0].dow).toBe(new Date(2026, 5, 1).toLocaleDateString('en-US', { weekday: 'short' }));
+  });
+
+  it('the two locales actually produce different labels (sanity check the test itself is meaningful)', () => {
+    const es = setup('es-CL');
+    es.trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    es.fixture.detectChanges();
+    const esDow = es.fixture.componentInstance['days']()[0].dow;
+
+    TestBed.resetTestingModule();
+    const en = setup('en-US');
+    en.trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    en.fixture.detectChanges();
+    const enDow = en.fixture.componentInstance['days']()[0].dow;
+
+    expect(esDow).not.toBe(enDow);
   });
 });

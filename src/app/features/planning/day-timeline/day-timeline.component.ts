@@ -408,7 +408,7 @@ export class DayTimelineComponent {
           ),
         );
         tabs.push({
-          date: new Date(d), dow: d.toLocaleDateString(undefined, { weekday: 'short' }), num: d.getDate(), key,
+          date: new Date(d), dow: d.toLocaleDateString(this.locale.current(), { weekday: 'short' }), num: d.getDate(), key,
           hasEvents: hasAtt || hasTransit, cityId: stop.cityId, cityFlag,
         });
       }
