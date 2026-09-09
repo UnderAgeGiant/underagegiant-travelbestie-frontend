@@ -4,6 +4,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { of } from 'rxjs';
 import { authInterceptor } from './auth.interceptor';
 import { AuthService } from './auth.service';
+import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
 describe('authInterceptor', () => {
   let http: HttpClient;
@@ -78,6 +79,24 @@ describe('authInterceptor', () => {
     token = 'tok-1';
     http.post('/auth/refresh', {}).subscribe();
     const req = ctrl.expectOne('/auth/refresh');
+    expect(req.request.headers.has('Authorization')).toBe(false);
+    req.flush({});
+  });
+
+  it('attaches X-Anonymous-Id to every outgoing request', () => {
+    const anonymousId = TestBed.inject(AnonymousIdService).get();
+    http.get('/api/trips').subscribe();
+    const req = ctrl.expectOne('/api/trips');
+    expect(req.request.headers.get('X-Anonymous-Id')).toBe(anonymousId);
+    req.flush({});
+  });
+
+  it('still attaches X-Anonymous-Id to the /auth/refresh call (which skips the Authorization header)', () => {
+    const anonymousId = TestBed.inject(AnonymousIdService).get();
+    token = 'tok-1';
+    http.post('/auth/refresh', {}).subscribe();
+    const req = ctrl.expectOne('/auth/refresh');
+    expect(req.request.headers.get('X-Anonymous-Id')).toBe(anonymousId);
     expect(req.request.headers.has('Authorization')).toBe(false);
     req.flush({});
   });

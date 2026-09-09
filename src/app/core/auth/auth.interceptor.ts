@@ -3,20 +3,24 @@ import { inject } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
-function attach(req: HttpRequest<unknown>, token: string | null): HttpRequest<unknown> {
-  return token ? req.clone({ setHeaders: { Authorization: `Bearer ${token}` } }) : req;
+function attach(req: HttpRequest<unknown>, token: string | null, anonymousId: string): HttpRequest<unknown> {
+  const headers: Record<string, string> = { 'X-Anonymous-Id': anonymousId };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+  return req.clone({ setHeaders: headers });
 }
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const auth = inject(AuthService);
+  const anonymousId = inject(AnonymousIdService);
 
   // Never add an auth header to the refresh endpoint — it authenticates via the HttpOnly cookie.
   const isRefreshCall = req.url.includes('/auth/refresh');
 
   const send = (): Observable<HttpEvent<unknown>> => {
     const token = isRefreshCall ? null : auth.token();
-    return next(attach(req, token)).pipe(
+    return next(attach(req, token, anonymousId.get())).pipe(
       catchError((err: unknown) => {
         if (
           err instanceof HttpErrorResponse &&
@@ -26,7 +30,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
         ) {
           return auth.refreshAccessToken().pipe(
             switchMap(success =>
-              success ? next(attach(req, auth.token())) : throwError(() => err),
+              success ? next(attach(req, auth.token(), anonymousId.get())) : throwError(() => err),
             ),
           );
         }
