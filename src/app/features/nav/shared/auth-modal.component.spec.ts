@@ -224,3 +224,68 @@ describe('AuthModalComponent — OTP input digit filtering', () => {
     expect(input.value).toBe('');
   });
 });
+
+describe('AuthModalComponent — accept Terms of Service before registering (2026-09-09 feedback round 2, item 1)', () => {
+  let fixture: ComponentFixture<AuthModalComponent>;
+  let authModal: AuthModalService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    (window as any).turnstile = {
+      render: () => 'widget-1',
+      remove: () => {},
+      reset: () => {},
+    };
+    TestBed.configureTestingModule({
+      imports: [AuthModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    authModal = TestBed.inject(AuthModalService);
+    fixture = TestBed.createComponent(AuthModalComponent);
+    authModal.openLogin();
+    fixture.componentInstance.switchToRegister();
+    fixture.componentInstance.loginName.set('Sofía García');
+    fixture.componentInstance.loginEmail.set('sofia@test.com');
+    fixture.componentInstance.loginPassword.set('secret123');
+    fixture.componentInstance.loginConfirmPassword.set('secret123');
+    fixture.componentInstance.captchaToken.set('captcha-token');
+    fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    delete (window as any).turnstile;
+  });
+
+  function sendOtpBtn(): HTMLButtonElement {
+    return fixture.nativeElement.querySelector('.modal-foot .btn-primary') as HTMLButtonElement;
+  }
+
+  function termsCheckbox(): HTMLInputElement {
+    return fixture.nativeElement.querySelector('input[type="checkbox"]') as HTMLInputElement;
+  }
+
+  it('renders an unchecked "accept Terms of Service" checkbox on the register form step', () => {
+    expect(termsCheckbox()).toBeTruthy();
+    expect(termsCheckbox().checked).toBe(false);
+  });
+
+  it('keeps "Enviar código →" disabled even with every other field valid until the checkbox is checked', () => {
+    expect(sendOtpBtn().disabled).toBe(true);
+
+    termsCheckbox().click();
+    fixture.detectChanges();
+
+    expect(sendOtpBtn().disabled).toBe(false);
+  });
+
+  it('re-disables the button if the checkbox is unchecked again', () => {
+    termsCheckbox().click();
+    fixture.detectChanges();
+    expect(sendOtpBtn().disabled).toBe(false);
+
+    termsCheckbox().click();
+    fixture.detectChanges();
+    expect(sendOtpBtn().disabled).toBe(true);
+  });
+});
