@@ -487,6 +487,11 @@ describe('DayTimelineComponent — readOnly (public shared-trip view)', () => {
     component = fixture.componentInstance;
     trip.addStop(PARIS, '01/06/2026', '05/06/2026');
     trip.addAttraction(trip.activeStop()!.stopId, 'paris_louvre', '09:00', undefined, 'poi', 150);
+    // Matches real usage: SharedTripComponent always pairs [readOnly]="true" with an explicit
+    // [stop] input (never relies on a TripService fallback — see the 2026-09-09 bug fix in
+    // day-timeline.component.ts, which stops readOnly instances from ever falling back to
+    // TripService's own in-progress-trip state).
+    fixture.componentRef.setInput('stop', trip.activeStop());
     fixture.detectChanges();
   });
 
@@ -569,6 +574,52 @@ describe('DayTimelineComponent — readOnly (public shared-trip view)', () => {
 
     expect(component['dragPreview']()).toBeNull();
     expect(overEvent.preventDefault).not.toHaveBeenCalled();
+  });
+});
+
+describe('DayTimelineComponent — readOnly mode never falls back to TripService (2026-09-09 user-reported bug)', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    // Simulates an anonymous visitor with an own trip already in progress (TripService's
+    // global state) navigating via the SPA router to a public shared-trip page, before they've
+    // clicked any city there — SharedTripComponent binds [stop]="selectedShareStop()" (null
+    // until a city is clicked) and [readOnly]="true".
+    trip.addStop(PARIS, '09/09/2026', '18/09/2026');
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+  });
+
+  it('is not visible when readOnly and no stop input is bound, even though TripService has its own active stop', () => {
+    expect(component['visible']()).toBe(false);
+  });
+
+  it('shows no day tabs (not TripService.stops()) when readOnly and no stop input is bound', () => {
+    expect(component['days']()).toEqual([]);
+  });
+
+  it('shows only the bound stop input, never TripService.activeStop(), once one is provided', () => {
+    fixture.componentRef.setInput('stop', {
+      stopId: 'shared-stop-1', cityId: 'barcelona',
+      checkIn: '15/07/2026', checkOut: '17/07/2026', selectedAttractions: [],
+    });
+    fixture.detectChanges();
+
+    expect(component['visible']()).toBe(true);
+    const days = component['days']();
+    expect(days.length).toBeGreaterThan(0);
+    expect(days.every(d => d.cityId === 'barcelona')).toBe(true);
   });
 });
 
