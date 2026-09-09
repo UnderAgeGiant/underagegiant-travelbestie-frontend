@@ -209,6 +209,22 @@ export class ShellComponent {
       }
     });
 
+    // Any nav action that restores TripService's stops from elsewhere (loading a saved
+    // plan, the logo click, starting a new trip) needs the app-mode editor to actually be
+    // visible afterward — but NavFacadeService has no reference to these overlay signals to
+    // close them itself. closeOverlaysRequestId is that one-way "close everything" request
+    // (see NavFacadeService for why it's a counter, not a boolean).
+    let lastCloseOverlaysRequestId = 0;
+    effect(() => {
+      const id = this.facade.closeOverlaysRequestId();
+      if (id !== lastCloseOverlaysRequestId) {
+        lastCloseOverlaysRequestId = id;
+        this.showProfile.set(false);
+        this.showAiPlanning.set(false);
+        this.showMyTrips.set(false);
+      }
+    });
+
     // First-touch onboarding: show the landing_welcome tour to an anonymous
     // (not-yet-logged-in) visitor looking at the empty-state landing page (S1,
     // trip.stops().length === 0) — its two targets are the "Iniciar sesión" login

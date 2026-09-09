@@ -136,4 +136,18 @@ describe('ShellComponent', () => {
     expect(component.showAiPlanning()).toBe(false);
     expect(component.showMyTrips()).toBe(true);
   });
+
+  it('closes showProfile/showMyTrips/showAiPlanning when the facade requests the overlays close (e.g. loading a saved plan from the nav dropdown while a page overlay is open)', () => {
+    const fixture = setup(0);
+    const component = fixture.componentInstance;
+    component.showProfile.set(true);
+    fixture.detectChanges();
+
+    (component as any).facade.closeOverlaysRequestId.update((v: number) => v + 1);
+    fixture.detectChanges();
+
+    expect(component.showProfile()).toBe(false);
+    expect(component.showMyTrips()).toBe(false);
+    expect(component.showAiPlanning()).toBe(false);
+  });
 });
