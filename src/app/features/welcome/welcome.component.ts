@@ -12,8 +12,6 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
     template: `
     <app-background-slider
       [activeIdx]="slideIdx()"
-      (prev)="prevSlide()"
-      (next)="nextSlide()"
       (dotClick)="slideIdx.set($event)" />
 
     <div class="welcome-overlay">
@@ -68,9 +66,6 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     if (plans.length === 0) return null;
     return [...plans].sort((a, b) => b.savedAt.localeCompare(a.savedAt))[0];
   });
-
-  prevSlide() { this.slideIdx.update(i => (i - 1 + this.slides.length) % this.slides.length); }
-  nextSlide() { this.slideIdx.update(i => (i + 1) % this.slides.length); }
 
   ngOnInit() {
     this.timer = setInterval(() => this.slideIdx.update(i => (i + 1) % this.slides.length), 5000);

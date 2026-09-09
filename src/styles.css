@@ -227,6 +227,7 @@ app-nav { display: block; }
 .itin-item-meta { font-size: 10px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
 .itin-link { font-size: 12px; text-decoration: none; flex-shrink: 0; opacity: .7; transition: opacity .15s; }
 .itin-link:hover { opacity: 1; }
+.itin-day-divider { height: 1px; background: var(--border); margin: 6px 0; }
 
 /* SHARE BUTTON (profile) */
 .saved-plan-share-btn { font-size: 14px; padding: 2px 6px; border-radius: 8px; background: none; border: none; cursor: pointer; opacity: .65; transition: opacity .15s, background .15s; flex-shrink: 0; }
@@ -286,9 +287,6 @@ app-nav { display: block; }
 .slider-dots { position: absolute; bottom: 32px; right: 40px; display: flex; gap: 7px; z-index: 3; }
 .slider-dot { width: 7px; height: 7px; border-radius: 50%; background: oklch(100% 0 0/.4); cursor: pointer; transition: all .3s; border: none; }
 .slider-dot.active { background: #fff; width: 22px; border-radius: 4px; }
-.slider-arrows { position: absolute; top: 50%; right: 20px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 3; }
-.slider-arrow { width: 36px; height: 36px; border-radius: 50%; background: oklch(100% 0 0/.2); backdrop-filter: blur(8px); color: #fff; font-size: 14px; display: flex; align-items: center; justify-content: center; border: 1px solid oklch(100% 0 0/.3); cursor: pointer; transition: all .2s; }
-.slider-arrow:hover { background: oklch(100% 0 0/.4); }
 
 /* WELCOME */
 .welcome-overlay { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; min-height: 100%; padding: 60px 40px 40px; }
@@ -972,37 +970,6 @@ app-nav { display: block; }
 /* ── S1 shell: left panel + right panel side by side ───────────────────── */
 .s1-shell { display: flex; background: var(--cream); }
 .s1-shell > .right-panel { overflow: hidden; }
-
-/* ── Scroll hint ────────────────────────────────────────────────────────── */
-.scroll-hint {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: oklch(100% 0 0/.5);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-.scroll-arrow {
-  width: 28px;
-  height: 28px;
-  border: 1.5px solid oklch(100% 0 0/.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: bounceDown .9s ease-in-out infinite alternate;
-}
-@keyframes bounceDown { from { transform: translateY(0) } to { transform: translateY(6px) } }
-@media (prefers-reduced-motion: reduce) { .scroll-arrow { animation: none; } }
 
 /* ── S2 — Cinematic full-page slideshow ─────────────────────────────────── */
 .featured-slideshow { background: oklch(12% .04 290); }
@@ -2735,6 +2702,44 @@ app-nav { display: block; }
 .flag-icon-fallback { display: inline-block; line-height: 1; flex-shrink: 0; }
 .about-closing-sub { font-size: 14px; color: var(--t2); max-width: 420px; margin: 0 auto 26px; }
 .about-closing-cta { padding: 16px 36px; font-size: 17px; font-weight: 600; }
+
+/* ── Legal pages (Terms / Privacy) ─────────────────────────────────────── */
+.legal-page {
+  position: relative;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 72px;
+}
+@media (max-width: 768px) {
+  .legal-page { margin-top: 0; }
+}
+.legal-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+.legal-eyebrow {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--t2); margin-bottom: 10px;
+}
+.legal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4.5vw, 44px); font-weight: 400;
+  margin-bottom: 8px;
+}
+.legal-updated {
+  font-size: 13px; color: var(--t3); margin-bottom: 36px;
+}
+.legal-section {
+  margin-bottom: 28px;
+}
+.legal-section h2 {
+  font-size: 18px; font-weight: 600; margin-bottom: 10px; color: var(--t1);
+}
+.legal-section p {
+  font-size: 14px; line-height: 1.7; color: var(--t2);
+}
 
 /* ── Companion mascot: periodic "Asistente Miel" nudges (Feature 54) ── */
 .companion-mascot {

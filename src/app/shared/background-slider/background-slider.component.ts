@@ -43,17 +43,11 @@ export const SLIDES: Slide[] = [
                   (click)="dotClick.emit($index)"></button>
         }
       </div>
-      <div class="slider-arrows">
-        <button class="slider-arrow" (click)="prev.emit()">▲</button>
-        <button class="slider-arrow" (click)="next.emit()">▼</button>
-      </div>
     </div>
   `
 })
 export class BackgroundSliderComponent {
   activeIdx = input.required<number>();
-  prev = output<void>();
-  next = output<void>();
   dotClick = output<number>();
   readonly slides = SLIDES;
 }

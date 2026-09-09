@@ -1,4 +1,5 @@
 import { Component, inject, signal, computed, effect } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { TripService } from '../../trip/trip.service';
@@ -12,7 +13,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
 @Component({
   selector: 'app-auth-modal',
-  imports: [],
+  imports: [RouterLink],
   template: `
     @if (registerSuccessOpen()) {
       <div style="position:fixed;inset:0;z-index:1000;background:rgba(15,10,30,0.72);display:flex;align-items:center;justify-content:center;padding:16px">
@@ -143,6 +144,16 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                          i18n="@@nav.confirmPasswordMismatch">Las contraseñas no coinciden</div>
                   }
                 </div>
+                <div class="form-group" style="margin-bottom:0;margin-top:2px">
+                  <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--t2);cursor:pointer;line-height:1.5">
+                    <input type="checkbox" style="margin-top:2px;flex-shrink:0;cursor:pointer"
+                           [checked]="acceptTerms()"
+                           (change)="acceptTerms.set($any($event.target).checked)" />
+                    <span i18n="@@nav.acceptTermsLabel">
+                      Acepto los <a routerLink="/terms" target="_blank" (click)="$event.stopPropagation()">Términos de servicio</a> y la <a routerLink="/privacy" target="_blank" (click)="$event.stopPropagation()">Política de privacidad</a>.
+                    </span>
+                  </label>
+                </div>
               } @else {
                 <div style="text-align:center;padding:8px 0 4px">
                   <div style="font-size:28px">📧</div>
@@ -272,8 +283,8 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                 </button>
               } @else if (!otpStep()) {
                 <button class="btn-pill btn-primary" (click)="sendOtp()"
-                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()"
-                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch()) ? '0.5' : '1'"
+                        [disabled]="otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch() || !acceptTerms()"
+                        [style.opacity]="(otpLoading() || !captchaToken() || !loginName().trim() || !isEmailValid() || !loginPassword().trim() || !loginConfirmPassword().trim() || !passwordsMatch() || !acceptTerms()) ? '0.5' : '1'"
                         style="flex:2" i18n="@@nav.sendOtpBtn">
                   {{ otpLoading() ? 'Enviando…' : 'Enviar código →' }}
                 </button>
@@ -373,6 +384,7 @@ export class AuthModalComponent {
 
   // captcha / otp
   captchaToken = signal('');
+  acceptTerms  = signal(false);
   otpStep        = signal(false);
   otpCode        = signal('');
   otpLoading     = signal(false);
@@ -422,6 +434,7 @@ export class AuthModalComponent {
         this.otpCode.set('');
         this.loginPassword.set('');
         this.loginConfirmPassword.set('');
+        this.acceptTerms.set(false);
         this.showPassword.set(false);
         this.showConfirmPassword.set(false);
         this.registerLoading.set(false);
@@ -467,11 +480,16 @@ export class AuthModalComponent {
     this.captchaToken.set('');
   }
 
+  // ts.reset(id) doesn't reliably re-arm a widget that just errored/expired — a known
+  // Cloudflare Turnstile limitation. A full destroy + fresh render always produces an
+  // interactive widget, instead of sometimes leaving a stuck/blank one whose callback can
+  // never fire again — which is what silently kept "Enviar código →" disabled forever after
+  // a failed login → switch-to-register (2026-09-08 feedback #2). destroyTurnstile() already
+  // clears captchaToken(), and renderTurnstile()'s own initAttempts-guarded polling handles
+  // the case where window.turnstile isn't ready yet.
   private resetTurnstile(): void {
-    const id = this.turnstileWidgetId();
-    const ts = (window as any).turnstile;
-    if (id !== null && ts) ts.reset(id);
-    this.captchaToken.set('');
+    this.destroyTurnstile();
+    setTimeout(() => this.renderTurnstile(), 0);
   }
 
   switchToRegister(): void {
@@ -482,6 +500,7 @@ export class AuthModalComponent {
     this.otpStep.set(false);
     this.otpCode.set('');
     this.loginConfirmPassword.set('');
+    this.acceptTerms.set(false);
     this.showPassword.set(false);
     this.showConfirmPassword.set(false);
     this.failedLoginAttempts.set(0);

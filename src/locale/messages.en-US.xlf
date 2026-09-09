@@ -197,8 +197,8 @@
         <target>City information</target>
       </trans-unit>
       <trans-unit id="cityInfo.setCountryCta" datatype="html">
-        <source>Agrega tu país de residencia para ver info de visa</source>
-        <target>Add your country of residence to see visa info</target>
+        <source>Agrega tu país de residencia en Mi Perfil para ver info de visa</source>
+        <target>Add your country of residence in My Profile to see visa info</target>
       </trans-unit>
       <trans-unit id="stopList.currencyBadgeLabel" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="name"/> (<x id="INTERPOLATION_1" equiv-text="symbol"/>)</source>
@@ -231,6 +231,10 @@
       <trans-unit id="nav.registerSubtitle" datatype="html">
         <source>Únete y planifica viajes con tus amigos</source>
         <target>Join to plan trips with besties</target>
+      </trans-unit>
+      <trans-unit id="nav.acceptTermsLabel" datatype="html">
+        <source> Acepto los <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/terms&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Términos de servicio<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> y la <x id="START_LINK_1" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Política de privacidad<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <target> I accept the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/terms&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Terms of Service<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> and the <x id="START_LINK_1" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Privacy Policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </target>
       </trans-unit>
       <trans-unit id="nav.nameLabel" datatype="html">
         <source>Tu nombre</source>
@@ -1321,6 +1325,14 @@
         <source>Sin definir</source>
         <target>Not set</target>
       </trans-unit>
+      <trans-unit id="profile.saveCountryBtn" datatype="html">
+        <source>Guardar</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="profile.deleteCountryBtn" datatype="html">
+        <source>Eliminar</source>
+        <target>Delete</target>
+      </trans-unit>
       <trans-unit id="profile.saving" datatype="html">
         <source>Guardando…</source>
         <target>Saving…</target>
@@ -1929,6 +1941,222 @@
       <trans-unit id="about.team.miel.bio" datatype="html">
         <source>Experta en IA y consejos de viajes. Sabe como huelen las mejores atracciones y donde encontrarlas. Se dice que no duerme.</source>
         <target>AI and travel-tips expert. Knows what the best attractions smell like and where to find them. Rumor has it she never sleeps.</target>
+      </trans-unit>
+
+      <!-- ── terms.component ── -->
+      <trans-unit id="terms.eyebrow" datatype="html">
+        <source>Legal</source>
+        <target>Legal</target>
+      </trans-unit>
+      <trans-unit id="terms.title" datatype="html">
+        <source>Términos de servicio</source>
+        <target>Terms of Service</target>
+      </trans-unit>
+      <trans-unit id="terms.updated" datatype="html">
+        <source>Última actualización: 8 de septiembre de 2026</source>
+        <target>Last updated: September 8, 2026</target>
+      </trans-unit>
+      <trans-unit id="terms.s1.title" datatype="html">
+        <source>1. Aceptación de los términos</source>
+        <target>1. Acceptance of terms</target>
+      </trans-unit>
+      <trans-unit id="terms.s1.body" datatype="html">
+        <source>Al crear una cuenta o usar Tripilove ("la aplicación", "el servicio") aceptas estos Términos de servicio en su totalidad. Si no estás de acuerdo con alguna parte, no debes usar el servicio.</source>
+        <target>By creating an account or using Tripilove ("the app", "the service") you accept these Terms of Service in full. If you disagree with any part of them, you must not use the service.</target>
+      </trans-unit>
+      <trans-unit id="terms.s2.title" datatype="html">
+        <source>2. Qué es Tripilove</source>
+        <target>2. What Tripilove is</target>
+      </trans-unit>
+      <trans-unit id="terms.s2.body" datatype="html">
+        <source>Tripilove es una herramienta de planificación de viajes: te permite armar itinerarios con paradas, alojamiento y transporte, descubrir atracciones, compartir tus planes con otras personas, co-editar un viaje con amigos y generar sugerencias de itinerario asistidas por inteligencia artificial. No somos una agencia de viajes ni un proveedor de reservas — no vendemos vuelos, hoteles ni entradas, y no procesamos pagos en tu nombre a terceros proveedores turísticos.</source>
+        <target>Tripilove is a trip-planning tool: it lets you build itineraries with stops, lodging and transport, discover attractions, share your plans with other people, co-edit a trip with friends, and generate AI-assisted itinerary suggestions. We are not a travel agency or a booking provider — we do not sell flights, hotels, or tickets, and we do not process payments on your behalf to third-party travel providers.</target>
+      </trans-unit>
+      <trans-unit id="terms.s3.title" datatype="html">
+        <source>3. Tu cuenta</source>
+        <target>3. Your account</target>
+      </trans-unit>
+      <trans-unit id="terms.s3.body" datatype="html">
+        <source>Debes registrarte con un correo electrónico válido y una contraseña. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 años para crear una cuenta. Puedes actualizar tu nombre, correo, contraseña y país de residencia desde tu perfil en cualquier momento.</source>
+        <target>You must register with a valid email address and password. You are responsible for keeping your credentials confidential and for all activity on your account. You must be at least 13 years old to create an account. You can update your name, email, password, and country of residence from your profile at any time.</target>
+      </trans-unit>
+      <trans-unit id="terms.s4.title" datatype="html">
+        <source>4. El sistema de Karma</source>
+        <target>4. The Karma system</target>
+      </trans-unit>
+      <trans-unit id="terms.s4.body1" datatype="html">
+        <source>Karma es una moneda virtual interna de la aplicación, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Karma cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificación con inteligencia artificial.</source>
+        <target>Karma is an internal virtual currency of the app with no monetary value, which cannot be redeemed for cash or transferred outside of Tripilove. You earn Karma when other people comment on the stops of your shared trips, and you spend it when creating a trip, cloning a plan, exporting an itinerary, inviting a collaborator, or using the AI planning features.</target>
+      </trans-unit>
+      <trans-unit id="terms.s4.body2" datatype="html">
+        <source>Puedes comprar paquetes de Karma con dinero real a través de PayPal. Las compras de Karma son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</source>
+        <target>You can purchase Karma packages with real money via PayPal. Karma purchases are final and non-refundable once credited, except where applicable law requires otherwise.</target>
+      </trans-unit>
+      <trans-unit id="terms.s5.title" datatype="html">
+        <source>5. Contenido generado por inteligencia artificial</source>
+        <target>5. AI-generated content</target>
+      </trans-unit>
+      <trans-unit id="terms.s5.body" datatype="html">
+        <source>Las sugerencias de viaje y los itinerarios generados por nuestro asistente de IA ("ARIA") son orientativos. Pueden contener errores, información desactualizada o inexacta sobre horarios, precios, disponibilidad, requisitos de visa o documentación. Es tu responsabilidad verificar cualquier dato crítico directamente con la fuente oficial (el sitio del lugar, la aerolínea, la embajada correspondiente, etc.) antes de viajar.</source>
+        <target>Trip suggestions and itineraries generated by our AI assistant ("ARIA") are for guidance only. They may contain errors or outdated or inaccurate information about hours, prices, availability, or visa/documentation requirements. It is your responsibility to verify any critical detail directly with the official source (the venue's own site, the airline, the relevant embassy, etc.) before traveling.</target>
+      </trans-unit>
+      <trans-unit id="terms.s6.title" datatype="html">
+        <source>6. Contenido de terceros</source>
+        <target>6. Third-party content</target>
+      </trans-unit>
+      <trans-unit id="terms.s6.body" datatype="html">
+        <source>La información de atracciones, freetours y eventos que se muestra en la aplicación proviene de fuentes públicas y de terceros (incluyendo UNESCO, Civitatis y Ticketmaster) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</source>
+        <target>Attraction, freetour, and event information shown in the app comes from public and third-party sources (including UNESCO, Civitatis, and Ticketmaster) and may be outdated or inaccurate. We do not guarantee the accuracy of third-party hours, prices, or availability.</target>
+      </trans-unit>
+      <trans-unit id="terms.s7.title" datatype="html">
+        <source>7. Planes colaborativos</source>
+        <target>7. Collaborative plans</target>
+      </trans-unit>
+      <trans-unit id="terms.s7.body" datatype="html">
+        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas.</source>
+        <target>You can invite another registered person to co-edit a trip. Every collaborator can modify the same plan; the last saved edit takes precedence over earlier ones ("last write wins"). We do not offer real-time sync or automatic conflict resolution between simultaneous edits.</target>
+      </trans-unit>
+      <trans-unit id="terms.s8.title" datatype="html">
+        <source>8. Conducta esperada</source>
+        <target>8. Expected conduct</target>
+      </trans-unit>
+      <trans-unit id="terms.s8.body" datatype="html">
+        <source>Al comentar atracciones o viajes compartidos, no debes publicar contenido ofensivo, spam, ni información falsa. Aplicamos límites automáticos de frecuencia y similitud a los comentarios para prevenir spam. Podemos eliminar contenido o suspender cuentas que incumplan estas reglas.</source>
+        <target>When commenting on attractions or shared trips, you must not post offensive content, spam, or false information. We apply automatic frequency and similarity limits to comments to prevent spam. We may remove content or suspend accounts that violate these rules.</target>
+      </trans-unit>
+      <trans-unit id="terms.s9.title" datatype="html">
+        <source>9. Propiedad intelectual</source>
+        <target>9. Intellectual property</target>
+      </trans-unit>
+      <trans-unit id="terms.s9.body" datatype="html">
+        <source>El software, diseño, marca y contenido propio de Tripilove son propiedad de sus creadores. Conservas los derechos sobre el contenido que publicas (comentarios, nombres de viajes), pero nos otorgas una licencia para mostrarlo dentro del servicio, incluyendo en vistas compartidas públicamente.</source>
+        <target>Tripilove's software, design, brand, and original content are owned by its creators. You retain rights to the content you post (comments, trip names), but you grant us a license to display it within the service, including in publicly shared views.</target>
+      </trans-unit>
+      <trans-unit id="terms.s10.title" datatype="html">
+        <source>10. Limitación de responsabilidad</source>
+        <target>10. Limitation of liability</target>
+      </trans-unit>
+      <trans-unit id="terms.s10.body" datatype="html">
+        <source>Tripilove se ofrece "tal cual", sin garantías de disponibilidad ininterrumpida. En la máxima medida permitida por la ley, no somos responsables de daños indirectos derivados del uso de la aplicación, incluyendo decisiones de viaje tomadas a partir de información incorrecta mostrada en el servicio.</source>
+        <target>Tripilove is provided "as is", with no guarantee of uninterrupted availability. To the maximum extent permitted by law, we are not liable for indirect damages arising from use of the app, including travel decisions made based on incorrect information shown in the service.</target>
+      </trans-unit>
+      <trans-unit id="terms.s11.title" datatype="html">
+        <source>11. Terminación de cuenta</source>
+        <target>11. Account termination</target>
+      </trans-unit>
+      <trans-unit id="terms.s11.body" datatype="html">
+        <source>Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos términos, incluyendo uso abusivo del sistema de Karma o de las funciones de inteligencia artificial.</source>
+        <target>You can stop using the service at any time. We may suspend or delete accounts that violate these terms, including abuse of the Karma system or the AI planning features.</target>
+      </trans-unit>
+      <trans-unit id="terms.s12.title" datatype="html">
+        <source>12. Cambios a estos términos</source>
+        <target>12. Changes to these terms</target>
+      </trans-unit>
+      <trans-unit id="terms.s12.body" datatype="html">
+        <source>Podemos actualizar estos términos ocasionalmente. Publicaremos la fecha de la última actualización al inicio de esta página. El uso continuado del servicio después de un cambio implica la aceptación de los nuevos términos.</source>
+        <target>We may update these terms occasionally. We will publish the last-updated date at the top of this page. Continued use of the service after a change means you accept the new terms.</target>
+      </trans-unit>
+      <trans-unit id="terms.s13.title" datatype="html">
+        <source>13. Contacto</source>
+        <target>13. Contact</target>
+      </trans-unit>
+      <trans-unit id="terms.s13.body" datatype="html">
+        <source>Si tienes preguntas sobre estos términos, puedes contactarnos a través de los canales indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>If you have questions about these terms, you can reach us through the channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
+      </trans-unit>
+
+      <!-- ── privacy.component ── -->
+      <trans-unit id="privacy.eyebrow" datatype="html">
+        <source>Legal</source>
+        <target>Legal</target>
+      </trans-unit>
+      <trans-unit id="privacy.title" datatype="html">
+        <source>Política de privacidad</source>
+        <target>Privacy Policy</target>
+      </trans-unit>
+      <trans-unit id="privacy.updated" datatype="html">
+        <source>Última actualización: 8 de septiembre de 2026</source>
+        <target>Last updated: September 8, 2026</target>
+      </trans-unit>
+      <trans-unit id="privacy.s1.title" datatype="html">
+        <source>1. Qué información recopilamos</source>
+        <target>1. What information we collect</target>
+      </trans-unit>
+      <trans-unit id="privacy.s1.body" datatype="html">
+        <source>Recopilamos la información que nos entregas directamente: nombre, correo electrónico, contraseña (almacenada como hash, nunca en texto plano) y, opcionalmente, tu país de residencia. También guardamos los datos de tus planes de viaje (paradas, fechas, alojamiento, transporte, atracciones seleccionadas), tus comentarios en atracciones y viajes compartidos, los lugares que marcas como "visitados" en el mapa de tu perfil, y un identificador anónimo generado automáticamente en tu navegador (independiente de tu cuenta) que nos permite reconocer visitas recurrentes antes de que inicies sesión.</source>
+        <target>We collect the information you give us directly: name, email, password (stored as a hash, never in plain text) and, optionally, your country of residence. We also store your trip planning data (stops, dates, lodging, transport, selected attractions), your comments on attractions and shared trips, the places you mark as "visited" on your profile's map, and an anonymous identifier automatically generated in your browser (independent of your account) that lets us recognize returning visits before you log in.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s2.title" datatype="html">
+        <source>2. Cómo usamos tu información</source>
+        <target>2. How we use your information</target>
+      </trans-unit>
+      <trans-unit id="privacy.s2.body" datatype="html">
+        <source>Usamos tu información para operar el servicio: mostrar y guardar tus planes de viaje, generar sugerencias con inteligencia artificial, calcular tu saldo de Karma, enviarte notificaciones dentro de la aplicación y por correo (por ejemplo, confirmaciones de compra o invitaciones de colaboración), y mejorar el producto. No usamos tu información para publicidad dirigida.</source>
+        <target>We use your information to operate the service: displaying and saving your trip plans, generating AI suggestions, calculating your Karma balance, sending you in-app and email notifications (e.g. purchase confirmations or collaboration invites), and improving the product. We do not use your information for targeted advertising.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s3.title" datatype="html">
+        <source>3. Con quién compartimos información</source>
+        <target>3. Who we share information with</target>
+      </trans-unit>
+      <trans-unit id="privacy.s3.body" datatype="html">
+        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
+        <target>We share limited information with external providers strictly necessary to operate the service: PayPal to process Karma purchases, DeepSeek to generate AI trip suggestions (it only receives your travel preferences, not your account data), Cloudflare Turnstile to verify you're not a bot when registering or logging in, and our outbound email provider to send you transactional notifications. We never sell your personal information to third parties.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s4.title" datatype="html">
+        <source>4. Cookies y almacenamiento local</source>
+        <target>4. Cookies and local storage</target>
+      </trans-unit>
+      <trans-unit id="privacy.s4.body" datatype="html">
+        <source>Usamos el almacenamiento local de tu navegador (localStorage) para guardar tu sesión, tus preferencias (como el idioma) y una copia de tu plan de viaje en progreso. Usamos una cookie técnica HttpOnly para mantener tu sesión de forma segura, y una cookie para recordar tu idioma preferido. No usamos cookies de rastreo publicitario.</source>
+        <target>We use your browser's local storage (localStorage) to save your session, your preferences (like language), and a copy of your in-progress trip plan. We use a technical HttpOnly cookie to keep your session secure, and a cookie to remember your preferred language. We do not use advertising tracking cookies.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s5.title" datatype="html">
+        <source>5. Seguridad</source>
+        <target>5. Security</target>
+      </trans-unit>
+      <trans-unit id="privacy.s5.body" datatype="html">
+        <source>Tu contraseña se almacena usando bcrypt (un algoritmo de hash unidireccional, nunca en texto plano). Las credenciales viajan cifradas entre tu navegador y nuestros servidores. Las sesiones se gestionan con tokens de corta duración que se renuevan automáticamente.</source>
+        <target>Your password is stored using bcrypt (a one-way hashing algorithm, never in plain text). Credentials travel encrypted between your browser and our servers. Sessions are managed with short-lived tokens that renew automatically.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s6.title" datatype="html">
+        <source>6. Retención de datos</source>
+        <target>6. Data retention</target>
+      </trans-unit>
+      <trans-unit id="privacy.s6.body" datatype="html">
+        <source>Conservamos tu información mientras tu cuenta esté activa. Si eliminas tu cuenta, eliminamos tus datos personales identificables, salvo la información que debamos conservar por obligación legal (por ejemplo, registros de transacciones de pago).</source>
+        <target>We keep your information while your account is active. If you delete your account, we remove your identifiable personal data, except information we must keep for legal reasons (for example, payment transaction records).</target>
+      </trans-unit>
+      <trans-unit id="privacy.s7.title" datatype="html">
+        <source>7. Tus derechos</source>
+        <target>7. Your rights</target>
+      </trans-unit>
+      <trans-unit id="privacy.s7.body" datatype="html">
+        <source>Puedes acceder, corregir o eliminar tu información personal en cualquier momento desde tu perfil (nombre, contraseña, país de residencia), o solicitando la eliminación completa de tu cuenta a través de los canales de contacto indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>You can access, correct, or delete your personal information at any time from your profile (name, password, country of residence), or request full account deletion through the contact channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s8.title" datatype="html">
+        <source>8. Menores de edad</source>
+        <target>8. Minors</target>
+      </trans-unit>
+      <trans-unit id="privacy.s8.body" datatype="html">
+        <source>El servicio no está dirigido a menores de 13 años y no recopilamos intencionalmente información de menores de esa edad.</source>
+        <target>The service is not directed at children under 13 and we do not knowingly collect information from anyone under that age.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s9.title" datatype="html">
+        <source>9. Cambios a esta política</source>
+        <target>9. Changes to this policy</target>
+      </trans-unit>
+      <trans-unit id="privacy.s9.body" datatype="html">
+        <source>Podemos actualizar esta política ocasionalmente. Publicaremos la fecha de la última actualización al inicio de esta página.</source>
+        <target>We may update this policy occasionally. We will publish the last-updated date at the top of this page.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s10.title" datatype="html">
+        <source>10. Contacto</source>
+        <target>10. Contact</target>
+      </trans-unit>
+      <trans-unit id="privacy.s10.body" datatype="html">
+        <source>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos a través de los canales indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>If you have questions about this privacy policy, you can reach us through the channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
       </trans-unit>
 
       <!-- ── lodging.component ── -->

@@ -66,11 +66,6 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
                          (openAiPlanning)="showAiPlanning.set(true)"
                          (loadLastEditedPlan)="loadLastEditedPlan($event)" />
           </div>
-          <!-- Scroll hint -->
-          <div class="scroll-hint">
-            <span i18n="@@landing.scrollHint">Desliza para explorar</span>
-            <div class="scroll-arrow">↓</div>
-          </div>
         </section>
 
         <!-- S2: cinematic slideshow (hidden when no featured trips) -->
@@ -211,6 +206,22 @@ export class ShellComponent {
         this.showProfile.set(false);
         this.showAiPlanning.set(false);
         this.showMyTrips.set(true);
+      }
+    });
+
+    // Any nav action that restores TripService's stops from elsewhere (loading a saved
+    // plan, the logo click, starting a new trip) needs the app-mode editor to actually be
+    // visible afterward — but NavFacadeService has no reference to these overlay signals to
+    // close them itself. closeOverlaysRequestId is that one-way "close everything" request
+    // (see NavFacadeService for why it's a counter, not a boolean).
+    let lastCloseOverlaysRequestId = 0;
+    effect(() => {
+      const id = this.facade.closeOverlaysRequestId();
+      if (id !== lastCloseOverlaysRequestId) {
+        lastCloseOverlaysRequestId = id;
+        this.showProfile.set(false);
+        this.showAiPlanning.set(false);
+        this.showMyTrips.set(false);
       }
     });
 

@@ -91,6 +91,30 @@ describe('TripService', () => {
   });
 });
 
+describe('TripService — day jump request (feedback round 2, item 2)', () => {
+  let trip: TripService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+  });
+
+  it('starts with no pending request', () => {
+    expect(trip.dayJumpRequest()).toBeNull();
+  });
+
+  it('requestDayJump sets the request; consumeDayJumpRequest clears it', () => {
+    trip.requestDayJump('stop-1', '02/06');
+    expect(trip.dayJumpRequest()).toEqual({ stopId: 'stop-1', dayKey: '02/06' });
+
+    trip.consumeDayJumpRequest();
+    expect(trip.dayJumpRequest()).toBeNull();
+  });
+});
+
 describe('TripService.loadForUserPreservingAnonymous', () => {
   let service: TripService;
 

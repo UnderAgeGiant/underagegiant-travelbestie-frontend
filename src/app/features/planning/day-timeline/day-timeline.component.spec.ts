@@ -1,6 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { LOCALE_ID } from '@angular/core';
 import { DayTimelineComponent } from './day-timeline.component';
 import { TripService } from '../../trip/trip.service';
 import { City } from '../../../core/models/city.model';
@@ -127,6 +128,42 @@ describe('DayTimelineComponent — trip-wide days', () => {
     expect(keys).toEqual(expect.arrayContaining(['01/06', '02/06', '04/06', '05/06']));
     expect(days.some(d => d.cityId === 'paris')).toBe(true);
     expect(days.some(d => d.cityId === 'london')).toBe(true);
+  });
+});
+
+describe('DayTimelineComponent — day-tabs scroll arrows threshold (user-requested 2026-09-09)', () => {
+  it('does not show scroll arrows with exactly 3 day tabs', () => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    trip.addStop(PARIS, '01/06/2026', '03/06/2026'); // 3 day tabs: 01, 02, 03
+    fixture.detectChanges();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.tl-days-arrow-left')).toBeNull();
+    expect(el.querySelector('.tl-days-arrow-right')).toBeNull();
+  });
+
+  it('shows scroll arrows once there are more than 3 day tabs', () => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    trip.addStop(PARIS, '01/06/2026', '04/06/2026'); // 4 day tabs: 01, 02, 03, 04
+    fixture.detectChanges();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.tl-days-arrow-left')).not.toBeNull();
+    expect(el.querySelector('.tl-days-arrow-right')).not.toBeNull();
   });
 });
 
@@ -486,6 +523,11 @@ describe('DayTimelineComponent — readOnly (public shared-trip view)', () => {
     component = fixture.componentInstance;
     trip.addStop(PARIS, '01/06/2026', '05/06/2026');
     trip.addAttraction(trip.activeStop()!.stopId, 'paris_louvre', '09:00', undefined, 'poi', 150);
+    // Matches real usage: SharedTripComponent always pairs [readOnly]="true" with an explicit
+    // [stop] input (never relies on a TripService fallback — see the 2026-09-09 bug fix in
+    // day-timeline.component.ts, which stops readOnly instances from ever falling back to
+    // TripService's own in-progress-trip state).
+    fixture.componentRef.setInput('stop', trip.activeStop());
     fixture.detectChanges();
   });
 
@@ -568,6 +610,52 @@ describe('DayTimelineComponent — readOnly (public shared-trip view)', () => {
 
     expect(component['dragPreview']()).toBeNull();
     expect(overEvent.preventDefault).not.toHaveBeenCalled();
+  });
+});
+
+describe('DayTimelineComponent — readOnly mode never falls back to TripService (2026-09-09 user-reported bug)', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    // Simulates an anonymous visitor with an own trip already in progress (TripService's
+    // global state) navigating via the SPA router to a public shared-trip page, before they've
+    // clicked any city there — SharedTripComponent binds [stop]="selectedShareStop()" (null
+    // until a city is clicked) and [readOnly]="true".
+    trip.addStop(PARIS, '09/09/2026', '18/09/2026');
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+  });
+
+  it('is not visible when readOnly and no stop input is bound, even though TripService has its own active stop', () => {
+    expect(component['visible']()).toBe(false);
+  });
+
+  it('shows no day tabs (not TripService.stops()) when readOnly and no stop input is bound', () => {
+    expect(component['days']()).toEqual([]);
+  });
+
+  it('shows only the bound stop input, never TripService.activeStop(), once one is provided', () => {
+    fixture.componentRef.setInput('stop', {
+      stopId: 'shared-stop-1', cityId: 'barcelona',
+      checkIn: '15/07/2026', checkOut: '17/07/2026', selectedAttractions: [],
+    });
+    fixture.detectChanges();
+
+    expect(component['visible']()).toBe(true);
+    const days = component['days']();
+    expect(days.length).toBeGreaterThan(0);
+    expect(days.every(d => d.cityId === 'barcelona')).toBe(true);
   });
 });
 
@@ -888,5 +976,97 @@ describe('DayTimelineComponent — weather chip trigger', () => {
 
     const temp = fixture.nativeElement.querySelector('.tl-day-weather-temp');
     expect(temp.textContent.trim()).toBe('14°/23°');
+  });
+});
+
+describe('DayTimelineComponent — consumes TripService.dayJumpRequest (feedback round 2, item 2)', () => {
+  let trip: TripService;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+  let component: DayTimelineComponent;
+
+  beforeEach(() => {
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('jumps to the requested day and clears the request when it matches the currently-shown stop', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    const stopId = trip.activeStop()!.stopId;
+    fixture.detectChanges();
+
+    trip.requestDayJump(stopId, '03/06');
+    fixture.detectChanges();
+
+    expect(component['selectedDay']()).toBe('03/06');
+    expect(trip.dayJumpRequest()).toBeNull();
+  });
+
+  it('ignores a request for a different stopId and leaves the request pending for whichever instance does match', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+    const before = component['selectedDay']();
+
+    trip.requestDayJump('some-other-stop-id', '03/06');
+    fixture.detectChanges();
+
+    expect(component['selectedDay']()).toBe(before);
+    expect(trip.dayJumpRequest()).toEqual({ stopId: 'some-other-stop-id', dayKey: '03/06' });
+  });
+});
+
+describe('DayTimelineComponent — locale-aware day-tab weekday labels (feedback round 2, item 3)', () => {
+  function setup(localeId: string): { trip: TripService; fixture: ComponentFixture<DayTimelineComponent> } {
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [
+        provideHttpClient(withXhr()), provideHttpClientTesting(),
+        { provide: LOCALE_ID, useValue: localeId },
+      ],
+    });
+    const trip = TestBed.inject(TripService);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    fixture.detectChanges();
+    return { trip, fixture };
+  }
+
+  it('renders Spanish weekday abbreviations when the compiled bundle locale is es-CL', () => {
+    const { trip, fixture } = setup('es-CL');
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026'); // 01/06/2026 is a Monday
+    fixture.detectChanges();
+
+    const days = fixture.componentInstance['days']();
+    expect(days[0].dow).toBe(new Date(2026, 5, 1).toLocaleDateString('es-CL', { weekday: 'short' }));
+  });
+
+  it('renders English weekday abbreviations when the compiled bundle locale is en-US', () => {
+    const { trip, fixture } = setup('en-US');
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+
+    const days = fixture.componentInstance['days']();
+    expect(days[0].dow).toBe(new Date(2026, 5, 1).toLocaleDateString('en-US', { weekday: 'short' }));
+  });
+
+  it('the two locales actually produce different labels (sanity check the test itself is meaningful)', () => {
+    const es = setup('es-CL');
+    es.trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    es.fixture.detectChanges();
+    const esDow = es.fixture.componentInstance['days']()[0].dow;
+
+    TestBed.resetTestingModule();
+    const en = setup('en-US');
+    en.trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    en.fixture.detectChanges();
+    const enDow = en.fixture.componentInstance['days']()[0].dow;
+
+    expect(esDow).not.toBe(enDow);
   });
 });

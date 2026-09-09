@@ -55,6 +55,20 @@ export class NavFacadeService {
   /** One-shot command: open My Trips to a specific tab (e.g. from a notification click). Consumed by MyTripsComponent. */
   pendingMyTripsTab = signal<'trips' | 'collaborations' | 'aiplans' | null>(null);
 
+  // Fire-and-forget "close every shell-level page overlay" request. ShellComponent owns
+  // showProfile/showMyTrips/showAiPlanning and this facade has no reference to them (same
+  // gap pendingMyTripsTab already solves for the "🗺 Mis viajes" nav button specifically) —
+  // doLoadPlan/onLogoClick/doNewTrip below all restore TripService's stops, which should
+  // always surface the app-mode editor, but none of them could tell Shell to stop covering
+  // it with whichever overlay happened to be open (2026-09-08 feedback #3). A monotonic
+  // counter (not a boolean) so two requests in a row before Shell's effect next runs are
+  // both still observed as a change.
+  closeOverlaysRequestId = signal(0);
+
+  private requestCloseShellOverlays(): void {
+    this.closeOverlaysRequestId.update(v => v + 1);
+  }
+
   // ── saved-plans / favorites / shared-trips state ──
   plansOpen      = signal(false);
   planSearch     = signal('');
@@ -292,6 +306,7 @@ export class NavFacadeService {
     this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? []);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
+    this.requestCloseShellOverlays();
 
     // Loading a plan while viewing a shared trip (/shared/:id) should return
     // to the main app view. window.location.search is no longer a reliable
@@ -309,6 +324,7 @@ export class NavFacadeService {
     this.trip.restoreStops([], null);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
+    this.requestCloseShellOverlays();
   }
 
   doNewTrip(): void {
@@ -317,6 +333,7 @@ export class NavFacadeService {
     this.trip.restoreStops([], null);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
+    this.requestCloseShellOverlays();
   }
 
   doDeletePlan(id: string): void {

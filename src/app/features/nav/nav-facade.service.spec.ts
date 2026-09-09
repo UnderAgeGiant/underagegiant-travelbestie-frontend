@@ -101,14 +101,28 @@ describe('NavFacadeService — shared trips + logo', () => {
     expect(facade.filteredSharedTrips().length).toBe(1);
   });
 
-  it('onLogoClick clears stops and closes menus without throwing', () => {
+  it('onLogoClick clears stops, closes menus, and requests the shell overlays close', () => {
     const trip = TestBed.inject(TripService);
     facade.userMenuOpen.set(true);
     facade.plansOpen.set(true);
+    const before = facade.closeOverlaysRequestId();
     facade.onLogoClick();
     expect(facade.userMenuOpen()).toBe(false);
     expect(facade.plansOpen()).toBe(false);
     expect(trip.stops().length).toBe(0);
+    expect(facade.closeOverlaysRequestId()).toBe(before + 1);
+  });
+
+  it('doLoadPlan requests the shell overlays close', () => {
+    const before = facade.closeOverlaysRequestId();
+    facade.doLoadPlan({ id: 'trip-1', name: 'My Trip', savedAt: '2026-01-01', stops: [] });
+    expect(facade.closeOverlaysRequestId()).toBe(before + 1);
+  });
+
+  it('doNewTrip requests the shell overlays close', () => {
+    const before = facade.closeOverlaysRequestId();
+    facade.doNewTrip();
+    expect(facade.closeOverlaysRequestId()).toBe(before + 1);
   });
 
   it('autoSaveCurrentTrip() (invoked by onLogoClick) passes { background: true } to upsert() (Finding 4 fix)', () => {

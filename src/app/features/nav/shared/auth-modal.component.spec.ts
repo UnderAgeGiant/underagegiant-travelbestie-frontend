@@ -116,6 +116,42 @@ describe('AuthModalComponent — sign-in button loading state', () => {
     fixture.detectChanges();
     expect(submitBtn().disabled).toBe(false);
   });
+
+  it('fully re-mounts the Turnstile widget after a failed login instead of relying on ts.reset() (2026-09-08 feedback #2 — reset() can leave a stuck widget that never re-arms, permanently disabling the register submit button)', async () => {
+    const renderSpy = jest.fn(() => 'widget-2');
+    const removeSpy = jest.fn();
+    const resetSpy = jest.fn();
+    (window as any).turnstile = { render: renderSpy, remove: removeSpy, reset: resetSpy };
+    // Re-open so this test's fresh spies are the ones renderTurnstile() actually calls.
+    authModal.close();
+    fixture.detectChanges();
+    authModal.openLogin();
+    fixture.componentInstance.loginEmail.set('test@test.com');
+    fixture.componentInstance.loginPassword.set('secret123');
+    fixture.componentInstance.captchaToken.set('captcha-token');
+    fixture.detectChanges();
+    // Flush the effect's pending setTimeout so it renders before we clear spies.
+    await new Promise(resolve => setTimeout(resolve, 10));
+    renderSpy.mockClear();
+
+    submitBtn().click();
+    fixture.detectChanges();
+    http.expectOne(r => r.url.includes('/auth/login')).flush(
+      { code: 'WRONG_PASSWORD' },
+      { status: 401, statusText: 'Unauthorized' },
+    );
+    fixture.detectChanges();
+
+    // The old bug: resetTurnstile() only called ts.reset(id), which can leave the widget stuck.
+    expect(resetSpy).not.toHaveBeenCalled();
+    expect(removeSpy).toHaveBeenCalledWith('widget-2');
+
+    // resetTurnstile() scheduled renderTurnstile() via setTimeout(0) — let that macrotask run.
+    await new Promise(resolve => setTimeout(resolve, 10));
+    fixture.detectChanges();
+
+    expect(renderSpy).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('AuthModalComponent — OTP input digit filtering', () => {
@@ -186,5 +222,70 @@ describe('AuthModalComponent — OTP input digit filtering', () => {
 
     expect(fixture.componentInstance.resetOtp()).toBe('');
     expect(input.value).toBe('');
+  });
+});
+
+describe('AuthModalComponent — accept Terms of Service before registering (2026-09-09 feedback round 2, item 1)', () => {
+  let fixture: ComponentFixture<AuthModalComponent>;
+  let authModal: AuthModalService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    (window as any).turnstile = {
+      render: () => 'widget-1',
+      remove: () => {},
+      reset: () => {},
+    };
+    TestBed.configureTestingModule({
+      imports: [AuthModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    authModal = TestBed.inject(AuthModalService);
+    fixture = TestBed.createComponent(AuthModalComponent);
+    authModal.openLogin();
+    fixture.componentInstance.switchToRegister();
+    fixture.componentInstance.loginName.set('Sofía García');
+    fixture.componentInstance.loginEmail.set('sofia@test.com');
+    fixture.componentInstance.loginPassword.set('secret123');
+    fixture.componentInstance.loginConfirmPassword.set('secret123');
+    fixture.componentInstance.captchaToken.set('captcha-token');
+    fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    delete (window as any).turnstile;
+  });
+
+  function sendOtpBtn(): HTMLButtonElement {
+    return fixture.nativeElement.querySelector('.modal-foot .btn-primary') as HTMLButtonElement;
+  }
+
+  function termsCheckbox(): HTMLInputElement {
+    return fixture.nativeElement.querySelector('input[type="checkbox"]') as HTMLInputElement;
+  }
+
+  it('renders an unchecked "accept Terms of Service" checkbox on the register form step', () => {
+    expect(termsCheckbox()).toBeTruthy();
+    expect(termsCheckbox().checked).toBe(false);
+  });
+
+  it('keeps "Enviar código →" disabled even with every other field valid until the checkbox is checked', () => {
+    expect(sendOtpBtn().disabled).toBe(true);
+
+    termsCheckbox().click();
+    fixture.detectChanges();
+
+    expect(sendOtpBtn().disabled).toBe(false);
+  });
+
+  it('re-disables the button if the checkbox is unchecked again', () => {
+    termsCheckbox().click();
+    fixture.detectChanges();
+    expect(sendOtpBtn().disabled).toBe(false);
+
+    termsCheckbox().click();
+    fixture.detectChanges();
+    expect(sendOtpBtn().disabled).toBe(true);
   });
 });

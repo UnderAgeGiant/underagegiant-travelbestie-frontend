@@ -106,7 +106,7 @@ export class AuthService {
 
   updateProfile(fields: {
     name?: string; newEmail?: string; otp?: string;
-    currentPassword?: string; newPassword?: string; countryOfResidence?: string;
+    currentPassword?: string; newPassword?: string; countryOfResidence?: string | null;
   }): Observable<{ user: AuthUser }> {
     if (environment.useMocks) {
       const current = this._user();

@@ -1,0 +1,36 @@
+import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
+import { TermsComponent } from './terms.component';
+
+describe('TermsComponent', () => {
+  beforeEach(() => {
+    // Mock window.matchMedia for DeviceService
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+  });
+
+  it('renders the legal page shell and headline', () => {
+    TestBed.configureTestingModule({
+      imports: [TermsComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(TermsComponent);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.legal-page')).toBeTruthy();
+    expect(el.textContent).toContain('Términos de servicio');
+  });
+});

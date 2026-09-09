@@ -183,7 +183,7 @@ function transitLabel(mode: TransitMode): string {
       <!-- Day tabs (hidden in transport mode) -->
       @if (!transportMode()) {
         <div class="tl-days-row">
-          @if (days().length > 6) {
+          @if (days().length > 3) {
             <button type="button" class="tl-days-arrow tl-days-arrow-left"
                     (click)="scrollDays(-1)"
                     i18n-aria-label="@@timeline.scrollDaysLeft" aria-label="Ver días anteriores">‹</button>
@@ -207,7 +207,7 @@ function transitLabel(mode: TransitMode): string {
               </button>
             }
           </div>
-          @if (days().length > 6) {
+          @if (days().length > 3) {
             <button type="button" class="tl-days-arrow tl-days-arrow-right"
                     (click)="scrollDays(1)"
                     i18n-aria-label="@@timeline.scrollDaysRight" aria-label="Ver días siguientes">›</button>
@@ -358,8 +358,26 @@ export class DayTimelineComponent {
   private lastWeatherSignature: string | null = null;
 
   // ── Active stop + transits (input override or service) ────────────────────
+  // In readOnly mode (SharedTripComponent's public itinerary view) this instance must never
+  // fall back to TripService — TripService reflects whatever the VIEWER's own in-progress
+  // trip is, which has nothing to do with the shared trip being displayed. Without this guard,
+  // an anonymous visitor who already had an own trip going, then navigated (via the SPA
+  // router, no full page reload) to a shared-trip link, saw this panel keep showing their own
+  // trip's stop/days instead of the shared trip's — because `this.stop()` starts out `null`
+  // here (SharedTripComponent's `selectedShareStop()` is null until a city is clicked) and the
+  // old fallback couldn't tell "no stop input at all" (trip-wide planning page) apart from
+  // "stop input bound but currently null" (shared page, nothing selected yet).
+  // (2026-09-09, user-reported bug.)
+  private tripActiveStopFallback(): TripStop | null {
+    return this.readOnly() ? null : this.trip.activeStop();
+  }
+
+  private tripStopsFallback(): TripStop[] {
+    return this.readOnly() ? [] : this.trip.stops();
+  }
+
   private activeStop(): TripStop | null {
-    return this.stop() ?? this.trip.activeStop();
+    return this.stop() ?? this.tripActiveStopFallback();
   }
 
   // Prefer explicit input; fall back to TripService (planning page)
@@ -369,11 +387,11 @@ export class DayTimelineComponent {
 
   // ── Visibility ────────────────────────────────────────────────────────────
   protected readonly visible = computed(() =>
-    !!this.activeStop() || !!this.trip.selectedTransitId(),
+    !!this.activeStop() || (!this.readOnly() && !!this.trip.selectedTransitId()),
   );
 
   protected readonly transportMode = computed(() =>
-    !this.stop() && !this.trip.activeStop() && !!this.trip.selectedTransitId(),
+    !this.stop() && !this.tripActiveStopFallback() && !this.readOnly() && !!this.trip.selectedTransitId(),
   );
 
   // ── Selected day (reset on stop change) ───────────────────────────────────
@@ -381,7 +399,7 @@ export class DayTimelineComponent {
 
   // ── Day tabs — trip-wide when no explicit stop input ─────────────────────
   protected readonly days = computed<DayTab[]>(() => {
-    const stops    = this.stop() ? [this.stop()!] : this.trip.stops();
+    const stops    = this.stop() ? [this.stop()!] : this.tripStopsFallback();
     const transits = this.allTransits();
     const tabs: DayTab[] = [];
 
@@ -408,7 +426,7 @@ export class DayTimelineComponent {
           ),
         );
         tabs.push({
-          date: new Date(d), dow: d.toLocaleDateString(undefined, { weekday: 'short' }), num: d.getDate(), key,
+          date: new Date(d), dow: d.toLocaleDateString(this.locale.current(), { weekday: 'short' }), num: d.getDate(), key,
           hasEvents: hasAtt || hasTransit, cityId: stop.cityId, cityFlag,
         });
       }
@@ -438,11 +456,11 @@ export class DayTimelineComponent {
   // The stop that owns the currently-selected day (for trip-wide tabs).
   private readonly selectedStopForDay = computed<TripStop | null>(() => {
     const key   = this.selectedDay();
-    const stops = this.stop() ? [this.stop()!] : this.trip.stops();
-    if (!key) return this.stop() ?? this.trip.activeStop();
+    const stops = this.stop() ? [this.stop()!] : this.tripStopsFallback();
+    if (!key) return this.stop() ?? this.tripActiveStopFallback();
     const tab = this.days().find(t => t.key === key);
-    if (!tab) return this.stop() ?? this.trip.activeStop();
-    return stops.find(s => s.cityId === (tab as any).cityId) ?? this.trip.activeStop();
+    if (!tab) return this.stop() ?? this.tripActiveStopFallback();
+    return stops.find(s => s.cityId === (tab as any).cityId) ?? this.tripActiveStopFallback();
   });
 
   // ── Auto-select first day with events on stop change ──────────────────────
@@ -487,7 +505,7 @@ export class DayTimelineComponent {
     // to call load() for THIS instance's relevant stop(s) — WeatherService
     // de-duplicates concurrent identical requests itself.
     effect(() => {
-      const stops = this.stop() ? [this.stop()!] : this.trip.stops();
+      const stops = this.stop() ? [this.stop()!] : this.tripStopsFallback();
       const signature = stops
         .filter(s => s.checkIn && s.checkOut)
         .map(s => `${s.cityId}|${s.checkIn}|${s.checkOut}`)
@@ -500,6 +518,23 @@ export class DayTimelineComponent {
         this.weather.load(stop.cityId, stop.checkIn, stop.checkOut);
       }
     });
+
+    // Consumes TripService.dayJumpRequest — see that service for why this exists (2026-09-09
+    // feedback round 2, item 2). Only the instance currently showing the requested stopId
+    // (the inline per-stop instance via its `stop` input, or the main instance via
+    // trip.activeStop() when no `stop` input is bound) reacts; every other mounted instance
+    // leaves the request untouched for whichever one actually matches.
+    effect(() => {
+      const req = this.trip.dayJumpRequest();
+      if (!req) return;
+      const stop = this.activeStop();
+      if (!stop || stop.stopId !== req.stopId) return;
+      if (!this.days().some(d => d.key === req.dayKey)) return;
+      this.selectedDay.set(req.dayKey);
+      this.lastStopId = stop.stopId;
+      if (this.device.isMobile() && !this.inline()) this.collapsed.set(false);
+      this.trip.consumeDayJumpRequest();
+    }, { allowSignalWrites: true });
   }
 
   protected selectDay(key: string): void {
