@@ -43,6 +43,11 @@ describe('ShellComponent', () => {
     expect(el.querySelector('.layout')).toBeFalsy();
   });
 
+  it('does not render the scroll hint (dead control removed, feedback #1)', () => {
+    const el = setup(0).nativeElement as HTMLElement;
+    expect(el.querySelector('.scroll-hint')).toBeNull();
+  });
+
   it('renders the app layout when stops exist', () => {
     const el = setup(2).nativeElement as HTMLElement;
     expect(el.querySelector('.layout')).toBeTruthy();

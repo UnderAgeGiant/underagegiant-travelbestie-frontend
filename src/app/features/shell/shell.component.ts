@@ -66,11 +66,6 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
                          (openAiPlanning)="showAiPlanning.set(true)"
                          (loadLastEditedPlan)="loadLastEditedPlan($event)" />
           </div>
-          <!-- Scroll hint -->
-          <div class="scroll-hint">
-            <span i18n="@@landing.scrollHint">Desliza para explorar</span>
-            <div class="scroll-arrow">↓</div>
-          </div>
         </section>
 
         <!-- S2: cinematic slideshow (hidden when no featured trips) -->

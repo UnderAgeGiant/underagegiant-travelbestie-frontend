@@ -286,9 +286,6 @@ app-nav { display: block; }
 .slider-dots { position: absolute; bottom: 32px; right: 40px; display: flex; gap: 7px; z-index: 3; }
 .slider-dot { width: 7px; height: 7px; border-radius: 50%; background: oklch(100% 0 0/.4); cursor: pointer; transition: all .3s; border: none; }
 .slider-dot.active { background: #fff; width: 22px; border-radius: 4px; }
-.slider-arrows { position: absolute; top: 50%; right: 20px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 3; }
-.slider-arrow { width: 36px; height: 36px; border-radius: 50%; background: oklch(100% 0 0/.2); backdrop-filter: blur(8px); color: #fff; font-size: 14px; display: flex; align-items: center; justify-content: center; border: 1px solid oklch(100% 0 0/.3); cursor: pointer; transition: all .2s; }
-.slider-arrow:hover { background: oklch(100% 0 0/.4); }
 
 /* WELCOME */
 .welcome-overlay { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; min-height: 100%; padding: 60px 40px 40px; }
@@ -972,37 +969,6 @@ app-nav { display: block; }
 /* ── S1 shell: left panel + right panel side by side ───────────────────── */
 .s1-shell { display: flex; background: var(--cream); }
 .s1-shell > .right-panel { overflow: hidden; }
-
-/* ── Scroll hint ────────────────────────────────────────────────────────── */
-.scroll-hint {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: oklch(100% 0 0/.5);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-.scroll-arrow {
-  width: 28px;
-  height: 28px;
-  border: 1.5px solid oklch(100% 0 0/.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: bounceDown .9s ease-in-out infinite alternate;
-}
-@keyframes bounceDown { from { transform: translateY(0) } to { transform: translateY(6px) } }
-@media (prefers-reduced-motion: reduce) { .scroll-arrow { animation: none; } }
 
 /* ── S2 — Cinematic full-page slideshow ─────────────────────────────────── */
 .featured-slideshow { background: oklch(12% .04 290); }

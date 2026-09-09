@@ -48,4 +48,10 @@ describe('WelcomeComponent — last edited plan shortcut', () => {
     btn.click();
     expect(emitted?.id).toBe('p2');
   });
+
+  it('does not render the slider arrows (dead controls removed, feedback #1)', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(false);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.slider-arrows')).toBeNull();
+  });
 });
