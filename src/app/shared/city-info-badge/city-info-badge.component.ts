@@ -101,7 +101,7 @@ export class CityInfoBadgeComponent implements OnDestroy {
 
   readonly ctaClick = output<void>();
 
-  protected readonly setCountryCta = $localize`:@@cityInfo.setCountryCta:Agrega tu país de residencia para ver info de visa`;
+  protected readonly setCountryCta = $localize`:@@cityInfo.setCountryCta:Agrega tu país de residencia en Mi Perfil para ver info de visa`;
 
   private readonly destIso2 = computed(() => countryCodeFromFlagEmoji(this.city().flag));
 

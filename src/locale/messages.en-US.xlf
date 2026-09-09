@@ -197,8 +197,8 @@
         <target>City information</target>
       </trans-unit>
       <trans-unit id="cityInfo.setCountryCta" datatype="html">
-        <source>Agrega tu país de residencia para ver info de visa</source>
-        <target>Add your country of residence to see visa info</target>
+        <source>Agrega tu país de residencia en Mi Perfil para ver info de visa</source>
+        <target>Add your country of residence in My Profile to see visa info</target>
       </trans-unit>
       <trans-unit id="stopList.currencyBadgeLabel" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="name"/> (<x id="INTERPOLATION_1" equiv-text="symbol"/>)</source>
