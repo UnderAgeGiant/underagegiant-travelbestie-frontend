@@ -83,6 +83,24 @@ describe('ApiService (useMocks=true)', () => {
       done();
     });
   });
+
+  it('createMpPreference (mock mode) resolves without hitting HTTP', done => {
+    service.createMpPreference('karma_10').subscribe(res => {
+      expect(res.preferenceId).toContain('karma_10');
+      expect(res.initPoint).toBe('');
+      done();
+    });
+  });
+
+  it('getMpPurchaseStatus (mock mode) reports completed with the right karmaAdded', done => {
+    service.createMpPreference('karma_25').subscribe(created => {
+      service.getMpPurchaseStatus(created.preferenceId).subscribe(status => {
+        expect(status.status).toBe('completed');
+        expect(status.karmaAdded).toBe(25);
+        done();
+      });
+    });
+  });
 });
 
 describe('ApiService — planTrip (async kickoff + poll)', () => {
@@ -205,6 +223,19 @@ describe('ApiService (useMocks=false via spy)', () => {
     service.deleteAiPlanHistoryItem('req-1').subscribe();
     const req = http.expectOne(r => r.url.includes('/ai/plan/req-1') && r.method === 'DELETE');
     req.flush(null);
+  });
+
+  it('createMpPreference calls POST /karma/purchase/mp/create-preference', () => {
+    service.createMpPreference('karma_10').subscribe();
+    const req = http.expectOne(r => r.url.includes('/karma/purchase/mp/create-preference') && r.method === 'POST');
+    expect(req.request.body).toEqual({ packageId: 'karma_10' });
+    req.flush({ preferenceId: 'pref-1', initPoint: 'https://mp.example.com/checkout/pref-1' });
+  });
+
+  it('getMpPurchaseStatus calls GET /karma/purchase/mp/status/:purchaseRef', () => {
+    service.getMpPurchaseStatus('mp_abc').subscribe();
+    const req = http.expectOne(r => r.url.includes('/karma/purchase/mp/status/mp_abc') && r.method === 'GET');
+    req.flush({ status: 'completed', karmaAdded: 10 });
   });
 });
 

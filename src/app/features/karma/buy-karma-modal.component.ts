@@ -1,5 +1,5 @@
 import {
-  Component, inject, signal, output, OnDestroy,
+  Component, inject, signal, output, input, effect, OnDestroy,
   ChangeDetectionStrategy
 } from '@angular/core';
 import { firstValueFrom, map } from 'rxjs';
@@ -53,6 +53,15 @@ import { environment } from '../../../environments/environment';
             </div>
           }
 
+          <!-- MercadoPago post-redirect confirmation (webhook is still processing) -->
+          @if (step() === 'mp-confirm') {
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 16px;gap:14px">
+              <div style="width:44px;height:44px;border-radius:50%;border:4px solid var(--lav);border-top-color:var(--lav-d);animation:spin .7s linear infinite"></div>
+              <div style="font-size:13px;font-weight:600;color:var(--t2)" i18n="@@buyKarma.mpConfirming">Confirmando tu pago…</div>
+              <div style="font-size:11px;color:var(--t3)" i18n="@@buyKarma.mpConfirmingHint">Esto puede tardar unos segundos</div>
+            </div>
+          }
+
           @if (!paying()) {
             <!-- Package selector -->
             @if (!loading() && step() === 'select') {
@@ -72,27 +81,68 @@ import { environment } from '../../../environments/environment';
                 }
               </div>
 
-              <!-- State B: PayPal SDK loading / button rendering (real mode) -->
-              @if (selected() && !isMockMode) {
-                @if (paypalLoading()) {
-                  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;gap:10px">
-                    <div style="width:30px;height:30px;border-radius:50%;border:3px solid var(--lav);border-top-color:var(--lav-d);animation:spin .7s linear infinite"></div>
-                    <div style="font-size:11px;color:var(--t3)" i18n="@@buyKarma.paypalLoading">Cargando botón de pago…</div>
-                  </div>
-                }
-                <!-- Container must always be in the layout (never display:none) so the
-                     ResizeObserver can detect when PayPal renders content into it. -->
-                <div id="paypal-btn-container" style="min-height:48px"></div>
-              }
+              @if (selected()) {
+                <!-- Provider tabs — MercadoPago first (default provider); each active state
+                     is themed in that provider's own brand color, not the app's --lav token. -->
+                <div style="display:flex;gap:8px;margin-bottom:12px">
+                  <button
+                    class="provider-tab"
+                    (click)="selectProvider('mercadopago')"
+                    [style]="selectedProvider() === 'mercadopago'
+                      ? 'flex:1;border:2px solid #009EE3;background:#E5F6FD;border-radius:10px;padding:8px;font-weight:700;cursor:pointer;color:#00435c'
+                      : 'flex:1;border:1.5px solid var(--border);background:#fff;border-radius:10px;padding:8px;font-weight:600;cursor:pointer;color:var(--t3)'">
+                    MercadoPago
+                  </button>
+                  <button
+                    class="provider-tab"
+                    (click)="selectProvider('paypal')"
+                    [style]="selectedProvider() === 'paypal'
+                      ? 'flex:1;border:2px solid var(--lav-d);background:var(--lav);border-radius:10px;padding:8px;font-weight:700;cursor:pointer'
+                      : 'flex:1;border:1.5px solid var(--border);background:#fff;border-radius:10px;padding:8px;font-weight:600;cursor:pointer;color:var(--t3)'">
+                    PayPal
+                  </button>
+                </div>
 
-              <!-- Demo buy button (mock mode) -->
-              @if (selected() && isMockMode) {
-                <button class="btn-pill btn-primary"
-                        style="width:100%;justify-content:center"
-                        (click)="simulatePurchase()"
-                        i18n="@@buyKarma.simulateBtn">
-                  🎮 Simular compra (modo demo)
-                </button>
+                <!-- State B: PayPal SDK loading / button rendering (real mode) -->
+                @if (selectedProvider() === 'paypal' && !isMockMode) {
+                  @if (paypalLoading()) {
+                    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;gap:10px">
+                      <div style="width:30px;height:30px;border-radius:50%;border:3px solid var(--lav);border-top-color:var(--lav-d);animation:spin .7s linear infinite"></div>
+                      <div style="font-size:11px;color:var(--t3)" i18n="@@buyKarma.paypalLoading">Cargando botón de pago…</div>
+                    </div>
+                  }
+                  <!-- Container must always be in the layout (never display:none) so the
+                       ResizeObserver can detect when PayPal renders content into it. -->
+                  <div id="paypal-btn-container" style="min-height:48px"></div>
+                }
+                @if (selectedProvider() === 'paypal' && isMockMode) {
+                  <button class="btn-pill btn-primary"
+                          style="width:100%;justify-content:center"
+                          (click)="simulatePurchase()"
+                          i18n="@@buyKarma.simulateBtn">
+                    🎮 Simular compra (modo demo)
+                  </button>
+                }
+
+                @if (selectedProvider() === 'mercadopago' && !isMockMode) {
+                  <div style="text-align:center;font-size:13px;color:var(--t3);margin-bottom:10px">
+                    CLP {{ selected()?.prices?.['CLP'] }}
+                  </div>
+                  <button class="btn-pill btn-mercadopago"
+                          style="width:100%;justify-content:center"
+                          (click)="payWithMercadoPago()"
+                          i18n="@@buyKarma.mpPayBtn">
+                    Pagar con MercadoPago
+                  </button>
+                }
+                @if (selectedProvider() === 'mercadopago' && isMockMode) {
+                  <button class="btn-pill btn-mercadopago"
+                          style="width:100%;justify-content:center"
+                          (click)="simulateMpPurchase()"
+                          i18n="@@buyKarma.simulateBtn">
+                    🎮 Simular compra (modo demo)
+                  </button>
+                }
               }
             }
 
@@ -138,12 +188,22 @@ export class BuyKarmaModalComponent implements OnDestroy {
 
   packages      = signal<KarmaPackage[]>([]);
   selected      = signal<KarmaPackage | null>(null);
-  step          = signal<'select' | 'success' | 'error'>('select');
+  step          = signal<'select' | 'success' | 'error' | 'mp-confirm'>('select');
   loading       = signal(true);
   errorMsg      = signal('');
   karmaAdded    = signal(0);
   paypalLoading = signal(false); // true while PayPal SDK loads / button renders
   paying        = signal(false); // true during createOrder or captureOrder network calls
+
+  selectedProvider = signal<'paypal' | 'mercadopago'>('mercadopago');
+
+  // Set by NavShellComponent when the app boots with ?mp_purchase=... in the URL
+  // (see core/karma/mp-return.util.ts + app.config.ts's APP_INITIALIZER).
+  confirmingPurchaseRef = input<string | null>(null);
+  confirmingStatus      = input<'success' | 'failure' | 'pending' | null>(null);
+
+  private mpPollTimeoutId: ReturnType<typeof setTimeout> | null = null;
+  private mpConfirmStarted = false;
 
   // PayPal-specific: lazily-injected SDK script element
   private paypalScriptEl: HTMLScriptElement | null = null;
@@ -155,15 +215,97 @@ export class BuyKarmaModalComponent implements OnDestroy {
       this.packages.set(res.packages);
       this.loading.set(false);
     });
+
+    effect(() => {
+      const ref = this.confirmingPurchaseRef();
+      if (!ref || this.mpConfirmStarted) return;
+      this.mpConfirmStarted = true;
+
+      if (this.confirmingStatus() === 'failure') {
+        this.errorMsg.set('El pago con MercadoPago fue rechazado o cancelado.');
+        this.step.set('error');
+      } else {
+        this.step.set('mp-confirm');
+        this.pollMpStatus(ref, 0);
+      }
+    });
   }
 
   selectPackage(pkg: KarmaPackage): void {
     this.selected.set(pkg);
-    if (!this.isMockMode) {
+    if (!this.isMockMode && this.selectedProvider() === 'paypal') {
       this.paypalLoading.set(true); // show spinner while SDK loads / button renders
-      // Small delay lets Angular render the container div first
       setTimeout(() => this.loadPayPalAndRender(pkg), 50);
     }
+  }
+
+  selectProvider(provider: 'paypal' | 'mercadopago'): void {
+    this.selectedProvider.set(provider);
+    const pkg = this.selected();
+    if (provider === 'paypal' && pkg && !this.isMockMode) {
+      this.paypalLoading.set(true);
+      setTimeout(() => this.loadPayPalAndRender(pkg), 50);
+    }
+  }
+
+  payWithMercadoPago(): void {
+    const pkg = this.selected();
+    if (!pkg) return;
+    this.paying.set(true);
+    this.api.createMpPreference(pkg.id).subscribe({
+      next: res => { window.location.href = res.initPoint; },
+      error: () => {
+        this.paying.set(false);
+        this.errorMsg.set('No se pudo iniciar el pago con MercadoPago. Intenta de nuevo.');
+        this.step.set('error');
+      },
+    });
+  }
+
+  simulateMpPurchase(): void {
+    const pkg = this.selected();
+    if (!pkg) return;
+    this.paying.set(true);
+    firstValueFrom(this.api.createMpPreference(pkg.id))
+      .then(created => firstValueFrom(this.api.getMpPurchaseStatus(created.preferenceId)))
+      .then(res => {
+        this.paying.set(false);
+        this.karmaAdded.set(res.karmaAdded ?? 0);
+        this.karma.purchaseComplete(res.karmaAdded ?? 0);
+        this.karmaGained.emit(res.karmaAdded ?? 0);
+        this.step.set('success');
+      })
+      .catch(() => {
+        this.paying.set(false);
+        this.errorMsg.set('Error en simulación.');
+        this.step.set('error');
+      });
+  }
+
+  private pollMpStatus(purchaseRef: string, attempt: number): void {
+    const MAX_ATTEMPTS = 12;
+    this.api.getMpPurchaseStatus(purchaseRef).subscribe({
+      next: res => {
+        if (res.status === 'completed') {
+          this.karmaAdded.set(res.karmaAdded ?? 0);
+          this.karma.purchaseComplete(res.karmaAdded ?? 0);
+          this.karmaGained.emit(res.karmaAdded ?? 0);
+          this.step.set('success');
+        } else if (res.status === 'failed' || res.status === 'refunded') {
+          this.errorMsg.set('El pago con MercadoPago fue rechazado o cancelado.');
+          this.step.set('error');
+        } else if (attempt + 1 >= MAX_ATTEMPTS) {
+          this.errorMsg.set('Tu pago sigue procesándose. Revisa tu saldo de karma en unos minutos.');
+          this.step.set('error');
+        } else {
+          this.mpPollTimeoutId = setTimeout(() => this.pollMpStatus(purchaseRef, attempt + 1), 2000);
+        }
+      },
+      error: () => {
+        this.errorMsg.set('No pudimos confirmar tu pago. Intenta más tarde.');
+        this.step.set('error');
+      },
+    });
   }
 
   private loadPayPalAndRender(pkg: KarmaPackage): void {
@@ -272,6 +414,7 @@ export class BuyKarmaModalComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.paypalResizeObserver?.disconnect();
     this.paypalResizeObserver = null;
+    if (this.mpPollTimeoutId) clearTimeout(this.mpPollTimeoutId);
     // Clean up dynamically injected PayPal script only if SDK hasn't loaded yet
     const win = window as unknown as Record<string, unknown>;
     if (this.paypalScriptEl && !win['paypal']) {

@@ -25,6 +25,8 @@ import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-mod
 
     @if (facade.buyKarmaOpen()) {
       <app-buy-karma-modal
+        [confirmingPurchaseRef]="facade.karmaModal.mpConfirm()?.purchaseRef ?? null"
+        [confirmingStatus]="facade.karmaModal.mpConfirm()?.status ?? null"
         (closed)="facade.karmaModal.closeBuy()"
         (karmaGained)="facade.onKarmaGained($event)">
       </app-buy-karma-modal>

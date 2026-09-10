@@ -7,7 +7,7 @@ import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite } from '..
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
 import { WeatherDay } from '../models/weather.model';
 import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
-import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse } from '../models/karma-purchase.model';
+import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse, CreateMpPreferenceResponse, MpPurchaseStatusResponse } from '../models/karma-purchase.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
@@ -18,10 +18,10 @@ import { AttractionCatalogService } from '../ai/attraction-catalog.service';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
 const MOCK_KARMA_PACKAGES: KarmaPackage[] = [
-  { id: 'karma_10',  karma: 10,  price: '0.99', currency: 'USD', label: '10 Karma'  },
-  { id: 'karma_25',  karma: 25,  price: '1.99', currency: 'USD', label: '25 Karma'  },
-  { id: 'karma_50',  karma: 50,  price: '3.99', currency: 'USD', label: '50 Karma'  },
-  { id: 'karma_100', karma: 100, price: '6.99', currency: 'USD', label: '100 Karma' },
+  { id: 'karma_10',  karma: 10,  price: '0.99', currency: 'USD', label: '10 Karma',  prices: { USD: '0.99', CLP: '900'  } },
+  { id: 'karma_25',  karma: 25,  price: '1.99', currency: 'USD', label: '25 Karma',  prices: { USD: '1.99', CLP: '1800' } },
+  { id: 'karma_50',  karma: 50,  price: '3.99', currency: 'USD', label: '50 Karma',  prices: { USD: '3.99', CLP: '3600' } },
+  { id: 'karma_100', karma: 100, price: '6.99', currency: 'USD', label: '100 Karma', prices: { USD: '6.99', CLP: '6300' } },
 ];
 
 @Injectable({ providedIn: 'root' })
@@ -301,6 +301,23 @@ export class ApiService {
   createKarmaOrder(packageId: string): Observable<CreateOrderResponse> {
     if (this.useMocks) return of({ orderID: `mock-${packageId}-${Date.now()}` });
     return this.http.post<CreateOrderResponse>(`${this.base}/karma/purchase/create-order`, { packageId });
+  }
+
+  createMpPreference(packageId: string): Observable<CreateMpPreferenceResponse> {
+    if (this.useMocks) {
+      return of({ preferenceId: `mock-mp-pref-${packageId}-${Date.now()}`, initPoint: '' });
+    }
+    return this.http.post<CreateMpPreferenceResponse>(`${this.base}/karma/purchase/mp/create-preference`, { packageId });
+  }
+
+  getMpPurchaseStatus(purchaseRef: string): Observable<MpPurchaseStatusResponse> {
+    if (this.useMocks) {
+      // purchaseRef format in mock mode: "mock-mp-pref-<packageId>-<timestamp>"
+      const packageId = purchaseRef.replace(/^mock-mp-pref-/, '').replace(/-\d+$/, '');
+      const pkg = MOCK_KARMA_PACKAGES.find(p => p.id === packageId) ?? MOCK_KARMA_PACKAGES[0];
+      return of({ status: 'completed', karmaAdded: pkg.karma });
+    }
+    return this.http.get<MpPurchaseStatusResponse>(`${this.base}/karma/purchase/mp/status/${purchaseRef}`);
   }
 
   cloneSharedTrip(shareId: string): Observable<Trip> {
