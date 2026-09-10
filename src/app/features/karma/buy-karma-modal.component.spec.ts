@@ -18,12 +18,12 @@ describe('BuyKarmaModalComponent — MercadoPago', () => {
 
   const PACKAGES = [{ id: 'karma_10', karma: 10, price: '0.99', currency: 'USD', label: '10 Karma', prices: { USD: '0.99', CLP: '900' } }];
 
-  it('defaults to the PayPal provider tab', () => {
+  it('defaults to the MercadoPago provider tab', () => {
     const fixture = TestBed.createComponent(BuyKarmaModalComponent);
     fixture.detectChanges();
     http.expectOne(r => r.url.includes('/karma/packages')).flush({ packages: PACKAGES });
     fixture.detectChanges();
-    expect(fixture.componentInstance.selectedProvider()).toBe('paypal');
+    expect(fixture.componentInstance.selectedProvider()).toBe('mercadopago');
   });
 
   it('polls GET /karma/purchase/mp/status/:id until completed, then shows the success state', () => {

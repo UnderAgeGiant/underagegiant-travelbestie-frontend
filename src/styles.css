@@ -50,6 +50,18 @@ input, select, textarea { font-family: 'DM Sans', sans-serif; }
 .btn-outline { background: #fff; color: var(--t1); border: 1.5px solid var(--border); }
 .btn-outline:hover { border-color: var(--lav-d); color: var(--lav-d); }
 .btn-outline:disabled, .btn-outline[disabled] { opacity: .5; cursor: not-allowed; border-color: var(--border); color: var(--t1); }
+
+/* MercadoPago's own brand navy (#2D3277, from their wordmark) — a third-party mark,
+   intentionally a literal value rather than a --lav/--peach token, same as PayPal's own
+   SDK-rendered button. The brighter #009EE3 accent (used on the provider tab) reads well
+   as a border/tint but falls short of 4.5:1 with white text at button scale; the navy
+   clears 11:1 while staying inside MercadoPago's own two-tone palette. */
+.btn-mercadopago { background: #2D3277; color: #fff; }
+.btn-mercadopago:hover { filter: brightness(1.15); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(45,50,119,.4); }
+.btn-mercadopago:disabled, .btn-mercadopago[disabled] { opacity: .5; cursor: not-allowed; transform: none; filter: none; box-shadow: none; }
+.provider-tab { transition: transform .12s ease, box-shadow .12s ease; }
+.provider-tab:hover { transform: translateY(-1px); }
+.provider-tab:active { transform: translateY(0); }
 .badge { padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; }
 .karma-cost { display: inline-flex; align-items: center; gap: 2px; font-size: 10px; font-weight: 700; opacity: .65; background: oklch(90% .06 290 / .35); color: var(--lav-d); border-radius: 6px; padding: 1px 5px; letter-spacing: .2px; }
 .form-group { margin-bottom: 14px; }

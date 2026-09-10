@@ -82,21 +82,24 @@ import { environment } from '../../../environments/environment';
               </div>
 
               @if (selected()) {
-                <!-- Provider tabs -->
+                <!-- Provider tabs — MercadoPago first (default provider); each active state
+                     is themed in that provider's own brand color, not the app's --lav token. -->
                 <div style="display:flex;gap:8px;margin-bottom:12px">
                   <button
+                    class="provider-tab"
+                    (click)="selectProvider('mercadopago')"
+                    [style]="selectedProvider() === 'mercadopago'
+                      ? 'flex:1;border:2px solid #009EE3;background:#E5F6FD;border-radius:10px;padding:8px;font-weight:700;cursor:pointer;color:#00435c'
+                      : 'flex:1;border:1.5px solid var(--border);background:#fff;border-radius:10px;padding:8px;font-weight:600;cursor:pointer;color:var(--t3)'">
+                    MercadoPago
+                  </button>
+                  <button
+                    class="provider-tab"
                     (click)="selectProvider('paypal')"
                     [style]="selectedProvider() === 'paypal'
                       ? 'flex:1;border:2px solid var(--lav-d);background:var(--lav);border-radius:10px;padding:8px;font-weight:700;cursor:pointer'
                       : 'flex:1;border:1.5px solid var(--border);background:#fff;border-radius:10px;padding:8px;font-weight:600;cursor:pointer;color:var(--t3)'">
                     PayPal
-                  </button>
-                  <button
-                    (click)="selectProvider('mercadopago')"
-                    [style]="selectedProvider() === 'mercadopago'
-                      ? 'flex:1;border:2px solid var(--lav-d);background:var(--lav);border-radius:10px;padding:8px;font-weight:700;cursor:pointer'
-                      : 'flex:1;border:1.5px solid var(--border);background:#fff;border-radius:10px;padding:8px;font-weight:600;cursor:pointer;color:var(--t3)'">
-                    MercadoPago
                   </button>
                 </div>
 
@@ -125,7 +128,7 @@ import { environment } from '../../../environments/environment';
                   <div style="text-align:center;font-size:13px;color:var(--t3);margin-bottom:10px">
                     CLP {{ selected()?.prices?.['CLP'] }}
                   </div>
-                  <button class="btn-pill btn-primary"
+                  <button class="btn-pill btn-mercadopago"
                           style="width:100%;justify-content:center"
                           (click)="payWithMercadoPago()"
                           i18n="@@buyKarma.mpPayBtn">
@@ -133,7 +136,7 @@ import { environment } from '../../../environments/environment';
                   </button>
                 }
                 @if (selectedProvider() === 'mercadopago' && isMockMode) {
-                  <button class="btn-pill btn-primary"
+                  <button class="btn-pill btn-mercadopago"
                           style="width:100%;justify-content:center"
                           (click)="simulateMpPurchase()"
                           i18n="@@buyKarma.simulateBtn">
@@ -192,7 +195,7 @@ export class BuyKarmaModalComponent implements OnDestroy {
   paypalLoading = signal(false); // true while PayPal SDK loads / button renders
   paying        = signal(false); // true during createOrder or captureOrder network calls
 
-  selectedProvider = signal<'paypal' | 'mercadopago'>('paypal');
+  selectedProvider = signal<'paypal' | 'mercadopago'>('mercadopago');
 
   // Set by NavShellComponent when the app boots with ?mp_purchase=... in the URL
   // (see core/karma/mp-return.util.ts + app.config.ts's APP_INITIALIZER).
