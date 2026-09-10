@@ -834,6 +834,18 @@
         <source>Procesando pago…</source>
         <target>Processing payment…</target>
       </trans-unit>
+      <trans-unit id="buyKarma.mpPayBtn" datatype="html">
+        <source>Pagar con MercadoPago</source>
+        <target>Pay with MercadoPago</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.mpConfirming" datatype="html">
+        <source>Confirmando tu pago…</source>
+        <target>Confirming your payment…</target>
+      </trans-unit>
+      <trans-unit id="buyKarma.mpConfirmingHint" datatype="html">
+        <source>Esto puede tardar unos segundos</source>
+        <target>This may take a few seconds</target>
+      </trans-unit>
 
       <!-- ── insufficient-karma-modal ── -->
       <trans-unit id="kim.title" datatype="html">
