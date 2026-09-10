@@ -1,17 +1,28 @@
 import { Injectable, signal, computed } from '@angular/core';
 
+export interface MpConfirmState {
+  purchaseRef: string;
+  status: 'success' | 'failure' | 'pending';
+}
+
 @Injectable({ providedIn: 'root' })
 export class KarmaModalService {
   private readonly _buyOpen          = signal(false);
   private readonly _insufficientData = signal<{ need: number; have: number } | null>(null);
+  private readonly _mpConfirm        = signal<MpConfirmState | null>(null);
 
   readonly buyOpen          = this._buyOpen.asReadonly();
   readonly insufficientData = this._insufficientData.asReadonly();
   readonly insufficientOpen = computed(() => this._insufficientData() !== null);
+  readonly mpConfirm        = this._mpConfirm.asReadonly();
 
   /** Open the direct buy-karma modal (nav button). */
   open(): void     { this._buyOpen.set(true); }
-  closeBuy(): void { this._buyOpen.set(false); }
+
+  closeBuy(): void {
+    this._buyOpen.set(false);
+    this._mpConfirm.set(null);
+  }
 
   /** Open the insufficient-karma info modal (triggered by a 402 response). */
   openInsufficient(need: number, have: number): void {
@@ -23,6 +34,12 @@ export class KarmaModalService {
   /** Switch from the insufficient modal straight to the buy modal. */
   goToBuy(): void {
     this._insufficientData.set(null);
+    this._buyOpen.set(true);
+  }
+
+  /** Open the buy modal straight into the MercadoPago post-redirect confirmation step. */
+  openMpConfirmation(purchaseRef: string, status: 'success' | 'failure' | 'pending'): void {
+    this._mpConfirm.set({ purchaseRef, status });
     this._buyOpen.set(true);
   }
 
