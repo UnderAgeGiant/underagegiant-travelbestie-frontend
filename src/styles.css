@@ -2929,3 +2929,17 @@ app-nav { display: block; }
 .tour-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .tour-step-counter { font-size: 11px; color: var(--t3); font-weight: 700; }
 .tour-nav-buttons { display: flex; gap: 8px; margin-left: auto; }
+
+/* Karma History (Feature: Karma Events History) */
+.karma-history-list { display:flex; flex-direction:column; gap:8px; }
+.karma-history-row {
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--cream);
+}
+.karma-history-main { display:flex; flex-direction:column; gap:2px; flex:1; min-width:160px; }
+.karma-history-label { font-size:13px; font-weight:600; color:var(--t1); }
+.karma-history-date { font-size:11px; color:var(--t3); }
+.karma-history-delta { font-size:13px; font-weight:700; color:oklch(55% 0.18 25); white-space:nowrap; }
+.karma-history-delta-pos { color:oklch(55% 0.16 145); }
+.karma-history-action { font-size:11px; padding:5px 12px; white-space:nowrap; }
+.karma-history-load-more { display:flex; margin:14px auto 0; font-size:12px; padding:7px 18px; }

@@ -168,7 +168,7 @@ export class NavMobileComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
-  activeView   = input<'profile' | 'mytrips' | null>(null);
+  activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
 
   drawerOpen = signal(false);
 

@@ -108,6 +108,90 @@
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="karmaHistory.reason.tripCreated" datatype="html">
+        <source>Viaje creado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.itineraryExported" datatype="html">
+        <source>Itinerario exportado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.tripShared" datatype="html">
+        <source>Viaje compartido</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.collaboratorInvite" datatype="html">
+        <source>Invitación a colaborador</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiSuggest" datatype="html">
+        <source>Sugerencias de IA</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiPlan" datatype="html">
+        <source>Plan de IA generado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiPlanRefund" datatype="html">
+        <source>Reembolso de plan de IA</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiCitySuggest" datatype="html">
+        <source>Sugerencias de IA para la ciudad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.companionBoost" datatype="html">
+        <source>Impulso de Asistente Miel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.karmaPurchased" datatype="html">
+        <source>Compra de karma</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.attractionComment" datatype="html">
+        <source>Primer comentario en una atracción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.stepComment" datatype="html">
+        <source>Comentario en un viaje compartido</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="stopList.currencyBadgeLabel" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="name"/> (<x id="INTERPOLATION_1" equiv-text="symbol"/>)</source>
         <context-group purpose="location">
@@ -1055,6 +1139,62 @@
           <context context-type="linenumber">155,157</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="karmaHistory.backBtn" datatype="html">
+        <source>← Volver</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.title" datatype="html">
+        <source>Historial de karma</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">30,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.loading" datatype="html">
+        <source>Cargando tu historial…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.empty" datatype="html">
+        <source>Aún no tienes movimientos de karma.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.goToTrip" datatype="html">
+        <source>Ir al viaje</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.goToAiPlan" datatype="html">
+        <source>Ir al plan de IA</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.loadMore" datatype="html">
+        <source>Cargar más</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.tripNotFound" datatype="html">
+        <source>No se pudo abrir el viaje</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="buyKarma.title" datatype="html">
         <source>Comprar Karma ✨</source>
         <context-group purpose="location">
@@ -1097,46 +1237,71 @@
           <context context-type="linenumber">52,54</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="buyKarma.mpConfirming" datatype="html">
+        <source>Confirmando tu pago…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="buyKarma.mpConfirmingHint" datatype="html">
+        <source>Esto puede tardar unos segundos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
+          <context context-type="linenumber">61,63</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="buyKarma.karma" datatype="html">
         <source>karma</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">69,70</context>
+          <context context-type="linenumber">78,79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.paypalLoading" datatype="html">
         <source>Cargando botón de pago…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">80,82</context>
+          <context context-type="linenumber">111,113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.simulateBtn" datatype="html">
         <source> 🎮 Simular compra (modo demo) </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">94,95</context>
+          <context context-type="linenumber">123,124</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
+          <context context-type="linenumber">143,144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="buyKarma.mpPayBtn" datatype="html">
+        <source> Pagar con MercadoPago </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
+          <context context-type="linenumber">135,136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.successTitle" datatype="html">
         <source>¡Karma añadido!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">104,105</context>
+          <context context-type="linenumber">154,155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.successMsg" datatype="html">
         <source>Tu cuenta fue acreditada con</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">106,107</context>
+          <context context-type="linenumber">156,157</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.retryBtn" datatype="html">
         <source>Reintentar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
-          <context context-type="linenumber">119,120</context>
+          <context context-type="linenumber">169,170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="kim.title" datatype="html">
@@ -2979,60 +3144,60 @@
         <source>Estimado según el clima del mismo día el año pasado — no es un pronóstico real.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">436</context>
+          <context context-type="linenumber">454</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.eyebrowTransport" datatype="html">
         <source>Transporte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">546</context>
+          <context context-type="linenumber">564</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">551</context>
+          <context context-type="linenumber">569</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.eyebrowDayView" datatype="html">
         <source>Vista del día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">547</context>
+          <context context-type="linenumber">565</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.noActivities" datatype="html">
         <source>sin actividades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">573</context>
+          <context context-type="linenumber">591</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.activityOne" datatype="html">
         <source>actividad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">577</context>
+          <context context-type="linenumber">595</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.activityMany" datatype="html">
         <source>actividades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">578</context>
+          <context context-type="linenumber">596</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.transportOne" datatype="html">
         <source>transporte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">580</context>
+          <context context-type="linenumber">598</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.transportMany" datatype="html">
         <source>transportes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/planning/day-timeline/day-timeline.component.ts</context>
-          <context context-type="linenumber">581</context>
+          <context context-type="linenumber">599</context>
         </context-group>
       </trans-unit>
       <trans-unit id="companion.boostedLabel" datatype="html">
