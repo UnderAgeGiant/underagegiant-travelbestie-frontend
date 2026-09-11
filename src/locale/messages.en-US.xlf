@@ -2522,8 +2522,6 @@
         <source>Cargando pronóstico…</source>
         <target>Loading forecast…</target>
       </trans-unit>
-    </body>  </file>
-</xliff>
 
       <!-- ── karma-history.component ── -->
       <trans-unit id="karmaHistory.reason.tripCreated" datatype="html">
@@ -2606,5 +2604,6 @@
         <source>No se pudo abrir el viaje</source>
         <target>Could not open the trip</target>
       </trans-unit>
-    </body>  </file>
+    </body>
+  </file>
 </xliff>

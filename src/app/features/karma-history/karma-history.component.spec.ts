@@ -5,6 +5,8 @@ import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { KarmaHistoryComponent } from './karma-history.component';
+import { NavShellComponent } from '../nav/nav-shell.component';
+import { ProfileComponent } from '../profile/profile.component';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
@@ -48,47 +50,7 @@ describe('KarmaHistoryComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA],
     }).overrideComponent(KarmaHistoryComponent, {
-      set: {
-        template: `
-          <div class="prof-bar"><button class="back-btn" (click)="goHome()" type="button">← Volver</button></div>
-          <div class="prof-body">
-            <section>
-              @if (loading() && events().length === 0) {
-                <div class="section-empty">Cargando tu historial…</div>
-              } @else if (events().length === 0) {
-                <div class="section-empty">Aún no tienes movimientos de karma.</div>
-              } @else {
-                <div class="karma-history-list">
-                  @for (event of events(); track event.eventId) {
-                    <div class="karma-history-row">
-                      <div class="karma-history-main">
-                        <span class="karma-history-label">{{ karmaReasonLabel(event.reason) }}</span>
-                        <span class="karma-history-date">{{ event.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
-                      </div>
-                      <span class="karma-history-delta" [class.karma-history-delta-pos]="event.delta > 0">
-                        {{ event.delta > 0 ? '+' : '' }}{{ event.delta }} ✨
-                      </span>
-                      @if (event.target?.type === 'trip') {
-                        <button class="btn-pill btn-outline karma-history-action" (click)="goToTrip(event.target!.id)" type="button">Ir al viaje</button>
-                      } @else if (event.target?.type === 'ai_plan_request') {
-                        <button class="btn-pill btn-outline karma-history-action" (click)="goToAiPlan()" type="button">Ir al plan de IA</button>
-                      }
-                    </div>
-                  }
-                </div>
-                @if (nextCursor()) {
-                  <button class="btn-pill btn-ghost karma-history-load-more" [disabled]="loading()" (click)="loadMore()" type="button">
-                    {{ loading() ? '⏳' : '' }} Cargar más
-                  </button>
-                }
-              }
-            </section>
-          </div>
-          @if (toast()) {
-            <app-toast [message]="toast()!" (done)="toast.set(null)" />
-          }
-        `
-      }
+      remove: { imports: [NavShellComponent, ProfileComponent] },
     });
     const fixture = TestBed.createComponent(KarmaHistoryComponent);
     fixture.detectChanges();
@@ -183,7 +145,7 @@ describe('KarmaHistoryComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA],
     }).overrideComponent(KarmaHistoryComponent, {
-      set: { template: `<div class="prof-bar"><button class="back-btn" (click)="goHome()" type="button">← Volver</button></div><div class="prof-body"><section>@if (loading() && events().length === 0) { <div class="section-empty">Cargando…</div> } @else if (events().length === 0) { <div class="section-empty">Aún no tienes movimientos de karma.</div> } @else { <div class="karma-history-list">@for (event of events(); track event.eventId) { <div class="karma-history-row"><div class="karma-history-main"><span class="karma-history-label">{{ karmaReasonLabel(event.reason) }}</span></div><span class="karma-history-delta" [class.karma-history-delta-pos]="event.delta > 0">{{ event.delta > 0 ? '+' : '' }}{{ event.delta }} ✨</span>@if (event.target?.type === 'trip') { <button class="karma-history-action" (click)="goToTrip(event.target!.id)" type="button">Ir al viaje</button> }@if (event.target?.type === 'ai_plan_request') { <button class="karma-history-action" (click)="goToAiPlan()" type="button">Ir al plan de IA</button> }</div> }@if (nextCursor()) { <button class="karma-history-load-more" [disabled]="loading()" (click)="loadMore()" type="button">Cargar más</button> }</div> }</section></div>@if (toast()) { <app-toast [message]="toast()!" (done)="toast.set(null)" /> }` }
+      remove: { imports: [NavShellComponent, ProfileComponent] },
     });
     const fixture = TestBed.createComponent(KarmaHistoryComponent);
     fixture.detectChanges();
@@ -226,7 +188,7 @@ describe('KarmaHistoryComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA],
     }).overrideComponent(KarmaHistoryComponent, {
-      set: { template: `<div class="prof-bar"><button class="back-btn" (click)="goHome()" type="button">← Volver</button></div><div class="prof-body"><section>@if (loading() && events().length === 0) { <div class="section-empty">Cargando…</div> } @else if (events().length === 0) { <div class="section-empty">Aún no tienes movimientos de karma.</div> } @else { <div class="karma-history-list">@for (event of events(); track event.eventId) { <div class="karma-history-row"><div class="karma-history-main"><span class="karma-history-label">{{ karmaReasonLabel(event.reason) }}</span></div><span class="karma-history-delta" [class.karma-history-delta-pos]="event.delta > 0">{{ event.delta > 0 ? '+' : '' }}{{ event.delta }} ✨</span>@if (event.target?.type === 'trip') { <button class="karma-history-action" (click)="goToTrip(event.target!.id)" type="button">Ir al viaje</button> }@if (event.target?.type === 'ai_plan_request') { <button class="karma-history-action" (click)="goToAiPlan()" type="button">Ir al plan de IA</button> }</div> }@if (nextCursor()) { <button class="karma-history-load-more" [disabled]="loading()" (click)="loadMore()" type="button">Cargar más</button> }</div> }</section></div>@if (toast()) { <app-toast [message]="toast()!" (done)="toast.set(null)" /> }` }
+      remove: { imports: [NavShellComponent, ProfileComponent] },
     });
     const fixture = TestBed.createComponent(KarmaHistoryComponent);
     fixture.detectChanges();
