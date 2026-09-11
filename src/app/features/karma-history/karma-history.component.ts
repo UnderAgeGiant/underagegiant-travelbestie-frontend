@@ -10,7 +10,7 @@ import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { ToastComponent } from '../../shared/toast/toast.component';
-import { KarmaEvent, karmaReasonLabel } from '../../core/models/karma-event.model';
+import { KarmaEvent, karmaReasonLabel, isPlanLinkedReason } from '../../core/models/karma-event.model';
 import { TripStop, TransitLeg } from '../../core/models/trip.model';
 
 const PAGE_SIZE = 20;
@@ -49,6 +49,17 @@ const PAGE_SIZE = 20;
                 <div class="karma-history-row">
                   <div class="karma-history-main">
                     <span class="karma-history-label">{{ karmaReasonLabel(event.reason) }}</span>
+                    @if (event.target?.name) {
+                      <span class="karma-history-plan-name">{{ event.target!.name }}</span>
+                    } @else if (event.target === null && isPlanLinkedReason(event.reason)) {
+                      <span class="karma-history-plan-name karma-history-plan-deleted" i18n="@@karmaHistory.planDeleted">Plan borrado</span>
+                    }
+                    @if (event.reason === 'karma_purchased' && event.purchase) {
+                      <span class="karma-history-purchase-meta">
+                        <ng-container i18n="@@karmaHistory.purchaseProvider">Proveedor</ng-container>: {{ event.purchase.provider }} ·
+                        <ng-container i18n="@@karmaHistory.purchaseTransactionId">ID de transacción</ng-container>: {{ event.purchase.transactionId }}
+                      </span>
+                    }
                     <span class="karma-history-date">{{ event.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
                   </div>
                   <span class="karma-history-delta" [class.karma-history-delta-pos]="event.delta > 0">
@@ -96,6 +107,7 @@ export class KarmaHistoryComponent implements OnInit {
   readonly toast       = signal<string | null>(null);
 
   readonly karmaReasonLabel = karmaReasonLabel;
+  readonly isPlanLinkedReason = isPlanLinkedReason;
 
   ngOnInit(): void {
     this.loadPage(null);

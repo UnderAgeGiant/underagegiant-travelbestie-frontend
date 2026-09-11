@@ -2943,3 +2943,6 @@ app-nav { display: block; }
 .karma-history-delta-pos { color:oklch(55% 0.16 145); }
 .karma-history-action { font-size:11px; padding:5px 12px; white-space:nowrap; }
 .karma-history-load-more { display:flex; margin:14px auto 0; font-size:12px; padding:7px 18px; }
+.karma-history-plan-name { font-size:12px; color:var(--t2); }
+.karma-history-plan-deleted { color:var(--t3); font-style:italic; }
+.karma-history-purchase-meta { font-size:11px; color:var(--t3); }

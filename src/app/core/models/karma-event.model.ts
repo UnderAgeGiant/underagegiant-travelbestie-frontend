@@ -15,6 +15,13 @@ export type KarmaEventReason =
 export interface KarmaEventTarget {
   type: 'trip' | 'ai_plan_request';
   id: string;
+  /** The trip's title — only ever populated when type === 'trip'. */
+  name?: string;
+}
+
+export interface KarmaPurchaseMeta {
+  provider: string;
+  transactionId: string;
 }
 
 export interface KarmaEvent {
@@ -23,6 +30,8 @@ export interface KarmaEvent {
   reason: string;
   createdAt: string;
   target: KarmaEventTarget | null;
+  /** Only populated for reason === 'karma_purchased'. Display-only — no CTA. */
+  purchase?: KarmaPurchaseMeta;
 }
 
 export interface KarmaEventsPage {
@@ -52,4 +61,17 @@ export function karmaReasonLabel(reason: string): string {
     case 'step_comment':              return $localize`:@@karmaHistory.reason.stepComment:Comentario en un viaje compartido`;
     default:                          return reason;
   }
+}
+
+const PLAN_LINKED_REASONS = new Set<KarmaEventReason>([
+  'trip_created', 'itinerary_exported', 'collaborator_invite', 'trip_shared',
+  'ai_city_suggest', 'ai_plan', 'ai_suggest',
+]);
+
+/** Whether this reason CAN resolve to a trip/ai_plan_request target — used to tell
+ *  "never applicable" (companion_boost, karma_purchased, ...) apart from "the plan
+ *  this pointed at was deleted" when target is null, so the history row can show
+ *  "Plan borrado" only in the latter case. */
+export function isPlanLinkedReason(reason: string): boolean {
+  return PLAN_LINKED_REASONS.has(reason as KarmaEventReason);
 }

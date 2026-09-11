@@ -247,6 +247,53 @@ describe('KarmaHistoryComponent', () => {
     expect(fixture.nativeElement.textContent).toContain('No se pudo abrir el viaje');
   });
 
+  it('shows the plan name next to the reason label when target.name is present', () => {
+    const fixture = setup({
+      getKarmaEvents: jest.fn().mockReturnValue(of({
+        events: [{ eventId: 'e1', delta: -1, reason: 'trip_created', createdAt: '2026-09-10T00:00:00.000Z', target: { type: 'trip', id: 't1', name: 'Ruta Clásica por Europa' } }],
+        nextCursor: null,
+      })),
+    });
+    expect(fixture.nativeElement.textContent).toContain('Ruta Clásica por Europa');
+  });
+
+  it('shows "Plan borrado" when target is null on a plan-linked reason', () => {
+    const fixture = setup({
+      getKarmaEvents: jest.fn().mockReturnValue(of({
+        events: [{ eventId: 'e1', delta: -1, reason: 'trip_created', createdAt: '2026-09-10T00:00:00.000Z', target: null }],
+        nextCursor: null,
+      })),
+    });
+    expect(fixture.nativeElement.textContent).toContain('Plan borrado');
+  });
+
+  it('does not show "Plan borrado" when target is null on a non-plan-linked reason', () => {
+    const fixture = setup({
+      getKarmaEvents: jest.fn().mockReturnValue(of({
+        events: [{ eventId: 'e1', delta: -2, reason: 'companion_boost', createdAt: '2026-09-10T00:00:00.000Z', target: null }],
+        nextCursor: null,
+      })),
+    });
+    expect(fixture.nativeElement.textContent).not.toContain('Plan borrado');
+  });
+
+  it('shows provider and transactionId, with no action button, on a karma_purchased row', () => {
+    const fixture = setup({
+      getKarmaEvents: jest.fn().mockReturnValue(of({
+        events: [{
+          eventId: 'e1', delta: 25, reason: 'karma_purchased', createdAt: '2026-09-10T00:00:00.000Z',
+          target: null, purchase: { provider: 'mercadopago', transactionId: 'mp-capture-abc' },
+        }],
+        nextCursor: null,
+      })),
+    });
+    expect(fixture.nativeElement.textContent).toContain('mercadopago');
+    expect(fixture.nativeElement.textContent).toContain('mp-capture-abc');
+    expect(fixture.nativeElement.querySelector('.karma-history-action')).toBeNull();
+    // karma_purchased is not plan-linked, so no "Plan borrado" either despite a null target
+    expect(fixture.nativeElement.textContent).not.toContain('Plan borrado');
+  });
+
   describe('load error state', () => {
     function setupWithError() {
       const isMobileSignal = signal(false);

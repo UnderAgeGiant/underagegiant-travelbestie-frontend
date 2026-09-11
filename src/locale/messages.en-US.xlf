@@ -2620,6 +2620,18 @@
         <source>No se pudo abrir el viaje</source>
         <target>Could not open the trip</target>
       </trans-unit>
+      <trans-unit id="karmaHistory.planDeleted" datatype="html">
+        <source>Plan borrado</source>
+        <target>Deleted plan</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.purchaseProvider" datatype="html">
+        <source>Proveedor</source>
+        <target>Provider</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.purchaseTransactionId" datatype="html">
+        <source>ID de transacción</source>
+        <target>Transaction ID</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
