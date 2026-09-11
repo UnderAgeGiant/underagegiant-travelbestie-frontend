@@ -344,6 +344,22 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     req.flush({ options: [] });
   });
 
+  it('suggestTrips sends planSessionId when provided', async () => {
+    service.suggestTrips('romantic trip', 10, '1000 USD', 'session-abc').subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/suggest') && r.method === 'POST');
+    expect(req.request.body.planSessionId).toBe('session-abc');
+    req.flush({ options: [] });
+  });
+
+  it('suggestTrips omits planSessionId when not provided', async () => {
+    service.suggestTrips('romantic trip').subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/suggest') && r.method === 'POST');
+    expect(req.request.body.planSessionId).toBeUndefined();
+    req.flush({ options: [] });
+  });
+
   // Not fakeAsync: getCityCatalog() resolves through a real dynamic import()
   // (see AttractionCatalogService), which fakeAsync's tick()/flushMicrotasks()
   // cannot drain — it needs a genuine event-loop turn, hence the real await

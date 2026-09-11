@@ -130,7 +130,7 @@ export class ApiService {
     return this.http.get<KarmaEventsPage>(`${this.base}/karma/events`, { params });
   }
 
-  suggestTrips(preferences: string, duration?: number, budget?: string): Observable<SuggestTripsResponse> {
+  suggestTrips(preferences: string, duration?: number, budget?: string, planSessionId?: string): Observable<SuggestTripsResponse> {
     if (this.useMocks) {
       return of({
         options: [
@@ -140,7 +140,7 @@ export class ApiService {
       });
     }
     return from(this.catalog.getCityIndex()).pipe(
-      switchMap(cityIndex => this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget, cityIndex })),
+      switchMap(cityIndex => this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget, cityIndex, planSessionId })),
     );
   }
 

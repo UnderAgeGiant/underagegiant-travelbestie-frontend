@@ -783,7 +783,7 @@ export class AiPlanningComponent implements OnDestroy {
     this.loadingMessage.set($localize`:@@aiplan.loadingSuggest:Generando sugerencias ✨`);
     this.loading.set(true);
     this.error.set(null);
-    this.api.suggestTrips(this.buildPreferences(), this.duration(), this.budget() || undefined)
+    this.api.suggestTrips(this.buildPreferences(), this.duration(), this.budget() || undefined, this.planSessionId() ?? undefined)
       .subscribe({
         next: res => {
           this.suggestions.set(res);
@@ -1022,6 +1022,7 @@ export class AiPlanningComponent implements OnDestroy {
     this.tripSvc.restoreStops(trip.stops, null, trip.transits ?? []);
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [], {
       sourceAiPlanRequestId: this.currentAiPlanRequestId() ?? undefined,
+      sourcePlanSessionId: this.planSessionId() ?? undefined,
     })
       .subscribe({
         next: id => {

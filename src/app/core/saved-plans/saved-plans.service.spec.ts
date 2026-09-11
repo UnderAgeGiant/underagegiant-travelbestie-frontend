@@ -85,4 +85,11 @@ describe('SavedPlansService.upsert — sourceAiPlanRequestId', () => {
     expect(req.request.body.sourceAiPlanRequestId).toBeUndefined();
     req.flush({ id: 't1', title: 'Renamed', stops: [], transits: [] });
   });
+
+  it('sends sourcePlanSessionId on POST /trips when creating a new trip', () => {
+    service.upsert('ana@test.com', null, 'Ruta Clásica', [], [], { sourcePlanSessionId: 'session-abc' }).subscribe();
+    const req = http.expectOne(r => r.url.includes('/trips') && r.method === 'POST');
+    expect(req.request.body.sourcePlanSessionId).toBe('session-abc');
+    req.flush({ id: 't1', title: 'Ruta Clásica', stops: [], transits: [] });
+  });
 });
