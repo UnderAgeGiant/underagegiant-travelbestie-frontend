@@ -8,6 +8,7 @@ import { Comment, StepComment, StepCommentAddResult } from '../models/comment.mo
 import { WeatherDay } from '../models/weather.model';
 import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse, CreateMpPreferenceResponse, MpPurchaseStatusResponse } from '../models/karma-purchase.model';
+import { KarmaEvent, KarmaEventsPage } from '../models/karma-event.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
@@ -111,6 +112,22 @@ export class ApiService {
     const key = `tb_karma_${email}`;
     const current = parseInt(localStorage.getItem(key) ?? '10', 10);
     localStorage.setItem(key, String(current + delta));
+  }
+
+  getKarmaEvents(email: string, cursor: string | null, limit = 20): Observable<KarmaEventsPage> {
+    if (this.useMocks) {
+      const key = `tb_karma_events_${email}`;
+      const all: KarmaEvent[] = JSON.parse(localStorage.getItem(key) ?? '[]');
+      const startIndex = cursor ? all.findIndex(e => e.eventId === cursor) + 1 : 0;
+      const page = all.slice(startIndex, startIndex + limit + 1);
+      const hasMore = page.length > limit;
+      const events = hasMore ? page.slice(0, limit) : page;
+      const nextCursor = hasMore ? events[events.length - 1].eventId : null;
+      return of({ events, nextCursor });
+    }
+    let params = new HttpParams().set('limit', String(limit));
+    if (cursor) params = params.set('cursor', cursor);
+    return this.http.get<KarmaEventsPage>(`${this.base}/karma/events`, { params });
   }
 
   suggestTrips(preferences: string, duration?: number, budget?: string): Observable<SuggestTripsResponse> {

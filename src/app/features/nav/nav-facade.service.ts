@@ -329,7 +329,7 @@ export class NavFacadeService {
 
   doNewTrip(): void {
     this.autoSaveCurrentTrip();
-    this.karma.spend();
+    this.karma.spend('trip_created');
     this.trip.restoreStops([], null);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);

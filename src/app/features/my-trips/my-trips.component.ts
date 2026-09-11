@@ -614,7 +614,7 @@ export class MyTripsComponent implements AfterViewInit {
       }
       const user = this.auth.currentUser();
       if (!plan.exportedAt && user) {
-        this.karma.spend();
+        this.karma.spend('itinerary_exported', plan.id);
         this.savedPlans.markExported(user.email, plan.id);
       }
       this.toast.set($localize`:@@myTrips.excelNeedsBackend:La exportación Excel requiere el backend activo`);
@@ -635,7 +635,7 @@ export class MyTripsComponent implements AfterViewInit {
         this.toast.set($localize`:@@myTrips.itineraryDownloaded:Itinerario descargado`);
         if (!plan.exportedAt) {
           const user = this.auth.currentUser();
-          if (user) { this.karma.spend(); this.savedPlans.markExported(user.email, plan.id); }
+          if (user) { this.karma.spend('itinerary_exported', plan.id); this.savedPlans.markExported(user.email, plan.id); }
         }
       },
       error: (err) => {
