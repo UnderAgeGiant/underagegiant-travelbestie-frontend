@@ -2588,6 +2588,14 @@
         <source>Cargando tu historial…</source>
         <target>Loading your history…</target>
       </trans-unit>
+      <trans-unit id="karmaHistory.loadError" datatype="html">
+        <source>No pudimos cargar tu historial de karma.</source>
+        <target>We couldn't load your karma history.</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.retry" datatype="html">
+        <source>Reintentar</source>
+        <target>Retry</target>
+      </trans-unit>
       <trans-unit id="karmaHistory.empty" datatype="html">
         <source>Aún no tienes movimientos de karma.</source>
         <target>You don't have any karma movements yet.</target>
@@ -2603,6 +2611,10 @@
       <trans-unit id="karmaHistory.loadMore" datatype="html">
         <source>Cargar más</source>
         <target>Load more</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.loadMoreError" datatype="html">
+        <source>No pudimos cargar más eventos</source>
+        <target>We couldn't load more events</target>
       </trans-unit>
       <trans-unit id="karmaHistory.tripNotFound" datatype="html">
         <source>No se pudo abrir el viaje</source>

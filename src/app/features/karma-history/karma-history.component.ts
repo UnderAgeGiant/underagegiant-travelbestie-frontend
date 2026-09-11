@@ -8,8 +8,10 @@ import { AuthService } from '../../core/auth/auth.service';
 import { ApiService } from '../../core/api/api.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
+import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { KarmaEvent, karmaReasonLabel } from '../../core/models/karma-event.model';
+import { TripStop, TransitLeg } from '../../core/models/trip.model';
 
 const PAGE_SIZE = 20;
 
@@ -32,7 +34,12 @@ const PAGE_SIZE = 20;
 
       <div class="prof-body">
         <section>
-          @if (loading() && events().length === 0) {
+          @if (loadError() && events().length === 0) {
+            <div class="section-empty">
+              <p i18n="@@karmaHistory.loadError">No pudimos cargar tu historial de karma.</p>
+              <button class="btn-pill btn-outline" (click)="retry()" type="button" i18n="@@karmaHistory.retry">Reintentar</button>
+            </div>
+          } @else if (loading() && events().length === 0) {
             <div class="section-empty" i18n="@@karmaHistory.loading">Cargando tu historial…</div>
           } @else if (events().length === 0) {
             <div class="section-empty" i18n="@@karmaHistory.empty">Aún no tienes movimientos de karma.</div>
@@ -78,12 +85,14 @@ export class KarmaHistoryComponent implements OnInit {
   private readonly api        = inject(ApiService);
   private readonly savedPlans = inject(SavedPlansService);
   private readonly trip       = inject(TripService);
+  private readonly autoSave   = inject(AutoSaveService);
   private readonly facade     = inject(NavFacadeService);
 
   readonly showProfile = signal(false);
   readonly events      = signal<KarmaEvent[]>([]);
   readonly nextCursor  = signal<string | null>(null);
   readonly loading     = signal(false);
+  readonly loadError   = signal(false);
   readonly toast       = signal<string | null>(null);
 
   readonly karmaReasonLabel = karmaReasonLabel;
@@ -105,25 +114,63 @@ export class KarmaHistoryComponent implements OnInit {
     const email = this.auth.currentUser()?.email;
     if (!email) return;
     this.loading.set(true);
+    if (cursor === null) this.loadError.set(false);
     this.api.getKarmaEvents(email, cursor, PAGE_SIZE).subscribe({
       next: page => {
         this.events.update(existing => cursor ? [...existing, ...page.events] : page.events);
         this.nextCursor.set(page.nextCursor);
         this.loading.set(false);
       },
-      error: () => { this.loading.set(false); },
+      error: () => {
+        this.loading.set(false);
+        if (cursor === null) {
+          // First-load failure: nothing loaded yet, so show the full error state.
+          this.loadError.set(true);
+        } else {
+          // "Cargar más" failure: keep already-loaded rows visible and the cursor intact
+          // so the same button can be clicked again, and surface the failure via toast.
+          this.toast.set($localize`:@@karmaHistory.loadMoreError:No pudimos cargar más eventos`);
+        }
+      },
     });
+  }
+
+  retry(): void {
+    this.loadError.set(false);
+    this.loadPage(null);
   }
 
   goToTrip(tripId: string): void {
     const plan = this.savedPlans.plans().find(p => p.id === tripId);
-    if (!plan) {
-      this.toast.set($localize`:@@karmaHistory.tripNotFound:No se pudo abrir el viaje`);
+    if (plan) {
+      this.enterTrip(plan.stops, plan.id, plan.transits ?? [], plan.isCollaborator, plan.ownerName, plan.ownerEmail);
       return;
     }
-    const owner = plan.isCollaborator ? { name: plan.ownerName!, email: plan.ownerEmail! } : null;
-    this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? [], owner);
-    if (plan.stops.length > 0) this.trip.setActive(plan.stops[0].stopId);
+    // savedPlans.plans() can be stale (e.g. trip created in another tab); the backend has
+    // already confirmed this trip exists and is owned by the caller before sending this
+    // target at all, so retry once against a fresh trip list before giving up.
+    this.api.getTrips().subscribe({
+      next: trips => {
+        const found = trips.find(t => t.id === tripId);
+        if (found) {
+          this.enterTrip(found.stops, found.id!, found.transits ?? [], found.isCollaborator, found.ownerName, found.ownerEmail);
+        } else {
+          this.toast.set($localize`:@@karmaHistory.tripNotFound:No se pudo abrir el viaje`);
+        }
+      },
+      error: () => this.toast.set($localize`:@@karmaHistory.tripNotFound:No se pudo abrir el viaje`),
+    });
+  }
+
+  private enterTrip(
+    stops: TripStop[], id: string, transits: TransitLeg[],
+    isCollaborator: boolean | undefined, ownerName: string | undefined, ownerEmail: string | undefined,
+  ): void {
+    const owner = isCollaborator ? { name: ownerName!, email: ownerEmail! } : null;
+    this.trip.restoreStops(stops, id, transits, owner);
+    if (stops.length > 0) this.trip.setActive(stops[0].stopId);
+    this.autoSave.commitSnapshot(id);
+    if (owner && !this.autoSave.enabled()) this.autoSave.showReminderNow();
     this.router.navigate(['/']);
   }
 
