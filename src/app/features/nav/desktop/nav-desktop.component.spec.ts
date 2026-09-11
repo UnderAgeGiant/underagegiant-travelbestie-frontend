@@ -40,6 +40,14 @@ describe('NavDesktopComponent — active page indication', () => {
     const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
     expect(active?.textContent).toContain('Mis viajes');
   });
+
+  it('marks "Historial de karma" active when activeView is "karmahistory"', () => {
+    const fixture = setup();
+    fixture.componentRef.setInput('activeView', 'karmahistory');
+    fixture.detectChanges();
+    const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
+    expect(active?.textContent).toContain('Historial de karma');
+  });
 });
 
 describe('NavDesktopComponent — outside-click close is multi-instance safe', () => {

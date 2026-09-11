@@ -1591,6 +1591,10 @@
         <source>🗺 Mis viajes</source>
         <target>🗺 My trips</target>
       </trans-unit>
+      <trans-unit id="nav.karmaHistory" datatype="html">
+        <source>📈 Historial de karma</source>
+        <target>📈 Karma History</target>
+      </trans-unit>
       <trans-unit id="nav.mySharedTrips" datatype="html">
         <source>Mis viajes publicados</source>
         <target>My published trips</target>
