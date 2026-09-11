@@ -445,6 +445,20 @@ describe('ApiService.suggestCityAttractions() — real HTTP', () => {
     expect(req.request.body.isFollowUp).toBe(true);
     req.flush({ suggestions: [] });
   });
+
+  it('suggestCityAttractions sends tripId in the POST body when provided', () => {
+    service.suggestCityAttractions('paris', '01/01/2027', '05/01/2027', [], [], false, [], [], 'trip-abc').subscribe();
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
+    expect(req.request.body.tripId).toBe('trip-abc');
+    req.flush({ suggestions: [] });
+  });
+
+  it('suggestCityAttractions omits tripId from the POST body when not provided', () => {
+    service.suggestCityAttractions('paris', '01/01/2027', '05/01/2027', [], [], false).subscribe();
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
+    expect(req.request.body.tripId).toBeUndefined();
+    req.flush({ suggestions: [] });
+  });
 });
 
 describe('ApiService.suggestCityAttractions() — mock mode', () => {

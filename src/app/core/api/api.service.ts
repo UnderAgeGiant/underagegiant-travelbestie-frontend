@@ -250,6 +250,7 @@ export class ApiService {
     isFollowUp = false,
     existingSchedule: SuggestionScheduleEntry[] = [],
     departureTimes: SuggestionDeparture[] = [],
+    tripId?: string,
   ): Observable<SuggestCityAttractionsResponse> {
     if (this.useMocks) {
       const candidates = cityCatalog.filter(c => !existingAttractionIds.includes(c.id)).slice(0, 3);
@@ -270,6 +271,7 @@ export class ApiService {
     }
     return this.http.post<SuggestCityAttractionsResponse>(`${this.base}/ai/suggest-attractions`, {
       cityId, checkIn, checkOut, existingAttractionIds, cityCatalog, isFollowUp, existingSchedule, departureTimes,
+      tripId,
     });
   }
 

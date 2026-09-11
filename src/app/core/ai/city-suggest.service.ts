@@ -61,7 +61,7 @@ export class CitySuggestService {
 
     this.api.suggestCityAttractions(
       stop.cityId, stop.checkIn, stop.checkOut, existingAttractionIds, cityCatalog, isFollowUp,
-      existingSchedule, departureTimes,
+      existingSchedule, departureTimes, this.trip.loadedPlanId() ?? undefined,
     ).subscribe({
         next: res => {
           this._loading.set(false);
