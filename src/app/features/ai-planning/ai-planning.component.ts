@@ -1020,7 +1020,9 @@ export class AiPlanningComponent implements OnDestroy {
     if (!trip || !email || this.saving()) return;
     this.saving.set(true);
     this.tripSvc.restoreStops(trip.stops, null, trip.transits ?? []);
-    this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [])
+    this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [], {
+      sourceAiPlanRequestId: this.currentAiPlanRequestId() ?? undefined,
+    })
       .subscribe({
         next: id => {
           // Record the server-assigned id so the editor recognizes this trip as

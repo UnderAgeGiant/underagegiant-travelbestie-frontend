@@ -50,3 +50,39 @@ describe('SavedPlansService — upsert() and the travel-docs reminder (Finding 4
     expect(spy).not.toHaveBeenCalled();
   });
 });
+
+describe('SavedPlansService.upsert — sourceAiPlanRequestId', () => {
+  let service: SavedPlansService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(SavedPlansService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => http.verify());
+
+  it('sends sourceAiPlanRequestId on POST /trips when creating a new trip', () => {
+    service.upsert('ana@test.com', null, 'Ruta Clásica', [], [], { sourceAiPlanRequestId: 'req-123' }).subscribe();
+    const req = http.expectOne(r => r.url.includes('/trips') && r.method === 'POST');
+    expect(req.request.body.sourceAiPlanRequestId).toBe('req-123');
+    req.flush({ id: 't1', title: 'Ruta Clásica', stops: [], transits: [] });
+  });
+
+  it('omits sourceAiPlanRequestId from the payload when not provided', () => {
+    service.upsert('ana@test.com', null, 'Manual Trip', []).subscribe();
+    const req = http.expectOne(r => r.url.includes('/trips') && r.method === 'POST');
+    expect(req.request.body.sourceAiPlanRequestId).toBeUndefined();
+    req.flush({ id: 't2', title: 'Manual Trip', stops: [], transits: [] });
+  });
+
+  it('never sends it on an update (existing trip id)', () => {
+    service.upsert('ana@test.com', 't1', 'Renamed', [], [], { sourceAiPlanRequestId: 'req-123' }).subscribe();
+    const req = http.expectOne(r => r.url.includes('/trips/t1') && r.method === 'PUT');
+    expect(req.request.body.sourceAiPlanRequestId).toBeUndefined();
+    req.flush({ id: 't1', title: 'Renamed', stops: [], transits: [] });
+  });
+});

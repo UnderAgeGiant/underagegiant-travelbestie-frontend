@@ -78,7 +78,7 @@ export class SavedPlansService {
    */
   upsert(
     email: string, id: string | null, name: string, stops: TripStop[], transits: TransitLeg[] = [],
-    opts?: { background?: boolean },
+    opts?: { background?: boolean; sourceAiPlanRequestId?: string },
   ): Observable<string> {
     if (environment.useMocks) {
       const now = new Date().toISOString();
@@ -111,7 +111,7 @@ export class SavedPlansService {
         map(() => id)
       );
     }
-    return this.api.saveTrip({ title: name, stops, transits }).pipe(
+    return this.api.saveTrip({ title: name, stops, transits, sourceAiPlanRequestId: opts?.sourceAiPlanRequestId }).pipe(
       tap(trip => {
         const plan: SavedPlan = {
           id:       trip.id!,

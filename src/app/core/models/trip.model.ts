@@ -64,6 +64,10 @@ export interface Trip {
   isCollaborator?: boolean;
   ownerName?: string;
   ownerEmail?: string;
+  /** Write-only — set on POST /trips when this trip was created by saving an AI-generated
+   *  plan; never returned by any trip response shape, only consumed server-side by
+   *  GET /karma/events' target resolution (see Task 6/7 of the karma events history plan). */
+  sourceAiPlanRequestId?: string;
 }
 
 export interface Collaborator {
