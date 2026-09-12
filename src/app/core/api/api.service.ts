@@ -8,6 +8,7 @@ import { Comment, StepComment, StepCommentAddResult } from '../models/comment.mo
 import { WeatherDay } from '../models/weather.model';
 import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse, CreateMpPreferenceResponse, MpPurchaseStatusResponse } from '../models/karma-purchase.model';
+import { KarmaEvent, KarmaEventsPage } from '../models/karma-event.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
@@ -113,7 +114,23 @@ export class ApiService {
     localStorage.setItem(key, String(current + delta));
   }
 
-  suggestTrips(preferences: string, duration?: number, budget?: string): Observable<SuggestTripsResponse> {
+  getKarmaEvents(email: string, cursor: string | null, limit = 20): Observable<KarmaEventsPage> {
+    if (this.useMocks) {
+      const key = `tb_karma_events_${email}`;
+      const all: KarmaEvent[] = JSON.parse(localStorage.getItem(key) ?? '[]');
+      const startIndex = cursor ? all.findIndex(e => e.eventId === cursor) + 1 : 0;
+      const page = all.slice(startIndex, startIndex + limit + 1);
+      const hasMore = page.length > limit;
+      const events = hasMore ? page.slice(0, limit) : page;
+      const nextCursor = hasMore ? events[events.length - 1].eventId : null;
+      return of({ events, nextCursor });
+    }
+    let params = new HttpParams().set('limit', String(limit));
+    if (cursor) params = params.set('cursor', cursor);
+    return this.http.get<KarmaEventsPage>(`${this.base}/karma/events`, { params });
+  }
+
+  suggestTrips(preferences: string, duration?: number, budget?: string, planSessionId?: string): Observable<SuggestTripsResponse> {
     if (this.useMocks) {
       return of({
         options: [
@@ -123,7 +140,7 @@ export class ApiService {
       });
     }
     return from(this.catalog.getCityIndex()).pipe(
-      switchMap(cityIndex => this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget, cityIndex })),
+      switchMap(cityIndex => this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget, cityIndex, planSessionId })),
     );
   }
 
@@ -233,6 +250,7 @@ export class ApiService {
     isFollowUp = false,
     existingSchedule: SuggestionScheduleEntry[] = [],
     departureTimes: SuggestionDeparture[] = [],
+    tripId?: string,
   ): Observable<SuggestCityAttractionsResponse> {
     if (this.useMocks) {
       const candidates = cityCatalog.filter(c => !existingAttractionIds.includes(c.id)).slice(0, 3);
@@ -253,6 +271,7 @@ export class ApiService {
     }
     return this.http.post<SuggestCityAttractionsResponse>(`${this.base}/ai/suggest-attractions`, {
       cityId, checkIn, checkOut, existingAttractionIds, cityCatalog, isFollowUp, existingSchedule, departureTimes,
+      tripId,
     });
   }
 

@@ -225,6 +225,12 @@ export class NavFacadeService {
     this.router.navigateByUrl('/');
   }
 
+  // Centralizes navigation to the karma history page, same pattern as openMyTrips above.
+  openKarmaHistory(): void {
+    this.userMenuOpen.set(false);
+    this.router.navigateByUrl('/karma-history');
+  }
+
   openBuyKarma(): void {
     this.userMenuOpen.set(false);
     this.karmaModal.open();
@@ -329,7 +335,7 @@ export class NavFacadeService {
 
   doNewTrip(): void {
     this.autoSaveCurrentTrip();
-    this.karma.spend();
+    this.karma.spend('trip_created');
     this.trip.restoreStops([], null);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);

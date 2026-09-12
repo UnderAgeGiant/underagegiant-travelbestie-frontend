@@ -153,6 +153,10 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                           style="width:100%;justify-content:center;margin-bottom:8px"
                           (click)="onMyTrips()" type="button"
                           i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
+                  <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'karmahistory'"
+                          style="width:100%;justify-content:center;margin-bottom:8px"
+                          (click)="onKarmaHistory()" type="button"
+                          i18n="@@nav.karmaHistory">📈 Historial de karma</button>
 
                   <!-- Saved plans toggle -->
                   <button class="up-plans-btn" (click)="facade.togglePlans()" type="button">
@@ -365,11 +369,12 @@ export class NavDesktopComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
-  activeView   = input<'profile' | 'mytrips' | null>(null);
+  activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
 
   onLogo(): void { this.facade.onLogoClick(); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.profileClick.emit(); }
   onMyTrips(): void { this.facade.openMyTrips(); }
+  onKarmaHistory(): void { this.facade.openKarmaHistory(); }
 
   // Closes the floating user panel as soon as it loses focus (a click lands
   // anywhere outside this nav bar) — mousedown fires before the panel's own

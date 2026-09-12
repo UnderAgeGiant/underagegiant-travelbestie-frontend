@@ -55,6 +55,22 @@ describe('ApiService (useMocks=true)', () => {
     expect(localStorage.getItem('tb_karma_another-new-user@test.com')).toBe('9');
   });
 
+  it('getKarmaEvents (mock mode) reads the local ledger and paginates it', done => {
+    const email = 'mock-ledger@test.com';
+    const events = [
+      { eventId: 'e2', delta: 3, reason: 'karma_purchased', createdAt: '2026-09-10T00:00:02.000Z', target: null },
+      { eventId: 'e1', delta: -1, reason: 'trip_created', createdAt: '2026-09-10T00:00:01.000Z', target: null },
+    ];
+    localStorage.setItem(`tb_karma_events_${email}`, JSON.stringify(events));
+
+    service.getKarmaEvents(email, null, 1).subscribe(page => {
+      expect(page.events).toHaveLength(1);
+      expect(page.events[0].eventId).toBe('e2');
+      expect(page.nextCursor).toBe('e2');
+      done();
+    });
+  });
+
   it('getWeather (mock mode) returns one day per date in a fully past-horizon range, all marked historic', done => {
     // Build a range that starts more than 15 days from today (outside the
     // 16-day forecast horizon) so the whole range must classify as 'historic' —
@@ -177,6 +193,21 @@ describe('ApiService (useMocks=false via spy)', () => {
   it('getTrips calls GET /trips', () => {
     service.getTrips().subscribe();
     http.expectOne(r => r.url.includes('/trips') && r.method === 'GET').flush([]);
+  });
+
+  it('getKarmaEvents calls GET /karma/events with cursor and limit params', () => {
+    service.getKarmaEvents('ana@test.com', 'some-cursor', 30).subscribe();
+    const req = http.expectOne(r => r.url.includes('/karma/events'));
+    expect(req.request.params.get('cursor')).toBe('some-cursor');
+    expect(req.request.params.get('limit')).toBe('30');
+    req.flush({ events: [], nextCursor: null });
+  });
+
+  it('getKarmaEvents omits the cursor param on the first page', () => {
+    service.getKarmaEvents('ana@test.com', null, 20).subscribe();
+    const req = http.expectOne(r => r.url.includes('/karma/events'));
+    expect(req.request.params.has('cursor')).toBe(false);
+    req.flush({ events: [], nextCursor: null });
   });
 
   it('saveTrip calls POST /trips', () => {
@@ -313,6 +344,22 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     req.flush({ options: [] });
   });
 
+  it('suggestTrips sends planSessionId when provided', async () => {
+    service.suggestTrips('romantic trip', 10, '1000 USD', 'session-abc').subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/suggest') && r.method === 'POST');
+    expect(req.request.body.planSessionId).toBe('session-abc');
+    req.flush({ options: [] });
+  });
+
+  it('suggestTrips omits planSessionId when not provided', async () => {
+    service.suggestTrips('romantic trip').subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/suggest') && r.method === 'POST');
+    expect(req.request.body.planSessionId).toBeUndefined();
+    req.flush({ options: [] });
+  });
+
   // Not fakeAsync: getCityCatalog() resolves through a real dynamic import()
   // (see AttractionCatalogService), which fakeAsync's tick()/flushMicrotasks()
   // cannot drain — it needs a genuine event-loop turn, hence the real await
@@ -412,6 +459,20 @@ describe('ApiService.suggestCityAttractions() — real HTTP', () => {
 
     const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions') && r.method === 'POST');
     expect(req.request.body.isFollowUp).toBe(true);
+    req.flush({ suggestions: [] });
+  });
+
+  it('suggestCityAttractions sends tripId in the POST body when provided', () => {
+    service.suggestCityAttractions('paris', '01/01/2027', '05/01/2027', [], [], false, [], [], 'trip-abc').subscribe();
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
+    expect(req.request.body.tripId).toBe('trip-abc');
+    req.flush({ suggestions: [] });
+  });
+
+  it('suggestCityAttractions omits tripId from the POST body when not provided', () => {
+    service.suggestCityAttractions('paris', '01/01/2027', '05/01/2027', [], [], false).subscribe();
+    const req = http.expectOne(r => r.url.includes('/ai/suggest-attractions'));
+    expect(req.request.body.tripId).toBeUndefined();
     req.flush({ suggestions: [] });
   });
 });

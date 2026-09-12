@@ -84,6 +84,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
 
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'profile'" (click)="onProfile()" i18n="@@nav.myProfile">👤 Mi perfil</button>
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'mytrips'" (click)="onMyTrips()" i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
+        <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'karmahistory'" (click)="onKarmaHistory()" i18n="@@nav.karmaHistory">📈 Historial de karma</button>
         <button class="up-plans-btn" (click)="onBuyKarma()">
           <span>✨</span><span i18n="@@nav.buyKarmaBtn">Comprar Karma</span>
         </button>
@@ -168,13 +169,14 @@ export class NavMobileComponent {
 
   logoClick    = output<void>();
   profileClick = output<void>();
-  activeView   = input<'profile' | 'mytrips' | null>(null);
+  activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
 
   drawerOpen = signal(false);
 
   onLogo(): void { this.facade.onLogoClick(); this.drawerOpen.set(false); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.drawerOpen.set(false); this.profileClick.emit(); }
   onMyTrips(): void { this.drawerOpen.set(false); this.facade.openMyTrips(); }
+  onKarmaHistory(): void { this.drawerOpen.set(false); this.facade.openKarmaHistory(); }
   onBuyKarma(): void { this.facade.openBuyKarma(); this.drawerOpen.set(false); }
 
   // The account drawer is local component state (drawerOpen) — facade.doLogout() has no way

@@ -170,7 +170,7 @@ export class CompanionSuggestionService {
     this.api.boostCompanion().subscribe({
       next: res => {
         this._boostExpiresAt.set(Date.now() + res.secondsRemaining * 1000);
-        this.karma.spend();
+        this.karma.spend('companion_boost');
         this._boostJustPurchased.update(n => n + 1);
       },
       error: err => { this.karmaModal.handleKarmaError(err); },

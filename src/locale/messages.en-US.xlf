@@ -1591,6 +1591,10 @@
         <source>🗺 Mis viajes</source>
         <target>🗺 My trips</target>
       </trans-unit>
+      <trans-unit id="nav.karmaHistory" datatype="html">
+        <source>📈 Historial de karma</source>
+        <target>📈 Karma History</target>
+      </trans-unit>
       <trans-unit id="nav.mySharedTrips" datatype="html">
         <source>Mis viajes publicados</source>
         <target>My published trips</target>
@@ -2522,5 +2526,112 @@
         <source>Cargando pronóstico…</source>
         <target>Loading forecast…</target>
       </trans-unit>
-    </body>  </file>
+
+      <!-- ── karma-history.component ── -->
+      <trans-unit id="karmaHistory.reason.tripCreated" datatype="html">
+        <source>Viaje creado</source>
+        <target>Trip created</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.itineraryExported" datatype="html">
+        <source>Itinerario exportado</source>
+        <target>Itinerary exported</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.tripShared" datatype="html">
+        <source>Viaje compartido</source>
+        <target>Trip shared</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.collaboratorInvite" datatype="html">
+        <source>Invitación a colaborador</source>
+        <target>Collaborator invite</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiSuggest" datatype="html">
+        <source>Sugerencias de IA para creación de plan</source>
+        <target>AI suggestions for plan creation</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiPlan" datatype="html">
+        <source>Plan de IA generado</source>
+        <target>Generated AI plan</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiPlanRefund" datatype="html">
+        <source>Reembolso de plan de IA</source>
+        <target>AI plan refund</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiCitySuggest" datatype="html">
+        <source>Sugerencias de IA para la ciudad</source>
+        <target>AI suggestions for city</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.companionBoost" datatype="html">
+        <source>Impulso de Asistente Miel</source>
+        <target>Companion Boost</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.karmaPurchased" datatype="html">
+        <source>Compra de karma</source>
+        <target>Karma purchase</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.attractionComment" datatype="html">
+        <source>Primer comentario en una atracción</source>
+        <target>First comment on an attraction</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.stepComment" datatype="html">
+        <source>Comentario en un viaje compartido</source>
+        <target>Comment on a shared trip</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.backBtn" datatype="html">
+        <source>← Volver</source>
+        <target>← Back</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.title" datatype="html">
+        <source>Historial de karma</source>
+        <target>Karma History</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.loading" datatype="html">
+        <source>Cargando tu historial…</source>
+        <target>Loading your history…</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.loadError" datatype="html">
+        <source>No pudimos cargar tu historial de karma.</source>
+        <target>We couldn't load your karma history.</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.retry" datatype="html">
+        <source>Reintentar</source>
+        <target>Retry</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.empty" datatype="html">
+        <source>Aún no tienes movimientos de karma.</source>
+        <target>You don't have any karma movements yet.</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.goToTrip" datatype="html">
+        <source>Ir al viaje</source>
+        <target>Go to trip</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.goToAiPlan" datatype="html">
+        <source>Ir al plan de IA</source>
+        <target>Go to AI plan</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.loadMore" datatype="html">
+        <source>Cargar más</source>
+        <target>Load more</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.loadMoreError" datatype="html">
+        <source>No pudimos cargar más eventos</source>
+        <target>We couldn't load more events</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.tripNotFound" datatype="html">
+        <source>No se pudo abrir el viaje</source>
+        <target>Could not open the trip</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.planDeleted" datatype="html">
+        <source>Plan borrado</source>
+        <target>Deleted plan</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.purchaseProvider" datatype="html">
+        <source>Proveedor</source>
+        <target>Provider</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.purchaseTransactionId" datatype="html">
+        <source>ID de transacción</source>
+        <target>Transaction ID</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
