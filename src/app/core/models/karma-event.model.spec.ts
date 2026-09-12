@@ -23,7 +23,6 @@ describe('isPlanLinkedReason', () => {
     expect(isPlanLinkedReason('trip_shared')).toBe(true);
     expect(isPlanLinkedReason('ai_city_suggest')).toBe(true);
     expect(isPlanLinkedReason('ai_plan')).toBe(true);
-    expect(isPlanLinkedReason('ai_suggest')).toBe(true);
   });
 
   it('is false for reasons that never link to a plan', () => {
@@ -32,5 +31,7 @@ describe('isPlanLinkedReason', () => {
     expect(isPlanLinkedReason('attraction_comment_first')).toBe(false);
     expect(isPlanLinkedReason('step_comment')).toBe(false);
     expect(isPlanLinkedReason('ai_plan_refund')).toBe(false);
+    // ai_suggest's null target is the common "never saved a trip" case, not a deletion — see karma-event.model.ts
+    expect(isPlanLinkedReason('ai_suggest')).toBe(false);
   });
 });

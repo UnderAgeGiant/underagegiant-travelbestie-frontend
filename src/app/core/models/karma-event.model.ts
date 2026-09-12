@@ -65,7 +65,7 @@ export function karmaReasonLabel(reason: string): string {
 
 const PLAN_LINKED_REASONS = new Set<KarmaEventReason>([
   'trip_created', 'itinerary_exported', 'collaborator_invite', 'trip_shared',
-  'ai_city_suggest', 'ai_plan', 'ai_suggest',
+  'ai_city_suggest', 'ai_plan',
 ]);
 
 /** Whether this reason CAN resolve to a trip/ai_plan_request target — used to tell
