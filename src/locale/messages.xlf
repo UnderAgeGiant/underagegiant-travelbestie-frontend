@@ -137,7 +137,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiSuggest" datatype="html">
-        <source>Sugerencias de IA</source>
+        <source>Sugerencias de IA para creación de plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
           <context context-type="linenumber">45</context>

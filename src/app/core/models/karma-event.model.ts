@@ -51,7 +51,7 @@ export function karmaReasonLabel(reason: string): string {
     case 'itinerary_exported':       return $localize`:@@karmaHistory.reason.itineraryExported:Itinerario exportado`;
     case 'trip_shared':              return $localize`:@@karmaHistory.reason.tripShared:Viaje compartido`;
     case 'collaborator_invite':      return $localize`:@@karmaHistory.reason.collaboratorInvite:Invitación a colaborador`;
-    case 'ai_suggest':                return $localize`:@@karmaHistory.reason.aiSuggest:Sugerencias de IA`;
+    case 'ai_suggest':                return $localize`:@@karmaHistory.reason.aiSuggest:Sugerencias de IA para creación de plan`;
     case 'ai_plan':                   return $localize`:@@karmaHistory.reason.aiPlan:Plan de IA generado`;
     case 'ai_plan_refund':            return $localize`:@@karmaHistory.reason.aiPlanRefund:Reembolso de plan de IA`;
     case 'ai_city_suggest':           return $localize`:@@karmaHistory.reason.aiCitySuggest:Sugerencias de IA para la ciudad`;

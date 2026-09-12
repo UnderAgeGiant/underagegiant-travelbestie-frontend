@@ -2545,8 +2545,8 @@
         <target>Collaborator invite</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiSuggest" datatype="html">
-        <source>Sugerencias de IA</source>
-        <target>AI suggestions</target>
+        <source>Sugerencias de IA para creación de plan</source>
+        <target>AI suggestions for plan creation</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiPlan" datatype="html">
         <source>Plan de IA generado</source>
