@@ -2961,7 +2961,11 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
   vector-effect: non-scaling-stroke; /* keeps a constant on-screen outline width across every zoom level computeTripMapViewBox produces */
 }
 .trip-map-route {
-  fill: none; stroke: var(--lav-d); stroke-width: 0.35; stroke-linecap: round; stroke-dasharray: 0.3 1.2;
+  /* stroke-width and stroke-dasharray are set via [attr.*] bindings in the
+     component (routeStrokeWidth() / a fixed "1 5" matching AboutComponent's
+     connector) — a CSS value here would win over those attributes and
+     silently disable both the zoom-relative width and the dash match. */
+  fill: none; stroke: var(--lav-d); stroke-linecap: round;
   stroke-dashoffset: 100; transition: stroke-dashoffset 1.6s cubic-bezier(.3,.6,.2,1);
 }
 .trip-map.tm-played .trip-map-route { stroke-dashoffset: 0; }

@@ -118,4 +118,20 @@ describe('TripMapComponent', () => {
     expect(planeWidth).toBeCloseTo((viewBoxWidth / 100) * 4, 5);
     expect(planeWidth).toBeLessThan(4);
   });
+
+  it('scales the route stroke width proportionally to the current zoom, same as the pins and plane', () => {
+    setUp([{ cityId: 'paris' }, { cityId: 'london' }], { showFlightPath: true });
+    const svg: SVGSVGElement = fixture.nativeElement.querySelector('svg.trip-map-svg');
+    const [, , viewBoxWidth] = svg.getAttribute('viewBox')!.split(' ').map(Number);
+    const route: SVGPathElement = fixture.nativeElement.querySelector('path.trip-map-route');
+    const strokeWidth = Number(route.getAttribute('stroke-width'));
+    expect(viewBoxWidth).toBeLessThan(100); // sanity: this scenario is actually zoomed
+    expect(strokeWidth).toBeCloseTo((viewBoxWidth / 100) * 0.39, 5);
+  });
+
+  it('uses the same widely-spaced dash pattern as AboutComponent\'s flight-path connector (self-normalized by pathLength, so unitless "1 5" matches exactly regardless of viewBox size)', () => {
+    setUp([{ cityId: 'paris' }, { cityId: 'london' }], { showFlightPath: true });
+    const route: SVGPathElement = fixture.nativeElement.querySelector('path.trip-map-route');
+    expect(route.getAttribute('stroke-dasharray')).toBe('1 5');
+  });
 });

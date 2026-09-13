@@ -36,7 +36,7 @@ interface TripMapPin {
         <path [attr.d]="worldMapLandD" class="trip-map-land" [attr.filter]="'url(#' + landFilterId + ')'" />
 
         @if (showFlightPath() && routeD(); as d) {
-          <path [attr.d]="d" pathLength="100" class="trip-map-route" />
+          <path [attr.d]="d" pathLength="100" stroke-dasharray="1 5" [attr.stroke-width]="routeStrokeWidth()" class="trip-map-route" />
           <svg class="trip-map-plane" viewBox="0 0 24 24"
                [attr.width]="planeSize()" [attr.height]="planeSize()" [attr.x]="-planeSize() / 2" [attr.y]="-planeSize() / 2"
                [style.offset-path]="planeOffsetPath()" aria-hidden="true">
@@ -118,6 +118,20 @@ export class TripMapComponent implements AfterViewInit {
    * dominate the frame once zoomed in on a tight cluster of nearby stops.
    */
   protected readonly planeSize = computed(() => (this.viewBox().width / 100) * 4);
+
+  /**
+   * Matches AboutComponent's `.about-path-bg path` (viewBox 0 0 640 120,
+   * stroke-width 2.5 → 2.5/640 ≈ 0.39% of width) proportionally, then keeps
+   * that same proportion at any zoom level the same way pinScale/planeSize
+   * do — a fixed absolute stroke-width would otherwise thicken as the
+   * viewBox zooms in. The dash pattern itself (`stroke-dasharray="1 5"`,
+   * set directly in the template) doesn't need this treatment: `pathLength
+   *="100"` already normalizes dash values to a fraction of the path's own
+   * length, independent of viewBox size — the exact same technique
+   * AboutComponent's connector path uses, so "1 5" there and here produce
+   * an identical dash rhythm.
+   */
+  protected readonly routeStrokeWidth = computed(() => (this.viewBox().width / 100) * 0.39);
 
   protected readonly routeD = computed<string | null>(() => {
     const pts = this.pins();
