@@ -130,7 +130,7 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
                         </div>
                       </div>
                       <app-trip-map class="trip-map-thumb" [cities]="planMapCities(plan)"
-                                    [interactive]="false" [showFlightPath]="false" />
+                                    [interactive]="false" [showFlightPath]="false" [showCountryBorders]="false" />
                       <div style="display:flex;align-items:center;gap:4px;margin-left:auto">
                         <button class="saved-plan-act-btn"
                                 [disabled]="cloningId() === plan.id"

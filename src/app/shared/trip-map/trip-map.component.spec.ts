@@ -1,15 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TripMapComponent } from './trip-map.component';
+import { WORLD_MAP_COUNTRIES } from '../../data/world-map-countries.data';
 
 describe('TripMapComponent', () => {
   let fixture: ComponentFixture<TripMapComponent>;
 
-  function setUp(cities: { cityId: string; stopId?: string }[], overrides: Partial<{ interactive: boolean; showFlightPath: boolean }> = {}) {
+  function setUp(
+    cities: { cityId: string; stopId?: string }[],
+    overrides: Partial<{ interactive: boolean; showFlightPath: boolean; showCountryBorders: boolean }> = {},
+  ) {
     TestBed.configureTestingModule({ imports: [TripMapComponent] });
     fixture = TestBed.createComponent(TripMapComponent);
     fixture.componentRef.setInput('cities', cities);
     if (overrides.interactive !== undefined) fixture.componentRef.setInput('interactive', overrides.interactive);
     if (overrides.showFlightPath !== undefined) fixture.componentRef.setInput('showFlightPath', overrides.showFlightPath);
+    if (overrides.showCountryBorders !== undefined) fixture.componentRef.setInput('showCountryBorders', overrides.showCountryBorders);
     fixture.detectChanges();
   }
 
@@ -99,10 +104,20 @@ describe('TripMapComponent', () => {
     expect(svg.getAttribute('viewBox')).toBe('0 0 100 50');
   });
 
-  it('gives each instance its own unique land-smoothing filter id, referenced by the land path', () => {
+  it('renders one bordered path per real country when showCountryBorders is true (the default)', () => {
     setUp([{ cityId: 'paris' }]);
+    const countries = fixture.nativeElement.querySelectorAll('path.trip-map-country');
+    expect(countries.length).toBe(WORLD_MAP_COUNTRIES.length);
+    expect(fixture.nativeElement.querySelector('filter')).toBeNull();
+    expect(fixture.nativeElement.querySelector('path.trip-map-land')).toBeNull();
+  });
+
+  it('falls back to a single simplified land silhouette (with its smoothing filter) when showCountryBorders is false', () => {
+    setUp([{ cityId: 'paris' }], { showCountryBorders: false });
+    expect(fixture.nativeElement.querySelectorAll('path.trip-map-country').length).toBe(0);
     const filter: SVGFilterElement = fixture.nativeElement.querySelector('filter');
     const land: SVGPathElement = fixture.nativeElement.querySelector('path.trip-map-land');
+    expect(land).not.toBeNull();
     const filterId = filter.getAttribute('id');
     expect(filterId).toBeTruthy();
     expect(land.getAttribute('filter')).toBe(`url(#${filterId})`);

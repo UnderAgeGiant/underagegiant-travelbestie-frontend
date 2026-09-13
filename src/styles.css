@@ -2960,6 +2960,14 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
   fill: var(--lav); stroke: var(--lav-d); stroke-width: 1; stroke-linejoin: round;
   vector-effect: non-scaling-stroke; /* keeps a constant on-screen outline width across every zoom level computeTripMapViewBox produces */
 }
+.trip-map-country {
+  /* Real per-country borders (WORLD_MAP_COUNTRIES) — thinner than
+     .trip-map-land's single outer silhouette stroke, since 177 of these
+     sit side by side and a thick line between every neighboring country
+     would read as visual noise rather than "political map." */
+  fill: var(--lav); stroke: var(--lav-d); stroke-width: 0.4; stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
 .trip-map-route {
   /* stroke-width and stroke-dasharray are set via [attr.*] bindings in the
      component (routeStrokeWidth() / a fixed "1 5" matching AboutComponent's

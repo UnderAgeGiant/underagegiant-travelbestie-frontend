@@ -2,6 +2,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, computed, input, out
 import { CITY_COORDS } from '../../data/city-coords.data';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { WORLD_MAP_LAND_D } from '../../data/world-map-outline.data';
+import { WORLD_MAP_COUNTRIES } from '../../data/world-map-countries.data';
 import { latLngToSvgPoint } from '../../core/maps/latlng-projection.util';
 import { computeTripMapViewBox } from '../../core/maps/trip-map-viewbox.util';
 
@@ -26,14 +27,20 @@ interface TripMapPin {
   template: `
     <div class="trip-map" [class.tm-played]="played()">
       <svg class="trip-map-svg" [attr.viewBox]="viewBoxAttr()" preserveAspectRatio="none">
-        <defs>
-          <filter [attr.id]="landFilterId" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.18" result="tm-land-blur" />
-            <feColorMatrix in="tm-land-blur" mode="matrix"
-                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" />
-          </filter>
-        </defs>
-        <path [attr.d]="worldMapLandD" class="trip-map-land" [attr.filter]="'url(#' + landFilterId + ')'" />
+        @if (showCountryBorders()) {
+          @for (country of worldMapCountries; track country.id) {
+            <path [attr.d]="country.d" class="trip-map-country" [attr.aria-label]="country.name" />
+          }
+        } @else {
+          <defs>
+            <filter [attr.id]="landFilterId" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.18" result="tm-land-blur" />
+              <feColorMatrix in="tm-land-blur" mode="matrix"
+                              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" />
+            </filter>
+          </defs>
+          <path [attr.d]="worldMapLandD" class="trip-map-land" [attr.filter]="'url(#' + landFilterId + ')'" />
+        }
 
         @if (showFlightPath() && routeD(); as d) {
           <path [attr.d]="d" pathLength="100" stroke-dasharray="1 5" [attr.stroke-width]="routeStrokeWidth()" class="trip-map-route" />
@@ -65,9 +72,21 @@ export class TripMapComponent implements AfterViewInit {
   readonly cities = input.required<TripMapCity[]>();
   readonly interactive = input(true);
   readonly showFlightPath = input(true);
+  /**
+   * `true` (default): draw real per-country borders (`WORLD_MAP_COUNTRIES`,
+   * from Natural Earth's admin-0-countries dataset) — used by the two
+   * interactive fullscreen modal hosts, where there's only ever one
+   * instance on screen and the detail is worth it. `false`: fall back to
+   * the single simplified silhouette (`WORLD_MAP_LAND_D`) with its
+   * smoothing filter — used by MyTripsComponent's thumbnails, where
+   * dozens of instances can render at once and 177 extra country paths
+   * each would be wasted DOM weight nobody can see at 120px wide anyway.
+   */
+  readonly showCountryBorders = input(true);
   readonly pinClick = output<string>();
 
   protected readonly worldMapLandD = WORLD_MAP_LAND_D;
+  protected readonly worldMapCountries = WORLD_MAP_COUNTRIES;
   protected readonly planeIconPath = 'M2.01 21L23 12 2.01 3 2 10l15 2-15 2z';
   /**
    * Same silhouette as MapsPinIconComponent's "place" glyph (24x24 space,
