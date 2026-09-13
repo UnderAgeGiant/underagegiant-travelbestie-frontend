@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+﻿import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
@@ -307,5 +307,34 @@ describe('MyTripsComponent — Planes IA Pendientes tab', () => {
 
     expect(component.aiPlanHistory()).toEqual([failed]);   // still there — delete failed
     expect(component.discardingRequestId()).toBeNull();
+  });
+});
+
+describe('MyTripsComponent — trip map thumbnail', () => {
+  let fixture: ComponentFixture<MyTripsComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    const auth = TestBed.inject(AuthService);
+    auth.setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    const savedPlans = TestBed.inject(SavedPlansService);
+    savedPlans.register({
+      id: 'p1', name: 'Euro trip', savedAt: '2026-07-01T00:00:00Z',
+      stops: [
+        { stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] },
+        { stopId: 's2', cityId: 'london', checkIn: '05/06/2026', checkOut: '09/06/2026', selectedAttractions: [] },
+      ],
+    });
+    fixture = TestBed.createComponent(MyTripsComponent);
+    fixture.detectChanges();
+  });
+
+  it('renders a non-interactive trip map thumbnail on the saved-plan card', () => {
+    const thumb = fixture.nativeElement.querySelector('.saved-plan-card app-trip-map.trip-map-thumb');
+    expect(thumb).not.toBeNull();
   });
 });
