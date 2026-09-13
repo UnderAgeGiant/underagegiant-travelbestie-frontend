@@ -17,6 +17,7 @@ import { SlideshowItem } from '../../../core/models/plan-slideshow.model';
 import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slideshow.component';
 import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
+import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map.component';
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
@@ -126,7 +127,7 @@ function transitLabel(mode: TransitMode): string {
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent, TripMapComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -141,7 +142,7 @@ function transitLabel(mode: TransitMode): string {
           {{ title() }}
         </div>
         <div class="tl-head-sub">{{ subtitle() }}</div>
-        @if (trip.loadedPlanId() || routeUrl() || blocks().length > 0 || (showPlanSlideshow() && planSlideItems().length > 0)) {
+        @if (trip.loadedPlanId() || routeUrl() || blocks().length > 0 || (showPlanSlideshow() && planSlideItems().length > 0) || (showTripMap() && tripMapCities().length > 0)) {
           <div class="tl-head-actions">
             <!-- Two visually-separated clusters: day-scoped actions (this
                  component's own subject) first, then plan-scoped — matches
@@ -162,7 +163,7 @@ function transitLabel(mode: TransitMode): string {
                 }
               </div>
             }
-            @if (trip.loadedPlanId() || (showPlanSlideshow() && planSlideItems().length > 0)) {
+            @if (trip.loadedPlanId() || (showPlanSlideshow() && planSlideItems().length > 0) || (showTripMap() && tripMapCities().length > 0)) {
               <div class="tl-head-actions-group">
                 @if (trip.loadedPlanId()) {
                   <button class="btn-pill btn-outline tl-head-action"
@@ -173,6 +174,11 @@ function transitLabel(mode: TransitMode): string {
                   <button class="btn-pill btn-outline tl-head-action"
                           (click)="planSlideshowOpen.set(true)" type="button"
                           i18n="@@timeline.planSlideshow">🎞️ Presentación del plan</button>
+                }
+                @if (showTripMap() && tripMapCities().length > 0) {
+                  <button class="btn-pill btn-outline tl-head-action tl-trip-map-btn"
+                          (click)="tripMapOpen.set(true)" type="button"
+                          i18n="@@timeline.tripMap">✈️ Ver mapa del viaje</button>
                 }
               </div>
             }
@@ -288,6 +294,16 @@ function transitLabel(mode: TransitMode): string {
   @if (planSlideshowOpen()) {
     <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
   }
+  @if (tripMapOpen()) {
+    <div class="trip-map-modal-backdrop" (click)="tripMapOpen.set(false)">
+      <div class="trip-map-modal-body" (click)="$event.stopPropagation()">
+        <button class="trip-map-modal-close" (click)="tripMapOpen.set(false)" type="button"
+                i18n-aria-label="@@timeline.tripMapClose" aria-label="Cerrar mapa">✕</button>
+        <app-trip-map [cities]="tripMapCities()" [interactive]="true" [showFlightPath]="true"
+                       (pinClick)="onTripMapPinClick($event)" />
+      </div>
+    </div>
+  }
 }
   `
 })
@@ -304,6 +320,10 @@ export class DayTimelineComponent {
   // Whole-plan slideshow switch — only set true on the single trip-wide
   // instance rendered by ShellComponent (see Task 5).
   readonly showPlanSlideshow = input(false);
+  // Trip map switch — only set true on the single trip-wide instance
+  // rendered by ShellComponent, same convention as showPlanSlideshow (see
+  // Task 5 of docs/superpowers/plans/2026-09-13-trip-map.md).
+  readonly showTripMap = input(false);
   // Disables all drag-to-schedule affordances (draggable blocks, drag-start,
   // drag-over preview, and drop handling) — set true on the read-only public
   // shared-trip view, where the viewer's own TripService has no matching
@@ -348,6 +368,15 @@ export class DayTimelineComponent {
   protected readonly collapsed = signal(false);
   protected readonly daySlideshowOpen  = signal(false);
   protected readonly planSlideshowOpen = signal(false);
+  protected readonly tripMapOpen = signal(false);
+  protected readonly tripMapCities = computed<TripMapCity[]>(() =>
+    this.trip.stops().map((s) => ({ cityId: s.cityId, stopId: s.stopId })),
+  );
+
+  protected onTripMapPinClick(stopId: string): void {
+    this.trip.setActive(stopId);
+    this.tripMapOpen.set(false);
+  }
   protected readonly draggingEntryId = signal<string | null>(null);
   protected readonly dragPreview = signal<{ top: number; time: string } | null>(null);
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }

@@ -1823,6 +1823,14 @@
         <source>🎞️ Presentación del plan</source>
         <target>🎞️ Plan slideshow</target>
       </trans-unit>
+      <trans-unit id="timeline.tripMap" datatype="html">
+        <source>✈️ Ver mapa del viaje</source>
+        <target>✈️ View trip map</target>
+      </trans-unit>
+      <trans-unit id="timeline.tripMapClose" datatype="html">
+        <source>Cerrar mapa</source>
+        <target>Close map</target>
+      </trans-unit>
       <trans-unit id="sharedTrip.planSlideshow" datatype="html">
         <source>🎬 Presentación</source>
         <target>🎬 Slideshow</target>

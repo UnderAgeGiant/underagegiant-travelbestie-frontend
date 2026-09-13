@@ -2975,3 +2975,13 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
   .trip-map-route { transition: none; stroke-dashoffset: 0; }
   .trip-map-plane { animation: none !important; opacity: 1; offset-distance: 50%; }
 }
+.trip-map-modal-backdrop {
+  position: fixed; inset: 0; z-index: 400;
+  background: oklch(0% 0 0 / .55); display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.trip-map-modal-body { position: relative; width: 100%; max-width: 900px; }
+.trip-map-modal-close {
+  position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff;
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
