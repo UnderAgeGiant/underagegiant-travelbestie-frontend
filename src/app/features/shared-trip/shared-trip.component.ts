@@ -32,12 +32,13 @@ import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slides
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.component';
+import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-weather-chip.component';
 import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-badge.component';
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent],
+    imports: [CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -128,6 +129,14 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                     i18n="@@sharedTrip.planSlideshow">🎬 Presentación</button>
           }
 
+          <!-- Trip map -->
+          @if (tripMapCities().length > 0) {
+            <button class="btn-pill btn-outline shared-trip-map-btn"
+                    style="margin-top:12px;margin-left:8px;gap:6px"
+                    (click)="tripMapOpen.set(true)" type="button"
+                    i18n="@@sharedTrip.tripMap">✈️ Ver mapa</button>
+          }
+
           <!-- Success toast -->
           @if (cloneResult()) {
             <div class="clone-success-toast">
@@ -201,6 +210,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
               <!-- City card -->
               <div class="itin-city"
+                   [id]="'itin-city-' + stop.cityId"
                    [class.itin-city-selected]="selectedShareStop()?.cityId === stop.cityId"
                    (click)="selectShareStop(stop)"
                    style="cursor:pointer">
@@ -431,6 +441,17 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
       <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
     }
 
+    @if (tripMapOpen()) {
+      <div class="trip-map-modal-backdrop" (click)="tripMapOpen.set(false)">
+        <div class="trip-map-modal-body" (click)="$event.stopPropagation()">
+          <button class="trip-map-modal-close" (click)="tripMapOpen.set(false)" type="button"
+                  i18n-aria-label="@@sharedTrip.tripMapClose" aria-label="Cerrar mapa">✕</button>
+          <app-trip-map [cities]="tripMapCities()" [interactive]="true" [showFlightPath]="true"
+                         (pinClick)="onTripMapPinClick($event)" />
+        </div>
+      </div>
+    }
+
     </div>
   `
 })
@@ -481,6 +502,20 @@ export class SharedTripComponent {
   cloning          = signal(false);
   cloneResult      = signal<Trip | null>(null);
   planSlideshowOpen = signal(false);
+  tripMapOpen = signal(false);
+  tripMapCities = computed<TripMapCity[]>(() =>
+    (this.trip()?.stops ?? []).map((s) => ({ cityId: s.cityId, stopId: s.stopId })),
+  );
+
+  onTripMapPinClick(stopId: string): void {
+    const stop = this.trip()?.stops.find((s) => s.stopId === stopId);
+    if (!stop) return;
+    this.selectedShareStop.set(stop);
+    this.tripMapOpen.set(false);
+    setTimeout(() => {
+      document.getElementById('itin-city-' + stop.cityId)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    });
+  }
   shakeClone         = signal(false);
   private shakeTriggered = false;
   activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);

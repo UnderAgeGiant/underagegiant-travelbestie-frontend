@@ -1835,6 +1835,14 @@
         <source>🎬 Presentación</source>
         <target>🎬 Slideshow</target>
       </trans-unit>
+      <trans-unit id="sharedTrip.tripMap" datatype="html">
+        <source>✈️ Ver mapa</source>
+        <target>✈️ View map</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.tripMapClose" datatype="html">
+        <source>Cerrar mapa</source>
+        <target>Close map</target>
+      </trans-unit>
 
       <!-- ── city-suggest: AI per-city attraction cloud ── -->
       <trans-unit id="citySuggest.closeAria" datatype="html">
