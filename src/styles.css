@@ -2946,3 +2946,32 @@ app-nav { display: block; }
 .karma-history-plan-name { font-size:12px; color:var(--t2); }
 .karma-history-plan-deleted { color:var(--t3); font-style:italic; }
 .karma-history-purchase-meta { font-size:11px; color:var(--t3); }
+
+/* Trip Map (shared/trip-map) */
+app-trip-map { display: block; width: 100%; aspect-ratio: 2 / 1; }
+app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0; }
+.trip-map { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 12px; background: var(--cream); }
+.trip-map-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.trip-map-land { fill: var(--lav); }
+.trip-map-route {
+  fill: none; stroke: var(--lav-d); stroke-width: 0.35; stroke-linecap: round; stroke-dasharray: 0.3 1.2;
+  stroke-dashoffset: 100; transition: stroke-dashoffset 1.6s cubic-bezier(.3,.6,.2,1);
+}
+.trip-map.tm-played .trip-map-route { stroke-dashoffset: 0; }
+.trip-map-pin { fill: var(--peach-d); stroke: #fff; stroke-width: 0.25; }
+.trip-map-pin-clickable { cursor: pointer; }
+.trip-map-plane {
+  overflow: visible; opacity: 0; offset-rotate: auto;
+  filter: drop-shadow(0 0.1px 0.2px oklch(0% 0 0/.18)); will-change: offset-distance, opacity;
+}
+.trip-map.tm-played .trip-map-plane { animation: tripMapFlyPlane 1.7s cubic-bezier(.3,.55,.25,1) both; }
+@keyframes tripMapFlyPlane {
+  0% { offset-distance: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trip-map-route { transition: none; stroke-dashoffset: 0; }
+  .trip-map-plane { animation: none !important; opacity: 1; offset-distance: 50%; }
+}
