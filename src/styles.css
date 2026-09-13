@@ -12,6 +12,7 @@
   --blush: oklch(91% .06 10);
   --sky: oklch(91% .06 220);
   --butter: oklch(93% .08 95);
+  --pin-red: oklch(56% .22 25);
   --t1: oklch(18% .02 270);
   --t2: oklch(42% .03 270);
   --t3: oklch(65% .02 270);
@@ -2955,19 +2956,29 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
 }
 .trip-map { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 12px; background: var(--cream); }
 .trip-map-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.trip-map-land { fill: var(--lav); }
+.trip-map-land {
+  fill: var(--lav); stroke: var(--lav-d); stroke-width: 1; stroke-linejoin: round;
+  vector-effect: non-scaling-stroke; /* keeps a constant on-screen outline width across every zoom level computeTripMapViewBox produces */
+}
 .trip-map-route {
   fill: none; stroke: var(--lav-d); stroke-width: 0.35; stroke-linecap: round; stroke-dasharray: 0.3 1.2;
   stroke-dashoffset: 100; transition: stroke-dashoffset 1.6s cubic-bezier(.3,.6,.2,1);
 }
 .trip-map.tm-played .trip-map-route { stroke-dashoffset: 0; }
-.trip-map-pin { fill: var(--peach-d); stroke: #fff; stroke-width: 0.25; }
+.trip-map-pin-body {
+  fill: var(--pin-red); stroke: #fff; stroke-width: 1.2; paint-order: stroke;
+  filter: drop-shadow(0 1px 1.2px oklch(0% 0 0/.3));
+}
 .trip-map-pin-clickable { cursor: pointer; }
+.trip-map-pin-clickable:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 1px; border-radius: 2px; }
 .trip-map-plane {
-  overflow: visible; opacity: 0; offset-rotate: auto;
+  /* peach-d, not lav-d — the route/land already own that hue, and a plane
+     the same color as the line it flies along disappears against it at
+     this small size. */
+  overflow: visible; opacity: 0; offset-rotate: auto; color: var(--peach-d);
   filter: drop-shadow(0 0.1px 0.2px oklch(0% 0 0/.18)); will-change: offset-distance, opacity;
 }
-.trip-map.tm-played .trip-map-plane { animation: tripMapFlyPlane 1.7s cubic-bezier(.3,.55,.25,1) both; }
+.trip-map.tm-played .trip-map-plane { animation: tripMapFlyPlane 4.5s cubic-bezier(.3,.55,.25,1) infinite; }
 @keyframes tripMapFlyPlane {
   0% { offset-distance: 0%; opacity: 0; }
   8% { opacity: 1; }

@@ -3,6 +3,7 @@ import { CITY_COORDS } from '../../data/city-coords.data';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { WORLD_MAP_LAND_D } from '../../data/world-map-outline.data';
 import { latLngToSvgPoint } from '../../core/maps/latlng-projection.util';
+import { computeTripMapViewBox } from '../../core/maps/trip-map-viewbox.util';
 
 export interface TripMapCity {
   cityId: string;
@@ -24,26 +25,37 @@ interface TripMapPin {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="trip-map" [class.tm-played]="played()">
-      <svg class="trip-map-svg" viewBox="0 0 100 50" preserveAspectRatio="none">
-        <path [attr.d]="worldMapLandD" class="trip-map-land" />
+      <svg class="trip-map-svg" [attr.viewBox]="viewBoxAttr()" preserveAspectRatio="none">
+        <defs>
+          <filter [attr.id]="landFilterId" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.18" result="tm-land-blur" />
+            <feColorMatrix in="tm-land-blur" mode="matrix"
+                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" />
+          </filter>
+        </defs>
+        <path [attr.d]="worldMapLandD" class="trip-map-land" [attr.filter]="'url(#' + landFilterId + ')'" />
 
         @if (showFlightPath() && routeD(); as d) {
           <path [attr.d]="d" pathLength="100" class="trip-map-route" />
-          <svg class="trip-map-plane" viewBox="0 0 24 24" width="4" height="4" x="-2" y="-2"
+          <svg class="trip-map-plane" viewBox="0 0 24 24"
+               [attr.width]="planeSize()" [attr.height]="planeSize()" [attr.x]="-planeSize() / 2" [attr.y]="-planeSize() / 2"
                [style.offset-path]="planeOffsetPath()" aria-hidden="true">
             <path [attr.d]="planeIconPath" fill="currentColor"></path>
           </svg>
         }
 
         @for (pin of pins(); track pin.stopId ?? (pin.cityId + '_' + $index)) {
-          <circle class="trip-map-pin"
-                  [class.trip-map-pin-clickable]="interactive() && !!pin.stopId"
-                  [attr.cx]="pin.x" [attr.cy]="pin.y" r="1.3"
-                  [attr.aria-label]="pin.name"
-                  [attr.role]="interactive() && pin.stopId ? 'button' : null"
-                  [attr.tabindex]="interactive() && pin.stopId ? 0 : null"
-                  (click)="onPinClick(pin)"
-                  (keydown.enter)="onPinClick(pin)" />
+          <g class="trip-map-pin"
+             [class.trip-map-pin-clickable]="interactive() && !!pin.stopId"
+             [attr.transform]="pinTransform(pin)"
+             [attr.aria-label]="pin.name"
+             [attr.role]="interactive() && pin.stopId ? 'button' : null"
+             [attr.tabindex]="interactive() && pin.stopId ? 0 : null"
+             (click)="onPinClick(pin)"
+             (keydown.enter)="onPinClick(pin)"
+             (keydown.space)="onPinClick(pin)">
+            <path class="trip-map-pin-body" [attr.d]="pinIconPath" />
+          </g>
         }
       </svg>
     </div>
@@ -57,6 +69,18 @@ export class TripMapComponent implements AfterViewInit {
 
   protected readonly worldMapLandD = WORLD_MAP_LAND_D;
   protected readonly planeIconPath = 'M2.01 21L23 12 2.01 3 2 10l15 2-15 2z';
+  /**
+   * Same silhouette as MapsPinIconComponent's "place" glyph (24x24 space,
+   * tip at ~(12, 21.2)) — reused here only for shape consistency with the
+   * rest of the app's pin iconography. Not that component's "view on maps"
+   * meaning: this marks a location on our own map, closer in spirit to
+   * VisitedPlacesService's pins (see MapsPinIconComponent's own doc-comment
+   * on keeping those two meanings distinct).
+   */
+  protected readonly pinIconPath =
+    'M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.44 11.44 6.72 11.7a1.13 1.13 0 0 0 1.56 0c.28-.26 6.72-6.45 6.72-11.7C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z';
+  /** Unique per instance so multiple `<app-trip-map>`s on one page (e.g. every My Trips card's thumbnail) never share — or collide on — an SVG filter id. */
+  protected readonly landFilterId = `tm-land-smooth-${crypto.randomUUID()}`;
   protected readonly played = signal(false);
 
   protected readonly pins = computed<TripMapPin[]>(() =>
@@ -70,6 +94,30 @@ export class TripMapComponent implements AfterViewInit {
       })
       .filter((p): p is TripMapPin => p !== null),
   );
+
+  /** Frames the trip's actual pins instead of always showing the whole world — see trip-map-viewbox.util.ts. */
+  protected readonly viewBox = computed(() => computeTripMapViewBox(this.pins()));
+  protected readonly viewBoxAttr = computed(() => {
+    const { x, y, width, height } = this.viewBox();
+    return `${x} ${y} ${width} ${height}`;
+  });
+
+  /**
+   * Pins stay a roughly constant SCREEN size across zoom levels, like any
+   * normal map's markers — scaling inversely with the current viewBox
+   * width. A fixed SVG-unit pin size would otherwise visually balloon as
+   * `viewBox` zooms in on a tight cluster of nearby stops.
+   */
+  protected readonly pinScale = computed(() => (this.viewBox().width / 100) * 0.1);
+
+  /**
+   * The flying plane, like the pins, must shrink proportionally with the
+   * current viewBox zoom — its old fixed `width="4" height="4"` was sized
+   * for the always-full-world viewBox this component used before
+   * computeTripMapViewBox() existed, and would otherwise balloon to
+   * dominate the frame once zoomed in on a tight cluster of nearby stops.
+   */
+  protected readonly planeSize = computed(() => (this.viewBox().width / 100) * 4);
 
   protected readonly routeD = computed<string | null>(() => {
     const pts = this.pins();
@@ -87,6 +135,11 @@ export class TripMapComponent implements AfterViewInit {
     if (this.showFlightPath()) {
       setTimeout(() => this.played.set(true));
     }
+  }
+
+  /** Translates the pin's icon (tip at local (12, 21.2)) so its tip lands exactly on the pin's projected map coordinate, then scales it per pinScale(). */
+  protected pinTransform(pin: TripMapPin): string {
+    return `translate(${pin.x},${pin.y}) scale(${this.pinScale()}) translate(-12,-21.2)`;
   }
 
   protected onPinClick(pin: TripMapPin): void {
