@@ -1259,6 +1259,14 @@ app-nav { display: block; }
   padding-top: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .landing-footer-logo { font-size: 34px; }
+  .landing-footer-tagline { font-size: 14px; }
+  .landing-footer-col-head { font-size: 12px; }
+  .landing-footer-link { font-size: 15px; }
+  .landing-footer-copy { font-size: 12px; }
+}
+
 /* ── Shake attention animation (clone button highlight) ─────────────────── */
 @keyframes shake-btn {
   0%,100% { transform: translateX(0); }
