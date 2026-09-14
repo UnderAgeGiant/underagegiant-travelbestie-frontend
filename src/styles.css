@@ -2806,6 +2806,14 @@ app-nav { display: block; }
   display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
   max-width: min(340px, calc(100vw - 40px));
 }
+/* Feedback #11 (2026-09-14): scoped to .travel-docs-reminder (not .companion-mascot
+   itself) so only this bubble moves — CompanionMascotComponent keeps its own
+   bottom-right position. Left-anchored so it sits near StopListComponent's
+   "Guardar viaje" button, which lives at the bottom of the left-docked .left-panel. */
+.travel-docs-reminder {
+  left: 20px; right: auto;
+  align-items: flex-start;
+}
 /* Full-width strip the sniffing dog roams across, bottom-anchored. pointer-events:none
    so the roaming dog never blocks clicks/taps on the page content behind it — the
    sniffing state has no interactive elements of its own. */
@@ -2867,6 +2875,9 @@ app-nav { display: block; }
 }
 @media (max-width: 640px) {
   .companion-mascot { right: 12px; bottom: 12px; }
+}
+@media (max-width: 640px) {
+  .travel-docs-reminder { left: 12px; right: auto; }
 }
 
 /* Profile page boost card */
