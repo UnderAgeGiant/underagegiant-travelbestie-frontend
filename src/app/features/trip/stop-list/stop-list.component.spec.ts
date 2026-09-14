@@ -309,3 +309,37 @@ describe('StopListComponent — trip map button (feedback #10)', () => {
   });
 });
 
+describe('StopListComponent — Guardar viaje bounce beacon (feedback #12)', () => {
+  let trip: TripService;
+  let fixture: ComponentFixture<StopListComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+  });
+
+  it('bounces the "Guardar viaje" button once the first destination is added and the trip is unsaved', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+
+    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.panel-footer .btn-pill.btn-primary');
+    expect(btn.classList.contains('ai-save-cta')).toBe(true);
+  });
+
+  it('stops bouncing once the trip has been saved (loadedPlanId is set)', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    trip.markAsLoadedPlan('plan-1');
+    fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+
+    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.panel-footer .btn-pill.btn-primary');
+    expect(btn.classList.contains('ai-save-cta')).toBe(false);
+  });
+});
+

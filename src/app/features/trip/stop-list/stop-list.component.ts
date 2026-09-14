@@ -301,6 +301,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
           @if (!bookOpen()) {
             <button class="btn-pill btn-primary"
                     style="width:100%;justify-content:center;margin-top:8px"
+                    [class.ai-save-cta]="!trip.loadedPlanId() && !bookSaving()"
                     [disabled]="bookSaving()"
                     (click)="doBook()"
                     i18n="@@stopList.bookBtn">Guardar viaje 🎉
