@@ -64,6 +64,15 @@ interface TripMapPin {
             <path class="trip-map-pin-body" [attr.d]="pinIconPath" />
           </g>
         }
+
+        @if (showLabels()) {
+          @for (pin of pins(); track (pin.stopId ?? (pin.cityId + '_' + $index)) + '_lbl') {
+            <g class="trip-map-label" [attr.transform]="labelTransform(pin)" aria-hidden="true">
+              <rect class="trip-map-label-bubble" [attr.width]="labelBubbleWidth(pin)" [attr.height]="labelBubbleHeight()" [attr.rx]="labelBubbleHeight() / 2" />
+              <text class="trip-map-label-text" [attr.x]="labelBubbleWidth(pin) / 2" [attr.y]="labelBubbleHeight() / 2" [attr.font-size]="labelFontSize()">{{ pin.name }}</text>
+            </g>
+          }
+        }
       </svg>
     </div>
   `,
@@ -83,6 +92,8 @@ export class TripMapComponent implements AfterViewInit {
    * each would be wasted DOM weight nobody can see at 120px wide anyway.
    */
   readonly showCountryBorders = input(true);
+  /** `true` (default): show a small rounded-pill name label above every pin. `false` (MyTripsComponent's thumbnail) — text is unreadable at 120px wide and would just be visual noise. */
+  readonly showLabels = input(true);
   readonly pinClick = output<string>();
 
   protected readonly worldMapLandD = WORLD_MAP_LAND_D;
@@ -151,6 +162,36 @@ export class TripMapComponent implements AfterViewInit {
    * an identical dash rhythm.
    */
   protected readonly routeStrokeWidth = computed(() => (this.viewBox().width / 100) * 0.39);
+
+  /**
+   * Label bubbles follow the exact same "scale proportionally to the
+   * current viewBox width" pattern as pinScale/planeSize/routeStrokeWidth
+   * — a fixed absolute size would otherwise shrink or balloon relative to
+   * the map as computeTripMapViewBox zooms in or out.
+   */
+  protected readonly labelFontSize = computed(() => (this.viewBox().width / 100) * 1.4);
+  protected readonly labelBubbleHeight = computed(() => (this.viewBox().width / 100) * 2.2);
+
+  /**
+   * No live text measurement (no ViewChild/getBBox round trip per pin) —
+   * a per-character average-width estimate is precise enough for a small
+   * rounded-pill label, and stays a pure, easily-testable computation.
+   */
+  protected labelBubbleWidth(pin: TripMapPin): number {
+    const fontSize = this.labelFontSize();
+    const padding = fontSize * 0.7;
+    return pin.name.length * fontSize * 0.6 + padding * 2;
+  }
+
+  /** Centers the bubble horizontally on the pin and floats it just above the pin's head, clear of the marker itself. */
+  protected labelTransform(pin: TripMapPin): string {
+    const width = this.labelBubbleWidth(pin);
+    const height = this.labelBubbleHeight();
+    const pinTopY = pin.y - this.pinScale() * 19.2; // local icon height (tip y=21.2 to head-top y=2)
+    const x = pin.x - width / 2;
+    const y = pinTopY - height - this.pinScale() * 4; // small gap above the pin's head
+    return `translate(${x},${y})`;
+  }
 
   protected readonly routeD = computed<string | null>(() => {
     const pts = this.pins();

@@ -7,7 +7,7 @@ describe('TripMapComponent', () => {
 
   function setUp(
     cities: { cityId: string; stopId?: string }[],
-    overrides: Partial<{ interactive: boolean; showFlightPath: boolean; showCountryBorders: boolean }> = {},
+    overrides: Partial<{ interactive: boolean; showFlightPath: boolean; showCountryBorders: boolean; showLabels: boolean }> = {},
   ) {
     TestBed.configureTestingModule({ imports: [TripMapComponent] });
     fixture = TestBed.createComponent(TripMapComponent);
@@ -15,6 +15,7 @@ describe('TripMapComponent', () => {
     if (overrides.interactive !== undefined) fixture.componentRef.setInput('interactive', overrides.interactive);
     if (overrides.showFlightPath !== undefined) fixture.componentRef.setInput('showFlightPath', overrides.showFlightPath);
     if (overrides.showCountryBorders !== undefined) fixture.componentRef.setInput('showCountryBorders', overrides.showCountryBorders);
+    if (overrides.showLabels !== undefined) fixture.componentRef.setInput('showLabels', overrides.showLabels);
     fixture.detectChanges();
   }
 
@@ -148,5 +149,27 @@ describe('TripMapComponent', () => {
     setUp([{ cityId: 'paris' }, { cityId: 'london' }], { showFlightPath: true });
     const route: SVGPathElement = fixture.nativeElement.querySelector('path.trip-map-route');
     expect(route.getAttribute('stroke-dasharray')).toBe('1 5');
+  });
+
+  it('renders a bubble label with the city name next to each pin when showLabels is true (the default)', () => {
+    setUp([{ cityId: 'paris' }, { cityId: 'london' }]);
+    const labels = fixture.nativeElement.querySelectorAll('g.trip-map-label');
+    expect(labels.length).toBe(2);
+    const texts: string[] = Array.from(labels).map((g: any) => g.querySelector('text.trip-map-label-text').textContent.trim());
+    expect(texts).toEqual(['Paris', 'London']);
+    expect(labels[0].querySelector('rect.trip-map-label-bubble')).not.toBeNull();
+  });
+
+  it('renders no labels when showLabels is false', () => {
+    setUp([{ cityId: 'paris' }], { showLabels: false });
+    expect(fixture.nativeElement.querySelectorAll('g.trip-map-label').length).toBe(0);
+  });
+
+  it('sizes the label bubble wider for a longer city name', () => {
+    setUp([{ cityId: 'rome' }, { cityId: 'buenosaires' }]); // "Rome" (4 chars) vs "Buenos Aires" (12 chars)
+    const bubbles: SVGRectElement[] = fixture.nativeElement.querySelectorAll('rect.trip-map-label-bubble');
+    const romeWidth = Number(bubbles[0].getAttribute('width'));
+    const buenosAiresWidth = Number(bubbles[1].getAttribute('width'));
+    expect(buenosAiresWidth).toBeGreaterThan(romeWidth);
   });
 });

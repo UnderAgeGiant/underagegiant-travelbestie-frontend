@@ -2983,6 +2983,15 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
 }
 .trip-map-pin-clickable { cursor: pointer; }
 .trip-map-pin-clickable:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 1px; border-radius: 2px; }
+.trip-map-label { pointer-events: none; }
+.trip-map-label-bubble {
+  fill: var(--cream); stroke: var(--border); stroke-width: 0.15; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0.3px 0.5px oklch(0% 0 0/.2));
+}
+.trip-map-label-text {
+  fill: var(--t1); font-family: 'DM Sans', sans-serif; font-weight: 500;
+  text-anchor: middle; dominant-baseline: central;
+}
 .trip-map-plane {
   /* peach-d, not lav-d — the route/land already own that hue, and a plane
      the same color as the line it flies along disappears against it at
