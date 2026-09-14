@@ -82,7 +82,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
         <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="showProfile.set(true)" />
-        <tb-day-timeline [showPlanSlideshow]="true" [showTripMap]="true" />
+        <tb-day-timeline [showPlanSlideshow]="true" />
         <div class="right-panel">
           @if (!trip.activeStop()) {
             <div class="empty-stop">

@@ -24,10 +24,11 @@ import { TimePickerComponent } from '../../../shared/time-picker/time-picker.com
 import { City } from '../../../core/models/city.model';
 import { CityInfoBadgeComponent } from '../../../shared/city-info-badge/city-info-badge.component';
 import { CityWeatherChipComponent } from '../../../shared/city-weather-chip/city-weather-chip.component';
+import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -102,12 +103,19 @@ import { CityWeatherChipComponent } from '../../../shared/city-weather-chip/city
           </div>
         }
         <div class="panel-head-sub">
-          @if (trip.stops().length === 0) {
-            <ng-container i18n="@@stopList.noStops">Agrega tu primer destino</ng-container>
-          } @else if (trip.stops().length === 1) {
-            1 <ng-container i18n="@@stopList.oneStopPlanned">destino planificado</ng-container>
-          } @else {
-            {{ trip.stops().length }} <ng-container i18n="@@stopList.manyStopsPlanned">destinos planificados</ng-container>
+          <span>
+            @if (trip.stops().length === 0) {
+              <ng-container i18n="@@stopList.noStops">Agrega tu primer destino</ng-container>
+            } @else if (trip.stops().length === 1) {
+              1 <ng-container i18n="@@stopList.oneStopPlanned">destino planificado</ng-container>
+            } @else {
+              {{ trip.stops().length }} <ng-container i18n="@@stopList.manyStopsPlanned">destinos planificados</ng-container>
+            }
+          </span>
+          @if (tripMapCities().length > 0) {
+            <button class="btn-pill btn-outline tl-head-action tl-trip-map-btn"
+                    (click)="tripMapOpen.set(true)" type="button"
+                    i18n="@@timeline.tripMap">✈️ Ver mapa del viaje</button>
           }
         </div>
       </div>
@@ -350,6 +358,17 @@ import { CityWeatherChipComponent } from '../../../shared/city-weather-chip/city
           </div>
         }
       </div>
+
+      @if (tripMapOpen()) {
+        <div class="trip-map-modal-backdrop" (click)="tripMapOpen.set(false)">
+          <div class="trip-map-modal-body" (click)="$event.stopPropagation()">
+            <button class="trip-map-modal-close" (click)="tripMapOpen.set(false)" type="button"
+                    i18n-aria-label="@@timeline.tripMapClose" aria-label="Cerrar mapa">✕</button>
+            <app-trip-map [cities]="tripMapCities()" [interactive]="true" [showFlightPath]="true"
+                           (pinClick)="onTripMapPinClick($event)" />
+          </div>
+        </div>
+      }
     </div>
   `
 })
@@ -365,6 +384,16 @@ export class StopListComponent {
   protected readonly autoSave = inject(AutoSaveService);
   addDestination = output<void>();
   openProfile = output<void>();
+
+  protected readonly tripMapOpen = signal(false);
+  protected readonly tripMapCities = computed<TripMapCity[]>(() =>
+    this.trip.stops().map((s) => ({ cityId: s.cityId, stopId: s.stopId })),
+  );
+
+  protected onTripMapPinClick(stopId: string): void {
+    this.trip.setActive(stopId);
+    this.tripMapOpen.set(false);
+  }
 
   protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
   protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
