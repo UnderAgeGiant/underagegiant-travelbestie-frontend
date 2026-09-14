@@ -338,3 +338,21 @@ describe('MyTripsComponent — trip map thumbnail', () => {
     expect(thumb).not.toBeNull();
   });
 });
+
+describe('MyTripsComponent — no back button (feedback #7)', () => {
+  let fixture: ComponentFixture<MyTripsComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    fixture = TestBed.createComponent(MyTripsComponent);
+    fixture.detectChanges();
+  });
+
+  it('does not render a "Volver" back button — logo click already exits the page', () => {
+    expect(fixture.nativeElement.querySelector('.back-btn')).toBeNull();
+  });
+});

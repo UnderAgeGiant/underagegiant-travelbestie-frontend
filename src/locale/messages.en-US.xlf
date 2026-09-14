@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="es-CL" target-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
 
-      <!-- ── app.component ── -->
+      <!-- â”€â”€ app.component â”€â”€ -->
       <trans-unit id="app.selectStop" datatype="html">
         <source>Selecciona una parada</source>
         <target>Select a stop</target>
@@ -13,9 +13,9 @@
         <target>Click any destination in the panel to explore its attractions</target>
       </trans-unit>
 
-      <!-- ── visa-requirement.model ── -->
+      <!-- â”€â”€ visa-requirement.model â”€â”€ -->
       <trans-unit id="visa.freeDays" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="days"/> días sin visa</source>
+        <source><x id="INTERPOLATION" equiv-text="days"/> dÃ­as sin visa</source>
         <target><x id="INTERPOLATION" equiv-text="days"/> visa-free days</target>
       </trans-unit>
       <trans-unit id="visa.free" datatype="html">
@@ -27,11 +27,11 @@
         <target>Visa on arrival</target>
       </trans-unit>
       <trans-unit id="visa.eta" datatype="html">
-        <source>Autorización electrónica (ETA)</source>
+        <source>AutorizaciÃ³n electrÃ³nica (ETA)</source>
         <target>Electronic travel authorization (ETA)</target>
       </trans-unit>
       <trans-unit id="visa.eVisa" datatype="html">
-        <source>Visa electrónica</source>
+        <source>Visa electrÃ³nica</source>
         <target>E-visa</target>
       </trans-unit>
       <trans-unit id="visa.required" datatype="html">
@@ -43,10 +43,10 @@
         <target>Admission not permitted</target>
       </trans-unit>
 
-      <!-- ── nav.component ── -->
+      <!-- â”€â”€ nav.component â”€â”€ -->
       <trans-unit id="nav.searchPlaceholder" datatype="html">
-        <source>Agregar ciudad…</source>
-        <target>Quick-add a city…</target>
+        <source>Agregar ciudadâ€¦</source>
+        <target>Quick-add a cityâ€¦</target>
       </trans-unit>
       <trans-unit id="nav.quickAdd" datatype="html">
         <source>+ Agregar</source>
@@ -57,7 +57,7 @@
         <target>karma</target>
       </trans-unit>
       <trans-unit id="nav.signInBtn" datatype="html">
-        <source>Iniciar sesión</source>
+        <source>Iniciar sesiÃ³n</source>
         <target>Sign In</target>
       </trans-unit>
       <trans-unit id="nav.myAccount" datatype="html">
@@ -65,7 +65,7 @@
         <target>My Account</target>
       </trans-unit>
       <trans-unit id="nav.signOut" datatype="html">
-        <source>Cerrar sesión</source>
+        <source>Cerrar sesiÃ³n</source>
         <target>Sign out</target>
       </trans-unit>
       <trans-unit id="nav.langSwitch" datatype="html">
@@ -73,7 +73,7 @@
         <target>Change language</target>
       </trans-unit>
 
-      <!-- ── notification-bell.component ── -->
+      <!-- â”€â”€ notification-bell.component â”€â”€ -->
       <trans-unit id="notif.bellAria" datatype="html">
         <source>Notificaciones</source>
         <target>Notifications</target>
@@ -87,11 +87,11 @@
         <target>Mute all</target>
       </trans-unit>
       <trans-unit id="notif.unmute" datatype="html">
-        <source>Silenciadas — reactivar</source>
-        <target>Muted — turn back on</target>
+        <source>Silenciadas â€” reactivar</source>
+        <target>Muted â€” turn back on</target>
       </trans-unit>
       <trans-unit id="notif.empty" datatype="html">
-        <source>Sin notificaciones aún</source>
+        <source>Sin notificaciones aÃºn</source>
         <target>No notifications yet</target>
       </trans-unit>
       <trans-unit id="notif.now" datatype="html">
@@ -111,28 +111,28 @@
         <target>My saved trips</target>
       </trans-unit>
       <trans-unit id="nav.noSavedPlans" datatype="html">
-        <source>Sin viajes guardados aún ✈️</source>
-        <target>No saved trips yet ✈️</target>
+        <source>Sin viajes guardados aÃºn âœˆï¸</source>
+        <target>No saved trips yet âœˆï¸</target>
       </trans-unit>
       <trans-unit id="nav.myFavorites" datatype="html">
         <source>Mis favoritos</source>
         <target>My favorites</target>
       </trans-unit>
       <trans-unit id="nav.loadingFavorites" datatype="html">
-        <source>Cargando…</source>
-        <target>Loading…</target>
+        <source>Cargandoâ€¦</source>
+        <target>Loadingâ€¦</target>
       </trans-unit>
       <trans-unit id="nav.noFavorites" datatype="html">
-        <source>Sin favoritos aún ❤️</source>
-        <target>No favorites yet ❤️</target>
+        <source>Sin favoritos aÃºn â¤ï¸</source>
+        <target>No favorites yet â¤ï¸</target>
       </trans-unit>
       <trans-unit id="nav.searchFavoritesPlaceholder" datatype="html">
-        <source>Buscar favorito…</source>
-        <target>Search favorites…</target>
+        <source>Buscar favoritoâ€¦</source>
+        <target>Search favoritesâ€¦</target>
       </trans-unit>
       <trans-unit id="nav.searchSharedTripsPlaceholder" datatype="html">
-        <source>Buscar viaje compartido…</source>
-        <target>Search shared trips…</target>
+        <source>Buscar viaje compartidoâ€¦</source>
+        <target>Search shared tripsâ€¦</target>
       </trans-unit>
       <trans-unit id="nav.updatePlan" datatype="html">
         <source>Actualizar viaje</source>
@@ -143,8 +143,8 @@
         <target>Save as new trip</target>
       </trans-unit>
       <trans-unit id="nav.savePlanPlaceholder" datatype="html">
-        <source>Nombre del viaje…</source>
-        <target>Trip name…</target>
+        <source>Nombre del viajeâ€¦</source>
+        <target>Trip nameâ€¦</target>
       </trans-unit>
       <trans-unit id="nav.savePlanConfirm" datatype="html">
         <source>Guardar</source>
@@ -155,11 +155,11 @@
         <target>Start a new blank trip</target>
       </trans-unit>
       <trans-unit id="nav.deletePlanConfirm" datatype="html">
-        <source>¿Eliminar viaje?</source>
+        <source>Â¿Eliminar viaje?</source>
         <target>Delete trip?</target>
       </trans-unit>
       <trans-unit id="nav.deletePlanYes" datatype="html">
-        <source>Sí</source>
+        <source>SÃ­</source>
         <target>Yes</target>
       </trans-unit>
       <trans-unit id="nav.deletePlanNo" datatype="html">
@@ -167,37 +167,37 @@
         <target>No</target>
       </trans-unit>
 
-      <!-- ── stop-list: book / save ── -->
+      <!-- â”€â”€ stop-list: book / save â”€â”€ -->
       <trans-unit id="stopList.bookNamePlaceholder" datatype="html">
-        <source>Nombre del viaje…</source>
-        <target>Trip name…</target>
+        <source>Nombre del viajeâ€¦</source>
+        <target>Trip nameâ€¦</target>
       </trans-unit>
       <trans-unit id="stopList.viewItinerary" datatype="html">
-        <source>📅 Ver itinerario de la ciudad</source>
-        <target>📅 View city itinerary</target>
+        <source>ðŸ“… Ver itinerario de la ciudad</source>
+        <target>ðŸ“… View city itinerary</target>
       </trans-unit>
       <trans-unit id="stopList.addAttractionBtn" datatype="html">
-        <source>➕ Agregar atracción</source>
-        <target>➕ Add attraction</target>
+        <source>âž• Agregar atracciÃ³n</source>
+        <target>âž• Add attraction</target>
       </trans-unit>
       <trans-unit id="stopList.aiSuggestBtn" datatype="html">
-        <source>🐾 Sugiere qué hacer en esta ciudad <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
-        <target>🐾 Suggest what to do in this city <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <source>ðŸ¾ Sugiere quÃ© hacer en esta ciudad <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>âˆ’2 âœ¨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>ðŸ¾ Suggest what to do in this city <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>âˆ’2 âœ¨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
       </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
-        <source>Guardar ✓</source>
-        <target>Save ✓</target>
+        <source>Guardar âœ“</source>
+        <target>Save âœ“</target>
       </trans-unit>
       <trans-unit id="stopList.bookSavedMsg" datatype="html">
         <source>Viaje guardado</source>
         <target>Trip saved</target>
       </trans-unit>
       <trans-unit id="cityInfo.trigger" datatype="html">
-        <source>Información sobre la ciudad</source>
+        <source>InformaciÃ³n sobre la ciudad</source>
         <target>City information</target>
       </trans-unit>
       <trans-unit id="cityInfo.setCountryCta" datatype="html">
-        <source>Agrega tu país de residencia en Mi Perfil para ver info de visa</source>
+        <source>Agrega tu paÃ­s de residencia en Mi Perfil para ver info de visa</source>
         <target>Add your country of residence in My Profile to see visa info</target>
       </trans-unit>
       <trans-unit id="stopList.currencyBadgeLabel" datatype="html">
@@ -209,31 +209,31 @@
         <target>Type</target>
       </trans-unit>
       <trans-unit id="stopList.plugBadgeAdapterNeeded" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/> — necesitas adaptador</source>
-        <target><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/> — adapter needed</target>
+        <source><x id="INTERPOLATION" equiv-text="types"/> Â· <x id="INTERPOLATION_1" equiv-text="voltage"/> â€” necesitas adaptador</source>
+        <target><x id="INTERPOLATION" equiv-text="types"/> Â· <x id="INTERPOLATION_1" equiv-text="voltage"/> â€” adapter needed</target>
       </trans-unit>
       <trans-unit id="stopList.plugBadgeLabel" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/></source>
-        <target><x id="INTERPOLATION" equiv-text="types"/> · <x id="INTERPOLATION_1" equiv-text="voltage"/></target>
+        <source><x id="INTERPOLATION" equiv-text="types"/> Â· <x id="INTERPOLATION_1" equiv-text="voltage"/></source>
+        <target><x id="INTERPOLATION" equiv-text="types"/> Â· <x id="INTERPOLATION_1" equiv-text="voltage"/></target>
       </trans-unit>
       <trans-unit id="nav.loginTitle" datatype="html">
-        <source>¡Bienvenido de vuelta! 👋</source>
-        <target>Welcome back 👋</target>
+        <source>Â¡Bienvenido de vuelta! ðŸ‘‹</source>
+        <target>Welcome back ðŸ‘‹</target>
       </trans-unit>
       <trans-unit id="nav.loginSubtitle" datatype="html">
-        <source>Inicia sesión para guardar tus viajes</source>
+        <source>Inicia sesiÃ³n para guardar tus viajes</source>
         <target>Sign in to save your trips</target>
       </trans-unit>
       <trans-unit id="nav.registerTitle" datatype="html">
-        <source>Crear cuenta ✨</source>
-        <target>Create account ✨</target>
+        <source>Crear cuenta âœ¨</source>
+        <target>Create account âœ¨</target>
       </trans-unit>
       <trans-unit id="nav.registerSubtitle" datatype="html">
-        <source>Únete y planifica viajes con tus amigos</source>
+        <source>Ãšnete y planifica viajes con tus amigos</source>
         <target>Join to plan trips with besties</target>
       </trans-unit>
       <trans-unit id="nav.acceptTermsLabel" datatype="html">
-        <source> Acepto los <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/terms&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Términos de servicio<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> y la <x id="START_LINK_1" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Política de privacidad<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <source> Acepto los <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/terms&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>TÃ©rminos de servicio<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> y la <x id="START_LINK_1" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>PolÃ­tica de privacidad<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
         <target> I accept the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/terms&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Terms of Service<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> and the <x id="START_LINK_1" equiv-text="&lt;a routerLink=&quot;/privacy&quot; target=&quot;_blank&quot; (click)=&quot;$event.stopPropagation()&quot;&gt;"/>Privacy Policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </target>
       </trans-unit>
       <trans-unit id="nav.nameLabel" datatype="html">
@@ -241,19 +241,19 @@
         <target>Your name</target>
       </trans-unit>
       <trans-unit id="nav.namePlaceholder" datatype="html">
-        <source>Sofía García</source>
-        <target>Sofia García</target>
+        <source>SofÃ­a GarcÃ­a</source>
+        <target>Sofia GarcÃ­a</target>
       </trans-unit>
       <trans-unit id="nav.emailLabel" datatype="html">
-        <source>Correo electrónico</source>
+        <source>Correo electrÃ³nico</source>
         <target>Email</target>
       </trans-unit>
       <trans-unit id="nav.emailPlaceholder" datatype="html">
-        <source>tú@correo.com</source>
+        <source>tÃº@correo.com</source>
         <target>you@email.com</target>
       </trans-unit>
       <trans-unit id="nav.passwordLabel" datatype="html">
-        <source>Contraseña</source>
+        <source>ContraseÃ±a</source>
         <target>Password</target>
       </trans-unit>
       <trans-unit id="nav.cancelBtn" datatype="html">
@@ -261,31 +261,31 @@
         <target>Cancel</target>
       </trans-unit>
       <trans-unit id="nav.signInLoading" datatype="html">
-        <source>Iniciando…</source>
-        <target>Signing in…</target>
+        <source>Iniciandoâ€¦</source>
+        <target>Signing inâ€¦</target>
       </trans-unit>
       <trans-unit id="nav.signInSubmit" datatype="html">
-        <source>Iniciar sesión →</source>
-        <target>Sign In →</target>
+        <source>Iniciar sesiÃ³n â†’</source>
+        <target>Sign In â†’</target>
       </trans-unit>
       <trans-unit id="nav.registerSubmit" datatype="html">
-        <source>Crear cuenta →</source>
-        <target>Create Account →</target>
+        <source>Crear cuenta â†’</source>
+        <target>Create Account â†’</target>
       </trans-unit>
       <trans-unit id="nav.sendOtpBtn" datatype="html">
-        <source>Enviar código →</source>
-        <target>Send code →</target>
+        <source>Enviar cÃ³digo â†’</source>
+        <target>Send code â†’</target>
       </trans-unit>
       <trans-unit id="nav.otpSentTitle" datatype="html">
         <source>Revisa tu correo</source>
         <target>Check your email</target>
       </trans-unit>
       <trans-unit id="nav.otpSentTo" datatype="html">
-        <source>Código enviado a </source>
+        <source>CÃ³digo enviado a </source>
         <target>Code sent to </target>
       </trans-unit>
       <trans-unit id="nav.otpLabel" datatype="html">
-        <source>Código de verificación</source>
+        <source>CÃ³digo de verificaciÃ³n</source>
         <target>Verification code</target>
       </trans-unit>
       <trans-unit id="nav.otpPlaceholder" datatype="html">
@@ -293,113 +293,113 @@
         <target>000000</target>
       </trans-unit>
       <trans-unit id="nav.otpBack" datatype="html">
-        <source>← Cambiar email</source>
-        <target>← Change email</target>
+        <source>â† Cambiar email</source>
+        <target>â† Change email</target>
       </trans-unit>
       <trans-unit id="nav.otpResend" datatype="html">
-        <source>Reenviar código</source>
+        <source>Reenviar cÃ³digo</source>
         <target>Resend code</target>
       </trans-unit>
       <trans-unit id="nav.confirmPasswordLabel" datatype="html">
-        <source>Confirmar contraseña</source>
+        <source>Confirmar contraseÃ±a</source>
         <target>Confirm password</target>
       </trans-unit>
       <trans-unit id="nav.confirmPasswordMismatch" datatype="html">
-        <source>Las contraseñas no coinciden</source>
+        <source>Las contraseÃ±as no coinciden</source>
         <target>Passwords don't match</target>
       </trans-unit>
       <trans-unit id="nav.loginErrNotFound" datatype="html">
-        <source>No encontramos una cuenta con ese correo electrónico.</source>
+        <source>No encontramos una cuenta con ese correo electrÃ³nico.</source>
         <target>We couldn't find an account with that email address.</target>
       </trans-unit>
       <trans-unit id="nav.loginErrWrongPassword" datatype="html">
-        <source>Contraseña incorrecta. Intenta de nuevo.</source>
+        <source>ContraseÃ±a incorrecta. Intenta de nuevo.</source>
         <target>Incorrect password. Please try again.</target>
       </trans-unit>
       <trans-unit id="nav.loginErrGeneric" datatype="html">
-        <source>Correo o contraseña incorrectos.</source>
+        <source>Correo o contraseÃ±a incorrectos.</source>
         <target>Incorrect email or password.</target>
       </trans-unit>
       <trans-unit id="nav.errRateLimited" datatype="html">
-        <source>Demasiados intentos. Espera unos minutos e inténtalo de nuevo.</source>
+        <source>Demasiados intentos. Espera unos minutos e intÃ©ntalo de nuevo.</source>
         <target>Too many attempts. Please wait a few minutes and try again.</target>
       </trans-unit>
       <trans-unit id="nav.sendOtpErr" datatype="html">
-        <source>No pudimos enviar el código. Es posible que ese correo ya tenga una cuenta.</source>
+        <source>No pudimos enviar el cÃ³digo. Es posible que ese correo ya tenga una cuenta.</source>
         <target>We couldn't send the code. That email may already have an account.</target>
       </trans-unit>
       <trans-unit id="nav.registerOtpErr" datatype="html">
-        <source>Código incorrecto o vencido. Te enviamos uno nuevo, revisa tu correo.</source>
-        <target>Incorrect or expired code. We sent you a new one — check your email.</target>
+        <source>CÃ³digo incorrecto o vencido. Te enviamos uno nuevo, revisa tu correo.</source>
+        <target>Incorrect or expired code. We sent you a new one â€” check your email.</target>
       </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
-        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <source>Â¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>RegÃ­strate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
       </trans-unit>
       <trans-unit id="nav.authToggleRegister" datatype="html">
-        <source>¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span"/>Inicia sesión<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <source>Â¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span"/>Inicia sesiÃ³n<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target>Already have one? <x id="START_TAG_SPAN" ctype="x-span"/>Sign in<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
       </trans-unit>
       <trans-unit id="nav.forgotPassword" datatype="html">
-        <source>¿Olvidaste tu contraseña?</source>
+        <source>Â¿Olvidaste tu contraseÃ±a?</source>
         <target>Forgot your password?</target>
       </trans-unit>
       <trans-unit id="nav.resetTitle" datatype="html">
-        <source>Recuperar contraseña 🔑</source>
-        <target>Reset password 🔑</target>
+        <source>Recuperar contraseÃ±a ðŸ”‘</source>
+        <target>Reset password ðŸ”‘</target>
       </trans-unit>
       <trans-unit id="nav.resetSubtitle" datatype="html">
-        <source>Te enviaremos un código a tu correo</source>
+        <source>Te enviaremos un cÃ³digo a tu correo</source>
         <target>We'll email you a code</target>
       </trans-unit>
       <trans-unit id="nav.resetSentMsg" datatype="html">
-        <source>Si el correo existe, te enviamos un código a </source>
+        <source>Si el correo existe, te enviamos un cÃ³digo a </source>
         <target>If the email exists, we sent a code to </target>
       </trans-unit>
       <trans-unit id="nav.resetOtpLabel" datatype="html">
-        <source>Código de verificación</source>
+        <source>CÃ³digo de verificaciÃ³n</source>
         <target>Verification code</target>
       </trans-unit>
       <trans-unit id="nav.resetNewPasswordLabel" datatype="html">
-        <source>Nueva contraseña</source>
+        <source>Nueva contraseÃ±a</source>
         <target>New password</target>
       </trans-unit>
       <trans-unit id="nav.resetDoneTitle" datatype="html">
-        <source>¡Contraseña actualizada!</source>
+        <source>Â¡ContraseÃ±a actualizada!</source>
         <target>Password updated!</target>
       </trans-unit>
       <trans-unit id="nav.resetDoneMsg" datatype="html">
-        <source>Ya puedes iniciar sesión con tu nueva contraseña.</source>
+        <source>Ya puedes iniciar sesiÃ³n con tu nueva contraseÃ±a.</source>
         <target>You can now sign in with your new password.</target>
       </trans-unit>
       <trans-unit id="nav.resetRequestBtn" datatype="html">
-        <source>Enviar código →</source>
-        <target>Send code →</target>
+        <source>Enviar cÃ³digo â†’</source>
+        <target>Send code â†’</target>
       </trans-unit>
       <trans-unit id="nav.resetSubmit" datatype="html">
-        <source>Cambiar contraseña →</source>
-        <target>Change password →</target>
+        <source>Cambiar contraseÃ±a â†’</source>
+        <target>Change password â†’</target>
       </trans-unit>
       <trans-unit id="nav.resetBackToLogin" datatype="html">
-        <source>Iniciar sesión →</source>
-        <target>Sign in →</target>
+        <source>Iniciar sesiÃ³n â†’</source>
+        <target>Sign in â†’</target>
       </trans-unit>
       <trans-unit id="nav.resetBackLink" datatype="html">
-        <source>← Volver a iniciar sesión</source>
-        <target>← Back to sign in</target>
+        <source>â† Volver a iniciar sesiÃ³n</source>
+        <target>â† Back to sign in</target>
       </trans-unit>
 
-      <!-- ── welcome.component ── -->
+      <!-- â”€â”€ welcome.component â”€â”€ -->
       <trans-unit id="welcome.eyebrow" datatype="html">
-        <source>Planifica · Comparte · Explora</source>
-        <target>Plan · Share · Explore</target>
+        <source>Planifica Â· Comparte Â· Explora</source>
+        <target>Plan Â· Share Â· Explore</target>
       </trans-unit>
       <trans-unit id="welcome.title" datatype="html">
         <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb"/><x id="START_EMPHASISED_TEXT" ctype="x-em"/>mejor amig@<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em"/></source>
         <target>Travel with your<x id="LINE_BREAK" ctype="lb"/><x id="START_EMPHASISED_TEXT" ctype="x-em"/>bestie<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em"/> in mind</target>
       </trans-unit>
       <trans-unit id="welcome.subtitle" datatype="html">
-        <source>Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>
+        <source>Crea viajes a mÃºltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>
         <target>Build multi-destination trips, discover local attractions, and let your friends leave comments on every stop.</target>
       </trans-unit>
       <trans-unit id="welcome.addBtn" datatype="html">
@@ -407,10 +407,10 @@
         <target>Start Creating Your Plan</target>
       </trans-unit>
 
-      <!-- ── stop-list.component ── -->
+      <!-- â”€â”€ stop-list.component â”€â”€ -->
       <trans-unit id="stopList.title" datatype="html">
-        <source>Mi viaje ✈️</source>
-        <target>My Trip ✈️</target>
+        <source>Mi viaje âœˆï¸</source>
+        <target>My Trip âœˆï¸</target>
       </trans-unit>
       <trans-unit id="stopList.noStops" datatype="html">
         <source>Agrega tu primer destino</source>
@@ -453,7 +453,7 @@
         <target>Remove from plan</target>
       </trans-unit>
       <trans-unit id="stopList.oneAttraction" datatype="html">
-        <source>atracción</source>
+        <source>atracciÃ³n</source>
         <target>attraction</target>
       </trans-unit>
       <trans-unit id="stopList.manyAttractionsPlanned" datatype="html">
@@ -465,14 +465,14 @@
         <target>+ Add Destination</target>
       </trans-unit>
       <trans-unit id="stopList.bookBtn" datatype="html">
-        <source>Guardar viaje 🎉</source>
-        <target>Save Trip 🎉</target>
+        <source>Guardar viaje ðŸŽ‰</source>
+        <target>Save Trip ðŸŽ‰</target>
       </trans-unit>
 
-      <!-- ── add-stop-modal.component ── -->
+      <!-- â”€â”€ add-stop-modal.component â”€â”€ -->
       <trans-unit id="addStop.title" datatype="html">
-        <source>Agregar destino ✈️</source>
-        <target>Add a Destination ✈️</target>
+        <source>Agregar destino âœˆï¸</source>
+        <target>Add a Destination âœˆï¸</target>
       </trans-unit>
       <trans-unit id="addStop.subtitle" datatype="html">
         <source>Busca entre 120+ ciudades del mundo</source>
@@ -495,27 +495,27 @@
         <target>Cancel</target>
       </trans-unit>
       <trans-unit id="addStop.addBtn" datatype="html">
-        <source>Agregar al viaje ✈️</source>
-        <target>Add to Trip ✈️</target>
+        <source>Agregar al viaje âœˆï¸</source>
+        <target>Add to Trip âœˆï¸</target>
       </trans-unit>
       <trans-unit id="addStop.datesRequired" datatype="html">
         <source>Las fechas de entrada y salida son obligatorias.</source>
         <target>Check-in and check-out dates are required.</target>
       </trans-unit>
       <trans-unit id="addStop.consecutiveWarning" datatype="html">
-        <source>Esta ciudad ya está en el destino adyacente. ¿Seguro que querés agregarla de nuevo?</source>
+        <source>Esta ciudad ya estÃ¡ en el destino adyacente. Â¿Seguro que querÃ©s agregarla de nuevo?</source>
         <target>This city is already in the adjacent destination. Are you sure you want to add it again?</target>
       </trans-unit>
 
-      <!-- ── transit-connector.component ── -->
+      <!-- â”€â”€ transit-connector.component â”€â”€ -->
       <trans-unit id="transit.arrBeforeDepWarn" datatype="html">
-        <source>⚠ La llegada no puede ser antes que la salida.</source>
-        <target>⚠ Arrival cannot be before departure.</target>
+        <source>âš  La llegada no puede ser antes que la salida.</source>
+        <target>âš  Arrival cannot be before departure.</target>
       </trans-unit>
 
-      <!-- ── destination.component ── -->
+      <!-- â”€â”€ destination.component â”€â”€ -->
       <trans-unit id="dest.oneAttraction" datatype="html">
-        <source>atracción</source>
+        <source>atracciÃ³n</source>
         <target>attraction</target>
       </trans-unit>
       <trans-unit id="dest.manyAttractions" datatype="html">
@@ -547,9 +547,9 @@
         <target>All</target>
       </trans-unit>
 
-      <!-- ── attraction-category.ts: filter chip / category labels ── -->
+      <!-- â”€â”€ attraction-category.ts: filter chip / category labels â”€â”€ -->
       <trans-unit id="category.poi" datatype="html">
-        <source>Puntos de interés</source>
+        <source>Puntos de interÃ©s</source>
         <target>Points of interest</target>
       </trans-unit>
       <trans-unit id="category.freetour" datatype="html">
@@ -565,15 +565,15 @@
         <target>Foodie</target>
       </trans-unit>
       <trans-unit id="dest.searchPlaceholder" datatype="html">
-        <source>Buscar atracción…</source>
-        <target>Search attraction…</target>
+        <source>Buscar atracciÃ³nâ€¦</source>
+        <target>Search attractionâ€¦</target>
       </trans-unit>
       <trans-unit id="dest.searchEmpty" datatype="html">
-        <source>Sin resultados para tu búsqueda</source>
+        <source>Sin resultados para tu bÃºsqueda</source>
         <target>No results for your search</target>
       </trans-unit>
 
-      <!-- ── attraction-card.component ── -->
+      <!-- â”€â”€ attraction-card.component â”€â”€ -->
       <trans-unit id="attCard.addToPlan" datatype="html">
         <source>Planificar</source>
         <target>Add to plan</target>
@@ -583,35 +583,35 @@
         <target>In plan</target>
       </trans-unit>
       <trans-unit id="attCard.noComments" datatype="html">
-        <source>¡Sin comentarios aún — sé el primero! 💬</source>
-        <target>No comments yet — be the first! 💬</target>
+        <source>Â¡Sin comentarios aÃºn â€” sÃ© el primero! ðŸ’¬</source>
+        <target>No comments yet â€” be the first! ðŸ’¬</target>
       </trans-unit>
       <trans-unit id="attCard.more" datatype="html">
-        <source>más</source>
+        <source>mÃ¡s</source>
         <target>more</target>
       </trans-unit>
       <trans-unit id="attCard.addComment" datatype="html">
-        <source>💌 Agregar comentario</source>
-        <target>💌 Add a comment</target>
+        <source>ðŸ’Œ Agregar comentario</source>
+        <target>ðŸ’Œ Add a comment</target>
       </trans-unit>
       <trans-unit id="attCard.addedToast" datatype="html">
-        <source>¡Ya se agregó a tu itinerario esta atracción!</source>
+        <source>Â¡Ya se agregÃ³ a tu itinerario esta atracciÃ³n!</source>
         <target>This attraction has been added to your itinerary!</target>
       </trans-unit>
       <trans-unit id="attCard.ticketPurchasedLabel" datatype="html">
-        <source>🎟 Entrada comprada</source>
-        <target>🎟 Ticket purchased</target>
+        <source>ðŸŽŸ Entrada comprada</source>
+        <target>ðŸŽŸ Ticket purchased</target>
       </trans-unit>
       <trans-unit id="attCard.mustSee" datatype="html">
-        <source>⭐ Imperdible</source>
-        <target>⭐ Must-see</target>
+        <source>â­ Imperdible</source>
+        <target>â­ Must-see</target>
       </trans-unit>
       <trans-unit id="maps.viewOnMaps" datatype="html">
         <source>Ver en Google Maps</source>
         <target>View on Google Maps</target>
       </trans-unit>
 
-      <!-- ── comment-modal.component ── -->
+      <!-- â”€â”€ comment-modal.component â”€â”€ -->
       <trans-unit id="commentModal.title" datatype="html">
         <source>Dejar un comentario</source>
         <target>Leave a Comment</target>
@@ -621,7 +621,7 @@
         <target>Your name</target>
       </trans-unit>
       <trans-unit id="commentModal.namePlaceholder" datatype="html">
-        <source>ej. Sofía</source>
+        <source>ej. SofÃ­a</source>
         <target>e.g. Sofia</target>
       </trans-unit>
       <trans-unit id="commentModal.avatarLabel" datatype="html">
@@ -629,7 +629,7 @@
         <target>Avatar</target>
       </trans-unit>
       <trans-unit id="commentModal.ratingLabel" datatype="html">
-        <source>Calificación</source>
+        <source>CalificaciÃ³n</source>
         <target>Rating</target>
       </trans-unit>
       <trans-unit id="commentModal.expLabel" datatype="html">
@@ -637,7 +637,7 @@
         <target>Your experience</target>
       </trans-unit>
       <trans-unit id="commentModal.expPlaceholder" datatype="html">
-        <source>¿Qué te encantó? ¿Algún consejo para tu amig&#64;?</source>
+        <source>Â¿QuÃ© te encantÃ³? Â¿AlgÃºn consejo para tu amig&#64;?</source>
         <target>What did you love? Any tips for your bestie?</target>
       </trans-unit>
       <trans-unit id="commentModal.cancelBtn" datatype="html">
@@ -645,14 +645,14 @@
         <target>Cancel</target>
       </trans-unit>
       <trans-unit id="commentModal.submitBtn" datatype="html">
-        <source>Publicar comentario 💌</source>
-        <target>Post Comment 💌</target>
+        <source>Publicar comentario ðŸ’Œ</source>
+        <target>Post Comment ðŸ’Œ</target>
       </trans-unit>
 
-      <!-- ── plan-time-modal.component ── -->
+      <!-- â”€â”€ plan-time-modal.component â”€â”€ -->
       <trans-unit id="planModal.title" datatype="html">
-        <source>¿A qué hora? ⏰</source>
-        <target>What time? ⏰</target>
+        <source>Â¿A quÃ© hora? â°</source>
+        <target>What time? â°</target>
       </trans-unit>
       <trans-unit id="planModal.timeLabel" datatype="html">
         <source>Hora de inicio</source>
@@ -678,22 +678,22 @@
         <source>Tipo de experiencia</source>
         <target>Experience type</target>
       </trans-unit>
-      <!-- ── attraction-detail-modal ── -->
+      <!-- â”€â”€ attraction-detail-modal â”€â”€ -->
       <trans-unit id="detailModal.durationLabel" datatype="html">
-        <source>⏱ Duración estimada</source>
-        <target>⏱ Estimated duration</target>
+        <source>â± DuraciÃ³n estimada</source>
+        <target>â± Estimated duration</target>
       </trans-unit>
       <trans-unit id="detailModal.commentsTitle" datatype="html">
-        <source>💬 Comentarios</source>
-        <target>💬 Comments</target>
+        <source>ðŸ’¬ Comentarios</source>
+        <target>ðŸ’¬ Comments</target>
       </trans-unit>
 
       <trans-unit id="planModal.overlapWarn" datatype="html">
-        <source>Se superpone con otra atracción planificada</source>
+        <source>Se superpone con otra atracciÃ³n planificada</source>
         <target>Overlaps with another planned attraction</target>
       </trans-unit>
 
-      <!-- ── date-range.component ── -->
+      <!-- â”€â”€ date-range.component â”€â”€ -->
       <trans-unit id="datePicker.fromPlaceholder" datatype="html">
         <source>dd/mm/aaaa</source>
         <target>mm/dd/yyyy</target>
@@ -707,35 +707,35 @@
         <target>hh:mm</target>
       </trans-unit>
 
-      <!-- ── city-combobox.component ── -->
+      <!-- â”€â”€ city-combobox.component â”€â”€ -->
       <trans-unit id="combobox.placeholder" datatype="html">
-        <source>Buscar ciudad o país…</source>
-        <target>Search city or country…</target>
+        <source>Buscar ciudad o paÃ­sâ€¦</source>
+        <target>Search city or countryâ€¦</target>
       </trans-unit>
       <trans-unit id="combobox.searchPlaceholder" datatype="html">
-        <source>Escribe para buscar…</source>
-        <target>Type to search…</target>
+        <source>Escribe para buscarâ€¦</source>
+        <target>Type to searchâ€¦</target>
       </trans-unit>
       <trans-unit id="combobox.noCities" datatype="html">
         <source>No se encontraron ciudades</source>
         <target>No cities found</target>
       </trans-unit>
 
-      <!-- ── country-combobox.component ── -->
+      <!-- â”€â”€ country-combobox.component â”€â”€ -->
       <trans-unit id="combobox.countryPlaceholder" datatype="html">
-        <source>Buscar país…</source>
-        <target>Search country…</target>
+        <source>Buscar paÃ­sâ€¦</source>
+        <target>Search countryâ€¦</target>
       </trans-unit>
       <trans-unit id="combobox.countrySearchPlaceholder" datatype="html">
-        <source>Escribe para buscar…</source>
-        <target>Type to search…</target>
+        <source>Escribe para buscarâ€¦</source>
+        <target>Type to searchâ€¦</target>
       </trans-unit>
       <trans-unit id="combobox.noCountries" datatype="html">
-        <source>No se encontraron países</source>
+        <source>No se encontraron paÃ­ses</source>
         <target>No countries found</target>
       </trans-unit>
 
-      <!-- ── region labels (city.model.ts via $localize) ── -->
+      <!-- â”€â”€ region labels (city.model.ts via $localize) â”€â”€ -->
       <trans-unit id="region.europe" datatype="html">
         <source>Europa</source>
         <target>Europe</target>
@@ -745,7 +745,7 @@
         <target>Asia</target>
       </trans-unit>
       <trans-unit id="region.southeast-asia" datatype="html">
-        <source>Sudeste Asiático</source>
+        <source>Sudeste AsiÃ¡tico</source>
         <target>Southeast Asia</target>
       </trans-unit>
       <trans-unit id="region.east-asia" datatype="html">
@@ -765,41 +765,41 @@
         <target>Middle East</target>
       </trans-unit>
       <trans-unit id="region.americas" datatype="html">
-        <source>América</source>
+        <source>AmÃ©rica</source>
         <target>Americas</target>
       </trans-unit>
       <trans-unit id="region.africa" datatype="html">
-        <source>África</source>
+        <source>Ãfrica</source>
         <target>Africa</target>
       </trans-unit>
       <trans-unit id="region.oceania" datatype="html">
-        <source>Oceanía</source>
+        <source>OceanÃ­a</source>
         <target>Oceania</target>
       </trans-unit>
 
-      <!-- ── buy-karma-modal ── -->
+      <!-- â”€â”€ buy-karma-modal â”€â”€ -->
       <trans-unit id="buyKarma.title" datatype="html">
-        <source>Comprar Karma ✨</source>
-        <target>Buy Karma ✨</target>
+        <source>Comprar Karma âœ¨</source>
+        <target>Buy Karma âœ¨</target>
       </trans-unit>
       <trans-unit id="buyKarma.subtitle" datatype="html">
         <source>Elige un paquete y completa el pago</source>
         <target>Choose a pack and complete the payment</target>
       </trans-unit>
       <trans-unit id="buyKarma.loading" datatype="html">
-        <source>Cargando paquetes…</source>
-        <target>Loading packages…</target>
+        <source>Cargando paquetesâ€¦</source>
+        <target>Loading packagesâ€¦</target>
       </trans-unit>
       <trans-unit id="buyKarma.karma" datatype="html">
         <source>karma</source>
         <target>karma</target>
       </trans-unit>
       <trans-unit id="buyKarma.simulateBtn" datatype="html">
-        <source>🎮 Simular compra (modo demo)</source>
-        <target>🎮 Simulate purchase (demo mode)</target>
+        <source>ðŸŽ® Simular compra (modo demo)</source>
+        <target>ðŸŽ® Simulate purchase (demo mode)</target>
       </trans-unit>
       <trans-unit id="buyKarma.successTitle" datatype="html">
-        <source>¡Karma añadido!</source>
+        <source>Â¡Karma aÃ±adido!</source>
         <target>Karma added!</target>
       </trans-unit>
       <trans-unit id="buyKarma.successMsg" datatype="html">
@@ -815,7 +815,7 @@
         <target>Cancel</target>
       </trans-unit>
       <trans-unit id="buyKarma.doneBtn" datatype="html">
-        <source>¡Listo!</source>
+        <source>Â¡Listo!</source>
         <target>Done!</target>
       </trans-unit>
       <trans-unit id="buyKarma.closeAriaLabel" datatype="html">
@@ -827,33 +827,33 @@
         <target>Don't close this window</target>
       </trans-unit>
       <trans-unit id="buyKarma.paypalLoading" datatype="html">
-        <source>Cargando botón de pago…</source>
-        <target>Loading payment button…</target>
+        <source>Cargando botÃ³n de pagoâ€¦</source>
+        <target>Loading payment buttonâ€¦</target>
       </trans-unit>
       <trans-unit id="buyKarma.processingPayment" datatype="html">
-        <source>Procesando pago…</source>
-        <target>Processing payment…</target>
+        <source>Procesando pagoâ€¦</source>
+        <target>Processing paymentâ€¦</target>
       </trans-unit>
       <trans-unit id="buyKarma.mpPayBtn" datatype="html">
         <source>Pagar con MercadoPago</source>
         <target>Pay with MercadoPago</target>
       </trans-unit>
       <trans-unit id="buyKarma.mpConfirming" datatype="html">
-        <source>Confirmando tu pago…</source>
-        <target>Confirming your payment…</target>
+        <source>Confirmando tu pagoâ€¦</source>
+        <target>Confirming your paymentâ€¦</target>
       </trans-unit>
       <trans-unit id="buyKarma.mpConfirmingHint" datatype="html">
         <source>Esto puede tardar unos segundos</source>
         <target>This may take a few seconds</target>
       </trans-unit>
 
-      <!-- ── insufficient-karma-modal ── -->
+      <!-- â”€â”€ insufficient-karma-modal â”€â”€ -->
       <trans-unit id="kim.title" datatype="html">
         <source>Karma insuficiente</source>
         <target>Insufficient karma</target>
       </trans-unit>
       <trans-unit id="kim.subtitle" datatype="html">
-        <source>Necesitas más karma para completar esta acción.</source>
+        <source>Necesitas mÃ¡s karma para completar esta acciÃ³n.</source>
         <target>You need more karma to complete this action.</target>
       </trans-unit>
       <trans-unit id="kim.have" datatype="html">
@@ -869,7 +869,7 @@
         <target>You are missing</target>
       </trans-unit>
       <trans-unit id="kim.shortfallPost" datatype="html">
-        <source> para esta acción.</source>
+        <source> para esta acciÃ³n.</source>
         <target> karma for this action.</target>
       </trans-unit>
       <trans-unit id="kim.buyBtn" datatype="html">
@@ -877,21 +877,21 @@
         <target>Buy karma</target>
       </trans-unit>
       <trans-unit id="kim.earnTitle" datatype="html">
-        <source>¿Prefieres ganar karma gratis?</source>
+        <source>Â¿Prefieres ganar karma gratis?</source>
         <target>Prefer to earn karma for free?</target>
       </trans-unit>
       <trans-unit id="kim.earnBody" datatype="html">
-        <source>Busca un plan público en la barra de búsqueda, visita el enlace, deja un comentario en cualquier parada → +1 karma por comentario nuevo.</source>
-        <target>Search for a public plan in the search bar, visit the link, leave a comment on any stop → +1 karma per new comment.</target>
+        <source>Busca un plan pÃºblico en la barra de bÃºsqueda, visita el enlace, deja un comentario en cualquier parada â†’ +1 karma por comentario nuevo.</source>
+        <target>Search for a public plan in the search bar, visit the link, leave a comment on any stop â†’ +1 karma per new comment.</target>
       </trans-unit>
       <trans-unit id="kim.earnDismiss" datatype="html">
         <source>Entendido</source>
         <target>Got it</target>
       </trans-unit>
 
-      <!-- ── karma-success-overlay ── -->
+      <!-- â”€â”€ karma-success-overlay â”€â”€ -->
       <trans-unit id="karmaSuccess.title" datatype="html">
-        <source>¡Karma añadido!</source>
+        <source>Â¡Karma aÃ±adido!</source>
         <target>Karma added!</target>
       </trans-unit>
       <trans-unit id="karmaSuccess.sub" datatype="html">
@@ -899,36 +899,36 @@
         <target>Your karma is now</target>
       </trans-unit>
       <trans-unit id="karmaSuccess.btn" datatype="html">
-        <source>¡Increíble! →</source>
-        <target>Awesome! →</target>
+        <source>Â¡IncreÃ­ble! â†’</source>
+        <target>Awesome! â†’</target>
       </trans-unit>
 
-      <!-- ── nav ── -->
+      <!-- â”€â”€ nav â”€â”€ -->
       <trans-unit id="nav.buyKarmaBtn" datatype="html">
         <source>Comprar Karma</source>
         <target>Buy Karma</target>
       </trans-unit>
 
-      <!-- ── ai-planning.component ── -->
+      <!-- â”€â”€ ai-planning.component â”€â”€ -->
       <trans-unit id="aiplan.noTransit" datatype="html">
         <source>Sin transporte definido</source>
         <target>No transport defined</target>
       </trans-unit>
       <trans-unit id="aiplan.return" datatype="html">
-        <source>Vuelta 🏠</source>
-        <target>Return 🏠</target>
+        <source>Vuelta ðŸ </source>
+        <target>Return ðŸ </target>
       </trans-unit>
       <trans-unit id="aiplan.loadingSub" datatype="html">
-        <source>Esto puede tardar unos segundos…</source>
-        <target>This may take a few seconds…</target>
+        <source>Esto puede tardar unos segundosâ€¦</source>
+        <target>This may take a few secondsâ€¦</target>
       </trans-unit>
       <trans-unit id="aiplan.minorChangeTitle" datatype="html">
         <source>Cambio menor detectado</source>
         <target>Minor change detected</target>
       </trans-unit>
       <trans-unit id="aiplan.minorChangeBody" datatype="html">
-        <source>Esta modificación es ≤20% del plan original.</source>
-        <target>This modification is ≤20% of the original plan.</target>
+        <source>Esta modificaciÃ³n es â‰¤20% del plan original.</source>
+        <target>This modification is â‰¤20% of the original plan.</target>
       </trans-unit>
       <trans-unit id="aiplan.minorChangeFreeLeft" datatype="html">
         <source>cambios gratuitos restantes.</source>
@@ -943,12 +943,12 @@
         <target>Significant change (&gt;20%)</target>
       </trans-unit>
       <trans-unit id="aiplan.limitReachedTitle" datatype="html">
-        <source>Límite de cambios gratuitos alcanzado</source>
+        <source>LÃ­mite de cambios gratuitos alcanzado</source>
         <target>Free change limit reached</target>
       </trans-unit>
       <trans-unit id="aiplan.changeChargedBody" datatype="html">
-        <source>Se descontó 1 karma ⭐ por este cambio.</source>
-        <target>1 karma ⭐ was deducted for this change.</target>
+        <source>Se descontÃ³ 1 karma â­ por este cambio.</source>
+        <target>1 karma â­ was deducted for this change.</target>
       </trans-unit>
       <trans-unit id="aiplan.changeChargedDismiss" datatype="html">
         <source>Entendido</source>
@@ -963,41 +963,41 @@
         <target>You've used all 3 free changes</target>
       </trans-unit>
       <trans-unit id="aiplan.confirmChargeBody" datatype="html">
-        <source>Esta acción costará 1 karma ⭐. ¿Deseas continuar?</source>
-        <target>This action will cost 1 karma ⭐. Do you want to continue?</target>
+        <source>Esta acciÃ³n costarÃ¡ 1 karma â­. Â¿Deseas continuar?</source>
+        <target>This action will cost 1 karma â­. Do you want to continue?</target>
       </trans-unit>
       <trans-unit id="aiplan.confirmCancel" datatype="html">
         <source>Cancelar</source>
         <target>Cancel</target>
       </trans-unit>
       <trans-unit id="aiplan.confirmProceed" datatype="html">
-        <source>Sí, continuar (−1 karma)</source>
-        <target>Yes, continue (−1 karma)</target>
+        <source>SÃ­, continuar (âˆ’1 karma)</source>
+        <target>Yes, continue (âˆ’1 karma)</target>
       </trans-unit>
       <trans-unit id="aiplan.adjustBtn" datatype="html">
-        <source>✏️ Ajustar opciones</source>
-        <target>✏️ Adjust options</target>
+        <source>âœï¸ Ajustar opciones</source>
+        <target>âœï¸ Adjust options</target>
       </trans-unit>
       <trans-unit id="aiplan.regenerateBtn" datatype="html">
         <source>Generar nuevas opciones</source>
         <target>Generate new options</target>
       </trans-unit>
       <trans-unit id="aiplan.celebrationMessage" datatype="html">
-        <source>¡Tu plan hecho por IA está terminado! Estos son los lugares que visitarás</source>
+        <source>Â¡Tu plan hecho por IA estÃ¡ terminado! Estos son los lugares que visitarÃ¡s</source>
         <target>Your AI-made plan is ready! Here are the places you'll visit</target>
       </trans-unit>
 
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
-        <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?</source>
-        <target>If you regenerate options with this adjustment, the resulting plan will cost 1 karma ⭐. Do you want to continue?</target>
+        <source>Si regeneras las opciones con este ajuste, el plan resultante costarÃ¡ 1 karma â­. Â¿Quieres continuar?</source>
+        <target>If you regenerate options with this adjustment, the resulting plan will cost 1 karma â­. Do you want to continue?</target>
       </trans-unit>
       <trans-unit id="aiplan.suggestConfirmProceed" datatype="html">
-        <source>Sí, regenerar opciones</source>
+        <source>SÃ­, regenerar opciones</source>
         <target>Yes, regenerate options</target>
       </trans-unit>
       <trans-unit id="aiplan.previewChargedBody" datatype="html">
-        <source>El plan se generará como nueva sesión y costará 1 karma ⭐.</source>
-        <target>The plan will be generated as a new session and will cost 1 karma ⭐.</target>
+        <source>El plan se generarÃ¡ como nueva sesiÃ³n y costarÃ¡ 1 karma â­.</source>
+        <target>The plan will be generated as a new session and will cost 1 karma â­.</target>
       </trans-unit>
       <trans-unit id="aiplan.statsFreeLabel" datatype="html">
         <source>Cambios gratuitos:</source>
@@ -1016,16 +1016,16 @@
         <target>Experience types (optional)</target>
       </trans-unit>
       <trans-unit id="aiplan.authDesc" datatype="html">
-        <source>Debes iniciar sesión para usar el planificador IA.</source>
+        <source>Debes iniciar sesiÃ³n para usar el planificador IA.</source>
         <target>You must sign in to use the AI planner.</target>
       </trans-unit>
       <trans-unit id="aiplan.authTitle" datatype="html">
-        <source>Inicia sesión para continuar</source>
+        <source>Inicia sesiÃ³n para continuar</source>
         <target>Sign in to continue</target>
       </trans-unit>
       <trans-unit id="aiplan.backBtn" datatype="html">
-        <source>← Volver</source>
-        <target>← Back</target>
+        <source>â† Volver</source>
+        <target>â† Back</target>
       </trans-unit>
       <trans-unit id="aiplan.budgetLabel" datatype="html">
         <source>Presupuesto estimado para todo el viaje</source>
@@ -1036,11 +1036,11 @@
         <target>E.g.: 500-1000 USD</target>
       </trans-unit>
       <trans-unit id="aiplan.departure" datatype="html">
-        <source>Salida 🏠</source>
-        <target>Departure 🏠</target>
+        <source>Salida ðŸ </source>
+        <target>Departure ðŸ </target>
       </trans-unit>
       <trans-unit id="aiplan.durationLabel" datatype="html">
-        <source>Duración (días)</source>
+        <source>DuraciÃ³n (dÃ­as)</source>
         <target>Duration (days)</target>
       </trans-unit>
       <trans-unit id="aiplan.durationPlaceholder" datatype="html">
@@ -1048,19 +1048,19 @@
         <target>E.g.: 14</target>
       </trans-unit>
       <trans-unit id="aiplan.karmaCost" datatype="html">
-        <source>Esta acción cuesta 10 karma ⭐ en total</source>
-        <target>This action costs 10 karma ⭐ in total</target>
+        <source>Esta acciÃ³n cuesta 10 karma â­ en total</source>
+        <target>This action costs 10 karma â­ in total</target>
       </trans-unit>
       <trans-unit id="aiplan.loadingPlan" datatype="html">
-        <source>Creando tu plan de viaje 🗺️</source>
-        <target>Creating your trip plan 🗺️</target>
+        <source>Creando tu plan de viaje ðŸ—ºï¸</source>
+        <target>Creating your trip plan ðŸ—ºï¸</target>
       </trans-unit>
       <trans-unit id="aiplan.loadingSuggest" datatype="html">
-        <source>Generando sugerencias ✨</source>
-        <target>Generating suggestions ✨</target>
+        <source>Generando sugerencias âœ¨</source>
+        <target>Generating suggestions âœ¨</target>
       </trans-unit>
       <trans-unit id="aiplan.optTitle" datatype="html">
-        <source>Elige una opción</source>
+        <source>Elige una opciÃ³n</source>
         <target>Choose an option</target>
       </trans-unit>
       <trans-unit id="aiplan.planBtn" datatype="html">
@@ -1072,20 +1072,20 @@
         <target>Describe your ideal trip</target>
       </trans-unit>
       <trans-unit id="aiplan.prefPlaceholder" datatype="html">
-        <source>Ej: quiero un viaje romántico con mi pareja, priorizando gastronomía y museos, sin demasiado transporte…</source>
-        <target>E.g.: I want a romantic trip with my partner, prioritizing food and museums, without too much transit…</target>
+        <source>Ej: quiero un viaje romÃ¡ntico con mi pareja, priorizando gastronomÃ­a y museos, sin demasiado transporteâ€¦</source>
+        <target>E.g.: I want a romantic trip with my partner, prioritizing food and museums, without too much transitâ€¦</target>
       </trans-unit>
       <trans-unit id="aiplan.prefTitle" datatype="html">
-        <source>¿Qué tipo de viaje buscas?</source>
+        <source>Â¿QuÃ© tipo de viaje buscas?</source>
         <target>What kind of trip are you looking for?</target>
       </trans-unit>
       <trans-unit id="aiplan.restartBtn" datatype="html">
-        <source>↩ Volver a empezar</source>
-        <target>↩ Start over</target>
+        <source>â†© Volver a empezar</source>
+        <target>â†© Start over</target>
       </trans-unit>
       <trans-unit id="aiplan.saveBtn" datatype="html">
-        <source>💾 Guardar plan</source>
-        <target>💾 Save plan</target>
+        <source>ðŸ’¾ Guardar plan</source>
+        <target>ðŸ’¾ Save plan</target>
       </trans-unit>
       <trans-unit id="aiplan.startDateLabel" datatype="html">
         <source>Fecha de inicio</source>
@@ -1096,7 +1096,7 @@
         <target>Preferences</target>
       </trans-unit>
       <trans-unit id="aiplan.step2" datatype="html">
-        <source>Elige opción</source>
+        <source>Elige opciÃ³n</source>
         <target>Choose option</target>
       </trans-unit>
       <trans-unit id="aiplan.step3" datatype="html">
@@ -1104,7 +1104,7 @@
         <target>Your plan</target>
       </trans-unit>
       <trans-unit id="aiplan.subtitle" datatype="html">
-        <source>Cuéntanos qué buscas y generamos opciones personalizadas para ti</source>
+        <source>CuÃ©ntanos quÃ© buscas y generamos opciones personalizadas para ti</source>
         <target>Tell us what you're looking for and we'll generate personalized options for you</target>
       </trans-unit>
       <trans-unit id="aiplan.suggestBtn" datatype="html">
@@ -1112,11 +1112,11 @@
         <target>Generate options</target>
       </trans-unit>
       <trans-unit id="aiplan.title" datatype="html">
-        <source>Tu próximo viaje, diseñado por IA</source>
+        <source>Tu prÃ³ximo viaje, diseÃ±ado por IA</source>
         <target>Your next trip, designed by AI</target>
       </trans-unit>
 
-      <!-- ── shared-trip.component ── -->
+      <!-- â”€â”€ shared-trip.component â”€â”€ -->
       <trans-unit id="sharedTrip.commentBtn" datatype="html">
         <source>Comentar</source>
         <target>Comment</target>
@@ -1126,24 +1126,24 @@
         <target>Trip by <x id="INTERPOLATION" equiv-text="{{ trip()!.ownerName }}"/></target>
       </trans-unit>
       <trans-unit id="sharedTrip.cloneBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clonar este viaje&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
-        <target> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clone this trip&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <source> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;â€¦&apos; : &apos;ðŸ“‹ Clonar este viaje&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>âˆ’1 âœ¨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;â€¦&apos; : &apos;ðŸ“‹ Clone this trip&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>âˆ’1 âœ¨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
       </trans-unit>
       <trans-unit id="sharedTrip.cloneSuccess" datatype="html">
-        <source>✅ Viaje clonado como</source>
-        <target>✅ Trip cloned as</target>
+        <source>âœ… Viaje clonado como</source>
+        <target>âœ… Trip cloned as</target>
       </trans-unit>
       <trans-unit id="sharedTrip.cloneOpenBtn" datatype="html">
-        <source> Abrir en editor → </source>
-        <target> Open in editor → </target>
+        <source> Abrir en editor â†’ </source>
+        <target> Open in editor â†’ </target>
       </trans-unit>
       <trans-unit id="sharedTrip.departure" datatype="html">
-        <source>Salida 🏠</source>
-        <target>Departure 🏠</target>
+        <source>Salida ðŸ </source>
+        <target>Departure ðŸ </target>
       </trans-unit>
       <trans-unit id="sharedTrip.return" datatype="html">
-        <source>Vuelta 🏠</source>
-        <target>Return 🏠</target>
+        <source>Vuelta ðŸ </source>
+        <target>Return ðŸ </target>
       </trans-unit>
       <trans-unit id="sharedTrip.total" datatype="html">
         <source>Total: <x id="INTERPOLATION" equiv-text="{{ fmtDur(totalMins(...)) }}"/></source>
@@ -1154,12 +1154,12 @@
         <target>No transport defined</target>
       </trans-unit>
       <trans-unit id="sharedTrip.loadingAlt" datatype="html">
-        <source>Cargando…</source>
-        <target>Loading…</target>
+        <source>Cargandoâ€¦</source>
+        <target>Loadingâ€¦</target>
       </trans-unit>
       <trans-unit id="sharedTrip.loadingTitle" datatype="html">
-        <source>Cargando viaje…</source>
-        <target>Loading trip…</target>
+        <source>Cargando viajeâ€¦</source>
+        <target>Loading tripâ€¦</target>
       </trans-unit>
       <trans-unit id="sharedTrip.loadingSub" datatype="html">
         <source>Un momento por favor.</source>
@@ -1190,13 +1190,13 @@
         <target>Go home</target>
       </trans-unit>
 
-      <!-- ── comment-similar-modal ── -->
+      <!-- â”€â”€ comment-similar-modal â”€â”€ -->
       <trans-unit id="commentSimilar.title" datatype="html">
         <source>Reformula tu comentario</source>
         <target>Rephrase your comment</target>
       </trans-unit>
       <trans-unit id="commentSimilar.body" datatype="html">
-        <source>Tu comentario es muy similar al anterior. Reformúlalo y ayuda a los demás
+        <source>Tu comentario es muy similar al anterior. ReformÃºlalo y ayuda a los demÃ¡s
             a mejorar sus planes de viajes.</source>
         <target>Your comment is very similar to your previous one. Rephrase it and help others improve their travel plans.</target>
       </trans-unit>
@@ -1205,20 +1205,20 @@
         <target>Got it</target>
       </trans-unit>
 
-      <!-- ── nav cooldown banner ── -->
+      <!-- â”€â”€ nav cooldown banner â”€â”€ -->
       <trans-unit id="nav.commentCooldown" datatype="html">
-        <source>Validando tu comentario…</source>
-        <target>Validating your comment…</target>
+        <source>Validando tu comentarioâ€¦</source>
+        <target>Validating your commentâ€¦</target>
       </trans-unit>
 
-      <!-- ── nav profile button ── -->
+      <!-- â”€â”€ nav profile button â”€â”€ -->
       <trans-unit id="nav.profileBtnTitle" datatype="html">
         <source>Editar perfil</source>
         <target>Edit profile</target>
       </trans-unit>
 
 
-      <!-- ── landing sections ── -->
+      <!-- â”€â”€ landing sections â”€â”€ -->
       <trans-unit id="landing.scrollHint" datatype="html">
         <source>Desliza para explorar</source>
         <target>Scroll to explore</target>
@@ -1228,20 +1228,20 @@
         <target>by</target>
       </trans-unit>
       <trans-unit id="landing.featuredBadge" datatype="html">
-        <source>✨ ¡Plan destacado!</source>
-        <target>✨ Featured plan!</target>
+        <source>âœ¨ Â¡Plan destacado!</source>
+        <target>âœ¨ Featured plan!</target>
       </trans-unit>
       <trans-unit id="landing.cloneBtn" datatype="html">
-        <source>⿻ Copia este viaje para ti</source>
-        <target>⿻ Copy this trip for yourself</target>
+        <source>â¿» Copia este viaje para ti</source>
+        <target>â¿» Copy this trip for yourself</target>
       </trans-unit>
       <trans-unit id="landing.aboutHeading" datatype="html">
-        <source>Planifica el viaje<x id="LINE_BREAK" equiv-text="&lt;br&gt;"/><x id="START_EMPHASISED_TEXT" equiv-text="&lt;em&gt;"/>que siempre soñaste<x id="CLOSE_EMPHASISED_TEXT" equiv-text="&lt;/em&gt;"/></source>
+        <source>Planifica el viaje<x id="LINE_BREAK" equiv-text="&lt;br&gt;"/><x id="START_EMPHASISED_TEXT" equiv-text="&lt;em&gt;"/>que siempre soÃ±aste<x id="CLOSE_EMPHASISED_TEXT" equiv-text="&lt;/em&gt;"/></source>
         <target>Plan the trip<x id="LINE_BREAK" equiv-text="&lt;br&gt;"/><x id="START_EMPHASISED_TEXT" equiv-text="&lt;em&gt;"/>you've always dreamed of<x id="CLOSE_EMPHASISED_TEXT" equiv-text="&lt;/em&gt;"/></target>
       </trans-unit>
       <trans-unit id="landing.aboutMission" datatype="html">
         <source>
-      Tripilove reúne miles de atracciones turísticas en decenas
+      Tripilove reÃºne miles de atracciones turÃ­sticas en decenas
       de ciudades para que armes tu itinerario perfecto, lo compartas con tus mejores
       amigos y lo hagas realidad.
     </source>
@@ -1266,7 +1266,7 @@
         <target>Plan. Share. Explore.</target>
       </trans-unit>
       <trans-unit id="landing.footerColApp" datatype="html">
-        <source>Aplicación</source>
+        <source>AplicaciÃ³n</source>
         <target>App</target>
       </trans-unit>
       <trans-unit id="landing.footerLinkExplore" datatype="html">
@@ -1294,27 +1294,27 @@
         <target>Legal</target>
       </trans-unit>
       <trans-unit id="landing.footerLinkPrivacy" datatype="html">
-        <source>Política de privacidad</source>
+        <source>PolÃ­tica de privacidad</source>
         <target>Privacy policy</target>
       </trans-unit>
       <trans-unit id="landing.footerLinkTerms" datatype="html">
-        <source>Términos de servicio</source>
+        <source>TÃ©rminos de servicio</source>
         <target>Terms of service</target>
       </trans-unit>
       <trans-unit id="landing.footerCopy" datatype="html">
-        <source>© 2026 Tripilove. Hecho con 💜 para aventureros.</source>
-        <target>© 2026 Tripilove. Made with 💜 for adventurers.</target>
+        <source>Â© 2026 Tripilove. Hecho con ðŸ’œ para aventureros.</source>
+        <target>Â© 2026 Tripilove. Made with ðŸ’œ for adventurers.</target>
       </trans-unit>
 
-      <!-- ── shared-trip favorites ── -->
+      <!-- â”€â”€ shared-trip favorites â”€â”€ -->
       <trans-unit id="sharedTrip.favError" datatype="html">
-        <source>Error al guardar — inténtalo de nuevo</source>
-        <target>Error saving — please try again</target>
+        <source>Error al guardar â€” intÃ©ntalo de nuevo</source>
+        <target>Error saving â€” please try again</target>
       </trans-unit>
 
-      <!-- ── profile favorites tab ── -->
+      <!-- â”€â”€ profile favorites tab â”€â”€ -->
       <trans-unit id="profile.errSessionExpired" datatype="html">
-        <source>Tu sesión expiró. Vuelve a iniciar sesión.</source>
+        <source>Tu sesiÃ³n expirÃ³. Vuelve a iniciar sesiÃ³n.</source>
         <target>Your session expired. Please sign in again.</target>
       </trans-unit>
       <trans-unit id="profile.errUpdateName" datatype="html">
@@ -1322,15 +1322,15 @@
         <target>We couldn't update your name. Please try again.</target>
       </trans-unit>
       <trans-unit id="profile.errUpdatePassword" datatype="html">
-        <source>No se pudo actualizar tu contraseña. Verifica tu contraseña actual.</source>
+        <source>No se pudo actualizar tu contraseÃ±a. Verifica tu contraseÃ±a actual.</source>
         <target>We couldn't update your password. Check your current password.</target>
       </trans-unit>
       <trans-unit id="profile.errUpdateCountryOfResidence" datatype="html">
-        <source>No se pudo guardar el país de residencia. Intenta de nuevo.</source>
+        <source>No se pudo guardar el paÃ­s de residencia. Intenta de nuevo.</source>
         <target>We couldn't save your country of residence. Please try again.</target>
       </trans-unit>
       <trans-unit id="profile.countryOfResidenceTitle" datatype="html">
-        <source>País de residencia</source>
+        <source>PaÃ­s de residencia</source>
         <target>Country of residence</target>
       </trans-unit>
       <trans-unit id="profile.countryOfResidenceSub" datatype="html">
@@ -1346,8 +1346,8 @@
         <target>Delete</target>
       </trans-unit>
       <trans-unit id="profile.saving" datatype="html">
-        <source>Guardando…</source>
-        <target>Saving…</target>
+        <source>Guardandoâ€¦</source>
+        <target>Savingâ€¦</target>
       </trans-unit>
       <trans-unit id="profile.saved" datatype="html">
         <source>Guardado</source>
@@ -1362,16 +1362,16 @@
         <target>My favorites</target>
       </trans-unit>
       <trans-unit id="profile.favLoading" datatype="html">
-        <source>Cargando favoritos…</source>
-        <target>Loading favorites…</target>
+        <source>Cargando favoritosâ€¦</source>
+        <target>Loading favoritesâ€¦</target>
       </trans-unit>
       <trans-unit id="profile.favEmpty" datatype="html">
-        <source>Todavía no guardaste ningún plan como favorito.</source>
+        <source>TodavÃ­a no guardaste ningÃºn plan como favorito.</source>
         <target>You haven't saved any plan as a favorite yet.</target>
       </trans-unit>
       <trans-unit id="profile.favEmptyHint" datatype="html">
-        <source>Explorá planes compartidos y presioná ❤️ para guardarlos aquí.</source>
-        <target>Browse shared plans and press ❤️ to save them here.</target>
+        <source>ExplorÃ¡ planes compartidos y presionÃ¡ â¤ï¸ para guardarlos aquÃ­.</source>
+        <target>Browse shared plans and press â¤ï¸ to save them here.</target>
       </trans-unit>
       <trans-unit id="profile.favCardBy" datatype="html">
         <source>por <x id="INTERPOLATION" equiv-text="{{ trip.ownerName }}"/></source>
@@ -1386,14 +1386,14 @@
         <target>Remove from favorites</target>
       </trans-unit>
 
-      <!-- ── day-timeline.component ── -->
+      <!-- â”€â”€ day-timeline.component â”€â”€ -->
       <trans-unit id="timeline.freeDay" datatype="html">
-        <source>Día libre — sin planes aún</source>
-        <target>Free day — no plans yet</target>
+        <source>DÃ­a libre â€” sin planes aÃºn</source>
+        <target>Free day â€” no plans yet</target>
       </trans-unit>
       <trans-unit id="timeline.dayRoute" datatype="html">
-        <source>🗺️ Ruta del día en Google Maps</source>
-        <target>🗺️ Day route on Google Maps</target>
+        <source>ðŸ—ºï¸ Ruta del dÃ­a en Google Maps</source>
+        <target>ðŸ—ºï¸ Day route on Google Maps</target>
       </trans-unit>
       <trans-unit id="timeline.flapLabelCity" datatype="html">
         <source>Ver itinerario de la ciudad</source>
@@ -1404,41 +1404,41 @@
         <target>View plan itinerary</target>
       </trans-unit>
       <trans-unit id="timeline.weatherHistoricTooltip" datatype="html">
-        <source>Estimado según el clima del mismo día el año pasado — no es un pronóstico real.</source>
-        <target>Estimated from the same day's weather last year — not a real forecast.</target>
+        <source>Estimado segÃºn el clima del mismo dÃ­a el aÃ±o pasado â€” no es un pronÃ³stico real.</source>
+        <target>Estimated from the same day's weather last year â€” not a real forecast.</target>
       </trans-unit>
 
-      <!-- ── event date/time ── -->
+      <!-- â”€â”€ event date/time â”€â”€ -->
       <trans-unit id="attCard.eventDateTime" datatype="html">
         <source>Fecha y hora del evento</source>
         <target>Event date &amp; time</target>
       </trans-unit>
       <trans-unit id="planModal.eventFixedNote" datatype="html">
-        <source> 🔒 La fecha y hora de este evento son fijas. </source>
-        <target> 🔒 This event's date and time are fixed. </target>
+        <source> ðŸ”’ La fecha y hora de este evento son fijas. </source>
+        <target> ðŸ”’ This event's date and time are fixed. </target>
       </trans-unit>
       <trans-unit id="planModal.eventOutsideRange" datatype="html">
-        <source> No estarás en <x id="INTERPOLATION" equiv-text="{{ cityName() || &apos;esta ciudad&apos; }}"/> el <x id="INTERPOLATION_1" equiv-text="{{ attraction().date }}"/> del evento. Ajusta las fechas de tu parada para poder agregarlo. </source>
+        <source> No estarÃ¡s en <x id="INTERPOLATION" equiv-text="{{ cityName() || &apos;esta ciudad&apos; }}"/> el <x id="INTERPOLATION_1" equiv-text="{{ attraction().date }}"/> del evento. Ajusta las fechas de tu parada para poder agregarlo. </source>
         <target> You won't be in <x id="INTERPOLATION" equiv-text="{{ cityName() || &apos;esta ciudad&apos; }}"/> on the event date <x id="INTERPOLATION_1" equiv-text="{{ attraction().date }}"/>. Adjust your stop's dates to add it. </target>
       </trans-unit>
 
       <trans-unit id="nav.mobileMenuOpen" datatype="html">
-        <source>Abrir menú</source>
+        <source>Abrir menÃº</source>
         <target>Open menu</target>
       </trans-unit>
       <trans-unit id="nav.mobileMenuTitle" datatype="html">
-        <source>Menú</source>
+        <source>MenÃº</source>
         <target>Menu</target>
       </trans-unit>
       <trans-unit id="nav.mobileClose" datatype="html">
-        <source>Cerrar menú</source>
+        <source>Cerrar menÃº</source>
         <target>Close menu</target>
       </trans-unit>
 
-      <!-- ── Feature 42: UX improvements ── -->
+      <!-- â”€â”€ Feature 42: UX improvements â”€â”€ -->
       <trans-unit id="plan.exportItinerary" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Exportar</source>
-        <target><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Export</target>
+        <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? 'â³' : 'ðŸ“¥' }}"/> Exportar</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ exporting() ? 'â³' : 'ðŸ“¥' }}"/> Export</target>
       </trans-unit>
       <trans-unit id="plan.scrollToTop" datatype="html">
         <source>Ir arriba</source>
@@ -1461,8 +1461,8 @@
         <target>Published trip</target>
       </trans-unit>
       <trans-unit id="myTrips.publishedBadge" datatype="html">
-        <source>✓ Viaje Publicado</source>
-        <target>✓ Published Trip</target>
+        <source>âœ“ Viaje Publicado</source>
+        <target>âœ“ Published Trip</target>
       </trans-unit>
       <trans-unit id="myTrips.cloneBtn" datatype="html">
         <source>Duplicar</source>
@@ -1473,46 +1473,46 @@
         <target>Delete</target>
       </trans-unit>
       <trans-unit id="myTrips.modifyPlanBtn" datatype="html">
-        <source> ✏️ Modificar mi plan </source>
-        <target> ✏️ Edit my plan </target>
+        <source> âœï¸ Modificar mi plan </source>
+        <target> âœï¸ Edit my plan </target>
       </trans-unit>
       <trans-unit id="myTrips.viewPublishedBtn" datatype="html">
-        <source> 🔗 Ver viaje publicado </source>
-        <target> 🔗 View published trip </target>
+        <source> ðŸ”— Ver viaje publicado </source>
+        <target> ðŸ”— View published trip </target>
       </trans-unit>
       <trans-unit id="myTrips.publishBtn" datatype="html">
-        <source> 📤 Publicar </source>
-        <target> 📤 Publish </target>
+        <source> ðŸ“¤ Publicar </source>
+        <target> ðŸ“¤ Publish </target>
       </trans-unit>
 
-      <!-- ── my-trips.component: full translation pass ── -->
+      <!-- â”€â”€ my-trips.component: full translation pass â”€â”€ -->
       <trans-unit id="myTrips.title" datatype="html">
         <source>Mis viajes</source>
         <target>My trips</target>
       </trans-unit>
       <trans-unit id="myTrips.savedTripsTitle" datatype="html">
-        <source>Viajes guardados 🗺️</source>
-        <target>Saved trips 🗺️</target>
+        <source>Viajes guardados ðŸ—ºï¸</source>
+        <target>Saved trips ðŸ—ºï¸</target>
       </trans-unit>
       <trans-unit id="myTrips.scrollTabsLeftAria" datatype="html">
-        <source>Ver pestañas anteriores</source>
+        <source>Ver pestaÃ±as anteriores</source>
         <target>See previous tabs</target>
       </trans-unit>
       <trans-unit id="myTrips.scrollTabsRightAria" datatype="html">
-        <source>Ver pestañas siguientes</source>
+        <source>Ver pestaÃ±as siguientes</source>
         <target>See next tabs</target>
       </trans-unit>
       <trans-unit id="myTrips.loginToViewTrips" datatype="html">
-        <source>Inicia sesión para ver tus viajes guardados.</source>
+        <source>Inicia sesiÃ³n para ver tus viajes guardados.</source>
         <target>Sign in to see your saved trips.</target>
       </trans-unit>
       <trans-unit id="myTrips.noSavedTrips" datatype="html">
-        <source>Aún no tienes viajes guardados. Usa el botón &quot;Guardar viaje 🎉&quot; para guardar uno.</source>
-        <target>You don't have any saved trips yet. Use the "Save trip 🎉" button to save one.</target>
+        <source>AÃºn no tienes viajes guardados. Usa el botÃ³n &quot;Guardar viaje ðŸŽ‰&quot; para guardar uno.</source>
+        <target>You don't have any saved trips yet. Use the "Save trip ðŸŽ‰" button to save one.</target>
       </trans-unit>
       <trans-unit id="myTrips.searchPlaceholder" datatype="html">
-        <source>Buscar viaje guardado…</source>
-        <target>Search saved trip…</target>
+        <source>Buscar viaje guardadoâ€¦</source>
+        <target>Search saved tripâ€¦</target>
       </trans-unit>
       <trans-unit id="myTrips.cityCountOne" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ plan.stops.length }}"/> ciudad</source>
@@ -1535,43 +1535,43 @@
         <target>Insufficient karma</target>
       </trans-unit>
       <trans-unit id="myTrips.noResults" datatype="html">
-        <source>Sin resultados para &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</source>
-        <target>No results for &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</target>
+        <source>Sin resultados para &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; ðŸ”</source>
+        <target>No results for &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; ðŸ”</target>
       </trans-unit>
       <trans-unit id="myTrips.cloneModalTitle" datatype="html">
-        <source>📋 Duplicar viaje</source>
-        <target>📋 Duplicate trip</target>
+        <source>ðŸ“‹ Duplicar viaje</source>
+        <target>ðŸ“‹ Duplicate trip</target>
       </trans-unit>
       <trans-unit id="myTrips.cloneModalBody" datatype="html">
-        <source> Se creará una copia de este viaje en tu lista de guardados.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Costo: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
-        <target> A copy of this trip will be created in your saved list.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Cost: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
+        <source> Se crearÃ¡ una copia de este viaje en tu lista de guardados.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Costo: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>âˆ’1 âœ¨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
+        <target> A copy of this trip will be created in your saved list.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Cost: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>âˆ’1 âœ¨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
       </trans-unit>
       <trans-unit id="myTrips.cancelBtn" datatype="html">
         <source>Cancelar</source>
         <target>Cancel</target>
       </trans-unit>
       <trans-unit id="myTrips.cloneConfirmBtn" datatype="html">
-        <source>📋 Duplicar</source>
-        <target>📋 Duplicate</target>
+        <source>ðŸ“‹ Duplicar</source>
+        <target>ðŸ“‹ Duplicate</target>
       </trans-unit>
       <trans-unit id="myTrips.deleteModalTitle" datatype="html">
-        <source>🗑️ Eliminar viaje</source>
-        <target>🗑️ Delete trip</target>
+        <source>ðŸ—‘ï¸ Eliminar viaje</source>
+        <target>ðŸ—‘ï¸ Delete trip</target>
       </trans-unit>
       <trans-unit id="myTrips.deleteModalSub" datatype="html">
-        <source>Esta acción no se puede deshacer</source>
+        <source>Esta acciÃ³n no se puede deshacer</source>
         <target>This action can't be undone</target>
       </trans-unit>
       <trans-unit id="myTrips.deleteModalBody" datatype="html">
-        <source> ¿Eliminar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Perderás este viaje permanentemente. </source>
+        <source> Â¿Eliminar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> PerderÃ¡s este viaje permanentemente. </source>
         <target> Delete <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> You'll lose this trip permanently. </target>
       </trans-unit>
       <trans-unit id="myTrips.deleteConfirmBtn" datatype="html">
-        <source>🗑️ Eliminar</source>
-        <target>🗑️ Delete</target>
+        <source>ðŸ—‘ï¸ Eliminar</source>
+        <target>ðŸ—‘ï¸ Delete</target>
       </trans-unit>
       <trans-unit id="myTrips.excelNeedsBackend" datatype="html">
-        <source>La exportación Excel requiere el backend activo</source>
+        <source>La exportaciÃ³n Excel requiere el backend activo</source>
         <target>Excel export requires the backend to be running</target>
       </trans-unit>
       <trans-unit id="myTrips.itineraryDownloaded" datatype="html">
@@ -1588,47 +1588,47 @@
       </trans-unit>
 
       <trans-unit id="nav.myTripsPage" datatype="html">
-        <source>🗺 Mis viajes</source>
-        <target>🗺 My trips</target>
+        <source>ðŸ—º Mis viajes</source>
+        <target>ðŸ—º My trips</target>
       </trans-unit>
       <trans-unit id="nav.karmaHistory" datatype="html">
-        <source>📈 Historial de karma</source>
-        <target>📈 Karma History</target>
+        <source>ðŸ“ˆ Historial de karma</source>
+        <target>ðŸ“ˆ Karma History</target>
       </trans-unit>
       <trans-unit id="nav.mySharedTrips" datatype="html">
         <source>Mis viajes publicados</source>
         <target>My published trips</target>
       </trans-unit>
       <trans-unit id="share.shareBtn" datatype="html">
-        <source>📤 Compartir</source>
-        <target>📤 Share</target>
+        <source>ðŸ“¤ Compartir</source>
+        <target>ðŸ“¤ Share</target>
       </trans-unit>
       <trans-unit id="share.message" datatype="html">
-        <source>✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳</source>
-        <target>✨ Check out the trip I made on Tripilove! 🌍✈️🧳</target>
+        <source>âœ¨ Â¡Mira el viaje que armÃ© en Tripilove! ðŸŒâœˆï¸ðŸ§³</source>
+        <target>âœ¨ Check out the trip I made on Tripilove! ðŸŒâœˆï¸ðŸ§³</target>
       </trans-unit>
       <trans-unit id="welcome.ctaCreatePlan" datatype="html">
         <source>Crear Plan</source>
         <target>Create Plan</target>
       </trans-unit>
       <trans-unit id="welcome.ctaCreateAi" datatype="html">
-        <source>🐾 Crear con IA</source>
-        <target>🐾 Create with AI</target>
+        <source>ðŸ¾ Crear con IA</source>
+        <target>ðŸ¾ Create with AI</target>
       </trans-unit>
       <trans-unit id="welcome.ctaHowKarma" datatype="html">
-        <source>⭐ Cómo ganar Karma</source>
-        <target>⭐ How to earn Karma</target>
+        <source>â­ CÃ³mo ganar Karma</source>
+        <target>â­ How to earn Karma</target>
       </trans-unit>
       <trans-unit id="welcome.ctaLastPlan" datatype="html">
-        <source>🕓 Último viaje que editaste</source>
-        <target>🕓 Last trip you edited</target>
+        <source>ðŸ•“ Ãšltimo viaje que editaste</source>
+        <target>ðŸ•“ Last trip you edited</target>
       </trans-unit>
       <trans-unit id="welcome.karmaTitle" datatype="html">
-        <source>Cómo ganar Karma ⭐</source>
-        <target>How to earn Karma ⭐</target>
+        <source>CÃ³mo ganar Karma â­</source>
+        <target>How to earn Karma â­</target>
       </trans-unit>
       <trans-unit id="welcome.karmaBody" datatype="html">
-        <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
+        <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Ãšsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
         <target>Earn Karma when your friends comment on the stops of your shared trips. Use it to clone trips, export itineraries, and plan with AI.</target>
       </trans-unit>
       <trans-unit id="welcome.karmaClose" datatype="html">
@@ -1636,7 +1636,7 @@
         <target>Got it</target>
       </trans-unit>
 
-      <!-- ── co-editing: my-trips.component collaborator UI ── -->
+      <!-- â”€â”€ co-editing: my-trips.component collaborator UI â”€â”€ -->
       <trans-unit id="myTrips.tabCollaborations" datatype="html">
         <source>Colaborando en estos planes</source>
         <target>Collaborating on these plans</target>
@@ -1646,15 +1646,15 @@
         <target>Pending invites (<x id="INTERPOLATION" equiv-text="{{ savedPlans.pendingInvites().length }}"/>)</target>
       </trans-unit>
       <trans-unit id="myTrips.collaboratorsTitle" datatype="html">
-        <source>🤝 Colaboradores</source>
-        <target>🤝 Collaborators</target>
+        <source>ðŸ¤ Colaboradores</source>
+        <target>ðŸ¤ Collaborators</target>
       </trans-unit>
       <trans-unit id="myTrips.invitePlaceholder" datatype="html">
         <source>Correo del colaborador</source>
         <target>Collaborator's email</target>
       </trans-unit>
       <trans-unit id="myTrips.collabEmpty" datatype="html">
-        <source>Todavía no colaboras en ningún viaje.</source>
+        <source>TodavÃ­a no colaboras en ningÃºn viaje.</source>
         <target>You don't collaborate on any trip yet.</target>
       </trans-unit>
       <trans-unit id="myTrips.collabWith" datatype="html">
@@ -1666,19 +1666,19 @@
         <target>Accept</target>
       </trans-unit>
       <trans-unit id="myTrips.inviteSentToast" datatype="html">
-        <source>Invitación enviada</source>
+        <source>InvitaciÃ³n enviada</source>
         <target>Invite sent</target>
       </trans-unit>
       <trans-unit id="myTrips.inviteErrorToast" datatype="html">
-        <source>No se pudo enviar la invitación</source>
+        <source>No se pudo enviar la invitaciÃ³n</source>
         <target>Couldn't send the invite</target>
       </trans-unit>
       <trans-unit id="myTrips.inviteAcceptedToast" datatype="html">
-        <source>¡Ahora colaboras en este viaje!</source>
+        <source>Â¡Ahora colaboras en este viaje!</source>
         <target>You're now collaborating on this trip!</target>
       </trans-unit>
 
-      <!-- ── co-editing: stop-list.component owner badge + auto-save toggle ── -->
+      <!-- â”€â”€ co-editing: stop-list.component owner badge + auto-save toggle â”€â”€ -->
       <trans-unit id="stopList.editingOwnerPlan" datatype="html">
         <source>Editando el plan de <x id="INTERPOLATION" equiv-text="{{ owner.name }}"/> (<x id="INTERPOLATION_1" equiv-text="{{ owner.email }}"/>)</source>
         <target>Editing <x id="INTERPOLATION" equiv-text="{{ owner.name }}"/>'s plan (<x id="INTERPOLATION_1" equiv-text="{{ owner.email }}"/>)</target>
@@ -1688,29 +1688,29 @@
         <target>Auto-save</target>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOnTitle" datatype="html">
-        <source>Guardado automático activado — clic para desactivar</source>
-        <target>Auto-save is on — click to turn off</target>
+        <source>Guardado automÃ¡tico activado â€” clic para desactivar</source>
+        <target>Auto-save is on â€” click to turn off</target>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOffTitle" datatype="html">
-        <source>Guardado automático desactivado — clic para activar</source>
-        <target>Auto-save is off — click to turn on</target>
+        <source>Guardado automÃ¡tico desactivado â€” clic para activar</source>
+        <target>Auto-save is off â€” click to turn on</target>
       </trans-unit>
       <trans-unit id="stopList.autoSaveCountdownTitle" datatype="html">
-        <source>Tiempo restante hasta el próximo intento de guardado automático</source>
+        <source>Tiempo restante hasta el prÃ³ximo intento de guardado automÃ¡tico</source>
         <target>Time remaining until the next auto-save attempt</target>
       </trans-unit>
 
-      <!-- ── autosave-reminder-banner.component ── -->
+      <!-- â”€â”€ autosave-reminder-banner.component â”€â”€ -->
       <trans-unit id="autosave.reminderMessage" datatype="html">
         <source>Recuerda grabar tus avances en el plan y considera que este es un plan colaborativo por lo cual asegurate de estar sincronizados con tus amigos.</source>
-        <target>Remember to save your progress on the plan — keep in mind this is a collaborative plan, so make sure you're in sync with your friends.</target>
+        <target>Remember to save your progress on the plan â€” keep in mind this is a collaborative plan, so make sure you're in sync with your friends.</target>
       </trans-unit>
       <trans-unit id="autosave.reminderDismiss" datatype="html">
         <source>Cerrar</source>
         <target>Close</target>
       </trans-unit>
 
-      <!-- ── attraction image lightbox + hero carousel ── -->
+      <!-- â”€â”€ attraction image lightbox + hero carousel â”€â”€ -->
       <trans-unit id="imgLightbox.close" datatype="html">
         <source>Cerrar imagen</source>
         <target>Close image</target>
@@ -1732,9 +1732,9 @@
         <target>Next image</target>
       </trans-unit>
 
-      <!-- ── plan-slideshow ── -->
+      <!-- â”€â”€ plan-slideshow â”€â”€ -->
       <trans-unit id="planSlideshow.close" datatype="html">
-        <source>Cerrar presentación</source>
+        <source>Cerrar presentaciÃ³n</source>
         <target>Close presentation</target>
       </trans-unit>
       <trans-unit id="planSlideshow.prev" datatype="html">
@@ -1746,15 +1746,15 @@
         <target>Next</target>
       </trans-unit>
       <trans-unit id="planSlideshow.empty" datatype="html">
-        <source>No hay elementos para mostrar todavía.</source>
+        <source>No hay elementos para mostrar todavÃ­a.</source>
         <target>There's nothing to show yet.</target>
       </trans-unit>
       <trans-unit id="timeline.daySlideshow" datatype="html">
-        <source>🎬 Presentación del día</source>
-        <target>🎬 Day slideshow</target>
+        <source>ðŸŽ¬ PresentaciÃ³n del dÃ­a</source>
+        <target>ðŸŽ¬ Day slideshow</target>
       </trans-unit>
 
-      <!-- ── day-timeline.component: full translation pass ── -->
+      <!-- â”€â”€ day-timeline.component: full translation pass â”€â”€ -->
       <trans-unit id="timeline.flapAriaExpand" datatype="html">
         <source>Expandir panel de horario</source>
         <target>Expand schedule panel</target>
@@ -1764,11 +1764,11 @@
         <target>Collapse schedule panel</target>
       </trans-unit>
       <trans-unit id="timeline.scrollDaysLeft" datatype="html">
-        <source>Ver días anteriores</source>
+        <source>Ver dÃ­as anteriores</source>
         <target>See previous days</target>
       </trans-unit>
       <trans-unit id="timeline.scrollDaysRight" datatype="html">
-        <source>Ver días siguientes</source>
+        <source>Ver dÃ­as siguientes</source>
         <target>See next days</target>
       </trans-unit>
       <trans-unit id="timeline.eyebrowTransport" datatype="html">
@@ -1776,7 +1776,7 @@
         <target>Transport</target>
       </trans-unit>
       <trans-unit id="timeline.eyebrowDayView" datatype="html">
-        <source>Vista del día</source>
+        <source>Vista del dÃ­a</source>
         <target>Day view</target>
       </trans-unit>
       <trans-unit id="timeline.noActivities" datatype="html">
@@ -1820,66 +1820,66 @@
         <target>Car</target>
       </trans-unit>
       <trans-unit id="timeline.planSlideshow" datatype="html">
-        <source>🎞️ Presentación del plan</source>
-        <target>🎞️ Plan slideshow</target>
+        <source>ðŸŽžï¸ PresentaciÃ³n del plan</source>
+        <target>ðŸŽžï¸ Plan slideshow</target>
       </trans-unit>
       <trans-unit id="timeline.tripMap" datatype="html">
-        <source>✈️ Ver mapa del viaje</source>
-        <target>✈️ View trip map</target>
+        <source>âœˆï¸ Ver mapa del viaje</source>
+        <target>âœˆï¸ View trip map</target>
       </trans-unit>
       <trans-unit id="timeline.tripMapClose" datatype="html">
         <source>Cerrar mapa</source>
         <target>Close map</target>
       </trans-unit>
       <trans-unit id="sharedTrip.planSlideshow" datatype="html">
-        <source>🎬 Presentación</source>
-        <target>🎬 Slideshow</target>
+        <source>ðŸŽ¬ PresentaciÃ³n</source>
+        <target>ðŸŽ¬ Slideshow</target>
       </trans-unit>
       <trans-unit id="sharedTrip.tripMap" datatype="html">
-        <source>✈️ Ver mapa</source>
-        <target>✈️ View map</target>
+        <source>âœˆï¸ Ver mapa</source>
+        <target>âœˆï¸ View map</target>
       </trans-unit>
       <trans-unit id="sharedTrip.tripMapClose" datatype="html">
         <source>Cerrar mapa</source>
         <target>Close map</target>
       </trans-unit>
 
-      <!-- ── city-suggest: AI per-city attraction cloud ── -->
+      <!-- â”€â”€ city-suggest: AI per-city attraction cloud â”€â”€ -->
       <trans-unit id="citySuggest.closeAria" datatype="html">
         <source>Cerrar</source>
         <target>Close</target>
       </trans-unit>
       <trans-unit id="citySuggest.thinking" datatype="html">
-        <source>Pensando en más ideas para ti…</source>
-        <target>Thinking of more ideas for you…</target>
+        <source>Pensando en mÃ¡s ideas para tiâ€¦</source>
+        <target>Thinking of more ideas for youâ€¦</target>
       </trans-unit>
       <trans-unit id="citySuggest.errorTitle" datatype="html">
-        <source>¡Ups!</source>
+        <source>Â¡Ups!</source>
         <target>Oops!</target>
       </trans-unit>
       <trans-unit id="citySuggest.greeting" datatype="html">
-        <source>¡Mira lo que encontré para ti! 🐾</source>
-        <target>Look what I found for you! 🐾</target>
+        <source>Â¡Mira lo que encontrÃ© para ti! ðŸ¾</source>
+        <target>Look what I found for you! ðŸ¾</target>
       </trans-unit>
       <trans-unit id="citySuggest.checkAria" datatype="html">
         <source>Incluir <x id="INTERPOLATION" equiv-text="{{ s.name }}"/></source>
         <target>Include <x id="INTERPOLATION" equiv-text="{{ s.name }}"/></target>
       </trans-unit>
       <trans-unit id="citySuggest.searchMoreBtn" datatype="html">
-        <source>🔄 Buscar más opciones</source>
-        <target>🔄 Search for more options</target>
+        <source>ðŸ”„ Buscar mÃ¡s opciones</source>
+        <target>ðŸ”„ Search for more options</target>
       </trans-unit>
       <trans-unit id="citySuggest.addAllBtn" datatype="html">
-        <source>➕ Agregar lo seleccionado al plan</source>
-        <target>➕ Add the selected ones to the plan</target>
+        <source>âž• Agregar lo seleccionado al plan</source>
+        <target>âž• Add the selected ones to the plan</target>
       </trans-unit>
-      <!-- ── companion mascot: periodic "Asistente Miel" nudges ── -->
+      <!-- â”€â”€ companion mascot: periodic "Asistente Miel" nudges â”€â”€ -->
       <trans-unit id="companion.dismissAria" datatype="html">
         <source>Cerrar</source>
         <target>Close</target>
       </trans-unit>
       <trans-unit id="companion.suggestIntro" datatype="html">
-        <source> He olido que agregaste la atracción <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> el día <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> a la hora <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. Otra atracción que es muy popular junto con lo que seleccionaste: </source>
+        <source> He olido que agregaste la atracciÃ³n <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> el dÃ­a <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> a la hora <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. Otra atracciÃ³n que es muy popular junto con lo que seleccionaste: </source>
         <target>I smelled that you added the attraction <x id="INTERPOLATION" equiv-text="{{ v.addedName }}"/> on <x id="INTERPOLATION_1" equiv-text="{{ v.addedDate }}"/> at <x id="INTERPOLATION_2" equiv-text="{{ v.addedTime }}"/>. Another attraction that is very popular alongside what you picked:</target>
       </trans-unit>
       <trans-unit id="companion.dismissBtn" datatype="html">
@@ -1887,39 +1887,39 @@
         <target>No, thanks</target>
       </trans-unit>
       <trans-unit id="companion.addBtn" datatype="html">
-        <source>➕ Agregar</source>
-        <target>➕ Add</target>
+        <source>âž• Agregar</source>
+        <target>âž• Add</target>
       </trans-unit>
       <trans-unit id="companion.boostedLabel" datatype="html">
-        <source>¡Miel está atenta hoy! 🦴💕</source>
-        <target>Miel is paying attention today! 🦴💕</target>
+        <source>Â¡Miel estÃ¡ atenta hoy! ðŸ¦´ðŸ’•</source>
+        <target>Miel is paying attention today! ðŸ¦´ðŸ’•</target>
       </trans-unit>
       <trans-unit id="companion.boostTimer" datatype="html">
         <source>Termina en <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></source>
         <target>Ends in <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></target>
       </trans-unit>
       <trans-unit id="companion.boostCopy" datatype="html">
-        <source> Por ahora Miel está jugando con otro usuario. Dale un premio 🦴 para que juegue contigo. ¡Durante las próximas 24 horas Miel jugara contigo y te dará más sugerencias sobre tu viaje! </source>
-        <target> Right now Miel is playing with another user. Give her a treat 🦴 so she plays with you. For the next 24 hours Miel will play with you and give you more suggestions about your trip! </target>
+        <source> Por ahora Miel estÃ¡ jugando con otro usuario. Dale un premio ðŸ¦´ para que juegue contigo. Â¡Durante las prÃ³ximas 24 horas Miel jugara contigo y te darÃ¡ mÃ¡s sugerencias sobre tu viaje! </source>
+        <target> Right now Miel is playing with another user. Give her a treat ðŸ¦´ so she plays with you. For the next 24 hours Miel will play with you and give you more suggestions about your trip! </target>
       </trans-unit>
       <trans-unit id="companion.boostBtn" datatype="html">
-        <source>Dar premio (−2 Karma 🦴)</source>
-        <target>Give a treat (−2 Karma 🦴)</target>
+        <source>Dar premio (âˆ’2 Karma ðŸ¦´)</source>
+        <target>Give a treat (âˆ’2 Karma ðŸ¦´)</target>
       </trans-unit>
       <trans-unit id="profile.companionBoostTitle" datatype="html">
-        <source>Asistente Miel 🐾</source>
-        <target>Asistente Miel 🐾</target>
+        <source>Asistente Miel ðŸ¾</source>
+        <target>Asistente Miel ðŸ¾</target>
       </trans-unit>
       <trans-unit id="about.hero.eyebrow" datatype="html">
         <source>Sobre nosotros</source>
         <target>About us</target>
       </trans-unit>
       <trans-unit id="about.hero.title" datatype="html">
-        <source>Las <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>besties<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> detrás<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>del viaje</source>
+        <source>Las <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>besties<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> detrÃ¡s<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>del viaje</source>
         <target>The <x id="START_EMPHASISED_TEXT" equiv-text="&lt;em&gt;"/>besties<x id="CLOSE_EMPHASISED_TEXT" equiv-text="&lt;/em&gt;"/> behind<x id="LINE_BREAK" equiv-text="&lt;br&gt;"/>the journey</target>
       </trans-unit>
       <trans-unit id="about.hero.sub" datatype="html">
-        <source>Cuatro personas, una idea: planificar un viaje debería sentirse como una aventura, no como una planilla de cálculo.</source>
+        <source>Cuatro personas, una idea: planificar un viaje deberÃ­a sentirse como una aventura, no como una planilla de cÃ¡lculo.</source>
         <target>Four people, one idea: trip planning should feel like an adventure, not a spreadsheet.</target>
       </trans-unit>
       <trans-unit id="about.journey.label" datatype="html">
@@ -1927,43 +1927,43 @@
         <target>Our story, one stop at a time</target>
       </trans-unit>
       <trans-unit id="about.journey.sub" datatype="html">
-        <source>Sigue la ruta de vuelo — cada parada presenta a alguien que ayudó a construir Tripilove.</source>
-        <target>Follow the flight path — every stop introduces someone who helped build Tripilove.</target>
+        <source>Sigue la ruta de vuelo â€” cada parada presenta a alguien que ayudÃ³ a construir Tripilove.</source>
+        <target>Follow the flight path â€” every stop introduces someone who helped build Tripilove.</target>
       </trans-unit>
       <trans-unit id="about.closing.title" datatype="html">
-        <source>¿Listo para planificar tu próximo viaje?</source>
+        <source>Â¿Listo para planificar tu prÃ³ximo viaje?</source>
         <target>Ready to plan your next trip?</target>
       </trans-unit>
       <trans-unit id="about.closing.sub" datatype="html">
-        <source>Únete a miles de besties que arman itinerarios juntos, un destino a la vez.</source>
+        <source>Ãšnete a miles de besties que arman itinerarios juntos, un destino a la vez.</source>
         <target>Join thousands of besties building itineraries together, one destination at a time.</target>
       </trans-unit>
       <trans-unit id="about.closing.cta" datatype="html">
-        <source>Comenzar a planificar ✈️</source>
-        <target>Start planning ✈️</target>
+        <source>Comenzar a planificar âœˆï¸</source>
+        <target>Start planning âœˆï¸</target>
       </trans-unit>
       <trans-unit id="about.team.yoli.role" datatype="html">
         <source>CEO</source>
         <target>CEO</target>
       </trans-unit>
       <trans-unit id="about.team.yoli.bio" datatype="html">
-        <source>Jefa y dueña del proyecto. Como buen C-level de la empresa, nadie sabe lo que dice pero todos corren si ella necesita algo.</source>
+        <source>Jefa y dueÃ±a del proyecto. Como buen C-level de la empresa, nadie sabe lo que dice pero todos corren si ella necesita algo.</source>
         <target>Boss and owner of the project. Like any good C-level exec, nobody understands what she says, but everyone runs when she needs something.</target>
       </trans-unit>
       <trans-unit id="about.team.mati.role" datatype="html">
-        <source>Ingeniería</source>
+        <source>IngenierÃ­a</source>
         <target>Engineering</target>
       </trans-unit>
       <trans-unit id="about.team.mati.bio" datatype="html">
-        <source>Jefe de ingeniería y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de pañales.</source>
+        <source>Jefe de ingenierÃ­a y mono programador. Encargado de mantener el sistema andando y correr cuando Yoli necesita cambio de paÃ±ales.</source>
         <target>Head of engineering and code monkey. In charge of keeping the system running and sprinting whenever Yoli needs a diaper change.</target>
       </trans-unit>
       <trans-unit id="about.team.ceci.role" datatype="html">
-        <source>Directora de Diseño</source>
+        <source>Directora de DiseÃ±o</source>
         <target>Director of Design</target>
       </trans-unit>
       <trans-unit id="about.team.ceci.bio" datatype="html">
-        <source>Experta en el proceso y diseñadora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli.</source>
+        <source>Experta en el proceso y diseÃ±adora en jefe. Sabe mejor que nadie como se debe comportar el usuario y que es lo que necesita. Ademas que es la unica que tiene el permiso de alimentar a Yoli.</source>
         <target>Process expert and lead designer. Knows better than anyone how the user should behave and what they actually need. She's also the only one allowed to feed Yoli.</target>
       </trans-unit>
       <trans-unit id="about.team.miel.role" datatype="html">
@@ -1975,41 +1975,41 @@
         <target>AI and travel-tips expert. Knows what the best attractions smell like and where to find them. Rumor has it she never sleeps.</target>
       </trans-unit>
 
-      <!-- ── terms.component ── -->
+      <!-- â”€â”€ terms.component â”€â”€ -->
       <trans-unit id="terms.eyebrow" datatype="html">
         <source>Legal</source>
         <target>Legal</target>
       </trans-unit>
       <trans-unit id="terms.title" datatype="html">
-        <source>Términos de servicio</source>
+        <source>TÃ©rminos de servicio</source>
         <target>Terms of Service</target>
       </trans-unit>
       <trans-unit id="terms.updated" datatype="html">
-        <source>Última actualización: 8 de septiembre de 2026</source>
+        <source>Ãšltima actualizaciÃ³n: 8 de septiembre de 2026</source>
         <target>Last updated: September 8, 2026</target>
       </trans-unit>
       <trans-unit id="terms.s1.title" datatype="html">
-        <source>1. Aceptación de los términos</source>
+        <source>1. AceptaciÃ³n de los tÃ©rminos</source>
         <target>1. Acceptance of terms</target>
       </trans-unit>
       <trans-unit id="terms.s1.body" datatype="html">
-        <source>Al crear una cuenta o usar Tripilove ("la aplicación", "el servicio") aceptas estos Términos de servicio en su totalidad. Si no estás de acuerdo con alguna parte, no debes usar el servicio.</source>
+        <source>Al crear una cuenta o usar Tripilove ("la aplicaciÃ³n", "el servicio") aceptas estos TÃ©rminos de servicio en su totalidad. Si no estÃ¡s de acuerdo con alguna parte, no debes usar el servicio.</source>
         <target>By creating an account or using Tripilove ("the app", "the service") you accept these Terms of Service in full. If you disagree with any part of them, you must not use the service.</target>
       </trans-unit>
       <trans-unit id="terms.s2.title" datatype="html">
-        <source>2. Qué es Tripilove</source>
+        <source>2. QuÃ© es Tripilove</source>
         <target>2. What Tripilove is</target>
       </trans-unit>
       <trans-unit id="terms.s2.body" datatype="html">
-        <source>Tripilove es una herramienta de planificación de viajes: te permite armar itinerarios con paradas, alojamiento y transporte, descubrir atracciones, compartir tus planes con otras personas, co-editar un viaje con amigos y generar sugerencias de itinerario asistidas por inteligencia artificial. No somos una agencia de viajes ni un proveedor de reservas — no vendemos vuelos, hoteles ni entradas, y no procesamos pagos en tu nombre a terceros proveedores turísticos.</source>
-        <target>Tripilove is a trip-planning tool: it lets you build itineraries with stops, lodging and transport, discover attractions, share your plans with other people, co-edit a trip with friends, and generate AI-assisted itinerary suggestions. We are not a travel agency or a booking provider — we do not sell flights, hotels, or tickets, and we do not process payments on your behalf to third-party travel providers.</target>
+        <source>Tripilove es una herramienta de planificaciÃ³n de viajes: te permite armar itinerarios con paradas, alojamiento y transporte, descubrir atracciones, compartir tus planes con otras personas, co-editar un viaje con amigos y generar sugerencias de itinerario asistidas por inteligencia artificial. No somos una agencia de viajes ni un proveedor de reservas â€” no vendemos vuelos, hoteles ni entradas, y no procesamos pagos en tu nombre a terceros proveedores turÃ­sticos.</source>
+        <target>Tripilove is a trip-planning tool: it lets you build itineraries with stops, lodging and transport, discover attractions, share your plans with other people, co-edit a trip with friends, and generate AI-assisted itinerary suggestions. We are not a travel agency or a booking provider â€” we do not sell flights, hotels, or tickets, and we do not process payments on your behalf to third-party travel providers.</target>
       </trans-unit>
       <trans-unit id="terms.s3.title" datatype="html">
         <source>3. Tu cuenta</source>
         <target>3. Your account</target>
       </trans-unit>
       <trans-unit id="terms.s3.body" datatype="html">
-        <source>Debes registrarte con un correo electrónico válido y una contraseña. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 años para crear una cuenta. Puedes actualizar tu nombre, correo, contraseña y país de residencia desde tu perfil en cualquier momento.</source>
+        <source>Debes registrarte con un correo electrÃ³nico vÃ¡lido y una contraseÃ±a. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 aÃ±os para crear una cuenta. Puedes actualizar tu nombre, correo, contraseÃ±a y paÃ­s de residencia desde tu perfil en cualquier momento.</source>
         <target>You must register with a valid email address and password. You are responsible for keeping your credentials confidential and for all activity on your account. You must be at least 13 years old to create an account. You can update your name, email, password, and country of residence from your profile at any time.</target>
       </trans-unit>
       <trans-unit id="terms.s4.title" datatype="html">
@@ -2017,11 +2017,11 @@
         <target>4. The Karma system</target>
       </trans-unit>
       <trans-unit id="terms.s4.body1" datatype="html">
-        <source>Karma es una moneda virtual interna de la aplicación, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Karma cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificación con inteligencia artificial.</source>
+        <source>Karma es una moneda virtual interna de la aplicaciÃ³n, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Karma cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificaciÃ³n con inteligencia artificial.</source>
         <target>Karma is an internal virtual currency of the app with no monetary value, which cannot be redeemed for cash or transferred outside of Tripilove. You earn Karma when other people comment on the stops of your shared trips, and you spend it when creating a trip, cloning a plan, exporting an itinerary, inviting a collaborator, or using the AI planning features.</target>
       </trans-unit>
       <trans-unit id="terms.s4.body2" datatype="html">
-        <source>Puedes comprar paquetes de Karma con dinero real a través de PayPal. Las compras de Karma son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</source>
+        <source>Puedes comprar paquetes de Karma con dinero real a travÃ©s de PayPal. Las compras de Karma son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</source>
         <target>You can purchase Karma packages with real money via PayPal. Karma purchases are final and non-refundable once credited, except where applicable law requires otherwise.</target>
       </trans-unit>
       <trans-unit id="terms.s5.title" datatype="html">
@@ -2029,7 +2029,7 @@
         <target>5. AI-generated content</target>
       </trans-unit>
       <trans-unit id="terms.s5.body" datatype="html">
-        <source>Las sugerencias de viaje y los itinerarios generados por nuestro asistente de IA ("ARIA") son orientativos. Pueden contener errores, información desactualizada o inexacta sobre horarios, precios, disponibilidad, requisitos de visa o documentación. Es tu responsabilidad verificar cualquier dato crítico directamente con la fuente oficial (el sitio del lugar, la aerolínea, la embajada correspondiente, etc.) antes de viajar.</source>
+        <source>Las sugerencias de viaje y los itinerarios generados por nuestro asistente de IA ("ARIA") son orientativos. Pueden contener errores, informaciÃ³n desactualizada o inexacta sobre horarios, precios, disponibilidad, requisitos de visa o documentaciÃ³n. Es tu responsabilidad verificar cualquier dato crÃ­tico directamente con la fuente oficial (el sitio del lugar, la aerolÃ­nea, la embajada correspondiente, etc.) antes de viajar.</source>
         <target>Trip suggestions and itineraries generated by our AI assistant ("ARIA") are for guidance only. They may contain errors or outdated or inaccurate information about hours, prices, availability, or visa/documentation requirements. It is your responsibility to verify any critical detail directly with the official source (the venue's own site, the airline, the relevant embassy, etc.) before traveling.</target>
       </trans-unit>
       <trans-unit id="terms.s6.title" datatype="html">
@@ -2037,7 +2037,7 @@
         <target>6. Third-party content</target>
       </trans-unit>
       <trans-unit id="terms.s6.body" datatype="html">
-        <source>La información de atracciones, freetours y eventos que se muestra en la aplicación proviene de fuentes públicas y de terceros (incluyendo UNESCO, Civitatis y Ticketmaster) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</source>
+        <source>La informaciÃ³n de atracciones, freetours y eventos que se muestra en la aplicaciÃ³n proviene de fuentes pÃºblicas y de terceros (incluyendo UNESCO, Civitatis y Ticketmaster) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</source>
         <target>Attraction, freetour, and event information shown in the app comes from public and third-party sources (including UNESCO, Civitatis, and Ticketmaster) and may be outdated or inaccurate. We do not guarantee the accuracy of third-party hours, prices, or availability.</target>
       </trans-unit>
       <trans-unit id="terms.s7.title" datatype="html">
@@ -2045,7 +2045,7 @@
         <target>7. Collaborative plans</target>
       </trans-unit>
       <trans-unit id="terms.s7.body" datatype="html">
-        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas.</source>
+        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la Ãºltima ediciÃ³n guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronizaciÃ³n en tiempo real ni resoluciÃ³n automÃ¡tica de conflictos entre ediciones simultÃ¡neas.</source>
         <target>You can invite another registered person to co-edit a trip. Every collaborator can modify the same plan; the last saved edit takes precedence over earlier ones ("last write wins"). We do not offer real-time sync or automatic conflict resolution between simultaneous edits.</target>
       </trans-unit>
       <trans-unit id="terms.s8.title" datatype="html">
@@ -2053,7 +2053,7 @@
         <target>8. Expected conduct</target>
       </trans-unit>
       <trans-unit id="terms.s8.body" datatype="html">
-        <source>Al comentar atracciones o viajes compartidos, no debes publicar contenido ofensivo, spam, ni información falsa. Aplicamos límites automáticos de frecuencia y similitud a los comentarios para prevenir spam. Podemos eliminar contenido o suspender cuentas que incumplan estas reglas.</source>
+        <source>Al comentar atracciones o viajes compartidos, no debes publicar contenido ofensivo, spam, ni informaciÃ³n falsa. Aplicamos lÃ­mites automÃ¡ticos de frecuencia y similitud a los comentarios para prevenir spam. Podemos eliminar contenido o suspender cuentas que incumplan estas reglas.</source>
         <target>When commenting on attractions or shared trips, you must not post offensive content, spam, or false information. We apply automatic frequency and similarity limits to comments to prevent spam. We may remove content or suspend accounts that violate these rules.</target>
       </trans-unit>
       <trans-unit id="terms.s9.title" datatype="html">
@@ -2061,31 +2061,31 @@
         <target>9. Intellectual property</target>
       </trans-unit>
       <trans-unit id="terms.s9.body" datatype="html">
-        <source>El software, diseño, marca y contenido propio de Tripilove son propiedad de sus creadores. Conservas los derechos sobre el contenido que publicas (comentarios, nombres de viajes), pero nos otorgas una licencia para mostrarlo dentro del servicio, incluyendo en vistas compartidas públicamente.</source>
+        <source>El software, diseÃ±o, marca y contenido propio de Tripilove son propiedad de sus creadores. Conservas los derechos sobre el contenido que publicas (comentarios, nombres de viajes), pero nos otorgas una licencia para mostrarlo dentro del servicio, incluyendo en vistas compartidas pÃºblicamente.</source>
         <target>Tripilove's software, design, brand, and original content are owned by its creators. You retain rights to the content you post (comments, trip names), but you grant us a license to display it within the service, including in publicly shared views.</target>
       </trans-unit>
       <trans-unit id="terms.s10.title" datatype="html">
-        <source>10. Limitación de responsabilidad</source>
+        <source>10. LimitaciÃ³n de responsabilidad</source>
         <target>10. Limitation of liability</target>
       </trans-unit>
       <trans-unit id="terms.s10.body" datatype="html">
-        <source>Tripilove se ofrece "tal cual", sin garantías de disponibilidad ininterrumpida. En la máxima medida permitida por la ley, no somos responsables de daños indirectos derivados del uso de la aplicación, incluyendo decisiones de viaje tomadas a partir de información incorrecta mostrada en el servicio.</source>
+        <source>Tripilove se ofrece "tal cual", sin garantÃ­as de disponibilidad ininterrumpida. En la mÃ¡xima medida permitida por la ley, no somos responsables de daÃ±os indirectos derivados del uso de la aplicaciÃ³n, incluyendo decisiones de viaje tomadas a partir de informaciÃ³n incorrecta mostrada en el servicio.</source>
         <target>Tripilove is provided "as is", with no guarantee of uninterrupted availability. To the maximum extent permitted by law, we are not liable for indirect damages arising from use of the app, including travel decisions made based on incorrect information shown in the service.</target>
       </trans-unit>
       <trans-unit id="terms.s11.title" datatype="html">
-        <source>11. Terminación de cuenta</source>
+        <source>11. TerminaciÃ³n de cuenta</source>
         <target>11. Account termination</target>
       </trans-unit>
       <trans-unit id="terms.s11.body" datatype="html">
-        <source>Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos términos, incluyendo uso abusivo del sistema de Karma o de las funciones de inteligencia artificial.</source>
+        <source>Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos tÃ©rminos, incluyendo uso abusivo del sistema de Karma o de las funciones de inteligencia artificial.</source>
         <target>You can stop using the service at any time. We may suspend or delete accounts that violate these terms, including abuse of the Karma system or the AI planning features.</target>
       </trans-unit>
       <trans-unit id="terms.s12.title" datatype="html">
-        <source>12. Cambios a estos términos</source>
+        <source>12. Cambios a estos tÃ©rminos</source>
         <target>12. Changes to these terms</target>
       </trans-unit>
       <trans-unit id="terms.s12.body" datatype="html">
-        <source>Podemos actualizar estos términos ocasionalmente. Publicaremos la fecha de la última actualización al inicio de esta página. El uso continuado del servicio después de un cambio implica la aceptación de los nuevos términos.</source>
+        <source>Podemos actualizar estos tÃ©rminos ocasionalmente. Publicaremos la fecha de la Ãºltima actualizaciÃ³n al inicio de esta pÃ¡gina. El uso continuado del servicio despuÃ©s de un cambio implica la aceptaciÃ³n de los nuevos tÃ©rminos.</source>
         <target>We may update these terms occasionally. We will publish the last-updated date at the top of this page. Continued use of the service after a change means you accept the new terms.</target>
       </trans-unit>
       <trans-unit id="terms.s13.title" datatype="html">
@@ -2093,45 +2093,45 @@
         <target>13. Contact</target>
       </trans-unit>
       <trans-unit id="terms.s13.body" datatype="html">
-        <source>Si tienes preguntas sobre estos términos, puedes contactarnos a través de los canales indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <source>Si tienes preguntas sobre estos tÃ©rminos, puedes contactarnos a travÃ©s de los canales indicados en la pÃ¡gina <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <target>If you have questions about these terms, you can reach us through the channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
       </trans-unit>
 
-      <!-- ── privacy.component ── -->
+      <!-- â”€â”€ privacy.component â”€â”€ -->
       <trans-unit id="privacy.eyebrow" datatype="html">
         <source>Legal</source>
         <target>Legal</target>
       </trans-unit>
       <trans-unit id="privacy.title" datatype="html">
-        <source>Política de privacidad</source>
+        <source>PolÃ­tica de privacidad</source>
         <target>Privacy Policy</target>
       </trans-unit>
       <trans-unit id="privacy.updated" datatype="html">
-        <source>Última actualización: 8 de septiembre de 2026</source>
+        <source>Ãšltima actualizaciÃ³n: 8 de septiembre de 2026</source>
         <target>Last updated: September 8, 2026</target>
       </trans-unit>
       <trans-unit id="privacy.s1.title" datatype="html">
-        <source>1. Qué información recopilamos</source>
+        <source>1. QuÃ© informaciÃ³n recopilamos</source>
         <target>1. What information we collect</target>
       </trans-unit>
       <trans-unit id="privacy.s1.body" datatype="html">
-        <source>Recopilamos la información que nos entregas directamente: nombre, correo electrónico, contraseña (almacenada como hash, nunca en texto plano) y, opcionalmente, tu país de residencia. También guardamos los datos de tus planes de viaje (paradas, fechas, alojamiento, transporte, atracciones seleccionadas), tus comentarios en atracciones y viajes compartidos, los lugares que marcas como "visitados" en el mapa de tu perfil, y un identificador anónimo generado automáticamente en tu navegador (independiente de tu cuenta) que nos permite reconocer visitas recurrentes antes de que inicies sesión.</source>
+        <source>Recopilamos la informaciÃ³n que nos entregas directamente: nombre, correo electrÃ³nico, contraseÃ±a (almacenada como hash, nunca en texto plano) y, opcionalmente, tu paÃ­s de residencia. TambiÃ©n guardamos los datos de tus planes de viaje (paradas, fechas, alojamiento, transporte, atracciones seleccionadas), tus comentarios en atracciones y viajes compartidos, los lugares que marcas como "visitados" en el mapa de tu perfil, y un identificador anÃ³nimo generado automÃ¡ticamente en tu navegador (independiente de tu cuenta) que nos permite reconocer visitas recurrentes antes de que inicies sesiÃ³n.</source>
         <target>We collect the information you give us directly: name, email, password (stored as a hash, never in plain text) and, optionally, your country of residence. We also store your trip planning data (stops, dates, lodging, transport, selected attractions), your comments on attractions and shared trips, the places you mark as "visited" on your profile's map, and an anonymous identifier automatically generated in your browser (independent of your account) that lets us recognize returning visits before you log in.</target>
       </trans-unit>
       <trans-unit id="privacy.s2.title" datatype="html">
-        <source>2. Cómo usamos tu información</source>
+        <source>2. CÃ³mo usamos tu informaciÃ³n</source>
         <target>2. How we use your information</target>
       </trans-unit>
       <trans-unit id="privacy.s2.body" datatype="html">
-        <source>Usamos tu información para operar el servicio: mostrar y guardar tus planes de viaje, generar sugerencias con inteligencia artificial, calcular tu saldo de Karma, enviarte notificaciones dentro de la aplicación y por correo (por ejemplo, confirmaciones de compra o invitaciones de colaboración), y mejorar el producto. No usamos tu información para publicidad dirigida.</source>
+        <source>Usamos tu informaciÃ³n para operar el servicio: mostrar y guardar tus planes de viaje, generar sugerencias con inteligencia artificial, calcular tu saldo de Karma, enviarte notificaciones dentro de la aplicaciÃ³n y por correo (por ejemplo, confirmaciones de compra o invitaciones de colaboraciÃ³n), y mejorar el producto. No usamos tu informaciÃ³n para publicidad dirigida.</source>
         <target>We use your information to operate the service: displaying and saving your trip plans, generating AI suggestions, calculating your Karma balance, sending you in-app and email notifications (e.g. purchase confirmations or collaboration invites), and improving the product. We do not use your information for targeted advertising.</target>
       </trans-unit>
       <trans-unit id="privacy.s3.title" datatype="html">
-        <source>3. Con quién compartimos información</source>
+        <source>3. Con quiÃ©n compartimos informaciÃ³n</source>
         <target>3. Who we share information with</target>
       </trans-unit>
       <trans-unit id="privacy.s3.body" datatype="html">
-        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
+        <source>Compartimos informaciÃ³n limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe Ãºnicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesiÃ³n, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu informaciÃ³n personal a terceros.</source>
         <target>We share limited information with external providers strictly necessary to operate the service: PayPal to process Karma purchases, DeepSeek to generate AI trip suggestions (it only receives your travel preferences, not your account data), Cloudflare Turnstile to verify you're not a bot when registering or logging in, and our outbound email provider to send you transactional notifications. We never sell your personal information to third parties.</target>
       </trans-unit>
       <trans-unit id="privacy.s4.title" datatype="html">
@@ -2139,7 +2139,7 @@
         <target>4. Cookies and local storage</target>
       </trans-unit>
       <trans-unit id="privacy.s4.body" datatype="html">
-        <source>Usamos el almacenamiento local de tu navegador (localStorage) para guardar tu sesión, tus preferencias (como el idioma) y una copia de tu plan de viaje en progreso. Usamos una cookie técnica HttpOnly para mantener tu sesión de forma segura, y una cookie para recordar tu idioma preferido. No usamos cookies de rastreo publicitario.</source>
+        <source>Usamos el almacenamiento local de tu navegador (localStorage) para guardar tu sesiÃ³n, tus preferencias (como el idioma) y una copia de tu plan de viaje en progreso. Usamos una cookie tÃ©cnica HttpOnly para mantener tu sesiÃ³n de forma segura, y una cookie para recordar tu idioma preferido. No usamos cookies de rastreo publicitario.</source>
         <target>We use your browser's local storage (localStorage) to save your session, your preferences (like language), and a copy of your in-progress trip plan. We use a technical HttpOnly cookie to keep your session secure, and a cookie to remember your preferred language. We do not use advertising tracking cookies.</target>
       </trans-unit>
       <trans-unit id="privacy.s5.title" datatype="html">
@@ -2147,15 +2147,15 @@
         <target>5. Security</target>
       </trans-unit>
       <trans-unit id="privacy.s5.body" datatype="html">
-        <source>Tu contraseña se almacena usando bcrypt (un algoritmo de hash unidireccional, nunca en texto plano). Las credenciales viajan cifradas entre tu navegador y nuestros servidores. Las sesiones se gestionan con tokens de corta duración que se renuevan automáticamente.</source>
+        <source>Tu contraseÃ±a se almacena usando bcrypt (un algoritmo de hash unidireccional, nunca en texto plano). Las credenciales viajan cifradas entre tu navegador y nuestros servidores. Las sesiones se gestionan con tokens de corta duraciÃ³n que se renuevan automÃ¡ticamente.</source>
         <target>Your password is stored using bcrypt (a one-way hashing algorithm, never in plain text). Credentials travel encrypted between your browser and our servers. Sessions are managed with short-lived tokens that renew automatically.</target>
       </trans-unit>
       <trans-unit id="privacy.s6.title" datatype="html">
-        <source>6. Retención de datos</source>
+        <source>6. RetenciÃ³n de datos</source>
         <target>6. Data retention</target>
       </trans-unit>
       <trans-unit id="privacy.s6.body" datatype="html">
-        <source>Conservamos tu información mientras tu cuenta esté activa. Si eliminas tu cuenta, eliminamos tus datos personales identificables, salvo la información que debamos conservar por obligación legal (por ejemplo, registros de transacciones de pago).</source>
+        <source>Conservamos tu informaciÃ³n mientras tu cuenta estÃ© activa. Si eliminas tu cuenta, eliminamos tus datos personales identificables, salvo la informaciÃ³n que debamos conservar por obligaciÃ³n legal (por ejemplo, registros de transacciones de pago).</source>
         <target>We keep your information while your account is active. If you delete your account, we remove your identifiable personal data, except information we must keep for legal reasons (for example, payment transaction records).</target>
       </trans-unit>
       <trans-unit id="privacy.s7.title" datatype="html">
@@ -2163,7 +2163,7 @@
         <target>7. Your rights</target>
       </trans-unit>
       <trans-unit id="privacy.s7.body" datatype="html">
-        <source>Puedes acceder, corregir o eliminar tu información personal en cualquier momento desde tu perfil (nombre, contraseña, país de residencia), o solicitando la eliminación completa de tu cuenta a través de los canales de contacto indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <source>Puedes acceder, corregir o eliminar tu informaciÃ³n personal en cualquier momento desde tu perfil (nombre, contraseÃ±a, paÃ­s de residencia), o solicitando la eliminaciÃ³n completa de tu cuenta a travÃ©s de los canales de contacto indicados en la pÃ¡gina <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <target>You can access, correct, or delete your personal information at any time from your profile (name, password, country of residence), or request full account deletion through the contact channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
       </trans-unit>
       <trans-unit id="privacy.s8.title" datatype="html">
@@ -2171,15 +2171,15 @@
         <target>8. Minors</target>
       </trans-unit>
       <trans-unit id="privacy.s8.body" datatype="html">
-        <source>El servicio no está dirigido a menores de 13 años y no recopilamos intencionalmente información de menores de esa edad.</source>
+        <source>El servicio no estÃ¡ dirigido a menores de 13 aÃ±os y no recopilamos intencionalmente informaciÃ³n de menores de esa edad.</source>
         <target>The service is not directed at children under 13 and we do not knowingly collect information from anyone under that age.</target>
       </trans-unit>
       <trans-unit id="privacy.s9.title" datatype="html">
-        <source>9. Cambios a esta política</source>
+        <source>9. Cambios a esta polÃ­tica</source>
         <target>9. Changes to this policy</target>
       </trans-unit>
       <trans-unit id="privacy.s9.body" datatype="html">
-        <source>Podemos actualizar esta política ocasionalmente. Publicaremos la fecha de la última actualización al inicio de esta página.</source>
+        <source>Podemos actualizar esta polÃ­tica ocasionalmente. Publicaremos la fecha de la Ãºltima actualizaciÃ³n al inicio de esta pÃ¡gina.</source>
         <target>We may update this policy occasionally. We will publish the last-updated date at the top of this page.</target>
       </trans-unit>
       <trans-unit id="privacy.s10.title" datatype="html">
@@ -2187,21 +2187,21 @@
         <target>10. Contact</target>
       </trans-unit>
       <trans-unit id="privacy.s10.body" datatype="html">
-        <source>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos a través de los canales indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <source>Si tienes preguntas sobre esta polÃ­tica de privacidad, puedes contactarnos a travÃ©s de los canales indicados en la pÃ¡gina <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <target>If you have questions about this privacy policy, you can reach us through the channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
       </trans-unit>
 
-      <!-- ── lodging.component ── -->
+      <!-- â”€â”€ lodging.component â”€â”€ -->
       <trans-unit id="lodging.namePlaceholder" datatype="html">
-        <source>Hotel, Airbnb, hostal…</source>
-        <target>Hotel, Airbnb, hostel…</target>
+        <source>Hotel, Airbnb, hostalâ€¦</source>
+        <target>Hotel, Airbnb, hostelâ€¦</target>
       </trans-unit>
       <trans-unit id="lodging.urlPlaceholder" datatype="html">
         <source>Link de reserva (opcional)</source>
         <target>Booking link (optional)</target>
       </trans-unit>
       <trans-unit id="lodging.addressPlaceholder" datatype="html">
-        <source>Dirección (opcional)</source>
+        <source>DirecciÃ³n (opcional)</source>
         <target>Address (optional)</target>
       </trans-unit>
       <trans-unit id="lodging.notesPlaceholder" datatype="html">
@@ -2209,48 +2209,44 @@
         <target>Notes (optional)</target>
       </trans-unit>
       <trans-unit id="lodging.saveBtn" datatype="html">
-        <source>✓ Guardar</source>
-        <target>✓ Save</target>
+        <source>âœ“ Guardar</source>
+        <target>âœ“ Save</target>
       </trans-unit>
       <trans-unit id="lodging.linkTitle" datatype="html">
         <source>Abrir reserva</source>
         <target>Open booking</target>
       </trans-unit>
       <trans-unit id="lodging.addBtn" datatype="html">
-        <source>🏨 + Alojamiento</source>
-        <target>🏨 + Lodging</target>
+        <source>ðŸ¨ + Alojamiento</source>
+        <target>ðŸ¨ + Lodging</target>
       </trans-unit>
 
-      <!-- ── nav-desktop / nav-mobile: my-profile button ── -->
+      <!-- â”€â”€ nav-desktop / nav-mobile: my-profile button â”€â”€ -->
       <trans-unit id="nav.myProfile" datatype="html">
-        <source>👤 Mi perfil</source>
-        <target>👤 My profile</target>
+        <source>ðŸ‘¤ Mi perfil</source>
+        <target>ðŸ‘¤ My profile</target>
       </trans-unit>
 
-      <!-- ── plan-time-modal.component: date label ── -->
+      <!-- â”€â”€ plan-time-modal.component: date label â”€â”€ -->
       <trans-unit id="planModal.dateLabel" datatype="html">
         <source>Fecha</source>
         <target>Date</target>
       </trans-unit>
 
-      <!-- ── profile.component: AI new-trip button ── -->
+      <!-- â”€â”€ profile.component: AI new-trip button â”€â”€ -->
       <trans-unit id="profile.aiBtn" datatype="html">
-        <source>✨ Nuevo viaje con IA</source>
-        <target>✨ New trip with AI</target>
+        <source>âœ¨ Nuevo viaje con IA</source>
+        <target>âœ¨ New trip with AI</target>
       </trans-unit>
 
-      <!-- ── profile.component: full translation pass ── -->
+      <!-- â”€â”€ profile.component: full translation pass â”€â”€ -->
       <trans-unit id="profile.title" datatype="html">
         <source>Mi Perfil</source>
         <target>My Profile</target>
       </trans-unit>
-      <trans-unit id="profile.backBtn" datatype="html">
-        <source>← Volver</source>
-        <target>← Back</target>
-      </trans-unit>
       <trans-unit id="profile.editAccountTitle" datatype="html">
-        <source>Editar cuenta ✏️</source>
-        <target>Edit account ✏️</target>
+        <source>Editar cuenta âœï¸</source>
+        <target>Edit account âœï¸</target>
       </trans-unit>
       <trans-unit id="profile.nameTitle" datatype="html">
         <source>Nombre</source>
@@ -2269,11 +2265,11 @@
         <target>Save name</target>
       </trans-unit>
       <trans-unit id="profile.passwordTitle" datatype="html">
-        <source>Contraseña</source>
+        <source>ContraseÃ±a</source>
         <target>Password</target>
       </trans-unit>
       <trans-unit id="profile.currentPasswordLabel" datatype="html">
-        <source>Contraseña actual</source>
+        <source>ContraseÃ±a actual</source>
         <target>Current password</target>
       </trans-unit>
       <trans-unit id="profile.hideBtn" datatype="html">
@@ -2285,7 +2281,7 @@
         <target>Show</target>
       </trans-unit>
       <trans-unit id="profile.newPasswordLabel" datatype="html">
-        <source>Nueva contraseña</source>
+        <source>Nueva contraseÃ±a</source>
         <target>New password</target>
       </trans-unit>
       <trans-unit id="profile.strengthVulnerable" datatype="html">
@@ -2301,23 +2297,23 @@
         <target>Strong</target>
       </trans-unit>
       <trans-unit id="profile.updatingMsg" datatype="html">
-        <source>Actualizando…</source>
-        <target>Updating…</target>
+        <source>Actualizandoâ€¦</source>
+        <target>Updatingâ€¦</target>
       </trans-unit>
       <trans-unit id="profile.passwordUpdatedMsg" datatype="html">
         <source>Actualizada</source>
         <target>Updated</target>
       </trans-unit>
       <trans-unit id="profile.updatePasswordBtn" datatype="html">
-        <source>Actualizar contraseña</source>
+        <source>Actualizar contraseÃ±a</source>
         <target>Update password</target>
       </trans-unit>
       <trans-unit id="profile.myTripsTitle" datatype="html">
-        <source>Mis planificaciones ✈️</source>
-        <target>My trips ✈️</target>
+        <source>Mis planificaciones âœˆï¸</source>
+        <target>My trips âœˆï¸</target>
       </trans-unit>
       <trans-unit id="profile.noTripsYet" datatype="html">
-        <source>Aún no tienes destinos planificados. ¡Agrega tu primera ciudad!</source>
+        <source>AÃºn no tienes destinos planificados. Â¡Agrega tu primera ciudad!</source>
         <target>You haven't planned any destinations yet. Add your first city!</target>
       </trans-unit>
       <trans-unit id="profile.currentTripLabel" datatype="html">
@@ -2333,11 +2329,11 @@
         <target>Attractions</target>
       </trans-unit>
       <trans-unit id="profile.visitedPlacesTitle" datatype="html">
-        <source>Lugares visitados 🗺</source>
-        <target>Visited places 🗺</target>
+        <source>Lugares visitados ðŸ—º</source>
+        <target>Visited places ðŸ—º</target>
       </trans-unit>
       <trans-unit id="profile.loginToSavePlaces" datatype="html">
-        <source>Inicia sesión para guardar tus lugares visitados en el mapa.</source>
+        <source>Inicia sesiÃ³n para guardar tus lugares visitados en el mapa.</source>
         <target>Sign in to save the places you've visited on the map.</target>
       </trans-unit>
       <trans-unit id="profile.mapHint" datatype="html">
@@ -2349,7 +2345,7 @@
         <target>World map</target>
       </trans-unit>
       <trans-unit id="profile.placeVisitedPlaceholder" datatype="html">
-        <source>¿Qué lugar visitaste?</source>
+        <source>Â¿QuÃ© lugar visitaste?</source>
         <target>What place did you visit?</target>
       </trans-unit>
       <trans-unit id="profile.addPinBtn" datatype="html">
@@ -2365,35 +2361,35 @@
         <target><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> places marked</target>
       </trans-unit>
       <trans-unit id="profile.errNameEmpty" datatype="html">
-        <source>El nombre no puede estar vacío.</source>
+        <source>El nombre no puede estar vacÃ­o.</source>
         <target>Name can't be empty.</target>
       </trans-unit>
       <trans-unit id="profile.errPasswordsMismatch" datatype="html">
-        <source>Las contraseñas no coinciden.</source>
+        <source>Las contraseÃ±as no coinciden.</source>
         <target>Passwords don't match.</target>
       </trans-unit>
       <trans-unit id="profile.errPasswordTooShort" datatype="html">
-        <source>La contraseña debe tener al menos 6 caracteres.</source>
+        <source>La contraseÃ±a debe tener al menos 6 caracteres.</source>
         <target>Password must be at least 6 characters.</target>
       </trans-unit>
 
-      <!-- ── stop-list.component: date-save controls ── -->
+      <!-- â”€â”€ stop-list.component: date-save controls â”€â”€ -->
       <trans-unit id="stopList.saveDatesBtn" datatype="html">
-        <source>✓ Guardar</source>
-        <target>✓ Save</target>
+        <source>âœ“ Guardar</source>
+        <target>âœ“ Save</target>
       </trans-unit>
       <trans-unit id="stopList.savingMsg" datatype="html">
-        <source>Guardando…</source>
-        <target>Saving…</target>
+        <source>Guardandoâ€¦</source>
+        <target>Savingâ€¦</target>
       </trans-unit>
 
-      <!-- ── transit-connector.component ── -->
+      <!-- â”€â”€ transit-connector.component â”€â”€ -->
       <trans-unit id="transit.addBtn" datatype="html">
         <source>+ Transporte</source>
         <target>+ Transport</target>
       </trans-unit>
       <trans-unit id="transit.addConnection" datatype="html">
-        <source>+ Agregar conexión</source>
+        <source>+ Agregar conexiÃ³n</source>
         <target>+ Add connection</target>
       </trans-unit>
       <trans-unit id="transit.addSegBtn" datatype="html">
@@ -2413,20 +2409,20 @@
         <target>Departure</target>
       </trans-unit>
       <trans-unit id="transit.notesPlaceholder" datatype="html">
-        <source>Nro. de vuelo, notas… (opcional)</source>
-        <target>Flight number, notes… (optional)</target>
+        <source>Nro. de vuelo, notasâ€¦ (opcional)</source>
+        <target>Flight number, notesâ€¦ (optional)</target>
       </trans-unit>
       <trans-unit id="transit.carrierPlaceholder" datatype="html">
-        <source>Empresa (aerolínea, tren…) (opcional)</source>
-        <target>Carrier (airline, train…) (optional)</target>
+        <source>Empresa (aerolÃ­nea, trenâ€¦) (opcional)</source>
+        <target>Carrier (airline, trainâ€¦) (optional)</target>
       </trans-unit>
       <trans-unit id="transit.locationPlaceholder" datatype="html">
-        <source>Estación / aeropuerto (opcional)</source>
+        <source>EstaciÃ³n / aeropuerto (opcional)</source>
         <target>Station / airport (optional)</target>
       </trans-unit>
       <trans-unit id="transit.saveBtn" datatype="html">
-        <source>✓ Guardar</source>
-        <target>✓ Save</target>
+        <source>âœ“ Guardar</source>
+        <target>âœ“ Save</target>
       </trans-unit>
       <trans-unit id="transit.timeLabel" datatype="html">
         <source>Hora</source>
@@ -2438,21 +2434,21 @@
         <target>Close</target>
       </trans-unit>
       <trans-unit id="highlightTour.prevBtn" datatype="html">
-        <source>← Atrás</source>
-        <target>← Back</target>
+        <source>â† AtrÃ¡s</source>
+        <target>â† Back</target>
       </trans-unit>
       <trans-unit id="highlightTour.nextBtn" datatype="html">
-        <source>Siguiente →</source>
-        <target>Next →</target>
+        <source>Siguiente â†’</source>
+        <target>Next â†’</target>
       </trans-unit>
       <trans-unit id="highlightTour.finishBtn" datatype="html">
-        <source>¡Entendido!</source>
+        <source>Â¡Entendido!</source>
         <target>Got it!</target>
       </trans-unit>
 
-      <!-- ── AI plan timeout resilience & history: taking-long dog + My Trips "Mis Planes IA" tab ── -->
+      <!-- â”€â”€ AI plan timeout resilience & history: taking-long dog + My Trips "Mis Planes IA" tab â”€â”€ -->
       <trans-unit id="aiplan.takingLongIntro" datatype="html">
-        <source> Me estoy demorando en encontrar las atracciones correctas. Si quieres puedes esperar o te puedo avisar mediante las notificaciones cuando el plan ya esté listo. </source>
+        <source> Me estoy demorando en encontrar las atracciones correctas. Si quieres puedes esperar o te puedo avisar mediante las notificaciones cuando el plan ya estÃ© listo. </source>
         <target> I'm taking a while to find the right attractions. You can wait, or I can let you know via notifications once the plan is ready. </target>
       </trans-unit>
       <trans-unit id="aiplan.takingLongWait" datatype="html">
@@ -2464,7 +2460,7 @@
         <target>Notify me</target>
       </trans-unit>
       <trans-unit id="aiplan.notifyConfirmText" datatype="html">
-        <source> ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas. ¡Yo te llevo! </source>
+        <source> Â¡Excelente! Puedes revisar los planes mÃ¡s visitados por otros usuarios mientras esperas. Â¡Yo te llevo! </source>
         <target> Great! You can browse the most popular plans from other users while you wait. I'll take you there! </target>
       </trans-unit>
       <trans-unit id="aiplan.notifyConfirmOk" datatype="html">
@@ -2476,11 +2472,11 @@
         <target>Pending AI Plans</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlansLoading" datatype="html">
-        <source>Cargando tus planes…</source>
-        <target>Loading your plans…</target>
+        <source>Cargando tus planesâ€¦</source>
+        <target>Loading your plansâ€¦</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlansEmpty" datatype="html">
-        <source>Aún no tienes planes de IA pendientes.</source>
+        <source>AÃºn no tienes planes de IA pendientes.</source>
         <target>You have no pending AI plans yet.</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanBasedOn" datatype="html">
@@ -2496,15 +2492,15 @@
         <target>Karma refunded</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanDiscardBtn" datatype="html">
-        <source>🗑️ Descartar</source>
-        <target>🗑️ Discard</target>
+        <source>ðŸ—‘ï¸ Descartar</source>
+        <target>ðŸ—‘ï¸ Discard</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanViewHint" datatype="html">
-        <source>Ver plan →</source>
-        <target>View plan →</target>
+        <source>Ver plan â†’</source>
+        <target>View plan â†’</target>
       </trans-unit>
 
-      <!-- ── travel-docs-reminder.component ── -->
+      <!-- â”€â”€ travel-docs-reminder.component â”€â”€ -->
       <trans-unit id="travelDocs.dismissAria" datatype="html">
         <source>Cerrar</source>
         <target>Close</target>
@@ -2518,20 +2514,20 @@
         <target>Got it</target>
       </trans-unit>
       <trans-unit id="travelDocs.visaDetail" datatype="html">
-        <source> 🛂 Necesitas revisar la visa para: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </source>
-        <target> 🛂 You need to check the visa for: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </target>
+        <source> ðŸ›‚ Necesitas revisar la visa para: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </source>
+        <target> ðŸ›‚ You need to check the visa for: <x id="INTERPOLATION" equiv-text="{{ summary().visaStops.join(&apos;, &apos;) }}"/>. </target>
       </trans-unit>
       <trans-unit id="travelDocs.currencyDetail" datatype="html">
-        <source> 🪙 Monedas de tu viaje: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </source>
-        <target> 🪙 Currencies for your trip: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </target>
+        <source> ðŸª™ Monedas de tu viaje: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </source>
+        <target> ðŸª™ Currencies for your trip: <x id="INTERPOLATION" equiv-text="{{ summary().currencies.join(&apos;, &apos;) }}"/>. </target>
       </trans-unit>
       <trans-unit id="travelDocs.adapterDetail" datatype="html">
-        <source> 🔌 Necesitas adaptador de enchufe para: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </source>
-        <target> 🔌 You need a plug adapter for: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </target>
+        <source> ðŸ”Œ Necesitas adaptador de enchufe para: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </source>
+        <target> ðŸ”Œ You need a plug adapter for: <x id="INTERPOLATION" equiv-text="{{ summary().adapterStops.join(&apos;, &apos;) }}"/>. </target>
       </trans-unit>
 
       <trans-unit id="cityWeather.forecastTag" datatype="html">
-        <source>Pronóstico</source>
+        <source>PronÃ³stico</source>
         <target>Forecast</target>
       </trans-unit>
       <trans-unit id="cityWeather.historicTag" datatype="html">
@@ -2539,11 +2535,11 @@
         <target>Estimate</target>
       </trans-unit>
       <trans-unit id="cityWeather.loadingLabel" datatype="html">
-        <source>Cargando pronóstico…</source>
-        <target>Loading forecast…</target>
+        <source>Cargando pronÃ³sticoâ€¦</source>
+        <target>Loading forecastâ€¦</target>
       </trans-unit>
 
-      <!-- ── karma-history.component ── -->
+      <!-- â”€â”€ karma-history.component â”€â”€ -->
       <trans-unit id="karmaHistory.reason.tripCreated" datatype="html">
         <source>Viaje creado</source>
         <target>Trip created</target>
@@ -2557,11 +2553,11 @@
         <target>Trip shared</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.collaboratorInvite" datatype="html">
-        <source>Invitación a colaborador</source>
+        <source>InvitaciÃ³n a colaborador</source>
         <target>Collaborator invite</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiSuggest" datatype="html">
-        <source>Sugerencias de IA para creación de plan</source>
+        <source>Sugerencias de IA para creaciÃ³n de plan</source>
         <target>AI suggestions for plan creation</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiPlan" datatype="html">
@@ -2585,24 +2581,20 @@
         <target>Karma purchase</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.attractionComment" datatype="html">
-        <source>Primer comentario en una atracción</source>
+        <source>Primer comentario en una atracciÃ³n</source>
         <target>First comment on an attraction</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.stepComment" datatype="html">
         <source>Comentario en un viaje compartido</source>
         <target>Comment on a shared trip</target>
       </trans-unit>
-      <trans-unit id="karmaHistory.backBtn" datatype="html">
-        <source>← Volver</source>
-        <target>← Back</target>
-      </trans-unit>
       <trans-unit id="karmaHistory.title" datatype="html">
         <source>Historial de karma</source>
         <target>Karma History</target>
       </trans-unit>
       <trans-unit id="karmaHistory.loading" datatype="html">
-        <source>Cargando tu historial…</source>
-        <target>Loading your history…</target>
+        <source>Cargando tu historialâ€¦</source>
+        <target>Loading your historyâ€¦</target>
       </trans-unit>
       <trans-unit id="karmaHistory.loadError" datatype="html">
         <source>No pudimos cargar tu historial de karma.</source>
@@ -2613,7 +2605,7 @@
         <target>Retry</target>
       </trans-unit>
       <trans-unit id="karmaHistory.empty" datatype="html">
-        <source>Aún no tienes movimientos de karma.</source>
+        <source>AÃºn no tienes movimientos de karma.</source>
         <target>You don't have any karma movements yet.</target>
       </trans-unit>
       <trans-unit id="karmaHistory.goToTrip" datatype="html">
@@ -2625,11 +2617,11 @@
         <target>Go to AI plan</target>
       </trans-unit>
       <trans-unit id="karmaHistory.loadMore" datatype="html">
-        <source>Cargar más</source>
+        <source>Cargar mÃ¡s</source>
         <target>Load more</target>
       </trans-unit>
       <trans-unit id="karmaHistory.loadMoreError" datatype="html">
-        <source>No pudimos cargar más eventos</source>
+        <source>No pudimos cargar mÃ¡s eventos</source>
         <target>We couldn't load more events</target>
       </trans-unit>
       <trans-unit id="karmaHistory.tripNotFound" datatype="html">
@@ -2645,7 +2637,7 @@
         <target>Provider</target>
       </trans-unit>
       <trans-unit id="karmaHistory.purchaseTransactionId" datatype="html">
-        <source>ID de transacción</source>
+        <source>ID de transacciÃ³n</source>
         <target>Transaction ID</target>
       </trans-unit>
     </body>

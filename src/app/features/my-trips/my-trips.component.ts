@@ -39,7 +39,6 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
 
       <!-- Header bar -->
       <div class="prof-bar">
-        <button class="back-btn" (click)="close.emit()" type="button" i18n="@@profile.backBtn">← Volver</button>
         <div class="prof-bar-title" i18n="@@myTrips.title">Mis viajes</div>
       </div>
 
