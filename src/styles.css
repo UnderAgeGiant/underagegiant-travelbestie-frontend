@@ -2675,11 +2675,6 @@ app-nav { display: block; }
   background: #fff; border: 1.5px solid var(--border); box-shadow: var(--sh);
   display: flex; align-items: center; justify-content: center; font-size: 19px; z-index: 2;
 }
-.about-step-num {
-  position: absolute; bottom: -12px; right: -12px; width: 34px; height: 34px; border-radius: 50%;
-  background: var(--lav); color: var(--lav-d); font-weight: 700; font-size: 13px;
-  display: flex; align-items: center; justify-content: center; box-shadow: var(--sh); z-index: 2;
-}
 .about-step-body { flex: 1; min-width: 0; }
 .about-step-role {
   font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
