@@ -1059,6 +1059,10 @@
         <source>Elige una opciÃ³n</source>
         <target>Choose an option</target>
       </trans-unit>
+      <trans-unit id="aiplan.planNameLabel" datatype="html">
+        <source>Nombre del plan</source>
+        <target>Plan name</target>
+      </trans-unit>
       <trans-unit id="aiplan.planBtn" datatype="html">
         <source>Generar plan completo</source>
         <target>Generate full plan</target>

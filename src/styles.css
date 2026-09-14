@@ -736,6 +736,8 @@ app-nav { display: block; }
 .ai-option-highlights { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
 .ai-option-hl { background: var(--mint); color: var(--mint-d); padding: 2px 10px; border-radius: 99px; font-size: 10px; font-weight: 600; }
 .ai-plan-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.ai-plan-name-edit { margin-bottom: 14px; }
+.ai-plan-name-label { display: block; font-size: 12px; font-weight: 600; color: var(--t2); margin-bottom: 6px; }
 
 /* ── "Guardar plan" attention beacon (AiPlanningComponent, final step) ──
    The user has reached the one decision the whole flow was building toward;
