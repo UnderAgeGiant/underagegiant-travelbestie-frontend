@@ -251,3 +251,70 @@ describe('SharedTripComponent — duplicate attractionId on different days (NG09
     expect(items.length).toBe(2);
   });
 });
+
+describe('SharedTripComponent — trip map', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
+          },
+        },
+      ],
+    });
+
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  function loadTwoStopTrip() {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush({
+      tripName: 'Viaje a Europa', ownerName: 'Ana',
+      stops: [
+        { stopId: 'stop-paris', cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] },
+        { stopId: 'stop-london', cityId: 'london', checkIn: '05/06/2026', checkOut: '09/06/2026', selectedAttractions: [] },
+      ],
+      transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    fixture.detectChanges();
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+    fixture.detectChanges();
+  }
+
+  it('shows a "Ver mapa" button that opens the trip map', () => {
+    loadTwoStopTrip();
+    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.shared-trip-map-btn');
+    expect(btn).not.toBeNull();
+
+    btn.click();
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-trip-map')).not.toBeNull();
+  });
+
+  it('a pin click selects that stop, closes the modal, and scrolls to its city card', () => {
+    loadTwoStopTrip();
+    fixture.componentInstance.tripMapOpen.set(true);
+    fixture.detectChanges();
+
+    fixture.componentInstance.onTripMapPinClick('stop-london');
+    fixture.detectChanges();
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.selectedShareStop()?.stopId).toBe('stop-london');
+    expect(fixture.componentInstance.tripMapOpen()).toBe(false);
+  });
+});

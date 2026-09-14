@@ -318,6 +318,25 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(texts[3]).toContain('Presentación del plan');
     expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
   });
+
+  it('shows the "Ver mapa del viaje" button only when showTripMap is true, and opens the map on click', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.componentRef.setInput('showTripMap', true);
+    fixture.detectChanges();
+
+    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.tl-trip-map-btn');
+    expect(btn).not.toBeNull();
+
+    btn.click();
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-trip-map')).not.toBeNull();
+  });
+
+  it('does not show the "Ver mapa del viaje" button when showTripMap is false (default)', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.tl-trip-map-btn')).toBeNull();
+  });
 });
 
 describe('DayTimelineComponent — hour grid range', () => {

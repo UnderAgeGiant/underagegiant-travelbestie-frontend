@@ -21,10 +21,11 @@ import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { buildItineraryExportMaps } from '../../core/utils/itinerary-export.util';
 import { NavShellComponent } from '../nav/nav-shell.component';
+import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent, RouterLink, ProfileComponent, NavShellComponent, DatePipe],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink, ProfileComponent, NavShellComponent, DatePipe, TripMapComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
@@ -128,6 +129,8 @@ import { NavShellComponent } from '../nav/nav-shell.component';
                           · {{ fmtDate(plan.savedAt) }}
                         </div>
                       </div>
+                      <app-trip-map class="trip-map-thumb" [cities]="planMapCities(plan)"
+                                    [interactive]="false" [showFlightPath]="false" [showCountryBorders]="false" [showLabels]="false" />
                       <div style="display:flex;align-items:center;gap:4px;margin-left:auto">
                         <button class="saved-plan-act-btn"
                                 [disabled]="cloningId() === plan.id"
@@ -759,5 +762,9 @@ export class MyTripsComponent implements AfterViewInit {
     try {
       return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
     } catch { return iso; }
+  }
+
+  protected planMapCities(plan: SavedPlan): TripMapCity[] {
+    return plan.stops.map((s) => ({ cityId: s.cityId }));
   }
 }

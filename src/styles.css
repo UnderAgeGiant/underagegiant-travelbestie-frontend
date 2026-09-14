@@ -12,6 +12,7 @@
   --blush: oklch(91% .06 10);
   --sky: oklch(91% .06 220);
   --butter: oklch(93% .08 95);
+  --pin-red: oklch(56% .22 25);
   --t1: oklch(18% .02 270);
   --t2: oklch(42% .03 270);
   --t3: oklch(65% .02 270);
@@ -2946,3 +2947,76 @@ app-nav { display: block; }
 .karma-history-plan-name { font-size:12px; color:var(--t2); }
 .karma-history-plan-deleted { color:var(--t3); font-style:italic; }
 .karma-history-purchase-meta { font-size:11px; color:var(--t3); }
+
+/* Trip Map (shared/trip-map) */
+app-trip-map { display: block; width: 100%; aspect-ratio: 2 / 1; }
+app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0; }
+@media (max-width: 768px) {
+  app-trip-map.trip-map-thumb { display: none; }
+}
+.trip-map { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 12px; background: var(--cream); }
+.trip-map-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.trip-map-land {
+  fill: var(--lav); stroke: var(--lav-d); stroke-width: 1; stroke-linejoin: round;
+  vector-effect: non-scaling-stroke; /* keeps a constant on-screen outline width across every zoom level computeTripMapViewBox produces */
+}
+.trip-map-country {
+  /* Real per-country borders (WORLD_MAP_COUNTRIES) — thinner than
+     .trip-map-land's single outer silhouette stroke, since 177 of these
+     sit side by side and a thick line between every neighboring country
+     would read as visual noise rather than "political map." */
+  fill: var(--lav); stroke: var(--lav-d); stroke-width: 0.4; stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.trip-map-route {
+  /* stroke-width and stroke-dasharray are set via [attr.*] bindings in the
+     component (routeStrokeWidth() / a fixed "1 5" matching AboutComponent's
+     connector) — a CSS value here would win over those attributes and
+     silently disable both the zoom-relative width and the dash match. */
+  fill: none; stroke: var(--lav-d); stroke-linecap: round;
+  stroke-dashoffset: 100; transition: stroke-dashoffset 1.6s cubic-bezier(.3,.6,.2,1);
+}
+.trip-map.tm-played .trip-map-route { stroke-dashoffset: 0; }
+.trip-map-pin-body {
+  fill: var(--pin-red); stroke: #fff; stroke-width: 1.2; paint-order: stroke;
+  filter: drop-shadow(0 1px 1.2px oklch(0% 0 0/.3));
+}
+.trip-map-pin-clickable { cursor: pointer; }
+.trip-map-pin-clickable:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 1px; border-radius: 2px; }
+.trip-map-label { pointer-events: none; }
+.trip-map-label-bubble {
+  fill: var(--cream); stroke: var(--border); stroke-width: 0.15; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0.3px 0.5px oklch(0% 0 0/.2));
+}
+.trip-map-label-text {
+  fill: var(--t1); font-family: 'DM Sans', sans-serif; font-weight: 500;
+  text-anchor: middle; dominant-baseline: central;
+}
+.trip-map-plane {
+  /* peach-d, not lav-d — the route/land already own that hue, and a plane
+     the same color as the line it flies along disappears against it at
+     this small size. */
+  overflow: visible; opacity: 0; offset-rotate: auto; color: var(--peach-d);
+  filter: drop-shadow(0 0.1px 0.2px oklch(0% 0 0/.18)); will-change: offset-distance, opacity;
+}
+.trip-map.tm-played .trip-map-plane { animation: tripMapFlyPlane 4.5s cubic-bezier(.3,.55,.25,1) infinite; }
+@keyframes tripMapFlyPlane {
+  0% { offset-distance: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trip-map-route { transition: none; stroke-dashoffset: 0; }
+  .trip-map-plane { animation: none !important; opacity: 1; offset-distance: 50%; }
+}
+.trip-map-modal-backdrop {
+  position: fixed; inset: 0; z-index: 400;
+  background: oklch(0% 0 0 / .55); display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.trip-map-modal-body { position: relative; width: 100%; max-width: 900px; }
+.trip-map-modal-close {
+  position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff;
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
