@@ -1,12 +1,11 @@
 import { Component, HostListener, inject, output, input } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
-import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
 
 @Component({
   selector: 'app-nav-desktop',
-  imports: [NotificationBellComponent, FlagIconComponent, HighlightTargetDirective],
+  imports: [NotificationBellComponent, HighlightTargetDirective],
   template: `
     <nav class="nav">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -14,38 +13,25 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
           <span style="color:var(--t3);font-size:15px">🔍</span>
-          <input i18n-placeholder="@@nav.searchPlaceholder" placeholder="Agregar ciudad o buscar viajes públicos…"
+          <input i18n-placeholder="@@nav.searchPlaceholder" placeholder="Buscar viajes creados por otros usuarios"
                  [value]="facade.navQuery()"
                  (input)="facade.navQuery.set($any($event.target).value); facade.searchOpen.set(true)"
                  (focus)="facade.searchOpen.set(true)"
                  (blur)="facade.scheduleClose()" />
         </div>
-        @if (facade.searchOpen() && (facade.navFiltered().length > 0 || facade.navSharedTrips().length > 0)) {
+        @if (facade.searchOpen() && facade.navSharedTrips().length > 0) {
           <div class="combo-dropdown" style="top:calc(100% + 6px)">
             <div class="combo-list">
-              @for (city of facade.navFiltered(); track city.id) {
-                <div class="combo-item" (mousedown)="facade.quickAdd(city)">
-                  <app-flag-icon class="combo-item-flag" [flag]="city.flag" [alt]="city.name" [size]="18" />
+              <div class="combo-section-header">✈️ Viajes compartidos</div>
+              @for (t of facade.navSharedTrips(); track t.id) {
+                <div class="combo-item" (mousedown)="facade.openSharedTrip(t.id)">
+                  <span class="combo-item-flag">🗺️</span>
                   <div>
-                    <div class="combo-item-city">{{ city.name }}</div>
-                    <div class="combo-item-country">{{ city.country }}</div>
+                    <div class="combo-item-city">{{ t.tripName }}</div>
+                    <div class="combo-item-country">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}@if ((t.favoriteCount ?? 0) >= 1) { · ❤️ {{ t.favoriteCount }} }</div>
                   </div>
-                  <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600" i18n="@@nav.quickAdd">+ Agregar</span>
+                  <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600">Ver →</span>
                 </div>
-              }
-              @if (facade.navSharedTrips().length > 0) {
-                @if (facade.navFiltered().length > 0) { <div class="combo-section-sep"></div> }
-                <div class="combo-section-header">✈️ Viajes compartidos</div>
-                @for (t of facade.navSharedTrips(); track t.id) {
-                  <div class="combo-item" (mousedown)="facade.openSharedTrip(t.id)">
-                    <span class="combo-item-flag">🗺️</span>
-                    <div>
-                      <div class="combo-item-city">{{ t.tripName }}</div>
-                      <div class="combo-item-country">Por {{ t.ownerName }} · {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}@if ((t.favoriteCount ?? 0) >= 1) { · ❤️ {{ t.favoriteCount }} }</div>
-                    </div>
-                    <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600">Ver →</span>
-                  </div>
-                }
               }
             </div>
           </div>

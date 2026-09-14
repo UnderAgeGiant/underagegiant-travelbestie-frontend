@@ -203,3 +203,26 @@ describe('NavMobileComponent — active page indication', () => {
     expect(active?.textContent).toContain('Historial de karma');
   });
 });
+
+describe('NavMobileComponent — search box (feedback #9)', () => {
+  let fixture: ComponentFixture<NavMobileComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+    fixture.detectChanges();
+  });
+
+  afterEach(() => TestBed.inject(HttpTestingController).verify());
+
+  it('shows the new search placeholder', () => {
+    const input: HTMLInputElement = fixture.nativeElement.querySelector('.up-save-input');
+    expect(input.placeholder).toBe('Buscar viajes creados por otros usuarios');
+  });
+});

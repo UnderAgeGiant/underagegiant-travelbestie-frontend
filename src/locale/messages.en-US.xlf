@@ -45,12 +45,8 @@
 
       <!-- â”€â”€ nav.component â”€â”€ -->
       <trans-unit id="nav.searchPlaceholder" datatype="html">
-        <source>Agregar ciudadâ€¦</source>
-        <target>Quick-add a cityâ€¦</target>
-      </trans-unit>
-      <trans-unit id="nav.quickAdd" datatype="html">
-        <source>+ Agregar</source>
-        <target>+ Add</target>
+        <source>Buscar viajes creados por otros usuarios</source>
+        <target>Search trips created by other users</target>
       </trans-unit>
       <trans-unit id="nav.karma" datatype="html">
         <source>karma</source>

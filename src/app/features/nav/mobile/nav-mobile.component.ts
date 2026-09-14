@@ -2,12 +2,11 @@ import { Component, inject, output, signal, input } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
-import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
 
 @Component({
   selector: 'app-nav-mobile',
-  imports: [NotificationBellComponent, FlagIconComponent, HighlightTargetDirective],
+  imports: [NotificationBellComponent, HighlightTargetDirective],
   template: `
     <nav class="nav-m-bar">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -56,15 +55,9 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
         <!-- Search -->
         <div class="nav-m-section">
           <input class="up-save-input" i18n-placeholder="@@nav.searchPlaceholder"
-                 placeholder="Agregar ciudad o buscar viajes públicos…"
+                 placeholder="Buscar viajes creados por otros usuarios"
                  [value]="facade.navQuery()"
                  (input)="facade.navQuery.set($any($event.target).value)" />
-          @for (city of facade.navFiltered(); track city.id) {
-            <button class="up-shared-trip-row" (click)="quickAdd(city)">
-              <div class="up-shared-trip-name"><app-flag-icon [flag]="city.flag" [alt]="city.name" /> {{ city.name }}</div>
-              <div class="up-shared-trip-meta">{{ city.country }}</div>
-            </button>
-          }
           @for (t of facade.navSharedTrips(); track t.id) {
             <button class="up-shared-trip-row" (click)="onOpenSharedTrip(t.id)">
               <div class="up-shared-trip-name">🗺️ {{ t.tripName }}</div>
@@ -184,8 +177,6 @@ export class NavMobileComponent {
   // from the drawer left it open afterward, still showing the now-stale account/plans/favorites
   // sections behind the "Iniciar sesión" button that replaces the burger menu once logged out.
   onLogout(): void { this.facade.doLogout(); this.drawerOpen.set(false); }
-
-  quickAdd = this.facade.quickAdd.bind(this.facade);
 
   // Both navigate away from whatever page the drawer is open over (to /shared/:id) —
   // like every other drawer action, they must close the drawer themselves first,

@@ -113,3 +113,30 @@ describe('NavDesktopComponent — outside-click close is multi-instance safe', (
     expect(facade.userMenuOpen()).toBe(false);
   });
 });
+
+describe('NavDesktopComponent — search box (feedback #9)', () => {
+  function setup() {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    fixture.detectChanges();
+    return fixture;
+  }
+
+  it('does not show a city quick-add row for a query that matches a world city', () => {
+    const fixture = setup();
+    const facade = TestBed.inject(NavFacadeService);
+    facade.navQuery.set('Paris');
+    facade.searchOpen.set(true);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.combo-item-flag')).toBeNull();
+  });
+
+  it('shows the new search placeholder', () => {
+    const fixture = setup();
+    const input: HTMLInputElement = fixture.nativeElement.querySelector('.nav-search-inner input');
+    expect(input.placeholder).toBe('Buscar viajes creados por otros usuarios');
+  });
+});
