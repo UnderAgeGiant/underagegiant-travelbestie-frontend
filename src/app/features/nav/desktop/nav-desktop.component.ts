@@ -136,7 +136,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                           (click)="onProfile()" type="button"
                           i18n="@@nav.myProfile">👤 Mi perfil</button>
                   <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'mytrips'"
-                          style="width:100%;justify-content:center;margin-bottom:8px"
+                          style="width:100%;justify-content:center;margin-bottom:4px"
                           (click)="onMyTrips()" type="button"
                           i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
                   <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'karmahistory'"

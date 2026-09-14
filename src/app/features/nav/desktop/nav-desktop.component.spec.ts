@@ -140,3 +140,21 @@ describe('NavDesktopComponent — search box (feedback #9)', () => {
     expect(input.placeholder).toBe('Buscar viajes creados por otros usuarios');
   });
 });
+
+describe('NavDesktopComponent — Mis viajes button spacing (feedback #14)', () => {
+  it('has a 4px margin-bottom, not 8px', () => {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    const facade = TestBed.inject(NavFacadeService);
+    facade.auth.setTokens('fake-token', { name: 'Test User', email: 'test@example.com', countryOfResidence: null });
+    facade.userMenuOpen.set(true);
+    fixture.detectChanges();
+
+    const buttons: HTMLButtonElement[] = Array.from(fixture.nativeElement.querySelectorAll('.nav-page-btn'));
+    const myTripsBtn = buttons.find(b => b.textContent?.includes('Mis viajes'));
+    expect(myTripsBtn?.style.marginBottom).toBe('4px');
+  });
+});
