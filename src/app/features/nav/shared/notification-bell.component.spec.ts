@@ -52,3 +52,37 @@ describe('NotificationBellComponent — open() routing for ai_plan_ready/ai_plan
     expect(router.navigateByUrl).toHaveBeenCalledWith('/');
   });
 });
+
+describe('NotificationBellComponent — open() routing for purchase notifications', () => {
+  let component: NotificationBellComponent;
+  let router: { navigateByUrl: jest.Mock };
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    router = { navigateByUrl: jest.fn() };
+
+    TestBed.configureTestingModule({
+      imports: [NotificationBellComponent],
+      providers: [
+        provideHttpClient(withXhr()),
+        provideHttpClientTesting(),
+        { provide: Router, useValue: router },
+      ],
+    });
+
+    http = TestBed.inject(HttpTestingController);
+    component = TestBed.createComponent(NotificationBellComponent).componentInstance;
+  });
+
+  afterEach(() => http.verify());
+
+  it('routes purchase notifications to /karma-history instead of following n.url', () => {
+    const n: AppNotification = {
+      notificationId: 'n3', type: 'purchase', title: 't', body: 'b',
+      url: '/', read: false, createdAt: new Date().toISOString(),
+    };
+    component.open(n);
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/karma-history');
+  });
+});

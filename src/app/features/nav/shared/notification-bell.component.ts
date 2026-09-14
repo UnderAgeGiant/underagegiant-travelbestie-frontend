@@ -92,6 +92,14 @@ export class NotificationBellComponent {
       return;
     }
 
+    // Karma-purchase notifications should land on the ledger, not just '/' —
+    // the backend issues url: '/' for these (see notify-karma-purchase.middleware.ts),
+    // which the generic fallback below would treat as "stay put."
+    if (n.type === 'purchase') {
+      this.router.navigateByUrl('/karma-history');
+      return;
+    }
+
     // Router navigation, not window.location.href — a hard reload would blank
     // the in-memory access token and flash the "signed out" nav state.
     // n.url is a backend-issued relative path, e.g. "/?share=abc" or "/" —
