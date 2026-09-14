@@ -2813,7 +2813,7 @@ app-nav { display: block; }
    bottom-right position. Left-anchored so it sits near StopListComponent's
    "Guardar viaje" button, which lives at the bottom of the left-docked .left-panel. */
 .travel-docs-reminder {
-  left: 20px; right: auto;
+  left: 20px; right: auto; bottom: 120px;
   align-items: flex-start;
 }
 /* Full-width strip the sniffing dog roams across, bottom-anchored. pointer-events:none
@@ -2877,9 +2877,7 @@ app-nav { display: block; }
 }
 @media (max-width: 640px) {
   .companion-mascot { right: 12px; bottom: 12px; }
-}
-@media (max-width: 640px) {
-  .travel-docs-reminder { left: 12px; right: auto; }
+  .travel-docs-reminder { left: 12px; right: auto; bottom: 96px; }
 }
 
 /* Profile page boost card */
