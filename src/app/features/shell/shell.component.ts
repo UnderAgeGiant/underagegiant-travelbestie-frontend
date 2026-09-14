@@ -17,6 +17,7 @@ import { AiPlanningComponent } from '../ai-planning/ai-planning.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
 import { LandingAboutComponent } from '../landing/landing-about.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
+import { AboutContentComponent } from '../about/about-content.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { MyTripsComponent } from '../my-trips/my-trips.component';
 import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
@@ -42,6 +43,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         FeaturedSlideshowComponent,
         LandingAboutComponent,
         AppFooterComponent,
+        AboutContentComponent,
         DayTimelineComponent,
         MyTripsComponent,
         CompanionMascotComponent,
@@ -76,6 +78,12 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
         <!-- S4: footer -->
         <tb-app-footer />
+
+        <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
+             the complete About Us content, not just the S3 teaser) -->
+        <section class="landing-snap-child landing-about-full">
+          <app-about-content (startPlanning)="showAddModal.set(true)" />
+        </section>
 
       </div>
     } @else {

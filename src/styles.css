@@ -950,7 +950,23 @@ app-nav { display: block; }
   margin-top: 72px;
   overflow-y: scroll;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
+  /* proximity, not mandatory: S5 (.landing-about-full) is the trailing section and is
+     taller than one viewport with no further snap point after it. Two other approaches
+     were tried live in a real browser and both trapped scrolling: (1) letting S5 grow
+     this container's scrollable height under `mandatory` — every scroll gesture must
+     rest exactly on a snap coordinate, and since S5 has only one (its own top) with
+     nothing past it, any wheel-scroll that landed partway through its content got
+     pulled straight back to that point, so the closing CTA was unreachable; (2) keeping
+     S5 exactly one viewport tall with its own nested `overflow-y: auto` under
+     `mandatory` — that let visitors scroll all the way down through S5's own content,
+     but going back *up* out of S5 got stuck the same way (confirmed by inspecting
+     .landing-scroll's scrollTop directly: nudging it toward S4's snap point snapped
+     straight back to S5's, even well past the halfway point). `proximity` snaps S1-S4
+     slightly less "magnetically" on small scroll increments, but is the only option
+     that lets a real scroll gesture traverse S5's content and return in both
+     directions without ever getting stuck. Caught via live scrolling in a real browser,
+     not the unit test — see .landing-about-full below. */
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -978,6 +994,26 @@ app-nav { display: block; }
     overflow: visible;
     scroll-snap-align: none;
   }
+}
+
+/* ── S5 — full About Us section (feedback #4): unlike every other
+   .landing-snap-child, this one's content is much taller than one
+   viewport, so it needs its own height override — same technique the
+   mobile breakpoint above already uses for every section, just applied
+   at every width here since this section's real content height (not
+   just a narrower viewport) is what exceeds 100vh. scroll-snap-align:
+   start (inherited from .landing-snap-child) is kept — with the ancestor
+   now `proximity` (see .landing-scroll above) it still gives a clean
+   snap to this section's top when scrolling down from the S4 footer,
+   without trapping the visitor once they're scrolling through its
+   content in either direction. ──────────────────────────────────────── */
+.landing-about-full {
+  height: auto;
+  min-height: calc(100vh - 72px);
+  overflow: visible;
+}
+@media (max-width: 768px) {
+  .landing-about-full { min-height: 100svh; }
 }
 
 /* ── S1 shell: left panel + right panel side by side ───────────────────── */
