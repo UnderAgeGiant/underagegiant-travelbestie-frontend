@@ -1255,11 +1255,17 @@
         <source>planes creados</source>
         <target>trips created</target>
       </trans-unit>
-      <trans-unit id="landing.footerTagline" datatype="html">
-        <source>
-      Planifica. Comparte. Explora.
-    </source>
-        <target>Plan. Share. Explore.</target>
+      <trans-unit id="landing.footerTaglinePlanifica" datatype="html">
+        <source>Planifica.</source>
+        <target>Plan.</target>
+      </trans-unit>
+      <trans-unit id="landing.footerTaglineComparte" datatype="html">
+        <source>Comparte.</source>
+        <target>Share.</target>
+      </trans-unit>
+      <trans-unit id="landing.footerTaglineExplora" datatype="html">
+        <source>Explora.</source>
+        <target>Explore.</target>
       </trans-unit>
       <trans-unit id="landing.footerColApp" datatype="html">
         <source>AplicaciÃ³n</source>

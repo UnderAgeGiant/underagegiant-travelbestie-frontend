@@ -77,7 +77,9 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         <tb-landing-about />
 
         <!-- S4: footer -->
-        <tb-app-footer />
+        <tb-app-footer (createPlan)="showAddModal.set(true)"
+                        (viewMyTrips)="facade.openMyTrips()"
+                        (exploreFeatured)="scrollToFeatured()" />
 
         <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
              the complete About Us content, not just the S3 teaser) -->
@@ -154,7 +156,7 @@ export class ShellComponent {
   readonly trip  = inject(TripService);
   readonly toastService = inject(ToastService);
   readonly autoSave = inject(AutoSaveService);
-  private readonly facade = inject(NavFacadeService);
+  readonly facade = inject(NavFacadeService);
   private readonly locale = inject(LocaleService);
   private readonly auth = inject(AuthService);
   private readonly savedPlans = inject(SavedPlansService);
