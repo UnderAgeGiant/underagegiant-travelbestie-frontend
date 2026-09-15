@@ -124,6 +124,37 @@ describe('ShellComponent', () => {
     expect(() => fixture.componentInstance.scrollToFeatured()).not.toThrow();
   });
 
+  // S5's closing CTA (About Us content appended to the landing scroll, feedback #4) should
+  // scroll back to the top of the page — the routed /about page's own CTA still navigates
+  // home via goHome(), untouched; only the landing-section wiring changes here.
+  it('scrollToTop scrolls the S1 section into view in landing mode', () => {
+    const fixture = setup(0);
+    const el = fixture.nativeElement.querySelector('.s1-shell') as HTMLElement;
+    const scrollSpy = jest.fn();
+    el.scrollIntoView = scrollSpy;
+
+    fixture.componentInstance.scrollToTop();
+
+    expect(scrollSpy).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+  });
+
+  it('scrollToTop is a no-op in app mode (no landing scroll section to scroll)', () => {
+    const fixture = setup(2);
+    expect(() => fixture.componentInstance.scrollToTop()).not.toThrow();
+  });
+
+  it('wires the S5 About Us closing CTA to scrollToTop, not showAddModal', () => {
+    const fixture = setup(0);
+    const component = fixture.componentInstance;
+    const scrollSpy = jest.spyOn(component, 'scrollToTop').mockImplementation(() => {});
+
+    const aboutContent = fixture.debugElement.query((de) => de.name === 'app-about-content');
+    aboutContent.triggerEventHandler('startPlanning', undefined);
+
+    expect(scrollSpy).toHaveBeenCalled();
+    expect(component.showAddModal()).toBe(false);
+  });
+
   it('closes showProfile/showAiPlanning and opens showMyTrips when pendingMyTripsTab is set', () => {
     const fixture = setup(0);
     const component = fixture.componentInstance;

@@ -61,7 +61,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
       <div class="landing-scroll">
 
         <!-- S1: full app shell (left panel + welcome) -->
-        <section class="landing-snap-child s1-shell">
+        <section class="landing-snap-child s1-shell" #topSection>
           <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="showProfile.set(true)" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
@@ -84,7 +84,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
              the complete About Us content, not just the S3 teaser) -->
         <section class="landing-snap-child landing-about-full">
-          <app-about-content (startPlanning)="showAddModal.set(true)" />
+          <app-about-content (startPlanning)="scrollToTop()" />
         </section>
 
       </div>
@@ -171,6 +171,9 @@ export class ShellComponent {
   // (<tb-featured-slideshow>), so without it the template ref resolves to the
   // FeaturedSlideshowComponent instance instead of its host DOM element.
   private readonly featuredSection = viewChild('featuredSection', { read: ElementRef<HTMLElement> });
+  // #topSection sits directly on a native <section>, so no `read:` override is needed —
+  // viewChild() already resolves a template ref on a plain DOM element to its ElementRef.
+  private readonly topSection = viewChild('topSection', { read: ElementRef<HTMLElement> });
 
   constructor() {
     // SavedPlansService's own constructor only checks auth.currentUser() once, synchronously —
@@ -275,6 +278,13 @@ export class ShellComponent {
   }
 
   /** "Ok" on AiPlanningComponent's post-Notificarme hand-off — scrolls the landing page's S2 featured-plans section into view. No-op if the visitor currently has stops (app mode, no landing scroll to scroll). */
+  /** S5's closing CTA (About Us content appended to the landing scroll, feedback #4) — scrolls
+   *  back to S1 at the top of the page. The routed /about page's own CTA still calls goHome()
+   *  instead, since there's no landing scroll to return to on that page. */
+  scrollToTop(): void {
+    this.topSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   scrollToFeatured(): void {
     this.featuredSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
