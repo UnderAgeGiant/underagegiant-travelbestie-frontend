@@ -45,12 +45,8 @@
 
       <!-- ── nav.component ── -->
       <trans-unit id="nav.searchPlaceholder" datatype="html">
-        <source>Agregar ciudad…</source>
-        <target>Quick-add a city…</target>
-      </trans-unit>
-      <trans-unit id="nav.quickAdd" datatype="html">
-        <source>+ Agregar</source>
-        <target>+ Add</target>
+        <source>Buscar viajes creados por otros usuarios</source>
+        <target>Search trips created by other users</target>
       </trans-unit>
       <trans-unit id="nav.karma" datatype="html">
         <source>karma</source>
@@ -1063,6 +1059,10 @@
         <source>Elige una opción</source>
         <target>Choose an option</target>
       </trans-unit>
+      <trans-unit id="aiplan.planNameLabel" datatype="html">
+        <source>Nombre del plan</source>
+        <target>Plan name</target>
+      </trans-unit>
       <trans-unit id="aiplan.planBtn" datatype="html">
         <source>Generar plan completo</source>
         <target>Generate full plan</target>
@@ -1259,11 +1259,17 @@
         <source>planes creados</source>
         <target>trips created</target>
       </trans-unit>
-      <trans-unit id="landing.footerTagline" datatype="html">
-        <source>
-      Planifica. Comparte. Explora.
-    </source>
-        <target>Plan. Share. Explore.</target>
+      <trans-unit id="landing.footerTaglinePlanifica" datatype="html">
+        <source>Planifica.</source>
+        <target>Plan.</target>
+      </trans-unit>
+      <trans-unit id="landing.footerTaglineComparte" datatype="html">
+        <source>Comparte.</source>
+        <target>Share.</target>
+      </trans-unit>
+      <trans-unit id="landing.footerTaglineExplora" datatype="html">
+        <source>Explora.</source>
+        <target>Explore.</target>
       </trans-unit>
       <trans-unit id="landing.footerColApp" datatype="html">
         <source>Aplicación</source>
@@ -2244,10 +2250,6 @@
         <source>Mi Perfil</source>
         <target>My Profile</target>
       </trans-unit>
-      <trans-unit id="profile.backBtn" datatype="html">
-        <source>← Volver</source>
-        <target>← Back</target>
-      </trans-unit>
       <trans-unit id="profile.editAccountTitle" datatype="html">
         <source>Editar cuenta ✏️</source>
         <target>Edit account ✏️</target>
@@ -2591,10 +2593,6 @@
       <trans-unit id="karmaHistory.reason.stepComment" datatype="html">
         <source>Comentario en un viaje compartido</source>
         <target>Comment on a shared trip</target>
-      </trans-unit>
-      <trans-unit id="karmaHistory.backBtn" datatype="html">
-        <source>← Volver</source>
-        <target>← Back</target>
       </trans-unit>
       <trans-unit id="karmaHistory.title" datatype="html">
         <source>Historial de karma</source>

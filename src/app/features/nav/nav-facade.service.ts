@@ -18,8 +18,6 @@ import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.s
 import { FavoritedTrip } from '../../core/models/trip.model';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
-import { WORLD_CITIES } from '../../data/cities.data';
-import { City } from '../../core/models/city.model';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale, RestoreView } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
@@ -126,15 +124,6 @@ export class NavFacadeService {
     const q = normalizeSearch(this.sharedTripsSearch().trim());
     if (!q) return this.mySharedTrips();
     return this.mySharedTrips().filter(t => normalizeSearch(t.tripName).includes(q));
-  });
-
-  readonly navFiltered = computed(() => {
-    const q = normalizeSearch(this.navQuery());
-    if (!q) return [];
-    return WORLD_CITIES
-      .filter(c => !this.trip.existingCityIds().includes(c.id) &&
-        (normalizeSearch(c.name).includes(q) || normalizeSearch(c.country).includes(q)))
-      .slice(0, 8);
   });
 
   readonly initials = computed(() => {
@@ -268,12 +257,6 @@ export class NavFacadeService {
   switchLocale(target: AppLocale): void {
     this.langOpen.set(false);
     this.locale.switchTo(target, this.currentShellView());
-  }
-
-  quickAdd(city: City): void {
-    this.trip.addStop(city, '', '');
-    this.navQuery.set('');
-    this.searchOpen.set(false);
   }
 
   openSaveForm(): void {

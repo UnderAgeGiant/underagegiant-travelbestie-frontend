@@ -30,7 +30,6 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
       <!-- Header bar -->
       <div class="prof-bar">
-        <button class="back-btn" (click)="close.emit()" type="button" i18n="@@profile.backBtn">← Volver</button>
         <div class="prof-bar-title" i18n="@@profile.title">Mi Perfil</div>
       </div>
 

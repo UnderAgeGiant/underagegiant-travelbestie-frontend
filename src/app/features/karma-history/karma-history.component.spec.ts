@@ -360,4 +360,9 @@ describe('KarmaHistoryComponent', () => {
       expect(fixture.nativeElement.textContent).toContain('Viaje creado');
     });
   });
+
+  it('does not render a "Volver" back button (feedback #7 — logo click already exits the page)', () => {
+    const fixture = setup();
+    expect(fixture.nativeElement.querySelector('.back-btn')).toBeNull();
+  });
 });

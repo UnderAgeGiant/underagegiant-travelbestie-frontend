@@ -28,7 +28,6 @@ const PAGE_SIZE = 20;
       }
 
       <div class="prof-bar">
-        <button class="back-btn" (click)="goHome()" type="button" i18n="@@karmaHistory.backBtn">← Volver</button>
         <div class="prof-bar-title" i18n="@@karmaHistory.title">Historial de karma</div>
       </div>
 

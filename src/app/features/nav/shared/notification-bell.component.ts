@@ -71,6 +71,21 @@ export class NotificationBellComponent {
     if (opening) this.notif.openPanel();
   }
 
+  // Angular's default onSameUrlNavigation ('ignore') makes navigateByUrl(path) a silent
+  // no-op whenever the Router already tracks `path` as current — which can happen after
+  // any of this app's many signal-only view switches (see NavFacadeService.onLogoClick())
+  // leave the Router's URL stale relative to what's actually on screen. Bouncing through a
+  // skipLocationChange hop to '/' first (never the real target — every path reaching this
+  // helper is a concrete '/shared/:id', never bare '/') guarantees the Router treats the
+  // follow-up navigation as genuinely different, so it always actually fires.
+  private forceNavigate(path: string): void {
+    if (this.router.url === path) {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigateByUrl(path));
+    } else {
+      this.router.navigateByUrl(path);
+    }
+  }
+
   open(n: AppNotification): void {
     this.panelOpen.set(false);
 
@@ -92,6 +107,14 @@ export class NotificationBellComponent {
       return;
     }
 
+    // Karma-purchase notifications should land on the ledger, not just '/' —
+    // the backend issues url: '/' for these (see notify-karma-purchase.middleware.ts),
+    // which the generic fallback below would treat as "stay put."
+    if (n.type === 'purchase') {
+      this.router.navigateByUrl('/karma-history');
+      return;
+    }
+
     // Router navigation, not window.location.href — a hard reload would blank
     // the in-memory access token and flash the "signed out" nav state.
     // n.url is a backend-issued relative path, e.g. "/?share=abc" or "/" —
@@ -99,7 +122,7 @@ export class NotificationBellComponent {
     // on cold load, so this works whether or not the backend has switched to
     // emitting /shared/:id links directly.
     const [path, search] = n.url.split('?');
-    this.router.navigateByUrl(search ? (shareRedirectPath(`?${search}`) ?? path) : path);
+    this.forceNavigate(search ? (shareRedirectPath(`?${search}`) ?? path) : path);
   }
 
   relativeDate(iso: string): string {

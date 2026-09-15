@@ -17,6 +17,7 @@ import { AiPlanningComponent } from '../ai-planning/ai-planning.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
 import { LandingAboutComponent } from '../landing/landing-about.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
+import { AboutContentComponent } from '../about/about-content.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { MyTripsComponent } from '../my-trips/my-trips.component';
 import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
@@ -42,6 +43,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         FeaturedSlideshowComponent,
         LandingAboutComponent,
         AppFooterComponent,
+        AboutContentComponent,
         DayTimelineComponent,
         MyTripsComponent,
         CompanionMascotComponent,
@@ -59,7 +61,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
       <div class="landing-scroll">
 
         <!-- S1: full app shell (left panel + welcome) -->
-        <section class="landing-snap-child s1-shell">
+        <section class="landing-snap-child s1-shell" #topSection>
           <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="showProfile.set(true)" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
@@ -75,14 +77,22 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         <tb-landing-about />
 
         <!-- S4: footer -->
-        <tb-app-footer />
+        <tb-app-footer (createPlan)="showAddModal.set(true)"
+                        (viewMyTrips)="facade.openMyTrips()"
+                        (exploreFeatured)="scrollToFeatured()" />
+
+        <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
+             the complete About Us content, not just the S3 teaser) -->
+        <section class="landing-snap-child landing-about-full">
+          <app-about-content (startPlanning)="scrollToTop()" />
+        </section>
 
       </div>
     } @else {
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
         <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="showProfile.set(true)" />
-        <tb-day-timeline [showPlanSlideshow]="true" [showTripMap]="true" />
+        <tb-day-timeline [showPlanSlideshow]="true" />
         <div class="right-panel">
           @if (!trip.activeStop()) {
             <div class="empty-stop">
@@ -146,7 +156,7 @@ export class ShellComponent {
   readonly trip  = inject(TripService);
   readonly toastService = inject(ToastService);
   readonly autoSave = inject(AutoSaveService);
-  private readonly facade = inject(NavFacadeService);
+  readonly facade = inject(NavFacadeService);
   private readonly locale = inject(LocaleService);
   private readonly auth = inject(AuthService);
   private readonly savedPlans = inject(SavedPlansService);
@@ -161,6 +171,9 @@ export class ShellComponent {
   // (<tb-featured-slideshow>), so without it the template ref resolves to the
   // FeaturedSlideshowComponent instance instead of its host DOM element.
   private readonly featuredSection = viewChild('featuredSection', { read: ElementRef<HTMLElement> });
+  // #topSection sits directly on a native <section>, so no `read:` override is needed —
+  // viewChild() already resolves a template ref on a plain DOM element to its ElementRef.
+  private readonly topSection = viewChild('topSection', { read: ElementRef<HTMLElement> });
 
   constructor() {
     // SavedPlansService's own constructor only checks auth.currentUser() once, synchronously —
@@ -265,6 +278,13 @@ export class ShellComponent {
   }
 
   /** "Ok" on AiPlanningComponent's post-Notificarme hand-off — scrolls the landing page's S2 featured-plans section into view. No-op if the visitor currently has stops (app mode, no landing scroll to scroll). */
+  /** S5's closing CTA (About Us content appended to the landing scroll, feedback #4) — scrolls
+   *  back to S1 at the top of the page. The routed /about page's own CTA still calls goHome()
+   *  instead, since there's no landing scroll to return to on that page. */
+  scrollToTop(): void {
+    this.topSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   scrollToFeatured(): void {
     this.featuredSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }

@@ -307,6 +307,15 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                 }
               </div>
 
+              @if (selectedOption(); as opt) {
+                <div class="ai-plan-name-edit">
+                  <label class="ai-plan-name-label" for="aiPlanNameInput" i18n="@@aiplan.planNameLabel">Nombre del plan</label>
+                  <input id="aiPlanNameInput" class="form-input" type="text"
+                         [value]="opt.title"
+                         (input)="updateSelectedOptionTitle($any($event.target).value)" />
+                </div>
+              }
+
               <div class="ai-plan-actions">
                 <button class="btn-pill btn-outline"
                         (click)="step.set('preferences')"
@@ -1012,6 +1021,10 @@ export class AiPlanningComponent implements OnDestroy {
     this.changeCharged.set(null);
     this.planConfirmPending.set(null);
     this.suggestConfirmPending.set(null);
+  }
+
+  updateSelectedOptionTitle(title: string): void {
+    this.selectedOption.update(opt => (opt ? { ...opt, title } : opt));
   }
 
   save(): void {

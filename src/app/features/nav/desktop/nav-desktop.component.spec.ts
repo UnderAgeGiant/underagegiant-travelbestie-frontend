@@ -113,3 +113,48 @@ describe('NavDesktopComponent — outside-click close is multi-instance safe', (
     expect(facade.userMenuOpen()).toBe(false);
   });
 });
+
+describe('NavDesktopComponent — search box (feedback #9)', () => {
+  function setup() {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    fixture.detectChanges();
+    return fixture;
+  }
+
+  it('does not show a city quick-add row for a query that matches a world city', () => {
+    const fixture = setup();
+    const facade = TestBed.inject(NavFacadeService);
+    facade.navQuery.set('Paris');
+    facade.searchOpen.set(true);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.combo-item-flag')).toBeNull();
+  });
+
+  it('shows the new search placeholder', () => {
+    const fixture = setup();
+    const input: HTMLInputElement = fixture.nativeElement.querySelector('.nav-search-inner input');
+    expect(input.placeholder).toBe('Buscar viajes creados por otros usuarios');
+  });
+});
+
+describe('NavDesktopComponent — Mis viajes button spacing (feedback #14)', () => {
+  it('has a 4px margin-bottom, not 8px', () => {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    const facade = TestBed.inject(NavFacadeService);
+    facade.auth.setTokens('fake-token', { name: 'Test User', email: 'test@example.com', countryOfResidence: null });
+    facade.userMenuOpen.set(true);
+    fixture.detectChanges();
+
+    const buttons: HTMLButtonElement[] = Array.from(fixture.nativeElement.querySelectorAll('.nav-page-btn'));
+    const myTripsBtn = buttons.find(b => b.textContent?.includes('Mis viajes'));
+    expect(myTripsBtn?.style.marginBottom).toBe('4px');
+  });
+});

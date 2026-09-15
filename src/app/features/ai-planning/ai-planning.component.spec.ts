@@ -1,4 +1,4 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { Subject } from 'rxjs';
@@ -575,5 +575,48 @@ describe('AiPlanningComponent — "Guardar plan" attention beacon', () => {
 
     expect(saveBtn().classList.contains('ai-save-cta')).toBe(false);
     expect(saveBtn().disabled).toBe(true);
+  });
+});
+
+describe('AiPlanningComponent — editable plan name on Step 2 (feedback #13)', () => {
+  let component: AiPlanningComponent;
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let auth: AuthService;
+
+  const OPTION_A: TripSuggestion = { id: 1, title: 'Aventura en París', summary: 'Resumen A', highlights: ['h1'] };
+  const OPTION_B: TripSuggestion = { id: 2, title: 'Escapada relajada', summary: 'Resumen B', highlights: ['h2'] };
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    auth = TestBed.inject(AuthService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    component.suggestions.set({ options: [OPTION_A, OPTION_B] });
+    component.selectedOption.set(OPTION_A);
+    component.step.set('options');
+    fixture.detectChanges();
+  });
+
+  it('renders an input above ai-plan-actions, pre-filled with the selected option\'s title', () => {
+    const actions = fixture.nativeElement.querySelector('.ai-plan-actions');
+    const input: HTMLInputElement = fixture.nativeElement.querySelector('.ai-plan-name-edit input');
+    expect(input).not.toBeNull();
+    expect(input.value).toBe('Aventura en París');
+    // "above" — the edit block must precede .ai-plan-actions in document order
+    // eslint-disable-next-line no-bitwise
+    expect(input.compareDocumentPosition(actions) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  it("updates selectedOption()'s title when the input changes", () => {
+    const input: HTMLInputElement = fixture.nativeElement.querySelector('.ai-plan-name-edit input');
+    input.value = 'Mi viaje personalizado';
+    input.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    expect(component.selectedOption()?.title).toBe('Mi viaje personalizado');
   });
 });

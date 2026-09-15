@@ -274,3 +274,72 @@ describe('StopListComponent — itinerary/AI-suggest pill row layout', () => {
   });
 });
 
+describe('StopListComponent — trip map button (feedback #10)', () => {
+  let component: StopListComponent;
+  let trip: TripService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+  });
+
+  it('shows the "Ver mapa del viaje" button next to panel-head-sub when the trip has stops, and opens the map on click', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    const fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+
+    const sub = fixture.nativeElement.querySelector('.panel-head-sub');
+    const btn: HTMLButtonElement = sub.querySelector('.tl-trip-map-btn');
+    expect(btn).not.toBeNull();
+
+    btn.click();
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-trip-map')).not.toBeNull();
+  });
+
+  it('does not show the "Ver mapa del viaje" button when the trip has no stops', () => {
+    const fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.tl-trip-map-btn')).toBeNull();
+  });
+});
+
+describe('StopListComponent — Guardar viaje bounce beacon (feedback #12)', () => {
+  let trip: TripService;
+  let fixture: ComponentFixture<StopListComponent>;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+  });
+
+  it('bounces the "Guardar viaje" button once the first destination is added and the trip is unsaved', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+
+    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.panel-footer .btn-pill.btn-primary');
+    expect(btn.classList.contains('ai-save-cta')).toBe(true);
+  });
+
+  it('stops bouncing once the trip has been saved (loadedPlanId is set)', () => {
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    trip.markAsLoadedPlan('plan-1');
+    fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+
+    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.panel-footer .btn-pill.btn-primary');
+    expect(btn.classList.contains('ai-save-cta')).toBe(false);
+  });
+});
+

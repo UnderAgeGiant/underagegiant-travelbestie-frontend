@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -14,8 +14,10 @@ import { RouterLink } from '@angular/router';
     <div class="landing-footer-logo">
       Tripi<em>love</em>
     </div>
-    <p class="landing-footer-tagline" i18n="@@landing.footerTagline">
-      Planifica. Comparte. Explora.
+    <p class="landing-footer-tagline">
+      <button type="button" class="landing-footer-tagline-word" data-word="planifica" (click)="createPlan.emit()" i18n="@@landing.footerTaglinePlanifica">Planifica.</button>
+      <button type="button" class="landing-footer-tagline-word" data-word="comparte" (click)="viewMyTrips.emit()" i18n="@@landing.footerTaglineComparte">Comparte.</button>
+      <button type="button" class="landing-footer-tagline-word" data-word="explora" (click)="exploreFeatured.emit()" i18n="@@landing.footerTaglineExplora">Explora.</button>
     </p>
   </div>
 
@@ -44,4 +46,8 @@ import { RouterLink } from '@angular/router';
 </footer>
   `,
 })
-export class AppFooterComponent {}
+export class AppFooterComponent {
+  readonly createPlan = output<void>();
+  readonly viewMyTrips = output<void>();
+  readonly exploreFeatured = output<void>();
+}

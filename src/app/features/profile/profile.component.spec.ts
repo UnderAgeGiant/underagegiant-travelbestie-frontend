@@ -96,4 +96,8 @@ describe('ProfileComponent — edit account accordion', () => {
     expect(spy).toHaveBeenCalledWith({ countryOfResidence: null });
     expect(fixture.componentInstance.editCountryOfResidence()).toBeNull();
   });
+
+  it('does not render a "Volver" back button (feedback #7 — logo click already exits the page)', () => {
+    expect(fixture.nativeElement.querySelector('.back-btn')).toBeNull();
+  });
 });
