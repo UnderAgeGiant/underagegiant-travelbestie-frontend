@@ -648,3 +648,42 @@ describe('ApiService.getWeather', () => {
     http.expectOne(r => r.url.includes('/weather')).flush('boom', { status: 500, statusText: 'Server Error' });
   });
 });
+
+describe('ApiService.getFeed()', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [provideHttpClient(withXhr()), provideHttpClientTesting()] });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+  });
+  afterEach(() => http.verify());
+
+  it('real mode: GET /feed with limit and cursor params', () => {
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+    service.getFeed('abc', 20).subscribe();
+    const req = http.expectOne(r => r.url.endsWith('/feed'));
+    expect(req.request.method).toBe('GET');
+    expect(req.request.params.get('limit')).toBe('20');
+    expect(req.request.params.get('cursor')).toBe('abc');
+    req.flush({ items: [], nextCursor: null });
+  });
+
+  it('real mode: omits the cursor param on the first page', () => {
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+    service.getFeed().subscribe();
+    const req = http.expectOne(r => r.url.endsWith('/feed'));
+    expect(req.request.params.has('cursor')).toBe(false);
+    req.flush({ items: [], nextCursor: null });
+  });
+
+  it('mock mode: serves the built-in fixture without HTTP', done => {
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(true);
+    service.getFeed(null, 20).subscribe(page => {
+      expect(page.items).toHaveLength(20);
+      expect(page.nextCursor).toBe('20');
+      done();
+    });
+  });
+});
