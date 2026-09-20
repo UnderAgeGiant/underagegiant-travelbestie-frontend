@@ -105,21 +105,52 @@ describe('FeedPlanCardComponent', () => {
     expect(activePane(el)).toBe(1);                                       // swipe left = next
   });
 
-  it('auto-advances every 5 s only while active', () => {
+  it('auto-advances every 2.5 s only while active', () => {
     const el = create(planWith(2), true);
-    jest.advanceTimersByTime(5000); fixture.detectChanges();
+    jest.advanceTimersByTime(2499); fixture.detectChanges();
+    expect(activePane(el)).toBe(0);                                       // not before 2.5 s
+    jest.advanceTimersByTime(1); fixture.detectChanges();
     expect(activePane(el)).toBe(1);
+    jest.advanceTimersByTime(2500); fixture.detectChanges();
+    expect(activePane(el)).toBe(2);                                       // each page stays 2.5 s
     fixture.componentRef.setInput('active', false); fixture.detectChanges();
     jest.advanceTimersByTime(15000); fixture.detectChanges();
-    expect(activePane(el)).toBe(1);                                       // stopped
+    expect(activePane(el)).toBe(2);                                       // stopped
   });
 
-  it('pauses auto-advance on hover', () => {
+  it('does NOT pause on hover (a resting cursor must not stop the auto-advance), but pauses while the pointer is held down', () => {
     const el = create(planWith(2), true);
-    (el.querySelector('.feed-card') as HTMLElement).dispatchEvent(new MouseEvent('pointerenter'));
-    fixture.detectChanges();
+    const card = el.querySelector('.feed-card') as HTMLElement;
+    card.dispatchEvent(new MouseEvent('pointerenter')); fixture.detectChanges();
+    jest.advanceTimersByTime(2500); fixture.detectChanges();
+    expect(activePane(el)).toBe(1);                                       // still advancing while hovered
+    card.dispatchEvent(new MouseEvent('pointerdown', { clientX: 100 })); fixture.detectChanges();
     jest.advanceTimersByTime(10000); fixture.detectChanges();
-    expect(activePane(el)).toBe(0);
+    expect(activePane(el)).toBe(1);                                       // held = paused
+    card.dispatchEvent(new MouseEvent('pointerup', { clientX: 100 })); fixture.detectChanges();
+    jest.advanceTimersByTime(2500); fixture.detectChanges();
+    expect(activePane(el)).toBe(2);                                       // released = resumes
+  });
+
+  it('lays panes out on a horizontal strip: current at 0, neighbours one step left/right, wrapping', () => {
+    const el = create(planWith(2));                                       // 3 pages: map, s1, s2
+    const offs = () => Array.from(el.querySelectorAll('.feed-pane')).map(p => (p as HTMLElement).style.getPropertyValue('--feed-off'));
+    expect(offs()).toEqual(['0', '1', '-1']);                             // s2 is the wrapped "previous" of the map
+    (el.querySelector('.feed-nav-next') as HTMLButtonElement).click(); fixture.detectChanges();
+    expect(offs()).toEqual(['-1', '0', '1']);
+    (el.querySelector('.feed-nav-next') as HTMLButtonElement).click(); fixture.detectChanges();
+    expect(offs()).toEqual(['1', '-1', '0']);                             // map re-enters from the right
+  });
+
+  it('a manual page change restarts the 2.5 s timer so the new page still gets a full 2.5 s', () => {
+    const el = create(planWith(3), true);
+    jest.advanceTimersByTime(2000); fixture.detectChanges();
+    (el.querySelector('.feed-nav-next') as HTMLButtonElement).click(); fixture.detectChanges();
+    expect(activePane(el)).toBe(1);
+    jest.advanceTimersByTime(2499); fixture.detectChanges();
+    expect(activePane(el)).toBe(1);
+    jest.advanceTimersByTime(1); fixture.detectChanges();
+    expect(activePane(el)).toBe(2);
   });
 
   it('a plan with no attractions is map-only (no nav controls)', () => {
@@ -130,9 +161,9 @@ describe('FeedPlanCardComponent', () => {
     expect(activePane(el)).toBe(0);
   });
 
-  it('renders <img> only for pages within ±1 of the current page', () => {
+  it('renders <img> only for pages within ±1 (circularly) of the current page', () => {
     const el = create(planWith(5));                                       // pages 0..5, currently 0
-    expect(el.querySelectorAll('img.feed-photo')).toHaveLength(1);        // page 1 only
+    expect(el.querySelectorAll('img.feed-photo')).toHaveLength(2);        // pages 1 and 5 (5 = the map's circular neighbour, so the wrap slide isn't blank)
   });
 
   it('♥ when anonymous opens the login modal and does NOT toggle, even after login', () => {

@@ -11,7 +11,8 @@ import { TripStop } from '../../../core/models/trip.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { buildFeedSlides } from './feed-slides.util';
 
-const AUTO_ADVANCE_MS = 5000;
+/** Every page (map or attraction photo) stays on screen this long before the strip slides to the next. */
+const AUTO_ADVANCE_MS = 2500;
 const SWIPE_PX = 40;
 const MAX_DOTS = 9;
 
@@ -26,12 +27,12 @@ function prefersReducedMotion(): boolean {
   template: `
 <article class="feed-card"
          [attr.aria-label]="plan().tripName"
-         (pointerenter)="hovered.set(true)" (pointerleave)="hovered.set(false)"
-         (focusin)="focused.set(true)" (focusout)="focused.set(false)"
+         (pointerleave)="pressed.set(false)" (pointercancel)="pressed.set(false)"
+         (focusin)="onFocusIn($event)" (focusout)="focused.set(false)"
          (keydown.arrowright)="next()" (keydown.arrowleft)="prev()"
          (pointerdown)="onPointerDown($event)" (pointerup)="onPointerUp($event)">
 
-  <div class="feed-pane feed-pane-map" [class.active]="pageIdx() === 0"
+  <div class="feed-pane feed-pane-map" [class.active]="pageIdx() === 0" [style.--feed-off]="offset(0)"
        [attr.aria-hidden]="pageIdx() !== 0">
     <div class="feed-map">
       <app-trip-map [cities]="cityRefs()" [interactive]="false" [showFlightPath]="true" [showLabels]="true" />
@@ -39,7 +40,7 @@ function prefersReducedMotion(): boolean {
   </div>
 
   @for (slide of slides(); track slide.id; let i = $index) {
-    <div class="feed-pane feed-pane-slide" [class.active]="pageIdx() === i + 1"
+    <div class="feed-pane feed-pane-slide" [class.active]="pageIdx() === i + 1" [style.--feed-off]="offset(i + 1)"
          [attr.aria-hidden]="pageIdx() !== i + 1">
       @if (near(i + 1) && slide.imageUrl) {
         <img class="feed-photo" [src]="slide.imageUrl" [alt]="slide.name" loading="lazy" decoding="async" />
@@ -123,10 +124,12 @@ export class FeedPlanCardComponent {
   protected readonly heartLabelOff = $localize`:@@feed.heartOff:Guardar en favoritos`;
 
   protected readonly pageIdx = signal(0);
-  protected readonly hovered = signal(false);
+  /** Pointer held down on the card (press-and-hold to read a slide). Deliberately NOT hover: a desktop visitor's
+   *  cursor rests over the card while they scroll, and that must not stop the auto-advance. */
+  protected readonly pressed = signal(false);
+  /** Keyboard focus inside the card (mouse-click focus doesn't count, or one click on ◀ ▶ would stop it for good). */
   protected readonly focused = signal(false);
-  /** Hover and keyboard focus pause independently, so leaving one while the other is still true keeps the card paused. */
-  protected readonly paused  = computed(() => this.hovered() || this.focused());
+  protected readonly paused  = computed(() => this.pressed() || this.focused());
   private readonly countOverride = signal<number | null>(null);
   private readonly liking = signal(false);
   private swipeStartX: number | null = null;
@@ -146,21 +149,40 @@ export class FeedPlanCardComponent {
   constructor() {
     // One interval, only for the active, un-paused card. Cleared whenever any input changes or the card is destroyed.
     effect(onCleanup => {
+      // Reading pageIdx restarts the interval on every page change (auto or manual), so each page always gets a full 2.5 s.
+      this.pageIdx();
       if (!this.active() || this.paused() || this.pageCount() < 2 || prefersReducedMotion()) return;
       const id = setInterval(() => this.next(), AUTO_ADVANCE_MS);
       onCleanup(() => clearInterval(id));
     });
   }
 
-  protected near(page: number): boolean { return Math.abs(page - this.pageIdx()) <= 1; }
+  /** Circular distance from the current page, so the last→first wrap counts as adjacent. */
+  private circularOffset(page: number): number {
+    const n = this.pageCount();
+    let d = (page - this.pageIdx() + n) % n;
+    if (d > n / 2) d -= n;
+    return d;
+  }
+  protected near(page: number): boolean { return Math.abs(this.circularOffset(page)) <= 1; }
+  /** Horizontal-strip position of a pane: 0 = on screen, ±1 = parked just off the right/left edge.
+   *  Clamped to ±1 so a far pane (dot jump, wrap-around) slides in from the edge instead of sweeping across the whole strip. */
+  protected offset(page: number): number { return Math.max(-1, Math.min(1, this.circularOffset(page))); }
   protected pageLabel(p: number): string { return $localize`:@@feed.pageLabel:Página ${p + 1}:page: de ${this.pageCount()}:total:`; }
 
   protected next(): void { this.pageIdx.update(i => (i + 1) % this.pageCount()); }
   protected prev(): void { this.pageIdx.update(i => (i - 1 + this.pageCount()) % this.pageCount()); }
   protected goTo(p: number): void { this.pageIdx.set(p); }
 
-  protected onPointerDown(e: PointerEvent | MouseEvent): void { this.swipeStartX = e.clientX; }
+  protected onFocusIn(e: Event): void {
+    let keyboard = true;
+    try { keyboard = (e.target as HTMLElement).matches(':focus-visible'); } catch { /* engines without :focus-visible: assume keyboard */ }
+    this.focused.set(keyboard);
+  }
+
+  protected onPointerDown(e: PointerEvent | MouseEvent): void { this.swipeStartX = e.clientX; this.pressed.set(true); }
   protected onPointerUp(e: PointerEvent | MouseEvent): void {
+    this.pressed.set(false);
     if (this.swipeStartX === null) return;
     const dx = e.clientX - this.swipeStartX;
     this.swipeStartX = null;
