@@ -333,7 +333,7 @@
         <source>Comenzar a planificar ✈️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">83,86</context>
+          <context context-type="linenumber">83,85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.team.yoli.role" datatype="html">
@@ -1529,28 +1529,112 @@
         <source>© 2026 Tripilove. Hecho con 💜 para aventureros.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/app-footer.component.ts</context>
-          <context context-type="linenumber">43,48</context>
+          <context context-type="linenumber">43,47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.featuredBadge" datatype="html">
         <source>✨ ¡Plan destacado!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/featured-slideshow.component.ts</context>
-          <context context-type="linenumber">82,83</context>
+          <context context-type="linenumber">26,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.cardBy" datatype="html">
         <source>por</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/featured-slideshow.component.ts</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.cloneBtn" datatype="html">
         <source>⿻ Copia este viaje para ti</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/featured-slideshow.component.ts</context>
-          <context context-type="linenumber">94,96</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.by" datatype="html">
+        <source>por</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.viewPlan" datatype="html">
+        <source>Ver plan completo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">70,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.prev" datatype="html">
+        <source>Anterior</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">87,88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.next" datatype="html">
+        <source>Siguiente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">102,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.heartOn" datatype="html">
+        <source>Quitar de favoritos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.heartOff" datatype="html">
+        <source>Guardar en favoritos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.pageLabel" datatype="html">
+        <source>Página <x id="page" equiv-text="p + 1"/> de <x id="total" equiv-text="this.pageCount()"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">156</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.favoriteError" datatype="html">
+        <source>No pudimos actualizar tus favoritos. Intenta de nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
+          <context context-type="linenumber">188</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.loadError" datatype="html">
+        <source>No pudimos cargar más planes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/landing-feed.component.ts</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.retry" datatype="html">
+        <source>Reintentar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/landing-feed.component.ts</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.backToTop" datatype="html">
+        <source>Volver arriba</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/landing-feed.component.ts</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feed.regionLabel" datatype="html">
+        <source>Planes de otros viajeros</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/feed/landing-feed.component.ts</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.aboutHeading" datatype="html">
@@ -3807,14 +3891,14 @@
         <source>Selecciona una parada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shell/shell.component.ts</context>
-          <context context-type="linenumber">101,102</context>
+          <context context-type="linenumber">107,108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="app.selectStopDesc" datatype="html">
         <source>Haz clic en un destino del panel para explorar sus atracciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shell/shell.component.ts</context>
-          <context context-type="linenumber">103,105</context>
+          <context context-type="linenumber">109,111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.title" datatype="html">
@@ -4256,70 +4340,84 @@
         <source>Planifica · Comparte · Explora</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">19,20</context>
+          <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.title" datatype="html">
         <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>mejor amig@<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">20,21</context>
+          <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.subtitle" datatype="html">
         <source>Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaCreatePlan" datatype="html">
         <source>Crear Plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">24,25</context>
+          <context context-type="linenumber">26,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaCreateAi" datatype="html">
         <source>🐾 Crear con IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">26,27</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaHowKarma" datatype="html">
         <source>⭐ Cómo ganar Karma</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">28,29</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaLastPlan" datatype="html">
         <source>🕓 Último viaje que editaste</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaTitle" datatype="html">
         <source>Cómo ganar Karma ⭐</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">40,41</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaBody" datatype="html">
         <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">41,42</context>
+          <context context-type="linenumber">43,44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaClose" datatype="html">
         <source>Entendido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">43,45</context>
+          <context context-type="linenumber">45,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="welcome.feedPillTop" datatype="html">
+        <source>♥ <x id="count" equiv-text="count"/> · <x id="name" equiv-text="name"/> — ver más</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="welcome.feedPillGeneric" datatype="html">
+        <source>Descubre planes de otros viajeros</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autosave.reminderMessage" datatype="html">

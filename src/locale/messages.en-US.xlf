@@ -2646,6 +2646,64 @@
         <source>ID de transacción</source>
         <target>Transaction ID</target>
       </trans-unit>
+
+      <!-- ── landing feed (S6) + welcome pill ── -->
+      <trans-unit id="feed.by" datatype="html">
+        <source>por</source>
+        <target>by</target>
+      </trans-unit>
+      <trans-unit id="feed.viewPlan" datatype="html">
+        <source>Ver plan completo</source>
+        <target>View full plan</target>
+      </trans-unit>
+      <trans-unit id="feed.prev" datatype="html">
+        <source>Anterior</source>
+        <target>Previous</target>
+      </trans-unit>
+      <trans-unit id="feed.next" datatype="html">
+        <source>Siguiente</source>
+        <target>Next</target>
+      </trans-unit>
+      <trans-unit id="feed.heartOn" datatype="html">
+        <source>Quitar de favoritos</source>
+        <target>Remove from favorites</target>
+      </trans-unit>
+      <trans-unit id="feed.heartOff" datatype="html">
+        <source>Guardar en favoritos</source>
+        <target>Save to favorites</target>
+      </trans-unit>
+      <trans-unit id="feed.pageLabel" datatype="html">
+        <source>Página <x id="page" equiv-text="p + 1"/> de <x id="total" equiv-text="this.pageCount()"/></source>
+        <target>Page <x id="page" equiv-text="p + 1"/> of <x id="total" equiv-text="this.pageCount()"/></target>
+      </trans-unit>
+      <trans-unit id="feed.favoriteError" datatype="html">
+        <source>No pudimos actualizar tus favoritos. Intenta de nuevo.</source>
+        <target>We couldn't update your favorites. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="feed.loadError" datatype="html">
+        <source>No pudimos cargar más planes</source>
+        <target>We couldn't load more plans</target>
+      </trans-unit>
+      <trans-unit id="feed.retry" datatype="html">
+        <source>Reintentar</source>
+        <target>Retry</target>
+      </trans-unit>
+      <trans-unit id="feed.backToTop" datatype="html">
+        <source>Volver arriba</source>
+        <target>Back to top</target>
+      </trans-unit>
+      <trans-unit id="feed.regionLabel" datatype="html">
+        <source>Planes de otros viajeros</source>
+        <target>Plans from other travelers</target>
+      </trans-unit>
+      <trans-unit id="welcome.feedPillTop" datatype="html">
+        <source>♥ <x id="count" equiv-text="count"/> · <x id="name" equiv-text="name"/> — ver más</source>
+        <target>♥ <x id="count" equiv-text="count"/> · <x id="name" equiv-text="name"/> — see more</target>
+      </trans-unit>
+      <trans-unit id="welcome.feedPillGeneric" datatype="html">
+        <source>Descubre planes de otros viajeros</source>
+        <target>Discover plans from other travelers</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

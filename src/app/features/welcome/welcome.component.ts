@@ -4,6 +4,8 @@ import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
 import { HighlightTargetDirective } from '../../shared/highlight-tour/highlight-target.directive';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { LandingFeedService } from '../landing/feed/landing-feed.service';
+import { LocaleService } from '../../core/i18n/locale.service';
 
 @Component({
     selector: 'app-welcome',
@@ -45,6 +47,15 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
           </div>
         }
       </div>
+      @if (showFeedPill()) {
+        <button type="button" class="welcome-feed-pill" (click)="scrollToFeed.emit()"
+                [attr.aria-label]="feedPillLabel()">
+          <span class="welcome-feed-pill-text">{{ feedPillLabel() }}</span>
+          <svg class="welcome-feed-pill-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      }
     </div>
   `
 })
@@ -55,6 +66,20 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   addDestination = output<void>();
   openAiPlanning = output<void>();
   loadLastEditedPlan = output<SavedPlan>();
+  scrollToFeed = output<void>();
+  private readonly feed = inject(LandingFeedService);
+  private readonly locale = inject(LocaleService);
+
+  protected readonly showFeedPill = this.feed.hasItems;
+  protected readonly feedPillLabel = computed(() => {
+    const top = this.feed.topPlan();
+    if (top && top.favoriteCount >= 1) {
+      const count = new Intl.NumberFormat(this.locale.current()).format(top.favoriteCount);
+      const name = top.tripName.length > 28 ? `${top.tripName.slice(0, 27).trimEnd()}…` : top.tripName;
+      return $localize`:@@welcome.feedPillTop:♥ ${count}:count: · ${name}:name: — ver más`;
+    }
+    return $localize`:@@welcome.feedPillGeneric:Descubre planes de otros viajeros`;
+  });
   slideIdx = signal(0);
   readonly slides = SLIDES;
   readonly howKarmaOpen = signal(false);

@@ -1,9 +1,13 @@
+import { signal } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { WelcomeComponent } from './welcome.component';
 import { AuthService } from '../../core/auth/auth.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { LandingFeedService } from '../landing/feed/landing-feed.service';
+import { LocaleService } from '../../core/i18n/locale.service';
+import { FeedPlan } from '../../core/models/feed-plan.model';
 
 describe('WelcomeComponent — last edited plan shortcut', () => {
   let fixture: ComponentFixture<WelcomeComponent>;
@@ -53,5 +57,61 @@ describe('WelcomeComponent — last edited plan shortcut', () => {
     jest.spyOn(auth, 'isLoggedIn').mockReturnValue(false);
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.slider-arrows')).toBeNull();
+  });
+});
+
+describe('WelcomeComponent — scroll-to-feed pill', () => {
+  const feedStub = { hasItems: signal(false), topPlan: signal<FeedPlan | null>(null) };
+  const top = (favoriteCount: number, tripName = 'Roma y Florencia en 6 días'): FeedPlan =>
+    ({ id: 'p1', tripName, ownerName: 'Ana', createdAt: '', favoriteCount, stops: [] });
+
+  beforeEach(() => {
+    feedStub.hasItems.set(false);
+    feedStub.topPlan.set(null);
+    TestBed.configureTestingModule({
+      imports: [WelcomeComponent],
+      providers: [
+        provideHttpClient(), provideHttpClientTesting(),
+        { provide: LandingFeedService, useValue: feedStub },
+        { provide: LocaleService, useValue: { current: () => 'es-CL' } },
+      ],
+    });
+  });
+
+  const pill = (f: ComponentFixture<WelcomeComponent>) => f.nativeElement.querySelector('.welcome-feed-pill') as HTMLButtonElement | null;
+
+  it('is hidden until the feed has plans', () => {
+    feedStub.hasItems.set(false);
+    const f = TestBed.createComponent(WelcomeComponent); f.detectChanges();
+    expect(pill(f)).toBeNull();
+  });
+
+  it('shows the specific label when the top plan has favorites', () => {
+    feedStub.hasItems.set(true); feedStub.topPlan.set(top(128));
+    const f = TestBed.createComponent(WelcomeComponent); f.detectChanges();
+    expect(pill(f)!.textContent).toContain('♥ 128 · Roma y Florencia en 6 días — ver más');
+    expect(pill(f)!.getAttribute('aria-label')).toContain('128');
+  });
+
+  it('truncates a long title to 28 characters with an ellipsis', () => {
+    feedStub.hasItems.set(true); feedStub.topPlan.set(top(5, 'Un viaje larguísimo por toda la Patagonia chilena'));
+    const f = TestBed.createComponent(WelcomeComponent); f.detectChanges();
+    expect(pill(f)!.textContent).toContain('…');
+    expect(pill(f)!.textContent).not.toContain('chilena');
+  });
+
+  it('falls back to the generic label when the top plan has 0 favorites', () => {
+    feedStub.hasItems.set(true); feedStub.topPlan.set(top(0));
+    const f = TestBed.createComponent(WelcomeComponent); f.detectChanges();
+    expect(pill(f)!.textContent).toContain('Descubre planes de otros viajeros');
+    expect(pill(f)!.textContent).not.toContain('♥');
+  });
+
+  it('emits scrollToFeed on click', () => {
+    feedStub.hasItems.set(true); feedStub.topPlan.set(top(3));
+    const f = TestBed.createComponent(WelcomeComponent); f.detectChanges();
+    const spy = jest.fn(); f.componentInstance.scrollToFeed.subscribe(spy);
+    pill(f)!.click();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });

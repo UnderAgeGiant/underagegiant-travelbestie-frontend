@@ -16,6 +16,7 @@ import { ProfileComponent } from '../profile/profile.component';
 import { AiPlanningComponent } from '../ai-planning/ai-planning.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
 import { LandingAboutComponent } from '../landing/landing-about.component';
+import { LandingFeedComponent } from '../landing/feed/landing-feed.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { AboutContentComponent } from '../about/about-content.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
@@ -42,6 +43,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         AiPlanningComponent,
         FeaturedSlideshowComponent,
         LandingAboutComponent,
+        LandingFeedComponent,
         AppFooterComponent,
         AboutContentComponent,
         DayTimelineComponent,
@@ -66,7 +68,8 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
                          (openAiPlanning)="showAiPlanning.set(true)"
-                         (loadLastEditedPlan)="loadLastEditedPlan($event)" />
+                         (loadLastEditedPlan)="loadLastEditedPlan($event)"
+                         (scrollToFeed)="scrollToFeed()" />
           </div>
         </section>
 
@@ -86,6 +89,9 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         <section class="landing-snap-child landing-about-full">
           <app-about-content (startPlanning)="scrollToTop()" />
         </section>
+
+        <!-- S6: infinite feed of other users' shared plans (hidden until the first page returns ≥1 plan) -->
+        <tb-landing-feed #feedSection (backToTop)="scrollToTop()" />
 
       </div>
     } @else {
@@ -171,6 +177,7 @@ export class ShellComponent {
   // (<tb-featured-slideshow>), so without it the template ref resolves to the
   // FeaturedSlideshowComponent instance instead of its host DOM element.
   private readonly featuredSection = viewChild('featuredSection', { read: ElementRef<HTMLElement> });
+  private readonly feedSection = viewChild('feedSection', { read: ElementRef<HTMLElement> });
   // #topSection sits directly on a native <section>, so no `read:` override is needed —
   // viewChild() already resolves a template ref on a plain DOM element to its ElementRef.
   private readonly topSection = viewChild('topSection', { read: ElementRef<HTMLElement> });
@@ -287,6 +294,11 @@ export class ShellComponent {
 
   scrollToFeatured(): void {
     this.featuredSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /** Welcome-page pill → S6 infinite feed. No-op in app mode (no landing scroll rendered). */
+  scrollToFeed(): void {
+    this.feedSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   /** "Último viaje que editaste" on the landing welcome screen (Task 7). */

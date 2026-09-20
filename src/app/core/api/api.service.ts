@@ -13,8 +13,10 @@ import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.ser
 import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
 import { HighlightType, HighlightStatus } from '../models/highlight.model';
+import { FeedPage } from '../models/feed-plan.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
+import { mockFeedPage } from './feed.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
@@ -419,6 +421,14 @@ export class ApiService {
         } catch { /* non-fatal */ }
       }),
     );
+  }
+
+  /** Landing feed page. `cursor` null = first page (also how the client "starts again" after the last page). */
+  getFeed(cursor: string | null = null, limit = 20): Observable<FeedPage> {
+    if (this.useMocks) return of(mockFeedPage(cursor, limit));
+    let params = new HttpParams().set('limit', String(limit));
+    if (cursor) params = params.set('cursor', cursor);
+    return this.http.get<FeedPage>(`${this.base}/feed`, { params });
   }
 
   toggleFavorite(shareId: string): Observable<{ favorited: boolean; favoriteCount: number }> {

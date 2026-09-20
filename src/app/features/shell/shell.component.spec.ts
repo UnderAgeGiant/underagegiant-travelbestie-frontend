@@ -43,6 +43,22 @@ describe('ShellComponent', () => {
     expect(el.querySelector('.layout')).toBeFalsy();
   });
 
+  it('scrollToFeed() scrolls the S6 feed section into view', () => {
+    const fixture = setup(0);
+    const host = fixture.nativeElement.querySelector('tb-landing-feed') as HTMLElement;
+    expect(host).not.toBeNull();
+    host.scrollIntoView = jest.fn();
+    fixture.componentInstance.scrollToFeed();
+    expect(host.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+  });
+
+  it('places the feed after the full About section (S6)', () => {
+    const fixture = setup(0);
+    const scroll = fixture.nativeElement.querySelector('.landing-scroll') as HTMLElement;
+    const last = scroll.lastElementChild as HTMLElement;
+    expect(last.tagName.toLowerCase()).toBe('tb-landing-feed');
+  });
+
   it('does not render the scroll hint (dead control removed, feedback #1)', () => {
     const el = setup(0).nativeElement as HTMLElement;
     expect(el.querySelector('.scroll-hint')).toBeNull();
@@ -187,7 +203,8 @@ describe('ShellComponent', () => {
   it('renders the full About Us content as a 5th landing section, after the footer (feedback #4)', () => {
     const el = setup(0).nativeElement as HTMLElement;
     const sections = el.querySelectorAll('.landing-scroll > *');
-    expect(sections.length).toBe(5);
+    // S1–S5 plus the S6 infinite feed host (<tb-landing-feed>) appended after About.
+    expect(sections.length).toBe(6);
     expect(el.querySelector('tb-app-footer + .landing-about-full, tb-app-footer ~ .landing-about-full')).not.toBeNull();
     expect(el.querySelector('.landing-about-full app-about-content')).not.toBeNull();
   });
