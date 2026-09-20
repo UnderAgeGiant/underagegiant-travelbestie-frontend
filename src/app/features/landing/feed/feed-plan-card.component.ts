@@ -26,12 +26,13 @@ function prefersReducedMotion(): boolean {
   template: `
 <article class="feed-card"
          [attr.aria-label]="plan().tripName"
-         (pointerenter)="paused.set(true)" (pointerleave)="paused.set(false)"
-         (focusin)="paused.set(true)" (focusout)="paused.set(false)"
+         (pointerenter)="hovered.set(true)" (pointerleave)="hovered.set(false)"
+         (focusin)="focused.set(true)" (focusout)="focused.set(false)"
          (keydown.arrowright)="next()" (keydown.arrowleft)="prev()"
          (pointerdown)="onPointerDown($event)" (pointerup)="onPointerUp($event)">
 
-  <div class="feed-pane feed-pane-map" [class.active]="pageIdx() === 0">
+  <div class="feed-pane feed-pane-map" [class.active]="pageIdx() === 0"
+       [attr.aria-hidden]="pageIdx() !== 0">
     <div class="feed-map">
       <app-trip-map [cities]="cityRefs()" [interactive]="false" [showFlightPath]="true" [showLabels]="true" />
     </div>
@@ -42,6 +43,8 @@ function prefersReducedMotion(): boolean {
          [attr.aria-hidden]="pageIdx() !== i + 1">
       @if (near(i + 1) && slide.imageUrl) {
         <img class="feed-photo" [src]="slide.imageUrl" [alt]="slide.name" loading="lazy" decoding="async" />
+      } @else if (!slide.imageUrl) {
+        <div class="feed-fallback" aria-hidden="true">{{ slide.icon }}</div>
       }
       <div class="feed-scrim"></div>
       <div class="feed-caption">
@@ -81,11 +84,14 @@ function prefersReducedMotion(): boolean {
   @if (pageCount() > 1) {
     <div class="feed-nav">
       <button type="button" class="feed-nav-prev" (click)="prev()"
-              i18n-aria-label="@@feed.prev" aria-label="Anterior">◀</button>
+              i18n-aria-label="@@feed.prev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
       @if (pageCount() <= maxDots) {
         <div class="feed-dots">
           @for (p of pages(); track p) {
             <button type="button" class="feed-dot" [class.active]="pageIdx() === p" (click)="goTo(p)"
+                    [attr.aria-current]="pageIdx() === p ? 'true' : null"
                     [attr.aria-label]="pageLabel(p)"></button>
           }
         </div>
@@ -93,7 +99,9 @@ function prefersReducedMotion(): boolean {
         <span class="feed-counter">{{ pageIdx() + 1 }} / {{ pageCount() }}</span>
       }
       <button type="button" class="feed-nav-next" (click)="next()"
-              i18n-aria-label="@@feed.next" aria-label="Siguiente">▶</button>
+              i18n-aria-label="@@feed.next" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   }
 </article>
@@ -115,7 +123,10 @@ export class FeedPlanCardComponent {
   protected readonly heartLabelOff = $localize`:@@feed.heartOff:Guardar en favoritos`;
 
   protected readonly pageIdx = signal(0);
-  protected readonly paused  = signal(false);
+  protected readonly hovered = signal(false);
+  protected readonly focused = signal(false);
+  /** Hover and keyboard focus pause independently, so leaving one while the other is still true keeps the card paused. */
+  protected readonly paused  = computed(() => this.hovered() || this.focused());
   private readonly countOverride = signal<number | null>(null);
   private readonly liking = signal(false);
   private swipeStartX: number | null = null;

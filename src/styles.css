@@ -1018,6 +1018,193 @@ app-nav { display: block; }
   .landing-about-full { min-height: 100svh; }
 }
 
+/* ── S6 — landing infinite feed (tb-landing-feed / tb-feed-plan-card) ─────────
+   Cinematic full-bleed, same visual language as S2 (.s2-*): night ground, white
+   Cormorant title over a bottom/left scrim, frosted-glass controls, lavender CTA.
+   Each .feed-item is ONE fixed-height viewport — LandingFeedComponent's window
+   spacers are n × that height, so change the height here and the desktop/mobile
+   values below together, never one alone, and keep margins off .feed-item.
+   Deliberately NOT .landing-snap-child (the landing E2E counts that class). ── */
+.landing-feed { display: block; position: relative; background: oklch(14% .04 290); color: #fff; }
+.feed-item {
+  display: block; position: relative; overflow: hidden;
+  height: calc(100vh - 72px); min-height: calc(100vh - 72px);
+  scroll-snap-align: start;
+}
+.feed-card { position: absolute; inset: 0; touch-action: pan-y; }
+.feed-card :where(button):focus-visible,
+.landing-feed .feed-retry:focus-visible,
+.landing-feed .feed-back-top:focus-visible,
+.welcome-feed-pill:focus-visible { outline: 2px solid var(--lav); outline-offset: 3px; }
+
+/* panes crossfade; identity + nav sit above them and never re-render per page */
+.feed-pane { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .5s cubic-bezier(.4,0,.2,1); z-index: 0; }
+.feed-pane.active { opacity: 1; pointer-events: auto; z-index: 1; }
+.feed-pane-slide { background: radial-gradient(120% 90% at 70% 30%, oklch(26% .07 290), oklch(14% .04 290) 70%); }
+.feed-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.feed-pane.active .feed-photo { animation: ken-burns 10s ease-in-out both; }
+.feed-fallback {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: clamp(120px, 24vw, 260px); line-height: 1; opacity: .12; user-select: none;
+}
+.feed-scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to top,  oklch(0% 0 0/.9) 0%, oklch(0% 0 0/.55) 32%, transparent 64%),
+    linear-gradient(to right, oklch(0% 0 0/.45) 0%, transparent 55%),
+    radial-gradient(70% 55% at 100% 100%, oklch(0% 0 0/.55), transparent 75%);
+}
+
+/* map page: letterboxed 2:1 block on the night ground, above the identity block.
+   Recoloured ONLY through selectors scoped to .feed-map — the shared .trip-map* rules stay untouched. */
+.feed-map {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  padding: 24px 0 clamp(230px, 34vh, 300px); box-sizing: border-box;
+  --lav: oklch(24% .05 290); --lav-d: oklch(64% .13 290); --cream: transparent;
+}
+.feed-map app-trip-map { width: min(92vw, 1200px, calc((100vh - 72px - 260px) * 2)); }
+.feed-map .trip-map { background: transparent; border-radius: 0; }
+/* the letterboxed map is a cropped window onto the world: feather its edges so it fades into the night ground instead of reading as a hard-edged tile */
+.feed-map app-trip-map {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent), linear-gradient(to bottom, transparent, #000 11%, #000 89%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent), linear-gradient(to bottom, transparent, #000 11%, #000 89%, transparent);
+  mask-composite: intersect;
+}
+.feed-map .trip-map-country { fill: oklch(24% .05 290); stroke: oklch(40% .08 290); }
+.feed-map .trip-map-land { fill: oklch(24% .05 290); stroke: oklch(40% .08 290); }
+.feed-map .trip-map-route { stroke: oklch(80% .11 290); }
+.feed-map .trip-map-plane { color: var(--peach); }
+.feed-map .trip-map-label-bubble { fill: oklch(18% .05 290 / .92); stroke: oklch(52% .12 290); }
+.feed-map .trip-map-label-text { fill: #fff; }
+
+/* attraction caption (bottom-right on desktop, mirrors .s2-caption) */
+.feed-caption {
+  position: absolute; z-index: 2; right: clamp(24px, 4vw, 40px); bottom: 104px; max-width: min(360px, 40vw);
+  text-align: right; pointer-events: none;
+}
+.feed-pane.active .feed-caption { animation: captionUp .5s .1s ease both; }
+.feed-caption-name { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: oklch(100% 0 0/.9); margin-bottom: 6px; text-wrap: balance; }
+.feed-caption-city { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.6vw, 46px); font-weight: 300; letter-spacing: -1px; line-height: 1; color: #fff; }
+.feed-caption-meta { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 10px; font-size: 12px; color: oklch(100% 0 0/.8); }
+.feed-caption-type { padding: 3px 10px; border-radius: 99px; background: oklch(75% .10 290 / .22); border: 1px solid oklch(75% .10 290 / .4); }
+.feed-caption-rating { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* persistent identity block — bottom-left */
+.feed-identity {
+  position: absolute; z-index: 3; left: clamp(24px, 5vw, 56px); bottom: clamp(24px, 5vw, 48px);
+  max-width: min(560px, 62vw); animation: fadeUp .6s .1s ease both;
+}
+.feed-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.feed-chip {
+  font-size: 11px; font-weight: 600; letter-spacing: .04em; color: oklch(90% .05 290);
+  background: oklch(75% .10 290 / .18); border: 1px solid oklch(75% .10 290 / .35);
+  border-radius: 99px; padding: 3px 11px; backdrop-filter: blur(6px);
+}
+.feed-title {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300; color: #fff;
+  font-size: clamp(32px, 4.5vw, 64px); line-height: 1.02; letter-spacing: -.02em; text-wrap: balance; margin: 0 0 8px;
+}
+.feed-owner { font-size: 13px; color: oklch(100% 0 0/.78); margin: 0 0 18px; }
+.feed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.feed-view-plan { background: var(--lav-d); color: #fff; min-height: 48px; padding: 0 26px; font-size: 14px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .12s; }
+.feed-view-plan:hover { background: oklch(48% .18 290); box-shadow: 0 0 28px oklch(55% .16 290 / .45); }
+.feed-view-plan:active { transform: scale(.97); }
+.feed-heart {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-width: 48px; min-height: 48px; padding: 0 16px; border-radius: 99px; cursor: pointer;
+  color: #fff; font: inherit; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums;
+  background: oklch(100% 0 0/.16); border: 1px solid oklch(100% 0 0/.32); backdrop-filter: blur(10px);
+  transition: background .2s, border-color .2s, transform .12s;
+}
+.feed-heart:hover { background: oklch(100% 0 0/.28); }
+.feed-heart:active { transform: scale(.94); }
+.feed-heart-icon { width: 22px; height: 22px; flex-shrink: 0; }
+.feed-heart-icon path { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+.feed-heart.on { border-color: oklch(70% .17 20 / .7); }
+.feed-heart.on .feed-heart-icon { color: oklch(68% .22 20); animation: feed-heart-pop .22s cubic-bezier(.16,1,.3,1); }
+.feed-heart.on .feed-heart-icon path { fill: currentColor; stroke: currentColor; }
+@keyframes feed-heart-pop { 0% { transform: scale(.8) } 60% { transform: scale(1.15) } 100% { transform: scale(1) } }
+
+/* horizontal page navigation — bottom-right (never S2's vertical arrows: they would fight page scroll) */
+.feed-nav {
+  position: absolute; z-index: 5; right: clamp(24px, 4vw, 40px); bottom: clamp(24px, 4vw, 40px);
+  display: flex; align-items: center; gap: 8px;
+}
+.feed-nav-prev, .feed-nav-next {
+  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; color: #fff;
+  background: oklch(100% 0 0/.16); border: 1px solid oklch(100% 0 0/.32); backdrop-filter: blur(8px); transition: background .2s;
+}
+.feed-nav-prev:hover, .feed-nav-next:hover { background: oklch(100% 0 0/.32); }
+.feed-dots { display: flex; align-items: center; }
+.feed-dot { width: 20px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.feed-dot::before { content: ''; width: 22px; height: 7px; border-radius: 4px; background: oklch(100% 0 0/.45); transform: scaleX(.32); transition: transform .3s cubic-bezier(.16,1,.3,1), background .3s; }
+.feed-dot.active::before { transform: scaleX(1); background: #fff; }
+.feed-counter { min-width: 56px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; }
+
+/* loading / error / back-to-top */
+.feed-status { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 28px 16px; color: oklch(100% 0 0/.8); font-size: 13px; }
+.feed-loading span { width: 8px; height: 8px; border-radius: 50%; background: oklch(100% 0 0/.6); animation: feed-pulse 1.1s ease-in-out infinite; }
+.feed-loading span:nth-child(2) { animation-delay: .15s; }
+.feed-loading span:nth-child(3) { animation-delay: .3s; }
+@keyframes feed-pulse { 0%, 80%, 100% { opacity: .25; transform: scale(.8) } 40% { opacity: 1; transform: scale(1) } }
+.feed-retry { min-height: 44px; padding: 0 20px; border-radius: 99px; cursor: pointer; color: #fff; font: inherit; font-weight: 600; background: oklch(100% 0 0/.16); border: 1px solid oklch(100% 0 0/.32); }
+.feed-retry:hover { background: oklch(100% 0 0/.28); }
+.feed-back-top {
+  position: fixed; z-index: 60; top: 88px; right: 20px; width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer; color: #fff;
+  background: oklch(20% .05 290 / .72); border: 1px solid oklch(100% 0 0/.3); backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px oklch(0% 0 0/.35); animation: fadeUp .3s ease both;
+}
+.feed-back-top:hover { background: oklch(30% .07 290 / .85); }
+
+@media (max-width: 768px) {
+  .feed-item { height: 100svh; min-height: 100svh; scroll-snap-align: none; }
+  .feed-map { padding: 76px 0 clamp(210px, 34svh, 260px); }
+  .feed-map app-trip-map { width: min(94vw, calc((100svh - 76px - 260px) * 2)); min-width: 300px; }
+  .feed-identity { left: 16px; right: 16px; max-width: none; bottom: 24px; }
+  .feed-nav { top: 16px; bottom: auto; left: 16px; right: 16px; justify-content: center; }
+  .feed-caption { top: 76px; bottom: auto; left: 16px; right: 16px; max-width: none; text-align: left; }
+  .feed-caption-meta { justify-content: flex-start; }
+  /* on mobile the nav and caption sit at the top of the frame, so it needs its own top scrim */
+  .feed-scrim {
+    background:
+      linear-gradient(to bottom, oklch(0% 0 0/.66) 0%, transparent 34%),
+      linear-gradient(to top, oklch(0% 0 0/.9) 0%, oklch(0% 0 0/.55) 32%, transparent 64%);
+  }
+  .feed-back-top { top: auto; bottom: 24px; right: 16px; }
+}
+
+/* ── Welcome-page pill → S6 (bottom-centre of the welcome overlay) ─────────── */
+.welcome-feed-pill {
+  position: absolute; left: 0; right: 0; bottom: 28px; margin-inline: auto; width: fit-content;
+  max-width: min(440px, calc(100% - 32px)); min-height: 44px; padding: 0 18px 0 20px;
+  display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; cursor: pointer;
+  color: #fff; font: inherit; font-size: 14px; font-weight: 500;
+  background: oklch(100% 0 0/.14); border: 1px solid oklch(100% 0 0/.28); backdrop-filter: blur(12px);
+  animation: fadeUp .3s .3s ease both; transition: background .2s;
+}
+.welcome-feed-pill:hover { background: oklch(100% 0 0/.26); }
+.welcome-feed-pill-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.welcome-feed-pill-arrow { flex-shrink: 0; animation: feed-pill-nudge 1.6s ease-in-out infinite; }
+.welcome-feed-pill:hover .welcome-feed-pill-arrow { animation-play-state: paused; }
+@keyframes feed-pill-nudge { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(6px) } }
+@media (max-width: 768px) {
+  /* mobile: the slider's city caption owns the overlay's bottom-left, so the pill joins the flow under the CTAs instead of floating over it */
+  .welcome-feed-pill { position: relative; bottom: auto; align-self: center; margin-top: 16px; width: calc(100% - 32px); max-width: none; justify-content: space-between; }
+}
+@media (max-height: 700px) {
+  /* short viewports: sit in normal flow under the CTAs instead of overlapping them */
+  .welcome-feed-pill { position: relative; bottom: auto; align-self: center; margin-top: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed-pane { transition-duration: 0s; }
+  .feed-pane.active .feed-photo, .feed-pane.active .feed-caption, .feed-identity, .feed-back-top,
+  .feed-heart.on .feed-heart-icon, .feed-loading span { animation: none; }
+  .welcome-feed-pill, .welcome-feed-pill-arrow { animation: none; }
+}
+
 /* ── S1 shell: left panel + right panel side by side ───────────────────── */
 .s1-shell { display: flex; background: var(--cream); }
 .s1-shell > .right-panel { overflow: hidden; }
