@@ -54,6 +54,7 @@ export class LandingFeedComponent implements OnInit, OnDestroy {
   private readonly measuredHeight = signal(0);
   private raf = 0;
   private idleTimer?: ReturnType<typeof setTimeout>;
+  private idleHandle?: number;
 
   private readonly itemHeight = computed(() => this.measuredHeight() || this.fallbackHeight());
   protected readonly win = computed(() =>
@@ -82,7 +83,7 @@ export class LandingFeedComponent implements OnInit, OnDestroy {
     document.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
     window.addEventListener('resize', this.onScroll, { passive: true });
     const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
-    if (idle) idle(() => this.feed.initialLoad());
+    if (idle) this.idleHandle = idle.call(window, () => this.feed.initialLoad());
     else this.idleTimer = setTimeout(() => this.feed.initialLoad(), 0);
   }
 
@@ -91,6 +92,8 @@ export class LandingFeedComponent implements OnInit, OnDestroy {
     window.removeEventListener('resize', this.onScroll);
     if (this.raf) cancelAnimationFrame(this.raf);
     clearTimeout(this.idleTimer);
+    const cancelIdle = (window as unknown as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
+    if (this.idleHandle !== undefined && cancelIdle) cancelIdle.call(window, this.idleHandle);
     this.feed.reset();          // next landing mount starts from a fresh, freshly-ranked list
   }
 

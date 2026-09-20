@@ -967,7 +967,9 @@ app-nav { display: block; }
      slightly less "magnetically" on small scroll increments, but is the only option
      that lets a real scroll gesture traverse S5's content and return in both
      directions without ever getting stuck. Caught via live scrolling in a real browser,
-     not the unit test — see .landing-about-full below. */
+     not the unit test — see .landing-about-full below. S6 (the infinite feed, whose items
+     snap with scroll-snap-align: start) now trails S5, and the same reasoning against
+     `mandatory` applies even more strongly to an unbounded list. */
   scroll-snap-type: y proximity;
   scroll-behavior: smooth;
   scrollbar-width: none;

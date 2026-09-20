@@ -96,6 +96,11 @@ export class LandingFeedService {
     }
     this._loaded.set(true);
     this._loading.set(false);
+
+    // A fully de-duplicated mid-pass page appends nothing, so the component's effect would never
+    // re-fire and the visitor would dead-end on the last card. The new cursor is already stored;
+    // the server cursor advances every time, so this cannot loop forever.
+    if (fresh.length === 0 && page.nextCursor !== null) this.loadMore();
   }
 
   private append(plans: FeedPlan[], pass: number): void {

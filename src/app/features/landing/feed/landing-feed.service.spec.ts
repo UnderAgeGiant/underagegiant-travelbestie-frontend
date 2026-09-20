@@ -83,6 +83,19 @@ describe('LandingFeedService', () => {
     expect(svc.items().filter(i => i.plan.id === 'p19')).toHaveLength(1);
   });
 
+  it('auto-continues when a mid-pass page is entirely de-duplicated but the cursor advanced', () => {
+    setup();
+    getFeed
+      .mockReturnValueOnce(of(page(0, 20, 'c1')))
+      .mockReturnValueOnce(of(page(0, 20, 'c2')))      // all already seen
+      .mockReturnValueOnce(of(page(20, 5, null)));
+    svc.initialLoad();
+    svc.loadMore();
+    expect(getFeed).toHaveBeenCalledTimes(3);
+    expect(getFeed).toHaveBeenLastCalledWith('c2', FEED_PAGE_SIZE);
+    expect(svc.itemCount()).toBe(25);
+  });
+
   it('tiny catalog: recycles in memory after a single-page pass and never re-requests', () => {
     setup();
     getFeed.mockReturnValueOnce(of(page(0, 3, null)));
