@@ -24,35 +24,51 @@
  * per-request cookie/header-based content negotiation.
  */
 import { rewrite } from '@vercel/functions';
+import { isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath } from './src/edge/edge-routing';
 
-// Same shape as the old vercel.json rewrite `source`: match any path that
-// does NOT end in a file extension — i.e. app routes like "/", "/about",
-// "/shared/:id" — everything the SPA-fallback can route to. Real static
-// files (hashed es-CL/en-US bundles, images, favicon) all have extensions
-// and never hit this middleware; they're served directly from disk.
+// Runs on any path that does NOT end in a file extension (same shape as the old vercel.json rewrite `source`),
+// EXCEPT /api/*. The crawler branch below rewrites /shared/:id to /api/shared-page, which has no file extension
+// and is not an app route — if Vercel ever re-ran this middleware on that internal rewrite target, step 3
+// (isKnownRoute) would answer it with a 404 and crawlers would never get their per-plan head. Excluding /api/
+// here makes that impossible instead of relying on Vercel's rewrite semantics. (Covered by
+// src/edge/middleware-config.spec.ts.)
 export const config = {
-  matcher: ['/((?!.*\\.[^/]+$).*)'],
+  matcher: ['/((?!api/|.*\\.[^/]+$).*)'],
 };
 
-function readCookie(cookieHeader: string | null, name: string): string | null {
-  if (!cookieHeader) return null;
-  const hit = cookieHeader
-    .split(';')
-    .map((s) => s.trim())
-    .find((s) => s.startsWith(`${name}=`));
-  return hit ? hit.slice(name.length + 1) : null;
-}
+const NO_STORE = 'private, no-store';
 
-export default function middleware(request: Request) {
-  const cookieLocale = readCookie(request.headers.get('cookie'), 'tb_locale');
-  const prefersEnglish = /^en/i.test(request.headers.get('accept-language') ?? '');
-  const useEnglish = cookieLocale === 'en-US' || (!cookieLocale && prefersEnglish);
+export default async function middleware(request: Request): Promise<Response> {
+  const url = new URL(request.url);
 
-  const response = rewrite(new URL(useEnglish ? '/index.en-US.html' : '/index.html', request.url));
-  // Belt-and-suspenders: this response is generated fresh by a Function on
-  // every request, so it's not edge-cached, but explicitly marking it
-  // private/no-store also stops the browser (or any downstream proxy) from
-  // caching a locale-specific response under the shared "/" URL.
-  response.headers.set('Cache-Control', 'private, no-store');
+  // 1. Legacy `/?share=<id>` links → the real /shared/<id> URL (permanent).
+  if (url.pathname === '/') {
+    const target = legacyShareTarget(url.search);
+    if (target) return Response.redirect(new URL(target, url), 301);
+  }
+
+  const locale = pickLocale(request.headers.get('cookie'), request.headers.get('accept-language'));
+  const shell = locale === 'en-US' ? '/index.en-US.html' : '/index.html';
+
+  // 2. Crawlers/scrapers on a shared plan get a per-plan <head> from a function (humans get the static shell).
+  const sharedId = sharedIdFromPath(url.pathname);
+  if (sharedId && isCrawler(request.headers.get('user-agent'))) {
+    const res = rewrite(new URL(`/api/shared-page?id=${encodeURIComponent(sharedId)}&loc=${locale}`, url));
+    res.headers.set('Cache-Control', NO_STORE);
+    return res;
+  }
+
+  // 3. Unknown path → a REAL 404 (the SPA shell still loads and renders NotFoundComponent).
+  if (!isKnownRoute(url.pathname)) {
+    const upstream = await fetch(new URL(shell, url));
+    return new Response(upstream.body, {
+      status: 404,
+      headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': NO_STORE },
+    });
+  }
+
+  // 4. Known app route → locale bundle (unchanged behaviour).
+  const response = rewrite(new URL(shell, url));
+  response.headers.set('Cache-Control', NO_STORE);
   return response;
 }

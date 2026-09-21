@@ -63,11 +63,19 @@
  * filename-collision risk like the Angular-emitted hashed bundles have,
  * since these names never change between locale builds.
  */
-import { readFileSync, writeFileSync, cpSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, cpSync } from 'node:fs';
 import { join } from 'node:path';
+import { injectSeoHead, buildRobotsTxt } from './seo-head.mjs';
 
 const DIST = join('dist', 'underagegiant-travelbestie-frontend', 'browser');
 const PUBLIC = 'public';
+
+const siteUrlRaw = process.env.SITE_URL ?? '';
+if (!siteUrlRaw && process.env.VERCEL_ENV === 'production') {
+  throw new Error('post-build: SITE_URL must be set for production builds');
+}
+const SITE_URL = (siteUrlRaw || 'http://localhost:4200').replace(/\/+$/, '');
+const SAME_AS = (process.env.SEO_SAME_AS ?? '').split(',').map((s) => s.trim()).filter(Boolean);
 
 // Matches href="..." / src="..." values that are relative (no scheme, no
 // leading slash) — i.e. exactly the asset references Angular emits
@@ -80,6 +88,7 @@ function publishIndex(locale, indexTargetName) {
   let html = readFileSync(srcPath, 'utf8')
     .replace(`<base href="/${locale}/">`, '<base href="/">')
     .replace(RELATIVE_ASSET_REF, (_match, prefix, url, suffix) => `${prefix}${locale}/${url}${suffix}`);
+  html = injectSeoHead(html, locale, SITE_URL, SAME_AS);
   writeFileSync(join(DIST, indexTargetName), html, 'utf8');
   console.log(`post-build: published ${locale}/index.html -> ${indexTargetName} (base href="/", assets explicitly prefixed with ${locale}/)`);
 }
@@ -89,3 +98,9 @@ publishIndex('en-US', 'index.en-US.html');
 
 cpSync(PUBLIC, DIST, { recursive: true });
 console.log(`post-build: copied ${PUBLIC}/ -> dist root (locale-independent assets, fixes runtime-referenced <img> paths)`);
+
+writeFileSync(join(DIST, 'robots.txt'), buildRobotsTxt(SITE_URL), 'utf8');
+console.log(`post-build: wrote robots.txt (sitemap → ${SITE_URL}/sitemap.xml)`);
+if (!existsSync(join(PUBLIC, 'og-default.png'))) {
+  console.warn('post-build: WARNING public/og-default.png is missing — og:image/twitter:image will 404 (owner must add a 1200x630 PNG)');
+}

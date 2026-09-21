@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { FeedPlanCardComponent } from './feed-plan-card.component';
 import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map.component';
 import { AuthService } from '../../../core/auth/auth.service';
@@ -37,7 +37,6 @@ const planWith = (n: number): FeedPlan => ({
 
 describe('FeedPlanCardComponent', () => {
   let fixture: ComponentFixture<FeedPlanCardComponent>;
-  let router: { navigate: jest.Mock };
   let auth: { isLoggedIn: jest.Mock };
   let authModal: { openLogin: jest.Mock };
   let favorites: { isFavorited: jest.Mock; toggle: jest.Mock; loadFavorites: jest.Mock };
@@ -55,7 +54,6 @@ describe('FeedPlanCardComponent', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    router = { navigate: jest.fn() };
     auth = { isLoggedIn: jest.fn(() => false) };
     authModal = { openLogin: jest.fn() };
     favorites = { isFavorited: jest.fn(() => false), toggle: jest.fn(), loadFavorites: jest.fn() };
@@ -63,7 +61,7 @@ describe('FeedPlanCardComponent', () => {
     TestBed.configureTestingModule({
       imports: [FeedPlanCardComponent],
       providers: [
-        { provide: Router, useValue: router },
+        provideRouter([]),
         { provide: AuthService, useValue: auth },
         { provide: AuthModalService, useValue: authModal },
         { provide: FavoritesService, useValue: favorites },
@@ -198,9 +196,11 @@ describe('FeedPlanCardComponent', () => {
     expect(toast.show).toHaveBeenCalled();
   });
 
-  it('"Ver plan completo" navigates to the shared plan', () => {
-    const el = create(planWith(1));
-    (el.querySelector('.feed-view-plan') as HTMLButtonElement).click();
-    expect(router.navigate).toHaveBeenCalledWith(['/shared', 'p1']);
+  it('"Ver plan completo" is a real link to the shared plan', () => {
+    const plan = planWith(1);
+    create(plan);
+    const a: HTMLAnchorElement = fixture.nativeElement.querySelector('a.feed-view-plan');
+    expect(a).not.toBeNull();
+    expect(a.getAttribute('href')).toBe(`/shared/${plan.id}`);
   });
 });

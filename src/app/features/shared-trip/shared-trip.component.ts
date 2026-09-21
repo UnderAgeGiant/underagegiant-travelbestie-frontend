@@ -1,8 +1,8 @@
-import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { forkJoin, of, switchMap, catchError, map } from 'rxjs';
+import { forkJoin, of, switchMap, catchError, map, Subscription } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -31,6 +31,8 @@ import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slidesh
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
+import { SeoService } from '../../core/seo/seo.service';
+import { sharedTripSeo, sharedTripNotFoundSeo } from '../../core/seo/shared-trip-seo.util';
 import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-weather-chip.component';
@@ -486,6 +488,7 @@ export class SharedTripComponent {
   private readonly tripService = inject(TripService);
   private readonly cooldown    = inject(CommentCooldownService);
   private readonly locale      = inject(LocaleService);
+  private readonly seo         = inject(SeoService);
 
   showProfile        = signal(false);
   showSimilarModal   = signal(false);
@@ -548,7 +551,12 @@ export class SharedTripComponent {
     return t ? buildPlanSlideshowItems(t.stops, t.transits ?? [], this.locale.current()) : [];
   });
 
+  private fetchSub: Subscription | null = null;
+
   constructor() {
+    // A late response must never write the (root-scoped) SeoService after the user has left this page.
+    inject(DestroyRef).onDestroy(() => this.fetchSub?.unsubscribe());
+
     effect(() => {
       const id = this.tripId();
       this.rateLimited.set(false);
@@ -561,12 +569,15 @@ export class SharedTripComponent {
   }
 
   private fetchTrip(id: string): void {
-    forkJoin({
+    // Last request wins: drop any in-flight fetch for a previous trip id.
+    this.fetchSub?.unsubscribe();
+    this.fetchSub = forkJoin({
       trip:     this.api.getSharedTrip(id),
       comments: this.api.getStepComments(id).pipe(catchError(() => of({}))),
     }).subscribe({
       next: ({ trip, comments }) => {
         this._trip.set(trip);
+        this.seo.apply(sharedTripSeo({ id, tripName: trip.tripName, stops: trip.stops }, this.locale.current()));
         this.allComments.set(comments);
         this.favoriteCount.set(trip.favoriteCount ?? 0);
         this.favorites.seedFromPayload(id, trip.isFavoritedByMe ?? false);
@@ -581,7 +592,7 @@ export class SharedTripComponent {
       },
       error: err => {
         if (err?.status === 429) this.rateLimited.set(true);
-        else this._trip.set(null);
+        else { this._trip.set(null); this.seo.apply(sharedTripNotFoundSeo()); }
         this.loading.set(false);
       },
     });

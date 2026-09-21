@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
-import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { SharedTripComponent } from './shared-trip.component';
+import { SeoService } from '../../core/seo/seo.service';
 
 // SharedTripComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -316,5 +317,123 @@ describe('SharedTripComponent — trip map', () => {
 
     expect(fixture.componentInstance.selectedShareStop()?.stopId).toBe('stop-london');
     expect(fixture.componentInstance.tripMapOpen()).toBe(false);
+  });
+});
+
+describe('SharedTripComponent — SEO metadata', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+  const seo = { apply: jest.fn(), reset: jest.fn() };
+
+  beforeEach(() => {
+    seo.apply.mockClear();
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: SeoService, useValue: seo },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
+          },
+        },
+      ],
+    });
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('applies shared-trip SEO with the /shared/<id> canonical path after a successful fetch', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush({
+      tripName: 'Viaje a París', ownerName: 'Ana',
+      stops: [{ cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] }],
+      transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(seo.apply.mock.calls[0][0].path).toBe('/shared/trip-a');
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+  });
+
+  it('applies noindex SEO when the shared trip is not found (404)', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a'))
+      .flush({ error: 'not found' }, { status: 404, statusText: 'Not Found' });
+
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(seo.apply.mock.calls[0][0].noindex).toBe(true);
+  });
+});
+
+describe('SharedTripComponent — stale response must not clobber SEO', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+  let paramMap$: BehaviorSubject<ReturnType<typeof convertToParamMap>>;
+  const seo = { apply: jest.fn(), reset: jest.fn() };
+  const body = (name: string) => ({
+    tripName: name, ownerName: 'Ana',
+    stops: [{ cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] }],
+    transits: [],
+  });
+  // match() removes requests from the open list, so tests hold on to the TestRequests. A cancelled (unsubscribed) request is what a
+  // well-behaved component leaves behind; the old code left it live, so a late response still reached SeoService.
+  const grab = (urlEnd: string) => httpMock.match(req => req.url.endsWith(urlEnd));
+  const flushIfLive = (reqs: TestRequest[], payload: unknown) => reqs.forEach(r => { if (!r.cancelled) r.flush(payload as object); });
+
+  beforeEach(() => {
+    seo.apply.mockClear();
+    paramMap$ = new BehaviorSubject(convertToParamMap({ id: 'trip-a' }));
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: SeoService, useValue: seo },
+        { provide: ActivatedRoute, useValue: { paramMap: paramMap$, snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) } } },
+      ],
+    });
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  it('does not apply SEO when the component is destroyed before the response lands', () => {
+    fixture.detectChanges();
+    const trip = grab('/shared/trip-a');
+    const comments = grab('/shared/trip-a/comments');
+    expect(trip).toHaveLength(1);
+    fixture.destroy();
+
+    flushIfLive(trip, body('Viaje A'));
+    flushIfLive(comments, {});
+
+    expect(seo.apply).not.toHaveBeenCalled();
+  });
+
+  it('last request wins: a slow response for the previous trip is dropped after the id changes', () => {
+    fixture.detectChanges();
+    const tripA = grab('/shared/trip-a');
+    const commentsA = grab('/shared/trip-a/comments');
+    expect(tripA).toHaveLength(1);
+
+    paramMap$.next(convertToParamMap({ id: 'trip-b' }));
+    fixture.detectChanges();
+
+    // trip-b answers first, then the stale trip-a response arrives late
+    flushIfLive(grab('/shared/trip-b'), body('Viaje B'));
+    flushIfLive(grab('/shared/trip-b/comments'), {});
+    flushIfLive(tripA, body('Viaje A'));
+    flushIfLive(commentsA, {});
+
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(seo.apply.mock.calls[0][0].path).toBe('/shared/trip-b');
+    flushIfLive(httpMock.match(req => req.url.includes('/weather')), { days: [] });
   });
 });

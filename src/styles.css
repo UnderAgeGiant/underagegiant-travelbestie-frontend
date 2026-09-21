@@ -1111,7 +1111,7 @@ app-nav { display: block; }
 }
 .feed-owner { font-size: 13px; color: oklch(100% 0 0/.78); margin: 0 0 18px; }
 .feed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-.feed-view-plan { background: var(--lav-d); color: #fff; min-height: 48px; padding: 0 26px; font-size: 14px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .12s; }
+.feed-view-plan { text-decoration: none; justify-content: center; background: var(--lav-d); color: #fff; min-height: 48px; padding: 0 26px; font-size: 14px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .12s; }
 .feed-view-plan:hover { background: oklch(48% .18 290); box-shadow: 0 0 28px oklch(55% .16 290 / .45); }
 .feed-view-plan:active { transform: scale(.97); }
 .feed-heart {
