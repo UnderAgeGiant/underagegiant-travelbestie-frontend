@@ -51,8 +51,10 @@ export default async function middleware(request: Request): Promise<Response> {
   const shell = locale === 'en-US' ? '/index.en-US.html' : '/index.html';
 
   // 2. Crawlers/scrapers on a shared plan get a per-plan <head> from a function (humans get the static shell).
+  //    Gated behind SEO_SHARED_HEAD=on (default OFF): when off, crawlers get the normal static shell (200) —
+  //    the safe fallback while /api/shared-page is unverified in production. See scripts/smoke-seo.mjs.
   const sharedId = sharedIdFromPath(url.pathname);
-  if (sharedId && isCrawler(request.headers.get('user-agent'))) {
+  if (sharedId && process.env['SEO_SHARED_HEAD'] === 'on' && isCrawler(request.headers.get('user-agent'))) {
     const res = rewrite(new URL(`/api/shared-page?id=${encodeURIComponent(sharedId)}&loc=${locale}`, url));
     res.headers.set('Cache-Control', NO_STORE);
     return res;
