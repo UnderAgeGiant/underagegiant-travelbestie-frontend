@@ -26,9 +26,14 @@
 import { rewrite } from '@vercel/functions';
 import { isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath } from './src/edge/edge-routing';
 
-// Same shape as the old vercel.json rewrite `source`: any path that does NOT end in a file extension.
+// Runs on any path that does NOT end in a file extension (same shape as the old vercel.json rewrite `source`),
+// EXCEPT /api/*. The crawler branch below rewrites /shared/:id to /api/shared-page, which has no file extension
+// and is not an app route — if Vercel ever re-ran this middleware on that internal rewrite target, step 3
+// (isKnownRoute) would answer it with a 404 and crawlers would never get their per-plan head. Excluding /api/
+// here makes that impossible instead of relying on Vercel's rewrite semantics. (Covered by
+// src/edge/middleware-config.spec.ts.)
 export const config = {
-  matcher: ['/((?!.*\\.[^/]+$).*)'],
+  matcher: ['/((?!api/|.*\\.[^/]+$).*)'],
 };
 
 const NO_STORE = 'private, no-store';
