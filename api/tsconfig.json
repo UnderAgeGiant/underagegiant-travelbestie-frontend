@@ -1,0 +1,15 @@
+{
+  // Vercel compiles api/*.ts with the tsconfig nearest to each file. Without THIS file it picks up the root
+  // Angular tsconfig (module: ES2022, moduleResolution: bundler) and emits ESM `import`/`export` with
+  // extensionless relative imports into a CommonJS package (no "type": "module") -> the function crashes at
+  // load with FUNCTION_INVOCATION_FAILED (production incident 2026-09-21). Keep module on a CJS-emitting
+  // setting. Guarded by src/edge/api-tsconfig.spec.ts.
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "nodenext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["node"]
+  }
+}
