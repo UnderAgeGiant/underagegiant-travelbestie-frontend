@@ -9,6 +9,7 @@ import { authInterceptor } from './core/auth/auth.interceptor';
 import { shareRedirectPath } from './core/routing/share-redirect.util';
 import { parseMpReturnParams, stripMpReturnParams } from './core/karma/mp-return.util';
 import { KarmaModalService } from './core/karma/karma-modal.service';
+import { SeoRouteListener } from './core/seo/seo-route.listener';
 
 registerLocaleData(localeEsCL, 'es-CL');
 registerLocaleData(localeEnUS, 'en-US');
@@ -48,5 +49,6 @@ export const appConfig: ApplicationConfig = {
       useFactory: handleMpReturn,
       multi: true,
     },
+    { provide: APP_INITIALIZER, useFactory: () => { inject(SeoRouteListener); return () => {}; }, multi: true },
   ],
 };

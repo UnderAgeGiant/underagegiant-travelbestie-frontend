@@ -269,6 +269,69 @@
           <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="seo.about.title" datatype="html">
+        <source>Sobre Tripilove — el equipo detrás del planificador</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.about.description" datatype="html">
+        <source>Conoce al equipo y la historia de Tripilove, el planificador de viajes que te ayuda a armar tu itinerario ciudad por ciudad.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.terms.title" datatype="html">
+        <source>Términos de servicio | Tripilove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.terms.description" datatype="html">
+        <source>Lee los términos de servicio de Tripilove: cuentas, karma, planes compartidos y uso aceptable.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.privacy.title" datatype="html">
+        <source>Política de privacidad | Tripilove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.privacy.description" datatype="html">
+        <source>Cómo Tripilove recopila, usa y protege tus datos personales.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.karmaHistory.title" datatype="html">
+        <source>Historial de karma | Tripilove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.notFound.title" datatype="html">
+        <source>Página no encontrada | Tripilove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seo.sharedPending.title" datatype="html">
+        <source>Plan de viaje compartido | Tripilove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="share.message" datatype="html">
         <source>✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳</source>
         <context-group purpose="location">
@@ -1557,56 +1620,56 @@
         <source>por</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.viewPlan" datatype="html">
         <source>Ver plan completo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">70,71</context>
+          <context context-type="linenumber">71,72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.prev" datatype="html">
         <source>Anterior</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">87,88</context>
+          <context context-type="linenumber">88,89</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.next" datatype="html">
         <source>Siguiente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">102,103</context>
+          <context context-type="linenumber">103,104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.heartOn" datatype="html">
         <source>Quitar de favoritos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">122</context>
+          <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.heartOff" datatype="html">
         <source>Guardar en favoritos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">124</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.pageLabel" datatype="html">
         <source>Página <x id="page" equiv-text="p + 1"/> de <x id="total" equiv-text="this.pageCount()"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">156</context>
+          <context context-type="linenumber">171</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.favoriteError" datatype="html">
         <source>No pudimos actualizar tus favoritos. Intenta de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">188</context>
+          <context context-type="linenumber">210</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.loadError" datatype="html">
@@ -3163,6 +3226,27 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/notification-bell.component.ts</context>
           <context context-type="linenumber">133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.title" datatype="html">
+        <source>Esta página no existe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.body" datatype="html">
+        <source>Puede que el enlace esté roto o que la página se haya movido.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.home" datatype="html">
+        <source>Volver al inicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">13,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.modeFlight" datatype="html">

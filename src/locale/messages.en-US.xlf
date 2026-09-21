@@ -2704,6 +2704,56 @@
         <source>Descubre planes de otros viajeros</source>
         <target>Discover plans from other travelers</target>
       </trans-unit>
+
+      <!-- ── seo / not-found ── -->
+      <trans-unit id="seo.about.title" datatype="html">
+        <source>Sobre Tripilove — el equipo detrás del planificador</source>
+        <target>About Tripilove — the team behind the planner</target>
+      </trans-unit>
+      <trans-unit id="seo.about.description" datatype="html">
+        <source>Conoce al equipo y la historia de Tripilove, el planificador de viajes que te ayuda a armar tu itinerario ciudad por ciudad.</source>
+        <target>Meet the team and the story behind Tripilove, the travel planner that helps you build your itinerary city by city.</target>
+      </trans-unit>
+      <trans-unit id="seo.terms.title" datatype="html">
+        <source>Términos de servicio | Tripilove</source>
+        <target>Terms of Service | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.terms.description" datatype="html">
+        <source>Lee los términos de servicio de Tripilove: cuentas, karma, planes compartidos y uso aceptable.</source>
+        <target>Read Tripilove's terms of service: accounts, karma, shared plans and acceptable use.</target>
+      </trans-unit>
+      <trans-unit id="seo.privacy.title" datatype="html">
+        <source>Política de privacidad | Tripilove</source>
+        <target>Privacy Policy | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.privacy.description" datatype="html">
+        <source>Cómo Tripilove recopila, usa y protege tus datos personales.</source>
+        <target>How Tripilove collects, uses and protects your personal data.</target>
+      </trans-unit>
+      <trans-unit id="seo.karmaHistory.title" datatype="html">
+        <source>Historial de karma | Tripilove</source>
+        <target>Karma history | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.notFound.title" datatype="html">
+        <source>Página no encontrada | Tripilove</source>
+        <target>Page not found | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.sharedPending.title" datatype="html">
+        <source>Plan de viaje compartido | Tripilove</source>
+        <target>Shared trip plan | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="notFound.title" datatype="html">
+        <source>Esta página no existe</source>
+        <target>This page doesn't exist</target>
+      </trans-unit>
+      <trans-unit id="notFound.body" datatype="html">
+        <source>Puede que el enlace esté roto o que la página se haya movido.</source>
+        <target>The link may be broken or the page may have moved.</target>
+      </trans-unit>
+      <trans-unit id="notFound.home" datatype="html">
+        <source>Volver al inicio</source>
+        <target>Back to home</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

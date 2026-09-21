@@ -18,8 +18,10 @@ describe('app routes', () => {
     expect(typeof about?.loadComponent).toBe('function');
   });
 
-  it('keeps a wildcard fallback that redirects to root', () => {
+  it('keeps a wildcard fallback that renders the Not Found page (no redirect)', () => {
     const wildcard = routes.find(r => r.path === '**');
-    expect(wildcard?.redirectTo).toBe('');
+    expect(wildcard?.redirectTo).toBeUndefined();
+    expect(typeof wildcard?.loadComponent).toBe('function');
+    expect(typeof wildcard?.data?.['seo']).toBe('function');
   });
 });
