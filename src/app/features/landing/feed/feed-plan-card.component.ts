@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map.component';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
@@ -22,7 +22,7 @@ function prefersReducedMotion(): boolean {
 
 @Component({
   selector: 'tb-feed-plan-card',
-  imports: [TripMapComponent],
+  imports: [TripMapComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
 <article class="feed-card"
@@ -67,8 +67,8 @@ function prefersReducedMotion(): boolean {
     <h3 class="feed-title">{{ plan().tripName }}</h3>
     <p class="feed-owner"><span i18n="@@feed.by">por</span> {{ plan().ownerName }}</p>
     <div class="feed-actions">
-      <button type="button" class="btn-pill feed-view-plan" (click)="viewPlan()"
-              i18n="@@feed.viewPlan">Ver plan completo</button>
+      <a class="btn-pill feed-view-plan" [routerLink]="['/shared', plan().id]"
+         i18n="@@feed.viewPlan">Ver plan completo</a>
       <button type="button" class="feed-heart" [class.on]="favorited()"
               [attr.aria-pressed]="favorited()"
               [attr.aria-label]="favorited() ? heartLabelOn : heartLabelOff"
@@ -112,7 +112,6 @@ export class FeedPlanCardComponent {
   readonly plan   = input.required<FeedPlan>();
   readonly active = input(false);
 
-  private readonly router    = inject(Router);
   private readonly auth      = inject(AuthService);
   private readonly authModal = inject(AuthModalService);
   private readonly favorites = inject(FavoritesService);
@@ -190,7 +189,6 @@ export class FeedPlanCardComponent {
     else if (dx >= SWIPE_PX) this.prev();
   }
 
-  protected viewPlan(): void { this.router.navigate(['/shared', this.plan().id]); }
 
   protected toggleFavorite(): void {
     if (!this.auth.isLoggedIn()) {
