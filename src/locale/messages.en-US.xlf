@@ -2742,6 +2742,18 @@
         <source>Plan de viaje compartido | Tripilove</source>
         <target>Shared trip plan | Tripilove</target>
       </trans-unit>
+      <trans-unit id="seo.shared.title" datatype="html">
+        <source><x id="NAME" equiv-text="name"/> — itinerario en Tripilove</source>
+        <target><x id="NAME" equiv-text="name"/> — itinerary on Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.shared.description" datatype="html">
+        <source>Itinerario por <x id="CITIES" equiv-text="list"/> con <x id="COUNT" equiv-text="attractionCount"/> atracciones planificadas. Créalo, edítalo y compártelo en Tripilove.</source>
+        <target>Itinerary through <x id="CITIES" equiv-text="list"/> with <x id="COUNT" equiv-text="attractionCount"/> planned attractions. Build, edit and share yours on Tripilove.</target>
+      </trans-unit>
+      <trans-unit id="seo.sharedNotFound.title" datatype="html">
+        <source>Viaje no encontrado | Tripilove</source>
+        <target>Trip not found | Tripilove</target>
+      </trans-unit>
       <trans-unit id="notFound.title" datatype="html">
         <source>Esta página no existe</source>
         <target>This page doesn't exist</target>

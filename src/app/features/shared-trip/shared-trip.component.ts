@@ -31,6 +31,8 @@ import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slidesh
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
+import { SeoService } from '../../core/seo/seo.service';
+import { sharedTripSeo, sharedTripNotFoundSeo } from '../../core/seo/shared-trip-seo.util';
 import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-weather-chip.component';
@@ -486,6 +488,7 @@ export class SharedTripComponent {
   private readonly tripService = inject(TripService);
   private readonly cooldown    = inject(CommentCooldownService);
   private readonly locale      = inject(LocaleService);
+  private readonly seo         = inject(SeoService);
 
   showProfile        = signal(false);
   showSimilarModal   = signal(false);
@@ -567,6 +570,7 @@ export class SharedTripComponent {
     }).subscribe({
       next: ({ trip, comments }) => {
         this._trip.set(trip);
+        this.seo.apply(sharedTripSeo({ id, tripName: trip.tripName, stops: trip.stops }, this.locale.current()));
         this.allComments.set(comments);
         this.favoriteCount.set(trip.favoriteCount ?? 0);
         this.favorites.seedFromPayload(id, trip.isFavoritedByMe ?? false);
@@ -581,7 +585,7 @@ export class SharedTripComponent {
       },
       error: err => {
         if (err?.status === 429) this.rateLimited.set(true);
-        else this._trip.set(null);
+        else { this._trip.set(null); this.seo.apply(sharedTripNotFoundSeo()); }
         this.loading.set(false);
       },
     });

@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { SharedTripComponent } from './shared-trip.component';
+import { SeoService } from '../../core/seo/seo.service';
 
 // SharedTripComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -316,5 +317,58 @@ describe('SharedTripComponent — trip map', () => {
 
     expect(fixture.componentInstance.selectedShareStop()?.stopId).toBe('stop-london');
     expect(fixture.componentInstance.tripMapOpen()).toBe(false);
+  });
+});
+
+describe('SharedTripComponent — SEO metadata', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+  const seo = { apply: jest.fn(), reset: jest.fn() };
+
+  beforeEach(() => {
+    seo.apply.mockClear();
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: SeoService, useValue: seo },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
+          },
+        },
+      ],
+    });
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('applies shared-trip SEO with the /shared/<id> canonical path after a successful fetch', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush({
+      tripName: 'Viaje a París', ownerName: 'Ana',
+      stops: [{ cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] }],
+      transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(seo.apply.mock.calls[0][0].path).toBe('/shared/trip-a');
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+  });
+
+  it('applies noindex SEO when the shared trip is not found (404)', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a'))
+      .flush({ error: 'not found' }, { status: 404, statusText: 'Not Found' });
+
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(seo.apply.mock.calls[0][0].noindex).toBe(true);
   });
 });
