@@ -24,7 +24,7 @@ export function buildHomeHead(locale, siteUrl, sameAs = []) {
   const org = { '@type': 'Organization', '@id': `${origin}/#org`, name: 'Tripilove', url: `${origin}/`, logo: `${origin}/favicon.svg` };
   if (sameAs.length) org.sameAs = sameAs;
   const site = { '@type': 'WebSite', '@id': `${origin}/#site`, name: 'Tripilove', url: `${origin}/`, inLanguage: m.lang, publisher: { '@id': `${origin}/#org` } };
-  const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': [org, site] }).replace(/</g, '\u003c');
+  const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': [org, site] }).replace(/</g, '\\u003c');
   return [
     `<meta name="description" content="${esc(m.description)}">`,
     `<meta name="theme-color" content="#7C3AED">`,

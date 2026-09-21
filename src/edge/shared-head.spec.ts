@@ -25,6 +25,8 @@ describe('buildSharedHead', () => {
     expect(head).toContain('<meta property="og:url" content="https://tripilove.com/shared/abc">');
     expect(head).toContain('<meta property="og:locale" content="es_CL">');
     expect(head).toContain('<meta name="twitter:card" content="summary_large_image">');
+    expect(head).toContain('<meta property="og:image:width" content="1200">');
+    expect(head).toContain('<meta property="og:image:height" content="630">');
     expect(head).toContain('Itinerario por Paris, Rome y Barcelona con 12 atracciones planificadas');
     const ld = JSON.parse(/<script type="application\/ld\+json" id="tb-jsonld-shared">([\s\S]*?)<\/script>/.exec(head)![1]);
     expect(ld['@type']).toBe('TouristTrip');
@@ -49,8 +51,13 @@ describe('buildSharedHead', () => {
     expect(head).not.toContain('"><script>');
   });
 
-  it('never includes owner fields (they are not in the summary type)', () => {
-    expect(buildSharedHead(summary(), 'es-CL', SITE).head).not.toMatch(/owner/i);
+  it('never leaks owner data even if the backend summary carries extra owner fields', () => {
+    const leaky = summary({ ...({ ownerName: 'Maria', ownerEmail: 'm@x.com' } as object) } as Partial<SharedSeoSummary>);
+    expect((leaky as any).ownerName).toBe('Maria');
+    const { title, head } = buildSharedHead(leaky, 'es-CL', SITE);
+    expect(head).not.toContain('Maria');
+    expect(head).not.toContain('m@x.com');
+    expect(title).not.toContain('Maria');
   });
 });
 

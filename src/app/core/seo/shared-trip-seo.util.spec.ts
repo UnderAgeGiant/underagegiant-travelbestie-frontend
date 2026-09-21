@@ -24,8 +24,12 @@ describe('sharedTripSeo', () => {
   });
 
   it('never leaks owner data', () => {
-    const seo = sharedTripSeo({ id: 'abc', tripName: 'T', stops: [stop('paris', 3)], ...({ ownerName: 'Maria', ownerEmail: 'm@x.com' } as object) } as any, 'es-CL');
-    expect(JSON.stringify(seo)).not.toMatch(/Maria|m@x\.com/);
+    const input = { id: 'abc', tripName: 'T', stops: [stop('paris', 3)], ...({ ownerName: 'Maria', ownerEmail: 'm@x.com' } as object) } as any;
+    expect(input.ownerName).toBe('Maria'); // guard: the owner fields really are on the input
+    const out = JSON.stringify(sharedTripSeo(input, 'es-CL'));
+    expect(out).toContain('"path":"/shared/abc"'); // guard: the output is a real, non-empty SEO page
+    expect(out).not.toContain('Maria');
+    expect(out).not.toContain('m@x.com');
   });
 
   it('is noindex below the attraction floor', () => {

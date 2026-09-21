@@ -38,6 +38,16 @@ test('JSON-LD has Organization + WebSite, sameAs only when provided, and is scri
   assert.deepEqual(parsed['@graph'].map(n => n['@type']).sort(), ['Organization', 'WebSite']);
 });
 
+test('JSON-LD escapes "<" so a hostile sameAs entry cannot close the script block', () => {
+  const evil = '</script><b>';
+  const head = buildHomeHead('es-CL', SITE, [evil]);
+  const block = head.slice(head.indexOf('<script type="application/ld+json" id="tb-jsonld-site">'));
+  assert.equal((block.match(/<\/script>/g) || []).length, 1);
+  assert.ok(!head.includes(evil));
+  const ld = block.match(/id="tb-jsonld-site">([\s\S]*?)<\/script>/)[1];
+  assert.equal(JSON.parse(ld)['@graph'][0].sameAs[0], evil);
+});
+
 test('robots.txt allows crawling, blocks the private route and points at the sitemap', () => {
   const txt = buildRobotsTxt(SITE);
   assert.match(txt, /User-agent: \*/);

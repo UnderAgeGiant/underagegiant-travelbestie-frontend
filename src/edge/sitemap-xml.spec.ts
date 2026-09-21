@@ -26,6 +26,13 @@ describe('buildSitemapXml', () => {
     expect(xml).toContain('a%26b%3Cc');
   });
 
+  it('XML-escapes lastmod values (escapeXml, not just encodeURIComponent)', () => {
+    const xml = buildSitemapXml(SITE, [{ id: 'abc', updatedAt: '2026-09-01T00:00:00Z&x<y' }]);
+    expect(xml).toContain('&amp;');
+    expect(xml).toContain('&lt;');
+    expect(xml).not.toContain('&x<y');
+  });
+
   it('caps at the 50,000-URL protocol limit', () => {
     const many = Array.from({ length: 60000 }, (_, i) => ({ id: `id${i}`, updatedAt: '2026-09-01T00:00:00.000Z' }));
     expect(buildSitemapXml(SITE, many).match(/<url>/g)).toHaveLength(50000);
