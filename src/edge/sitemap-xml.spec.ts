@@ -37,4 +37,11 @@ describe('buildSitemapXml', () => {
     const many = Array.from({ length: 60000 }, (_, i) => ({ id: `id${i}`, updatedAt: '2026-09-01T00:00:00.000Z' }));
     expect(buildSitemapXml(SITE, many).match(/<url>/g)).toHaveLength(50000);
   });
+
+  it('lists extra (guide) paths as canonical urls without lastmod', () => {
+    const xml = buildSitemapXml(SITE, [], ['/ciudad/madrid', '/ciudad/buenos-aires']);
+    expect(xml).toContain('<loc>https://tripilove.com/ciudad/madrid</loc>');
+    expect(xml).toContain('<loc>https://tripilove.com/ciudad/buenos-aires</loc>');
+    expect(xml.match(/<url>/g)).toHaveLength(4 + 2);
+  });
 });

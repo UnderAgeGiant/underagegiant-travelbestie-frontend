@@ -1,6 +1,9 @@
+import { guideBySlug } from '../app/data/city-guides.data';
+
 export type EdgeLocale = 'es-CL' | 'en-US';
 
-// Pure helpers shared by middleware.ts, api/*.ts and jest — keep this file free of Angular/Node imports.
+// Pure helpers shared by middleware.ts, api/*.ts and jest — this file may import the (import-free)
+// city guide manifest, but otherwise stays free of Angular/Node imports.
 
 const BOT_UA = new RegExp(
   '(googlebot|adsbot-google|bingbot|bingpreview|slurp|duckduckbot|baiduspider|yandex(bot)?|applebot|' +
@@ -32,12 +35,21 @@ export function sharedIdFromPath(pathname: string): string | null {
   try { return decodeURIComponent(m[1]); } catch { return null; } // malformed %-escape → treat as unknown path
 }
 
+export function citySlugFromPath(pathname: string): string | null {
+  const m = /^\/ciudad\/([^/]+)$/.exec(trim(pathname));
+  if (!m) return null;
+  try {
+    const slug = decodeURIComponent(m[1]);
+    return guideBySlug(slug) ? slug : null;
+  } catch { return null; }
+}
+
 /** Every path the SPA can render. A jest guard fails if app.routes.ts gains a route missing here. */
 const STATIC_ROUTES = new Set(['/', '/about', '/terms', '/privacy', '/karma-history']);
 
 export function isKnownRoute(pathname: string): boolean {
   const p = trim(pathname);
-  return STATIC_ROUTES.has(p) || sharedIdFromPath(p) !== null;
+  return STATIC_ROUTES.has(p) || sharedIdFromPath(p) !== null || citySlugFromPath(p) !== null;
 }
 
 /** Legacy `?share=<id>[&highlight=…]` → `/shared/<id>[?highlight=…]` (301 at the edge; the client shim stays for old in-app links). */
