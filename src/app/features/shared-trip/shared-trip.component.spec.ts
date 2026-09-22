@@ -221,7 +221,7 @@ describe('SharedTripComponent — day-boundary divider between itin-items (feedb
   it('renders one divider between two attractions on different days', () => {
     flushTrip([
       { attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
-      { attractionId: 'paris_1', date: '03/06/2026', startTime: '10:00' },
+      { attractionId: 'paris_5', date: '03/06/2026', startTime: '10:00' },
     ]);
 
     expect(fixture.nativeElement.querySelectorAll('.itin-day-divider').length).toBe(1);
@@ -230,7 +230,7 @@ describe('SharedTripComponent — day-boundary divider between itin-items (feedb
   it('renders no divider when every attraction falls on the same day', () => {
     flushTrip([
       { attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
-      { attractionId: 'paris_1', date: '02/06/2026', startTime: '14:00' },
+      { attractionId: 'paris_5', date: '02/06/2026', startTime: '14:00' },
     ]);
 
     expect(fixture.nativeElement.querySelectorAll('.itin-day-divider').length).toBe(0);
@@ -239,7 +239,7 @@ describe('SharedTripComponent — day-boundary divider between itin-items (feedb
   it('displays out-of-storage-order attractions sorted by date, with the divider in the right place', () => {
     // Stored day-2 first, day-1 second — display should still read day 1 then day 2.
     flushTrip([
-      { attractionId: 'paris_1', date: '03/06/2026', startTime: '10:00' },
+      { attractionId: 'paris_5', date: '03/06/2026', startTime: '10:00' },
       { attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
     ]);
 

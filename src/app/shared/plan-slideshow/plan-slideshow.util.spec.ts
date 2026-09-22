@@ -2,8 +2,11 @@ import { buildPlanSlideshowItems } from './plan-slideshow.util';
 import { TripStop, TransitLeg } from '../../core/models/trip.model';
 
 const PARIS_0_IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg/1920px-Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg';
-const PARIS_0_DESC_ES = 'Las orillas del Sena en París son Patrimonio de la Humanidad por la Unesco desde 1991, en un tramo que va desde el Puente de Sully hasta el Puente de Iéna, e incluyen monumentos como Notre-Dame, el Louvre y la Torre Eiffel.';
-const PARIS_0_DESC_EN = 'The Seine is a 777-kilometre-long (483 mi) river in northern France. Its drainage basin is in the Paris Basin covering most of northern France.';
+// Task 6 (city-guide-pages, 2026-09-22) re-resolved paris_0 against its real Wikipedia article
+// ("Riberas del Sena en París") — updated description text; no English Wikidata sitelink was
+// found, so descriptionEn was cleared and the English item now falls back to the Spanish text.
+const PARIS_0_DESC_ES = 'Sobre las orillas del Sena en París se pueden contemplar algunos de los más bellos monumentos de la capital de Francia, de la Torre Eiffel a Notre-Dame pasando por la Concordia, pero también los puentes históricos que las unen.';
+const PARIS_0_DESC_EN = PARIS_0_DESC_ES;
 
 const PARIS_STOP: TripStop = {
   stopId: 'stop-1',
