@@ -28,8 +28,19 @@ export const notFoundSeo: RouteSeo = () => ({
   noindex: true,
 });
 
-/** Interim head for /shared/:id until the plan loads (SharedTripComponent then applies the real one). */
+/**
+ * Interim head for /shared/:id while the plan is still loading (SharedTripComponent's fetchTrip() then applies
+ * the real title/description/noindex/JSON-LD once it resolves, success or 404).
+ *
+ * Deliberately carries NO `noindex` — a JS-rendering crawler (Google's indexing renderer, not just non-JS link
+ * scrapers) can snapshot the DOM during this window, before the real result is known. A false `noindex,follow`
+ * transiently present in the live DOM is exactly what a "noindex tag detected" report in Search Console looks
+ * like — caught live on production 2026-09-21 (a ~1.6s-wide "Plan de viaje compartido | Tripilove" state with
+ * `<meta name="robots" content="noindex,follow">` on a page that is fully indexable once loaded). Showing the
+ * placeholder title with no robots meta is strictly safer than a transient false noindex signal. The genuinely
+ * terminal noindex cases — a truly unknown/thin/uncategorizable plan — are set by sharedTripSeo()/
+ * sharedTripNotFoundSeo() once fetchTrip() resolves, not here.
+ */
 export const sharedPendingSeo: RouteSeo = () => ({
   title: $localize`:@@seo.sharedPending.title:Plan de viaje compartido | Tripilove`,
-  noindex: true,
 });
