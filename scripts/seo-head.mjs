@@ -58,3 +58,22 @@ export function buildRobotsTxt(siteUrl) {
   const origin = siteUrl.replace(/\/+$/, '');
   return ['User-agent: *', 'Allow: /', 'Disallow: /karma-history', '', `Sitemap: ${origin}/sitemap.xml`, ''].join('\n');
 }
+
+export const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// Tags a shell may already carry (see buildHomeHead) — replaced wholesale by the page's own head.
+const STRIP = [
+  /<title>[\s\S]*?<\/title>/gi,
+  /<meta\s+name="description"[^>]*>/gi,
+  /<meta\s+name="robots"[^>]*>/gi,
+  /<meta\s+property="og:[^"]*"[^>]*>/gi,
+  /<meta\s+name="twitter:[^"]*"[^>]*>/gi,
+  /<link\s+rel="canonical"[^>]*>/gi,
+];
+
+/** Same contract as applyHead() in src/edge/shared-head.ts. Function replacer: `head` may contain "$&"-style text. */
+export function applyHeadToShell(html, head) {
+  let out = html;
+  for (const re of STRIP) out = out.replace(re, '');
+  return out.replace('</head>', () => `  ${head}\n</head>`);
+}
