@@ -32,3 +32,14 @@ export async function GET(request: Request): Promise<Response> {
   } catch { /* fall through to the plain shell */ }
   return new Response(shell, { status: 200, headers: HEADERS });
 }
+
+// Crawlers/scrapers probe with HEAD/OPTIONS before the real GET (e.g. Google Search Console's sitemap
+// reachability check on the sitemap entries themselves) — without these, the probe gets Vercel's default 405.
+export async function HEAD(request: Request): Promise<Response> {
+  const res = await GET(request);
+  return new Response(null, { status: res.status, headers: res.headers });
+}
+
+export async function OPTIONS(): Promise<Response> {
+  return new Response(null, { status: 204, headers: { allow: 'GET, HEAD, OPTIONS' } });
+}
