@@ -16,11 +16,13 @@ function topPhotoFor(cityId: string): string | undefined {
 }
 
 /**
- * Small rotating teaser, shown next to the desktop nav's search box on every page that renders
- * <app-nav> (NavDesktopComponent's `showCityGuidePromo` input, default true — pass `false` to
- * opt a specific page out): "Guía de destino a: <city>" over a Ken-Burns'd photo, cycling through
- * every owner-approved (`reviewed: true`) city guide. Renders nothing until at least one guide
- * is reviewed.
+ * Small rotating teaser, shown on every page that renders <app-nav> (both
+ * NavDesktopComponent's and NavMobileComponent's `showCityGuidePromo` inputs default true —
+ * pass `false` to opt a specific page out): "Guía de destino a: <city>" over a Ken-Burns'd
+ * photo, cycling through every owner-approved (`reviewed: true`) city guide. Desktop places it
+ * as a small pill next to the search box; mobile stretches it full-width under the compact bar
+ * via `.nav-m-guide-promo`'s CSS override — this component's own template/logic is identical
+ * either way. Renders nothing until at least one guide is reviewed.
  */
 @Component({
   selector: 'app-city-guide-promo',
