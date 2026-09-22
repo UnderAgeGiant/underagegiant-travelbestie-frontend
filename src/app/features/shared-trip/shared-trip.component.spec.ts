@@ -520,4 +520,16 @@ describe('SharedTripComponent — no false noindex while the shared plan is load
 
     expect(robotsMeta()).toBe('noindex,follow');
   });
+
+  // Regression for the 2026-09-22 root-cause report (docs/superpowers/plans-reports/2026-09-22-shared-plan-noindex-root-cause.md):
+  // a transient failure (network error, blocked fetch, 5xx) is not proof the plan doesn't exist, so it must not be
+  // treated the same as a genuine 404 — leave whatever SEO state was already applied (here: none, still loading) alone.
+  it('does NOT apply noindex when the fetch fails with a non-404 error (network error / 5xx)', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a'))
+      .flush({ error: 'server error' }, { status: 500, statusText: 'Internal Server Error' });
+
+    expect(robotsMeta()).toBeNull();
+  });
 });

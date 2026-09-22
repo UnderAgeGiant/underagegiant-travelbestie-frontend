@@ -592,7 +592,13 @@ export class SharedTripComponent {
       },
       error: err => {
         if (err?.status === 429) this.rateLimited.set(true);
-        else { this._trip.set(null); this.seo.apply(sharedTripNotFoundSeo()); }
+        else {
+          this._trip.set(null);
+          // Only a genuine 404 means the plan doesn't exist. A network error, a blocked fetch, or a 5xx
+          // is a transient failure — asserting noindex on those would tell Google a real, indexable plan
+          // doesn't exist. Leave whatever SEO state is already applied alone.
+          if (err?.status === 404) this.seo.apply(sharedTripNotFoundSeo());
+        }
         this.loading.set(false);
       },
     });
