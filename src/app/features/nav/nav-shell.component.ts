@@ -53,5 +53,6 @@ export class NavShellComponent {
   logoClick    = output<void>();
   profileClick = output<void>();
   activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
-  showCityGuidePromo = input<boolean>(false);
+  /** Default true: shown next to the search box on every page that renders <app-nav>. */
+  showCityGuidePromo = input<boolean>(true);
 }

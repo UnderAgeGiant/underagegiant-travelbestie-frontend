@@ -56,8 +56,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <app-nav (logoClick)="null"
-             (profileClick)="showProfile.set(true)"
-             [showCityGuidePromo]="trip.stops().length === 0" />
+             (profileClick)="showProfile.set(true)" />
 
     @if (trip.stops().length === 0) {
       <!-- ── LANDING MODE: scroll-snap container ── -->
