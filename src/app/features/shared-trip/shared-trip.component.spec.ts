@@ -12,6 +12,14 @@ import { sharedPendingSeo } from '../../core/seo/seo-pages';
   matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {},
 }));
 
+// Task 11: city headers link to a published guide. Mocked here (rather than relying on the real
+// manifest's `reviewed` flags, which change independently as guides launch) so this spec stays
+// stable regardless of which cities are actually published at any given time.
+jest.mock('../../data/city-guides.data', () => {
+  const actual = jest.requireActual('../../data/city-guides.data');
+  return { ...actual, guideByCityId: (cityId: string) => cityId === 'madrid' ? { slug: 'madrid', reviewed: true } : undefined };
+});
+
 /**
  * Regression coverage for the "selecting a second shared trip from the nav drawer doesn't
  * change the page" bug: Angular's default route-reuse strategy keeps the same
@@ -120,6 +128,55 @@ describe('SharedTripComponent — city info + weather on itin-city-head', () => 
 
     expect(fixture.nativeElement.querySelector('app-city-weather-chip')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('app-city-info-badge')).toBeTruthy();
+  });
+});
+
+describe('SharedTripComponent — city header links to its guide (Task 11)', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-b' })),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-b' }) },
+          },
+        },
+      ],
+    });
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('links the header to /ciudad/:slug for a city with a published guide, plain text otherwise', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-b')).flush({
+      tripName: 'Viaje', ownerName: 'Ana',
+      stops: [
+        { cityId: 'madrid', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] },
+        { cityId: 'paris', checkIn: '06/06/2026', checkOut: '10/06/2026', selectedAttractions: [] },
+      ],
+      transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-b/comments')).flush({});
+    fixture.detectChanges();
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+    fixture.detectChanges();
+
+    const guideLink = fixture.nativeElement.querySelector('a.itin-city-link[href="/ciudad/madrid"]');
+    expect(guideLink?.textContent).toContain('Madrid');
+    // Paris has no reviewed guide in the real manifest yet — its header renders plain text, no link.
+    const parisHeader = Array.from(fixture.nativeElement.querySelectorAll('.itin-city-name'))
+      .find((el: any) => el.textContent.includes('Paris') || el.textContent.includes('París')) as HTMLElement | undefined;
+    expect(parisHeader?.querySelector('a.itin-city-link')).toBeFalsy();
   });
 });
 

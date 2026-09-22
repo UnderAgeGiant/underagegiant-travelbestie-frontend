@@ -3299,3 +3299,5 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
 .cg-related ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 18px; }
 .cg-foot { font-size: 12px; color: var(--t3); line-height: 1.5; border-top: 1px solid var(--border); padding-top: 16px; }
 @media (max-width: 768px) { .cg-main { padding-top: 84px; } }
+
+.itin-city-link { color: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
