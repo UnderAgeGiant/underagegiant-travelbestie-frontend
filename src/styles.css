@@ -3268,3 +3268,34 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
   position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff;
   font-size: 22px; cursor: pointer; line-height: 1;
 }
+
+/* ── City guide pages (/ciudad/:slug) ── */
+.cg-page { min-height: 100vh; background: var(--cream); overflow-y: auto; height: 100vh; }
+.cg-main { max-width: 980px; margin: 0 auto; padding: 96px 20px 64px; display: flex; flex-direction: column; gap: 36px; }
+.cg-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--lav-d); }
+.cg-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 6vw, 56px); font-weight: 500; letter-spacing: -.5px; color: var(--t1); margin: 6px 0 12px; }
+.cg-intro { font-size: 17px; line-height: 1.6; color: var(--t2); max-width: 720px; margin-bottom: 18px; }
+.cg-facts { background: var(--lav); border-radius: 18px; padding: 18px 22px; }
+.cg-facts h2 { font-size: 15px; font-weight: 700; color: var(--lav-d); margin-bottom: 10px; }
+.cg-facts ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px 20px; font-size: 14px; color: var(--t1); }
+.cg-main h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--t1); margin-bottom: 14px; }
+.cg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.cg-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--sh); display: flex; flex-direction: column; }
+.cg-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.cg-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; }
+.cg-card h3 { font-size: 17px; font-weight: 700; color: var(--t1); }
+.cg-meta { font-size: 12.5px; color: var(--t3); }
+.cg-card p, .cg-list li span:not(.cg-meta) { font-size: 14px; line-height: 1.55; color: var(--t2); }
+.cg-src { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; }
+.cg-src a, .cg-list a, .cg-related a { color: var(--lav-d); text-decoration: none; }
+.cg-src a:hover, .cg-list a:hover, .cg-related a:hover { text-decoration: underline; }
+.cg-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.cg-list li { display: flex; flex-direction: column; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.cg-practical p, .cg-practical li { font-size: 15px; line-height: 1.6; color: var(--t2); }
+.cg-practical ul { padding-left: 20px; margin-bottom: 10px; }
+.cg-faq details { border-bottom: 1px solid var(--border); padding: 12px 0; }
+.cg-faq summary { cursor: pointer; font-weight: 600; color: var(--t1); }
+.cg-faq p { margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: var(--t2); }
+.cg-related ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 18px; }
+.cg-foot { font-size: 12px; color: var(--t3); line-height: 1.5; border-top: 1px solid var(--border); padding-top: 16px; }
+@media (max-width: 768px) { .cg-main { padding-top: 84px; } }

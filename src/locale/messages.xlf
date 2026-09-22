@@ -329,7 +329,7 @@
         <source>Plan de viaje compartido | Tripilove</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/seo/seo-pages.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="seo.shared.title" datatype="html">
@@ -893,6 +893,188 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
           <context context-type="linenumber">888</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.eyebrow" datatype="html">
+        <source>Guía de viaje <x id="INTERPOLATION" equiv-text="{{ m.city.flag }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.h1" datatype="html">
+        <source>Qué hacer en <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.cta" datatype="html">
+        <source>Planificar mi viaje a <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.factsTitle" datatype="html">
+        <source>Viajando desde Chile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.factVisa" datatype="html">
+        <source>Visa:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.factCurrency" datatype="html">
+        <source>Moneda:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.factPlug" datatype="html">
+        <source>Enchufes:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.factTime" datatype="html">
+        <source>Hora:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.mustSee" datatype="html">
+        <source>Imperdibles de <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcWikipedia" datatype="html">
+        <source>Wikipedia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcPhoto" datatype="html">
+        <source>Foto: Wikimedia Commons</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.moreIn" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ s.label }}"/> en <x id="INTERPOLATION_1" equiv-text="{{ m.entry.displayName }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">73,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcWikipedia2" datatype="html">
+        <source>Wikipedia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">79,81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.dayTrips" datatype="html">
+        <source>Excursiones de un día desde <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">88,89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcWikipedia3" datatype="html">
+        <source>Wikipedia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">94,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.whenTitle" datatype="html">
+        <source>Cuándo ir</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.getTitle" datatype="html">
+        <source>Cómo llegar desde Chile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.tipsTitle" datatype="html">
+        <source>Consejos prácticos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">104,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.plansTitle" datatype="html">
+        <source>Itinerarios reales de viajeros que pasan por <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">110,111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.planStops" datatype="html">
+        <source>lugares</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.faqTitle" datatype="html">
+        <source>Preguntas frecuentes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">123,124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.relatedTitle" datatype="html">
+        <source>Otras guías</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">131,132</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.license" datatype="html">
+        <source> Las descripciones de los lugares provienen de Wikipedia y se publican bajo licencia CC BY-SA 4.0; las fotos, de Wikimedia Commons, con la licencia indicada en cada archivo. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">137,139</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.timeSame" datatype="html">
+        <source>Misma hora que en Chile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/time-difference.util.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.timeAhead" datatype="html">
+        <source><x id="HOURS" equiv-text="n"/> h más que en Chile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/time-difference.util.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cityGuide.timeBehind" datatype="html">
+        <source><x id="HOURS" equiv-text="n"/> h menos que en Chile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/time-difference.util.ts</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="commentSimilar.title" datatype="html">
@@ -1669,28 +1851,28 @@
         <source>Quitar de favoritos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">122</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.heartOff" datatype="html">
         <source>Guardar en favoritos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">124</context>
+          <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.pageLabel" datatype="html">
         <source>Página <x id="page" equiv-text="p + 1"/> de <x id="total" equiv-text="this.pageCount()"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">171</context>
+          <context context-type="linenumber">170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.favoriteError" datatype="html">
         <source>No pudimos actualizar tus favoritos. Intenta de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/feed/feed-plan-card.component.ts</context>
-          <context context-type="linenumber">210</context>
+          <context context-type="linenumber">208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="feed.loadError" datatype="html">
@@ -3996,63 +4178,63 @@
         <source>Selecciona una parada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shell/shell.component.ts</context>
-          <context context-type="linenumber">107,108</context>
+          <context context-type="linenumber">109,110</context>
         </context-group>
       </trans-unit>
       <trans-unit id="app.selectStopDesc" datatype="html">
         <source>Haz clic en un destino del panel para explorar sus atracciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/shell/shell.component.ts</context>
-          <context context-type="linenumber">109,111</context>
+          <context context-type="linenumber">111,113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.title" datatype="html">
         <source>Agregar destino ✈️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/add-stop-modal/add-stop-modal.component.ts</context>
-          <context context-type="linenumber">17,18</context>
+          <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.subtitle" datatype="html">
         <source>Busca entre 120+ ciudades del mundo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/add-stop-modal/add-stop-modal.component.ts</context>
-          <context context-type="linenumber">18,20</context>
+          <context context-type="linenumber">19,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.cityLabel" datatype="html">
         <source>Ciudad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/add-stop-modal/add-stop-modal.component.ts</context>
-          <context context-type="linenumber">22,23</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.datesRequired" datatype="html">
         <source>Las fechas de entrada y salida son obligatorias.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/add-stop-modal/add-stop-modal.component.ts</context>
-          <context context-type="linenumber">33,35</context>
+          <context context-type="linenumber">34,36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.consecutiveWarning" datatype="html">
         <source>Esta ciudad ya está en el destino adyacente. ¿Seguro que querés agregarla de nuevo?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/add-stop-modal/add-stop-modal.component.ts</context>
-          <context context-type="linenumber">38,40</context>
+          <context context-type="linenumber">39,41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.cancelBtn" datatype="html">
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/add-stop-modal/add-stop-modal.component.ts</context>
-          <context context-type="linenumber">43,44</context>
+          <context context-type="linenumber">44,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.addBtn" datatype="html">
         <source>Agregar al viaje ✈️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/add-stop-modal/add-stop-modal.component.ts</context>
-          <context context-type="linenumber">49,51</context>
+          <context context-type="linenumber">50,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="citySuggest.closeAria" datatype="html">

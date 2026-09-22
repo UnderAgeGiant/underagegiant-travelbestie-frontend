@@ -1,8 +1,9 @@
-import { Component, output, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, output, signal, inject, computed, effect, input, untracked, ChangeDetectionStrategy } from '@angular/core';
 import { CityComboboxComponent } from '../../../shared/city-combobox/city-combobox.component';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
+import { WORLD_CITIES } from '../../../data/cities.data';
 
 @Component({
     selector: 'app-add-stop-modal',
@@ -56,9 +57,21 @@ export class AddStopModalComponent {
   readonly trip = inject(TripService);
   close = output<void>();
 
+  /** City id to pre-select on open — e.g. from a city guide page's "Planificar mi viaje" CTA (`?addCity=`). */
+  readonly presetCityId = input<string | null>(null);
+
   selectedCity = signal<City | null>(null);
   checkIn = signal('');
   checkOut = signal('');
+
+  constructor() {
+    effect(() => {
+      const id = this.presetCityId();
+      if (!id) return;
+      const city = WORLD_CITIES.find(c => c.id === id);
+      if (city) untracked(() => this.selectedCity.set(city));
+    });
+  }
 
   // Mobile browsers can fire a "ghost" click on the backdrop after the flatpickr
   // calendar closes from the same tap that selected a date, instantly closing this

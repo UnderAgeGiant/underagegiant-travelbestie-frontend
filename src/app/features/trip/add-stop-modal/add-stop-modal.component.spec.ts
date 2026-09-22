@@ -39,6 +39,30 @@ describe('AddStopModalComponent — default check-in date', () => {
   });
 });
 
+describe('AddStopModalComponent — presetCityId (city guide "plan this city" pre-fill)', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AddStopModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+  });
+
+  it('pre-selects the city when presetCityId matches a known city', () => {
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.componentRef.setInput('presetCityId', 'madrid');
+    fixture.detectChanges();
+    expect(fixture.componentInstance.selectedCity()?.id).toBe('madrid');
+  });
+
+  it('leaves selectedCity null for an unknown id', () => {
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.componentRef.setInput('presetCityId', 'atlantis');
+    fixture.detectChanges();
+    expect(fixture.componentInstance.selectedCity()).toBeNull();
+  });
+});
+
 describe('AddStopModalComponent — backdrop close guard', () => {
   let component: AddStopModalComponent;
   const backdropEl = { id: 'backdrop' } as unknown as EventTarget;

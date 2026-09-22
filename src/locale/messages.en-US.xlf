@@ -2766,6 +2766,112 @@
         <source>Volver al inicio</source>
         <target>Back to home</target>
       </trans-unit>
+
+      <!-- ── city-guide (Feature 67) ── -->
+      <trans-unit id="cityGuide.eyebrow" datatype="html">
+        <source>Guía de viaje <x id="INTERPOLATION" equiv-text="{{ m.city.flag }}"/></source>
+        <target>Travel guide <x id="INTERPOLATION" equiv-text="{{ m.city.flag }}"/></target>
+      </trans-unit>
+      <trans-unit id="cityGuide.h1" datatype="html">
+        <source>Qué hacer en <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <target>What to do in <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></target>
+      </trans-unit>
+      <trans-unit id="cityGuide.cta" datatype="html">
+        <source>Planificar mi viaje a <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <target>Plan my trip to <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></target>
+      </trans-unit>
+      <trans-unit id="cityGuide.factsTitle" datatype="html">
+        <source>Viajando desde Chile</source>
+        <target>Travelling from Chile</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.factVisa" datatype="html">
+        <source>Visa:</source>
+        <target>Visa:</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.factCurrency" datatype="html">
+        <source>Moneda:</source>
+        <target>Currency:</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.factPlug" datatype="html">
+        <source>Enchufes:</source>
+        <target>Plugs:</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.factTime" datatype="html">
+        <source>Hora:</source>
+        <target>Time:</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.mustSee" datatype="html">
+        <source>Imperdibles de <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <target>Must-sees in <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></target>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcWikipedia" datatype="html">
+        <source>Wikipedia</source>
+        <target>Wikipedia</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcPhoto" datatype="html">
+        <source>Foto: Wikimedia Commons</source>
+        <target>Photo: Wikimedia Commons</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.moreIn" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ s.label }}"/> en <x id="INTERPOLATION_1" equiv-text="{{ m.entry.displayName }}"/></source>
+        <target><x id="INTERPOLATION" equiv-text="{{ s.label }}"/> in <x id="INTERPOLATION_1" equiv-text="{{ m.entry.displayName }}"/></target>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcWikipedia2" datatype="html">
+        <source>Wikipedia</source>
+        <target>Wikipedia</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.dayTrips" datatype="html">
+        <source>Excursiones de un día desde <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <target>Day trips from <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></target>
+      </trans-unit>
+      <trans-unit id="cityGuide.srcWikipedia3" datatype="html">
+        <source>Wikipedia</source>
+        <target>Wikipedia</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.whenTitle" datatype="html">
+        <source>Cuándo ir</source>
+        <target>When to go</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.getTitle" datatype="html">
+        <source>Cómo llegar desde Chile</source>
+        <target>Getting there from Chile</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.tipsTitle" datatype="html">
+        <source>Consejos prácticos</source>
+        <target>Practical tips</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.plansTitle" datatype="html">
+        <source>Itinerarios reales de viajeros que pasan por <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
+        <target>Real itineraries from travellers passing through <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></target>
+      </trans-unit>
+      <trans-unit id="cityGuide.planStops" datatype="html">
+        <source>lugares</source>
+        <target>places</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.faqTitle" datatype="html">
+        <source>Preguntas frecuentes</source>
+        <target>Frequently asked questions</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.relatedTitle" datatype="html">
+        <source>Otras guías</source>
+        <target>More guides</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.license" datatype="html">
+        <source> Las descripciones de los lugares provienen de Wikipedia y se publican bajo licencia CC BY-SA 4.0; las fotos, de Wikimedia Commons, con la licencia indicada en cada archivo. </source>
+        <target> Place descriptions come from Wikipedia and are published under the CC BY-SA 4.0 licence; photos come from Wikimedia Commons under the licence shown on each file. </target>
+      </trans-unit>
+      <trans-unit id="cityGuide.timeSame" datatype="html">
+        <source>Misma hora que en Chile</source>
+        <target>Same time as in Chile</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.timeAhead" datatype="html">
+        <source><x id="HOURS" equiv-text="n"/> h más que en Chile</source>
+        <target><x id="HOURS" equiv-text="n"/> h ahead of Chile</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.timeBehind" datatype="html">
+        <source><x id="HOURS" equiv-text="n"/> h menos que en Chile</source>
+        <target><x id="HOURS" equiv-text="n"/> h behind Chile</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

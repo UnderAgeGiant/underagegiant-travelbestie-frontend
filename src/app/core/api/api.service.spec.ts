@@ -687,3 +687,31 @@ describe('ApiService.getFeed()', () => {
     });
   });
 });
+
+describe('ApiService.getSeoCityPlans()', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [provideHttpClient(withXhr()), provideHttpClientTesting()] });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+  });
+  afterEach(() => http.verify());
+
+  it('real mode: GET /seo/city/:cityId/plans', () => {
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(false);
+    service.getSeoCityPlans('paris').subscribe();
+    const req = http.expectOne(r => r.url.endsWith('/seo/city/paris/plans'));
+    expect(req.request.method).toBe('GET');
+    req.flush({ items: [] });
+  });
+
+  it('mock mode: returns an empty list without HTTP', done => {
+    jest.spyOn(service as any, 'useMocks', 'get').mockReturnValue(true);
+    service.getSeoCityPlans('paris').subscribe(res => {
+      expect(res.items).toEqual([]);
+      done();
+    });
+  });
+});

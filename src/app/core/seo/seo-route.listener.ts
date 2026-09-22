@@ -13,6 +13,7 @@ export class SeoRouteListener {
     router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe(() => {
       let route = router.routerState.snapshot.root;
       while (route.firstChild) route = route.firstChild;
+      if (route.data['seoManaged']) return;
       const page = route.data['seo'] as RouteSeo | undefined;
       if (page) seo.apply(page());
       else seo.reset();
