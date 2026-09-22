@@ -7,6 +7,7 @@ import { ProfileComponent } from '../profile/profile.component';
 import { ApiService } from '../../core/api/api.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { pickTopSights, isGuideAttraction } from '../../core/seo/city-guide-seo.util';
+import { getCategoryMeta, type AttractionCategory } from '../../core/models/attraction-category';
 import { TravelInfoService } from '../../core/travel-info/travel-info.service';
 import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
 import type { SeoCityPlan } from '../../core/models/seo-city-plan.model';
@@ -39,7 +40,10 @@ import { photoCreditUrl } from './photo-credit.util';
           </header>
 
           <section class="cg-facts" aria-labelledby="cg-facts-h">
-            <h2 id="cg-facts-h" i18n="@@cityGuide.factsTitle">Viajando desde Chile</h2>
+            <div class="cg-h2-row">
+              <span class="cg-h2-icon cg-facts-icon" aria-hidden="true">✈️</span>
+              <h2 id="cg-facts-h" class="cg-facts-h2" i18n="@@cityGuide.factsTitle">Viajando desde Chile</h2>
+            </div>
             <ul>
               @if (m.facts.visa; as v) { <li><span>{{ v.icon }}</span> <b i18n="@@cityGuide.factVisa">Visa:</b> {{ v.label }}</li> }
               @if (m.facts.currency) { <li><span>🪙</span> <b i18n="@@cityGuide.factCurrency">Moneda:</b> {{ m.facts.currency }}</li> }
@@ -49,7 +53,10 @@ import { photoCreditUrl } from './photo-credit.util';
           </section>
 
           <section class="cg-must" aria-labelledby="cg-must-h">
-            <h2 id="cg-must-h" i18n="@@cityGuide.mustSee">Imperdibles de {{ m.entry.displayName }}</h2>
+            <div class="cg-h2-row">
+              <span class="cg-h2-icon" aria-hidden="true">⭐</span>
+              <h2 id="cg-must-h" class="cg-h2" i18n="@@cityGuide.mustSee">Imperdibles de {{ m.entry.displayName }}</h2>
+            </div>
             <div class="cg-grid">
               @for (a of m.mustSee; track a.id) {
                 <article class="cg-card">
@@ -69,8 +76,11 @@ import { photoCreditUrl } from './photo-credit.util';
           </section>
 
           @for (s of m.sections; track s.category) {
-            <section class="cg-more">
-              <h2 i18n="@@cityGuide.moreIn">{{ s.label }} en {{ m.entry.displayName }}</h2>
+            <section class="cg-more" [attr.data-cat]="s.category">
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">{{ categoryIcon(s.category) }}</span>
+                <h2 class="cg-h2" i18n="@@cityGuide.moreIn">{{ s.label }} en {{ m.entry.displayName }}</h2>
+              </div>
               <ul class="cg-list">
                 @for (a of s.items; track a.id) {
                   <li>
@@ -85,7 +95,10 @@ import { photoCreditUrl } from './photo-credit.util';
 
           @if (m.dayTrips.length) {
             <section class="cg-daytrips">
-              <h2 i18n="@@cityGuide.dayTrips">Excursiones de un día desde {{ m.entry.displayName }}</h2>
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">🏞️</span>
+                <h2 class="cg-h2" i18n="@@cityGuide.dayTrips">Excursiones de un día desde {{ m.entry.displayName }}</h2>
+              </div>
               <ul class="cg-list">
                 @for (a of m.dayTrips; track a.id) {
                   <li>
@@ -99,15 +112,35 @@ import { photoCreditUrl } from './photo-credit.util';
           }
 
           <section class="cg-practical">
-            <h2 i18n="@@cityGuide.whenTitle">Cuándo ir</h2><p>{{ m.entry.bestTime }}</p>
-            <h2 i18n="@@cityGuide.getTitle">Cómo llegar desde Chile</h2><p>{{ m.entry.gettingThere }}</p>
-            <h2 i18n="@@cityGuide.tipsTitle">Consejos prácticos</h2>
-            <ul>@for (t of m.entry.tips; track t) { <li>{{ t }}</li> }</ul>
+            <div class="cg-practical-block">
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">📅</span>
+                <h2 class="cg-h2" i18n="@@cityGuide.whenTitle">Cuándo ir</h2>
+              </div>
+              <p>{{ m.entry.bestTime }}</p>
+            </div>
+            <div class="cg-practical-block">
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">🧳</span>
+                <h2 class="cg-h2" i18n="@@cityGuide.getTitle">Cómo llegar desde Chile</h2>
+              </div>
+              <p>{{ m.entry.gettingThere }}</p>
+            </div>
+            <div class="cg-practical-block">
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">💡</span>
+                <h2 class="cg-h2" i18n="@@cityGuide.tipsTitle">Consejos prácticos</h2>
+              </div>
+              <ul>@for (t of m.entry.tips; track t) { <li>{{ t }}</li> }</ul>
+            </div>
           </section>
 
           @if (plans().length) {
             <section class="cg-plans">
-              <h2 i18n="@@cityGuide.plansTitle">Itinerarios reales de viajeros que pasan por {{ m.entry.displayName }}</h2>
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">🗺️</span>
+                <h2 class="cg-h2" i18n="@@cityGuide.plansTitle">Itinerarios reales de viajeros que pasan por {{ m.entry.displayName }}</h2>
+              </div>
               <ul class="cg-list">
                 @for (p of plans(); track p.id) {
                   <li>
@@ -120,7 +153,10 @@ import { photoCreditUrl } from './photo-credit.util';
           }
 
           <section class="cg-faq">
-            <h2 i18n="@@cityGuide.faqTitle">Preguntas frecuentes</h2>
+            <div class="cg-h2-row">
+              <span class="cg-h2-icon" aria-hidden="true">💬</span>
+              <h2 class="cg-h2" i18n="@@cityGuide.faqTitle">Preguntas frecuentes</h2>
+            </div>
             @for (f of m.entry.faq; track f.q) {
               <details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
             }
@@ -128,7 +164,10 @@ import { photoCreditUrl } from './photo-credit.util';
 
           @if (m.related.length) {
             <nav class="cg-related" aria-labelledby="cg-rel-h">
-              <h2 id="cg-rel-h" i18n="@@cityGuide.relatedTitle">Otras guías</h2>
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">🧭</span>
+                <h2 id="cg-rel-h" class="cg-h2" i18n="@@cityGuide.relatedTitle">Otras guías</h2>
+              </div>
               <ul>@for (r of m.related; track r.slug) { <li><a [routerLink]="['/ciudad', r.slug]">{{ r.displayName }}</a></li> }</ul>
             </nav>
           }
@@ -178,6 +217,7 @@ export class CityGuideComponent {
   }
 
   protected credit(imageUrl: string | undefined): string | null { return photoCreditUrl(imageUrl); }
+  protected categoryIcon(category: AttractionCategory): string { return getCategoryMeta()[category].icon; }
   protected startPlan(): void {
     const m = this.model();
     if (m) void this.router.navigate(['/'], { queryParams: { addCity: m.entry.cityId } });
