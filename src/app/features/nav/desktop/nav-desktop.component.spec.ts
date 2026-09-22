@@ -158,3 +158,36 @@ describe('NavDesktopComponent — Mis viajes button spacing (feedback #14)', () 
     expect(myTripsBtn?.style.marginBottom).toBe('4px');
   });
 });
+
+describe('NavDesktopComponent — city guide promo teaser', () => {
+  function setup(show: boolean) {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    fixture.componentRef.setInput('showCityGuidePromo', show);
+    fixture.detectChanges();
+    return fixture;
+  }
+
+  it('mounts the promo teaser next to the search box by default (every page with <app-nav>)', () => {
+    const fixture = setup(true);
+    expect(fixture.nativeElement.querySelector('app-city-guide-promo')).not.toBeNull();
+  });
+
+  it('omits the promo teaser when a page explicitly opts out (showCityGuidePromo=false)', () => {
+    const fixture = setup(false);
+    expect(fixture.nativeElement.querySelector('app-city-guide-promo')).toBeNull();
+  });
+
+  it('defaults showCityGuidePromo to true when the input is left unbound', () => {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-city-guide-promo')).not.toBeNull();
+  });
+});

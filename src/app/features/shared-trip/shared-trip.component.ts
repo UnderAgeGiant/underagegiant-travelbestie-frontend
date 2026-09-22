@@ -1,6 +1,6 @@
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { forkJoin, of, switchMap, catchError, map, Subscription } from 'rxjs';
 import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-trips.service';
@@ -15,6 +15,7 @@ import { CommentCooldownService } from '../../core/comments/comment-cooldown.ser
 import { StepComment, Attraction } from '../../core/models/comment.model';
 import { Trip, TripStop, PlannedAttraction, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { TripService } from '../trip/trip.service';
+import { guideByCityId } from '../../data/city-guides.data';
 import { StepCommentsComponent } from './step-comments.component';
 import { CommentSimilarModalComponent } from '../comments/comment-similar-modal.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
@@ -40,7 +41,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent],
+    imports: [CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -219,7 +220,12 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                 <div class="itin-city-head">
                   <span class="itin-city-flag"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="24" /></span>
                   <div>
-                    <div class="itin-city-name" style="display:flex;align-items:center">{{ city.name }}
+                    <div class="itin-city-name" style="display:flex;align-items:center">
+                      @if (guideSlug(stop.cityId); as slug) {
+                        <a class="itin-city-link" [routerLink]="['/ciudad', slug]" (click)="$event.stopPropagation()">{{ city.name }}</a>
+                      } @else {
+                        {{ city.name }}
+                      }
                       <app-city-weather-chip [stop]="stop" />
                       @if (!shouldShowComments(stopKey)) {
                         <button class="step-comments-toggle" (click)="expandStepInCity($event, stopKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
@@ -797,6 +803,12 @@ export class SharedTripComponent {
   }
 
   goHome(): void { this.router.navigate(['/']); }
+
+  /** Slug of the city's guide when it is published (reviewed), else null — drives the crawlable link in each city header. */
+  protected guideSlug(cityId: string): string | null {
+    const g = guideByCityId(cityId);
+    return g?.reviewed ? g.slug : null;
+  }
 
   shortDate(s: string): string {
     const p = s.split('/');

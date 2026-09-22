@@ -14,6 +14,7 @@ import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
 import { HighlightType, HighlightStatus } from '../models/highlight.model';
 import { FeedPage } from '../models/feed-plan.model';
+import { SeoCityPlan } from '../models/seo-city-plan.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { mockFeedPage } from './feed.mock';
@@ -429,6 +430,12 @@ export class ApiService {
     let params = new HttpParams().set('limit', String(limit));
     if (cursor) params = params.set('cursor', cursor);
     return this.http.get<FeedPage>(`${this.base}/feed`, { params });
+  }
+
+  /** Real shared itineraries through a city guide's `cityId` — up to 6, favorites-ranked. */
+  getSeoCityPlans(cityId: string): Observable<{ items: SeoCityPlan[] }> {
+    if (this.useMocks) return of({ items: [] });
+    return this.http.get<{ items: SeoCityPlan[] }>(`${this.base}/seo/city/${encodeURIComponent(cityId)}/plans`);
   }
 
   toggleFavorite(shareId: string): Observable<{ favorited: boolean; favoriteCount: number }> {

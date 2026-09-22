@@ -66,6 +66,7 @@
 import { existsSync, readFileSync, writeFileSync, cpSync } from 'node:fs';
 import { join } from 'node:path';
 import { injectSeoHead, buildRobotsTxt } from './seo-head.mjs';
+import { buildCityPages } from './city-pages.mjs';
 
 const DIST = join('dist', 'underagegiant-travelbestie-frontend', 'browser');
 const PUBLIC = 'public';
@@ -101,6 +102,8 @@ console.log(`post-build: copied ${PUBLIC}/ -> dist root (locale-independent asse
 
 writeFileSync(join(DIST, 'robots.txt'), buildRobotsTxt(SITE_URL), 'utf8');
 console.log(`post-build: wrote robots.txt (sitemap → ${SITE_URL}/sitemap.xml)`);
+
+buildCityPages({ distDir: DIST, siteUrl: SITE_URL });
 if (!existsSync(join(PUBLIC, 'og-default.png'))) {
   console.warn('post-build: WARNING public/og-default.png is missing — og:image/twitter:image will 404 (owner must add a 1200x630 PNG)');
 }

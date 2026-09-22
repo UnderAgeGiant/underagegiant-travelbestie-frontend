@@ -14,7 +14,13 @@ export async function GET(request: Request): Promise<Response> {
     } catch { /* serve the static pages only */ }
   }
 
-  return new Response(buildSitemapXml(siteUrl, items), {
+  let cityPaths: string[] = [];
+  try {
+    const r = await fetch(new URL('/city-sitemap.json', origin), { signal: AbortSignal.timeout(3000) });
+    if (r.ok) cityPaths = ((await r.json()) as { paths?: string[] }).paths ?? [];
+  } catch { /* guides simply absent from this render of the sitemap */ }
+
+  return new Response(buildSitemapXml(siteUrl, items, cityPaths), {
     status: 200,
     headers: {
       'content-type': 'application/xml; charset=utf-8',

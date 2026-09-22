@@ -1,6 +1,7 @@
 import { routes } from '../app/app.routes';
 import { shareRedirectPath } from '../app/core/routing/share-redirect.util';
-import { isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath } from './edge-routing';
+import { CITY_GUIDES } from '../app/data/city-guides.data';
+import { citySlugFromPath, isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath } from './edge-routing';
 
 describe('pickLocale (same rules the old middleware had)', () => {
   it('cookie wins', () => {
@@ -40,6 +41,18 @@ describe('sharedIdFromPath', () => {
   });
 });
 
+describe('citySlugFromPath', () => {
+  it('returns a manifest slug only', () => {
+    const slug = CITY_GUIDES[0].slug;
+    expect(citySlugFromPath(`/ciudad/${slug}`)).toBe(slug);
+    expect(citySlugFromPath(`/ciudad/${slug}/`)).toBe(slug);
+    expect(citySlugFromPath('/ciudad/atlantis')).toBeNull();
+    expect(citySlugFromPath('/ciudad')).toBeNull();
+    expect(citySlugFromPath(`/ciudad/${slug}/extra`)).toBeNull();
+    expect(citySlugFromPath('/ciudad/%E0%A4%A')).toBeNull();   // malformed escape must not throw
+  });
+});
+
 describe('isKnownRoute', () => {
   it('knows the app routes', () => {
     for (const p of ['/', '/about', '/terms', '/privacy', '/karma-history', '/shared/abc', '/about/']) {
@@ -51,10 +64,14 @@ describe('isKnownRoute', () => {
       expect(isKnownRoute(p)).toBe(false);
     }
   });
+  it('knows a manifest city guide slug', () => {
+    expect(isKnownRoute('/ciudad/' + CITY_GUIDES[0].slug)).toBe(true);
+    expect(isKnownRoute('/ciudad/atlantis')).toBe(false);
+  });
   it('GUARD: every real route in app.routes.ts (except the wildcard) is known to the edge', () => {
     const missing = routes
       .filter(r => r.path !== undefined && r.path !== '**')
-      .map(r => '/' + r.path!.replace(/:[^/]+/g, 'sample'))
+      .map(r => '/' + r.path!.replace(':slug', CITY_GUIDES[0].slug).replace(/:[^/]+/g, 'sample'))
       .filter(p => !isKnownRoute(p));
     expect(missing).toEqual([]);
   });

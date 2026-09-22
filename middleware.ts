@@ -24,7 +24,7 @@
  * per-request cookie/header-based content negotiation.
  */
 import { rewrite } from '@vercel/functions';
-import { isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath } from './src/edge/edge-routing';
+import { citySlugFromPath, isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath } from './src/edge/edge-routing';
 
 // Runs on any path that does NOT end in a file extension (same shape as the old vercel.json rewrite `source`),
 // EXCEPT /api/*. The crawler branch below rewrites /shared/:id to /api/shared-page, which has no file extension
@@ -56,6 +56,15 @@ export default async function middleware(request: Request): Promise<Response> {
   const sharedId = sharedIdFromPath(url.pathname);
   if (sharedId && process.env['SEO_SHARED_HEAD'] === 'on' && isCrawler(request.headers.get('user-agent'))) {
     const res = rewrite(new URL(`/api/shared-page?id=${encodeURIComponent(sharedId)}&loc=${locale}`, url));
+    res.headers.set('Cache-Control', NO_STORE);
+    return res;
+  }
+
+  // 2b. A guide URL for Spanish visitors/crawlers → the pre-rendered static page (real head + JSON-LD + <noscript>).
+  //     English-cookie visitors fall through to the normal (English) SPA shell, which renders the same page client-side.
+  const citySlug = citySlugFromPath(url.pathname);
+  if (citySlug && locale === 'es-CL') {
+    const res = rewrite(new URL(`/city/${citySlug}.html`, url));
     res.headers.set('Cache-Control', NO_STORE);
     return res;
   }

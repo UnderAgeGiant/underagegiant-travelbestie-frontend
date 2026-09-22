@@ -1,6 +1,7 @@
 import { TestBed, fakeAsync, tick, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AiPlanningComponent } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
@@ -33,7 +34,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
@@ -102,7 +103,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     trip = TestBed.inject(TripService);
@@ -189,7 +190,7 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     // Create the component (and its injected SavedPlansService) BEFORE logging in —
@@ -263,7 +264,7 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
   });
@@ -350,7 +351,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
@@ -413,7 +414,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
@@ -505,7 +506,7 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
@@ -552,7 +553,7 @@ describe('AiPlanningComponent — "Guardar plan" attention beacon', () => {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     fixture = TestBed.createComponent(AiPlanningComponent);
@@ -590,7 +591,7 @@ describe('AiPlanningComponent — editable plan name on Step 2 (feedback #13)', 
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
-      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     fixture = TestBed.createComponent(AiPlanningComponent);

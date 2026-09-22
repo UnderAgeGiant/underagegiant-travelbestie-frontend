@@ -1,4 +1,6 @@
 import { Component, effect, inject, signal, viewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { WORLD_CITIES } from '../../data/cities.data';
 import { AiPlanViewPayload } from '../../core/models/ai.model';
 import { TripService } from '../trip/trip.service';
 import { NavShellComponent } from '../nav/nav-shell.component';
@@ -15,7 +17,6 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { AiPlanningComponent } from '../ai-planning/ai-planning.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
-import { LandingAboutComponent } from '../landing/landing-about.component';
 import { LandingFeedComponent } from '../landing/feed/landing-feed.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { AboutContentComponent } from '../about/about-content.component';
@@ -42,7 +43,6 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         ProfileComponent,
         AiPlanningComponent,
         FeaturedSlideshowComponent,
-        LandingAboutComponent,
         LandingFeedComponent,
         AppFooterComponent,
         AboutContentComponent,
@@ -75,9 +75,6 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
         <!-- S2: cinematic slideshow (hidden when no featured trips) -->
         <tb-featured-slideshow #featuredSection />
-
-        <!-- S3: about -->
-        <tb-landing-about />
 
         <!-- S4: footer -->
         <tb-app-footer (createPlan)="showAddModal.set(true)"
@@ -116,7 +113,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
     }
 
     @if (showAddModal()) {
-      <app-add-stop-modal (close)="showAddModal.set(false)" />
+      <app-add-stop-modal [presetCityId]="presetCityId()" (close)="showAddModal.set(false); presetCityId.set(null)" />
     }
 
     <app-mobile-attractions-modal />
@@ -168,6 +165,8 @@ export class ShellComponent {
   private readonly savedPlans = inject(SavedPlansService);
   private readonly highlightTour = inject(HighlightTourService);
   showAddModal   = signal(false);
+  /** City id to pre-fill the add-stop modal with, from `?addCity=` — see the constructor. */
+  presetCityId   = signal<string | null>(null);
   showProfile    = signal(false);
   showAiPlanning = signal(false);
   showMyTrips    = signal(false);
@@ -270,6 +269,16 @@ export class ShellComponent {
         this.highlightTour.start('landing_welcome', { shouldStillShow: () => !this.auth.isLoggedIn() });
       }
     });
+
+    // "Planificar mi viaje a <ciudad>" from a city guide page (/ciudad/:slug) navigates here with
+    // ?addCity=<cityId> — open the add-stop modal pre-filled with that city, then strip the param
+    // so a reload/back-nav doesn't reopen it.
+    const addCity = inject(ActivatedRoute).snapshot.queryParamMap.get('addCity');
+    if (addCity && WORLD_CITIES.some(c => c.id === addCity)) {
+      this.presetCityId.set(addCity);
+      this.showAddModal.set(true);
+      void inject(Router).navigate([], { queryParams: { addCity: null }, queryParamsHandling: 'merge', replaceUrl: true });
+    }
   }
 
   /** From a "Planes IA Pendientes" card click — opens AI planning straight onto Step 3 with that past plan. */

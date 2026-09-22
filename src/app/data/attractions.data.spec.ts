@@ -10,7 +10,7 @@ describe('getAttractions', () => {
     const attractions = getAttractions(PARIS);
     expect(attractions.length).toBeGreaterThan(0);
     expect(attractions[0].id).toBe('paris_0');
-    expect(attractions.some(a => a.name === 'Eiffel Tower')).toBe(true);
+    expect(attractions.some(a => a.name === 'Torre Eiffel')).toBe(true);
   });
 
   it('returns 5 template attractions for unknown city', () => {

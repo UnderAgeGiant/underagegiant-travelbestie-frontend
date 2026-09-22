@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
-import { provideRouter } from '@angular/router';
+import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/router';
 import { ShellComponent } from './shell.component';
 import { TripService } from '../trip/trip.service';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
@@ -200,12 +200,55 @@ describe('ShellComponent', () => {
 
   // Feedback #4 — scrolling the homepage all the way down should end with the full
   // About Us content (AboutContentComponent, extracted in Task 7), not stop at the S4 footer.
-  it('renders the full About Us content as a 5th landing section, after the footer (feedback #4)', () => {
+  it('renders the full About Us content as a landing section, after the footer (feedback #4)', () => {
     const el = setup(0).nativeElement as HTMLElement;
     const sections = el.querySelectorAll('.landing-scroll > *');
-    // S1–S5 plus the S6 infinite feed host (<tb-landing-feed>) appended after About.
-    expect(sections.length).toBe(6);
+    // S1, S2, S4, S5 plus the S6 infinite feed host (<tb-landing-feed>) appended after About.
+    // (S3, tb-landing-about, was pulled out of the landing scroll 2026-09-22 — component kept, just unmounted.)
+    expect(sections.length).toBe(5);
     expect(el.querySelector('tb-app-footer + .landing-about-full, tb-app-footer ~ .landing-about-full')).not.toBeNull();
     expect(el.querySelector('.landing-about-full app-about-content')).not.toBeNull();
+  });
+
+  // Task 10 — "Planificar mi viaje a <ciudad>" from a city guide page navigates here with ?addCity=<cityId>.
+  describe('?addCity= planner pre-fill (from a city guide page)', () => {
+    function setupWithQueryParam(addCity: string | null) {
+      (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
+        matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {},
+      }));
+      (global as any).IntersectionObserver = (global as any).IntersectionObserver ?? class {
+        observe() {}
+        unobserve() {}
+        disconnect() {}
+      };
+      TestBed.configureTestingModule({
+        imports: [ShellComponent],
+        providers: [
+          provideHttpClient(), provideHttpClientTesting(), provideRouter([]),
+          { provide: ActivatedRoute, useValue: { snapshot: { queryParamMap: convertToParamMap(addCity ? { addCity } : {}) } } },
+        ],
+      });
+      const fixture = TestBed.createComponent(ShellComponent);
+      fixture.detectChanges();
+      return fixture;
+    }
+
+    it('opens the add-stop modal pre-filled when the id is a known city', () => {
+      const component = setupWithQueryParam('madrid').componentInstance;
+      expect(component.showAddModal()).toBe(true);
+      expect(component.presetCityId()).toBe('madrid');
+    });
+
+    it('does nothing for an unknown city id', () => {
+      const component = setupWithQueryParam('atlantis').componentInstance;
+      expect(component.showAddModal()).toBe(false);
+      expect(component.presetCityId()).toBeNull();
+    });
+
+    it('does nothing when the param is absent', () => {
+      const component = setupWithQueryParam(null).componentInstance;
+      expect(component.showAddModal()).toBe(false);
+      expect(component.presetCityId()).toBeNull();
+    });
   });
 });

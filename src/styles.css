@@ -10,8 +10,11 @@
   --mint: oklch(91% .07 160);
   --mint-d: oklch(57% .13 160);
   --blush: oklch(91% .06 10);
+  --blush-d: oklch(56% .17 10);
   --sky: oklch(91% .06 220);
+  --sky-d: oklch(54% .14 220);
   --butter: oklch(93% .08 95);
+  --butter-d: oklch(56% .14 95);
   --pin-red: oklch(56% .22 25);
   --t1: oklch(18% .02 270);
   --t2: oklch(42% .03 270);
@@ -86,6 +89,25 @@ app-nav { display: block; }
 .nav-search-inner:focus-within { border-color: var(--lav-d); }
 .nav-search-inner input { flex: 1; border: none; outline: none; font-size: 14px; color: var(--t1); background: transparent; min-width: 0; }
 .nav-search-inner input::placeholder { color: var(--t3); }
+
+/* Rotating "Guía de destino a: <city>" teaser (app-city-guide-promo), shown on every page with
+   <app-nav> — desktop: a small pill next to the search box (below). Mobile: full-width strip
+   under .nav-m-bar, see .nav-m-guide-promo near .nav-m-bar's own rules.
+   Same stacked-slide crossfade + ken-burns technique as .s2-slide, scaled down to nav height. */
+.nav-guide-promo {
+  position: relative; flex-shrink: 0; overflow: hidden;
+  display: flex; align-items: center; height: 44px; width: 200px; margin-left: 14px;
+  border-radius: 14px; text-decoration: none; box-shadow: var(--sh);
+}
+.nav-guide-promo-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s cubic-bezier(.4,0,.2,1); }
+.nav-guide-promo-slide.active { opacity: 1; z-index: 1; }
+.nav-guide-promo-slide img { width: 100%; height: 100%; object-fit: cover; display: block; animation: ken-burns 9s ease-in-out both; }
+@media (prefers-reduced-motion: reduce) { .nav-guide-promo-slide img { animation: none; } }
+.nav-guide-promo-scrim { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, oklch(0% 0 0/.6), oklch(0% 0 0/.2)); }
+.nav-guide-promo-text { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 1px; padding: 0 14px; color: #fff; line-height: 1.2; }
+.nav-guide-promo-label { font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .9; }
+.nav-guide-promo-city { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
+
 .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; padding-left: 12px; }
 .user-btn { display: flex; align-items: center; gap: 8px; background: #fff; border: 1.5px solid var(--border); border-radius: 99px; padding: 5px 14px 5px 5px; cursor: pointer; transition: all .2s; }
 .user-btn:hover { border-color: var(--lav-d); box-shadow: var(--sh); }
@@ -1354,6 +1376,15 @@ app-nav { display: block; }
   max-width: 65ch;
   margin: 0;
 }
+.landing-about-guides {
+  margin: 1.1rem 0 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--t2);
+}
+.landing-about-guides-label { font-weight: 600; color: var(--t1); margin-right: 4px; }
+.landing-about-guides a { color: var(--lav-d); text-decoration: none; border-bottom: 1px solid transparent; }
+.landing-about-guides a:hover, .landing-about-guides a:focus-visible { border-bottom-color: var(--lav-d); }
 .landing-about-stats {
   display: flex;
   flex-direction: column;
@@ -2347,6 +2378,15 @@ app-nav { display: block; }
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; z-index: 50;
 }
+/* Mobile variant of the rotating city-guide teaser (see .nav-guide-promo above): a full-width
+   strip right under the compact bar, in normal flow (scrolls away with the page — .nav-m-bar
+   itself stays sticky, so the teaser doesn't need to). Overrides .nav-guide-promo's fixed pill
+   sizing by nesting selector, so CityGuidePromoComponent's own template needs no variant input. */
+.nav-m-guide-promo { background: #fff; border-bottom: 1px solid var(--border); }
+.nav-m-guide-promo .nav-guide-promo {
+  width: 100%; height: 40px; margin-left: 0; border-radius: 0; box-shadow: none;
+}
+.nav-m-guide-promo .nav-guide-promo-city { font-size: 15px; }
 .nav-m-karma {
   display: flex; align-items: center; gap: 5px;
   padding: 5px 11px; border-radius: 99px;
@@ -3268,3 +3308,87 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
   position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff;
   font-size: 22px; cursor: pointer; line-height: 1;
 }
+
+/* ── City guide pages (/ciudad/:slug) ──
+   Section color system: each editorial section carries one accent hue (an icon chip +
+   the heading's own color) drawn from the app's existing pastel token set, rotated so no
+   two adjacent sections repeat a hue — the guide reads as a sequence of distinct "chapters"
+   while staying inside the site's established oklch palette (nothing new invented). */
+.cg-page { min-height: 100vh; background: var(--cream); overflow-y: auto; height: 100vh; }
+.cg-main { max-width: 980px; margin: 0 auto; padding: 96px 20px 64px; display: flex; flex-direction: column; gap: 44px; }
+.cg-eyebrow { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lav-d); }
+.cg-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 6.4vw, 62px); font-weight: 600; letter-spacing: -.8px; line-height: 1.08; color: var(--t1); margin: 8px 0 14px; }
+.cg-intro { font-size: 17px; line-height: 1.6; color: var(--t2); max-width: 720px; margin-bottom: 18px; }
+
+/* Shared "kicker" heading: a colored icon chip + a bigger, accent-colored serif title.
+   Each section sets --cg-accent/--cg-accent-d; .cg-h2-icon/.cg-h2 just consume them. */
+.cg-h2-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.cg-h2-icon {
+  flex: 0 0 auto; width: 40px; height: 40px; border-radius: 13px;
+  display: grid; place-items: center; font-size: 19px; line-height: 1;
+  background: var(--cg-accent, var(--lav)); box-shadow: var(--sh);
+}
+.cg-h2 {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 36px); font-weight: 600;
+  letter-spacing: -.3px; line-height: 1.15; color: var(--cg-accent-d, var(--t1)); margin: 0;
+}
+.cg-must      { --cg-accent: var(--peach);  --cg-accent-d: var(--peach-d); }
+.cg-daytrips  { --cg-accent: var(--mint);   --cg-accent-d: var(--mint-d); }
+.cg-practical { --cg-accent: var(--blush);  --cg-accent-d: var(--blush-d); }
+.cg-plans     { --cg-accent: var(--lav);    --cg-accent-d: var(--lav-d); }
+.cg-faq       { --cg-accent: var(--peach);  --cg-accent-d: var(--peach-d); }
+.cg-related   { --cg-accent: var(--sky);    --cg-accent-d: var(--sky-d); }
+.cg-more[data-cat="poi"]    { --cg-accent: var(--sky);    --cg-accent-d: var(--sky-d); }
+.cg-more[data-cat="foodie"] { --cg-accent: var(--butter); --cg-accent-d: var(--butter-d); }
+
+/* Facts card: kept as the page's one full-tint block (established look); icon chip goes
+   white so it still pops against the section's own lavender background. */
+.cg-facts { background: var(--lav); border-radius: 20px; padding: 20px 24px; }
+.cg-facts-icon { background: #fff; }
+.cg-facts-h2 { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; letter-spacing: -.1px; color: var(--lav-d); margin: 0; }
+.cg-facts ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px 20px; font-size: 14px; color: var(--t1); }
+
+.cg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.cg-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--sh); display: flex; flex-direction: column; }
+.cg-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.cg-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; }
+.cg-card h3 { font-size: 18px; font-weight: 700; letter-spacing: -.1px; color: var(--t1); }
+.cg-meta { font-size: 12.5px; color: var(--t3); }
+.cg-card p, .cg-list li span:not(.cg-meta) { font-size: 14px; line-height: 1.55; color: var(--t2); }
+.cg-src { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; }
+.cg-src a, .cg-list a, .cg-related a { color: var(--lav-d); text-decoration: none; }
+.cg-src a:hover, .cg-list a:hover, .cg-related a:hover { text-decoration: underline; }
+.cg-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.cg-list li { display: flex; flex-direction: column; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+/* Long category lists (e.g. "Puntos de interés" can run 15-20+ rows) get boxed into a fixed-height,
+   internally-scrollable drawer so the outer page stays short and easy to skip past — the visitor
+   either dips in and scrolls the box, or just keeps scrolling the page straight to the next section. */
+.cg-scroll-hint { font-size: 12.5px; color: var(--t3); margin-bottom: 10px; }
+.cg-scroll-box {
+  max-height: 420px; overflow-y: auto; overscroll-behavior: contain;
+  background: #fff; border: 1px solid var(--border); border-radius: 16px;
+  padding: 16px 18px 4px;
+}
+.cg-scroll-box .cg-list li:last-child { border-bottom: none; }
+.cg-scroll-box::after {
+  content: ''; position: sticky; bottom: 0; left: 0; right: 0; display: block;
+  height: 28px; margin-top: -28px; pointer-events: none;
+  background: linear-gradient(to bottom, transparent, #fff);
+}
+
+.cg-practical { display: flex; flex-direction: column; gap: 26px; }
+.cg-practical-block p, .cg-practical-block li { font-size: 15px; line-height: 1.6; color: var(--t2); }
+.cg-practical-block ul { padding-left: 20px; }
+.cg-faq details { border-bottom: 1px solid var(--border); padding: 12px 0; }
+.cg-faq summary { cursor: pointer; font-weight: 600; color: var(--t1); }
+.cg-faq p { margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: var(--t2); }
+.cg-related ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 18px; }
+.cg-cta-end { display: flex; justify-content: center; }
+.cg-foot { font-size: 12px; color: var(--t3); line-height: 1.5; border-top: 1px solid var(--border); padding-top: 16px; }
+@media (max-width: 768px) {
+  .cg-main { padding-top: 84px; gap: 36px; }
+  .cg-h2-icon { width: 34px; height: 34px; font-size: 16px; border-radius: 11px; }
+}
+
+.itin-city-link { color: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }

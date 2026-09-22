@@ -226,3 +226,28 @@ describe('NavMobileComponent — search box (feedback #9)', () => {
     expect(input.placeholder).toBe('Buscar viajes creados por otros usuarios');
   });
 });
+
+describe('NavMobileComponent — city guide promo strip', () => {
+  function setup(show?: boolean) {
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavMobileComponent);
+    if (show !== undefined) fixture.componentRef.setInput('showCityGuidePromo', show);
+    fixture.detectChanges();
+    return fixture;
+  }
+
+  it('mounts the promo strip under the compact bar by default', () => {
+    const fixture = setup();
+    const wrap = fixture.nativeElement.querySelector('.nav-m-guide-promo');
+    expect(wrap).not.toBeNull();
+    expect(wrap.querySelector('app-city-guide-promo')).not.toBeNull();
+  });
+
+  it('omits the promo strip when a page explicitly opts out (showCityGuidePromo=false)', () => {
+    const fixture = setup(false);
+    expect(fixture.nativeElement.querySelector('.nav-m-guide-promo')).toBeNull();
+  });
+});

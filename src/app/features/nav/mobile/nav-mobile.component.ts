@@ -1,12 +1,13 @@
 import { Component, inject, output, signal, input } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
+import { CityGuidePromoComponent } from '../shared/city-guide-promo.component';
 import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
 import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
 
 @Component({
   selector: 'app-nav-mobile',
-  imports: [NotificationBellComponent, HighlightTargetDirective],
+  imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
   template: `
     <nav class="nav-m-bar">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -42,6 +43,12 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                 i18n-aria-label="@@nav.mobileMenuOpen" aria-label="Abrir menú">☰</button>
       }
     </nav>
+
+    @if (showCityGuidePromo()) {
+      <div class="nav-m-guide-promo">
+        <app-city-guide-promo />
+      </div>
+    }
 
     @if (drawerOpen()) {
       <div class="nav-m-backdrop" (click)="drawerOpen.set(false)"></div>
@@ -163,6 +170,8 @@ export class NavMobileComponent {
   logoClick    = output<void>();
   profileClick = output<void>();
   activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
+  /** Default true: shown as a full-width strip under the compact bar on every page that renders <app-nav>. */
+  showCityGuidePromo = input<boolean>(true);
 
   drawerOpen = signal(false);
 
