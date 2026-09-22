@@ -2030,7 +2030,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "buenosaires_0",
       active: true,
-      name: "Historic Quarter of the City of Colonia del Sacramento",
+      name: "Colonia del Sacramento",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -2048,7 +2048,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "buenosaires_1",
       active: true,
-      name: "Museo Nacional Ferroviario",
+      name: "Museo Nacional Ferroviario Raúl Scalabrini Ortiz",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -2065,7 +2065,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "buenosaires_2",
       active: true,
-      name: "Museo de Arte Hispanoamericano",
+      name: "Museo de Arte Hispanoamericano Isaac Fernández Blanco",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -2100,7 +2100,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "buenosaires_4",
       active: true,
-      name: "Museo Histórico Nacional del Cabildo y de la Revolución de Mayo",
+      name: "Cabildo de Buenos Aires",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -2165,7 +2165,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "buenosaires_8",
       active: true,
-      name: "Templo Tzong Kuan",
+      name: "Barrio chino",
       category: "poi",
       type: "Iglesia",
       icon: "⛪",
@@ -2248,7 +2248,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "buenosaires_13",
       active: true,
-      name: "Museo Casa de Ricardo Rojas",
+      name: "Casa de Ricardo Rojas",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -4347,7 +4347,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_0",
       active: true,
-      name: "City of Cuzco",
+      name: "Plaza de Armas de Cusco",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -4365,7 +4365,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_1",
       active: true,
-      name: "Historic Sanctuary of Machu Picchu",
+      name: "Machu Picchu",
       category: "poi",
       type: "Patrimonio",
       icon: "✨",
@@ -4436,7 +4436,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_3",
       active: true,
-      name: "Museo Histórico Regional",
+      name: "Museo Histórico Regional del Cusco",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -4454,7 +4454,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_4",
       active: true,
-      name: "Qurikancha",
+      name: "Coricancha",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -4471,7 +4471,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_5",
       active: true,
-      name: "Piedra de los Doce Ángulos",
+      name: "Piedra de los doce ángulos",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -4489,7 +4489,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_6",
       active: true,
-      name: "Muyuqmarka",
+      name: "Sacsayhuamán",
       category: "poi",
       type: "Histórico",
       icon: "🏰",
@@ -4506,7 +4506,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_7",
       active: true,
-      name: "Museo de Arte Religioso",
+      name: "Museo de Arte Religioso del Cusco",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -4522,7 +4522,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_8",
       active: true,
-      name: "San Pedro",
+      name: "Iglesia de San Pedro",
       category: "poi",
       type: "Iglesia",
       icon: "⛪",
@@ -4569,7 +4569,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_11",
       active: true,
-      name: "Iglesia de Santa Clara",
+      name: "Convento de Santa Clara",
       category: "poi",
       type: "Iglesia",
       icon: "⛪",
@@ -4585,7 +4585,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "cusco_12",
       active: true,
-      name: "San Blas",
+      name: "Plazoleta de San Blas",
       category: "poi",
       type: "Iglesia",
       icon: "⛪",
@@ -9937,7 +9937,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lima_0",
       active: true,
-      name: "Historic Centre of Lima",
+      name: "Centro histórico de Lima",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -9955,7 +9955,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lima_1",
       active: true,
-      name: "Miraflores",
+      name: "Distrito de Miraflores",
       category: "poi",
       type: "Barrio",
       icon: "🌊",
@@ -9973,7 +9973,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lima_2",
       active: true,
-      name: "Larco Museum",
+      name: "Museo Arqueológico Rafael Larco Herrera",
       category: "poi",
       type: "Museo",
       icon: "🏛️",
@@ -9991,7 +9991,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lima_3",
       active: true,
-      name: "Barranco District",
+      name: "Distrito de Barranco",
       category: "poi",
       type: "Barrio",
       icon: "🎨",
@@ -10027,7 +10027,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lima_5",
       active: true,
-      name: "Mercado de Surquillo",
+      name: "Mercado N°1 de Surquillo",
       category: "poi",
       type: "Mercado",
       icon: "🥩",
@@ -10124,7 +10124,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lima_9",
       active: true,
-      name: "Museo Panteón Nacional de los Próceres",
+      name: "Panteón de los Próceres",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -10142,7 +10142,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "lima_10",
       active: true,
-      name: "Museo de Arte de San Marcos (UNMSM)",
+      name: "Universidad Nacional Mayor de San Marcos",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -11493,7 +11493,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_0",
       active: true,
-      name: "University and Historic Precinct of Alcala de Henares",
+      name: "Alcalá de Henares",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -11512,7 +11512,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_1",
       active: true,
-      name: "Monastery and Site of the Escurial, Madrid",
+      name: "Real Monasterio de San Lorenzo de El Escorial",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -11565,7 +11565,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_2",
       active: true,
-      name: "Aranjuez Cultural Landscape",
+      name: "Aranjuez",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -11590,7 +11590,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_3",
       active: true,
-      name: "Historic City of Toledo",
+      name: "Toledo",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -11615,7 +11615,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_4",
       active: true,
-      name: "Old Town of Segovia and its Aqueduct",
+      name: "Segovia",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -11634,7 +11634,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_5",
       active: true,
-      name: "Old Town of Avila with its Extra-Muros Churches",
+      name: "Ávila",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -11653,7 +11653,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_6",
       active: true,
-      name: "Plaza Mayor",
+      name: "Plaza Mayor de Madrid",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -11695,7 +11695,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_8",
       active: true,
-      name: "Royal Palace of Madrid",
+      name: "Palacio Real de Madrid",
       category: "poi",
       type: "Palacio",
       icon: "👑",
@@ -11767,7 +11767,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_10",
       active: true,
-      name: "Parque del Retiro",
+      name: "Parque del Retiro de Madrid",
       category: "poi",
       type: "Parque",
       icon: "🌳",
@@ -11805,7 +11805,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "madrid_12",
       active: true,
-      name: "Santiago Bernabéu Stadium",
+      name: "Estadio Santiago Bernabéu",
       category: "poi",
       type: "Estadio",
       icon: "⚽",
@@ -23066,7 +23066,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_0",
       active: true,
-      name: "Palau de la Musica Catalana and Hospital de Sant Pau, Barcelona",
+      name: "Palacio de la Música Catalana",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -23132,7 +23132,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_2",
       active: true,
-      name: "Archaeological Ensemble of Tarraco",
+      name: "Tarragona",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -23151,7 +23151,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_3",
       active: true,
-      name: "Poblet Monastery",
+      name: "Monasterio de Poblet",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -23170,7 +23170,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_4",
       active: true,
-      name: "Sagrada Família",
+      name: "Templo Expiatorio de la Sagrada Familia",
       category: "poi",
       type: "Atractivo",
       icon: "⛪",
@@ -23192,7 +23192,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_5",
       active: true,
-      name: "Park Güell",
+      name: "Parque Güell",
       category: "poi",
       type: "Parque",
       icon: "🌈",
@@ -23297,7 +23297,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_9",
       active: true,
-      name: "Barceloneta Beach",
+      name: "Playa de la Barceloneta",
       category: "poi",
       type: "Playa",
       icon: "🏖️",
@@ -23313,7 +23313,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_10",
       active: true,
-      name: "Gothic Quarter",
+      name: "Barrio Gótico de Barcelona",
       category: "poi",
       type: "Barrio",
       icon: "🏰",
@@ -23352,7 +23352,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_12",
       active: true,
-      name: "Montjuïc",
+      name: "Montjuic",
       category: "poi",
       type: "Parque",
       icon: "🏔️",
@@ -23374,7 +23374,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_13",
       active: true,
-      name: "Museu de la Música",
+      name: "Museo de la Música de Barcelona",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -23392,7 +23392,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "barcelona_14",
       active: true,
-      name: "Museu d'Història de Barcelona",
+      name: "Museo de Historia de Barcelona",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -32501,7 +32501,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_0",
       active: true,
-      name: "Paris, Banks of the Seine",
+      name: "Riberas del Sena en París",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -32538,7 +32538,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_2",
       active: true,
-      name: "Palace and Park of Fontainebleau",
+      name: "Palacio de Fontainebleau",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -32557,7 +32557,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_3",
       active: true,
-      name: "Provins, Town of Medieval Fairs",
+      name: "Provins",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -32576,7 +32576,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_4",
       active: true,
-      name: "Chartres Cathedral",
+      name: "Catedral de Chartres",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -32595,7 +32595,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_5",
       active: true,
-      name: "Eiffel Tower",
+      name: "Torre Eiffel",
       category: "poi",
       type: "Atractivo",
       icon: "🗼",
@@ -32643,7 +32643,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_6",
       active: true,
-      name: "Louvre Museum",
+      name: "Museo del Louvre",
       category: "poi",
       type: "Museo",
       icon: "🏛️",
@@ -32661,7 +32661,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_7",
       active: true,
-      name: "Arc de Triomphe",
+      name: "Arco de Triunfo de París",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -32685,7 +32685,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_8",
       active: true,
-      name: "Champs-Élysées",
+      name: "Avenida de los Campos Elíseos",
       category: "poi",
       type: "Bulevar",
       icon: "🛍️",
@@ -32703,7 +32703,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_9",
       active: true,
-      name: "Notre-Dame de Paris",
+      name: "Catedral de Notre Dame de París",
       category: "poi",
       type: "Histórico",
       icon: "⛪",
@@ -32739,7 +32739,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_11",
       active: true,
-      name: "Palace of Versailles",
+      name: "Palacio de Versalles",
       category: "poi",
       type: "Palacio",
       icon: "👑",
@@ -32806,7 +32806,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_13",
       active: true,
-      name: "Musée d'Orsay",
+      name: "Museo de Orsay",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -32853,7 +32853,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "paris_14",
       active: true,
-      name: "Sainte-Chapelle",
+      name: "Santa Capilla",
       category: "poi",
       type: "Histórico",
       icon: "⛪",
@@ -34447,7 +34447,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_0",
       active: true,
-      name: "Colosseum",
+      name: "Coliseo",
       category: "poi",
       type: "Histórico",
       icon: "🏟️",
@@ -34465,7 +34465,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_1",
       active: true,
-      name: "Vatican Museums & Sistine Chapel",
+      name: "Museos Vaticanos",
       category: "poi",
       type: "Museo",
       icon: "🏛️",
@@ -34486,7 +34486,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_2",
       active: true,
-      name: "Trevi Fountain",
+      name: "Fontana di Trevi",
       category: "poi",
       type: "Atractivo",
       icon: "⛲",
@@ -34507,7 +34507,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_3",
       active: true,
-      name: "Pantheon",
+      name: "Panteón de Agripa",
       category: "poi",
       type: "Histórico",
       icon: "🏺",
@@ -34525,7 +34525,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_4",
       active: true,
-      name: "Trastevere",
+      name: "Trastévere",
       category: "poi",
       type: "Barrio",
       icon: "🍝",
@@ -34542,7 +34542,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_5",
       active: true,
-      name: "Vatican City",
+      name: "Ciudad del Vaticano",
       category: "poi",
       type: "Histórico",
       icon: "🕊️",
@@ -34563,7 +34563,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_6",
       active: true,
-      name: "Villa Adriana (Tivoli)",
+      name: "Villa Adriana",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -34581,7 +34581,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_7",
       active: true,
-      name: "Villa d'Este, Tivoli",
+      name: "Villa de Este",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -34603,7 +34603,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_8",
       active: true,
-      name: "Etruscan Necropolises of Cerveteri and Tarquinia",
+      name: "Cerveteri",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -34622,7 +34622,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_9",
       active: true,
-      name: "Galleria Spada",
+      name: "Galería Spada",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -34640,7 +34640,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_10",
       active: true,
-      name: "Museo di Roma",
+      name: "Palacio Braschi",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -34658,7 +34658,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_11",
       active: true,
-      name: "Museo Nazionale Romano",
+      name: "Museo Nacional Romano",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -34676,7 +34676,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_12",
       active: true,
-      name: "Palazzo Doria Pamphilj",
+      name: "Palacio Doria-Pamphili",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -34709,7 +34709,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rome_14",
       active: true,
-      name: "Villa Medici",
+      name: "Villa Médici",
       category: "poi",
       type: "Histórico",
       icon: "🏰",
@@ -47770,7 +47770,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_4",
       active: true,
-      name: "Museu de Arte Contemporânea",
+      name: "Museo de Arte Contemporáneo de Niterói",
       category: "poi",
       type: "Museo",
       icon: "🖼️",
@@ -47836,7 +47836,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_8",
       active: true,
-      name: "Igreja e Mosteiro de São Bento",
+      name: "Monasterio de San Benito",
       category: "poi",
       type: "Iglesia",
       icon: "⛪",
@@ -47854,7 +47854,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_9",
       active: true,
-      name: "Palácio do Catete",
+      name: "Palacio de Catete",
       category: "poi",
       type: "Histórico",
       icon: "🏰",
@@ -47871,7 +47871,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_10",
       active: true,
-      name: "Bio Parque do Rio",
+      name: "BioParque de Río",
       category: "poi",
       type: "Atracción",
       icon: "🎡",
@@ -48139,7 +48139,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_28",
       active: true,
-      name: "Theatro Municipal",
+      name: "Teatro Municipal de Río de Janeiro",
       category: "poi",
       type: "Cultural",
       icon: "🎭",
@@ -48193,7 +48193,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_31",
       active: true,
-      name: "Pão de Açúcar",
+      name: "Pan de Azúcar",
       category: "poi",
       type: "Naturaleza",
       icon: "🏔️",
@@ -48211,7 +48211,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_32",
       active: true,
-      name: "Jardim Botânico do Rio de Janeiro",
+      name: "Jardín botánico de Río de Janeiro",
       category: "poi",
       type: "Parque",
       icon: "🌿",
@@ -48229,7 +48229,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_33",
       active: true,
-      name: "Praia de Copacabana",
+      name: "Copacabana",
       category: "poi",
       type: "Naturaleza",
       icon: "🏖️",
@@ -48246,7 +48246,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_34",
       active: true,
-      name: "Praia de Ipanema",
+      name: "Ipanema",
       category: "poi",
       type: "Naturaleza",
       icon: "🏖️",
@@ -48264,7 +48264,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_35",
       active: true,
-      name: "Parque Nacional da Tijuca",
+      name: "Parque nacional de la Tijuca",
       category: "poi",
       type: "Parque",
       icon: "🌿",
@@ -48282,7 +48282,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_36",
       active: true,
-      name: "Arcos da Lapa",
+      name: "Acueducto Carioca",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -48299,7 +48299,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_37",
       active: true,
-      name: "Forte de Copacabana",
+      name: "Fuerte de Copacabana",
       category: "poi",
       type: "Histórico",
       icon: "🏰",
@@ -48317,7 +48317,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "rio_38",
       active: true,
-      name: "Sambódromo Marquês de Sapucaí",
+      name: "Sambódromo del Marqués de Sapucaí",
       category: "poi",
       type: "Cultural",
       icon: "🎭",
@@ -136424,7 +136424,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bariloche_1",
       active: true,
-      name: "Ruinas del \"Proyecto Huemul\"",
+      name: "Proyecto Huemul",
       category: "poi",
       type: "Histórico",
       icon: "🏛️",
@@ -136456,7 +136456,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bariloche_3",
       active: true,
-      name: "Catedral Nuestra Señora del Nahuel Huapi",
+      name: "Catedral de Nuestra Señora del Nahuel Huapi",
       category: "poi",
       type: "Iglesia",
       icon: "⛪",
@@ -136473,7 +136473,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bariloche_4",
       active: true,
-      name: "Centro Cívico",
+      name: "Centro Cívico Bariloche",
       category: "poi",
       type: "Parque",
       icon: "🌿",
@@ -136506,7 +136506,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bariloche_6",
       active: true,
-      name: "Cerro Catedral Norte",
+      name: "Cerro Catedral",
       category: "poi",
       type: "Naturaleza",
       icon: "🏔️",

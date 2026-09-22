@@ -36,7 +36,7 @@ describe('buildPlanSlideshowItems', () => {
 
   it('resolves name, type, icon and image from curated data', () => {
     const [item] = buildPlanSlideshowItems([PARIS_STOP], [], 'es-CL');
-    expect(item.name).toBe('Paris, Banks of the Seine');
+    expect(item.name).toBe('Riberas del Sena en París'); // Task 6 re-resolved the pre-pipeline English name too
     expect(item.type).toBe('Histórico');
     expect(item.icon).toBe('🏛️');
     expect(item.imageUrl).toBe(PARIS_0_IMAGE);
