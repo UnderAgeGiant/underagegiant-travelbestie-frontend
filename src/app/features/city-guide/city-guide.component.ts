@@ -98,15 +98,20 @@ import { photoCreditUrl } from './photo-credit.util';
                 <span class="cg-h2-icon" aria-hidden="true">{{ categoryIcon(s.category) }}</span>
                 <h2 class="cg-h2" i18n="@@cityGuide.moreIn">{{ s.label }} en {{ m.entry.displayName }}</h2>
               </div>
-              <ul class="cg-list">
-                @for (a of s.items; track a.id) {
-                  <li>
-                    <b>{{ a.name }}</b> <span class="cg-meta">★ {{ a.rating }}</span>
-                    <span>{{ a.description }}</span>
-                    @if (a.sourceUrl) { <a [attr.href]="a.sourceUrl" target="_blank" rel="noopener noreferrer" i18n="@@cityGuide.srcWikipedia2">Wikipedia</a> }
-                  </li>
-                }
-              </ul>
+              @if (s.items.length > 6) {
+                <p class="cg-scroll-hint" i18n="@@cityGuide.scrollHint">Desliza dentro del recuadro para ver los {{ s.items.length }} lugares — o sigue bajando para continuar.</p>
+              }
+              <div class="cg-list-wrap" [class.cg-scroll-box]="s.items.length > 6">
+                <ul class="cg-list">
+                  @for (a of s.items; track a.id) {
+                    <li>
+                      <b>{{ a.name }}</b> <span class="cg-meta">★ {{ a.rating }}</span>
+                      <span>{{ a.description }}</span>
+                      @if (a.sourceUrl) { <a [attr.href]="a.sourceUrl" target="_blank" rel="noopener noreferrer" i18n="@@cityGuide.srcWikipedia2">Wikipedia</a> }
+                    </li>
+                  }
+                </ul>
+              </div>
             </section>
           }
 

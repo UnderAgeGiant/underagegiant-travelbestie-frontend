@@ -3333,6 +3333,22 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
 .cg-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .cg-list li { display: flex; flex-direction: column; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 
+/* Long category lists (e.g. "Puntos de interés" can run 15-20+ rows) get boxed into a fixed-height,
+   internally-scrollable drawer so the outer page stays short and easy to skip past — the visitor
+   either dips in and scrolls the box, or just keeps scrolling the page straight to the next section. */
+.cg-scroll-hint { font-size: 12.5px; color: var(--t3); margin-bottom: 10px; }
+.cg-scroll-box {
+  max-height: 420px; overflow-y: auto; overscroll-behavior: contain;
+  background: #fff; border: 1px solid var(--border); border-radius: 16px;
+  padding: 16px 18px 4px;
+}
+.cg-scroll-box .cg-list li:last-child { border-bottom: none; }
+.cg-scroll-box::after {
+  content: ''; position: sticky; bottom: 0; left: 0; right: 0; display: block;
+  height: 28px; margin-top: -28px; pointer-events: none;
+  background: linear-gradient(to bottom, transparent, #fff);
+}
+
 .cg-practical { display: flex; flex-direction: column; gap: 26px; }
 .cg-practical-block p, .cg-practical-block li { font-size: 15px; line-height: 1.6; color: var(--t2); }
 .cg-practical-block ul { padding-left: 20px; }
