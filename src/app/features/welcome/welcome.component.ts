@@ -1,4 +1,5 @@
 import { Component, output, signal, computed, OnInit, OnDestroy, ChangeDetectionStrategy, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { BackgroundSliderComponent, SLIDES } from '../../shared/background-slider/background-slider.component';
@@ -6,10 +7,11 @@ import { HighlightTargetDirective } from '../../shared/highlight-tour/highlight-
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { LocaleService } from '../../core/i18n/locale.service';
+import { CITY_GUIDES } from '../../data/city-guides.data';
 
 @Component({
     selector: 'app-welcome',
-    imports: [BackgroundSliderComponent, HighlightTargetDirective],
+    imports: [BackgroundSliderComponent, HighlightTargetDirective, RouterLink],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <app-background-slider
@@ -35,6 +37,16 @@ import { LocaleService } from '../../core/i18n/locale.service';
             </button>
           }
         </div>
+
+        @if (guideLinks.length) {
+          <p class="welcome-guides-row">
+            <span class="welcome-guides-label" i18n="@@welcome.guidesLabel">Descubre destinos:</span>
+            @for (g of guideLinks; track g.slug; let last = $last) {
+              <a class="welcome-guides-link" [routerLink]="['/ciudad', g.slug]">{{ g.displayName }}</a>@if (!last) {<span aria-hidden="true"> · </span>}
+            }
+            <span class="welcome-guides-arrow" aria-hidden="true">→</span>
+          </p>
+        }
 
         @if (howKarmaOpen()) {
           <div class="welcome-karma-modal-backdrop" (click)="howKarmaOpen.set(false)">
@@ -84,6 +96,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   readonly slides = SLIDES;
   readonly howKarmaOpen = signal(false);
   private timer?: ReturnType<typeof setInterval>;
+
+  /** First 5 published (reviewed) city guides, in manifest order — a slim discovery row under the hero CTAs. */
+  protected readonly guideLinks = CITY_GUIDES.filter(g => g.reviewed).slice(0, 5);
 
   readonly lastEditedPlan = computed<SavedPlan | null>(() => {
     if (!this.auth.isLoggedIn()) return null;

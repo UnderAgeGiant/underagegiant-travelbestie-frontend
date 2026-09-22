@@ -1,5 +1,6 @@
 import { signal } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { WelcomeComponent } from './welcome.component';
@@ -8,6 +9,18 @@ import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { FeedPlan } from '../../core/models/feed-plan.model';
+
+// Task: welcome-page guide discovery row. Mocked here (rather than relying on the real manifest's
+// `reviewed` flags, which change independently as guides launch) so this spec stays stable
+// regardless of which cities are actually published at any given time.
+jest.mock('../../data/city-guides.data', () => {
+  const actual = jest.requireActual('../../data/city-guides.data');
+  return { ...actual, CITY_GUIDES: [
+    { ...actual.CITY_GUIDES[0], slug: 'madrid', displayName: 'Madrid', reviewed: true },
+    { ...actual.CITY_GUIDES[0], slug: 'barcelona', displayName: 'Barcelona', reviewed: true },
+    { ...actual.CITY_GUIDES[0], slug: 'hidden', displayName: 'Oculta', reviewed: false },
+  ] };
+});
 
 describe('WelcomeComponent — last edited plan shortcut', () => {
   let fixture: ComponentFixture<WelcomeComponent>;
@@ -20,7 +33,7 @@ describe('WelcomeComponent — last edited plan shortcut', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [WelcomeComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     });
     auth = TestBed.inject(AuthService);
     savedPlans = TestBed.inject(SavedPlansService);
@@ -71,7 +84,7 @@ describe('WelcomeComponent — scroll-to-feed pill', () => {
     TestBed.configureTestingModule({
       imports: [WelcomeComponent],
       providers: [
-        provideHttpClient(), provideHttpClientTesting(),
+        provideHttpClient(), provideHttpClientTesting(), provideRouter([]),
         { provide: LandingFeedService, useValue: feedStub },
         { provide: LocaleService, useValue: { current: () => 'es-CL' } },
       ],
@@ -113,5 +126,25 @@ describe('WelcomeComponent — scroll-to-feed pill', () => {
     const spy = jest.fn(); f.componentInstance.scrollToFeed.subscribe(spy);
     pill(f)!.click();
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('WelcomeComponent — city guide discovery row', () => {
+  function setup() {
+    TestBed.configureTestingModule({
+      imports: [WelcomeComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const f = TestBed.createComponent(WelcomeComponent);
+    f.detectChanges();
+    return f;
+  }
+
+  it('links every reviewed guide (capped at 5) and hides unreviewed ones', () => {
+    const el: HTMLElement = setup().nativeElement;
+    const links = Array.from(el.querySelectorAll('.welcome-guides-link')) as HTMLAnchorElement[];
+    expect(links.map(a => a.textContent)).toEqual(['Madrid', 'Barcelona']);
+    expect(links.map(a => a.getAttribute('href'))).toEqual(['/ciudad/madrid', '/ciudad/barcelona']);
+    expect(el.textContent).not.toContain('Oculta');
   });
 });

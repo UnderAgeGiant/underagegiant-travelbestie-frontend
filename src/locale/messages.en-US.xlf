@@ -1645,6 +1645,10 @@
         <source>Entendido</source>
         <target>Got it</target>
       </trans-unit>
+      <trans-unit id="welcome.guidesLabel" datatype="html">
+        <source>Descubre destinos:</source>
+        <target>Discover destinations:</target>
+      </trans-unit>
 
       <!-- ── co-editing: my-trips.component collaborator UI ── -->
       <trans-unit id="myTrips.tabCollaborations" datatype="html">
