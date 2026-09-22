@@ -75,6 +75,23 @@ import { photoCreditUrl } from './photo-credit.util';
             </div>
           </section>
 
+          @if (plans().length) {
+            <section class="cg-plans">
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon" aria-hidden="true">🗺️</span>
+                <h2 class="cg-h2" i18n="@@cityGuide.plansTitle">Itinerarios reales de viajeros que pasan por {{ m.entry.displayName }}</h2>
+              </div>
+              <ul class="cg-list">
+                @for (p of plans(); track p.id) {
+                  <li>
+                    <a [routerLink]="['/shared', p.id]">{{ p.tripName }}</a>
+                    <span class="cg-meta">{{ p.cities.join(' → ') }} · {{ p.attractionCount }} <ng-container i18n="@@cityGuide.planStops">lugares</ng-container> · ♥ {{ p.favoriteCount }}</span>
+                  </li>
+                }
+              </ul>
+            </section>
+          }
+
           @for (s of m.sections; track s.category) {
             <section class="cg-more" [attr.data-cat]="s.category">
               <div class="cg-h2-row">
@@ -121,36 +138,12 @@ import { photoCreditUrl } from './photo-credit.util';
             </div>
             <div class="cg-practical-block">
               <div class="cg-h2-row">
-                <span class="cg-h2-icon" aria-hidden="true">🧳</span>
-                <h2 class="cg-h2" i18n="@@cityGuide.getTitle">Cómo llegar desde Chile</h2>
-              </div>
-              <p>{{ m.entry.gettingThere }}</p>
-            </div>
-            <div class="cg-practical-block">
-              <div class="cg-h2-row">
                 <span class="cg-h2-icon" aria-hidden="true">💡</span>
                 <h2 class="cg-h2" i18n="@@cityGuide.tipsTitle">Consejos prácticos</h2>
               </div>
               <ul>@for (t of m.entry.tips; track t) { <li>{{ t }}</li> }</ul>
             </div>
           </section>
-
-          @if (plans().length) {
-            <section class="cg-plans">
-              <div class="cg-h2-row">
-                <span class="cg-h2-icon" aria-hidden="true">🗺️</span>
-                <h2 class="cg-h2" i18n="@@cityGuide.plansTitle">Itinerarios reales de viajeros que pasan por {{ m.entry.displayName }}</h2>
-              </div>
-              <ul class="cg-list">
-                @for (p of plans(); track p.id) {
-                  <li>
-                    <a [routerLink]="['/shared', p.id]">{{ p.tripName }}</a>
-                    <span class="cg-meta">{{ p.cities.join(' → ') }} · {{ p.attractionCount }} <ng-container i18n="@@cityGuide.planStops">lugares</ng-container> · ♥ {{ p.favoriteCount }}</span>
-                  </li>
-                }
-              </ul>
-            </section>
-          }
 
           <section class="cg-faq">
             <div class="cg-h2-row">
