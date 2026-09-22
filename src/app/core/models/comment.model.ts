@@ -58,4 +58,8 @@ export interface Attraction {
   ticketPrices?:    TicketPrices | null;
   date?:            string | null;   // dd/mm/yyyy — fixed event date; null for poi/foodie/freetour
   time?:            string | null;   // HH:mm — fixed event start time; null when unknown or non-event
+  lat?:             number;    // WGS84, from Wikidata/Wikipedia (city-guide deepening only)
+  lng?:             number;
+  dayTrip?:         boolean;   // > 25 km from the city centre: an excursion, not a city sight
+  sourceUrl?:       string;    // Wikipedia article the description was adapted from (CC BY-SA attribution link)
 }
