@@ -1354,6 +1354,15 @@ app-nav { display: block; }
   max-width: 65ch;
   margin: 0;
 }
+.landing-about-guides {
+  margin: 1.1rem 0 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--t2);
+}
+.landing-about-guides-label { font-weight: 600; color: var(--t1); margin-right: 4px; }
+.landing-about-guides a { color: var(--lav-d); text-decoration: none; border-bottom: 1px solid transparent; }
+.landing-about-guides a:hover, .landing-about-guides a:focus-visible { border-bottom-color: var(--lav-d); }
 .landing-about-stats {
   display: flex;
   flex-direction: column;
@@ -2641,18 +2650,6 @@ app-nav { display: block; }
 .welcome-cta-last-name {
   font-size: 11px; font-weight: 500; opacity: .8;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%;
-}
-.welcome-guides-row {
-  margin-top: 18px; font-size: 13px; line-height: 1.6; color: oklch(100% 0 0/.6);
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 2px;
-  animation: fadeUp .6s .34s ease both;
-}
-.welcome-guides-label { margin-right: 4px; }
-.welcome-guides-link { color: oklch(100% 0 0/.88); text-decoration: none; border-bottom: 1px solid oklch(100% 0 0/.3); }
-.welcome-guides-link:hover, .welcome-guides-link:focus-visible { border-bottom-color: oklch(100% 0 0/.88); }
-.welcome-guides-arrow { margin-left: 4px; }
-@media (max-width: 640px) {
-  .welcome-guides-row { font-size: 12.5px; }
 }
 .welcome-karma-modal-backdrop {
   position: fixed; inset: 0; z-index: 300; background: rgba(15,10,30,0.55);

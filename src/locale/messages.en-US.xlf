@@ -1247,6 +1247,10 @@
     </source>
         <target>Tripilove brings together thousands of tourist attractions across dozens of cities so you can build your perfect itinerary, share it with your best friends, and make it real.</target>
       </trans-unit>
+      <trans-unit id="landing.aboutGuidesLabel" datatype="html">
+        <source>Guías de viaje:</source>
+        <target>Travel guides:</target>
+      </trans-unit>
       <trans-unit id="landing.statCities" datatype="html">
         <source>ciudades</source>
         <target>cities</target>
@@ -1644,10 +1648,6 @@
       <trans-unit id="welcome.karmaClose" datatype="html">
         <source>Entendido</source>
         <target>Got it</target>
-      </trans-unit>
-      <trans-unit id="welcome.guidesLabel" datatype="html">
-        <source>Descubre destinos:</source>
-        <target>Discover destinations:</target>
       </trans-unit>
 
       <!-- ── co-editing: my-trips.component collaborator UI ── -->

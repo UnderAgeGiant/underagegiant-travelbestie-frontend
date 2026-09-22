@@ -2,13 +2,15 @@ import {
   AfterViewInit, ChangeDetectionStrategy, Component, ElementRef,
   inject, OnInit, QueryList, signal, ViewChildren,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ApiService } from '../../core/api/api.service';
 import { AppStats } from '../../core/models/featured-trip.model';
+import { CITY_GUIDES } from '../../data/city-guides.data';
 
 @Component({
     selector: 'tb-landing-about',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [],
+    imports: [RouterLink],
     host: { class: 'landing-snap-child landing-about' },
     template: `
 <div class="landing-about-inner">
@@ -22,6 +24,15 @@ import { AppStats } from '../../core/models/featured-trip.model';
       de ciudades para que armes tu itinerario perfecto, lo compartas con tus mejores
       amigos y lo hagas realidad.
     </p>
+    @if (guides.length) {
+      <p class="landing-about-guides">
+        <span class="landing-about-guides-label" i18n="@@landing.aboutGuidesLabel">Guías de viaje:</span>
+        @for (g of guides; track g.slug; let last = $last) {
+          <a [routerLink]="['/ciudad', g.slug]">{{ g.displayName }}</a>@if (!last) {<span aria-hidden="true"> · </span>}
+        }
+        <span aria-hidden="true"> →</span>
+      </p>
+    }
   </div>
 
   <div class="reveal hidden landing-about-stats" aria-label="Estadísticas">
@@ -48,6 +59,9 @@ export class LandingAboutComponent implements OnInit, AfterViewInit {
   @ViewChildren('statEl') statEls!: QueryList<ElementRef<HTMLSpanElement>>;
 
   protected readonly stats = signal<AppStats | null>(null);
+  /** First 5 published (reviewed) city guides, in manifest order — a solid-background alternative to
+   *  a photo-hero placement, so the links never have a legibility problem against a rotating image. */
+  protected readonly guides = CITY_GUIDES.filter(g => g.reviewed).slice(0, 5);
   private readonly api  = inject(ApiService);
   private readonly host = inject(ElementRef<HTMLElement>);
   private animated = false;

@@ -19,6 +19,25 @@ const mockData = [...Array.from({ length: 40 }, (_, i) => att(i)), att(99, { nam
 
 jest.mock('../../data/attractions.data', () => ({ getAttractions: () => mockData }));
 
+// Fixed madrid manifest entry — independent of the real one's current `reviewed` flag (which
+// changes as guides get approved) so this spec's "unreviewed → noindex" assertion stays stable.
+// (Object literal duplicated inline, not a shared outer const: jest hoists jest.mock() factories
+// above even top-level const declarations that precede them in source order.)
+jest.mock('../../data/city-guides.data', () => {
+  const guide = {
+    slug: 'madrid', cityId: 'madrid', displayName: 'Madrid', wave: 1, timeZone: 'Europe/Madrid', reviewed: false,
+    intro: 'x'.repeat(90), bestTime: 'b', gettingThere: 'g', tips: ['a', 'b', 'c'],
+    faq: [{ q: '¿Uno?', a: 'Respuesta uno suficientemente larga para pasar el umbral.' },
+          { q: '¿Dos?', a: 'Respuesta dos suficientemente larga para pasar el umbral.' },
+          { q: '¿Tres?', a: 'Respuesta tres suficientemente larga para pasar el umbral.' }],
+  };
+  return {
+    CITY_GUIDES: [guide],
+    guideBySlug: (slug: string) => slug === 'madrid' ? guide : undefined,
+    guideByCityId: (cityId: string) => cityId === 'madrid' ? guide : undefined,
+  };
+});
+
 describe('CityGuideComponent (/ciudad/madrid)', () => {
   const seo = { apply: jest.fn(), reset: jest.fn() };
   const api = { getSeoCityPlans: jest.fn() };

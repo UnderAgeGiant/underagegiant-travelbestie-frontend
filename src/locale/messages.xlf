@@ -1914,35 +1914,42 @@
         <source> Planifica el viaje<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>que siempre soñaste<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">18,20</context>
+          <context context-type="linenumber">20,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.aboutMission" datatype="html">
         <source> Tripilove reúne miles de atracciones turísticas en decenas de ciudades para que armes tu itinerario perfecto, lo compartas con tus mejores amigos y lo hagas realidad. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">21,25</context>
+          <context context-type="linenumber">23,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="landing.aboutGuidesLabel" datatype="html">
+        <source>Guías de viaje:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
+          <context context-type="linenumber">29,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.statCities" datatype="html">
         <source>ciudades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">31,33</context>
+          <context context-type="linenumber">42,44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.statUsers" datatype="html">
         <source>viajeros</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">35,37</context>
+          <context context-type="linenumber">46,48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="landing.statPlans" datatype="html">
         <source>planes creados</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/landing/landing-about.component.ts</context>
-          <context context-type="linenumber">39,42</context>
+          <context context-type="linenumber">50,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy.eyebrow" datatype="html">
@@ -4634,91 +4641,84 @@
         <source>Planifica · Comparte · Explora</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">23,24</context>
+          <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.title" datatype="html">
         <source>Viaja pensando en tu<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>mejor amig@<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">24,25</context>
+          <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.subtitle" datatype="html">
         <source>Crea viajes a múltiples destinos, descubre atracciones locales y deja que tus amigos comenten cada parada.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">25,26</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaCreatePlan" datatype="html">
         <source>Crear Plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">28,29</context>
+          <context context-type="linenumber">26,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaCreateAi" datatype="html">
         <source>🐾 Crear con IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">30,31</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaHowKarma" datatype="html">
         <source>⭐ Cómo ganar Karma</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.ctaLastPlan" datatype="html">
         <source>🕓 Último viaje que editaste</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">35,36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="welcome.guidesLabel" datatype="html">
-        <source>Descubre destinos:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">43,44</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaTitle" datatype="html">
         <source>Cómo ganar Karma ⭐</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">54,55</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaBody" datatype="html">
         <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">55,56</context>
+          <context context-type="linenumber">43,44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.karmaClose" datatype="html">
         <source>Entendido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">57,59</context>
+          <context context-type="linenumber">45,47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.feedPillTop" datatype="html">
         <source>♥ <x id="count" equiv-text="count"/> · <x id="name" equiv-text="name"/> — ver más</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome.feedPillGeneric" datatype="html">
         <source>Descubre planes de otros viajeros</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/welcome/welcome.component.ts</context>
-          <context context-type="linenumber">93</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autosave.reminderMessage" datatype="html">
