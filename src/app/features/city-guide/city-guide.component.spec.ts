@@ -16,8 +16,11 @@ const att = (i: number, o: Partial<Attraction> = {}): Attraction => ({
   sourceUrl: `https://es.wikipedia.org/wiki/Sitio_${i}`, ...o,
 });
 const mockData = [...Array.from({ length: 40 }, (_, i) => att(i)), att(99, { name: 'Toledo', dayTrip: true, rating: 4.8 })];
+// Mutable so individual tests (e.g. the day-trips scroll-box test) can swap in a bigger fixture
+// without leaking into other tests — reset to `mockData` in beforeEach below.
+let activeData: Attraction[] = mockData;
 
-jest.mock('../../data/attractions.data', () => ({ getAttractions: () => mockData }));
+jest.mock('../../data/attractions.data', () => ({ getAttractions: () => activeData }));
 
 // Fixed madrid manifest entry — independent of the real one's current `reviewed` flag (which
 // changes as guides get approved) so this spec's "unreviewed → noindex" assertion stays stable.
@@ -62,7 +65,7 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     return f;
   }
 
-  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); });
+  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; });
 
   it('renders the h1, the Chile facts block and the editorial sections', () => {
     const el: HTMLElement = create().nativeElement;
@@ -104,5 +107,33 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     const nav = jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
     (f.nativeElement.querySelector('.cg-cta') as HTMLButtonElement).click();
     expect(nav).toHaveBeenCalledWith(['/'], { queryParams: { addCity: 'madrid' } });
+  });
+
+  it('repeats the plan CTA at the end of the guide, after the FAQ', () => {
+    const el: HTMLElement = create().nativeElement;
+    expect(el.querySelectorAll('.cg-cta').length).toBe(2);
+    const endCta = el.querySelector('.cg-cta-end .cg-cta');
+    const faq = el.querySelector('.cg-faq');
+    expect(endCta).not.toBeNull();
+    expect(faq).not.toBeNull();
+    expect(faq!.compareDocumentPosition(endCta!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  it('renders the country flag via app-flag-icon instead of a raw emoji in the eyebrow', () => {
+    const el: HTMLElement = create().nativeElement;
+    expect(el.querySelector('.cg-eyebrow app-flag-icon')).not.toBeNull();
+    expect(el.querySelector('.cg-eyebrow')?.textContent).toContain('Guía de viaje');
+  });
+
+  it('titles the best-time-to-go block "Cuándo es mejor ir"', () => {
+    const el: HTMLElement = create().nativeElement;
+    expect(el.querySelector('.cg-practical')?.textContent).toContain('Cuándo es mejor ir');
+  });
+
+  it('boxes the day-trips list once it exceeds 6 items, matching the category-list treatment', () => {
+    activeData = [...Array.from({ length: 40 }, (_, i) => att(i)), ...Array.from({ length: 8 }, (_, i) => att(200 + i, { name: `Excursión ${i}`, dayTrip: true }))];
+    const el: HTMLElement = create().nativeElement;
+    expect(el.querySelector('.cg-daytrips .cg-scroll-box')).not.toBeNull();
+    expect(el.querySelector('.cg-daytrips .cg-scroll-hint')).not.toBeNull();
   });
 });

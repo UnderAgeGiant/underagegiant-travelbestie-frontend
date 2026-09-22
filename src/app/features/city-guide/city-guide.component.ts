@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { ApiService } from '../../core/api/api.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { pickTopSights, isGuideAttraction } from '../../core/seo/city-guide-seo.util';
@@ -22,7 +23,7 @@ import { photoCreditUrl } from './photo-credit.util';
 
 @Component({
   selector: 'app-city-guide',
-  imports: [NavShellComponent, ProfileComponent, RouterLink],
+  imports: [NavShellComponent, ProfileComponent, RouterLink, FlagIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cg-page">
@@ -32,7 +33,10 @@ import { photoCreditUrl } from './photo-credit.util';
       @if (model(); as m) {
         <main class="cg-main">
           <header class="cg-hero">
-            <div class="cg-eyebrow" i18n="@@cityGuide.eyebrow">Guía de viaje {{ m.city.flag }}</div>
+            <div class="cg-eyebrow">
+              <span i18n="@@cityGuide.eyebrow">Guía de viaje</span>
+              <app-flag-icon [flag]="m.city.flag" [alt]="m.city.country" [size]="16" />
+            </div>
             <h1 i18n="@@cityGuide.h1">Qué hacer en {{ m.entry.displayName }}</h1>
             <p class="cg-intro">{{ m.entry.intro }}</p>
             <button type="button" class="btn-pill btn-primary cg-cta" (click)="startPlan()"
@@ -121,15 +125,20 @@ import { photoCreditUrl } from './photo-credit.util';
                 <span class="cg-h2-icon" aria-hidden="true">🏞️</span>
                 <h2 class="cg-h2" i18n="@@cityGuide.dayTrips">Excursiones de un día desde {{ m.entry.displayName }}</h2>
               </div>
-              <ul class="cg-list">
-                @for (a of m.dayTrips; track a.id) {
-                  <li>
-                    <b>{{ a.name }}</b> <span class="cg-meta">★ {{ a.rating }}</span>
-                    <span>{{ a.description }}</span>
-                    @if (a.sourceUrl) { <a [attr.href]="a.sourceUrl" target="_blank" rel="noopener noreferrer" i18n="@@cityGuide.srcWikipedia3">Wikipedia</a> }
-                  </li>
-                }
-              </ul>
+              @if (m.dayTrips.length > 6) {
+                <p class="cg-scroll-hint" i18n="@@cityGuide.scrollHintDayTrips">Desliza dentro del recuadro para ver las {{ m.dayTrips.length }} excursiones — o sigue bajando para continuar.</p>
+              }
+              <div class="cg-list-wrap" [class.cg-scroll-box]="m.dayTrips.length > 6">
+                <ul class="cg-list">
+                  @for (a of m.dayTrips; track a.id) {
+                    <li>
+                      <b>{{ a.name }}</b> <span class="cg-meta">★ {{ a.rating }}</span>
+                      <span>{{ a.description }}</span>
+                      @if (a.sourceUrl) { <a [attr.href]="a.sourceUrl" target="_blank" rel="noopener noreferrer" i18n="@@cityGuide.srcWikipedia3">Wikipedia</a> }
+                    </li>
+                  }
+                </ul>
+              </div>
             </section>
           }
 
@@ -137,7 +146,7 @@ import { photoCreditUrl } from './photo-credit.util';
             <div class="cg-practical-block">
               <div class="cg-h2-row">
                 <span class="cg-h2-icon" aria-hidden="true">📅</span>
-                <h2 class="cg-h2" i18n="@@cityGuide.whenTitle">Cuándo ir</h2>
+                <h2 class="cg-h2" i18n="@@cityGuide.whenTitle">Cuándo es mejor ir</h2>
               </div>
               <p>{{ m.entry.bestTime }}</p>
             </div>
@@ -159,6 +168,11 @@ import { photoCreditUrl } from './photo-credit.util';
               <details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
             }
           </section>
+
+          <div class="cg-cta-end">
+            <button type="button" class="btn-pill btn-primary cg-cta" (click)="startPlan()"
+                    i18n="@@cityGuide.cta">Planificar mi viaje a {{ m.entry.displayName }}</button>
+          </div>
 
           @if (m.related.length) {
             <nav class="cg-related" aria-labelledby="cg-rel-h">

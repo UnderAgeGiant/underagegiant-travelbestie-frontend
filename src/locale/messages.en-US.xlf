@@ -68,6 +68,10 @@
         <source>Cambiar idioma</source>
         <target>Change language</target>
       </trans-unit>
+      <trans-unit id="nav.guidePromoLabel" datatype="html">
+        <source>Guía de destino a:</source>
+        <target>Destination guide:</target>
+      </trans-unit>
 
       <!-- ── notification-bell.component ── -->
       <trans-unit id="notif.bellAria" datatype="html">
@@ -2777,8 +2781,8 @@
 
       <!-- ── city-guide (Feature 67) ── -->
       <trans-unit id="cityGuide.eyebrow" datatype="html">
-        <source>Guía de viaje <x id="INTERPOLATION" equiv-text="{{ m.city.flag }}"/></source>
-        <target>Travel guide <x id="INTERPOLATION" equiv-text="{{ m.city.flag }}"/></target>
+        <source>Guía de viaje</source>
+        <target>Travel guide</target>
       </trans-unit>
       <trans-unit id="cityGuide.h1" datatype="html">
         <source>Qué hacer en <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
@@ -2837,8 +2841,16 @@
         <target>Wikipedia</target>
       </trans-unit>
       <trans-unit id="cityGuide.whenTitle" datatype="html">
-        <source>Cuándo ir</source>
-        <target>When to go</target>
+        <source>Cuándo es mejor ir</source>
+        <target>When's the best time to go</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.scrollHint" datatype="html">
+        <source>Desliza dentro del recuadro para ver los <x id="INTERPOLATION" equiv-text="{{ s.items.length }}"/> lugares — o sigue bajando para continuar.</source>
+        <target>Scroll inside the box to see all <x id="INTERPOLATION" equiv-text="{{ s.items.length }}"/> places — or keep scrolling the page to move on.</target>
+      </trans-unit>
+      <trans-unit id="cityGuide.scrollHintDayTrips" datatype="html">
+        <source>Desliza dentro del recuadro para ver las <x id="INTERPOLATION" equiv-text="{{ m.dayTrips.length }}"/> excursiones — o sigue bajando para continuar.</source>
+        <target>Scroll inside the box to see all <x id="INTERPOLATION" equiv-text="{{ m.dayTrips.length }}"/> day trips — or keep scrolling the page to move on.</target>
       </trans-unit>
       <trans-unit id="cityGuide.getTitle" datatype="html">
         <source>Cómo llegar desde Chile</source>

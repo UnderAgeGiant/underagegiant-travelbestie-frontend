@@ -1,11 +1,12 @@
 import { Component, HostListener, inject, output, input } from '@angular/core';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
+import { CityGuidePromoComponent } from '../shared/city-guide-promo.component';
 import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
 
 @Component({
   selector: 'app-nav-desktop',
-  imports: [NotificationBellComponent, HighlightTargetDirective],
+  imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
   template: `
     <nav class="nav">
       <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -37,6 +38,10 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           </div>
         }
       </div>
+
+      @if (showCityGuidePromo()) {
+        <app-city-guide-promo />
+      }
 
       <div class="nav-right">
         <!-- Language switcher -->
@@ -356,6 +361,7 @@ export class NavDesktopComponent {
   logoClick    = output<void>();
   profileClick = output<void>();
   activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
+  showCityGuidePromo = input<boolean>(false);
 
   onLogo(): void { this.facade.onLogoClick(); this.logoClick.emit(); }
   onProfile(): void { this.facade.openProfile(); this.profileClick.emit(); }
