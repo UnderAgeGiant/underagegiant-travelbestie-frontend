@@ -5,6 +5,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { SharedTripComponent } from './shared-trip.component';
 import { SeoService } from '../../core/seo/seo.service';
+import { sharedPendingSeo } from '../../core/seo/seo-pages';
 
 // SharedTripComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -435,5 +436,88 @@ describe('SharedTripComponent — stale response must not clobber SEO', () => {
     expect(seo.apply).toHaveBeenCalledTimes(1);
     expect(seo.apply.mock.calls[0][0].path).toBe('/shared/trip-b');
     flushIfLive(httpMock.match(req => req.url.includes('/weather')), { days: [] });
+  });
+});
+
+/**
+ * Regression coverage for the 2026-09-21 "noindex tag detected" incident (live-verified in a real browser via
+ * chrome-devtools MCP): SeoRouteListener applies /shared/:id's route-data sharedPendingSeo() on NavigationEnd —
+ * before SharedTripComponent's fetchTrip() resolves. When sharedPendingSeo() carried `noindex: true`, a
+ * JS-rendering crawler could snapshot <meta name="robots" content="noindex,follow"> during that window on a
+ * plan that is fully indexable once loaded. Uses the REAL SeoService (not the jest.fn() mock the other
+ * describe blocks above use) so document.head reflects what a crawler's renderer would actually see.
+ */
+describe('SharedTripComponent — no false noindex while the shared plan is loading', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+  let seo: SeoService;
+  const robotsMeta = () => document.head.querySelector('meta[name="robots"]')?.getAttribute('content') ?? null;
+
+  const indexableTrip = {
+    tripName: 'Viaje a Europa', ownerName: 'Ana',
+    stops: [{
+      cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026',
+      selectedAttractions: [
+        { attractionId: 'paris_0' }, { attractionId: 'paris_1' }, { attractionId: 'paris_2' },
+      ],
+    }],
+    transits: [],
+  };
+
+  beforeEach(() => {
+    document.head.innerHTML = '<meta name="description" content="Default description">';
+    document.title = 'Default title';
+
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
+          },
+        },
+      ],
+    });
+
+    seo = TestBed.inject(SeoService);
+    // Mirrors what SeoRouteListener does at navigation time, before the lazy-loaded component is constructed.
+    seo.apply(sharedPendingSeo());
+
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('has NO robots meta while the fetch is still pending', () => {
+    fixture.detectChanges();
+    expect(robotsMeta()).toBeNull();
+
+    // Drain the in-flight requests so httpMock.verify() in afterEach doesn't fail.
+    httpMock.match(() => true).forEach(r => r.flush(indexableTrip));
+    fixture.detectChanges();
+    httpMock.match(() => true).forEach(r => r.flush({ days: [] }));
+  });
+
+  it('resolves to no robots meta once an indexable plan loads', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush(indexableTrip);
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+
+    expect(robotsMeta()).toBeNull();
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+  });
+
+  it('resolves to robots noindex,follow when the plan is not found (unchanged, still correct)', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a'))
+      .flush({ error: 'not found' }, { status: 404, statusText: 'Not Found' });
+
+    expect(robotsMeta()).toBe('noindex,follow');
   });
 });
