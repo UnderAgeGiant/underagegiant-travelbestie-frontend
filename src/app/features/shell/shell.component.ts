@@ -17,7 +17,6 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { AiPlanningComponent } from '../ai-planning/ai-planning.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
-import { LandingAboutComponent } from '../landing/landing-about.component';
 import { LandingFeedComponent } from '../landing/feed/landing-feed.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { AboutContentComponent } from '../about/about-content.component';
@@ -44,7 +43,6 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         ProfileComponent,
         AiPlanningComponent,
         FeaturedSlideshowComponent,
-        LandingAboutComponent,
         LandingFeedComponent,
         AppFooterComponent,
         AboutContentComponent,
@@ -77,9 +75,6 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
         <!-- S2: cinematic slideshow (hidden when no featured trips) -->
         <tb-featured-slideshow #featuredSection />
-
-        <!-- S3: about -->
-        <tb-landing-about />
 
         <!-- S4: footer -->
         <tb-app-footer (createPlan)="showAddModal.set(true)"

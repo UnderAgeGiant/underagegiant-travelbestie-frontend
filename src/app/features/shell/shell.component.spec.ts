@@ -200,11 +200,12 @@ describe('ShellComponent', () => {
 
   // Feedback #4 — scrolling the homepage all the way down should end with the full
   // About Us content (AboutContentComponent, extracted in Task 7), not stop at the S4 footer.
-  it('renders the full About Us content as a 5th landing section, after the footer (feedback #4)', () => {
+  it('renders the full About Us content as a landing section, after the footer (feedback #4)', () => {
     const el = setup(0).nativeElement as HTMLElement;
     const sections = el.querySelectorAll('.landing-scroll > *');
-    // S1–S5 plus the S6 infinite feed host (<tb-landing-feed>) appended after About.
-    expect(sections.length).toBe(6);
+    // S1, S2, S4, S5 plus the S6 infinite feed host (<tb-landing-feed>) appended after About.
+    // (S3, tb-landing-about, was pulled out of the landing scroll 2026-09-22 — component kept, just unmounted.)
+    expect(sections.length).toBe(5);
     expect(el.querySelector('tb-app-footer + .landing-about-full, tb-app-footer ~ .landing-about-full')).not.toBeNull();
     expect(el.querySelector('.landing-about-full app-about-content')).not.toBeNull();
   });
