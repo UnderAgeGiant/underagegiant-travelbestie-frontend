@@ -1055,6 +1055,11 @@ app-nav { display: block; }
   display: block; position: relative; overflow: hidden;
   height: calc(100vh - 72px); min-height: calc(100vh - 72px);
   scroll-snap-align: start;
+  /* Feedback F5 (2026-09-20) — a thin separating line between consecutive plans. Safe to
+     add without touching the fixed-height contract above: the global border-box reset
+     (styles.css:28) means this border is absorbed into the declared height, not added on
+     top of it, so the window-spacer math above stays exact. */
+  border-bottom: 1px solid oklch(100% 0 0 / .14);
 }
 .feed-card { position: absolute; inset: 0; touch-action: pan-y; }
 .feed-card :where(button):focus-visible,
