@@ -79,32 +79,33 @@ function prefersReducedMotion(): boolean {
         </svg>
         <span class="feed-heart-count">{{ favoriteCount() }}</span>
       </button>
+      <!-- Feedback F6 (2026-09-20) — moved from a standalone bottom-right block into this
+           row, next to Ver plan completo / the heart toggle, and shrunk. -->
+      @if (pageCount() > 1) {
+        <div class="feed-nav">
+          <button type="button" class="feed-nav-prev" (click)="prev()"
+                  i18n-aria-label="@@feed.prev" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          @if (pageCount() <= maxDots) {
+            <div class="feed-dots">
+              @for (p of pages(); track p) {
+                <button type="button" class="feed-dot" [class.active]="pageIdx() === p" (click)="goTo(p)"
+                        [attr.aria-current]="pageIdx() === p ? 'true' : null"
+                        [attr.aria-label]="pageLabel(p)"></button>
+              }
+            </div>
+          } @else {
+            <span class="feed-counter">{{ pageIdx() + 1 }} / {{ pageCount() }}</span>
+          }
+          <button type="button" class="feed-nav-next" (click)="next()"
+                  i18n-aria-label="@@feed.next" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      }
     </div>
   </div>
-
-  @if (pageCount() > 1) {
-    <div class="feed-nav">
-      <button type="button" class="feed-nav-prev" (click)="prev()"
-              i18n-aria-label="@@feed.prev" aria-label="Anterior">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      @if (pageCount() <= maxDots) {
-        <div class="feed-dots">
-          @for (p of pages(); track p) {
-            <button type="button" class="feed-dot" [class.active]="pageIdx() === p" (click)="goTo(p)"
-                    [attr.aria-current]="pageIdx() === p ? 'true' : null"
-                    [attr.aria-label]="pageLabel(p)"></button>
-          }
-        </div>
-      } @else {
-        <span class="feed-counter">{{ pageIdx() + 1 }} / {{ pageCount() }}</span>
-      }
-      <button type="button" class="feed-nav-next" (click)="next()"
-              i18n-aria-label="@@feed.next" aria-label="Siguiente">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-  }
 </article>
   `,
 })
