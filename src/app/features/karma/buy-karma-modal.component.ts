@@ -21,7 +21,7 @@ import { environment } from '../../../environments/environment';
              style="background:linear-gradient(135deg,var(--lav),var(--peach));flex-shrink:0">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
             <div>
-              <div class="modal-title" i18n="@@buyKarma.title">Comprar Token ✨</div>
+              <div class="modal-title" i18n="@@buyKarma.title">Comprar Tokens ✨</div>
               <div class="modal-sub" i18n="@@buyKarma.subtitle">Elige un paquete y completa el pago</div>
             </div>
             <button

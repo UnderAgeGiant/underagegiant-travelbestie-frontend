@@ -41,7 +41,7 @@ const PAGE_SIZE = 20;
           } @else if (loading() && events().length === 0) {
             <div class="section-empty" i18n="@@karmaHistory.loading">Cargando tu historial…</div>
           } @else if (events().length === 0) {
-            <div class="section-empty" i18n="@@karmaHistory.empty">Aún no tienes movimientos de token.</div>
+            <div class="section-empty" i18n="@@karmaHistory.empty">Aún no tienes movimientos de tokens.</div>
           } @else {
             <div class="karma-history-list">
               @for (event of events(); track event.eventId) {

@@ -74,7 +74,7 @@ describe('LandingFeedComponent', () => {
     expect(getFeed).not.toHaveBeenCalled();
   });
 
-  it('loads once the visitor logs in mid-session', () => {
+  it('loads once the visitor logs in mid-session, still deferred to idle time', () => {
     isLoggedInSignal.set(false);
     fixture.detectChanges();
     jest.advanceTimersByTime(300);
@@ -83,6 +83,9 @@ describe('LandingFeedComponent', () => {
 
     isLoggedInSignal.set(true);
     getFeed.mockReturnValueOnce(of(page(0, 20, 'c1')));
+    fixture.detectChanges();
+    expect(getFeed).not.toHaveBeenCalled();  // deferred, not synchronous with the effect
+    jest.advanceTimersByTime(300);           // idle/timeout kick-off of initialLoad()
     fixture.detectChanges();
     expect(getFeed).toHaveBeenCalledTimes(1);
   });

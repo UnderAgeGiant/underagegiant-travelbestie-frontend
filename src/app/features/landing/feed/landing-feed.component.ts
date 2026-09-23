@@ -82,19 +82,23 @@ export class LandingFeedComponent implements OnInit, OnDestroy {
       this.feed.itemCount();
       if (i >= 0) untracked(() => this.feed.onActiveIndex(i));   // untracked: service reads its own signals
     });
-    // Feedback F2 — load only once logged in. Covers both "already logged in at mount"
-    // (idle-callback in ngOnInit, off the critical render path) and "logs in mid-session"
-    // (this effect re-fires the moment isLoggedIn() flips true; initialLoad() is a no-op
-    // if a load is already in flight or done, so the two paths never race).
+    // Feedback F2 — load only once logged in. Covers both "already logged in at mount" and
+    // "logs in mid-session" (this effect re-fires the moment isLoggedIn() flips true;
+    // initialLoad() is a no-op if a load is already in flight or done, so the two paths never
+    // race). The load itself is always deferred to browser idle time (never during the
+    // triggering change detection) so it never competes with S1's first paint.
     effect(() => {
-      if (this.auth.isLoggedIn()) untracked(() => this.feed.initialLoad());
+      if (!this.auth.isLoggedIn()) return;
+      untracked(() => this.scheduleInitialLoad());
     });
   }
 
   ngOnInit(): void {
     document.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
     window.addEventListener('resize', this.onScroll, { passive: true });
-    if (!this.auth.isLoggedIn()) return;
+  }
+
+  private scheduleInitialLoad(): void {
     const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
     if (idle) this.idleHandle = idle.call(window, () => this.feed.initialLoad());
     else this.idleTimer = setTimeout(() => this.feed.initialLoad(), 0);

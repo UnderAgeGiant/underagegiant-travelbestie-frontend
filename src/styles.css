@@ -1169,7 +1169,7 @@ app-nav { display: block; }
 }
 .feed-nav-prev:hover, .feed-nav-next:hover { background: oklch(100% 0 0/.32); }
 .feed-dots { display: flex; align-items: center; }
-.feed-dot { width: 16px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.feed-dot { width: 24px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
 .feed-dot::before { content: ''; width: 16px; height: 6px; border-radius: 4px; background: oklch(100% 0 0/.45); transform: scaleX(.32); transition: transform .3s cubic-bezier(.16,1,.3,1), background .3s; }
 .feed-dot.active::before { transform: scaleX(1); background: #fff; }
 .feed-counter { min-width: 40px; text-align: center; font-size: 12px; font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; }

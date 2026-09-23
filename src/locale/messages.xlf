@@ -505,7 +505,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.karmaCost" datatype="html">
-        <source>Esta acción cuesta 10 token ⭐ en total</source>
+        <source>Esta acción cuesta 10 tokens ⭐ en total</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
           <context context-type="linenumber">69,71</context>
@@ -1452,7 +1452,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.empty" datatype="html">
-        <source>Aún no tienes movimientos de token.</source>
+        <source>Aún no tienes movimientos de tokens.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma-history/karma-history.component.ts</context>
           <context context-type="linenumber">44,46</context>
@@ -1519,7 +1519,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="buyKarma.title" datatype="html">
-        <source>Comprar Token ✨</source>
+        <source>Comprar Tokens ✨</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/buy-karma-modal.component.ts</context>
           <context context-type="linenumber">24,25</context>
@@ -1628,14 +1628,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="kim.title" datatype="html">
-        <source>Token insuficiente ⭐</source>
+        <source>Tokens insuficientes ⭐</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/insufficient-karma-modal.component.ts</context>
           <context context-type="linenumber">14,15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="kim.subtitle" datatype="html">
-        <source>Necesitas más token para completar esta acción.</source>
+        <source>Necesitas más tokens para completar esta acción.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/insufficient-karma-modal.component.ts</context>
           <context context-type="linenumber">15,17</context>
@@ -1670,14 +1670,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="kim.buyBtn" datatype="html">
-        <source>Comprar token</source>
+        <source>Comprar tokens</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/insufficient-karma-modal.component.ts</context>
           <context context-type="linenumber">51,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="kim.earnTitle" datatype="html">
-        <source>¿Prefieres ganar token gratis?</source>
+        <source>¿Prefieres ganar tokens gratis?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/insufficient-karma-modal.component.ts</context>
           <context context-type="linenumber">56,57</context>
@@ -1705,7 +1705,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="karmaSuccess.sub" datatype="html">
-        <source>Tu token ahora es</source>
+        <source>Tu saldo de tokens ahora es</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/karma/karma-success-overlay.component.ts</context>
           <context context-type="linenumber">119,120</context>
@@ -2799,7 +2799,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="nav.buyKarmaBtn" datatype="html">
-        <source> Comprar Token </source>
+        <source> Comprar Tokens </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/desktop/nav-desktop.component.ts</context>
           <context context-type="linenumber">103,104</context>

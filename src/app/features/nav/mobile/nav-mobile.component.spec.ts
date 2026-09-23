@@ -109,7 +109,7 @@ describe('NavMobileComponent — opening Comprar Karma from the drawer', () => {
   it('closes the drawer and opens buy karma modal when Comprar Karma is clicked', () => {
     const openBuyKarmaSpy = jest.spyOn(facade, 'openBuyKarma').mockImplementation(() => {});
     const karmaBtn = Array.from(fixture.nativeElement.querySelectorAll('.up-plans-btn'))
-      .find((btn: any) => btn.textContent.includes('Comprar Token')) as HTMLButtonElement;
+      .find((btn: any) => btn.textContent.includes('Comprar Tokens')) as HTMLButtonElement;
     expect(karmaBtn).toBeTruthy();
 
     karmaBtn.click();

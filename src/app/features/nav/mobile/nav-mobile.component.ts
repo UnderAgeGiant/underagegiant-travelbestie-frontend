@@ -86,7 +86,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'mytrips'" (click)="onMyTrips()" i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'karmahistory'" (click)="onKarmaHistory()" i18n="@@nav.karmaHistory">📈 Historial de token</button>
         <button class="up-plans-btn" (click)="onBuyKarma()">
-          <span>✨</span><span i18n="@@nav.buyKarmaBtn">Comprar Token</span>
+          <span>✨</span><span i18n="@@nav.buyKarmaBtn">Comprar Tokens</span>
         </button>
 
         <!-- Saved plans -->

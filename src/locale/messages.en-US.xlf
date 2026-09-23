@@ -779,8 +779,8 @@
 
       <!-- ── buy-karma-modal ── -->
       <trans-unit id="buyKarma.title" datatype="html">
-        <source>Comprar Token ✨</source>
-        <target>Buy Token ✨</target>
+        <source>Comprar Tokens ✨</source>
+        <target>Buy Tokens ✨</target>
       </trans-unit>
       <trans-unit id="buyKarma.subtitle" datatype="html">
         <source>Elige un paquete y completa el pago</source>
@@ -849,12 +849,12 @@
 
       <!-- ── insufficient-karma-modal ── -->
       <trans-unit id="kim.title" datatype="html">
-        <source>Token insuficiente</source>
-        <target>Insufficient token</target>
+        <source>Tokens insuficientes ⭐</source>
+        <target>Insufficient tokens</target>
       </trans-unit>
       <trans-unit id="kim.subtitle" datatype="html">
-        <source>Necesitas más token para completar esta acción.</source>
-        <target>You need more token to complete this action.</target>
+        <source>Necesitas más tokens para completar esta acción.</source>
+        <target>You need more tokens to complete this action.</target>
       </trans-unit>
       <trans-unit id="kim.have" datatype="html">
         <source>Tienes</source>
@@ -873,12 +873,12 @@
         <target> token for this action.</target>
       </trans-unit>
       <trans-unit id="kim.buyBtn" datatype="html">
-        <source>Comprar token</source>
-        <target>Buy token</target>
+        <source>Comprar tokens</source>
+        <target>Buy tokens</target>
       </trans-unit>
       <trans-unit id="kim.earnTitle" datatype="html">
-        <source>¿Prefieres ganar token gratis?</source>
-        <target>Prefer to earn token for free?</target>
+        <source>¿Prefieres ganar tokens gratis?</source>
+        <target>Prefer to earn tokens for free?</target>
       </trans-unit>
       <trans-unit id="kim.earnBody" datatype="html">
         <source>Busca un plan público en la barra de búsqueda, visita el enlace, deja un comentario en cualquier parada → +1 token por comentario nuevo.</source>
@@ -895,8 +895,8 @@
         <target>Token added!</target>
       </trans-unit>
       <trans-unit id="karmaSuccess.sub" datatype="html">
-        <source>Tu token ahora es</source>
-        <target>Your token is now</target>
+        <source>Tu saldo de tokens ahora es</source>
+        <target>Your token balance is now</target>
       </trans-unit>
       <trans-unit id="karmaSuccess.btn" datatype="html">
         <source>¡Increíble! →</source>
@@ -905,8 +905,8 @@
 
       <!-- ── nav ── -->
       <trans-unit id="nav.buyKarmaBtn" datatype="html">
-        <source>Comprar Token</source>
-        <target>Buy Token</target>
+        <source> Comprar Tokens </source>
+        <target> Buy Tokens </target>
       </trans-unit>
 
       <!-- ── ai-planning.component ── -->
@@ -1048,8 +1048,8 @@
         <target>E.g.: 14</target>
       </trans-unit>
       <trans-unit id="aiplan.karmaCost" datatype="html">
-        <source>Esta acción cuesta 10 token ⭐ en total</source>
-        <target>This action costs 10 token ⭐ in total</target>
+        <source>Esta acción cuesta 10 tokens ⭐ en total</source>
+        <target>This action costs 10 tokens ⭐ in total</target>
       </trans-unit>
       <trans-unit id="aiplan.loadingPlan" datatype="html">
         <source>Creando tu plan de viaje 🗺️</source>
@@ -2631,7 +2631,7 @@
         <target>Retry</target>
       </trans-unit>
       <trans-unit id="karmaHistory.empty" datatype="html">
-        <source>Aún no tienes movimientos de token.</source>
+        <source>Aún no tienes movimientos de tokens.</source>
         <target>You don't have any token movements yet.</target>
       </trans-unit>
       <trans-unit id="karmaHistory.goToTrip" datatype="html">

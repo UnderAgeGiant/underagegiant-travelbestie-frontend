@@ -66,7 +66,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
             <div class="shared-header">
               <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
               <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
-              <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 token ⭐ en total</div>
+              <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 tokens ⭐ en total</div>
             </div>
           </div>
 

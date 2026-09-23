@@ -100,7 +100,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                     style="padding:4px 10px;font-size:11px;font-weight:700"
                     (click)="facade.openBuyKarma()"
                     i18n="@@nav.buyKarmaBtn">
-              Comprar Token
+              Comprar Tokens
             </button>
           </div>
         }

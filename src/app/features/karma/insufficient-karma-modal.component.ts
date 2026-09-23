@@ -11,8 +11,8 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
         <!-- Header -->
         <div class="modal-head" style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
           <div>
-            <div class="modal-title" i18n="@@kim.title">Token insuficiente ⭐</div>
-            <div class="modal-sub" i18n="@@kim.subtitle">Necesitas más token para completar esta acción.</div>
+            <div class="modal-title" i18n="@@kim.title">Tokens insuficientes ⭐</div>
+            <div class="modal-sub" i18n="@@kim.subtitle">Necesitas más tokens para completar esta acción.</div>
           </div>
           <button
             (click)="karmaModal.closeInsufficient()"
@@ -38,7 +38,7 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
 
           <p class="kim-shortfall">
             <span i18n="@@kim.shortfallPre">Te faltan</span>
-            <strong> {{ data().need - data().have }} token</strong>
+            <strong> {{ data().need - data().have }} tokens</strong>
             <span i18n="@@kim.shortfallPost"> para esta acción.</span>
           </p>
         </div>
@@ -48,12 +48,12 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
           <button class="btn-pill btn-primary"
                   style="width:100%;padding:12px;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px"
                   (click)="karmaModal.goToBuy()" type="button">
-            💳 <span i18n="@@kim.buyBtn">Comprar token</span>
+            💳 <span i18n="@@kim.buyBtn">Comprar tokens</span>
           </button>
 
           <!-- Free karma tip -->
           <div class="kim-tip">
-            <div class="kim-tip-title" i18n="@@kim.earnTitle">¿Prefieres ganar token gratis?</div>
+            <div class="kim-tip-title" i18n="@@kim.earnTitle">¿Prefieres ganar tokens gratis?</div>
             <p class="kim-tip-body" i18n="@@kim.earnBody">
               Busca un plan público en la barra de búsqueda, visita el enlace,
               deja un comentario en cualquier parada
