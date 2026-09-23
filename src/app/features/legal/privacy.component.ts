@@ -33,6 +33,7 @@ import { ProfileComponent } from '../profile/profile.component';
         <section class="legal-section">
           <h2 i18n="@@privacy.s3.title">3. Con quién compartimos información</h2>
           <p i18n="@@privacy.s3.body">Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</p>
+          <p i18n="@@privacy.s3.body2">Si publicas o compartes un plan de viaje, este se vuelve visible públicamente a través de un enlace único y puede aparecer indexado en motores de búsqueda como Google. La vista pública de tu plan nunca incluye tu correo electrónico ni tu identificador de cuenta — solo el nombre que uses para mostrar y el contenido del itinerario que decidas compartir.</p>
         </section>
 
         <section class="legal-section">

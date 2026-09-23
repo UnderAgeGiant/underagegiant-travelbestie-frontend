@@ -48,12 +48,12 @@ import { ProfileComponent } from '../profile/profile.component';
 
         <section class="legal-section">
           <h2 i18n="@@terms.s6.title">6. Contenido de terceros</h2>
-          <p i18n="@@terms.s6.body">La información de atracciones, freetours y eventos que se muestra en la aplicación proviene de fuentes públicas y de terceros (incluyendo UNESCO, Civitatis y Ticketmaster) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</p>
+          <p i18n="@@terms.s6.body">La información de atracciones, freetours y eventos que se muestra en la aplicación proviene de fuentes públicas y de terceros (incluyendo UNESCO, Civitatis, Ticketmaster, Wikipedia y Wikimedia Commons) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</p>
         </section>
 
         <section class="legal-section">
-          <h2 i18n="@@terms.s7.title">7. Planes colaborativos</h2>
-          <p i18n="@@terms.s7.body">Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas.</p>
+          <h2 i18n="@@terms.s7.title">7. Planes compartidos y colaborativos</h2>
+          <p i18n="@@terms.s7.body">Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas. Cuando publicas o compartes un viaje, generamos un enlace público que cualquier persona puede ver sin iniciar sesión, y que puede ser indexado por motores de búsqueda como Google.</p>
         </section>
 
         <section class="legal-section">

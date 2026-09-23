@@ -2055,16 +2055,16 @@
         <target>6. Third-party content</target>
       </trans-unit>
       <trans-unit id="terms.s6.body" datatype="html">
-        <source>La información de atracciones, freetours y eventos que se muestra en la aplicación proviene de fuentes públicas y de terceros (incluyendo UNESCO, Civitatis y Ticketmaster) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</source>
-        <target>Attraction, freetour, and event information shown in the app comes from public and third-party sources (including UNESCO, Civitatis, and Ticketmaster) and may be outdated or inaccurate. We do not guarantee the accuracy of third-party hours, prices, or availability.</target>
+        <source>La información de atracciones, freetours y eventos que se muestra en la aplicación proviene de fuentes públicas y de terceros (incluyendo UNESCO, Civitatis, Ticketmaster, Wikipedia y Wikimedia Commons) y puede estar desactualizada o contener imprecisiones. No garantizamos la exactitud de horarios, precios ni disponibilidad de terceros.</source>
+        <target>Attraction, freetour, and event information shown in the app comes from public and third-party sources (including UNESCO, Civitatis, Ticketmaster, Wikipedia, and Wikimedia Commons) and may be outdated or inaccurate. We do not guarantee the accuracy of third-party hours, prices, or availability.</target>
       </trans-unit>
       <trans-unit id="terms.s7.title" datatype="html">
-        <source>7. Planes colaborativos</source>
-        <target>7. Collaborative plans</target>
+        <source>7. Planes compartidos y colaborativos</source>
+        <target>7. Shared and collaborative plans</target>
       </trans-unit>
       <trans-unit id="terms.s7.body" datatype="html">
-        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas.</source>
-        <target>You can invite another registered person to co-edit a trip. Every collaborator can modify the same plan; the last saved edit takes precedence over earlier ones ("last write wins"). We do not offer real-time sync or automatic conflict resolution between simultaneous edits.</target>
+        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas. Cuando publicas o compartes un viaje, generamos un enlace público que cualquier persona puede ver sin iniciar sesión, y que puede ser indexado por motores de búsqueda como Google.</source>
+        <target>You can invite another registered person to co-edit a trip. Every collaborator can modify the same plan; the last saved edit takes precedence over earlier ones ("last write wins"). We do not offer real-time sync or automatic conflict resolution between simultaneous edits. When you publish or share a trip, we generate a public link that anyone can view without signing in, and that may be indexed by search engines like Google.</target>
       </trans-unit>
       <trans-unit id="terms.s8.title" datatype="html">
         <source>8. Conducta esperada</source>
@@ -2151,6 +2151,10 @@
       <trans-unit id="privacy.s3.body" datatype="html">
         <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
         <target>We share limited information with external providers strictly necessary to operate the service: PayPal to process Karma purchases, DeepSeek to generate AI trip suggestions (it only receives your travel preferences, not your account data), Cloudflare Turnstile to verify you're not a bot when registering or logging in, and our outbound email provider to send you transactional notifications. We never sell your personal information to third parties.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s3.body2" datatype="html">
+        <source>Si publicas o compartes un plan de viaje, este se vuelve visible públicamente a través de un enlace único y puede aparecer indexado en motores de búsqueda como Google. La vista pública de tu plan nunca incluye tu correo electrónico ni tu identificador de cuenta — solo el nombre que uses para mostrar y el contenido del itinerario que decidas compartir.</source>
+        <target>If you publish or share a trip plan, it becomes publicly visible through a unique link and may appear indexed in search engines like Google. The public view of your plan never includes your email address or account identifier — only your display name and the itinerary content you choose to share.</target>
       </trans-unit>
       <trans-unit id="privacy.s4.title" datatype="html">
         <source>4. Cookies y almacenamiento local</source>
