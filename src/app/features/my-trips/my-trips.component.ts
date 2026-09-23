@@ -186,6 +186,12 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
                           <span class="share-error" i18n="@@myTrips.insufficientKarma">Karma insuficiente</span>
                         }
                       </div>
+                      @if (planShareId(plan)) {
+                        <p class="share-search-warning" style="margin:0 16px 12px"
+                           i18n="@@myTrips.shareSearchWarning">
+                          Tu plan compartido puede aparecer en buscadores como Google
+                        </p>
+                      }
                     }
 
                     @if (selectedPlanId() === plan.id) {

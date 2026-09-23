@@ -1552,6 +1552,10 @@
         <source>Karma insuficiente</source>
         <target>Insufficient karma</target>
       </trans-unit>
+      <trans-unit id="myTrips.shareSearchWarning" datatype="html">
+        <source> Tu plan compartido puede aparecer en buscadores como Google </source>
+        <target> Your shared plan may appear in search engines like Google </target>
+      </trans-unit>
       <trans-unit id="myTrips.noResults" datatype="html">
         <source>Sin resultados para &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</source>
         <target>No results for &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</target>

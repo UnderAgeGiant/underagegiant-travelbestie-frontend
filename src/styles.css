@@ -269,6 +269,7 @@ app-nav { display: block; }
 .saved-plan-share-btn:hover { opacity: 1; background: var(--lav); }
 .share-copied { font-size: 10px; color: var(--mint-d); font-weight: 700; white-space: nowrap; }
 .share-error  { font-size: 10px; color: var(--peach-d); font-weight: 700; white-space: nowrap; }
+.share-search-warning { font-size: 11px; color: var(--t3); line-height: 1.4; }
 
 /* SHARED TRIP PAGE */
 .shared-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }
