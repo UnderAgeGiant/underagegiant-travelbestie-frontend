@@ -24,7 +24,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Madrid',
     wave: 1,
     timeZone: 'Europe/Madrid',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Madrid es la capital de España y una de las ciudades europeas con más museos y más vida de calle. En pocos días puedes recorrer el Triángulo del Arte (Prado, Reina Sofía y Thyssen), pasear por el Retiro y el Madrid de los Austrias, y salir de excursión a Toledo o Segovia.',
     bestTime:
@@ -58,7 +58,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Barcelona',
     wave: 1,
     timeZone: 'Europe/Madrid',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Barcelona combina arquitectura modernista, playas urbanas y montaña en pocos kilómetros. En pocos días puedes recorrer las obras de Gaudí —la Sagrada Familia, el Parque Güell y la Casa Batlló—, subir a Montjuïc y perderte en el Barrio Gótico. Es una ciudad que se disfruta tanto caminando por el centro como saliendo de excursión a Montserrat o la Costa Brava.',
     bestTime:
@@ -92,7 +92,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Roma',
     wave: 1,
     timeZone: 'Europe/Rome',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Roma concentra más de dos mil años de historia en su centro histórico. En pocos días puedes recorrer el Coliseo y el Foro Romano, cruzar al Vaticano para ver la Basílica de San Pedro y la Capilla Sixtina, y lanzar una moneda a la Fontana di Trevi. Es una ciudad ideal para combinar historia antigua, arte y buena mesa, con excursiones de un día a Pompeya o la campiña romana.',
     bestTime:
@@ -126,7 +126,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'París',
     wave: 1,
     timeZone: 'Europe/Paris',
-    reviewed: false,
+    reviewed: true,
     intro:
       'París reúne algunos de los museos y monumentos más reconocidos del mundo en un centro compacto y muy caminable. En pocos días puedes subir a la Torre Eiffel, recorrer el Museo del Louvre, caminar los Campos Elíseos hasta el Arco de Triunfo y visitar la Catedral de Notre-Dame. Es una ciudad que combina historia, arte y vida de barrio, con el Palacio de Versalles como la excursión de un día más popular.',
     bestTime:
@@ -160,7 +160,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Buenos Aires',
     wave: 1,
     timeZone: 'America/Argentina/Buenos_Aires',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Buenos Aires combina arquitectura europea, tango y una intensa vida de café en un centro fácil de recorrer a pie. En pocos días puedes ver la Casa Rosada y la Plaza de Mayo, el Teatro Colón, el Cementerio de la Recoleta y el barrio de San Telmo, además de vivir el ambiente futbolero en La Bombonera. Es una ciudad que se disfruta caminando entre barrios, con Colonia del Sacramento en Uruguay como la excursión de un día más popular.',
     bestTime:
@@ -194,7 +194,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Río de Janeiro',
     wave: 1,
     timeZone: 'America/Sao_Paulo',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Río de Janeiro combina playas urbanas, montaña y selva tropical dentro de los límites de la ciudad. En pocos días puedes subir al Cristo Redentor y al Pan de Azúcar, caminar las playas de Copacabana e Ipanema, y recorrer la Escalera de Selarón. Es una ciudad para combinar naturaleza y vida de playa, con Petrópolis y Paraty como las excursiones de un día más populares.',
     bestTime:
@@ -228,7 +228,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Lima',
     wave: 1,
     timeZone: 'America/Lima',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Lima combina un centro histórico colonial, barrios costeros modernos y una de las mejores escenas gastronómicas de Sudamérica. En pocos días puedes recorrer la Plaza Mayor y la Catedral de Lima, caminar el malecón de Miraflores y explorar el barrio bohemio de Barranco, además de visitar la huaca prehispánica de Huaca Pucllana en plena ciudad. Es una ciudad ideal para combinar historia, arquitectura y comida, con el santuario arqueológico de Pachacámac como la excursión de un día más cercana.',
     bestTime:
@@ -262,7 +262,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Cusco',
     wave: 1,
     timeZone: 'America/Lima',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Cusco fue la capital del imperio inca y es hoy la puerta de entrada a Machu Picchu y al Valle Sagrado. En la propia ciudad puedes recorrer la Plaza de Armas, la Catedral y el Coricancha, además de la fortaleza de Sacsayhuamán a pocos minutos del centro. Es una ciudad pensada para quedarte varios días y salir de excursión: Machu Picchu, el Valle Sagrado y la Montaña de Siete Colores son los imperdibles de la región.',
     bestTime:
@@ -296,7 +296,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Mendoza',
     wave: 1,
     timeZone: 'America/Argentina/Mendoza',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Mendoza es la puerta de entrada a la cordillera de los Andes y a una de las regiones vitivinícolas más importantes de Sudamérica. En la ciudad puedes recorrer el Parque General San Martín y el Cerro de la Gloria, pero el verdadero atractivo está en las excursiones: las bodegas del Valle de Uco, el camino de montaña hacia el Puente del Inca y el paso Cristo Redentor. Es un destino pensado para combinar unos días de ciudad con salidas de un día a la montaña o a las viñas.',
     bestTime:
@@ -330,7 +330,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Bariloche',
     wave: 1,
     timeZone: 'America/Argentina/Buenos_Aires',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Bariloche es la puerta de entrada a la Patagonia andina, con el lago Nahuel Huapi y el parque nacional del mismo nombre como base para varios días de excursiones. Desde la ciudad puedes recorrer el Cerro Catedral y el histórico Hotel Llao Llao, y salir de excursión al Cerro Tronador o al Camino de los Siete Lagos. Es un destino para combinar montaña, lagos y chocolate, con pueblos cercanos como El Bolsón y Villa La Angostura como paradas de un día.',
     bestTime:
