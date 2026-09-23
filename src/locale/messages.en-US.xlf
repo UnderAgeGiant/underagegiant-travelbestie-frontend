@@ -49,8 +49,8 @@
         <target>Search trips created by other users</target>
       </trans-unit>
       <trans-unit id="nav.karma" datatype="html">
-        <source>karma</source>
-        <target>karma</target>
+        <source>token</source>
+        <target>token</target>
       </trans-unit>
       <trans-unit id="nav.signInBtn" datatype="html">
         <source>Iniciar sesión</source>
@@ -181,8 +181,8 @@
         <target>➕ Add attraction</target>
       </trans-unit>
       <trans-unit id="stopList.aiSuggestBtn" datatype="html">
-        <source>🐾 Sugiere qué hacer en esta ciudad <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
-        <target>🐾 Suggest what to do in this city <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <source>🐾 Sugiere qué hacer en esta ciudad <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>🐾 Suggest what to do in this city <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−2 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
       </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
         <source>Guardar ✓</source>
@@ -779,8 +779,8 @@
 
       <!-- ── buy-karma-modal ── -->
       <trans-unit id="buyKarma.title" datatype="html">
-        <source>Comprar Karma ✨</source>
-        <target>Buy Karma ✨</target>
+        <source>Comprar Token ✨</source>
+        <target>Buy Token ✨</target>
       </trans-unit>
       <trans-unit id="buyKarma.subtitle" datatype="html">
         <source>Elige un paquete y completa el pago</source>
@@ -791,16 +791,16 @@
         <target>Loading packages…</target>
       </trans-unit>
       <trans-unit id="buyKarma.karma" datatype="html">
-        <source>karma</source>
-        <target>karma</target>
+        <source>token</source>
+        <target>token</target>
       </trans-unit>
       <trans-unit id="buyKarma.simulateBtn" datatype="html">
         <source>🎮 Simular compra (modo demo)</source>
         <target>🎮 Simulate purchase (demo mode)</target>
       </trans-unit>
       <trans-unit id="buyKarma.successTitle" datatype="html">
-        <source>¡Karma añadido!</source>
-        <target>Karma added!</target>
+        <source>¡Token añadido!</source>
+        <target>Token added!</target>
       </trans-unit>
       <trans-unit id="buyKarma.successMsg" datatype="html">
         <source>Tu cuenta fue acreditada con</source>
@@ -849,12 +849,12 @@
 
       <!-- ── insufficient-karma-modal ── -->
       <trans-unit id="kim.title" datatype="html">
-        <source>Karma insuficiente</source>
-        <target>Insufficient karma</target>
+        <source>Token insuficiente</source>
+        <target>Insufficient token</target>
       </trans-unit>
       <trans-unit id="kim.subtitle" datatype="html">
-        <source>Necesitas más karma para completar esta acción.</source>
-        <target>You need more karma to complete this action.</target>
+        <source>Necesitas más token para completar esta acción.</source>
+        <target>You need more token to complete this action.</target>
       </trans-unit>
       <trans-unit id="kim.have" datatype="html">
         <source>Tienes</source>
@@ -870,19 +870,19 @@
       </trans-unit>
       <trans-unit id="kim.shortfallPost" datatype="html">
         <source> para esta acción.</source>
-        <target> karma for this action.</target>
+        <target> token for this action.</target>
       </trans-unit>
       <trans-unit id="kim.buyBtn" datatype="html">
-        <source>Comprar karma</source>
-        <target>Buy karma</target>
+        <source>Comprar token</source>
+        <target>Buy token</target>
       </trans-unit>
       <trans-unit id="kim.earnTitle" datatype="html">
-        <source>¿Prefieres ganar karma gratis?</source>
-        <target>Prefer to earn karma for free?</target>
+        <source>¿Prefieres ganar token gratis?</source>
+        <target>Prefer to earn token for free?</target>
       </trans-unit>
       <trans-unit id="kim.earnBody" datatype="html">
-        <source>Busca un plan público en la barra de búsqueda, visita el enlace, deja un comentario en cualquier parada → +1 karma por comentario nuevo.</source>
-        <target>Search for a public plan in the search bar, visit the link, leave a comment on any stop → +1 karma per new comment.</target>
+        <source>Busca un plan público en la barra de búsqueda, visita el enlace, deja un comentario en cualquier parada → +1 token por comentario nuevo.</source>
+        <target>Search for a public plan in the search bar, visit the link, leave a comment on any stop → +1 token per new comment.</target>
       </trans-unit>
       <trans-unit id="kim.earnDismiss" datatype="html">
         <source>Entendido</source>
@@ -891,12 +891,12 @@
 
       <!-- ── karma-success-overlay ── -->
       <trans-unit id="karmaSuccess.title" datatype="html">
-        <source>¡Karma añadido!</source>
-        <target>Karma added!</target>
+        <source>¡Token añadido!</source>
+        <target>Token added!</target>
       </trans-unit>
       <trans-unit id="karmaSuccess.sub" datatype="html">
-        <source>Tu karma ahora es</source>
-        <target>Your karma is now</target>
+        <source>Tu token ahora es</source>
+        <target>Your token is now</target>
       </trans-unit>
       <trans-unit id="karmaSuccess.btn" datatype="html">
         <source>¡Increíble! →</source>
@@ -905,8 +905,8 @@
 
       <!-- ── nav ── -->
       <trans-unit id="nav.buyKarmaBtn" datatype="html">
-        <source>Comprar Karma</source>
-        <target>Buy Karma</target>
+        <source>Comprar Token</source>
+        <target>Buy Token</target>
       </trans-unit>
 
       <!-- ── ai-planning.component ── -->
@@ -947,8 +947,8 @@
         <target>Free change limit reached</target>
       </trans-unit>
       <trans-unit id="aiplan.changeChargedBody" datatype="html">
-        <source>Se descontó 1 karma ⭐ por este cambio.</source>
-        <target>1 karma ⭐ was deducted for this change.</target>
+        <source>Se descontó 1 token ⭐ por este cambio.</source>
+        <target>1 token ⭐ was deducted for this change.</target>
       </trans-unit>
       <trans-unit id="aiplan.changeChargedDismiss" datatype="html">
         <source>Entendido</source>
@@ -963,16 +963,16 @@
         <target>You've used all 3 free changes</target>
       </trans-unit>
       <trans-unit id="aiplan.confirmChargeBody" datatype="html">
-        <source>Esta acción costará 1 karma ⭐. ¿Deseas continuar?</source>
-        <target>This action will cost 1 karma ⭐. Do you want to continue?</target>
+        <source>Esta acción costará 1 token ⭐. ¿Deseas continuar?</source>
+        <target>This action will cost 1 token ⭐. Do you want to continue?</target>
       </trans-unit>
       <trans-unit id="aiplan.confirmCancel" datatype="html">
         <source>Cancelar</source>
         <target>Cancel</target>
       </trans-unit>
       <trans-unit id="aiplan.confirmProceed" datatype="html">
-        <source>Sí, continuar (−1 karma)</source>
-        <target>Yes, continue (−1 karma)</target>
+        <source>Sí, continuar (−1 token)</source>
+        <target>Yes, continue (−1 token)</target>
       </trans-unit>
       <trans-unit id="aiplan.adjustBtn" datatype="html">
         <source>✏️ Ajustar opciones</source>
@@ -988,16 +988,16 @@
       </trans-unit>
 
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
-        <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?</source>
-        <target>If you regenerate options with this adjustment, the resulting plan will cost 1 karma ⭐. Do you want to continue?</target>
+        <source>Si regeneras las opciones con este ajuste, el plan resultante costará 1 token ⭐. ¿Quieres continuar?</source>
+        <target>If you regenerate options with this adjustment, the resulting plan will cost 1 token ⭐. Do you want to continue?</target>
       </trans-unit>
       <trans-unit id="aiplan.suggestConfirmProceed" datatype="html">
         <source>Sí, regenerar opciones</source>
         <target>Yes, regenerate options</target>
       </trans-unit>
       <trans-unit id="aiplan.previewChargedBody" datatype="html">
-        <source>El plan se generará como nueva sesión y costará 1 karma ⭐.</source>
-        <target>The plan will be generated as a new session and will cost 1 karma ⭐.</target>
+        <source>El plan se generará como nueva sesión y costará 1 token ⭐.</source>
+        <target>The plan will be generated as a new session and will cost 1 token ⭐.</target>
       </trans-unit>
       <trans-unit id="aiplan.statsFreeLabel" datatype="html">
         <source>Cambios gratuitos:</source>
@@ -1048,8 +1048,8 @@
         <target>E.g.: 14</target>
       </trans-unit>
       <trans-unit id="aiplan.karmaCost" datatype="html">
-        <source>Esta acción cuesta 10 karma ⭐ en total</source>
-        <target>This action costs 10 karma ⭐ in total</target>
+        <source>Esta acción cuesta 10 token ⭐ en total</source>
+        <target>This action costs 10 token ⭐ in total</target>
       </trans-unit>
       <trans-unit id="aiplan.loadingPlan" datatype="html">
         <source>Creando tu plan de viaje 🗺️</source>
@@ -1130,8 +1130,8 @@
         <target>Trip by <x id="INTERPOLATION" equiv-text="{{ trip()!.ownerName }}"/></target>
       </trans-unit>
       <trans-unit id="sharedTrip.cloneBtn" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clonar este viaje&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
-        <target> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clone this trip&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <source> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clonar este viaje&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clone this trip&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
       </trans-unit>
       <trans-unit id="sharedTrip.cloneSuccess" datatype="html">
         <source>✅ Viaje clonado como</source>
@@ -1549,8 +1549,8 @@
         <target>Delete trip</target>
       </trans-unit>
       <trans-unit id="myTrips.insufficientKarma" datatype="html">
-        <source>Karma insuficiente</source>
-        <target>Insufficient karma</target>
+        <source>Token insuficiente</source>
+        <target>Insufficient token</target>
       </trans-unit>
       <trans-unit id="myTrips.shareSearchWarning" datatype="html">
         <source> Tu plan compartido puede aparecer en buscadores como Google </source>
@@ -1565,8 +1565,8 @@
         <target>📋 Duplicate trip</target>
       </trans-unit>
       <trans-unit id="myTrips.cloneModalBody" datatype="html">
-        <source> Se creará una copia de este viaje en tu lista de guardados.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Costo: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
-        <target> A copy of this trip will be created in your saved list.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Cost: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ karma<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
+        <source> Se creará una copia de este viaje en tu lista de guardados.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Costo: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ token<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
+        <target> A copy of this trip will be created in your saved list.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Cost: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ token<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
       </trans-unit>
       <trans-unit id="myTrips.cancelBtn" datatype="html">
         <source>Cancelar</source>
@@ -1614,8 +1614,8 @@
         <target>🗺 My trips</target>
       </trans-unit>
       <trans-unit id="nav.karmaHistory" datatype="html">
-        <source>📈 Historial de karma</source>
-        <target>📈 Karma History</target>
+        <source>📈 Historial de token</source>
+        <target>📈 Token History</target>
       </trans-unit>
       <trans-unit id="nav.mySharedTrips" datatype="html">
         <source>Mis viajes publicados</source>
@@ -1638,20 +1638,20 @@
         <target>🐾 Create with AI</target>
       </trans-unit>
       <trans-unit id="welcome.ctaHowKarma" datatype="html">
-        <source>⭐ Cómo ganar Karma</source>
-        <target>⭐ How to earn Karma</target>
+        <source>⭐ Cómo ganar Token</source>
+        <target>⭐ How to earn Token</target>
       </trans-unit>
       <trans-unit id="welcome.ctaLastPlan" datatype="html">
         <source>🕓 Último viaje que editaste</source>
         <target>🕓 Last trip you edited</target>
       </trans-unit>
       <trans-unit id="welcome.karmaTitle" datatype="html">
-        <source>Cómo ganar Karma ⭐</source>
-        <target>How to earn Karma ⭐</target>
+        <source>Cómo ganar Token ⭐</source>
+        <target>How to earn Token ⭐</target>
       </trans-unit>
       <trans-unit id="welcome.karmaBody" datatype="html">
-        <source>Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
-        <target>Earn Karma when your friends comment on the stops of your shared trips. Use it to clone trips, export itineraries, and plan with AI.</target>
+        <source>Gana Token cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</source>
+        <target>Earn Token when your friends comment on the stops of your shared trips. Use it to clone trips, export itineraries, and plan with AI.</target>
       </trans-unit>
       <trans-unit id="welcome.karmaClose" datatype="html">
         <source>Entendido</source>
@@ -1925,8 +1925,8 @@
         <target> Right now Miel is playing with another user. Give her a treat 🦴 so she plays with you. For the next 24 hours Miel will play with you and give you more suggestions about your trip! </target>
       </trans-unit>
       <trans-unit id="companion.boostBtn" datatype="html">
-        <source>Dar premio (−2 Karma 🦴)</source>
-        <target>Give a treat (−2 Karma 🦴)</target>
+        <source>Dar premio (−2 Token 🦴)</source>
+        <target>Give a treat (−2 Token 🦴)</target>
       </trans-unit>
       <trans-unit id="profile.companionBoostTitle" datatype="html">
         <source>Asistente Miel 🐾</source>
@@ -2035,16 +2035,16 @@
         <target>You must register with a valid email address and password. You are responsible for keeping your credentials confidential and for all activity on your account. You must be at least 13 years old to create an account. You can update your name, email, password, and country of residence from your profile at any time.</target>
       </trans-unit>
       <trans-unit id="terms.s4.title" datatype="html">
-        <source>4. El sistema de Karma</source>
-        <target>4. The Karma system</target>
+        <source>4. El sistema de Token</source>
+        <target>4. The Token system</target>
       </trans-unit>
       <trans-unit id="terms.s4.body1" datatype="html">
-        <source>Karma es una moneda virtual interna de la aplicación, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Karma cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificación con inteligencia artificial.</source>
-        <target>Karma is an internal virtual currency of the app with no monetary value, which cannot be redeemed for cash or transferred outside of Tripilove. You earn Karma when other people comment on the stops of your shared trips, and you spend it when creating a trip, cloning a plan, exporting an itinerary, inviting a collaborator, or using the AI planning features.</target>
+        <source>Token es una moneda virtual interna de la aplicación, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Token cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificación con inteligencia artificial.</source>
+        <target>Token is an internal virtual currency of the app with no monetary value, which cannot be redeemed for cash or transferred outside of Tripilove. You earn Token when other people comment on the stops of your shared trips, and you spend it when creating a trip, cloning a plan, exporting an itinerary, inviting a collaborator, or using the AI planning features.</target>
       </trans-unit>
       <trans-unit id="terms.s4.body2" datatype="html">
-        <source>Puedes comprar paquetes de Karma con dinero real a través de PayPal. Las compras de Karma son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</source>
-        <target>You can purchase Karma packages with real money via PayPal. Karma purchases are final and non-refundable once credited, except where applicable law requires otherwise.</target>
+        <source>Puedes comprar paquetes de Token con dinero real a través de PayPal. Las compras de Token son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</source>
+        <target>You can purchase Token packages with real money via PayPal. Token purchases are final and non-refundable once credited, except where applicable law requires otherwise.</target>
       </trans-unit>
       <trans-unit id="terms.s5.title" datatype="html">
         <source>5. Contenido generado por inteligencia artificial</source>
@@ -2099,8 +2099,8 @@
         <target>11. Account termination</target>
       </trans-unit>
       <trans-unit id="terms.s11.body" datatype="html">
-        <source>Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos términos, incluyendo uso abusivo del sistema de Karma o de las funciones de inteligencia artificial.</source>
-        <target>You can stop using the service at any time. We may suspend or delete accounts that violate these terms, including abuse of the Karma system or the AI planning features.</target>
+        <source>Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos términos, incluyendo uso abusivo del sistema de Token o de las funciones de inteligencia artificial.</source>
+        <target>You can stop using the service at any time. We may suspend or delete accounts that violate these terms, including abuse of the Token system or the AI planning features.</target>
       </trans-unit>
       <trans-unit id="terms.s12.title" datatype="html">
         <source>12. Cambios a estos términos</source>
@@ -2145,16 +2145,16 @@
         <target>2. How we use your information</target>
       </trans-unit>
       <trans-unit id="privacy.s2.body" datatype="html">
-        <source>Usamos tu información para operar el servicio: mostrar y guardar tus planes de viaje, generar sugerencias con inteligencia artificial, calcular tu saldo de Karma, enviarte notificaciones dentro de la aplicación y por correo (por ejemplo, confirmaciones de compra o invitaciones de colaboración), y mejorar el producto. No usamos tu información para publicidad dirigida.</source>
-        <target>We use your information to operate the service: displaying and saving your trip plans, generating AI suggestions, calculating your Karma balance, sending you in-app and email notifications (e.g. purchase confirmations or collaboration invites), and improving the product. We do not use your information for targeted advertising.</target>
+        <source>Usamos tu información para operar el servicio: mostrar y guardar tus planes de viaje, generar sugerencias con inteligencia artificial, calcular tu saldo de Token, enviarte notificaciones dentro de la aplicación y por correo (por ejemplo, confirmaciones de compra o invitaciones de colaboración), y mejorar el producto. No usamos tu información para publicidad dirigida.</source>
+        <target>We use your information to operate the service: displaying and saving your trip plans, generating AI suggestions, calculating your Token balance, sending you in-app and email notifications (e.g. purchase confirmations or collaboration invites), and improving the product. We do not use your information for targeted advertising.</target>
       </trans-unit>
       <trans-unit id="privacy.s3.title" datatype="html">
         <source>3. Con quién compartimos información</source>
         <target>3. Who we share information with</target>
       </trans-unit>
       <trans-unit id="privacy.s3.body" datatype="html">
-        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Karma, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
-        <target>We share limited information with external providers strictly necessary to operate the service: PayPal to process Karma purchases, DeepSeek to generate AI trip suggestions (it only receives your travel preferences, not your account data), Cloudflare Turnstile to verify you're not a bot when registering or logging in, and our outbound email provider to send you transactional notifications. We never sell your personal information to third parties.</target>
+        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Token, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
+        <target>We share limited information with external providers strictly necessary to operate the service: PayPal to process Token purchases, DeepSeek to generate AI trip suggestions (it only receives your travel preferences, not your account data), Cloudflare Turnstile to verify you're not a bot when registering or logging in, and our outbound email provider to send you transactional notifications. We never sell your personal information to third parties.</target>
       </trans-unit>
       <trans-unit id="privacy.s3.body2" datatype="html">
         <source>Si publicas o compartes un plan de viaje, este se vuelve visible públicamente a través de un enlace único y puede aparecer indexado en motores de búsqueda como Google. La vista pública de tu plan nunca incluye tu correo electrónico ni tu identificador de cuenta — solo el nombre que uses para mostrar y el contenido del itinerario que decidas compartir.</source>
@@ -2514,8 +2514,8 @@
         <target>Couldn't be generated</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanRefunded" datatype="html">
-        <source>Karma reembolsado</source>
-        <target>Karma refunded</target>
+        <source>Token reembolsado</source>
+        <target>Token refunded</target>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanDiscardBtn" datatype="html">
         <source>🗑️ Descartar</source>
@@ -2603,8 +2603,8 @@
         <target>Companion Boost</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.karmaPurchased" datatype="html">
-        <source>Compra de karma</source>
-        <target>Karma purchase</target>
+        <source>Compra de token</source>
+        <target>Token purchase</target>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.attractionComment" datatype="html">
         <source>Primer comentario en una atracción</source>
@@ -2615,24 +2615,24 @@
         <target>Comment on a shared trip</target>
       </trans-unit>
       <trans-unit id="karmaHistory.title" datatype="html">
-        <source>Historial de karma</source>
-        <target>Karma History</target>
+        <source>Historial de token</source>
+        <target>Token History</target>
       </trans-unit>
       <trans-unit id="karmaHistory.loading" datatype="html">
         <source>Cargando tu historial…</source>
         <target>Loading your history…</target>
       </trans-unit>
       <trans-unit id="karmaHistory.loadError" datatype="html">
-        <source>No pudimos cargar tu historial de karma.</source>
-        <target>We couldn't load your karma history.</target>
+        <source>No pudimos cargar tu historial de token.</source>
+        <target>We couldn't load your token history.</target>
       </trans-unit>
       <trans-unit id="karmaHistory.retry" datatype="html">
         <source>Reintentar</source>
         <target>Retry</target>
       </trans-unit>
       <trans-unit id="karmaHistory.empty" datatype="html">
-        <source>Aún no tienes movimientos de karma.</source>
-        <target>You don't have any karma movements yet.</target>
+        <source>Aún no tienes movimientos de token.</source>
+        <target>You don't have any token movements yet.</target>
       </trans-unit>
       <trans-unit id="karmaHistory.goToTrip" datatype="html">
         <source>Ir al viaje</source>
@@ -2739,8 +2739,8 @@
         <target>Terms of Service | Tripilove</target>
       </trans-unit>
       <trans-unit id="seo.terms.description" datatype="html">
-        <source>Lee los términos de servicio de Tripilove: cuentas, karma, planes compartidos y uso aceptable.</source>
-        <target>Read Tripilove's terms of service: accounts, karma, shared plans and acceptable use.</target>
+        <source>Lee los términos de servicio de Tripilove: cuentas, token, planes compartidos y uso aceptable.</source>
+        <target>Read Tripilove's terms of service: accounts, token, shared plans and acceptable use.</target>
       </trans-unit>
       <trans-unit id="seo.privacy.title" datatype="html">
         <source>Política de privacidad | Tripilove</source>
@@ -2751,8 +2751,8 @@
         <target>How Tripilove collects, uses and protects your personal data.</target>
       </trans-unit>
       <trans-unit id="seo.karmaHistory.title" datatype="html">
-        <source>Historial de karma | Tripilove</source>
-        <target>Karma history | Tripilove</target>
+        <source>Historial de token | Tripilove</source>
+        <target>Token history | Tripilove</target>
       </trans-unit>
       <trans-unit id="seo.notFound.title" datatype="html">
         <source>Página no encontrada | Tripilove</source>

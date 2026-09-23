@@ -36,9 +36,9 @@ import { ProfileComponent } from '../profile/profile.component';
         </section>
 
         <section class="legal-section">
-          <h2 i18n="@@terms.s4.title">4. El sistema de Karma</h2>
-          <p i18n="@@terms.s4.body1">Karma es una moneda virtual interna de la aplicación, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Karma cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificación con inteligencia artificial.</p>
-          <p i18n="@@terms.s4.body2">Puedes comprar paquetes de Karma con dinero real a través de PayPal. Las compras de Karma son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</p>
+          <h2 i18n="@@terms.s4.title">4. El sistema de Token</h2>
+          <p i18n="@@terms.s4.body1">Token es una moneda virtual interna de la aplicación, sin valor monetario, que no puede canjearse por dinero ni transferirse fuera de Tripilove. Ganas Token cuando otras personas comentan las paradas de tus viajes compartidos, y lo gastas al crear un viaje, clonar un plan, exportar un itinerario, invitar a un colaborador o usar las funciones de planificación con inteligencia artificial.</p>
+          <p i18n="@@terms.s4.body2">Puedes comprar paquetes de Token con dinero real a través de PayPal. Las compras de Token son definitivas y no reembolsables una vez acreditadas, salvo cuando la ley aplicable exija lo contrario.</p>
         </section>
 
         <section class="legal-section">
@@ -73,7 +73,7 @@ import { ProfileComponent } from '../profile/profile.component';
 
         <section class="legal-section">
           <h2 i18n="@@terms.s11.title">11. Terminación de cuenta</h2>
-          <p i18n="@@terms.s11.body">Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos términos, incluyendo uso abusivo del sistema de Karma o de las funciones de inteligencia artificial.</p>
+          <p i18n="@@terms.s11.body">Puedes dejar de usar el servicio en cualquier momento. Podemos suspender o eliminar cuentas que incumplan estos términos, incluyendo uso abusivo del sistema de Token o de las funciones de inteligencia artificial.</p>
         </section>
 
         <section class="legal-section">

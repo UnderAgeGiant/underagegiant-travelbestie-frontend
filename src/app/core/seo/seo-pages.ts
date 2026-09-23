@@ -10,7 +10,7 @@ export const aboutSeo: RouteSeo = () => ({
 
 export const termsSeo: RouteSeo = () => ({
   title: $localize`:@@seo.terms.title:Términos de servicio | Tripilove`,
-  description: $localize`:@@seo.terms.description:Lee los términos de servicio de Tripilove: cuentas, karma, planes compartidos y uso aceptable.`,
+  description: $localize`:@@seo.terms.description:Lee los términos de servicio de Tripilove: cuentas, token, planes compartidos y uso aceptable.`,
 });
 
 export const privacySeo: RouteSeo = () => ({
@@ -19,7 +19,7 @@ export const privacySeo: RouteSeo = () => ({
 });
 
 export const karmaHistorySeo: RouteSeo = () => ({
-  title: $localize`:@@seo.karmaHistory.title:Historial de karma | Tripilove`,
+  title: $localize`:@@seo.karmaHistory.title:Historial de token | Tripilove`,
   noindex: true,
 });
 

@@ -113,10 +113,10 @@ import { Component, input, output, ChangeDetectionStrategy } from '@angular/core
 
         <div class="ks-amount">+{{ amount() }} ✨</div>
 
-        <div class="ks-title" i18n="@@karmaSuccess.title">¡Karma añadido!</div>
+        <div class="ks-title" i18n="@@karmaSuccess.title">¡Token añadido!</div>
 
         <div class="ks-sub">
-          <ng-container i18n="@@karmaSuccess.sub">Tu karma ahora es</ng-container>
+          <ng-container i18n="@@karmaSuccess.sub">Tu token ahora es</ng-container>
           <strong> {{ newTotal() }} ✨</strong>
         </div>
 

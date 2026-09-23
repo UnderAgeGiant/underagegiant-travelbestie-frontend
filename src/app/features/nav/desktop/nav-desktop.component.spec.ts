@@ -46,7 +46,7 @@ describe('NavDesktopComponent — active page indication', () => {
     fixture.componentRef.setInput('activeView', 'karmahistory');
     fixture.detectChanges();
     const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
-    expect(active?.textContent).toContain('Historial de karma');
+    expect(active?.textContent).toContain('Historial de token');
   });
 });
 

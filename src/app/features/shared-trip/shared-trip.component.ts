@@ -114,7 +114,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                     (click)="cloneTrip()"
                     i18n="@@sharedTrip.cloneBtn">
               {{ cloning() ? '…' : '📋 Clonar este viaje' }}
-              <span class="karma-cost">−1 ✨ karma</span>
+              <span class="karma-cost">−1 ✨ token</span>
             </button>
           }
 

@@ -66,7 +66,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
             <div class="shared-header">
               <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
               <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
-              <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 karma ⭐ en total</div>
+              <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 token ⭐ en total</div>
             </div>
           </div>
 
@@ -118,7 +118,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                   <span i18n="@@aiplan.limitReachedTitle">Límite de cambios gratuitos alcanzado</span>
                 }
               </div>
-              <div class="ai-change-charged-body" i18n="@@aiplan.changeChargedBody">Se descontó 1 karma ⭐ por este cambio.</div>
+              <div class="ai-change-charged-body" i18n="@@aiplan.changeChargedBody">Se descontó 1 token ⭐ por este cambio.</div>
               <button class="btn-pill btn-outline" style="margin-top:8px"
                       (click)="changeCharged.set(null)" type="button"
                       i18n="@@aiplan.changeChargedDismiss">Entendido</button>
@@ -137,7 +137,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                 }
               </div>
               <div class="ai-confirm-charge-body" i18n="@@aiplan.confirmChargeBody">
-                Esta acción costará 1 karma ⭐. ¿Deseas continuar?
+                Esta acción costará 1 token ⭐. ¿Deseas continuar?
               </div>
               <div class="ai-plan-actions">
                 <button class="btn-pill btn-outline"
@@ -145,7 +145,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                         i18n="@@aiplan.confirmCancel">Cancelar</button>
                 <button class="btn-pill btn-primary"
                         (click)="executePlan()" type="button"
-                        i18n="@@aiplan.confirmProceed">Sí, continuar (−1 karma)</button>
+                        i18n="@@aiplan.confirmProceed">Sí, continuar (−1 token)</button>
               </div>
             </div>
           }
@@ -162,7 +162,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                 }
               </div>
               <div class="ai-confirm-charge-body" i18n="@@aiplan.suggestConfirmBody">
-                Si regeneras las opciones con este ajuste, el plan resultante costará 1 karma ⭐. ¿Quieres continuar?
+                Si regeneras las opciones con este ajuste, el plan resultante costará 1 token ⭐. ¿Quieres continuar?
               </div>
               <div class="ai-plan-actions">
                 <button class="btn-pill btn-outline"
@@ -272,7 +272,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                     }
                   </div>
                   <div class="ai-change-charged-body" i18n="@@aiplan.previewChargedBody">
-                    El plan se generará como nueva sesión y costará 1 karma ⭐.
+                    El plan se generará como nueva sesión y costará 1 token ⭐.
                   </div>
                 </div>
               }

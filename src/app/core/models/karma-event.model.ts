@@ -56,7 +56,7 @@ export function karmaReasonLabel(reason: string): string {
     case 'ai_plan_refund':            return $localize`:@@karmaHistory.reason.aiPlanRefund:Reembolso de plan de IA`;
     case 'ai_city_suggest':           return $localize`:@@karmaHistory.reason.aiCitySuggest:Sugerencias de IA para la ciudad`;
     case 'companion_boost':           return $localize`:@@karmaHistory.reason.companionBoost:Impulso de Asistente Miel`;
-    case 'karma_purchased':           return $localize`:@@karmaHistory.reason.karmaPurchased:Compra de karma`;
+    case 'karma_purchased':           return $localize`:@@karmaHistory.reason.karmaPurchased:Compra de token`;
     case 'attraction_comment_first':  return $localize`:@@karmaHistory.reason.attractionComment:Primer comentario en una atracción`;
     case 'step_comment':              return $localize`:@@karmaHistory.reason.stepComment:Comentario en un viaje compartido`;
     default:                          return reason;
