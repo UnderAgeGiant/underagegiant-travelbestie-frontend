@@ -64,6 +64,7 @@ describe('WelcomeComponent — scroll-to-feed pill', () => {
   const feedStub = { hasItems: signal(false), topPlan: signal<FeedPlan | null>(null) };
   const top = (favoriteCount: number, tripName = 'Roma y Florencia en 6 días'): FeedPlan =>
     ({ id: 'p1', tripName, ownerName: 'Ana', createdAt: '', favoriteCount, stops: [] });
+  let auth: AuthService;
 
   beforeEach(() => {
     feedStub.hasItems.set(false);
@@ -76,6 +77,8 @@ describe('WelcomeComponent — scroll-to-feed pill', () => {
         { provide: LocaleService, useValue: { current: () => 'es-CL' } },
       ],
     });
+    auth = TestBed.inject(AuthService);
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true);
   });
 
   const pill = (f: ComponentFixture<WelcomeComponent>) => f.nativeElement.querySelector('.welcome-feed-pill') as HTMLButtonElement | null;
@@ -113,5 +116,12 @@ describe('WelcomeComponent — scroll-to-feed pill', () => {
     const spy = jest.fn(); f.componentInstance.scrollToFeed.subscribe(spy);
     pill(f)!.click();
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('stays hidden when not logged in even if the feed has plans (feedback F2)', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(false);
+    feedStub.hasItems.set(true); feedStub.topPlan.set(top(3));
+    const f = TestBed.createComponent(WelcomeComponent); f.detectChanges();
+    expect(pill(f)).toBeNull();
   });
 });

@@ -17,6 +17,7 @@ import { FavoritesService } from '../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 import { FavoritedTrip } from '../../core/models/trip.model';
 import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
+import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale, RestoreView } from '../../core/i18n/locale.util';
@@ -36,6 +37,7 @@ export class NavFacadeService {
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
+  private readonly landingFeed  = inject(LandingFeedService);
   private readonly router       = inject(Router);
   readonly locale = inject(LocaleService);
 
@@ -400,6 +402,7 @@ export class NavFacadeService {
     this.visited.clear();
     this.favorites.clear();
     this.companionSuggest.clear();
+    this.landingFeed.reset();   // feedback F2 — never leave a previous session's feed loaded
     this.router.navigate(['/']);
   }
 }

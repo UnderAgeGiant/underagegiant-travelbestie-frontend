@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
 import { LandingFeedComponent } from './landing-feed.component';
 import { FeedPlanCardComponent } from './feed-plan-card.component';
 import { LandingFeedService } from './landing-feed.service';
 import { ApiService } from '../../../core/api/api.service';
+import { AuthService } from '../../../core/auth/auth.service';
 import { FeedPage, FeedPlan } from '../../../core/models/feed-plan.model';
 
 @Component({ selector: 'tb-feed-plan-card', template: '' })
@@ -35,12 +36,18 @@ describe('LandingFeedComponent', () => {
     fixture.detectChanges();
   };
 
+  let isLoggedInSignal: any;
+
   beforeEach(() => {
     jest.useFakeTimers();
     getFeed = jest.fn();
+    isLoggedInSignal = signal(true);
     TestBed.configureTestingModule({
       imports: [LandingFeedComponent],
-      providers: [{ provide: ApiService, useValue: { getFeed } }],
+      providers: [
+        { provide: ApiService, useValue: { getFeed } },
+        { provide: AuthService, useValue: { isLoggedIn: isLoggedInSignal } },
+      ],
     });
     TestBed.overrideComponent(LandingFeedComponent, { remove: { imports: [FeedPlanCardComponent] }, add: { imports: [CardStub] } });
     feed = TestBed.inject(LandingFeedService);
@@ -58,6 +65,26 @@ describe('LandingFeedComponent', () => {
   it('is hidden while the feed has no items', () => {
     boot({ items: [], nextCursor: null });
     expect(el().style.display).toBe('none');
+  });
+
+  it('stays hidden and never calls the API when the visitor is not logged in (feedback F2)', () => {
+    isLoggedInSignal.set(false);
+    boot(page(0, 20, 'c1'));
+    expect(el().style.display).toBe('none');
+    expect(getFeed).not.toHaveBeenCalled();
+  });
+
+  it('loads once the visitor logs in mid-session', () => {
+    isLoggedInSignal.set(false);
+    fixture.detectChanges();
+    jest.advanceTimersByTime(300);
+    fixture.detectChanges();
+    expect(getFeed).not.toHaveBeenCalled();
+
+    isLoggedInSignal.set(true);
+    getFeed.mockReturnValueOnce(of(page(0, 20, 'c1')));
+    fixture.detectChanges();
+    expect(getFeed).toHaveBeenCalledTimes(1);
   });
 
   it('renders only a window of the loaded plans, with spacers standing in for the rest', () => {

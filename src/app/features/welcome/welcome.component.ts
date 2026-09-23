@@ -70,7 +70,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   private readonly feed = inject(LandingFeedService);
   private readonly locale = inject(LocaleService);
 
-  protected readonly showFeedPill = this.feed.hasItems;
+  /** Feedback F2 (2026-09-20) — the pill (and the S6 section it scrolls to) is only
+   *  for logged-in visitors. */
+  protected readonly showFeedPill = computed(() => this.auth.isLoggedIn() && this.feed.hasItems());
   protected readonly feedPillLabel = computed(() => {
     const top = this.feed.topPlan();
     if (top && top.favoriteCount >= 1) {
