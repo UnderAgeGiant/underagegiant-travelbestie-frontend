@@ -69,7 +69,7 @@ describe('KarmaHistoryComponent', () => {
 
   it('shows the empty state when the first page has no events', () => {
     const fixture = setup();
-    expect(fixture.nativeElement.textContent).toContain('Aún no tienes movimientos de karma');
+    expect(fixture.nativeElement.textContent).toContain('Aún no tienes movimientos de tokens');
   });
 
   it('renders a natural-language label and delta for each event', () => {
@@ -340,8 +340,8 @@ describe('KarmaHistoryComponent', () => {
 
     it('shows the error state (not the empty state) when the first load fails', () => {
       const { fixture } = setupWithError();
-      expect(fixture.nativeElement.textContent).toContain('No pudimos cargar tu historial de karma');
-      expect(fixture.nativeElement.textContent).not.toContain('Aún no tienes movimientos de karma');
+      expect(fixture.nativeElement.textContent).toContain('No pudimos cargar tu historial de token');
+      expect(fixture.nativeElement.textContent).not.toContain('Aún no tienes movimientos de tokens');
     });
 
     it('retry() re-issues the first-page load and clears the error state on success', () => {
@@ -356,7 +356,7 @@ describe('KarmaHistoryComponent', () => {
       fixture.detectChanges();
 
       expect(getKarmaEvents).toHaveBeenCalledTimes(2);
-      expect(fixture.nativeElement.textContent).not.toContain('No pudimos cargar tu historial de karma');
+      expect(fixture.nativeElement.textContent).not.toContain('No pudimos cargar tu historial de token');
       expect(fixture.nativeElement.textContent).toContain('Viaje creado');
     });
   });

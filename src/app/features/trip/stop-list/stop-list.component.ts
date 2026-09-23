@@ -206,7 +206,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
                   <button type="button" class="stop-itinerary-pill stop-ai-suggest-pill"
                           (click)="$event.stopPropagation(); suggestForCity(stop)"
                           i18n="@@stopList.aiSuggestBtn">🐾 Sugiere qué hacer en esta ciudad
-                    <span class="karma-cost">−2 ✨ karma</span>
+                    <span class="karma-cost">−2 ✨ token</span>
                   </button>
                   @if (device.isMobile()) {
                     <button type="button" class="stop-itinerary-pill stop-add-attraction-pill"
@@ -306,7 +306,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
                     (click)="doBook()"
                     i18n="@@stopList.bookBtn">Guardar viaje 🎉
               @if (!trip.loadedPlanId()) {
-                <span class="karma-cost">−1 ✨ karma</span>
+                <span class="karma-cost">−1 ✨ token</span>
               }
             </button>
           } @else {
@@ -320,7 +320,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
                 <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
                         [disabled]="bookSaving()"
                         (click)="doBookSave()"
-                        i18n="@@stopList.bookSaveBtn">Guardar ✓ <span class="karma-cost">−1 ✨ karma</span></button>
+                        i18n="@@stopList.bookSaveBtn">Guardar ✓ <span class="karma-cost">−1 ✨ token</span></button>
                 <button class="btn-pill btn-outline" style="padding:0 14px"
                         [disabled]="bookSaving()"
                         (click)="bookOpen.set(false)">✕</button>

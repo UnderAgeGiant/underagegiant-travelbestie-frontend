@@ -28,20 +28,20 @@ const PAGE_SIZE = 20;
       }
 
       <div class="prof-bar">
-        <div class="prof-bar-title" i18n="@@karmaHistory.title">Historial de karma</div>
+        <div class="prof-bar-title" i18n="@@karmaHistory.title">Historial de token</div>
       </div>
 
       <div class="prof-body">
         <section>
           @if (loadError() && events().length === 0) {
             <div class="section-empty">
-              <p i18n="@@karmaHistory.loadError">No pudimos cargar tu historial de karma.</p>
+              <p i18n="@@karmaHistory.loadError">No pudimos cargar tu historial de token.</p>
               <button class="btn-pill btn-outline" (click)="retry()" type="button" i18n="@@karmaHistory.retry">Reintentar</button>
             </div>
           } @else if (loading() && events().length === 0) {
             <div class="section-empty" i18n="@@karmaHistory.loading">Cargando tu historial…</div>
           } @else if (events().length === 0) {
-            <div class="section-empty" i18n="@@karmaHistory.empty">Aún no tienes movimientos de karma.</div>
+            <div class="section-empty" i18n="@@karmaHistory.empty">Aún no tienes movimientos de tokens.</div>
           } @else {
             <div class="karma-history-list">
               @for (event of events(); track event.eventId) {

@@ -27,7 +27,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
           <button class="welcome-cta welcome-cta-ai" tbHighlightTarget="ai-plan-btn" (click)="openAiPlanning.emit()"
                   i18n="@@welcome.ctaCreateAi">🐾 Crear con IA</button>
           <button class="welcome-cta welcome-cta-karma" (click)="howKarmaOpen.set(true)"
-                  i18n="@@welcome.ctaHowKarma">⭐ Cómo ganar Karma</button>
+                  i18n="@@welcome.ctaHowKarma">⭐ Cómo ganar Token</button>
           @if (lastEditedPlan(); as plan) {
             <button class="welcome-cta welcome-cta-last" (click)="loadLastEditedPlan.emit(plan)">
               <span i18n="@@welcome.ctaLastPlan">🕓 Último viaje que editaste</span>
@@ -39,8 +39,8 @@ import { LocaleService } from '../../core/i18n/locale.service';
         @if (howKarmaOpen()) {
           <div class="welcome-karma-modal-backdrop" (click)="howKarmaOpen.set(false)">
             <div class="welcome-karma-modal" (click)="$event.stopPropagation()">
-              <h3 i18n="@@welcome.karmaTitle">Cómo ganar Karma ⭐</h3>
-              <p i18n="@@welcome.karmaBody">Gana Karma cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</p>
+              <h3 i18n="@@welcome.karmaTitle">Cómo ganar Token ⭐</h3>
+              <p i18n="@@welcome.karmaBody">Gana Token cuando tus amigos comentan las paradas de tus viajes compartidos. Úsalo para clonar viajes, exportar itinerarios y planificar con IA.</p>
               <button class="btn-pill btn-primary" (click)="howKarmaOpen.set(false)"
                       i18n="@@welcome.karmaClose">Entendido</button>
             </div>
@@ -70,7 +70,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   private readonly feed = inject(LandingFeedService);
   private readonly locale = inject(LocaleService);
 
-  protected readonly showFeedPill = this.feed.hasItems;
+  /** Feedback F2 (2026-09-20) — the pill (and the S6 section it scrolls to) is only
+   *  for logged-in visitors. */
+  protected readonly showFeedPill = computed(() => this.auth.isLoggedIn() && this.feed.hasItems());
   protected readonly feedPillLabel = computed(() => {
     const top = this.feed.topPlan();
     if (top && top.favoriteCount >= 1) {

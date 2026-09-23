@@ -21,7 +21,7 @@ import { environment } from '../../../environments/environment';
              style="background:linear-gradient(135deg,var(--lav),var(--peach));flex-shrink:0">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
             <div>
-              <div class="modal-title" i18n="@@buyKarma.title">Comprar Karma ✨</div>
+              <div class="modal-title" i18n="@@buyKarma.title">Comprar Tokens ✨</div>
               <div class="modal-sub" i18n="@@buyKarma.subtitle">Elige un paquete y completa el pago</div>
             </div>
             <button
@@ -75,7 +75,7 @@ import { environment } from '../../../environments/environment';
                     style="border-radius:12px;padding:14px 10px;cursor:pointer;text-align:center;transition:all .12s">
                     <div style="font-size:22px">✨</div>
                     <div style="font-size:16px;font-weight:700;color:var(--t1);margin-top:4px">{{ pkg.karma }}</div>
-                    <div style="font-size:11px;color:var(--t3);font-weight:500" i18n="@@buyKarma.karma">karma</div>
+                    <div style="font-size:11px;color:var(--t3);font-weight:500" i18n="@@buyKarma.karma">token</div>
                     <div style="font-size:13px;font-weight:700;color:var(--lav-d);margin-top:6px">{{ pkg.currency }} {{ pkg.price }}</div>
                   </button>
                 }
@@ -151,7 +151,7 @@ import { environment } from '../../../environments/environment';
               <div style="text-align:center;padding:16px 0">
                 <div style="font-size:40px">🎉</div>
                 <div style="font-size:16px;font-weight:700;color:var(--t1);margin-top:8px"
-                     i18n="@@buyKarma.successTitle">¡Karma añadido!</div>
+                     i18n="@@buyKarma.successTitle">¡Token añadido!</div>
                 <div style="font-size:13px;color:var(--t3);margin-top:4px">
                   <ng-container i18n="@@buyKarma.successMsg">Tu cuenta fue acreditada con</ng-container>
                   <strong> +{{ karmaAdded() }} ✨</strong>
@@ -295,7 +295,7 @@ export class BuyKarmaModalComponent implements OnDestroy {
           this.errorMsg.set('El pago con MercadoPago fue rechazado o cancelado.');
           this.step.set('error');
         } else if (attempt + 1 >= MAX_ATTEMPTS) {
-          this.errorMsg.set('Tu pago sigue procesándose. Revisa tu saldo de karma en unos minutos.');
+          this.errorMsg.set('Tu pago sigue procesándose. Revisa tu saldo de token en unos minutos.');
           this.step.set('error');
         } else {
           this.mpPollTimeoutId = setTimeout(() => this.pollMpStatus(purchaseRef, attempt + 1), 2000);

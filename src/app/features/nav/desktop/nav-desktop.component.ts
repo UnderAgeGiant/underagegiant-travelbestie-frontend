@@ -83,11 +83,11 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
               <div [style]="facade.karmaPillStyle()"
                    [class.karma-pill-pulse]="facade.karmaGainAnim() > 0"
                    style="display:flex;align-items:center;gap:5px;padding:4px 11px;border-radius:99px;font-size:12px;font-weight:700;transition:background .35s,color .35s"
-                   title="Good Karma">
+                   title="Good Token">
                 <span [class.karma-icon-sparkle]="facade.karmaGainAnim() > 0"
                       style="font-size:14px">{{ facade.karmaIcon() }}</span>
                 <span>{{ facade.karma.karma() }}</span>
-                <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">karma</span>
+                <span style="font-weight:500;opacity:.8" i18n="@@nav.karma">token</span>
               </div>
             </div>
             @if (facade.auth.isLoggedIn() && facade.cooldown.cooldownSeconds() > 0) {
@@ -100,7 +100,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                     style="padding:4px 10px;font-size:11px;font-weight:700"
                     (click)="facade.openBuyKarma()"
                     i18n="@@nav.buyKarmaBtn">
-              Comprar Karma
+              Comprar Tokens
             </button>
           </div>
         }
@@ -147,7 +147,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                   <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'karmahistory'"
                           style="width:100%;justify-content:center;margin-bottom:8px"
                           (click)="onKarmaHistory()" type="button"
-                          i18n="@@nav.karmaHistory">📈 Historial de karma</button>
+                          i18n="@@nav.karmaHistory">📈 Historial de token</button>
 
                   <!-- Saved plans toggle -->
                   <button class="up-plans-btn" (click)="facade.togglePlans()" type="button">
@@ -186,7 +186,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                               </div>
                             } @else if (facade.cloningConfirmPlanId() === plan.id) {
                               <div class="up-plan-confirm" style="background:var(--lav)">
-                                <span class="up-plan-confirm-text" style="color:var(--lav-d)">⿻ ¿Duplicar viaje? −1 ✨ karma</span>
+                                <span class="up-plan-confirm-text" style="color:var(--lav-d)">⿻ ¿Duplicar viaje? −1 ✨ token</span>
                                 <button class="up-plan-confirm-yes" style="background:var(--lav-d)"
                                         (click)="facade.confirmClonePlan(plan)" type="button">Sí</button>
                                 <button class="up-plan-confirm-no" (click)="facade.cloningConfirmPlanId.set(null)" type="button">No</button>
@@ -234,7 +234,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                               }
                             </span>
                             @if (!facade.trip.loadedPlanId()) {
-                              <span class="karma-cost" style="margin-left:auto">−1 ✨ karma</span>
+                              <span class="karma-cost" style="margin-left:auto">−1 ✨ token</span>
                             }
                           </button>
                         } @else {
@@ -263,7 +263,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                               (click)="facade.doNewTrip()" type="button">
                         <span>＋</span>
                         <span i18n="@@nav.newTrip">Nuevo viaje en blanco</span>
-                        <span class="karma-cost" style="margin-left:auto">−1 ✨ karma</span>
+                        <span class="karma-cost" style="margin-left:auto">−1 ✨ token</span>
                       </button>
 
                     </div>

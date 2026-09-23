@@ -31,7 +31,7 @@ const CELEBRATE_MS = 2600;
           Por ahora Miel está jugando con otro usuario. Dale un premio 🦴 para que juegue contigo. ¡Durante las próximas 24 horas Miel jugara contigo y te dará más sugerencias sobre tu viaje!
         </p>
         <button type="button" class="btn-pill btn-primary companion-boost-btn" (click)="companion.boost()"
-                i18n="@@companion.boostBtn">Dar premio (−2 Karma 🦴)</button>
+                i18n="@@companion.boostBtn">Dar premio (−2 Token 🦴)</button>
       }
     </div>
   `,

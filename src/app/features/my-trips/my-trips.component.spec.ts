@@ -356,3 +356,38 @@ describe('MyTripsComponent — no back button (feedback #7)', () => {
     expect(fixture.nativeElement.querySelector('.back-btn')).toBeNull();
   });
 });
+
+describe('MyTripsComponent — search-engine warning near the share button (feedback F4)', () => {
+  let fixture: ComponentFixture<MyTripsComponent>;
+  let component: MyTripsComponent;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    const auth = TestBed.inject(AuthService);
+    auth.setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    const savedPlans = TestBed.inject(SavedPlansService);
+    savedPlans.register({ id: 'published', name: 'Published trip', savedAt: '2026-07-01T00:00:00Z', stops: [], shareId: 'sh-1' });
+    savedPlans.register({ id: 'draft', name: 'Draft trip', savedAt: '2026-07-02T00:00:00Z', stops: [] });
+    fixture = TestBed.createComponent(MyTripsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('shows the warning once a published plan is expanded', () => {
+    component.togglePlan('published');
+    fixture.detectChanges();
+    const warning = fixture.nativeElement.querySelector('.share-search-warning') as HTMLElement | null;
+    expect(warning).not.toBeNull();
+    expect(warning!.textContent).toContain('Tu plan compartido puede aparecer en buscadores como Google');
+  });
+
+  it('does not show the warning for an unpublished plan', () => {
+    component.togglePlan('draft');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.share-search-warning')).toBeNull();
+  });
+});

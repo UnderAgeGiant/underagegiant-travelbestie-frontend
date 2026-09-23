@@ -109,7 +109,7 @@ describe('NavMobileComponent — opening Comprar Karma from the drawer', () => {
   it('closes the drawer and opens buy karma modal when Comprar Karma is clicked', () => {
     const openBuyKarmaSpy = jest.spyOn(facade, 'openBuyKarma').mockImplementation(() => {});
     const karmaBtn = Array.from(fixture.nativeElement.querySelectorAll('.up-plans-btn'))
-      .find((btn: any) => btn.textContent.includes('Comprar Karma')) as HTMLButtonElement;
+      .find((btn: any) => btn.textContent.includes('Comprar Tokens')) as HTMLButtonElement;
     expect(karmaBtn).toBeTruthy();
 
     karmaBtn.click();
@@ -200,7 +200,7 @@ describe('NavMobileComponent — active page indication', () => {
     fixture.componentRef.setInput('activeView', 'karmahistory');
     fixture.detectChanges();
     const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
-    expect(active?.textContent).toContain('Historial de karma');
+    expect(active?.textContent).toContain('Historial de token');
   });
 });
 

@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import { FeedPlanCardComponent } from './feed-plan-card.component';
 import { LandingFeedService } from './landing-feed.service';
+import { AuthService } from '../../../core/auth/auth.service';
 import { activeIndexFromTop, computeFeedWindow } from './feed-window.util';
 
 const NAV_HEIGHT = 72;            // desktop nav; matches .landing-scroll's margin-top in styles.css
@@ -16,7 +17,7 @@ const MIN_ITEM_HEIGHT = 400;
     class: 'landing-feed',
     role: 'region',
     '[attr.aria-label]': 'regionLabel',
-    '[style.display]': 'feed.hasItems() ? null : "none"',
+    '[style.display]': 'showSection() ? null : "none"',
   },
   template: `
 <div class="feed-spacer" [style.height.px]="win().topSpacer" aria-hidden="true"></div>
@@ -45,6 +46,7 @@ const MIN_ITEM_HEIGHT = 400;
 })
 export class LandingFeedComponent implements OnInit, OnDestroy {
   readonly feed = inject(LandingFeedService);
+  private readonly auth = inject(AuthService);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
 
   readonly backToTop = output<void>();
@@ -64,6 +66,9 @@ export class LandingFeedComponent implements OnInit, OnDestroy {
     return this.feed.items().slice(w.start, w.end).map((item, i) => ({ item, index: w.start + i }));
   });
   protected readonly showBackToTop = computed(() => this.activeIndex() >= 2);
+  /** Feedback F2 (2026-09-20) — the whole S6 section stays hidden for a logged-out
+   *  visitor, not just while it has no items yet. */
+  protected readonly showSection = computed(() => this.auth.isLoggedIn() && this.feed.hasItems());
 
   private readonly onScroll = (): void => {
     if (this.raf) return;
@@ -77,11 +82,23 @@ export class LandingFeedComponent implements OnInit, OnDestroy {
       this.feed.itemCount();
       if (i >= 0) untracked(() => this.feed.onActiveIndex(i));   // untracked: service reads its own signals
     });
+    // Feedback F2 — load only once logged in. Covers both "already logged in at mount" and
+    // "logs in mid-session" (this effect re-fires the moment isLoggedIn() flips true;
+    // initialLoad() is a no-op if a load is already in flight or done, so the two paths never
+    // race). The load itself is always deferred to browser idle time (never during the
+    // triggering change detection) so it never competes with S1's first paint.
+    effect(() => {
+      if (!this.auth.isLoggedIn()) return;
+      untracked(() => this.scheduleInitialLoad());
+    });
   }
 
   ngOnInit(): void {
     document.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
     window.addEventListener('resize', this.onScroll, { passive: true });
+  }
+
+  private scheduleInitialLoad(): void {
     const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
     if (idle) this.idleHandle = idle.call(window, () => this.feed.initialLoad());
     else this.idleTimer = setTimeout(() => this.feed.initialLoad(), 0);

@@ -76,18 +76,20 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         <!-- S2: cinematic slideshow (hidden when no featured trips) -->
         <tb-featured-slideshow #featuredSection />
 
+        <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
+             the complete About Us content, not just the S3 teaser). Rendered BEFORE S4 the
+             footer as of feedback F1 (2026-09-20) — section labels stay S1/S2/S4/S5/S6 for
+             history even though S5 now precedes S4 in scroll order; see frontend CLAUDE.md. -->
+        <section class="landing-snap-child landing-about-full">
+          <app-about-content (startPlanning)="scrollToTop()" />
+        </section>
+
         <!-- S4: footer -->
         <tb-app-footer (createPlan)="showAddModal.set(true)"
                         (viewMyTrips)="facade.openMyTrips()"
                         (exploreFeatured)="scrollToFeatured()" />
 
-        <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
-             the complete About Us content, not just the S3 teaser) -->
-        <section class="landing-snap-child landing-about-full">
-          <app-about-content (startPlanning)="scrollToTop()" />
-        </section>
-
-        <!-- S6: infinite feed of other users' shared plans (hidden until the first page returns ≥1 plan) -->
+        <!-- S6: infinite feed of other users' shared plans (hidden until logged in and the first page returns ≥1 plan) -->
         <tb-landing-feed #feedSection (backToTop)="scrollToTop()" />
 
       </div>

@@ -6,6 +6,7 @@ import { NavFacadeService } from './nav-facade.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
 import { AuthService } from '../../core/auth/auth.service';
+import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { City } from '../../core/models/city.model';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
@@ -169,5 +170,25 @@ describe('NavFacadeService — openMyTrips()', () => {
     facade.openMyTrips('aiplans');
 
     expect(facade.pendingMyTripsTab()).toBe('aiplans');
+  });
+});
+
+describe('NavFacadeService — logout clears the landing feed', () => {
+  let facade: NavFacadeService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+  });
+
+  it('resets LandingFeedService so a stale feed never lingers across sessions (feedback F2)', () => {
+    const landingFeed = TestBed.inject(LandingFeedService);
+    const spy = jest.spyOn(landingFeed, 'reset');
+    facade.doLogout();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });

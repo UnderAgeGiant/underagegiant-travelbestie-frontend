@@ -179,13 +179,19 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
                                 (click)="downloadItinerary(plan)" type="button">
                           {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
                           @if (!plan.exportedAt) {
-                            <span class="karma-cost">−1 ✨ karma</span>
+                            <span class="karma-cost">−1 ✨ token</span>
                           }
                         </button>
                         @if (shareError() === plan.id) {
-                          <span class="share-error" i18n="@@myTrips.insufficientKarma">Karma insuficiente</span>
+                          <span class="share-error" i18n="@@myTrips.insufficientKarma">Token insuficiente</span>
                         }
                       </div>
+                      @if (planShareId(plan)) {
+                        <p class="share-search-warning" style="margin:0 16px 12px"
+                           i18n="@@myTrips.shareSearchWarning">
+                          Tu plan compartido puede aparecer en buscadores como Google
+                        </p>
+                      }
                     }
 
                     @if (selectedPlanId() === plan.id) {
@@ -337,7 +343,7 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
                         <div class="aiplan-card-title" i18n="@@mytrips.aiPlanFailedTitle">No se pudo generar</div>
                         <div class="aiplan-card-meta">{{ item.requestParams.selectedOption.title }}</div>
                         @if (item.karmaCharged > 0) {
-                          <div class="aiplan-card-refund" i18n="@@mytrips.aiPlanRefunded">Karma reembolsado</div>
+                          <div class="aiplan-card-refund" i18n="@@mytrips.aiPlanRefunded">Token reembolsado</div>
                         }
                       }
                       <button class="btn-pill btn-outline aiplan-card-discard-btn"
@@ -380,7 +386,7 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
           <div class="modal-body" style="padding:20px 24px">
             <p style="font-size:13px;color:var(--t2);margin:0;line-height:1.6" i18n="@@myTrips.cloneModalBody">
               Se creará una copia de este viaje en tu lista de guardados.<br>
-              Costo: <strong>−1 ✨ karma</strong>.
+              Costo: <strong>−1 ✨ token</strong>.
             </p>
           </div>
           <div class="modal-foot" style="gap:8px">
