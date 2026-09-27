@@ -748,6 +748,8 @@ app-nav { display: block; }
 .ai-plan-label { font-size: 12px; font-weight: 600; color: var(--t2); }
 .ai-plan-textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--t1); resize: vertical; outline: none; transition: border-color .2s; }
 .ai-plan-textarea:focus { border-color: var(--lav-d); }
+.ai-plan-count { margin-top: 4px; text-align: right; font-size: 11px; color: var(--t3); font-variant-numeric: tabular-nums; transition: color .2s; }
+.ai-plan-count-warn { color: var(--peach-d); font-weight: 600; }
 .ai-plan-row { display: flex; gap: 12px; }
 .ai-plan-row .ai-plan-field { flex: 1; }
 .ai-plan-submit { width: 100%; justify-content: center; padding: 12px; font-size: 14px; margin-top: 4px; }
