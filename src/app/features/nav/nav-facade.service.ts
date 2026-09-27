@@ -23,6 +23,11 @@ import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale, RestoreView } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 
+/** One-letter queries match almost everything and cost a request each; wait for two. */
+export function shouldSearchSharedTrips(query: string): boolean {
+  return query.trim().length >= 2;
+}
+
 @Injectable({ providedIn: 'root' })
 export class NavFacadeService {
   readonly auth         = inject(AuthService);
@@ -97,7 +102,7 @@ export class NavFacadeService {
     toObservable(this.navQuery).pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(q => q.trim()
+      switchMap(q => shouldSearchSharedTrips(q)
         ? this.api.searchSharedTrips(q).pipe(catchError(() => of([])))
         : of([])),
       takeUntilDestroyed(),

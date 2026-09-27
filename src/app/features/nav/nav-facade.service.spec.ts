@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter, Router } from '@angular/router';
-import { NavFacadeService } from './nav-facade.service';
+import { NavFacadeService, shouldSearchSharedTrips } from './nav-facade.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -190,5 +190,19 @@ describe('NavFacadeService — logout clears the landing feed', () => {
     const spy = jest.spyOn(landingFeed, 'reset');
     facade.doLogout();
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('shouldSearchSharedTrips (C7)', () => {
+  it('skips empty, blank and single-character queries', () => {
+    expect(shouldSearchSharedTrips('')).toBe(false);
+    expect(shouldSearchSharedTrips('   ')).toBe(false);
+    expect(shouldSearchSharedTrips('a')).toBe(false);
+    expect(shouldSearchSharedTrips(' a ')).toBe(false);
+  });
+
+  it('searches from two characters', () => {
+    expect(shouldSearchSharedTrips('pa')).toBe(true);
+    expect(shouldSearchSharedTrips(' París ')).toBe(true);
   });
 });
