@@ -3,7 +3,7 @@ import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { Subject } from 'rxjs';
-import { AiPlanningComponent } from './ai-planning.component';
+import { AiPlanningComponent, visibleHighlights, MAX_VISIBLE_HIGHLIGHTS, MAX_PREFERENCES_CHARS, MAX_PLAN_TITLE_CHARS } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { Trip } from '../../core/models/trip.model';
@@ -619,5 +619,77 @@ describe('AiPlanningComponent — editable plan name on Step 2 (feedback #13)', 
     input.dispatchEvent(new Event('input'));
     fixture.detectChanges();
     expect(component.selectedOption()?.title).toBe('Mi viaje personalizado');
+  });
+});
+
+describe('visibleHighlights() — AI highlight pills', () => {
+  it('shows at most MAX_VISIBLE_HIGHLIGHTS (4) pills even when the model returns more', () => {
+    const many = ['a', 'b', 'c', 'd', 'e', 'f'];
+    expect(MAX_VISIBLE_HIGHLIGHTS).toBe(4);
+    expect(visibleHighlights(many)).toEqual(['a', 'b', 'c', 'd']);
+  });
+
+  it('drops blank and duplicate highlights so the pill row never renders an empty or repeated pill', () => {
+    expect(visibleHighlights(['París', '  ', 'París', 'Roma'])).toEqual(['París', 'Roma']);
+  });
+
+  it('tolerates a missing highlights array (older stored plans)', () => {
+    expect(visibleHighlights(undefined)).toEqual([]);
+  });
+});
+
+describe('AiPlanningComponent — input length limits (mirror backend zod caps)', () => {
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+  });
+
+  function renderStep1(): ComponentFixture<AiPlanningComponent> {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    fixture.detectChanges();
+    return fixture;
+  }
+
+  it('matches the backend caps: preferences 2000, renamed plan title 60', () => {
+    expect(MAX_PREFERENCES_CHARS).toBe(2000);
+    expect(MAX_PLAN_TITLE_CHARS).toBe(60);
+  });
+
+  it('the preferences textarea has maxlength=2000, is labelled, and is described by the counter', () => {
+    const el: HTMLElement = renderStep1().nativeElement;
+    const ta = el.querySelector('textarea.ai-plan-textarea') as HTMLTextAreaElement;
+    expect(ta.getAttribute('maxlength')).toBe('2000');
+    expect(el.querySelector(`label[for="${ta.id}"]`)).not.toBeNull();
+    const counter = el.querySelector(`#${ta.getAttribute('aria-describedby')}`) as HTMLElement;
+    expect(counter.textContent!.replace(/\s+/g, ' ').trim()).toBe('0 / 2000');
+  });
+
+  it('the counter tracks typing and turns to its warning style at ≥90% of the limit', () => {
+    const fixture = renderStep1();
+    const c = fixture.componentInstance;
+    const counter = () => fixture.nativeElement.querySelector('.ai-plan-count') as HTMLElement;
+
+    c.preferences.set('a'.repeat(1799));
+    fixture.detectChanges();
+    expect(counter().textContent).toContain('1799 / 2000');
+    expect(counter().classList).not.toContain('ai-plan-count-warn');
+
+    c.preferences.set('a'.repeat(1800));
+    fixture.detectChanges();
+    expect(counter().classList).toContain('ai-plan-count-warn');
+  });
+
+  it('updateSelectedOptionTitle() never stores more than 60 chars', () => {
+    const c = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    c.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
+    c.updateSelectedOptionTitle('x'.repeat(90));
+    expect(c.selectedOption()!.title.length).toBe(60);
   });
 });

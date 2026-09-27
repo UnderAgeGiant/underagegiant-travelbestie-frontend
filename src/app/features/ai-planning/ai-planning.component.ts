@@ -25,6 +25,33 @@ type Step = 'preferences' | 'options' | 'result';
 
 const AI_PLAN_CELEBRATE_MS = 2600;
 
+/**
+ * Most highlight pills a suggestion card shows. Mirrors the backend's prompt
+ * target/cap agreed on `fix/ai-prompt-audit` (3 asked, ≤4 kept, each ≤40 chars).
+ */
+export const MAX_VISIBLE_HIGHLIGHTS = 4;
+
+/** Backend zod cap on `preferences` for POST /ai/suggest and /ai/plan (ai.schemas.ts). Over it → 400. */
+export const MAX_PREFERENCES_CHARS = 2000;
+/** Counter switches to its warning style at this share of `MAX_PREFERENCES_CHARS`. */
+const PREFERENCES_WARN_RATIO = 0.9;
+/** Backend keeps a user-renamed selectedOption title but truncates it to this length. */
+export const MAX_PLAN_TITLE_CHARS = 60;
+
+/** Trims, drops blank/duplicate entries, and caps the list to `MAX_VISIBLE_HIGHLIGHTS`. */
+export function visibleHighlights(highlights: readonly string[] | null | undefined): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const raw of highlights ?? []) {
+    const h = (raw ?? '').trim();
+    if (!h || seen.has(h)) continue;
+    seen.add(h);
+    out.push(h);
+    if (out.length === MAX_VISIBLE_HIGHLIGHTS) break;
+  }
+  return out;
+}
+
 @Component({
     selector: 'app-ai-planning',
     imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
@@ -181,14 +208,19 @@ const AI_PLAN_CELEBRATE_MS = 2600;
               <div class="ai-plan-card-title" i18n="@@aiplan.prefTitle">¿Qué tipo de viaje buscas?</div>
 
               <div class="ai-plan-field">
-                <label class="ai-plan-label" i18n="@@aiplan.prefLabel">Describe tu viaje ideal</label>
-                <textarea class="ai-plan-textarea"
+                <label class="ai-plan-label" for="aiPlanPrefs" i18n="@@aiplan.prefLabel">Describe tu viaje ideal</label>
+                <textarea id="aiPlanPrefs" class="ai-plan-textarea"
                           [value]="preferences()"
                           (input)="preferences.set($any($event.target).value)"
                           rows="4"
+                          [attr.maxlength]="maxPreferencesChars"
+                          aria-describedby="aiPlanPrefsCount"
                           i18n-placeholder="@@aiplan.prefPlaceholder"
                           placeholder="Ej: quiero un viaje romántico con mi pareja, priorizando gastronomía y museos, sin demasiado transporte…"
                           ></textarea>
+                <div id="aiPlanPrefsCount" class="ai-plan-count"
+                     [class.ai-plan-count-warn]="preferencesNearLimit()"
+                     i18n="@@aiplan.prefCount">{{ preferences().length }} / {{ maxPreferencesChars }}</div>
               </div>
 
               <div class="ai-plan-row">
@@ -299,7 +331,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                     <div class="ai-option-title">{{ opt.title }}</div>
                     <div class="ai-option-summary">{{ opt.summary }}</div>
                     <div class="ai-option-highlights">
-                      @for (h of opt.highlights; track h) {
+                      @for (h of visibleHighlights(opt.highlights); track h) {
                         <span class="ai-option-hl">{{ h }}</span>
                       }
                     </div>
@@ -311,6 +343,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                 <div class="ai-plan-name-edit">
                   <label class="ai-plan-name-label" for="aiPlanNameInput" i18n="@@aiplan.planNameLabel">Nombre del plan</label>
                   <input id="aiPlanNameInput" class="form-input" type="text"
+                         [attr.maxlength]="maxPlanTitleChars"
                          [value]="opt.title"
                          (input)="updateSelectedOptionTitle($any($event.target).value)" />
                 </div>
@@ -552,6 +585,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
   `
 })
 export class AiPlanningComponent implements OnDestroy {
+  protected readonly visibleHighlights = visibleHighlights;
   close     = output<void>();
   planSaved = output<void>();
   /** User confirmed the "Notificarme" hand-off — parent should close this overlay and take them to the landing page's featured-plans section (S2) to browse while they wait. */
@@ -596,6 +630,11 @@ export class AiPlanningComponent implements OnDestroy {
   private static readonly AI_PLAN_LONG_WAIT_MS = 15_000;
 
   preferences = signal('');
+  protected readonly maxPreferencesChars = MAX_PREFERENCES_CHARS;
+  protected readonly maxPlanTitleChars   = MAX_PLAN_TITLE_CHARS;
+  readonly preferencesNearLimit = computed(
+    () => this.preferences().length >= MAX_PREFERENCES_CHARS * PREFERENCES_WARN_RATIO,
+  );
   duration    = signal<number | undefined>(undefined);
   budget      = signal('');
   startDate   = signal('');
@@ -1024,7 +1063,8 @@ export class AiPlanningComponent implements OnDestroy {
   }
 
   updateSelectedOptionTitle(title: string): void {
-    this.selectedOption.update(opt => (opt ? { ...opt, title } : opt));
+    const capped = title.slice(0, MAX_PLAN_TITLE_CHARS);
+    this.selectedOption.update(opt => (opt ? { ...opt, title: capped } : opt));
   }
 
   save(): void {

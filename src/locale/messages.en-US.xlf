@@ -1075,6 +1075,10 @@
         <source>Describe tu viaje ideal</source>
         <target>Describe your ideal trip</target>
       </trans-unit>
+      <trans-unit id="aiplan.prefCount" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ preferences().length }}"/> / <x id="INTERPOLATION_1" equiv-text="{{ maxPreferencesChars }}"/></source>
+        <target><x id="INTERPOLATION" equiv-text="{{ preferences().length }}"/> / <x id="INTERPOLATION_1" equiv-text="{{ maxPreferencesChars }}"/></target>
+      </trans-unit>
       <trans-unit id="aiplan.prefPlaceholder" datatype="html">
         <source>Ej: quiero un viaje romántico con mi pareja, priorizando gastronomía y museos, sin demasiado transporte…</source>
         <target>E.g.: I want a romantic trip with my partner, prioritizing food and museums, without too much transit…</target>
