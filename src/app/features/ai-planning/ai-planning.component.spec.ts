@@ -3,7 +3,7 @@ import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { Subject } from 'rxjs';
-import { AiPlanningComponent } from './ai-planning.component';
+import { AiPlanningComponent, visibleHighlights, MAX_VISIBLE_HIGHLIGHTS } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { Trip } from '../../core/models/trip.model';
@@ -619,5 +619,21 @@ describe('AiPlanningComponent — editable plan name on Step 2 (feedback #13)', 
     input.dispatchEvent(new Event('input'));
     fixture.detectChanges();
     expect(component.selectedOption()?.title).toBe('Mi viaje personalizado');
+  });
+});
+
+describe('visibleHighlights() — AI highlight pills', () => {
+  it('shows at most MAX_VISIBLE_HIGHLIGHTS (4) pills even when the model returns more', () => {
+    const many = ['a', 'b', 'c', 'd', 'e', 'f'];
+    expect(MAX_VISIBLE_HIGHLIGHTS).toBe(4);
+    expect(visibleHighlights(many)).toEqual(['a', 'b', 'c', 'd']);
+  });
+
+  it('drops blank and duplicate highlights so the pill row never renders an empty or repeated pill', () => {
+    expect(visibleHighlights(['París', '  ', 'París', 'Roma'])).toEqual(['París', 'Roma']);
+  });
+
+  it('tolerates a missing highlights array (older stored plans)', () => {
+    expect(visibleHighlights(undefined)).toEqual([]);
   });
 });

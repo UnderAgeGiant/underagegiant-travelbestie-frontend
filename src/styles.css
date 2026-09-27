@@ -241,7 +241,10 @@ app-nav { display: block; }
 .itin-transit { display: flex; align-items: center; gap: 6px; padding: 5px 10px; background: var(--cream); border: 1px solid var(--border); border-radius: 99px; font-size: 11px; color: var(--t2); flex-wrap: wrap; width: fit-content; max-width: 100%; }
 .itin-edge-transit { background: var(--lav); border-color: var(--lav-d); color: var(--lav-d); }
 .itin-transit-tag { font-size: 10px; font-weight: 700; color: inherit; text-transform: uppercase; letter-spacing: .4px; }
-.itin-seg { white-space: nowrap; font-weight: 500; }
+/* Wraps (was nowrap): fmtSeg() appends free-text notes (AI or user-typed), which
+   used to push the pill past the viewport on desktop. Notes are capped at 80
+   chars server-side for AI output (fix/ai-prompt-audit), but user input is not. */
+.itin-seg { white-space: normal; overflow-wrap: anywhere; min-width: 0; font-weight: 500; }
 .itin-notes { color: var(--t3); font-style: italic; font-size: 10px; }
 .itin-chain { color: var(--t3); }
 .itin-no-transit { color: var(--t3); font-style: italic; }
@@ -757,7 +760,7 @@ app-nav { display: block; }
 .ai-option-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--t1); }
 .ai-option-summary { font-size: 12px; color: var(--t2); line-height: 1.5; }
 .ai-option-highlights { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
-.ai-option-hl { background: var(--mint); color: var(--mint-d); padding: 2px 10px; border-radius: 99px; font-size: 10px; font-weight: 600; }
+.ai-option-hl { background: var(--mint); color: var(--mint-d); padding: 2px 10px; border-radius: 10px; font-size: 10px; font-weight: 600; line-height: 1.5; max-width: 100%; overflow-wrap: anywhere; }
 .ai-plan-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
 .ai-plan-name-edit { margin-bottom: 14px; }
 .ai-plan-name-label { display: block; font-size: 12px; font-weight: 600; color: var(--t2); margin-bottom: 6px; }

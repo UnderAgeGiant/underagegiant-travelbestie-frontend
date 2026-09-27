@@ -25,6 +25,26 @@ type Step = 'preferences' | 'options' | 'result';
 
 const AI_PLAN_CELEBRATE_MS = 2600;
 
+/**
+ * Most highlight pills a suggestion card shows. Mirrors the backend's prompt
+ * target/cap agreed on `fix/ai-prompt-audit` (3 asked, ≤4 kept, each ≤40 chars).
+ */
+export const MAX_VISIBLE_HIGHLIGHTS = 4;
+
+/** Trims, drops blank/duplicate entries, and caps the list to `MAX_VISIBLE_HIGHLIGHTS`. */
+export function visibleHighlights(highlights: readonly string[] | null | undefined): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const raw of highlights ?? []) {
+    const h = (raw ?? '').trim();
+    if (!h || seen.has(h)) continue;
+    seen.add(h);
+    out.push(h);
+    if (out.length === MAX_VISIBLE_HIGHLIGHTS) break;
+  }
+  return out;
+}
+
 @Component({
     selector: 'app-ai-planning',
     imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
@@ -299,7 +319,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
                     <div class="ai-option-title">{{ opt.title }}</div>
                     <div class="ai-option-summary">{{ opt.summary }}</div>
                     <div class="ai-option-highlights">
-                      @for (h of opt.highlights; track h) {
+                      @for (h of visibleHighlights(opt.highlights); track h) {
                         <span class="ai-option-hl">{{ h }}</span>
                       }
                     </div>
@@ -552,6 +572,7 @@ const AI_PLAN_CELEBRATE_MS = 2600;
   `
 })
 export class AiPlanningComponent implements OnDestroy {
+  protected readonly visibleHighlights = visibleHighlights;
   close     = output<void>();
   planSaved = output<void>();
   /** User confirmed the "Notificarme" hand-off — parent should close this overlay and take them to the landing page's featured-plans section (S2) to browse while they wait. */
