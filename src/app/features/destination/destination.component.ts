@@ -1,11 +1,11 @@
-import { Component, inject, signal, computed, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, computed, effect, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../trip/trip.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { REGION_LABELS } from '../../core/models/city.model';
 import { getAttractions } from '../../data/attractions.data';
 import { sortMustSeeFirst } from '../../core/utils/must-see.util';
 import { Comment } from '../../core/models/comment.model';
-import { ApiService } from '../../core/api/api.service';
+import { CityCommentsService } from '../../core/comments/city-comments.service';
 import { DeviceService } from '../../core/device/device.service';
 import { AttractionsListComponent } from './attractions-list/attractions-list.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
@@ -54,12 +54,15 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
     </div>
   `
 })
-export class DestinationComponent implements OnInit {
+export class DestinationComponent {
   private readonly trip = inject(TripService);
-  private readonly api = inject(ApiService);
+  private readonly cityComments = inject(CityCommentsService);
   protected readonly device = inject(DeviceService);
 
-  protected allComments = signal<Record<string, Comment[]>>({});
+  protected readonly allComments = computed(() => {
+    const city = this.city();
+    return city ? this.cityComments.commentsFor(city.id) : {};
+  });
 
   readonly city = computed(() => {
     const stop = this.trip.activeStop();
@@ -69,19 +72,16 @@ export class DestinationComponent implements OnInit {
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? sortMustSeeFirst(getAttractions(this.city()!)) : []);
 
-  ngOnInit(): void {
-    const ids = this.attractions().map(a => a.id);
-    if (ids.length === 0) return;
-    this.api.getCommentsBatch(ids).subscribe(map => {
-      this.allComments.set(map);
-    });
+  constructor() {
+    effect(() => {
+      const city = this.city();
+      if (city) this.cityComments.load(city.id, this.attractions().map(a => a.id));
+    }, { allowSignalWrites: true });
   }
 
   onCommentAdded(attractionId: string, comment: Omit<Comment, 'id'>): void {
-    this.allComments.update(prev => ({
-      ...prev,
-      [attractionId]: [...(prev[attractionId] ?? []), comment as Comment],
-    }));
+    const city = this.city();
+    if (city) this.cityComments.addLocal(city.id, attractionId, comment as Comment);
   }
 
   regionLabel() {
