@@ -65,4 +65,14 @@ describe('CityCommentsService (C3)', () => {
     svc.load('nowhere', []);
     expect(batch()).toHaveLength(0);
   });
+
+  it('addLocal on an unloaded city does not block a later load(), and both the fetched and local comments survive', () => {
+    svc.addLocal('paris', 'paris_1', C('local-1'));
+    svc.load('paris', ['paris_0', 'paris_1']);
+    const reqs = batch();
+    expect(reqs).toHaveLength(1);
+    reqs[0].flush({ paris_0: [C('fetched-1')] });
+    expect(svc.commentsFor('paris')['paris_0'].map(c => c.id)).toEqual(['fetched-1']);
+    expect(svc.commentsFor('paris')['paris_1'].map(c => c.id)).toEqual(['local-1']);
+  });
 });

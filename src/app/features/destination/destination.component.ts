@@ -75,7 +75,10 @@ export class DestinationComponent {
   constructor() {
     effect(() => {
       const city = this.city();
-      if (city) this.cityComments.load(city.id, this.attractions().map(a => a.id));
+      // This desktop panel's template is gated on !device.isMobile(), so skip the
+      // comments fetch entirely on mobile. Reading isMobile() here is intended:
+      // resizing back to desktop re-runs the effect and triggers the load then.
+      if (city && !this.device.isMobile()) this.cityComments.load(city.id, this.attractions().map(a => a.id));
     }, { allowSignalWrites: true });
   }
 

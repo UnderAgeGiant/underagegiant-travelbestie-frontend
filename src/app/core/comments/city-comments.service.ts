@@ -13,6 +13,10 @@ export class CityCommentsService {
   private readonly api = inject(ApiService);
   private readonly _byCity = signal<Record<string, Record<string, Comment[]>>>({});
   private readonly inFlight = new Set<string>();
+  // Tracks which cities have had a successful load() — separate from _byCity's keys,
+  // since addLocal() also populates _byCity[cityId] for a city that was never (or
+  // never successfully) loaded, which must not make load() think it's cached forever.
+  private readonly loadedCities = new Set<string>();
 
   commentsFor(cityId: string): Record<string, Comment[]> {
     return this._byCity()[cityId] ?? {};
@@ -20,12 +24,22 @@ export class CityCommentsService {
 
   load(cityId: string, attractionIds: string[]): void {
     untracked(() => {
-      if (attractionIds.length === 0 || cityId in this._byCity() || this.inFlight.has(cityId)) return;
+      if (attractionIds.length === 0 || this.loadedCities.has(cityId) || this.inFlight.has(cityId)) return;
       this.inFlight.add(cityId);
       this.api.getCommentsBatch(attractionIds)
         .pipe(finalize(() => this.inFlight.delete(cityId)))
         .subscribe({
-          next: map => this._byCity.update(all => ({ ...all, [cityId]: map })),
+          next: map => {
+            this.loadedCities.add(cityId);
+            this._byCity.update(all => {
+              const localForCity = all[cityId] ?? {};
+              const merged: Record<string, Comment[]> = { ...map };
+              for (const attractionId of Object.keys(localForCity)) {
+                if (!(attractionId in map)) merged[attractionId] = localForCity[attractionId];
+              }
+              return { ...all, [cityId]: merged };
+            });
+          },
           error: () => { /* non-fatal — not cached, so the next load() retries */ },
         });
     });

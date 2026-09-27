@@ -35,7 +35,10 @@ export class SavedPlansService {
 
   loadPendingInvites(): void {
     if (environment.useMocks) { this._pendingInvites.set([]); return; }
-    this.api.getPendingInvites().subscribe(invites => this._pendingInvites.set(invites));
+    this.api.getPendingInvites().subscribe({
+      next: invites => this._pendingInvites.set(invites),
+      error: () => { /* non-fatal: keep the previous list */ },
+    });
   }
 
   constructor() {
