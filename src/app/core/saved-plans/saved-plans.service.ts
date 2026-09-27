@@ -73,7 +73,6 @@ export class SavedPlansService {
       },
       error: () => { this.loadedEmail = null; },
     });
-    this.loadPendingInvites();
   }
 
   /**

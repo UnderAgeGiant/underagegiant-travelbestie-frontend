@@ -6,6 +6,7 @@ import { of, throwError } from 'rxjs';
 import { MyTripsComponent } from './my-trips.component';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
+import { ApiService } from '../../core/api/api.service';
 
 // MyTripsComponent now renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -389,5 +390,36 @@ describe('MyTripsComponent — search-engine warning near the share button (feed
     component.togglePlan('draft');
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.share-search-warning')).toBeNull();
+  });
+});
+
+describe('MyTripsComponent — pending invites load on open (C2)', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+  });
+
+  it('loads pending invites once when My Trips is created', () => {
+    const spy = jest.spyOn(TestBed.inject(SavedPlansService), 'loadPendingInvites').mockImplementation(() => {});
+    TestBed.createComponent(MyTripsComponent);
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('reloads plans (forced) and invites after accepting an invite', () => {
+    const savedPlans = TestBed.inject(SavedPlansService);
+    const invites = jest.spyOn(savedPlans, 'loadPendingInvites').mockImplementation(() => {});
+    const plans = jest.spyOn(savedPlans, 'loadForUser').mockImplementation(() => {});
+    jest.spyOn(TestBed.inject(AuthService), 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com' } as any);
+    jest.spyOn(TestBed.inject(ApiService), 'acceptCollaboratorInvite').mockReturnValue(of(undefined));
+
+    const component = TestBed.createComponent(MyTripsComponent).componentInstance;
+    invites.mockClear();
+    component.acceptInvite('trip-1');
+
+    expect(plans).toHaveBeenCalledWith('ana@test.com', true);
+    expect(invites).toHaveBeenCalledTimes(1);
   });
 });

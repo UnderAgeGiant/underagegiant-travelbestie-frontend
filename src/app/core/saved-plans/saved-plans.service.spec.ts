@@ -147,4 +147,9 @@ describe('SavedPlansService.loadForUser — load once per account (C1)', () => {
     service.loadForUser('ana@test.com');
     expect(tripsRequests()).toHaveLength(1);
   });
+
+  it('does not fetch pending invites (My Trips loads them on open)', () => {
+    service.loadForUser('ana@test.com');
+    expect(http.match(r => r.url.endsWith('/trips/invites'))).toHaveLength(0);
+  });
 });
