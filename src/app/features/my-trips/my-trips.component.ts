@@ -711,7 +711,7 @@ export class MyTripsComponent implements AfterViewInit {
     this.api.acceptCollaboratorInvite(tripId).subscribe({
       next: () => {
         this.acceptingTripId.set(null);
-        this.savedPlans.loadForUser(this.auth.currentUser()!.email);
+        this.savedPlans.loadForUser(this.auth.currentUser()!.email, true);
         this.toast.set($localize`:@@myTrips.inviteAcceptedToast:¡Ahora colaboras en este viaje!`);
         this.favTab.set('collaborations');
       },

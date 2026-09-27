@@ -93,3 +93,58 @@ describe('SavedPlansService.upsert — sourceAiPlanRequestId', () => {
     req.flush({ id: 't1', title: 'Ruta Clásica', stops: [], transits: [] });
   });
 });
+
+describe('SavedPlansService.loadForUser — load once per account (C1)', () => {
+  let service: SavedPlansService;
+  let http: HttpTestingController;
+
+  const tripsRequests = () => http.match(r => r.method === 'GET' && r.url.endsWith('/trips'));
+  const flushAll = () => http.match(() => true).forEach(r => r.flush([]));
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(SavedPlansService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => { flushAll(); http.verify(); });
+
+  it('fetches trips once when called twice for the same email', () => {
+    service.loadForUser('ana@test.com');
+    service.loadForUser('ana@test.com');
+    expect(tripsRequests()).toHaveLength(1);
+  });
+
+  it('refetches when forced', () => {
+    service.loadForUser('ana@test.com');
+    tripsRequests().forEach(r => r.flush([]));
+    service.loadForUser('ana@test.com', true);
+    expect(tripsRequests()).toHaveLength(1);
+  });
+
+  it('refetches for a different email', () => {
+    service.loadForUser('ana@test.com');
+    tripsRequests().forEach(r => r.flush([]));
+    service.loadForUser('bob@test.com');
+    expect(tripsRequests()).toHaveLength(1);
+  });
+
+  it('refetches after clear() (logout)', () => {
+    service.loadForUser('ana@test.com');
+    tripsRequests().forEach(r => r.flush([]));
+    service.clear();
+    service.loadForUser('ana@test.com');
+    expect(tripsRequests()).toHaveLength(1);
+  });
+
+  it('retries after a failed load instead of staying empty', () => {
+    service.loadForUser('ana@test.com');
+    tripsRequests().forEach(r => r.flush('boom', { status: 500, statusText: 'Server Error' }));
+    service.loadForUser('ana@test.com');
+    expect(tripsRequests()).toHaveLength(1);
+  });
+});
