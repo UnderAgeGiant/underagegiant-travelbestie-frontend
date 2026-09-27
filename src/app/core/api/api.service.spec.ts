@@ -715,3 +715,38 @@ describe('ApiService.getSeoCityPlans()', () => {
     });
   });
 });
+
+describe('ApiService.getKarmaPackages — real mode (C6)', () => {
+  let service: ApiService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(withXhr()),
+        provideHttpClientTesting(),
+        { provide: 'ENV', useValue: { useMocks: false, apiUrl: 'http://localhost:3000' } },
+      ],
+    });
+    service = TestBed.inject(ApiService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => http.verify());
+
+  it('shares one request across repeated calls (modal reopened)', () => {
+    const results: number[] = [];
+    service.getKarmaPackages().subscribe(r => results.push(r.packages.length));
+    http.expectOne('http://localhost:3000/karma/packages').flush({ packages: [{ id: 'karma_10' }] });
+    service.getKarmaPackages().subscribe(r => results.push(r.packages.length));
+    http.expectNone('http://localhost:3000/karma/packages');
+    expect(results).toEqual([1, 1]);
+  });
+
+  it('retries after a failed request', () => {
+    service.getKarmaPackages().subscribe({ error: () => {} });
+    http.expectOne('http://localhost:3000/karma/packages').flush('boom', { status: 500, statusText: 'Server Error' });
+    service.getKarmaPackages().subscribe();
+    http.expectOne('http://localhost:3000/karma/packages').flush({ packages: [] });
+  });
+});
