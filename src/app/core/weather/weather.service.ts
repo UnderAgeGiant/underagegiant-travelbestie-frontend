@@ -11,6 +11,8 @@ interface CachedEntry {
 
 const CACHE_PREFIX = 'tb:weather:';
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+/** Within this age a cached entry is served with no request at all (the backend caches 12 h). */
+const FRESH_MS = 60 * 60 * 1000;
 const MAX_CACHE_ENTRIES = 100;
 
 @Injectable({ providedIn: 'root' })
@@ -87,16 +89,23 @@ export class WeatherService {
   load(cityId: string, checkIn: string, checkOut: string): void {
     const key = this.cacheKey(cityId, checkIn, checkOut);
     if (this.inFlight.has(key)) return;
-    this.inFlight.add(key);
 
     const cached = this.readCache(key);
+    if (cached && Date.now() - cached.cachedAt < FRESH_MS) {
+      this.mergeIntoDayMap(cityId, cached.days);
+      return;
+    }
+    this.inFlight.add(key);
 
     this.api.getWeather(cityId, checkIn, checkOut, cached?.etag)
       .pipe(finalize(() => this.inFlight.delete(key)))
       .subscribe({
         next: res => {
           if (res.status === 304) {
-            if (cached) this.mergeIntoDayMap(cityId, cached.days);
+            if (cached) {
+              this.mergeIntoDayMap(cityId, cached.days);
+              this.writeCache(key, { days: cached.days, etag: cached.etag });   // restart the freshness window
+            }
             return;
           }
           if (res.days) {

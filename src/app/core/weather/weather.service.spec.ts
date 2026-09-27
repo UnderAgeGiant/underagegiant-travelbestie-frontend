@@ -17,6 +17,7 @@ describe('WeatherService', () => {
   });
 
   afterEach(() => http.verify());
+  afterEach(() => jest.restoreAllMocks());
 
   it('loads weather for a city/range and exposes it via get()', () => {
     service.load('paris', '30/08/2026', '30/08/2026');
@@ -30,13 +31,15 @@ describe('WeatherService', () => {
     );
   });
 
-  it('sends the cached etag on a repeat load for the same city/range, and keeps cached days on a 304', () => {
+  it('revalidates with the cached etag once the entry is over an hour old, and keeps cached days on a 304', () => {
+    const now = jest.spyOn(Date, 'now').mockReturnValue(1_000_000_000);
     service.load('paris', '30/08/2026', '30/08/2026');
     http.expectOne(r => r.url.includes('/weather')).flush(
       { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }] },
       { headers: { ETag: '"etag-1"' } },
     );
 
+    now.mockReturnValue(1_000_000_000 + 61 * 60 * 1000);
     service.load('paris', '30/08/2026', '30/08/2026');
     const req = http.expectOne(r => r.url.includes('/weather'));
     expect(req.request.headers.get('If-None-Match')).toBe('"etag-1"');
@@ -160,18 +163,50 @@ describe('WeatherService', () => {
     expect(localStorage.getItem('tb:weather:paris:30/08/2026:30/08/2026')).not.toBeNull();
   });
 
-  it('allows a fresh load() for the same city/range once the prior request has completed', () => {
+  it('allows a new request for the same city/range once the prior one completed and the entry went stale', () => {
+    const now = jest.spyOn(Date, 'now').mockReturnValue(1_000_000_000);
     service.load('paris', '30/08/2026', '30/08/2026');
     http.expectOne(r => r.url.includes('/weather')).flush(
       { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }] },
       { headers: { ETag: '"etag-1"' } },
     );
 
-    // A later, separate call (e.g. re-opening an inline instance later) is not
-    // treated as a duplicate — it should still fire (with the now-cached etag).
+    now.mockReturnValue(1_000_000_000 + 2 * 60 * 60 * 1000);
     service.load('paris', '30/08/2026', '30/08/2026');
     const req = http.expectOne(r => r.url.includes('/weather'));
     expect(req.request.headers.get('If-None-Match')).toBe('"etag-1"');
     req.flush(null, { status: 304, statusText: 'Not Modified' });
+  });
+
+  it('serves a repeat load within an hour from cache, with no request (C5)', () => {
+    const now = jest.spyOn(Date, 'now').mockReturnValue(1_000_000_000);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+
+    now.mockReturnValue(1_000_000_000 + 59 * 60 * 1000);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    http.expectNone(r => r.url.includes('/weather'));
+    expect(service.get('paris', '30/08/2026')).not.toBeNull();
+  });
+
+  it('restarts the freshness window on a 304, so the next hour costs no request (C5)', () => {
+    const t0 = 1_000_000_000;
+    const now = jest.spyOn(Date, 'now').mockReturnValue(t0);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }] },
+      { headers: { ETag: '"etag-1"' } },
+    );
+
+    now.mockReturnValue(t0 + 2 * 60 * 60 * 1000);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    http.expectOne(r => r.url.includes('/weather')).flush(null, { status: 304, statusText: 'Not Modified' });
+
+    now.mockReturnValue(t0 + 2 * 60 * 60 * 1000 + 30 * 60 * 1000);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    http.expectNone(r => r.url.includes('/weather'));
   });
 });

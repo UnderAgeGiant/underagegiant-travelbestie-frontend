@@ -28,6 +28,7 @@ describe('CityWeatherChipComponent', () => {
   let fixture: ComponentFixture<CityWeatherChipComponent>;
 
   beforeEach(() => {
+    localStorage.clear();
     installMatchMediaMock(false);
     TestBed.configureTestingModule({
       imports: [CityWeatherChipComponent],
