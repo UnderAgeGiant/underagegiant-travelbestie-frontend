@@ -64,3 +64,69 @@ describe('NotificationService', () => {
     httpMock.expectOne(`${environment.apiUrl}/notifications/mute`).flush({ muted: true });
   });
 });
+
+describe('NotificationService — background tabs (C4)', () => {
+  let httpMock: HttpTestingController;
+  let svc: NotificationService;
+  let hidden = false;
+  const statusRequests = () => httpMock.match(`${environment.apiUrl}/notifications/status`);
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    hidden = false;
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => hidden });
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: AuthService, useValue: { isLoggedIn: () => false } },
+      ],
+    });
+    httpMock = TestBed.inject(HttpTestingController);
+    svc = TestBed.inject(NotificationService);
+    // Flush the constructor's effect deterministically now, the way real boot naturally
+    // would (Angular ticks soon after construction) — otherwise, under fake timers, its
+    // first run can land mid-test (inside a later advanceTimersByTime), spuriously
+    // clearing a poll timer this describe block starts manually via startPolling().
+    TestBed.tick();
+  });
+
+  afterEach(() => {
+    TestBed.resetTestingModule();   // destroys the service → removes its listener + interval
+    jest.useRealTimers();
+  });
+
+  it('skips interval polls while the tab is hidden', () => {
+    svc['startPolling']();
+    statusRequests().forEach(r => r.flush({ count: 0, muted: false }));   // immediate first refresh
+    hidden = true;
+    jest.advanceTimersByTime(3 * 60_000);
+    expect(statusRequests()).toHaveLength(0);
+  });
+
+  it('refreshes once when the tab becomes visible again', () => {
+    svc['startPolling']();
+    statusRequests().forEach(r => r.flush({ count: 0, muted: false }));
+    hidden = true;
+    jest.advanceTimersByTime(60_000);
+    hidden = false;
+    document.dispatchEvent(new Event('visibilitychange'));
+    const reqs = statusRequests();
+    expect(reqs).toHaveLength(1);
+    reqs[0].flush({ count: 1, muted: false });
+  });
+
+  it('does not poll on visibilitychange when polling never started (logged out)', () => {
+    document.dispatchEvent(new Event('visibilitychange'));
+    expect(statusRequests()).toHaveLength(0);
+  });
+
+  it('still polls on the interval while visible', () => {
+    svc['startPolling']();
+    statusRequests().forEach(r => r.flush({ count: 0, muted: false }));
+    jest.advanceTimersByTime(60_000);
+    const reqs = statusRequests();
+    expect(reqs).toHaveLength(1);
+    reqs[0].flush({ count: 0, muted: false });
+  });
+});
