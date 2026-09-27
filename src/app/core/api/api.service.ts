@@ -57,11 +57,6 @@ export class ApiService {
     return this.http.put<Trip>(`${this.base}/trips/${id}`, trip);
   }
 
-  getComments(attractionId: string): Observable<Comment[]> {
-    if (this.useMocks) return of(MOCK_COMMENTS[attractionId] ?? []);
-    return this.http.get<Comment[]>(`${this.base}/comments/${attractionId}`);
-  }
-
   getCommentsBatch(attractionIds: string[]): Observable<Record<string, Comment[]>> {
     if (this.useMocks) {
       const result: Record<string, Comment[]> = {};

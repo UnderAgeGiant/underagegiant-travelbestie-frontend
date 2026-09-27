@@ -35,13 +35,6 @@ describe('ApiService (useMocks=true)', () => {
     });
   });
 
-  it('getComments returns mock comments for known attraction', done => {
-    service.getComments('paris_0').subscribe(comments => {
-      expect(Array.isArray(comments)).toBe(true);
-      done();
-    });
-  });
-
   it('getKarma seeds a brand-new user with 10 karma in mock mode', done => {
     service.getKarma('brand-new-karma-user@test.com').subscribe(res => {
       expect(res.karma).toBe(10);
