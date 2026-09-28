@@ -1,6 +1,8 @@
 import { TripStop } from '../models/trip.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
+import { AppLocale } from '../i18n/locale.util';
+import { attractionName } from './attraction-name.util';
 
 export interface ItineraryExportMaps {
   cityNames: Record<string, string>;
@@ -9,7 +11,7 @@ export interface ItineraryExportMaps {
 }
 
 /** Builds the payload maps for POST /trips/:id/itinerary from a trip's stops. */
-export function buildItineraryExportMaps(stops: TripStop[]): ItineraryExportMaps {
+export function buildItineraryExportMaps(stops: TripStop[], locale: AppLocale = 'es-CL'): ItineraryExportMaps {
   const cityNames: Record<string, string> = {};
   const attractionNames: Record<string, string> = {};
   const ticketRequiredIds: string[] = [];
@@ -18,7 +20,7 @@ export function buildItineraryExportMaps(stops: TripStop[]): ItineraryExportMaps
     if (!city) continue;
     cityNames[stop.cityId] = city.name;
     for (const att of getAttractions(city)) {
-      attractionNames[att.id] = att.name;
+      attractionNames[att.id] = attractionName(att, locale);
       if (att.ticketUrl) ticketRequiredIds.push(att.id);
     }
   }

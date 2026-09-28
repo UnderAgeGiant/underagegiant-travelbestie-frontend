@@ -5,6 +5,8 @@ import { KarmaModalService } from '../karma/karma-modal.service';
 import { KarmaService } from '../karma/karma.service';
 import { AuthService } from '../auth/auth.service';
 import { TripService } from '../../features/trip/trip.service';
+import { attractionName } from '../utils/attraction-name.util';
+import { LocaleService } from '../i18n/locale.service';
 import { CompanionSuggestion } from '../models/ai.model';
 import { findCuratedAttraction } from '../../data/attractions.data';
 
@@ -29,6 +31,7 @@ export class CompanionSuggestionService {
   private readonly karma      = inject(KarmaService);
   private readonly auth       = inject(AuthService);
   private readonly trip       = inject(TripService);
+  private readonly locale      = inject(LocaleService);
 
   private revealTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -117,7 +120,7 @@ export class CompanionSuggestionService {
           if (this.revealTimer) { clearTimeout(this.revealTimer); this.revealTimer = null; }
 
           this._addedAttractionInfo.set({
-            name: attraction?.name ?? attractionId,
+            name: attraction ? attractionName(attraction, this.locale.current()) : attractionId,
             date: entry?.date ?? stop.checkIn,
             time: entry?.startTime ?? '',
           });

@@ -3,6 +3,7 @@ import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { localizedDescription } from '../../core/utils/attraction-description.util';
+import { attractionName } from '../../core/utils/attraction-name.util';
 import { AppLocale } from '../../core/i18n/locale.util';
 
 function hmToMin(hm: string): number {
@@ -47,7 +48,7 @@ function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale:
 
   return {
     id:          `att:${planned.entryId}`,
-    name:        att?.name ?? planned.attractionId,
+    name:        att ? attractionName(att, locale) : planned.attractionId,
     type:        att?.type ?? '',
     icon:        typeIcon(att?.type ?? ''),
     imageUrl:    att?.imageUrl ?? null,

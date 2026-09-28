@@ -1,6 +1,7 @@
 import { FeedPlan } from '../../../core/models/feed-plan.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
+import { attractionName } from '../../../core/utils/attraction-name.util';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
 import { AppLocale } from '../../../core/i18n/locale.util';
 import { CITY_COVER_PHOTOS } from '../city-cover-photos.data';
@@ -55,7 +56,7 @@ export function buildFeedSlides(plan: FeedPlan, locale: AppLocale): FeedSlide[] 
       slides.push({
         id: `${stopIdx}:${attIdx}:${planned.attractionId}`,
         attractionId: planned.attractionId,
-        name: att.name,
+        name: attractionName(att, locale),
         cityId: stop.cityId,
         cityName: city?.name ?? stop.cityId,
         icon: att.icon,

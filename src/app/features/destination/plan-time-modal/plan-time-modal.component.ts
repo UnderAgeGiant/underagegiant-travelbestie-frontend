@@ -3,6 +3,7 @@ import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DatePickerComponent } from '../../../shared/date-picker/date-picker.component';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
+import { AttractionNamePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { formatEventLong, isDateInRange } from '../../../core/utils/event-datetime.util';
 
 export interface ScheduleEntry {
@@ -19,7 +20,7 @@ export interface PlanEntry {
 
 @Component({
     selector: 'app-plan-time-modal',
-    imports: [DurationPipe, DatePickerComponent, TimePickerComponent],
+    imports: [DurationPipe, DatePickerComponent, TimePickerComponent, AttractionNamePipe],
     styles: [`
     .schedule-row {
       display: flex; align-items: center; gap: 10px;
@@ -68,7 +69,7 @@ export interface PlanEntry {
              style="background:linear-gradient(135deg,var(--butter),var(--peach));border-radius:22px 22px 0 0;overflow:hidden">
           <div class="modal-title" i18n="@@planModal.title">¿Cuándo y a qué hora? 📅</div>
           <div class="modal-sub">
-            {{ attraction().icon }} {{ attraction().name }} ·
+            {{ attraction().icon }} {{ attraction() | attName }} ·
             {{ attraction().estimatedMinutes | duration }}
           </div>
         </div>
@@ -130,7 +131,7 @@ export interface PlanEntry {
                     }
                     <span class="schedule-time">{{ entry.date ? shortDate(entry.date) + ' ' : '' }}{{ entry.startTime }}</span>
                     <span class="schedule-icon">{{ entry.attraction.icon }}</span>
-                    <span class="schedule-name">{{ entry.attraction.name }}</span>
+                    <span class="schedule-name">{{ entry.attraction | attName }}</span>
                     <span class="schedule-dur">{{ entry.attraction.estimatedMinutes | duration }}</span>
                   </div>
                 }

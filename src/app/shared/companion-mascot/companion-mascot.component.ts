@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
+import { attractionName } from '../../core/utils/attraction-name.util';
+import { LocaleService } from '../../core/i18n/locale.service';
 import { findCuratedAttraction } from '../../data/attractions.data';
 
 // Closes only via the ✕ button or the "No, gracias"/"Agregar" actions — there is no
@@ -45,6 +47,7 @@ import { findCuratedAttraction } from '../../data/attractions.data';
 })
 export class CompanionMascotComponent {
   protected readonly companion = inject(CompanionSuggestionService);
+  private readonly locale = inject(LocaleService);
 
   protected readonly suggestionView = computed(() => {
     const suggestion = this.companion.suggestion();
@@ -56,7 +59,7 @@ export class CompanionMascotComponent {
       addedName: added?.name ?? '',
       addedDate: added?.date ?? '',
       addedTime: added?.time ?? '',
-      name:      attraction?.name ?? suggestion.attractionId,
+      name:      attraction ? attractionName(attraction, this.locale.current()) : suggestion.attractionId,
       icon:      attraction?.icon ?? '📍',
       date:      suggestion.date,
       startTime: suggestion.startTime,

@@ -1,3 +1,4 @@
+import { AttractionNamePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { Component, inject, signal, computed, effect, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { TripService } from '../trip.service';
 import { DeviceService } from '../../../core/device/device.service';
@@ -28,7 +29,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -250,7 +251,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
                           <div class="att-plan-row" [class.att-collision]="collision"
                                (click)="$event.stopPropagation()">
                             <span class="att-plan-icon">{{ att.icon }}</span>
-                            <span class="att-plan-name">{{ att.name }}</span>
+                            <span class="att-plan-name">{{ att | attName }}</span>
                             <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
                               @let d = planned.date || stop.checkIn;
                               @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}

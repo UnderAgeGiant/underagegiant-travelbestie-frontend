@@ -1,3 +1,4 @@
+import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -41,7 +42,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
+    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -287,7 +288,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                                 tabindex="0"
                                 (focus)="onAttHover($event, att)"
                                 (blur)="onAttHoverLeave()"
-                                (click)="onAttClick($event, att)">{{ att.name }}</span>
+                                (click)="onAttClick($event, att)">{{ att | attName }}</span>
                           @if (!shouldShowComments(attKey)) {
                             <button class="step-comments-toggle" (click)="expandStepInCity($event, attKey, stop)"><span class="step-comments-label" i18n="@@sharedTrip.commentBtn">Comentar</span> ✍️</button>
                           }
@@ -296,7 +297,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                               @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                             </span>
                             <a class="itin-link"
-                               [attr.href]="mapsUrl(att.name, stop.cityId)"
+                               [attr.href]="mapsUrl(att.nativeName || att.name, stop.cityId)"
                                target="_blank" rel="noopener noreferrer"
                                (click)="$event.stopPropagation()"
                                i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps"><app-maps-pin-icon /></a>

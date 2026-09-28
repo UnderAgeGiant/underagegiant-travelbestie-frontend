@@ -13,6 +13,7 @@ import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { ApiService } from '../../core/api/api.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
+import { LocaleService } from '../../core/i18n/locale.service';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
@@ -433,6 +434,7 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly router      = inject(Router);
   protected readonly autoSave  = inject(AutoSaveService);
   private readonly facade      = inject(NavFacadeService);
+  private readonly locale      = inject(LocaleService);
 
   close          = output<void>();
   openAiPlanning = output<void>();
@@ -630,7 +632,7 @@ export class MyTripsComponent implements AfterViewInit {
       return;
     }
 
-    const { cityNames, attractionNames, ticketRequiredIds } = buildItineraryExportMaps(plan.stops);
+    const { cityNames, attractionNames, ticketRequiredIds } = buildItineraryExportMaps(plan.stops, this.locale.current());
 
     this.exportingPlanId.set(plan.id);
     this.api.exportItinerary(plan.id, cityNames, attractionNames, ticketRequiredIds).subscribe({

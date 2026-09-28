@@ -20,6 +20,7 @@ import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
+import { attractionName } from '../../../core/utils/attraction-name.util';
 import { NEW_ATTRACTION_MIME, RESCHEDULE_MIME, NewAttractionDragPayload, RescheduleDragPayload, snapMinutesFromOffset, minutesToHm } from '../../../core/utils/day-timeline-drag.util';
 import { WeatherService } from '../../../core/weather/weather.service';
 import { getWeatherCodeMeta } from '../../../core/models/weather.model';
@@ -670,7 +671,7 @@ export class DayTimelineComponent {
         return {
           top, height, bg, fg,
           icon: typeIcon(att?.type ?? ''),
-          name: att?.name ?? a.attractionId,
+          name:        att ? attractionName(att, this.locale.current()) : a.attractionId,
           time: `${a.startTime}–${minToHm(endMin)}`,
           kind: 'attraction' as const,
           entryId: a.entryId,
@@ -772,7 +773,7 @@ export class DayTimelineComponent {
   protected exportItinerary(): void {
     const planId = this.trip.loadedPlanId();
     if (!planId) return;
-    const { cityNames, attractionNames, ticketRequiredIds } = buildItineraryExportMaps(this.trip.stops());
+    const { cityNames, attractionNames, ticketRequiredIds } = buildItineraryExportMaps(this.trip.stops(), this.locale.current());
     this.exporting.set(true);
     this.api.exportItinerary(planId, cityNames, attractionNames, ticketRequiredIds).subscribe({
       next: blob => {
@@ -1076,7 +1077,7 @@ export class DayTimelineComponent {
         const date     = a.date ?? dateStr;
         return {
           id:          `att:${a.entryId}`,
-          name:        att?.name ?? a.attractionId,
+          name:        att ? attractionName(att, this.locale.current()) : a.attractionId,
           type:        att?.type ?? '',
           icon:        typeIcon(att?.type ?? ''),
           imageUrl:    att?.imageUrl ?? null,

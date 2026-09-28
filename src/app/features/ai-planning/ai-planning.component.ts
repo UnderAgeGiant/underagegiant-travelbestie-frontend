@@ -1,3 +1,4 @@
+import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
@@ -54,7 +55,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
+    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -442,7 +443,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                             @let attDate = planned.date || stop.checkIn;
                             <div class="itin-item">
                               <span class="itin-item-icon">{{ att.icon }}</span>
-                              <span class="itin-item-label">{{ att.name }}</span>
+                              <span class="itin-item-label">{{ att | attName }}</span>
                               <span class="itin-item-meta">
                                 @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                               </span>
