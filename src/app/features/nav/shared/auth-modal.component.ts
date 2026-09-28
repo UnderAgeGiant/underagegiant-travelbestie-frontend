@@ -671,7 +671,11 @@ export class AuthModalComponent {
           this.failedLoginAttempts.set(0);
           this.trip.loadForUserPreservingAnonymous(res.user.email);
           this.karma.loadForUser(res.user.email);
-          this.savedPlans.loadForUser(res.user.email);
+          // Explicit login always refreshes saved plans, even if this account was
+          // already loaded once this session — a silent session expiry can leave
+          // the load-once guard set from a stale session, and the user may be
+          // signing back into the same account.
+          this.savedPlans.loadForUser(res.user.email, true);
           this.visited.loadForUser(res.user.email);
           this.favorites.loadFavorites();
           this.companionSuggest.refreshBoostStatus();
@@ -695,7 +699,10 @@ export class AuthModalComponent {
           this.registerLoading.set(false);
           this.trip.loadForUserPreservingAnonymous(res.user.email);
           this.karma.loadForUser(res.user.email);
-          this.savedPlans.loadForUser(res.user.email);
+          // Explicit login/register always refreshes saved plans — see the
+          // login success handler above for why the load-once guard can't be
+          // trusted here.
+          this.savedPlans.loadForUser(res.user.email, true);
           this.visited.loadForUser(res.user.email);
           this.favorites.loadFavorites();
           this.companionSuggest.refreshBoostStatus();

@@ -1,4 +1,4 @@
-import { Injectable, effect, inject, signal, untracked } from '@angular/core';
+import { DestroyRef, Injectable, effect, inject, signal, untracked } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { AuthService } from '../auth/auth.service';
 import { AppNotification } from '../models/notification.model';
@@ -29,6 +29,14 @@ export class NotificationService {
       const loggedIn = this.auth.isLoggedIn();
       untracked(() => (loggedIn ? this.startPolling() : this.stopAndClear()));
     }, { allowSignalWrites: true });
+
+    // Background tabs don't poll; returning to the tab refreshes once (native Page Visibility API).
+    const onVisibility = () => { if (!document.hidden && this.pollTimer) this.refreshStatus(); };
+    document.addEventListener('visibilitychange', onVisibility);
+    inject(DestroyRef).onDestroy(() => {
+      document.removeEventListener('visibilitychange', onVisibility);
+      if (this.pollTimer) clearInterval(this.pollTimer);
+    });
   }
 
   /** Poll target: unread count + mute flag. Shakes the bell on a count increase. */
@@ -81,7 +89,7 @@ export class NotificationService {
   private startPolling(): void {
     if (this.pollTimer) return;
     this.refreshStatus();
-    this.pollTimer = setInterval(() => this.refreshStatus(), POLL_INTERVAL_MS);
+    this.pollTimer = setInterval(() => { if (!document.hidden) this.refreshStatus(); }, POLL_INTERVAL_MS);
   }
 
   private stopAndClear(): void {

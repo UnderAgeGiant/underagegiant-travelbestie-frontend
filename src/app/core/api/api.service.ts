@@ -1,7 +1,7 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable, from, of, timer, throwError } from 'rxjs';
-import { switchMap, tap, first, map, catchError } from 'rxjs/operators';
+import { switchMap, tap, first, map, catchError, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
@@ -55,11 +55,6 @@ export class ApiService {
   updateTrip(id: string, trip: Partial<Trip>): Observable<Trip> {
     if (this.useMocks) return of({ id, title: '', stops: [], ...trip });
     return this.http.put<Trip>(`${this.base}/trips/${id}`, trip);
-  }
-
-  getComments(attractionId: string): Observable<Comment[]> {
-    if (this.useMocks) return of(MOCK_COMMENTS[attractionId] ?? []);
-    return this.http.get<Comment[]>(`${this.base}/comments/${attractionId}`);
   }
 
   getCommentsBatch(attractionIds: string[]): Observable<Record<string, Comment[]>> {
@@ -315,9 +310,15 @@ export class ApiService {
     return this.http.get<CompanionStatusResponse>(`${this.base}/companion/status`);
   }
 
+  /** Packages are constant per deploy — one request per app session, shared by every modal open. */
+  private karmaPackages$: Observable<{ packages: KarmaPackage[] }> | null = null;
+
   getKarmaPackages(): Observable<{ packages: KarmaPackage[] }> {
     if (this.useMocks) return of({ packages: MOCK_KARMA_PACKAGES });
-    return this.http.get<{ packages: KarmaPackage[] }>(`${this.base}/karma/packages`);
+    return this.karmaPackages$ ??= this.http.get<{ packages: KarmaPackage[] }>(`${this.base}/karma/packages`).pipe(
+      catchError(err => { this.karmaPackages$ = null; return throwError(() => err); }),
+      shareReplay(1),
+    );
   }
 
   createKarmaOrder(packageId: string): Observable<CreateOrderResponse> {

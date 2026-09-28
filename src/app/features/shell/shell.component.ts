@@ -7,7 +7,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AuthService } from '../../core/auth/auth.service';
-import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { StopListComponent } from '../trip/stop-list/stop-list.component';
 import { DestinationComponent } from '../destination/destination.component';
@@ -164,7 +164,6 @@ export class ShellComponent {
   readonly facade = inject(NavFacadeService);
   private readonly locale = inject(LocaleService);
   private readonly auth = inject(AuthService);
-  private readonly savedPlans = inject(SavedPlansService);
   private readonly highlightTour = inject(HighlightTourService);
   showAddModal   = signal(false);
   /** City id to pre-fill the add-stop modal with, from `?addCity=` — see the constructor. */
@@ -184,24 +183,6 @@ export class ShellComponent {
   private readonly topSection = viewChild('topSection', { read: ElementRef<HTMLElement> });
 
   constructor() {
-    // SavedPlansService's own constructor only checks auth.currentUser() once, synchronously —
-    // on a page reload that user is restored asynchronously by AuthService's silent refresh
-    // (see auth.service.ts), which typically resolves AFTER that one-shot check already ran.
-    // Without this, a returning user's saved plans (including accepted collaborations) would
-    // stay empty until an explicit login re-triggered a fetch. Scoped to ShellComponent (the
-    // real app's root view) rather than the service itself, so it fires once per real session
-    // instead of on every unrelated unit test that merely injects AuthService + SavedPlansService.
-    let lastLoadedEmail: string | null = null;
-    effect(() => {
-      const email = this.auth.currentUser()?.email ?? null;
-      if (email && email !== lastLoadedEmail) {
-        lastLoadedEmail = email;
-        this.savedPlans.loadForUser(email);
-      } else if (!email) {
-        lastLoadedEmail = null;
-      }
-    });
-
     // Keep the facade informed of the open panel so a locale switch can restore it.
     effect(() => {
       this.facade.currentShellView.set(

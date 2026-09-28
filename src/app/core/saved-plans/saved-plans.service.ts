@@ -35,7 +35,10 @@ export class SavedPlansService {
 
   loadPendingInvites(): void {
     if (environment.useMocks) { this._pendingInvites.set([]); return; }
-    this.api.getPendingInvites().subscribe(invites => this._pendingInvites.set(invites));
+    this.api.getPendingInvites().subscribe({
+      next: invites => this._pendingInvites.set(invites),
+      error: () => { /* non-fatal: keep the previous list */ },
+    });
   }
 
   constructor() {
@@ -43,7 +46,12 @@ export class SavedPlansService {
     if (user?.email) this.loadForUser(user.email);
   }
 
-  loadForUser(email: string): void {
+  /** Email whose plans are loaded or loading. Guards the duplicate boot/login calls (see spec C1). */
+  private loadedEmail: string | null = null;
+
+  loadForUser(email: string, force = false): void {
+    if (!force && this.loadedEmail === email) return;
+    this.loadedEmail = email;
     if (environment.useMocks) {
       try {
         const raw = localStorage.getItem(key(email));
@@ -53,19 +61,21 @@ export class SavedPlansService {
       }
       return;
     }
-    this.api.getTrips().subscribe(trips => {
-      this._plans.set(trips.map(t => ({
-        id:       t.id!,
-        name:     t.title,
-        savedAt:  t.createdAt ?? new Date().toISOString(),
-        stops:    t.stops,
-        transits: t.transits ?? [],
-        ...(t.shareId ? { shareId: t.shareId } : {}),
-        ...(t.itineraryExportedAt ? { exportedAt: t.itineraryExportedAt } : {}),
-        ...(t.isCollaborator ? { isCollaborator: true, ownerName: t.ownerName, ownerEmail: t.ownerEmail } : {}),
-      })));
+    this.api.getTrips().subscribe({
+      next: trips => {
+        this._plans.set(trips.map(t => ({
+          id:       t.id!,
+          name:     t.title,
+          savedAt:  t.createdAt ?? new Date().toISOString(),
+          stops:    t.stops,
+          transits: t.transits ?? [],
+          ...(t.shareId ? { shareId: t.shareId } : {}),
+          ...(t.itineraryExportedAt ? { exportedAt: t.itineraryExportedAt } : {}),
+          ...(t.isCollaborator ? { isCollaborator: true, ownerName: t.ownerName, ownerEmail: t.ownerEmail } : {}),
+        })));
+      },
+      error: () => { this.loadedEmail = null; },
     });
-    this.loadPendingInvites();
   }
 
   /**
@@ -166,6 +176,7 @@ export class SavedPlansService {
   }
 
   clear(): void {
+    this.loadedEmail = null;
     this._plans.set([]);
     this._pendingInvites.set([]);
   }

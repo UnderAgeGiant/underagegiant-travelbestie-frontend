@@ -4,7 +4,7 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { sortMustSeeFirst } from '../../../core/utils/must-see.util';
 import { Comment } from '../../../core/models/comment.model';
-import { ApiService } from '../../../core/api/api.service';
+import { CityCommentsService } from '../../../core/comments/city-comments.service';
 import { DeviceService } from '../../../core/device/device.service';
 import { DestinationModalService } from '../destination-modal.service';
 import { AttractionsListComponent } from '../attractions-list/attractions-list.component';
@@ -63,7 +63,7 @@ import { AttractionsListComponent } from '../attractions-list/attractions-list.c
 })
 export class MobileAttractionsModalComponent {
   private readonly trip = inject(TripService);
-  private readonly api = inject(ApiService);
+  private readonly cityComments = inject(CityCommentsService);
   protected readonly device = inject(DeviceService);
   protected readonly modal = inject(DestinationModalService);
 
@@ -75,16 +75,19 @@ export class MobileAttractionsModalComponent {
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? sortMustSeeFirst(getAttractions(this.city()!)) : []);
 
-  protected readonly allComments = signal<Record<string, Comment[]>>({});
+  protected readonly allComments = computed(() => {
+    const city = this.city();
+    return city ? this.cityComments.commentsFor(city.id) : {};
+  });
   protected readonly scrolled = signal(false);
   protected readonly expanded = signal(false);
 
   constructor() {
     effect(() => {
-      const ids = this.attractions().map(a => a.id);
-      if (ids.length === 0) return;
-      this.api.getCommentsBatch(ids).subscribe(map => this.allComments.set(map));
-    });
+      const city = this.city();
+      if (!city || !this.device.isMobile() || !this.modal.isOpen()) return;
+      this.cityComments.load(city.id, this.attractions().map(a => a.id));
+    }, { allowSignalWrites: true });
 
     // Bring tb-day-timeline into the area still exposed above the sheet when it opens — the
     // trigger button lives up in the stop list, so without this the page is usually still
@@ -112,9 +115,7 @@ export class MobileAttractionsModalComponent {
   }
 
   protected onCommentAdded(attractionId: string, comment: Omit<Comment, 'id'>): void {
-    this.allComments.update(prev => ({
-      ...prev,
-      [attractionId]: [...(prev[attractionId] ?? []), comment as Comment],
-    }));
+    const city = this.city();
+    if (city) this.cityComments.addLocal(city.id, attractionId, comment as Comment);
   }
 }

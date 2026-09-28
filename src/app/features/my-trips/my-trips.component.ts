@@ -457,6 +457,7 @@ export class MyTripsComponent implements AfterViewInit {
   canScrollProfileTabs = signal(false);
 
   constructor() {
+    this.savedPlans.loadPendingInvites();
     // Reactive (not one-shot): handles both "arrived here fresh via a
     // notification or the nav's Mis viajes button" (pendingMyTripsTab was
     // already set before this component was created) and "already on My
@@ -711,7 +712,8 @@ export class MyTripsComponent implements AfterViewInit {
     this.api.acceptCollaboratorInvite(tripId).subscribe({
       next: () => {
         this.acceptingTripId.set(null);
-        this.savedPlans.loadForUser(this.auth.currentUser()!.email);
+        this.savedPlans.loadForUser(this.auth.currentUser()!.email, true);
+        this.savedPlans.loadPendingInvites();
         this.toast.set($localize`:@@myTrips.inviteAcceptedToast:¡Ahora colaboras en este viaje!`);
         this.favTab.set('collaborations');
       },
