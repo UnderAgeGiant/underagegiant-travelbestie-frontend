@@ -3,7 +3,7 @@ import { City } from '../../../core/models/city.model';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { AttractionCardComponent } from '../attraction-card/attraction-card.component';
 import { AttractionCategory, getAllCategories } from '../../../core/models/attraction-category';
-import { normalizeSearch } from '../../../core/utils/normalize-search.util';
+import { matchesAttractionQuery } from '../../../core/utils/attraction-name.util';
 
 @Component({
   selector: 'app-attractions-list',
@@ -88,13 +88,8 @@ export class AttractionsListComponent {
     let list = this.attractions();
     const cat = this.filterCategory();
     if (cat) list = list.filter(a => a.category === cat);
-    const q = normalizeSearch(this.searchQuery().trim());
-    if (q) list = list.filter(a =>
-      normalizeSearch(a.name).includes(q) ||
-      normalizeSearch(a.type).includes(q) ||
-      (a.nativeName ? normalizeSearch(a.nativeName).includes(q) : false)
-    );
-    return list;
+    const q = this.searchQuery();
+    return q.trim() ? list.filter(a => matchesAttractionQuery(a, q)) : list;
   });
 
   constructor() {

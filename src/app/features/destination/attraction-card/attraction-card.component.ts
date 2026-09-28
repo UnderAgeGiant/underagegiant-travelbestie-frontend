@@ -1,6 +1,7 @@
 import { Component, input, output, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
+import { AttractionNamePipe, AttractionNativePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { TripService } from '../../trip/trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
@@ -21,7 +22,7 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
 
 @Component({
     selector: 'app-attraction-card',
-    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent, MapsPinIconComponent],
+    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe],
     styles: [`
     .att-card {
       padding: 0 !important;
@@ -183,7 +184,7 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
         @if (attraction().imageUrl && !imgError()) {
           <img class="card-img"
                [src]="attraction().imageUrl"
-               [alt]="attraction().name"
+               [alt]="attraction() | attName"
                loading="lazy"
                (error)="imgError.set(true)">
         } @else {
@@ -212,9 +213,9 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
         </button>
 
         <div class="card-caption">
-          <div class="card-caption-name">{{ attraction().icon }} {{ attraction().name }}</div>
-          @if (attraction().nativeName && attraction().nativeName !== attraction().name) {
-            <div class="card-caption-native">({{ attraction().nativeName }})</div>
+          <div class="card-caption-name">{{ attraction().icon }} {{ attraction() | attName }}</div>
+          @if (attraction() | attNative; as native) {
+            <div class="card-caption-native">({{ native }})</div>
           }
           <div class="card-caption-meta">{{ attraction().type }} · ⏱ {{ attraction().estimatedMinutes | duration }}</div>
         </div>
@@ -368,7 +369,7 @@ export class AttractionCardComponent {
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 
-  readonly mapsUrl = computed(() => attractionMapsUrl(this.attraction().name, this.cityId()));
+  readonly mapsUrl = computed(() => attractionMapsUrl(this.attraction().nativeName || this.attraction().name, this.cityId()));
 
   readonly eventDateTime = computed(() =>
     formatEventChip(this.attraction().date, this.attraction().time)
