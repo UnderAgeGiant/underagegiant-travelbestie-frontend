@@ -97,7 +97,7 @@ export class WeatherService {
     }
     this.inFlight.add(key);
 
-    this.api.getWeather(cityId, checkIn, checkOut, cached?.etag)
+    this.api.getWeather(cityId, checkIn, checkOut, cached?.etag || undefined)
       .pipe(finalize(() => this.inFlight.delete(key)))
       .subscribe({
         next: res => {
@@ -110,9 +110,12 @@ export class WeatherService {
           }
           if (res.days) {
             // A missing etag (e.g. the backend didn't expose it cross-origin via
-            // Access-Control-Expose-Headers) must not block showing the data — it only
-            // means this response can't be cached for future revalidation.
-            if (res.etag) this.writeCache(key, { days: res.days, etag: res.etag });
+            // Access-Control-Expose-Headers) must not block showing the data, and must
+            // not block caching it either — it only means the next revalidation will be
+            // a full GET instead of a cheap 304, since there's no etag to send back as
+            // If-None-Match. The entry is still cached, so the freshness window still
+            // applies and a repeat load() within the hour skips the network entirely.
+            this.writeCache(key, { days: res.days, etag: res.etag ?? '' });
             this.mergeIntoDayMap(cityId, res.days);
           }
         },

@@ -100,6 +100,7 @@ describe('WeatherService', () => {
     // send Access-Control-Expose-Headers: ETag, res.headers.get('ETag') comes back
     // null in a real browser even though the body itself is perfectly usable.
     // The merge must not be gated on etag presence.
+    const now = jest.spyOn(Date, 'now').mockReturnValue(1_000_000_000);
     service.load('paris', '30/08/2026', '30/08/2026');
     http.expectOne(r => r.url.includes('/weather')).flush(
       { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }] },
@@ -108,6 +109,30 @@ describe('WeatherService', () => {
 
     expect(service.get('paris', '30/08/2026')).toEqual(
       { date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 },
+    );
+
+    // The entry must have been cached even without a readable ETag, so a repeat
+    // load() within the freshness window makes no request at all.
+    now.mockReturnValue(1_000_000_000 + 59 * 60 * 1000);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    http.expectNone(r => r.url.includes('/weather'));
+  });
+
+  it('caches a response with no ETag, and revalidates with a full GET (no If-None-Match) once stale', () => {
+    const now = jest.spyOn(Date, 'now').mockReturnValue(1_000_000_000);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    http.expectOne(r => r.url.includes('/weather')).flush(
+      { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 23, tempMinC: 14, weatherCode: 3 }] },
+      {},
+    );
+
+    now.mockReturnValue(1_000_000_000 + 61 * 60 * 1000);
+    service.load('paris', '30/08/2026', '30/08/2026');
+    const req = http.expectOne(r => r.url.includes('/weather'));
+    expect(req.request.headers.get('If-None-Match')).toBeNull();
+    req.flush(
+      { days: [{ date: '30/08/2026', type: 'forecast', tempMaxC: 24, tempMinC: 15, weatherCode: 2 }] },
+      {},
     );
   });
 
