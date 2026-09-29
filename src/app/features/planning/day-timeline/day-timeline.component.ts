@@ -619,7 +619,10 @@ export class DayTimelineComponent {
     const names = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime)
       .sort((a, b) => hmToMin(a.startTime!) - hmToMin(b.startTime!))
-      .map(a => attractions.find(x => x.id === a.attractionId)?.name)
+      .map(a => {
+        const att = attractions.find(x => x.id === a.attractionId);
+        return att ? (att.nativeName || att.name) : undefined;
+      })
       .filter((n): n is string => !!n);
 
     const lodgingName = stop.lodging?.name ?? null;
