@@ -1,3 +1,4 @@
+import { previewCardPosition, previewCardTapPosition } from './attraction-preview-position.util';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -15,6 +16,7 @@ import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { StepComment, Attraction } from '../../core/models/comment.model';
 import { Trip, TripStop, PlannedAttraction, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
+import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { TripService } from '../trip/trip.service';
 import { guideByCityId } from '../../data/city-guides.data';
 import { StepCommentsComponent } from './step-comments.component';
@@ -294,7 +296,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                           }
                           <span class="itin-item-meta-row">
                             <span class="itin-item-meta">
-                              @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                              @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ plannedMinutes(planned, att) | duration }}
                             </span>
                             <a class="itin-link"
                                [attr.href]="mapsUrl(att.nativeName || att.name, stop.cityId)"
@@ -765,20 +767,7 @@ export class SharedTripComponent {
   onAttHover(e: MouseEvent | FocusEvent, att: Attraction): void {
     if (this._hoverTimer) clearTimeout(this._hoverTimer);
     this._hoverTimer = setTimeout(() => {
-      const cardW = 280;
-      const cardH = 320;
-      let x: number;
-      let y: number;
-      if (e instanceof MouseEvent) {
-        x = e.clientX + 14;
-        y = e.clientY + 14;
-      } else {
-        const rect = (e.target as HTMLElement).getBoundingClientRect();
-        x = rect.right + 10;
-        y = rect.top;
-      }
-      if (x + cardW > window.innerWidth) x -= cardW + 28;
-      y = Math.min(y, window.innerHeight - cardH);
+      const { x, y } = previewCardPosition(e, { width: window.innerWidth, height: window.innerHeight });
       this.activePreview.set({ attraction: att, x, y });
     }, 150);
   }
@@ -796,10 +785,7 @@ export class SharedTripComponent {
       this.activePreview.set(null);
       return;
     }
-    const cardW = 280;
-    const cardH = 320;
-    const x = Math.max(12, Math.min(e.clientX - cardW / 2, window.innerWidth - cardW - 12));
-    const y = Math.min(e.clientY + 16, window.innerHeight - cardH - 12);
+    const { x, y } = previewCardTapPosition(e.clientX, e.clientY, { width: window.innerWidth, height: window.innerHeight });
     this.activePreview.set({ attraction: att, x, y });
   }
 
@@ -860,5 +846,9 @@ export class SharedTripComponent {
 
   totalMins(leg: TransitLeg): number {
     return leg.segments.reduce((sum, s) => sum + this.computeMins(s), 0);
+  }
+
+  protected plannedMinutes(planned: PlannedAttraction, att: Attraction): number {
+    return plannedDurationMinutes(planned, att);
   }
 }

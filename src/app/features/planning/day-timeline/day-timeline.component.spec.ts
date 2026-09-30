@@ -314,7 +314,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(texts[0]).toContain('Ruta del día');
     expect(texts[1]).toContain('Presentación del día');
     // …then plan-scoped.
-    expect(texts[2]).toContain('Exportar');
+    expect(texts[2]).toContain('Exportar a Excel');
     expect(texts[3]).toContain('Presentación del plan');
     expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
   });
@@ -1068,5 +1068,89 @@ describe('DayTimelineComponent — locale-aware day-tab weekday labels (feedback
     const enDow = en.fixture.componentInstance['days']()[0].dow;
 
     expect(esDow).not.toBe(enDow);
+  });
+});
+
+describe('DayTimelineComponent — attraction preview on hover (feedback F1 2026-09-28)', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+
+  function setup(mobile: boolean) {
+    localStorage.clear();
+    installMatchMediaMock(mobile);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: '12:00', date: '01/06/2026' }],
+    }] as any, null, [] as any);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    (component as any).selectedDay.set('01/06');
+    fixture.detectChanges();
+  }
+
+  const block = () => fixture.nativeElement.querySelector('.tl-block') as HTMLElement;
+  const popover = () => fixture.nativeElement.querySelector('app-attraction-preview-popover');
+
+  afterEach(() => jest.useRealTimers());
+
+  it('shows the preview 150 ms after hovering an attraction block and hides it on leave', () => {
+    jest.useFakeTimers();
+    setup(false);
+    block().dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(150);
+    fixture.detectChanges();
+    expect(popover()).not.toBeNull();
+    block().dispatchEvent(new MouseEvent('mouseleave'));
+    fixture.detectChanges();
+    expect(popover()).toBeNull();
+  });
+
+  it('hides the preview when a drag starts', () => {
+    jest.useFakeTimers();
+    setup(false);
+    block().dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(150);
+    fixture.detectChanges();
+    (component as any).onBlockHoverLeave(); // the drag handlers call exactly this
+    fixture.detectChanges();
+    expect(popover()).toBeNull();
+  });
+
+  it('mobile: a tap on an attraction block shows the preview; tapping the backdrop closes it', () => {
+    setup(true);
+    (component as any).collapsed?.set?.(false);
+    fixture.detectChanges();
+    expect(block()).not.toBeNull();
+    block().dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100, bubbles: true }));
+    fixture.detectChanges();
+    expect(popover()).not.toBeNull();
+    (fixture.nativeElement.querySelector('.att-preview-backdrop') as HTMLElement).click();
+    fixture.detectChanges();
+    expect(popover()).toBeNull();
+  });
+
+  it('desktop: a click on a block does not open the tap preview', () => {
+    setup(false);
+    block().dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100, bubbles: true }));
+    fixture.detectChanges();
+    expect(popover()).toBeNull();
+  });
+
+  it('never shows the hover preview on mobile', () => {
+    jest.useFakeTimers();
+    setup(true);
+    (component as any).collapsed?.set?.(false);
+    fixture.detectChanges();
+    block()?.dispatchEvent(new MouseEvent('mouseenter', { clientX: 100, clientY: 100 }));
+    jest.advanceTimersByTime(150);
+    fixture.detectChanges();
+    expect(popover()).toBeNull();
   });
 });

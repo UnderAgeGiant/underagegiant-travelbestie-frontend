@@ -8,8 +8,10 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload } from '../../core/models/ai.model';
-import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
+import { Trip, TransitLeg, TransitSegment, TransitMode, PlannedAttraction } from '../../core/models/trip.model';
+import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
+import { Attraction } from '../../core/models/comment.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
@@ -445,7 +447,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                               <span class="itin-item-icon">{{ att.icon }}</span>
                               <span class="itin-item-label">{{ att | attName }}</span>
                               <span class="itin-item-meta">
-                                @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                                @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ plannedMinutes(planned, att) | duration }}
                               </span>
                             </div>
                           }
@@ -1212,5 +1214,9 @@ export class AiPlanningComponent implements OnDestroy {
 
   totalMins(leg: TransitLeg): number {
     return leg.segments.reduce((sum, s) => sum + this.computeMins(s), 0);
+  }
+
+  protected plannedMinutes(planned: PlannedAttraction, att: Attraction): number {
+    return plannedDurationMinutes(planned, att);
   }
 }

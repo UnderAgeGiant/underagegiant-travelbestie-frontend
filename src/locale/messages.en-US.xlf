@@ -1459,8 +1459,8 @@
 
       <!-- ── Feature 42: UX improvements ── -->
       <trans-unit id="plan.exportItinerary" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Exportar</source>
-        <target><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Export</target>
+        <source><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Exportar a Excel</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ exporting() ? '⏳' : '📥' }}"/> Export to Excel</target>
       </trans-unit>
       <trans-unit id="plan.scrollToTop" datatype="html">
         <source>Ir arriba</source>
@@ -1505,6 +1505,10 @@
       <trans-unit id="myTrips.publishBtn" datatype="html">
         <source> 📤 Publicar </source>
         <target> 📤 Publish </target>
+      </trans-unit>
+      <trans-unit id="myTrips.exportExcelBtn" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ exportingPlanId() === plan.id ? &apos;⏳&apos; : &apos;📥&apos; }}"/> Exportar a Excel <x id="START_BLOCK_IF" equiv-text="@if (!plan.exportedAt) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></source>
+        <target> <x id="INTERPOLATION" equiv-text="{{ exportingPlanId() === plan.id ? &apos;⏳&apos; : &apos;📥&apos; }}"/> Export to Excel <x id="START_BLOCK_IF" equiv-text="@if (!plan.exportedAt) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></target>
       </trans-unit>
 
       <!-- ── my-trips.component: full translation pass ── -->
@@ -2422,9 +2426,17 @@
         <source>+ Agregar conexión</source>
         <target>+ Add connection</target>
       </trans-unit>
-      <trans-unit id="transit.addSegBtn" datatype="html">
-        <source>+ Tramo</source>
-        <target>+ Leg</target>
+      <trans-unit id="transit.deleteTitle" datatype="html">
+        <source>Eliminar transporte</source>
+        <target>Delete transport</target>
+      </trans-unit>
+      <trans-unit id="transit.pickModeHint" datatype="html">
+        <source>Elige el transporte para agregar este tramo:</source>
+        <target>Choose the transport to add this leg:</target>
+      </trans-unit>
+      <trans-unit id="transit.removeSegTitle" datatype="html">
+        <source>Quitar tramo</source>
+        <target>Remove leg</target>
       </trans-unit>
       <trans-unit id="transit.arrLabel" datatype="html">
         <source>Llegada</source>

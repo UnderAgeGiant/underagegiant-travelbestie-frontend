@@ -177,8 +177,9 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
                         <button class="btn-pill btn-outline"
                                 style="justify-content:center;gap:6px;white-space:nowrap"
                                 [disabled]="exportingPlanId() === plan.id"
-                                (click)="downloadItinerary(plan)" type="button">
-                          {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Excel
+                                (click)="downloadItinerary(plan)" type="button"
+                                i18n="@@myTrips.exportExcelBtn">
+                          {{ exportingPlanId() === plan.id ? '⏳' : '📥' }} Exportar a Excel
                           @if (!plan.exportedAt) {
                             <span class="karma-cost">−1 ✨ token</span>
                           }

@@ -8,6 +8,9 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
 import { TripStop, PlannedAttraction, TransitLeg, TransitMode } from '../../../core/models/trip.model';
+import { Attraction } from '../../../core/models/comment.model';
+import { AttractionPreviewPopoverComponent } from '../../shared-trip/attraction-preview-popover.component';
+import { previewCardPosition, previewCardTapPosition } from '../../shared-trip/attraction-preview-position.util';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
@@ -18,6 +21,7 @@ import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slid
 import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
+import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
 import { attractionName } from '../../../core/utils/attraction-name.util';
@@ -51,6 +55,7 @@ interface TimeBlock {
   kind:   'attraction' | 'transit';
   entryId?: string;
   draggable?: boolean;
+  attraction?: Attraction;
 }
 
 function hmToMin(hm: string): number {
@@ -60,21 +65,6 @@ function hmToMin(hm: string): number {
 
 function minToHm(min: number): string {
   return `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
-}
-
-/**
- * A planned attraction's real duration in minutes: the explicit endTime-startTime gap when
- * one was set, otherwise the curated catalog attraction's own suggested duration — NEVER a
- * flat fallback. This must be the single source of truth for both what the block's HEIGHT
- * shows (blocks()) and what a DRAG-TO-RESCHEDULE preserves (onGridDrop) — they used to
- * disagree (blocks() fell back to att?.estimatedMinutes, onGridDrop's reschedule fell back to
- * a flat 60), so dragging any attraction whose endTime was never explicitly set (the common
- * case — see TripService.addAttraction's own comment on this) silently shrank/grew a visibly
- * multi-hour block down to exactly 60 minutes on drop. Family feedback bugfix.
- */
-function resolveDuration(a: PlannedAttraction, att: { estimatedMinutes?: number } | null): number {
-  if (a.startTime && a.endTime) return hmToMin(a.endTime) - hmToMin(a.startTime);
-  return att?.estimatedMinutes ?? 60;
 }
 
 function dateKey(d: Date): string {
@@ -127,7 +117,7 @@ function transitLabel(mode: TransitMode): string {
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent, AttractionPreviewPopoverComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -168,7 +158,7 @@ function transitLabel(mode: TransitMode): string {
                 @if (trip.loadedPlanId()) {
                   <button class="btn-pill btn-outline tl-head-action"
                           [disabled]="exporting()" (click)="exportItinerary()" type="button"
-                          i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
+                          i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar a Excel</button>
                 }
                 @if (showPlanSlideshow() && planSlideItems().length > 0) {
                   <button class="btn-pill btn-outline tl-head-action"
@@ -241,6 +231,9 @@ function transitLabel(mode: TransitMode): string {
                  (touchmove)="onBlockTouchMove($event)"
                  (touchend)="onBlockTouchEnd($event)"
                  (touchcancel)="onBlockTouchCancel()"
+                 (mouseenter)="onBlockHover($event, block)"
+                 (mouseleave)="onBlockHoverLeave()"
+                 (click)="onBlockTap($event, block)"
                  [ngStyle]="{
                    top:         block.top    + 'px',
                    height:      block.height + 'px',
@@ -288,6 +281,10 @@ function transitLabel(mode: TransitMode): string {
   }
   @if (planSlideshowOpen()) {
     <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
+  }
+  @if (activePreview(); as p) {
+    <div class="att-preview-backdrop" (click)="onBlockHoverLeave()"></div>
+    <app-attraction-preview-popover [attraction]="p.attraction" [x]="p.x" [y]="p.y" />
   }
 }
   `
@@ -344,6 +341,8 @@ export class DayTimelineComponent {
   private  readonly locale     = inject(LocaleService);
   private  readonly weather    = inject(WeatherService);
   protected readonly exporting = signal(false);
+  protected readonly activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);
+  private previewTimer: ReturnType<typeof setTimeout> | null = null;
 
   // ── Collapse / expand ─────────────────────────────────────────────────────
   protected readonly collapsed = signal(false);
@@ -354,6 +353,30 @@ export class DayTimelineComponent {
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
   /** Public: open the timeline (used by the mobile 'Ver itinerario' button). */
   expand(): void { this.collapsed.set(false); }
+
+  /** Desktop-only hover card for attraction blocks (feedback F1, 2026-09-28) — same popover as the shared-trip view. */
+  protected onBlockHover(e: MouseEvent, block: TimeBlock): void {
+    if (!block.attraction || this.device.isMobile() || this.dragPreview()) return;
+    if (this.previewTimer) clearTimeout(this.previewTimer);
+    const pos = previewCardPosition(e, { width: window.innerWidth, height: window.innerHeight });
+    const attraction = block.attraction;
+    this.previewTimer = setTimeout(() => this.activePreview.set({ attraction, ...pos }), 150);
+  }
+
+  /** Mobile tap-to-preview. A still tap yields a click; an armed long-press drag calls
+   *  preventDefault() on touchend, which suppresses the click — so this never fights the drag.
+   *  Closed by tapping the full-screen .att-preview-backdrop (covers the blocks while open). */
+  protected onBlockTap(e: MouseEvent, block: TimeBlock): void {
+    if (!block.attraction || !this.device.isMobile()) return;
+    const pos = previewCardTapPosition(e.clientX, e.clientY, { width: window.innerWidth, height: window.innerHeight });
+    this.activePreview.set({ attraction: block.attraction, ...pos });
+  }
+
+  protected onBlockHoverLeave(): void {
+    if (this.previewTimer) clearTimeout(this.previewTimer);
+    this.previewTimer = null;
+    this.activePreview.set(null);
+  }
 
   private lastStopId: string | null = null;
   private lastWeatherSignature: string | null = null;
@@ -667,7 +690,7 @@ export class DayTimelineComponent {
       .map((a: PlannedAttraction) => {
         const att      = attractions.find(x => x.id === a.attractionId) ?? null;
         const startMin = hmToMin(a.startTime!);
-        const endMin   = startMin + resolveDuration(a, att);
+        const endMin   = startMin + plannedDurationMinutes(a, att);
         const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
         const height   = Math.max(30, (endMin - startMin) / 60 * TL_RH - 4);
         const [bg, fg] = typeColors(att?.type ?? '');
@@ -679,6 +702,7 @@ export class DayTimelineComponent {
           kind: 'attraction' as const,
           entryId: a.entryId,
           draggable: !this.readOnly() && !this.isRescheduleLocked(a),
+          attraction: att ?? undefined,
         };
       });
 
@@ -791,6 +815,7 @@ export class DayTimelineComponent {
   }
 
   protected onBlockDragStart(event: DragEvent, entryId: string): void {
+    this.onBlockHoverLeave();
     if (this.readOnly()) return;
     const stop = this.selectedStopForDay();
     if (!stop) return;
@@ -859,7 +884,7 @@ export class DayTimelineComponent {
       const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
       if (original && !this.isRescheduleLocked(original)) {
         const att = this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null;
-        const durationMin = resolveDuration(original, att);
+        const durationMin = plannedDurationMinutes(original, att);
         this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
       }
     }
@@ -932,6 +957,7 @@ export class DayTimelineComponent {
   private blockLastTouchY = 0;
 
   protected onBlockTouchStart(event: TouchEvent, entryId: string): void {
+    this.onBlockHoverLeave();
     if (this.readOnly()) return;
     const touch = event.touches[0];
     if (!touch) return;
