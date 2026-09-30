@@ -1,3 +1,4 @@
+import { previewCardPosition } from './attraction-preview-position.util';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -765,20 +766,7 @@ export class SharedTripComponent {
   onAttHover(e: MouseEvent | FocusEvent, att: Attraction): void {
     if (this._hoverTimer) clearTimeout(this._hoverTimer);
     this._hoverTimer = setTimeout(() => {
-      const cardW = 280;
-      const cardH = 320;
-      let x: number;
-      let y: number;
-      if (e instanceof MouseEvent) {
-        x = e.clientX + 14;
-        y = e.clientY + 14;
-      } else {
-        const rect = (e.target as HTMLElement).getBoundingClientRect();
-        x = rect.right + 10;
-        y = rect.top;
-      }
-      if (x + cardW > window.innerWidth) x -= cardW + 28;
-      y = Math.min(y, window.innerHeight - cardH);
+      const { x, y } = previewCardPosition(e, { width: window.innerWidth, height: window.innerHeight });
       this.activePreview.set({ attraction: att, x, y });
     }, 150);
   }

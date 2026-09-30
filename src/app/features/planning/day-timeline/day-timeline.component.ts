@@ -8,6 +8,9 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
 import { NgClass, NgStyle } from '@angular/common';
 import { TripService } from '../../trip/trip.service';
 import { TripStop, PlannedAttraction, TransitLeg, TransitMode } from '../../../core/models/trip.model';
+import { Attraction } from '../../../core/models/comment.model';
+import { AttractionPreviewPopoverComponent } from '../../shared-trip/attraction-preview-popover.component';
+import { previewCardPosition } from '../../shared-trip/attraction-preview-position.util';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
@@ -51,6 +54,7 @@ interface TimeBlock {
   kind:   'attraction' | 'transit';
   entryId?: string;
   draggable?: boolean;
+  attraction?: Attraction;
 }
 
 function hmToMin(hm: string): number {
@@ -127,7 +131,7 @@ function transitLabel(mode: TransitMode): string {
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent, AttractionPreviewPopoverComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -241,6 +245,8 @@ function transitLabel(mode: TransitMode): string {
                  (touchmove)="onBlockTouchMove($event)"
                  (touchend)="onBlockTouchEnd($event)"
                  (touchcancel)="onBlockTouchCancel()"
+                 (mouseenter)="onBlockHover($event, block)"
+                 (mouseleave)="onBlockHoverLeave()"
                  [ngStyle]="{
                    top:         block.top    + 'px',
                    height:      block.height + 'px',
@@ -288,6 +294,9 @@ function transitLabel(mode: TransitMode): string {
   }
   @if (planSlideshowOpen()) {
     <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
+  }
+  @if (activePreview(); as p) {
+    <app-attraction-preview-popover [attraction]="p.attraction" [x]="p.x" [y]="p.y" />
   }
 }
   `
@@ -344,6 +353,8 @@ export class DayTimelineComponent {
   private  readonly locale     = inject(LocaleService);
   private  readonly weather    = inject(WeatherService);
   protected readonly exporting = signal(false);
+  protected readonly activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);
+  private previewTimer: ReturnType<typeof setTimeout> | null = null;
 
   // ── Collapse / expand ─────────────────────────────────────────────────────
   protected readonly collapsed = signal(false);
@@ -354,6 +365,21 @@ export class DayTimelineComponent {
   protected toggleCollapse(): void { this.collapsed.update(v => !v); }
   /** Public: open the timeline (used by the mobile 'Ver itinerario' button). */
   expand(): void { this.collapsed.set(false); }
+
+  /** Desktop-only hover card for attraction blocks (feedback F1, 2026-09-28) — same popover as the shared-trip view. */
+  protected onBlockHover(e: MouseEvent, block: TimeBlock): void {
+    if (!block.attraction || this.device.isMobile() || this.dragPreview()) return;
+    if (this.previewTimer) clearTimeout(this.previewTimer);
+    const pos = previewCardPosition(e, { width: window.innerWidth, height: window.innerHeight });
+    const attraction = block.attraction;
+    this.previewTimer = setTimeout(() => this.activePreview.set({ attraction, ...pos }), 150);
+  }
+
+  protected onBlockHoverLeave(): void {
+    if (this.previewTimer) clearTimeout(this.previewTimer);
+    this.previewTimer = null;
+    this.activePreview.set(null);
+  }
 
   private lastStopId: string | null = null;
   private lastWeatherSignature: string | null = null;
@@ -679,6 +705,7 @@ export class DayTimelineComponent {
           kind: 'attraction' as const,
           entryId: a.entryId,
           draggable: !this.readOnly() && !this.isRescheduleLocked(a),
+          attraction: att ?? undefined,
         };
       });
 
@@ -791,6 +818,7 @@ export class DayTimelineComponent {
   }
 
   protected onBlockDragStart(event: DragEvent, entryId: string): void {
+    this.onBlockHoverLeave();
     if (this.readOnly()) return;
     const stop = this.selectedStopForDay();
     if (!stop) return;
@@ -932,6 +960,7 @@ export class DayTimelineComponent {
   private blockLastTouchY = 0;
 
   protected onBlockTouchStart(event: TouchEvent, entryId: string): void {
+    this.onBlockHoverLeave();
     if (this.readOnly()) return;
     const touch = event.touches[0];
     if (!touch) return;
