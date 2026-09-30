@@ -1,4 +1,5 @@
 import { routes } from './app.routes';
+import { authGuard } from './core/auth/auth.guard';
 
 describe('app routes', () => {
   it('has a root route, an /about route, and a /shared/:id route', () => {
@@ -23,5 +24,22 @@ describe('app routes', () => {
     expect(wildcard?.redirectTo).toBeUndefined();
     expect(typeof wildcard?.loadComponent).toBe('function');
     expect(typeof wildcard?.data?.['seo']).toBe('function');
+  });
+
+  it.each(['plan', 'profile', 'my-trips', 'ai-planning'])('has a lazy, noindex /%s route (English path)', path => {
+    const route = routes.find(r => r.path === path);
+    expect(typeof route?.loadComponent).toBe('function');
+    expect(route?.data?.['seo']().noindex).toBe(true);
+  });
+
+  it('marks /plan as the editor', () => {
+    expect(routes.find(r => r.path === 'plan')?.data?.['mode']).toBe('editor');
+  });
+
+  it('guards /profile and /my-trips; /plan and /ai-planning stay open to anonymous visitors', () => {
+    expect(routes.find(r => r.path === 'profile')?.canActivate).toEqual([authGuard]);
+    expect(routes.find(r => r.path === 'my-trips')?.canActivate).toEqual([authGuard]);
+    expect(routes.find(r => r.path === 'plan')?.canActivate).toBeUndefined();
+    expect(routes.find(r => r.path === 'ai-planning')?.canActivate).toBeUndefined();
   });
 });

@@ -22,6 +22,7 @@ import { CommentCooldownService } from '../../core/comments/comment-cooldown.ser
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale, RestoreView } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
+import { AiPlanViewPayload } from '../../core/models/ai.model';
 
 /** One-letter queries match almost everything and cost a request each; wait for two. */
 export function shouldSearchSharedTrips(query: string): boolean {
@@ -219,6 +220,19 @@ export class NavFacadeService {
     this.userMenuOpen.set(false);
     this.pendingMyTripsTab.set(tab);
     this.router.navigateByUrl('/');
+  }
+
+  /** Every "start editing this trip" action lands here — the editor lives at /plan (Feature 68). */
+  openEditor(): void {
+    this.userMenuOpen.set(false);
+    void this.router.navigateByUrl('/plan');
+  }
+
+  /** Opens the routed /ai-planning page. A past plan (from "Planes IA Pendientes") rides along as
+   *  history state, so a reload of /ai-planning still shows it and a fresh open starts at Step 1. */
+  openAiPlanning(result: AiPlanViewPayload | null = null): void {
+    this.userMenuOpen.set(false);
+    void this.router.navigate(['/ai-planning'], result ? { state: { aiPlanResult: result } } : {});
   }
 
   // Centralizes navigation to the karma history page, same pattern as openMyTrips above.

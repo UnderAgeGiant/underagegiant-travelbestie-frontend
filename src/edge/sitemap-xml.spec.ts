@@ -14,6 +14,13 @@ describe('buildSitemapXml', () => {
     expect(xml).not.toContain('karma-history');
   });
 
+  it('never lists the private / login-gated app routes (they are noindex)', () => {
+    const xml = buildSitemapXml(SITE, []);
+    for (const p of ['/plan', '/profile', '/my-trips', '/ai-planning', '/karma-history']) {
+      expect(xml).not.toContain(`<loc>${SITE}${p}</loc>`);
+    }
+  });
+
   it('lists shared plans with lastmod and the /shared/<id> canonical form', () => {
     const xml = buildSitemapXml(SITE, [{ id: 'abc', updatedAt: '2026-09-01T00:00:00.000Z' }]);
     expect(xml).toContain('<loc>https://tripilove.com/shared/abc</loc>');

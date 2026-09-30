@@ -206,3 +206,33 @@ describe('shouldSearchSharedTrips (C7)', () => {
     expect(shouldSearchSharedTrips(' París ')).toBe(true);
   });
 });
+
+describe('NavFacadeService — openEditor() / openAiPlanning()', () => {
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+  }));
+
+  it('openEditor navigates to /plan', () => {
+    const facade = TestBed.inject(NavFacadeService);
+    const spy = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    facade.userMenuOpen.set(true);
+    facade.openEditor();
+    expect(facade.userMenuOpen()).toBe(false);
+    expect(spy).toHaveBeenCalledWith('/plan');
+  });
+
+  it('openAiPlanning navigates to /ai-planning with no state for a fresh open', () => {
+    const facade = TestBed.inject(NavFacadeService);
+    const spy = jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
+    facade.openAiPlanning();
+    expect(spy).toHaveBeenCalledWith(['/ai-planning'], {});
+  });
+
+  it('openAiPlanning passes a past plan as history state', () => {
+    const facade = TestBed.inject(NavFacadeService);
+    const spy = jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
+    const payload = { result: {} as any, requestId: 'r1' };
+    facade.openAiPlanning(payload);
+    expect(spy).toHaveBeenCalledWith(['/ai-planning'], { state: { aiPlanResult: payload } });
+  });
+});

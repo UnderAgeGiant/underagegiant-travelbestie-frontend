@@ -23,6 +23,26 @@ export const karmaHistorySeo: RouteSeo = () => ({
   noindex: true,
 });
 
+export const planSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.plan.title:Mi plan de viaje | Tripilove`,
+  noindex: true,
+});
+
+export const profileSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.profile.title:Mi perfil | Tripilove`,
+  noindex: true,
+});
+
+export const myTripsSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.myTrips.title:Mis viajes | Tripilove`,
+  noindex: true,
+});
+
+export const aiPlanningSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.aiPlanning.title:Planificar con IA | Tripilove`,
+  noindex: true,
+});
+
 export const notFoundSeo: RouteSeo = () => ({
   title: $localize`:@@seo.notFound.title:Página no encontrada | Tripilove`,
   noindex: true,
