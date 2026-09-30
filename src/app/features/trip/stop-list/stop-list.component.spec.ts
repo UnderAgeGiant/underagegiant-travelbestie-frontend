@@ -343,3 +343,33 @@ describe('StopListComponent — Guardar viaje bounce beacon (feedback #12)', () 
   });
 });
 
+describe('StopListComponent — planned duration follows start/end time (feedback T1 2026-09-28)', () => {
+  it('shows end − start instead of the catalog duration, and updates when the end time changes', () => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: '13:00', date: '01/06/2026' }],
+    }] as any, null, [] as any);
+    const fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+    (fixture.componentInstance as any).toggleScheduled('s1');
+    fixture.detectChanges();
+
+    const meta = () => (fixture.nativeElement.querySelector('.att-plan-row .att-plan-name')!.nextElementSibling as HTMLElement).textContent!;
+    expect(meta()).toContain('3h');
+
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: '10:45', date: '01/06/2026' }],
+    }] as any, null, [] as any);
+    fixture.detectChanges();
+    expect(meta()).toContain('45');
+  });
+});
+

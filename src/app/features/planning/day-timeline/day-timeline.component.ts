@@ -21,6 +21,7 @@ import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slid
 import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
+import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
 import { attractionName } from '../../../core/utils/attraction-name.util';
@@ -64,21 +65,6 @@ function hmToMin(hm: string): number {
 
 function minToHm(min: number): string {
   return `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
-}
-
-/**
- * A planned attraction's real duration in minutes: the explicit endTime-startTime gap when
- * one was set, otherwise the curated catalog attraction's own suggested duration — NEVER a
- * flat fallback. This must be the single source of truth for both what the block's HEIGHT
- * shows (blocks()) and what a DRAG-TO-RESCHEDULE preserves (onGridDrop) — they used to
- * disagree (blocks() fell back to att?.estimatedMinutes, onGridDrop's reschedule fell back to
- * a flat 60), so dragging any attraction whose endTime was never explicitly set (the common
- * case — see TripService.addAttraction's own comment on this) silently shrank/grew a visibly
- * multi-hour block down to exactly 60 minutes on drop. Family feedback bugfix.
- */
-function resolveDuration(a: PlannedAttraction, att: { estimatedMinutes?: number } | null): number {
-  if (a.startTime && a.endTime) return hmToMin(a.endTime) - hmToMin(a.startTime);
-  return att?.estimatedMinutes ?? 60;
 }
 
 function dateKey(d: Date): string {
@@ -693,7 +679,7 @@ export class DayTimelineComponent {
       .map((a: PlannedAttraction) => {
         const att      = attractions.find(x => x.id === a.attractionId) ?? null;
         const startMin = hmToMin(a.startTime!);
-        const endMin   = startMin + resolveDuration(a, att);
+        const endMin   = startMin + plannedDurationMinutes(a, att);
         const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
         const height   = Math.max(30, (endMin - startMin) / 60 * TL_RH - 4);
         const [bg, fg] = typeColors(att?.type ?? '');
@@ -887,7 +873,7 @@ export class DayTimelineComponent {
       const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
       if (original && !this.isRescheduleLocked(original)) {
         const att = this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null;
-        const durationMin = resolveDuration(original, att);
+        const durationMin = plannedDurationMinutes(original, att);
         this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
       }
     }

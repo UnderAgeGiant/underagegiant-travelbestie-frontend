@@ -16,6 +16,7 @@ import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { StepComment, Attraction } from '../../core/models/comment.model';
 import { Trip, TripStop, PlannedAttraction, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
+import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { TripService } from '../trip/trip.service';
 import { guideByCityId } from '../../data/city-guides.data';
 import { StepCommentsComponent } from './step-comments.component';
@@ -295,7 +296,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                           }
                           <span class="itin-item-meta-row">
                             <span class="itin-item-meta">
-                              @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                              @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ plannedMinutes(planned, att) | duration }}
                             </span>
                             <a class="itin-link"
                                [attr.href]="mapsUrl(att.nativeName || att.name, stop.cityId)"
@@ -848,5 +849,9 @@ export class SharedTripComponent {
 
   totalMins(leg: TransitLeg): number {
     return leg.segments.reduce((sum, s) => sum + this.computeMins(s), 0);
+  }
+
+  protected plannedMinutes(planned: PlannedAttraction, att: Attraction): number {
+    return plannedDurationMinutes(planned, att);
   }
 }

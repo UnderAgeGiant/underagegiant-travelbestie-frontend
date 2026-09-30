@@ -19,6 +19,7 @@ import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { parseDMY } from '../../../core/utils/event-datetime.util';
+import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
 import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
@@ -254,7 +255,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
                             <span class="att-plan-name">{{ att | attName }}</span>
                             <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
                               @let d = planned.date || stop.checkIn;
-                              @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                              @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ plannedMinutes(planned, att) | duration }}
                             </span>
                             @if (collision) {
                               <span title="Conflicto de horario" style="font-size:11px;flex-shrink:0">⚠️</span>
@@ -636,5 +637,9 @@ export class StopListComponent {
   private toMins(time: string): number {
     const [h, m] = time.split(':').map(Number);
     return (h ?? 0) * 60 + (m ?? 0);
+  }
+
+  protected plannedMinutes(planned: PlannedAttraction, att: Attraction): number {
+    return plannedDurationMinutes(planned, att);
   }
 }

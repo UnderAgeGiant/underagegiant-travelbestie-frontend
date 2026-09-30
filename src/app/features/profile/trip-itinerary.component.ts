@@ -1,6 +1,8 @@
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
-import { TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
+import { TripStop, TransitLeg, TransitMode, TransitSegment, PlannedAttraction } from '../../core/models/trip.model';
+import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
+import { Attraction } from '../../core/models/comment.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
@@ -70,7 +72,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                       <span class="itin-item-icon">{{ att.icon }}</span>
                       <span class="itin-item-label">{{ att | attName }}</span>
                       <span class="itin-item-meta">
-                        @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
+                        @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ plannedMinutes(planned, att) | duration }}
                       </span>
                     </div>
                   }
@@ -196,5 +198,9 @@ export class TripItineraryComponent {
 
   totalDuration(leg: TransitLeg): number {
     return leg.segments.reduce((sum, s) => sum + this.computeMins(s), 0);
+  }
+
+  plannedMinutes(planned: PlannedAttraction, att: Attraction): number {
+    return plannedDurationMinutes(planned, att);
   }
 }
