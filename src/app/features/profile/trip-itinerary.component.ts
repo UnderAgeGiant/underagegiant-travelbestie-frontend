@@ -2,7 +2,7 @@ import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
@@ -146,7 +146,7 @@ export class TripItineraryComponent {
   attFor(cityId: string, attractionId: string) {
     const city = this.cityFor(cityId);
     if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? null;
+    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
   }
 
   modeIcon(mode: TransitMode): string {

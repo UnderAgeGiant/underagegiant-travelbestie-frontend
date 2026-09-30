@@ -1,4 +1,4 @@
-import { getAttractions, stripInsecureImages } from './attractions.data';
+import { getAttractions, findCuratedAttraction, stripInsecureImages } from './attractions.data';
 import { CURATED_ALL } from './attractions-curated';
 import { City } from '../core/models/city.model';
 import { Attraction } from '../core/models/comment.model';
@@ -78,5 +78,14 @@ describe('curated attraction names', () => {
   it('Spanish and English names use only the Latin alphabet', () => {
     const bad = all.filter(a => NON_LATIN_LETTER.test(a.name) || NON_LATIN_LETTER.test(a.nameEn ?? '')).map(a => a.id);
     expect(bad).toEqual([]);
+  });
+});
+
+describe('deactivated junk entries (owner decision 2026-09-29)', () => {
+  const AMBOSELI: City = { id: 'amboseli', name: 'Amboseli', country: 'Kenya', flag: '🇰🇪', region: 'africa' };
+
+  it('are hidden from browsing but still resolvable for saved trips', () => {
+    expect(getAttractions(AMBOSELI).some(a => a.id === 'amboseli_4')).toBe(false);
+    expect(findCuratedAttraction('amboseli', 'amboseli_4')?.active).toBe(false);
   });
 });

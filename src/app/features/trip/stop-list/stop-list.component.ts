@@ -7,7 +7,7 @@ import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
 import { Attraction } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
@@ -584,7 +584,7 @@ export class StopListComponent {
   attractionFor(cityId: string, attractionId: string): Attraction | null {
     const city = this.cityFor(cityId);
     if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? null;
+    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
   }
 
   shortDate(s: string): string {

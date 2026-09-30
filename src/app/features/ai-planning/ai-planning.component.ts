@@ -11,7 +11,7 @@ import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOption
 import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -1168,7 +1168,7 @@ export class AiPlanningComponent implements OnDestroy {
   attFor(cityId: string, attractionId: string) {
     const city = this.cityFor(cityId);
     if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? null;
+    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
   }
 
   shortDate(s: string): string {

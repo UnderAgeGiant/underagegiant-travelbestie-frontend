@@ -24,7 +24,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
 import { shareTrip } from '../../core/share/share-url.util';
 import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
@@ -742,7 +742,7 @@ export class SharedTripComponent {
   attFor(cityId: string, attractionId: string) {
     const city = this.cityFor(cityId);
     if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? null;
+    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
   }
 
   // Display-only ordering for the read-only shared itinerary view — selectedAttractions is
