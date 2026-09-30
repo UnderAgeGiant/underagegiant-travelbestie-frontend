@@ -712,7 +712,7 @@ export class SharedTripComponent {
       transits: cloned.transits ?? [],
     });
     this.tripService.restoreStops(cloned.stops, cloned.id!, cloned.transits ?? []);
-    this.router.navigate(['/']);
+    void this.router.navigateByUrl('/plan');
   }
 
   selectShareStop(stop: TripStop): void {

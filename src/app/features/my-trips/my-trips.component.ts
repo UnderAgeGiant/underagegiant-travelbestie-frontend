@@ -732,7 +732,7 @@ export class MyTripsComponent implements AfterViewInit {
     // Collaborative plans default to auto-save off — tell the user up front, right as they
     // enter, instead of waiting for the first tick to discover an unsaved change.
     if (owner && !this.autoSave.enabled()) this.autoSave.showReminderNow();
-    this.close.emit();
+    this.facade.openEditor();
   }
 
   planName(id: string): string {

@@ -1,15 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
-import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/router';
+import { ActivatedRoute, convertToParamMap, provideRouter, Router } from '@angular/router';
 import { ShellComponent } from './shell.component';
 import { TripService } from '../trip/trip.service';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
+import { By } from '@angular/platform-browser';
 
 describe('ShellComponent', () => {
   beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
 
-  function setup(stopsLen: number) {
+  function setup(stopsLen: number, mode: 'landing' | 'editor' = stopsLen > 0 ? 'editor' : 'landing', beforeCreate?: () => void) {
     (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
       matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {},
     }));
@@ -20,8 +21,14 @@ describe('ShellComponent', () => {
     };
     TestBed.configureTestingModule({
       imports: [ShellComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideRouter([]),
+        { provide: ActivatedRoute, useValue: { snapshot: { data: { mode }, queryParamMap: convertToParamMap({}), fragment: null } } },
+      ],
     });
+    beforeCreate?.();
     const fixture = TestBed.createComponent(ShellComponent);
     if (stopsLen > 0) {
       const trip = TestBed.inject(TripService);
@@ -68,6 +75,29 @@ describe('ShellComponent', () => {
     const el = setup(2).nativeElement as HTMLElement;
     expect(el.querySelector('.layout')).toBeTruthy();
     expect(el.querySelector('.landing-scroll')).toBeFalsy();
+  });
+
+  it('renders the landing at / even when a trip is in progress (browser Back from /plan)', () => {
+    const fixture = setup(2, 'landing');
+    expect(fixture.nativeElement.querySelector('.landing-scroll')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.layout')).toBeNull();
+  });
+
+  it('leaves /plan for / (replaceUrl) when the editor has no stops', () => {
+    const fixture = setup(0, 'editor', () => {
+      jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    });
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    TestBed.inject(TripService).restoreStops([], null, []);
+    fixture.detectChanges();
+    expect(nav).toHaveBeenCalledWith('/', { replaceUrl: true });
+  });
+
+  it('a stop click on the landing opens the editor', () => {
+    const fixture = setup(1, 'landing');
+    const openEditor = jest.spyOn((fixture.componentInstance as any).facade, 'openEditor').mockImplementation(() => {});
+    fixture.debugElement.query(By.css('app-stop-list')).triggerEventHandler('stopSelected');
+    expect(openEditor).toHaveBeenCalled();
   });
 
   // Regression test — see docs/superpowers/plans/2026-08-16-highlights-module.md

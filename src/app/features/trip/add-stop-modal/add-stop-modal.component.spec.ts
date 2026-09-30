@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
+import { Router } from '@angular/router';
 import { AddStopModalComponent } from './add-stop-modal.component';
 import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
@@ -109,5 +111,30 @@ describe('AddStopModalComponent — backdrop close guard', () => {
     component.onBackdropClick(event(childEl, backdropEl));
 
     expect(closed).toBe(false);
+  });
+});
+
+describe('AddStopModalComponent — add() navigation (Feature 68)', () => {
+  it('navigates to /plan after adding a stop', () => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AddStopModalComponent],
+      providers: [
+        provideHttpClient(withXhr()),
+        provideHttpClientTesting(),
+        provideRouter([]),
+      ],
+    });
+    const router = TestBed.inject(Router);
+    const nav = jest.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    const component = fixture.componentInstance;
+    component.selectedCity.set(PARIS);
+    component.checkIn.set('01/06/2026');
+    component.checkOut.set('05/06/2026');
+
+    component.add();
+
+    expect(nav).toHaveBeenCalledWith('/plan');
   });
 });

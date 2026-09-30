@@ -148,7 +148,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
             @let city = cityFor(stop.cityId);
             @if (city) {
               <div [class]="'stop-item' + (trip.activeId() === stop.stopId ? ' active' : '')"
-                   (click)="trip.setActive(stop.stopId)">
+                   (click)="trip.setActive(stop.stopId); stopSelected.emit()">
                 <div class="stop-row">
                   <app-flag-icon class="stop-flag" [flag]="city.flag" [alt]="city.name" [size]="22" />
                   <div class="stop-info">
@@ -388,6 +388,7 @@ export class StopListComponent {
   protected readonly autoSave = inject(AutoSaveService);
   addDestination = output<void>();
   openProfile = output<void>();
+  stopSelected = output<void>();   // landing → editor (Feature 68)
 
   protected readonly tripMapOpen = signal(false);
   protected readonly tripMapCities = computed<TripMapCity[]>(() =>

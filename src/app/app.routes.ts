@@ -2,10 +2,13 @@ import { Routes } from '@angular/router';
 import { authGuard } from './core/auth/auth.guard';
 import { aboutSeo, aiPlanningSeo, karmaHistorySeo, myTripsSeo, notFoundSeo, planSeo, privacySeo, profileSeo, sharedPendingSeo, termsSeo } from './core/seo/seo-pages';
 import { cityGuideSlugGuard } from './features/city-guide/city-guide.guard';
+import { landingGuard } from './features/shell/landing.guard';
 
 export const routes: Routes = [
   {
     path: '',
+    canActivate: [landingGuard],
+    data: { mode: 'landing' },
     loadComponent: () => import('./features/shell/shell.component').then(m => m.ShellComponent),
   },
   {

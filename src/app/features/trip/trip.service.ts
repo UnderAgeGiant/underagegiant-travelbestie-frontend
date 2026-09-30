@@ -75,10 +75,10 @@ export class TripService {
   // DayTimelineComponent instance is currently showing the requested stopId (2026-09-09
   // feedback round 2, item 2: an attraction added via a Companion Suggestion should make
   // the open timeline visibly show it, not just update its data silently behind the
-  // currently-viewed day). Same "counter/request the child can't reach into, parent reacts
-  // to any change" pattern as NavFacadeService.closeOverlaysRequestId, but here the payload
-  // itself (which stop, which day) is the useful part, so it's a nullable value + explicit
-  // consume() rather than a monotonic counter.
+  // currently-viewed day). Uses a monotonic request counter pattern where the child can't
+  // directly reach into the parent's signal, so the parent reacts to any change. Here the
+  // payload itself (which stop, which day) is the useful part, so it's a nullable value
+  // + explicit consume() rather than just a counter.
   private _dayJumpRequest    = signal<{ stopId: string; dayKey: string } | null>(null);
   private _saving            = false;
 

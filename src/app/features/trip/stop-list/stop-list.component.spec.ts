@@ -375,3 +375,23 @@ describe('StopListComponent — planned duration follows start/end time (feedbac
   });
 });
 
+describe('StopListComponent — stopSelected output (Feature 68)', () => {
+  it('emits stopSelected when a stop is clicked', () => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    const fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+
+    const emitted = jest.fn();
+    fixture.componentInstance.stopSelected.subscribe(emitted);
+    fixture.nativeElement.querySelector('.stop-item').click();
+    expect(emitted).toHaveBeenCalled();
+  });
+});
+

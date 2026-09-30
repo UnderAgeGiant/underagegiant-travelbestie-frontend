@@ -182,7 +182,7 @@ export class KarmaHistoryComponent implements OnInit {
     if (stops.length > 0) this.trip.setActive(stops[0].stopId);
     this.autoSave.commitSnapshot(id);
     if (owner && !this.autoSave.enabled()) this.autoSave.showReminderNow();
-    this.router.navigate(['/']);
+    this.facade.openEditor();
   }
 
   goToAiPlan(): void {

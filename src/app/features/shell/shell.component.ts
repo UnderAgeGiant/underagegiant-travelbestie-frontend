@@ -49,13 +49,13 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
     template: `
     <app-nav />
 
-    @if (trip.stops().length === 0) {
+    @if (mode === 'landing') {
       <!-- ── LANDING MODE: scroll-snap container ── -->
       <div class="landing-scroll">
 
         <!-- S1: full app shell (left panel + welcome) -->
         <section class="landing-snap-child s1-shell" #topSection>
-          <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="facade.openProfile()" />
+          <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="facade.openProfile()" (stopSelected)="facade.openEditor()" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
                          (openAiPlanning)="facade.openAiPlanning()"
@@ -131,6 +131,8 @@ export class ShellComponent {
   readonly toastService = inject(ToastService);
   readonly autoSave = inject(AutoSaveService);
   readonly facade = inject(NavFacadeService);
+  /** '' → landing, 'plan' → editor (Feature 68). Defaults to landing for tests/hosts without route data. */
+  readonly mode: 'landing' | 'editor' = inject(ActivatedRoute).snapshot.data?.['mode'] ?? 'landing';
   private readonly auth = inject(AuthService);
   private readonly highlightTour = inject(HighlightTourService);
   showAddModal   = signal(false);
@@ -167,13 +169,19 @@ export class ShellComponent {
     // /highlights/landing_welcome/status round trip (started by this call) is still
     // in flight — see HighlightTourService.start()'s doc comment.
     effect(() => {
-      if (!this.auth.isLoggedIn() && !this.auth.sessionMayExist() && this.trip.stops().length === 0) {
+      if (!this.auth.isLoggedIn() && !this.auth.sessionMayExist() && this.mode === 'landing') {
         this.highlightTour.start('landing_welcome', { shouldStillShow: () => !this.auth.isLoggedIn() });
       }
     });
 
     const route = inject(ActivatedRoute);
     const router = inject(Router);
+
+    // Removing the last stop in the editor (or opening /plan with nothing to edit) goes back to the
+    // landing. replaceUrl so Back doesn't return to an empty editor.
+    effect(() => {
+      if (this.mode === 'editor' && this.trip.stops().length === 0) void router.navigateByUrl('/', { replaceUrl: true });
+    });
 
     // "Planificar mi viaje a <ciudad>" from a city guide page (/ciudad/:slug) navigates here with
     // ?addCity=<cityId> — open the add-stop modal pre-filled with that city, then strip the param

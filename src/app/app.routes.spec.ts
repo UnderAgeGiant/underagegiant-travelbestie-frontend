@@ -1,5 +1,6 @@
 import { routes } from './app.routes';
 import { authGuard } from './core/auth/auth.guard';
+import { landingGuard } from './features/shell/landing.guard';
 
 describe('app routes', () => {
   it('has a root route, an /about route, and a /shared/:id route', () => {
@@ -34,6 +35,12 @@ describe('app routes', () => {
 
   it('marks /plan as the editor', () => {
     expect(routes.find(r => r.path === 'plan')?.data?.['mode']).toBe('editor');
+  });
+
+  it('the landing route carries mode=landing and the first-navigation landingGuard', () => {
+    const root = routes.find(r => r.path === '');
+    expect(root?.data?.['mode']).toBe('landing');
+    expect(root?.canActivate).toEqual([landingGuard]);
   });
 
   it('guards /profile and /my-trips; /plan and /ai-planning stay open to anonymous visitors', () => {
