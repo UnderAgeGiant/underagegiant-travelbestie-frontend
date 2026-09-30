@@ -36,23 +36,13 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
                 @if (seg.notes) { <span style="color:var(--t3)">· {{ seg.notes }}</span> }
                 @if (seg.carrier) { <span style="color:var(--t3)">· {{ seg.carrier }}</span> }
               </span>
-              <button class="transit-seg-del" (click)="removeSeg($index)" type="button">×</button>
+              <button class="transit-seg-del" (click)="removeSeg($index)" type="button" i18n-title="@@transit.removeSegTitle" title="Quitar tramo" i18n-aria-label="@@transit.removeSegTitle" aria-label="Quitar tramo">×</button>
             </div>
           }
 
           @if (segs().length > 0) {
             <div class="transit-seg-divider" i18n="@@transit.addConnection">+ Agregar conexión</div>
           }
-
-          <!-- Mode -->
-          <div class="transit-modes">
-            @for (m of modes; track m.value) {
-              <button class="transit-mode-btn" [class.active]="tMode() === m.value"
-                      (click)="tMode.set(m.value)" type="button">
-                <span>{{ m.icon }}</span><span>{{ m.label }}</span>
-              </button>
-            }
-          </div>
 
           <!-- Departure -->
           <div class="transit-datetime-section">
@@ -129,30 +119,36 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
                  i18n-placeholder="@@transit.locationPlaceholder"
                  placeholder="Estación / aeropuerto (opcional)" />
 
+          <!-- Mode — clicking one adds the segment above (feedback F2, 2026-09-28) -->
+          <div class="transit-datetime-lbl" style="margin-top:8px" i18n="@@transit.pickModeHint">Elige el transporte para agregar este tramo:</div>
+          <div class="transit-modes" style="margin-top:4px">
+            @for (m of modes; track m.value) {
+              <button class="transit-mode-btn"
+                      [disabled]="!canAddSeg()"
+                      [style.opacity]="canAddSeg() ? 1 : 0.45"
+                      (click)="addSeg(m.value)" type="button">
+                <span>{{ m.icon }}</span><span>{{ m.label }}</span>
+              </button>
+            }
+          </div>
+
           <!-- Actions -->
-          <div style="display:flex;gap:6px;margin-top:8px">
+          <div style="display:flex;gap:6px;margin-top:8px;align-items:center">
             <button class="btn-pill btn-primary"
                     style="flex:1;justify-content:center;font-size:11px;padding:5px 8px"
                     [disabled]="!canSave()"
                     [style.opacity]="canSave() ? 1 : 0.45"
                     (click)="save()" type="button"
                     i18n="@@transit.saveBtn">✓ Guardar</button>
-            @if (segs().length > 0) {
-              <button class="btn-pill btn-outline"
-                      style="padding:5px 10px;font-size:11px;white-space:nowrap"
-                      [disabled]="!canAddSeg()"
-                      [style.opacity]="canAddSeg() ? 1 : 0.45"
-                      (click)="addSeg()" type="button"
-                      i18n="@@transit.addSegBtn">+ Tramo</button>
-            }
             @if (transit()) {
-              <button class="btn-pill btn-outline"
-                      style="padding:5px 10px;font-size:11px;color:var(--peach-d)"
-                      (click)="clear()" type="button">🗑</button>
+              <button class="btn-pill btn-outline transit-del-btn"
+                      (click)="clear()" type="button"
+                      i18n-title="@@transit.deleteTitle" title="Eliminar transporte"
+                      i18n-aria-label="@@transit.deleteTitle" aria-label="Eliminar transporte">🗑</button>
             }
             <button class="btn-pill btn-outline"
                     style="padding:5px 10px;font-size:11px"
-                    (click)="editOpen.set(false)">✕</button>
+                    (click)="editOpen.set(false)" type="button">✕</button>
           </div>
         </div>
 
@@ -240,7 +236,6 @@ export class TransitConnectorComponent {
 
   editOpen  = signal(false);
   segs      = signal<TransitSegment[]>([]);
-  tMode     = signal<TransitMode>('flight');
   tDepDate  = signal('');
   tDepTime  = signal('');
   tArrDate  = signal('');
@@ -266,7 +261,7 @@ export class TransitConnectorComponent {
     !this.arrivalBeforeDep()
   );
 
-  readonly canSave = computed(() => this.segs().length > 0 || this.canAddSeg());
+  readonly canSave = computed(() => this.segs().length > 0);
 
   readonly pendingDuration = computed(() => {
     if (!this.canAddSeg()) return 0;
@@ -291,7 +286,6 @@ export class TransitConnectorComponent {
     const existing     = this.transit();
     const existingSegs = existing ? [...existing.segments] : [];
     this.segs.set(existingSegs);
-    this.tMode.set('flight');
     this.tNotes.set('');
     this.tCarrier.set('');
     this.tLocation.set('');
@@ -311,10 +305,10 @@ export class TransitConnectorComponent {
     if (!this.tArrDate()) this.tArrDate.set(date);
   }
 
-  addSeg(): void {
+  addSeg(mode: TransitMode): void {
     if (!this.canAddSeg()) return;
     this.segs.update(s => [...s, {
-      mode:          this.tMode(),
+      mode,
       departureDate: this.tDepDate(),
       departureTime: this.tDepTime(),
       arrivalDate:   this.tArrDate(),
@@ -324,7 +318,6 @@ export class TransitConnectorComponent {
       ...(this.tLocation().trim() ? { locationUrl: attractionMapsUrl(this.tLocation().trim(), this.toId()) } : {}),
     }]);
     const nextDep = { date: this.tArrDate(), time: this.tArrTime() };
-    this.tMode.set('flight');
     this.tDepDate.set(nextDep.date);
     this.tDepTime.set(nextDep.time);
     this.tArrDate.set(nextDep.date);
@@ -339,15 +332,7 @@ export class TransitConnectorComponent {
   }
 
   save(): void {
-    const pending: TransitSegment[] = this.canAddSeg()
-      ? [{
-          mode: this.tMode(), departureDate: this.tDepDate(), departureTime: this.tDepTime(),
-          arrivalDate: this.tArrDate(), arrivalTime: this.tArrTime(), notes: this.tNotes().trim(),
-          ...(this.tCarrier().trim()  ? { carrier: this.tCarrier().trim() } : {}),
-          ...(this.tLocation().trim() ? { locationUrl: attractionMapsUrl(this.tLocation().trim(), this.toId()) } : {}),
-        }]
-      : [];
-    const all = [...this.segs(), ...pending];
+    const all = this.segs();
     if (!all.length) return;
     this.trip.setTransit({ fromCityId: this.fromId(), toCityId: this.toId(), segments: all });
     this.editOpen.set(false);

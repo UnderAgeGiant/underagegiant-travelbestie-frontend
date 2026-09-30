@@ -168,7 +168,10 @@ app-nav { display: block; }
 .transit-seg-row { display: flex; align-items: center; gap: 6px; padding: 4px 6px; background: oklch(97% 0.005 250); border-radius: 8px; margin-bottom: 4px; }
 .transit-seg-icon { font-size: 14px; flex-shrink: 0; }
 .transit-seg-info { flex: 1; display: flex; gap: 5px; align-items: baseline; flex-wrap: wrap; font-size: 11px; color: var(--t2); min-width: 0; }
-.transit-seg-del { width: 18px; height: 18px; border-radius: 50%; background: var(--blush); color: var(--peach-d); font-size: 11px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; flex-shrink: 0; }
+.transit-seg-del { width: 24px; height: 24px; border-radius: 50%; background: oklch(95% 0.04 25); color: oklch(52% 0.2 25); font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1.5px solid oklch(80% 0.1 25); flex-shrink: 0; }
+.transit-seg-del:hover { background: oklch(52% 0.2 25); color: #fff; }
+.transit-del-btn { padding: 4px 11px; font-size: 16px; line-height: 1; color: oklch(52% 0.2 25); border-color: oklch(80% 0.1 25); background: oklch(97% 0.03 25); }
+.transit-del-btn:hover { background: oklch(52% 0.2 25); border-color: oklch(52% 0.2 25); color: #fff; }
 .transit-seg-divider { font-size: 10px; color: var(--t3); text-align: center; margin: 6px 0 8px; border-top: 1px dashed var(--border); padding-top: 6px; font-weight: 600; letter-spacing: .3px; }
 .transit-form { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; margin-bottom: 0; }
 .transit-modes { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
