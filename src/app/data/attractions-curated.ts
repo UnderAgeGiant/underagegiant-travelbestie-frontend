@@ -1256,7 +1256,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "bangkok_14",
-      active: true,
+      active: false,
       name: "Centro de Aprendizaje para la Salud",
       nameEn: "Health Learning Center",
       nativeName: "ศูนย์เรียนรู้สุขภาวะ",
@@ -10258,7 +10258,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "jerusalem_9",
-      active: true,
+      active: false,
       name: "Amigos de Israel",
       nameEn: "Friends of Israel",
       nativeName: "ידידי ישראל",
@@ -10846,7 +10846,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "krakow_10",
-      active: true,
+      active: false,
       name: "Yak-23",
       nameEn: "Yak-23",
       nativeName: "Jak-23",
@@ -11740,7 +11740,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "lima_27",
-      active: true,
+      active: false,
       name: "Callao",
       nameEn: "Callao",
       nativeName: "Callao",
@@ -30250,7 +30250,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "dijon_10",
-      active: true,
+      active: false,
       name: "Castel",
       nameEn: "Castel",
       nativeName: "Castel",
@@ -34317,7 +34317,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "luoyang_8",
-      active: true,
+      active: false,
       name: "Centro Cultural de Luoyang",
       nameEn: "Luoyang City Cultural Center",
       nativeName: "洛阳市文化馆",
@@ -40824,7 +40824,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "sofia_12",
-      active: true,
+      active: false,
       name: "Casa Museo Iván Vazov",
       nameEn: "Ivan Vazov House Museum",
       nativeName: "Къща музей \"Иван Вазов\"",
@@ -41346,7 +41346,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "tabriz_14",
-      active: true,
+      active: false,
       name: "Kamal",
       nameEn: "Kamal",
       nativeName: "کمال",
@@ -41793,7 +41793,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "trinidadcuba_11",
-      active: true,
+      active: false,
       name: "Idea",
       nameEn: "Idea",
       nativeName: "Idea",
@@ -56196,7 +56196,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "brasilia_22",
-      active: true,
+      active: false,
       name: "Funarte",
       nameEn: "Funarte",
       nativeName: "Funarte",
@@ -63482,7 +63482,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "uyuni_12",
-      active: true,
+      active: false,
       name: "0-4-0T",
       nameEn: "0-4-0T",
       nativeName: "0-4-0T",
@@ -69264,7 +69264,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "filadelfia_6",
-      active: true,
+      active: false,
       name: "Tapir",
       nameEn: "Tapir",
       nativeName: "Tapir",
@@ -69296,7 +69296,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "filadelfia_8",
-      active: true,
+      active: false,
       name: "Puma",
       nameEn: "Puma",
       nativeName: "Puma",
@@ -69312,7 +69312,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "filadelfia_9",
-      active: true,
+      active: false,
       name: "1933",
       nameEn: "1933",
       nativeName: "1933",
@@ -70059,7 +70059,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "paramaribo_7",
-      active: true,
+      active: false,
       name: "Readytex",
       nameEn: "Readytex",
       nativeName: "Readytex",
@@ -70731,7 +70731,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "tulum_10",
-      active: true,
+      active: false,
       name: "Altar",
       nameEn: "Altar",
       nativeName: "Altar",
@@ -72630,7 +72630,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "flores_11",
-      active: true,
+      active: false,
       name: "Margay",
       nameEn: "Margay",
       nativeName: "Margay",
@@ -72646,7 +72646,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "flores_12",
-      active: true,
+      active: false,
       name: "Puma",
       nameEn: "Puma",
       nativeName: "Puma",
@@ -73307,7 +73307,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "quetzaltenango_8",
-      active: true,
+      active: false,
       name: "Tertulianos",
       nameEn: "Tertulianos",
       nativeName: "Tertulianos",
@@ -73897,7 +73897,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "coban_10",
-      active: true,
+      active: false,
       name: "Sachicha",
       nameEn: "Sachicha",
       nativeName: "Sachicha",
@@ -75675,7 +75675,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "tegucigalpa_14",
-      active: true,
+      active: false,
       name: "FinLay",
       nameEn: "FinLay",
       nativeName: "FinLay",
@@ -82022,7 +82022,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "tamarindo_5",
-      active: true,
+      active: false,
       name: "Amberes",
       nameEn: "Amberes",
       nativeName: "Amberes",
@@ -84777,7 +84777,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "trinidad_cu_3",
-      active: true,
+      active: false,
       name: "Idea",
       nameEn: "Idea",
       nativeName: "Idea",
@@ -86437,7 +86437,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "santodomingo_23",
-      active: true,
+      active: false,
       name: "Metaldom",
       nameEn: "Metaldom",
       nativeName: "Metaldom",
@@ -86639,7 +86639,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "puntacana_4",
-      active: true,
+      active: false,
       name: "Astron",
       nameEn: "Astron",
       nativeName: "Astron",
@@ -86671,7 +86671,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "puntacana_6",
-      active: true,
+      active: false,
       name: "Chocolate",
       nameEn: "Chocolate",
       nativeName: "Chocolate",
@@ -91038,7 +91038,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "ghent_20",
-      active: true,
+      active: false,
       name: "Krakeel",
       nameEn: "Krakeel",
       nativeName: "Krakeel",
@@ -94562,7 +94562,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "frankfurt_28",
-      active: true,
+      active: false,
       name: "Capitol",
       nameEn: "Capitol",
       nativeName: "Capitol",
@@ -104246,7 +104246,7 @@ export const CURATED_ALL: CuratedMap = {
   cambridge: [
     {
       id: "cambridge_0",
-      active: true,
+      active: false,
       name: "Primavera",
       nameEn: "Primavera",
       nativeName: "Primavera",
@@ -114583,7 +114583,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "manama_17",
-      active: true,
+      active: false,
       name: "PCC",
       nameEn: "PCC",
       nativeName: "بي سي سي",
@@ -114598,7 +114598,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "manama_18",
-      active: true,
+      active: false,
       name: "Harris",
       nameEn: "Harris",
       nativeName: "هاريس",
@@ -116470,7 +116470,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "batumi_28",
-      active: true,
+      active: false,
       name: "Anaria",
       nameEn: "Anaria",
       nativeName: "ანარია",
@@ -116485,7 +116485,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "batumi_29",
-      active: true,
+      active: false,
       name: "Khechoketi",
       nameEn: "Khechoketi",
       nativeName: "ხეჩოკეტი",
@@ -122236,7 +122236,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "astana_14",
-      active: true,
+      active: false,
       name: "T-34-85",
       nameEn: "T-34-85",
       nativeName: "Т34-85",
@@ -123265,7 +123265,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "cholponata_2",
-      active: true,
+      active: false,
       name: "Pionero",
       nameEn: "Pioneer",
       nativeName: "Пионер",
@@ -126803,7 +126803,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "lahore_19",
-      active: true,
+      active: false,
       name: "S-60",
       nameEn: "S-60",
       nativeName: "ایس-60",
@@ -128170,7 +128170,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "riyadh_14",
-      active: true,
+      active: false,
       name: "Sparkies",
       nameEn: "Sparkies",
       nativeName: "سباركيز",
@@ -131566,7 +131566,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "hualien_6",
-      active: true,
+      active: false,
       name: "Estación de Radio de Hualien de la Corporación de Radiodifusión de China",
       nameEn: "Broadcasting Corporation of China Hualien Radio Station",
       nativeName: "中國廣播股份有限公司花蓮電台",
@@ -131989,7 +131989,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "dushanbe_18",
-      active: true,
+      active: false,
       name: ".",
       nameEn: ".",
       nativeName: ".",
@@ -134381,7 +134381,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "tashkent_19",
-      active: true,
+      active: false,
       name: "Novza",
       nameEn: "Novza",
       nativeName: "Novza",
@@ -134501,7 +134501,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "tashkent_27",
-      active: true,
+      active: false,
       name: "Oybek",
       nameEn: "Oybek",
       nativeName: "Oybek (metro bekati)",
@@ -135835,7 +135835,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "constantine_9",
-      active: true,
+      active: false,
       name: "Hicham",
       nameEn: "Hisham",
       nativeName: "هشام",
@@ -135851,7 +135851,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "constantine_10",
-      active: true,
+      active: false,
       name: "La Pirámide",
       nameEn: "The Pyramid",
       nativeName: "الهرم",
@@ -135867,7 +135867,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "constantine_11",
-      active: true,
+      active: false,
       name: "Sala de Fiestas Al Manara",
       nameEn: "Al Manara Party Hall",
       nativeName: "قاعة المنارة الحفلات",
@@ -135965,7 +135965,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "gaborone_3",
-      active: true,
+      active: false,
       name: "Dave's",
       nameEn: "Dave's",
       nativeName: "Dave's",
@@ -135997,7 +135997,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "gaborone_5",
-      active: true,
+      active: false,
       name: "Fikile",
       nameEn: "Fikile",
       nativeName: "Fikile",
@@ -136029,7 +136029,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "gaborone_7",
-      active: true,
+      active: false,
       name: "Crib",
       nameEn: "Crib",
       nativeName: "Crib",
@@ -137570,7 +137570,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "hurghada_4",
-      active: true,
+      active: false,
       name: "Mubarak 2",
       nameEn: "Mubarak 2",
       nativeName: "مبارك ٢",
@@ -137586,7 +137586,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "hurghada_5",
-      active: true,
+      active: false,
       name: "Edificio 26, Mubarak 2",
       nameEn: "Building 26, Mubarak 2",
       nativeName: "عمارة ٢٦مبارك ٢",
@@ -139179,7 +139179,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "amboseli_3",
-      active: true,
+      active: false,
       name: "Perekrestok",
       nameEn: "Perekrestok",
       nativeName: "Перекресток",
@@ -139195,7 +139195,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "amboseli_4",
-      active: true,
+      active: false,
       name: "Podyezd",
       nameEn: "Podyezd",
       nativeName: "Подъезд",
@@ -139583,7 +139583,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "nosybe_8",
-      active: true,
+      active: false,
       name: "HOUSE",
       nameEn: "HOUSE",
       nativeName: "HOUSE",
@@ -140055,7 +140055,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "grandbaie_8",
-      active: true,
+      active: false,
       name: "Bell",
       nameEn: "Bell",
       nativeName: "Bell",
@@ -145059,7 +145059,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "daressalaam_8",
-      active: true,
+      active: false,
       name: "Wallet",
       nameEn: "Wallet",
       nativeName: "Wallet",
@@ -145479,7 +145479,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "sousse_14",
-      active: true,
+      active: false,
       name: "Hadhoud",
       nameEn: "Hadhoud",
       nativeName: "حدهود",
@@ -145510,7 +145510,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "sousse_16",
-      active: true,
+      active: false,
       name: "Farhoud",
       nameEn: "Farhoud",
       nativeName: "فرهود",
@@ -147217,7 +147217,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "harare_7",
-      active: true,
+      active: false,
       name: "Kays",
       nameEn: "Kays",
       nativeName: "Kays",
@@ -147688,7 +147688,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "bulawayo_9",
-      active: true,
+      active: false,
       name: "114",
       nameEn: "114",
       nativeName: "114",
@@ -149202,7 +149202,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "trujillo_12",
-      active: true,
+      active: false,
       name: "Sare",
       nameEn: "Sare",
       nativeName: "Sare",
@@ -149702,7 +149702,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "paracas_13",
-      active: true,
+      active: false,
       name: "Medina",
       nameEn: "Medina",
       nativeName: "Medina",
@@ -150542,7 +150542,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "banos_9",
-      active: true,
+      active: false,
       name: "Mulmul",
       nameEn: "Mulmul",
       nativeName: "Mulmul",
