@@ -1,4 +1,4 @@
-import { Injectable, inject, signal, computed } from '@angular/core';
+import { Injectable, inject, signal, computed, effect } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { shareTrip } from '../../core/share/share-url.util';
@@ -20,7 +20,7 @@ import { VisitedPlacesService } from '../../core/visited-places/visited-places.s
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { LocaleService } from '../../core/i18n/locale.service';
-import { AppLocale, RestoreView } from '../../core/i18n/locale.util';
+import { AppLocale } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { AiPlanViewPayload } from '../../core/models/ai.model';
 
@@ -28,6 +28,9 @@ import { AiPlanViewPayload } from '../../core/models/ai.model';
 export function shouldSearchSharedTrips(query: string): boolean {
   return query.trim().length >= 2;
 }
+
+/** Routes behind authGuard — kept in sync with app.routes.ts (Feature 68). */
+const PRIVATE_PATHS = ['/profile', '/my-trips', '/karma-history'];
 
 @Injectable({ providedIn: 'root' })
 export class NavFacadeService {
@@ -55,25 +58,8 @@ export class NavFacadeService {
   /** Language dropdown open state (desktop). */
   langOpen = signal(false);
 
-  /** Which shell panel is open right now — synced by ShellComponent, consumed on locale switch. */
-  currentShellView = signal<RestoreView | null>(null);
-
   /** One-shot command: open My Trips to a specific tab (e.g. from a notification click). Consumed by MyTripsComponent. */
   pendingMyTripsTab = signal<'trips' | 'collaborations' | 'aiplans' | null>(null);
-
-  // Fire-and-forget "close every shell-level page overlay" request. ShellComponent owns
-  // showProfile/showMyTrips/showAiPlanning and this facade has no reference to them (same
-  // gap pendingMyTripsTab already solves for the "🗺 Mis viajes" nav button specifically) —
-  // doLoadPlan/onLogoClick/doNewTrip below all restore TripService's stops, which should
-  // always surface the app-mode editor, but none of them could tell Shell to stop covering
-  // it with whichever overlay happened to be open (2026-09-08 feedback #3). A monotonic
-  // counter (not a boolean) so two requests in a row before Shell's effect next runs are
-  // both still observed as a change.
-  closeOverlaysRequestId = signal(0);
-
-  private requestCloseShellOverlays(): void {
-    this.closeOverlaysRequestId.update(v => v + 1);
-  }
 
   // ── saved-plans / favorites / shared-trips state ──
   plansOpen      = signal(false);
@@ -108,6 +94,15 @@ export class NavFacadeService {
         : of([])),
       takeUntilDestroyed(),
     ).subscribe(trips => this.navSharedTrips.set(trips));
+
+    // authGuard only runs on entry. If the session ends while the user is ON a private page — a failed
+    // silent refresh calls AuthService.clearTokens() with no logout click — leave it for the landing.
+    // (Explicit "Cerrar sesión" already navigates to / in doLogout().) router.url isn't a signal, so this
+    // re-runs only on auth changes, which is exactly when it matters.
+    effect(() => {
+      if (this.auth.isLoggedIn() || this.auth.sessionMayExist()) return;
+      if (PRIVATE_PATHS.some(p => this.router.url.startsWith(p))) void this.router.navigateByUrl('/');
+    });
   }
 
   readonly mySharedTrips = computed(() => {
@@ -203,23 +198,17 @@ export class NavFacadeService {
 
   scheduleClose(): void { setTimeout(() => this.searchOpen.set(false), 160); }
 
-  // adapted from nav.component.ts:1070-1073 — emit moved to the bar component
   openProfile(): void {
     this.userMenuOpen.set(false);
+    void this.router.navigateByUrl('/profile');
   }
 
-  // Centralizes "go to My Trips from wherever the user currently is" — every
-  // other approach (an output bubbled up through however many nested overlays
-  // happen to be open) requires each host to correctly interpret it, and three
-  // of five got it wrong (2026-09-07 UX-improvements round, Feedback #7). Safe
-  // to call even when already on '/': Angular's default onSameUrlNavigation
-  // ('ignore') makes navigateByUrl('/') a no-op there, and ShellComponent's own
-  // pendingMyTripsTab effect (see shell.component.ts) still reacts to the
-  // signal write regardless of whether the URL actually changed.
+  // pendingMyTripsTab is consumed by MyTripsComponent's own effect — works both when this
+  // navigation creates the page and when the user is already on /my-trips.
   openMyTrips(tab: 'trips' | 'collaborations' | 'aiplans' = 'trips'): void {
     this.userMenuOpen.set(false);
     this.pendingMyTripsTab.set(tab);
-    this.router.navigateByUrl('/');
+    void this.router.navigateByUrl('/my-trips');
   }
 
   /** Every "start editing this trip" action lands here — the editor lives at /plan (Feature 68). */
@@ -277,7 +266,7 @@ export class NavFacadeService {
 
   switchLocale(target: AppLocale): void {
     this.langOpen.set(false);
-    this.locale.switchTo(target, this.currentShellView());
+    this.locale.switchTo(target);   // reloads the current URL — a routed page reopens by itself
   }
 
   openSaveForm(): void {
@@ -316,25 +305,21 @@ export class NavFacadeService {
     this.trip.restoreStops(plan.stops, plan.id, plan.transits ?? []);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
-    this.requestCloseShellOverlays();
 
-    // Loading a plan while viewing a shared trip (/shared/:id) should return
-    // to the main app view. window.location.search is no longer a reliable
-    // signal here — the Router shows this URL with an empty search string.
+    // Leaving /shared/:id destroys that page before the debounced trip persist runs — flush it now.
     if (this.router.url.startsWith('/shared')) {
       const email = this.auth.currentUser()?.email;
       if (email) this.trip.persistNow(email);
-      this.router.navigate(['/']);
     }
+    this.openEditor();
   }
 
-  // adapted from nav.component.ts:1164-1170 — emit moved to the bar component
   onLogoClick(): void {
     this.autoSaveCurrentTrip();
     this.trip.restoreStops([], null);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
-    this.requestCloseShellOverlays();
+    void this.router.navigateByUrl('/');
   }
 
   doNewTrip(): void {
@@ -343,7 +328,7 @@ export class NavFacadeService {
     this.trip.restoreStops([], null);
     this.userMenuOpen.set(false);
     this.plansOpen.set(false);
-    this.requestCloseShellOverlays();
+    void this.router.navigateByUrl('/');
   }
 
   doDeletePlan(id: string): void {

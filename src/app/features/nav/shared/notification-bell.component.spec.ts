@@ -39,7 +39,7 @@ describe('NotificationBellComponent — open() routing for ai_plan_ready/ai_plan
     };
     component.open(n);
     expect(facade.pendingMyTripsTab()).toBe('aiplans');
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/');
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/my-trips');
   });
 
   it('routes ai_plan_failed notifications to My Trips → Planes IA Pendientes instead of following n.url', () => {
@@ -49,7 +49,7 @@ describe('NotificationBellComponent — open() routing for ai_plan_ready/ai_plan
     };
     component.open(n);
     expect(facade.pendingMyTripsTab()).toBe('aiplans');
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/');
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/my-trips');
   });
 });
 

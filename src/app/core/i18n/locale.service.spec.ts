@@ -42,16 +42,7 @@ describe('LocaleService', () => {
     expect(localStorage.getItem('tb_session_user')).toBe('{"name":"Ana"}');
   });
 
-  it('stores and consumes the one-shot restore view', () => {
-    const svc = makeService('es-CL');
-    sessionStorage.setItem('tb_restore_view', 'profile');
-    expect(svc.consumeRestoreView()).toBe('profile');
-    expect(svc.consumeRestoreView()).toBe(null);            // one-shot
-    sessionStorage.setItem('tb_restore_view', 'garbage');
-    expect(svc.consumeRestoreView()).toBe(null);             // unknown value → null
-  });
-
-  it('switchTo is a no-op for the current locale, otherwise persists + stores the restore view + reloads', () => {
+  it('switchTo is a no-op for the current locale, otherwise persists + reloads the current URL', () => {
     // jsdom 26+ makes window.location a non-configurable "unforgeable" property
     // (matching the real browser spec), so it cannot be redefined directly here.
     // Instead, inject a fake DOCUMENT whose defaultView exposes a spyable
@@ -64,13 +55,11 @@ describe('LocaleService', () => {
     };
     const svc = makeService('es-CL', fakeDocument);
 
-    svc.switchTo('es-CL', 'profile');
+    svc.switchTo('es-CL');
     expect(reloadSpy).not.toHaveBeenCalled();
-    expect(sessionStorage.getItem('tb_restore_view')).toBe(null);
 
-    svc.switchTo('en-US', 'profile');
+    svc.switchTo('en-US');
     expect(document.cookie).toContain('tb_locale=en-US');
-    expect(sessionStorage.getItem('tb_restore_view')).toBe('profile');
     expect(reloadSpy).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { ApplicationRef, Component, TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter, Router } from '@angular/router';
@@ -102,28 +102,46 @@ describe('NavFacadeService — shared trips + logo', () => {
     expect(facade.filteredSharedTrips().length).toBe(1);
   });
 
-  it('onLogoClick clears stops, closes menus, and requests the shell overlays close', () => {
+  it('onLogoClick clears stops, closes menus, and navigates to the landing', () => {
     const trip = TestBed.inject(TripService);
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
     facade.userMenuOpen.set(true);
     facade.plansOpen.set(true);
-    const before = facade.closeOverlaysRequestId();
     facade.onLogoClick();
     expect(facade.userMenuOpen()).toBe(false);
     expect(facade.plansOpen()).toBe(false);
     expect(trip.stops().length).toBe(0);
-    expect(facade.closeOverlaysRequestId()).toBe(before + 1);
+    expect(nav).toHaveBeenCalledWith('/');
   });
 
-  it('doLoadPlan requests the shell overlays close', () => {
-    const before = facade.closeOverlaysRequestId();
+  it('doLoadPlan opens the editor at /plan', () => {
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
     facade.doLoadPlan({ id: 'trip-1', name: 'My Trip', savedAt: '2026-01-01', stops: [] });
-    expect(facade.closeOverlaysRequestId()).toBe(before + 1);
+    expect(nav).toHaveBeenCalledWith('/plan');
   });
 
-  it('doNewTrip requests the shell overlays close', () => {
-    const before = facade.closeOverlaysRequestId();
+  it('doNewTrip navigates to the landing', () => {
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
     facade.doNewTrip();
-    expect(facade.closeOverlaysRequestId()).toBe(before + 1);
+    expect(nav).toHaveBeenCalledWith('/');
+  });
+
+  it('openProfile closes the user menu and navigates to /profile', () => {
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    facade.userMenuOpen.set(true);
+    facade.openProfile();
+    expect(facade.userMenuOpen()).toBe(false);
+    expect(nav).toHaveBeenCalledWith('/profile');
+  });
+
+  it('doLogout clears the trip and returns to the landing at / (from /plan, /profile, /my-trips, /ai-planning)', () => {
+    // doLogout() already ends with router.navigate(['/']) — this pins it so the routing work can't drop it.
+    const trip = TestBed.inject(TripService);
+    trip.addStop(PARIS, '01/06/2026', '02/06/2026');
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
+    facade.doLogout();
+    expect(trip.stops().length).toBe(0);
+    expect(nav).toHaveBeenCalledWith(['/']);
   });
 
   it('autoSaveCurrentTrip() (invoked by onLogoClick) passes { background: true } to upsert() (Finding 4 fix)', () => {
@@ -145,7 +163,7 @@ describe('NavFacadeService — shared trips + logo', () => {
 });
 
 describe('NavFacadeService — openMyTrips()', () => {
-  it('closes the user menu, sets pendingMyTripsTab, and navigates to /', () => {
+  it('closes the user menu, sets pendingMyTripsTab, and navigates to /my-trips', () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     });
@@ -158,7 +176,7 @@ describe('NavFacadeService — openMyTrips()', () => {
 
     expect(facade.userMenuOpen()).toBe(false);
     expect(facade.pendingMyTripsTab()).toBe('trips');
-    expect(navSpy).toHaveBeenCalledWith('/');
+    expect(navSpy).toHaveBeenCalledWith('/my-trips');
   });
 
   it('accepts an explicit tab', () => {
@@ -190,6 +208,49 @@ describe('NavFacadeService — logout clears the landing feed', () => {
     const spy = jest.spyOn(landingFeed, 'reset');
     facade.doLogout();
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('NavFacadeService — leaves private pages when the session ends', () => {
+  @Component({ template: '' }) class Blank {}
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(), provideHttpClientTesting(),
+        provideRouter([
+          { path: '', component: Blank },
+          { path: 'profile', component: Blank },
+          { path: 'my-trips', component: Blank },
+          { path: 'karma-history', component: Blank },
+          { path: 'about', component: Blank },
+        ]),
+      ],
+    });
+  });
+
+  it.each(['/profile', '/my-trips', '/karma-history'])('session lost on %s → navigates to /', async path => {
+    const auth = TestBed.inject(AuthService);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    TestBed.inject(NavFacadeService);
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl(path);
+    auth.clearTokens();            // what a failed silent refresh does
+    TestBed.tick();
+    await TestBed.inject(ApplicationRef).whenStable();
+    expect(router.url).toBe('/');
+  });
+
+  it('does not move a signed-out user off a public page', async () => {
+    const auth = TestBed.inject(AuthService);
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    TestBed.inject(NavFacadeService);
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/about');
+    auth.clearTokens();
+    TestBed.tick();
+    expect(router.url).toBe('/about');
   });
 });
 

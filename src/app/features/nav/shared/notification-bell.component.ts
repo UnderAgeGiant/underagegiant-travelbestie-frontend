@@ -94,16 +94,14 @@ export class NotificationBellComponent {
     // and n.type is enough on its own to pick the right in-app tab without
     // needing a URL-contract change on the backend.
     if (n.type === 'collaborator_invite' || n.type === 'collaborator_accepted') {
-      this.facade.pendingMyTripsTab.set('collaborations');
-      this.router.navigateByUrl('/');
+      this.facade.openMyTrips('collaborations');
       return;
     }
 
     // Same pattern for AI plan completion/failure — route to My Trips → Mis
     // Planes IA rather than parsing n.url (which is just '/' for these too).
     if (n.type === 'ai_plan_ready' || n.type === 'ai_plan_failed') {
-      this.facade.pendingMyTripsTab.set('aiplans');
-      this.router.navigateByUrl('/');
+      this.facade.openMyTrips('aiplans');
       return;
     }
 
