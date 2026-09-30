@@ -17,3 +17,11 @@ export function previewCardPosition(e: MouseEvent | FocusEvent, viewport: { widt
   y = Math.min(y, viewport.height - PREVIEW_CARD_H);
   return { x, y };
 }
+
+/** Touch variant: card centred horizontally under the tap point, 12px from every screen edge. */
+export function previewCardTapPosition(clientX: number, clientY: number, viewport: { width: number; height: number }): { x: number; y: number } {
+  return {
+    x: Math.max(12, Math.min(clientX - PREVIEW_CARD_W / 2, viewport.width - PREVIEW_CARD_W - 12)),
+    y: Math.min(clientY + 16, viewport.height - PREVIEW_CARD_H - 12),
+  };
+}

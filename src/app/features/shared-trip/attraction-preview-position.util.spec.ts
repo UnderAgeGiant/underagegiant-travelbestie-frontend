@@ -1,4 +1,4 @@
-import { previewCardPosition } from './attraction-preview-position.util';
+import { previewCardPosition, previewCardTapPosition } from './attraction-preview-position.util';
 
 const VIEW = { width: 1200, height: 800 };
 
@@ -18,5 +18,17 @@ describe('previewCardPosition', () => {
     const focus = new FocusEvent('focus');
     Object.defineProperty(focus, 'target', { value: el });
     expect(previewCardPosition(focus, VIEW)).toEqual({ x: 310, y: 50 });
+  });
+});
+
+describe('previewCardTapPosition', () => {
+  const PHONE = { width: 390, height: 800 };
+  it('centres the card under the tap', () => {
+    expect(previewCardTapPosition(195, 100, PHONE)).toEqual({ x: 195 - 140, y: 116 });
+  });
+  it('clamps to 12px from the left/right/bottom edges', () => {
+    expect(previewCardTapPosition(5, 100, PHONE).x).toBe(12);
+    expect(previewCardTapPosition(385, 100, PHONE).x).toBe(390 - 280 - 12);
+    expect(previewCardTapPosition(195, 790, PHONE).y).toBe(800 - 320 - 12);
   });
 });

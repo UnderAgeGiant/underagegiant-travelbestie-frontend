@@ -10,7 +10,7 @@ import { TripService } from '../../trip/trip.service';
 import { TripStop, PlannedAttraction, TransitLeg, TransitMode } from '../../../core/models/trip.model';
 import { Attraction } from '../../../core/models/comment.model';
 import { AttractionPreviewPopoverComponent } from '../../shared-trip/attraction-preview-popover.component';
-import { previewCardPosition } from '../../shared-trip/attraction-preview-position.util';
+import { previewCardPosition, previewCardTapPosition } from '../../shared-trip/attraction-preview-position.util';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
@@ -233,6 +233,7 @@ function transitLabel(mode: TransitMode): string {
                  (touchcancel)="onBlockTouchCancel()"
                  (mouseenter)="onBlockHover($event, block)"
                  (mouseleave)="onBlockHoverLeave()"
+                 (click)="onBlockTap($event, block)"
                  [ngStyle]="{
                    top:         block.top    + 'px',
                    height:      block.height + 'px',
@@ -282,6 +283,7 @@ function transitLabel(mode: TransitMode): string {
     <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
   }
   @if (activePreview(); as p) {
+    <div class="att-preview-backdrop" (click)="onBlockHoverLeave()"></div>
     <app-attraction-preview-popover [attraction]="p.attraction" [x]="p.x" [y]="p.y" />
   }
 }
@@ -359,6 +361,15 @@ export class DayTimelineComponent {
     const pos = previewCardPosition(e, { width: window.innerWidth, height: window.innerHeight });
     const attraction = block.attraction;
     this.previewTimer = setTimeout(() => this.activePreview.set({ attraction, ...pos }), 150);
+  }
+
+  /** Mobile tap-to-preview. A still tap yields a click; an armed long-press drag calls
+   *  preventDefault() on touchend, which suppresses the click — so this never fights the drag.
+   *  Closed by tapping the full-screen .att-preview-backdrop (covers the blocks while open). */
+  protected onBlockTap(e: MouseEvent, block: TimeBlock): void {
+    if (!block.attraction || !this.device.isMobile()) return;
+    const pos = previewCardTapPosition(e.clientX, e.clientY, { width: window.innerWidth, height: window.innerHeight });
+    this.activePreview.set({ attraction: block.attraction, ...pos });
   }
 
   protected onBlockHoverLeave(): void {

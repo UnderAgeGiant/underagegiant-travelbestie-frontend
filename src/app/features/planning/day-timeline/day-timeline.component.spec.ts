@@ -1123,7 +1123,27 @@ describe('DayTimelineComponent — attraction preview on hover (feedback F1 2026
     expect(popover()).toBeNull();
   });
 
-  it('never shows the preview on mobile', () => {
+  it('mobile: a tap on an attraction block shows the preview; tapping the backdrop closes it', () => {
+    setup(true);
+    (component as any).collapsed?.set?.(false);
+    fixture.detectChanges();
+    expect(block()).not.toBeNull();
+    block().dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100, bubbles: true }));
+    fixture.detectChanges();
+    expect(popover()).not.toBeNull();
+    (fixture.nativeElement.querySelector('.att-preview-backdrop') as HTMLElement).click();
+    fixture.detectChanges();
+    expect(popover()).toBeNull();
+  });
+
+  it('desktop: a click on a block does not open the tap preview', () => {
+    setup(false);
+    block().dispatchEvent(new MouseEvent('click', { clientX: 100, clientY: 100, bubbles: true }));
+    fixture.detectChanges();
+    expect(popover()).toBeNull();
+  });
+
+  it('never shows the hover preview on mobile', () => {
     jest.useFakeTimers();
     setup(true);
     (component as any).collapsed?.set?.(false);
