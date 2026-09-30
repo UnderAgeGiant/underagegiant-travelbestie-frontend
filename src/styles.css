@@ -796,6 +796,20 @@ app-nav { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .ai-save-cta { animation: aiSaveCtaReduced 2.8s ease-in-out infinite; }
 }
+/* "Guardar viaje 🎉" (stop list) — bigger, more frequent hop than the shared AI save CTA; users still missed it (feedback T2, 2026-09-28). */
+@keyframes tripSaveCta {
+  0%, 62%, 100% { transform: translateY(0) scale(1);        box-shadow: 0 4px 14px oklch(55% .16 290 / .3); }
+  6%            { transform: translateY(-14px) scale(1.04); box-shadow: 0 16px 26px oklch(55% .16 290 / .55), 0 2px 40px oklch(55% .16 290 / .45); }
+  13%           { transform: translateY(2px) scale(.98);    box-shadow: 0 6px 16px oklch(55% .16 290 / .45); }
+  20%           { transform: translateY(-8px) scale(1.02);  box-shadow: 0 12px 22px oklch(55% .16 290 / .5), 0 2px 34px oklch(55% .16 290 / .38); }
+  27%           { transform: translateY(1px) scale(1);      box-shadow: 0 5px 15px oklch(55% .16 290 / .36); }
+  34%           { transform: translateY(-3px);              box-shadow: 0 8px 18px oklch(55% .16 290 / .42); }
+  41%           { transform: translateY(0);                 box-shadow: 0 4px 14px oklch(55% .16 290 / .3); }
+}
+.ai-save-cta.save-cta-strong { animation: tripSaveCta 2s cubic-bezier(.36,.07,.19,.97) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ai-save-cta.save-cta-strong { animation: aiSaveCtaReduced 2s ease-in-out infinite; }
+}
 .ai-plan-result-header { text-align: center; margin-bottom: 20px; padding: 20px 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .ai-plan-result-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: var(--t1); margin-bottom: 8px; }
 .ai-plan-result-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }

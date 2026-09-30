@@ -330,6 +330,7 @@ describe('StopListComponent — Guardar viaje bounce beacon (feedback #12)', () 
 
     const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.panel-footer .btn-pill.btn-primary');
     expect(btn.classList.contains('ai-save-cta')).toBe(true);
+    expect(btn.classList.contains('save-cta-strong')).toBe(true);
   });
 
   it('stops bouncing once the trip has been saved (loadedPlanId is set)', () => {
@@ -340,6 +341,7 @@ describe('StopListComponent — Guardar viaje bounce beacon (feedback #12)', () 
 
     const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.panel-footer .btn-pill.btn-primary');
     expect(btn.classList.contains('ai-save-cta')).toBe(false);
+    expect(btn.classList.contains('save-cta-strong')).toBe(false);
   });
 });
 

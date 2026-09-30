@@ -158,7 +158,7 @@ function transitLabel(mode: TransitMode): string {
                 @if (trip.loadedPlanId()) {
                   <button class="btn-pill btn-outline tl-head-action"
                           [disabled]="exporting()" (click)="exportItinerary()" type="button"
-                          i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar</button>
+                          i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar a Excel</button>
                 }
                 @if (showPlanSlideshow() && planSlideItems().length > 0) {
                   <button class="btn-pill btn-outline tl-head-action"

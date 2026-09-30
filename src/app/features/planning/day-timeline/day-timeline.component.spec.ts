@@ -314,7 +314,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(texts[0]).toContain('Ruta del día');
     expect(texts[1]).toContain('Presentación del día');
     // …then plan-scoped.
-    expect(texts[2]).toContain('Exportar');
+    expect(texts[2]).toContain('Exportar a Excel');
     expect(texts[3]).toContain('Presentación del plan');
     expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
   });
