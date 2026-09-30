@@ -40,7 +40,8 @@ export interface TicketPrices {
 export interface Attraction {
   id:               string;
   name:             string;
-  nativeName?:      string;   // original-script name, shown as a muted sub-label when present and different from `name`
+  nameEn?:          string;   // English name; falls back to `name` (Spanish) when absent
+  nativeName?:      string;   // name in the local language/script, shown as a muted sub-label when it differs from the displayed name
   type:             string;
   category:         AttractionCategory;
   active:           boolean;

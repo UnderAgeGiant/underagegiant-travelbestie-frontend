@@ -1,13 +1,14 @@
+import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { TripStop, TransitLeg, TransitMode, TransitSegment } from '../../core/models/trip.model';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
 @Component({
     selector: 'app-trip-itinerary',
-    imports: [DurationPipe, FlagIconComponent],
+    imports: [AttractionNamePipe, DurationPipe, FlagIconComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="itin">
@@ -67,7 +68,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                     @let attDate = planned.date || stop.checkIn;
                     <div class="itin-item">
                       <span class="itin-item-icon">{{ att.icon }}</span>
-                      <span class="itin-item-label">{{ att.name }}</span>
+                      <span class="itin-item-label">{{ att | attName }}</span>
                       <span class="itin-item-meta">
                         @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                       </span>
@@ -145,7 +146,7 @@ export class TripItineraryComponent {
   attFor(cityId: string, attractionId: string) {
     const city = this.cityFor(cityId);
     if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? null;
+    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
   }
 
   modeIcon(mode: TransitMode): string {

@@ -4,6 +4,8 @@ import {
 } from '@angular/core';
 import { CityAttractionSuggestion } from '../../../core/models/ai.model';
 import { findCuratedAttraction } from '../../../data/attractions.data';
+import { attractionName } from '../../../core/utils/attraction-name.util';
+import { LocaleService } from '../../../core/i18n/locale.service';
 
 interface ResolvedSuggestion extends CityAttractionSuggestion {
   name: string;
@@ -75,6 +77,7 @@ export class CitySuggestCloudComponent implements OnInit {
 
   private readonly elementRef = inject(ElementRef<HTMLElement>);
   private readonly renderer   = inject(Renderer2);
+  private readonly locale      = inject(LocaleService);
 
   protected readonly selectedIds = signal<Set<string>>(new Set());
 
@@ -94,7 +97,7 @@ export class CitySuggestCloudComponent implements OnInit {
   readonly resolved = computed<ResolvedSuggestion[]>(() =>
     this.suggestions().map(s => {
       const att = findCuratedAttraction(this.cityId(), s.attractionId);
-      return { ...s, name: att?.name ?? s.attractionId, icon: att?.icon ?? '📍' };
+      return { ...s, name: att ? attractionName(att, this.locale.current()) : s.attractionId, icon: att?.icon ?? '📍' };
     }),
   );
 

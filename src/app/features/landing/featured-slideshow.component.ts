@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { FeaturedTrip } from '../../core/models/featured-trip.model';
 import { ApiService } from '../../core/api/api.service';
+import { LocaleService } from '../../core/i18n/locale.service';
+import { attractionName } from '../../core/utils/attraction-name.util';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions } from '../../data/attractions.data';
 import { CITY_COVER_PHOTOS } from './city-cover-photos.data';
@@ -77,6 +79,7 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
 
   private readonly api = inject(ApiService);
   private readonly router = inject(Router);
+  private readonly locale = inject(LocaleService);
   private timer?: ReturnType<typeof setInterval>;
   private readonly INTERVAL = 5000;
 
@@ -134,7 +137,8 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
   protected firstAttrName(trip: FeaturedTrip): string {
     const city   = WORLD_CITIES.find(c => c.id === trip.stops[0]?.cityId);
     const attrId = trip.stops[0]?.selectedAttractions[0]?.attractionId;
-    return (city ? getAttractions(city).find(a => a.id === attrId)?.name ?? '' : '').toUpperCase();
+    const att = city ? getAttractions(city).find(a => a.id === attrId) : undefined;
+    return (att ? attractionName(att, this.locale.current()) : '').toUpperCase();
   }
 
   private startTimer(): void {

@@ -6,6 +6,7 @@ import { ApiService } from '../../../core/api/api.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { getAttractions } from '../../../data/attractions.data';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
+import { AttractionNamePipe, AttractionNativePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
 import { formatEventLong } from '../../../core/utils/event-datetime.util';
@@ -26,7 +27,7 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
 
 @Component({
     selector: 'app-attraction-detail-modal',
-    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent, MapsPinIconComponent],
+    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe],
     styles: [`
     .detail-modal {
       background: #fff;
@@ -159,7 +160,7 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
         <!-- Hero image carousel -->
         <div class="detail-hero" [style.background-color]="attraction().bg">
           @if (images()[heroIdx()] && !imgError()) {
-            <img class="hero-img" [src]="images()[heroIdx()]" [alt]="attraction().name"
+            <img class="hero-img" [src]="images()[heroIdx()]" [alt]="attraction() | attName"
                  loading="lazy" (error)="imgError.set(true)" (click)="openLightbox()">
           } @else {
             <div class="hero-fallback-icon">{{ attraction().icon }}</div>
@@ -182,9 +183,9 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
           }
 
           <div class="hero-caption">
-            <div class="hero-name">{{ attraction().icon }} {{ attraction().name }}</div>
-            @if (attraction().nativeName && attraction().nativeName !== attraction().name) {
-              <div class="hero-name-native">({{ attraction().nativeName }})</div>
+            <div class="hero-name">{{ attraction().icon }} {{ attraction() | attName }}</div>
+            @if (attraction() | attNative; as native) {
+              <div class="hero-name-native">({{ native }})</div>
             }
             <div class="hero-meta">
               <span class="hero-type">{{ attraction().type }}</span>
@@ -323,7 +324,7 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
       <app-attraction-image-lightbox
         [images]="images()"
         [startIndex]="heroIdx()"
-        [altText]="attraction().name"
+        [altText]="attraction() | attName"
         (closed)="showLightbox.set(false)" />
     }
   `
@@ -372,7 +373,7 @@ export class AttractionDetailModalComponent {
 
   readonly todayHours = computed(() => formatTodayHours(this.attraction().schedule));
 
-  readonly mapsUrl = computed(() => attractionMapsUrl(this.attraction().name, this.cityId()));
+  readonly mapsUrl = computed(() => attractionMapsUrl(this.attraction().nativeName || this.attraction().name, this.cityId()));
 
   readonly eventDateTime = computed(() =>
     formatEventLong(this.attraction().date, this.attraction().time)

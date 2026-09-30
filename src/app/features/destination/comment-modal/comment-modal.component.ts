@@ -1,19 +1,21 @@
 import { Component, input, output, signal, inject, LOCALE_ID, ChangeDetectionStrategy } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Attraction, Comment } from '../../../core/models/comment.model';
+import { AttractionNamePipe } from '../../../shared/pipes/attraction-name.pipe';
 
 const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','#818CF8','#4ADE80'];
 
 @Component({
   selector: 'app-comment-modal',
   standalone: true,
+  imports: [AttractionNamePipe],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
       <div class="modal">
         <div class="modal-head">
           <div class="modal-title" i18n="@@commentModal.title">Dejar un comentario</div>
-          <div class="modal-sub">{{ attraction().icon }} {{ attraction().name }} · {{ cityName() }}</div>
+          <div class="modal-sub">{{ attraction().icon }} {{ attraction() | attName }} · {{ cityName() }}</div>
         </div>
         <div class="modal-body">
           <div class="form-group">

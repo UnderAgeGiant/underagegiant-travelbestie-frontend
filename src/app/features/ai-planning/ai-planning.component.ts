@@ -1,3 +1,4 @@
+import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
@@ -10,7 +11,7 @@ import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOption
 import { Trip, TransitLeg, TransitSegment, TransitMode } from '../../core/models/trip.model';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -54,7 +55,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
+    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -442,7 +443,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                             @let attDate = planned.date || stop.checkIn;
                             <div class="itin-item">
                               <span class="itin-item-icon">{{ att.icon }}</span>
-                              <span class="itin-item-label">{{ att.name }}</span>
+                              <span class="itin-item-label">{{ att | attName }}</span>
                               <span class="itin-item-meta">
                                 @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ att.estimatedMinutes | duration }}
                               </span>
@@ -1167,7 +1168,7 @@ export class AiPlanningComponent implements OnDestroy {
   attFor(cityId: string, attractionId: string) {
     const city = this.cityFor(cityId);
     if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? null;
+    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
   }
 
   shortDate(s: string): string {

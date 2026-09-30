@@ -1,13 +1,14 @@
 import { Component, input, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction } from '../../core/models/comment.model';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
+import { AttractionNamePipe, AttractionNativePipe } from '../../shared/pipes/attraction-name.pipe';
 import { formatTodayHours } from '../../core/utils/attraction-hours.util';
 import { localizedDescription } from '../../core/utils/attraction-description.util';
 import { LocaleService } from '../../core/i18n/locale.service';
 
 @Component({
     selector: 'app-attraction-preview-popover',
-    imports: [DurationPipe],
+    imports: [DurationPipe, AttractionNamePipe, AttractionNativePipe],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="att-preview-card"
@@ -19,7 +20,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
         <div class="att-preview-img-wrap">
           <img class="att-preview-img"
                [src]="attraction().imageUrl"
-               [alt]="attraction().name"
+               [alt]="attraction() | attName"
                loading="lazy" />
         </div>
       } @else {
@@ -34,9 +35,9 @@ import { LocaleService } from '../../core/i18n/locale.service';
               [style.background]="attraction().bg">
           {{ attraction().type }}
         </span>
-        <div class="att-preview-name">{{ attraction().icon }} {{ attraction().name }}</div>
-        @if (attraction().nativeName && attraction().nativeName !== attraction().name) {
-          <div class="att-preview-native">({{ attraction().nativeName }})</div>
+        <div class="att-preview-name">{{ attraction().icon }} {{ attraction() | attName }}</div>
+        @if (attraction() | attNative; as native) {
+          <div class="att-preview-native">({{ native }})</div>
         }
         <div class="att-preview-meta">
           <span class="att-preview-stars">{{ stars() }}</span>
