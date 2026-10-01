@@ -15,7 +15,6 @@ import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { TripItineraryComponent } from '../profile/trip-itinerary.component';
-import { ProfileComponent } from '../profile/profile.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
@@ -26,17 +25,12 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent, RouterLink, ProfileComponent, NavShellComponent, DatePipe, TripMapComponent],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink, NavShellComponent, DatePipe, TripMapComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
 
-      <app-nav [activeView]="'mytrips'" (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
-
-      @if (showProfile()) {
-        <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false); openAiPlanning.emit()" />
-      }
+      <app-nav [activeView]="'mytrips'" (logoClick)="close.emit()" />
 
       <!-- Header bar -->
       <div class="prof-bar">
@@ -442,8 +436,6 @@ export class MyTripsComponent implements AfterViewInit {
   /** A completed "Planes IA Pendientes" card was clicked — parent opens AiPlanningComponent straight onto Step 3 with this plan + its slideshow auto-playing. */
   viewAiPlan     = output<AiPlanViewPayload>();
 
-  showProfile = signal(false);
-
   @ViewChild('profileTabsEl') private profileTabsEl?: ElementRef<HTMLElement>;
 
   // ── Favorites tab ──
@@ -461,22 +453,14 @@ export class MyTripsComponent implements AfterViewInit {
 
   constructor() {
     this.savedPlans.loadPendingInvites();
-    // Reactive (not one-shot): handles both "arrived here fresh via a
-    // notification or the nav's Mis viajes button" (pendingMyTripsTab was
-    // already set before this component was created) and "already on My
-    // Trips with its own nested <app-profile> open, user clicks Mis viajes
-    // again" (pendingMyTripsTab gets set while this instance is still alive —
-    // closing the nested profile is what that second case needs, since
-    // ShellComponent's own pendingMyTripsTab effect only reaches its own
-    // showProfile/showAiPlanning, not this component's local one).
+    // Reactive, not one-shot: handles arriving fresh at /my-trips and re-clicking "Mis viajes" while already here.
     effect(() => {
       const pendingTab = this.facade.pendingMyTripsTab();
       if (!pendingTab) return;
-      this.showProfile.set(false);
       this.favTab.set(pendingTab);
       this.facade.pendingMyTripsTab.set(null);
       if (pendingTab === 'aiplans') this.loadAiPlanHistory();
-    }, { allowSignalWrites: true });
+    });
 
     // The "Invitaciones pendientes" tab is the one tab whose presence isn't
     // known up front — it only renders once there's a pending invite. Adding/
@@ -486,7 +470,7 @@ export class MyTripsComponent implements AfterViewInit {
     effect(() => {
       this.savedPlans.pendingInvites().length;
       this.updateCanScrollProfileTabs();
-    }, { allowSignalWrites: true });
+    });
   }
 
   ngAfterViewInit(): void {

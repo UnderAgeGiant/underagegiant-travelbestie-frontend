@@ -1023,6 +1023,10 @@
         <source>Inicia sesión para continuar</source>
         <target>Sign in to continue</target>
       </trans-unit>
+      <trans-unit id="aiplan.restoringSession" datatype="html">
+        <source>Cargando…</source>
+        <target>Loading…</target>
+      </trans-unit>
       <trans-unit id="aiplan.backBtn" datatype="html">
         <source>← Volver</source>
         <target>← Back</target>

@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync, statSync } from 'fs';
+import { join } from 'path';
 import { routes } from './app.routes';
 import { authGuard } from './core/auth/auth.guard';
 import { landingGuard } from './features/shell/landing.guard';
@@ -48,5 +50,21 @@ describe('app routes', () => {
     expect(routes.find(r => r.path === 'my-trips')?.canActivate).toEqual([authGuard]);
     expect(routes.find(r => r.path === 'plan')?.canActivate).toBeUndefined();
     expect(routes.find(r => r.path === 'ai-planning')?.canActivate).toBeUndefined();
+  });
+});
+
+describe('Feature 68 — profile is a route, not an overlay', () => {
+  function componentFiles(dir: string): string[] {
+    return readdirSync(dir).flatMap(f => {
+      const p = join(dir, f);
+      return statSync(p).isDirectory() ? componentFiles(p) : p.endsWith('.component.ts') ? [p] : [];
+    });
+  }
+
+  it('only ProfilePageComponent renders <app-profile>', () => {
+    const offenders = componentFiles(join(__dirname, 'features'))
+      .filter(f => !f.endsWith('profile-page.component.ts'))
+      .filter(f => readFileSync(f, 'utf8').includes('<app-profile'));
+    expect(offenders).toEqual([]);
   });
 });

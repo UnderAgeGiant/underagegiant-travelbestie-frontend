@@ -1,19 +1,14 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-terms',
-  imports: [NavShellComponent, ProfileComponent, RouterLink],
+  imports: [NavShellComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="legal-page">
-      <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
-
-      @if (showProfile()) {
-        <app-profile (close)="showProfile.set(false)" />
-      }
+      <app-nav (logoClick)="goHome()" />
 
       <div class="legal-content">
         <div class="legal-eyebrow" i18n="@@terms.eyebrow">Legal</div>
@@ -91,7 +86,6 @@ import { ProfileComponent } from '../profile/profile.component';
 })
 export class TermsComponent {
   private readonly router = inject(Router);
-  readonly showProfile = signal(false);
 
   goHome(): void {
     this.router.navigate(['/']);

@@ -1,20 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
 import { AboutContentComponent } from './about-content.component';
 
 @Component({
   selector: 'app-about',
-  imports: [NavShellComponent, ProfileComponent, AboutContentComponent],
+  imports: [NavShellComponent, AboutContentComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="about-page">
-      <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
-
-      @if (showProfile()) {
-        <app-profile (close)="showProfile.set(false)" />
-      }
+      <app-nav (logoClick)="goHome()" />
 
       <app-about-content (startPlanning)="goHome()" />
     </div>
@@ -22,8 +17,6 @@ import { AboutContentComponent } from './about-content.component';
 })
 export class AboutComponent {
   private readonly router = inject(Router);
-
-  readonly showProfile = signal(false);
 
   goHome(): void {
     this.router.navigate(['/']);

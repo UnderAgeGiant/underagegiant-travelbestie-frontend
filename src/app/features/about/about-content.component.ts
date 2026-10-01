@@ -22,7 +22,7 @@ const CONNECTORS: AboutConnector[] = [
 
 /**
  * The actual About Us content (hero + team "flight path" journey + closing CTA) — no
- * <app-nav>/<app-profile> wrapper, so it can be reused both as the routed /about page's
+ * nav or profile overlay wrapper, so it can be reused both as the routed /about page's
  * body (AboutComponent) and as a landing-page section (ShellComponent, feedback #4).
  */
 @Component({
