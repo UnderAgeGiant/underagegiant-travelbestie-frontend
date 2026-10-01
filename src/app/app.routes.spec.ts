@@ -1,4 +1,8 @@
+import { readdirSync, readFileSync, statSync } from 'fs';
+import { join } from 'path';
 import { routes } from './app.routes';
+import { authGuard } from './core/auth/auth.guard';
+import { landingGuard } from './features/shell/landing.guard';
 
 describe('app routes', () => {
   it('has a root route, an /about route, and a /shared/:id route', () => {
@@ -23,5 +27,44 @@ describe('app routes', () => {
     expect(wildcard?.redirectTo).toBeUndefined();
     expect(typeof wildcard?.loadComponent).toBe('function');
     expect(typeof wildcard?.data?.['seo']).toBe('function');
+  });
+
+  it.each(['plan', 'profile', 'my-trips', 'ai-planning'])('has a lazy, noindex /%s route (English path)', path => {
+    const route = routes.find(r => r.path === path);
+    expect(typeof route?.loadComponent).toBe('function');
+    expect(route?.data?.['seo']().noindex).toBe(true);
+  });
+
+  it('marks /plan as the editor', () => {
+    expect(routes.find(r => r.path === 'plan')?.data?.['mode']).toBe('editor');
+  });
+
+  it('the landing route carries mode=landing and the first-navigation landingGuard', () => {
+    const root = routes.find(r => r.path === '');
+    expect(root?.data?.['mode']).toBe('landing');
+    expect(root?.canActivate).toEqual([landingGuard]);
+  });
+
+  it('guards /profile and /my-trips; /plan and /ai-planning stay open to anonymous visitors', () => {
+    expect(routes.find(r => r.path === 'profile')?.canActivate).toEqual([authGuard]);
+    expect(routes.find(r => r.path === 'my-trips')?.canActivate).toEqual([authGuard]);
+    expect(routes.find(r => r.path === 'plan')?.canActivate).toBeUndefined();
+    expect(routes.find(r => r.path === 'ai-planning')?.canActivate).toBeUndefined();
+  });
+});
+
+describe('Feature 68 — profile is a route, not an overlay', () => {
+  function componentFiles(dir: string): string[] {
+    return readdirSync(dir).flatMap(f => {
+      const p = join(dir, f);
+      return statSync(p).isDirectory() ? componentFiles(p) : p.endsWith('.component.ts') ? [p] : [];
+    });
+  }
+
+  it('only ProfilePageComponent renders <app-profile>', () => {
+    const offenders = componentFiles(join(__dirname, 'features'))
+      .filter(f => !f.endsWith('profile-page.component.ts'))
+      .filter(f => readFileSync(f, 'utf8').includes('<app-profile'));
+    expect(offenders).toEqual([]);
   });
 });

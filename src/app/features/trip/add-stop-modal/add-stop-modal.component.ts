@@ -1,4 +1,5 @@
 import { Component, output, signal, inject, computed, effect, input, untracked, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 import { CityComboboxComponent } from '../../../shared/city-combobox/city-combobox.component';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TripService } from '../trip.service';
@@ -55,6 +56,7 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 })
 export class AddStopModalComponent {
   readonly trip = inject(TripService);
+  private readonly router = inject(Router);
   close = output<void>();
 
   /** City id to pre-select on open — e.g. from a city guide page's "Planificar mi viaje" CTA (`?addCity=`). */
@@ -129,5 +131,6 @@ export class AddStopModalComponent {
     if (!city) return;
     this.trip.addStop(city, this.checkIn(), this.checkOut());
     this.close.emit();
+    void this.router.navigateByUrl('/plan');   // no-op when already in the editor (Feature 68)
   }
 }

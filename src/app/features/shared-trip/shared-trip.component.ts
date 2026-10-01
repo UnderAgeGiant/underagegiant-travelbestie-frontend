@@ -23,7 +23,7 @@ import { StepCommentsComponent } from './step-comments.component';
 import { CommentSimilarModalComponent } from '../comments/comment-similar-modal.component';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
+import { NavFacadeService } from '../nav/nav-facade.service';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
@@ -44,7 +44,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, ProfileComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
+    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -68,11 +68,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
     <div class="shared-bg"></div>
     <div class="shared-bg-frost"></div>
 
-    <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
-
-    @if (showProfile()) {
-      <app-profile (close)="showProfile.set(false)" />
-    }
+    <app-nav (logoClick)="goHome()" />
 
     @if (showSimilarModal()) {
       <app-comment-similar-modal (dismiss)="showSimilarModal.set(false)" />
@@ -241,7 +237,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                     <app-city-info-badge [city]="city"
                         [homeIso2]="auth.currentUser()?.countryOfResidence ?? null"
                         [isLoggedIn]="auth.isLoggedIn()"
-                        (ctaClick)="showProfile.set(true)" />
+                        (ctaClick)="facade.openProfile()" />
                   </div>
                 </div>
 
@@ -498,8 +494,8 @@ export class SharedTripComponent {
   private readonly cooldown    = inject(CommentCooldownService);
   private readonly locale      = inject(LocaleService);
   private readonly seo         = inject(SeoService);
+  protected readonly facade    = inject(NavFacadeService);
 
-  showProfile        = signal(false);
   showSimilarModal   = signal(false);
   favoriteCount      = signal(0);
   favoritePending    = signal(false);
@@ -712,7 +708,7 @@ export class SharedTripComponent {
       transits: cloned.transits ?? [],
     });
     this.tripService.restoreStops(cloned.stops, cloned.id!, cloned.transits ?? []);
-    this.router.navigate(['/']);
+    void this.router.navigateByUrl('/plan');
   }
 
   selectShareStop(stop: TripStop): void {

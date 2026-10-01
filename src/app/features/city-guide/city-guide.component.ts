@@ -3,7 +3,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { ApiService } from '../../core/api/api.service';
 import { SeoService } from '../../core/seo/seo.service';
@@ -23,12 +22,11 @@ import { photoCreditUrl } from './photo-credit.util';
 
 @Component({
   selector: 'app-city-guide',
-  imports: [NavShellComponent, ProfileComponent, RouterLink, FlagIconComponent],
+  imports: [NavShellComponent, RouterLink, FlagIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cg-page">
-      <app-nav (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
-      @if (showProfile()) { <app-profile (close)="showProfile.set(false)" /> }
+      <app-nav (logoClick)="goHome()" />
 
       @if (model(); as m) {
         <main class="cg-main">
@@ -200,7 +198,6 @@ export class CityGuideComponent {
   private readonly visa = inject(VisaRequirementService);
   private readonly travelInfo = inject(TravelInfoService);
 
-  readonly showProfile = signal(false);
   readonly plans = signal<SeoCityPlan[]>([]);
 
   private readonly slug = toSignal(this.route.paramMap.pipe(map(p => p.get('slug') ?? '')), { initialValue: '' });

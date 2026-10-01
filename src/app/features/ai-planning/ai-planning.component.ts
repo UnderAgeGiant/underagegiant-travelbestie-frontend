@@ -16,7 +16,6 @@ import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
 import { DatePickerComponent } from '../../shared/date-picker/date-picker.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
@@ -57,7 +56,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, ProfileComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
+    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -65,16 +64,14 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
       <div class="shared-bg"></div>
       <div class="shared-bg-frost"></div>
 
-      <app-nav (logoClick)="close.emit()" (profileClick)="showProfile.set(true)" />
-
-      @if (showProfile()) {
-        <app-profile (close)="showProfile.set(false)"
-                     (openAiPlanning)="showProfile.set(false)" />
-      }
+      <app-nav (logoClick)="close.emit()" />
 
       <div class="shared-body">
 
-        @if (!auth.isLoggedIn()) {
+        @if (!auth.isLoggedIn() && auth.sessionMayExist()) {
+          <!-- Refresh / deep link: the access token is still being restored from the refresh cookie (Feature 68). -->
+          <div class="ai-plan-gate ai-plan-restoring" i18n="@@aiplan.restoringSession">Cargando…</div>
+        } @else if (!auth.isLoggedIn()) {
           <!-- Auth gate -->
           <div class="ai-plan-gate">
             <div style="font-size:48px;margin-bottom:12px">🔒</div>
@@ -607,7 +604,6 @@ export class AiPlanningComponent implements OnDestroy {
   private readonly karmaModal = inject(KarmaModalService);
   private readonly locale     = inject(LocaleService);
 
-  showProfile     = signal(false);
   step            = signal<Step>('preferences');
   loading         = signal(false);
   loadingMessage  = signal('');

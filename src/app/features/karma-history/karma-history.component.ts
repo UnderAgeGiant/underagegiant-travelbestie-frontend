@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, OnInit, inject, signal } from '@ang
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { ApiService } from '../../core/api/api.service';
@@ -17,15 +16,11 @@ const PAGE_SIZE = 20;
 
 @Component({
   selector: 'app-karma-history',
-  imports: [NavShellComponent, ProfileComponent, DatePipe, ToastComponent],
+  imports: [NavShellComponent, DatePipe, ToastComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="profile-page">
-      <app-nav [activeView]="'karmahistory'" (logoClick)="goHome()" (profileClick)="showProfile.set(true)" />
-
-      @if (showProfile()) {
-        <app-profile (close)="showProfile.set(false)" />
-      }
+      <app-nav [activeView]="'karmahistory'" (logoClick)="goHome()" />
 
       <div class="prof-bar">
         <div class="prof-bar-title" i18n="@@karmaHistory.title">Historial de token</div>
@@ -98,7 +93,6 @@ export class KarmaHistoryComponent implements OnInit {
   private readonly autoSave   = inject(AutoSaveService);
   private readonly facade     = inject(NavFacadeService);
 
-  readonly showProfile = signal(false);
   readonly events      = signal<KarmaEvent[]>([]);
   readonly nextCursor  = signal<string | null>(null);
   readonly loading     = signal(false);
@@ -182,7 +176,7 @@ export class KarmaHistoryComponent implements OnInit {
     if (stops.length > 0) this.trip.setActive(stops[0].stopId);
     this.autoSave.commitSnapshot(id);
     if (owner && !this.autoSave.enabled()) this.autoSave.showReminderNow();
-    this.router.navigate(['/']);
+    this.facade.openEditor();
   }
 
   goToAiPlan(): void {

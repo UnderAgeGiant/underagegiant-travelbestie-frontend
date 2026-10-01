@@ -638,6 +638,36 @@ describe('visibleHighlights() — AI highlight pills', () => {
   });
 });
 
+describe('AiPlanningComponent — session restoring state (Feature 68)', () => {
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+  });
+
+  it('shows a neutral loading state, not the login gate, while a session is being restored (refresh on /ai-planning)', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(false);
+    jest.spyOn(auth, 'sessionMayExist').mockReturnValue(true);
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.ai-plan-restoring')).toBeTruthy();
+    expect(fixture.nativeElement.textContent).not.toContain('Inicia sesión para continuar');
+  });
+
+  it('still shows the login gate for a visitor with no session', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(false);
+    jest.spyOn(auth, 'sessionMayExist').mockReturnValue(false);
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.textContent).toContain('Inicia sesión para continuar');
+  });
+});
+
 describe('AiPlanningComponent — input length limits (mirror backend zod caps)', () => {
   let auth: AuthService;
 

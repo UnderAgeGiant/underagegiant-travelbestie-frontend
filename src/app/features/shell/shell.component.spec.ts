@@ -1,15 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
-import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/router';
+import { ActivatedRoute, convertToParamMap, provideRouter, Router } from '@angular/router';
 import { ShellComponent } from './shell.component';
 import { TripService } from '../trip/trip.service';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
+import { By } from '@angular/platform-browser';
 
 describe('ShellComponent', () => {
   beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
 
-  function setup(stopsLen: number) {
+  function setup(stopsLen: number, mode: 'landing' | 'editor' = stopsLen > 0 ? 'editor' : 'landing', beforeCreate?: () => void) {
     (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
       matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {},
     }));
@@ -20,8 +21,14 @@ describe('ShellComponent', () => {
     };
     TestBed.configureTestingModule({
       imports: [ShellComponent],
-      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideRouter([]),
+        { provide: ActivatedRoute, useValue: { snapshot: { data: { mode }, queryParamMap: convertToParamMap({}), fragment: null } } },
+      ],
     });
+    beforeCreate?.();
     const fixture = TestBed.createComponent(ShellComponent);
     if (stopsLen > 0) {
       const trip = TestBed.inject(TripService);
@@ -70,6 +77,29 @@ describe('ShellComponent', () => {
     expect(el.querySelector('.landing-scroll')).toBeFalsy();
   });
 
+  it('renders the landing at / even when a trip is in progress (browser Back from /plan)', () => {
+    const fixture = setup(2, 'landing');
+    expect(fixture.nativeElement.querySelector('.landing-scroll')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.layout')).toBeNull();
+  });
+
+  it('leaves /plan for / (replaceUrl) when the editor has no stops', () => {
+    const fixture = setup(0, 'editor', () => {
+      jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    });
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    TestBed.inject(TripService).restoreStops([], null, []);
+    fixture.detectChanges();
+    expect(nav).toHaveBeenCalledWith('/', { replaceUrl: true });
+  });
+
+  it('a stop click on the landing opens the editor', () => {
+    const fixture = setup(1, 'landing');
+    const openEditor = jest.spyOn((fixture.componentInstance as any).facade, 'openEditor').mockImplementation(() => {});
+    fixture.debugElement.query(By.css('app-stop-list')).triggerEventHandler('stopSelected');
+    expect(openEditor).toHaveBeenCalled();
+  });
+
   // Regression test — see docs/superpowers/plans/2026-08-16-highlights-module.md
   // ("Post-Implementation Changes" §6 follow-up). HighlightTourService.start() is called
   // directly from inside this component's own effect() (the landing_welcome trigger). Its
@@ -98,29 +128,6 @@ describe('ShellComponent', () => {
     expect(tour.activeType()).toBeNull();
   });
 
-  // "Planes IA Pendientes" card click (MyTripsComponent's viewAiPlan output) → straight
-  // to AiPlanningComponent's Step 3 with the slideshow running.
-  it('openAiPlanResult stores the result and opens AI planning', () => {
-    const fixture = setup(0);
-    const component = fixture.componentInstance;
-    const result = { title: 'Plan histórico', stops: [], transits: [] };
-
-    component.openAiPlanResult(result);
-
-    expect(component.pendingAiPlanResult()).toEqual(result);
-    expect(component.showAiPlanning()).toBe(true);
-  });
-
-  it('closeAiPlanning clears pendingAiPlanResult so the next fresh open starts at Step 1', () => {
-    const fixture = setup(0);
-    const component = fixture.componentInstance;
-    component.openAiPlanResult({ title: 'Plan histórico', stops: [], transits: [] });
-
-    component.closeAiPlanning();
-
-    expect(component.showAiPlanning()).toBe(false);
-    expect(component.pendingAiPlanResult()).toBeNull();
-  });
 
   // AiPlanningComponent's post-"Notificarme" hand-off ("Ok" button) → scroll the
   // landing page's S2 featured-plans section into view.
@@ -171,32 +178,6 @@ describe('ShellComponent', () => {
     expect(component.showAddModal()).toBe(false);
   });
 
-  it('closes showProfile/showAiPlanning and opens showMyTrips when pendingMyTripsTab is set', () => {
-    const fixture = setup(0);
-    const component = fixture.componentInstance;
-    component.showAiPlanning.set(true);
-    fixture.detectChanges();
-
-    (component as any).facade.pendingMyTripsTab.set('trips');
-    fixture.detectChanges();
-
-    expect(component.showAiPlanning()).toBe(false);
-    expect(component.showMyTrips()).toBe(true);
-  });
-
-  it('closes showProfile/showMyTrips/showAiPlanning when the facade requests the overlays close (e.g. loading a saved plan from the nav dropdown while a page overlay is open)', () => {
-    const fixture = setup(0);
-    const component = fixture.componentInstance;
-    component.showProfile.set(true);
-    fixture.detectChanges();
-
-    (component as any).facade.closeOverlaysRequestId.update((v: number) => v + 1);
-    fixture.detectChanges();
-
-    expect(component.showProfile()).toBe(false);
-    expect(component.showMyTrips()).toBe(false);
-    expect(component.showAiPlanning()).toBe(false);
-  });
 
   // Feedback F1 (2026-09-20 user feedback, "after-infinite-feed") — the full About Us
   // section now renders BEFORE the footer, not after, so scrolling the homepage reaches
@@ -210,6 +191,23 @@ describe('ShellComponent', () => {
     expect(el.querySelector('.landing-about-full + tb-app-footer, .landing-about-full ~ tb-app-footer')).not.toBeNull();
     expect(el.querySelector('.landing-about-full app-about-content')).not.toBeNull();
   });
+
+  it('scrolls to the S2 featured section when opened at /#featured (AI "Notificarme" hand-off)', async () => {
+    (window as any).matchMedia = (window as any).matchMedia ?? (() => ({ matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {} }));
+    (global as any).IntersectionObserver = (global as any).IntersectionObserver ?? class { observe() {} unobserve() {} disconnect() {} };
+    TestBed.configureTestingModule({
+      imports: [ShellComponent],
+      providers: [
+        provideHttpClient(), provideHttpClientTesting(), provideRouter([]),
+        { provide: ActivatedRoute, useValue: { snapshot: { data: {}, queryParamMap: convertToParamMap({}), fragment: 'featured' } } },
+      ],
+    });
+    const fixture = TestBed.createComponent(ShellComponent);
+    const spy = jest.spyOn(fixture.componentInstance, 'scrollToFeatured');
+    fixture.detectChanges();
+    await new Promise(resolve => setTimeout(resolve, 0));  // allow afterNextRender to run
+    expect(spy).toHaveBeenCalled();
+  }, 10000);
 
   // Task 10 — "Planificar mi viaje a <ciudad>" from a city guide page navigates here with ?addCity=<cityId>.
   describe('?addCity= planner pre-fill (from a city guide page)', () => {

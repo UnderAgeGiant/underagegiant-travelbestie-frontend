@@ -1023,6 +1023,10 @@
         <source>Inicia sesión para continuar</source>
         <target>Sign in to continue</target>
       </trans-unit>
+      <trans-unit id="aiplan.restoringSession" datatype="html">
+        <source>Cargando…</source>
+        <target>Loading…</target>
+      </trans-unit>
       <trans-unit id="aiplan.backBtn" datatype="html">
         <source>← Volver</source>
         <target>← Back</target>
@@ -2769,6 +2773,22 @@
       <trans-unit id="seo.karmaHistory.title" datatype="html">
         <source>Historial de token | Tripilove</source>
         <target>Token history | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.plan.title" datatype="html">
+        <source>Mi plan de viaje | Tripilove</source>
+        <target>My trip plan | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.profile.title" datatype="html">
+        <source>Mi perfil | Tripilove</source>
+        <target>My profile | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.myTrips.title" datatype="html">
+        <source>Mis viajes | Tripilove</source>
+        <target>My trips | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.aiPlanning.title" datatype="html">
+        <source>Planificar con IA | Tripilove</source>
+        <target>Plan with AI | Tripilove</target>
       </trans-unit>
       <trans-unit id="seo.notFound.title" datatype="html">
         <source>Página no encontrada | Tripilove</source>

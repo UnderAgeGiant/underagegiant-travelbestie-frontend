@@ -122,10 +122,10 @@ describe('KarmaHistoryComponent', () => {
     expect(fixture.nativeElement.querySelector('.karma-history-load-more')).toBeNull();
   });
 
-  it('goToTrip loads the found plan into TripService and navigates home', () => {
+  it('goToTrip loads the found plan into TripService and calls openEditor', () => {
     const restoreStops = jest.fn();
     const setActive = jest.fn();
-    const navigate = jest.fn();
+    const openEditor = jest.fn();
     const isMobileSignal = signal(false);
     const mockApiService = {
       getKarmaEvents: jest.fn().mockReturnValue(of({
@@ -144,12 +144,11 @@ describe('KarmaHistoryComponent', () => {
     TestBed.configureTestingModule({
       imports: [KarmaHistoryComponent],
       providers: [
-        provideHttpClient(), provideHttpClientTesting(),
-        { provide: Router, useValue: { navigate, navigateByUrl: jest.fn(), url: '/' } },
+        provideHttpClient(), provideHttpClientTesting(), provideRouter([]),
         { provide: AuthService, useValue: { currentUser: signal({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null }) } },
         { provide: SavedPlansService, useValue: { plans: signal([{ id: 'trip-1', name: 'Paris', stops: [{ stopId: 's1' }], transits: [], isCollaborator: false }]) } },
         { provide: TripService, useValue: { restoreStops, setActive } },
-        { provide: NavFacadeService, useValue: { openMyTrips: jest.fn(), buyKarmaOpen: () => false, karmaModal: { mpConfirm: () => null, closeBuy: jest.fn(), insufficientOpen: () => false }, karmaSuccessOpen: () => false, dismissKarmaSuccess: jest.fn(), karma: { karma: () => 100 }, authModal: { openLogin: jest.fn() } } },
+        { provide: NavFacadeService, useValue: { openEditor, openMyTrips: jest.fn(), buyKarmaOpen: () => false, karmaModal: { mpConfirm: () => null, closeBuy: jest.fn(), insufficientOpen: () => false }, karmaSuccessOpen: () => false, dismissKarmaSuccess: jest.fn(), karma: { karma: () => 100 }, authModal: { openLogin: jest.fn() } } },
         { provide: AutoSaveService, useValue: mockAutoSave() },
         { provide: DeviceService, useValue: { isMobile: isMobileSignal, isDesktop: computed(() => !isMobileSignal()) } },
         { provide: ApiService, useValue: mockApiService },
@@ -166,13 +165,13 @@ describe('KarmaHistoryComponent', () => {
 
     expect(restoreStops).toHaveBeenCalledWith([{ stopId: 's1' }], 'trip-1', [], null);
     expect(setActive).toHaveBeenCalledWith('s1');
-    expect(navigate).toHaveBeenCalledWith(['/']);
+    expect(openEditor).toHaveBeenCalled();
     // getTrips fallback must not be consulted when the plan is already found locally.
     expect(mockApiService.getTrips).not.toHaveBeenCalled();
   });
 
   function setupGoToTripFallback(getTripsImpl: () => Observable<unknown>, extra: { restoreStops?: jest.Mock; setActive?: jest.Mock } = {}) {
-    const navigate = jest.fn();
+    const openEditor = jest.fn();
     const isMobileSignal = signal(false);
     const restoreStops = extra.restoreStops ?? jest.fn();
     const setActive = extra.setActive ?? jest.fn();
@@ -193,12 +192,11 @@ describe('KarmaHistoryComponent', () => {
     TestBed.configureTestingModule({
       imports: [KarmaHistoryComponent],
       providers: [
-        provideHttpClient(), provideHttpClientTesting(),
-        { provide: Router, useValue: { navigate, navigateByUrl: jest.fn(), url: '/' } },
+        provideHttpClient(), provideHttpClientTesting(), provideRouter([]),
         { provide: AuthService, useValue: { currentUser: signal({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null }), isLoggedIn: jest.fn().mockReturnValue(true) } },
         { provide: SavedPlansService, useValue: { plans: signal([]) } },
         { provide: TripService, useValue: { restoreStops, setActive } },
-        { provide: NavFacadeService, useValue: { openMyTrips: jest.fn(), buyKarmaOpen: () => false, karmaModal: { mpConfirm: () => null, closeBuy: jest.fn(), insufficientOpen: () => false }, karmaSuccessOpen: () => false, dismissKarmaSuccess: jest.fn(), karma: { karma: () => 100 }, authModal: { openLogin: jest.fn() } } },
+        { provide: NavFacadeService, useValue: { openEditor, openMyTrips: jest.fn(), buyKarmaOpen: () => false, karmaModal: { mpConfirm: () => null, closeBuy: jest.fn(), insufficientOpen: () => false }, karmaSuccessOpen: () => false, dismissKarmaSuccess: jest.fn(), karma: { karma: () => 100 }, authModal: { openLogin: jest.fn() } } },
         { provide: AutoSaveService, useValue: mockAutoSave() },
         { provide: DeviceService, useValue: { isMobile: isMobileSignal, isDesktop: computed(() => !isMobileSignal()) } },
         { provide: ApiService, useValue: mockApiService },
@@ -209,24 +207,24 @@ describe('KarmaHistoryComponent', () => {
     });
     const fixture = TestBed.createComponent(KarmaHistoryComponent);
     fixture.detectChanges();
-    return { fixture, navigate, restoreStops, setActive, mockApiService };
+    return { fixture, openEditor, restoreStops, setActive, mockApiService };
   }
 
   it('goToTrip falls back to a fresh ApiService.getTrips() lookup, and shows a toast when not found there either', () => {
-    const { fixture, navigate, mockApiService } = setupGoToTripFallback(() => of([]));
+    const { fixture, openEditor, mockApiService } = setupGoToTripFallback(() => of([]));
 
     const btn: HTMLElement = fixture.nativeElement.querySelector('.karma-history-action');
     btn.click();
     fixture.detectChanges();
 
     expect(mockApiService.getTrips).toHaveBeenCalledTimes(1);
-    expect(navigate).not.toHaveBeenCalled();
+    expect(openEditor).not.toHaveBeenCalled();
     expect(fixture.nativeElement.textContent).toContain('No se pudo abrir el viaje');
   });
 
-  it('goToTrip finds the trip via the ApiService.getTrips() fallback and navigates home', () => {
+  it('goToTrip finds the trip via the ApiService.getTrips() fallback and calls openEditor', () => {
     const trip = { id: 'trip-missing', title: 'Rome', stops: [{ stopId: 's9' }], transits: [], isCollaborator: false };
-    const { fixture, navigate, restoreStops, setActive } = setupGoToTripFallback(() => of([trip]));
+    const { fixture, openEditor, restoreStops, setActive } = setupGoToTripFallback(() => of([trip]));
 
     const btn: HTMLElement = fixture.nativeElement.querySelector('.karma-history-action');
     btn.click();
@@ -234,16 +232,16 @@ describe('KarmaHistoryComponent', () => {
 
     expect(restoreStops).toHaveBeenCalledWith([{ stopId: 's9' }], 'trip-missing', [], null);
     expect(setActive).toHaveBeenCalledWith('s9');
-    expect(navigate).toHaveBeenCalledWith(['/']);
+    expect(openEditor).toHaveBeenCalled();
   });
 
   it('goToTrip shows a toast when the ApiService.getTrips() fallback itself errors', () => {
-    const { fixture, navigate } = setupGoToTripFallback(() => throwError(() => new Error('network')));
+    const { fixture, openEditor } = setupGoToTripFallback(() => throwError(() => new Error('network')));
     const btn: HTMLElement = fixture.nativeElement.querySelector('.karma-history-action');
     btn.click();
     fixture.detectChanges();
 
-    expect(navigate).not.toHaveBeenCalled();
+    expect(openEditor).not.toHaveBeenCalled();
     expect(fixture.nativeElement.textContent).toContain('No se pudo abrir el viaje');
   });
 

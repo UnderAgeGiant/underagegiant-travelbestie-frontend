@@ -213,19 +213,6 @@ describe('MyTripsComponent — Planes IA Pendientes tab', () => {
     expect(fixture.componentInstance.favTab()).toBe('aiplans');
   });
 
-  it('closes its own nested profile overlay when pendingMyTripsTab is set while already mounted', () => {
-    const fixture = TestBed.createComponent(MyTripsComponent);
-    fixture.detectChanges();
-    fixture.componentInstance.showProfile.set(true);
-    fixture.detectChanges();
-    expect(fixture.componentInstance.showProfile()).toBe(true);
-
-    (fixture.componentInstance as any).facade.pendingMyTripsTab.set('trips');
-    fixture.detectChanges();
-
-    expect(fixture.componentInstance.showProfile()).toBe(false);
-  });
-
   it('emits viewAiPlan with the result when a completed card is opened', () => {
     const completed = {
       requestId: 'req-1', status: 'completed' as const,
