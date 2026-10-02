@@ -38,7 +38,6 @@ const MOCK_TROPHIES: TrophiesResponse = {
   progress: { ai_plans: 12, publish_plan: 1, comments: 7 },
 };
 
-
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly http = inject(HttpClient);
@@ -506,7 +505,10 @@ export class ApiService {
     return this.http.post<void>(`${this.base}/notifications/read`, {});
   }
 
-  setNotificationsMuted(muted: boolean): Observable<{ muted: boolean }
+  setNotificationsMuted(muted: boolean): Observable<{ muted: boolean }> {
+    if (this.useMocks) return of({ muted });
+    return this.http.put<{ muted: boolean }>(`${this.base}/notifications/mute`, { muted });
+  }
 
   // ── Trophies (Feature 69) ────────────────────────────────────
   getTrophies(): Observable<TrophiesResponse> {
@@ -517,9 +519,6 @@ export class ApiService {
   reportShare(shareId: string): Observable<void> {
     if (this.useMocks) return of(undefined);
     return this.http.post<void>(`${this.base}/trophies/share/${encodeURIComponent(shareId)}`, null);
-  }> {
-    if (this.useMocks) return of({ muted });
-    return this.http.put<{ muted: boolean }>(`${this.base}/notifications/mute`, { muted });
   }
 
   inviteCollaborator(tripId: string, email: string): Observable<Collaborator> {
