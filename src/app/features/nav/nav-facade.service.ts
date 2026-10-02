@@ -19,6 +19,7 @@ import { FavoritedTrip } from '../../core/models/trip.model';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { TrophyService } from '../../core/trophies/trophy.service';
+import { TrophyCelebrationService } from '../../core/trophies/trophy-celebration.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
@@ -45,6 +46,7 @@ export class NavFacadeService {
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
   readonly trophies              = inject(TrophyService);
+  private readonly trophyCelebration = inject(TrophyCelebrationService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
   private readonly landingFeed  = inject(LandingFeedService);
   private readonly router       = inject(Router);
@@ -406,6 +408,7 @@ export class NavFacadeService {
     this.savedPlans.clear();
     this.favorites.clear();
     this.trophies.reset();
+    this.trophyCelebration.clear();
     this.companionSuggest.clear();
     this.landingFeed.reset();   // feedback F2 — never leave a previous session's feed loaded
     this.router.navigate(['/']);

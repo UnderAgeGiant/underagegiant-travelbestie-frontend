@@ -2990,6 +2990,10 @@
         <source>No pudimos cargar tus trofeos.</source>
         <target>We couldn't load your trophies.</target>
       </trans-unit>
+      <trans-unit id="trophy.loading" datatype="html">
+        <source>Cargando…</source>
+        <target>Loading…</target>
+      </trans-unit>
       <trans-unit id="trophy.retry" datatype="html">
         <source>Reintentar</source>
         <target>Retry</target>

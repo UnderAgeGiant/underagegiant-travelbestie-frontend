@@ -41,4 +41,9 @@ describe('trophyHeaderInterceptor', () => {
       .toEqual([{ type: 'clones', tier: 'gold', earnedAt: 'x' }]);
     expect(parseNewTrophies('{"a":1}')).toEqual([]);
   });
+
+  it('parseNewTrophies drops unknown types and tiers', () => {
+    expect(parseNewTrophies('[{"type":"new_thing","tier":"single","earnedAt":"x"},{"type":"clones","tier":"single","earnedAt":"x"},{"type":"clones","tier":"gold","earnedAt":"x"}]'))
+      .toEqual([{ type: 'clones', tier: 'gold', earnedAt: 'x' }]);
+  });
 });

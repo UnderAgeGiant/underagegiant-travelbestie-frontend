@@ -20,12 +20,27 @@ describe('TrophyShelfComponent', () => {
     return f;
   }
 
-  beforeEach(() => { earned.set([]); progress.set({}); loadError.set(false); load.mockReset(); });
+  beforeEach(() => { earned.set([]); progress.set({}); loadError.set(false); loading.set(false); load.mockReset(); });
 
   it('loads on init and shows the empty state', () => {
     const f = create();
     expect(load).toHaveBeenCalled();
     expect(f.nativeElement.textContent).toContain('Aún no tienes trofeos');
+  });
+
+  it('does not flash the empty state while loading', () => {
+    loading.set(true);
+    const f = create();
+    expect(f.nativeElement.textContent).not.toContain('Aún no tienes trofeos');
+    loading.set(false);
+    f.detectChanges();
+    expect(f.nativeElement.textContent).toContain('Aún no tienes trofeos');
+  });
+
+  it('ignores unknown trophy types in the bubbles', () => {
+    earned.set([{ type: 'brand_new', tier: 'single', earnedAt: '2026-10-01T00:00:00.000Z' }]);
+    const f = create();
+    expect(f.nativeElement.querySelectorAll('.ts-bubble').length).toBe(0);
   });
 
   it('renders one bubble per earned medal', () => {

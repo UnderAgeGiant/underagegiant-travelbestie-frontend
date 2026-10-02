@@ -9,8 +9,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
  * into the text at 12px.
  *
  * NOT used for: the decorative city-country label in DestinationComponent's
- * banner (not a link), the physically-placed pins on the Visited Places map
- * in ProfileComponent (different meaning — a marker, not a "view on maps"
+ * banner (not a link), the physically-placed pins on the trip map
+ * in TripMapComponent (different meaning — a marker, not a "view on maps"
  * action), or DayTimelineComponent's "🗺️ Ruta del día" button (a different
  * feature — a multi-stop route, not a single-place link — and deliberately
  * keeps a different icon so the two are never confused).

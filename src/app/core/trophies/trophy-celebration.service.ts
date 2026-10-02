@@ -15,15 +15,20 @@ export class TrophyCelebrationService {
   private readonly auth = inject(AuthService);
   private queue: EarnedTrophy[] = [];
   private timer: ReturnType<typeof setTimeout> | null = null;
+  private readonly memSeen = new Map<string, Set<string>>();
 
   readonly current = signal<EarnedTrophy | null>(null);
   readonly burstId = signal(0);
 
   celebrate(list: EarnedTrophy[]): void {
     const seen = this.readSeen();
-    const fresh = list.filter(t => !seen.has(trophyKey(t.type, t.tier)));
+    const fresh = list.filter(t => {
+      const k = trophyKey(t.type, t.tier);
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
     if (!fresh.length) return;
-    fresh.forEach(t => seen.add(trophyKey(t.type, t.tier)));
     this.writeSeen(seen);
     this.queue.push(...fresh);
     if (!this.current()) this.showNext();
@@ -38,6 +43,13 @@ export class TrophyCelebrationService {
     this.showNext();
   }
 
+  /** Logout: drop anything queued or on screen. */
+  clear(): void {
+    if (this.timer) { clearTimeout(this.timer); this.timer = null; }
+    this.queue = [];
+    this.current.set(null);
+  }
+
   private showNext(): void {
     const next = this.queue.shift();
     if (!next) return;
@@ -49,8 +61,12 @@ export class TrophyCelebrationService {
   private readSeen(): Set<string> {
     const email = this.auth.currentUser()?.email;
     if (!email) return new Set();
-    try { return new Set(JSON.parse(localStorage.getItem(storageKey(email)) ?? '[]') as string[]); }
-    catch { return new Set(); }
+    // In-memory set per email survives a throwing localStorage; storage still seeds it across reloads.
+    const mem = this.memSeen.get(email) ?? new Set<string>();
+    try { (JSON.parse(localStorage.getItem(storageKey(email)) ?? '[]') as string[]).forEach(k => mem.add(k)); }
+    catch { /* non-fatal */ }
+    this.memSeen.set(email, mem);
+    return mem;
   }
 
   private writeSeen(seen: Set<string>): void {

@@ -3,7 +3,7 @@ import { TrophyCelebrationService } from '../../core/trophies/trophy-celebration
 import { tierLabel, trophyImage, trophyName } from '../../core/trophies/trophy-catalog';
 
 const STREAMER_COLORS = ['#F4B740', '#E8506A', '#4A7BE0', '#7CC4A4', '#B48CF2'];
-const STREAMER_MS = 2600;
+const STREAMER_MS = 2900;   // 2.4s fall + up to 0.4s delay + margin
 
 /** App-wide "¡Nuevo trofeo!" card + CSS streamer burst. Mounted once in AppComponent. */
 @Component({
@@ -66,6 +66,6 @@ export class TrophyCelebrationComponent {
       })));
       if (this.timer) clearTimeout(this.timer);
       this.timer = setTimeout(() => this.streamers.set([]), STREAMER_MS);
-    }, { allowSignalWrites: true });
+    });
   }
 }

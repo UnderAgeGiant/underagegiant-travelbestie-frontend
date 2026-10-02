@@ -12,6 +12,10 @@ export const TROPHY_THRESHOLDS: Record<TrophyType, Partial<Record<TrophyTier, nu
   plan_visited: { single: 1 },
 };
 
+/** True only for a type/tier pair this build knows how to name and draw. */
+export const isKnownTrophy = (t: { type: string; tier: string }): boolean =>
+  t.type in TROPHY_THRESHOLDS && t.tier in TROPHY_THRESHOLDS[t.type as TrophyType];
+
 export const TIERED_TYPES: TrophyType[] = ['ai_plans', 'comments', 'favorites', 'clones'];
 export const SINGLE_TYPES: TrophyType[] = ['excel_export', 'publish_plan', 'share_plan', 'plan_visited'];
 

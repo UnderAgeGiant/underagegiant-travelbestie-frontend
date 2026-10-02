@@ -396,133 +396,133 @@
         <source>Mejor planeador con IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.name.comments" datatype="html">
         <source>Maestro de los tips viajeros</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.name.favorites" datatype="html">
         <source>Maravilloso plan!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.name.clones" datatype="html">
         <source>Plan inspirador</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.name.excelExport" datatype="html">
         <source>Itinerario en papel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.name.publishPlan" datatype="html">
         <source>Plan a la deriva</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.name.sharePlan" datatype="html">
         <source>Corre la voz</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.name.planVisited" datatype="html">
         <source>Primera visita</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.tier.bronze" datatype="html">
         <source>Bronce</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.tier.silver" datatype="html">
         <source>Plata</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.tier.gold" datatype="html">
         <source>Oro</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.aiPlans" datatype="html">
         <source>Generaste <x id="count" equiv-text="n"/> planes con IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.comments" datatype="html">
         <source>Comentaste <x id="count" equiv-text="n"/> veces en planes de otros viajeros</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.favorites" datatype="html">
         <source>Uno de tus planes recibió <x id="count" equiv-text="n"/> favoritos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.clones" datatype="html">
         <source>Otros viajeros clonaron tus planes <x id="count" equiv-text="n"/> veces</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.excelExport" datatype="html">
         <source>Exportaste tu primer itinerario a Excel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.publishPlan" datatype="html">
         <source>Publicaste tu primer plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.sharePlan" datatype="html">
         <source>Compartiste un plan con alguien</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.desc.planVisited" datatype="html">
         <source>Un viajero con cuenta visitó un plan que publicaste</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/trophies/trophy-catalog.ts</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.hero.eyebrow" datatype="html">
@@ -4143,32 +4143,39 @@
           <context context-type="linenumber">24,26</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="trophy.loading" datatype="html">
+        <source>Cargando…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/trophy-shelf/trophy-shelf.component.ts</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="trophy.empty" datatype="html">
         <source>Aún no tienes trofeos, ¡empieza a planear!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/trophy-shelf/trophy-shelf.component.ts</context>
-          <context context-type="linenumber">30,32</context>
+          <context context-type="linenumber">32,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.seeAll" datatype="html">
         <source>Ver todos los trofeos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/trophy-shelf/trophy-shelf.component.ts</context>
-          <context context-type="linenumber">49,51</context>
+          <context context-type="linenumber">51,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.back" datatype="html">
         <source>← Volver a mis trofeos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/trophy-shelf/trophy-shelf.component.ts</context>
-          <context context-type="linenumber">69,71</context>
+          <context context-type="linenumber">71,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.group.single" datatype="html">
         <source>Únicos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/trophy-shelf/trophy-shelf.component.ts</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="sharedTrip.tripBy" datatype="html">
@@ -5175,7 +5182,7 @@
         <source>Cerrar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trophy-celebration/trophy-celebration.component.ts</context>
-          <context context-type="linenumber">30,32</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
     </body>

@@ -43,6 +43,29 @@ describe('TrophyCelebrationService', () => {
     expect(localStorage.getItem('tb_trophies_celebrated_a@x.com')).toContain('publish_plan:single');
   });
 
+  it('shows a duplicate type:tier inside one list only once', () => {
+    svc.celebrate([t('comments', 'bronze'), t('comments', 'bronze')]);
+    svc.dismiss();
+    expect(svc.current()).toBeNull();
+  });
+
+  it('clear() empties the queue, timer and current card', () => {
+    svc.celebrate([t('ai_plans', 'bronze'), t('ai_plans', 'silver')]);
+    svc.clear();
+    expect(svc.current()).toBeNull();
+    jest.advanceTimersByTime(5000);
+    expect(svc.current()).toBeNull();
+  });
+
+  it('dedupes in memory when localStorage throws', () => {
+    jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('blocked'); });
+    jest.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new Error('blocked'); });
+    svc.celebrate([t('clones', 'gold')]);
+    svc.dismiss();
+    svc.celebrate([t('clones', 'gold')]);
+    expect(svc.current()).toBeNull();
+  });
+
   it('still works when localStorage throws', () => {
     jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('blocked'); });
     svc.celebrate([t('comments', 'bronze')]);

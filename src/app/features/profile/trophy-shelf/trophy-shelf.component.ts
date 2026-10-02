@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, computed, inject, signal } from '
 import { DatePipe } from '@angular/common';
 import { TrophyService } from '../../../core/trophies/trophy.service';
 import {
-  SINGLE_TYPES, TIERED_TYPES, TROPHY_THRESHOLDS, tierLabel, trophyDescription, trophyImage, trophyKey, trophyName,
+  SINGLE_TYPES, TIERED_TYPES, isKnownTrophy, TROPHY_THRESHOLDS, tierLabel, trophyDescription, trophyImage, trophyKey, trophyName,
 } from '../../../core/trophies/trophy-catalog';
 import { EarnedTrophy, TrophyTier, TrophyType } from '../../../core/models/trophy.model';
 
@@ -24,7 +24,9 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
           <button class="btn-pill btn-outline ts-retry" type="button" (click)="svc.load()" i18n="@@trophy.retry">Reintentar</button>
         </div>
       } @else if (!showAll()) {
-        @if (bubbles().length === 0) {
+        @if (svc.loading() && bubbles().length === 0) {
+          <div class="ts-empty"><p i18n="@@trophy.loading">Cargando…</p></div>
+        } @else if (bubbles().length === 0) {
           <div class="ts-empty">
             <img src="/Dog-waiting-1.png" alt="" width="96" height="96" />
             <p i18n="@@trophy.empty">Aún no tienes trofeos, ¡empieza a planear!</p>
@@ -34,7 +36,7 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
             @for (b of bubbles(); track key(b); let i = $index) {
               <button class="ts-bubble" type="button"
                       [style.animation-duration.s]="6 + (i % 5)" [style.animation-delay.s]="-i * 1.3"
-                      [attr.aria-label]="name(b.type) + ' ' + tier(b.tier)"
+                      [attr.aria-label]="name(b.type) + ' ' + tier(b.tier) + ', ' + (b.earnedAt | date: 'mediumDate')"
                       (click)="toggleTip(b)">
                 <img [src]="image(b.type, b.tier)" alt="" width="88" height="88" />
                 <span class="ts-tip" [class.ts-tip-open]="activeKey() === key(b)">
@@ -104,7 +106,7 @@ export class TrophyShelfComponent implements AfterViewInit {
   readonly activeKey = signal<string | null>(null);
 
   /** One bubble per earned medal, oldest first. */
-  readonly bubbles = computed(() => [...this.svc.earned()].sort((a, b) => a.earnedAt.localeCompare(b.earnedAt)));
+  readonly bubbles = computed(() => this.svc.earned().filter(isKnownTrophy).sort((a, b) => a.earnedAt.localeCompare(b.earnedAt)));
 
   readonly groups = computed(() => {
     const earned = new Map(this.svc.earned().map(e => [trophyKey(e.type, e.tier), e.earnedAt]));
