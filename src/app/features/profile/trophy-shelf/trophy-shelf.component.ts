@@ -38,7 +38,7 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
                       [style.animation-duration.s]="6 + (i % 5)" [style.animation-delay.s]="-i * 1.3"
                       [attr.aria-label]="name(b.type) + ' ' + tier(b.tier) + ', ' + (b.earnedAt | date: 'mediumDate')"
                       (click)="toggleTip(b)">
-                <img [src]="image(b.type, b.tier)" alt="" width="88" height="88" />
+                <img [src]="image(b.type, b.tier)" alt="" width="120" height="120" />
                 <span class="ts-tip" [class.ts-tip-open]="activeKey() === key(b)">
                   <strong>{{ name(b.type) }}</strong>
                   @if (b.tier !== 'single') { <span> · {{ tier(b.tier) }}</span> }
@@ -73,8 +73,8 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
     </section>
   `,
   styles: [`
-    .ts-bubbles { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; padding: 12px 0 20px; }
-    .ts-bubble { position: relative; width: 96px; height: 96px; border-radius: 50%; padding: 4px; cursor: pointer;
+    .ts-bubbles { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; padding: 12px 0 20px; }
+    .ts-bubble { position: relative; width: 132px; height: 132px; border-radius: 50%; padding: 6px; cursor: pointer;
       border: 1.5px solid rgba(255,255,255,.9);
       background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.95) 0 8%, rgba(255,255,255,.35) 9% 30%, rgba(200,220,255,.25) 60%, rgba(180,140,242,.25) 100%);
       box-shadow: inset -6px -8px 16px rgba(180,140,242,.25), inset 4px 6px 10px rgba(255,255,255,.6), 0 6px 18px rgba(0,0,0,.08);
