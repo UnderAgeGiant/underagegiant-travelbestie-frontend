@@ -5,7 +5,6 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { TripService } from '../../trip/trip.service';
 import { KarmaService } from '../../../core/karma/karma.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
-import { VisitedPlacesService } from '../../../core/visited-places/visited-places.service';
 import { FavoritesService } from '../../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { environment } from '../../../../environments/environment';
@@ -362,7 +361,6 @@ export class AuthModalComponent {
   private readonly trip       = inject(TripService);
   private readonly karma      = inject(KarmaService);
   private readonly savedPlans = inject(SavedPlansService);
-  private readonly visited    = inject(VisitedPlacesService);
   private readonly favorites  = inject(FavoritesService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
 
@@ -676,7 +674,6 @@ export class AuthModalComponent {
           // the load-once guard set from a stale session, and the user may be
           // signing back into the same account.
           this.savedPlans.loadForUser(res.user.email, true);
-          this.visited.loadForUser(res.user.email);
           this.favorites.loadFavorites();
           this.companionSuggest.refreshBoostStatus();
           this.loginEmail.set('');
@@ -703,7 +700,6 @@ export class AuthModalComponent {
           // login success handler above for why the load-once guard can't be
           // trusted here.
           this.savedPlans.loadForUser(res.user.email, true);
-          this.visited.loadForUser(res.user.email);
           this.favorites.loadFavorites();
           this.companionSuggest.refreshBoostStatus();
           this.registerSuccessName.set(res.user.name);

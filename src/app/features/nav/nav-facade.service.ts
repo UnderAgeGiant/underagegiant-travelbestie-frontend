@@ -16,7 +16,6 @@ import { ApiService } from '../../core/api/api.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 import { FavoritedTrip } from '../../core/models/trip.model';
-import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { TrophyService } from '../../core/trophies/trophy.service';
@@ -42,7 +41,6 @@ export class NavFacadeService {
   readonly karmaModal   = inject(KarmaModalService);
   readonly savedPlans   = inject(SavedPlansService);
   readonly cooldown     = inject(CommentCooldownService);
-  private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
@@ -406,7 +404,6 @@ export class NavFacadeService {
     this.trip.clearPlan();
     this.karma.clear();
     this.savedPlans.clear();
-    this.visited.clear();
     this.favorites.clear();
     this.trophies.reset();
     this.companionSuggest.clear();

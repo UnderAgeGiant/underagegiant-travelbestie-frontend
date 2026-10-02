@@ -103,9 +103,7 @@ export class TripMapComponent implements AfterViewInit {
    * Same silhouette as MapsPinIconComponent's "place" glyph (24x24 space,
    * tip at ~(12, 21.2)) — reused here only for shape consistency with the
    * rest of the app's pin iconography. Not that component's "view on maps"
-   * meaning: this marks a location on our own map, closer in spirit to
-   * VisitedPlacesService's pins (see MapsPinIconComponent's own doc-comment
-   * on keeping those two meanings distinct).
+   * meaning: this marks a stop location on our own trip map.
    */
   protected readonly pinIconPath =
     'M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.44 11.44 6.72 11.7a1.13 1.13 0 0 0 1.56 0c.28-.26 6.72-6.45 6.72-11.7C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z';
