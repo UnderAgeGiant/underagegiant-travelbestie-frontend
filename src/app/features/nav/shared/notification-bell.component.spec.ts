@@ -87,6 +87,36 @@ describe('NotificationBellComponent — open() routing for purchase notification
   });
 });
 
+describe('NotificationBellComponent — open() routing for trophy notifications', () => {
+  let component: NotificationBellComponent;
+  let router: { navigateByUrl: jest.Mock };
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    router = { navigateByUrl: jest.fn() };
+
+    TestBed.configureTestingModule({
+      imports: [NotificationBellComponent],
+      providers: [
+        provideHttpClient(withXhr()),
+        provideHttpClientTesting(),
+        { provide: Router, useValue: router },
+      ],
+    });
+
+    http = TestBed.inject(HttpTestingController);
+    component = TestBed.createComponent(NotificationBellComponent).componentInstance;
+  });
+
+  afterEach(() => http.verify());
+
+  it('a trophy notification navigates to /profile#trofeos', () => {
+    component.open({ notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/profile#trofeos', read: false, createdAt: '' });
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/profile#trofeos');
+  });
+});
+
 describe('NotificationBellComponent — open() same-URL navigation hardening', () => {
   let component: NotificationBellComponent;
   let router: { navigateByUrl: jest.Mock; url: string };

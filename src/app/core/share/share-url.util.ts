@@ -27,21 +27,25 @@ export function buildWhatsappUrl(tripName: string, shareId: string, origin: stri
  *
  * Falls back to the WhatsApp web link when the Web Share API is unavailable
  * (e.g. some desktop browsers).
+ *
+ * Resolves true when the share completed (sheet resolved or WhatsApp fallback opened),
+ * false when the user cancelled.
  */
-export async function shareTrip(tripName: string, shareId: string, origin: string = window.location.origin): Promise<void> {
+export async function shareTrip(tripName: string, shareId: string, origin: string = window.location.origin): Promise<boolean> {
   const url = buildShareLink(shareId, origin);
   const text = $localize`:@@share.message:✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳`;
 
   if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
     try {
       await navigator.share({ title: tripName, text, url });
-      return;
+      return true;
     } catch (err) {
       // User dismissed the share sheet — nothing more to do.
-      if ((err as DOMException)?.name === 'AbortError') return;
+      if ((err as DOMException)?.name === 'AbortError') return false;
       // Any other failure falls through to the WhatsApp fallback below.
     }
   }
 
   window.open(buildWhatsappUrl(tripName, shareId, origin, text), '_blank', 'noopener,noreferrer');
+  return true;
 }

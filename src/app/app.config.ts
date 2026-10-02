@@ -6,6 +6,7 @@ import localeEsCL from '@angular/common/locales/es-CL';
 import localeEnUS from '@angular/common/locales/en';
 import { routes } from './app.routes';
 import { authInterceptor } from './core/auth/auth.interceptor';
+import { trophyHeaderInterceptor } from './core/trophies/trophy-header.interceptor';
 import { shareRedirectPath } from './core/routing/share-redirect.util';
 import { parseMpReturnParams, stripMpReturnParams } from './core/karma/mp-return.util';
 import { KarmaModalService } from './core/karma/karma-modal.service';
@@ -34,7 +35,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withXhr(), withInterceptors([authInterceptor])),
+    provideHttpClient(withXhr(), withInterceptors([authInterceptor, trophyHeaderInterceptor])),
     { provide: APP_INITIALIZER, useFactory: syncDocumentLang, multi: true },
     {
       provide: APP_INITIALIZER,
@@ -52,3 +53,4 @@ export const appConfig: ApplicationConfig = {
     { provide: APP_INITIALIZER, useFactory: () => { inject(SeoRouteListener); return () => {}; }, multi: true },
   ],
 };
+

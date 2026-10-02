@@ -10,6 +10,7 @@ import { AiPlanHistoryItem, AiPlanViewPayload } from '../../core/models/ai.model
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
+import { TrophyService } from '../../core/trophies/trophy.service';
 import { ApiService } from '../../core/api/api.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
@@ -425,6 +426,7 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly sharedTrips = inject(SharedTripsService);
   private readonly karma       = inject(KarmaService);
   private readonly karmaModal  = inject(KarmaModalService);
+  private readonly trophies    = inject(TrophyService);
   private readonly api         = inject(ApiService);
   private readonly router      = inject(Router);
   protected readonly autoSave  = inject(AutoSaveService);
@@ -599,7 +601,7 @@ export class MyTripsComponent implements AfterViewInit {
 
   shareNative(plan: SavedPlan): void {
     const sid = this.planShareId(plan);
-    if (sid) void shareTrip(plan.name, sid);
+    if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
   downloadItinerary(plan: SavedPlan): void {

@@ -2,12 +2,12 @@ import { Component, computed, inject, signal, output, ChangeDetectionStrategy } 
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { HomeAddressService } from '../../core/home-address/home-address.service';
-import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { CountryComboboxComponent } from '../../shared/country-combobox/country-combobox.component';
 import { Country, WORLD_COUNTRIES } from '../../data/countries.data';
 import { CompanionBoostCardComponent } from './companion-boost-card.component';
+import { TrophyShelfComponent } from './trophy-shelf/trophy-shelf.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
@@ -15,7 +15,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
 @Component({
     selector: 'app-profile',
-    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, AutosaveReminderBannerComponent, NavShellComponent],
+    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, AutosaveReminderBannerComponent, NavShellComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -308,67 +308,10 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
           }
         </section>
 
-        <!-- World map -->
-        <section>
-          <div class="section-head" i18n="@@profile.visitedPlacesTitle">Lugares visitados 🗺</div>
-          @if (!auth.isLoggedIn()) {
-            <div class="section-empty" i18n="@@profile.loginToSavePlaces">Inicia sesión para guardar tus lugares visitados en el mapa.</div>
-          } @else {
-            <p class="map-hint" i18n="@@profile.mapHint">
-              Haz clic en el mapa para marcar un lugar que ya visitaste.
-              Pasa el cursor sobre un pin para eliminarlo.
-            </p>
-
-            <div class="map-wrap" (click)="onMapClick($event)">
-              <img class="world-map-img" src="world-map.webp" i18n-alt="@@profile.worldMapAlt" alt="World map" draggable="false" />
-
-              @for (pin of visitedPlaces.pins(); track pin.id) {
-                <div class="map-pin"
-                     [style.left.%]="pin.x"
-                     [style.top.%]="pin.y"
-                     (click)="$event.stopPropagation()">
-                  <div class="pin-icon">📍</div>
-                  <div class="pin-label">{{ pin.label }}</div>
-                  <button class="pin-del" (click)="removePin(pin.id)" type="button">✕</button>
-                </div>
-              }
-
-              @if (pendingPin()) {
-                <div class="map-pin pin-pending"
-                     [style.left.%]="pendingPin()!.x"
-                     [style.top.%]="pendingPin()!.y"
-                     (click)="$event.stopPropagation()">
-                  <div class="pin-icon">📍</div>
-                </div>
-              }
-            </div>
-
-            @if (pendingPin()) {
-              <div class="pin-form" (click)="$event.stopPropagation()">
-                <input class="pin-form-input"
-                       [value]="pendingLabel()"
-                       (input)="pendingLabel.set($any($event.target).value)"
-                       i18n-placeholder="@@profile.placeVisitedPlaceholder"
-                       placeholder="¿Qué lugar visitaste?"
-                       (keydown.enter)="confirmPin()" />
-                <button class="btn-pill btn-primary" style="padding:6px 14px;font-size:12px;flex-shrink:0"
-                        (click)="confirmPin()" type="button" i18n="@@profile.addPinBtn">Agregar</button>
-                <button class="btn-pill btn-outline" style="padding:6px 10px;font-size:12px;flex-shrink:0"
-                        (click)="cancelPin()" type="button">✕</button>
-              </div>
-            }
-
-            @if (visitedPlaces.pins().length > 0) {
-              <div style="margin-top:12px;font-size:12px;color:var(--t3)">
-                @if (visitedPlaces.pins().length === 1) {
-                  <ng-container i18n="@@profile.pinsMarkedCountOne">{{ visitedPlaces.pins().length }} lugar marcado</ng-container>
-                } @else {
-                  <ng-container i18n="@@profile.pinsMarkedCountMany">{{ visitedPlaces.pins().length }} lugares marcados</ng-container>
-                }
-              </div>
-            }
-          }
-        </section>
+        <!-- Trophies (Feature 69) — replaced the visited-places map -->
+        @if (auth.isLoggedIn()) {
+          <tb-trophy-shelf />
+        }
 
       </div>
     </div>
@@ -379,7 +322,6 @@ export class ProfileComponent {
   readonly auth          = inject(AuthService);
   readonly trip          = inject(TripService);
   readonly homeAddress   = inject(HomeAddressService);
-  readonly visitedPlaces = inject(VisitedPlacesService);
   readonly autoSave      = inject(AutoSaveService);
 
   close          = output<void>();
@@ -524,9 +466,6 @@ export class ProfileComponent {
     this.editSavedTimer = setTimeout(() => { this.editSavedTab.set(null); onComplete?.(); }, 2500);
   }
 
-  pendingPin      = signal<{ x: number; y: number } | null>(null);
-  pendingLabel    = signal('');
-
   readonly initials = computed(() => {
     const name = this.auth.currentUser()?.name ?? '';
     return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
@@ -538,35 +477,5 @@ export class ProfileComponent {
 
   cityFor(cityId: string) {
     return WORLD_CITIES.find(c => c.id === cityId) ?? null;
-  }
-
-  onMapClick(event: MouseEvent): void {
-    if (this.pendingPin()) { this.cancelPin(); return; }
-    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    const x = +((event.clientX - rect.left) / rect.width * 100).toFixed(2);
-    const y = +((event.clientY - rect.top)  / rect.height * 100).toFixed(2);
-    this.pendingPin.set({ x, y });
-    this.pendingLabel.set('');
-  }
-
-  confirmPin(): void {
-    const label = this.pendingLabel().trim();
-    if (!label) return;
-    const email = this.auth.currentUser()?.email;
-    if (!email) return;
-    this.visitedPlaces.addPin(email, { ...this.pendingPin()!, label });
-    this.pendingPin.set(null);
-    this.pendingLabel.set('');
-  }
-
-  cancelPin(): void {
-    this.pendingPin.set(null);
-    this.pendingLabel.set('');
-  }
-
-  removePin(id: string): void {
-    const email = this.auth.currentUser()?.email;
-    if (!email) return;
-    this.visitedPlaces.removePin(email, id);
   }
 }

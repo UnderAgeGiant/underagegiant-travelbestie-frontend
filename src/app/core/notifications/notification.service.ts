@@ -1,6 +1,7 @@
 import { DestroyRef, Injectable, effect, inject, signal, untracked } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { AuthService } from '../auth/auth.service';
+import { TrophyCelebrationService } from '../trophies/trophy-celebration.service';
 import { AppNotification } from '../models/notification.model';
 
 const POLL_INTERVAL_MS = 60_000;
@@ -10,6 +11,7 @@ const SHAKE_MS = 900;   // matches the notif-shake CSS animation duration
 export class NotificationService {
   private readonly api = inject(ApiService);
   private readonly auth = inject(AuthService);
+  private readonly celebration = inject(TrophyCelebrationService);
 
   private readonly _notifications = signal<AppNotification[]>([]);
   private readonly _unreadCount   = signal(0);
@@ -60,6 +62,7 @@ export class NotificationService {
     this.api.getNotifications().subscribe({
       next: ({ notifications }) => {
         this._notifications.set(notifications);
+        if (notifications.some(n => n.type === 'trophy' && !n.read)) this.celebration.burst();
         this.markAllRead();
       },
       error: () => { /* non-fatal */ },

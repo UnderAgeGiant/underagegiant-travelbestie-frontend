@@ -16,9 +16,10 @@ import { ApiService } from '../../core/api/api.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
 import { FavoritedTrip } from '../../core/models/trip.model';
-import { VisitedPlacesService } from '../../core/visited-places/visited-places.service';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
+import { TrophyService } from '../../core/trophies/trophy.service';
+import { TrophyCelebrationService } from '../../core/trophies/trophy-celebration.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
@@ -41,10 +42,11 @@ export class NavFacadeService {
   readonly karmaModal   = inject(KarmaModalService);
   readonly savedPlans   = inject(SavedPlansService);
   readonly cooldown     = inject(CommentCooldownService);
-  private readonly visited      = inject(VisitedPlacesService);
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
   readonly favorites            = inject(FavoritesService);
+  readonly trophies              = inject(TrophyService);
+  private readonly trophyCelebration = inject(TrophyCelebrationService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
   private readonly landingFeed  = inject(LandingFeedService);
   private readonly router       = inject(Router);
@@ -395,7 +397,8 @@ export class NavFacadeService {
   }
 
   shareNative(plan: SavedPlan): void {
-    if (plan.shareId) void shareTrip(plan.name, plan.shareId);
+    const sid = plan.shareId;
+    if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
   doLogout(): void {
@@ -403,8 +406,9 @@ export class NavFacadeService {
     this.trip.clearPlan();
     this.karma.clear();
     this.savedPlans.clear();
-    this.visited.clear();
     this.favorites.clear();
+    this.trophies.reset();
+    this.trophyCelebration.clear();
     this.companionSuggest.clear();
     this.landingFeed.reset();   // feedback F2 — never leave a previous session's feed loaded
     this.router.navigate(['/']);
