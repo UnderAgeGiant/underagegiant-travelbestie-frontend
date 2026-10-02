@@ -36,12 +36,12 @@ const STREAMER_MS = 2900;   // 2.4s fall + up to 0.4s delay + margin
     }
   `,
   styles: [`
-    /* Bubble floats above the card; the shared .tb-soap-bubble (styles.css) supplies the look + float. */
+    /* Bubble floats to the left of the card; the shared .tb-soap-bubble (styles.css) supplies the look + float. */
     .tc-wrap { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
-      z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 10px;
+      z-index: 1000; display: flex; align-items: center; gap: 10px;
       animation: tc-pop .35s ease both; max-width: calc(100vw - 32px); }
-    .tc-bubble { width: 120px; height: 120px; }
-    .tc-card { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 18px;
+    .tc-bubble { width: 120px; height: 120px; flex: none; }   /* never squash the circle; the card shrinks instead */
+    .tc-card { min-width: 0; display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 18px;
       padding: 10px 14px; box-shadow: var(--sh-md); border: 1.5px solid var(--border); }
     .tc-kicker { font-size: 11px; font-weight: 700; color: var(--lav-d); text-transform: uppercase; letter-spacing: .04em; }
     .tc-name { font-size: 15px; font-weight: 700; color: var(--t1); }
