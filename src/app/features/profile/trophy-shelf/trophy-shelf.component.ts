@@ -38,7 +38,7 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
                       [style.animation-duration.s]="6 + (i % 5)" [style.animation-delay.s]="-i * 1.3"
                       [attr.aria-label]="name(b.type) + ' ' + tier(b.tier) + ', ' + (b.earnedAt | date: 'mediumDate')"
                       (click)="toggleTip(b)">
-                <img [src]="image(b.type, b.tier)" alt="" width="120" height="120" />
+                <img [src]="image(b.type, b.tier)" alt="" width="104" height="104" />
                 <span class="ts-tip" [class.ts-tip-open]="activeKey() === key(b)">
                   <strong>{{ name(b.type) }}</strong>
                   @if (b.tier !== 'single') { <span> · {{ tier(b.tier) }}</span> }
@@ -74,12 +74,13 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
   `,
   styles: [`
     .ts-bubbles { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; padding: 12px 0 20px; }
-    .ts-bubble { position: relative; width: 132px; height: 132px; border-radius: 50%; padding: 6px; cursor: pointer;
+    .ts-bubble { position: relative; width: 150px; height: 150px; border-radius: 50%; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer;
       border: 1.5px solid rgba(255,255,255,.9);
       background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.95) 0 8%, rgba(255,255,255,.35) 9% 30%, rgba(200,220,255,.25) 60%, rgba(180,140,242,.25) 100%);
       box-shadow: inset -6px -8px 16px rgba(180,140,242,.25), inset 4px 6px 10px rgba(255,255,255,.6), 0 6px 18px rgba(0,0,0,.08);
       animation: ts-float 7s ease-in-out infinite; }
-    .ts-bubble img { width: 100%; height: 100%; border-radius: 50%; object-fit: contain; }
+    /* A square image fits inside a circle only at ≤ 1/√2 ≈ 70.7% of its diameter — larger and the round edge crops its corners. */
+    .ts-bubble img { width: 70%; height: 70%; object-fit: contain; }
     .ts-tip { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); z-index: 3;
       background: rgba(0,0,0,.8); color: #fff; font-size: 11px; padding: 6px 9px; border-radius: 8px; white-space: nowrap; }
     .ts-bubble:hover .ts-tip, .ts-bubble:focus-visible .ts-tip, .ts-tip-open { display: block; }
