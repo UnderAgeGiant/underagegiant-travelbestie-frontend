@@ -2366,38 +2366,6 @@
         <source>Atracciones</source>
         <target>Attractions</target>
       </trans-unit>
-      <trans-unit id="profile.visitedPlacesTitle" datatype="html">
-        <source>Lugares visitados 🗺</source>
-        <target>Visited places 🗺</target>
-      </trans-unit>
-      <trans-unit id="profile.loginToSavePlaces" datatype="html">
-        <source>Inicia sesión para guardar tus lugares visitados en el mapa.</source>
-        <target>Sign in to save the places you've visited on the map.</target>
-      </trans-unit>
-      <trans-unit id="profile.mapHint" datatype="html">
-        <source> Haz clic en el mapa para marcar un lugar que ya visitaste. Pasa el cursor sobre un pin para eliminarlo. </source>
-        <target> Click the map to mark a place you've already visited. Hover over a pin to remove it. </target>
-      </trans-unit>
-      <trans-unit id="profile.worldMapAlt" datatype="html">
-        <source>World map</source>
-        <target>World map</target>
-      </trans-unit>
-      <trans-unit id="profile.placeVisitedPlaceholder" datatype="html">
-        <source>¿Qué lugar visitaste?</source>
-        <target>What place did you visit?</target>
-      </trans-unit>
-      <trans-unit id="profile.addPinBtn" datatype="html">
-        <source>Agregar</source>
-        <target>Add</target>
-      </trans-unit>
-      <trans-unit id="profile.pinsMarkedCountOne" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugar marcado</source>
-        <target><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> place marked</target>
-      </trans-unit>
-      <trans-unit id="profile.pinsMarkedCountMany" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> lugares marcados</source>
-        <target><x id="INTERPOLATION" equiv-text="{{ visitedPlaces.pins().length }}"/> places marked</target>
-      </trans-unit>
       <trans-unit id="profile.errNameEmpty" datatype="html">
         <source>El nombre no puede estar vacío.</source>
         <target>Name can't be empty.</target>
@@ -2935,6 +2903,120 @@
       <trans-unit id="cityGuide.timeBehind" datatype="html">
         <source><x id="HOURS" equiv-text="n"/> h menos que en Chile</source>
         <target><x id="HOURS" equiv-text="n"/> h behind Chile</target>
+      </trans-unit>
+
+      <!-- ── trophy.* ── -->
+      <trans-unit id="trophy.name.aiPlans" datatype="html">
+        <source>Mejor planeador con IA</source>
+        <target>Best AI Planner</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.comments" datatype="html">
+        <source>Maestro de los tips viajeros</source>
+        <target>Master of Travel Tips</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.favorites" datatype="html">
+        <source>Maravilloso plan!</source>
+        <target>Wonderful Plan!</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.clones" datatype="html">
+        <source>Plan inspirador</source>
+        <target>Inspiring Plan</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.excelExport" datatype="html">
+        <source>Itinerario en papel</source>
+        <target>Itinerary on Paper</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.publishPlan" datatype="html">
+        <source>Plan a la deriva</source>
+        <target>Plan Adrift</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.sharePlan" datatype="html">
+        <source>Corre la voz</source>
+        <target>Spread the Word</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.planVisited" datatype="html">
+        <source>Primera visita</source>
+        <target>First Visitor</target>
+      </trans-unit>
+      <trans-unit id="trophy.tier.bronze" datatype="html">
+        <source>Bronce</source>
+        <target>Bronze</target>
+      </trans-unit>
+      <trans-unit id="trophy.tier.silver" datatype="html">
+        <source>Plata</source>
+        <target>Silver</target>
+      </trans-unit>
+      <trans-unit id="trophy.tier.gold" datatype="html">
+        <source>Oro</source>
+        <target>Gold</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.aiPlans" datatype="html">
+        <source>Generaste <x id="count" equiv-text="n"/> planes con IA</source>
+        <target>You generated <x id="count" equiv-text="n"/> AI plans</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.comments" datatype="html">
+        <source>Comentaste <x id="count" equiv-text="n"/> veces en planes de otros viajeros</source>
+        <target>You commented <x id="count" equiv-text="n"/> times on other travelers' plans</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.favorites" datatype="html">
+        <source>Uno de tus planes recibió <x id="count" equiv-text="n"/> favoritos</source>
+        <target>One of your plans got <x id="count" equiv-text="n"/> favorites</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.clones" datatype="html">
+        <source>Otros viajeros clonaron tus planes <x id="count" equiv-text="n"/> veces</source>
+        <target>Other travelers cloned your plans <x id="count" equiv-text="n"/> times</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.excelExport" datatype="html">
+        <source>Exportaste tu primer itinerario a Excel</source>
+        <target>You exported your first itinerary to Excel</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.publishPlan" datatype="html">
+        <source>Publicaste tu primer plan</source>
+        <target>You published your first plan</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.sharePlan" datatype="html">
+        <source>Compartiste un plan con alguien</source>
+        <target>You shared a plan with someone</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.planVisited" datatype="html">
+        <source>Un viajero con cuenta visitó un plan que publicaste</source>
+        <target>A traveler with an account visited a plan you published</target>
+      </trans-unit>
+      <trans-unit id="trophy.title" datatype="html">
+        <source>Mis trofeos 🏆</source>
+        <target>My trophies 🏆</target>
+      </trans-unit>
+      <trans-unit id="trophy.loadError" datatype="html">
+        <source>No pudimos cargar tus trofeos.</source>
+        <target>We couldn't load your trophies.</target>
+      </trans-unit>
+      <trans-unit id="trophy.retry" datatype="html">
+        <source>Reintentar</source>
+        <target>Retry</target>
+      </trans-unit>
+      <trans-unit id="trophy.empty" datatype="html">
+        <source>Aún no tienes trofeos, ¡empieza a planear!</source>
+        <target>You don't have trophies yet — start planning!</target>
+      </trans-unit>
+      <trans-unit id="trophy.seeAll" datatype="html">
+        <source>Ver todos los trofeos</source>
+        <target>See all trophies</target>
+      </trans-unit>
+      <trans-unit id="trophy.back" datatype="html">
+        <source>← Volver a mis trofeos</source>
+        <target>← Back to my trophies</target>
+      </trans-unit>
+      <trans-unit id="trophy.group.single" datatype="html">
+        <source>Únicos</source>
+        <target>One-offs</target>
+      </trans-unit>
+      <trans-unit id="trophy.new" datatype="html">
+        <source>¡Nuevo trofeo!</source>
+        <target>New trophy!</target>
+      </trans-unit>
+      <trans-unit id="trophy.close" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
       </trans-unit>
     </body>
   </file>

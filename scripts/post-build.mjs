@@ -41,8 +41,8 @@
  * index.html) also need a root copy. Fix #2 only rewrites references that
  * live inside the two index.html documents (the initial script/link/
  * favicon tags). But plenty of components reference public/ assets
- * directly in their templates — e.g. <img src="world-map.webp"> in
- * ProfileComponent, <img src="/small-black-dog.png"> in
+ * directly in their templates — e.g. <img src="/Dog-waiting-1.png"> in
+ * TrophyShelfComponent, <img src="/small-black-dog.png"> in
  * AiPlanningComponent/CitySuggestCloudComponent, team photos in
  * AboutComponent — compiled into the JS bundles, not index.html, so
  * fix #2's rewrite never touches them. With <base href="/">, those
