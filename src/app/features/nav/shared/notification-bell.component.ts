@@ -105,6 +105,12 @@ export class NotificationBellComponent {
       return;
     }
 
+    // Trophy notifications land on the profile's trophy shelf.
+    if (n.type === 'trophy') {
+      this.router.navigateByUrl('/profile#trofeos');
+      return;
+    }
+
     // Karma-purchase notifications should land on the ledger, not just '/' —
     // the backend issues url: '/' for these (see notify-karma-purchase.middleware.ts),
     // which the generic fallback below would treat as "stay put."

@@ -3,19 +3,23 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { NotificationService } from './notification.service';
 import { AuthService } from '../auth/auth.service';
+import { TrophyCelebrationService } from '../trophies/trophy-celebration.service';
 import { environment } from '../../../environments/environment';
 
 describe('NotificationService', () => {
   let httpMock: HttpTestingController;
   let svc: NotificationService;
+  const burst = jest.fn();
 
   beforeEach(() => {
+    burst.mockReset();
     TestBed.configureTestingModule({
       providers: [
         provideHttpClient(),
         provideHttpClientTesting(),
         // Logged out → constructor effect never starts the poll timer; tests drive methods directly.
         { provide: AuthService, useValue: { isLoggedIn: () => false } },
+        { provide: TrophyCelebrationService, useValue: { burst } },
       ],
     });
     httpMock = TestBed.inject(HttpTestingController);
@@ -62,6 +66,30 @@ describe('NotificationService', () => {
     svc.toggleMute();
     expect(svc.muted()).toBe(true);
     httpMock.expectOne(`${environment.apiUrl}/notifications/mute`).flush({ muted: true });
+  });
+
+  it('openPanel bursts streamers when the fetched list has an unread trophy notification', () => {
+    svc.refreshStatus();
+    httpMock.expectOne(`${environment.apiUrl}/notifications/status`).flush({ count: 1, muted: false });
+
+    svc.openPanel();
+    httpMock.expectOne(`${environment.apiUrl}/notifications`).flush({ notifications: [
+      { notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/profile#trofeos', read: false, createdAt: new Date().toISOString() },
+    ] });
+    httpMock.expectOne(`${environment.apiUrl}/notifications/read`).flush(null);
+    expect(burst).toHaveBeenCalledTimes(1);
+  });
+
+  it('openPanel does not burst for read trophy notifications', () => {
+    svc.refreshStatus();
+    httpMock.expectOne(`${environment.apiUrl}/notifications/status`).flush({ count: 1, muted: false });
+
+    svc.openPanel();
+    httpMock.expectOne(`${environment.apiUrl}/notifications`).flush({ notifications: [
+      { notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/profile#trofeos', read: true, createdAt: new Date().toISOString() },
+    ] });
+    httpMock.expectOne(`${environment.apiUrl}/notifications/read`).flush(null);
+    expect(burst).not.toHaveBeenCalled();
   });
 });
 
