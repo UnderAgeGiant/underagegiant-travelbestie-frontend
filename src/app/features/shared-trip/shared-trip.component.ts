@@ -12,6 +12,7 @@ import { AuthModalService } from '../../core/auth/auth-modal.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
+import { TrophyService } from '../../core/trophies/trophy.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { StepComment, Attraction } from '../../core/models/comment.model';
@@ -489,6 +490,7 @@ export class SharedTripComponent {
   private readonly favorites   = inject(FavoritesService);
   private readonly karma       = inject(KarmaService);
   private readonly karmaModal  = inject(KarmaModalService);
+  private readonly trophies    = inject(TrophyService);
   private readonly savedPlans  = inject(SavedPlansService);
   private readonly tripService = inject(TripService);
   private readonly cooldown    = inject(CommentCooldownService);
@@ -694,7 +696,8 @@ export class SharedTripComponent {
 
   shareNative(): void {
     const trip = this.trip();
-    if (trip) void shareTrip(trip.tripName, this.tripId());
+    const sid = this.tripId();
+    if (trip) void shareTrip(trip.tripName, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
   openCloneInEditor(): void {

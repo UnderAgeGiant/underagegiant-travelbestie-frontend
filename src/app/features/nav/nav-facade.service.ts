@@ -397,7 +397,8 @@ export class NavFacadeService {
   }
 
   shareNative(plan: SavedPlan): void {
-    if (plan.shareId) void shareTrip(plan.name, plan.shareId);
+    const sid = plan.shareId;
+    if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
   doLogout(): void {

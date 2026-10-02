@@ -34,4 +34,21 @@ describe('share url helpers', () => {
     );
     open.mockRestore();
   });
+
+  it('shareTrip resolves true when the native share completes', async () => {
+    Object.assign(navigator, { share: jest.fn().mockResolvedValue(undefined) });
+    await expect(shareTrip('Roma', 'abc', 'https://x')).resolves.toBe(true);
+  });
+
+  it('shareTrip resolves false when the user cancels the share sheet', async () => {
+    Object.assign(navigator, { share: jest.fn().mockRejectedValue(Object.assign(new Error('x'), { name: 'AbortError' })) });
+    await expect(shareTrip('Roma', 'abc', 'https://x')).resolves.toBe(false);
+  });
+
+  it('shareTrip resolves true when it falls back to WhatsApp', async () => {
+    Object.assign(navigator, { share: undefined });
+    const open = jest.spyOn(window, 'open').mockReturnValue(null);
+    await expect(shareTrip('Roma', 'abc', 'https://x')).resolves.toBe(true);
+    expect(open).toHaveBeenCalled();
+  });
 });
