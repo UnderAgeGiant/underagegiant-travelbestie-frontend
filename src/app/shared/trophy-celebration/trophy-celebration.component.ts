@@ -19,22 +19,30 @@ const STREAMER_MS = 2900;   // 2.4s fall + up to 0.4s delay + margin
       </div>
     }
     @if (celebration.current(); as t) {
-      <div class="tc-card" role="status" aria-live="polite">
-        <img [src]="image(t)" alt="" width="88" height="88" />
-        <div class="tc-text">
-          <div class="tc-kicker" i18n="@@trophy.new">¡Nuevo trofeo!</div>
-          <div class="tc-name">{{ name(t) }}</div>
-          @if (t.tier !== 'single') { <div class="tc-tier">{{ tier(t) }}</div> }
+      <div class="tc-wrap" role="status" aria-live="polite">
+        <div class="tc-bubble tb-soap-bubble" aria-hidden="true">
+          <img [src]="image(t)" alt="" width="84" height="84" />
         </div>
-        <button class="tc-close" type="button" (click)="celebration.dismiss()"
-                i18n-aria-label="@@trophy.close" aria-label="Cerrar">✕</button>
+        <div class="tc-card">
+          <div class="tc-text">
+            <div class="tc-kicker" i18n="@@trophy.new">¡Nuevo trofeo!</div>
+            <div class="tc-name">{{ name(t) }}</div>
+            @if (t.tier !== 'single') { <div class="tc-tier">{{ tier(t) }}</div> }
+          </div>
+          <button class="tc-close" type="button" (click)="celebration.dismiss()"
+                  i18n-aria-label="@@trophy.close" aria-label="Cerrar">✕</button>
+        </div>
       </div>
     }
   `,
   styles: [`
-    .tc-card { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
-      z-index: 1000; display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 18px;
-      padding: 10px 14px; box-shadow: var(--sh-md); border: 1.5px solid var(--border); animation: tc-pop .35s ease both; max-width: calc(100vw - 32px); }
+    /* Bubble floats above the card; the shared .tb-soap-bubble (styles.css) supplies the look + float. */
+    .tc-wrap { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+      z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 10px;
+      animation: tc-pop .35s ease both; max-width: calc(100vw - 32px); }
+    .tc-bubble { width: 120px; height: 120px; }
+    .tc-card { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 18px;
+      padding: 10px 14px; box-shadow: var(--sh-md); border: 1.5px solid var(--border); }
     .tc-kicker { font-size: 11px; font-weight: 700; color: var(--lav-d); text-transform: uppercase; letter-spacing: .04em; }
     .tc-name { font-size: 15px; font-weight: 700; color: var(--t1); }
     .tc-tier { font-size: 12px; color: var(--t3); }
@@ -44,7 +52,7 @@ const STREAMER_MS = 2900;   // 2.4s fall + up to 0.4s delay + margin
       animation: tc-fall 2.4s cubic-bezier(.2,.6,.4,1) both; }
     @keyframes tc-fall { to { transform: translateY(110vh) rotate(var(--tc-rot)); opacity: .2; } }
     @keyframes tc-pop { from { transform: translate(-50%, 20px); opacity: 0; } }
-    @media (prefers-reduced-motion: reduce) { .tc-streamers { display: none; } .tc-card { animation: none; } }
+    @media (prefers-reduced-motion: reduce) { .tc-streamers { display: none; } .tc-wrap { animation: none; } }
   `],
 })
 export class TrophyCelebrationComponent {

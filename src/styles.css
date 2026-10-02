@@ -3373,3 +3373,16 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
 }
 
 .itin-city-link { color: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
+
+/* ─── Soap bubble (Feature 69) — shared by the profile trophy shelf and the new-trophy celebration.
+   Each use sets its own width/height; the float can be retimed per instance via animation-duration/delay. ─── */
+.tb-soap-bubble { border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid rgba(255,255,255,.9);
+  background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.95) 0 8%, rgba(255,255,255,.35) 9% 30%, rgba(200,220,255,.25) 60%, rgba(180,140,242,.25) 100%);
+  box-shadow: inset -6px -8px 16px rgba(180,140,242,.25), inset 4px 6px 10px rgba(255,255,255,.6), 0 6px 18px rgba(0,0,0,.08);
+  animation: tb-bubble-float 7s ease-in-out infinite; }
+/* A square image fits inside a circle only at ≤ 1/√2 ≈ 70.7% of its diameter — larger and the round edge crops its corners. */
+.tb-soap-bubble img { width: 70%; height: 70%; object-fit: contain; }
+@keyframes tb-bubble-float { 0%,100% { transform: translate(0,0); } 25% { transform: translate(6px,-10px); }
+  50% { transform: translate(-4px,-16px); } 75% { transform: translate(-8px,-6px); } }
+@media (prefers-reduced-motion: reduce) { .tb-soap-bubble { animation: none; } }

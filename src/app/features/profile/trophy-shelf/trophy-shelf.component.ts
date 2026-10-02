@@ -34,7 +34,7 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
         } @else {
           <div class="ts-bubbles">
             @for (b of bubbles(); track key(b); let i = $index) {
-              <button class="ts-bubble" type="button"
+              <button class="ts-bubble tb-soap-bubble" type="button"
                       [style.animation-duration.s]="6 + (i % 5)" [style.animation-delay.s]="-i * 1.3"
                       [attr.aria-label]="name(b.type) + ' ' + tier(b.tier) + ', ' + (b.earnedAt | date: 'mediumDate')"
                       (click)="toggleTip(b)">
@@ -74,18 +74,10 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
   `,
   styles: [`
     .ts-bubbles { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; padding: 12px 0 20px; }
-    .ts-bubble { position: relative; width: 150px; height: 150px; border-radius: 50%; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer;
-      border: 1.5px solid rgba(255,255,255,.9);
-      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.95) 0 8%, rgba(255,255,255,.35) 9% 30%, rgba(200,220,255,.25) 60%, rgba(180,140,242,.25) 100%);
-      box-shadow: inset -6px -8px 16px rgba(180,140,242,.25), inset 4px 6px 10px rgba(255,255,255,.6), 0 6px 18px rgba(0,0,0,.08);
-      animation: ts-float 7s ease-in-out infinite; }
-    /* A square image fits inside a circle only at ≤ 1/√2 ≈ 70.7% of its diameter — larger and the round edge crops its corners. */
-    .ts-bubble img { width: 70%; height: 70%; object-fit: contain; }
+    .ts-bubble { position: relative; width: 150px; height: 150px; padding: 0; cursor: pointer; }
     .ts-tip { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); z-index: 3;
       background: rgba(0,0,0,.8); color: #fff; font-size: 11px; padding: 6px 9px; border-radius: 8px; white-space: nowrap; }
     .ts-bubble:hover .ts-tip, .ts-bubble:focus-visible .ts-tip, .ts-tip-open { display: block; }
-    @keyframes ts-float { 0%,100% { transform: translate(0,0); } 25% { transform: translate(6px,-10px); }
-      50% { transform: translate(-4px,-16px); } 75% { transform: translate(-8px,-6px); } }
     .ts-empty { text-align: center; color: var(--t3); font-size: 13px; padding: 12px 0; }
     .ts-toggle { display: block; margin: 8px auto 0; }
     .ts-group { font-size: 13px; color: var(--t2); margin: 16px 0 6px; }
@@ -96,7 +88,6 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
     .ts-row-desc, .ts-date { font-size: 12px; color: var(--t3); }
     .ts-progress { height: 5px; background: var(--border); border-radius: 99px; margin: 4px 0 2px; max-width: 160px; overflow: hidden; }
     .ts-progress span { display: block; height: 100%; background: var(--lav-d); }
-    @media (prefers-reduced-motion: reduce) { .ts-bubble { animation: none; } }
   `],
 })
 export class TrophyShelfComponent implements AfterViewInit {

@@ -30,7 +30,10 @@ describe('TrophyCelebrationComponent', () => {
     const card = f.nativeElement.querySelector('.tc-card');
     expect(card.textContent).toContain('Mejor planeador con IA');
     expect(card.textContent).toContain('Oro');
-    expect(card.querySelector('img').getAttribute('src')).toBe('/trophies/trophy-ai-plans-gold.png');
+    // The trophy image floats in a soap bubble outside the card; the card keeps only the texts.
+    expect(card.querySelector('img')).toBeNull();
+    const bubbleImg = f.nativeElement.querySelector('.tc-bubble.tb-soap-bubble img');
+    expect(bubbleImg.getAttribute('src')).toBe('/trophies/trophy-ai-plans-gold.png');
     expect(f.nativeElement.querySelectorAll('.tc-streamer').length).toBeGreaterThan(0);
     card.querySelector('.tc-close').click();
     expect(dismiss).toHaveBeenCalled();
