@@ -15,6 +15,7 @@ import { AppNotification, NotificationStatus } from '../models/notification.mode
 import { HighlightType, HighlightStatus } from '../models/highlight.model';
 import { FeedPage } from '../models/feed-plan.model';
 import { SeoCityPlan } from '../models/seo-city-plan.model';
+import { TrophiesResponse } from '../models/trophy.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { mockFeedPage } from './feed.mock';
@@ -27,6 +28,16 @@ const MOCK_KARMA_PACKAGES: KarmaPackage[] = [
   { id: 'karma_50',  karma: 50,  price: '3.99', currency: 'USD', label: '50 Karma',  prices: { USD: '3.99', CLP: '3600' } },
   { id: 'karma_100', karma: 100, price: '6.99', currency: 'USD', label: '100 Karma', prices: { USD: '6.99', CLP: '6300' } },
 ];
+/** Mock-mode trophies so the profile shelf (and the E2E spec) has something to render. */
+const MOCK_TROPHIES: TrophiesResponse = {
+  earned: [
+    { type: 'ai_plans',     tier: 'bronze', earnedAt: '2026-10-01T12:00:00.000Z' },
+    { type: 'ai_plans',     tier: 'silver', earnedAt: '2026-10-05T12:00:00.000Z' },
+    { type: 'publish_plan', tier: 'single', earnedAt: '2026-10-02T12:00:00.000Z' },
+  ],
+  progress: { ai_plans: 12, publish_plan: 1, comments: 7 },
+};
+
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -495,7 +506,18 @@ export class ApiService {
     return this.http.post<void>(`${this.base}/notifications/read`, {});
   }
 
-  setNotificationsMuted(muted: boolean): Observable<{ muted: boolean }> {
+  setNotificationsMuted(muted: boolean): Observable<{ muted: boolean }
+
+  // ── Trophies (Feature 69) ────────────────────────────────────
+  getTrophies(): Observable<TrophiesResponse> {
+    if (this.useMocks) return of(MOCK_TROPHIES);
+    return this.http.get<TrophiesResponse>(`${this.base}/trophies`);
+  }
+
+  reportShare(shareId: string): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/trophies/share/${encodeURIComponent(shareId)}`, null);
+  }> {
     if (this.useMocks) return of({ muted });
     return this.http.put<{ muted: boolean }>(`${this.base}/notifications/mute`, { muted });
   }
