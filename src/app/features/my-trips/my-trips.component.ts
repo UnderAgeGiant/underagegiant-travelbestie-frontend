@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
@@ -23,6 +24,9 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { buildItineraryExportMaps } from '../../core/utils/itinerary-export.util';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
+
+type MyTripsTab = 'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans';
+const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations', 'invites', 'aiplans'];
 
 @Component({
   selector: 'app-my-trips',
@@ -429,6 +433,7 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly trophies    = inject(TrophyService);
   private readonly api         = inject(ApiService);
   private readonly router      = inject(Router);
+  private readonly route       = inject(ActivatedRoute);
   protected readonly autoSave  = inject(AutoSaveService);
   private readonly facade      = inject(NavFacadeService);
   private readonly locale      = inject(LocaleService);
@@ -441,7 +446,7 @@ export class MyTripsComponent implements AfterViewInit {
   @ViewChild('profileTabsEl') private profileTabsEl?: ElementRef<HTMLElement>;
 
   // ── Favorites tab ──
-  favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans'>('trips');
+  favTab = signal<MyTripsTab>('trips');
   aiPlanHistory = signal<AiPlanHistoryItem[]>([]);
   aiPlanHistoryLoading = signal(false);
   discardingRequestId = signal<string | null>(null);
@@ -454,6 +459,14 @@ export class MyTripsComponent implements AfterViewInit {
   canScrollProfileTabs = signal(false);
 
   constructor() {
+    // Notifications deep-link here as /my-trips?tab=<tab>[&focus=<id>] (backend-issued url). Reactive so
+    // a notification clicked while already on /my-trips still switches tab (the route component is reused).
+    this.route.queryParamMap.pipe(takeUntilDestroyed()).subscribe(params => {
+      const tab = params.get('tab');
+      if (!tab || !MY_TRIPS_TABS.includes(tab)) return;
+      this.favTab.set(tab as MyTripsTab);
+      if (tab === 'aiplans') this.loadAiPlanHistory();
+    });
     this.savedPlans.loadPendingInvites();
     // Reactive, not one-shot: handles arriving fresh at /my-trips and re-clicking "Mis viajes" while already here.
     effect(() => {
