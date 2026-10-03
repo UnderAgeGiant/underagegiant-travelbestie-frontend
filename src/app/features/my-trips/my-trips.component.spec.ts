@@ -8,6 +8,7 @@ import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { ApiService } from '../../core/api/api.service';
 import { AiPlanHistoryItem } from '../../core/models/ai.model';
+import { SCROLL_SETTLE_FALLBACK_MS } from '../../core/routing/focus-item.util';
 
 // MyTripsComponent now renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -476,7 +477,7 @@ describe('MyTripsComponent — ?tab= query param', () => {
     } as unknown as AiPlanHistoryItem;
     const fixture = createFixture({ tab: 'aiplans', focus: 'r1' }, [item]);
     fixture.detectChanges();
-    jest.advanceTimersByTime(300);
+    jest.advanceTimersByTime(300 + SCROLL_SETTLE_FALLBACK_MS);
     expect(scroll).toHaveBeenCalledTimes(1);
     expect(fixture.nativeElement.querySelector('[data-focus-id="r1"]').classList).toContain('tb-focus-flash');
     jest.useRealTimers();

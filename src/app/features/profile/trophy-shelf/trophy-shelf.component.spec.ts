@@ -4,6 +4,7 @@ import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/route
 import { of } from 'rxjs';
 import { TrophyShelfComponent } from './trophy-shelf.component';
 import { TrophyService } from '../../../core/trophies/trophy.service';
+import { SCROLL_SETTLE_FALLBACK_MS } from '../../../core/routing/focus-item.util';
 
 describe('TrophyShelfComponent', () => {
   const earned = signal<any[]>([]);
@@ -103,7 +104,7 @@ describe('TrophyShelfComponent', () => {
     });
     const f = TestBed.createComponent(TrophyShelfComponent);
     f.detectChanges();
-    jest.advanceTimersByTime(300);
+    jest.advanceTimersByTime(300 + SCROLL_SETTLE_FALLBACK_MS);
     expect(f.nativeElement.querySelector('[data-focus-id="ai_plans:bronze"]').classList).toContain('tb-focus-flash');
     jest.useRealTimers();
   });

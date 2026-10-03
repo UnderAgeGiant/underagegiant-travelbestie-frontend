@@ -1,4 +1,4 @@
-import { focusWhenPresent } from './focus-item.util';
+import { focusWhenPresent, FLASH_MS, SCROLL_SETTLE_FALLBACK_MS } from './focus-item.util';
 
 describe('focusWhenPresent', () => {
   let root: HTMLDivElement;
@@ -21,21 +21,31 @@ describe('focusWhenPresent', () => {
     return el;
   }
 
-  it('scrolls to and flashes the matching element, then removes the flash', () => {
+  it('scrolls to the matching element, flashes it once the scroll settles, then removes the flash', () => {
     item('other');
     const el = item('r1');
     focusWhenPresent(root, 'r1');
     expect(scroll).toHaveBeenCalledTimes(1);
-    expect(el.classList.contains('tb-focus-flash')).toBe(true);
-    jest.advanceTimersByTime(2000);
+    // Not yet: a flash that starts with a smooth scroll is spent before the item stops moving.
     expect(el.classList.contains('tb-focus-flash')).toBe(false);
+    document.dispatchEvent(new Event('scrollend'));
+    expect(el.classList.contains('tb-focus-flash')).toBe(true);
+    jest.advanceTimersByTime(FLASH_MS);
+    expect(el.classList.contains('tb-focus-flash')).toBe(false);
+  });
+
+  it('flashes after a fallback delay when no scroll happens (item already in view)', () => {
+    const el = item('r1');
+    focusWhenPresent(root, 'r1');
+    jest.advanceTimersByTime(SCROLL_SETTLE_FALLBACK_MS);
+    expect(el.classList.contains('tb-focus-flash')).toBe(true);
   });
 
   it('waits for an element that renders after async data arrives', () => {
     focusWhenPresent(root, 'r1');
     expect(scroll).not.toHaveBeenCalled();
     const el = item('r1');
-    jest.advanceTimersByTime(300);
+    jest.advanceTimersByTime(300 + SCROLL_SETTLE_FALLBACK_MS);
     expect(el.classList.contains('tb-focus-flash')).toBe(true);
   });
 
