@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter, ActivatedRoute, convertToParamMap, ParamMap } from '@angular/router';
-import { of, throwError, BehaviorSubject } from 'rxjs';
+import { of, throwError, BehaviorSubject, Subject } from 'rxjs';
 import { MyTripsComponent } from './my-trips.component';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
@@ -492,6 +492,29 @@ describe('MyTripsComponent — ?tab= query param', () => {
     jest.advanceTimersByTime(60_000);
     expect(scroll).not.toHaveBeenCalled();
     expect(api.getAiPlanHistory).toHaveBeenCalledTimes(1);   // only the normal tab load, never a lookup by focus id
+    jest.useRealTimers();
+  });
+
+  it('?focus= still lands when the AI history response is slower than the retry window', () => {
+    jest.useFakeTimers();
+    const scroll = jest.fn();
+    Element.prototype.scrollIntoView = scroll;
+    const item = {
+      requestId: 'r1', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'X', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'X', stops: [], transits: [] }, karmaCharged: 1, createdAt: new Date().toISOString(),
+    } as unknown as AiPlanHistoryItem;
+    const slow$ = new Subject<AiPlanHistoryItem[]>();
+    const fixture = createFixture({ tab: 'aiplans', focus: 'r1' });
+    (api.getAiPlanHistory as jest.Mock).mockReturnValue(slow$);
+    fixture.componentInstance.openAiPlansTab();     // re-request through the slow mock
+    fixture.detectChanges();
+    jest.advanceTimersByTime(10_000);               // remote DB + big result JSON: well past 3 s
+    slow$.next([item]);
+    fixture.detectChanges();
+    jest.advanceTimersByTime(300 + SCROLL_SETTLE_FALLBACK_MS);
+    expect(scroll).toHaveBeenCalledTimes(1);
+    expect(fixture.nativeElement.querySelector('[data-focus-id="r1"]').classList).toContain('tb-focus-flash');
     jest.useRealTimers();
   });
 });

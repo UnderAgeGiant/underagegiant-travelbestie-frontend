@@ -1,7 +1,8 @@
-import { Component, DestroyRef, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 import { focusWhenPresent } from '../../core/routing/focus-item.util';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
@@ -436,7 +437,7 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly router      = inject(Router);
   private readonly route       = inject(ActivatedRoute);
   private readonly host        = inject(ElementRef<HTMLElement>);
-  private cancelFocus: () => void = () => {};
+  private readonly focusParam = toSignal(this.route.queryParamMap.pipe(map(p => p.get('focus'))), { initialValue: null });
   protected readonly autoSave  = inject(AutoSaveService);
   private readonly facade      = inject(NavFacadeService);
   private readonly locale      = inject(LocaleService);
@@ -470,10 +471,14 @@ export class MyTripsComponent implements AfterViewInit {
         this.favTab.set(tab as MyTripsTab);
         if (tab === 'aiplans') this.loadAiPlanHistory();
       }
-      this.cancelFocus();
-      this.cancelFocus = focusWhenPresent(this.host.nativeElement, params.get('focus'));
     });
-    inject(DestroyRef).onDestroy(() => this.cancelFocus());
+    // ?focus=<id> (untrusted: match-only, see focus-item.util.ts). Waits for the AI history response:
+    // it carries every plan's full result and can outlast focusWhenPresent's 3 s retry window, which
+    // left AI-plan notifications with no highlight (2026-10-03 owner test). onCleanup cancels retries.
+    effect(onCleanup => {
+      if (this.aiPlanHistoryLoading()) return;
+      onCleanup(focusWhenPresent(this.host.nativeElement, this.focusParam()));
+    });
     this.savedPlans.loadPendingInvites();
     // Reactive, not one-shot: handles arriving fresh at /my-trips and re-clicking "Mis viajes" while already here.
     effect(() => {
