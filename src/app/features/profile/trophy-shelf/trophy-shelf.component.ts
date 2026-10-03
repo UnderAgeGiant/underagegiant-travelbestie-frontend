@@ -1,4 +1,7 @@
-import { AfterViewInit, Component, ElementRef, computed, inject, signal } from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, ElementRef, computed, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { focusWhenPresent } from '../../../core/routing/focus-item.util';
 import { DatePipe } from '@angular/common';
 import { TrophyService } from '../../../core/trophies/trophy.service';
 import {
@@ -34,7 +37,7 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
         } @else {
           <div class="ts-bubbles">
             @for (b of bubbles(); track key(b); let i = $index) {
-              <button class="ts-bubble tb-soap-bubble" type="button"
+              <button class="ts-bubble tb-soap-bubble" type="button" [attr.data-focus-id]="key(b)"
                       [style.animation-duration.s]="6 + (i % 5)" [style.animation-delay.s]="-i * 1.3"
                       [attr.aria-label]="name(b.type) + ' ' + tier(b.tier) + ', ' + (b.earnedAt | date: 'mediumDate')"
                       (click)="toggleTip(b)">
@@ -113,7 +116,17 @@ export class TrophyShelfComponent implements AfterViewInit {
     ];
   });
 
-  constructor() { this.svc.load(); }
+  constructor() {
+    this.svc.load();
+    // ?focus=<type>:<tier> from a trophy notification (untrusted: match-only, see focus-item.util.ts).
+    // queryParamMap, not the snapshot: /profile is reused when a second trophy notification is clicked.
+    let cancelFocus = () => {};
+    inject(ActivatedRoute).queryParamMap.pipe(takeUntilDestroyed()).subscribe(pm => {
+      cancelFocus();
+      cancelFocus = focusWhenPresent(this.host.nativeElement, pm.get('focus'));
+    });
+    inject(DestroyRef).onDestroy(() => cancelFocus());
+  }
 
   ngAfterViewInit(): void {
     if (typeof location !== 'undefined' && location.hash === '#trofeos') {

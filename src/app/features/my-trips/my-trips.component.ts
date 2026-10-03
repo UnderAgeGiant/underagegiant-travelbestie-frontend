@@ -1,7 +1,8 @@
-import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Component, DestroyRef, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { focusWhenPresent } from '../../core/routing/focus-item.util';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
@@ -110,7 +111,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                   </label>
                 </div>
                 @for (plan of filteredPlans(); track plan.id) {
-                  <div class="saved-plan-card">
+                  <div class="saved-plan-card" [attr.data-focus-id]="plan.id">
                     <div class="saved-plan-header" (click)="togglePlan(plan.id)">
                       <div class="saved-plan-info">
                         <div class="saved-plan-name">
@@ -303,7 +304,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
             @if (favTab() === 'invites') {
               <div class="fav-list">
                 @for (invite of savedPlans.pendingInvites(); track invite.tripId) {
-                  <div class="fav-card">
+                  <div class="fav-card" [attr.data-focus-id]="invite.tripId">
                     <div class="fav-card-header">
                       <span class="fav-card-name">{{ invite.tripTitle }}</span>
                       <span class="fav-card-owner" i18n="@@profile.favCardBy">por {{ invite.ownerName }}</span>
@@ -328,7 +329,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                   <div class="fav-empty" i18n="@@mytrips.aiPlansEmpty">Aún no tienes planes de IA pendientes.</div>
                 } @else {
                   @for (item of aiPlanHistory(); track item.requestId) {
-                    <div class="fav-card aiplan-card"
+                    <div class="fav-card aiplan-card" [attr.data-focus-id]="item.requestId"
                          [class.aiplan-card-failed]="item.status === 'failed'"
                          [class.aiplan-card-clickable]="item.status === 'completed'"
                          [attr.role]="item.status === 'completed' ? 'button' : null"
@@ -434,6 +435,8 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly api         = inject(ApiService);
   private readonly router      = inject(Router);
   private readonly route       = inject(ActivatedRoute);
+  private readonly host        = inject(ElementRef<HTMLElement>);
+  private cancelFocus: () => void = () => {};
   protected readonly autoSave  = inject(AutoSaveService);
   private readonly facade      = inject(NavFacadeService);
   private readonly locale      = inject(LocaleService);
@@ -463,10 +466,14 @@ export class MyTripsComponent implements AfterViewInit {
     // a notification clicked while already on /my-trips still switches tab (the route component is reused).
     this.route.queryParamMap.pipe(takeUntilDestroyed()).subscribe(params => {
       const tab = params.get('tab');
-      if (!tab || !MY_TRIPS_TABS.includes(tab)) return;
-      this.favTab.set(tab as MyTripsTab);
-      if (tab === 'aiplans') this.loadAiPlanHistory();
+      if (tab && MY_TRIPS_TABS.includes(tab)) {
+        this.favTab.set(tab as MyTripsTab);
+        if (tab === 'aiplans') this.loadAiPlanHistory();
+      }
+      this.cancelFocus();
+      this.cancelFocus = focusWhenPresent(this.host.nativeElement, params.get('focus'));
     });
+    inject(DestroyRef).onDestroy(() => this.cancelFocus());
     this.savedPlans.loadPendingInvites();
     // Reactive, not one-shot: handles arriving fresh at /my-trips and re-clicking "Mis viajes" while already here.
     effect(() => {

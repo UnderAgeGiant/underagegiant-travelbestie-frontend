@@ -428,6 +428,8 @@ describe('MyTripsComponent — ?tab= query param', () => {
     });
     api = TestBed.inject(ApiService);
     jest.spyOn(api, 'getAiPlanHistory').mockReturnValue(of(history));
+    // The tabs only render for a logged-in user.
+    TestBed.inject(AuthService).setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
     return TestBed.createComponent(MyTripsComponent);
   }
   const create = (query: Record<string, string>) => createFixture(query).componentInstance;
@@ -461,5 +463,34 @@ describe('MyTripsComponent — ?tab= query param', () => {
 
   it('keeps the default tab when there is no ?tab=', () => {
     expect(create({}).favTab()).toBe('trips');
+  });
+
+  it('?focus= on an AI history row scrolls to it once the history renders', () => {
+    jest.useFakeTimers();
+    const scroll = jest.fn();
+    Element.prototype.scrollIntoView = scroll;
+    const item = {
+      requestId: 'r1', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'X', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'X', stops: [], transits: [] }, karmaCharged: 1, createdAt: new Date().toISOString(),
+    } as unknown as AiPlanHistoryItem;
+    const fixture = createFixture({ tab: 'aiplans', focus: 'r1' }, [item]);
+    fixture.detectChanges();
+    jest.advanceTimersByTime(300);
+    expect(scroll).toHaveBeenCalledTimes(1);
+    expect(fixture.nativeElement.querySelector('[data-focus-id="r1"]').classList).toContain('tb-focus-flash');
+    jest.useRealTimers();
+  });
+
+  it('?focus= for an item that is not in the list does nothing', () => {
+    jest.useFakeTimers();
+    const scroll = jest.fn();
+    Element.prototype.scrollIntoView = scroll;
+    const fixture = createFixture({ tab: 'aiplans', focus: 'someone-elses-request' });
+    fixture.detectChanges();
+    jest.advanceTimersByTime(60_000);
+    expect(scroll).not.toHaveBeenCalled();
+    expect(api.getAiPlanHistory).toHaveBeenCalledTimes(1);   // only the normal tab load, never a lookup by focus id
+    jest.useRealTimers();
   });
 });

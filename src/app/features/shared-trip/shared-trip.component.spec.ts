@@ -6,6 +6,9 @@ import { provideHttpClientTesting, HttpTestingController, TestRequest } from '@a
 import { SharedTripComponent } from './shared-trip.component';
 import { SeoService } from '../../core/seo/seo.service';
 import { sharedPendingSeo } from '../../core/seo/seo-pages';
+import { focusWhenPresent } from '../../core/routing/focus-item.util';
+
+jest.mock('../../core/routing/focus-item.util', () => ({ focusWhenPresent: jest.fn(() => () => {}) }));
 
 // SharedTripComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -47,6 +50,7 @@ describe('SharedTripComponent — route param reactivity', () => {
           provide: ActivatedRoute,
           useValue: {
             paramMap: paramMap$,
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
           },
         },
@@ -101,6 +105,7 @@ describe('SharedTripComponent — city info + weather on itin-city-head', () => 
           provide: ActivatedRoute,
           useValue: {
             paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
           },
         },
@@ -145,6 +150,7 @@ describe('SharedTripComponent — city header links to its guide (Task 11)', () 
           provide: ActivatedRoute,
           useValue: {
             paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-b' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-b' }) },
           },
         },
@@ -194,6 +200,7 @@ describe('SharedTripComponent — day-boundary divider between itin-items (feedb
           provide: ActivatedRoute,
           useValue: {
             paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
           },
         },
@@ -270,6 +277,7 @@ describe('SharedTripComponent — duplicate attractionId on different days (NG09
           provide: ActivatedRoute,
           useValue: {
             paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
           },
         },
@@ -325,6 +333,7 @@ describe('SharedTripComponent — trip map', () => {
           provide: ActivatedRoute,
           useValue: {
             paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
           },
         },
@@ -395,6 +404,7 @@ describe('SharedTripComponent — SEO metadata', () => {
           provide: ActivatedRoute,
           useValue: {
             paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
           },
         },
@@ -455,7 +465,7 @@ describe('SharedTripComponent — stale response must not clobber SEO', () => {
         provideHttpClient(),
         provideHttpClientTesting(),
         { provide: SeoService, useValue: seo },
-        { provide: ActivatedRoute, useValue: { paramMap: paramMap$, snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) } } },
+        { provide: ActivatedRoute, useValue: { paramMap: paramMap$, queryParamMap: new BehaviorSubject(convertToParamMap({})), snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) } } },
       ],
     });
     fixture = TestBed.createComponent(SharedTripComponent);
@@ -534,6 +544,7 @@ describe('SharedTripComponent — no false noindex while the shared plan is load
           provide: ActivatedRoute,
           useValue: {
             paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
             snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
           },
         },
@@ -588,5 +599,44 @@ describe('SharedTripComponent — no false noindex while the shared plan is load
       .flush({ error: 'server error' }, { status: 500, statusText: 'Internal Server Error' });
 
     expect(robotsMeta()).toBeNull();
+  });
+});
+
+describe('SharedTripComponent — ?focus= waits for the trip to load', () => {
+  it('focuses only after the fetch completes, and only the trip being shown', () => {
+    const focus = focusWhenPresent as jest.Mock;
+    focus.mockClear();
+    const paramMap$ = new BehaviorSubject(convertToParamMap({ id: 'trip-a' }));
+    const query$ = new BehaviorSubject(convertToParamMap({ focus: 'att:roma:1' }));
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(), provideHttpClientTesting(),
+        { provide: ActivatedRoute, useValue: { paramMap: paramMap$, queryParamMap: query$, snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) } } },
+      ],
+    });
+    const fixture = TestBed.createComponent(SharedTripComponent);
+    const httpMock = TestBed.inject(HttpTestingController);
+    const flush = (id: string) => {
+      httpMock.expectOne(r => r.url.endsWith(`/shared/${id}`)).flush({ tripName: 'Roma', ownerName: 'Ana', stops: [], transits: [] });
+      httpMock.expectOne(r => r.url.endsWith(`/shared/${id}/comments`)).flush({});
+      fixture.detectChanges();
+    };
+
+    fixture.detectChanges();
+    expect(focus).not.toHaveBeenCalled();                 // still loading
+    flush('trip-a');
+    expect(focus).toHaveBeenCalledTimes(1);
+    expect(focus.mock.calls[0][1]).toBe('att:roma:1');
+
+    // Reused component: another trip + focus must wait for that trip, not match trip-a's DOM.
+    paramMap$.next(convertToParamMap({ id: 'trip-b' }));
+    query$.next(convertToParamMap({ focus: 'att:venecia:2' }));
+    fixture.detectChanges();
+    expect(focus).toHaveBeenCalledTimes(1);
+    flush('trip-b');
+    expect(focus).toHaveBeenCalledTimes(2);
+    expect(focus.mock.calls[1][1]).toBe('att:venecia:2');
+    httpMock.verify();
   });
 });
