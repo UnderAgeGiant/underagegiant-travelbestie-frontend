@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { NotificationService } from '../../../core/notifications/notification.service';
 import { AppNotification } from '../../../core/models/notification.model';
 import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
-import { NavFacadeService } from '../nav-facade.service';
 
 /**
  * Nav bell with unread badge + floating notification panel (mirrors the
@@ -62,7 +61,6 @@ import { NavFacadeService } from '../nav-facade.service';
 export class NotificationBellComponent {
   readonly notif = inject(NotificationService);
   private readonly router = inject(Router);
-  private readonly facade = inject(NavFacadeService);
   readonly panelOpen = signal(false);
 
   togglePanel(): void {
@@ -75,8 +73,8 @@ export class NotificationBellComponent {
   // no-op whenever the Router already tracks `path` as current — which can happen after
   // any of this app's many signal-only view switches (see NavFacadeService.onLogoClick())
   // leave the Router's URL stale relative to what's actually on screen. Bouncing through a
-  // skipLocationChange hop to '/' first (never the real target — every path reaching this
-  // helper is a concrete '/shared/:id', never bare '/') guarantees the Router treats the
+  // skipLocationChange hop to '/' first (never a real target — notification urls are concrete
+  // routes, never bare '/') guarantees the Router treats the
   // follow-up navigation as genuinely different, so it always actually fires.
   private forceNavigate(path: string): void {
     if (this.router.url === path) {
@@ -88,45 +86,13 @@ export class NotificationBellComponent {
 
   open(n: AppNotification): void {
     this.panelOpen.set(false);
-
-    // Collaboration notifications route to My Trips → Colaboraciones instead
-    // of following n.url — the backend currently issues a bare "/" for these,
-    // and n.type is enough on its own to pick the right in-app tab without
-    // needing a URL-contract change on the backend.
-    if (n.type === 'collaborator_invite' || n.type === 'collaborator_accepted') {
-      this.facade.openMyTrips('collaborations');
-      return;
-    }
-
-    // Same pattern for AI plan completion/failure — route to My Trips → Mis
-    // Planes IA rather than parsing n.url (which is just '/' for these too).
-    if (n.type === 'ai_plan_ready' || n.type === 'ai_plan_failed') {
-      this.facade.openMyTrips('aiplans');
-      return;
-    }
-
-    // Trophy notifications land on the profile's trophy shelf.
-    if (n.type === 'trophy') {
-      this.router.navigateByUrl('/profile#trofeos');
-      return;
-    }
-
-    // Karma-purchase notifications should land on the ledger, not just '/' —
-    // the backend issues url: '/' for these (see notify-karma-purchase.middleware.ts),
-    // which the generic fallback below would treat as "stay put."
-    if (n.type === 'purchase') {
-      this.router.navigateByUrl('/karma-history');
-      return;
-    }
-
-    // Router navigation, not window.location.href — a hard reload would blank
-    // the in-memory access token and flash the "signed out" nav state.
-    // n.url is a backend-issued relative path, e.g. "/?share=abc" or "/" —
-    // reuse the same query-param → route mapping the APP_INITIALIZER applies
-    // on cold load, so this works whether or not the backend has switched to
-    // emitting /shared/:id links directly.
-    const [path, search] = n.url.split('?');
-    this.forceNavigate(search ? (shareRedirectPath(`?${search}`) ?? path) : path);
+    // n.url is the backend-issued in-app route, optionally ?focus=<id> (contracts §9). Only ever follow
+    // an in-app path — '//host' is protocol-relative, so it's excluded too. Router navigation, not
+    // window.location.href: a hard reload would blank the in-memory access token. A row older than
+    // 2026-10-03 that escaped the data migration may still say /?share=<id>; map it like the boot shim.
+    if (!n.url.startsWith('/') || n.url.startsWith('//')) return;
+    const legacy = n.url.startsWith('/?') ? shareRedirectPath(n.url.slice(1)) : null;
+    this.forceNavigate(legacy ?? n.url);
   }
 
   relativeDate(iso: string): string {
