@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideRouter } from '@angular/router';
-import { of, throwError } from 'rxjs';
+import { provideRouter, ActivatedRoute, convertToParamMap, ParamMap } from '@angular/router';
+import { of, throwError, BehaviorSubject } from 'rxjs';
 import { MyTripsComponent } from './my-trips.component';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { ApiService } from '../../core/api/api.service';
+import { AiPlanHistoryItem } from '../../core/models/ai.model';
 
 // MyTripsComponent now renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -408,5 +409,88 @@ describe('MyTripsComponent — pending invites load on open (C2)', () => {
 
     expect(plans).toHaveBeenCalledWith('ana@test.com', true);
     expect(invites).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('MyTripsComponent — ?tab= query param', () => {
+  let params$: BehaviorSubject<ParamMap>;
+  let api: ApiService;
+
+  // Returns the fixture (focus tests need its DOM); tab tests use .componentInstance via create(...).
+  function createFixture(query: Record<string, string>, history: AiPlanHistoryItem[] = []) {
+    params$ = new BehaviorSubject(convertToParamMap(query));
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [
+        provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([]),
+        { provide: ActivatedRoute, useValue: { queryParamMap: params$.asObservable() } },
+      ],
+    });
+    api = TestBed.inject(ApiService);
+    jest.spyOn(api, 'getAiPlanHistory').mockReturnValue(of(history));
+    // The tabs only render for a logged-in user.
+    TestBed.inject(AuthService).setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    return TestBed.createComponent(MyTripsComponent);
+  }
+  const create = (query: Record<string, string>) => createFixture(query).componentInstance;
+
+  beforeEach(() => localStorage.clear());
+
+  it('opens the tab named in ?tab= on load and loads AI history for aiplans', () => {
+    const c = create({ tab: 'aiplans' });
+    expect(c.favTab()).toBe('aiplans');
+    expect(api.getAiPlanHistory).toHaveBeenCalledTimes(1);
+  });
+
+  it('opens invites from ?tab=invites without loading AI history', () => {
+    const c = create({ tab: 'invites' });
+    expect(c.favTab()).toBe('invites');
+    expect(api.getAiPlanHistory).not.toHaveBeenCalled();
+  });
+
+  it('switches tab when the query param changes while the page is already mounted', () => {
+    const c = create({ tab: 'trips' });
+    params$.next(convertToParamMap({ tab: 'aiplans' }));
+    expect(c.favTab()).toBe('aiplans');
+    expect(api.getAiPlanHistory).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['../../x', '', 'AIPLANS'])('ignores an unknown tab value %p', (bad) => {
+    const c = create({ tab: bad });
+    expect(c.favTab()).toBe('trips');
+    expect(api.getAiPlanHistory).not.toHaveBeenCalled();
+  });
+
+  it('keeps the default tab when there is no ?tab=', () => {
+    expect(create({}).favTab()).toBe('trips');
+  });
+
+  it('?focus= on an AI history row scrolls to it once the history renders', () => {
+    jest.useFakeTimers();
+    const scroll = jest.fn();
+    Element.prototype.scrollIntoView = scroll;
+    const item = {
+      requestId: 'r1', status: 'completed' as const,
+      requestParams: { selectedOption: { id: 1, title: 'X', summary: 's', highlights: [] }, preferences: 'p' },
+      result: { title: 'X', stops: [], transits: [] }, karmaCharged: 1, createdAt: new Date().toISOString(),
+    } as unknown as AiPlanHistoryItem;
+    const fixture = createFixture({ tab: 'aiplans', focus: 'r1' }, [item]);
+    fixture.detectChanges();
+    jest.advanceTimersByTime(300);
+    expect(scroll).toHaveBeenCalledTimes(1);
+    expect(fixture.nativeElement.querySelector('[data-focus-id="r1"]').classList).toContain('tb-focus-flash');
+    jest.useRealTimers();
+  });
+
+  it('?focus= for an item that is not in the list does nothing', () => {
+    jest.useFakeTimers();
+    const scroll = jest.fn();
+    Element.prototype.scrollIntoView = scroll;
+    const fixture = createFixture({ tab: 'aiplans', focus: 'someone-elses-request' });
+    fixture.detectChanges();
+    jest.advanceTimersByTime(60_000);
+    expect(scroll).not.toHaveBeenCalled();
+    expect(api.getAiPlanHistory).toHaveBeenCalledTimes(1);   // only the normal tab load, never a lookup by focus id
+    jest.useRealTimers();
   });
 });

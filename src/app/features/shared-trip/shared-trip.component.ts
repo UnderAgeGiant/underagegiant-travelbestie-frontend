@@ -1,6 +1,6 @@
 import { previewCardPosition, previewCardTapPosition } from './attraction-preview-position.util';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
-import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef } from '@angular/core';
+import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef, ElementRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -38,6 +38,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { sharedTripSeo, sharedTripNotFoundSeo } from '../../core/seo/shared-trip-seo.util';
+import { focusWhenPresent } from '../../core/routing/focus-item.util';
 import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-weather-chip.component';
@@ -196,6 +197,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
             </div>
             @if (shouldShowComments('transit:__start__')) {
               <app-step-comments
+                [attr.data-focus-id]="'transit:__start__'"
                 [comments]="allComments()['transit:__start__'] ?? []"
                 [loggedIn]="auth.isLoggedIn()"
                 [submitting]="submittingStep() === 'transit:__start__'"
@@ -261,6 +263,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                       </div>
                       @if (shouldShowComments(lodgeKey)) {
                         <app-step-comments
+                          [attr.data-focus-id]="lodgeKey"
                           [comments]="allComments()[lodgeKey] ?? []"
                           [loggedIn]="auth.isLoggedIn()"
                           [submitting]="submittingStep() === lodgeKey"
@@ -304,6 +307,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                         </div>
                         @if (shouldShowComments(attKey)) {
                           <app-step-comments
+                            [attr.data-focus-id]="attKey"
                             [comments]="allComments()[attKey] ?? []"
                             [loggedIn]="auth.isLoggedIn()"
                             [submitting]="submittingStep() === attKey"
@@ -321,6 +325,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
               <!-- City-level comments -->
               @if (shouldShowComments(stopKey)) {
                 <app-step-comments
+                  [attr.data-focus-id]="stopKey"
                   [comments]="allComments()[stopKey] ?? []"
                   [loggedIn]="auth.isLoggedIn()"
                   [submitting]="submittingStep() === stopKey"
@@ -365,6 +370,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                 </div>
                 @if (shouldShowComments(legKey)) {
                   <app-step-comments
+                    [attr.data-focus-id]="legKey"
                     [comments]="allComments()[legKey] ?? []"
                     [loggedIn]="auth.isLoggedIn()"
                     [submitting]="submittingStep() === legKey"
@@ -395,6 +401,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                   </div>
                   @if (shouldShowComments('transit:__end__')) {
                     <app-step-comments
+                      [attr.data-focus-id]="'transit:__end__'"
                       [comments]="allComments()['transit:__end__'] ?? []"
                       [loggedIn]="auth.isLoggedIn()"
                       [submitting]="submittingStep() === 'transit:__end__'"
@@ -482,6 +489,9 @@ export class SharedTripComponent {
     { initialValue: this.route.snapshot.paramMap.get('id') ?? '' },
   );
   readonly tripId = computed(() => this.tripIdInput() ?? this.routeId());
+  // ?focus=<stepKey> from a comment notification (untrusted: match-only, see focus-item.util.ts).
+  private readonly focusParam = toSignal(this.route.queryParamMap.pipe(map(pm => pm.get('focus'))), { initialValue: null });
+  private readonly host = inject(ElementRef<HTMLElement>);
 
   private readonly api        = inject(ApiService);
   private readonly svc        = inject(SharedTripsService);
@@ -573,6 +583,14 @@ export class SharedTripComponent {
     }, { allowSignalWrites: true });
 
     // Shake is triggered in fetchTrip after the trip loads and the button renders
+
+    // Jump to the notified step once the trip + comments are loaded. Keyed on loading() too (not just
+    // focusParam) because the route component is reused: /shared/a -> /shared/b?focus=x must wait for
+    // b to load instead of matching a's stale DOM, and a second notification on the same trip refocuses.
+    effect(onCleanup => {
+      if (this.loading()) return;
+      onCleanup(focusWhenPresent(this.host.nativeElement, this.focusParam()));
+    });
   }
 
   private fetchTrip(id: string): void {
