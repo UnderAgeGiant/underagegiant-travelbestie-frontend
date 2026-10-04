@@ -1,4 +1,4 @@
-import { buildCharts, myRankFor, formatLastUpdate, formatWeekStart } from './landing-ranking.util';
+import { buildCharts, myRankFor, meView, formatLastUpdate, formatWeekStart } from './landing-ranking.util';
 import { WeeklyRankings } from '../../../core/models/ranking.model';
 
 const W: WeeklyRankings = {
@@ -56,5 +56,25 @@ describe('formatting', () => {
   });
   it('formatWeekStart renders the Monday without shifting the day', () => {
     expect(formatWeekStart('2026-09-28', 'en-US')).toContain('28');
+  });
+});
+
+describe('meView', () => {
+  const charts = buildCharts(W, false); // planners: Ana 8, Luis 2 · favorited: Europa (Ana) 5
+  it('highlights the podium row matching the viewer by name and value', () => {
+    expect(meView(charts[0], { rank: 1, value: 8 }, 'Ana')).toEqual({ highlight: 0, extra: null });
+  });
+  it('matches favorited plans by owner name, not plan title', () => {
+    expect(meView(charts[3], { rank: 1, value: 5 }, 'Ana')).toEqual({ highlight: 0, extra: null });
+  });
+  it('outside the top 3 → an extra row with rank, value and pct relative to the chart max', () => {
+    expect(meView(charts[0], { rank: 7, value: 2 }, 'Zoe')).toEqual({ highlight: null, extra: { rank: 7, value: 2, pct: 25 } });
+  });
+  it('a podium rank with no matching row (fallback chart, renamed user) still shows an extra row', () => {
+    const fb = buildCharts(null, true)[0];
+    expect(meView(fb, { rank: 1, value: 2 }, 'Ana').extra).toEqual({ rank: 1, value: 2, pct: 40 });
+  });
+  it('no position → nothing', () => {
+    expect(meView(charts[0], null, 'Ana')).toEqual({ highlight: null, extra: null });
   });
 });

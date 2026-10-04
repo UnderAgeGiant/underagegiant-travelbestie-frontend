@@ -3425,10 +3425,10 @@ tb-landing-ranking { display: block; }
   display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); align-items: end; column-gap: 10px; }
 .rk-rank { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; line-height: .8;
   font-variant-numeric: lining-nums; color: var(--t3); text-align: center; }
-.rk-row:first-child .rk-rank { color: var(--hue-d); }
+.rk-rows > .rk-row:first-child .rk-rank { color: var(--hue-d); }
 .rk-main { min-width: 0; display: grid; gap: 4px; }
 .rk-label { min-width: 0; display: flex; align-items: baseline; gap: 8px; overflow: hidden; white-space: nowrap; font-size: 14px; font-weight: 500; }
-.rk-label > a, .rk-label > small { overflow: hidden; text-overflow: ellipsis; }
+.rk-name, .rk-label > small { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .rk-label small { color: var(--t2); font-size: 12px; font-weight: 400; }
 .rk-label a { color: inherit; text-decoration: underline; text-decoration-color: var(--hue-d); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .rk-label a:hover { color: var(--hue-d); }
@@ -3440,8 +3440,8 @@ tb-landing-ranking { display: block; }
   background: linear-gradient(90deg, color-mix(in oklch, var(--hue-d) 40%, var(--hue)), var(--hue-d));
   box-shadow: inset 0 1px 0 oklch(100% 0 0 / .35); }
 .rk-fill::after { content: ''; position: absolute; top: 50%; right: 4px; width: 4px; height: 4px; margin-top: -2px; border-radius: 50%; background: oklch(100% 0 0 / .85); }
-.rk-row:nth-child(2) .rk-fill { opacity: .72; }
-.rk-row:nth-child(3) .rk-fill { opacity: .5; }
+.rk-rows > .rk-row:nth-child(2) .rk-fill { opacity: .72; }
+.rk-rows > .rk-row:nth-child(3) .rk-fill { opacity: .5; }
 .rk-tip { position: absolute; inset: 0; pointer-events: none; }
 .rk-value { --rk-n: 0; counter-reset: rk var(--rk-n); position: absolute; left: 100%; top: 50%; translate: 0 -50%; padding-left: 8px;
   font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--t1); white-space: nowrap;
@@ -3456,7 +3456,16 @@ tb-landing-ranking { display: block; }
 .rk-fallback { opacity: .85; }
 .rk-me { margin: 12px 2.6rem 0 calc(1.75rem + 10px); padding: 8px 12px; border-radius: 10px; font-size: 13px; color: var(--t2);
   background: color-mix(in oklch, var(--hue) 35%, transparent); }
-.rk-me strong { color: var(--t1); }
+.rk-cup { flex: none; font-size: 14px; line-height: 1; }
+/* The viewer: podium row tinted in the chart hue (spread shadow = padding without shifting the grid) + "Tú" chip;
+   outside the top 3 they get their own row under a dashed divider. */
+.rk-row--me { border-radius: 10px; background: color-mix(in oklch, var(--hue) 45%, transparent);
+  box-shadow: 0 0 0 6px color-mix(in oklch, var(--hue) 45%, transparent); }
+.rk-you-chip { flex: none; padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; line-height: 1.5;
+  background: var(--hue); color: var(--t1); box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--hue-d) 45%, transparent); }
+.rk-you { position: relative; margin-top: 24px; }
+.rk-you::before { content: ""; position: absolute; left: -6px; right: -6px; top: -15px; border-top: 1px dashed color-mix(in oklch, var(--hue-d) 40%, transparent); }
+.rk-you .rk-rank { font-size: 20px; color: var(--hue-d); }
 .rk-calc { display: flex; align-items: center; gap: 10px; color: var(--t2); }
 .rk-calc-bar { width: 80px; height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--hue) 25%, var(--hue-d) 50%, var(--hue) 75%); background-size: 200% 100%; animation: rk-shimmer 1.4s linear infinite; }
 @keyframes rk-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
