@@ -3407,47 +3407,71 @@ tb-landing-ranking { display: block; }
 .rk-bubble { background: #fff; border: 1px solid var(--border); border-radius: 20px 20px 20px 4px; padding: 14px 20px; box-shadow: var(--sh); }
 .rk-bubble h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; margin: 0; }
 .rk-bubble p { margin: 4px 0 0; color: var(--t3); }
-/* No cards: the charts sit directly on the section ground. */
-.rk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 64px; }
-.rk-chart { min-width: 0; }
-.rk-chart h3 { margin: 0 0 18px; font-size: 20px; font-weight: 600; }
-.rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-.rk-row { display: grid; grid-template-columns: 34px minmax(0, 11rem) 1fr auto; align-items: center; gap: 14px; }
-.rk-rank { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 15px; font-weight: 700; background: var(--lav); color: var(--lav-d); }
-.rk-row:nth-child(1) .rk-rank { background: var(--butter); color: var(--butter-d); }
-.rk-row:nth-child(2) .rk-rank { background: var(--sky); color: var(--sky-d); }
-.rk-row:nth-child(3) .rk-rank { background: var(--peach); color: var(--peach-d); }
-.rk-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 17px; }
-.rk-label small { display: block; color: var(--t3); font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
-.rk-label a { color: inherit; text-decoration: underline; text-decoration-color: var(--lav-d); }
-/* Glossy 3D tube: cylinder lighting on the track (recessed) and the fill (raised), specular streak, coloured glow. */
-.rk-bar { --bar-h: 30px; height: var(--bar-h); border-radius: 999px;
-  background: linear-gradient(180deg, color-mix(in oklch, var(--lav) 85%, black), var(--lav) 45%, color-mix(in oklch, var(--lav) 60%, white));
-  box-shadow: inset 0 3px 6px oklch(0% 0 0 / .14), 0 1px 0 #fff; }
-.rk-bar-fill { position: relative; display: block; height: 100%; width: 0; border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,.6) 0 14%, rgba(255,255,255,0) 46%, rgba(0,0,0,.2) 100%),
-              linear-gradient(90deg, var(--lav-d), var(--peach-d));
-  box-shadow: 0 8px 16px -6px color-mix(in oklch, var(--peach-d) 60%, transparent), inset 0 -3px 5px rgba(0,0,0,.15);
-  transition: width .9s cubic-bezier(.22, 1, .36, 1); transition-delay: calc(var(--i, 0) * 120ms); }
-.rk-bar-fill::after { content: ''; position: absolute; top: calc(var(--bar-h) * .16); left: calc(var(--bar-h) * .45); right: calc(var(--bar-h) * .5);
-  height: calc(var(--bar-h) * .16); border-radius: 999px; background: rgba(255,255,255,.55); }
-.landing-ranking.filled .rk-bar-fill { width: var(--pct); }
-.rk-value { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 18px; }
+/* Leaderboard charts sit straight on the section ground (no cards). Each chart owns one theme hue;
+   rank depth sets fill strength. Bars move on transforms only: the fill and its value "tip" slide
+   with the same transform and timing, and the value counts up via a registered integer property. */
+@property --rk-n { syntax: '<integer>'; inherits: false; initial-value: 0; }
+.rk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 52px 72px; }
+.rk-chart { --hue: var(--lav); --hue-d: var(--lav-d); min-width: 0; }
+.rk-chart[data-key="destinations"] { --hue: var(--sky); --hue-d: var(--sky-d); }
+.rk-chart[data-key="trophies"]     { --hue: var(--butter); --hue-d: var(--butter-d); }
+.rk-chart[data-key="favorited"]    { --hue: var(--blush); --hue-d: var(--blush-d); }
+.rk-chart h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; font-size: 20px; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
+.rk-chart h3::before { content: ''; width: 12px; height: 12px; flex: none; border-radius: 4px; background: var(--hue-d); }
+.rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.rk-row { --enter: calc(var(--c, 0) * 70ms + var(--i, 0) * 110ms);
+  display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); align-items: end; column-gap: 12px; }
+.rk-rank { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; line-height: .8;
+  font-variant-numeric: lining-nums; color: var(--t3); text-align: center; }
+.rk-row:first-child .rk-rank { color: var(--hue-d); }
+.rk-main { min-width: 0; display: grid; gap: 8px; }
+.rk-label { min-width: 0; display: flex; align-items: baseline; gap: 8px; overflow: hidden; white-space: nowrap; font-size: 17px; font-weight: 500; }
+.rk-label > a, .rk-label > small { overflow: hidden; text-overflow: ellipsis; }
+.rk-label small { color: var(--t2); font-size: 13px; font-weight: 400; }
+.rk-label a { color: inherit; text-decoration: underline; text-decoration-color: var(--hue-d); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.rk-label a:hover { color: var(--hue-d); }
+.rk-label a:focus-visible { outline: 2px solid var(--hue-d); outline-offset: 3px; border-radius: 4px; }
+.rk-meter { position: relative; margin-right: 3.4rem; }
+.rk-track { display: block; height: 28px; border-radius: 999px; overflow: hidden; background: color-mix(in oklch, var(--hue) 60%, transparent); }
+.rk-fill, .rk-tip { transform: translateX(-100%); transition: transform .28s cubic-bezier(.4, 0, 1, 1); }
+.rk-fill { position: relative; display: block; width: 100%; height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in oklch, var(--hue-d) 40%, var(--hue)), var(--hue-d));
+  box-shadow: inset 0 1px 0 oklch(100% 0 0 / .35); }
+.rk-fill::after { content: ''; position: absolute; top: 50%; right: 10px; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: oklch(100% 0 0 / .85); }
+.rk-row:nth-child(2) .rk-fill { opacity: .72; }
+.rk-row:nth-child(3) .rk-fill { opacity: .5; }
+.rk-tip { position: absolute; inset: 0; pointer-events: none; }
+.rk-value { --rk-n: 0; counter-reset: rk var(--rk-n); position: absolute; left: 100%; top: 50%; translate: 0 -50%; padding-left: 12px;
+  font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--t1); white-space: nowrap;
+  opacity: 0; transition: --rk-n .28s linear, opacity .2s; }
+.rk-value::after { content: counter(rk); }
+.rk-value-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* Entering view: slide out with a long exponential ease-out, staggered per chart and row; values count in step. */
+.landing-ranking.filled .rk-fill, .landing-ranking.filled .rk-tip {
+  transform: translateX(calc(var(--pct) - 100%)); transition: transform .95s cubic-bezier(.16, 1, .3, 1) var(--enter); }
+.landing-ranking.filled .rk-value { --rk-n: var(--n); opacity: 1;
+  transition: --rk-n .95s cubic-bezier(.16, 1, .3, 1) var(--enter), opacity .3s ease-out var(--enter); }
 .rk-fallback { opacity: .85; }
-.rk-me { margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--border); font-size: 15px; color: var(--t2); }
-.rk-calc { display: flex; align-items: center; gap: 10px; color: var(--t3); }
-.rk-calc-bar { width: 80px; height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--lav) 25%, var(--lav-d) 50%, var(--lav) 75%); background-size: 200% 100%; animation: rk-shimmer 1.4s linear infinite; }
+.rk-me { margin: 22px 3.4rem 0 calc(2.6rem + 12px); padding: 10px 14px; border-radius: 12px; font-size: 15px; color: var(--t2);
+  background: color-mix(in oklch, var(--hue) 35%, transparent); }
+.rk-me strong { color: var(--t1); }
+.rk-calc { display: flex; align-items: center; gap: 10px; color: var(--t2); }
+.rk-calc-bar { width: 80px; height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--hue) 25%, var(--hue-d) 50%, var(--hue) 75%); background-size: 200% 100%; animation: rk-shimmer 1.4s linear infinite; }
 @keyframes rk-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
-.rk-updated { margin: 0; text-align: center; font-size: 11px; color: var(--t3); opacity: .7; }
+.rk-updated { margin: 0; text-align: center; font-size: 12px; color: var(--t2); }
 @media (max-width: 768px) {
   .landing-ranking { min-height: auto; padding-top: 40px; }
-  .rk-grid { grid-template-columns: 1fr; gap: 36px; }
-  .rk-row { grid-template-columns: 30px minmax(0, 7rem) 1fr auto; gap: 10px; }
-  .rk-rank { width: 30px; height: 30px; font-size: 14px; }
-  .rk-bar { --bar-h: 24px; }
+  .rk-grid { grid-template-columns: 1fr; gap: 40px; }
+  .rk-row { grid-template-columns: 2.1rem minmax(0, 1fr); }
+  .rk-rank { font-size: 36px; }
+  .rk-me { margin-left: calc(2.1rem + 12px); }
+  .rk-track { height: 22px; }
   .rk-label { font-size: 15px; }
+  .rk-value { font-size: 17px; }
 }
+/* Reduced motion: no sliding or counting — bars and values simply appear at their final state. */
 @media (prefers-reduced-motion: reduce) {
-  .rk-bar-fill { transition: none; width: var(--pct); }
+  .rk-fill, .rk-tip, .landing-ranking.filled .rk-fill, .landing-ranking.filled .rk-tip { transform: translateX(calc(var(--pct) - 100%)); transition: none; }
+  .rk-value, .landing-ranking.filled .rk-value { --rk-n: var(--n); opacity: 1; transition: none; }
   .rk-calc-bar { animation: none; }
 }

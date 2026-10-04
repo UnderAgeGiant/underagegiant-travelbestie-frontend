@@ -19,19 +19,24 @@ import { MIEL_HOST_IMAGE, RankingKey, buildCharts, formatLastUpdate, formatWeekS
 
       @if (svc.weekly() || svc.weeklyError()) {
         <div class="rk-grid">
-          @for (chart of charts(); track chart.key) {
-            <article class="rk-chart" [class.rk-fallback]="chart.fallback">
+          @for (chart of charts(); track chart.key; let c = $index) {
+            <article class="rk-chart" [attr.data-key]="chart.key" [class.rk-fallback]="chart.fallback" [style.--c]="c">
               <h3>{{ chart.title }}</h3>
               <ol class="rk-rows">
                 @for (row of chart.rows; track $index) {
-                  <li class="rk-row" [style.--i]="$index">
-                    <span class="rk-rank">{{ $index + 1 }}</span>
-                    <span class="rk-label">
-                      @if (row.link) { <a [routerLink]="row.link">{{ row.label }}</a> } @else { {{ row.label }} }
-                      @if (row.sublabel) { <small>{{ row.sublabel }}</small> }
-                    </span>
-                    <span class="rk-bar" aria-hidden="true"><span class="rk-bar-fill" [style.--pct]="row.pct + '%'"></span></span>
-                    <span class="rk-value">{{ row.value }}</span>
+                  <li class="rk-row" [style.--i]="$index" [style.--pct]="row.pct + '%'" [style.--n]="row.value">
+                    <span class="rk-rank" aria-hidden="true">{{ $index + 1 }}</span>
+                    <div class="rk-main">
+                      <span class="rk-label">
+                        @if (row.link) { <a [routerLink]="row.link">{{ row.label }}</a> } @else { {{ row.label }} }
+                        @if (row.sublabel) { <small>{{ row.sublabel }}</small> }
+                      </span>
+                      <div class="rk-meter">
+                        <span class="rk-track" aria-hidden="true"><span class="rk-fill"></span></span>
+                        <!-- The tip slides with the fill (same transform), carrying the counting value. -->
+                        <span class="rk-tip"><span class="rk-value"><span class="rk-value-text">{{ row.value }}</span></span></span>
+                      </div>
+                    </div>
                   </li>
                 }
               </ol>
