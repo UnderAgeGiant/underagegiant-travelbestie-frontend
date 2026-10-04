@@ -3398,3 +3398,44 @@ app-step-comments { display: block; }
   animation: tb-focus-flash .8s ease-in-out 3; }   /* 3 × .8 s = FLASH_MS in focus-item.util.ts */
 @keyframes tb-focus-flash { 0%, 100% { box-shadow: inset 0 0 0 0 transparent; } 50% { box-shadow: inset 0 0 0 4px var(--lav-d); } }
 @media (prefers-reduced-motion: reduce) { .tb-focus-flash::after { animation: none; box-shadow: inset 0 0 0 3px var(--lav-d); } }
+
+/* ── Rankings (Feature 70) — logged-in landing section ─────────────────── */
+tb-landing-ranking { display: block; }
+.landing-ranking { min-height: 100vh; padding: 72px clamp(16px, 4vw, 48px) 32px; background: var(--cream); display: flex; flex-direction: column; gap: 28px; }
+.rk-head { display: flex; align-items: center; gap: 18px; }
+.rk-miel { width: 112px; height: 112px; flex: none; object-fit: contain; padding: 15%; }
+.rk-bubble { background: #fff; border: 1px solid var(--border); border-radius: 20px 20px 20px 4px; padding: 14px 20px; box-shadow: var(--sh); }
+.rk-bubble h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; margin: 0; }
+.rk-bubble p { margin: 4px 0 0; color: var(--t3); }
+.rk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.rk-chart { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 18px 20px; box-shadow: var(--sh); min-width: 0; }
+.rk-chart h3 { margin: 0 0 12px; font-size: 15px; font-weight: 600; }
+.rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.rk-row { display: grid; grid-template-columns: 26px minmax(0, 9rem) 1fr auto; align-items: center; gap: 10px; }
+.rk-rank { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--lav); color: var(--lav-d); }
+.rk-row:nth-child(1) .rk-rank { background: var(--butter); color: var(--butter-d); }
+.rk-row:nth-child(2) .rk-rank { background: var(--sky); color: var(--sky-d); }
+.rk-row:nth-child(3) .rk-rank { background: var(--peach); color: var(--peach-d); }
+.rk-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+.rk-label small { display: block; color: var(--t3); font-size: 11px; overflow: hidden; text-overflow: ellipsis; }
+.rk-label a { color: inherit; text-decoration: underline; text-decoration-color: var(--lav-d); }
+.rk-bar { height: 12px; border-radius: 999px; background: var(--lav); overflow: hidden; }
+.rk-bar-fill { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--lav-d), var(--peach-d));
+  transition: width .9s cubic-bezier(.22, 1, .36, 1); transition-delay: calc(var(--i, 0) * 120ms); }
+.landing-ranking.filled .rk-bar-fill { width: var(--pct); }
+.rk-value { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 14px; }
+.rk-fallback { opacity: .85; }
+.rk-me { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--t2); }
+.rk-calc { display: flex; align-items: center; gap: 10px; color: var(--t3); }
+.rk-calc-bar { width: 80px; height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--lav) 25%, var(--lav-d) 50%, var(--lav) 75%); background-size: 200% 100%; animation: rk-shimmer 1.4s linear infinite; }
+@keyframes rk-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.rk-updated { margin: 0; text-align: center; font-size: 11px; color: var(--t3); opacity: .7; }
+@media (max-width: 768px) {
+  .landing-ranking { min-height: auto; padding-top: 40px; }
+  .rk-grid { grid-template-columns: 1fr; }
+  .rk-row { grid-template-columns: 26px minmax(0, 7rem) 1fr auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rk-bar-fill { transition: none; width: var(--pct); }
+  .rk-calc-bar { animation: none; }
+}
