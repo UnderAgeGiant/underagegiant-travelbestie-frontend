@@ -16,9 +16,11 @@ import { HighlightType, HighlightStatus } from '../models/highlight.model';
 import { FeedPage } from '../models/feed-plan.model';
 import { SeoCityPlan } from '../models/seo-city-plan.model';
 import { TrophiesResponse } from '../models/trophy.model';
+import { MyRankings, WeeklyRankings } from '../models/ranking.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { mockFeedPage } from './feed.mock';
+import { mockMyRankings, mockWeeklyRankings } from '../rankings/rankings.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
@@ -519,6 +521,16 @@ export class ApiService {
   reportShare(shareId: string): Observable<void> {
     if (this.useMocks) return of(undefined);
     return this.http.post<void>(`${this.base}/trophies/share/${encodeURIComponent(shareId)}`, null);
+  }
+
+  getRankings(): Observable<WeeklyRankings> {
+    if (this.useMocks) return of(mockWeeklyRankings());
+    return this.http.get<WeeklyRankings>(`${this.base}/rankings`);
+  }
+
+  getMyRankings(): Observable<MyRankings> {
+    if (this.useMocks) return of(mockMyRankings());
+    return this.http.get<MyRankings>(`${this.base}/rankings/me`);
   }
 
   inviteCollaborator(tripId: string, email: string): Observable<Collaborator> {

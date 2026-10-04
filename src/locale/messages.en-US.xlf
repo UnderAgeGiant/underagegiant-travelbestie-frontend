@@ -3022,6 +3022,62 @@
         <source>Cerrar</source>
         <target>Close</target>
       </trans-unit>
+      <trans-unit id="ranking.title" datatype="html">
+        <source>Ranking de la semana</source>
+        <target>This week's ranking</target>
+      </trans-unit>
+      <trans-unit id="ranking.bubble" datatype="html">
+        <source>¡Así va la semana, viajeros!</source>
+        <target>Here's how the week is going, travelers!</target>
+      </trans-unit>
+      <trans-unit id="ranking.mielAlt" datatype="html">
+        <source>Asistente Miel</source>
+        <target>Miel, your assistant</target>
+      </trans-unit>
+      <trans-unit id="ranking.planners" datatype="html">
+        <source>Usuarios con más planes</source>
+        <target>Users with the most plans</target>
+      </trans-unit>
+      <trans-unit id="ranking.destinations" datatype="html">
+        <source>Destinos más planificados</source>
+        <target>Most planned destinations</target>
+      </trans-unit>
+      <trans-unit id="ranking.trophies" datatype="html">
+        <source>Usuarios con más trofeos</source>
+        <target>Users with the most trophies</target>
+      </trans-unit>
+      <trans-unit id="ranking.favorited" datatype="html">
+        <source>Planes con más favoritos</source>
+        <target>Plans with the most favorites</target>
+      </trans-unit>
+      <trans-unit id="ranking.byOwner" datatype="html">
+        <source>de <x id="owner" equiv-text="name"/></source>
+        <target>by <x id="owner" equiv-text="name"/></target>
+      </trans-unit>
+      <trans-unit id="ranking.fallbackPlan" datatype="html">
+        <source>Plan de Travel Expert</source>
+        <target>Travel Expert's plan</target>
+      </trans-unit>
+      <trans-unit id="ranking.calculating" datatype="html">
+        <source>Calculando…</source>
+        <target>Calculating…</target>
+      </trans-unit>
+      <trans-unit id="ranking.you" datatype="html">
+        <source>Tú</source>
+        <target>You</target>
+      </trans-unit>
+      <trans-unit id="ranking.notYet" datatype="html">
+        <source>Aún no apareces esta semana</source>
+        <target>You're not on the board yet this week</target>
+      </trans-unit>
+      <trans-unit id="ranking.weekOf" datatype="html">
+        <source>Semana del</source>
+        <target>Week of</target>
+      </trans-unit>
+      <trans-unit id="ranking.lastUpdate" datatype="html">
+        <source>Última actualización:</source>
+        <target>Last updated: </target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

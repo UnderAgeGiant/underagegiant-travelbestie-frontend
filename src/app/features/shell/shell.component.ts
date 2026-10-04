@@ -14,6 +14,7 @@ import { MobileAttractionsModalComponent } from '../destination/mobile-attractio
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
 import { LandingFeedComponent } from '../landing/feed/landing-feed.component';
+import { LandingRankingComponent } from '../landing/ranking/landing-ranking.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { AboutContentComponent } from '../about/about-content.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
@@ -36,6 +37,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         MobileAttractionsModalComponent,
         ToastComponent,
         FeaturedSlideshowComponent,
+        LandingRankingComponent,
         LandingFeedComponent,
         AppFooterComponent,
         AboutContentComponent,
@@ -67,18 +69,24 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         <!-- S2: cinematic slideshow (hidden when no featured trips) -->
         <tb-featured-slideshow #featuredSection />
 
-        <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
-             the complete About Us content, not just the S3 teaser). Rendered BEFORE S4 the
-             footer as of feedback F1 (2026-09-20) — section labels stay S1/S2/S4/S5/S6 for
-             history even though S5 now precedes S4 in scroll order; see frontend CLAUDE.md. -->
-        <section class="landing-snap-child landing-about-full">
-          <app-about-content (startPlanning)="scrollToTop()" />
-        </section>
+        <!-- Rankings (Feature 70): logged-in only, before the infinite feed (anything after it is unreachable). -->
+        @if (auth.isLoggedIn()) {
+          <tb-landing-ranking />
+        } @else {
+          <!-- S5: full About Us page (feedback #4 — scrolling the homepage to the end shows
+               the complete About Us content, not just the S3 teaser). Rendered BEFORE S4 the
+               footer as of feedback F1 (2026-09-20) — section labels stay S1/S2/S4/S5/S6 for
+               history even though S5 now precedes S4 in scroll order; see frontend CLAUDE.md.
+               Hidden for logged-in users as of Feature 70; see frontend CLAUDE.md. -->
+          <section class="landing-snap-child landing-about-full">
+            <app-about-content (startPlanning)="scrollToTop()" />
+          </section>
 
-        <!-- S4: footer -->
-        <tb-app-footer (createPlan)="showAddModal.set(true)"
-                        (viewMyTrips)="facade.openMyTrips()"
-                        (exploreFeatured)="scrollToFeatured()" />
+          <!-- S4: footer (logged-out only as of Feature 70; Terms/Privacy links get a new home in a later feature) -->
+          <tb-app-footer (createPlan)="showAddModal.set(true)"
+                          (viewMyTrips)="facade.openMyTrips()"
+                          (exploreFeatured)="scrollToFeatured()" />
+        }
 
         <!-- S6: infinite feed of other users' shared plans (hidden until logged in and the first page returns ≥1 plan) -->
         <tb-landing-feed #feedSection (backToTop)="scrollToTop()" />
@@ -133,7 +141,7 @@ export class ShellComponent {
   readonly facade = inject(NavFacadeService);
   /** '' → landing, 'plan' → editor (Feature 68). Defaults to landing for tests/hosts without route data. */
   readonly mode: 'landing' | 'editor' = inject(ActivatedRoute).snapshot.data?.['mode'] ?? 'landing';
-  private readonly auth = inject(AuthService);
+  protected readonly auth = inject(AuthService);
   private readonly highlightTour = inject(HighlightTourService);
   showAddModal   = signal(false);
   /** City id to pre-fill the add-stop modal with, from `?addCity=` — see the constructor. */

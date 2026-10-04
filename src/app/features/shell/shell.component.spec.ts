@@ -5,6 +5,7 @@ import { ActivatedRoute, convertToParamMap, provideRouter, Router } from '@angul
 import { ShellComponent } from './shell.component';
 import { TripService } from '../trip/trip.service';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
+import { AuthService } from '../../core/auth/auth.service';
 import { By } from '@angular/platform-browser';
 
 describe('ShellComponent', () => {
@@ -249,5 +250,30 @@ describe('ShellComponent', () => {
       expect(component.showAddModal()).toBe(false);
       expect(component.presetCityId()).toBeNull();
     });
+  });
+
+  describe('logged-in landing (Feature 70)', () => {
+    const loggedIn = () => jest.spyOn(TestBed.inject(AuthService), 'isLoggedIn' as any).mockReturnValue(true);
+
+    it('shows the ranking between the slideshow and the feed', () => {
+      const el = setup(0, 'landing', loggedIn).nativeElement as HTMLElement;
+      const tags = Array.from(el.querySelector('.landing-scroll')!.children).map(c => c.tagName.toLowerCase());
+      const r = tags.indexOf('tb-landing-ranking');
+      expect(r).toBeGreaterThan(tags.indexOf('tb-featured-slideshow'));
+      expect(r).toBeLessThan(tags.indexOf('tb-landing-feed'));
+    });
+
+    it('hides About Us (S5) and the footer (S4)', () => {
+      const el = setup(0, 'landing', loggedIn).nativeElement as HTMLElement;
+      expect(el.querySelector('.landing-about-full')).toBeNull();
+      expect(el.querySelector('tb-app-footer')).toBeNull();
+    });
+  });
+
+  it('logged out: no ranking; About Us and footer unchanged', () => {
+    const el = setup(0).nativeElement as HTMLElement;
+    expect(el.querySelector('tb-landing-ranking')).toBeNull();
+    expect(el.querySelector('.landing-about-full app-about-content')).not.toBeNull();
+    expect(el.querySelector('tb-app-footer')).not.toBeNull();
   });
 });
