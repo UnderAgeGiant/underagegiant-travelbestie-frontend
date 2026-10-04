@@ -5,8 +5,8 @@ export type RankingKey = 'planners' | 'destinations' | 'trophies' | 'favorited';
 export interface RankingRow { label: string; sublabel?: string; link?: string; value: number; pct: number }
 export interface RankingChart { key: RankingKey; title: string; rows: RankingRow[]; fallback: boolean }
 
-/** Placeholder until the owner provides the real Asistente Miel artwork — swap this one constant. */
-export const MIEL_HOST_IMAGE = '/Dog-highlight-wagging-tail-1.png';
+/** Asistente Miel hosting the weekly ranking (owner-provided artwork, 150×150). */
+export const MIEL_HOST_IMAGE = '/Ranking_dog.png';
 
 const TRAVEL_EXPERT = 'Travel Expert';
 const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));

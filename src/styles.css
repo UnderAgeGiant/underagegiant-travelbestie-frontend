@@ -3404,6 +3404,8 @@ tb-landing-ranking { display: block; }
 .landing-ranking { min-height: 100vh; padding: 72px clamp(16px, 4vw, 48px) 32px; background: var(--cream); display: flex; flex-direction: column; gap: 28px; }
 .rk-head { display: flex; align-items: center; gap: 18px; }
 .rk-miel { width: 112px; height: 112px; flex: none; }
+/* The ranking artwork is a full scene, so it fills the bubble (minus a rim) instead of the 70% icon size. */
+.rk-miel img { width: 92%; height: 92%; border-radius: 50%; object-fit: cover; }
 .rk-bubble { background: #fff; border: 1px solid var(--border); border-radius: 20px 20px 20px 4px; padding: 14px 20px; box-shadow: var(--sh); }
 .rk-bubble h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; margin: 0; }
 .rk-bubble p { margin: 4px 0 0; color: var(--t3); }
@@ -3411,38 +3413,38 @@ tb-landing-ranking { display: block; }
    rank depth sets fill strength. Bars move on transforms only: the fill and its value "tip" slide
    with the same transform and timing, and the value counts up via a registered integer property. */
 @property --rk-n { syntax: '<integer>'; inherits: false; initial-value: 0; }
-.rk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 52px 72px; }
+.rk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; }
 .rk-chart { --hue: var(--lav); --hue-d: var(--lav-d); min-width: 0; }
 .rk-chart[data-key="destinations"] { --hue: var(--sky); --hue-d: var(--sky-d); }
 .rk-chart[data-key="trophies"]     { --hue: var(--butter); --hue-d: var(--butter-d); }
 .rk-chart[data-key="favorited"]    { --hue: var(--blush); --hue-d: var(--blush-d); }
-.rk-chart h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; font-size: 20px; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
-.rk-chart h3::before { content: ''; width: 12px; height: 12px; flex: none; border-radius: 4px; background: var(--hue-d); }
-.rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.rk-chart h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
+.rk-chart h3::before { content: ''; width: 9px; height: 9px; flex: none; border-radius: 3px; background: var(--hue-d); }
+.rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .rk-row { --enter: calc(var(--c, 0) * 70ms + var(--i, 0) * 110ms);
-  display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); align-items: end; column-gap: 12px; }
-.rk-rank { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; line-height: .8;
+  display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); align-items: end; column-gap: 10px; }
+.rk-rank { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; line-height: .8;
   font-variant-numeric: lining-nums; color: var(--t3); text-align: center; }
 .rk-row:first-child .rk-rank { color: var(--hue-d); }
-.rk-main { min-width: 0; display: grid; gap: 8px; }
-.rk-label { min-width: 0; display: flex; align-items: baseline; gap: 8px; overflow: hidden; white-space: nowrap; font-size: 17px; font-weight: 500; }
+.rk-main { min-width: 0; display: grid; gap: 4px; }
+.rk-label { min-width: 0; display: flex; align-items: baseline; gap: 8px; overflow: hidden; white-space: nowrap; font-size: 14px; font-weight: 500; }
 .rk-label > a, .rk-label > small { overflow: hidden; text-overflow: ellipsis; }
-.rk-label small { color: var(--t2); font-size: 13px; font-weight: 400; }
+.rk-label small { color: var(--t2); font-size: 12px; font-weight: 400; }
 .rk-label a { color: inherit; text-decoration: underline; text-decoration-color: var(--hue-d); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .rk-label a:hover { color: var(--hue-d); }
 .rk-label a:focus-visible { outline: 2px solid var(--hue-d); outline-offset: 3px; border-radius: 4px; }
-.rk-meter { position: relative; margin-right: 3.4rem; }
-.rk-track { display: block; height: 28px; border-radius: 999px; overflow: hidden; background: color-mix(in oklch, var(--hue) 60%, transparent); }
+.rk-meter { position: relative; margin-right: 2.6rem; }
+.rk-track { display: block; height: 12px; border-radius: 999px; overflow: hidden; background: color-mix(in oklch, var(--hue) 60%, transparent); }
 .rk-fill, .rk-tip { transform: translateX(-100%); transition: transform .28s cubic-bezier(.4, 0, 1, 1); }
 .rk-fill { position: relative; display: block; width: 100%; height: 100%; border-radius: 999px;
   background: linear-gradient(90deg, color-mix(in oklch, var(--hue-d) 40%, var(--hue)), var(--hue-d));
   box-shadow: inset 0 1px 0 oklch(100% 0 0 / .35); }
-.rk-fill::after { content: ''; position: absolute; top: 50%; right: 10px; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: oklch(100% 0 0 / .85); }
+.rk-fill::after { content: ''; position: absolute; top: 50%; right: 4px; width: 4px; height: 4px; margin-top: -2px; border-radius: 50%; background: oklch(100% 0 0 / .85); }
 .rk-row:nth-child(2) .rk-fill { opacity: .72; }
 .rk-row:nth-child(3) .rk-fill { opacity: .5; }
 .rk-tip { position: absolute; inset: 0; pointer-events: none; }
-.rk-value { --rk-n: 0; counter-reset: rk var(--rk-n); position: absolute; left: 100%; top: 50%; translate: 0 -50%; padding-left: 12px;
-  font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--t1); white-space: nowrap;
+.rk-value { --rk-n: 0; counter-reset: rk var(--rk-n); position: absolute; left: 100%; top: 50%; translate: 0 -50%; padding-left: 8px;
+  font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--t1); white-space: nowrap;
   opacity: 0; transition: --rk-n .28s linear, opacity .2s; }
 .rk-value::after { content: counter(rk); }
 .rk-value-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -3452,7 +3454,7 @@ tb-landing-ranking { display: block; }
 .landing-ranking.filled .rk-value { --rk-n: var(--n); opacity: 1;
   transition: --rk-n .95s cubic-bezier(.16, 1, .3, 1) var(--enter), opacity .3s ease-out var(--enter); }
 .rk-fallback { opacity: .85; }
-.rk-me { margin: 22px 3.4rem 0 calc(2.6rem + 12px); padding: 10px 14px; border-radius: 12px; font-size: 15px; color: var(--t2);
+.rk-me { margin: 12px 2.6rem 0 calc(1.75rem + 10px); padding: 8px 12px; border-radius: 10px; font-size: 13px; color: var(--t2);
   background: color-mix(in oklch, var(--hue) 35%, transparent); }
 .rk-me strong { color: var(--t1); }
 .rk-calc { display: flex; align-items: center; gap: 10px; color: var(--t2); }
@@ -3461,13 +3463,7 @@ tb-landing-ranking { display: block; }
 .rk-updated { margin: 0; text-align: center; font-size: 12px; color: var(--t2); }
 @media (max-width: 768px) {
   .landing-ranking { min-height: auto; padding-top: 40px; }
-  .rk-grid { grid-template-columns: 1fr; gap: 40px; }
-  .rk-row { grid-template-columns: 2.1rem minmax(0, 1fr); }
-  .rk-rank { font-size: 36px; }
-  .rk-me { margin-left: calc(2.1rem + 12px); }
-  .rk-track { height: 22px; }
-  .rk-label { font-size: 15px; }
-  .rk-value { font-size: 17px; }
+  .rk-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 /* Reduced motion: no sliding or counting — bars and values simply appear at their final state. */
 @media (prefers-reduced-motion: reduce) {
