@@ -3407,33 +3407,45 @@ tb-landing-ranking { display: block; }
 .rk-bubble { background: #fff; border: 1px solid var(--border); border-radius: 20px 20px 20px 4px; padding: 14px 20px; box-shadow: var(--sh); }
 .rk-bubble h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; margin: 0; }
 .rk-bubble p { margin: 4px 0 0; color: var(--t3); }
-.rk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.rk-chart { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 18px 20px; box-shadow: var(--sh); min-width: 0; }
-.rk-chart h3 { margin: 0 0 12px; font-size: 15px; font-weight: 600; }
-.rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.rk-row { display: grid; grid-template-columns: 26px minmax(0, 9rem) 1fr auto; align-items: center; gap: 10px; }
-.rk-rank { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--lav); color: var(--lav-d); }
+/* No cards: the charts sit directly on the section ground. */
+.rk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 64px; }
+.rk-chart { min-width: 0; }
+.rk-chart h3 { margin: 0 0 18px; font-size: 20px; font-weight: 600; }
+.rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.rk-row { display: grid; grid-template-columns: 34px minmax(0, 11rem) 1fr auto; align-items: center; gap: 14px; }
+.rk-rank { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 15px; font-weight: 700; background: var(--lav); color: var(--lav-d); }
 .rk-row:nth-child(1) .rk-rank { background: var(--butter); color: var(--butter-d); }
 .rk-row:nth-child(2) .rk-rank { background: var(--sky); color: var(--sky-d); }
 .rk-row:nth-child(3) .rk-rank { background: var(--peach); color: var(--peach-d); }
-.rk-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
-.rk-label small { display: block; color: var(--t3); font-size: 11px; overflow: hidden; text-overflow: ellipsis; }
+.rk-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 17px; }
+.rk-label small { display: block; color: var(--t3); font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
 .rk-label a { color: inherit; text-decoration: underline; text-decoration-color: var(--lav-d); }
-.rk-bar { height: 12px; border-radius: 999px; background: var(--lav); overflow: hidden; }
-.rk-bar-fill { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--lav-d), var(--peach-d));
+/* Glossy 3D tube: cylinder lighting on the track (recessed) and the fill (raised), specular streak, coloured glow. */
+.rk-bar { --bar-h: 30px; height: var(--bar-h); border-radius: 999px;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--lav) 85%, black), var(--lav) 45%, color-mix(in oklch, var(--lav) 60%, white));
+  box-shadow: inset 0 3px 6px oklch(0% 0 0 / .14), 0 1px 0 #fff; }
+.rk-bar-fill { position: relative; display: block; height: 100%; width: 0; border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,.6) 0 14%, rgba(255,255,255,0) 46%, rgba(0,0,0,.2) 100%),
+              linear-gradient(90deg, var(--lav-d), var(--peach-d));
+  box-shadow: 0 8px 16px -6px color-mix(in oklch, var(--peach-d) 60%, transparent), inset 0 -3px 5px rgba(0,0,0,.15);
   transition: width .9s cubic-bezier(.22, 1, .36, 1); transition-delay: calc(var(--i, 0) * 120ms); }
+.rk-bar-fill::after { content: ''; position: absolute; top: calc(var(--bar-h) * .16); left: calc(var(--bar-h) * .45); right: calc(var(--bar-h) * .5);
+  height: calc(var(--bar-h) * .16); border-radius: 999px; background: rgba(255,255,255,.55); }
 .landing-ranking.filled .rk-bar-fill { width: var(--pct); }
-.rk-value { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 14px; }
+.rk-value { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 18px; }
 .rk-fallback { opacity: .85; }
-.rk-me { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--t2); }
+.rk-me { margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--border); font-size: 15px; color: var(--t2); }
 .rk-calc { display: flex; align-items: center; gap: 10px; color: var(--t3); }
 .rk-calc-bar { width: 80px; height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--lav) 25%, var(--lav-d) 50%, var(--lav) 75%); background-size: 200% 100%; animation: rk-shimmer 1.4s linear infinite; }
 @keyframes rk-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 .rk-updated { margin: 0; text-align: center; font-size: 11px; color: var(--t3); opacity: .7; }
 @media (max-width: 768px) {
   .landing-ranking { min-height: auto; padding-top: 40px; }
-  .rk-grid { grid-template-columns: 1fr; }
-  .rk-row { grid-template-columns: 26px minmax(0, 7rem) 1fr auto; }
+  .rk-grid { grid-template-columns: 1fr; gap: 36px; }
+  .rk-row { grid-template-columns: 30px minmax(0, 7rem) 1fr auto; gap: 10px; }
+  .rk-rank { width: 30px; height: 30px; font-size: 14px; }
+  .rk-bar { --bar-h: 24px; }
+  .rk-label { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rk-bar-fill { transition: none; width: var(--pct); }
