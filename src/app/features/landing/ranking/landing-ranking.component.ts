@@ -10,7 +10,7 @@ import { MIEL_HOST_IMAGE, RankingKey, buildCharts, formatLastUpdate, formatWeekS
   template: `
     <section class="landing-snap-child landing-ranking" [class.filled]="filled()" aria-labelledby="rk-title">
       <header class="rk-head">
-        <img class="rk-miel tb-soap-bubble" [src]="mielImage" alt="Asistente Miel" i18n-alt="@@ranking.mielAlt" width="112" height="112" />
+        <div class="rk-miel tb-soap-bubble"><img [src]="mielImage" alt="Asistente Miel" i18n-alt="@@ranking.mielAlt" width="112" height="112" /></div>
         <div class="rk-bubble">
           <h2 id="rk-title" i18n="@@ranking.title">Ranking de la semana</h2>
           <p i18n="@@ranking.bubble">¡Así va la semana, viajeros!</p>

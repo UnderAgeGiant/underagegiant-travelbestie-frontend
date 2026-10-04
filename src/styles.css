@@ -3403,7 +3403,7 @@ app-step-comments { display: block; }
 tb-landing-ranking { display: block; }
 .landing-ranking { min-height: 100vh; padding: 72px clamp(16px, 4vw, 48px) 32px; background: var(--cream); display: flex; flex-direction: column; gap: 28px; }
 .rk-head { display: flex; align-items: center; gap: 18px; }
-.rk-miel { width: 112px; height: 112px; flex: none; object-fit: contain; padding: 15%; }
+.rk-miel { width: 112px; height: 112px; flex: none; }
 .rk-bubble { background: #fff; border: 1px solid var(--border); border-radius: 20px 20px 20px 4px; padding: 14px 20px; box-shadow: var(--sh); }
 .rk-bubble h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; margin: 0; }
 .rk-bubble p { margin: 4px 0 0; color: var(--t3); }
