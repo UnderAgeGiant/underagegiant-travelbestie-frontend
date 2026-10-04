@@ -1,7 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
+import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/router';
+import { of } from 'rxjs';
 import { TrophyShelfComponent } from './trophy-shelf.component';
 import { TrophyService } from '../../../core/trophies/trophy.service';
+import { SCROLL_SETTLE_FALLBACK_MS } from '../../../core/routing/focus-item.util';
 
 describe('TrophyShelfComponent', () => {
   const earned = signal<any[]>([]);
@@ -13,7 +16,7 @@ describe('TrophyShelfComponent', () => {
   function create() {
     TestBed.configureTestingModule({
       imports: [TrophyShelfComponent],
-      providers: [{ provide: TrophyService, useValue: { earned, progress, loadError, loading, load } }],
+      providers: [provideRouter([]), { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } }],
     });
     const f = TestBed.createComponent(TrophyShelfComponent);
     f.detectChanges();
@@ -85,5 +88,24 @@ describe('TrophyShelfComponent', () => {
     load.mockReset();
     f.nativeElement.querySelector('.ts-retry').click();
     expect(load).toHaveBeenCalled();
+  });
+
+  it('?focus=<type>:<tier> flashes that earned bubble once it renders', () => {
+    jest.useFakeTimers();
+    Element.prototype.scrollIntoView = jest.fn();
+    earned.set([{ type: 'ai_plans', tier: 'bronze', earnedAt: '2026-10-01T00:00:00Z' }]);
+    TestBed.configureTestingModule({
+      imports: [TrophyShelfComponent],
+      providers: [
+        provideRouter([]),
+        { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } },
+        { provide: ActivatedRoute, useValue: { queryParamMap: of(convertToParamMap({ focus: 'ai_plans:bronze' })) } },
+      ],
+    });
+    const f = TestBed.createComponent(TrophyShelfComponent);
+    f.detectChanges();
+    jest.advanceTimersByTime(300 + SCROLL_SETTLE_FALLBACK_MS);
+    expect(f.nativeElement.querySelector('[data-focus-id="ai_plans:bronze"]').classList).toContain('tb-focus-flash');
+    jest.useRealTimers();
   });
 });

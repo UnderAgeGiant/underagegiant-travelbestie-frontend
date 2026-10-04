@@ -3,173 +3,67 @@ import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
 import { NotificationBellComponent } from './notification-bell.component';
-import { NavFacadeService } from '../nav-facade.service';
 import { AppNotification } from '../../../core/models/notification.model';
 
-describe('NotificationBellComponent — open() routing for ai_plan_ready/ai_plan_failed', () => {
-  let component: NotificationBellComponent;
-  let facade: NavFacadeService;
-  let router: { navigateByUrl: jest.Mock };
-  let http: HttpTestingController;
+function notif(type: string, url: string): AppNotification {
+  return { notificationId: 'n', type: type as AppNotification['type'], title: 't', body: 'b', url, read: false, createdAt: new Date().toISOString() };
+}
 
-  beforeEach(() => {
-    localStorage.clear();
-    router = { navigateByUrl: jest.fn() };
-
-    TestBed.configureTestingModule({
-      imports: [NotificationBellComponent],
-      providers: [
-        provideHttpClient(withXhr()),
-        provideHttpClientTesting(),
-        { provide: Router, useValue: router },
-      ],
-    });
-
-    http = TestBed.inject(HttpTestingController);
-    facade = TestBed.inject(NavFacadeService);
-    component = TestBed.createComponent(NotificationBellComponent).componentInstance;
-  });
-
-  afterEach(() => http.verify());
-
-  it('routes ai_plan_ready notifications to My Trips → Planes IA Pendientes instead of following n.url', () => {
-    const n: AppNotification = {
-      notificationId: 'n1', type: 'ai_plan_ready', title: 't', body: 'b',
-      url: '/', read: false, createdAt: new Date().toISOString(),
-    };
-    component.open(n);
-    expect(facade.pendingMyTripsTab()).toBe('aiplans');
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/my-trips');
-  });
-
-  it('routes ai_plan_failed notifications to My Trips → Planes IA Pendientes instead of following n.url', () => {
-    const n: AppNotification = {
-      notificationId: 'n2', type: 'ai_plan_failed', title: 't', body: 'b',
-      url: '/', read: false, createdAt: new Date().toISOString(),
-    };
-    component.open(n);
-    expect(facade.pendingMyTripsTab()).toBe('aiplans');
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/my-trips');
-  });
-});
-
-describe('NotificationBellComponent — open() routing for purchase notifications', () => {
-  let component: NotificationBellComponent;
-  let router: { navigateByUrl: jest.Mock };
-  let http: HttpTestingController;
-
-  beforeEach(() => {
-    localStorage.clear();
-    router = { navigateByUrl: jest.fn() };
-
-    TestBed.configureTestingModule({
-      imports: [NotificationBellComponent],
-      providers: [
-        provideHttpClient(withXhr()),
-        provideHttpClientTesting(),
-        { provide: Router, useValue: router },
-      ],
-    });
-
-    http = TestBed.inject(HttpTestingController);
-    component = TestBed.createComponent(NotificationBellComponent).componentInstance;
-  });
-
-  afterEach(() => http.verify());
-
-  it('routes purchase notifications to /karma-history instead of following n.url', () => {
-    const n: AppNotification = {
-      notificationId: 'n3', type: 'purchase', title: 't', body: 'b',
-      url: '/', read: false, createdAt: new Date().toISOString(),
-    };
-    component.open(n);
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/karma-history');
-  });
-});
-
-describe('NotificationBellComponent — open() routing for trophy notifications', () => {
-  let component: NotificationBellComponent;
-  let router: { navigateByUrl: jest.Mock };
-  let http: HttpTestingController;
-
-  beforeEach(() => {
-    localStorage.clear();
-    router = { navigateByUrl: jest.fn() };
-
-    TestBed.configureTestingModule({
-      imports: [NotificationBellComponent],
-      providers: [
-        provideHttpClient(withXhr()),
-        provideHttpClientTesting(),
-        { provide: Router, useValue: router },
-      ],
-    });
-
-    http = TestBed.inject(HttpTestingController);
-    component = TestBed.createComponent(NotificationBellComponent).componentInstance;
-  });
-
-  afterEach(() => http.verify());
-
-  it('a trophy notification navigates to /profile#trofeos', () => {
-    component.open({ notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/profile#trofeos', read: false, createdAt: '' });
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/profile#trofeos');
-  });
-});
-
-describe('NotificationBellComponent — open() same-URL navigation hardening', () => {
+describe('NotificationBellComponent — open() follows the backend url', () => {
   let component: NotificationBellComponent;
   let router: { navigateByUrl: jest.Mock; url: string };
   let http: HttpTestingController;
 
   beforeEach(() => {
     localStorage.clear();
-    // Simulate the Router already tracking '/' as current — e.g. after a
-    // signal-only view switch (onLogoClick) followed by history.back().
-    router = { navigateByUrl: jest.fn().mockResolvedValue(true), url: '/' };
-
+    router = { navigateByUrl: jest.fn().mockResolvedValue(true), url: '/some-other-page' };
     TestBed.configureTestingModule({
       imports: [NotificationBellComponent],
-      providers: [
-        provideHttpClient(withXhr()),
-        provideHttpClientTesting(),
-        { provide: Router, useValue: router },
-      ],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), { provide: Router, useValue: router }],
     });
-
     http = TestBed.inject(HttpTestingController);
     component = TestBed.createComponent(NotificationBellComponent).componentInstance;
   });
 
   afterEach(() => http.verify());
 
-  it('bounces through a skipLocationChange hop before navigating to a shared-trip target Router already thinks is current', async () => {
-    // Router.url is '/' (set above); the resolved target is '/shared/abc', which differs —
-    // this exercises the *safety net itself* by making the mock report the target as
-    // already-current on the second call, mirroring what a stale Router state looks like.
-    router.url = '/shared/abc';
-    const n: AppNotification = {
-      notificationId: 'n4', type: 'clone', title: 't', body: 'b',
-      url: '/?share=abc', read: false, createdAt: new Date().toISOString(),
-    };
-
-    component.open(n);
-    await Promise.resolve(); // flush the microtask from navigateByUrl('/', {skipLocationChange:true}).then(...)
-
-    expect(router.navigateByUrl).toHaveBeenNthCalledWith(1, '/', { skipLocationChange: true });
-    expect(router.navigateByUrl).toHaveBeenNthCalledWith(2, '/shared/abc');
+  it.each([
+    ['comment', '/shared/abc?focus=att%3Amadrid%3Amadrid_3'],
+    ['favorite', '/shared/abc'],
+    ['clone', '/shared/abc'],
+    ['purchase', '/karma-history'],
+    ['collaborator_invite', '/my-trips?tab=invites&focus=t1'],
+    ['collaborator_accepted', '/my-trips?tab=trips&focus=t1'],
+    ['ai_plan_ready', '/my-trips?tab=aiplans&focus=r1'],
+    ['ai_plan_failed', '/my-trips?tab=aiplans'],
+    ['trophy', '/profile?focus=ai_plans%3Abronze#trofeos'],
+    ['some_future_type', '/somewhere/new'],
+  ])('%s → navigates to %s exactly once', (type, url) => {
+    component.panelOpen.set(true);
+    component.open(notif(type, url));
+    expect(component.panelOpen()).toBe(false);
+    expect(router.navigateByUrl).toHaveBeenCalledTimes(1);
+    expect(router.navigateByUrl).toHaveBeenCalledWith(url);
   });
 
-  it('navigates directly, with no bounce, when the target differs from the current Router url', () => {
-    router.url = '/some-other-page';
-    const n: AppNotification = {
-      notificationId: 'n5', type: 'favorite', title: 't', body: 'b',
-      url: '/?share=xyz', read: false, createdAt: new Date().toISOString(),
-    };
-
-    component.open(n);
-
-    expect(router.navigateByUrl).toHaveBeenCalledTimes(1);
+  it('maps a legacy /?share=<id> row to /shared/<id>', () => {
+    component.open(notif('clone', '/?share=xyz'));
     expect(router.navigateByUrl).toHaveBeenCalledWith('/shared/xyz');
+  });
+
+  it.each(['https://evil.example', '//evil.example', 'javascript:alert(1)', ''])(
+    'ignores a non-path url %p but still closes the panel', (url) => {
+      component.panelOpen.set(true);
+      component.open(notif('comment', url));
+      expect(component.panelOpen()).toBe(false);
+      expect(router.navigateByUrl).not.toHaveBeenCalled();
+    });
+
+  it('bounces through a skipLocationChange hop when the target is already the current Router url', async () => {
+    router.url = '/my-trips?tab=aiplans&focus=r1';
+    component.open(notif('ai_plan_ready', '/my-trips?tab=aiplans&focus=r1'));
+    await Promise.resolve();
+    expect(router.navigateByUrl).toHaveBeenNthCalledWith(1, '/', { skipLocationChange: true });
+    expect(router.navigateByUrl).toHaveBeenNthCalledWith(2, '/my-trips?tab=aiplans&focus=r1');
   });
 });

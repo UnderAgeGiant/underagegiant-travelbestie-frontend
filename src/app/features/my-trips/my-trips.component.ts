@@ -1,6 +1,9 @@
 import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
+import { focusWhenPresent } from '../../core/routing/focus-item.util';
 import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
@@ -23,6 +26,9 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { buildItineraryExportMaps } from '../../core/utils/itinerary-export.util';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
+
+type MyTripsTab = 'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans';
+const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations', 'invites', 'aiplans'];
 
 @Component({
   selector: 'app-my-trips',
@@ -106,7 +112,7 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
                   </label>
                 </div>
                 @for (plan of filteredPlans(); track plan.id) {
-                  <div class="saved-plan-card">
+                  <div class="saved-plan-card" [attr.data-focus-id]="plan.id">
                     <div class="saved-plan-header" (click)="togglePlan(plan.id)">
                       <div class="saved-plan-info">
                         <div class="saved-plan-name">
@@ -299,7 +305,7 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
             @if (favTab() === 'invites') {
               <div class="fav-list">
                 @for (invite of savedPlans.pendingInvites(); track invite.tripId) {
-                  <div class="fav-card">
+                  <div class="fav-card" [attr.data-focus-id]="invite.tripId">
                     <div class="fav-card-header">
                       <span class="fav-card-name">{{ invite.tripTitle }}</span>
                       <span class="fav-card-owner" i18n="@@profile.favCardBy">por {{ invite.ownerName }}</span>
@@ -324,7 +330,7 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
                   <div class="fav-empty" i18n="@@mytrips.aiPlansEmpty">Aún no tienes planes de IA pendientes.</div>
                 } @else {
                   @for (item of aiPlanHistory(); track item.requestId) {
-                    <div class="fav-card aiplan-card"
+                    <div class="fav-card aiplan-card" [attr.data-focus-id]="item.requestId"
                          [class.aiplan-card-failed]="item.status === 'failed'"
                          [class.aiplan-card-clickable]="item.status === 'completed'"
                          [attr.role]="item.status === 'completed' ? 'button' : null"
@@ -429,6 +435,9 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly trophies    = inject(TrophyService);
   private readonly api         = inject(ApiService);
   private readonly router      = inject(Router);
+  private readonly route       = inject(ActivatedRoute);
+  private readonly host        = inject(ElementRef<HTMLElement>);
+  private readonly focusParam = toSignal(this.route.queryParamMap.pipe(map(p => p.get('focus'))), { initialValue: null });
   protected readonly autoSave  = inject(AutoSaveService);
   private readonly facade      = inject(NavFacadeService);
   private readonly locale      = inject(LocaleService);
@@ -441,7 +450,7 @@ export class MyTripsComponent implements AfterViewInit {
   @ViewChild('profileTabsEl') private profileTabsEl?: ElementRef<HTMLElement>;
 
   // ── Favorites tab ──
-  favTab = signal<'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans'>('trips');
+  favTab = signal<MyTripsTab>('trips');
   aiPlanHistory = signal<AiPlanHistoryItem[]>([]);
   aiPlanHistoryLoading = signal(false);
   discardingRequestId = signal<string | null>(null);
@@ -454,6 +463,22 @@ export class MyTripsComponent implements AfterViewInit {
   canScrollProfileTabs = signal(false);
 
   constructor() {
+    // Notifications deep-link here as /my-trips?tab=<tab>[&focus=<id>] (backend-issued url). Reactive so
+    // a notification clicked while already on /my-trips still switches tab (the route component is reused).
+    this.route.queryParamMap.pipe(takeUntilDestroyed()).subscribe(params => {
+      const tab = params.get('tab');
+      if (tab && MY_TRIPS_TABS.includes(tab)) {
+        this.favTab.set(tab as MyTripsTab);
+        if (tab === 'aiplans') this.loadAiPlanHistory();
+      }
+    });
+    // ?focus=<id> (untrusted: match-only, see focus-item.util.ts). Waits for the AI history response:
+    // it carries every plan's full result and can outlast focusWhenPresent's 3 s retry window, which
+    // left AI-plan notifications with no highlight (2026-10-03 owner test). onCleanup cancels retries.
+    effect(onCleanup => {
+      if (this.aiPlanHistoryLoading()) return;
+      onCleanup(focusWhenPresent(this.host.nativeElement, this.focusParam()));
+    });
     this.savedPlans.loadPendingInvites();
     // Reactive, not one-shot: handles arriving fresh at /my-trips and re-clicking "Mis viajes" while already here.
     effect(() => {
