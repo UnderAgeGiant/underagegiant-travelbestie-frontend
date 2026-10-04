@@ -87,4 +87,10 @@ describe('LandingRankingComponent', () => {
     const { el } = setup();
     expect(el.querySelector('.rk-updated')?.textContent).toMatch(/\d{2}:\d{2}/);
   });
+
+  it('while loading (weekly null, no error) no charts are shown (Review Focus 4)', () => {
+    const { el } = setup({ weekly: null, weeklyError: false });
+    expect(el.querySelectorAll('.rk-chart')).toHaveLength(0);
+    expect(el.textContent).not.toContain('Travel Expert');
+  });
 });

@@ -17,37 +17,39 @@ import { MIEL_HOST_IMAGE, RankingKey, buildCharts, formatLastUpdate, formatWeekS
         </div>
       </header>
 
-      <div class="rk-grid">
-        @for (chart of charts(); track chart.key) {
-          <article class="rk-chart" [class.rk-fallback]="chart.fallback">
-            <h3>{{ chart.title }}</h3>
-            <ol class="rk-rows">
-              @for (row of chart.rows; track $index) {
-                <li class="rk-row" [style.--i]="$index">
-                  <span class="rk-rank">{{ $index + 1 }}</span>
-                  <span class="rk-label">
-                    @if (row.link) { <a [routerLink]="row.link">{{ row.label }}</a> } @else { {{ row.label }} }
-                    @if (row.sublabel) { <small>{{ row.sublabel }}</small> }
-                  </span>
-                  <span class="rk-bar" aria-hidden="true"><span class="rk-bar-fill" [style.--pct]="row.pct + '%'"></span></span>
-                  <span class="rk-value">{{ row.value }}</span>
-                </li>
-              }
-            </ol>
-            @if (chart.key !== 'destinations' && !svc.mineError()) {
-              <div class="rk-me">
-                @if (svc.mineLoading()) {
-                  <span class="rk-calc"><span class="rk-calc-bar" aria-hidden="true"></span><span i18n="@@ranking.calculating">Calculando…</span></span>
-                } @else if (me(chart.key); as m) {
-                  <span><strong i18n="@@ranking.you">Tú</strong> · #{{ m.rank }} · {{ m.value }}</span>
-                } @else {
-                  <span i18n="@@ranking.notYet">Aún no apareces esta semana</span>
+      @if (svc.weekly() || svc.weeklyError()) {
+        <div class="rk-grid">
+          @for (chart of charts(); track chart.key) {
+            <article class="rk-chart" [class.rk-fallback]="chart.fallback">
+              <h3>{{ chart.title }}</h3>
+              <ol class="rk-rows">
+                @for (row of chart.rows; track $index) {
+                  <li class="rk-row" [style.--i]="$index">
+                    <span class="rk-rank">{{ $index + 1 }}</span>
+                    <span class="rk-label">
+                      @if (row.link) { <a [routerLink]="row.link">{{ row.label }}</a> } @else { {{ row.label }} }
+                      @if (row.sublabel) { <small>{{ row.sublabel }}</small> }
+                    </span>
+                    <span class="rk-bar" aria-hidden="true"><span class="rk-bar-fill" [style.--pct]="row.pct + '%'"></span></span>
+                    <span class="rk-value">{{ row.value }}</span>
+                  </li>
                 }
-              </div>
-            }
-          </article>
-        }
-      </div>
+              </ol>
+              @if (chart.key !== 'destinations' && !svc.mineError()) {
+                <div class="rk-me">
+                  @if (svc.mineLoading()) {
+                    <span class="rk-calc"><span class="rk-calc-bar" aria-hidden="true"></span><span i18n="@@ranking.calculating">Calculando…</span></span>
+                  } @else if (me(chart.key); as m) {
+                    <span><strong i18n="@@ranking.you">Tú</strong> · #{{ m.rank }} · {{ m.value }}</span>
+                  } @else {
+                    <span i18n="@@ranking.notYet">Aún no apareces esta semana</span>
+                  }
+                </div>
+              }
+            </article>
+          }
+        </div>
+      }
 
       @if (lastUpdate(); as lu) {
         <p class="rk-updated">

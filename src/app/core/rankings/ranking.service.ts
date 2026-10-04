@@ -54,8 +54,17 @@ export class RankingService {
     this.mineLoading.set(true);
     this.mineError.set(false);
     this.api.getMyRankings().subscribe({
-      next: data => { this.mine.set(data); this.mineLoading.set(false); writeCache(key, data); },
-      error: () => { this.mineLoading.set(false); this.mineError.set(true); },
+      next: data => {
+        if (this.auth.currentUser()?.email !== email) return;
+        this.mine.set(data);
+        this.mineLoading.set(false);
+        writeCache(key, data);
+      },
+      error: () => {
+        if (this.auth.currentUser()?.email !== email) return;
+        this.mineLoading.set(false);
+        this.mineError.set(true);
+      },
     });
   }
 

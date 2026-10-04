@@ -112,4 +112,21 @@ describe('RankingService', () => {
     expect(localStorage.getItem(myRankingsCacheKey('a@b.com'))).toBeNull();
     expect(localStorage.getItem('tb_other')).toBe('keep');
   });
+
+  it('stale response after account switch is ignored (Review Focus 3)', () => {
+    svc.loadMine();
+    expect(svc.mineLoading()).toBe(true);
+    email = 'b@c.com';
+    http.expectOne(ME_URL).flush({ weekStart: santiagoWeekStart(), planners: { rank: 1, value: 9 }, trophies: null, favorited: null });
+    expect(svc.mine()).toBeNull();
+    expect(localStorage.getItem(myRankingsCacheKey('a@b.com'))).toBeNull();
+  });
+
+  it('stale error after account switch is ignored (Review Focus 3)', () => {
+    svc.loadMine();
+    email = 'b@c.com';
+    http.expectOne(ME_URL).flush('x', { status: 500, statusText: 'err' });
+    expect(svc.mine()).toBeNull();
+    expect(svc.mineError()).toBe(false);
+  });
 });
