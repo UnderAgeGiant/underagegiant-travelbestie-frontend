@@ -8,6 +8,7 @@ import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
+import { RankingService } from '../../core/rankings/ranking.service';
 import { City } from '../../core/models/city.model';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
@@ -209,6 +210,13 @@ describe('NavFacadeService — logout clears the landing feed', () => {
     const spy = jest.spyOn(landingFeed, 'reset');
     facade.doLogout();
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('doLogout() resets rankings (Review Focus 2)', () => {
+    const rankings = TestBed.inject(RankingService);
+    const spy = jest.spyOn(rankings, 'reset');
+    facade.doLogout();
+    expect(spy).toHaveBeenCalled();
   });
 });
 
