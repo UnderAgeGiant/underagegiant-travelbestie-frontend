@@ -65,7 +65,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                 }
 
                 @for (planned of stop.selectedAttractions; track planned.attractionId) {
-                  @let att = attFor(stop.cityId, planned.attractionId);
+                  @let att = attFor(stop.cityId, planned.attractionId!); <!-- F3/F4 -->
                   @if (att) {
                     @let attDate = planned.date || stop.checkIn;
                     <div class="itin-item">

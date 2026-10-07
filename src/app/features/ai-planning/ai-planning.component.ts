@@ -436,8 +436,8 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                             }
                           </div>
                         }
-                        @for (planned of stop.selectedAttractions; track planned.attractionId) {
-                          @let att = attFor(stop.cityId, planned.attractionId);
+                        @for (planned of stop.selectedAttractions; track $index) {
+                          @let att = attFor(stop.cityId, planned.attractionId!); <!-- AI plans never contain personal entries -->
                           @if (att) {
                             @let attDate = planned.date || stop.checkIn;
                             <div class="itin-item">

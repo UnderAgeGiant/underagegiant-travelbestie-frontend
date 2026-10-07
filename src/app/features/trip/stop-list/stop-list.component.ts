@@ -246,7 +246,7 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
 
                     @if (isScheduledOpen(stop.stopId)) {
                       @for (planned of plannedSorted(stop); track planned.entryId) {
-                        @let att = attractionFor(stop.cityId, planned.attractionId);
+                        @let att = attractionFor(stop.cityId, planned.attractionId!); <!-- F3/F4 -->
                         @if (att) {
                           @let collision = hasTimeCollision(stop, planned.entryId);
                           <div class="att-plan-row" [class.att-collision]="collision"
@@ -611,7 +611,8 @@ export class StopListComponent {
   hasTimeCollision(stop: import('../../../core/models/trip.model').TripStop, targetEntryId: string): boolean {
     const target = stop.selectedAttractions.find(a => a.entryId === targetEntryId);
     if (!target?.startTime) return false;
-    const tAtt  = this.attractionFor(stop.cityId, target.attractionId);
+    const tAtt  = this.attractionFor(stop.cityId, target.attractionId!) // F3/F4
+   ;
     if (!tAtt) return false;
     const tStart = this.toMins(target.startTime);
     const tEnd   = tStart + tAtt.estimatedMinutes;
@@ -620,7 +621,8 @@ export class StopListComponent {
       if (other.entryId === targetEntryId || !other.startTime) return false;
       const oDate = other.date ?? '';
       if (tDate && oDate && tDate !== oDate) return false;
-      const oAtt = this.attractionFor(stop.cityId, other.attractionId);
+      const oAtt = this.attractionFor(stop.cityId, other.attractionId!) // F3/F4
+     ;
       if (!oAtt) return false;
       const oStart = this.toMins(other.startTime);
       const oEnd   = oStart + oAtt.estimatedMinutes;

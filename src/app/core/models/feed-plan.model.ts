@@ -1,5 +1,8 @@
 export interface FeedPlanAttraction {
-  attractionId: string;
+  attractionId?: string;        // absent on personal activities (Feature 71)
+  activityType?: string;
+  title?:        string;
+  mapsUrl?:      string;
   date?:        string;         // dd/mm/yyyy
   startTime:    string | null;  // HH:mm
   endTime:      string | null;  // HH:mm

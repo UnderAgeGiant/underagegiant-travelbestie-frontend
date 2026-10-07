@@ -40,7 +40,7 @@ function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale:
   if (!planned.startTime) return null;
   const city = WORLD_CITIES.find(c => c.id === stop.cityId);
   const att = (city ? getAttractions(city) : []).find(a => a.id === planned.attractionId)
-           ?? findCuratedAttraction(stop.cityId, planned.attractionId);
+           ?? findCuratedAttraction(stop.cityId, planned.attractionId!); // F3/F4
 
   const startMin = hmToMin(planned.startTime);
   const endMin   = planned.endTime ? hmToMin(planned.endTime) : startMin + (att?.estimatedMinutes ?? 60);
@@ -48,7 +48,7 @@ function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale:
 
   return {
     id:          `att:${planned.entryId}`,
-    name:        att ? attractionName(att, locale) : planned.attractionId,
+    name:        att ? attractionName(att, locale) : planned.attractionId!, // F3/F4
     type:        att?.type ?? '',
     icon:        typeIcon(att?.type ?? ''),
     imageUrl:    att?.imageUrl ?? null,

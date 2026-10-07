@@ -1,17 +1,23 @@
 import { Injectable, signal, computed, inject, effect } from '@angular/core';
 import { City } from '../../core/models/city.model';
-import { TripStop, PlannedAttraction, Planification, TransitLeg, Lodging } from '../../core/models/trip.model';
+import { TripStop, PlannedAttraction, Planification, TransitLeg, Lodging, PersonalActivityInput } from '../../core/models/trip.model';
+import { activityMeta } from '../../core/models/personal-activity.model';
+import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { AttractionCategory } from '../../core/models/attraction-category';
 import { AuthService } from '../../core/auth/auth.service';
 
 function migrateAttraction(raw: any): PlannedAttraction {
   return {
     entryId:      raw.entryId ?? crypto.randomUUID(),
-    attractionId: raw.attractionId,
+    ...(raw.attractionId ? { attractionId: raw.attractionId } : {}),
+    ...(raw.activityType ? { activityType: raw.activityType, title: raw.title ?? '' } : {}),
+    ...(raw.mapsUrl   ? { mapsUrl: raw.mapsUrl } : {}),
+    ...(raw.isPrivate ? { isPrivate: true } : {}),
     startTime:    raw.startTime ?? null,
     endTime:      raw.endTime   ?? null,
     date:         raw.date,
     ...(raw.category ? { category: raw.category as AttractionCategory } : {}),
+    ...(raw.ticketPurchased ? { ticketPurchased: true } : {}),
   };
 }
 
@@ -301,6 +307,29 @@ export class TripService {
         ? { ...s, selectedAttractions: [...s.selectedAttractions, { entryId, attractionId, startTime, endTime, date, ...(category ? { category } : {}) }] }
         : s
     ));
+  }
+
+  // Feature 71 — personal activities (breakfast, lunch, walk…) planned between attractions.
+  addPersonalActivity(stopId: string, p: PersonalActivityInput & { activityType: string }): void {
+    const entry: PlannedAttraction = {
+      entryId: crypto.randomUUID(), activityType: p.activityType, title: p.title.trim(),
+      ...(p.mapsUrl ? { mapsUrl: p.mapsUrl } : {}), isPrivate: p.isPrivate,
+      startTime: p.startTime, endTime: addMinutesToTime(p.startTime, activityMeta(p.activityType).minutes), date: p.date,
+    };
+    this._stops.update(stops => stops.map(s =>
+      s.stopId === stopId ? { ...s, selectedAttractions: [...s.selectedAttractions, entry] } : s));
+  }
+
+  updatePersonalActivity(stopId: string, entryId: string, p: PersonalActivityInput): void {
+    this._stops.update(stops => stops.map(s => s.stopId !== stopId ? s : {
+      ...s, selectedAttractions: s.selectedAttractions.map(a => {
+        if (a.entryId !== entryId) return a;
+        const minutes = plannedDurationMinutes(a, { estimatedMinutes: activityMeta(a.activityType).minutes });
+        const { mapsUrl: _old, ...rest } = a;
+        return { ...rest, title: p.title.trim(), ...(p.mapsUrl ? { mapsUrl: p.mapsUrl } : {}), isPrivate: p.isPrivate,
+                 startTime: p.startTime, endTime: addMinutesToTime(p.startTime, minutes), date: p.date ?? a.date };
+      }),
+    }));
   }
 
   patchAttractionTime(stopId: string, entryId: string, field: 'startTime' | 'endTime', value: string | null, estimatedMinutes?: number): void {

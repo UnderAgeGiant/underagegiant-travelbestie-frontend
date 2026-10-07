@@ -159,3 +159,48 @@ describe('TripService.loadForUserPreservingAnonymous', () => {
     expect(service.loadedPlanId()).toBeNull();
   });
 });
+
+describe('TripService — personal activities (Feature 71)', () => {
+  let service: TripService;
+  let stopId: string;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(TripService);
+    service.addStop(PARIS, '01/10/2026', '03/10/2026');
+    stopId = service.stops()[0].stopId;
+  });
+
+  it('addPersonalActivity stores the entry with endTime = start + meta minutes', () => {
+    service.addPersonalActivity(stopId, { activityType: 'lunch', title: 'Almuerzo', isPrivate: false, startTime: '13:00', date: '01/10/2026' });
+    const e = service.selectedAttractionsFor(stopId).at(-1)!;
+    expect(e).toMatchObject({ activityType: 'lunch', title: 'Almuerzo', isPrivate: false, startTime: '13:00', endTime: '14:00', date: '01/10/2026' });
+    expect(e.attractionId).toBeUndefined();
+    expect(e.entryId).toBeTruthy();
+  });
+  it('updatePersonalActivity keeps the duration when the start moves', () => {
+    service.addPersonalActivity(stopId, { activityType: 'dinner', title: 'Cena', isPrivate: false, startTime: '20:00' });
+    const id = service.selectedAttractionsFor(stopId).at(-1)!.entryId;
+    service.updatePersonalActivity(stopId, id, { title: 'Cena tía', mapsUrl: 'https://maps.app.goo.gl/x', isPrivate: true, startTime: '21:00' });
+    expect(service.selectedAttractionsFor(stopId).at(-1)).toMatchObject({ title: 'Cena tía', mapsUrl: 'https://maps.app.goo.gl/x', isPrivate: true, startTime: '21:00', endTime: '22:30' });
+  });
+  it('updatePersonalActivity with mapsUrl undefined removes the link', () => {
+    service.addPersonalActivity(stopId, { activityType: 'walk', title: 'Paseo', mapsUrl: 'https://maps.app.goo.gl/x', isPrivate: false, startTime: '10:00' });
+    const id = service.selectedAttractionsFor(stopId).at(-1)!.entryId;
+    service.updatePersonalActivity(stopId, id, { title: 'Paseo', isPrivate: false, startTime: '10:00' });
+    expect(service.selectedAttractionsFor(stopId).at(-1)!.mapsUrl).toBeUndefined();
+  });
+  it('restoring stops keeps personal fields and ticketPurchased (migrateAttraction)', () => {
+    service.restoreStops([{ stopId: 's9', cityId: 'paris', checkIn: '01/10/2026', checkOut: '03/10/2026', selectedAttractions: [
+      { entryId: 'e1', activityType: 'coffee', title: 'Café', mapsUrl: 'https://maps.app.goo.gl/x', isPrivate: true, startTime: '16:00', endTime: '16:30' } as any,
+      { entryId: 'e2', attractionId: 'paris_0', startTime: '10:00', endTime: null, ticketPurchased: true } as any,
+    ] }] as any);
+    const [p, c] = service.selectedAttractionsFor('s9');
+    expect(p).toMatchObject({ activityType: 'coffee', title: 'Café', mapsUrl: 'https://maps.app.goo.gl/x', isPrivate: true });
+    expect(c).toMatchObject({ attractionId: 'paris_0', ticketPurchased: true });
+    expect(c.activityType).toBeUndefined();
+  });
+});

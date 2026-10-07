@@ -50,12 +50,13 @@ export function buildFeedSlides(plan: FeedPlan, locale: AppLocale): FeedSlide[] 
         || (a.attIdx - b.attIdx));
 
     for (const { planned, attIdx } of ordered) {
-      const att = findCuratedAttraction(stop.cityId, planned.attractionId)
+      const att = findCuratedAttraction(stop.cityId, planned.attractionId!) // F3/F4
+
         ?? (city ? getAttractions(city).find(a => a.id === planned.attractionId) : undefined);
       if (!att) continue;
       slides.push({
         id: `${stopIdx}:${attIdx}:${planned.attractionId}`,
-        attractionId: planned.attractionId,
+        attractionId: planned.attractionId!, // F3/F4
         name: attractionName(att, locale),
         cityId: stop.cityId,
         cityName: city?.name ?? stop.cityId,

@@ -697,7 +697,7 @@ export class DayTimelineComponent {
         return {
           top, height, bg, fg,
           icon: typeIcon(att?.type ?? ''),
-          name:        att ? attractionName(att, this.locale.current()) : a.attractionId,
+          name:        att ? attractionName(att, this.locale.current()) : a.attractionId!, // F3/F4
           time: `${a.startTime}–${minToHm(endMin)}`,
           kind: 'attraction' as const,
           entryId: a.entryId,
@@ -1099,14 +1099,14 @@ export class DayTimelineComponent {
       .filter((a: PlannedAttraction) => !!a.startTime)
       .map((a: PlannedAttraction): SlideshowItem => {
         const att = attractions.find(x => x.id === a.attractionId)
-                 ?? findCuratedAttraction(stop.cityId, a.attractionId)
+                 ?? findCuratedAttraction(stop.cityId, a.attractionId!) // F3/F4
                  ?? null;
         const startMin = hmToMin(a.startTime!);
         const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + (att?.estimatedMinutes ?? 60);
         const date     = a.date ?? dateStr;
         return {
           id:          `att:${a.entryId}`,
-          name:        att ? attractionName(att, this.locale.current()) : a.attractionId,
+          name:        att ? attractionName(att, this.locale.current()) : a.attractionId!, // F3/F4
           type:        att?.type ?? '',
           icon:        typeIcon(att?.type ?? ''),
           imageUrl:    att?.imageUrl ?? null,

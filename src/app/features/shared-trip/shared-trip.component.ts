@@ -275,7 +275,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
                     @let sortedAtts = sortedAttractions(stop);
                     @for (planned of sortedAtts; track $index; let attIdx = $index) {
-                      @let att = attFor(stop.cityId, planned.attractionId);
+                      @let att = attFor(stop.cityId, planned.attractionId!); <!-- F3/F4 -->
                       @if (att) {
                         @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
                         @let attDate = planned.date || stop.checkIn;
