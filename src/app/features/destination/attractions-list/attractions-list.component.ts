@@ -4,10 +4,12 @@ import { Attraction, Comment } from '../../../core/models/comment.model';
 import { AttractionCardComponent } from '../attraction-card/attraction-card.component';
 import { AttractionCategory, getAllCategories } from '../../../core/models/attraction-category';
 import { matchesAttractionQuery } from '../../../core/utils/attraction-name.util';
+import { PersonalActivityCardComponent } from '../personal-activity/personal-activity-card.component';
+import { getPersonalActivityMetas } from '../../../core/models/personal-activity.model';
 
 @Component({
   selector: 'app-attractions-list',
-  imports: [AttractionCardComponent],
+  imports: [AttractionCardComponent, PersonalActivityCardComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="attractions-area">
@@ -36,34 +38,44 @@ import { matchesAttractionQuery } from '../../../core/utils/attraction-name.util
         }
       </div>
 
-      @if (availableCategories().length > 1) {
-        <div class="att-filter-row">
-          <button class="att-filter-chip" [class.active]="filterCategory() === null"
-                  (click)="filterCategory.set(null)" type="button"
+      <div class="att-filter-row">
+        @if (availableCategories().length > 1) {
+          <button class="att-filter-chip" [class.active]="filterCategory() === null && !showPersonal()"
+                  (click)="pickCategory(null)" type="button"
                   i18n="@@dest.filterAll">Todos</button>
           @for (cat of availableCategories(); track cat.code) {
-            <button class="att-filter-chip" [class.active]="filterCategory() === cat.code"
+            <button class="att-filter-chip" [class.active]="filterCategory() === cat.code && !showPersonal()"
                     [style.--chip-bg]="cat.bg"
-                    (click)="filterCategory.set(filterCategory() === cat.code ? null : cat.code)"
+                    (click)="pickCategory(filterCategory() === cat.code ? null : cat.code)"
                     type="button">
               {{ cat.icon }} {{ cat.label }}
             </button>
           }
-        </div>
-      }
+        }
+        <button class="att-filter-chip" [class.active]="showPersonal()" style="--chip-bg:#FDF3E8"
+                (click)="showPersonal.set(!showPersonal())" type="button"
+                [attr.aria-pressed]="showPersonal()"
+                i18n="@@personal.chip">🧺 Mis actividades</button>
+      </div>
 
       <div class="att-grid">
-        @for (att of filteredAttractions(); track att.id) {
-          <app-attraction-card
-            [attraction]="att"
-            [cityName]="city().name"
-            [cityId]="city().id"
-            [stopId]="stopId()"
-            [comments]="commentsFor(att.id)"
-            (commentAdded)="commentAdded.emit($event)" />
-        }
-        @if (filteredAttractions().length === 0) {
-          <div class="att-empty" i18n="@@dest.searchEmpty">Sin resultados para tu búsqueda</div>
+        @if (showPersonal()) {
+          @for (m of personalMetas; track m.type) {
+            <tb-personal-activity-card [meta]="m" [stopId]="stopId()" />
+          }
+        } @else {
+          @for (att of filteredAttractions(); track att.id) {
+            <app-attraction-card
+              [attraction]="att"
+              [cityName]="city().name"
+              [cityId]="city().id"
+              [stopId]="stopId()"
+              [comments]="commentsFor(att.id)"
+              (commentAdded)="commentAdded.emit($event)" />
+          }
+          @if (filteredAttractions().length === 0) {
+            <div class="att-empty" i18n="@@dest.searchEmpty">Sin resultados para tu búsqueda</div>
+          }
         }
       </div>
     </div>
@@ -79,6 +91,9 @@ export class AttractionsListComponent {
 
   readonly filterCategory = signal<AttractionCategory | null>(null);
   readonly searchQuery    = signal('');
+  /** Feature 71 — "🧺 Mis actividades" chip: swaps the grid for the personal-activity cards. */
+  readonly showPersonal   = signal(false);
+  readonly personalMetas  = getPersonalActivityMetas();
 
   readonly availableCategories = computed(() =>
     getAllCategories().filter(m => this.attractions().some(a => a.category === m.code))
@@ -97,7 +112,13 @@ export class AttractionsListComponent {
       this.city();
       this.filterCategory.set(null);
       this.searchQuery.set('');
+      this.showPersonal.set(false);
     }, { allowSignalWrites: true });
+  }
+
+  pickCategory(cat: AttractionCategory | null): void {
+    this.filterCategory.set(cat);
+    this.showPersonal.set(false);
   }
 
   commentsFor(attractionId: string): Comment[] {

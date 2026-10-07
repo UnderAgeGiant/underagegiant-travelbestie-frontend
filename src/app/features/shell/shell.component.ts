@@ -11,6 +11,7 @@ import { StopListComponent } from '../trip/stop-list/stop-list.component';
 import { DestinationComponent } from '../destination/destination.component';
 import { AddStopModalComponent } from '../trip/add-stop-modal/add-stop-modal.component';
 import { MobileAttractionsModalComponent } from '../destination/mobile-attractions-modal/mobile-attractions-modal.component';
+import { PersonalActivityModalHostComponent } from '../destination/personal-activity/personal-activity-modal-host.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
 import { LandingFeedComponent } from '../landing/feed/landing-feed.component';
@@ -29,6 +30,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 @Component({
     selector: 'tb-shell',
     imports: [
+        PersonalActivityModalHostComponent,
         NavShellComponent,
         WelcomeComponent,
         StopListComponent,
@@ -118,6 +120,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
     }
 
     <app-mobile-attractions-modal />
+    <tb-personal-activity-modal-host />
 
     <app-companion-mascot />
 
