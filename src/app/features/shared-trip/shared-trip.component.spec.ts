@@ -640,3 +640,53 @@ describe('SharedTripComponent — ?focus= waits for the trip to load', () => {
     httpMock.verify();
   });
 });
+
+describe('SharedTripComponent — personal activities (Feature 71)', () => {
+  let fixture: ComponentFixture<SharedTripComponent>;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [SharedTripComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: new BehaviorSubject(convertToParamMap({ id: 'trip-a' })),
+            queryParamMap: new BehaviorSubject(convertToParamMap({})),
+            snapshot: { paramMap: convertToParamMap({ id: 'trip-a' }) },
+          },
+        },
+      ],
+    });
+    fixture = TestBed.createComponent(SharedTripComponent);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => httpMock.verify());
+
+  it('renders a personal entry by title, with no comment button and its own Maps link', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush({
+      tripName: 'Viaje a París', ownerName: 'Ana',
+      stops: [{ cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [
+        { attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
+        { activityType: 'lunch', title: 'Almuerzo con Rosa', mapsUrl: 'https://maps.app.goo.gl/abc', date: '02/06/2026', startTime: '13:00', endTime: '14:00' },
+      ] }],
+      transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    fixture.detectChanges();
+    httpMock.match(req => req.url.includes('/weather')).forEach(r => r.flush({ days: [] }));
+    fixture.detectChanges();
+
+    const row = [...fixture.nativeElement.querySelectorAll('.itin-item')]
+      .find((el: Element) => el.textContent!.includes('Almuerzo con Rosa')) as HTMLElement;
+    expect(row).toBeTruthy();
+    expect(row.textContent).not.toContain('undefined');
+    expect(row.querySelector('.step-comments-toggle')).toBeNull();
+    expect(row.querySelector('.itin-link')!.getAttribute('href')).toBe('https://maps.app.goo.gl/abc');
+  });
+});

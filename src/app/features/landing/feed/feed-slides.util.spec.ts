@@ -1,5 +1,6 @@
 import { buildFeedSlides } from './feed-slides.util';
 import { FeedPlan } from '../../../core/models/feed-plan.model';
+import { CITY_COVER_PHOTOS } from '../city-cover-photos.data';
 import { findCuratedAttraction, getAttractions } from '../../../data/attractions.data';
 
 jest.mock('../../../data/attractions.data', () => ({
@@ -91,5 +92,25 @@ describe('buildFeedSlides', () => {
 
   it('returns [] for a plan with no attractions', () => {
     expect(buildFeedSlides(plan([{ cityId: 'paris', checkIn: '01/07/2026', checkOut: '03/07/2026', selectedAttractions: [] }]), 'es-CL')).toEqual([]);
+  });
+});
+
+describe('buildFeedSlides — personal activities (Feature 71)', () => {
+  beforeEach(() => { find.mockReset(); (getAttractions as jest.Mock).mockReturnValue([]); });
+
+  it('renders a personal entry by title + icon with no rating/description and a city cover image', () => {
+    find.mockImplementation((_c: string, id: string) => att(id));
+    const slides = buildFeedSlides(plan([{
+      cityId: 'paris', checkIn: '01/07/2026', checkOut: '03/07/2026',
+      selectedAttractions: [
+        { attractionId: 'paris_0', startTime: '10:00', endTime: '11:00' },
+        { activityType: 'walk', title: 'Paseo por el Sena', startTime: '18:00', endTime: '19:00' },
+      ],
+    }]), 'es-CL');
+    expect(slides).toHaveLength(2);
+    const p = slides[1];
+    expect(p).toMatchObject({ name: 'Paseo por el Sena', icon: '🚶', rating: null, description: null, attractionId: undefined,
+      imageUrl: CITY_COVER_PHOTOS['paris'] ?? null });
+    expect(p.id).not.toBe(slides[0].id);
   });
 });

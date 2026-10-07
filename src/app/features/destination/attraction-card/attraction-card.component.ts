@@ -3,8 +3,7 @@ import { Attraction, Comment } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { AttractionNamePipe, AttractionNativePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { TripService } from '../../trip/trip.service';
-import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { resolvePlannedAttraction } from '../../../core/utils/personal-activity.util';
 import { AttractionDetailModalComponent } from '../attraction-detail-modal/attraction-detail-modal.component';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
 import { formatTodayHours } from '../../../core/utils/attraction-hours.util';
@@ -395,24 +394,18 @@ export class AttractionCardComponent {
 
   // For the ADD modal: show all existing entries including sibling visits of this attraction
   readonly scheduleEntries = computed((): ScheduleEntry[] => {
-    const city = WORLD_CITIES.find(c => c.id === this.cityId());
-    if (!city) return [];
-    const allAttractions = getAttractions(city);
     return this.trip.selectedAttractionsFor(this.stopId())
       .map(p => ({
         entryId:    p.entryId,
         startTime:  p.startTime,
         date:       p.date,
-        attraction: allAttractions.find(a => a.id === p.attractionId)!,
+        attraction: resolvePlannedAttraction(this.cityId(), p)!,   // personal entries show too (Feature 71)
       }))
       .filter(e => e.attraction != null);
   });
 
   // For the EDIT modal: exclude only the entry being edited (shows sibling visits as potential conflicts)
   readonly editScheduleEntries = computed((): ScheduleEntry[] => {
-    const city = WORLD_CITIES.find(c => c.id === this.cityId());
-    if (!city) return [];
-    const allAttractions = getAttractions(city);
     const editId = this.editingEntry()?.entryId;
     return this.trip.selectedAttractionsFor(this.stopId())
       .filter(p => p.entryId !== editId)
@@ -420,7 +413,7 @@ export class AttractionCardComponent {
         entryId:    p.entryId,
         startTime:  p.startTime,
         date:       p.date,
-        attraction: allAttractions.find(a => a.id === p.attractionId)!,
+        attraction: resolvePlannedAttraction(this.cityId(), p)!,   // personal entries show too (Feature 71)
       }))
       .filter(e => e.attraction != null);
   });

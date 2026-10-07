@@ -37,6 +37,12 @@ describe('sharedTripSeo', () => {
     expect(seo.noindex).toBe(true);
   });
 
+  it('counts only catalog attractions toward the floor, like the backend (Feature 71)', () => {
+    const s = stop('paris', SEO_MIN_ATTRACTIONS - 1);
+    s.selectedAttractions.push({ entryId: 'p1', activityType: 'lunch', title: 'Almuerzo', startTime: '13:00', endTime: '14:00' });
+    expect(sharedTripSeo({ id: 'abc', tripName: 'T', stops: [s] }, 'es-CL').noindex).toBe(true);
+  });
+
   it('is noindex when no stop resolves to a known city', () => {
     const seo = sharedTripSeo({ id: 'abc', tripName: 'T', stops: [stop('no-such-city', 5)] }, 'es-CL');
     expect(seo.noindex).toBe(true);

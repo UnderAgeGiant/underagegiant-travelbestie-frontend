@@ -96,3 +96,14 @@ describe('buildPlanSlideshowItems', () => {
     expect(buildPlanSlideshowItems([], [noDeparture], 'es-CL')).toHaveLength(0);
   });
 });
+
+describe('buildPlanSlideshowItems — personal activities (Feature 71)', () => {
+  it('renders a personal entry by its title and type icon, with no description or image', () => {
+    const stop: TripStop = {
+      stopId: 'stop-1', cityId: 'paris', checkIn: '10/08/2026', checkOut: '12/08/2026',
+      selectedAttractions: [{ entryId: 'p1', activityType: 'dinner', title: 'Cena', startTime: '20:00', endTime: '21:30', date: '10/08/2026' }],
+    };
+    const items = buildPlanSlideshowItems([stop], [], 'es-CL');
+    expect(items[0]).toMatchObject({ name: 'Cena', icon: '🍝', description: null, imageUrl: null });
+  });
+});

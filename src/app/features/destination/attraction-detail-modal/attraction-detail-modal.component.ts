@@ -3,8 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { TripService } from '../../trip/trip.service';
 import { ApiService } from '../../../core/api/api.service';
-import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { resolvePlannedAttraction } from '../../../core/utils/personal-activity.util';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
 import { AttractionNamePipe, AttractionNativePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { PlanTimeModalComponent, PlanEntry, ScheduleEntry } from '../plan-time-modal/plan-time-modal.component';
@@ -398,16 +397,13 @@ export class AttractionDetailModalComponent {
   });
 
   readonly scheduleEntries = computed((): ScheduleEntry[] => {
-    const city = WORLD_CITIES.find(c => c.id === this.cityId());
-    if (!city) return [];
-    const allAttractions = getAttractions(city);
     return this.trip.selectedAttractionsFor(this.stopId())
       .filter(p => p.attractionId !== this.attraction().id)
       .map(p => ({
         entryId:    p.entryId,
         startTime:  p.startTime,
         date:       p.date,
-        attraction: allAttractions.find(a => a.id === p.attractionId)!,
+        attraction: resolvePlannedAttraction(this.cityId(), p)!,   // personal entries show too (Feature 71)
       }))
       .filter(e => e.attraction != null);
   });
