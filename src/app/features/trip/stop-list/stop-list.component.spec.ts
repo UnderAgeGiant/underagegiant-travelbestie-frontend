@@ -9,6 +9,7 @@ import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { HttpTestingController } from '@angular/common/http/testing';
+import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -395,3 +396,47 @@ describe('StopListComponent — stopSelected output (Feature 68)', () => {
   });
 });
 
+
+describe('StopListComponent — personal activities (Feature 71)', () => {
+  let fixture: ComponentFixture<StopListComponent>;
+  let trip: TripService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      selectedAttractions: [
+        { entryId: 'p1', activityType: 'lunch', title: 'Almuerzo con Rosa', isPrivate: true, startTime: '13:00', endTime: '14:00', date: '01/06/2026' },
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '13:30', endTime: null, date: '01/06/2026' },
+      ],
+    }] as any, null, [] as any);
+    fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+    (fixture.componentInstance as any).toggleScheduled('s1');
+    fixture.detectChanges();
+  });
+
+  const personalRow = (): HTMLElement =>
+    [...fixture.nativeElement.querySelectorAll('.att-plan-row')].find((r: Element) => r.textContent!.includes('Almuerzo con Rosa')) as HTMLElement;
+
+  it('renders the personal row with its private badge', () => {
+    expect(personalRow()).toBeTruthy();
+    expect(personalRow().querySelector('.att-plan-private')).not.toBeNull();
+  });
+
+  it('clicking the personal row name opens the edit modal', () => {
+    const spy = jest.spyOn(TestBed.inject(PersonalActivityModalService), 'openEdit');
+    (personalRow().querySelector('.att-plan-name') as HTMLElement).click();
+    expect(spy).toHaveBeenCalledWith('s1', 'p1');
+  });
+
+  it('flags a catalog attraction overlapping the lunch', () => {
+    expect(fixture.componentInstance.hasTimeCollision(trip.stops()[0], 'e1')).toBe(true);
+  });
+});

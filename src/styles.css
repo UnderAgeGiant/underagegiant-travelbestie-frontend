@@ -1792,6 +1792,7 @@ app-nav { display: block; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.tl-block-private { font-size: 11px; line-height: 1; flex-shrink: 0; margin-left: auto; }
 .tl-block-time {
   font-size: 10px;
   opacity: .85;

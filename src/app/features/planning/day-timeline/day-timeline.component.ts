@@ -12,7 +12,7 @@ import { Attraction } from '../../../core/models/comment.model';
 import { AttractionPreviewPopoverComponent } from '../../shared-trip/attraction-preview-popover.component';
 import { previewCardPosition, previewCardTapPosition } from '../../shared-trip/attraction-preview-position.util';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
+import { getAttractions } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../core/maps/google-maps-url.util';
@@ -27,6 +27,9 @@ import { localizedDescription } from '../../../core/utils/attraction-description
 import { attractionName } from '../../../core/utils/attraction-name.util';
 import { NEW_ATTRACTION_MIME, RESCHEDULE_MIME, NewAttractionDragPayload, RescheduleDragPayload, snapMinutesFromOffset, minutesToHm } from '../../../core/utils/day-timeline-drag.util';
 import { WeatherService } from '../../../core/weather/weather.service';
+import { isPersonal, personalAttraction, resolvePlannedAttraction } from '../../../core/utils/personal-activity.util';
+import { activityMeta } from '../../../core/models/personal-activity.model';
+import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
 import { getWeatherCodeMeta } from '../../../core/models/weather.model';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
@@ -56,6 +59,8 @@ interface TimeBlock {
   entryId?: string;
   draggable?: boolean;
   attraction?: Attraction;
+  personal?: boolean;   // Feature 71 — tap opens the edit modal instead of the preview
+  isPrivate?: boolean;
 }
 
 function hmToMin(hm: string): number {
@@ -244,6 +249,9 @@ function transitLabel(mode: TransitMode): string {
               <div class="tl-block-top">
                 <span class="tl-block-icon">{{ block.icon }}</span>
                 <span class="tl-block-name">{{ block.name }}</span>
+                @if (block.isPrivate) {
+                  <span class="tl-block-private" i18n-aria-label="@@personal.privateBadge" aria-label="Privada">🔒</span>
+                }
               </div>
               <div class="tl-block-time">{{ block.time }}</div>
             </div>
@@ -340,6 +348,7 @@ export class DayTimelineComponent {
   private  readonly karmaModal = inject(KarmaModalService);
   private  readonly locale     = inject(LocaleService);
   private  readonly weather    = inject(WeatherService);
+  private  readonly personalModal = inject(PersonalActivityModalService);
   protected readonly exporting = signal(false);
   protected readonly activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);
   private previewTimer: ReturnType<typeof setTimeout> | null = null;
@@ -367,6 +376,11 @@ export class DayTimelineComponent {
    *  preventDefault() on touchend, which suppresses the click — so this never fights the drag.
    *  Closed by tapping the full-screen .att-preview-backdrop (covers the blocks while open). */
   protected onBlockTap(e: MouseEvent, block: TimeBlock): void {
+    if (block.personal) {
+      const stop = this.selectedStopForDay();
+      if (!this.readOnly() && stop && block.entryId) this.personalModal.openEdit(stop.stopId, block.entryId);
+      return;
+    }
     if (!block.attraction || !this.device.isMobile()) return;
     const pos = previewCardTapPosition(e.clientX, e.clientY, { width: window.innerWidth, height: window.innerHeight });
     this.activePreview.set({ attraction: block.attraction, ...pos });
@@ -640,7 +654,7 @@ export class DayTimelineComponent {
     const city = WORLD_CITIES.find(c => c.id === stop.cityId);
     const attractions = city ? getAttractions(city) : [];
     const names = this.attractionsForDay(stop.selectedAttractions, day)
-      .filter((a: PlannedAttraction) => !!a.startTime)
+      .filter((a: PlannedAttraction) => !!a.startTime && !isPersonal(a))
       .sort((a, b) => hmToMin(a.startTime!) - hmToMin(b.startTime!))
       .map(a => {
         const att = attractions.find(x => x.id === a.attractionId);
@@ -688,21 +702,24 @@ export class DayTimelineComponent {
     const attBlocks: TimeBlock[] = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime)
       .map((a: PlannedAttraction) => {
-        const att      = attractions.find(x => x.id === a.attractionId) ?? null;
+        const personal = isPersonal(a);
+        const att      = personal ? personalAttraction(a) : (attractions.find(x => x.id === a.attractionId) ?? null);
         const startMin = hmToMin(a.startTime!);
         const endMin   = startMin + plannedDurationMinutes(a, att);
         const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
         const height   = Math.max(30, (endMin - startMin) / 60 * TL_RH - 4);
-        const [bg, fg] = typeColors(att?.type ?? '');
+        const [bg, fg] = personal ? [activityMeta(a.activityType).bg, 'var(--t1)'] : typeColors(att?.type ?? '');
         return {
           top, height, bg, fg,
-          icon: typeIcon(att?.type ?? ''),
-          name:        att ? attractionName(att, this.locale.current()) : a.attractionId!, // F3/F4
+          icon: personal ? activityMeta(a.activityType).icon : typeIcon(att?.type ?? ''),
+          name: att ? attractionName(att, this.locale.current()) : (a.attractionId ?? ''),
           time: `${a.startTime}–${minToHm(endMin)}`,
           kind: 'attraction' as const,
           entryId: a.entryId,
           draggable: !this.readOnly() && !this.isRescheduleLocked(a),
-          attraction: att ?? undefined,
+          attraction: personal ? undefined : (att ?? undefined),   // no preview popover for personal
+          personal,
+          isPrivate: !!a.isPrivate,
         };
       });
 
@@ -883,7 +900,7 @@ export class DayTimelineComponent {
       const { entryId } = payload;
       const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
       if (original && !this.isRescheduleLocked(original)) {
-        const att = this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null;
+        const att = isPersonal(original) ? personalAttraction(original) : (this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null);
         const durationMin = plannedDurationMinutes(original, att);
         this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
       }
@@ -907,9 +924,16 @@ export class DayTimelineComponent {
     } catch {
       payload = null;
     }
-    if (!payload?.attractionId) return;
     const tab = this.days().find(t => t.key === day);
     const fullDate = tab ? this.fmtDate(tab.date) : undefined;
+    if (payload?.activityType) {
+      this.trip.addPersonalActivity(stop.stopId, {
+        activityType: payload.activityType, title: activityMeta(payload.activityType).label,
+        isPrivate: false, startTime, date: fullDate,
+      });
+      return;
+    }
+    if (!payload?.attractionId) return;
     this.trip.addAttraction(stop.stopId, payload.attractionId, startTime, fullDate, payload.category, payload.estimatedMinutes);
   }
 
@@ -1092,25 +1116,21 @@ export class DayTimelineComponent {
     const dayTab  = this.days().find(t => t.key === day);
     const dateStr = dayTab ? this.fmtDate(dayTab.date) : null;
 
-    const city = WORLD_CITIES.find(c => c.id === stop.cityId);
-    const attractions = city ? getAttractions(city) : [];
-
     const attItems: SlideshowItem[] = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime)
       .map((a: PlannedAttraction): SlideshowItem => {
-        const att = attractions.find(x => x.id === a.attractionId)
-                 ?? findCuratedAttraction(stop.cityId, a.attractionId!) // F3/F4
-                 ?? null;
+        const personal = isPersonal(a);
+        const att = resolvePlannedAttraction(stop.cityId, a);
         const startMin = hmToMin(a.startTime!);
         const endMin   = a.endTime ? hmToMin(a.endTime) : startMin + (att?.estimatedMinutes ?? 60);
         const date     = a.date ?? dateStr;
         return {
           id:          `att:${a.entryId}`,
-          name:        att ? attractionName(att, this.locale.current()) : a.attractionId!, // F3/F4
+          name:        att ? attractionName(att, this.locale.current()) : (a.attractionId ?? ''),
           type:        att?.type ?? '',
-          icon:        typeIcon(att?.type ?? ''),
+          icon:        personal ? activityMeta(a.activityType).icon : typeIcon(att?.type ?? ''),
           imageUrl:    att?.imageUrl ?? null,
-          description: (att ? localizedDescription(att, this.locale.current()) : undefined) ?? null,
+          description: personal ? null : ((att ? localizedDescription(att, this.locale.current()) : undefined) ?? null),
           startDate:   date,
           startTime:   a.startTime!,
           endDate:     date,

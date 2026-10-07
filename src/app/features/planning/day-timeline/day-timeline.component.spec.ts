@@ -7,6 +7,8 @@ import { TripService } from '../../trip/trip.service';
 import { City } from '../../../core/models/city.model';
 import { TouchDragService } from '../../../core/utils/touch-drag.service';
 import { NEW_ATTRACTION_MIME } from '../../../core/utils/day-timeline-drag.util';
+import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
+import { activityMeta } from '../../../core/models/personal-activity.model';
 
 const PARIS: City  = { id: 'paris',  name: 'Paris',  country: 'France', flag: '🇫🇷', region: 'europe' };
 const LONDON: City = { id: 'london', name: 'London', country: 'United Kingdom', flag: '🇬🇧', region: 'europe' };
@@ -1152,5 +1154,77 @@ describe('DayTimelineComponent — attraction preview on hover (feedback F1 2026
     jest.advanceTimersByTime(150);
     fixture.detectChanges();
     expect(popover()).toBeNull();
+  });
+});
+
+describe('DayTimelineComponent — personal activities (Feature 71)', () => {
+  let trip: TripService;
+  let component: DayTimelineComponent;
+  let fixture: ComponentFixture<DayTimelineComponent>;
+  let personalModal: PersonalActivityModalService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    personalModal = TestBed.inject(PersonalActivityModalService);
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      selectedAttractions: [
+        { entryId: 'p1', activityType: 'lunch', title: 'Almuerzo con Rosa', startTime: '13:00', endTime: '14:00', date: '01/06/2026' },
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: '12:00', date: '01/06/2026' },
+      ],
+    }] as any, null, [] as any);
+    fixture = TestBed.createComponent(DayTimelineComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    (component as any).selectedDay.set('01/06');
+    fixture.detectChanges();
+  });
+
+  const personalBlock = (): HTMLElement =>
+    [...fixture.nativeElement.querySelectorAll('.tl-block')].find((b: Element) => b.textContent!.includes('Almuerzo con Rosa')) as HTMLElement;
+
+  it('renders a block with the title and the type icon', () => {
+    expect(personalBlock()).toBeTruthy();
+    expect(personalBlock().textContent).toContain('🍽️');
+  });
+
+  it('clicking it opens the edit modal', () => {
+    const spy = jest.spyOn(personalModal, 'openEdit');
+    personalBlock().dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    expect(spy).toHaveBeenCalledWith('s1', 'p1');
+  });
+
+  it('does not open the edit modal in readOnly mode', () => {
+    fixture.componentRef.setInput('stop', trip.activeStop());
+    fixture.componentRef.setInput('readOnly', true);
+    fixture.detectChanges();
+    const spy = jest.spyOn(personalModal, 'openEdit');
+    personalBlock().dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it('personal items never appear in the day route', () => {
+    expect((component as any).routeUrl() ?? '').not.toContain('Almuerzo');
+  });
+
+  it('dropping a personal activity card adds a personal entry with the type label', () => {
+    const spy = jest.spyOn(trip, 'addPersonalActivity');
+    const json = JSON.stringify({ activityType: 'walk', estimatedMinutes: 60 });
+    component['onGridDrop']({
+      preventDefault: jest.fn(), clientY: 0,
+      dataTransfer: { types: [NEW_ATTRACTION_MIME], getData: (m: string) => (m === NEW_ATTRACTION_MIME ? json : '') },
+    } as unknown as DragEvent);
+    expect(spy).toHaveBeenCalledWith('s1', expect.objectContaining({ activityType: 'walk', title: activityMeta('walk').label, isPrivate: false }));
+  });
+
+  it('day slideshow includes the personal item', () => {
+    const item = (component as any).daySlideItems().find((i: any) => i.name === 'Almuerzo con Rosa');
+    expect(item).toMatchObject({ icon: '🍽️', description: null });
   });
 });
