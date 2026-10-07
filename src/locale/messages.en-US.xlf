@@ -3078,6 +3078,74 @@
         <source>Última actualización:</source>
         <target>Last updated: </target>
       </trans-unit>
+      <trans-unit id="personal.breakfast" datatype="html">
+        <source>Desayuno</source>
+        <target>Breakfast</target>
+      </trans-unit>
+      <trans-unit id="personal.lunch" datatype="html">
+        <source>Almuerzo</source>
+        <target>Lunch</target>
+      </trans-unit>
+      <trans-unit id="personal.dinner" datatype="html">
+        <source>Cena</source>
+        <target>Dinner</target>
+      </trans-unit>
+      <trans-unit id="personal.coffee" datatype="html">
+        <source>Café</source>
+        <target>Coffee break</target>
+      </trans-unit>
+      <trans-unit id="personal.walk" datatype="html">
+        <source>Paseo</source>
+        <target>Walk</target>
+      </trans-unit>
+      <trans-unit id="personal.rest" datatype="html">
+        <source>Descanso</source>
+        <target>Rest</target>
+      </trans-unit>
+      <trans-unit id="personal.shopping" datatype="html">
+        <source>Compras</source>
+        <target>Shopping</target>
+      </trans-unit>
+      <trans-unit id="personal.freeTime" datatype="html">
+        <source>Tiempo libre</source>
+        <target>Free time</target>
+      </trans-unit>
+      <trans-unit id="personal.chip" datatype="html">
+        <source>🧺 Mis actividades</source>
+        <target>🧺 My activities</target>
+      </trans-unit>
+      <trans-unit id="personal.addBtn" datatype="html">
+        <source>+ Agregar</source>
+        <target>+ Add</target>
+      </trans-unit>
+      <trans-unit id="personal.titleLabel" datatype="html">
+        <source>Nombre de la actividad</source>
+        <target>Activity name</target>
+      </trans-unit>
+      <trans-unit id="personal.mapsLabel" datatype="html">
+        <source>Link de Google Maps (opcional)</source>
+        <target>Google Maps link (optional)</target>
+      </trans-unit>
+      <trans-unit id="personal.mapsPlaceholder" datatype="html">
+        <source>https://maps.app.goo.gl/…</source>
+        <target>https://maps.app.goo.gl/…</target>
+      </trans-unit>
+      <trans-unit id="personal.mapsError" datatype="html">
+        <source>Pega un link de Google Maps (https://maps.app.goo.gl/… o https://www.google.com/maps/…)</source>
+        <target>Paste a Google Maps link (https://maps.app.goo.gl/… or https://www.google.com/maps/…)</target>
+      </trans-unit>
+      <trans-unit id="personal.privateLabel" datatype="html">
+        <source>🔒 Privada — no se muestra cuando compartes el plan</source>
+        <target>🔒 Private — hidden when you share the plan</target>
+      </trans-unit>
+      <trans-unit id="personal.privateBadge" datatype="html">
+        <source>Privada</source>
+        <target>Private</target>
+      </trans-unit>
+      <trans-unit id="personal.addedToast" datatype="html">
+        <source>¡Actividad agregada a tu itinerario!</source>
+        <target>Activity added to your itinerary!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
