@@ -11,7 +11,7 @@ const AV_COLORS = ['#A78BFA','#F472B6','#34D399','#60A5FA','#FBBF24','#F87171','
   imports: [AttractionNamePipe],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
-    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
+    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget ? close.emit() : null">
       <div class="modal">
         <div class="modal-head">
           <div class="modal-title" i18n="@@commentModal.title">Dejar un comentario</div>

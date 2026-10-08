@@ -54,6 +54,26 @@ describe('PlanTimeModalComponent — personal mode (Feature 71)', () => {
     }));
   });
 
+  // Regression (2026-10-08): the backdrop's `cond && cancel.emit()` handler evaluated to
+  // `false` for clicks bubbling from inside the modal, and Angular calls preventDefault()
+  // when a listener returns false — so the real checkbox click never toggled.
+  it('a real click on the private checkbox toggles it (backdrop does not cancel the click)', () => {
+    personalSetup();
+    const cb: HTMLInputElement = fixture.nativeElement.querySelector('.pa-private input');
+    cb.click();
+    fixture.detectChanges();
+    expect(cb.checked).toBe(true);
+    expect(comp.isPrivate()).toBe(true);
+  });
+
+  it('a click on the backdrop itself still cancels', () => {
+    personalSetup();
+    const spy = jest.fn();
+    comp.cancel.subscribe(spy);
+    fixture.nativeElement.querySelector('.modal-backdrop').click();
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('without personal input renders no title field (catalog mode unchanged)', () => {
     setInput('attraction', CATALOG);
     fixture.detectChanges();

@@ -153,7 +153,7 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
-    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && close.emit()">
+    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget ? close.emit() : null">
       <div class="detail-modal">
 
         <!-- Hero image carousel -->

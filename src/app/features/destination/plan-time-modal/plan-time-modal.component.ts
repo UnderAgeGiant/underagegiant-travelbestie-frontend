@@ -72,7 +72,7 @@ export interface PlanEntry {
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
-    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && cancel.emit()">
+    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget ? cancel.emit() : null">
       <div class="modal" style="max-width:420px;overflow:visible">
         <div class="modal-head"
              style="background:linear-gradient(135deg,var(--butter),var(--peach));border-radius:22px 22px 0 0;overflow:hidden">
