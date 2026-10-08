@@ -10,7 +10,8 @@ export const NEW_ATTRACTION_MIME = 'application/x-tb-new-attraction';
 export const RESCHEDULE_MIME = 'application/x-tb-reschedule';
 
 export interface NewAttractionDragPayload {
-  attractionId: string;
+  attractionId?: string;
+  activityType?: string;   // Feature 71 — personal activity card (exactly one of the two ids)
   category?: AttractionCategory;
   estimatedMinutes?: number;
 }

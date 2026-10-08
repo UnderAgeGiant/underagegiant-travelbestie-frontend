@@ -1,6 +1,6 @@
 import { FeedPlan } from '../../../core/models/feed-plan.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions, findCuratedAttraction } from '../../../data/attractions.data';
+import { isPersonal, resolvePlannedAttraction } from '../../../core/utils/personal-activity.util';
 import { attractionName } from '../../../core/utils/attraction-name.util';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
 import { AppLocale } from '../../../core/i18n/locale.util';
@@ -8,8 +8,8 @@ import { CITY_COVER_PHOTOS } from '../city-cover-photos.data';
 
 /** One attraction slide in a feed card (page 1..N; page 0 is the map). */
 export interface FeedSlide {
-  id: string;                 // `${stopIdx}:${attIdx}:${attractionId}` — unique within a plan
-  attractionId: string;
+  id: string;                 // `${stopIdx}:${attIdx}:${attractionId ?? activityType}` — unique within a plan
+  attractionId?: string;      // absent on personal activities (Feature 71)
   name: string;
   cityId: string;
   cityName: string;
@@ -20,6 +20,8 @@ export interface FeedSlide {
   description: string | null;
   date: string | null;        // dd/mm/yyyy
   startTime: string | null;   // HH:mm
+  contain?: boolean;          // Feature 71 — personal illustration: fit whole (no crop, no zoom) on `bg`
+  bg?: string;
 }
 
 const LAST = Number.MAX_SAFE_INTEGER;
@@ -50,22 +52,23 @@ export function buildFeedSlides(plan: FeedPlan, locale: AppLocale): FeedSlide[] 
         || (a.attIdx - b.attIdx));
 
     for (const { planned, attIdx } of ordered) {
-      const att = findCuratedAttraction(stop.cityId, planned.attractionId)
-        ?? (city ? getAttractions(city).find(a => a.id === planned.attractionId) : undefined);
+      const personal = isPersonal(planned);
+      const att = resolvePlannedAttraction(stop.cityId, planned);
       if (!att) continue;
       slides.push({
-        id: `${stopIdx}:${attIdx}:${planned.attractionId}`,
+        id: `${stopIdx}:${attIdx}:${planned.attractionId ?? planned.activityType}`,
         attractionId: planned.attractionId,
         name: attractionName(att, locale),
         cityId: stop.cityId,
         cityName: city?.name ?? stop.cityId,
         icon: att.icon,
         type: att.type,
-        rating: typeof att.rating === 'number' ? att.rating : null,
+        rating: personal ? null : (typeof att.rating === 'number' ? att.rating : null),
         imageUrl: att.imageUrl ?? att.images?.[0] ?? CITY_COVER_PHOTOS[stop.cityId] ?? null,
-        description: localizedDescription(att, locale) ?? null,
+        description: personal ? null : (localizedDescription(att, locale) ?? null),
         date: planned.date ?? stop.checkIn ?? null,
         startTime: planned.startTime,
+        ...(personal ? { contain: true, bg: att.bg } : {}),
       });
     }
   });

@@ -27,7 +27,8 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
+import { resolvePlannedAttraction } from '../../core/utils/personal-activity.util';
+import { isGoogleMapsUrl } from '../../core/maps/maps-url-validate.util';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
 import { shareTrip } from '../../core/share/share-url.util';
 import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
@@ -275,13 +276,29 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
                     @let sortedAtts = sortedAttractions(stop);
                     @for (planned of sortedAtts; track $index; let attIdx = $index) {
-                      @let att = attFor(stop.cityId, planned.attractionId);
+                      @let att = attFor(stop.cityId, planned);
                       @if (att) {
                         @let attKey = 'att:' + stop.cityId + ':' + planned.attractionId;
                         @let attDate = planned.date || stop.checkIn;
                         @if (attIdx > 0 && attDate !== (sortedAtts[attIdx - 1].date || stop.checkIn)) {
                           <div class="itin-day-divider"></div>
                         }
+                        @if (planned.activityType) {
+                          <!-- Feature 71 — personal activity: no preview, no comments; own Maps link only -->
+                          <div class="itin-item">
+                            <span class="itin-item-icon">{{ att.icon }}</span>
+                            <span class="itin-item-label">{{ att | attName }}</span>
+                            <span class="itin-item-meta-row">
+                              <span class="itin-item-meta">
+                                @if (attDate) { {{ shortDate(attDate) }} · }{{ planned.startTime }} · {{ plannedMinutes(planned, att) | duration }}
+                              </span>
+                              @if (personalMapsUrl(planned); as pUrl) {
+                                <a class="itin-link" [attr.href]="pUrl" target="_blank" rel="noopener noreferrer"
+                                   (click)="$event.stopPropagation()" i18n-title="@@maps.viewOnMaps" title="Ver en Google Maps"><app-maps-pin-icon /></a>
+                              }
+                            </span>
+                          </div>
+                        } @else {
                         <div class="itin-item"
                              (mouseenter)="onAttHover($event, att)"
                              (mouseleave)="onAttHoverLeave()">
@@ -314,6 +331,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                             [karmaFlash]="karmaFlashStep() === attKey"
                             (commentSubmitted)="onStepCommentSubmitted(attKey, $event)"
                             (focusLost)="collapseStep(attKey)" />
+                        }
                         }
                       }
                     }
@@ -758,10 +776,14 @@ export class SharedTripComponent {
     return WORLD_CITIES.find(c => c.id === cityId) ?? null;
   }
 
-  attFor(cityId: string, attractionId: string) {
-    const city = this.cityFor(cityId);
-    if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
+  /** User-entered link rendered via [attr.href] (bypasses the sanitizer): re-check the allow-list
+   *  client-side too, so only a real Google Maps https link ever becomes a clickable href. */
+  protected personalMapsUrl(planned: PlannedAttraction): string | null {
+    return planned.mapsUrl && isGoogleMapsUrl(planned.mapsUrl) ? planned.mapsUrl : null;
+  }
+
+  attFor(cityId: string, planned: PlannedAttraction) {
+    return resolvePlannedAttraction(cityId, planned); // personal → synthetic; inactive catalog entries still render
   }
 
   // Display-only ordering for the read-only shared itinerary view — selectedAttractions is

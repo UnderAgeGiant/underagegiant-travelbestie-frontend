@@ -1,7 +1,8 @@
 import { TripStop, TransitLeg, PlannedAttraction, TransitMode } from '../../core/models/trip.model';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
+import { isPersonal, resolvePlannedAttraction } from '../../core/utils/personal-activity.util';
+import { activityMeta } from '../../core/models/personal-activity.model';
 import { localizedDescription } from '../../core/utils/attraction-description.util';
 import { attractionName } from '../../core/utils/attraction-name.util';
 import { AppLocale } from '../../core/i18n/locale.util';
@@ -38,9 +39,8 @@ function cityLabel(cityId: string): string {
 
 function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale: AppLocale): SlideshowItem | null {
   if (!planned.startTime) return null;
-  const city = WORLD_CITIES.find(c => c.id === stop.cityId);
-  const att = (city ? getAttractions(city) : []).find(a => a.id === planned.attractionId)
-           ?? findCuratedAttraction(stop.cityId, planned.attractionId);
+  const personal = isPersonal(planned);
+  const att = resolvePlannedAttraction(stop.cityId, planned);
 
   const startMin = hmToMin(planned.startTime);
   const endMin   = planned.endTime ? hmToMin(planned.endTime) : startMin + (att?.estimatedMinutes ?? 60);
@@ -48,15 +48,16 @@ function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale:
 
   return {
     id:          `att:${planned.entryId}`,
-    name:        att ? attractionName(att, locale) : planned.attractionId,
+    name:        att ? attractionName(att, locale) : (planned.attractionId ?? ''),
     type:        att?.type ?? '',
-    icon:        typeIcon(att?.type ?? ''),
+    icon:        personal ? activityMeta(planned.activityType).icon : typeIcon(att?.type ?? ''),
     imageUrl:    att?.imageUrl ?? null,
-    description: (att ? localizedDescription(att, locale) : undefined) ?? null,
+    description: personal ? null : ((att ? localizedDescription(att, locale) : undefined) ?? null),
     startDate:   date,
     startTime:   planned.startTime,
     endDate:     date,
     endTime:     minToHm(endMin),
+    ...(personal ? { contain: true, bg: activityMeta(planned.activityType).bg } : {}),
   };
 }
 

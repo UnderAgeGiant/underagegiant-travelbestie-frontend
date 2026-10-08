@@ -14,7 +14,8 @@ const SWIPE_THRESHOLD_PX = 50;
   template: `
 <div class="ps-overlay-root" (click)="$event.stopPropagation()">
   @for (item of items(); track item.id; let i = $index) {
-    <div [ngClass]="['ps-slide', activeIdx() === i ? 'active' : '']">
+    <div [ngClass]="['ps-slide', activeIdx() === i ? 'active' : '']"
+         [class.ps-slide--contain]="item.contain" [style.background]="item.bg ?? null">
       @if (item.imageUrl) {
         <img class="ps-slide-img" [src]="item.imageUrl" [alt]="item.name" />
       } @else {

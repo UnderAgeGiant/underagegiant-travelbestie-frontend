@@ -34,6 +34,16 @@ describe('PlanSlideshowComponent', () => {
     expect(el.querySelector('.ps-slide-img')).toBeNull();
   });
 
+  it('fits a personal-activity illustration whole on its colour; photos keep cover (Feature 71)', () => {
+    const personal: SlideshowItem = { ...ITEMS[0], id: 'p', imageUrl: '/personal/dinner.webp', contain: true, bg: '#F3E8FD' };
+    fixture.componentRef.setInput('items', [personal, ITEMS[0]]);
+    fixture.detectChanges();
+    const slides = (fixture.nativeElement as HTMLElement).querySelectorAll<HTMLElement>('.ps-slide');
+    expect(slides[0].classList).toContain('ps-slide--contain');
+    expect(slides[0].style.background).toContain('rgb(243, 232, 253)');
+    expect(slides[1].classList).not.toContain('ps-slide--contain');
+  });
+
   it('shows the empty state when there are no items', () => {
     fixture.componentRef.setInput('items', []);
     fixture.detectChanges();

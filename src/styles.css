@@ -357,6 +357,9 @@ app-nav { display: block; }
 .attractions-label { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; letter-spacing: -.5px; }
 .att-count { font-size: 12px; color: var(--t3); }
 .att-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(270px,1fr)); gap: 14px; }
+/* Feature 71 — compact "Mis actividades" grid: ~3 columns at 400px, wider on desktop */
+.pa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+@media (min-width: 769px) { .pa-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; } }
 .att-card { background: #fff; border: 1.5px solid var(--border); border-radius: 18px; overflow: hidden; transition: all .25s ease; animation: fadeUp .35s ease both; }
 .att-card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
 .att-card-top { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; gap: 11px; align-items: flex-start; }
@@ -1051,6 +1054,7 @@ app-nav { display: block; }
 .feed-pane-slide { background: radial-gradient(120% 90% at 70% 30%, oklch(26% .07 290), oklch(14% .04 290) 70%); }
 .feed-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .feed-pane.active .feed-photo { animation: ken-burns 10s ease-in-out both; }
+.feed-pane.feed-pane--contain .feed-photo { object-fit: contain; animation: none; }  /* Feature 71 — whole Miel illustration, no crop/zoom */
 .feed-fallback {
   position: absolute; inset: 0; display: grid; place-items: center;
   font-size: clamp(120px, 24vw, 260px); line-height: 1; opacity: .12; user-select: none;
@@ -1792,6 +1796,7 @@ app-nav { display: block; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.tl-block-private { font-size: 11px; line-height: 1; flex-shrink: 0; margin-left: auto; }
 .tl-block-time {
   font-size: 10px;
   opacity: .85;
@@ -2763,6 +2768,7 @@ app-nav { display: block; }
   width: 100%; height: 100%; object-fit: cover;
   animation: ken-burns 8s ease-in-out both;
 }
+.ps-slide--contain .ps-slide-img { object-fit: contain; animation: none; }  /* Feature 71 — whole Miel illustration, no crop/zoom */
 .ps-slide-fallback {
   width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
   background: linear-gradient(135deg, oklch(30% .05 290), oklch(20% .04 250));

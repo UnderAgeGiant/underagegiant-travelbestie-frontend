@@ -5,6 +5,7 @@ import { DatePickerComponent } from '../../../shared/date-picker/date-picker.com
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { AttractionNamePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { formatEventLong, isDateInRange } from '../../../core/utils/event-datetime.util';
+import { isGoogleMapsUrl } from '../../../core/maps/maps-url-validate.util';
 
 export interface ScheduleEntry {
   entryId:    string;
@@ -16,6 +17,10 @@ export interface ScheduleEntry {
 export interface PlanEntry {
   startTime: string;
   date:      string;
+  // Feature 71 — personal activity fields, only emitted in personal mode
+  title?:     string;
+  mapsUrl?:   string;
+  isPrivate?: boolean;
 }
 
 @Component({
@@ -60,10 +65,14 @@ export interface PlanEntry {
       font-variant-numeric: tabular-nums;
     }
     .event-locked-note { font-size: 11px; color: var(--t3); margin-top: 4px; }
+    .pa-fields { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .pa-fields .form-label { margin-bottom: 0; }
+    .pa-maps-error { font-size: 12px; color: var(--peach-d); }
+    .pa-private { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--t2); cursor: pointer; }
   `],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
-    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget && cancel.emit()">
+    <div class="modal-backdrop" (click)="$event.target === $event.currentTarget ? cancel.emit() : null">
       <div class="modal" style="max-width:420px;overflow:visible">
         <div class="modal-head"
              style="background:linear-gradient(135deg,var(--butter),var(--peach));border-radius:22px 22px 0 0;overflow:hidden">
@@ -75,6 +84,24 @@ export interface PlanEntry {
         </div>
 
         <div class="modal-body">
+          @if (personal()) {
+            <div class="pa-fields">
+              <label class="form-label" for="pa-title" i18n="@@personal.titleLabel">Nombre de la actividad</label>
+              <input id="pa-title" class="form-input pa-title-input" type="text" maxlength="80" required
+                     [value]="title()" (input)="title.set($any($event.target).value)" />
+              <label class="form-label" for="pa-maps" i18n="@@personal.mapsLabel">Link de Google Maps (opcional)</label>
+              <input id="pa-maps" class="form-input" type="url" maxlength="500" inputmode="url"
+                     [value]="mapsUrl()" (input)="mapsUrl.set($any($event.target).value)"
+                     i18n-placeholder="@@personal.mapsPlaceholder" placeholder="https://maps.app.goo.gl/…" />
+              @if (mapsUrlInvalid()) {
+                <div class="pa-maps-error" role="alert" i18n="@@personal.mapsError">Pega un link de Google Maps (https://maps.app.goo.gl/… o https://www.google.com/maps/…)</div>
+              }
+              <label class="pa-private">
+                <input type="checkbox" [checked]="isPrivate()" (change)="isPrivate.set($any($event.target).checked)" />
+                <span i18n="@@personal.privateLabel">🔒 Privada — no se muestra cuando compartes el plan</span>
+              </label>
+            </div>
+          }
           <!-- Date + time: locked for fixed events, editable otherwise -->
           @if (isFixedEvent()) {
             <div class="event-locked" style="margin-bottom:12px">
@@ -125,8 +152,8 @@ export interface PlanEntry {
               </div>
               <div style="max-height:200px;overflow-y:auto">
                 @for (entry of schedule(); track entry.entryId) {
-                  <div [class]="'schedule-row' + (overlappingIds().has(entry.attraction.id) ? ' conflict' : '')">
-                    @if (overlappingIds().has(entry.attraction.id)) {
+                  <div [class]="'schedule-row' + (overlappingIds().has(entry.entryId) ? ' conflict' : '')">
+                    @if (overlappingIds().has(entry.entryId)) {
                       <span class="conflict-badge">⚠</span>
                     }
                     <span class="schedule-time">{{ entry.date ? shortDate(entry.date) + ' ' : '' }}{{ entry.startTime }}</span>
@@ -146,7 +173,7 @@ export interface PlanEntry {
             <button class="btn-pill btn-outline" (click)="cancel.emit()" style="flex:1"
                     i18n="@@planModal.cancelBtn">Cancelar</button>
             <button class="btn-pill btn-primary" (click)="confirm()" style="flex:2"
-                    [disabled]="outsideStopRange()"
+                    [disabled]="!canConfirm()"
                     i18n="@@planModal.confirmBtn">Confirmar</button>
           </div>
           @if (isEditing()) {
@@ -168,6 +195,8 @@ export class PlanTimeModalComponent implements OnInit {
   stopCheckOut    = input('');
   existingPlanned = input<ScheduleEntry[]>([]);
   cityName        = input('');
+  /** Feature 71 — set for a personal activity: shows title / Maps link / private fields. */
+  personal        = input<{ title: string; mapsUrl: string; isPrivate: boolean } | null>(null);
 
   cancel    = output<void>();
   confirmed = output<PlanEntry>();
@@ -175,6 +204,9 @@ export class PlanTimeModalComponent implements OnInit {
 
   time = signal('09:00');
   date = signal('');
+  title     = signal('');
+  mapsUrl   = signal('');
+  isPrivate = signal(false);
 
   readonly isEditing = computed(() => this.initialTime() !== '');
 
@@ -190,6 +222,12 @@ export class PlanTimeModalComponent implements OnInit {
     this.isFixedEvent()
     && !isDateInRange(this.attraction().date, this.stopCheckIn(), this.stopCheckOut())
   );
+
+  readonly mapsUrlInvalid = computed(() =>
+    !!this.personal() && !!this.mapsUrl().trim() && !isGoogleMapsUrl(this.mapsUrl().trim()));
+
+  readonly canConfirm = computed(() =>
+    !this.outsideStopRange() && (!this.personal() || (!!this.title().trim() && !this.mapsUrlInvalid())));
 
   readonly schedule = computed(() =>
     [...this.existingPlanned()].sort((a, b) =>
@@ -209,7 +247,7 @@ export class PlanTimeModalComponent implements OnInit {
       const entryStart = this.toMinutes(entry.startTime);
       const entryEnd   = entryStart + entry.attraction.estimatedMinutes;
       if (currentStart < entryEnd && entryStart < currentEnd) {
-        ids.add(entry.attraction.id);
+        ids.add(entry.entryId);
       }
     }
     return ids;
@@ -218,6 +256,8 @@ export class PlanTimeModalComponent implements OnInit {
   readonly hasOverlap = computed(() => this.overlappingIds().size > 0);
 
   ngOnInit() {
+    const p = this.personal();
+    if (p) { this.title.set(p.title); this.mapsUrl.set(p.mapsUrl); this.isPrivate.set(p.isPrivate); }
     if (this.isFixedEvent()) {
       this.date.set(this.attraction().date!);
       this.time.set(this.attraction().time ?? '');
@@ -235,8 +275,11 @@ export class PlanTimeModalComponent implements OnInit {
   }
 
   confirm(): void {
-    if (this.outsideStopRange()) return;
-    this.confirmed.emit({ startTime: this.time(), date: this.date() });
+    if (!this.canConfirm()) return;
+    const p = this.personal();
+    this.confirmed.emit(p
+      ? { startTime: this.time(), date: this.date(), title: this.title().trim(), mapsUrl: this.mapsUrl().trim() || undefined, isPrivate: this.isPrivate() }
+      : { startTime: this.time(), date: this.date() });
   }
 
   shortDate(s: string): string {

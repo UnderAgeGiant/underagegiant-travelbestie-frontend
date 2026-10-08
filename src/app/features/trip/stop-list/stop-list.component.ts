@@ -27,6 +27,8 @@ import { City } from '../../../core/models/city.model';
 import { CityInfoBadgeComponent } from '../../../shared/city-info-badge/city-info-badge.component';
 import { CityWeatherChipComponent } from '../../../shared/city-weather-chip/city-weather-chip.component';
 import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map.component';
+import { isPersonal, personalAttraction } from '../../../core/utils/personal-activity.util';
+import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
 
 @Component({
     selector: 'app-stop-list',
@@ -40,6 +42,8 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
     }
     .att-plan-row:hover { background: oklch(0% 0 0/.04); }
     .att-plan-icon { font-size: 14px; flex-shrink: 0; }
+    .att-plan-name-link { cursor: pointer; text-decoration: underline dotted; }
+    .att-plan-private { font-size: 11px; flex-shrink: 0; }
     .att-plan-name {
       flex: 1; font-size: 11px; color: var(--t2);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -246,13 +250,21 @@ import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map
 
                     @if (isScheduledOpen(stop.stopId)) {
                       @for (planned of plannedSorted(stop); track planned.entryId) {
-                        @let att = attractionFor(stop.cityId, planned.attractionId);
+                        @let att = entryAttraction(stop.cityId, planned);
                         @if (att) {
                           @let collision = hasTimeCollision(stop, planned.entryId);
                           <div class="att-plan-row" [class.att-collision]="collision"
                                (click)="$event.stopPropagation()">
                             <span class="att-plan-icon">{{ att.icon }}</span>
-                            <span class="att-plan-name">{{ att | attName }}</span>
+                            <span class="att-plan-name"
+                                  [class.att-plan-name-link]="planned.activityType"
+                                  [attr.role]="planned.activityType ? 'button' : null"
+                                  [attr.tabindex]="planned.activityType ? 0 : null"
+                                  (keydown.enter)="planned.activityType && personalModal.openEdit(stop.stopId, planned.entryId)"
+                                  (click)="planned.activityType && personalModal.openEdit(stop.stopId, planned.entryId)">{{ att | attName }}</span>
+                            @if (planned.isPrivate) {
+                              <span class="att-plan-private" i18n-title="@@personal.privateBadge" title="Privada">🔒</span>
+                            }
                             <span style="font-size:10px;color:var(--t3);white-space:nowrap;flex-shrink:0">
                               @let d = planned.date || stop.checkIn;
                               @if (d) { {{ shortDate(d) }} · }{{ planned.startTime }} · {{ plannedMinutes(planned, att) | duration }}
@@ -386,6 +398,7 @@ export class StopListComponent {
   private readonly destModal  = inject(DestinationModalService);
   protected readonly citySuggest = inject(CitySuggestService);
   protected readonly autoSave = inject(AutoSaveService);
+  protected readonly personalModal = inject(PersonalActivityModalService);
   addDestination = output<void>();
   openProfile = output<void>();
   stopSelected = output<void>();   // landing → editor (Feature 68)
@@ -590,6 +603,11 @@ export class StopListComponent {
     return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
   }
 
+  /** Feature 71 — personal entries render through a synthetic Attraction. */
+  entryAttraction(cityId: string, planned: PlannedAttraction): Attraction | null {
+    return isPersonal(planned) ? personalAttraction(planned) : this.attractionFor(cityId, planned.attractionId!);
+  }
+
   shortDate(s: string): string {
     const p = s.split('/');
     return p.length >= 2 ? `${p[0]}/${p[1]}` : s;
@@ -611,7 +629,7 @@ export class StopListComponent {
   hasTimeCollision(stop: import('../../../core/models/trip.model').TripStop, targetEntryId: string): boolean {
     const target = stop.selectedAttractions.find(a => a.entryId === targetEntryId);
     if (!target?.startTime) return false;
-    const tAtt  = this.attractionFor(stop.cityId, target.attractionId);
+    const tAtt  = this.entryAttraction(stop.cityId, target);
     if (!tAtt) return false;
     const tStart = this.toMins(target.startTime);
     const tEnd   = tStart + tAtt.estimatedMinutes;
@@ -620,7 +638,7 @@ export class StopListComponent {
       if (other.entryId === targetEntryId || !other.startTime) return false;
       const oDate = other.date ?? '';
       if (tDate && oDate && tDate !== oDate) return false;
-      const oAtt = this.attractionFor(stop.cityId, other.attractionId);
+      const oAtt = this.entryAttraction(stop.cityId, other);
       if (!oAtt) return false;
       const oStart = this.toMins(other.startTime);
       const oEnd   = oStart + oAtt.estimatedMinutes;

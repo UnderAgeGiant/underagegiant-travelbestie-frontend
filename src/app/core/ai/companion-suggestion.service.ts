@@ -96,7 +96,7 @@ export class CompanionSuggestionService {
     const entry = stop.selectedAttractions.find(a => a.attractionId === attractionId);
     const attraction = findCuratedAttraction(stop.cityId, attractionId);
 
-    const existingAttractionIds = stop.selectedAttractions.map(a => a.attractionId);
+    const existingAttractionIds = stop.selectedAttractions.flatMap(a => a.attractionId ? [a.attractionId] : []);
     const existingSchedule = stop.selectedAttractions.flatMap(a =>
       a.date && a.startTime && a.endTime ? [{ date: a.date, startTime: a.startTime, endTime: a.endTime }] : [],
     );

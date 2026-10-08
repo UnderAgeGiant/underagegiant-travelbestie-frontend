@@ -93,3 +93,25 @@ describe('buildFeedSlides', () => {
     expect(buildFeedSlides(plan([{ cityId: 'paris', checkIn: '01/07/2026', checkOut: '03/07/2026', selectedAttractions: [] }]), 'es-CL')).toEqual([]);
   });
 });
+
+describe('buildFeedSlides — personal activities (Feature 71)', () => {
+  beforeEach(() => { find.mockReset(); (getAttractions as jest.Mock).mockReturnValue([]); });
+
+  it('renders a personal entry by title + icon + Miel illustration with no rating/description', () => {
+    find.mockImplementation((_c: string, id: string) => att(id));
+    const slides = buildFeedSlides(plan([{
+      cityId: 'paris', checkIn: '01/07/2026', checkOut: '03/07/2026',
+      selectedAttractions: [
+        { attractionId: 'paris_0', startTime: '10:00', endTime: '11:00' },
+        { activityType: 'walk', title: 'Paseo por el Sena', startTime: '18:00', endTime: '19:00' },
+      ],
+    }]), 'es-CL');
+    expect(slides).toHaveLength(2);
+    const p = slides[1];
+    expect(p).toMatchObject({ name: 'Paseo por el Sena', icon: '🚶', rating: null, description: null, attractionId: undefined,
+      imageUrl: '/personal/walk.webp', contain: true, bg: '#E8FDE8' });
+    expect(slides[0].contain).toBeUndefined();
+    expect(slides[0].bg).toBeUndefined();
+    expect(p.id).not.toBe(slides[0].id);
+  });
+});

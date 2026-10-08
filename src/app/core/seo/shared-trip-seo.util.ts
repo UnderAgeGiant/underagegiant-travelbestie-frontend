@@ -14,7 +14,8 @@ export function sharedTripSeo(
   locale: string,
 ): SeoPage {
   const cities = [...new Set(trip.stops.map(s => cityName(s.cityId)).filter((n): n is string => !!n))];
-  const attractionCount = trip.stops.reduce((n, s) => n + s.selectedAttractions.length, 0);
+  // Catalog entries only — personal activities (Feature 71) don't count, same as the backend's SEO queries.
+  const attractionCount = trip.stops.reduce((n, s) => n + s.selectedAttractions.filter(a => a.attractionId).length, 0);
   const indexable = attractionCount >= SEO_MIN_ATTRACTIONS && cities.length > 0;
 
   const name = trip.tripName;

@@ -4,7 +4,7 @@ export interface FeaturedTrip {
   ownerName:  string;
   ownerEmail: string;
   createdAt:  string;
-  stops:      { cityId: string; checkIn: string; checkOut: string; selectedAttractions: { attractionId: string }[] }[];
+  stops:      { cityId: string; checkIn: string; checkOut: string; selectedAttractions: { attractionId?: string; activityType?: string; title?: string }[] }[];  // personal entries (Feature 71) carry activityType instead
   transits:   unknown[];
   planId:     string;
 }

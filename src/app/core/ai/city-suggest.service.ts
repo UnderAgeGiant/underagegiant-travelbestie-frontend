@@ -27,7 +27,7 @@ export class CitySuggestService {
   /** Opens the cloud for `stop` immediately (loading state), then fetches suggestions. Costs karma. */
   async request(stop: TripStop): Promise<void> {
     this._openForStopId.set(stop.stopId);
-    await this.fetchSuggestions(stop, stop.selectedAttractions.map(a => a.attractionId), false);
+    await this.fetchSuggestions(stop, stop.selectedAttractions.flatMap(a => a.attractionId ? [a.attractionId] : []), false);
   }
 
   /**
@@ -38,7 +38,7 @@ export class CitySuggestService {
    */
   async searchMore(stop: TripStop): Promise<void> {
     const excludeIds = [
-      ...stop.selectedAttractions.map(a => a.attractionId),
+      ...stop.selectedAttractions.flatMap(a => a.attractionId ? [a.attractionId] : []),
       ...this._suggestions().map(s => s.attractionId),
     ];
     await this.fetchSuggestions(stop, excludeIds, true);

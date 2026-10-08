@@ -2,12 +2,24 @@ import { AttractionCategory } from '../models/attraction-category';
 
 export interface PlannedAttraction {
   entryId:      string;
-  attractionId: string;
+  attractionId?: string;          // absent on personal activities (Feature 71)
+  activityType?: string;          // personal activity type — see core/models/personal-activity.model.ts
+  title?:        string;          // personal only (required there)
+  mapsUrl?:      string;          // personal only
+  isPrivate?:    boolean;         // personal only — hidden from public views
   startTime:    string | null;
   endTime:      string | null;
   date?:        string;
   category?:    AttractionCategory;
   ticketPurchased?: boolean;
+}
+
+export interface PersonalActivityInput {
+  title: string;
+  mapsUrl?: string;
+  isPrivate: boolean;
+  startTime: string;
+  date?: string;
 }
 
 export interface Lodging {

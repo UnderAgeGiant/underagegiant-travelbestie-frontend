@@ -115,7 +115,7 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
     const city   = WORLD_CITIES.find(c => c.id === cityId);
     if (!city) return CITY_COVER_PHOTOS[cityId] ?? '';
     const attrs  = getAttractions(city);
-    const attrId = trip.stops[0]?.selectedAttractions[0]?.attractionId;
+    const attrId = trip.stops[0]?.selectedAttractions.find(a => a.attractionId)?.attractionId;
     return attrs.find(a => a.id === attrId)?.imageUrl
         ?? attrs.find(a => !!a.imageUrl)?.imageUrl
         ?? CITY_COVER_PHOTOS[cityId]
@@ -136,7 +136,7 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
 
   protected firstAttrName(trip: FeaturedTrip): string {
     const city   = WORLD_CITIES.find(c => c.id === trip.stops[0]?.cityId);
-    const attrId = trip.stops[0]?.selectedAttractions[0]?.attractionId;
+    const attrId = trip.stops[0]?.selectedAttractions.find(a => a.attractionId)?.attractionId;
     const att = city ? getAttractions(city).find(a => a.id === attrId) : undefined;
     return (att ? attractionName(att, this.locale.current()) : '').toUpperCase();
   }

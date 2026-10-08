@@ -4,7 +4,7 @@ import { TripStop, TransitLeg, TransitMode, TransitSegment, PlannedAttraction } 
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { Attraction } from '../../core/models/comment.model';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
+import { resolvePlannedAttraction } from '../../core/utils/personal-activity.util';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 
@@ -64,8 +64,8 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
                   </div>
                 }
 
-                @for (planned of stop.selectedAttractions; track planned.attractionId) {
-                  @let att = attFor(stop.cityId, planned.attractionId);
+                @for (planned of stop.selectedAttractions; track $index) {
+                  @let att = attFor(stop.cityId, planned);
                   @if (att) {
                     @let attDate = planned.date || stop.checkIn;
                     <div class="itin-item">
@@ -145,10 +145,8 @@ export class TripItineraryComponent {
     return WORLD_CITIES.find(c => c.id === cityId) ?? null;
   }
 
-  attFor(cityId: string, attractionId: string) {
-    const city = this.cityFor(cityId);
-    if (!city) return null;
-    return getAttractions(city).find(a => a.id === attractionId) ?? findCuratedAttraction(cityId, attractionId) ?? null; // inactive entries still render in saved trips
+  attFor(cityId: string, planned: PlannedAttraction) {
+    return resolvePlannedAttraction(cityId, planned); // personal → synthetic; inactive catalog entries still render
   }
 
   modeIcon(mode: TransitMode): string {
