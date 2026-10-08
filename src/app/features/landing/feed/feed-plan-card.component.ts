@@ -41,6 +41,7 @@ function prefersReducedMotion(): boolean {
 
   @for (slide of slides(); track slide.id; let i = $index) {
     <div class="feed-pane feed-pane-slide" [class.active]="pageIdx() === i + 1" [style.--feed-off]="offset(i + 1)"
+         [class.feed-pane--contain]="slide.contain" [style.background]="slide.bg ?? null"
          [attr.aria-hidden]="pageIdx() !== i + 1">
       @if (near(i + 1) && slide.imageUrl) {
         <img class="feed-photo" [src]="slide.imageUrl" [alt]="slide.name" loading="lazy" decoding="async" />

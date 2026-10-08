@@ -20,12 +20,13 @@ import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/uti
     </button>
   `,
   styles: [`
-    .pa-card { display:flex; flex-direction:column; align-items:center; gap:6px; width:100%; padding:14px 10px;
-      border:1px solid var(--border); border-radius:16px; cursor:pointer; font:inherit; color:var(--t1); }
+    :host { display:block; }
+    .pa-card { display:flex; flex-direction:column; align-items:center; gap:4px; width:100%; height:100%; min-height:44px;
+      padding:8px 6px 10px; border:1px solid var(--border); border-radius:14px; cursor:pointer; font:inherit; color:var(--t1); }
     .pa-card:focus-visible { outline:2px solid var(--lav-d); outline-offset:2px; }
-    .pa-card-img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:12px; }
-    .pa-card-icon { font-size:40px; line-height:1; }
-    .pa-card-label { font-weight:600; }
+    .pa-card-img { width:100%; max-width:96px; aspect-ratio:1; object-fit:contain; border-radius:10px; }
+    .pa-card-icon { font-size:36px; line-height:1; padding:12px 0; }
+    .pa-card-label { font-size:13px; font-weight:600; line-height:1.2; text-align:center; }
     .pa-card-add { font-size:12px; color:var(--lav-d); }
   `],
 })

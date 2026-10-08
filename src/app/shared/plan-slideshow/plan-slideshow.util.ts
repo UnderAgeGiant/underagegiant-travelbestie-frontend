@@ -57,6 +57,7 @@ function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale:
     startTime:   planned.startTime,
     endDate:     date,
     endTime:     minToHm(endMin),
+    ...(personal ? { contain: true, bg: activityMeta(planned.activityType).bg } : {}),
   };
 }
 

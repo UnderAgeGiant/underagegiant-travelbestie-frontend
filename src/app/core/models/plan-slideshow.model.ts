@@ -10,4 +10,6 @@ export interface SlideshowItem {
   startTime:    string | null;  // HH:mm
   endDate:      string | null;  // dd/mm/yyyy
   endTime:      string | null;  // HH:mm
+  contain?:     boolean;        // Feature 71 — personal-activity illustration: fit whole (no crop, no zoom) on `bg`
+  bg?:          string;         // pane colour behind a `contain` image
 }

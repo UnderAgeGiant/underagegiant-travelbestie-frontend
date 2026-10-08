@@ -86,6 +86,8 @@ describe('buildPlanSlideshowItems', () => {
   it('sorts attractions and transit chronologically across stops and legs', () => {
     const items = buildPlanSlideshowItems([PARIS_STOP], [START_TO_PARIS], 'es-CL');
     expect(items.map(i => i.id)).toEqual(['transit:__start__:paris:0', 'att:e1']);
+    expect(items[1].contain).toBeUndefined();   // catalog photos keep cover (Feature 71)
+    expect(items[1].bg).toBeUndefined();
   });
 
   it('drops transit segments missing a departure date/time', () => {
@@ -104,6 +106,6 @@ describe('buildPlanSlideshowItems — personal activities (Feature 71)', () => {
       selectedAttractions: [{ entryId: 'p1', activityType: 'dinner', title: 'Cena', startTime: '20:00', endTime: '21:30', date: '10/08/2026' }],
     };
     const items = buildPlanSlideshowItems([stop], [], 'es-CL');
-    expect(items[0]).toMatchObject({ name: 'Cena', icon: '🍝', description: null, imageUrl: '/personal/dinner.webp' });
+    expect(items[0]).toMatchObject({ name: 'Cena', icon: '🍝', description: null, imageUrl: '/personal/dinner.webp', contain: true, bg: '#F3E8FD' });
   });
 });

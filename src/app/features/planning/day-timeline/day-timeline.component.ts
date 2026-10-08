@@ -1135,6 +1135,7 @@ export class DayTimelineComponent {
           startTime:   a.startTime!,
           endDate:     date,
           endTime:     minToHm(endMin),
+          ...(personal ? { contain: true, bg: activityMeta(a.activityType).bg } : {}),
         };
       });
 

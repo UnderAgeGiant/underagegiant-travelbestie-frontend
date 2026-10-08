@@ -58,12 +58,14 @@ import { getPersonalActivityMetas } from '../../../core/models/personal-activity
                 i18n="@@personal.chip">🧺 Mis actividades</button>
       </div>
 
-      <div class="att-grid">
-        @if (showPersonal()) {
+      @if (showPersonal()) {
+        <div class="pa-grid">
           @for (m of personalMetas; track m.type) {
             <tb-personal-activity-card [meta]="m" [stopId]="stopId()" />
           }
-        } @else {
+        </div>
+      } @else {
+        <div class="att-grid">
           @for (att of filteredAttractions(); track att.id) {
             <app-attraction-card
               [attraction]="att"
@@ -76,8 +78,8 @@ import { getPersonalActivityMetas } from '../../../core/models/personal-activity
           @if (filteredAttractions().length === 0) {
             <div class="att-empty" i18n="@@dest.searchEmpty">Sin resultados para tu búsqueda</div>
           }
-        }
-      </div>
+        </div>
+      }
     </div>
   `,
 })

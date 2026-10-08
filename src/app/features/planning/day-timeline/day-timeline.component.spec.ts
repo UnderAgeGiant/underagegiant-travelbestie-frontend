@@ -1225,6 +1225,8 @@ describe('DayTimelineComponent — personal activities (Feature 71)', () => {
 
   it('day slideshow includes the personal item', () => {
     const item = (component as any).daySlideItems().find((i: any) => i.name === 'Almuerzo con Rosa');
-    expect(item).toMatchObject({ icon: '🍽️', description: null });
+    expect(item).toMatchObject({ icon: '🍽️', description: null, imageUrl: '/personal/lunch.webp', contain: true, bg: '#FDEFE8' });
+    const catalog = (component as any).daySlideItems().find((i: any) => i.id === 'att:e1');
+    expect(catalog.contain).toBeUndefined();
   });
 });

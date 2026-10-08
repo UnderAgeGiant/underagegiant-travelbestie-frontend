@@ -109,7 +109,9 @@ describe('buildFeedSlides — personal activities (Feature 71)', () => {
     expect(slides).toHaveLength(2);
     const p = slides[1];
     expect(p).toMatchObject({ name: 'Paseo por el Sena', icon: '🚶', rating: null, description: null, attractionId: undefined,
-      imageUrl: '/personal/walk.webp' });
+      imageUrl: '/personal/walk.webp', contain: true, bg: '#E8FDE8' });
+    expect(slides[0].contain).toBeUndefined();
+    expect(slides[0].bg).toBeUndefined();
     expect(p.id).not.toBe(slides[0].id);
   });
 });

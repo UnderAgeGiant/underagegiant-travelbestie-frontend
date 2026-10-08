@@ -20,6 +20,8 @@ export interface FeedSlide {
   description: string | null;
   date: string | null;        // dd/mm/yyyy
   startTime: string | null;   // HH:mm
+  contain?: boolean;          // Feature 71 — personal illustration: fit whole (no crop, no zoom) on `bg`
+  bg?: string;
 }
 
 const LAST = Number.MAX_SAFE_INTEGER;
@@ -66,6 +68,7 @@ export function buildFeedSlides(plan: FeedPlan, locale: AppLocale): FeedSlide[] 
         description: personal ? null : (localizedDescription(att, locale) ?? null),
         date: planned.date ?? stop.checkIn ?? null,
         startTime: planned.startTime,
+        ...(personal ? { contain: true, bg: att.bg } : {}),
       });
     }
   });
