@@ -3407,6 +3407,8 @@ app-step-comments { display: block; }
 
 /* ── Rankings (Feature 70) — logged-in landing section ─────────────────── */
 tb-landing-ranking { display: block; }
+.feed-divider { padding: 48px 24px 24px; text-align: center; background: var(--cream); }
+.feed-divider h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 38px); font-weight: 500; margin: 0; }
 .landing-ranking { min-height: 100vh; padding: 72px clamp(16px, 4vw, 48px) 32px; background: var(--cream); display: flex; flex-direction: column; gap: 28px; }
 .rk-head { display: flex; align-items: center; gap: 18px; }
 .rk-miel { width: 112px; height: 112px; flex: none; }

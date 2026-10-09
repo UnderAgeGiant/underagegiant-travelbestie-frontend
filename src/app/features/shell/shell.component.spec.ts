@@ -7,6 +7,8 @@ import { TripService } from '../trip/trip.service';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { By } from '@angular/platform-browser';
+import { signal } from '@angular/core';
+import { LandingFeedService } from '../landing/feed/landing-feed.service';
 
 describe('ShellComponent', () => {
   beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
@@ -268,6 +270,21 @@ describe('ShellComponent', () => {
       expect(el.querySelector('.landing-about-full')).toBeNull();
       expect(el.querySelector('tb-app-footer')).toBeNull();
     });
+  });
+
+  describe('feed divider (T3)', () => {
+    const prep = (loggedIn: boolean, hasItems: boolean) => () => {
+      jest.spyOn(TestBed.inject(AuthService), 'isLoggedIn' as any).mockReturnValue(loggedIn);
+      Object.defineProperty(TestBed.inject(LandingFeedService), 'hasItems', { value: signal(hasItems) });
+    };
+    const divider = (loggedIn: boolean, hasItems: boolean) =>
+      (setup(0, 'landing', prep(loggedIn, hasItems)).nativeElement as HTMLElement).querySelector('.feed-divider');
+
+    it('shows the titled divider when logged in and the feed has items', () => {
+      expect(divider(true, true)?.textContent).toContain('Estos son algunos de los planes hechos por nuestros usuarios');
+    });
+    it('hides it when the feed has no items', () => expect(divider(true, false)).toBeNull());
+    it('hides it when logged out', () => expect(divider(false, true)).toBeNull());
   });
 
   it('logged out: no ranking; About Us and footer unchanged', () => {
