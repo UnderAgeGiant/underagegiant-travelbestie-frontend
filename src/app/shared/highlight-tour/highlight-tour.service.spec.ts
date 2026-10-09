@@ -32,10 +32,13 @@ describe('HighlightTourService', () => {
   function registerAllLandingTargets(): void {
     // jsdom doesn't implement scrollIntoView on a plain element — stub it so any test that
     // flips media.fire(true) doesn't crash on a target it isn't specifically asserting on.
+    const logo = document.createElement('div');
     const login = document.createElement('div');
     const aiPlan = document.createElement('div');
+    logo.scrollIntoView = () => {};
     login.scrollIntoView = () => {};
     aiPlan.scrollIntoView = () => {};
+    registry.register('nav-logo', logo);
     registry.register('login-btn', login);
     registry.register('ai-plan-btn', aiPlan);
   }
@@ -138,7 +141,9 @@ describe('HighlightTourService', () => {
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
 
-    // resolveCurrentTarget() polls up to 10x at 100ms for 'login-btn', then skips to step 1.
+    // resolveCurrentTarget() polls up to 10x at 100ms per missing target: 'nav-logo' and
+    // 'login-btn' are each skipped in turn, landing on 'ai-plan-btn'.
+    await jest.advanceTimersByTimeAsync(1100);
     await jest.advanceTimersByTimeAsync(1100);
 
     expect(service.activeType()).toBe('landing_welcome');
@@ -146,7 +151,7 @@ describe('HighlightTourService', () => {
     jest.useRealTimers();
   });
 
-  it('skips the tour entirely when neither target ever registers', async () => {
+  it('skips the tour entirely when no target ever registers', async () => {
     jest.useFakeTimers();
     // Nothing registered at all — start() should end in complete() rather than
     // getting stuck, and mark the type seen so it doesn't retry every render.
@@ -154,7 +159,8 @@ describe('HighlightTourService', () => {
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
 
     await jest.advanceTimersByTimeAsync(1100); // exhausts step 0's polling, skips to step 1
-    await jest.advanceTimersByTimeAsync(1100); // exhausts step 1's polling, no more steps → complete()
+    await jest.advanceTimersByTimeAsync(1100); // exhausts step 1's polling, skips to step 2
+    await jest.advanceTimersByTimeAsync(1100); // exhausts step 2's polling, no more steps → complete()
 
     expect(service.activeType()).toBeNull();
     expect(seen.hasSeenLocally('landing_welcome')).toBe(true);
@@ -183,9 +189,9 @@ describe('HighlightTourService', () => {
   it('scrolls the step target into view on mobile at the start of the tour', () => {
     media.fire(true);
     registerAllLandingTargets();
-    const loginBtn = registry.get('login-btn')!;
+    const logoEl = registry.get('nav-logo')!;
     const scrollSpy = jest.fn();
-    loginBtn.scrollIntoView = scrollSpy;
+    logoEl.scrollIntoView = scrollSpy;
 
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
@@ -196,9 +202,9 @@ describe('HighlightTourService', () => {
   it('scrolls the new step target into view again on mobile when advancing with next()', () => {
     media.fire(true);
     registerAllLandingTargets();
-    const aiBtn = registry.get('ai-plan-btn')!;
+    const loginEl = registry.get('login-btn')!;
     const scrollSpy = jest.fn();
-    aiBtn.scrollIntoView = scrollSpy;
+    loginEl.scrollIntoView = scrollSpy;
 
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
@@ -209,9 +215,9 @@ describe('HighlightTourService', () => {
 
   it('does not scroll the step target into view on desktop', () => {
     registerAllLandingTargets();
-    const loginBtn = registry.get('login-btn')!;
+    const logoEl = registry.get('nav-logo')!;
     const scrollSpy = jest.fn();
-    loginBtn.scrollIntoView = scrollSpy;
+    logoEl.scrollIntoView = scrollSpy;
 
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
