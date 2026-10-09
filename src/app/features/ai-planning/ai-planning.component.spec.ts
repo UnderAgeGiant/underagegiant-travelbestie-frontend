@@ -102,7 +102,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     http.match(() => true).forEach(r => r.flush(null)); // nav/notification polls fired by rendering
   });
 
-  it('renders the presentation pill as its own banner between the result header and the itinerary', () => {
+  it('renders the presentation pill as its own banner above the result header', () => {
     const fixture = TestBed.createComponent(AiPlanningComponent);
     fixture.componentInstance.generatedTrip.set({
       ...TRIP,
@@ -113,8 +113,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     const pill: HTMLElement = fixture.nativeElement.querySelector('tb-plan-presentation-pill');
     expect(pill).not.toBeNull();
     expect(pill.closest('.ai-plan-result-header')).toBeNull();
-    expect(pill.previousElementSibling?.classList).toContain('ai-plan-result-header');
-    expect(pill.nextElementSibling?.classList).toContain('itin');
+    expect(pill.nextElementSibling?.classList).toContain('ai-plan-result-header');
     http.match(() => true).forEach(r => r.flush(null));
   });
 

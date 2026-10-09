@@ -242,6 +242,9 @@ describe('SharedTripComponent — day-boundary divider between itin-items (feedb
     ]);
     const pill = fixture.debugElement.query(By.css('tb-plan-presentation-pill'));
     expect(pill).not.toBeNull();
+    // Full-width banner right below the header, not a button inside it.
+    expect(pill.nativeElement.closest('.shared-header')).toBeNull();
+    expect(pill.nativeElement.previousElementSibling?.classList).toContain('shared-header');
     pill.triggerEventHandler('open');
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('app-plan-slideshow')).not.toBeNull();

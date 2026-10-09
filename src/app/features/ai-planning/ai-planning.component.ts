@@ -389,6 +389,10 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
           <!-- ── Step 3: View & save result ── -->
           @if (step() === 'result' && generatedTrip()) {
+            @if (planSlideItems().length > 0) {
+              <tb-plan-presentation-pill class="pp-banner" [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
+            }
+
             <div class="ai-plan-result-header">
               <div class="ai-plan-result-title">{{ generatedTrip()!.title }}</div>
               <div class="ai-plan-result-stops">
@@ -400,10 +404,6 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                 }
               </div>
             </div>
-
-            @if (planSlideItems().length > 0) {
-              <tb-plan-presentation-pill class="ai-plan-pill" [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
-            }
 
             <div class="itin">
 

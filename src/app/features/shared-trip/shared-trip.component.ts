@@ -127,12 +127,6 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                   (click)="shareNative()" type="button"
                   i18n="@@share.shareBtn">📤 Compartir</button>
 
-          <!-- Whole-plan slideshow -->
-          @if (planSlideItems().length > 0) {
-            <tb-plan-presentation-pill style="display:inline-block;margin-top:12px;margin-left:8px"
-                                       [stops]="trip()!.stops" (open)="planSlideshowOpen.set(true)" />
-          }
-
           <!-- Trip map -->
           @if (tripMapCities().length > 0) {
             <button class="btn-pill btn-outline shared-trip-map-btn"
@@ -174,6 +168,11 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
             }
           </div>
         </div>
+
+        <!-- Whole-plan slideshow: full-width photo banner under the header -->
+        @if (planSlideItems().length > 0) {
+          <tb-plan-presentation-pill class="pp-banner" [stops]="trip()!.stops" (open)="planSlideshowOpen.set(true)" />
+        }
 
         <!-- Itinerary with per-step comments -->
         <div class="itin">
