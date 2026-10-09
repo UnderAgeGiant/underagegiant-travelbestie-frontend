@@ -281,7 +281,7 @@ describe('ShellComponent', () => {
       (setup(0, 'landing', prep(loggedIn, hasItems)).nativeElement as HTMLElement).querySelector('.feed-divider');
 
     it('shows the titled divider when logged in and the feed has items', () => {
-      expect(divider(true, true)?.textContent).toContain('Estos son algunos de los planes hechos por nuestros usuarios');
+      expect(divider(true, true)?.textContent).toContain('✈️ Inspírate con los viajes creados por nuestra comunidad');
     });
     it('hides it when the feed has no items', () => expect(divider(true, false)).toBeNull());
     it('hides it when logged out', () => expect(divider(false, true)).toBeNull());

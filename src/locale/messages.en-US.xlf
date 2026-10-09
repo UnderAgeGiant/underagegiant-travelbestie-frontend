@@ -3147,8 +3147,8 @@
         <target>The next generation costs 1 token ⭐</target>
       </trans-unit>
       <trans-unit id="landing.feedDivider" datatype="html">
-        <source>Estos son algunos de los planes hechos por nuestros usuarios</source>
-        <target>These are some of the plans made by our users</target>
+        <source>✈️ Inspírate con los viajes creados por nuestra comunidad</source>
+        <target>✈️ Get inspired by trips created by our community</target>
       </trans-unit>
       <trans-unit id="planPill.aria" datatype="html">
         <source>Presentación del plan</source>

@@ -94,7 +94,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         <!-- S6: infinite feed of other users' shared plans (hidden until logged in and the first page returns ≥1 plan) -->
         @if (auth.isLoggedIn() && landingFeed.hasItems()) {
           <div class="feed-divider">
-            <h2 i18n="@@landing.feedDivider">Estos son algunos de los planes hechos por nuestros usuarios</h2>
+            <h2 i18n="@@landing.feedDivider">✈️ Inspírate con los viajes creados por nuestra comunidad</h2>
           </div>
         }
         <tb-landing-feed #feedSection (backToTop)="scrollToTop()" />
