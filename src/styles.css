@@ -3518,12 +3518,10 @@ tb-landing-ranking { display: block; }
   .rk-calc-bar { animation: none; }
 }
 
-.ai-plan-actions--split { justify-content: space-between; align-items: center; row-gap: 12px; }
-.ai-actions-group { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.ai-regen-note { margin: 0; max-width: 150px; font-size: 12px; line-height: 1.3; color: var(--t3); text-align: center; }
-@media (max-width: 768px) {
-  .ai-actions-group { width: 100%; justify-content: center; }
-}
+/* Step 2: two columns — left (Ajustar, Volver) and right (regenerate, note, plan), each stacked */
+.ai-plan-actions--split { justify-content: space-between; align-items: flex-start; flex-wrap: nowrap; }
+.ai-actions-group { display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 0; }
+.ai-regen-note { margin: 0; font-size: 12px; line-height: 1.3; color: var(--t3); text-align: center; }
 
 /* T4: /guides index */
 .guides-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }
