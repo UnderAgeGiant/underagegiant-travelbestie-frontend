@@ -21,10 +21,12 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                  (focus)="facade.searchOpen.set(true)"
                  (blur)="facade.scheduleClose()" />
         </div>
-        @if (facade.searchOpen() && facade.navSharedTrips().length > 0) {
+        @if (facade.searchOpen() && (facade.navSharedTrips().length > 0 || facade.navNoResults())) {
           <div class="combo-dropdown" style="top:calc(100% + 6px)">
             <div class="combo-list">
-              <div class="combo-section-header">✈️ Viajes compartidos</div>
+              @if (facade.navSharedTrips().length > 0) {
+                <div class="combo-section-header">✈️ Viajes compartidos</div>
+              }
               @for (t of facade.navSharedTrips(); track t.id) {
                 <div class="combo-item" (mousedown)="facade.openSharedTrip(t.id)">
                   <span class="combo-item-flag">🗺️</span>
@@ -34,6 +36,9 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                   </div>
                   <span style="margin-left:auto;font-size:11px;color:var(--lav-d);font-weight:600">Ver →</span>
                 </div>
+              }
+              @if (facade.navNoResults()) {
+                <div class="up-plans-empty" i18n="@@nav.searchNoResults">Sin resultados 🔍</div>
               }
             </div>
           </div>

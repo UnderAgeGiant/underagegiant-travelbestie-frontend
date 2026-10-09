@@ -72,6 +72,10 @@
         <source>Guía de destino a:</source>
         <target>Destination guide:</target>
       </trans-unit>
+      <trans-unit id="nav.searchNoResults" datatype="html">
+        <source>Sin resultados 🔍</source>
+        <target>No results 🔍</target>
+      </trans-unit>
 
       <!-- ── notification-bell.component ── -->
       <trans-unit id="notif.bellAria" datatype="html">
