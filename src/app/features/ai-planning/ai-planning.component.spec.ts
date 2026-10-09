@@ -93,6 +93,15 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     expect(component.presentationAttention()).toBe(true);
   }));
 
+  it('hides the presentation pill when the generated plan has no slide items', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.componentInstance.generatedTrip.set({ ...TRIP, stops: [], transits: [] } as any);
+    fixture.componentInstance.step.set('result');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('tb-plan-presentation-pill')).toBeNull();
+    http.match(() => true).forEach(r => r.flush(null)); // nav/notification polls fired by rendering
+  });
+
   it('closing the presentation returns to the static result view without discarding the plan', fakeAsync(() => {
     component.selectedOption.set(OPTION);
     component.executePlan();
@@ -472,7 +481,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     component.restart();
 
     expect(component.step()).toBe('preferences');
-    // The fullscreen slideshow overlay auto-opened by executePlan() must also
+    // The fullscreen slideshow overlay opened via the presentation pill must also
     // close — otherwise it stays reparented on top and visually hides Step 1
     // even though `step` already switched back to 'preferences'.
     expect(component.planSlideshowOpen()).toBe(false);

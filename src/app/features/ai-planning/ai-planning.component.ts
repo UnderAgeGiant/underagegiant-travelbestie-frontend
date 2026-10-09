@@ -399,7 +399,9 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   }
                 }
               </div>
-              <tb-plan-presentation-pill [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
+              @if (planSlideItems().length > 0) {
+                <tb-plan-presentation-pill [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
+              }
             </div>
 
             <div class="itin">
@@ -1128,7 +1130,7 @@ export class AiPlanningComponent implements OnDestroy {
   private clearSession(): void {
     this.step.set('preferences');
     this.notifyConfirmVisible.set(false);
-    // The fullscreen slideshow overlay (auto-opened by executePlan()) reparents
+    // The fullscreen slideshow overlay (opened by the result's presentation pill) reparents
     // itself on top of everything — leaving it open would hide Step 1 behind it
     // even after step is switched back to 'preferences'.
     this.planSlideshowOpen.set(false);

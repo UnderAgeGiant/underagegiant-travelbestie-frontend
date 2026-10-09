@@ -25,7 +25,7 @@ import { guidePath } from '../../core/seo/city-guide-seo.util';
               <div class="guides-grid">
                 @for (g of s.guides; track g.slug) {
                   <a class="guides-card" [routerLink]="g.path">
-                    @if (g.imageUrl) { <img [src]="g.imageUrl" [alt]="g.name" loading="lazy" /> }
+                    @if (g.imageUrl) { <img [src]="g.imageUrl" alt="" loading="lazy" /> }
                     <span class="guides-card-name">{{ g.name }}</span>
                   </a>
                 }
