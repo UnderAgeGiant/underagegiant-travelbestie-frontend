@@ -35,6 +35,7 @@ import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
+import { PlanPresentationPillComponent } from '../../shared/plan-presentation-pill/plan-presentation-pill.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { SeoService } from '../../core/seo/seo.service';
@@ -47,7 +48,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
+    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -128,10 +129,8 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
           <!-- Whole-plan slideshow -->
           @if (planSlideItems().length > 0) {
-            <button class="btn-pill btn-outline"
-                    style="margin-top:12px;margin-left:8px;gap:6px"
-                    (click)="planSlideshowOpen.set(true)" type="button"
-                    i18n="@@sharedTrip.planSlideshow">🎬 Presentación</button>
+            <tb-plan-presentation-pill style="display:inline-block;margin-top:12px;margin-left:8px"
+                                       [stops]="trip()!.stops" (open)="planSlideshowOpen.set(true)" />
           }
 
           <!-- Trip map -->

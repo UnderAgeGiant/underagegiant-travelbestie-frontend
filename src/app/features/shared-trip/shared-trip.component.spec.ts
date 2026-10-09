@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
+import { By } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController, TestRequest } from '@angular/common/http/testing';
@@ -232,6 +233,18 @@ describe('SharedTripComponent — day-boundary divider between itin-items (feedb
     ]);
 
     expect(fixture.nativeElement.querySelectorAll('.itin-day-divider').length).toBe(1);
+  });
+
+  it('renders the plan presentation pill and opens the slideshow (T5)', () => {
+    flushTrip([
+      { entryId: 'e1', attractionId: 'paris_0', date: '02/06/2026', startTime: '09:00' },
+      { entryId: 'e2', attractionId: 'paris_5', date: '03/06/2026', startTime: '10:00' },
+    ]);
+    const pill = fixture.debugElement.query(By.css('tb-plan-presentation-pill'));
+    expect(pill).not.toBeNull();
+    pill.triggerEventHandler('open');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-plan-slideshow')).not.toBeNull();
   });
 
   it('renders no divider when every attraction falls on the same day', () => {
