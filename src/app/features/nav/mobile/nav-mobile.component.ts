@@ -1,4 +1,5 @@
 import { Component, inject, output, signal, input } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { CityGuidePromoComponent } from '../shared/city-guide-promo.component';
@@ -10,7 +11,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
   imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
   template: `
     <nav class="nav-m-bar">
-      <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
+      <div class="nav-logo" tbHighlightTarget="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
       <div style="flex:1"></div>
 
       <button class="lang-drop-btn" type="button"
@@ -159,6 +160,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           }
         }
 
+        <button class="up-legal-link" type="button" (click)="onGuides()" i18n="@@nav.legalGuides">Legales y Guías</button>
         <button class="signout-btn" (click)="onLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
       </aside>
     }
@@ -166,6 +168,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
 })
 export class NavMobileComponent {
   readonly facade = inject(NavFacadeService);
+  private readonly router = inject(Router);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -179,6 +182,7 @@ export class NavMobileComponent {
   onProfile(): void { this.facade.openProfile(); this.drawerOpen.set(false); this.profileClick.emit(); }
   onMyTrips(): void { this.drawerOpen.set(false); this.facade.openMyTrips(); }
   onKarmaHistory(): void { this.drawerOpen.set(false); this.facade.openKarmaHistory(); }
+  onGuides(): void { void this.router.navigateByUrl('/guides'); this.drawerOpen.set(false); }
   onBuyKarma(): void { this.facade.openBuyKarma(); this.drawerOpen.set(false); }
 
   // The account drawer is local component state (drawerOpen) — facade.doLogout() has no way

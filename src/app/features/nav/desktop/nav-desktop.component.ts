@@ -1,4 +1,5 @@
 import { Component, HostListener, inject, output, input } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { CityGuidePromoComponent } from '../shared/city-guide-promo.component';
@@ -9,7 +10,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
   imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
   template: `
     <nav class="nav">
-      <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
+      <div class="nav-logo" tbHighlightTarget="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
 
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
@@ -345,6 +346,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                     }
                   }
 
+                  <button class="up-legal-link" type="button" (click)="openGuides()" i18n="@@nav.legalGuides">Legales y Guías</button>
                   <button class="signout-btn" (click)="facade.doLogout()" i18n="@@nav.signOut">Cerrar sesión</button>
                 </div>
               </div>
@@ -357,6 +359,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
 })
 export class NavDesktopComponent {
   readonly facade = inject(NavFacadeService);
+  private readonly router = inject(Router);
 
   logoClick    = output<void>();
   profileClick = output<void>();
@@ -368,6 +371,7 @@ export class NavDesktopComponent {
   onProfile(): void { this.facade.openProfile(); this.profileClick.emit(); }
   onMyTrips(): void { this.facade.openMyTrips(); }
   onKarmaHistory(): void { this.facade.openKarmaHistory(); }
+  openGuides(): void { this.facade.userMenuOpen.set(false); void this.router.navigateByUrl('/guides'); }
 
   // Closes the floating user panel as soon as it loses focus (a click lands
   // anywhere outside this nav bar) — mousedown fires before the panel's own

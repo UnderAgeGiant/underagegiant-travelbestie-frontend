@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CITY_GUIDES } from '../../data/city-guides.data';
 
@@ -38,7 +38,7 @@ import { CITY_GUIDES } from '../../data/city-guides.data';
       <a class="landing-footer-link" routerLink="/privacy" i18n="@@landing.footerLinkPrivacy">Política de privacidad</a>
       <a class="landing-footer-link" routerLink="/terms"   i18n="@@landing.footerLinkTerms">Términos de servicio</a>
     </div>
-    @if (guides.length) {
+    @if (showGuides() && guides.length) {
       <div class="landing-footer-col">
         <h3 class="landing-footer-col-head" i18n="@@landing.footerGuides">Guías de destinos</h3>
         @for (g of guides; track g.slug) {
@@ -59,6 +59,7 @@ export class AppFooterComponent {
   readonly createPlan = output<void>();
   readonly viewMyTrips = output<void>();
   readonly exploreFeatured = output<void>();
+  readonly showGuides = input(true);
 
   protected readonly guides = CITY_GUIDES.filter(g => g.reviewed);
 }

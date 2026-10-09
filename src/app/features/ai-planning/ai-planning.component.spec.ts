@@ -48,7 +48,31 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
 
   afterEach(() => http.verify());
 
-  it('shows a 2.6s celebration before auto-opening the presentation once the plan finishes generating', fakeAsync(() => {
+  describe('plan ready (F3)', () => {
+    afterEach(() => jest.useRealTimers());
+
+    it('does not auto-open the slideshow after the celebration, and the pill bounces', () => {
+      jest.useFakeTimers();
+      (component as any).triggerPlanReadyCelebration();
+      jest.advanceTimersByTime(5000);
+      expect(component.planSlideshowOpen()).toBe(false);
+      expect(component.presentationAttention()).toBe(true);
+    });
+
+    it('stops bouncing after the first open, and re-arms for the next plan', () => {
+      jest.useFakeTimers();
+      (component as any).triggerPlanReadyCelebration();
+      jest.advanceTimersByTime(5000);
+      component.openPresentation();
+      expect(component.planSlideshowOpen()).toBe(true);
+      expect(component.presentationAttention()).toBe(false);
+      (component as any).triggerPlanReadyCelebration();
+      jest.advanceTimersByTime(5000);
+      expect(component.presentationAttention()).toBe(true);
+    });
+  });
+
+  it('shows a 2.6s celebration, then bounces the presentation pill instead of auto-opening it', fakeAsync(() => {
     component.selectedOption.set(OPTION);
     expect(component.planSlideshowOpen()).toBe(false);
     expect(component.celebratingPlanReady()).toBe(false);
@@ -65,8 +89,33 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
 
     tick(2600);
     expect(component.celebratingPlanReady()).toBe(false);
-    expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.planSlideshowOpen()).toBe(false);
+    expect(component.presentationAttention()).toBe(true);
   }));
+
+  it('hides the presentation pill when the generated plan has no slide items', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.componentInstance.generatedTrip.set({ ...TRIP, stops: [], transits: [] } as any);
+    fixture.componentInstance.step.set('result');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('tb-plan-presentation-pill')).toBeNull();
+    http.match(() => true).forEach(r => r.flush(null)); // nav/notification polls fired by rendering
+  });
+
+  it('renders the presentation pill as its own banner above the result header', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.componentInstance.generatedTrip.set({
+      ...TRIP,
+      stops: [{ ...TRIP.stops[0], selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', date: '01/06/2026', startTime: '10:00' }] }],
+    } as any);
+    fixture.componentInstance.step.set('result');
+    fixture.detectChanges();
+    const pill: HTMLElement = fixture.nativeElement.querySelector('tb-plan-presentation-pill');
+    expect(pill).not.toBeNull();
+    expect(pill.closest('.ai-plan-result-header')).toBeNull();
+    expect(pill.nextElementSibling?.classList).toContain('ai-plan-result-header');
+    http.match(() => true).forEach(r => r.flush(null));
+  });
 
   it('closing the presentation returns to the static result view without discarding the plan', fakeAsync(() => {
     component.selectedOption.set(OPTION);
@@ -76,6 +125,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     http.expectOne(r => r.url.includes('/ai/plan/req-2/status')).flush({ status: 'completed', result: TRIP });
     tick(2600);
 
+    component.openPresentation();
     component.planSlideshowOpen.set(false);
 
     expect(component.planSlideshowOpen()).toBe(false);
@@ -282,7 +332,8 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     expect(component.currentAiPlanRequestId()).toBe('req-77');
 
     tick(2600);
-    expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.planSlideshowOpen()).toBe(false);
+    expect(component.presentationAttention()).toBe(true);
   }));
 
   it('seeds the Step 1 form fields from requestParams when initialResult is set', () => {
@@ -439,12 +490,13 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     tick(2600);
 
     expect(component.step()).toBe('result');
+    component.openPresentation();
     expect(component.planSlideshowOpen()).toBe(true);
 
     component.restart();
 
     expect(component.step()).toBe('preferences');
-    // The fullscreen slideshow overlay auto-opened by executePlan() must also
+    // The fullscreen slideshow overlay opened via the presentation pill must also
     // close — otherwise it stays reparented on top and visually hides Step 1
     // even though `step` already switched back to 'preferences'.
     expect(component.planSlideshowOpen()).toBe(false);
@@ -721,5 +773,65 @@ describe('AiPlanningComponent — input length limits (mirror backend zod caps)'
     c.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
     c.updateSelectedOptionTitle('x'.repeat(90));
     expect(c.selectedOption()!.title.length).toBe(60);
+  });
+});
+
+describe('AiPlanningComponent — F1: Free-change note on Step 2', () => {
+  let component: AiPlanningComponent;
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let auth: AuthService;
+
+  const OPTION_A: TripSuggestion = { id: 1, title: 'Opción A', summary: 'Resumen A', highlights: [] };
+
+  function renderStep2({ isLoggedIn = true, freeChangesUsed = 0 } = {}) {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+
+    if (isLoggedIn) {
+      auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    }
+
+    component.suggestions.set({ options: [OPTION_A] });
+    component.selectedOption.set(OPTION_A);
+    component.freeChangesUsed.set(freeChangesUsed);
+    component.step.set('options');
+    fixture.detectChanges();
+  }
+
+  it('shows "2/3*" in the regenerate button and the "* Cambios gratis restantes" note', () => {
+    renderStep2({ freeChangesUsed: 1 });
+    expect(fixture.nativeElement.querySelector('.ai-regen-badge').textContent.trim()).toBe('2/3*');
+    expect(fixture.nativeElement.querySelector('.ai-regen-note').textContent).toContain('* Cambios gratis restantes');
+  });
+
+  it('shows "-1 token" in the button and no note when no free changes remain', () => {
+    renderStep2({ freeChangesUsed: 3 });
+    expect(fixture.nativeElement.querySelector('.ai-regen-badge').textContent.trim()).toBe('-1 token');
+    expect(fixture.nativeElement.querySelector('.ai-regen-note')).toBeNull();
+  });
+
+  it('hides badge and note when logged out', () => {
+    renderStep2({ isLoggedIn: false, freeChangesUsed: 1 });
+    expect(fixture.nativeElement.querySelector('.ai-regen-badge')).toBeNull();
+    expect(fixture.nativeElement.querySelector('.ai-regen-note')).toBeNull();
+  });
+
+  it('groups step-2 actions: Ajustar + Volver left; regenerate, note, plan right', () => {
+    renderStep2({ freeChangesUsed: 1 });
+    const groups = fixture.nativeElement.querySelectorAll('.ai-plan-actions--split > .ai-actions-group');
+    expect(groups.length).toBe(2);
+    const text = (el: Element) => (el.textContent ?? '').trim();
+    const [left, right] = Array.from(groups) as Element[];
+    expect(Array.from(left.children).map(text)).toEqual(['✏️ Ajustar opciones', '← Volver']);
+    const rightKids = Array.from(right.children);
+    expect(text(rightKids[0])).toContain('Generar nuevas opciones');
+    expect(rightKids[1].classList).toContain('ai-regen-note');
+    expect(text(rightKids[2])).toContain('Generar plan completo');
   });
 });

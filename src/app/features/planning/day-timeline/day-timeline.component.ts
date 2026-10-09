@@ -19,6 +19,7 @@ import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../c
 import { SlideshowItem } from '../../../core/models/plan-slideshow.model';
 import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slideshow.component';
 import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
+import { PlanPresentationPillComponent } from '../../../shared/plan-presentation-pill/plan-presentation-pill.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
 import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
@@ -122,7 +123,7 @@ function transitLabel(mode: TransitMode): string {
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle, PlanSlideshowComponent, FlagIconComponent, AttractionPreviewPopoverComponent],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, AttractionPreviewPopoverComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -166,9 +167,7 @@ function transitLabel(mode: TransitMode): string {
                           i18n="@@plan.exportItinerary">{{ exporting() ? '⏳' : '📥' }} Exportar a Excel</button>
                 }
                 @if (showPlanSlideshow() && planSlideItems().length > 0) {
-                  <button class="btn-pill btn-outline tl-head-action"
-                          (click)="planSlideshowOpen.set(true)" type="button"
-                          i18n="@@timeline.planSlideshow">🎞️ Presentación del plan</button>
+                  <tb-plan-presentation-pill class="tl-head-action" [stops]="trip.stops()" (open)="planSlideshowOpen.set(true)" />
                 }
               </div>
             }

@@ -2,6 +2,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { LOCALE_ID } from '@angular/core';
+import { By } from '@angular/platform-browser';
 import { DayTimelineComponent } from './day-timeline.component';
 import { TripService } from '../../trip/trip.service';
 import { City } from '../../../core/models/city.model';
@@ -319,6 +320,23 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(texts[2]).toContain('Exportar a Excel');
     expect(texts[3]).toContain('Presentación del plan');
     expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
+  });
+
+  it('renders the plan presentation pill and opens the slideshow (T5)', () => {
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      selectedAttractions: [
+        { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' },
+      ],
+    }] as any, null, []);
+    fixture.componentRef.setInput('showPlanSlideshow', true);
+    fixture.detectChanges();
+
+    const pill = fixture.debugElement.query(By.css('tb-plan-presentation-pill'));
+    expect(pill).not.toBeNull();
+    pill.triggerEventHandler('open');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-plan-slideshow')).not.toBeNull();
   });
 });
 

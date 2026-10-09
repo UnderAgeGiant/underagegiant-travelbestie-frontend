@@ -1,19 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CITY_GUIDES, CityGuideEntry } from '../../../data/city-guides.data';
-import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
-import { isGuideAttraction, pickTopSights } from '../../../core/seo/city-guide-seo.util';
+import { guideTopPhoto } from '../../../core/seo/city-guide-photo.util';
 
 interface PromoItem { guide: CityGuideEntry; imageUrl: string | undefined; }
-
-/** Best-rated described sight's photo for a guide's city — same source the guide page itself
- *  uses for its "Imperdibles" cards, so the nav teaser never invents new imagery. */
-function topPhotoFor(cityId: string): string | undefined {
-  const city = WORLD_CITIES.find(c => c.id === cityId);
-  if (!city) return undefined;
-  return pickTopSights(getAttractions(city).filter(isGuideAttraction), 8).find(s => s.imageUrl)?.imageUrl;
-}
 
 /**
  * Small rotating teaser, shown on every page that renders <app-nav> (both
@@ -50,7 +40,7 @@ export class CityGuidePromoComponent implements OnInit, OnDestroy {
 
   protected readonly items: PromoItem[] = CITY_GUIDES
     .filter(g => g.reviewed)
-    .map(guide => ({ guide, imageUrl: topPhotoFor(guide.cityId) }));
+    .map(guide => ({ guide, imageUrl: guideTopPhoto(guide.cityId) }));
 
   protected readonly activeIndex = signal(0);
   protected readonly activeGuide = computed(() => this.items[this.activeIndex()]?.guide ?? null);

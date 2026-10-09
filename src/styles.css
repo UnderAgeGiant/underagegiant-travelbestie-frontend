@@ -108,6 +108,20 @@ app-nav { display: block; }
 .nav-guide-promo-label { font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .9; }
 .nav-guide-promo-city { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
 
+/* T5 — plan presentation photo pill (mirrors .nav-guide-promo) */
+.pp-pill { position: relative; display: inline-flex; align-items: center; width: 240px; max-width: 100%; height: 48px; padding: 0; border: 0; border-radius: 999px; overflow: hidden; cursor: pointer; background: var(--lav-d); text-align: left; }
+.pp-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s cubic-bezier(.4,0,.2,1); }
+.pp-slide.active { opacity: 1; z-index: 1; }
+.pp-slide img { width: 100%; height: 100%; object-fit: cover; display: block; animation: ken-burns 9s ease-in-out both; }
+.pp-scrim { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, oklch(0% 0 0/.65), oklch(0% 0 0/.25)); }
+.pp-text { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 1px; padding: 0 16px; min-width: 0; width: 100%; color: #fff; line-height: 1.2; }
+.pp-label { font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .9; }
+.pp-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-pill:focus-visible { outline: 2px solid var(--peach-d); outline-offset: 2px; }
+.pp-pill--attention { animation: pp-bounce 1.2s ease-in-out infinite; }
+@keyframes pp-bounce { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } 50% { transform: translateY(0); } 65% { transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .pp-slide img, .pp-pill--attention { animation: none; } }
+
 .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; padding-left: 12px; }
 .user-btn { display: flex; align-items: center; gap: 8px; background: #fff; border: 1.5px solid var(--border); border-radius: 99px; padding: 5px 14px 5px 5px; cursor: pointer; transition: all .2s; }
 .user-btn:hover { border-color: var(--lav-d); box-shadow: var(--sh); }
@@ -462,6 +476,11 @@ app-nav { display: block; }
 .up-body { padding: 18px 22px; }
 .signout-btn { width: 100%; padding: 10px; border-radius: 10px; border: 1.5px solid var(--blush); color: var(--peach-d); font-size: 13px; font-weight: 500; transition: all .18s; background: #fff; margin-top: 10px; }
 .signout-btn:hover { background: var(--blush); }
+/* Lavender twin of .signout-btn (blush) right below it — same shape, so the two read as a pair. */
+.up-legal-link { display: block; width: 100%; padding: 10px; border-radius: 10px; border: 1.5px solid var(--lav); background: #fff; color: var(--lav-d); font-size: 13px; font-weight: 600; text-align: center; cursor: pointer; margin-top: 10px; transition: background .18s, border-color .18s; }
+.up-legal-link:hover { background: var(--lav); border-color: var(--lav-d); }
+.up-legal-link:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
+.up-legal-link + .signout-btn { margin-top: 8px; }
 .profile-card { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--cream); border-radius: 14px; margin-bottom: 16px; }
 .profile-av { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--lav-d), var(--peach-d)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 700; overflow: hidden; }
 .profile-name { font-weight: 600; font-size: 15px; }
@@ -767,7 +786,15 @@ app-nav { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .ai-save-cta.save-cta-strong { animation: aiSaveCtaReduced 2s ease-in-out infinite; }
 }
-.ai-plan-result-header { text-align: center; margin-bottom: 20px; padding: 20px 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
+/* T5: the presentation pill as a full-width photo banner (AI result: above the header; shared trip: below it). */
+.pp-banner { display: block; margin: 0 0 28px; }
+.pp-banner .pp-pill { width: 100%; height: 150px; border-radius: 18px; box-shadow: var(--sh-md); }
+.pp-banner .pp-scrim { background: linear-gradient(to top, oklch(18% .04 290/.78), oklch(18% .04 290/.05) 75%); }
+.pp-banner .pp-text { align-self: flex-end; padding: 0 24px 18px; gap: 4px; }
+.pp-banner .pp-label { font-size: 11px; }
+.pp-banner .pp-name { font-size: clamp(24px, 4vw, 32px); }
+.pp-banner .btn-pill { width: 100%; }
+.ai-plan-result-header { text-align: center; margin-bottom: 24px; padding: 20px 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .ai-plan-result-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: var(--t1); margin-bottom: 8px; }
 .ai-plan-result-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
 .ai-karma-error-card { background: oklch(97% 0.05 50); border: 1.5px solid oklch(78% 0.13 50); border-radius: 16px; padding: 28px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 16px; animation: scaleIn .2s ease; }
@@ -1630,6 +1657,8 @@ app-nav { display: block; }
   font-size: 11px;
   padding: 4px 12px;
 }
+/* T5: the pill host sits in the actions row — no button padding, never wider than the row. */
+tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; max-width: 100%; }
 .tl-route-btn {
   display: inline-flex; align-items: center; gap: 4px;
   text-decoration: none;
@@ -3407,6 +3436,8 @@ app-step-comments { display: block; }
 
 /* ── Rankings (Feature 70) — logged-in landing section ─────────────────── */
 tb-landing-ranking { display: block; }
+.feed-divider { padding: 48px 24px 24px; text-align: center; background: var(--cream); }
+.feed-divider h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 38px); font-weight: 500; margin: 0; }
 .landing-ranking { min-height: 100vh; padding: 72px clamp(16px, 4vw, 48px) 32px; background: var(--cream); display: flex; flex-direction: column; gap: 28px; }
 .rk-head { display: flex; align-items: center; gap: 18px; }
 .rk-miel { width: 112px; height: 112px; flex: none; }
@@ -3486,3 +3517,61 @@ tb-landing-ranking { display: block; }
   .rk-value, .landing-ranking.filled .rk-value { --rk-n: var(--n); opacity: 1; transition: none; }
   .rk-calc-bar { animation: none; }
 }
+
+/* Step 2: two columns — left (Ajustar, Volver) and right (regenerate, note, plan), each stacked */
+.ai-plan-actions--split { justify-content: space-between; align-items: flex-start; flex-wrap: nowrap; }
+.ai-actions-group { display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 0; }
+.ai-regen-badge { margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--lav); color: var(--lav-d); font-size: 11px; font-weight: 700; }
+.ai-regen-badge--cost { background: var(--peach); color: var(--peach-d); }
+.ai-regen-note { margin: 0; font-size: 12px; line-height: 1.3; color: var(--t3); text-align: center; }
+
+/* T4: /guides index */
+.guides-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }
+/* Each continent borrows one theme hue, the way .rk-chart[data-key] does on the landing rankings. */
+.guides-page [data-continent="south_america"]         { --hue: var(--peach);  --hue-d: var(--peach-d); }
+.guides-page [data-continent="north_central_america"] { --hue: var(--butter); --hue-d: var(--butter-d); }
+.guides-page [data-continent="europe"]                { --hue: var(--lav);    --hue-d: var(--lav-d); }
+.guides-page [data-continent="asia"]                  { --hue: var(--blush);  --hue-d: var(--blush-d); }
+.guides-page [data-continent="africa"]                { --hue: var(--mint);   --hue-d: var(--mint-d); }
+.guides-page [data-continent="oceania"]               { --hue: var(--sky);    --hue-d: var(--sky-d); }
+
+/* Hero: the user panel's lavender→peach wash, fading into the cream page. */
+.guides-hero { padding: 120px 20px 28px; background: linear-gradient(160deg, var(--lav) 0%, var(--peach) 55%, var(--cream) 100%); }
+.guides-hero-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.guides-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 7vw, 76px); font-weight: 600; line-height: 1.02; letter-spacing: -.02em; color: var(--t1); margin: 0 0 12px; text-wrap: balance; }
+.guides-lede { font-size: 16px; line-height: 1.55; color: var(--t2); max-width: 46ch; }
+.guides-miel { flex: none; width: 150px; height: 150px; }
+.guides-chips { max-width: 1100px; margin: 28px auto 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.guides-chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px; background: oklch(100% 0 0/.75); border: 1.5px solid var(--hue); color: var(--t1); font-size: 13px; font-weight: 600; transition: background .18s, border-color .18s; }
+.guides-chip:hover { background: var(--hue); border-color: var(--hue-d); }
+.guides-chip:focus-visible { outline: 2px solid var(--hue-d); outline-offset: 2px; }
+.guides-chip-n { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 99px; display: inline-flex; align-items: center; justify-content: center; background: var(--hue); color: var(--hue-d); font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.guides-main { max-width: 1100px; margin: 0 auto; padding: 36px 20px 72px; display: flex; flex-direction: column; gap: 52px; }
+.guides-continent { scroll-margin-top: 96px; }
+.guides-continent-head { display: flex; align-items: baseline; gap: 12px; padding-bottom: 12px; margin-bottom: 18px; border-bottom: 2px solid color-mix(in oklch, var(--hue-d) 30%, transparent); }
+.guides-continent h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 36px); font-weight: 600; letter-spacing: -.01em; color: var(--t1); margin: 0; }
+.guides-count { align-self: center; min-width: 24px; height: 24px; padding: 0 8px; border-radius: 99px; display: inline-flex; align-items: center; justify-content: center; background: var(--hue); color: var(--hue-d); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+.guides-card { position: relative; display: block; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: var(--hue); text-decoration: none; box-shadow: var(--sh); transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s cubic-bezier(.22,1,.36,1); }
+.guides-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.22,1,.36,1); }
+.guides-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px oklch(0% 0 0/.16); }
+.guides-card:hover img { transform: scale(1.05); }
+.guides-card:focus-visible { outline: 3px solid var(--hue-d); outline-offset: 3px; }
+.guides-card-name { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px 16px 14px; color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; line-height: 1.1; background: linear-gradient(to top, oklch(18% .04 290/.82), oklch(18% .04 290/0)); }
+.guides-empty { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-radius: 18px; border: 1.5px dashed var(--hue-d); background: color-mix(in oklch, var(--hue) 45%, transparent); }
+.guides-empty img { flex: none; width: 34px; height: auto; }
+.guides-empty p { margin: 0; font-size: 14px; font-weight: 600; color: var(--hue-d); }
+@media (max-width: 768px) {
+  .guides-hero { padding: 32px 16px 20px; }
+  .guides-miel { width: 96px; height: 96px; }
+  .guides-lede { font-size: 15px; }
+  .guides-chips { flex-wrap: nowrap; overflow-x: auto; margin: 20px -16px 0; padding: 0 16px 4px; scrollbar-width: none; }
+  .guides-chip { flex: none; }
+  .guides-main { padding: 28px 16px 56px; gap: 40px; }
+  .guides-continent { scroll-margin-top: 72px; }
+  .guides-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .guides-card { border-radius: 16px; }
+  .guides-card-name { font-size: 20px; padding: 36px 12px 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .guides-card, .guides-card img { transition: none; } .guides-card:hover { transform: none; } }

@@ -15,6 +15,7 @@ import { PersonalActivityModalHostComponent } from '../destination/personal-acti
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
 import { LandingFeedComponent } from '../landing/feed/landing-feed.component';
+import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { LandingRankingComponent } from '../landing/ranking/landing-ranking.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { AboutContentComponent } from '../about/about-content.component';
@@ -91,6 +92,11 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
         }
 
         <!-- S6: infinite feed of other users' shared plans (hidden until logged in and the first page returns ≥1 plan) -->
+        @if (auth.isLoggedIn() && landingFeed.hasItems()) {
+          <div class="feed-divider">
+            <h2 i18n="@@landing.feedDivider">✈️ Inspírate con los viajes creados por nuestra comunidad</h2>
+          </div>
+        }
         <tb-landing-feed #feedSection (backToTop)="scrollToTop()" />
 
       </div>
@@ -145,6 +151,7 @@ export class ShellComponent {
   /** '' → landing, 'plan' → editor (Feature 68). Defaults to landing for tests/hosts without route data. */
   readonly mode: 'landing' | 'editor' = inject(ActivatedRoute).snapshot.data?.['mode'] ?? 'landing';
   protected readonly auth = inject(AuthService);
+  protected readonly landingFeed = inject(LandingFeedService);
   private readonly highlightTour = inject(HighlightTourService);
   showAddModal   = signal(false);
   /** City id to pre-fill the add-stop modal with, from `?addCity=` — see the constructor. */

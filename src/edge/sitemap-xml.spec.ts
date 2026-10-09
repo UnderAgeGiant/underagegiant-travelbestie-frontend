@@ -7,7 +7,7 @@ describe('buildSitemapXml', () => {
     const xml = buildSitemapXml(SITE, []);
     expect(xml).toContain('<?xml version="1.0" encoding="UTF-8"?>');
     expect(xml).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
-    for (const p of ['/', '/about', '/terms', '/privacy']) {
+    for (const p of ['/', '/about', '/terms', '/privacy', '/guides']) {
       expect(xml).toContain(`<loc>${SITE}${p}</loc>`);
     }
     expect(xml).not.toContain('<lastmod>');
@@ -49,6 +49,6 @@ describe('buildSitemapXml', () => {
     const xml = buildSitemapXml(SITE, [], ['/ciudad/madrid', '/ciudad/buenos-aires']);
     expect(xml).toContain('<loc>https://tripilove.com/ciudad/madrid</loc>');
     expect(xml).toContain('<loc>https://tripilove.com/ciudad/buenos-aires</loc>');
-    expect(xml.match(/<url>/g)).toHaveLength(4 + 2);
+    expect(xml.match(/<url>/g)).toHaveLength(5 + 2);
   });
 });

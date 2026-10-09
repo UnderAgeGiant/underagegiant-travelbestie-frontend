@@ -86,6 +86,26 @@ describe('NavMobileComponent — signing out from the drawer', () => {
   });
 });
 
+describe('NavMobileComponent — Legales y Guías link (T4)', () => {
+  it('has a "Legales y Guías" link to /guides right before sign-out and closes the drawer', () => {
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    const fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+    fixture.detectChanges();
+
+    const btns = [...fixture.nativeElement.querySelectorAll('.up-legal-link, .signout-btn')] as HTMLElement[];
+    expect(btns.map(b => b.className.includes('up-legal-link') ? 'legal' : 'signout')).toEqual(['legal', 'signout']);
+    btns[0].click();
+    fixture.detectChanges();
+    expect(nav).toHaveBeenCalledWith('/guides');
+    expect(fixture.componentInstance.drawerOpen()).toBe(false);
+  });
+});
+
 describe('NavMobileComponent — opening Comprar Karma from the drawer', () => {
   let fixture: ComponentFixture<NavMobileComponent>;
   let facade: NavFacadeService;

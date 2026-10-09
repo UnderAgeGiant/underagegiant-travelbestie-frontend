@@ -4,7 +4,7 @@ export interface SitemapItem { id: string; updatedAt: string; }
 
 /** Public, indexable app pages. Private / login-gated routes (/karma-history, /plan, /profile, /my-trips,
  *  /ai-planning) are noindex and must never be listed; /shared/* come from the backend. */
-export const STATIC_SITEMAP_PATHS = ['/', '/about', '/terms', '/privacy'] as const;
+export const STATIC_SITEMAP_PATHS = ['/', '/about', '/terms', '/privacy', '/guides'] as const;
 
 const MAX_URLS = 50000;
 

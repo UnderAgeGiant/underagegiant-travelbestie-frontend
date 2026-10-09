@@ -1853,10 +1853,6 @@
         <source>Auto</source>
         <target>Car</target>
       </trans-unit>
-      <trans-unit id="timeline.planSlideshow" datatype="html">
-        <source>🎞️ Presentación del plan</source>
-        <target>🎞️ Plan slideshow</target>
-      </trans-unit>
       <trans-unit id="timeline.tripMap" datatype="html">
         <source>✈️ Ver mapa del viaje</source>
         <target>✈️ View trip map</target>
@@ -1864,10 +1860,6 @@
       <trans-unit id="timeline.tripMapClose" datatype="html">
         <source>Cerrar mapa</source>
         <target>Close map</target>
-      </trans-unit>
-      <trans-unit id="sharedTrip.planSlideshow" datatype="html">
-        <source>🎬 Presentación</source>
-        <target>🎬 Slideshow</target>
       </trans-unit>
       <trans-unit id="sharedTrip.tripMap" datatype="html">
         <source>✈️ Ver mapa</source>
@@ -3145,6 +3137,78 @@
       <trans-unit id="personal.addedToast" datatype="html">
         <source>¡Actividad agregada a tu itinerario!</source>
         <target>Activity added to your itinerary!</target>
+      </trans-unit>
+      <trans-unit id="aiplan.regenCostBadge" datatype="html">
+        <source>-1 token</source>
+        <target>-1 token</target>
+      </trans-unit>
+      <trans-unit id="aiplan.regenFreeNote" datatype="html">
+        <source>* Cambios gratis restantes</source>
+        <target>* Free changes left</target>
+      </trans-unit>
+      <trans-unit id="landing.feedDivider" datatype="html">
+        <source>✈️ Inspírate con los viajes creados por nuestra comunidad</source>
+        <target>✈️ Get inspired by trips created by our community</target>
+      </trans-unit>
+      <trans-unit id="planPill.aria" datatype="html">
+        <source>Presentación del plan</source>
+        <target>Plan presentation</target>
+      </trans-unit>
+      <trans-unit id="planPill.label" datatype="html">
+        <source>🎞️ Presentación del plan</source>
+        <target>🎞️ Plan presentation</target>
+      </trans-unit>
+      <trans-unit id="guides.title" datatype="html">
+        <source>Guías de viaje</source>
+        <target>Travel guides</target>
+      </trans-unit>
+      <trans-unit id="guides.empty" datatype="html">
+        <source>Guías en construcción</source>
+        <target>Guides under construction</target>
+      </trans-unit>
+      <trans-unit id="guides.lede" datatype="html">
+        <source>Qué ver, cuándo ir y planes reales de viajeros, ciudad por ciudad.</source>
+        <target>What to see, when to go and real traveller plans, city by city.</target>
+      </trans-unit>
+      <trans-unit id="guides.jumpNav" datatype="html">
+        <source>Ir a un continente</source>
+        <target>Jump to a continent</target>
+      </trans-unit>
+      <trans-unit id="guides.continent.southAmerica" datatype="html">
+        <source>Sudamérica</source>
+        <target>South America</target>
+      </trans-unit>
+      <trans-unit id="guides.continent.northCentralAmerica" datatype="html">
+        <source>Norte y Centroamérica</source>
+        <target>North &amp; Central America</target>
+      </trans-unit>
+      <trans-unit id="guides.continent.europe" datatype="html">
+        <source>Europa</source>
+        <target>Europe</target>
+      </trans-unit>
+      <trans-unit id="guides.continent.asia" datatype="html">
+        <source>Asia</source>
+        <target>Asia</target>
+      </trans-unit>
+      <trans-unit id="guides.continent.africa" datatype="html">
+        <source>África</source>
+        <target>Africa</target>
+      </trans-unit>
+      <trans-unit id="guides.continent.oceania" datatype="html">
+        <source>Oceanía</source>
+        <target>Oceania</target>
+      </trans-unit>
+      <trans-unit id="seo.guides.title" datatype="html">
+        <source>Guías de viaje por continente | Tripilove</source>
+        <target>Travel guides by continent | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.guides.description" datatype="html">
+        <source>Guías de destino de Tripilove por continente: qué ver, cuándo ir y planes reales de viajeros.</source>
+        <target>Tripilove destination guides by continent: what to see, when to go and real traveller plans.</target>
+      </trans-unit>
+      <trans-unit id="nav.legalGuides" datatype="html">
+        <source>Legales y Guías</source>
+        <target>Legal &amp; Guides</target>
       </trans-unit>
     </body>
   </file>

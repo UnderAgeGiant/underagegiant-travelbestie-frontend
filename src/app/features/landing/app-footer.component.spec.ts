@@ -51,4 +51,12 @@ describe('AppFooterComponent — destination guide links (Task 11)', () => {
     const links = Array.from((f.nativeElement as HTMLElement).querySelectorAll('a[href^="/ciudad/"]')) as HTMLAnchorElement[];
     expect(links.map(a => a.getAttribute('href'))).toEqual(['/ciudad/madrid']);
   });
+
+  it('hides the guides column when showGuides is false', () => {
+    TestBed.configureTestingModule({ imports: [AppFooterComponent], providers: [provideRouter([])] });
+    const f = TestBed.createComponent(AppFooterComponent);
+    f.componentRef.setInput('showGuides', false);
+    f.detectChanges();
+    expect((f.nativeElement as HTMLElement).textContent).not.toContain('Guías de destinos');
+  });
 });

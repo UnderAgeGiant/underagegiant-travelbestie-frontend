@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/auth/auth.guard';
-import { aboutSeo, aiPlanningSeo, karmaHistorySeo, myTripsSeo, notFoundSeo, planSeo, privacySeo, profileSeo, sharedPendingSeo, termsSeo } from './core/seo/seo-pages';
+import { aboutSeo, aiPlanningSeo, guidesSeo, karmaHistorySeo, myTripsSeo, notFoundSeo, planSeo, privacySeo, profileSeo, sharedPendingSeo, termsSeo } from './core/seo/seo-pages';
 import { cityGuideSlugGuard } from './features/city-guide/city-guide.guard';
 import { landingGuard } from './features/shell/landing.guard';
 
@@ -20,6 +20,11 @@ export const routes: Routes = [
     path: 'about',
     data: { seo: aboutSeo },
     loadComponent: () => import('./features/about/about.component').then(m => m.AboutComponent),
+  },
+  {
+    path: 'guides',
+    data: { seo: guidesSeo },
+    loadComponent: () => import('./features/city-guide/guides-index.component').then(m => m.GuidesIndexComponent),
   },
   {
     path: 'terms',

@@ -109,3 +109,25 @@ describe('TrophyShelfComponent', () => {
     jest.useRealTimers();
   });
 });
+
+describe('TrophyShelfComponent — F2: Empty-state Miel image aspect ratio', () => {
+  it('renders the empty-state dog with correct aspect ratio (width=96, height=175)', () => {
+    const earned = signal<any[]>([]);
+    const progress = signal<any>({});
+    const loadError = signal(false);
+    const loading = signal(false);
+    const load = jest.fn();
+
+    TestBed.configureTestingModule({
+      imports: [TrophyShelfComponent],
+      providers: [provideRouter([]), { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } }],
+    });
+    const f = TestBed.createComponent(TrophyShelfComponent);
+    f.detectChanges();
+
+    const img = f.nativeElement.querySelector('.ts-empty img');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('width')).toBe('96');
+    expect(img.getAttribute('height')).toBe('175');
+  });
+});
