@@ -3138,13 +3138,13 @@
         <source>¡Actividad agregada a tu itinerario!</source>
         <target>Activity added to your itinerary!</target>
       </trans-unit>
-      <trans-unit id="aiplan.regenFreeLeft" datatype="html">
-        <source>Te quedan <x id="INTERPOLATION" equiv-text="{{ planChangeAnalysis().freeRemaining }}"/> de <x id="INTERPOLATION_1" equiv-text="{{ FREE_CHANGE_LIMIT }}"/> cambios gratis</source>
-        <target>You have <x id="INTERPOLATION" equiv-text="{{ planChangeAnalysis().freeRemaining }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ FREE_CHANGE_LIMIT }}"/> free changes left</target>
+      <trans-unit id="aiplan.regenCostBadge" datatype="html">
+        <source>-1 token</source>
+        <target>-1 token</target>
       </trans-unit>
-      <trans-unit id="aiplan.regenCost" datatype="html">
-        <source>La próxima generación cuesta 1 token ⭐</source>
-        <target>The next generation costs 1 token ⭐</target>
+      <trans-unit id="aiplan.regenFreeNote" datatype="html">
+        <source>* Cambios gratis restantes</source>
+        <target>* Free changes left</target>
       </trans-unit>
       <trans-unit id="landing.feedDivider" datatype="html">
         <source>✈️ Inspírate con los viajes creados por nuestra comunidad</source>

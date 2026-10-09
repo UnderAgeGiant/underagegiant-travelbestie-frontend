@@ -804,24 +804,22 @@ describe('AiPlanningComponent — F1: Free-change note on Step 2', () => {
     fixture.detectChanges();
   }
 
-  it('shows remaining free changes when freeChangesUsed < 3: "Te quedan 2 de 3 cambios gratis"', () => {
+  it('shows "2/3*" in the regenerate button and the "* Cambios gratis restantes" note', () => {
     renderStep2({ freeChangesUsed: 1 });
-    const note = fixture.nativeElement.querySelector('.ai-regen-note');
-    expect(note).not.toBeNull();
-    expect(note.textContent).toContain('Te quedan 2 de 3 cambios gratis');
+    expect(fixture.nativeElement.querySelector('.ai-regen-badge').textContent.trim()).toBe('2/3*');
+    expect(fixture.nativeElement.querySelector('.ai-regen-note').textContent).toContain('* Cambios gratis restantes');
   });
 
-  it('shows token cost when no free changes remain: "La próxima generación cuesta 1 token ⭐"', () => {
+  it('shows "-1 token" in the button and no note when no free changes remain', () => {
     renderStep2({ freeChangesUsed: 3 });
-    const note = fixture.nativeElement.querySelector('.ai-regen-note');
-    expect(note).not.toBeNull();
-    expect(note.textContent).toContain('La próxima generación cuesta 1 token ⭐');
+    expect(fixture.nativeElement.querySelector('.ai-regen-badge').textContent.trim()).toBe('-1 token');
+    expect(fixture.nativeElement.querySelector('.ai-regen-note')).toBeNull();
   });
 
-  it('hides the note when logged out (no .ai-regen-note in DOM)', () => {
+  it('hides badge and note when logged out', () => {
     renderStep2({ isLoggedIn: false, freeChangesUsed: 1 });
-    const note = fixture.nativeElement.querySelector('.ai-regen-note');
-    expect(note).toBeNull();
+    expect(fixture.nativeElement.querySelector('.ai-regen-badge')).toBeNull();
+    expect(fixture.nativeElement.querySelector('.ai-regen-note')).toBeNull();
   });
 
   it('groups step-2 actions: Ajustar + Volver left; regenerate, note, plan right', () => {

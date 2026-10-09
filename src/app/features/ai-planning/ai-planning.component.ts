@@ -368,15 +368,16 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                           type="button">
                     @if (loading()) { ⏳ } @else { 🔄 }
                     <span i18n="@@aiplan.regenerateBtn">Generar nuevas opciones</span>
-                  </button>
-                  @if (auth.isLoggedIn()) {
-                    <p class="ai-regen-note" role="status">
+                    @if (auth.isLoggedIn()) {
                       @if (planChangeAnalysis().freeRemaining > 0) {
-                        <span i18n="@@aiplan.regenFreeLeft">Te quedan {{ planChangeAnalysis().freeRemaining }} de {{ FREE_CHANGE_LIMIT }} cambios gratis</span>
+                        <span class="ai-regen-badge">{{ planChangeAnalysis().freeRemaining }}/{{ FREE_CHANGE_LIMIT }}*</span>
                       } @else {
-                        <span i18n="@@aiplan.regenCost">La próxima generación cuesta 1 token ⭐</span>
+                        <span class="ai-regen-badge ai-regen-badge--cost" i18n="@@aiplan.regenCostBadge">-1 token</span>
                       }
-                    </p>
+                    }
+                  </button>
+                  @if (auth.isLoggedIn() && planChangeAnalysis().freeRemaining > 0) {
+                    <p class="ai-regen-note" role="status" i18n="@@aiplan.regenFreeNote">* Cambios gratis restantes</p>
                   }
                   <button class="btn-pill btn-primary"
                           [disabled]="loading() || !selectedOption()"
