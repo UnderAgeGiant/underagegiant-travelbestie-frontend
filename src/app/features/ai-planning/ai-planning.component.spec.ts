@@ -823,4 +823,17 @@ describe('AiPlanningComponent — F1: Free-change note on Step 2', () => {
     const note = fixture.nativeElement.querySelector('.ai-regen-note');
     expect(note).toBeNull();
   });
+
+  it('groups step-2 actions: Ajustar + Volver left; regenerate, note, plan right', () => {
+    renderStep2({ freeChangesUsed: 1 });
+    const groups = fixture.nativeElement.querySelectorAll('.ai-plan-actions--split > .ai-actions-group');
+    expect(groups.length).toBe(2);
+    const text = (el: Element) => (el.textContent ?? '').trim();
+    const [left, right] = Array.from(groups) as Element[];
+    expect(Array.from(left.children).map(text)).toEqual(['✏️ Ajustar opciones', '← Volver']);
+    const rightKids = Array.from(right.children);
+    expect(text(rightKids[0])).toContain('Generar nuevas opciones');
+    expect(rightKids[1].classList).toContain('ai-regen-note');
+    expect(text(rightKids[2])).toContain('Generar plan completo');
+  });
 });

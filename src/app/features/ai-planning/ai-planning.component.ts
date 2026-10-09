@@ -350,40 +350,43 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                 </div>
               }
 
-              <div class="ai-plan-actions">
-                <button class="btn-pill btn-outline"
-                        (click)="step.set('preferences')"
-                        type="button"
-                        i18n="@@aiplan.backBtn">← Volver</button>
-                <button class="btn-pill btn-outline"
-                        (click)="adjustOptions()"
-                        type="button"
-                        i18n="@@aiplan.adjustBtn">✏️ Ajustar opciones</button>
-                <button class="btn-pill btn-outline"
-                        [disabled]="loading()"
-                        (click)="suggest()"
-                        type="button">
-                  @if (loading()) { ⏳ } @else { 🔄 }
-                  <span i18n="@@aiplan.regenerateBtn">Generar nuevas opciones</span>
-                </button>
-                <button class="btn-pill btn-primary"
-                        [disabled]="loading() || !selectedOption()"
-                        (click)="plan()"
-                        type="button">
-                  @if (loading()) { ⏳ } @else { 🗺️ }
-                  <span i18n="@@aiplan.planBtn">Generar plan completo</span>
-                </button>
-              </div>
-
-              @if (auth.isLoggedIn()) {
-                <p class="ai-regen-note" role="status">
-                  @if (planChangeAnalysis().freeRemaining > 0) {
-                    <span i18n="@@aiplan.regenFreeLeft">Te quedan {{ planChangeAnalysis().freeRemaining }} de {{ FREE_CHANGE_LIMIT }} cambios gratis</span>
-                  } @else {
-                    <span i18n="@@aiplan.regenCost">La próxima generación cuesta 1 token ⭐</span>
+              <div class="ai-plan-actions ai-plan-actions--split">
+                <div class="ai-actions-group">
+                  <button class="btn-pill btn-outline"
+                          (click)="adjustOptions()"
+                          type="button"
+                          i18n="@@aiplan.adjustBtn">✏️ Ajustar opciones</button>
+                  <button class="btn-pill btn-outline"
+                          (click)="step.set('preferences')"
+                          type="button"
+                          i18n="@@aiplan.backBtn">← Volver</button>
+                </div>
+                <div class="ai-actions-group">
+                  <button class="btn-pill btn-outline"
+                          [disabled]="loading()"
+                          (click)="suggest()"
+                          type="button">
+                    @if (loading()) { ⏳ } @else { 🔄 }
+                    <span i18n="@@aiplan.regenerateBtn">Generar nuevas opciones</span>
+                  </button>
+                  @if (auth.isLoggedIn()) {
+                    <p class="ai-regen-note" role="status">
+                      @if (planChangeAnalysis().freeRemaining > 0) {
+                        <span i18n="@@aiplan.regenFreeLeft">Te quedan {{ planChangeAnalysis().freeRemaining }} de {{ FREE_CHANGE_LIMIT }} cambios gratis</span>
+                      } @else {
+                        <span i18n="@@aiplan.regenCost">La próxima generación cuesta 1 token ⭐</span>
+                      }
+                    </p>
                   }
-                </p>
-              }
+                  <button class="btn-pill btn-primary"
+                          [disabled]="loading() || !selectedOption()"
+                          (click)="plan()"
+                          type="button">
+                    @if (loading()) { ⏳ } @else { 🗺️ }
+                    <span i18n="@@aiplan.planBtn">Generar plan completo</span>
+                  </button>
+                </div>
+              </div>
             </div>
           }
 
