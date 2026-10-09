@@ -1644,6 +1644,8 @@ app-nav { display: block; }
   font-size: 11px;
   padding: 4px 12px;
 }
+/* T5: the pill host sits in the actions row — no button padding, never wider than the row. */
+tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; max-width: 100%; }
 .tl-route-btn {
   display: inline-flex; align-items: center; gap: 4px;
   text-decoration: none;

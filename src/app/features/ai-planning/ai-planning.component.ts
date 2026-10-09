@@ -19,6 +19,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { DatePickerComponent } from '../../shared/date-picker/date-picker.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
+import { PlanPresentationPillComponent } from '../../shared/plan-presentation-pill/plan-presentation-pill.component';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { LocaleService } from '../../core/i18n/locale.service';
@@ -56,7 +57,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent],
+    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -398,6 +399,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   }
                 }
               </div>
+              <tb-plan-presentation-pill [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
             </div>
 
             <div class="itin">
@@ -625,10 +627,12 @@ export class AiPlanningComponent implements OnDestroy {
   currentAiPlanRequestId = signal<string | null>(null);
   /** True while save()'s upsert request is in flight — disables the "💾 Guardar plan" button so a double-click can't fire two saves. */
   saving = signal(false);
-  /** Auto-opened as soon as a plan finishes generating, as if the user had pressed "🎞️ Presentación del plan". */
+  /** Opened by the result's presentation pill (never automatically). */
   planSlideshowOpen = signal(false);
-  /** True while the 2.6s celebration animation is playing before the slideshow opens. */
+  /** True while the 2.6s celebration animation is playing after a plan finishes generating. */
   celebratingPlanReady = signal(false);
+  /** F3: the result's presentation pill bounces until first opened (re-armed per generated plan). */
+  presentationAttention = signal(false);
   /** Flips true once executePlan()'s request has been pending for AI_PLAN_LONG_WAIT_MS. */
   planTakingLong = signal(false);
   /** Shown after "Notificarme" is clicked — a hand-off message pointing the user at the featured plans while they wait. */
@@ -968,9 +972,7 @@ export class AiPlanningComponent implements OnDestroy {
         this.currentAiPlanRequestId.set(requestId ?? null);
         this.loading.set(false);
         this.step.set('result');
-        // Auto-open the fullscreen presentation, as if the user had pressed
-        // "🎞️ Presentación del plan" themselves — after a 2.6s cheering
-        // celebration (triggerPlanReadyCelebration) rather than immediately.
+        // Celebrate, then bounce the presentation pill (F3 — no auto-open).
         this.triggerPlanReadyCelebration();
 
         if (changeInfo) {
@@ -1022,12 +1024,17 @@ export class AiPlanningComponent implements OnDestroy {
     this.clearPlanTakingLongTimer();
   }
 
+  openPresentation(): void {
+    this.presentationAttention.set(false);
+    this.planSlideshowOpen.set(true);
+  }
+
   private triggerPlanReadyCelebration(): void {
     this.celebratingPlanReady.set(true);
     if (this.celebrateTimer) clearTimeout(this.celebrateTimer);
     this.celebrateTimer = setTimeout(() => {
       this.celebratingPlanReady.set(false);
-      this.planSlideshowOpen.set(true);
+      this.presentationAttention.set(true);
     }, AI_PLAN_CELEBRATE_MS);
   }
 
@@ -1125,6 +1132,7 @@ export class AiPlanningComponent implements OnDestroy {
     // itself on top of everything — leaving it open would hide Step 1 behind it
     // even after step is switched back to 'preferences'.
     this.planSlideshowOpen.set(false);
+    this.presentationAttention.set(false);
     this.generatedTrip.set(null);
     // Abandons the current *view* of the result, not the underlying
     // ai_plan_requests row — that row stays put in "Planes IA Pendientes"

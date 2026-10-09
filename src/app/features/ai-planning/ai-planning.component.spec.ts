@@ -48,7 +48,31 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
 
   afterEach(() => http.verify());
 
-  it('shows a 2.6s celebration before auto-opening the presentation once the plan finishes generating', fakeAsync(() => {
+  describe('plan ready (F3)', () => {
+    afterEach(() => jest.useRealTimers());
+
+    it('does not auto-open the slideshow after the celebration, and the pill bounces', () => {
+      jest.useFakeTimers();
+      (component as any).triggerPlanReadyCelebration();
+      jest.advanceTimersByTime(5000);
+      expect(component.planSlideshowOpen()).toBe(false);
+      expect(component.presentationAttention()).toBe(true);
+    });
+
+    it('stops bouncing after the first open, and re-arms for the next plan', () => {
+      jest.useFakeTimers();
+      (component as any).triggerPlanReadyCelebration();
+      jest.advanceTimersByTime(5000);
+      component.openPresentation();
+      expect(component.planSlideshowOpen()).toBe(true);
+      expect(component.presentationAttention()).toBe(false);
+      (component as any).triggerPlanReadyCelebration();
+      jest.advanceTimersByTime(5000);
+      expect(component.presentationAttention()).toBe(true);
+    });
+  });
+
+  it('shows a 2.6s celebration, then bounces the presentation pill instead of auto-opening it', fakeAsync(() => {
     component.selectedOption.set(OPTION);
     expect(component.planSlideshowOpen()).toBe(false);
     expect(component.celebratingPlanReady()).toBe(false);
@@ -65,7 +89,8 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
 
     tick(2600);
     expect(component.celebratingPlanReady()).toBe(false);
-    expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.planSlideshowOpen()).toBe(false);
+    expect(component.presentationAttention()).toBe(true);
   }));
 
   it('closing the presentation returns to the static result view without discarding the plan', fakeAsync(() => {
@@ -76,6 +101,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     http.expectOne(r => r.url.includes('/ai/plan/req-2/status')).flush({ status: 'completed', result: TRIP });
     tick(2600);
 
+    component.openPresentation();
     component.planSlideshowOpen.set(false);
 
     expect(component.planSlideshowOpen()).toBe(false);
@@ -282,7 +308,8 @@ describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pe
     expect(component.currentAiPlanRequestId()).toBe('req-77');
 
     tick(2600);
-    expect(component.planSlideshowOpen()).toBe(true);
+    expect(component.planSlideshowOpen()).toBe(false);
+    expect(component.presentationAttention()).toBe(true);
   }));
 
   it('seeds the Step 1 form fields from requestParams when initialResult is set', () => {
@@ -439,6 +466,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     tick(2600);
 
     expect(component.step()).toBe('result');
+    component.openPresentation();
     expect(component.planSlideshowOpen()).toBe(true);
 
     component.restart();
