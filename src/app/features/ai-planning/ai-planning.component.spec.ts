@@ -723,3 +723,52 @@ describe('AiPlanningComponent — input length limits (mirror backend zod caps)'
     expect(c.selectedOption()!.title.length).toBe(60);
   });
 });
+
+describe('AiPlanningComponent — F1: Free-change note on Step 2', () => {
+  let component: AiPlanningComponent;
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let auth: AuthService;
+
+  const OPTION_A: TripSuggestion = { id: 1, title: 'Opción A', summary: 'Resumen A', highlights: [] };
+
+  function renderStep2({ isLoggedIn = true, freeChangesUsed = 0 } = {}) {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+
+    if (isLoggedIn) {
+      auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    }
+
+    component.suggestions.set({ options: [OPTION_A] });
+    component.selectedOption.set(OPTION_A);
+    component.freeChangesUsed.set(freeChangesUsed);
+    component.step.set('options');
+    fixture.detectChanges();
+  }
+
+  it('shows remaining free changes when freeChangesUsed < 3: "Te quedan 2 de 3 cambios gratis"', () => {
+    renderStep2({ freeChangesUsed: 1 });
+    const note = fixture.nativeElement.querySelector('.ai-regen-note');
+    expect(note).not.toBeNull();
+    expect(note.textContent).toContain('Te quedan 2 de 3 cambios gratis');
+  });
+
+  it('shows token cost when no free changes remain: "La próxima generación cuesta 1 token ⭐"', () => {
+    renderStep2({ freeChangesUsed: 3 });
+    const note = fixture.nativeElement.querySelector('.ai-regen-note');
+    expect(note).not.toBeNull();
+    expect(note.textContent).toContain('La próxima generación cuesta 1 token ⭐');
+  });
+
+  it('hides the note when logged out (no .ai-regen-note in DOM)', () => {
+    renderStep2({ isLoggedIn: false, freeChangesUsed: 1 });
+    const note = fixture.nativeElement.querySelector('.ai-regen-note');
+    expect(note).toBeNull();
+  });
+});

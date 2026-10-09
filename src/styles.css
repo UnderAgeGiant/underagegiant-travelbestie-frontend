@@ -3486,3 +3486,5 @@ tb-landing-ranking { display: block; }
   .rk-value, .landing-ranking.filled .rk-value { --rk-n: var(--n); opacity: 1; transition: none; }
   .rk-calc-bar { animation: none; }
 }
+
+.ai-regen-note { margin: 8px 0 0; font-size: 12px; color: var(--t3); text-align: right; }

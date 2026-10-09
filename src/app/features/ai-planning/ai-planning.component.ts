@@ -373,6 +373,16 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   <span i18n="@@aiplan.planBtn">Generar plan completo</span>
                 </button>
               </div>
+
+              @if (auth.isLoggedIn()) {
+                <p class="ai-regen-note" role="status">
+                  @if (planChangeAnalysis().freeRemaining > 0) {
+                    <span i18n="@@aiplan.regenFreeLeft">Te quedan {{ planChangeAnalysis().freeRemaining }} de {{ FREE_CHANGE_LIMIT }} cambios gratis</span>
+                  } @else {
+                    <span i18n="@@aiplan.regenCost">La próxima generación cuesta 1 token ⭐</span>
+                  }
+                </p>
+              }
             </div>
           }
 
