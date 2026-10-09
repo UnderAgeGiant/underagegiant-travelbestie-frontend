@@ -731,7 +731,7 @@ export class SharedTripComponent {
   shareNative(): void {
     const trip = this.trip();
     const sid = this.tripId();
-    if (trip) void shareTrip(trip.tripName, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
+    if (trip) void shareTrip(trip.tripName, sid, undefined, false).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
   openCloneInEditor(): void {

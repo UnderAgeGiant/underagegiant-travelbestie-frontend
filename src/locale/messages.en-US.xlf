@@ -1641,6 +1641,10 @@
         <source>✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳</source>
         <target>✨ Check out the trip I made on Tripilove! 🌍✈️🧳</target>
       </trans-unit>
+      <trans-unit id="share.messageOther" datatype="html">
+        <source>✨ ¡Mira este viaje en Tripilove! 🌍✈️🧳</source>
+        <target>✨ Check out this trip on Tripilove! 🌍✈️🧳</target>
+      </trans-unit>
       <trans-unit id="welcome.ctaCreatePlan" datatype="html">
         <source>Crear Plan</source>
         <target>Create Plan</target>

@@ -5,11 +5,32 @@ describe('share url helpers', () => {
     expect(buildShareLink('abc', 'https://tripilove.app')).toBe('https://tripilove.app/shared/abc');
   });
 
-  it('builds a wa.me url with an encoded message + link', () => {
+  it('builds an api.whatsapp.com/send url (wa.me\'s redirect corrupts emoji into U+FFFD)', () => {
     const url = buildWhatsappUrl('Mi Viaje', 'abc', 'https://tripilove.app');
-    expect(url.startsWith('https://wa.me/?text=')).toBe(true);
-    expect(decodeURIComponent(url)).toContain('Mi Viaje');
-    expect(decodeURIComponent(url)).toContain('https://tripilove.app/shared/abc');
+    expect(url.startsWith('https://api.whatsapp.com/send?text=')).toBe(true);
+    expect(url).not.toContain('%EF%BF%BD');
+    const text = decodeURIComponent(url.split('text=')[1]);
+    expect(text).toContain('🌍');
+    expect(text).toContain('Mi Viaje');
+    expect(text).toContain('https://tripilove.app/shared/abc');
+  });
+
+  it('shareTrip(own=false) uses wording that does not claim authorship', async () => {
+    const share = jest.fn().mockResolvedValue(undefined);
+    (navigator as any).share = share;
+    await shareTrip('Plan Ajeno', 'abc', 'https://tripilove.app', false);
+    const text: string = share.mock.calls[0][0].text;
+    expect(text).not.toContain('armé');
+    expect(text).toContain('Mira este viaje');
+    delete (navigator as any).share;
+  });
+
+  it('shareTrip defaults to the own-trip wording', async () => {
+    const share = jest.fn().mockResolvedValue(undefined);
+    (navigator as any).share = share;
+    await shareTrip('Mi Viaje', 'abc', 'https://tripilove.app');
+    expect(share.mock.calls[0][0].text).toContain('armé');
+    delete (navigator as any).share;
   });
 
   it('shareTrip uses the Web Share API with a structured url field when available', async () => {
@@ -28,7 +49,7 @@ describe('share url helpers', () => {
     const open = jest.spyOn(window, 'open').mockImplementation(() => null);
     await shareTrip('Mi Viaje', 'abc', 'https://tripilove.app');
     expect(open).toHaveBeenCalledWith(
-      expect.stringContaining('https://wa.me/?text='),
+      expect.stringContaining('https://api.whatsapp.com/send?text='),
       '_blank',
       'noopener,noreferrer',
     );

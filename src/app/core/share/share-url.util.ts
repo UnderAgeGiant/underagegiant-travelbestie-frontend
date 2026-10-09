@@ -11,19 +11,23 @@ export function buildShareLink(shareId: string, origin: string = window.location
   return `${origin}/shared/${shareId}`;
 }
 
+const ownMessage   = () => $localize`:@@share.message:✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳`;
+const otherMessage = () => $localize`:@@share.messageOther:✨ ¡Mira este viaje en Tripilove! 🌍✈️🧳`;
+
 export function buildWhatsappUrl(tripName: string, shareId: string, origin: string = window.location.origin, prefix?: string): string {
   const link = buildShareLink(shareId, origin);
-  const intro = prefix ?? $localize`:@@share.message:✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳`;
+  const intro = prefix ?? ownMessage();
   // Link sits alone on its own line so WhatsApp auto-detects it as a clickable URL.
   const msg = `${intro}\n\n📍 ${tripName}\n\n${link}`;
-  return `https://wa.me/?text=${encodeURIComponent(msg)}`;
+  // api.whatsapp.com/send, not wa.me: wa.me's redirect re-encodes the text and turns every emoji into U+FFFD (QA 2026-10-09).
+  return `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
 }
 
 /**
  * Share a trip through the native OS share sheet (WhatsApp, Telegram, Messages,
  * Mail, Copy…). The link is passed as the structured `url` field so it stays a
  * real clickable link and the emoji in `text` render natively — unlike the
- * `wa.me/?text=` form, which URL-encodes everything into one blob.
+ * `api.whatsapp.com/send?text=` form, which URL-encodes everything into one blob.
  *
  * Falls back to the WhatsApp web link when the Web Share API is unavailable
  * (e.g. some desktop browsers).
@@ -31,9 +35,9 @@ export function buildWhatsappUrl(tripName: string, shareId: string, origin: stri
  * Resolves true when the share completed (sheet resolved or WhatsApp fallback opened),
  * false when the user cancelled.
  */
-export async function shareTrip(tripName: string, shareId: string, origin: string = window.location.origin): Promise<boolean> {
+export async function shareTrip(tripName: string, shareId: string, origin: string = window.location.origin, own = true): Promise<boolean> {
   const url = buildShareLink(shareId, origin);
-  const text = $localize`:@@share.message:✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳`;
+  const text = own ? ownMessage() : otherMessage();
 
   if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
     try {
