@@ -31,7 +31,7 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
           <div class="ts-empty"><p i18n="@@trophy.loading">Cargando…</p></div>
         } @else if (bubbles().length === 0) {
           <div class="ts-empty">
-            <img src="/Dog-waiting-1.png" alt="" width="96" height="96" />
+            <img src="/Dog-waiting-1.png" alt="" width="96" height="175" />
             <p i18n="@@trophy.empty">Aún no tienes trofeos, ¡empieza a planear!</p>
           </div>
         } @else {
@@ -91,6 +91,7 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
     .ts-row-desc, .ts-date { font-size: 12px; color: var(--t3); }
     .ts-progress { height: 5px; background: var(--border); border-radius: 99px; margin: 4px 0 2px; max-width: 160px; overflow: hidden; }
     .ts-progress span { display: block; height: 100%; background: var(--lav-d); }
+    .ts-empty img { display: block; margin: 0 auto 8px; width: 96px; height: auto; }
   `],
 })
 export class TrophyShelfComponent implements AfterViewInit {
