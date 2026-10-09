@@ -108,6 +108,20 @@ app-nav { display: block; }
 .nav-guide-promo-label { font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .9; }
 .nav-guide-promo-city { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
 
+/* T5 — plan presentation photo pill (mirrors .nav-guide-promo) */
+.pp-pill { position: relative; display: inline-flex; align-items: center; width: 240px; max-width: 100%; height: 48px; padding: 0; border: 0; border-radius: 999px; overflow: hidden; cursor: pointer; background: var(--lav-d); text-align: left; }
+.pp-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s cubic-bezier(.4,0,.2,1); }
+.pp-slide.active { opacity: 1; z-index: 1; }
+.pp-slide img { width: 100%; height: 100%; object-fit: cover; display: block; animation: ken-burns 9s ease-in-out both; }
+.pp-scrim { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, oklch(0% 0 0/.65), oklch(0% 0 0/.25)); }
+.pp-text { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 1px; padding: 0 16px; min-width: 0; width: 100%; color: #fff; line-height: 1.2; }
+.pp-label { font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .9; }
+.pp-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-pill:focus-visible { outline: 2px solid var(--peach-d); outline-offset: 2px; }
+.pp-pill--attention { animation: pp-bounce 1.2s ease-in-out infinite; }
+@keyframes pp-bounce { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } 50% { transform: translateY(0); } 65% { transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .pp-slide img, .pp-pill--attention { animation: none; } }
+
 .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; padding-left: 12px; }
 .user-btn { display: flex; align-items: center; gap: 8px; background: #fff; border: 1.5px solid var(--border); border-radius: 99px; padding: 5px 14px 5px 5px; cursor: pointer; transition: all .2s; }
 .user-btn:hover { border-color: var(--lav-d); box-shadow: var(--sh); }
