@@ -6,8 +6,8 @@ export interface HighlightStep {
 }
 
 const LANDING_WELCOME_LOGO = {
-  'es-CL': '¡Guau! 🐾 ¡Soy Miel! Bienvenido a Tripilove. Seré tu compañero de aventuras y te ayudaré a crear el viaje de tus sueños con IA',
-  'en-US': "Woof! 🐾 I'm Miel! Welcome to Tripilove. I'll be your adventure buddy and help you create the trip of your dreams with AI",
+  'es-CL': '¡Guau! 🐾 ¡Bienvenido a Tripilove! Soy Miel, seré tu compañera de aventuras y te ayudaré a crear el viaje de tus sueños con IA',
+  'en-US': "Woof! 🐾 Welcome to Tripilove! I'm Miel, I'll be your adventure buddy and help you create the trip of your dreams with AI",
 };
 
 const LANDING_WELCOME_SIGNUP = {
