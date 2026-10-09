@@ -10,7 +10,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
   imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
   template: `
     <nav class="nav-m-bar">
-      <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
+      <div class="nav-logo" tbHighlightTarget="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
       <div style="flex:1"></div>
 
       <button class="lang-drop-btn" type="button"

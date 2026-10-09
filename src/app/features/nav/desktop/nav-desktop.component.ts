@@ -9,7 +9,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
   imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
   template: `
     <nav class="nav">
-      <div class="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
+      <div class="nav-logo" tbHighlightTarget="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
 
       <div class="nav-search-wrap" style="flex:1;max-width:440px;position:relative">
         <div class="nav-search-inner">
