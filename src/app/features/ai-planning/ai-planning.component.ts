@@ -399,10 +399,11 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   }
                 }
               </div>
-              @if (planSlideItems().length > 0) {
-                <tb-plan-presentation-pill [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
-              }
             </div>
+
+            @if (planSlideItems().length > 0) {
+              <tb-plan-presentation-pill class="ai-plan-pill" [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
+            }
 
             <div class="itin">
 

@@ -102,6 +102,22 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     http.match(() => true).forEach(r => r.flush(null)); // nav/notification polls fired by rendering
   });
 
+  it('renders the presentation pill as its own banner between the result header and the itinerary', () => {
+    const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.componentInstance.generatedTrip.set({
+      ...TRIP,
+      stops: [{ ...TRIP.stops[0], selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', date: '01/06/2026', startTime: '10:00' }] }],
+    } as any);
+    fixture.componentInstance.step.set('result');
+    fixture.detectChanges();
+    const pill: HTMLElement = fixture.nativeElement.querySelector('tb-plan-presentation-pill');
+    expect(pill).not.toBeNull();
+    expect(pill.closest('.ai-plan-result-header')).toBeNull();
+    expect(pill.previousElementSibling?.classList).toContain('ai-plan-result-header');
+    expect(pill.nextElementSibling?.classList).toContain('itin');
+    http.match(() => true).forEach(r => r.flush(null));
+  });
+
   it('closing the presentation returns to the static result view without discarding the plan', fakeAsync(() => {
     component.selectedOption.set(OPTION);
     component.executePlan();

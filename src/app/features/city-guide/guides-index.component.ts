@@ -16,11 +16,31 @@ import { guidePath } from '../../core/seo/city-guide-seo.util';
   template: `
     <div class="guides-page">
       <app-nav (logoClick)="goHome()" />
+      <header class="guides-hero">
+        <div class="guides-hero-inner">
+          <div class="guides-hero-text">
+            <h1 class="guides-title" i18n="@@guides.title">Guías de viaje</h1>
+            <p class="guides-lede" i18n="@@guides.lede">Qué ver, cuándo ir y planes reales de viajeros, ciudad por ciudad.</p>
+          </div>
+          <div class="guides-miel tb-soap-bubble" aria-hidden="true">
+            <img src="/Dog-highlight-playfull-1.png" alt="" width="147" height="154" />
+          </div>
+        </div>
+        <nav class="guides-chips" i18n-aria-label="@@guides.jumpNav" aria-label="Ir a un continente">
+          @for (s of sections; track s.continent) {
+            <button type="button" class="guides-chip" [attr.data-continent]="s.continent" (click)="jumpTo(s.continent)">
+              {{ s.label }} <span class="guides-chip-n">{{ s.guides.length }}</span>
+            </button>
+          }
+        </nav>
+      </header>
       <main class="guides-main">
-        <h1 class="guides-title" i18n="@@guides.title">Guías de viaje</h1>
         @for (s of sections; track s.continent) {
-          <section class="guides-continent">
-            <h2>{{ s.label }}</h2>
+          <section class="guides-continent" [attr.data-continent]="s.continent" [id]="'guides-' + s.continent">
+            <div class="guides-continent-head">
+              <h2>{{ s.label }}</h2>
+              @if (s.guides.length) { <span class="guides-count" aria-hidden="true">{{ s.guides.length }}</span> }
+            </div>
             @if (s.guides.length) {
               <div class="guides-grid">
                 @for (g of s.guides; track g.slug) {
@@ -31,7 +51,10 @@ import { guidePath } from '../../core/seo/city-guide-seo.util';
                 }
               </div>
             } @else {
-              <p class="guides-empty" i18n="@@guides.empty">Guías en construcción</p>
+              <div class="guides-empty">
+                <img src="/Dog-waiting-1.png" alt="" width="34" height="62" />
+                <p i18n="@@guides.empty">Guías en construcción</p>
+              </div>
             }
           </section>
         }
@@ -56,4 +79,10 @@ export class GuidesIndexComponent {
   }));
 
   goHome(): void { this.router.navigate(['/']); }
+
+  /** Chips scroll inside .guides-page (desktop) or the document (≤768px) — scrollIntoView handles both. */
+  jumpTo(continent: string): void {
+    const reduce = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById(`guides-${continent}`)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
 }

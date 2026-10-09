@@ -3166,6 +3166,14 @@
         <source>Guías en construcción</source>
         <target>Guides under construction</target>
       </trans-unit>
+      <trans-unit id="guides.lede" datatype="html">
+        <source>Qué ver, cuándo ir y planes reales de viajeros, ciudad por ciudad.</source>
+        <target>What to see, when to go and real traveller plans, city by city.</target>
+      </trans-unit>
+      <trans-unit id="guides.jumpNav" datatype="html">
+        <source>Ir a un continente</source>
+        <target>Jump to a continent</target>
+      </trans-unit>
       <trans-unit id="guides.continent.southAmerica" datatype="html">
         <source>Sudamérica</source>
         <target>South America</target>
