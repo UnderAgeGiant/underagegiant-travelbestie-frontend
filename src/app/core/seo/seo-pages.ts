@@ -8,6 +8,11 @@ export const aboutSeo: RouteSeo = () => ({
   description: $localize`:@@seo.about.description:Conoce al equipo y la historia de Tripilove, el planificador de viajes que te ayuda a armar tu itinerario ciudad por ciudad.`,
 });
 
+export const guidesSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.guides.title:Guías de viaje por continente | Tripilove`,
+  description: $localize`:@@seo.guides.description:Guías de destino de Tripilove por continente: qué ver, cuándo ir y planes reales de viajeros.`,
+});
+
 export const termsSeo: RouteSeo = () => ({
   title: $localize`:@@seo.terms.title:Términos de servicio | Tripilove`,
   description: $localize`:@@seo.terms.description:Lee los términos de servicio de Tripilove: cuentas, token, planes compartidos y uso aceptable.`,

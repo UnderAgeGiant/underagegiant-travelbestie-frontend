@@ -55,7 +55,7 @@ describe('citySlugFromPath', () => {
 
 describe('isKnownRoute', () => {
   it('knows the app routes', () => {
-    for (const p of ['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/profile', '/my-trips', '/ai-planning', '/shared/abc', '/about/']) {
+    for (const p of ['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/profile', '/my-trips', '/ai-planning', '/guides', '/shared/abc', '/about/']) {
       expect(isKnownRoute(p)).toBe(true);
     }
   });

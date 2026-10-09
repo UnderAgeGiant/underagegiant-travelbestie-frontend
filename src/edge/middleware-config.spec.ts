@@ -6,7 +6,7 @@ const matches = (path: string): boolean =>
 
 describe('middleware matcher', () => {
   it('runs on app routes (with or without a trailing slash)', () => {
-    for (const p of ['/', '/about', '/terms', '/privacy', '/karma-history', '/shared/abc', '/shared/abc/', '/no-such-page']) {
+    for (const p of ['/', '/about', '/terms', '/privacy', '/karma-history', '/guides', '/shared/abc', '/shared/abc/', '/no-such-page']) {
       expect(matches(p)).toBe(true);
     }
   });
