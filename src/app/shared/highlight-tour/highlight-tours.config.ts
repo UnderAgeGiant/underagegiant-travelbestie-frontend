@@ -6,18 +6,18 @@ export interface HighlightStep {
 }
 
 const LANDING_WELCOME_LOGO = {
-  'es-CL': '¡Guau Guau! Bienvenido a Tripilove, tu página web para planificación de viajes con IA. Soy Asistente Miel y seré tu guía.',
-  'en-US': "Woof woof! Welcome to Tripilove, your website for AI trip planning. I'm Assistant Miel and I'll be your guide.",
+  'es-CL': '¡Guau! 🐾 ¡Soy Miel! Bienvenido a Tripilove. Seré tu compañero de aventuras y te ayudaré a crear el viaje de tus sueños con IA',
+  'en-US': "Woof! 🐾 I'm Miel! Welcome to Tripilove. I'll be your adventure buddy and help you create the trip of your dreams with AI",
 };
 
 const LANDING_WELCOME_SIGNUP = {
-  'es-CL': '¿No sabes dónde comenzar? Crea un usuario con tu correo.',
-  'en-US': 'Not sure where to start? Create an account with your email.',
+  'es-CL': '¿No sabes por dónde empezar? 🐶 ¡Regístrate con tu correo y preparemos juntos tu próxima aventura!',
+  'en-US': "Not sure where to start? 🐶 Sign up with your email and let's plan your next adventure together!",
 };
 
 const LANDING_WELCOME_AI = {
-  'es-CL': 'Luego de registrarte, presiona el botón "🐾 Crear con IA" para que comencemos a jugar. ¡Yo te acompaño!',
-  'en-US': "After you sign up, press the \"🐾 Crear con IA\" button so we can start playing. I'll be right there with you!",
+  'es-CL': '¡Ahora viene lo divertido! 🐾 Presiona «🐾 Crear con IA» y empecemos a planificar tu aventura. ¡Yo te acompaño en cada paso!',
+  'en-US': "Now comes the fun part! 🐾 Press «🐾 Create with AI» and let's start planning your adventure. I'll be with you every step of the way!",
 };
 
 export const HIGHLIGHT_TOURS: Record<HighlightType, HighlightStep[]> = {

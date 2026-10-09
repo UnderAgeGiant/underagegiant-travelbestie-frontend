@@ -6,9 +6,10 @@ describe('landing_welcome tour (T2)', () => {
     expect(steps.map(s => s.targetId)).toEqual(['nav-logo', 'login-btn', 'ai-plan-btn']);
   });
   it('uses the approved copy', () => {
-    expect(steps[0].text['es-CL']).toBe('¡Guau Guau! Bienvenido a Tripilove, tu página web para planificación de viajes con IA. Soy Asistente Miel y seré tu guía.');
-    expect(steps[1].text['es-CL']).toBe('¿No sabes dónde comenzar? Crea un usuario con tu correo.');
+    expect(steps[0].text['es-CL']).toBe('¡Guau! 🐾 ¡Soy Miel! Bienvenido a Tripilove. Seré tu compañero de aventuras y te ayudaré a crear el viaje de tus sueños con IA');
+    expect(steps[1].text['es-CL']).toBe('¿No sabes por dónde empezar? 🐶 ¡Regístrate con tu correo y preparemos juntos tu próxima aventura!');
     expect(steps[2].text['es-CL']).toContain('🐾 Crear con IA');
+    expect(steps[2].text['en-US']).toContain('🐾 Create with AI');
     for (const s of steps) expect(s.text['en-US'].length).toBeGreaterThan(0);
   });
 });
