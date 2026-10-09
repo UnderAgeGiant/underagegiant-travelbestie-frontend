@@ -71,7 +71,7 @@ describe('HighlightTourService', () => {
 
     expect(service.activeType()).toBe('landing_welcome');
     expect(service.stepIndex()).toBe(0);
-    expect(service.currentStep()?.targetId).toBe('login-btn');
+    expect(service.currentStep()?.targetId).toBe('nav-logo');
   });
 
   it('start() does not open the tour when the server says already seen, and caches that answer locally', () => {
@@ -90,7 +90,7 @@ describe('HighlightTourService', () => {
 
     service.next();
     expect(service.stepIndex()).toBe(1);
-    expect(service.currentStep()?.targetId).toBe('ai-plan-btn');
+    expect(service.currentStep()?.targetId).toBe('login-btn');
   });
 
   it('next() past the last step completes the tour (marks seen, closes)', () => {
@@ -98,8 +98,9 @@ describe('HighlightTourService', () => {
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
 
-    service.next(); // now at the last step (index 1)
+    service.next(); // now at step 1 (login-btn)
     service.next(); // past the end → complete()
+    service.next(); // now at step 2 (ai-plan-btn)
 
     expect(service.activeType()).toBeNull();
     expect(seen.hasSeenLocally('landing_welcome')).toBe(true);
