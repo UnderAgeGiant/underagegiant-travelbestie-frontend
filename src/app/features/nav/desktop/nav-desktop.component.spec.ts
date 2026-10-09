@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
 import { NavDesktopComponent } from './nav-desktop.component';
 import { NavFacadeService } from '../nav-facade.service';
 
@@ -47,6 +47,27 @@ describe('NavDesktopComponent — active page indication', () => {
     fixture.detectChanges();
     const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
     expect(active?.textContent).toContain('Historial de token');
+  });
+});
+
+describe('NavDesktopComponent — Legales y Guías link (T4)', () => {
+  it('has a "Legales y Guías" link to /guides right before sign-out and closes the panel', () => {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    const facade = TestBed.inject(NavFacadeService);
+    facade.auth.setTokens('fake-token', { name: 'Test User', email: 'test@example.com', countryOfResidence: null });
+    facade.userMenuOpen.set(true);
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    fixture.detectChanges();
+
+    const btns = [...fixture.nativeElement.querySelectorAll('.up-legal-link, .signout-btn')] as HTMLElement[];
+    expect(btns.map(b => b.className.includes('up-legal-link') ? 'legal' : 'signout')).toEqual(['legal', 'signout']);
+    btns[0].click();
+    expect(nav).toHaveBeenCalledWith('/guides');
+    expect(facade.userMenuOpen()).toBe(false);
   });
 });
 
