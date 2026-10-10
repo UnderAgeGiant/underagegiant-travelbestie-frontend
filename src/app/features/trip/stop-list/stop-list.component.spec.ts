@@ -440,3 +440,24 @@ describe('StopListComponent — personal activities (Feature 71)', () => {
     expect(fixture.componentInstance.hasTimeCollision(trip.stops()[0], 'e1')).toBe(true);
   });
 });
+
+describe('StopListComponent — Escape key handler', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(true); // mobile viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+  });
+
+  it('Escape closes the trip map modal', () => {
+    const fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+    (fixture.componentInstance as any).tripMapOpen.set(true);
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect((fixture.componentInstance as any).tripMapOpen()).toBe(false);
+  });
+});

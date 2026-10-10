@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../core/notifications/notification.service';
 import { AppNotification } from '../../../core/models/notification.model';
@@ -102,5 +102,10 @@ export class NotificationBellComponent {
     const hours = Math.floor(mins / 60);
     if (hours < 24) return $localize`:@@notif.hoursAgo:hace ${hours}:count: h`;
     return new Date(iso).toLocaleDateString();
+  }
+
+  @HostListener('document:keydown.escape')
+  closeOnEscape(): void {
+    this.panelOpen.set(false);
   }
 }

@@ -66,4 +66,10 @@ describe('NotificationBellComponent — open() follows the backend url', () => {
     expect(router.navigateByUrl).toHaveBeenNthCalledWith(1, '/', { skipLocationChange: true });
     expect(router.navigateByUrl).toHaveBeenNthCalledWith(2, '/my-trips?tab=aiplans&focus=r1');
   });
+
+  it('Escape closes the notifications panel', () => {
+    component.panelOpen.set(true);
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(component.panelOpen()).toBe(false);
+  });
 });

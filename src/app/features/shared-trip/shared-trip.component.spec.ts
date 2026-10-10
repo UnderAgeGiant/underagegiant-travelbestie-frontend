@@ -90,6 +90,17 @@ describe('SharedTripComponent — route param reactivity', () => {
     });
     httpMock.expectOne(req => req.url.endsWith('/shared/trip-b/comments')).flush({});
   });
+
+  it('Escape closes the trip map modal', () => {
+    fixture.detectChanges();
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a')).flush({
+      tripName: 'Roma', ownerName: 'Ana', stops: [], transits: [],
+    });
+    httpMock.expectOne(req => req.url.endsWith('/shared/trip-a/comments')).flush({});
+    fixture.componentInstance.tripMapOpen.set(true);
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(fixture.componentInstance.tripMapOpen()).toBe(false);
+  });
 });
 
 describe('SharedTripComponent — city info + weather on itin-city-head', () => {
@@ -706,3 +717,4 @@ describe('SharedTripComponent — personal activities (Feature 71)', () => {
     expect(row.querySelector('.itin-link')!.getAttribute('href')).toBe('https://maps.app.goo.gl/abc');
   });
 });
+

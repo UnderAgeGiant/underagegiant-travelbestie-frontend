@@ -1,6 +1,6 @@
 import { previewCardPosition, previewCardTapPosition } from './attraction-preview-position.util';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
-import { Component, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef, ElementRef } from '@angular/core';
+import { Component, HostListener, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef, ElementRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -552,6 +552,12 @@ export class SharedTripComponent {
       document.getElementById('itin-city-' + stop.cityId)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
     });
   }
+
+  @HostListener('document:keydown.escape')
+  closeOnEscape(): void {
+    this.tripMapOpen.set(false);
+  }
+
   shakeClone         = signal(false);
   private shakeTriggered = false;
   activePreview = signal<{ attraction: Attraction; x: number; y: number } | null>(null);
