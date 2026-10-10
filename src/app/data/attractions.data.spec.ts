@@ -89,3 +89,24 @@ describe('deactivated junk entries (owner decision 2026-09-29)', () => {
     expect(findCuratedAttraction('amboseli', 'amboseli_4')?.active).toBe(false);
   });
 });
+
+import { FREETOURS_CURATED } from './freetours-curated';
+
+describe('curated data hygiene (QA 2026-10-09)', () => {
+  const freetours = Object.values(FREETOURS_CURATED).flat();
+
+  it('no free-tour name has a mangled apostrophe ("Santiago39s")', () => {
+    expect(freetours.filter(a => /\p{L}39s\b/u.test(a.name)).map(a => a.name)).toEqual([]);
+  });
+
+  it('free tours use the display type "Free tour", not the raw "Freetours"', () => {
+    expect(freetours.filter(a => a.type === 'Freetours')).toEqual([]);
+  });
+
+  it('Santiago no longer lists sights 60–150 km away', () => {
+    const santiago = CURATED_ALL['santiago'] as { id: string; active?: boolean }[];
+    for (const id of ['santiago_0', 'santiago_3', 'santiago_6']) {
+      expect(santiago.find(a => a.id === id)?.active).toBe(false);
+    }
+  });
+});

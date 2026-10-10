@@ -18141,7 +18141,7 @@ export const CURATED_ALL: CuratedMap = {
   santiago: [
     {
       id: "santiago_0",
-      active: true,
+      active: false,
       name: "Campamento minero de Sewell",
       nameEn: "Sewell Mining Town",
       nativeName: "Campamento minero de Sewell",
@@ -18191,7 +18191,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "santiago_3",
-      active: true,
+      active: false,
       name: "Valparaíso",
       nameEn: "Valparaíso",
       nativeName: "Valparaíso",
@@ -18241,7 +18241,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "santiago_6",
-      active: true,
+      active: false,
       name: "Centro de esquí Valle Nevado",
       nameEn: "Valle Nevado Ski Resort",
       nativeName: "Valle Nevado",
