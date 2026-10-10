@@ -8,7 +8,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_paris_0',
       name: 'Paris Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -22,7 +22,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_paris_1',
       name: 'Montmartre Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -38,7 +38,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_london_0',
       name: 'Old City of London Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -52,7 +52,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_london_1',
       name: 'London Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -68,7 +68,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_barcelona_0',
       name: 'Barcelona Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -82,7 +82,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_barcelona_1',
       name: 'Gaudi Modernism Free Tour Barcelona',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -96,7 +96,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_barcelona_2',
       name: 'Spanish Civil War Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -110,7 +110,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_barcelona_3',
       name: 'Barcelona Gothic Quarter Free Night Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -126,7 +126,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_berlin_0',
       name: 'Free Walking Tour of Berlin',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -142,7 +142,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_madrid_0',
       name: 'Madrid Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -158,7 +158,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_vienna_0',
       name: 'Free Walking Tour of Vienna',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -172,7 +172,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_vienna_1',
       name: 'Evening Free Tour of Vienna',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -188,7 +188,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_prague_0',
       name: 'Free Walking Tour of Prague',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -202,7 +202,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_prague_1',
       name: 'Prague Jewish Quarter Old Town Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -216,7 +216,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_prague_2',
       name: 'Prague Castle Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -230,7 +230,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_prague_3',
       name: 'Prague Second World War Communism Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -246,7 +246,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_athens_0',
       name: 'Free Walking Tour of Athens',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -262,7 +262,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_budapest_0',
       name: 'Free Walking Tour of Budapest',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -278,7 +278,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_stockholm_0',
       name: 'Free Walking Tour of Stockholm',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -292,7 +292,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_stockholm_1',
       name: 'Sodermalm Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -306,7 +306,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_stockholm_2',
       name: 'Free Historical Tour of Ostermalm',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -322,7 +322,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_oslo_0',
       name: 'Oslo Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -338,7 +338,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_copenhagen_0',
       name: 'Free Walking Tour of Christianshavn',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -354,7 +354,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_zurich_0',
       name: 'Zurich Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -370,7 +370,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_brussels_0',
       name: 'Brussels Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -384,7 +384,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_brussels_1',
       name: 'Brussels Free Beer Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -398,7 +398,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_brussels_2',
       name: 'Brussels Mysteries Legends Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -414,7 +414,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_dublin_0',
       name: 'Dublin North Side Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -430,7 +430,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_santorini_0',
       name: 'Fira Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -446,7 +446,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_florence_0',
       name: 'Free Walking Tour of Florence',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -460,7 +460,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_florence_1',
       name: 'Florence Mysteries Legends Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -474,7 +474,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_florence_2',
       name: 'Florence Evening Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -490,7 +490,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_milan_0',
       name: 'The Best Free Walking Tour in Milan',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -506,7 +506,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_munich_0',
       name: 'Free Walking Tour of Munich',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -522,7 +522,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_porto_0',
       name: 'Vila Nova de Gaia Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -536,7 +536,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_porto_1',
       name: 'Porto Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -552,7 +552,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_dubrovnik_0',
       name: 'Dubrovnik Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -568,7 +568,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_warsaw_0',
       name: 'Free Walking Tour of Warsaw',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -582,7 +582,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_warsaw_1',
       name: 'Free Walking Tour of Jewish Warsaw',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -596,7 +596,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_warsaw_2',
       name: 'Praga District Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -610,7 +610,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_warsaw_3',
       name: 'Warsaw at War Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -624,7 +624,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_warsaw_4',
       name: 'Communist Warsaw Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -640,7 +640,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_krakow_0',
       name: 'Free Walking Tour of the Krakow Jewish Quarter',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -654,7 +654,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_krakow_1',
       name: 'Free Walking Tour of Krakow',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -668,7 +668,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_krakow_2',
       name: 'Communist District Nowa Huta Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -682,7 +682,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_krakow_3',
       name: 'Vistula River Free Bike Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -698,7 +698,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_seville_0',
       name: 'Seville Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -714,7 +714,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_naples_0',
       name: 'Free Walking Tour of Naples Old Town',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -728,7 +728,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_naples_1',
       name: 'Free Walking Tour of Naples',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -742,7 +742,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_naples_2',
       name: 'Naples Viewpoints Alleyways Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -758,7 +758,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_verona_0',
       name: 'Free Walking Tour of Verona',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -774,7 +774,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_palermo_0',
       name: 'Palermo Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -790,7 +790,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_cologne_0',
       name: 'Cologne Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -804,7 +804,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_cologne_1',
       name: 'World War II Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -820,7 +820,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_hamburg_0',
       name: 'Hamburg Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -834,7 +834,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_hamburg_1',
       name: 'St. Pauli Landungsbrucken Reeperbahn Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -850,7 +850,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lyon_0',
       name: 'Lyon Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -864,7 +864,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lyon_1',
       name: 'La Croix-Rousse Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -880,7 +880,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bordeaux_0',
       name: 'Free Walking Tour of Bordeaux',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -894,7 +894,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bordeaux_1',
       name: 'Old Bordeaux Saint-Michel Neighborhood Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -910,7 +910,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_strasbourg_0',
       name: 'Strasbourg Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -926,7 +926,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_granada_0',
       name: 'Granada Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -942,7 +942,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_thessaloniki_0',
       name: 'Thessaloniki Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -958,7 +958,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tokyo_0',
       name: 'Asakusa Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -972,7 +972,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tokyo_1',
       name: 'Shibuya Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -986,7 +986,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tokyo_2',
       name: 'Shinjuku Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1000,7 +1000,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tokyo_3',
       name: 'Ueno Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1014,7 +1014,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tokyo_4',
       name: 'Meiji Shrine Yoyogi Park Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1030,7 +1030,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_kyoto_0',
       name: 'Free Tour of Kyoto',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1044,7 +1044,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_kyoto_1',
       name: 'Gion Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1060,7 +1060,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_osaka_0',
       name: 'Osaka Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1076,7 +1076,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_beijing_0',
       name: 'Beijing Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1092,7 +1092,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_shanghai_0',
       name: 'Shanghai City Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1106,7 +1106,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_shanghai_1',
       name: 'Historic Shanghai Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1120,7 +1120,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_shanghai_2',
       name: 'Free Walking Tour of The Shanghai French Concession',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1134,7 +1134,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_shanghai_3',
       name: 'Shanghai Food Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1150,7 +1150,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_singapore_0',
       name: 'Singapore Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1164,7 +1164,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_singapore_1',
       name: 'Chinatown Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1180,7 +1180,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bangkok_0',
       name: 'Night Tuk Tuk Tour in Bangkok with ChinaTown Meal',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1196,7 +1196,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_mumbai_0',
       name: 'Free Walking Tour of Bombay',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1212,7 +1212,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_jaipur_0',
       name: 'Free Walking Tour of Jaipur',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1228,7 +1228,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_istanbul_0',
       name: 'Istanbul Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1242,7 +1242,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_istanbul_1',
       name: 'Taksim Galata Tower Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1258,7 +1258,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_varanasi_0',
       name: 'Free Walking Tour of Varanasi',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1274,7 +1274,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_hoian_0',
       name: 'Hoi An Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1290,7 +1290,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_newyork_0',
       name: 'New York Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1306,7 +1306,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_losangeles_0',
       name: 'Downtown Los Angeles Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1322,7 +1322,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_chicago_0',
       name: 'Free Walking Tour of Chicago',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1338,7 +1338,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_miami_0',
       name: 'Downtown Miami Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1352,7 +1352,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_miami_1',
       name: 'Miami Beach Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1368,7 +1368,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_sanfrancisco_0',
       name: 'Free Walking Tour of San Francisco',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1382,7 +1382,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_sanfrancisco_1',
       name: 'Chinatown Little Italy Free Evening Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1398,7 +1398,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_toronto_0',
       name: 'Toronto Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1414,7 +1414,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_montreal_0',
       name: 'Montreal Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1430,7 +1430,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_mexicocity_0',
       name: 'Mexico City Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1444,7 +1444,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_mexicocity_1',
       name: 'Coyoacan Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1460,7 +1460,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_cancun_0',
       name: 'Cancun Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1476,7 +1476,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_rio_0',
       name: 'Rio Historic Center Selaron Steps Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1489,8 +1489,8 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     },
     {
       id: 'ft_rio_1',
-      name: 'Rio39s Historic Center Free Walking Tour',
-      type: 'Freetours',
+      name: 'Rio\'s Historic Center Free Walking Tour',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1504,7 +1504,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_rio_2',
       name: 'Tour por la favela Santa Marta',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1518,7 +1518,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_rio_3',
       name: 'Tour por la favela de Rocinha',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1534,7 +1534,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bogota_0',
       name: 'La Candelaria Free Graffiti Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1548,7 +1548,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bogota_1',
       name: 'Free Tour of Bogota',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1562,7 +1562,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bogota_2',
       name: 'Monserrate Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1576,7 +1576,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bogota_3',
       name: 'Bogota Old Town Bike Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1590,7 +1590,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bogota_4',
       name: 'Free Food Tour of Bogota',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1606,7 +1606,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_medellin_0',
       name: 'Comuna 13 Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1620,7 +1620,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_medellin_1',
       name: 'Medellin Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1634,7 +1634,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_medellin_2',
       name: 'Free Food Tour of Medellin',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1648,7 +1648,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_medellin_3',
       name: 'Laureles Free Tour Medellin',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1662,7 +1662,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_medellin_4',
       name: 'El Poblado Provenzal Manila Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1678,7 +1678,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lima_0',
       name: 'Lima Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1692,7 +1692,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lima_1',
       name: 'Barranco Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1706,7 +1706,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lima_2',
       name: 'Lima Pyramids El Olivar Park Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1720,7 +1720,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lima_3',
       name: 'Lima Magic Water Circuit Free Night Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1734,7 +1734,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lima_4',
       name: 'Lima Street Food Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1748,7 +1748,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lima_5',
       name: 'Chorrillos Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1762,7 +1762,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_lima_6',
       name: 'Chinatown Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1778,7 +1778,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_santiago_0',
       name: 'Free Walking Tour of Santiago de Chile',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1791,8 +1791,8 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     },
     {
       id: 'ft_santiago_1',
-      name: 'Santiago39s Museums Palaces Free Tour',
-      type: 'Freetours',
+      name: 'Santiago\'s Museums Palaces Free Tour',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1806,7 +1806,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_santiago_2',
       name: 'Barrio Yungay Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1819,8 +1819,8 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     },
     {
       id: 'ft_santiago_3',
-      name: 'Santiago39s Markets Free Walking Tour',
-      type: 'Freetours',
+      name: 'Santiago\'s Markets Free Walking Tour',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1834,7 +1834,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_santiago_4',
       name: 'Free Tour of Providencia Neighborhood',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1850,7 +1850,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_havana_0',
       name: 'Havana Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1866,7 +1866,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_quito_0',
       name: 'Free Walking Tour of Quito',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1880,7 +1880,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_quito_1',
       name: 'Quito Free Shopping Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1894,7 +1894,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_quito_2',
       name: 'Quito Free Food Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1910,7 +1910,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_cartagena_0',
       name: 'Cartagena Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1926,7 +1926,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_oaxaca_0',
       name: 'Oaxaca Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1942,7 +1942,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_cairo_0',
       name: 'Giza Pyramids Sphinx Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1958,7 +1958,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_capetown_0',
       name: 'Free Diamond and Gem Workshop Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1974,7 +1974,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_nairobi_0',
       name: 'Nairobi Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -1990,7 +1990,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tunis_0',
       name: 'Tunis Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2004,7 +2004,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tunis_1',
       name: 'Sidi Bou Said Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2020,7 +2020,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_fez_0',
       name: 'Fez Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2036,7 +2036,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_sydney_0',
       name: 'Free Walking Tour in Sydney',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2052,7 +2052,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_melbourne_0',
       name: 'Melbourne Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2068,7 +2068,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_tours_0',
       name: 'Tours Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2084,7 +2084,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_salamanca_0',
       name: 'Salamanca Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2100,7 +2100,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_compostela_0',
       name: 'Santiago de Compostela Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2116,7 +2116,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bilbao_0',
       name: 'Free Walking Tour of Bilbao',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2132,7 +2132,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_dresden_0',
       name: 'Dresden Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2148,7 +2148,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_nuremberg_0',
       name: 'Nuremberg Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2164,7 +2164,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_sofia_0',
       name: 'Free Tour of Sofia',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2180,7 +2180,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_bergen_0',
       name: 'Bergen Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2196,7 +2196,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_goa_0',
       name: 'Free Walking Tour of Panaji',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2212,7 +2212,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_puebla_0',
       name: 'Free Tour of Puebla',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2228,7 +2228,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_guadalajara_0',
       name: 'Free Tour of Tlaquepaque',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2242,7 +2242,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_guadalajara_1',
       name: 'Guadalajara Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2258,7 +2258,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_salvador_0',
       name: 'Historic Salvador Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2274,7 +2274,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_trinidadcuba_0',
       name: 'Trinidad Free Walking Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2288,7 +2288,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_trinidadcuba_1',
       name: 'Old Trinidad Free Tour',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2302,7 +2302,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_trinidadcuba_2',
       name: 'Free Pub Crawl',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',
@@ -2316,7 +2316,7 @@ export const FREETOURS_CURATED: Record<string, Attraction[]> = {
     {
       id: 'ft_trinidadcuba_3',
       name: 'Free Tour of La Vigia Hill at Sunset',
-      type: 'Freetours',
+      type: 'Free tour',
       category: 'freetour',
       active: true,
       icon: '🚶',

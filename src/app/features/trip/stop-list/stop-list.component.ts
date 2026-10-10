@@ -413,6 +413,11 @@ export class StopListComponent {
     this.tripMapOpen.set(false);
   }
 
+  @HostListener('document:keydown.escape')
+  closeOnEscape(): void {
+    this.tripMapOpen.set(false);
+  }
+
   protected readonly onTitle  = $localize`:@@stopList.autoSaveToggleOnTitle:Guardado automático activado — clic para desactivar`;
   protected readonly offTitle = $localize`:@@stopList.autoSaveToggleOffTitle:Guardado automático desactivado — clic para activar`;
   protected readonly countdownTitle = $localize`:@@stopList.autoSaveCountdownTitle:Tiempo restante hasta el próximo intento de guardado automático`;

@@ -1,5 +1,5 @@
 import { ApplicationRef, Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter, Router } from '@angular/router';
@@ -305,4 +305,48 @@ describe('NavFacadeService — openEditor() / openAiPlanning()', () => {
     facade.openAiPlanning(payload);
     expect(spy).toHaveBeenCalledWith(['/ai-planning'], { state: { aiPlanResult: payload } });
   });
+});
+
+describe('NavFacadeService — search empty state', () => {
+  let facade: NavFacadeService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => http.verify());
+
+  it('is false while typing and true once the debounced search for that query returns nothing', fakeAsync(() => {
+    facade.navQuery.set('zzqx');
+    TestBed.tick();
+    expect(facade.navNoResults()).toBe(false); // still debouncing
+    tick(300);
+    http.expectOne(r => r.url.includes('zzqx')).flush([]);
+    expect(facade.navNoResults()).toBe(true);
+    facade.navQuery.set('zzqxy');               // a new query: no answer yet
+    TestBed.tick();
+    expect(facade.navNoResults()).toBe(false);
+    tick(300);
+    http.expectOne(r => r.url.includes('zzqxy')).flush([]);  // complete this request so afterEach doesn't complain
+  }));
+
+  it('is false for queries under 2 chars and when results exist', fakeAsync(() => {
+    facade.navQuery.set('z');
+    TestBed.tick();
+    tick(300);
+    expect(facade.navNoResults()).toBe(false);
+    http.expectNone(r => r.url.includes('/shared?q='));
+    facade.navQuery.set('par');
+    TestBed.tick();
+    tick(300);
+    http.expectOne(r => r.url.includes('/shared?q=')).flush([{ id: 's1', tripName: 'T', stops: [] } as any]);
+    expect(facade.navNoResults()).toBe(false);
+  }));
 });

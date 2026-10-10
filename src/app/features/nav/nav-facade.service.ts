@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { shareTrip } from '../../core/share/share-url.util';
 import { toObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { catchError, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
@@ -88,16 +88,22 @@ export class NavFacadeService {
   private karmaAnimTimer: ReturnType<typeof setTimeout> | null = null;
 
   navSharedTrips = signal<SharedTrip[]>([]);
+  /** The query the current navSharedTrips() answers — lets the empty state wait for the debounced answer. */
+  private readonly navAnsweredQuery = signal<string | null>(null);
+  readonly navNoResults = computed(() =>
+    shouldSearchSharedTrips(this.navQuery()) &&
+    this.navAnsweredQuery() === this.navQuery() &&
+    this.navSharedTrips().length === 0);
 
   constructor() {
     toObservable(this.navQuery).pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(q => shouldSearchSharedTrips(q)
-        ? this.api.searchSharedTrips(q).pipe(catchError(() => of([])))
-        : of([])),
+      switchMap(q => (shouldSearchSharedTrips(q)
+        ? this.api.searchSharedTrips(q).pipe(catchError(() => of([] as SharedTrip[])))
+        : of([] as SharedTrip[])).pipe(map(trips => ({ q, trips })))),
       takeUntilDestroyed(),
-    ).subscribe(trips => this.navSharedTrips.set(trips));
+    ).subscribe(({ q, trips }) => { this.navSharedTrips.set(trips); this.navAnsweredQuery.set(q); });
 
     // authGuard only runs on entry. If the session ends while the user is ON a private page — a failed
     // silent refresh calls AuthService.clearTokens() with no logout click — leave it for the landing.

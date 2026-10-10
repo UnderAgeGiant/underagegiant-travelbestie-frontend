@@ -72,6 +72,9 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
               <div class="up-shared-trip-meta">Por {{ t.ownerName }}</div>
             </button>
           }
+          @if (facade.navNoResults()) {
+            <div class="up-plans-empty" i18n="@@nav.searchNoResults">Sin resultados 🔍</div>
+          }
         </div>
 
         <!-- Account -->
