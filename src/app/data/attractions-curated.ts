@@ -1271,7 +1271,7 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "bali_22",
       active: true,
-      name: "Pantai Sanur",
+      name: "Playa de Sanur",
       nameEn: "Sanur Beach",
       nativeName: "Pantai Sanur",
       category: "poi",
@@ -2664,9 +2664,9 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "beijing_32",
       active: true,
-      name: "Estación de Nanluoguxiang",
-      nameEn: "Nanluogu Xiang station",
-      nativeName: "南锣鼓巷站",
+      name: "Nanluoguxiang",
+      nameEn: "Nanluoguxiang",
+      nativeName: "南锣鼓巷",
       category: "poi",
       type: "Atracción",
       icon: "✨",
@@ -66758,9 +66758,9 @@ export const CURATED_ALL: CuratedMap = {
     {
       id: "saopaulo_52",
       active: true,
-      name: "Estación Vila Madalena",
+      name: "Vila Madalena",
       nameEn: "Vila Madalena",
-      nativeName: "Estação Vila Madalena",
+      nativeName: "Vila Madalena",
       category: "poi",
       type: "Atracción",
       icon: "✨",
