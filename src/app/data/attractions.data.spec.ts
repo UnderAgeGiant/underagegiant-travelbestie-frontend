@@ -103,9 +103,9 @@ describe('curated data hygiene (QA 2026-10-09)', () => {
     expect(freetours.filter(a => a.type === 'Freetours')).toEqual([]);
   });
 
-  it('Santiago no longer lists sights 60–150 km away', () => {
+  it('Santiago no longer lists Sewell or Valparaíso (Valle Nevado stays, owner call)', () => {
     const santiago = CURATED_ALL['santiago'] as { id: string; active?: boolean }[];
-    for (const id of ['santiago_0', 'santiago_3', 'santiago_6']) {
+    for (const id of ['santiago_0', 'santiago_3']) {
       expect(santiago.find(a => a.id === id)?.active).toBe(false);
     }
   });

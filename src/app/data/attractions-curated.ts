@@ -18241,7 +18241,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "santiago_6",
-      active: false,
+      active: true,
       name: "Centro de esquí Valle Nevado",
       nameEn: "Valle Nevado Ski Resort",
       nativeName: "Valle Nevado",
