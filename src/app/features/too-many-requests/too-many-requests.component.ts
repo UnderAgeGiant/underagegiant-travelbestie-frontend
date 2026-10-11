@@ -20,7 +20,8 @@ const clamp = (raw: string | null): number => {
     </main>
   `,
   styles: [`
-    .tmr { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    /* html/body are overflow:hidden app-wide: scroll in-page on short screens; "safe" keeps the top reachable. */
+    .tmr { height: 100vh; box-sizing: border-box; overflow-y: auto; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; justify-content: safe center;
       gap: 12px; padding: 24px 16px; text-align: center; background: var(--cream); color: var(--t1); }
     .tmr h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 36px; line-height: 1.1; letter-spacing: -.5px; margin: 0; }
     .tmr p { color: var(--t2); margin: 0; max-width: 360px; font-size: 14px; line-height: 1.5; }

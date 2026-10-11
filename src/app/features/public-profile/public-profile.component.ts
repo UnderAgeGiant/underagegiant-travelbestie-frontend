@@ -19,6 +19,7 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
   imports: [NavShellComponent, FeedPlanCardComponent, TrophyShelfComponent, FollowButtonComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
+    <div class="pp-page">
     <app-nav (logoClick)="goHome()" />
     <main class="pp">
       @switch (state()) {
@@ -60,9 +61,14 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
         }
       }
     </main>
+    </div>
   `,
   styles: [`
+    /* html/body are overflow:hidden app-wide, so this page scrolls in its own container (same as .guides-page). */
+    .pp-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }
     .pp { max-width: 760px; margin: 0 auto; padding: 96px 16px 56px; color: var(--t1); }
+    /* .feed-chip is styled for the dark landing feed; these are on the cream page. */
+    .pp .feed-chip { color: var(--lav-d); background: oklch(75% .10 290 / .14); border-color: oklch(75% .10 290 / .45); backdrop-filter: none; }
     .pp-head {
       display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
       padding: 32px 24px 28px; border-radius: 24px;
@@ -72,7 +78,7 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
     .pp-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 40px; line-height: 1.05; letter-spacing: -.5px; margin: 0; }
     .pp-handle { color: var(--t2); font-size: 14px; font-variant-numeric: tabular-nums; }
     .pp-counts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; color: var(--t2); font-size: 13px; }
-    .pp-counts span { padding: 4px 12px; border-radius: 99px; background: rgba(255,255,255,.6); }
+    .pp-counts span { display: inline-flex; gap: 4px; align-items: baseline; padding: 4px 12px; border-radius: 99px; background: rgba(255,255,255,.6); }
     .pp-counts strong { color: var(--t1); font-variant-numeric: tabular-nums; }
     .pp-section { margin-top: 36px; }
     .pp-section .section-head { margin-bottom: 12px; }
