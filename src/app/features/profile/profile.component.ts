@@ -8,6 +8,7 @@ import { CountryComboboxComponent } from '../../shared/country-combobox/country-
 import { Country, WORLD_COUNTRIES } from '../../data/countries.data';
 import { CompanionBoostCardComponent } from './companion-boost-card.component';
 import { TrophyShelfComponent } from './trophy-shelf/trophy-shelf.component';
+import { FollowingFeedComponent } from './following-feed/following-feed.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
@@ -16,7 +17,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
 @Component({
     selector: 'app-profile',
-    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent],
+    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, FollowingFeedComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -315,6 +316,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
         <!-- Trophies (Feature 69) — replaced the visited-places map -->
         @if (auth.isLoggedIn()) {
           <tb-trophy-shelf />
+          <tb-following-feed />
         }
 
       </div>

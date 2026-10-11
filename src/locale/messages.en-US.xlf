@@ -2286,6 +2286,18 @@
         <source>Editar cuenta ✏️</source>
         <target>Edit account ✏️</target>
       </trans-unit>
+      <trans-unit id="profile.followingTitle" datatype="html">
+        <source>Siguiendo 👥</source>
+        <target>Following 👥</target>
+      </trans-unit>
+      <trans-unit id="profile.followingEmpty" datatype="html">
+        <source>Aún no sigues a nadie — encuentra viajeros en Rankings.</source>
+        <target>You're not following anyone yet — find travelers in Rankings.</target>
+      </trans-unit>
+      <trans-unit id="profile.followingMore" datatype="html">
+        <source>Ver más</source>
+        <target>See more</target>
+      </trans-unit>
       <trans-unit id="profile.nameTitle" datatype="html">
         <source>Nombre</source>
         <target>Name</target>
