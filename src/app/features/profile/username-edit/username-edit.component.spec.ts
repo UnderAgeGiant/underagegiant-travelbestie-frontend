@@ -42,6 +42,18 @@ describe('UsernameEditComponent', () => {
     expect(c.errorKind()).toBe('notAllowed');
   });
 
+  it('clears a stale error when a retry succeeds', () => {
+    const update = jest.fn()
+      .mockReturnValueOnce(throwError(() => ({ code: 'X' })))
+      .mockReturnValueOnce(of({}));
+    const c = setup(update).componentInstance;
+    c.draft.set('ana'); c.save();
+    expect(c.errorKind()).toBe('unknown');
+    c.save();
+    expect(c.errorKind()).toBeNull();
+    expect(c.saved()).toBe(true);
+  });
+
   it('shows the public profile link once set', () => {
     const f = setup(jest.fn().mockReturnValue(of({})), 'ana');
     f.componentInstance.open.set(true);

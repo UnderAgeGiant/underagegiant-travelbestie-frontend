@@ -61,6 +61,7 @@ export class UsernameEditComponent {
 
   save(): void {
     if (!this.valid()) return;
+    this.errorKind.set(null);
     this.loading.set(true);
     this.auth.updateProfile({ username: this.draft() }).subscribe({
       next: () => { this.loading.set(false); this.saved.set(true); setTimeout(() => this.saved.set(false), 2500); },
