@@ -10,7 +10,7 @@ import { FeedPlanCardComponent } from '../../landing/feed/feed-plan-card.compone
   template: `
     <section>
       <div class="section-head" i18n="@@profile.followingTitle">Siguiendo 👥</div>
-      @for (p of items(); track p.id) { <tb-feed-plan-card [plan]="p" /> }
+      @for (p of items(); track p.id) { <tb-feed-plan-card class="feed-card-frame" [plan]="p" /> }
       @if (loadError()) {
         <div class="section-empty" role="alert" i18n="@@profile.followingError">No pudimos cargar a quienes sigues.</div>
         <button type="button" class="btn-pill btn-outline ff-retry" [disabled]="loading()" (click)="retry()" i18n="@@profile.followingRetry">Reintentar</button>

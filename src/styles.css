@@ -1068,6 +1068,14 @@ app-nav { display: block; }
   border-bottom: 1px solid oklch(100% 0 0 / .14);
 }
 .feed-card { position: absolute; inset: 0; touch-action: pan-y; }
+/* Non-landing host for tb-feed-plan-card (profile lists: public profile, "Siguiendo").
+   The card is absolute inset:0, so it needs a bounded, positioned, clipping box. Carries its own
+   night ground + text colour because it is not inside .landing-feed. */
+.feed-card-frame {
+  display: block; position: relative; overflow: hidden;
+  height: clamp(420px, 70vh, 600px); border-radius: 20px;
+  background: oklch(14% .04 290); color: #fff; margin: 0 0 16px;
+}
 .feed-card :where(button):focus-visible,
 .landing-feed .feed-retry:focus-visible,
 .landing-feed .feed-back-top:focus-visible,
@@ -1211,6 +1219,7 @@ app-nav { display: block; }
       linear-gradient(to top, oklch(0% 0 0/.9) 0%, oklch(0% 0 0/.55) 32%, transparent 64%);
   }
   .feed-back-top { top: auto; bottom: 24px; right: 16px; }
+  .feed-card-frame { height: clamp(520px, 85svh, 680px); }
 }
 
 /* ── Welcome-page pill → S6 (bottom-centre of the welcome overlay) ─────────── */

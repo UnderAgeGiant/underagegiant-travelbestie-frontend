@@ -54,7 +54,7 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
 
           <section class="pp-section">
             <h2 class="section-head" i18n="@@publicProfile.trips">Planes compartidos</h2>
-            @for (t of p.trips; track t.id) { <tb-feed-plan-card [plan]="t" /> }
+            @for (t of p.trips; track t.id) { <tb-feed-plan-card class="feed-card-frame" [plan]="t" /> }
             @empty { <p class="pp-status" i18n="@@publicProfile.noTrips">Todavía no ha compartido planes.</p> }
           </section>
         }
