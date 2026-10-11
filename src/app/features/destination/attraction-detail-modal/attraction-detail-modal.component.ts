@@ -23,10 +23,11 @@ import { LocaleService } from '../../../core/i18n/locale.service';
 import { ToastService } from '../../../core/ui/toast.service';
 import { AttractionImageLightboxComponent } from '../attraction-image-lightbox/attraction-image-lightbox.component';
 import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-icon.component';
+import { UserLinkComponent } from '../../../shared/user-link/user-link.component';
 
 @Component({
     selector: 'app-attraction-detail-modal',
-    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe],
+    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe, UserLinkComponent],
     styles: [`
     .detail-modal {
       background: #fff;
@@ -275,7 +276,7 @@ import { MapsPinIconComponent } from '../../../shared/maps-pin-icon/maps-pin-ico
                 <div class="comment-row">
                   <div class="c-avatar" [style.background]="c.color">{{ c.name[0].toUpperCase() }}</div>
                   <div class="c-bubble">
-                    <strong>{{ c.name }} {{ '⭐'.repeat(c.rating) }} · {{ c.date }}</strong>
+                    <strong><tb-user-link [name]="c.name" [username]="c.username" /> {{ '⭐'.repeat(c.rating) }} · {{ c.date }}</strong>
                     <div class="c-text">{{ c.text }}</div>
                   </div>
                 </div>

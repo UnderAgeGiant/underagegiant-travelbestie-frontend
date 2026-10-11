@@ -78,3 +78,16 @@ describe('meView', () => {
     expect(meView(charts[0], null, 'Ana')).toEqual({ highlight: null, extra: null });
   });
 });
+
+describe('buildCharts user links', () => {
+  it('planner and trophy rows link to /u/<username> when present', () => {
+    const w = { weekStart: '2026-10-05', generatedAt: '', topDestinations: [], topFavorited: [],
+      topPlanners: [{ name: 'Ana', username: 'ana', value: 3 }, { name: 'Beto', username: null, value: 1 }],
+      topTrophies: [{ name: 'Ana', username: 'ana', value: 2 }] };
+    const charts = buildCharts(w, false);
+    const planners = charts.find(c => c.key === 'planners')!.rows;
+    expect(planners[0].link).toBe('/u/ana');
+    expect(planners[1].link).toBeUndefined();
+    expect(charts.find(c => c.key === 'trophies')!.rows[0].link).toBe('/u/ana');
+  });
+});

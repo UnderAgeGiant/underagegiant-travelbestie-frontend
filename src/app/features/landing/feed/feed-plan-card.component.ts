@@ -10,6 +10,7 @@ import { FeedPlan } from '../../../core/models/feed-plan.model';
 import { TripStop } from '../../../core/models/trip.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { buildFeedSlides } from './feed-slides.util';
+import { UserLinkComponent } from '../../../shared/user-link/user-link.component';
 
 /** Every page (map or attraction photo) stays on screen this long before the strip slides to the next. */
 const AUTO_ADVANCE_MS = 2500;
@@ -22,7 +23,7 @@ function prefersReducedMotion(): boolean {
 
 @Component({
   selector: 'tb-feed-plan-card',
-  imports: [TripMapComponent, RouterLink],
+  imports: [TripMapComponent, RouterLink, UserLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
 <article class="feed-card"
@@ -66,7 +67,7 @@ function prefersReducedMotion(): boolean {
       @if (routeNames().more > 0) { <span class="feed-chip feed-chip-more">+{{ routeNames().more }}</span> }
     </div>
     <h3 class="feed-title">{{ plan().tripName }}</h3>
-    <p class="feed-owner"><span i18n="@@feed.by">por</span> {{ plan().ownerName }}</p>
+    <p class="feed-owner"><span i18n="@@feed.by">por</span> <tb-user-link [name]="plan().ownerName" [username]="plan().ownerUsername" /></p>
     <div class="feed-actions">
       <a class="btn-pill feed-view-plan" [routerLink]="['/shared', plan().id]"
          i18n="@@feed.viewPlan">Ver plan completo</a>

@@ -1,10 +1,12 @@
 import { Component, input, output, signal, HostListener, ElementRef, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { StepComment } from '../../core/models/comment.model';
+import { UserLinkComponent } from '../../shared/user-link/user-link.component';
 
 @Component({
   selector: 'app-step-comments',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [UserLinkComponent],
   template: `
     <div class="step-comments">
       @for (c of comments(); track c.id) {
@@ -12,7 +14,7 @@ import { StepComment } from '../../core/models/comment.model';
           <div class="step-comment-avatar">{{ initials(c.authorName) }}</div>
           <div class="step-comment-body">
             <div class="step-comment-meta">
-              <span class="step-comment-author">{{ c.authorName }}</span>
+              <span class="step-comment-author"><tb-user-link [name]="c.authorName" [username]="c.authorUsername" /></span>
               <span class="step-comment-date">{{ fmtDate(c.createdAt) }}</span>
             </div>
             <div class="step-comment-text">{{ c.text }}</div>
