@@ -309,6 +309,7 @@ app-nav { display: block; }
 .shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .shared-header-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--t1); margin-bottom: 4px; }
 .shared-header-owner { font-size: 13px; color: var(--t2); margin-bottom: 10px; }
+.shared-header-owner tb-follow-button { margin-left: 8px; }
 .shared-header-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
 .shared-header-flag { font-size: 22px; }
 .shared-not-found { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; text-align: center; }

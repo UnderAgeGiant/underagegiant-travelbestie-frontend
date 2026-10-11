@@ -87,7 +87,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
         <!-- Trip header -->
         <div class="shared-header">
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
-          <div class="shared-header-owner"><ng-container i18n="@@sharedTrip.tripByPrefix">Viaje de</ng-container> <tb-user-link [name]="trip()!.ownerName" [username]="trip()!.ownerUsername" />
+          <div class="shared-header-owner"><ng-container i18n="@@sharedTrip.tripByPrefix">Viaje de</ng-container>&ngsp;<tb-user-link [name]="trip()!.ownerName" [username]="trip()!.ownerUsername" />
             @if (trip()!.ownerUsername && auth.currentUser()?.username !== trip()!.ownerUsername) {
               <tb-follow-button [username]="trip()!.ownerUsername!" />
             }

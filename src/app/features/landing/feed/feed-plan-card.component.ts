@@ -67,7 +67,7 @@ function prefersReducedMotion(): boolean {
       @if (routeNames().more > 0) { <span class="feed-chip feed-chip-more">+{{ routeNames().more }}</span> }
     </div>
     <h3 class="feed-title">{{ plan().tripName }}</h3>
-    <p class="feed-owner"><span i18n="@@feed.by">por</span> <tb-user-link [name]="plan().ownerName" [username]="plan().ownerUsername" /></p>
+    <p class="feed-owner"><span i18n="@@feed.by">por</span>&ngsp;<tb-user-link [name]="plan().ownerName" [username]="plan().ownerUsername" /></p>
     <div class="feed-actions">
       <a class="btn-pill feed-view-plan" [routerLink]="['/shared', plan().id]"
          i18n="@@feed.viewPlan">Ver plan completo</a>
