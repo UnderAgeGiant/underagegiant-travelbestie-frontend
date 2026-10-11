@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, DestroyRef, ElementRef, computed, inject, signal } from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, ElementRef, OnInit, computed, inject, input, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { focusWhenPresent } from '../../../core/routing/focus-item.util';
@@ -19,20 +19,28 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
   host: { id: 'trofeos' },
   template: `
     <section class="ts">
-      <div class="section-head" i18n="@@trophy.title">Mis trofeos 🏆</div>
+      @if (readOnly()) {
+        <div class="section-head" i18n="@@trophy.titlePublic">Trofeos 🏆</div>
+      } @else {
+        <div class="section-head" i18n="@@trophy.title">Mis trofeos 🏆</div>
+      }
 
-      @if (svc.loadError()) {
+      @if (!readOnly() && svc.loadError()) {
         <div class="section-empty">
           <span i18n="@@trophy.loadError">No pudimos cargar tus trofeos.</span>
           <button class="btn-pill btn-outline ts-retry" type="button" (click)="svc.load()" i18n="@@trophy.retry">Reintentar</button>
         </div>
       } @else if (!showAll()) {
-        @if (svc.loading() && bubbles().length === 0) {
+        @if (!readOnly() && svc.loading() && bubbles().length === 0) {
           <div class="ts-empty"><p i18n="@@trophy.loading">Cargando…</p></div>
         } @else if (bubbles().length === 0) {
           <div class="ts-empty">
             <img src="/Dog-waiting-1.png" alt="" width="96" height="175" />
-            <p i18n="@@trophy.empty">Aún no tienes trofeos, ¡empieza a planear!</p>
+            @if (readOnly()) {
+              <p i18n="@@trophy.emptyPublic">Todavía no tiene trofeos.</p>
+            } @else {
+              <p i18n="@@trophy.empty">Aún no tienes trofeos, ¡empieza a planear!</p>
+            }
           </div>
         } @else {
           <div class="ts-bubbles">
@@ -51,7 +59,9 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
             }
           </div>
         }
-        <button class="btn-pill btn-outline ts-toggle" type="button" (click)="showAll.set(true)" i18n="@@trophy.seeAll">Ver todos los trofeos</button>
+        @if (!readOnly()) {
+          <button class="btn-pill btn-outline ts-toggle" type="button" (click)="showAll.set(true)" i18n="@@trophy.seeAll">Ver todos los trofeos</button>
+        }
       } @else {
         @for (g of groups(); track g.label) {
           <h4 class="ts-group">{{ g.label }}</h4>
@@ -94,15 +104,20 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
     .ts-empty img { display: block; margin: 0 auto 8px; width: 96px; height: auto; }
   `],
 })
-export class TrophyShelfComponent implements AfterViewInit {
+export class TrophyShelfComponent implements OnInit, AfterViewInit {
   readonly svc = inject(TrophyService);
   private readonly host = inject(ElementRef<HTMLElement>);
+
+  /** Read-only mode (public profile): someone else's earned medals. Null = my own trophies via TrophyService. */
+  readonly earned = input<EarnedTrophy[] | null>(null);
+  readonly readOnly = computed(() => this.earned() !== null);
+  private readonly earnedList = computed(() => this.earned() ?? this.svc.earned());
 
   readonly showAll = signal(false);
   readonly activeKey = signal<string | null>(null);
 
   /** One bubble per earned medal, oldest first. */
-  readonly bubbles = computed(() => this.svc.earned().filter(isKnownTrophy).sort((a, b) => a.earnedAt.localeCompare(b.earnedAt)));
+  readonly bubbles = computed(() => this.earnedList().filter(isKnownTrophy).sort((a, b) => a.earnedAt.localeCompare(b.earnedAt)));
 
   readonly groups = computed(() => {
     const earned = new Map(this.svc.earned().map(e => [trophyKey(e.type, e.tier), e.earnedAt]));
@@ -118,19 +133,23 @@ export class TrophyShelfComponent implements AfterViewInit {
   });
 
   constructor() {
-    this.svc.load();
     // ?focus=<type>:<tier> from a trophy notification (untrusted: match-only, see focus-item.util.ts).
     // queryParamMap, not the snapshot: /profile is reused when a second trophy notification is clicked.
     let cancelFocus = () => {};
     inject(ActivatedRoute).queryParamMap.pipe(takeUntilDestroyed()).subscribe(pm => {
       cancelFocus();
+      if (this.readOnly()) return;   // public profile: notifications never target it
       cancelFocus = focusWhenPresent(this.host.nativeElement, pm.get('focus'));
     });
     inject(DestroyRef).onDestroy(() => cancelFocus());
   }
 
+  ngOnInit(): void {
+    if (!this.readOnly()) this.svc.load();
+  }
+
   ngAfterViewInit(): void {
-    if (typeof location !== 'undefined' && location.hash === '#trofeos') {
+    if (!this.readOnly() && typeof location !== 'undefined' && location.hash === '#trofeos') {
       this.host.nativeElement.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
     }
   }

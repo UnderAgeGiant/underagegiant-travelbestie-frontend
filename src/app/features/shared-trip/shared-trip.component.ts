@@ -38,6 +38,7 @@ import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slides
 import { PlanPresentationPillComponent } from '../../shared/plan-presentation-pill/plan-presentation-pill.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { UserLinkComponent } from '../../shared/user-link/user-link.component';
+import { FollowButtonComponent } from '../public-profile/follow-button.component';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { sharedTripSeo, sharedTripNotFoundSeo } from '../../core/seo/shared-trip-seo.util';
@@ -49,7 +50,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent],
+    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -86,7 +87,11 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
         <!-- Trip header -->
         <div class="shared-header">
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
-          <div class="shared-header-owner"><ng-container i18n="@@sharedTrip.tripByPrefix">Viaje de</ng-container> <tb-user-link [name]="trip()!.ownerName" [username]="trip()!.ownerUsername" /></div>
+          <div class="shared-header-owner"><ng-container i18n="@@sharedTrip.tripByPrefix">Viaje de</ng-container> <tb-user-link [name]="trip()!.ownerName" [username]="trip()!.ownerUsername" />
+            @if (trip()!.ownerUsername && auth.currentUser()?.username !== trip()!.ownerUsername) {
+              <tb-follow-button [username]="trip()!.ownerUsername!" />
+            }
+          </div>
 
           <!-- Favorite toggle -->
           <div class="fav-row">

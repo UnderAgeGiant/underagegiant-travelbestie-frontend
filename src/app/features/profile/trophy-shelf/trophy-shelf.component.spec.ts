@@ -131,3 +131,57 @@ describe('TrophyShelfComponent — F2: Empty-state Miel image aspect ratio', () 
     expect(img.getAttribute('height')).toBe('175');
   });
 });
+
+describe('TrophyShelfComponent — read-only mode ([earned] input)', () => {
+  const earned = signal<any[]>([]);
+  const progress = signal<any>({});
+  const loadError = signal(false);
+  const loading = signal(false);
+  const load = jest.fn();
+
+  const sample = [
+    { type: 'followers', tier: 'bronze', earnedAt: '2026-10-01T12:00:00.000Z' },
+    { type: 'publish_plan', tier: 'single', earnedAt: '2026-10-02T12:00:00.000Z' },
+  ];
+
+  function renderReadOnly(list: readonly any[]) {
+    TestBed.configureTestingModule({
+      imports: [TrophyShelfComponent],
+      providers: [provideRouter([]), { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } }],
+    });
+    const f = TestBed.createComponent(TrophyShelfComponent);
+    f.componentRef.setInput('earned', list);
+    f.detectChanges();
+    return f;
+  }
+
+  beforeEach(() => { earned.set([]); progress.set({}); loadError.set(false); loading.set(false); load.mockReset(); });
+
+  it('renders the given medals as bubbles and never loads the viewer’s own trophies', () => {
+    const f = renderReadOnly(sample);
+    expect(f.nativeElement.querySelectorAll('.ts-bubble').length).toBe(2);
+    expect(load).not.toHaveBeenCalled();
+  });
+
+  it('hides "Ver todos" (progress is private) and uses a neutral title', () => {
+    const f = renderReadOnly(sample);
+    expect(f.nativeElement.querySelector('.ts-toggle')).toBeNull();
+    expect(f.nativeElement.querySelector('.section-head').textContent).not.toContain('Mis');
+  });
+
+  it('shows the third-person empty state', () => {
+    const f = renderReadOnly([]);
+    expect(f.nativeElement.textContent).toContain('Todavía no tiene trofeos');
+  });
+
+  it('own-profile mode is unchanged: loads and shows "Ver todos"', () => {
+    TestBed.configureTestingModule({
+      imports: [TrophyShelfComponent],
+      providers: [provideRouter([]), { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } }],
+    });
+    const own = TestBed.createComponent(TrophyShelfComponent);
+    own.detectChanges();
+    expect(load).toHaveBeenCalled();
+    expect(own.nativeElement.querySelector('.ts-toggle')).not.toBeNull();
+  });
+});

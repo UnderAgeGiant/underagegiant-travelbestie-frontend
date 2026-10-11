@@ -1,4 +1,4 @@
-import { karmaHistorySeo, notFoundSeo, sharedPendingSeo } from './seo-pages';
+import { karmaHistorySeo, notFoundSeo, publicProfileSeo, sharedPendingSeo, tooManyRequestsSeo } from './seo-pages';
 
 /**
  * Regression coverage for the 2026-09-21 "noindex tag detected" incident: sharedPendingSeo() used to carry
@@ -20,4 +20,11 @@ describe('sharedPendingSeo', () => {
 describe('genuinely non-indexable routes (unaffected by the fix above)', () => {
   it('notFoundSeo is noindex', () => expect(notFoundSeo().noindex).toBe(true));
   it('karmaHistorySeo is noindex', () => expect(karmaHistorySeo().noindex).toBe(true));
+});
+
+describe('social pages are noindex', () => {
+  it('public profile and rate-limit pages are noindex', () => {
+    expect(publicProfileSeo().noindex).toBe(true);
+    expect(tooManyRequestsSeo().noindex).toBe(true);
+  });
 });

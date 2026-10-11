@@ -48,6 +48,16 @@ export const aiPlanningSeo: RouteSeo = () => ({
   noindex: true,
 });
 
+export const publicProfileSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.publicProfile.title:Perfil de viajero | Tripilove`,
+  noindex: true,
+});
+
+export const tooManyRequestsSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.tooManyRequests.title:Demasiadas visitas | Tripilove`,
+  noindex: true,
+});
+
 export const notFoundSeo: RouteSeo = () => ({
   title: $localize`:@@seo.notFound.title:Página no encontrada | Tripilove`,
   noindex: true,

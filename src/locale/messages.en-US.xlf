@@ -3218,6 +3218,130 @@
         <source>Legales y Guías</source>
         <target>Legal &amp; Guides</target>
       </trans-unit>
+      <trans-unit id="seo.publicProfile.title" datatype="html">
+        <source>Perfil de viajero | Tripilove</source>
+        <target>Traveler profile | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.tooManyRequests.title" datatype="html">
+        <source>Demasiadas visitas | Tripilove</source>
+        <target>Too many visits | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.followers" datatype="html">
+        <source>Viajero popular</source>
+        <target>Popular traveler</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.followers" datatype="html">
+        <source>Te siguen <x id="count" equiv-text="n"/> viajeros</source>
+        <target>Followed by <x id="count" equiv-text="n"/> travelers</target>
+      </trans-unit>
+      <trans-unit id="trophy.titlePublic" datatype="html">
+        <source>Trofeos 🏆</source>
+        <target>Trophies 🏆</target>
+      </trans-unit>
+      <trans-unit id="trophy.emptyPublic" datatype="html">
+        <source>Todavía no tiene trofeos.</source>
+        <target>No trophies yet.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameTitle" datatype="html">
+        <source>Nombre de usuario</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameHelp" datatype="html">
+        <source>Con un nombre de usuario tienes un perfil público y otros viajeros pueden seguirte. Puedes cambiarlo, pero no eliminarlo.</source>
+        <target>With a username you get a public profile and other travelers can follow you. You can change it, but not remove it.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernamePlaceholder" datatype="html">
+        <source>tu_usuario</source>
+        <target>your_username</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameFormat" datatype="html">
+        <source>De 3 a 50 caracteres: letras minúsculas, números, _ y . (sin empezar ni terminar con punto).</source>
+        <target>3 to 50 characters: lowercase letters, numbers, _ and . (no leading or trailing dot).</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameTaken" datatype="html">
+        <source>Ese nombre ya está en uso.</source>
+        <target>That username is already taken.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameNotAllowed" datatype="html">
+        <source>Ese nombre no está permitido.</source>
+        <target>That username is not allowed.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameError" datatype="html">
+        <source>No se pudo guardar. Intenta de nuevo.</source>
+        <target>Could not save. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameSave" datatype="html">
+        <source>Guardar nombre de usuario</source>
+        <target>Save username</target>
+      </trans-unit>
+      <trans-unit id="profile.viewPublicProfile" datatype="html">
+        <source>Ver mi perfil público</source>
+        <target>View my public profile</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameNone" datatype="html">
+        <source>Sin perfil público</source>
+        <target>No public profile</target>
+      </trans-unit>
+      <trans-unit id="follow.following" datatype="html">
+        <source>Siguiendo</source>
+        <target>Following</target>
+      </trans-unit>
+      <trans-unit id="follow.follow" datatype="html">
+        <source>Seguir</source>
+        <target>Follow</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.loading" datatype="html">
+        <source>Cargando perfil…</source>
+        <target>Loading profile…</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.notFound" datatype="html">
+        <source>Este perfil no existe</source>
+        <target>This profile does not exist</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.home" datatype="html">
+        <source>Volver al inicio</source>
+        <target>Back to home</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.followers" datatype="html">
+        <source>seguidores</source>
+        <target>followers</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.following" datatype="html">
+        <source>siguiendo</source>
+        <target>following</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.edit" datatype="html">
+        <source>Editar perfil</source>
+        <target>Edit profile</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.cities" datatype="html">
+        <source>Ciudades visitadas</source>
+        <target>Cities visited</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.trips" datatype="html">
+        <source>Planes compartidos</source>
+        <target>Shared plans</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.noTrips" datatype="html">
+        <source>Todavía no ha compartido planes.</source>
+        <target>No shared plans yet.</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.tripByPrefix" datatype="html">
+        <source>Viaje de</source>
+        <target>Trip by</target>
+      </trans-unit>
+      <trans-unit id="tooMany.title" datatype="html">
+        <source>¡Guau, cuántas visitas!</source>
+        <target>Wow, so many visits!</target>
+      </trans-unit>
+      <trans-unit id="tooMany.body" datatype="html">
+        <source>Miel necesita un respiro. Vuelve a intentarlo en unos segundos.</source>
+        <target>Miel needs a breather. Try again in a few seconds.</target>
+      </trans-unit>
+      <trans-unit id="tooMany.home" datatype="html">
+        <source>Volver al inicio</source>
+        <target>Back to home</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

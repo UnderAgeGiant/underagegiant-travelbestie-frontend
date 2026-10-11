@@ -1,4 +1,5 @@
 import { guideBySlug } from '../app/data/city-guides.data';
+import { isUsernameFormatValid } from '../app/core/social/username.util';
 
 export type EdgeLocale = 'es-CL' | 'en-US';
 
@@ -44,12 +45,22 @@ export function citySlugFromPath(pathname: string): string | null {
   } catch { return null; }
 }
 
+/** `/u/<username>` with a valid-format username (lowercased) — unknown-but-valid names still get the shell; the page shows "no existe". */
+export function usernameFromPath(pathname: string): string | null {
+  const m = /^\/u\/([^/]+)$/.exec(trim(pathname));
+  if (!m) return null;
+  try {
+    const u = decodeURIComponent(m[1]).toLowerCase();
+    return isUsernameFormatValid(u) ? u : null;
+  } catch { return null; }
+}
+
 /** Every path the SPA can render. A jest guard fails if app.routes.ts gains a route missing here. */
-const STATIC_ROUTES = new Set(['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/profile', '/my-trips', '/ai-planning', '/guides']);
+const STATIC_ROUTES = new Set(['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/profile', '/my-trips', '/ai-planning', '/guides', '/demasiadas-visitas']);
 
 export function isKnownRoute(pathname: string): boolean {
   const p = trim(pathname);
-  return STATIC_ROUTES.has(p) || sharedIdFromPath(p) !== null || citySlugFromPath(p) !== null;
+  return STATIC_ROUTES.has(p) || sharedIdFromPath(p) !== null || citySlugFromPath(p) !== null || usernameFromPath(p) !== null;
 }
 
 /** Legacy `?share=<id>[&highlight=…]` → `/shared/<id>[?highlight=…]` (301 at the edge; the client shim stays for old in-app links). */
