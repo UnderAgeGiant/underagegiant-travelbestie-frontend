@@ -10,13 +10,14 @@ export const TROPHY_THRESHOLDS: Record<TrophyType, Partial<Record<TrophyTier, nu
   publish_plan: { single: 1 },
   share_plan:   { single: 1 },
   plan_visited: { single: 1 },
+  followers:    { bronze: 1, silver: 25, gold: 100 },
 };
 
 /** True only for a type/tier pair this build knows how to name and draw. */
 export const isKnownTrophy = (t: { type: string; tier: string }): boolean =>
   t.type in TROPHY_THRESHOLDS && t.tier in TROPHY_THRESHOLDS[t.type as TrophyType];
 
-export const TIERED_TYPES: TrophyType[] = ['ai_plans', 'comments', 'favorites', 'clones'];
+export const TIERED_TYPES: TrophyType[] = ['ai_plans', 'comments', 'favorites', 'clones', 'followers'];
 export const SINGLE_TYPES: TrophyType[] = ['excel_export', 'publish_plan', 'share_plan', 'plan_visited'];
 
 export const trophyKey = (type: TrophyType, tier: TrophyTier): string => `${type}:${tier}`;
@@ -42,6 +43,7 @@ export function trophyName(type: TrophyType): string {
     case 'publish_plan': return $localize`:@@trophy.name.publishPlan:Plan a la deriva`;
     case 'share_plan':   return $localize`:@@trophy.name.sharePlan:Corre la voz`;
     case 'plan_visited': return $localize`:@@trophy.name.planVisited:Primera visita`;
+    case 'followers':    return $localize`:@@trophy.name.followers:Viajero popular`;
   }
 }
 
@@ -65,5 +67,6 @@ export function trophyDescription(type: TrophyType, tier: TrophyTier): string {
     case 'publish_plan': return $localize`:@@trophy.desc.publishPlan:Publicaste tu primer plan`;
     case 'share_plan':   return $localize`:@@trophy.desc.sharePlan:Compartiste un plan con alguien`;
     case 'plan_visited': return $localize`:@@trophy.desc.planVisited:Un viajero con cuenta visitó un plan que publicaste`;
+    case 'followers':    return $localize`:@@trophy.desc.followers:Te siguen ${n}:count: viajeros`;
   }
 }

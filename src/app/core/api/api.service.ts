@@ -14,12 +14,14 @@ import { FeaturedTrip, AppStats } from '../models/featured-trip.model';
 import { AppNotification, NotificationStatus } from '../models/notification.model';
 import { HighlightType, HighlightStatus } from '../models/highlight.model';
 import { FeedPage } from '../models/feed-plan.model';
+import { PublicProfile } from '../models/public-profile.model';
 import { SeoCityPlan } from '../models/seo-city-plan.model';
 import { TrophiesResponse } from '../models/trophy.model';
 import { MyRankings, WeeklyRankings } from '../models/ranking.model';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { mockFeedPage } from './feed.mock';
+import { mockPublicProfile } from './public-profile.mock';
 import { mockMyRankings, mockWeeklyRankings } from '../rankings/rankings.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
@@ -443,6 +445,28 @@ export class ApiService {
     let params = new HttpParams().set('limit', String(limit));
     if (cursor) params = params.set('cursor', cursor);
     return this.http.get<FeedPage>(`${this.base}/feed`, { params });
+  }
+
+  getPublicProfile(username: string): Observable<PublicProfile> {
+    if (this.useMocks) return of(mockPublicProfile(username));
+    return this.http.get<PublicProfile>(`${this.base}/u/${encodeURIComponent(username)}`);
+  }
+
+  followUser(username: string): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.post<void>(`${this.base}/users/${encodeURIComponent(username)}/follow`, {});
+  }
+
+  unfollowUser(username: string): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.delete<void>(`${this.base}/users/${encodeURIComponent(username)}/follow`);
+  }
+
+  getFollowingFeed(cursor: string | null = null, limit = 20): Observable<FeedPage> {
+    if (this.useMocks) return of(mockFeedPage(cursor, limit));
+    let params = new HttpParams().set('limit', String(limit));
+    if (cursor) params = params.set('cursor', cursor);
+    return this.http.get<FeedPage>(`${this.base}/feed/following`, { params });
   }
 
   /** Real shared itineraries through a city guide's `cityId` — up to 6, favorites-ranked. */

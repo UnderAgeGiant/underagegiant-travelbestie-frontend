@@ -63,6 +63,12 @@ describe('AuthService', () => {
     req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
   });
 
+  it('maps HTTP 409 on updateProfile to code CONFLICT', done => {
+    jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
+    service.updateProfile({ username: 'ana' }).subscribe({ error: (e: { code: string }) => { expect(e.code).toBe('CONFLICT'); done(); } });
+    http.expectOne(r => r.url.endsWith('/auth/profile')).flush({ error: 'USERNAME_TAKEN' }, { status: 409, statusText: 'Conflict' });
+  });
+
   it('isLoggedIn returns false when no token', () => {
     expect(service.isLoggedIn()).toBe(false);
   });

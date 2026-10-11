@@ -73,9 +73,9 @@ describe('TrophyShelfComponent', () => {
     f.nativeElement.querySelector('.ts-toggle').click();
     f.detectChanges();
     const rows = f.nativeElement.querySelectorAll('.ts-row');
-    expect(rows.length).toBe(16);   // 4 tiered × 3 + 4 single
+    expect(rows.length).toBe(19);   // 5 tiered × 3 + 4 single
     const locked = f.nativeElement.querySelectorAll('.ts-row.ts-locked');
-    expect(locked.length).toBe(15);
+    expect(locked.length).toBe(18);
     expect(f.nativeElement.textContent).toContain('7 / 20');   // comments silver progress
     f.nativeElement.querySelector('.ts-toggle').click();
     f.detectChanges();

@@ -1,5 +1,5 @@
 /** Feature 70 — mirrors the manager's src/types.ts ranking types. */
-export interface RankedUser { name: string; value: number }
+export interface RankedUser { name: string; username?: string | null; value: number }
 export interface RankedCity { cityId: string; value: number }
 export interface RankedPlan { title: string; shareId: string; ownerName: string; value: number }
 export interface WeeklyRankings {
