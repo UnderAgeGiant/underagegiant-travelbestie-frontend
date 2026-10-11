@@ -11,11 +11,12 @@ import { TrophyShelfComponent } from './trophy-shelf/trophy-shelf.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
+import { UsernameEditComponent } from './username-edit/username-edit.component';
 import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../core/utils/password-strength.util';
 
 @Component({
     selector: 'app-profile',
-    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, AutosaveReminderBannerComponent, NavShellComponent],
+    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -80,6 +81,9 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
             </div>
           }
           <div style="border:1px solid var(--border);border-radius:14px;background:#fff">
+
+            <tb-username-edit />
+            <div class="profile-accordion-sep"></div>
 
             <!-- Name -->
             <button class="profile-accordion-hd" (click)="toggleEditSection('name')" type="button">

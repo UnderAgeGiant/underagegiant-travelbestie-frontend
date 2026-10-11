@@ -59,14 +59,14 @@ describe('ProfileComponent — edit account accordion', () => {
     expect(navSpy).toHaveBeenCalled();
   });
 
-  it('has exactly three accordion toggle buttons in the edit-account section', () => {
+  it('has exactly four accordion toggle buttons in the edit-account section (username row added first)', () => {
     const buttons = fixture.nativeElement.querySelectorAll('.profile-accordion-hd');
-    expect(buttons.length).toBe(3);
+    expect(buttons.length).toBe(4);
   });
 
   it('renders the country combobox when the País de residencia section is opened', () => {
     const buttons = fixture.nativeElement.querySelectorAll('.profile-accordion-hd');
-    (buttons[2] as HTMLButtonElement).click();
+    (buttons[3] as HTMLButtonElement).click();
     fixture.detectChanges();
 
     const combobox = fixture.nativeElement.querySelector('app-country-combobox');
