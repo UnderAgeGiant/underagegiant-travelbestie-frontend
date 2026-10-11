@@ -73,3 +73,27 @@ describe('PublicProfileComponent', () => {
     expect(navigate).toHaveBeenCalledWith(['/demasiadas-visitas'], { queryParams: { retry: 42 }, replaceUrl: true });
   });
 });
+
+describe("PublicProfileComponent — route reuse after an error", () => {
+  it("recovers when the paramMap emits a valid username after a 404", () => {
+    const params = new BehaviorSubject(convertToParamMap({ username: "ghost" }));
+    TestBed.configureTestingModule({
+      imports: [PublicProfileComponent],
+      providers: [
+        provideRouter([]),
+        { provide: ApiService, useValue: {
+          getPublicProfile: (u: string) => u === "ghost"
+            ? throwError(() => new HttpErrorResponse({ status: 404 }))
+            : of(mockPublicProfile(u)),
+        } },
+        { provide: AuthService, useValue: { isLoggedIn: signal(false), currentUser: signal(null) } },
+        { provide: ActivatedRoute, useValue: { paramMap: params, queryParamMap: of(convertToParamMap({})) } },
+      ],
+    });
+    const f = TestBed.createComponent(PublicProfileComponent);
+    f.detectChanges();
+    expect(f.componentInstance.state()).toBe("notFound");
+    params.next(convertToParamMap({ username: "ana" }));
+    expect(f.componentInstance.state()).toBe("ready");
+  });
+});

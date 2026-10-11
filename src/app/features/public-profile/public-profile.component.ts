@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { switchMap } from 'rxjs';
+import { EMPTY, catchError, switchMap } from 'rxjs';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { PublicProfile } from '../../core/models/public-profile.model';
@@ -103,21 +103,25 @@ export class PublicProfileComponent {
 
   constructor() {
     inject(ActivatedRoute).paramMap.pipe(
-      switchMap(pm => { this.state.set('loading'); return this.api.getPublicProfile(pm.get('username') ?? ''); }),
+      switchMap(pm => {
+        this.state.set('loading');
+        return this.api.getPublicProfile(pm.get('username') ?? '').pipe(
+          // Inner handling: an error must not kill the outer paramMap stream (route reuse /u/a → /u/b).
+          catchError((e: HttpErrorResponse) => {
+            if (e.status === 429) {
+              this.state.set('rateLimited');
+              const retry = Number.parseInt(e.headers?.get('Retry-After') ?? '', 10);
+              // replaceUrl: Back must not return to /u/x and re-trigger the 429.
+              this.router.navigate(['/demasiadas-visitas'], { queryParams: { retry: Number.isFinite(retry) ? retry : 60 }, replaceUrl: true });
+            } else {
+              this.state.set('notFound');
+            }
+            return EMPTY;
+          }),
+        );
+      }),
       takeUntilDestroyed(),
-    ).subscribe({
-      next: p => { this.profile.set(p); this.following.set(!!p.isFollowedByMe); this.state.set('ready'); },
-      error: (e: HttpErrorResponse) => {
-        if (e.status === 429) {
-          this.state.set('rateLimited');
-          const retry = Number.parseInt(e.headers?.get('Retry-After') ?? '', 10);
-          // replaceUrl: Back must not return to /u/x and re-trigger the 429.
-          this.router.navigate(['/demasiadas-visitas'], { queryParams: { retry: Number.isFinite(retry) ? retry : 60 }, replaceUrl: true });
-        } else {
-          this.state.set('notFound');
-        }
-      },
-    });
+    ).subscribe(p => { this.profile.set(p); this.following.set(!!p.isFollowedByMe); this.state.set('ready'); });
   }
 
   goHome(): void {

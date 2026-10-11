@@ -107,6 +107,8 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
 export class TrophyShelfComponent implements OnInit, AfterViewInit {
   readonly svc = inject(TrophyService);
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly route = inject(ActivatedRoute);
+  private readonly destroyRef = inject(DestroyRef);
 
   /** Read-only mode (public profile): someone else's earned medals. Null = my own trophies via TrophyService. */
   readonly earned = input<EarnedTrophy[] | null>(null);
@@ -132,20 +134,19 @@ export class TrophyShelfComponent implements OnInit, AfterViewInit {
     ];
   });
 
-  constructor() {
+  ngOnInit(): void {
+    if (!this.readOnly()) this.svc.load();
     // ?focus=<type>:<tier> from a trophy notification (untrusted: match-only, see focus-item.util.ts).
     // queryParamMap, not the snapshot: /profile is reused when a second trophy notification is clicked.
+    // Subscribed here, not in the constructor: queryParamMap emits synchronously, before the `earned`
+    // input is bound, so readOnly() would be stale and the public page could be focused.
     let cancelFocus = () => {};
-    inject(ActivatedRoute).queryParamMap.pipe(takeUntilDestroyed()).subscribe(pm => {
+    this.route.queryParamMap.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(pm => {
       cancelFocus();
       if (this.readOnly()) return;   // public profile: notifications never target it
       cancelFocus = focusWhenPresent(this.host.nativeElement, pm.get('focus'));
     });
-    inject(DestroyRef).onDestroy(() => cancelFocus());
-  }
-
-  ngOnInit(): void {
-    if (!this.readOnly()) this.svc.load();
+    this.destroyRef.onDestroy(() => cancelFocus());
   }
 
   ngAfterViewInit(): void {
