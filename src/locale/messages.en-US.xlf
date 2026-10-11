@@ -2298,6 +2298,14 @@
         <source>Ver más</source>
         <target>See more</target>
       </trans-unit>
+      <trans-unit id="profile.followingError" datatype="html">
+        <source>No pudimos cargar a quienes sigues.</source>
+        <target>We couldn't load the people you follow.</target>
+      </trans-unit>
+      <trans-unit id="profile.followingRetry" datatype="html">
+        <source>Reintentar</source>
+        <target>Retry</target>
+      </trans-unit>
       <trans-unit id="profile.nameTitle" datatype="html">
         <source>Nombre</source>
         <target>Name</target>

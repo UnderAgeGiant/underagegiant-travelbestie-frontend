@@ -4218,18 +4218,32 @@
           <context context-type="linenumber">12,13</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="profile.followingError" datatype="html">
+        <source>No pudimos cargar a quienes sigues.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/following-feed/following-feed.component.ts</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.followingRetry" datatype="html">
+        <source>Reintentar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/following-feed/following-feed.component.ts</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="profile.followingEmpty" datatype="html">
         <source>Aún no sigues a nadie — encuentra viajeros en Rankings.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/following-feed/following-feed.component.ts</context>
-          <context context-type="linenumber">15,17</context>
+          <context context-type="linenumber">18,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.followingMore" datatype="html">
         <source>Ver más</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/following-feed/following-feed.component.ts</context>
-          <context context-type="linenumber">18,21</context>
+          <context context-type="linenumber">21,24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.title" datatype="html">
