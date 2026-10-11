@@ -37,6 +37,7 @@ describe('NotificationBellComponent — open() follows the backend url', () => {
     ['ai_plan_ready', '/my-trips?tab=aiplans&focus=r1'],
     ['ai_plan_failed', '/my-trips?tab=aiplans'],
     ['trophy', '/profile?focus=ai_plans%3Abronze#trofeos'],
+    ['new_follower', '/u/beto'],
     ['some_future_type', '/somewhere/new'],
   ])('%s → navigates to %s exactly once', (type, url) => {
     component.panelOpen.set(true);
@@ -44,6 +45,13 @@ describe('NotificationBellComponent — open() follows the backend url', () => {
     expect(component.panelOpen()).toBe(false);
     expect(router.navigateByUrl).toHaveBeenCalledTimes(1);
     expect(router.navigateByUrl).toHaveBeenCalledWith(url);
+  });
+
+  it('new_follower with an empty url closes the panel without navigating', () => {
+    component.panelOpen.set(true);
+    component.open(notif('new_follower', ''));
+    expect(component.panelOpen()).toBe(false);
+    expect(router.navigateByUrl).not.toHaveBeenCalled();
   });
 
   it('maps a legacy /?share=<id> row to /shared/<id>', () => {
