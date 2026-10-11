@@ -40,7 +40,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
         <button class="btn-pill btn-ghost" tbHighlightTarget="login-btn" (click)="facade.authModal.openLogin()"
                 i18n="@@nav.signInBtn">Iniciar sesión</button>
       } @else {
-        <button class="nav-m-burger" (click)="drawerOpen.set(true)"
+        <button class="nav-m-burger" tbHighlightTarget="user-menu-btn" (click)="drawerOpen.set(true)"
                 i18n-aria-label="@@nav.mobileMenuOpen" aria-label="Abrir menú">☰</button>
       }
     </nav>
