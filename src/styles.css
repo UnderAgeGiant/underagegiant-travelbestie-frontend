@@ -1154,7 +1154,8 @@ app-nav { display: block; }
   font-size: clamp(32px, 4.5vw, 64px); line-height: 1.02; letter-spacing: -.02em; text-wrap: balance; margin: 0 0 8px;
 }
 /* Public profile column is ~730px wide, far narrower than the full-bleed landing feed. */
-.pp-page .feed-title { font-size: clamp(26px, 3.2vw, 38px); }
+.pp-page .feed-title { font-size: clamp(20px, 2.4vw, 28px); }
+.pp-page .feed-caption-name { font-size: clamp(18px, 2vw, 24px); }
 .feed-owner { font-size: 13px; color: oklch(100% 0 0/.78); margin: 0 0 18px; }
 .feed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .feed-view-plan { text-decoration: none; justify-content: center; background: var(--lav-d); color: #fff; min-height: 48px; padding: 0 26px; font-size: 14px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .12s; }
