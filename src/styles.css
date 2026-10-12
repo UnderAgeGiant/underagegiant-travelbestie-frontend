@@ -1156,8 +1156,8 @@ app-nav { display: block; }
 /* Public profile column is ~730px wide, far narrower than the full-bleed landing feed. */
 .pp-page .feed-title { font-size: clamp(20px, 2.4vw, 28px); }
 .pp-page .feed-caption-name { font-size: clamp(18px, 2vw, 24px); }
-/* Cap both at 2 lines so a long attraction name and a long plan title never overlap on the short card. */
-.pp-page .feed-title, .pp-page .feed-caption-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+/* Tight line-height so a wrapped title/caption name stays compact and the two blocks don't collide on the short card. */
+.pp-page .feed-title, .pp-page .feed-caption-name { line-height: .9; }
 .feed-owner { font-size: 13px; color: oklch(100% 0 0/.78); margin: 0 0 18px; }
 .feed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .feed-view-plan { text-decoration: none; justify-content: center; background: var(--lav-d); color: #fff; min-height: 48px; padding: 0 26px; font-size: 14px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .12s; }
