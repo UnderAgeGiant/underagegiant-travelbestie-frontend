@@ -1921,16 +1921,16 @@
         <target>➕ Add</target>
       </trans-unit>
       <trans-unit id="companion.boostedLabel" datatype="html">
-        <source>¡Miel está atenta hoy! 🦴💕</source>
-        <target>Miel is paying attention today! 🦴💕</target>
+        <source>🐾 ¡Miel está lista para jugar contigo!</source>
+        <target>🐾 Miel is ready to play with you!</target>
       </trans-unit>
       <trans-unit id="companion.boostTimer" datatype="html">
         <source>Termina en <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></source>
         <target>Ends in <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></target>
       </trans-unit>
       <trans-unit id="companion.boostCopy" datatype="html">
-        <source> Por ahora Miel está jugando con otro usuario. Dale un premio 🦴 para que juegue contigo. ¡Durante las próximas 24 horas Miel jugara contigo y te dará más sugerencias sobre tu viaje! </source>
-        <target> Right now Miel is playing with another user. Give her a treat 🦴 so she plays with you. For the next 24 hours Miel will play with you and give you more suggestions about your trip! </target>
+        <source> ¿Quieres más ideas? ¡Invita a Miel con un huesito!🦴 </source>
+        <target> Want more ideas? Treat Miel to a bone!🦴 </target>
       </trans-unit>
       <trans-unit id="companion.boostBtn" datatype="html">
         <source>Dar premio (−2 Token 🦴)</source>

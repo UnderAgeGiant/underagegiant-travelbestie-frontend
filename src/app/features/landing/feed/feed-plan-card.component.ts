@@ -51,8 +51,8 @@ function prefersReducedMotion(): boolean {
       }
       <div class="feed-scrim"></div>
       <div class="feed-caption">
-        <div class="feed-caption-name">{{ slide.name }}</div>
         <div class="feed-caption-city">{{ slide.cityName }}</div>
+        <div class="feed-caption-name">{{ slide.name }}</div>
         <div class="feed-caption-meta">
           <span class="feed-caption-type">{{ slide.icon }} {{ slide.type }}</span>
           @if (slide.rating !== null) { <span class="feed-caption-rating">★ {{ slide.rating }}</span> }
@@ -62,10 +62,12 @@ function prefersReducedMotion(): boolean {
   }
 
   <div class="feed-identity">
-    <div class="feed-chips">
-      @for (name of routeNames().shown; track name) { <span class="feed-chip">{{ name }}</span> }
-      @if (routeNames().more > 0) { <span class="feed-chip feed-chip-more">+{{ routeNames().more }}</span> }
-    </div>
+    @if (showRouteChips) {
+      <div class="feed-chips">
+        @for (name of routeNames().shown; track name) { <span class="feed-chip">{{ name }}</span> }
+        @if (routeNames().more > 0) { <span class="feed-chip feed-chip-more">+{{ routeNames().more }}</span> }
+      </div>
+    }
     <h3 class="feed-title">{{ plan().tripName }}</h3>
     <p class="feed-owner"><span i18n="@@feed.by">por</span>&ngsp;<tb-user-link [name]="plan().ownerName" [username]="plan().ownerUsername" /></p>
     <div class="feed-actions">
@@ -122,6 +124,8 @@ export class FeedPlanCardComponent {
   private readonly locale    = inject(LocaleService);
 
   protected readonly maxDots = MAX_DOTS;
+  /** Route-city chips hidden for now (owner wants to see the cards without them). Flip to true to restore. */
+  protected readonly showRouteChips = false;
   protected readonly heartLabelOn  = $localize`:@@feed.heartOn:Quitar de favoritos`;
   protected readonly heartLabelOff = $localize`:@@feed.heartOff:Guardar en favoritos`;
 

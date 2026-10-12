@@ -4184,7 +4184,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="companion.boostedLabel" datatype="html">
-        <source>¡Miel está atenta hoy! 🦴💕</source>
+        <source>🐾 ¡Miel está lista para jugar contigo!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/companion-boost-card.component.ts</context>
           <context context-type="linenumber">14,15</context>
@@ -4198,7 +4198,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="companion.boostCopy" datatype="html">
-        <source> Por ahora Miel está jugando con otro usuario. Dale un premio 🦴 para que juegue contigo. ¡Durante las próximas 24 horas Miel jugara contigo y te dará más sugerencias sobre tu viaje! </source>
+        <source> ¿Quieres más ideas? ¡Invita a Miel con un huesito!🦴 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/companion-boost-card.component.ts</context>
           <context context-type="linenumber">31,33</context>

@@ -1132,8 +1132,8 @@ app-nav { display: block; }
   text-align: right; pointer-events: none;
 }
 .feed-pane.active .feed-caption { animation: captionUp .5s .1s ease both; }
-.feed-caption-name { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: oklch(100% 0 0/.9); margin-bottom: 6px; text-wrap: balance; }
-.feed-caption-city { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.6vw, 46px); font-weight: 300; letter-spacing: -1px; line-height: 1; color: #fff; }
+.feed-caption-city { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: oklch(100% 0 0/.9); margin-bottom: 6px; }
+.feed-caption-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.6vw, 46px); font-weight: 300; letter-spacing: -1px; line-height: 1; color: #fff; text-wrap: balance; }
 .feed-caption-meta { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 10px; font-size: 12px; color: oklch(100% 0 0/.8); }
 .feed-caption-type { padding: 3px 10px; border-radius: 99px; background: oklch(75% .10 290 / .22); border: 1px solid oklch(75% .10 290 / .4); }
 .feed-caption-rating { font-weight: 600; font-variant-numeric: tabular-nums; }
@@ -1153,6 +1153,8 @@ app-nav { display: block; }
   font-family: 'Cormorant Garamond', serif; font-weight: 300; color: #fff;
   font-size: clamp(32px, 4.5vw, 64px); line-height: 1.02; letter-spacing: -.02em; text-wrap: balance; margin: 0 0 8px;
 }
+/* Public profile column is ~730px wide, far narrower than the full-bleed landing feed. */
+.pp-page .feed-title { font-size: clamp(26px, 3.2vw, 38px); }
 .feed-owner { font-size: 13px; color: oklch(100% 0 0/.78); margin: 0 0 18px; }
 .feed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .feed-view-plan { text-decoration: none; justify-content: center; background: var(--lav-d); color: #fff; min-height: 48px; padding: 0 26px; font-size: 14px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .12s; }
