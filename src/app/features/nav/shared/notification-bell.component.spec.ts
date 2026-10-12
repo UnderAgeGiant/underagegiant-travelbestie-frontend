@@ -36,7 +36,7 @@ describe('NotificationBellComponent — open() follows the backend url', () => {
     ['collaborator_accepted', '/my-trips?tab=trips&focus=t1'],
     ['ai_plan_ready', '/my-trips?tab=aiplans&focus=r1'],
     ['ai_plan_failed', '/my-trips?tab=aiplans'],
-    ['trophy', '/profile?focus=ai_plans%3Abronze#trofeos'],
+    ['trophy', '/preferences?focus=ai_plans%3Abronze#trofeos'],
     ['new_follower', '/u/beto'],
     ['some_future_type', '/somewhere/new'],
   ])('%s → navigates to %s exactly once', (type, url) => {
