@@ -142,10 +142,12 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                     </div>
                   </div>
 
-                  <button class="btn-pill btn-ghost nav-page-btn"
-                          style="width:100%;justify-content:center;margin-bottom:4px"
-                          (click)="onMyProfile()" type="button"
-                          i18n="@@nav.myProfile">👤 Mi perfil</button>
+                  @if (facade.auth.currentUser()?.username) {
+                    <button class="btn-pill btn-ghost nav-page-btn"
+                            style="width:100%;justify-content:center;margin-bottom:4px"
+                            (click)="onMyProfile()" type="button"
+                            i18n="@@nav.myProfile">👤 Mi perfil</button>
+                  }
                   <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'preferences'"
                           style="width:100%;justify-content:center;margin-bottom:4px"
                           (click)="onPreferences()" type="button"

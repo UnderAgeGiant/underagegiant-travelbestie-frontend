@@ -212,3 +212,31 @@ describe('NavDesktopComponent — city guide promo teaser', () => {
     expect(fixture.nativeElement.querySelector('app-city-guide-promo')).not.toBeNull();
   });
 });
+
+describe('NavDesktopComponent — "Mi perfil" needs a username', () => {
+  function labels(username?: string): string[] {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    const facade = TestBed.inject(NavFacadeService);
+    facade.auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, username });
+    facade.userMenuOpen.set(true);
+    fixture.detectChanges();
+    return [...fixture.nativeElement.querySelectorAll('.nav-page-btn')].map((b: HTMLElement) => b.textContent!.trim());
+  }
+
+  it('hides "Mi perfil" when the user has no username', () => {
+    const l = labels();
+    expect(l.some(t => t.includes('Mi perfil'))).toBe(false);
+    expect(l.some(t => t.includes('Mis preferencias'))).toBe(true);
+  });
+
+  it('shows "Mi perfil" above "Mis preferencias" when the user has a username', () => {
+    const l = labels('ana');
+    const i = l.findIndex(t => t.includes('Mi perfil'));
+    expect(i).toBeGreaterThanOrEqual(0);
+    expect(i).toBeLessThan(l.findIndex(t => t.includes('Mis preferencias')));
+  });
+});
