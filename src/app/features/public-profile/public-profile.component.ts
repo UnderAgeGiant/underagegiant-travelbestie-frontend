@@ -44,11 +44,11 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
             }
           </header>
 
-          <tb-trophy-shelf [earned]="p.trophies" />
+          <tb-trophy-shelf class="pp-trophies" [earned]="p.trophies" />
 
           @if (cities().length) {
             <section class="pp-section">
-              <h2 class="section-head" i18n="@@publicProfile.cities">Ciudades visitadas</h2>
+              <h2 class="section-head" i18n="@@publicProfile.cities">Ciudades planificadas</h2>
               <div class="feed-chips">@for (c of cities(); track c) { <span class="feed-chip">{{ c }}</span> }</div>
             </section>
           }
@@ -80,6 +80,7 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
     .pp-counts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; color: var(--t2); font-size: 13px; }
     .pp-counts span { display: inline-flex; gap: 4px; align-items: baseline; padding: 4px 12px; border-radius: 99px; background: rgba(255,255,255,.6); }
     .pp-counts strong { color: var(--t1); font-variant-numeric: tabular-nums; }
+    .pp-trophies { display: block; margin-top: 32px; }
     .pp-section { margin-top: 36px; }
     .pp-section .section-head { margin-bottom: 12px; }
     .pp-status { color: var(--t3); text-align: center; font-size: 13px; }

@@ -3331,8 +3331,8 @@
         <target>Edit profile</target>
       </trans-unit>
       <trans-unit id="publicProfile.cities" datatype="html">
-        <source>Ciudades visitadas</source>
-        <target>Cities visited</target>
+        <source>Ciudades planificadas</source>
+        <target>Planned cities</target>
       </trans-unit>
       <trans-unit id="publicProfile.trips" datatype="html">
         <source>Planes compartidos</source>
