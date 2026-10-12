@@ -245,7 +245,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                     <app-city-info-badge [city]="city"
                         [homeIso2]="auth.currentUser()?.countryOfResidence ?? null"
                         [isLoggedIn]="auth.isLoggedIn()"
-                        (ctaClick)="facade.openProfile()" />
+                        (ctaClick)="facade.openPreferences()" />
                   </div>
                 </div>
 

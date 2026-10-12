@@ -17,10 +17,10 @@ import { InsufficientKarmaModalComponent } from '../karma/insufficient-karma-mod
   template: `
     @if (device.isMobile()) {
       <app-nav-mobile [activeView]="activeView()" [showCityGuidePromo]="showCityGuidePromo()"
-                       (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" />
+                       (logoClick)="logoClick.emit()" (preferencesClick)="preferencesClick.emit()" />
     } @else {
       <app-nav-desktop [activeView]="activeView()" [showCityGuidePromo]="showCityGuidePromo()"
-                        (logoClick)="logoClick.emit()" (profileClick)="profileClick.emit()" />
+                        (logoClick)="logoClick.emit()" (preferencesClick)="preferencesClick.emit()" />
     }
 
     <app-auth-modal />
@@ -52,8 +52,8 @@ export class NavShellComponent {
   readonly facade = inject(NavFacadeService);
 
   logoClick    = output<void>();
-  profileClick = output<void>();
-  activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
+  preferencesClick = output<void>();
+  activeView   = input<'preferences' | 'mytrips' | 'karmahistory' | null>(null);
   /** Default true: shown next to the search box on every page that renders <app-nav>. */
   showCityGuidePromo = input<boolean>(true);
 }

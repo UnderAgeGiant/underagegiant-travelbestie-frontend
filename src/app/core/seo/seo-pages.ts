@@ -33,8 +33,8 @@ export const planSeo: RouteSeo = () => ({
   noindex: true,
 });
 
-export const profileSeo: RouteSeo = () => ({
-  title: $localize`:@@seo.profile.title:Mi perfil | Tripilove`,
+export const preferencesSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.preferences.title:Mis preferencias | Tripilove`,
   noindex: true,
 });
 

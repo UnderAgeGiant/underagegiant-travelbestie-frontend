@@ -25,12 +25,12 @@ describe('NavDesktopComponent — active page indication', () => {
     expect(fixture.nativeElement.querySelector('.nav-page-btn.active')).toBeNull();
   });
 
-  it('marks "Mi perfil" active when activeView is "profile"', () => {
+  it('marks "Mis preferencias" active when activeView is "preferences"', () => {
     const fixture = setup();
-    fixture.componentRef.setInput('activeView', 'profile');
+    fixture.componentRef.setInput('activeView', 'preferences');
     fixture.detectChanges();
     const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
-    expect(active?.textContent).toContain('Mi perfil');
+    expect(active?.textContent).toContain('Mis preferencias');
   });
 
   it('marks "Mis viajes" active when activeView is "mytrips"', () => {

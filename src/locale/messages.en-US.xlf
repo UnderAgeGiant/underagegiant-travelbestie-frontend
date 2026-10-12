@@ -201,8 +201,8 @@
         <target>City information</target>
       </trans-unit>
       <trans-unit id="cityInfo.setCountryCta" datatype="html">
-        <source>Agrega tu país de residencia en Mi Perfil para ver info de visa</source>
-        <target>Add your country of residence in My Profile to see visa info</target>
+        <source>Agrega tu país de residencia en Mis preferencias para ver info de visa</source>
+        <target>Add your country of residence in My preferences to see visa info</target>
       </trans-unit>
       <trans-unit id="stopList.currencyBadgeLabel" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="name"/> (<x id="INTERPOLATION_1" equiv-text="symbol"/>)</source>
@@ -1225,8 +1225,8 @@
 
       <!-- ── nav profile button ── -->
       <trans-unit id="nav.profileBtnTitle" datatype="html">
-        <source>Editar perfil</source>
-        <target>Edit profile</target>
+        <source>Editar preferencias</source>
+        <target>Edit preferences</target>
       </trans-unit>
 
 
@@ -2260,7 +2260,10 @@
         <source>👤 Mi perfil</source>
         <target>👤 My profile</target>
       </trans-unit>
-
+      <trans-unit id="nav.myPreferences" datatype="html">
+        <source>⚙️ Mis preferencias</source>
+        <target>⚙️ My preferences</target>
+      </trans-unit>
       <!-- ── plan-time-modal.component: date label ── -->
       <trans-unit id="planModal.dateLabel" datatype="html">
         <source>Fecha</source>
@@ -2275,8 +2278,8 @@
 
       <!-- ── profile.component: full translation pass ── -->
       <trans-unit id="profile.title" datatype="html">
-        <source>Mi Perfil</source>
-        <target>My Profile</target>
+        <source>Mis preferencias</source>
+        <target>My preferences</target>
       </trans-unit>
       <trans-unit id="profile.editAccountTitle" datatype="html">
         <source>Editar cuenta ✏️</source>
@@ -2762,9 +2765,9 @@
         <source>Mi plan de viaje | Tripilove</source>
         <target>My trip plan | Tripilove</target>
       </trans-unit>
-      <trans-unit id="seo.profile.title" datatype="html">
-        <source>Mi perfil | Tripilove</source>
-        <target>My profile | Tripilove</target>
+      <trans-unit id="seo.preferences.title" datatype="html">
+        <source>Mis preferencias | Tripilove</source>
+        <target>My preferences | Tripilove</target>
       </trans-unit>
       <trans-unit id="seo.myTrips.title" datatype="html">
         <source>Mis viajes | Tripilove</source>

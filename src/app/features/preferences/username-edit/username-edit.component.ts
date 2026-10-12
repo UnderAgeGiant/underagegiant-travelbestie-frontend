@@ -8,31 +8,31 @@ import { isUsernameFormatValid } from '../../../core/social/username.util';
   imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button class="profile-accordion-hd" type="button" (click)="toggle()">
+    <button class="pref-accordion-hd" type="button" (click)="toggle()">
       <span style="font-size:17px">🪪</span>
       <div style="flex:1;text-align:left">
-        <div class="profile-accordion-title" i18n="@@profile.usernameTitle">Nombre de usuario</div>
+        <div class="pref-accordion-title" i18n="@@profile.usernameTitle">Nombre de usuario</div>
         @if (!open()) {
-          <div class="profile-accordion-sub">{{ current() ? '@' + current() : noneLabel }}</div>
+          <div class="pref-accordion-sub">{{ current() ? '@' + current() : noneLabel }}</div>
         }
       </div>
-      @if (saved()) { <span class="profile-accordion-check">✓</span> }
-      @else { <span class="profile-accordion-chevron">{{ open() ? '▴' : '▾' }}</span> }
+      @if (saved()) { <span class="pref-accordion-check">✓</span> }
+      @else { <span class="pref-accordion-chevron">{{ open() ? '▴' : '▾' }}</span> }
     </button>
     @if (open()) {
-      <div class="profile-accordion-bd">
-        <p class="profile-accordion-sub" style="margin:0 0 10px" i18n="@@profile.usernameHelp">Con un nombre de usuario tienes un perfil público y otros viajeros pueden seguirte. Puedes cambiarlo, pero no eliminarlo.</p>
+      <div class="pref-accordion-bd">
+        <p class="pref-accordion-sub" style="margin:0 0 10px" i18n="@@profile.usernameHelp">Con un nombre de usuario tienes un perfil público y otros viajeros pueden seguirte. Puedes cambiarlo, pero no eliminarlo.</p>
         <div class="form-group" style="margin-bottom:8px">
           <input class="form-input" maxlength="50" autocomplete="off" spellcheck="false" i18n-placeholder="@@profile.usernamePlaceholder" placeholder="tu_usuario"
                  [value]="draft()" (input)="onInput($any($event.target).value)" />
         </div>
         @if (draft() && !valid()) {
-          <div class="profile-error" i18n="@@profile.usernameFormat">De 3 a 50 caracteres: letras minúsculas, números, _ y . (sin empezar ni terminar con punto).</div>
+          <div class="pref-error" i18n="@@profile.usernameFormat">De 3 a 50 caracteres: letras minúsculas, números, _ y . (sin empezar ni terminar con punto).</div>
         }
         @switch (errorKind()) {
-          @case ('taken')      { <div class="profile-error" i18n="@@profile.usernameTaken">Ese nombre ya está en uso.</div> }
-          @case ('notAllowed') { <div class="profile-error" i18n="@@profile.usernameNotAllowed">Ese nombre no está permitido.</div> }
-          @case ('unknown')    { <div class="profile-error" i18n="@@profile.usernameError">No se pudo guardar. Intenta de nuevo.</div> }
+          @case ('taken')      { <div class="pref-error" i18n="@@profile.usernameTaken">Ese nombre ya está en uso.</div> }
+          @case ('notAllowed') { <div class="pref-error" i18n="@@profile.usernameNotAllowed">Ese nombre no está permitido.</div> }
+          @case ('unknown')    { <div class="pref-error" i18n="@@profile.usernameError">No se pudo guardar. Intenta de nuevo.</div> }
         }
         <button class="btn-pill btn-primary" type="button" style="width:100%;justify-content:center"
                 [disabled]="loading() || !valid() || draft() === current()" (click)="save()" i18n="@@profile.usernameSave">Guardar nombre de usuario</button>

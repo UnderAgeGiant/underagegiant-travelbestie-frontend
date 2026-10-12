@@ -128,15 +128,27 @@ describe('NavFacadeService — shared trips + logo', () => {
     expect(nav).toHaveBeenCalledWith('/');
   });
 
-  it('openProfile closes the user menu and navigates to /profile', () => {
+  it('openPreferences closes the user menu and navigates to /preferences', () => {
     const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
     facade.userMenuOpen.set(true);
-    facade.openProfile();
+    facade.openPreferences();
     expect(facade.userMenuOpen()).toBe(false);
-    expect(nav).toHaveBeenCalledWith('/profile');
+    expect(nav).toHaveBeenCalledWith('/preferences');
   });
 
-  it('doLogout clears the trip and returns to the landing at / (from /plan, /profile, /my-trips, /ai-planning)', () => {
+  it('openMyProfile goes to /u/<username>, or to /preferences when no username is set yet', () => {
+    const router = TestBed.inject(Router);
+    const nav = jest.spyOn(router, 'navigate').mockResolvedValue(true);
+    const navUrl = jest.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+    facade.auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, username: 'ana' });
+    facade.openMyProfile();
+    expect(nav).toHaveBeenCalledWith(['/u', 'ana']);
+    facade.auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    facade.openMyProfile();
+    expect(navUrl).toHaveBeenCalledWith('/preferences');
+  });
+
+  it('doLogout clears the trip and returns to the landing at / (from /plan, /preferences, /my-trips, /ai-planning)', () => {
     // doLogout() already ends with router.navigate(['/']) — this pins it so the routing work can't drop it.
     const trip = TestBed.inject(TripService);
     trip.addStop(PARIS, '01/06/2026', '02/06/2026');
@@ -230,7 +242,7 @@ describe('NavFacadeService — leaves private pages when the session ends', () =
         provideHttpClient(), provideHttpClientTesting(),
         provideRouter([
           { path: '', component: Blank },
-          { path: 'profile', component: Blank },
+          { path: 'preferences', component: Blank },
           { path: 'my-trips', component: Blank },
           { path: 'karma-history', component: Blank },
           { path: 'about', component: Blank },
@@ -239,7 +251,7 @@ describe('NavFacadeService — leaves private pages when the session ends', () =
     });
   });
 
-  it.each(['/profile', '/my-trips', '/karma-history'])('session lost on %s → navigates to /', async path => {
+  it.each(['/preferences', '/my-trips', '/karma-history'])('session lost on %s → navigates to /', async path => {
     const auth = TestBed.inject(AuthService);
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     TestBed.inject(NavFacadeService);

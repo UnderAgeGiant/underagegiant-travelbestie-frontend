@@ -86,7 +86,8 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           </div>
         </div>
 
-        <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'profile'" (click)="onProfile()" i18n="@@nav.myProfile">👤 Mi perfil</button>
+        <button class="up-plans-btn nav-page-btn" (click)="onMyProfile()" i18n="@@nav.myProfile">👤 Mi perfil</button>
+        <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'preferences'" (click)="onPreferences()" i18n="@@nav.myPreferences">⚙️ Mis preferencias</button>
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'mytrips'" (click)="onMyTrips()" i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'karmahistory'" (click)="onKarmaHistory()" i18n="@@nav.karmaHistory">📈 Historial de token</button>
         <button class="up-plans-btn" (click)="onBuyKarma()">
@@ -174,15 +175,16 @@ export class NavMobileComponent {
   private readonly router = inject(Router);
 
   logoClick    = output<void>();
-  profileClick = output<void>();
-  activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
+  preferencesClick = output<void>();
+  activeView   = input<'preferences' | 'mytrips' | 'karmahistory' | null>(null);
   /** Default true: shown as a full-width strip under the compact bar on every page that renders <app-nav>. */
   showCityGuidePromo = input<boolean>(true);
 
   drawerOpen = signal(false);
 
   onLogo(): void { this.facade.onLogoClick(); this.drawerOpen.set(false); this.logoClick.emit(); }
-  onProfile(): void { this.facade.openProfile(); this.drawerOpen.set(false); this.profileClick.emit(); }
+  onMyProfile(): void { this.facade.openMyProfile(); this.drawerOpen.set(false); }
+  onPreferences(): void { this.facade.openPreferences(); this.drawerOpen.set(false); this.preferencesClick.emit(); }
   onMyTrips(): void { this.drawerOpen.set(false); this.facade.openMyTrips(); }
   onKarmaHistory(): void { this.drawerOpen.set(false); this.facade.openKarmaHistory(); }
   onGuides(): void { void this.router.navigateByUrl('/guides'); this.drawerOpen.set(false); }

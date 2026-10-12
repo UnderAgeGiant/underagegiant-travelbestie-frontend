@@ -18,7 +18,7 @@ import { ApiService } from '../../core/api/api.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { LocaleService } from '../../core/i18n/locale.service';
-import { TripItineraryComponent } from '../profile/trip-itinerary.component';
+import { TripItineraryComponent } from '../preferences/trip-itinerary.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';

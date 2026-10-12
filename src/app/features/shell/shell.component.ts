@@ -61,7 +61,7 @@ import { shouldShowProfileIntro } from '../../shared/highlight-tour/profile-intr
 
         <!-- S1: full app shell (left panel + welcome) -->
         <section class="landing-snap-child s1-shell" #topSection>
-          <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="facade.openProfile()" (stopSelected)="facade.openEditor()" />
+          <app-stop-list (addDestination)="showAddModal.set(true)" (openPreferences)="facade.openPreferences()" (stopSelected)="facade.openEditor()" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
                          (openAiPlanning)="facade.openAiPlanning()"
@@ -104,7 +104,7 @@ import { shouldShowProfileIntro } from '../../shared/highlight-tour/profile-intr
     } @else {
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
-        <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="facade.openProfile()" />
+        <app-stop-list (addDestination)="showAddModal.set(true)" (openPreferences)="facade.openPreferences()" />
         <tb-day-timeline [showPlanSlideshow]="true" />
         <div class="right-panel">
           @if (!trip.activeStop()) {

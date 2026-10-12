@@ -56,7 +56,7 @@ export function usernameFromPath(pathname: string): string | null {
 }
 
 /** Every path the SPA can render. A jest guard fails if app.routes.ts gains a route missing here. */
-const STATIC_ROUTES = new Set(['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/profile', '/my-trips', '/ai-planning', '/guides', '/demasiadas-visitas']);
+const STATIC_ROUTES = new Set(['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/preferences', '/profile', '/my-trips', '/ai-planning', '/guides', '/demasiadas-visitas']);
 
 export function isKnownRoute(pathname: string): boolean {
   const p = trim(pathname);

@@ -164,7 +164,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                     <app-city-info-badge [city]="city"
                         [homeIso2]="auth.currentUser()?.countryOfResidence ?? null"
                         [isLoggedIn]="auth.isLoggedIn()"
-                        (ctaClick)="openProfile.emit()" />
+                        (ctaClick)="openPreferences.emit()" />
                   </div>
                   <button class="stop-del"
                           (click)="$event.stopPropagation(); trip.removeStop(stop.stopId)">×</button>
@@ -400,7 +400,7 @@ export class StopListComponent {
   protected readonly autoSave = inject(AutoSaveService);
   protected readonly personalModal = inject(PersonalActivityModalService);
   addDestination = output<void>();
-  openProfile = output<void>();
+  openPreferences = output<void>();
   stopSelected = output<void>();   // landing → editor (Feature 68)
 
   protected readonly tripMapOpen = signal(false);

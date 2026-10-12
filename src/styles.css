@@ -538,19 +538,19 @@ app-nav { display: block; }
   display: flex; flex-direction: column; gap: 36px;
   max-width: 900px; margin: 0 auto; width: 100%;
 }
-.prof-hero {
+.pref-hero {
   display: flex; align-items: center; gap: 20px;
   background: #fff; border: 1.5px solid var(--border);
   border-radius: 20px; padding: 22px 26px; box-shadow: var(--sh);
 }
-.prof-av {
+.pref-av {
   width: 66px; height: 66px; border-radius: 50%; flex-shrink: 0;
   background: linear-gradient(135deg, var(--lav-d), var(--peach-d));
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-size: 26px; font-weight: 700;
 }
-.prof-name { font-size: 21px; font-weight: 700; }
-.prof-email { font-size: 12px; color: var(--t3); margin-top: 4px; }
+.pref-name { font-size: 21px; font-weight: 700; }
+.pref-email { font-size: 12px; color: var(--t3); margin-top: 4px; }
 .section-head {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px; font-weight: 400; letter-spacing: -.5px; margin-bottom: 14px;
@@ -681,9 +681,9 @@ app-nav { display: block; }
 
   /* ── Profile page ── */
   .prof-body { padding: 16px 14px 40px; gap: 24px; }
-  .prof-hero { padding: 16px 18px; gap: 14px; }
-  .prof-av { width: 52px; height: 52px; font-size: 20px; }
-  .prof-name { font-size: 18px; }
+  .pref-hero { padding: 16px 18px; gap: 14px; }
+  .pref-av { width: 52px; height: 52px; font-size: 20px; }
+  .pref-name { font-size: 18px; }
   .trip-stats { gap: 16px; }
   .trip-stat-val { font-size: 22px; }
 
@@ -920,7 +920,7 @@ app-nav { display: block; }
   font-size: 13px;
   color: #2d7a2d;
 }
-.profile-error {
+.pref-error {
   margin: 10px 16px 0;
   padding: 10px 14px;
   background: #fdecea;
@@ -930,35 +930,35 @@ app-nav { display: block; }
   color: #c0392b;
 }
 /* ── Profile accordion ──────────────────────────────────────── */
-.profile-accordion-hd {
+.pref-accordion-hd {
   display: flex; align-items: center; gap: 12px;
   width: 100%; padding: 13px 20px;
   background: none; border: none; cursor: pointer;
   transition: background .12s;
 }
-.profile-accordion-hd:hover { background: var(--cream); }
+.pref-accordion-hd:hover { background: var(--cream); }
 /* The card wrapper around these rows used to be overflow:hidden purely to keep this
    hover fill inside its own 14px rounded corners — but that also clipped any child
    popover (e.g. the país-de-residencia `<app-country-combobox>` dropdown) that needs to
    extend past the card's bottom edge, hiding it entirely. The wrapper is overflow:visible
    now; round the flush top/bottom rows directly instead so the hover fill still respects
    the card's corners. */
-.profile-accordion-hd:first-of-type:hover { border-radius: 14px 14px 0 0; }
-.profile-accordion-hd:last-of-type:hover  { border-radius: 0 0 14px 14px; }
-.profile-accordion-title {
+.pref-accordion-hd:first-of-type:hover { border-radius: 14px 14px 0 0; }
+.pref-accordion-hd:last-of-type:hover  { border-radius: 0 0 14px 14px; }
+.pref-accordion-title {
   font-size: 13px; font-weight: 600; color: var(--t1);
 }
-.profile-accordion-sub {
+.pref-accordion-sub {
   font-size: 11px; color: var(--t3); margin-top: 2px;
   max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.profile-accordion-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
-.profile-accordion-check   { font-size: 13px; font-weight: 700; color: oklch(50% 0.16 145); flex-shrink: 0; }
-.profile-accordion-bd {
+.pref-accordion-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
+.pref-accordion-check   { font-size: 13px; font-weight: 700; color: oklch(50% 0.16 145); flex-shrink: 0; }
+.pref-accordion-bd {
   padding: 4px 20px 18px;
   animation: fadeIn .15s ease;
 }
-.profile-accordion-sep { height: 1px; background: var(--border); }
+.pref-accordion-sep { height: 1px; background: var(--border); }
 
 .btn-spinner {
   display: inline-block;

@@ -9,7 +9,7 @@ import { PublicProfile } from '../../core/models/public-profile.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { FeedPlanCardComponent } from '../landing/feed/feed-plan-card.component';
-import { TrophyShelfComponent } from '../profile/trophy-shelf/trophy-shelf.component';
+import { TrophyShelfComponent } from '../preferences/trophy-shelf/trophy-shelf.component';
 import { FollowButtonComponent } from './follow-button.component';
 
 const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
@@ -38,7 +38,7 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
               <span><strong>{{ p.followingCount }}</strong> <ng-container i18n="@@publicProfile.following">siguiendo</ng-container></span>
             </div>
             @if (isMe()) {
-              <a class="btn-pill btn-outline" routerLink="/profile" i18n="@@publicProfile.edit">Editar perfil</a>
+              <a class="btn-pill btn-outline" routerLink="/preferences" i18n="@@publicProfile.edit">Editar preferencias</a>
             } @else {
               <tb-follow-button [username]="p.username" [(following)]="following" />
             }

@@ -3,24 +3,24 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { of } from 'rxjs';
-import { ProfileComponent } from './profile.component';
+import { PreferencesComponent } from './preferences.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { AuthService } from '../../core/auth/auth.service';
 
-// ProfileComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
+// PreferencesComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
   matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {},
 }));
 
-describe('ProfileComponent — edit account accordion', () => {
-  let fixture: ComponentFixture<ProfileComponent>;
+describe('PreferencesComponent — edit account accordion', () => {
+  let fixture: ComponentFixture<PreferencesComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ProfileComponent],
+      imports: [PreferencesComponent],
       providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     });
-    fixture = TestBed.createComponent(ProfileComponent);
+    fixture = TestBed.createComponent(PreferencesComponent);
     fixture.detectChanges();
   });
 
@@ -37,7 +37,7 @@ describe('ProfileComponent — edit account accordion', () => {
   });
 
   it('clicking "Mis viajes" navigates to My Trips regardless of which page opened this profile overlay (Feedback #7, 2026-09-07 UX-improvements round)', () => {
-    // This test verifies the bug fix: clicking "Mis viajes" in the nav (rendered via ProfileComponent's own <app-nav>)
+    // This test verifies the bug fix: clicking "Mis viajes" in the nav (rendered via PreferencesComponent's own <app-nav>)
     // calls facade.openMyTrips() instead of a now-removed local output binding, which centralizes navigation
     // through NavFacadeService where it can route through pendingMyTripsTab to handle overlays nested in multiple hosts.
     const auth = TestBed.inject(AuthService);
@@ -60,12 +60,12 @@ describe('ProfileComponent — edit account accordion', () => {
   });
 
   it('has exactly four accordion toggle buttons in the edit-account section (username row added first)', () => {
-    const buttons = fixture.nativeElement.querySelectorAll('.profile-accordion-hd');
+    const buttons = fixture.nativeElement.querySelectorAll('.pref-accordion-hd');
     expect(buttons.length).toBe(4);
   });
 
   it('renders the country combobox when the País de residencia section is opened', () => {
-    const buttons = fixture.nativeElement.querySelectorAll('.profile-accordion-hd');
+    const buttons = fixture.nativeElement.querySelectorAll('.pref-accordion-hd');
     (buttons[3] as HTMLButtonElement).click();
     fixture.detectChanges();
 

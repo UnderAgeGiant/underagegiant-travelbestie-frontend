@@ -16,7 +16,7 @@ describe('buildSitemapXml', () => {
 
   it('never lists the private / login-gated app routes (they are noindex)', () => {
     const xml = buildSitemapXml(SITE, []);
-    for (const p of ['/plan', '/profile', '/my-trips', '/ai-planning', '/karma-history']) {
+    for (const p of ['/plan', '/preferences', '/profile', '/my-trips', '/ai-planning', '/karma-history']) {
       expect(xml).not.toContain(`<loc>${SITE}${p}</loc>`);
     }
   });
