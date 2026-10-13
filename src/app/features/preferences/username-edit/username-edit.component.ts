@@ -8,17 +8,27 @@ import { isUsernameFormatValid } from '../../../core/social/username.util';
   imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button class="pref-accordion-hd" type="button" (click)="toggle()">
-      <span style="font-size:17px">🪪</span>
-      <div style="flex:1;text-align:left">
-        <div class="pref-accordion-title" i18n="@@profile.usernameTitle">Nombre de usuario</div>
-        @if (!open()) {
-          <div class="pref-accordion-sub">{{ current() ? '@' + current() : noneLabel }}</div>
-        }
-      </div>
-      @if (saved()) { <span class="pref-accordion-check">✓</span> }
-      @else { <span class="pref-accordion-chevron">{{ open() ? '▴' : '▾' }}</span> }
-    </button>
+    <!-- The public-profile link sits beside the @username, outside the toggle: an <a> can't live inside a <button>. -->
+    <div class="pref-username-hd">
+      <button class="pref-accordion-hd" type="button" (click)="toggle()">
+        <span style="font-size:17px">🪪</span>
+        <div style="flex:1;text-align:left">
+          <div class="pref-accordion-title" i18n="@@profile.usernameTitle">Nombre de usuario</div>
+        </div>
+        @if (saved()) { <span class="pref-accordion-check">✓</span> }
+        @else { <span class="pref-accordion-chevron">{{ open() ? '▴' : '▾' }}</span> }
+      </button>
+      @if (!open() || current()) {
+        <div class="pref-username-meta">
+          @if (!open()) {
+            <span class="pref-accordion-sub" (click)="toggle()">{{ current() ? '@' + current() : noneLabel }}</span>
+          }
+          @if (current()) {
+            <a class="pref-username-link" [routerLink]="['/u', current()]" i18n="@@profile.viewPublicProfile">Ver mi perfil público</a>
+          }
+        </div>
+      }
+    </div>
     @if (open()) {
       <div class="pref-accordion-bd">
         <p class="pref-accordion-sub" style="margin:0 0 10px" i18n="@@profile.usernameHelp">Con un nombre de usuario tienes un perfil público y otros viajeros pueden seguirte. Puedes cambiarlo, pero no eliminarlo.</p>
@@ -36,9 +46,6 @@ import { isUsernameFormatValid } from '../../../core/social/username.util';
         }
         <button class="btn-pill btn-primary" type="button" style="width:100%;justify-content:center"
                 [disabled]="loading() || !valid() || draft() === current()" (click)="save()" i18n="@@profile.usernameSave">Guardar nombre de usuario</button>
-        @if (current()) {
-          <a class="btn-pill btn-outline" style="width:100%;justify-content:center;margin-top:8px" [routerLink]="['/u', current()]" i18n="@@profile.viewPublicProfile">Ver mi perfil público</a>
-        }
       </div>
     }
   `,

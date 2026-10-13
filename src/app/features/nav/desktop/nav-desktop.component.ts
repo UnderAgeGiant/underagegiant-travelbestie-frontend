@@ -151,7 +151,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                   <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'preferences'"
                           style="width:100%;justify-content:center;margin-bottom:4px"
                           (click)="onPreferences()" type="button"
-                          i18n="@@nav.myPreferences">⚙️ Mis preferencias</button>
+                          i18n="@@nav.myPreferences">⚙️ Configuración de cuenta</button>
                   <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'mytrips'"
                           style="width:100%;justify-content:center;margin-bottom:4px"
                           (click)="onMyTrips()" type="button"

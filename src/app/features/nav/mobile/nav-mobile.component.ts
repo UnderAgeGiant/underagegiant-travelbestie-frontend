@@ -89,7 +89,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
         @if (facade.auth.currentUser()?.username) {
           <button class="up-plans-btn nav-page-btn" (click)="onMyProfile()" i18n="@@nav.myProfile">👤 Mi perfil</button>
         }
-        <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'preferences'" (click)="onPreferences()" i18n="@@nav.myPreferences">⚙️ Mis preferencias</button>
+        <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'preferences'" (click)="onPreferences()" i18n="@@nav.myPreferences">⚙️ Configuración de cuenta</button>
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'mytrips'" (click)="onMyTrips()" i18n="@@nav.myTripsPage">🗺 Mis viajes</button>
         <button class="up-plans-btn nav-page-btn" [class.active]="activeView() === 'karmahistory'" (click)="onKarmaHistory()" i18n="@@nav.karmaHistory">📈 Historial de token</button>
         <button class="up-plans-btn" (click)="onBuyKarma()">

@@ -38,7 +38,7 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
               <span><strong>{{ p.followingCount }}</strong> <ng-container i18n="@@publicProfile.following">siguiendo</ng-container></span>
             </div>
             @if (isMe()) {
-              <a class="btn-pill btn-outline" routerLink="/preferences" i18n="@@publicProfile.edit">Editar preferencias</a>
+              <a class="btn-pill btn-outline" routerLink="/preferences" i18n="@@publicProfile.edit">Editar cuenta</a>
             } @else {
               <tb-follow-button [username]="p.username" [(following)]="following" />
             }

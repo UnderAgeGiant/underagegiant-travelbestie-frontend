@@ -11,7 +11,7 @@ const CELEBRATE_MS = 2600;
     <div class="companion-boost-card">
       @if (isBoosted()) {
         <img class="companion-boost-img" src="/snack-hearts-black-dog.png" alt="Asistente Miel" draggable="false" />
-        <p class="companion-boost-boosted" i18n="@@companion.boostedLabel">🐾 ¡Miel está lista para jugar contigo!</p>
+        <p class="companion-boost-boosted" i18n="@@companion.boostedLabel">🐾 ¡Miel está lista para ayudarte a mejorar tus planes!</p>
         <p class="companion-boost-timer" i18n="@@companion.boostTimer">Termina en {{ remainingLabel() }}</p>
         @if (celebrating()) {
           <div class="companion-celebrate" aria-hidden="true">
@@ -28,7 +28,7 @@ const CELEBRATE_MS = 2600;
       } @else {
         <img class="companion-boost-img" src="/standing-black-dog.jpeg" alt="Asistente Miel" draggable="false" />
         <p class="companion-boost-copy" i18n="@@companion.boostCopy">
-          ¿Quieres más ideas? ¡Invita a Miel con un huesito!🦴
+          ¿Quieres sugerencias para tu plan? ¡Dame un premio y te ayudo!🦴
         </p>
         <button type="button" class="btn-pill btn-primary companion-boost-btn" (click)="companion.boost()"
                 i18n="@@companion.boostBtn">Dar premio (−2 Token 🦴)</button>

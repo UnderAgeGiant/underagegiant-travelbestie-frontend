@@ -21,8 +21,8 @@ const LANDING_WELCOME_AI = {
 };
 
 const PROFILE_INTRO = {
-  'es-CL': '¡Guau! 🐾 Crea tu nombre de usuario en «Mis preferencias» para tener un perfil público y que otros viajeros te sigan.',
-  'en-US': 'Woof! 🐾 Create your username in «My preferences» to get a public profile so other travelers can follow you.',
+  'es-CL': '¡Guau! 🐾 Crea tu nombre de usuario en «Configuración de cuenta» para tener un perfil público y que otros viajeros te sigan.',
+  'en-US': 'Woof! 🐾 Create your username in «Account settings» to get a public profile so other travelers can follow you.',
 };
 
 export const HIGHLIGHT_TOURS: Record<HighlightType, HighlightStep[]> = {

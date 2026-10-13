@@ -213,7 +213,7 @@ export class NavFacadeService {
     void this.router.navigateByUrl('/preferences');
   }
 
-  /** "Mi perfil" = the public profile. Without a username there is none yet, so go set one in Mis preferencias. */
+  /** "Mi perfil" = the public profile. Without a username there is none yet, so go set one in Configuración de cuenta. */
   openMyProfile(): void {
     const username = this.auth.currentUser()?.username;
     if (!username) { this.openPreferences(); return; }

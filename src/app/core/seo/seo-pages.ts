@@ -34,7 +34,7 @@ export const planSeo: RouteSeo = () => ({
 });
 
 export const preferencesSeo: RouteSeo = () => ({
-  title: $localize`:@@seo.preferences.title:Mis preferencias | Tripilove`,
+  title: $localize`:@@seo.preferences.title:Configuración de cuenta | Tripilove`,
   noindex: true,
 });
 

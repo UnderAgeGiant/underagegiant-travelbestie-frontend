@@ -32,7 +32,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
       <!-- Header bar -->
       <div class="prof-bar">
-        <div class="prof-bar-title" i18n="@@profile.title">Mis preferencias</div>
+        <div class="prof-bar-title" i18n="@@profile.title">Configuración de cuenta</div>
       </div>
 
       <!-- Scrollable body -->

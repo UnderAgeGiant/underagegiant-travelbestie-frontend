@@ -15,7 +15,7 @@ describe('trophy catalog', () => {
     expect(nextGoal('comments', 70)).toBeNull();
     expect(nextGoal('share_plan', 0)).toEqual({ tier: 'single', needed: 1 });
   });
-  it('knows the followers trophy (1/25/100) and its placeholder image', () => {
+  it('knows the followers trophy (1/25/100) and its image', () => {
     expect(TROPHY_THRESHOLDS.followers).toEqual({ bronze: 1, silver: 25, gold: 100 });
     expect(trophyImage('followers', 'gold')).toBe('/trophies/trophy-followers-gold.png');
     expect(TIERED_TYPES).toContain('followers');

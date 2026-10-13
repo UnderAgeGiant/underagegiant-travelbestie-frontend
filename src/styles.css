@@ -952,6 +952,21 @@ app-nav { display: block; }
   font-size: 11px; color: var(--t3); margin-top: 2px;
   max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
+/* Username row: header split into the toggle + a meta line (@username · public-profile pill) so the link
+   can sit outside the <button>. Hover fills the whole header; it's the card's first row, so round the top. */
+.pref-username-hd { border-radius: 14px 14px 0 0; transition: background .12s; }
+.pref-username-hd:hover { background: var(--cream); }
+.pref-username-hd .pref-accordion-hd:hover { background: none; }
+.pref-username-meta {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 0 20px 13px 49px; margin-top: -10px;   /* 49px = 20 padding + 17 icon + 12 gap: aligns under the title */
+}
+.pref-username-meta .pref-accordion-sub { margin-top: 0; cursor: pointer; }
+.pref-username-link {
+  font-size: 11px; font-weight: 600; color: var(--lav-d); text-decoration: none;
+  padding: 3px 10px; border: 1px solid oklch(75% .10 290 / .55); border-radius: 99px; white-space: nowrap;
+}
+.pref-username-link:hover { background: oklch(75% .10 290 / .14); }
 .pref-accordion-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
 .pref-accordion-check   { font-size: 13px; font-weight: 700; color: oklch(50% 0.16 145); flex-shrink: 0; }
 .pref-accordion-bd {
