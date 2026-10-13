@@ -1237,7 +1237,8 @@ app-nav { display: block; }
   .feed-map app-trip-map { width: min(94vw, calc((100svh - 320px) * 2)); min-width: 300px; }
   .feed-identity { left: 16px; right: 16px; max-width: none; top: 76px; }
   .feed-controls { left: 16px; right: 16px; bottom: 24px; }
-  .feed-caption { left: 16px; right: 16px; max-width: none; bottom: 88px; }
+  /* the actions row wraps to two lines on phones (Ver plan + ♥, then the page nav): 24 + 48 + 12 + 32 = 116px, +16 gap */
+  .feed-caption { left: 16px; right: 16px; max-width: none; bottom: 132px; }
   /* profile cards have no landing nav over their top edge */
   .feed-card-frame .feed-identity { top: 20px; }
   /* on mobile the landing nav and the title sit at the top of the frame, so it needs a stronger top scrim */
