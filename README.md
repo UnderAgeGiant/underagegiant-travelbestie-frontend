@@ -28,7 +28,7 @@ npm run dev:en  # English — http://localhost:4200
 
 ## Environment variables
 
-Create a `local.env` file at the repo root (gitignored via `*.env` — never commit it) with any of the following. **None are strictly required** — `environment.ts` ships with working defaults (a real backend URL, a real RSA key, Cloudflare's always-pass Turnstile test key), so `npm run dev` runs out of the box even with no `local.env` at all (`start-dev.mjs` just prints a warning and falls back to those defaults).
+Copy `local.env.example` to `local.env` at the repo root (`cp local.env.example local.env`) (gitignored via `*.env` — never commit it) with any of the following. **None are strictly required** — `environment.ts` ships with working defaults (a real backend URL, a real RSA key, Cloudflare's always-pass Turnstile test key), so `npm run dev` runs out of the box even with no `local.env` at all (`start-dev.mjs` just prints a warning and falls back to those defaults).
 
 | Variable | Used by | Default if unset | Purpose |
 |---|---|---|---|
