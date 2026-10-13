@@ -70,6 +70,10 @@ function prefersReducedMotion(): boolean {
     }
     <h3 class="feed-title">{{ plan().tripName }}</h3>
     <p class="feed-owner"><span i18n="@@feed.by">por</span>&ngsp;<tb-user-link [name]="plan().ownerName" [username]="plan().ownerUsername" /></p>
+  </div>
+
+  <!-- Layout 2026-10-13: title/owner top-left (.feed-identity), attraction caption bottom-left, actions row under it. -->
+  <div class="feed-controls">
     <div class="feed-actions">
       <a class="btn-pill feed-view-plan" [routerLink]="['/shared', plan().id]"
          i18n="@@feed.viewPlan">Ver plan completo</a>
