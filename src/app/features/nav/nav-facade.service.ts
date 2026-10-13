@@ -32,7 +32,7 @@ export function shouldSearchSharedTrips(query: string): boolean {
 }
 
 /** Routes behind authGuard — kept in sync with app.routes.ts (Feature 68). */
-const PRIVATE_PATHS = ['/profile', '/my-trips', '/karma-history'];
+const PRIVATE_PATHS = ['/preferences', '/my-trips', '/karma-history'];
 
 @Injectable({ providedIn: 'root' })
 export class NavFacadeService {
@@ -208,9 +208,17 @@ export class NavFacadeService {
 
   scheduleClose(): void { setTimeout(() => this.searchOpen.set(false), 160); }
 
-  openProfile(): void {
+  openPreferences(): void {
     this.userMenuOpen.set(false);
-    void this.router.navigateByUrl('/profile');
+    void this.router.navigateByUrl('/preferences');
+  }
+
+  /** "Mi perfil" = the public profile. Without a username there is none yet, so go set one in Configuración de cuenta. */
+  openMyProfile(): void {
+    const username = this.auth.currentUser()?.username;
+    if (!username) { this.openPreferences(); return; }
+    this.userMenuOpen.set(false);
+    void this.router.navigate(['/u', username]);
   }
 
   // pendingMyTripsTab is consumed by MyTripsComponent's own effect — works both when this

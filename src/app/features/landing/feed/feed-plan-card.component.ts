@@ -10,6 +10,7 @@ import { FeedPlan } from '../../../core/models/feed-plan.model';
 import { TripStop } from '../../../core/models/trip.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { buildFeedSlides } from './feed-slides.util';
+import { UserLinkComponent } from '../../../shared/user-link/user-link.component';
 
 /** Every page (map or attraction photo) stays on screen this long before the strip slides to the next. */
 const AUTO_ADVANCE_MS = 2500;
@@ -22,7 +23,7 @@ function prefersReducedMotion(): boolean {
 
 @Component({
   selector: 'tb-feed-plan-card',
-  imports: [TripMapComponent, RouterLink],
+  imports: [TripMapComponent, RouterLink, UserLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
 <article class="feed-card"
@@ -50,8 +51,8 @@ function prefersReducedMotion(): boolean {
       }
       <div class="feed-scrim"></div>
       <div class="feed-caption">
-        <div class="feed-caption-name">{{ slide.name }}</div>
         <div class="feed-caption-city">{{ slide.cityName }}</div>
+        <div class="feed-caption-name">{{ slide.name }}</div>
         <div class="feed-caption-meta">
           <span class="feed-caption-type">{{ slide.icon }} {{ slide.type }}</span>
           @if (slide.rating !== null) { <span class="feed-caption-rating">★ {{ slide.rating }}</span> }
@@ -61,12 +62,18 @@ function prefersReducedMotion(): boolean {
   }
 
   <div class="feed-identity">
-    <div class="feed-chips">
-      @for (name of routeNames().shown; track name) { <span class="feed-chip">{{ name }}</span> }
-      @if (routeNames().more > 0) { <span class="feed-chip feed-chip-more">+{{ routeNames().more }}</span> }
-    </div>
+    @if (showRouteChips) {
+      <div class="feed-chips">
+        @for (name of routeNames().shown; track name) { <span class="feed-chip">{{ name }}</span> }
+        @if (routeNames().more > 0) { <span class="feed-chip feed-chip-more">+{{ routeNames().more }}</span> }
+      </div>
+    }
     <h3 class="feed-title">{{ plan().tripName }}</h3>
-    <p class="feed-owner"><span i18n="@@feed.by">por</span> {{ plan().ownerName }}</p>
+    <p class="feed-owner"><span i18n="@@feed.by">por</span>&ngsp;<tb-user-link [name]="plan().ownerName" [username]="plan().ownerUsername" /></p>
+  </div>
+
+  <!-- Layout 2026-10-13: title/owner top-left (.feed-identity), attraction caption bottom-left, actions row under it. -->
+  <div class="feed-controls">
     <div class="feed-actions">
       <a class="btn-pill feed-view-plan" [routerLink]="['/shared', plan().id]"
          i18n="@@feed.viewPlan">Ver plan completo</a>
@@ -121,6 +128,8 @@ export class FeedPlanCardComponent {
   private readonly locale    = inject(LocaleService);
 
   protected readonly maxDots = MAX_DOTS;
+  /** Route-city chips hidden for now (owner wants to see the cards without them). Flip to true to restore. */
+  protected readonly showRouteChips = false;
   protected readonly heartLabelOn  = $localize`:@@feed.heartOn:Quitar de favoritos`;
   protected readonly heartLabelOff = $localize`:@@feed.heartOff:Guardar en favoritos`;
 

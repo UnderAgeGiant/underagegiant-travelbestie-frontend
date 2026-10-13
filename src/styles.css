@@ -309,6 +309,7 @@ app-nav { display: block; }
 .shared-header { text-align: center; margin-bottom: 28px; padding: 24px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-radius: 18px; }
 .shared-header-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--t1); margin-bottom: 4px; }
 .shared-header-owner { font-size: 13px; color: var(--t2); margin-bottom: 10px; }
+.shared-header-owner tb-follow-button { margin-left: 8px; }
 .shared-header-stops { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
 .shared-header-flag { font-size: 22px; }
 .shared-not-found { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; text-align: center; }
@@ -537,19 +538,19 @@ app-nav { display: block; }
   display: flex; flex-direction: column; gap: 36px;
   max-width: 900px; margin: 0 auto; width: 100%;
 }
-.prof-hero {
+.pref-hero {
   display: flex; align-items: center; gap: 20px;
   background: #fff; border: 1.5px solid var(--border);
   border-radius: 20px; padding: 22px 26px; box-shadow: var(--sh);
 }
-.prof-av {
+.pref-av {
   width: 66px; height: 66px; border-radius: 50%; flex-shrink: 0;
   background: linear-gradient(135deg, var(--lav-d), var(--peach-d));
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-size: 26px; font-weight: 700;
 }
-.prof-name { font-size: 21px; font-weight: 700; }
-.prof-email { font-size: 12px; color: var(--t3); margin-top: 4px; }
+.pref-name { font-size: 21px; font-weight: 700; }
+.pref-email { font-size: 12px; color: var(--t3); margin-top: 4px; }
 .section-head {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px; font-weight: 400; letter-spacing: -.5px; margin-bottom: 14px;
@@ -680,9 +681,9 @@ app-nav { display: block; }
 
   /* ── Profile page ── */
   .prof-body { padding: 16px 14px 40px; gap: 24px; }
-  .prof-hero { padding: 16px 18px; gap: 14px; }
-  .prof-av { width: 52px; height: 52px; font-size: 20px; }
-  .prof-name { font-size: 18px; }
+  .pref-hero { padding: 16px 18px; gap: 14px; }
+  .pref-av { width: 52px; height: 52px; font-size: 20px; }
+  .pref-name { font-size: 18px; }
   .trip-stats { gap: 16px; }
   .trip-stat-val { font-size: 22px; }
 
@@ -919,7 +920,7 @@ app-nav { display: block; }
   font-size: 13px;
   color: #2d7a2d;
 }
-.profile-error {
+.pref-error {
   margin: 10px 16px 0;
   padding: 10px 14px;
   background: #fdecea;
@@ -929,35 +930,50 @@ app-nav { display: block; }
   color: #c0392b;
 }
 /* ── Profile accordion ──────────────────────────────────────── */
-.profile-accordion-hd {
+.pref-accordion-hd {
   display: flex; align-items: center; gap: 12px;
   width: 100%; padding: 13px 20px;
   background: none; border: none; cursor: pointer;
   transition: background .12s;
 }
-.profile-accordion-hd:hover { background: var(--cream); }
+.pref-accordion-hd:hover { background: var(--cream); }
 /* The card wrapper around these rows used to be overflow:hidden purely to keep this
    hover fill inside its own 14px rounded corners — but that also clipped any child
    popover (e.g. the país-de-residencia `<app-country-combobox>` dropdown) that needs to
    extend past the card's bottom edge, hiding it entirely. The wrapper is overflow:visible
    now; round the flush top/bottom rows directly instead so the hover fill still respects
    the card's corners. */
-.profile-accordion-hd:first-of-type:hover { border-radius: 14px 14px 0 0; }
-.profile-accordion-hd:last-of-type:hover  { border-radius: 0 0 14px 14px; }
-.profile-accordion-title {
+.pref-accordion-hd:first-of-type:hover { border-radius: 14px 14px 0 0; }
+.pref-accordion-hd:last-of-type:hover  { border-radius: 0 0 14px 14px; }
+.pref-accordion-title {
   font-size: 13px; font-weight: 600; color: var(--t1);
 }
-.profile-accordion-sub {
+.pref-accordion-sub {
   font-size: 11px; color: var(--t3); margin-top: 2px;
   max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.profile-accordion-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
-.profile-accordion-check   { font-size: 13px; font-weight: 700; color: oklch(50% 0.16 145); flex-shrink: 0; }
-.profile-accordion-bd {
+/* Username row: header split into the toggle + a meta line (@username · public-profile pill) so the link
+   can sit outside the <button>. Hover fills the whole header; it's the card's first row, so round the top. */
+.pref-username-hd { border-radius: 14px 14px 0 0; transition: background .12s; }
+.pref-username-hd:hover { background: var(--cream); }
+.pref-username-hd .pref-accordion-hd:hover { background: none; }
+.pref-username-meta {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 0 20px 13px 49px; margin-top: -10px;   /* 49px = 20 padding + 17 icon + 12 gap: aligns under the title */
+}
+.pref-username-meta .pref-accordion-sub { margin-top: 0; cursor: pointer; }
+.pref-username-link {
+  font-size: 11px; font-weight: 600; color: var(--lav-d); text-decoration: none;
+  padding: 3px 10px; border: 1px solid oklch(75% .10 290 / .55); border-radius: 99px; white-space: nowrap;
+}
+.pref-username-link:hover { background: oklch(75% .10 290 / .14); }
+.pref-accordion-chevron { font-size: 10px; color: var(--t3); flex-shrink: 0; }
+.pref-accordion-check   { font-size: 13px; font-weight: 700; color: oklch(50% 0.16 145); flex-shrink: 0; }
+.pref-accordion-bd {
   padding: 4px 20px 18px;
   animation: fadeIn .15s ease;
 }
-.profile-accordion-sep { height: 1px; background: var(--border); }
+.pref-accordion-sep { height: 1px; background: var(--border); }
 
 .btn-spinner {
   display: inline-block;
@@ -1068,6 +1084,14 @@ app-nav { display: block; }
   border-bottom: 1px solid oklch(100% 0 0 / .14);
 }
 .feed-card { position: absolute; inset: 0; touch-action: pan-y; }
+/* Non-landing host for tb-feed-plan-card (profile lists: public profile, "Siguiendo").
+   The card is absolute inset:0, so it needs a bounded, positioned, clipping box. Carries its own
+   night ground + text colour because it is not inside .landing-feed. */
+.feed-card-frame {
+  display: block; position: relative; overflow: hidden;
+  height: clamp(420px, 70vh, 600px); border-radius: 20px;
+  background: oklch(14% .04 290); color: #fff; margin: 0 0 16px;
+}
 .feed-card :where(button):focus-visible,
 .landing-feed .feed-retry:focus-visible,
 .landing-feed .feed-back-top:focus-visible,
@@ -1089,19 +1113,21 @@ app-nav { display: block; }
 .feed-scrim {
   position: absolute; inset: 0; pointer-events: none;
   background:
+    linear-gradient(to bottom, oklch(0% 0 0/.62) 0%, transparent 30%),
     linear-gradient(to top,  oklch(0% 0 0/.9) 0%, oklch(0% 0 0/.55) 32%, transparent 64%),
-    linear-gradient(to right, oklch(0% 0 0/.45) 0%, transparent 55%),
-    radial-gradient(70% 55% at 100% 100%, oklch(0% 0 0/.55), transparent 75%);
+    linear-gradient(to right, oklch(0% 0 0/.45) 0%, transparent 55%);
 }
 
 /* map page: letterboxed 2:1 block on the night ground, above the identity block.
    Recoloured ONLY through selectors scoped to .feed-map — the shared .trip-map* rules stay untouched. */
 .feed-map {
   position: absolute; inset: 0; display: grid; place-items: center;
-  padding: 24px 0 clamp(230px, 34vh, 300px); box-sizing: border-box;
+  padding: clamp(150px, 22vh, 210px) 0 110px; box-sizing: border-box;
   --lav: oklch(24% .05 290); --lav-d: oklch(64% .13 290); --cream: transparent;
 }
-.feed-map app-trip-map { width: min(92vw, 1200px, calc((100vh - 72px - 260px) * 2)); }
+.feed-map app-trip-map { width: min(92vw, 1200px, calc((100vh - 72px - 320px) * 2)); }
+/* profile cards are shorter and their titles smaller: less room reserved above the map */
+.feed-card-frame .feed-map { padding-top: 120px; }
 .feed-map .trip-map { background: transparent; border-radius: 0; }
 /* the letterboxed map is a cropped window onto the world: feather its edges so it fades into the night ground instead of reading as a hard-edged tile */
 .feed-map app-trip-map {
@@ -1117,22 +1143,27 @@ app-nav { display: block; }
 .feed-map .trip-map-label-bubble { fill: oklch(18% .05 290 / .92); stroke: oklch(52% .12 290); }
 .feed-map .trip-map-label-text { fill: #fff; }
 
-/* attraction caption (bottom-right on desktop, mirrors .s2-caption) */
+/* attraction caption — bottom-left, just above the .feed-controls row (48px buttons + 16px gap) */
 .feed-caption {
-  position: absolute; z-index: 2; right: clamp(24px, 4vw, 40px); bottom: 104px; max-width: min(360px, 40vw);
-  text-align: right; pointer-events: none;
+  position: absolute; z-index: 2; left: clamp(24px, 5vw, 56px); bottom: calc(clamp(24px, 5vw, 48px) + 64px);
+  max-width: min(560px, 62vw); text-align: left; pointer-events: none;
 }
 .feed-pane.active .feed-caption { animation: captionUp .5s .1s ease both; }
-.feed-caption-name { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: oklch(100% 0 0/.9); margin-bottom: 6px; text-wrap: balance; }
-.feed-caption-city { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.6vw, 46px); font-weight: 300; letter-spacing: -1px; line-height: 1; color: #fff; }
-.feed-caption-meta { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 10px; font-size: 12px; color: oklch(100% 0 0/.8); }
+.feed-caption-city { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: oklch(100% 0 0/.9); margin-bottom: 6px; }
+.feed-caption-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.6vw, 46px); font-weight: 300; letter-spacing: -1px; line-height: 1; color: #fff; text-wrap: balance; }
+.feed-caption-meta { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 10px; font-size: 12px; color: oklch(100% 0 0/.8); }
 .feed-caption-type { padding: 3px 10px; border-radius: 99px; background: oklch(75% .10 290 / .22); border: 1px solid oklch(75% .10 290 / .4); }
 .feed-caption-rating { font-weight: 600; font-variant-numeric: tabular-nums; }
 
-/* persistent identity block — bottom-left */
+/* persistent identity block (title + owner) — top-left */
 .feed-identity {
-  position: absolute; z-index: 3; left: clamp(24px, 5vw, 56px); bottom: clamp(24px, 5vw, 48px);
-  max-width: min(560px, 62vw); animation: fadeUp .6s .1s ease both;
+  position: absolute; z-index: 3; left: clamp(24px, 5vw, 56px); top: clamp(24px, 5vw, 48px);
+  max-width: min(720px, 80%); animation: fadeUp .6s .1s ease both;
+}
+/* persistent actions row (Ver plan / ♥ / page nav) — bottom-left */
+.feed-controls {
+  position: absolute; z-index: 3; left: clamp(24px, 5vw, 56px); right: 24px; bottom: clamp(24px, 5vw, 48px);
+  animation: fadeUp .6s .1s ease both;
 }
 .feed-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .feed-chip {
@@ -1144,7 +1175,10 @@ app-nav { display: block; }
   font-family: 'Cormorant Garamond', serif; font-weight: 300; color: #fff;
   font-size: clamp(32px, 4.5vw, 64px); line-height: 1.02; letter-spacing: -.02em; text-wrap: balance; margin: 0 0 8px;
 }
-.feed-owner { font-size: 13px; color: oklch(100% 0 0/.78); margin: 0 0 18px; }
+/* Public profile column is ~730px wide, far narrower than the full-bleed landing feed. */
+.pp-page .feed-title { font-size: clamp(20px, 2.4vw, 28px); }
+.pp-page .feed-caption-name { font-size: clamp(18px, 2vw, 24px); }
+.feed-owner { font-size: 13px; color: oklch(100% 0 0/.78); margin: 0; }
 .feed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .feed-view-plan { text-decoration: none; justify-content: center; background: var(--lav-d); color: #fff; min-height: 48px; padding: 0 26px; font-size: 14px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .12s; }
 .feed-view-plan:hover { background: oklch(48% .18 290); box-shadow: 0 0 28px oklch(55% .16 290 / .45); }
@@ -1199,18 +1233,22 @@ app-nav { display: block; }
 
 @media (max-width: 768px) {
   .feed-item { height: 100svh; min-height: 100svh; scroll-snap-align: none; }
-  .feed-map { padding: 76px 0 clamp(210px, 34svh, 260px); }
-  .feed-map app-trip-map { width: min(94vw, calc((100svh - 76px - 260px) * 2)); min-width: 300px; }
-  .feed-identity { left: 16px; right: 16px; max-width: none; bottom: 24px; }
-  .feed-caption { top: 76px; bottom: auto; left: 16px; right: 16px; max-width: none; text-align: left; }
-  .feed-caption-meta { justify-content: flex-start; }
-  /* on mobile the nav and caption sit at the top of the frame, so it needs its own top scrim */
+  .feed-map { padding: clamp(170px, 26svh, 210px) 0 110px; }
+  .feed-map app-trip-map { width: min(94vw, calc((100svh - 320px) * 2)); min-width: 300px; }
+  .feed-identity { left: 16px; right: 16px; max-width: none; top: 76px; }
+  .feed-controls { left: 16px; right: 16px; bottom: 24px; }
+  /* the actions row wraps to two lines on phones (Ver plan + ♥, then the page nav): 24 + 48 + 12 + 32 = 116px, +16 gap */
+  .feed-caption { left: 16px; right: 16px; max-width: none; bottom: 132px; }
+  /* profile cards have no landing nav over their top edge */
+  .feed-card-frame .feed-identity { top: 20px; }
+  /* on mobile the landing nav and the title sit at the top of the frame, so it needs a stronger top scrim */
   .feed-scrim {
     background:
       linear-gradient(to bottom, oklch(0% 0 0/.66) 0%, transparent 34%),
       linear-gradient(to top, oklch(0% 0 0/.9) 0%, oklch(0% 0 0/.55) 32%, transparent 64%);
   }
   .feed-back-top { top: auto; bottom: 24px; right: 16px; }
+  .feed-card-frame { height: clamp(520px, 85svh, 680px); }
 }
 
 /* ── Welcome-page pill → S6 (bottom-centre of the welcome overlay) ─────────── */
@@ -1238,7 +1276,7 @@ app-nav { display: block; }
 
 @media (prefers-reduced-motion: reduce) {
   .feed-pane { transition-duration: 0s; }
-  .feed-pane.active .feed-photo, .feed-pane.active .feed-caption, .feed-identity, .feed-back-top,
+  .feed-pane.active .feed-photo, .feed-pane.active .feed-caption, .feed-identity, .feed-controls, .feed-back-top,
   .feed-heart.on .feed-heart-icon, .feed-loading span { animation: none; }
   .welcome-feed-pill, .welcome-feed-pill-arrow { animation: none; }
 }

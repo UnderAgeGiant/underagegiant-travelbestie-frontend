@@ -13,7 +13,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
       <div class="legal-content">
         <div class="legal-eyebrow" i18n="@@terms.eyebrow">Legal</div>
         <h1 class="legal-title" i18n="@@terms.title">Términos de servicio</h1>
-        <p class="legal-updated" i18n="@@terms.updated">Última actualización: 8 de septiembre de 2026</p>
+        <p class="legal-updated" i18n="@@terms.updated">Última actualización: 13 de octubre de 2026</p>
 
         <section class="legal-section">
           <h2 i18n="@@terms.s1.title">1. Aceptación de los términos</h2>
@@ -27,7 +27,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 
         <section class="legal-section">
           <h2 i18n="@@terms.s3.title">3. Tu cuenta</h2>
-          <p i18n="@@terms.s3.body">Debes registrarte con un correo electrónico válido y una contraseña. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 años para crear una cuenta. Puedes actualizar tu nombre, correo, contraseña y país de residencia desde tu perfil en cualquier momento.</p>
+          <p i18n="@@terms.s3.body">Debes registrarte con un correo electrónico válido y una contraseña. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 años para crear una cuenta. Puedes actualizar tu nombre, correo, contraseña y país de residencia desde Configuración de cuenta en cualquier momento. También puedes elegir un nombre de usuario público: puedes cambiarlo, pero no eliminarlo, y no debe suplantar a otra persona ni ser ofensivo.</p>
         </section>
 
         <section class="legal-section">
@@ -48,7 +48,7 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 
         <section class="legal-section">
           <h2 i18n="@@terms.s7.title">7. Planes compartidos y colaborativos</h2>
-          <p i18n="@@terms.s7.body">Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas. Cuando publicas o compartes un viaje, generamos un enlace público que cualquier persona puede ver sin iniciar sesión, y que puede ser indexado por motores de búsqueda como Google.</p>
+          <p i18n="@@terms.s7.body">Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas. Cuando publicas o compartes un viaje, generamos un enlace público que cualquier persona puede ver sin iniciar sesión, y que puede ser indexado por motores de búsqueda como Google. Si tienes un nombre de usuario, tus viajes compartidos también aparecen en tu perfil público, y otras personas registradas pueden seguirte para ver tus nuevos viajes compartidos.</p>
         </section>
 
         <section class="legal-section">

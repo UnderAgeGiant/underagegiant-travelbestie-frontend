@@ -20,10 +20,16 @@ const LANDING_WELCOME_AI = {
   'en-US': "Now comes the fun part! 🐾 Press «🐾 Create with AI» and let's start planning your adventure. I'll be with you every step of the way!",
 };
 
+const PROFILE_INTRO = {
+  'es-CL': '¡Guau! 🐾 Crea tu nombre de usuario en «Configuración de cuenta» para tener un perfil público y que otros viajeros te sigan.',
+  'en-US': 'Woof! 🐾 Create your username in «Account settings» to get a public profile so other travelers can follow you.',
+};
+
 export const HIGHLIGHT_TOURS: Record<HighlightType, HighlightStep[]> = {
   landing_welcome: [
     { targetId: 'nav-logo',    text: LANDING_WELCOME_LOGO },
     { targetId: 'login-btn',   text: LANDING_WELCOME_SIGNUP },
     { targetId: 'ai-plan-btn', text: LANDING_WELCOME_AI },
   ],
+  public_profile_intro: [{ targetId: 'user-menu-btn', text: PROFILE_INTRO }],
 };

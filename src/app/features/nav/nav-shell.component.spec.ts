@@ -46,8 +46,8 @@ describe('NavShellComponent', () => {
   it('passes activeView through to the rendered nav bar', () => {
     const fixture = setup(false);
     const component = fixture.componentInstance;
-    fixture.componentRef.setInput('activeView', 'profile');
+    fixture.componentRef.setInput('activeView', 'preferences');
     fixture.detectChanges();
-    expect(component.activeView()).toBe('profile');
+    expect(component.activeView()).toBe('preferences');
   });
 });

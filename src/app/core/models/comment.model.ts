@@ -4,6 +4,7 @@ export interface Comment {
   id?: string;
   attractionId: string;
   name: string;
+  username?: string | null;
   text: string;
   rating: number;
   color: string;
@@ -15,6 +16,7 @@ export interface StepComment {
   id:         string;
   stepKey:    string;
   authorName: string;
+  authorUsername?: string | null;
   text:       string;
   createdAt:  string;
 }

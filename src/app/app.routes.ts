@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/auth/auth.guard';
-import { aboutSeo, aiPlanningSeo, guidesSeo, karmaHistorySeo, myTripsSeo, notFoundSeo, planSeo, privacySeo, profileSeo, sharedPendingSeo, termsSeo } from './core/seo/seo-pages';
+import { aboutSeo, aiPlanningSeo, guidesSeo, karmaHistorySeo, myTripsSeo, notFoundSeo, planSeo, privacySeo, preferencesSeo, publicProfileSeo, sharedPendingSeo, termsSeo, tooManyRequestsSeo } from './core/seo/seo-pages';
 import { cityGuideSlugGuard } from './features/city-guide/city-guide.guard';
 import { landingGuard } from './features/shell/landing.guard';
 
@@ -43,11 +43,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/karma-history/karma-history.component').then(m => m.KarmaHistoryComponent),
   },
   {
-    path: 'profile',
+    path: 'preferences',
     canActivate: [authGuard],
-    data: { seo: profileSeo },
-    loadComponent: () => import('./features/profile/profile-page.component').then(m => m.ProfilePageComponent),
+    data: { seo: preferencesSeo },
+    loadComponent: () => import('./features/preferences/preferences-page.component').then(m => m.PreferencesPageComponent),
   },
+  // Old path. Backend-issued notification urls (e.g. trophy "/profile?focus=…#trofeos") still point here;
+  // the redirect keeps their query params and fragment.
+  { path: 'profile', redirectTo: 'preferences' },
   {
     path: 'my-trips',
     canActivate: [authGuard],
@@ -69,6 +72,16 @@ export const routes: Routes = [
     canMatch: [cityGuideSlugGuard],
     data: { seoManaged: true },
     loadComponent: () => import('./features/city-guide/city-guide.component').then(m => m.CityGuideComponent),
+  },
+  {
+    path: 'u/:username',
+    data: { seo: publicProfileSeo },
+    loadComponent: () => import('./features/public-profile/public-profile.component').then(m => m.PublicProfileComponent),
+  },
+  {
+    path: 'demasiadas-visitas',
+    data: { seo: tooManyRequestsSeo },
+    loadComponent: () => import('./features/too-many-requests/too-many-requests.component').then(m => m.TooManyRequestsComponent),
   },
   {
     path: '**',

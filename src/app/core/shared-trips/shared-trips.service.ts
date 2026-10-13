@@ -6,6 +6,7 @@ export interface SharedTrip {
   id:              string;
   ownerEmail:      string;
   ownerName:       string;
+  ownerUsername?:  string | null;
   tripName:        string;
   createdAt:       string;
   stops:           TripStop[];

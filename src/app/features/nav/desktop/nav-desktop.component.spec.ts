@@ -25,12 +25,12 @@ describe('NavDesktopComponent — active page indication', () => {
     expect(fixture.nativeElement.querySelector('.nav-page-btn.active')).toBeNull();
   });
 
-  it('marks "Mi perfil" active when activeView is "profile"', () => {
+  it('marks "Configuración de cuenta" active when activeView is "preferences"', () => {
     const fixture = setup();
-    fixture.componentRef.setInput('activeView', 'profile');
+    fixture.componentRef.setInput('activeView', 'preferences');
     fixture.detectChanges();
     const active = fixture.nativeElement.querySelector('.nav-page-btn.active');
-    expect(active?.textContent).toContain('Mi perfil');
+    expect(active?.textContent).toContain('Configuración de cuenta');
   });
 
   it('marks "Mis viajes" active when activeView is "mytrips"', () => {
@@ -210,5 +210,33 @@ describe('NavDesktopComponent — city guide promo teaser', () => {
     const fixture = TestBed.createComponent(NavDesktopComponent);
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('app-city-guide-promo')).not.toBeNull();
+  });
+});
+
+describe('NavDesktopComponent — "Mi perfil" needs a username', () => {
+  function labels(username?: string): string[] {
+    TestBed.configureTestingModule({
+      imports: [NavDesktopComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    const fixture = TestBed.createComponent(NavDesktopComponent);
+    const facade = TestBed.inject(NavFacadeService);
+    facade.auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, username });
+    facade.userMenuOpen.set(true);
+    fixture.detectChanges();
+    return [...fixture.nativeElement.querySelectorAll('.nav-page-btn')].map((b: HTMLElement) => b.textContent!.trim());
+  }
+
+  it('hides "Mi perfil" when the user has no username', () => {
+    const l = labels();
+    expect(l.some(t => t.includes('Mi perfil'))).toBe(false);
+    expect(l.some(t => t.includes('Configuración de cuenta'))).toBe(true);
+  });
+
+  it('shows "Mi perfil" above "Configuración de cuenta" when the user has a username', () => {
+    const l = labels('ana');
+    const i = l.findIndex(t => t.includes('Mi perfil'));
+    expect(i).toBeGreaterThanOrEqual(0);
+    expect(i).toBeLessThan(l.findIndex(t => t.includes('Configuración de cuenta')));
   });
 });

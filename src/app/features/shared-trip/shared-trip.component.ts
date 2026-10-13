@@ -37,6 +37,8 @@ import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slidesh
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { PlanPresentationPillComponent } from '../../shared/plan-presentation-pill/plan-presentation-pill.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { UserLinkComponent } from '../../shared/user-link/user-link.component';
+import { FollowButtonComponent } from '../public-profile/follow-button.component';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { sharedTripSeo, sharedTripNotFoundSeo } from '../../core/seo/shared-trip-seo.util';
@@ -48,7 +50,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink],
+    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -85,7 +87,11 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
         <!-- Trip header -->
         <div class="shared-header">
           <div class="shared-header-name">{{ trip()!.tripName }}</div>
-          <div class="shared-header-owner" i18n="@@sharedTrip.tripBy">Viaje de {{ trip()!.ownerName }}</div>
+          <div class="shared-header-owner"><ng-container i18n="@@sharedTrip.tripByPrefix">Viaje de</ng-container>&ngsp;<tb-user-link [name]="trip()!.ownerName" [username]="trip()!.ownerUsername" />
+            @if (trip()!.ownerUsername && auth.currentUser()?.username !== trip()!.ownerUsername) {
+              <tb-follow-button [username]="trip()!.ownerUsername!" />
+            }
+          </div>
 
           <!-- Favorite toggle -->
           <div class="fav-row">
@@ -239,7 +245,7 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
                     <app-city-info-badge [city]="city"
                         [homeIso2]="auth.currentUser()?.countryOfResidence ?? null"
                         [isLoggedIn]="auth.isLoggedIn()"
-                        (ctaClick)="facade.openProfile()" />
+                        (ctaClick)="facade.openPreferences()" />
                   </div>
                 </div>
 

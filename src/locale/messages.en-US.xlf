@@ -201,8 +201,8 @@
         <target>City information</target>
       </trans-unit>
       <trans-unit id="cityInfo.setCountryCta" datatype="html">
-        <source>Agrega tu país de residencia en Mi Perfil para ver info de visa</source>
-        <target>Add your country of residence in My Profile to see visa info</target>
+        <source>Agrega tu país de residencia en Configuración de cuenta para ver info de visa</source>
+        <target>Add your country of residence in Account settings to see visa info</target>
       </trans-unit>
       <trans-unit id="stopList.currencyBadgeLabel" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="name"/> (<x id="INTERPOLATION_1" equiv-text="symbol"/>)</source>
@@ -1137,10 +1137,6 @@
         <source>Comentar</source>
         <target>Comment</target>
       </trans-unit>
-      <trans-unit id="sharedTrip.tripBy" datatype="html">
-        <source>Viaje de <x id="INTERPOLATION" equiv-text="{{ trip()!.ownerName }}"/></source>
-        <target>Trip by <x id="INTERPOLATION" equiv-text="{{ trip()!.ownerName }}"/></target>
-      </trans-unit>
       <trans-unit id="sharedTrip.cloneBtn" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clonar este viaje&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <target> <x id="INTERPOLATION" equiv-text="{{ cloning() ? &apos;…&apos; : &apos;📋 Clone this trip&apos; }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
@@ -1229,8 +1225,8 @@
 
       <!-- ── nav profile button ── -->
       <trans-unit id="nav.profileBtnTitle" datatype="html">
-        <source>Editar perfil</source>
-        <target>Edit profile</target>
+        <source>Editar cuenta</source>
+        <target>Edit account</target>
       </trans-unit>
 
 
@@ -1925,16 +1921,16 @@
         <target>➕ Add</target>
       </trans-unit>
       <trans-unit id="companion.boostedLabel" datatype="html">
-        <source>¡Miel está atenta hoy! 🦴💕</source>
-        <target>Miel is paying attention today! 🦴💕</target>
+        <source>🐾 ¡Miel está lista para ayudarte a mejorar tus planes!</source>
+        <target>🐾 Miel is ready to help you improve your plans!</target>
       </trans-unit>
       <trans-unit id="companion.boostTimer" datatype="html">
         <source>Termina en <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></source>
         <target>Ends in <x id="INTERPOLATION" equiv-text="{{ remainingLabel() }}"/></target>
       </trans-unit>
       <trans-unit id="companion.boostCopy" datatype="html">
-        <source> Por ahora Miel está jugando con otro usuario. Dale un premio 🦴 para que juegue contigo. ¡Durante las próximas 24 horas Miel jugara contigo y te dará más sugerencias sobre tu viaje! </source>
-        <target> Right now Miel is playing with another user. Give her a treat 🦴 so she plays with you. For the next 24 hours Miel will play with you and give you more suggestions about your trip! </target>
+        <source> ¿Quieres sugerencias para tu plan? ¡Dame un premio y te ayudo!🦴 </source>
+        <target> Want suggestions for your plan? Give me a treat and I'll help!🦴 </target>
       </trans-unit>
       <trans-unit id="companion.boostBtn" datatype="html">
         <source>Dar premio (−2 Token 🦴)</source>
@@ -2019,8 +2015,8 @@
         <target>Terms of Service</target>
       </trans-unit>
       <trans-unit id="terms.updated" datatype="html">
-        <source>Última actualización: 8 de septiembre de 2026</source>
-        <target>Last updated: September 8, 2026</target>
+        <source>Última actualización: 13 de octubre de 2026</source>
+        <target>Last updated: October 13, 2026</target>
       </trans-unit>
       <trans-unit id="terms.s1.title" datatype="html">
         <source>1. Aceptación de los términos</source>
@@ -2043,8 +2039,8 @@
         <target>3. Your account</target>
       </trans-unit>
       <trans-unit id="terms.s3.body" datatype="html">
-        <source>Debes registrarte con un correo electrónico válido y una contraseña. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 años para crear una cuenta. Puedes actualizar tu nombre, correo, contraseña y país de residencia desde tu perfil en cualquier momento.</source>
-        <target>You must register with a valid email address and password. You are responsible for keeping your credentials confidential and for all activity on your account. You must be at least 13 years old to create an account. You can update your name, email, password, and country of residence from your profile at any time.</target>
+        <source>Debes registrarte con un correo electrónico válido y una contraseña. Eres responsable de mantener la confidencialidad de tus credenciales y de toda actividad que ocurra en tu cuenta. Debes tener al menos 13 años para crear una cuenta. Puedes actualizar tu nombre, correo, contraseña y país de residencia desde Configuración de cuenta en cualquier momento. También puedes elegir un nombre de usuario público: puedes cambiarlo, pero no eliminarlo, y no debe suplantar a otra persona ni ser ofensivo.</source>
+        <target>You must register with a valid email address and password. You are responsible for keeping your credentials confidential and for all activity on your account. You must be at least 13 years old to create an account. You can update your name, email, password, and country of residence from Account settings at any time. You can also choose a public username: you can change it but not delete it, and it must not impersonate anyone or be offensive.</target>
       </trans-unit>
       <trans-unit id="terms.s4.title" datatype="html">
         <source>4. El sistema de Token</source>
@@ -2079,8 +2075,8 @@
         <target>7. Shared and collaborative plans</target>
       </trans-unit>
       <trans-unit id="terms.s7.body" datatype="html">
-        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas. Cuando publicas o compartes un viaje, generamos un enlace público que cualquier persona puede ver sin iniciar sesión, y que puede ser indexado por motores de búsqueda como Google.</source>
-        <target>You can invite another registered person to co-edit a trip. Every collaborator can modify the same plan; the last saved edit takes precedence over earlier ones ("last write wins"). We do not offer real-time sync or automatic conflict resolution between simultaneous edits. When you publish or share a trip, we generate a public link that anyone can view without signing in, and that may be indexed by search engines like Google.</target>
+        <source>Puedes invitar a otra persona registrada a co-editar un viaje. Todas las personas colaboradoras pueden modificar el mismo plan; la última edición guardada prevalece sobre las anteriores ("last write wins"). No ofrecemos sincronización en tiempo real ni resolución automática de conflictos entre ediciones simultáneas. Cuando publicas o compartes un viaje, generamos un enlace público que cualquier persona puede ver sin iniciar sesión, y que puede ser indexado por motores de búsqueda como Google. Si tienes un nombre de usuario, tus viajes compartidos también aparecen en tu perfil público, y otras personas registradas pueden seguirte para ver tus nuevos viajes compartidos.</source>
+        <target>You can invite another registered person to co-edit a trip. Every collaborator can modify the same plan; the last saved edit takes precedence over earlier ones ("last write wins"). We do not offer real-time sync or automatic conflict resolution between simultaneous edits. When you publish or share a trip, we generate a public link that anyone can view without signing in, and that may be indexed by search engines like Google. If you have a username, your shared trips also appear on your public profile, and other registered people can follow you to see your new shared trips.</target>
       </trans-unit>
       <trans-unit id="terms.s8.title" datatype="html">
         <source>8. Conducta esperada</source>
@@ -2141,16 +2137,16 @@
         <target>Privacy Policy</target>
       </trans-unit>
       <trans-unit id="privacy.updated" datatype="html">
-        <source>Última actualización: 8 de septiembre de 2026</source>
-        <target>Last updated: September 8, 2026</target>
+        <source>Última actualización: 13 de octubre de 2026</source>
+        <target>Last updated: October 13, 2026</target>
       </trans-unit>
       <trans-unit id="privacy.s1.title" datatype="html">
         <source>1. Qué información recopilamos</source>
         <target>1. What information we collect</target>
       </trans-unit>
       <trans-unit id="privacy.s1.body" datatype="html">
-        <source>Recopilamos la información que nos entregas directamente: nombre, correo electrónico, contraseña (almacenada como hash, nunca en texto plano) y, opcionalmente, tu país de residencia. También guardamos los datos de tus planes de viaje (paradas, fechas, alojamiento, transporte, atracciones seleccionadas), tus comentarios en atracciones y viajes compartidos, los lugares que marcas como "visitados" en el mapa de tu perfil, y un identificador anónimo generado automáticamente en tu navegador (independiente de tu cuenta) que nos permite reconocer visitas recurrentes antes de que inicies sesión.</source>
-        <target>We collect the information you give us directly: name, email, password (stored as a hash, never in plain text) and, optionally, your country of residence. We also store your trip planning data (stops, dates, lodging, transport, selected attractions), your comments on attractions and shared trips, the places you mark as "visited" on your profile's map, and an anonymous identifier automatically generated in your browser (independent of your account) that lets us recognize returning visits before you log in.</target>
+        <source>Recopilamos la información que nos entregas directamente: nombre, correo electrónico, contraseña (almacenada como hash, nunca en texto plano) y, opcionalmente, tu país de residencia y un nombre de usuario público. También guardamos los datos de tus planes de viaje (paradas, fechas, alojamiento, transporte, atracciones seleccionadas), tus comentarios en atracciones y viajes compartidos, las personas que sigues, los lugares que marcas como "visitados" en tu mapa, y un identificador anónimo generado automáticamente en tu navegador (independiente de tu cuenta) que nos permite reconocer visitas recurrentes antes de que inicies sesión.</source>
+        <target>We collect the information you give us directly: name, email, password (stored as a hash, never in plain text) and, optionally, your country of residence and a public username. We also store your trip planning data (stops, dates, lodging, transport, selected attractions), your comments on attractions and shared trips, the people you follow, the places you mark as "visited" on your map, and an anonymous identifier automatically generated in your browser (independent of your account) that lets us recognize returning visits before you log in.</target>
       </trans-unit>
       <trans-unit id="privacy.s2.title" datatype="html">
         <source>2. Cómo usamos tu información</source>
@@ -2171,6 +2167,10 @@
       <trans-unit id="privacy.s3.body2" datatype="html">
         <source>Si publicas o compartes un plan de viaje, este se vuelve visible públicamente a través de un enlace único y puede aparecer indexado en motores de búsqueda como Google. La vista pública de tu plan nunca incluye tu correo electrónico ni tu identificador de cuenta — solo el nombre que uses para mostrar y el contenido del itinerario que decidas compartir.</source>
         <target>If you publish or share a trip plan, it becomes publicly visible through a unique link and may appear indexed in search engines like Google. The public view of your plan never includes your email address or account identifier — only your display name and the itinerary content you choose to share.</target>
+      </trans-unit>
+      <trans-unit id="privacy.s3.body3" datatype="html">
+        <source>Si eliges un nombre de usuario, tienes un perfil público (tripilove.com/u/tu_usuario) que cualquier persona puede ver, incluso sin iniciar sesión. Muestra tu nombre, tu nombre de usuario, cuántas personas te siguen y a cuántas sigues, tus trofeos obtenidos, las ciudades de tus viajes compartidos y esos viajes. Nunca muestra tu correo electrónico. Por ahora pedimos a los motores de búsqueda no indexar los perfiles. No publicamos la lista de quién sigue a quién, solo los totales; cuando alguien te sigue, recibes una notificación.</source>
+        <target>If you choose a username, you get a public profile (tripilove.com/u/your_username) that anyone can see, even without signing in. It shows your name, your username, how many people follow you and how many you follow, the trophies you have earned, the cities in your shared trips, and those trips. It never shows your email address. For now we ask search engines not to index profiles. We do not publish the list of who follows whom, only the totals; when someone follows you, you get a notification.</target>
       </trans-unit>
       <trans-unit id="privacy.s4.title" datatype="html">
         <source>4. Cookies y almacenamiento local</source>
@@ -2201,8 +2201,8 @@
         <target>7. Your rights</target>
       </trans-unit>
       <trans-unit id="privacy.s7.body" datatype="html">
-        <source>Puedes acceder, corregir o eliminar tu información personal en cualquier momento desde tu perfil (nombre, contraseña, país de residencia), o solicitando la eliminación completa de tu cuenta a través de los canales de contacto indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
-        <target>You can access, correct, or delete your personal information at any time from your profile (name, password, country of residence), or request full account deletion through the contact channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
+        <source>Puedes acceder, corregir o eliminar tu información personal en cualquier momento desde Configuración de cuenta (nombre, nombre de usuario, contraseña, país de residencia), o solicitando la eliminación completa de tu cuenta a través de los canales de contacto indicados en la página <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>Sobre Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>You can access, correct, or delete your personal information at any time from Account settings (name, username, password, country of residence), or request full account deletion through the contact channels listed on the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/about&quot;&gt;"/>About Tripilove<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> page.</target>
       </trans-unit>
       <trans-unit id="privacy.s8.title" datatype="html">
         <source>8. Menores de edad</source>
@@ -2264,7 +2264,10 @@
         <source>👤 Mi perfil</source>
         <target>👤 My profile</target>
       </trans-unit>
-
+      <trans-unit id="nav.myPreferences" datatype="html">
+        <source>⚙️ Configuración de cuenta</source>
+        <target>⚙️ Account settings</target>
+      </trans-unit>
       <!-- ── plan-time-modal.component: date label ── -->
       <trans-unit id="planModal.dateLabel" datatype="html">
         <source>Fecha</source>
@@ -2279,12 +2282,32 @@
 
       <!-- ── profile.component: full translation pass ── -->
       <trans-unit id="profile.title" datatype="html">
-        <source>Mi Perfil</source>
-        <target>My Profile</target>
+        <source>Configuración de cuenta</source>
+        <target>Account settings</target>
       </trans-unit>
       <trans-unit id="profile.editAccountTitle" datatype="html">
         <source>Editar cuenta ✏️</source>
         <target>Edit account ✏️</target>
+      </trans-unit>
+      <trans-unit id="profile.followingTitle" datatype="html">
+        <source>Siguiendo 👥</source>
+        <target>Following 👥</target>
+      </trans-unit>
+      <trans-unit id="profile.followingEmpty" datatype="html">
+        <source>Aún no sigues a nadie — encuentra viajeros en Rankings.</source>
+        <target>You're not following anyone yet — find travelers in Rankings.</target>
+      </trans-unit>
+      <trans-unit id="profile.followingMore" datatype="html">
+        <source>Ver más</source>
+        <target>See more</target>
+      </trans-unit>
+      <trans-unit id="profile.followingError" datatype="html">
+        <source>No pudimos cargar a quienes sigues.</source>
+        <target>We couldn't load the people you follow.</target>
+      </trans-unit>
+      <trans-unit id="profile.followingRetry" datatype="html">
+        <source>Reintentar</source>
+        <target>Retry</target>
       </trans-unit>
       <trans-unit id="profile.nameTitle" datatype="html">
         <source>Nombre</source>
@@ -2746,9 +2769,9 @@
         <source>Mi plan de viaje | Tripilove</source>
         <target>My trip plan | Tripilove</target>
       </trans-unit>
-      <trans-unit id="seo.profile.title" datatype="html">
-        <source>Mi perfil | Tripilove</source>
-        <target>My profile | Tripilove</target>
+      <trans-unit id="seo.preferences.title" datatype="html">
+        <source>Configuración de cuenta | Tripilove</source>
+        <target>Account settings | Tripilove</target>
       </trans-unit>
       <trans-unit id="seo.myTrips.title" datatype="html">
         <source>Mis viajes | Tripilove</source>
@@ -3217,6 +3240,130 @@
       <trans-unit id="nav.legalGuides" datatype="html">
         <source>Legales y Guías</source>
         <target>Legal &amp; Guides</target>
+      </trans-unit>
+      <trans-unit id="seo.publicProfile.title" datatype="html">
+        <source>Perfil de viajero | Tripilove</source>
+        <target>Traveler profile | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="seo.tooManyRequests.title" datatype="html">
+        <source>Demasiadas visitas | Tripilove</source>
+        <target>Too many visits | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.followers" datatype="html">
+        <source>Viajero popular</source>
+        <target>Popular traveler</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.followers" datatype="html">
+        <source>Te siguen <x id="count" equiv-text="n"/> viajeros</source>
+        <target>Followed by <x id="count" equiv-text="n"/> travelers</target>
+      </trans-unit>
+      <trans-unit id="trophy.titlePublic" datatype="html">
+        <source>Trofeos 🏆</source>
+        <target>Trophies 🏆</target>
+      </trans-unit>
+      <trans-unit id="trophy.emptyPublic" datatype="html">
+        <source>Todavía no tiene trofeos.</source>
+        <target>No trophies yet.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameTitle" datatype="html">
+        <source>Nombre de usuario</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameHelp" datatype="html">
+        <source>Con un nombre de usuario tienes un perfil público y otros viajeros pueden seguirte. Puedes cambiarlo, pero no eliminarlo.</source>
+        <target>With a username you get a public profile and other travelers can follow you. You can change it, but not remove it.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernamePlaceholder" datatype="html">
+        <source>tu_usuario</source>
+        <target>your_username</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameFormat" datatype="html">
+        <source>De 3 a 50 caracteres: letras minúsculas, números, _ y . (sin empezar ni terminar con punto).</source>
+        <target>3 to 50 characters: lowercase letters, numbers, _ and . (no leading or trailing dot).</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameTaken" datatype="html">
+        <source>Ese nombre ya está en uso.</source>
+        <target>That username is already taken.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameNotAllowed" datatype="html">
+        <source>Ese nombre no está permitido.</source>
+        <target>That username is not allowed.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameError" datatype="html">
+        <source>No se pudo guardar. Intenta de nuevo.</source>
+        <target>Could not save. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameSave" datatype="html">
+        <source>Guardar nombre de usuario</source>
+        <target>Save username</target>
+      </trans-unit>
+      <trans-unit id="profile.viewPublicProfile" datatype="html">
+        <source>Ver mi perfil público</source>
+        <target>View my public profile</target>
+      </trans-unit>
+      <trans-unit id="profile.usernameNone" datatype="html">
+        <source>Sin perfil público</source>
+        <target>No public profile</target>
+      </trans-unit>
+      <trans-unit id="follow.following" datatype="html">
+        <source>Siguiendo</source>
+        <target>Following</target>
+      </trans-unit>
+      <trans-unit id="follow.follow" datatype="html">
+        <source>Seguir</source>
+        <target>Follow</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.loading" datatype="html">
+        <source>Cargando perfil…</source>
+        <target>Loading profile…</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.notFound" datatype="html">
+        <source>Este perfil no existe</source>
+        <target>This profile does not exist</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.home" datatype="html">
+        <source>Volver al inicio</source>
+        <target>Back to home</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.followers" datatype="html">
+        <source>seguidores</source>
+        <target>followers</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.following" datatype="html">
+        <source>siguiendo</source>
+        <target>following</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.edit" datatype="html">
+        <source>Editar perfil</source>
+        <target>Edit profile</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.cities" datatype="html">
+        <source>Ciudades planificadas</source>
+        <target>Planned cities</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.trips" datatype="html">
+        <source>Planes compartidos</source>
+        <target>Shared plans</target>
+      </trans-unit>
+      <trans-unit id="publicProfile.noTrips" datatype="html">
+        <source>Todavía no ha compartido planes.</source>
+        <target>No shared plans yet.</target>
+      </trans-unit>
+      <trans-unit id="sharedTrip.tripByPrefix" datatype="html">
+        <source>Viaje de</source>
+        <target>Trip by</target>
+      </trans-unit>
+      <trans-unit id="tooMany.title" datatype="html">
+        <source>¡Guau, cuántas visitas!</source>
+        <target>Wow, so many visits!</target>
+      </trans-unit>
+      <trans-unit id="tooMany.body" datatype="html">
+        <source>Miel necesita un respiro. Vuelve a intentarlo en unos segundos.</source>
+        <target>Miel needs a breather. Try again in a few seconds.</target>
+      </trans-unit>
+      <trans-unit id="tooMany.home" datatype="html">
+        <source>Volver al inicio</source>
+        <target>Back to home</target>
       </trans-unit>
     </body>
   </file>

@@ -73,9 +73,9 @@ describe('TrophyShelfComponent', () => {
     f.nativeElement.querySelector('.ts-toggle').click();
     f.detectChanges();
     const rows = f.nativeElement.querySelectorAll('.ts-row');
-    expect(rows.length).toBe(16);   // 4 tiered × 3 + 4 single
+    expect(rows.length).toBe(19);   // 5 tiered × 3 + 4 single
     const locked = f.nativeElement.querySelectorAll('.ts-row.ts-locked');
-    expect(locked.length).toBe(15);
+    expect(locked.length).toBe(18);
     expect(f.nativeElement.textContent).toContain('7 / 20');   // comments silver progress
     f.nativeElement.querySelector('.ts-toggle').click();
     f.detectChanges();
@@ -129,5 +129,86 @@ describe('TrophyShelfComponent — F2: Empty-state Miel image aspect ratio', () 
     expect(img).not.toBeNull();
     expect(img.getAttribute('width')).toBe('96');
     expect(img.getAttribute('height')).toBe('175');
+  });
+});
+
+describe('TrophyShelfComponent — read-only mode ([earned] input)', () => {
+  const earned = signal<any[]>([]);
+  const progress = signal<any>({});
+  const loadError = signal(false);
+  const loading = signal(false);
+  const load = jest.fn();
+
+  const sample = [
+    { type: 'followers', tier: 'bronze', earnedAt: '2026-10-01T12:00:00.000Z' },
+    { type: 'publish_plan', tier: 'single', earnedAt: '2026-10-02T12:00:00.000Z' },
+  ];
+
+  function renderReadOnly(list: readonly any[]) {
+    TestBed.configureTestingModule({
+      imports: [TrophyShelfComponent],
+      providers: [provideRouter([]), { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } }],
+    });
+    const f = TestBed.createComponent(TrophyShelfComponent);
+    f.componentRef.setInput('earned', list);
+    f.detectChanges();
+    return f;
+  }
+
+  beforeEach(() => { earned.set([]); progress.set({}); loadError.set(false); loading.set(false); load.mockReset(); });
+
+  it('renders the given medals as bubbles and never loads the viewer’s own trophies', () => {
+    const f = renderReadOnly(sample);
+    expect(f.nativeElement.querySelectorAll('.ts-bubble').length).toBe(2);
+    expect(load).not.toHaveBeenCalled();
+  });
+
+  it('hides "Ver todos" (progress is private) and uses a neutral title', () => {
+    const f = renderReadOnly(sample);
+    expect(f.nativeElement.querySelector('.ts-toggle')).toBeNull();
+    expect(f.nativeElement.querySelector('.section-head').textContent).not.toContain('Mis');
+  });
+
+  it('shows the third-person empty state', () => {
+    const f = renderReadOnly([]);
+    expect(f.nativeElement.textContent).toContain('Todavía no tiene trofeos');
+  });
+
+  it('own-profile mode is unchanged: loads and shows "Ver todos"', () => {
+    TestBed.configureTestingModule({
+      imports: [TrophyShelfComponent],
+      providers: [provideRouter([]), { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } }],
+    });
+    const own = TestBed.createComponent(TrophyShelfComponent);
+    own.detectChanges();
+    expect(load).toHaveBeenCalled();
+    expect(own.nativeElement.querySelector('.ts-toggle')).not.toBeNull();
+  });
+});
+
+describe("TrophyShelfComponent — read-only mode ignores ?focus=", () => {
+  it("does not flash a bubble when the public page carries ?focus=", () => {
+    jest.useFakeTimers();
+    Element.prototype.scrollIntoView = jest.fn();
+    const earned = signal<any[]>([]);
+    const progress = signal<any>({});
+    const loadError = signal(false);
+    const loading = signal(false);
+    const load = jest.fn();
+    TestBed.configureTestingModule({
+      imports: [TrophyShelfComponent],
+      providers: [
+        provideRouter([]),
+        { provide: TrophyService, useValue: { earned, progress, loadError, loading, load } },
+        { provide: ActivatedRoute, useValue: { queryParamMap: of(convertToParamMap({ focus: "ai_plans:bronze" })) } },
+      ],
+    });
+    const f = TestBed.createComponent(TrophyShelfComponent);
+    f.componentRef.setInput("earned", [{ type: "ai_plans", tier: "bronze", earnedAt: "2026-10-01T00:00:00Z" }]);
+    f.detectChanges();
+    jest.advanceTimersByTime(300 + SCROLL_SETTLE_FALLBACK_MS);
+    expect(f.nativeElement.querySelector("[data-focus-id=\"ai_plans:bronze\"]").classList).not.toContain("tb-focus-flash");
+    expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
+    jest.useRealTimers();
   });
 });

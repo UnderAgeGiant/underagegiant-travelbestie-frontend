@@ -119,7 +119,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           <button class="btn-pill btn-ghost" tbHighlightTarget="login-btn" (click)="facade.authModal.openLogin()" i18n="@@nav.signInBtn">Iniciar sesión</button>
         } @else {
           <div style="position:relative">
-            <button class="user-btn" (click)="facade.toggleUserMenu()">
+            <button class="user-btn" tbHighlightTarget="user-menu-btn" (click)="facade.toggleUserMenu()">
               <div class="user-avatar">{{ facade.initials() }}</div>
               <span class="user-btn-name">{{ facade.auth.currentUser()?.name }}</span>
               <span style="font-size:10px;color:var(--t3)">▾</span>
@@ -142,10 +142,16 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                     </div>
                   </div>
 
-                  <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'profile'"
+                  @if (facade.auth.currentUser()?.username) {
+                    <button class="btn-pill btn-ghost nav-page-btn"
+                            style="width:100%;justify-content:center;margin-bottom:4px"
+                            (click)="onMyProfile()" type="button"
+                            i18n="@@nav.myProfile">👤 Mi perfil</button>
+                  }
+                  <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'preferences'"
                           style="width:100%;justify-content:center;margin-bottom:4px"
-                          (click)="onProfile()" type="button"
-                          i18n="@@nav.myProfile">👤 Mi perfil</button>
+                          (click)="onPreferences()" type="button"
+                          i18n="@@nav.myPreferences">⚙️ Configuración de cuenta</button>
                   <button class="btn-pill btn-ghost nav-page-btn" [class.active]="activeView() === 'mytrips'"
                           style="width:100%;justify-content:center;margin-bottom:4px"
                           (click)="onMyTrips()" type="button"
@@ -367,13 +373,14 @@ export class NavDesktopComponent {
   private readonly router = inject(Router);
 
   logoClick    = output<void>();
-  profileClick = output<void>();
-  activeView   = input<'profile' | 'mytrips' | 'karmahistory' | null>(null);
+  preferencesClick = output<void>();
+  activeView   = input<'preferences' | 'mytrips' | 'karmahistory' | null>(null);
   /** Default true: shown next to the search box on every page that renders <app-nav>. */
   showCityGuidePromo = input<boolean>(true);
 
   onLogo(): void { this.facade.onLogoClick(); this.logoClick.emit(); }
-  onProfile(): void { this.facade.openProfile(); this.profileClick.emit(); }
+  onMyProfile(): void { this.facade.openMyProfile(); }
+  onPreferences(): void { this.facade.openPreferences(); this.preferencesClick.emit(); }
   onMyTrips(): void { this.facade.openMyTrips(); }
   onKarmaHistory(): void { this.facade.openKarmaHistory(); }
   openGuides(): void { this.facade.userMenuOpen.set(false); void this.router.navigateByUrl('/guides'); }
@@ -389,8 +396,8 @@ export class NavDesktopComponent {
   // meant a click on a button inside a DIFFERENT instance's panel read as
   // "outside" *here*, closing the shared menu on mousedown before that
   // button's own click handler could fire — silently swallowing the click
-  // (e.g. "Mis viajes" appearing to do nothing when clicked from the Mi
-  // Perfil page, since Mi Perfil's own nav and the base shell nav are both
+  // (e.g. "Mis viajes" appearing to do nothing when clicked from the Mis
+  // preferencias page, since that page's own nav and the base shell nav are both
   // mounted simultaneously). Treat a click anywhere inside ANY mounted
   // <app-nav> as "inside", not just this instance's own.
   @HostListener('document:mousedown', ['$event'])

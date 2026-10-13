@@ -6,7 +6,7 @@ import { provideRouter, Router } from '@angular/router';
 import { of, throwError, Observable } from 'rxjs';
 import { KarmaHistoryComponent } from './karma-history.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
+import { PreferencesComponent } from '../preferences/preferences.component';
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
@@ -60,7 +60,7 @@ describe('KarmaHistoryComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA],
     }).overrideComponent(KarmaHistoryComponent, {
-      remove: { imports: [NavShellComponent, ProfileComponent] },
+      remove: { imports: [NavShellComponent, PreferencesComponent] },
     });
     const fixture = TestBed.createComponent(KarmaHistoryComponent);
     fixture.detectChanges();
@@ -155,7 +155,7 @@ describe('KarmaHistoryComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA],
     }).overrideComponent(KarmaHistoryComponent, {
-      remove: { imports: [NavShellComponent, ProfileComponent] },
+      remove: { imports: [NavShellComponent, PreferencesComponent] },
     });
     const fixture = TestBed.createComponent(KarmaHistoryComponent);
     fixture.detectChanges();
@@ -203,7 +203,7 @@ describe('KarmaHistoryComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA],
     }).overrideComponent(KarmaHistoryComponent, {
-      remove: { imports: [NavShellComponent, ProfileComponent] },
+      remove: { imports: [NavShellComponent, PreferencesComponent] },
     });
     const fixture = TestBed.createComponent(KarmaHistoryComponent);
     fixture.detectChanges();
@@ -329,7 +329,7 @@ describe('KarmaHistoryComponent', () => {
         ],
         schemas: [NO_ERRORS_SCHEMA],
       }).overrideComponent(KarmaHistoryComponent, {
-        remove: { imports: [NavShellComponent, ProfileComponent] },
+        remove: { imports: [NavShellComponent, PreferencesComponent] },
       });
       const fixture = TestBed.createComponent(KarmaHistoryComponent);
       fixture.detectChanges();

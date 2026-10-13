@@ -196,6 +196,12 @@ describe('FeedPlanCardComponent', () => {
     expect(toast.show).toHaveBeenCalled();
   });
 
+  it('keeps the space between "por" and the owner link (no whitespace collapse)', () => {
+    const el = create(planWith(1));
+    const owner = el.querySelector('.feed-owner') as HTMLElement;
+    expect(owner.textContent).toMatch(/por\s+Camila/);             // "porCamila" would mean the space collapsed
+  });
+
   it('"Ver plan completo" is a real link to the shared plan', () => {
     const plan = planWith(1);
     create(plan);

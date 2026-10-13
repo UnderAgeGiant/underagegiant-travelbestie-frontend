@@ -2,7 +2,7 @@ import { canonicalUrl } from '../app/core/seo/seo.util';
 
 export interface SitemapItem { id: string; updatedAt: string; }
 
-/** Public, indexable app pages. Private / login-gated routes (/karma-history, /plan, /profile, /my-trips,
+/** Public, indexable app pages. Private / login-gated routes (/karma-history, /plan, /preferences, /my-trips,
  *  /ai-planning) are noindex and must never be listed; /shared/* come from the backend. */
 export const STATIC_SITEMAP_PATHS = ['/', '/about', '/terms', '/privacy', '/guides'] as const;
 

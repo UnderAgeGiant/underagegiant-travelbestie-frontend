@@ -33,8 +33,8 @@ export const planSeo: RouteSeo = () => ({
   noindex: true,
 });
 
-export const profileSeo: RouteSeo = () => ({
-  title: $localize`:@@seo.profile.title:Mi perfil | Tripilove`,
+export const preferencesSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.preferences.title:Configuración de cuenta | Tripilove`,
   noindex: true,
 });
 
@@ -45,6 +45,16 @@ export const myTripsSeo: RouteSeo = () => ({
 
 export const aiPlanningSeo: RouteSeo = () => ({
   title: $localize`:@@seo.aiPlanning.title:Planificar con IA | Tripilove`,
+  noindex: true,
+});
+
+export const publicProfileSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.publicProfile.title:Perfil de viajero | Tripilove`,
+  noindex: true,
+});
+
+export const tooManyRequestsSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.tooManyRequests.title:Demasiadas visitas | Tripilove`,
   noindex: true,
 });
 

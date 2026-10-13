@@ -162,12 +162,12 @@ describe('StopListComponent — city info badge (visa/currency/plug)', () => {
     expect(popover()!.querySelector('.city-info-row.city-info-cta')).toBeTruthy();
   }));
 
-  it('emits openProfile when the CTA row is clicked', fakeAsync(() => {
+  it('emits openPreferences when the CTA row is clicked', fakeAsync(() => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     openPopover();
 
     let emitted = false;
-    fixture.componentInstance.openProfile.subscribe(() => { emitted = true; });
+    fixture.componentInstance.openPreferences.subscribe(() => { emitted = true; });
     (popover()!.querySelector('.city-info-row.city-info-cta') as HTMLElement).click();
     expect(emitted).toBe(true);
   }));

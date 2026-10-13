@@ -27,6 +27,7 @@ import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { HighlightTourComponent } from '../../shared/highlight-tour/highlight-tour.component';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
+import { shouldShowProfileIntro } from '../../shared/highlight-tour/profile-intro.util';
 
 @Component({
     selector: 'tb-shell',
@@ -60,7 +61,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
 
         <!-- S1: full app shell (left panel + welcome) -->
         <section class="landing-snap-child s1-shell" #topSection>
-          <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="facade.openProfile()" (stopSelected)="facade.openEditor()" />
+          <app-stop-list (addDestination)="showAddModal.set(true)" (openPreferences)="facade.openPreferences()" (stopSelected)="facade.openEditor()" />
           <div class="right-panel">
             <app-welcome (addDestination)="showAddModal.set(true)"
                          (openAiPlanning)="facade.openAiPlanning()"
@@ -103,7 +104,7 @@ import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour
     } @else {
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
-        <app-stop-list (addDestination)="showAddModal.set(true)" (openProfile)="facade.openProfile()" />
+        <app-stop-list (addDestination)="showAddModal.set(true)" (openPreferences)="facade.openPreferences()" />
         <tb-day-timeline [showPlanSlideshow]="true" />
         <div class="right-panel">
           @if (!trip.activeStop()) {
@@ -189,6 +190,15 @@ export class ShellComponent {
     effect(() => {
       if (!this.auth.isLoggedIn() && !this.auth.sessionMayExist() && this.mode === 'landing') {
         this.highlightTour.start('landing_welcome', { shouldStillShow: () => !this.auth.isLoggedIn() });
+      }
+    });
+
+    // Logged-in users without a public username get a one-time nudge (seen is permanent).
+    effect(() => {
+      if (shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username)) {
+        this.highlightTour.start('public_profile_intro', {
+          shouldStillShow: () => shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username),
+        });
       }
     });
 

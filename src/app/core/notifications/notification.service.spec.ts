@@ -74,7 +74,7 @@ describe('NotificationService', () => {
 
     svc.openPanel();
     httpMock.expectOne(`${environment.apiUrl}/notifications`).flush({ notifications: [
-      { notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/profile#trofeos', read: false, createdAt: new Date().toISOString() },
+      { notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/preferences#trofeos', read: false, createdAt: new Date().toISOString() },
     ] });
     httpMock.expectOne(`${environment.apiUrl}/notifications/read`).flush(null);
     expect(burst).toHaveBeenCalledTimes(1);
@@ -86,7 +86,7 @@ describe('NotificationService', () => {
 
     svc.openPanel();
     httpMock.expectOne(`${environment.apiUrl}/notifications`).flush({ notifications: [
-      { notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/profile#trofeos', read: true, createdAt: new Date().toISOString() },
+      { notificationId: '1', type: 'trophy', title: 't', body: 'b', url: '/preferences#trofeos', read: true, createdAt: new Date().toISOString() },
     ] });
     httpMock.expectOne(`${environment.apiUrl}/notifications/read`).flush(null);
     expect(burst).not.toHaveBeenCalled();

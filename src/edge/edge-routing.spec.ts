@@ -1,7 +1,19 @@
 import { routes } from '../app/app.routes';
 import { shareRedirectPath } from '../app/core/routing/share-redirect.util';
 import { CITY_GUIDES } from '../app/data/city-guides.data';
-import { citySlugFromPath, isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath } from './edge-routing';
+import { citySlugFromPath, isCrawler, isKnownRoute, legacyShareTarget, pickLocale, sharedIdFromPath, usernameFromPath } from './edge-routing';
+
+describe('usernameFromPath', () => {
+  it('accepts valid-format usernames (case-insensitive) and rejects the rest', () => {
+    expect(usernameFromPath('/u/ana_viaja')).toBe('ana_viaja');
+    expect(usernameFromPath('/u/Ana')).toBe('ana');
+    for (const p of ['/u/', '/u/ab', '/u/an..a', '/u/a/b', '/u/%E0%A4%A', '/u/.ana']) expect(usernameFromPath(p)).toBeNull();
+  });
+  it('profile and rate-limit pages are known routes', () => {
+    expect(isKnownRoute('/u/ana')).toBe(true);
+    expect(isKnownRoute('/demasiadas-visitas')).toBe(true);
+  });
+});
 
 describe('pickLocale (same rules the old middleware had)', () => {
   it('cookie wins', () => {
@@ -55,7 +67,7 @@ describe('citySlugFromPath', () => {
 
 describe('isKnownRoute', () => {
   it('knows the app routes', () => {
-    for (const p of ['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/profile', '/my-trips', '/ai-planning', '/guides', '/shared/abc', '/about/']) {
+    for (const p of ['/', '/about', '/terms', '/privacy', '/karma-history', '/plan', '/preferences', '/profile', '/my-trips', '/ai-planning', '/guides', '/shared/abc', '/about/']) {
       expect(isKnownRoute(p)).toBe(true);
     }
   });

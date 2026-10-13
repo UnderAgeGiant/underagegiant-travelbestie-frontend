@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, convertToParamMap, provideRouter } from '@angul
 import { of } from 'rxjs';
 import { CityGuideComponent } from './city-guide.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
-import { ProfileComponent } from '../profile/profile.component';
+import { PreferencesComponent } from '../preferences/preferences.component';
 import { ApiService } from '../../core/api/api.service';
 import { SeoService } from '../../core/seo/seo.service';
 import type { Attraction } from '../../core/models/comment.model';
@@ -57,7 +57,7 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
       ],
     });
     TestBed.overrideComponent(CityGuideComponent, {
-      remove: { imports: [NavShellComponent, ProfileComponent] },
+      remove: { imports: [NavShellComponent, PreferencesComponent] },
       add: { schemas: [NO_ERRORS_SCHEMA] },
     });
     const f = TestBed.createComponent(CityGuideComponent);

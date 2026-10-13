@@ -33,8 +33,8 @@ function fallbackRows(key: RankingKey): RawRow[] {
 
 function rawRows(key: RankingKey, w: WeeklyRankings): RawRow[] {
   switch (key) {
-    case 'planners':     return w.topPlanners.map(r => ({ label: r.name, value: r.value }));
-    case 'trophies':     return w.topTrophies.map(r => ({ label: r.name, value: r.value }));
+    case 'planners':     return w.topPlanners.map(r => ({ label: r.name, value: r.value, ...(r.username ? { link: `/u/${r.username}` } : {}) }));
+    case 'trophies':     return w.topTrophies.map(r => ({ label: r.name, value: r.value, ...(r.username ? { link: `/u/${r.username}` } : {}) }));
     case 'destinations': return w.topDestinations.map(r => ({ label: cityNames.get(r.cityId) ?? r.cityId, value: r.value }));
     case 'favorited':    return w.topFavorited.map(r => ({
       label: r.title, sublabel: byOwner(r.ownerName), owner: r.ownerName, link: `/shared/${encodeURIComponent(r.shareId)}`, value: r.value,

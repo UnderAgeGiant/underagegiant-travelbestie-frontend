@@ -8,19 +8,21 @@ import { CountryComboboxComponent } from '../../shared/country-combobox/country-
 import { Country, WORLD_COUNTRIES } from '../../data/countries.data';
 import { CompanionBoostCardComponent } from './companion-boost-card.component';
 import { TrophyShelfComponent } from './trophy-shelf/trophy-shelf.component';
+import { FollowingFeedComponent } from './following-feed/following-feed.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
+import { UsernameEditComponent } from './username-edit/username-edit.component';
 import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../core/utils/password-strength.util';
 
 @Component({
-    selector: 'app-profile',
-    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, AutosaveReminderBannerComponent, NavShellComponent],
+    selector: 'app-preferences',
+    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, FollowingFeedComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
 
-      <app-nav [activeView]="'profile'" (logoClick)="close.emit()" />
+      <app-nav [activeView]="'preferences'" (logoClick)="close.emit()" />
 
       <!-- The main app view's own banner (ShellComponent) is hidden while this page is open —
            .profile-page is a full-screen overlay, so it needs its own copy to stay visible. -->
@@ -30,18 +32,18 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
       <!-- Header bar -->
       <div class="prof-bar">
-        <div class="prof-bar-title" i18n="@@profile.title">Mi Perfil</div>
+        <div class="prof-bar-title" i18n="@@profile.title">Configuración de cuenta</div>
       </div>
 
       <!-- Scrollable body -->
       <div class="prof-body">
 
         <!-- Hero -->
-        <div class="prof-hero">
-          <div class="prof-av">{{ initials() }}</div>
+        <div class="pref-hero">
+          <div class="pref-av">{{ initials() }}</div>
           <div>
-            <div class="prof-name">{{ auth.currentUser()?.name }}</div>
-            <div class="prof-email">{{ auth.currentUser()?.email }}</div>
+            <div class="pref-name">{{ auth.currentUser()?.name }}</div>
+            <div class="pref-email">{{ auth.currentUser()?.email }}</div>
           </div>
         </div>
 
@@ -49,7 +51,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
         <section>
           <div class="section-head" i18n="@@profile.editAccountTitle">Editar cuenta ✏️</div>
           @if (editErrorCode() || editError()) {
-            <div class="profile-error" style="margin:0 0 10px">
+            <div class="pref-error" style="margin:0 0 10px">
               @if (editErrorCode()) {
                 @switch (editErrorContext()) {
                   @case ('name') {
@@ -81,23 +83,26 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
           }
           <div style="border:1px solid var(--border);border-radius:14px;background:#fff">
 
+            <tb-username-edit />
+            <div class="pref-accordion-sep"></div>
+
             <!-- Name -->
-            <button class="profile-accordion-hd" (click)="toggleEditSection('name')" type="button">
+            <button class="pref-accordion-hd" (click)="toggleEditSection('name')" type="button">
               <span style="font-size:17px">👤</span>
               <div style="flex:1;text-align:left">
-                <div class="profile-accordion-title" i18n="@@profile.nameTitle">Nombre</div>
+                <div class="pref-accordion-title" i18n="@@profile.nameTitle">Nombre</div>
                 @if (editSection() !== 'name') {
-                  <div class="profile-accordion-sub">{{ auth.currentUser()?.name }}</div>
+                  <div class="pref-accordion-sub">{{ auth.currentUser()?.name }}</div>
                 }
               </div>
               @if (editSavedTab() === 'name') {
-                <span class="profile-accordion-check">✓</span>
+                <span class="pref-accordion-check">✓</span>
               } @else {
-                <span class="profile-accordion-chevron">{{ editSection() === 'name' ? '▴' : '▾' }}</span>
+                <span class="pref-accordion-chevron">{{ editSection() === 'name' ? '▴' : '▾' }}</span>
               }
             </button>
             @if (editSection() === 'name') {
-              <div class="profile-accordion-bd">
+              <div class="pref-accordion-bd">
                 <div class="form-group" style="margin-bottom:14px">
                   <label class="form-label" i18n="@@profile.displayNameLabel">Nombre para mostrar</label>
                   <input class="form-input" i18n-placeholder="@@profile.namePlaceholder" placeholder="Tu nombre"
@@ -120,25 +125,25 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               </div>
             }
 
-            <div class="profile-accordion-sep"></div>
+            <div class="pref-accordion-sep"></div>
 
             <!-- Password -->
-            <button class="profile-accordion-hd" (click)="toggleEditSection('password')" type="button">
+            <button class="pref-accordion-hd" (click)="toggleEditSection('password')" type="button">
               <span style="font-size:17px">🔒</span>
               <div style="flex:1;text-align:left">
-                <div class="profile-accordion-title" i18n="@@profile.passwordTitle">Contraseña</div>
+                <div class="pref-accordion-title" i18n="@@profile.passwordTitle">Contraseña</div>
                 @if (editSection() !== 'password') {
-                  <div class="profile-accordion-sub">••••••••</div>
+                  <div class="pref-accordion-sub">••••••••</div>
                 }
               </div>
               @if (editSavedTab() === 'password') {
-                <span class="profile-accordion-check">✓</span>
+                <span class="pref-accordion-check">✓</span>
               } @else {
-                <span class="profile-accordion-chevron">{{ editSection() === 'password' ? '▴' : '▾' }}</span>
+                <span class="pref-accordion-chevron">{{ editSection() === 'password' ? '▴' : '▾' }}</span>
               }
             </button>
             @if (editSection() === 'password') {
-              <div class="profile-accordion-bd">
+              <div class="pref-accordion-bd">
                 <div class="form-group">
                   <label class="form-label" i18n="@@profile.currentPasswordLabel">Contraseña actual</label>
                   <div style="position:relative">
@@ -211,25 +216,25 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               </div>
             }
 
-            <div class="profile-accordion-sep"></div>
+            <div class="pref-accordion-sep"></div>
 
             <!-- Country of residence -->
-            <button class="profile-accordion-hd" (click)="toggleEditSection('countryOfResidence')" type="button">
+            <button class="pref-accordion-hd" (click)="toggleEditSection('countryOfResidence')" type="button">
               <div style="display:flex;align-items:center;gap:10px">
                 <span>🌎</span>
                 <div style="text-align:left">
-                  <div class="profile-accordion-title" i18n="@@profile.countryOfResidenceTitle">País de residencia</div>
-                  <div class="profile-accordion-sub">{{ countryOfResidenceLabel() || sinDefinir }}</div>
+                  <div class="pref-accordion-title" i18n="@@profile.countryOfResidenceTitle">País de residencia</div>
+                  <div class="pref-accordion-sub">{{ countryOfResidenceLabel() || sinDefinir }}</div>
                 </div>
               </div>
               @if (editSavedTab() === 'countryOfResidence') {
-                <span class="profile-accordion-check">✓</span>
+                <span class="pref-accordion-check">✓</span>
               } @else {
-                <span class="profile-accordion-chevron">{{ editSection() === 'countryOfResidence' ? '▴' : '▾' }}</span>
+                <span class="pref-accordion-chevron">{{ editSection() === 'countryOfResidence' ? '▴' : '▾' }}</span>
               }
             </button>
             @if (editSection() === 'countryOfResidence') {
-              <div class="profile-accordion-bd">
+              <div class="pref-accordion-bd">
                 <app-country-combobox [initialCode]="editCountryOfResidence()" (countryChange)="editCountryOfResidence.set($event.code)" />
                 <div style="display:flex;gap:8px;margin-top:14px">
                   <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
@@ -311,6 +316,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
         <!-- Trophies (Feature 69) — replaced the visited-places map -->
         @if (auth.isLoggedIn()) {
           <tb-trophy-shelf />
+          <tb-following-feed />
         }
 
       </div>
@@ -318,7 +324,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
   `
 })
-export class ProfileComponent {
+export class PreferencesComponent {
   readonly auth          = inject(AuthService);
   readonly trip          = inject(TripService);
   readonly homeAddress   = inject(HomeAddressService);

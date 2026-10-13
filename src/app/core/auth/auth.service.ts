@@ -9,6 +9,7 @@ export interface AuthUser {
   name: string;
   email: string;
   countryOfResidence?: string | null;
+  username?: string | null;
 }
 
 const SESSION_KEY = 'tb_session_user';
@@ -106,7 +107,7 @@ export class AuthService {
 
   updateProfile(fields: {
     name?: string; newEmail?: string; otp?: string;
-    currentPassword?: string; newPassword?: string; countryOfResidence?: string | null;
+    currentPassword?: string; newPassword?: string; countryOfResidence?: string | null; username?: string;
   }): Observable<{ user: AuthUser }> {
     if (environment.useMocks) {
       const current = this._user();
@@ -116,6 +117,7 @@ export class AuthService {
         name:               fields.name ?? current.name,
         email:              fields.newEmail ?? current.email,
         countryOfResidence: fields.countryOfResidence !== undefined ? fields.countryOfResidence : (current.countryOfResidence ?? null),
+        username:           fields.username ?? current.username ?? null,
       };
       localStorage.setItem(SESSION_KEY, JSON.stringify(updated));
       this._user.set(updated);
@@ -241,6 +243,7 @@ export class AuthService {
       if (err.status === 429) return 'RATE_LIMITED';
       if (err.status === 401) return 'UNAUTHORIZED';
       if (err.status === 400) return 'BAD_REQUEST';
+      if (err.status === 409) return 'CONFLICT';
     }
     return 'UNKNOWN';
   }

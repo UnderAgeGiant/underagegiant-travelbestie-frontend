@@ -20,6 +20,7 @@ export interface FeedPlan {
   id:            string;
   tripName:      string;
   ownerName:     string;
+  ownerUsername?: string | null;
   createdAt:     string;
   favoriteCount: number;
   stops:         FeedPlanStop[];
