@@ -358,6 +358,245 @@ export const CITY_GUIDES: CityGuideEntry[] = [
       },
     ],
   },
+  {
+    slug: 'miami',
+    cityId: 'miami',
+    displayName: 'Miami',
+    wave: 2,
+    timeZone: 'America/New_York',
+    reviewed: false,
+    intro:
+      'Miami combina playa, cultura latina y arte urbano en una sola ciudad. Puedes recorrer South Beach y los edificios art déco de Ocean Drive, la Pequeña Habana, los jardines de Villa Vizcaya y los murales de Wynwood. Es un destino para mezclar playa, compras y gastronomía, con el Parque nacional de los Everglades a poca distancia.',
+    bestTime:
+      'De diciembre a abril el clima es más seco y templado; el verano es caluroso y húmedo, y la temporada de huracanes del Atlántico va de junio a noviembre.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 8 a 9 horas. Del Aeropuerto Internacional de Miami al centro y a Miami Beach se llega en tren, bus o taxi.',
+    tips: [
+      'Tramita la autorización electrónica ESTA con anticipación, antes de comprar tus pasajes.',
+      'Las distancias son largas: para moverte entre Miami Beach, el centro y los barrios conviene auto o aplicaciones de transporte.',
+      'En Estados Unidos la propina no viene incluida en muchos restaurantes; revisa la cuenta antes de pagar.',
+      'Usa protector solar y toma agua: el sol es intenso casi todo el año.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Miami?',
+        a: 'Con 3 o 4 días recorres South Beach, la Pequeña Habana, Wynwood y Villa Vizcaya. Con 5 días o más puedes sumar los Everglades o un viaje a Cayo Hueso.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Miami desde Chile?',
+        a: 'Los chilenos no necesitan visa por estadías turísticas cortas, pero sí la autorización electrónica ESTA aprobada antes de viajar. Confirma los requisitos vigentes antes de comprar tus pasajes.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Miami en un día?',
+        a: 'Las más populares son el Parque nacional de los Everglades y Fort Lauderdale. Saliendo temprano también puedes llegar a Cayo Hueso, en el extremo sur de los cayos de Florida.',
+      },
+    ],
+  },
+  {
+    slug: 'nueva-york',
+    cityId: 'newyork',
+    displayName: 'Nueva York',
+    wave: 2,
+    timeZone: 'America/New_York',
+    reviewed: false,
+    intro:
+      'Nueva York reúne en pocos kilómetros algunos de los íconos urbanos más reconocibles: la Estatua de la Libertad, el Empire State Building, Times Square, Central Park y el Puente de Brooklyn. Suma museos como el Museo Metropolitano de Arte y barrios con identidad propia como Greenwich Village y Harlem. Es una ciudad para caminar mucho y combinar cultura, arquitectura y gastronomía.',
+    bestTime:
+      'Primavera (abril a junio) y otoño (septiembre a noviembre) tienen temperaturas agradables para caminar; el verano es caluroso y húmedo, y el invierno es frío, con posibilidad de nieve.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 10 a 11 horas, además de opciones con escala. Desde el aeropuerto JFK se llega a Manhattan en tren (AirTrain y metro), bus o taxi.',
+    tips: [
+      'Tramita la autorización electrónica ESTA con anticipación, antes de comprar tus pasajes.',
+      'El metro conecta casi todos los barrios y es la forma más práctica de moverse; entre puntos cercanos de Manhattan también se camina bien.',
+      'Reserva con anticipación los miradores y la visita a la Estatua de la Libertad en temporada alta.',
+      'La propina no viene incluida en la mayoría de los restaurantes; revisa la cuenta antes de pagar.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Nueva York?',
+        a: 'Con 4 o 5 días recorres lo esencial: Times Square, Central Park, el Empire State Building, el Museo Metropolitano de Arte y la Estatua de la Libertad. Con más días puedes cruzar el Puente de Brooklyn a pie y sumar barrios como Harlem.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Nueva York desde Chile?',
+        a: 'Los chilenos no necesitan visa por estadías turísticas cortas, pero sí la autorización electrónica ESTA aprobada antes de viajar. Confirma los requisitos vigentes antes de comprar tus pasajes.',
+      },
+      {
+        q: '¿Cómo me muevo por Nueva York?',
+        a: 'El metro y los buses llegan a casi todos los barrios y son la opción más práctica. En Manhattan muchas distancias se recorren a pie, y desde el sur de la isla salen los ferris hacia la Estatua de la Libertad.',
+      },
+    ],
+  },
+  {
+    slug: 'ciudad-de-mexico',
+    cityId: 'mexicocity',
+    displayName: 'Ciudad de México',
+    wave: 2,
+    timeZone: 'America/Mexico_City',
+    reviewed: false,
+    intro:
+      'La Ciudad de México mezcla ruinas mexicas, arquitectura colonial y una gran oferta de museos. En el centro histórico están el Templo Mayor, la Plaza de la Constitución (el Zócalo) y el Palacio de Bellas Artes; en Chapultepec, el Museo Nacional de Antropología y el Castillo de Chapultepec. Es un destino para varios días de cultura y gastronomía, con Teotihuacán como excursión clásica.',
+    bestTime:
+      'De marzo a mayo el clima es seco y templado; de junio a septiembre es temporada de lluvias, con chubascos casi siempre por la tarde. La ciudad está a más de 2.200 metros de altura, así que las noches son frescas todo el año.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 9 horas. Del aeropuerto internacional de la Ciudad de México al centro se llega en metro, Metrobús o taxi autorizado.',
+    tips: [
+      'Tómate el primer día con calma: la altura puede cansarte más de lo normal.',
+      'El metro y el Metrobús cubren gran parte de la ciudad; para trayectos de noche o con equipaje usa aplicaciones de transporte.',
+      'Muchos museos cierran un día a la semana: revisa el sitio oficial de cada uno antes de ir.',
+      'Para Teotihuacán sal temprano: el sitio es amplio y tiene poca sombra.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Ciudad de México?',
+        a: 'Con 4 días recorres el centro histórico, Chapultepec, Coyoacán y Xochimilco. Con 5 días o más puedes sumar Teotihuacán y otra excursión.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Ciudad de México desde Chile?',
+        a: 'Los chilenos pueden ingresar a México sin visa por estadías turísticas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Ciudad de México en un día?',
+        a: 'La más popular es Teotihuacán, a aprox. una hora de la ciudad. Otra opción es la zona arqueológica de Xochicalco, más lejos, en el estado de Morelos.',
+      },
+    ],
+  },
+  {
+    slug: 'tokio',
+    cityId: 'tokyo',
+    displayName: 'Tokio',
+    wave: 2,
+    timeZone: 'Asia/Tokyo',
+    reviewed: false,
+    intro:
+      'Tokio combina templos y santuarios tradicionales con barrios de neón y tecnología. En pocos días puedes visitar el templo Sensō-ji, el Santuario Meiji, el cruce de Shibuya y la torre Tokyo Skytree. Es una ciudad muy extensa y bien conectada en tren, que se presta para combinar con excursiones a Kamakura, Hakone o el Monte Fuji.',
+    bestTime:
+      'Primavera (marzo a mayo), con la floración de los cerezos, y otoño (octubre y noviembre) son las épocas más agradables; el verano es caluroso y húmedo, y el invierno es frío pero mayormente seco.',
+    gettingThere:
+      'Desde Santiago no hay vuelos directos: se llega con una o más escalas. Desde los aeropuertos de Narita y Haneda se llega al centro en tren.',
+    tips: [
+      'Usa una tarjeta de transporte recargable (como Suica o Pasmo) para trenes, metro y buses sin comprar boletos cada vez.',
+      'Lleva algo de efectivo: algunos templos, restaurantes pequeños y tiendas no aceptan tarjeta.',
+      'Si vas a hacer varias excursiones en tren de alta velocidad, compara el Japan Rail Pass con los boletos sueltos antes de comprarlo.',
+      'En Japón no se acostumbra dejar propina.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Tokio?',
+        a: 'Con 4 o 5 días recorres los barrios principales: Asakusa, Shibuya, Shinjuku, Harajuku y Akihabara. Con una semana puedes sumar excursiones a Kamakura, Nikkō o Hakone.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Tokio desde Chile?',
+        a: 'Los chilenos pueden ingresar a Japón sin visa por estadías turísticas cortas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Tokio en un día?',
+        a: 'Las más populares son Kamakura, Nikkō, Hakone y la zona del Monte Fuji. Todas se pueden hacer en tren en el día, saliendo temprano.',
+      },
+    ],
+  },
+  {
+    slug: 'singapur',
+    cityId: 'singapore',
+    displayName: 'Singapur',
+    wave: 2,
+    timeZone: 'Asia/Singapore',
+    reviewed: false,
+    intro:
+      'Singapur es una ciudad-estado compacta donde conviven las culturas china, malaya e india. Puedes recorrer Marina Bay Sands y los Jardines de la Bahía, el Jardín Botánico de Singapur, el Merlión junto a la bahía y la isla de Sentosa. Es un buen destino para una escala larga o para combinar con otros países del sudeste asiático, y para comer en centros de comida como Lau Pa Sat.',
+    bestTime:
+      'Hace calor y humedad todo el año, con lluvias frecuentes; de febrero a abril suele llover algo menos, y de noviembre a enero es la época más lluviosa.',
+    gettingThere:
+      'Desde Santiago no hay vuelos directos: se llega con una o más escalas. Del aeropuerto de Changi al centro se llega en metro (MRT), bus o taxi.',
+    tips: [
+      'El metro (MRT) y los buses cubren casi toda la ciudad, y puedes pagarlos con una tarjeta bancaria sin contacto.',
+      'Prueba los centros de comida (hawker centres), como Lau Pa Sat: son la forma más local de comer.',
+      'Lleva ropa liviana, paraguas y algo de abrigo para interiores, donde el aire acondicionado suele ser intenso.',
+      'Las normas son estrictas: por ejemplo, está prohibido comer y beber en el metro.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Singapur?',
+        a: 'Con 3 días recorres Marina Bay, los Jardines de la Bahía, el Jardín Botánico y la Pequeña India. Con 4 o 5 días puedes sumar Sentosa y el Zoológico de Singapur.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Singapur desde Chile?',
+        a: 'Los chilenos pueden ingresar a Singapur sin visa por estadías turísticas cortas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Cómo me muevo por Singapur?',
+        a: 'El metro (MRT) y los buses llegan a casi todos los puntos de interés, incluido el aeropuerto de Changi. Para llegar a Sentosa puedes usar el monorriel, el teleférico o cruzar caminando desde HarbourFront.',
+      },
+    ],
+  },
+  {
+    slug: 'sidney',
+    cityId: 'sydney',
+    displayName: 'Sídney',
+    wave: 2,
+    timeZone: 'Australia/Sydney',
+    reviewed: false,
+    intro:
+      'Sídney se organiza alrededor de su bahía, con la Ópera de Sídney y el Puente de la bahía como postales más reconocidas. En pocos días puedes recorrer el barrio histórico de The Rocks, Darling Harbour, el Zoológico Taronga y playas urbanas como Bondi Beach o la Playa de Manly. Es un destino para combinar ciudad, playa y naturaleza, con las Montañas Azules como excursión clásica.',
+    bestTime:
+      'Las estaciones coinciden con las de Chile: primavera (septiembre a noviembre) y otoño (marzo a mayo) son templadas y agradables, el verano (diciembre a febrero) es la temporada de playa y el invierno es suave.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 14 a 15 horas, y también opciones con escala en Auckland. Del aeropuerto de Sídney al centro se llega en tren o taxi.',
+    tips: [
+      'Tramita la visa de turista en línea con anticipación, antes de comprar tus pasajes.',
+      'Usa los ferris para moverte por la bahía: salen desde Circular Quay hacia Manly, Taronga y otros puntos.',
+      'En la playa báñate solo entre las banderas rojas y amarillas, que marcan la zona vigilada por salvavidas.',
+      'Puedes pagar trenes, buses y ferris con tarjeta bancaria sin contacto o con la tarjeta Opal.',
+      'El sol es fuerte: usa protector solar, sombrero y lentes incluso en días nublados.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Sídney?',
+        a: 'Con 4 días recorres la Ópera, el Puente de la bahía, The Rocks, Darling Harbour y Bondi Beach. Con 5 o 6 días puedes sumar una excursión a las Montañas Azules o al Valle de Hunter.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Sídney desde Chile?',
+        a: 'Los chilenos necesitan una visa de turista para Australia, que se tramita en línea antes del viaje. Confirma los requisitos vigentes antes de comprar tus pasajes.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Sídney en un día?',
+        a: 'La más popular es la de las Montañas Azules. También puedes visitar el Parque nacional Real, el Valle de Hunter, conocido por sus viñedos, o la costa de Palm Beach, al norte de la ciudad.',
+      },
+    ],
+  },
+  {
+    slug: 'auckland',
+    cityId: 'auckland',
+    displayName: 'Auckland',
+    wave: 2,
+    timeZone: 'Pacific/Auckland',
+    reviewed: false,
+    intro:
+      'Auckland es la ciudad más grande de Nueva Zelanda y está rodeada de bahías, islas y conos volcánicos. Puedes subir a la Sky Tower, visitar el Museo Conmemorativo de Guerra de Auckland, recorrer Viaduct Harbour, subir al Monte Eden o tomar un ferry a Devonport y a la isla Rangitoto. Es una buena base para conocer la Isla Norte, con excursiones a la Isla Waiheke, la Playa Piha o las Cuevas de Waitomo.',
+    bestTime:
+      'Las estaciones coinciden con las de Chile: el verano (diciembre a febrero) es la mejor época para playas e islas, y la primavera y el otoño son templados; el clima es cambiante y puede llover en cualquier época del año.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 12 a 13 horas. Del aeropuerto de Auckland al centro se llega en bus o taxi.',
+    tips: [
+      'Tramita la autorización electrónica NZeTA antes de viajar.',
+      'Usa los ferris que salen de la Terminal de Ferry del centro para llegar a Devonport, Rangitoto y la Isla Waiheke.',
+      'Lleva siempre una capa impermeable: el clima puede cambiar varias veces en el mismo día.',
+      'Nueva Zelanda tiene controles de bioseguridad estrictos: declara alimentos, plantas y equipo de camping al llegar.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Auckland?',
+        a: 'Con 3 días recorres el centro, el Museo Conmemorativo de Guerra de Auckland, el Monte Eden y Devonport. Con 4 o 5 días puedes sumar la Isla Waiheke y una excursión a la costa oeste.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Auckland desde Chile?',
+        a: 'Los chilenos no necesitan visa por estadías turísticas cortas, pero sí la autorización electrónica NZeTA antes de viajar. Confirma los requisitos vigentes antes de comprar tus pasajes.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Auckland en un día?',
+        a: 'Las más populares son la Isla Waiheke, en ferry, y las playas de arena negra de Piha y Muriwai. En excursiones de día completo puedes llegar a las Cuevas de Waitomo, Hobbiton o Rotorua.',
+      },
+    ],
+  },
 ];
 
 export const guideBySlug = (slug: string): CityGuideEntry | undefined => CITY_GUIDES.find(g => g.slug === slug);
