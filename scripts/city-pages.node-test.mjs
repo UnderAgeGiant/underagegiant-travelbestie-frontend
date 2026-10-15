@@ -94,6 +94,11 @@ test('buildCityPages FAILS THE BUILD when a reviewed guide is below the quality 
   );
 });
 
+test('domestic guide head has no "desde Chile"', () => {
+  const p = buildGuidePage({ shell: SHELL, entry: entry({ domestic: true }), city, attractions: good, siteUrl: SITE });
+  assert.doesNotMatch(p.html, /desde Chile/);
+});
+
 test('buildCityPages rejects a guide whose city is not in the catalog', () => {
   const dist = mkdtempSync(join(tmpdir(), 'city-pages-'));
   writeFileSync(join(dist, 'index.html'), SHELL);

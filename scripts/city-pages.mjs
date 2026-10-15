@@ -35,8 +35,8 @@ export function buildGuidePage({ shell, entry, city, attractions, siteUrl }) {
   const indexable = entry.reviewed && quality.ok;
   const problems = entry.reviewed && !quality.ok ? quality.reasons : [];
 
-  const title = guideTitle(entry.displayName);
-  const description = guideDescription(entry.displayName, list.length);
+  const title = guideTitle(entry.displayName, entry.domestic);
+  const description = guideDescription(entry.displayName, list.length, entry.domestic);
   const path = guidePath(entry.slug);
   const url = `${origin}${path}`;
   const image = `${origin}/og-default.png`;

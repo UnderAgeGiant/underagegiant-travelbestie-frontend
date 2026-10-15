@@ -23,8 +23,8 @@ describe('guideTitle / guideDescription', () => {
 
   it('keeps every manifest title ≤ 60 and description ≤ 155 chars', () => {
     for (const g of CITY_GUIDES) {
-      expect(guideTitle(g.displayName).length).toBeLessThanOrEqual(60);
-      expect(guideDescription(g.displayName, 48).length).toBeLessThanOrEqual(155);
+      expect(guideTitle(g.displayName, g.domestic).length).toBeLessThanOrEqual(60);
+      expect(guideDescription(g.displayName, 48, g.domestic).length).toBeLessThanOrEqual(155);
     }
   });
 
@@ -32,6 +32,19 @@ describe('guideTitle / guideDescription', () => {
     const d = guideDescription('Madrid', 42);
     expect(d).toContain('Madrid');
     expect(d).toContain('42');
+  });
+
+  it('domestic guides never say "desde Chile" in the title or description', () => {
+    expect(guideTitle('Santiago de Chile', true)).toBe('Qué hacer en Santiago de Chile: guía de viaje | Tripilove');
+    expect(guideTitle('Valparaíso', true)).toBe('Qué hacer en Valparaíso: guía de viaje | Tripilove');
+    const d = guideDescription('Punta Arenas', 41, true);
+    expect(d).toBe('Guía de Punta Arenas: 41 lugares para visitar, excursiones, cómo llegar y consejos prácticos.');
+    expect(d).not.toMatch(/Chile|visa/);
+  });
+
+  it('non-domestic default is unchanged', () => {
+    expect(guideTitle('Madrid', false)).toBe(guideTitle('Madrid'));
+    expect(guideDescription('Madrid', 42, false)).toBe(guideDescription('Madrid', 42));
   });
 
   it('guidePath', () => expect(guidePath('buenos-aires')).toBe('/ciudad/buenos-aires'));

@@ -26,18 +26,20 @@ jest.mock('../../data/attractions.data', () => ({ getAttractions: () => activeDa
 // changes as guides get approved) so this spec's "unreviewed → noindex" assertion stays stable.
 // (Object literal duplicated inline, not a shared outer const: jest hoists jest.mock() factories
 // above even top-level const declarations that precede them in source order.)
+let mockDomestic = false;
 jest.mock('../../data/city-guides.data', () => {
-  const guide = {
+  const base = {
     slug: 'madrid', cityId: 'madrid', displayName: 'Madrid', wave: 1, timeZone: 'Europe/Madrid', reviewed: false,
     intro: 'x'.repeat(90), bestTime: 'b', gettingThere: 'g', tips: ['a', 'b', 'c'],
     faq: [{ q: '¿Uno?', a: 'Respuesta uno suficientemente larga para pasar el umbral.' },
           { q: '¿Dos?', a: 'Respuesta dos suficientemente larga para pasar el umbral.' },
           { q: '¿Tres?', a: 'Respuesta tres suficientemente larga para pasar el umbral.' }],
   };
+  const guide = () => ({ ...base, ...(mockDomestic ? { domestic: true } : {}) });
   return {
-    CITY_GUIDES: [guide],
-    guideBySlug: (slug: string) => slug === 'madrid' ? guide : undefined,
-    guideByCityId: (cityId: string) => cityId === 'madrid' ? guide : undefined,
+    get CITY_GUIDES() { return [guide()]; },
+    guideBySlug: (slug: string) => slug === 'madrid' ? guide() : undefined,
+    guideByCityId: (cityId: string) => cityId === 'madrid' ? guide() : undefined,
   };
 });
 
@@ -65,7 +67,15 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     return f;
   }
 
-  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; });
+  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; mockDomestic = false; });
+
+  it('domestic guides hide the "Viajando desde Chile" facts box and drop "desde Chile" from the SEO title', () => {
+    mockDomestic = true;
+    const el: HTMLElement = create().nativeElement;
+    expect(el.querySelector('.cg-facts')).toBeNull();
+    expect(el.textContent).not.toContain('Viajando desde Chile');
+    expect(seo.apply.mock.calls[0][0].title).not.toContain('desde Chile');
+  });
 
   it('renders the h1, the Chile facts block and the editorial sections', () => {
     const el: HTMLElement = create().nativeElement;

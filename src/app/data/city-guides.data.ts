@@ -8,6 +8,7 @@ export interface CityGuideEntry {
   wave: 1 | 2 | 3;
   timeZone: string;        // IANA — used for the "diferencia horaria con Chile" fact
   reviewed: boolean;       // owner-approved copy; only reviewed guides can be indexed
+  domestic?: true;         // Chilean city: no "desde Chile" framing, no facts box, no visa FAQ
   intro: string;           // 2–3 sentences
   bestTime: string;        // one sentence: best seasons and why
   gettingThere: string;    // 1–2 sentences, from Chile, "aprox."

@@ -18,13 +18,17 @@ export function isGuideAttraction(a: { active: boolean; category?: string }): bo
   return a.active && a.category !== 'event_party' && a.category !== 'freetour';
 }
 
-export function guideTitle(displayName: string): string {
+export function guideTitle(displayName: string, domestic = false): string {
+  const short = `Qué hacer en ${displayName}: guía de viaje | Tripilove`;
+  if (domestic) return short;
   const full = `Qué hacer en ${displayName}: guía de viaje desde Chile | Tripilove`;
-  return full.length <= 60 ? full : `Qué hacer en ${displayName}: guía de viaje | Tripilove`;
+  return full.length <= 60 ? full : short;
 }
 
-export function guideDescription(displayName: string, sightCount: number): string {
-  const d = `Guía de ${displayName}: ${sightCount} lugares para visitar, excursiones, visa, moneda y consejos para viajar desde Chile.`;
+export function guideDescription(displayName: string, sightCount: number, domestic = false): string {
+  const d = domestic
+    ? `Guía de ${displayName}: ${sightCount} lugares para visitar, excursiones, cómo llegar y consejos prácticos.`
+    : `Guía de ${displayName}: ${sightCount} lugares para visitar, excursiones, visa, moneda y consejos para viajar desde Chile.`;
   return d.length <= 155 ? d : `${d.slice(0, 154).replace(/\s+\S*$/, '')}…`;
 }
 
