@@ -18,7 +18,7 @@ import { findCuratedAttraction } from '../../data/attractions.data';
         <img class="companion-dog is-sniffing" src="/sniffing-back-dog.png" alt="Asistente Miel" draggable="false" />
       </div>
     } @else if (companion.state() === 'suggesting' && suggestionView(); as v) {
-      <div class="companion-mascot">
+      <div class="companion-mascot" data-testid="companion-mascot">
         <img class="companion-dog is-suggesting" src="/small-black-dog.png" alt="Asistente Miel" draggable="false" />
         <div class="companion-bubble">
           <button type="button" class="companion-dismiss-x" (click)="companion.dismiss()"

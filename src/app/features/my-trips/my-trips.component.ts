@@ -208,14 +208,14 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                           </div>
                         }
                         <div style="display:flex;gap:6px;margin-top:8px">
-                          <input class="form-input"
+                          <input class="form-input" data-testid="invite-email-input"
                                  style="font-size:11px;padding:5px 8px;flex:1"
                                  type="email"
                                  [value]="inviteEmailByPlan()[plan.id] ?? ''"
                                  (input)="setInviteEmail(plan.id, $any($event.target).value)"
                                  i18n-placeholder="@@myTrips.invitePlaceholder"
                                  placeholder="Correo del colaborador" />
-                          <button class="btn-pill btn-outline"
+                          <button class="btn-pill btn-outline" data-testid="invite-submit"
                                   style="font-size:11px;padding:5px 10px;white-space:nowrap"
                                   [disabled]="invitingPlanId() === plan.id || !isEmailFormatValid(inviteEmailByPlan()[plan.id] ?? '')"
                                   (click)="inviteCollaborator(plan.id)" type="button">
@@ -305,13 +305,13 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
             @if (favTab() === 'invites') {
               <div class="fav-list">
                 @for (invite of savedPlans.pendingInvites(); track invite.tripId) {
-                  <div class="fav-card" [attr.data-focus-id]="invite.tripId">
+                  <div class="fav-card" data-testid="invite-row" [attr.data-focus-id]="invite.tripId">
                     <div class="fav-card-header">
                       <span class="fav-card-name">{{ invite.tripTitle }}</span>
                       <span class="fav-card-owner" i18n="@@profile.favCardBy">por {{ invite.ownerName }}</span>
                     </div>
                     <div class="fav-card-actions">
-                      <button class="btn-pill btn-primary"
+                      <button class="btn-pill btn-primary" data-testid="invite-accept"
                               [disabled]="acceptingTripId() === invite.tripId"
                               (click)="acceptInvite(invite.tripId)" type="button">
                         {{ acceptingTripId() === invite.tripId ? '⏳' : '✓' }} <ng-container i18n="@@myTrips.acceptInviteBtn">Aceptar</ng-container>
@@ -330,7 +330,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                   <div class="fav-empty" i18n="@@mytrips.aiPlansEmpty">Aún no tienes planes de IA pendientes.</div>
                 } @else {
                   @for (item of aiPlanHistory(); track item.requestId) {
-                    <div class="fav-card aiplan-card" [attr.data-focus-id]="item.requestId"
+                    <div class="fav-card aiplan-card" data-testid="aiplan-row" [attr.data-focus-id]="item.requestId"
                          [class.aiplan-card-failed]="item.status === 'failed'"
                          [class.aiplan-card-clickable]="item.status === 'completed'"
                          [attr.role]="item.status === 'completed' ? 'button' : null"
@@ -349,7 +349,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                           <div class="aiplan-card-refund" i18n="@@mytrips.aiPlanRefunded">Token reembolsado</div>
                         }
                       }
-                      <button class="btn-pill btn-outline aiplan-card-discard-btn"
+                      <button class="btn-pill btn-outline aiplan-card-discard-btn" data-testid="aiplan-discard"
                               [disabled]="discardingRequestId() === item.requestId"
                               (click)="$event.stopPropagation(); discardAiPlan(item)" type="button"
                               i18n="@@mytrips.aiPlanDiscardBtn">🗑️ Descartar</button>

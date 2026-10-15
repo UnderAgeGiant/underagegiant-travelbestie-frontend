@@ -97,7 +97,7 @@ export interface PlanEntry {
                 <div class="pa-maps-error" role="alert" i18n="@@personal.mapsError">Pega un link de Google Maps (https://maps.app.goo.gl/… o https://www.google.com/maps/…)</div>
               }
               <label class="pa-private">
-                <input type="checkbox" [checked]="isPrivate()" (change)="isPrivate.set($any($event.target).checked)" />
+                <input type="checkbox" data-testid="personal-activity-private" [checked]="isPrivate()" (change)="isPrivate.set($any($event.target).checked)" />
                 <span i18n="@@personal.privateLabel">🔒 Privada — no se muestra cuando compartes el plan</span>
               </label>
             </div>

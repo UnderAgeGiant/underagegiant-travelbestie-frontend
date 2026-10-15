@@ -128,7 +128,7 @@ import { environment } from '../../../environments/environment';
                   <div style="text-align:center;font-size:13px;color:var(--t3);margin-bottom:10px">
                     CLP {{ selected()?.prices?.['CLP'] }}
                   </div>
-                  <button class="btn-pill btn-mercadopago"
+                  <button class="btn-pill btn-mercadopago" data-testid="karma-buy-mp"
                           style="width:100%;justify-content:center"
                           (click)="payWithMercadoPago()"
                           i18n="@@buyKarma.mpPayBtn">

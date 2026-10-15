@@ -8,7 +8,7 @@ import { NEW_ATTRACTION_MIME, NewAttractionDragPayload } from '../../../core/uti
 @Component({
   selector: 'tb-personal-activity-card',
   template: `
-    <button type="button" class="pa-card" draggable="true" [style.background-color]="meta().bg"
+    <button type="button" class="pa-card" data-testid="personal-activity-card" draggable="true" [style.background-color]="meta().bg"
             (click)="modal.openAdd(stopId(), meta().type)" (dragstart)="onDragStart($event)">
       @if (meta().image) {
         <img class="pa-card-img" [src]="meta().image" [alt]="meta().label" loading="lazy" />

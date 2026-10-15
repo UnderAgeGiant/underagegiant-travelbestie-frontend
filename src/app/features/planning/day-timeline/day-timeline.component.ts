@@ -147,7 +147,7 @@ function transitLabel(mode: TransitMode): string {
             @if (routeUrl() || blocks().length > 0) {
               <div class="tl-head-actions-group">
                 @if (routeUrl()) {
-                  <a class="btn-pill btn-outline tl-head-action tl-route-btn"
+                  <a class="btn-pill btn-outline tl-head-action tl-route-btn" data-testid="maps-link"
                      [attr.href]="routeUrl()" target="_blank" rel="noopener noreferrer">
                     <span i18n="@@timeline.dayRoute">🗺️ Ruta del día en Google Maps</span>
                   </a>
@@ -226,7 +226,7 @@ function transitLabel(mode: TransitMode): string {
 
           <!-- All blocks (attractions + transits) -->
           @for (block of blocks(); track block.name + block.top) {
-            <div class="tl-block"
+            <div class="tl-block" data-testid="timeline-block"
                  [class.tl-block-draggable]="block.kind === 'attraction' && block.draggable"
                  [attr.draggable]="block.kind === 'attraction' && block.draggable && !device.isMobile() ? true : null"
                  (dragstart)="block.entryId && onBlockDragStart($event, block.entryId)"

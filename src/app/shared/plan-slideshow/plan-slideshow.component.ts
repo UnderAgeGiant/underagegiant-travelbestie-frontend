@@ -12,7 +12,7 @@ const SWIPE_THRESHOLD_PX = 50;
   imports: [NgClass],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-<div class="ps-overlay-root" (click)="$event.stopPropagation()">
+<div class="ps-overlay-root" data-testid="slideshow-root" (click)="$event.stopPropagation()">
   @for (item of items(); track item.id; let i = $index) {
     <div [ngClass]="['ps-slide', activeIdx() === i ? 'active' : '']"
          [class.ps-slide--contain]="item.contain" [style.background]="item.bg ?? null">

@@ -60,7 +60,7 @@ import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
   `],
   template: `
     @if (hasInfo()) {
-      <span class="city-info-trigger" tabindex="0"
+      <span class="city-info-trigger" data-testid="city-info-badge" tabindex="0"
             (mouseenter)="onHover($event)" (mouseleave)="onHoverLeave()"
             (focus)="onHover($event)" (blur)="onHoverLeave()"
             (click)="onClick($event)">

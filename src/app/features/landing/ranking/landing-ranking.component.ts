@@ -21,7 +21,7 @@ import { MIEL_HOST_IMAGE, MeView, RankingKey, buildCharts, formatLastUpdate, for
       @if (svc.weekly() || svc.weeklyError()) {
         <div class="rk-grid">
           @for (chart of charts(); track chart.key; let c = $index) {
-            <article class="rk-chart" [attr.data-key]="chart.key" [class.rk-fallback]="chart.fallback" [style.--c]="c">
+            <article class="rk-chart" data-testid="rankings-tab" [attr.data-key]="chart.key" [class.rk-fallback]="chart.fallback" [style.--c]="c">
               <h3>{{ chart.title }}</h3>
               @let mv = meViews()[chart.key];
               <ol class="rk-rows">
@@ -46,7 +46,7 @@ import { MIEL_HOST_IMAGE, MeView, RankingKey, buildCharts, formatLastUpdate, for
               </ol>
               <!-- Viewer outside the top 3 (or not matchable on the podium): their own row under a divider. -->
               @if (mv.extra; as x) {
-                <div class="rk-row rk-row--me rk-you" [style.--i]="chart.rows.length" [style.--pct]="x.pct + '%'" [style.--n]="x.value">
+                <div class="rk-row rk-row--me rk-you" data-testid="rankings-me" [style.--i]="chart.rows.length" [style.--pct]="x.pct + '%'" [style.--n]="x.value">
                   <span class="rk-rank">{{ x.rank }}</span>
                   <div class="rk-main">
                     <span class="rk-label"><span class="rk-you-chip" i18n="@@ranking.you">Tú</span></span>
