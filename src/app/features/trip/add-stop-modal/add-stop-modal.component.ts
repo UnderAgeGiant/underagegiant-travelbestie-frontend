@@ -22,7 +22,7 @@ import { WORLD_CITIES } from '../../../data/cities.data';
         <div class="modal-body" style="min-height:320px">
           <div class="form-group">
             <label class="form-label" i18n="@@addStop.cityLabel">Ciudad</label>
-            <app-city-combobox (cityChange)="onCityChange($event)" />
+            <app-city-combobox [initialCity]="selectedCity()" (cityChange)="onCityChange($event)" />
           </div>
           @if (selectedCity()) {
             <app-date-range

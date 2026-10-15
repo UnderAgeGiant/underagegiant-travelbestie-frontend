@@ -6,9 +6,9 @@ import type { CityGuideModel } from './city-guide.model';
 
 export function guideSeoPage(model: CityGuideModel, siteUrl: string, topSights: Attraction[]): SeoPage {
   const { entry, city } = model;
-  const description = guideDescription(entry.displayName, model.sightCount);
+  const description = guideDescription(entry.displayName, model.sightCount, entry.domestic);
   return {
-    title: guideTitle(entry.displayName),
+    title: guideTitle(entry.displayName, entry.domestic),
     description,
     path: guidePath(entry.slug),
     noindex: !model.indexable,

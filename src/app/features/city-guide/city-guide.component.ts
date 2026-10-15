@@ -41,18 +41,20 @@ import { photoCreditUrl } from './photo-credit.util';
                     i18n="@@cityGuide.cta">Planificar mi viaje a {{ m.entry.displayName }}</button>
           </header>
 
-          <section class="cg-facts" aria-labelledby="cg-facts-h">
-            <div class="cg-h2-row">
-              <span class="cg-h2-icon cg-facts-icon" aria-hidden="true">✈️</span>
-              <h2 id="cg-facts-h" class="cg-facts-h2" i18n="@@cityGuide.factsTitle">Viajando desde Chile</h2>
-            </div>
-            <ul>
-              @if (m.facts.visa; as v) { <li><span>{{ v.icon }}</span> <b i18n="@@cityGuide.factVisa">Visa:</b> {{ v.label }}</li> }
-              @if (m.facts.currency) { <li><span>🪙</span> <b i18n="@@cityGuide.factCurrency">Moneda:</b> {{ m.facts.currency }}</li> }
-              @if (m.facts.plug) { <li><span>🔌</span> <b i18n="@@cityGuide.factPlug">Enchufes:</b> {{ m.facts.plug }}</li> }
-              <li><span>🕒</span> <b i18n="@@cityGuide.factTime">Hora:</b> {{ m.facts.timeDifference }}</li>
-            </ul>
-          </section>
+          @if (!m.entry.domestic) {
+            <section class="cg-facts" aria-labelledby="cg-facts-h">
+              <div class="cg-h2-row">
+                <span class="cg-h2-icon cg-facts-icon" aria-hidden="true">✈️</span>
+                <h2 id="cg-facts-h" class="cg-facts-h2" i18n="@@cityGuide.factsTitle">Viajando desde Chile</h2>
+              </div>
+              <ul>
+                @if (m.facts.visa; as v) { <li><span>{{ v.icon }}</span> <b i18n="@@cityGuide.factVisa">Visa:</b> {{ v.label }}</li> }
+                @if (m.facts.currency) { <li><span>🪙</span> <b i18n="@@cityGuide.factCurrency">Moneda:</b> {{ m.facts.currency }}</li> }
+                @if (m.facts.plug) { <li><span>🔌</span> <b i18n="@@cityGuide.factPlug">Enchufes:</b> {{ m.facts.plug }}</li> }
+                <li><span>🕒</span> <b i18n="@@cityGuide.factTime">Hora:</b> {{ m.facts.timeDifference }}</li>
+              </ul>
+            </section>
+          }
 
           <section class="cg-must" aria-labelledby="cg-must-h">
             <div class="cg-h2-row">
@@ -64,6 +66,7 @@ import { photoCreditUrl } from './photo-credit.util';
                 <article class="cg-card">
                   @if (a.imageUrl) { <img [src]="a.imageUrl" [alt]="a.name" loading="lazy" width="640" height="420" /> }
                   <div class="cg-card-body">
+                    @if (a.dayTrip) { <span class="cg-chip-daytrip" i18n="@@cityGuide.dayTripChip">Excursión</span> }
                     <h3>{{ a.name }}</h3>
                     <div class="cg-meta">★ {{ a.rating }} · {{ a.icon }} {{ a.type }}</div>
                     <p>{{ a.description }}</p>
@@ -215,7 +218,7 @@ export class CityGuideComponent {
       const m = this.model();
       if (!m) return;
       untracked(() => {
-        const top = pickTopSights(getAttractions(m.city).filter(isGuideAttraction), 10);
+        const top = pickTopSights(getAttractions(m.city).filter(isGuideAttraction), 10, m.entry.mustSeeDayTrips);
         this.seo.apply(guideSeoPage(m, environment.siteUrl, top));
         this.api.getSeoCityPlans(m.entry.cityId).subscribe({
           next: r => this.plans.set(r.items),

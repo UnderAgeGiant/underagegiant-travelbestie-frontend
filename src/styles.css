@@ -1533,6 +1533,10 @@ app-nav { display: block; }
   transition: color .15s;
 }
 .landing-footer-link:hover { color: var(--lav); }
+.landing-footer-continent { margin-bottom: .75rem; }
+.landing-footer-continent-head { display: block; font-size: 13px; font-weight: 600; color: oklch(78% .03 270); text-decoration: none; margin-bottom: .4rem; }
+.landing-footer-continent-head:hover, .landing-footer-all-guides:hover { color: var(--lav); }
+.landing-footer-all-guides { color: oklch(78% .03 270); }
 .landing-footer-copy {
   font-size: 11px;
   color: oklch(38% .02 270);
@@ -1544,7 +1548,7 @@ app-nav { display: block; }
   .landing-footer-logo { font-size: 34px; }
   .landing-footer-tagline { font-size: 14px; }
   .landing-footer-col-head { font-size: 12px; }
-  .landing-footer-link { font-size: 15px; }
+  .landing-footer-link, .landing-footer-continent-head { font-size: 15px; }
   .landing-footer-copy { font-size: 12px; }
 }
 
@@ -3408,6 +3412,7 @@ app-trip-map.trip-map-thumb { width: 120px; aspect-ratio: 2 / 1; flex-shrink: 0;
 .cg-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; }
 .cg-card h3 { font-size: 18px; font-weight: 700; letter-spacing: -.1px; color: var(--t1); }
 .cg-meta { font-size: 12.5px; color: var(--t3); }
+.cg-chip-daytrip { align-self: flex-start; font-size: 11.5px; font-weight: 600; color: var(--lav-d); background: var(--lav); border-radius: 999px; padding: 2px 10px; }
 .cg-card p, .cg-list li span:not(.cg-meta) { font-size: 14px; line-height: 1.55; color: var(--t2); }
 .cg-src { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; }
 .cg-src a, .cg-list a, .cg-related a { color: var(--lav-d); text-decoration: none; }

@@ -8,6 +8,8 @@ export interface CityGuideEntry {
   wave: 1 | 2 | 3;
   timeZone: string;        // IANA — used for the "diferencia horaria con Chile" fact
   reviewed: boolean;       // owner-approved copy; only reviewed guides can be indexed
+  domestic?: true;         // Chilean city: no "desde Chile" framing, no facts box, no visa FAQ
+  mustSeeDayTrips?: string[]; // attraction ids pinned first in Imperdibles (day trips allowed), in this order
   intro: string;           // 2–3 sentences
   bestTime: string;        // one sentence: best seasons and why
   gettingThere: string;    // 1–2 sentences, from Chile, "aprox."
@@ -594,6 +596,513 @@ export const CITY_GUIDES: CityGuideEntry[] = [
       {
         q: '¿Qué excursiones puedo hacer desde Auckland en un día?',
         a: 'Las más populares son la Isla Waiheke, en ferry, y las playas de arena negra de Piha y Muriwai. En excursiones de día completo puedes llegar a las Cuevas de Waitomo, Hobbiton o Rotorua.',
+      },
+    ],
+  },
+  {
+    slug: 'londres',
+    cityId: 'london',
+    displayName: 'Londres',
+    wave: 3,
+    timeZone: 'Europe/London',
+    reviewed: true,
+    intro:
+      'Londres mezcla siglos de historia con barrios llenos de vida y una oferta enorme de museos, muchos de ellos gratuitos. En pocos días puedes recorrer la Torre de Londres, la Abadía de Westminster y el Palacio de Buckingham, pasar una tarde en el Museo Británico y cruzar el Puente de la Torre.',
+    bestTime:
+      'De mayo a septiembre los días son largos y más templados; la primavera y el otoño son agradables y con menos gente, y el invierno es frío, húmedo y de días cortos.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala; la oferta de vuelos directos cambia según la temporada, así que revísala al reservar. Desde Heathrow al centro se llega en metro o en tren.',
+    tips: [
+      'Paga el transporte público con tarjeta sin contacto o con la tarjeta Oyster: el sistema aplica un tope diario.',
+      'Muchos museos nacionales, como el Museo Británico y la National Gallery, tienen entrada general gratuita; algunas exposiciones temporales se pagan aparte.',
+      'Lleva siempre un paraguas o una chaqueta impermeable: la lluvia puede aparecer en cualquier época del año.',
+      'Los enchufes son de tipo G, distintos a los de Chile: lleva un adaptador.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Londres?',
+        a: 'Con 4 días recorres lo esencial: Westminster, la Torre de Londres, el Museo Británico y un par de barrios como Soho o Notting Hill. Con 5 o 6 días puedes sumar una excursión a Windsor u Oxford.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Londres desde Chile?',
+        a: 'Los chilenos no necesitan visa por estadías turísticas cortas, pero sí la autorización electrónica ETA del Reino Unido aprobada antes de viajar. Confirma los requisitos vigentes antes de comprar tus pasajes.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Londres en un día?',
+        a: 'Las más populares son el Castillo de Windsor, Oxford, Stonehenge y la Catedral de Canterbury. Todas se pueden hacer en tren, bus o tour organizado.',
+      },
+    ],
+  },
+  {
+    slug: 'florencia',
+    cityId: 'florence',
+    displayName: 'Florencia',
+    wave: 3,
+    timeZone: 'Europe/Rome',
+    reviewed: true,
+    intro:
+      'Florencia fue la cuna del Renacimiento y concentra en pocas cuadras algunas de las obras de arte más famosas del mundo. Puedes subir a la cúpula de la Catedral de Santa María del Fiore, ver el David en la Galería de la Academia, recorrer la Galería Uffizi y cruzar el Ponte Vecchio al atardecer.',
+    bestTime:
+      'Primavera (abril a junio) y otoño (septiembre y octubre) son las mejores épocas; el verano es caluroso y muy concurrido, y el invierno es fresco y más tranquilo.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, por ejemplo vía Madrid o Roma. Desde Roma o Milán también se llega en tren de alta velocidad.',
+    tips: [
+      'Reserva con anticipación la Galería Uffizi y la Galería de la Academia: en temporada alta las filas son largas.',
+      'El centro histórico se recorre a pie; gran parte tiene acceso restringido para autos.',
+      'Sube al Piazzale Michelangelo al atardecer para tener una de las mejores vistas de la ciudad.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Florencia?',
+        a: 'Con 3 días recorres los museos principales, la catedral, el Palacio Pitti y el Ponte Vecchio. Con 4 o 5 días puedes sumar excursiones por la Toscana.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Florencia desde Chile?',
+        a: 'Como turista, los chilenos pueden ingresar a Italia (espacio Schengen) sin visa por estadías cortas. Antes de viajar confirma siempre los requisitos vigentes, incluidas autorizaciones electrónicas nuevas si corresponden.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Florencia en un día?',
+        a: 'Las más populares son Siena, San Gimignano, Lucca, la Plaza de los Milagros en Pisa y los viñedos del Chianti. Se puede llegar en tren, bus o tour organizado.',
+      },
+    ],
+  },
+  {
+    slug: 'berlin',
+    cityId: 'berlin',
+    displayName: 'Berlín',
+    wave: 3,
+    timeZone: 'Europe/Berlin',
+    reviewed: true,
+    intro:
+      'Berlín es una capital marcada por la historia del siglo XX y hoy es una de las ciudades más creativas de Europa. Puedes pasar por la Puerta de Brandeburgo y el Edificio del Reichstag, recorrer los restos del Muro de Berlín en la East Side Gallery y dedicar un día a la Isla de los Museos.',
+    bestTime:
+      'De mayo a septiembre el clima es templado y la ciudad vive al aire libre; el invierno es frío, pero en diciembre hay mercados navideños.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, por ejemplo vía Madrid, Fráncfort o São Paulo. Desde el aeropuerto BER al centro se llega en tren.',
+    tips: [
+      'Para visitar la cúpula del Edificio del Reichstag hay que inscribirse con anticipación en el sitio oficial.',
+      'El transporte público (metro, tren y tranvía) cubre toda la ciudad; elige el pase según las zonas que vas a usar.',
+      'Muchos memoriales, como el Monumento a los judíos de Europa asesinados y el Memorial del Muro de Berlín, son de acceso libre.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Berlín?',
+        a: 'Con 3 días ves los sitios históricos del centro, el Muro y la Isla de los Museos. Con 4 o 5 días puedes sumar barrios como Kreuzberg y una excursión a Potsdam.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Berlín desde Chile?',
+        a: 'Como turista, los chilenos pueden ingresar a Alemania (espacio Schengen) sin visa por estadías cortas. Antes de viajar confirma siempre los requisitos vigentes, incluidas autorizaciones electrónicas nuevas si corresponden.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Berlín en un día?',
+        a: 'Las más populares son Potsdam, con el Palacio de Sanssouci y sus jardines, y el memorial del Campo de concentración de Sachsenhausen. Ambos se pueden hacer en tren regional.',
+      },
+    ],
+  },
+  {
+    slug: 'lisboa',
+    cityId: 'lisbon',
+    displayName: 'Lisboa',
+    wave: 3,
+    timeZone: 'Europe/Lisbon',
+    reviewed: true,
+    intro:
+      'Lisboa se recorre subiendo y bajando colinas, entre tranvías, miradores y fachadas de azulejos. Puedes perderte en el barrio de Alfama, subir al Castillo de San Jorge y pasar un día en Belém, donde están la Torre de Belém y el Monasterio de los Jerónimos.',
+    bestTime:
+      'Primavera (marzo a junio) y otoño (septiembre y octubre) son las épocas más agradables; el verano es caluroso y concurrido, y el invierno es templado pero más lluvioso.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, por ejemplo vía Madrid o São Paulo. Del aeropuerto al centro se llega en metro, bus o taxi.',
+    tips: [
+      'Lleva zapatos cómodos: las calles tienen pendientes fuertes y adoquines resbaladizos.',
+      'Los tranvías históricos se llenan; sube temprano o combínalos con el metro.',
+      'En Belém llega temprano: el Monasterio de los Jerónimos y la Torre de Belém tienen filas largas en temporada alta.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Lisboa?',
+        a: 'Con 3 días recorres Alfama, el centro, el Chiado y Belém. Con 4 o 5 días puedes sumar Sintra y la costa de Cascais.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Lisboa desde Chile?',
+        a: 'Como turista, los chilenos pueden ingresar a Portugal (espacio Schengen) sin visa por estadías cortas. Antes de viajar confirma siempre los requisitos vigentes, incluidas autorizaciones electrónicas nuevas si corresponden.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Lisboa en un día?',
+        a: 'La más popular es Sintra, con el Palacio da Pena; también puedes ir a Cascais, al Cabo de la Roca u Óbidos. Sintra y Cascais tienen tren desde Lisboa.',
+      },
+    ],
+  },
+  {
+    slug: 'sevilla',
+    cityId: 'seville',
+    displayName: 'Sevilla',
+    wave: 3,
+    timeZone: 'Europe/Madrid',
+    reviewed: true,
+    intro:
+      'Sevilla es la capital de Andalucía y una de las ciudades con más patrimonio de España. Puedes visitar la Catedral de Sevilla y subir a la Giralda, recorrer el Real Alcázar, pasear por la Plaza de España y perderte en las callejuelas del barrio de Santa Cruz.',
+    bestTime:
+      'Primavera (marzo a mayo) y otoño (octubre y noviembre) son las mejores épocas; en julio y agosto el calor es extremo.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, normalmente vía Madrid. Desde Madrid también se llega en tren de alta velocidad (AVE) en aprox. 2,5 horas.',
+    tips: [
+      'Reserva con anticipación las entradas al Real Alcázar y a la Catedral de Sevilla.',
+      'En verano organiza las visitas temprano en la mañana o al final de la tarde, cuando baja el calor.',
+      'Cruza el río hasta Triana para ver otra cara de la ciudad.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Sevilla?',
+        a: 'Con 2 o 3 días recorres la catedral, el Real Alcázar, la Plaza de España, Santa Cruz y Triana. Con 4 días puedes sumar una excursión a Córdoba o Carmona.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Sevilla desde Chile?',
+        a: 'Como turista, los chilenos pueden ingresar a España (espacio Schengen) sin visa por estadías cortas. Antes de viajar confirma siempre los requisitos vigentes, incluidas autorizaciones electrónicas nuevas si corresponden.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Sevilla en un día?',
+        a: 'Las más populares son Córdoba, para ver la Mezquita-catedral, el pueblo de Carmona y las ruinas romanas de Itálica, muy cerca de la ciudad. Córdoba tiene conexión en tren de alta velocidad.',
+      },
+    ],
+  },
+  {
+    slug: 'amsterdam',
+    cityId: 'amsterdam',
+    displayName: 'Ámsterdam',
+    wave: 3,
+    timeZone: 'Europe/Amsterdam',
+    reviewed: true,
+    intro:
+      'Ámsterdam es una ciudad de canales, bicicletas y casas angostas, con museos de primer nivel a pocas cuadras unos de otros. Puedes ver a Rembrandt en el Rijksmuseum, visitar el Museo Van Gogh y la Casa de Ana Frank, y recorrer los Canales de Ámsterdam a pie o en barco.',
+    bestTime:
+      'De abril a septiembre los días son largos y templados; en primavera florecen los tulipanes en Keukenhof. El invierno es frío y húmedo.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, por ejemplo vía Madrid, París o São Paulo. Desde el aeropuerto de Schiphol al centro se llega en tren.',
+    tips: [
+      'Compra con anticipación las entradas a la Casa de Ana Frank y al Museo Van Gogh: se venden por horario y suelen agotarse.',
+      'Cuidado con las ciclovías: son muy transitadas y no se debe caminar por ellas.',
+      'Pasea por el Vondelpark y el barrio Jordaan para ver la ciudad más tranquila.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Ámsterdam?',
+        a: 'Con 3 días recorres los museos principales, los canales y barrios como Jordaan. Con 4 o 5 días puedes sumar Zaanse Schans, Volendam o Haarlem.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Ámsterdam desde Chile?',
+        a: 'Como turista, los chilenos pueden ingresar a los Países Bajos (espacio Schengen) sin visa por estadías cortas. Antes de viajar confirma siempre los requisitos vigentes, incluidas autorizaciones electrónicas nuevas si corresponden.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Ámsterdam en un día?',
+        a: 'Las más populares son los molinos de Zaanse Schans, Volendam, Haarlem y Utrecht; en primavera, el parque de flores de Keukenhof. Los molinos de Kinderdijk quedan más lejos y conviene ir con tour.',
+      },
+    ],
+  },
+  {
+    slug: 'venecia',
+    cityId: 'venice',
+    displayName: 'Venecia',
+    wave: 3,
+    timeZone: 'Europe/Rome',
+    reviewed: true,
+    intro:
+      'Venecia está construida sobre una laguna y se recorre a pie o en barco, sin autos. Puedes visitar la Basílica de San Marcos y el Palacio Ducal, cruzar el Puente de Rialto sobre el Gran Canal y tomar un vaporetto a las islas de Murano y Burano.',
+    bestTime:
+      'Primavera (abril a junio) y otoño (septiembre y octubre) son las mejores épocas; el verano es caluroso y muy concurrido, y en otoño e invierno puede haber marea alta (acqua alta).',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, por ejemplo vía Madrid o Roma. Desde Florencia o Milán también se llega en tren hasta la estación de Santa Lucía, ya dentro de la ciudad.',
+    tips: [
+      'Sal temprano o al final del día: en las horas centrales la Plaza de San Marcos y el Puente de Rialto están llenos.',
+      'Compra un pase de vaporetto si vas a moverte mucho en barco o a visitar las islas.',
+      'Revisa si en tu fecha se cobra la tasa de acceso para visitantes por el día y regístrate antes de llegar.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Venecia?',
+        a: 'Con 2 días recorres San Marcos, Rialto y los barrios principales. Con 3 días puedes sumar Murano, Burano y Torcello.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Venecia desde Chile?',
+        a: 'Como turista, los chilenos pueden ingresar a Italia (espacio Schengen) sin visa por estadías cortas. Antes de viajar confirma siempre los requisitos vigentes, incluidas autorizaciones electrónicas nuevas si corresponden.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Venecia en un día?',
+        a: 'Además de las islas de la laguna, en tren puedes ir a Padua o Verona; Aquilea, con sus ruinas romanas, queda más lejos.',
+      },
+    ],
+  },
+  {
+    slug: 'sao-paulo',
+    cityId: 'saopaulo',
+    displayName: 'São Paulo',
+    wave: 3,
+    timeZone: 'America/Sao_Paulo',
+    reviewed: true,
+    intro:
+      'São Paulo es la ciudad más grande de Sudamérica y un centro de arte, gastronomía y vida cultural. Puedes recorrer la Avenida Paulista y el Museo de Arte de São Paulo, pasar una tarde en el Parque do Ibirapuera, visitar la Catedral metropolitana de São Paulo y comer en el barrio de Liberdade.',
+    bestTime:
+      'Las estaciones coinciden con las de Chile: otoño (abril a junio) y primavera (septiembre a noviembre) son las épocas más agradables; el verano es caluroso y con lluvias por la tarde.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 4 horas. Del aeropuerto de Guarulhos al centro se llega en tren, bus o taxi.',
+    tips: [
+      'Es una ciudad enorme: agrupa las visitas por barrio y usa el metro para las distancias largas.',
+      'El Mercado Municipal de São Paulo es una buena parada para almorzar en el centro.',
+      'Ten cuidado con tus pertenencias en zonas concurridas, sobre todo de noche.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer São Paulo?',
+        a: 'Con 3 días recorres la Avenida Paulista, el centro histórico, el Parque do Ibirapuera y Liberdade. Con 4 o 5 días puedes sumar más museos y barrios como Vila Madalena.',
+      },
+      {
+        q: '¿Necesito visa para viajar a São Paulo desde Chile?',
+        a: 'Los chilenos pueden ingresar a Brasil con cédula de identidad por estadías turísticas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Cuál es el mejor barrio para alojarse en São Paulo?',
+        a: 'Para una primera visita, la zona de la Avenida Paulista es práctica: tiene metro, museos y restaurantes cerca. Vila Madalena es una buena opción si buscas vida nocturna.',
+      },
+    ],
+  },
+  {
+    slug: 'bogota',
+    cityId: 'bogota',
+    displayName: 'Bogotá',
+    wave: 3,
+    timeZone: 'America/Bogota',
+    reviewed: true,
+    intro:
+      'Bogotá es la capital de Colombia y está a más de 2.600 metros de altura, rodeada de cerros. Puedes subir a Monserrate, recorrer La Candelaria y la Plaza de Bolívar, visitar el Museo del Oro y el Museo Botero, y pasar una tarde en Usaquén.',
+    bestTime:
+      'El clima es fresco todo el año; los meses más secos suelen ser de diciembre a marzo y de julio a agosto.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 6 horas. Del aeropuerto El Dorado al centro se llega en bus o taxi.',
+    tips: [
+      'Por la altura, toma el primer día con calma y bebe mucha agua.',
+      'Lleva ropa en capas: en un mismo día puede hacer sol, frío y llover.',
+      'Sube a Monserrate en teleférico o funicular temprano en la mañana, cuando suele estar más despejado.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Bogotá?',
+        a: 'Con 3 días recorres La Candelaria, los museos del centro, Monserrate y Usaquén. Con 4 o 5 días puedes sumar la Catedral de Sal o la Laguna de Guatavita.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Bogotá desde Chile?',
+        a: 'Los chilenos pueden ingresar a Colombia sin visa por estadías turísticas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Bogotá en un día?',
+        a: 'Las más populares son la Catedral de Sal de Zipaquirá y la Laguna de Guatavita. Villa de Leyva queda más lejos y conviene dedicarle un día completo o pasar una noche allá.',
+      },
+    ],
+  },
+  {
+    slug: 'florianopolis',
+    cityId: 'florianopolis',
+    displayName: 'Florianópolis',
+    wave: 3,
+    timeZone: 'America/Sao_Paulo',
+    reviewed: true,
+    intro:
+      'Florianópolis está casi toda en una isla y es famosa por sus playas, lagunas y pueblos de pescadores. Puedes pasar días entre Praia Mole, Campeche y la Playa de Joaquina, recorrer la Laguna de la Concepción y ver el Puente Hercílio Luz iluminado de noche.',
+    bestTime:
+      'Las estaciones coinciden con las de Chile: el verano (diciembre a marzo) es la temporada de playa, y la primavera y el otoño son más tranquilos y templados.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos, sobre todo en verano, de aprox. 3,5 a 4 horas; el resto del año hay vuelos con escala. Del aeropuerto a las playas se llega en bus, taxi o auto arrendado.',
+    tips: [
+      'Las playas están repartidas por toda la isla: arrendar un auto ayuda a moverse entre el norte, el este y el sur.',
+      'En enero y febrero hay mucho tráfico: sal temprano hacia las playas.',
+      'Prueba las ostras en Ribeirão da Ilha o en Santo Antônio de Lisboa.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Florianópolis?',
+        a: 'Con 4 días alcanzas a conocer las playas del este y la Laguna de la Concepción. Con una semana puedes recorrer también el norte y el sur de la isla.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Florianópolis desde Chile?',
+        a: 'Los chilenos pueden ingresar a Brasil con cédula de identidad por estadías turísticas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Florianópolis en un día?',
+        a: 'Las más populares son la Playa de Guarda do Embaú, Balneario Camboriú y el parque Beto Carrero World. Todas quedan en el continente y se llega en auto o bus.',
+      },
+    ],
+  },
+  {
+    slug: 'cartagena-de-indias',
+    cityId: 'cartagena',
+    displayName: 'Cartagena de Indias',
+    wave: 3,
+    timeZone: 'America/Bogota',
+    reviewed: true,
+    intro:
+      'Cartagena de Indias es una ciudad colonial a orillas del Caribe, rodeada de murallas y fortificaciones. Puedes caminar por el centro amurallado hasta la Torre del Reloj, subir al Castillo San Felipe de Barajas, recorrer Getsemaní y salir en lancha a las Islas Corales del Rosario.',
+    bestTime:
+      'Hace calor todo el año; de diciembre a abril es la temporada más seca, y de septiembre a noviembre llueve más.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, por ejemplo vía Bogotá o Lima. Del aeropuerto al centro histórico se llega en taxi.',
+    tips: [
+      'Recorre el centro amurallado temprano o al atardecer: a mediodía el calor es fuerte.',
+      'Usa bloqueador y bebe mucha agua, incluso en días nublados.',
+      'Para las islas, elige operadores formales y confirma qué incluye el paseo antes de pagar.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Cartagena de Indias?',
+        a: 'Con 3 días recorres el centro amurallado, Getsemaní y el Castillo San Felipe de Barajas. Con 4 o 5 días puedes sumar un día en las Islas Corales del Rosario o en la Península de Barú.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Cartagena de Indias desde Chile?',
+        a: 'Los chilenos pueden ingresar a Colombia sin visa por estadías turísticas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Cartagena de Indias en un día?',
+        a: 'Las más populares son las Islas Corales del Rosario y la Península de Barú, en lancha, el Volcán del Totumo y San Basilio de Palenque.',
+      },
+    ],
+  },
+  {
+    slug: 'medellin',
+    cityId: 'medellin',
+    displayName: 'Medellín',
+    wave: 3,
+    timeZone: 'America/Bogota',
+    reviewed: true,
+    intro:
+      'Medellín es una ciudad de clima templado en un valle de los Andes, conocida por su transformación urbana. Puedes ver las esculturas de la Plaza Botero y el Museo de Antioquia, subir en el Metrocable de Medellín, recorrer San Javier (la Comuna 13) y pasear por el Jardín botánico de Medellín.',
+    bestTime:
+      'El clima es templado todo el año; los meses más secos suelen ser de diciembre a febrero y de junio a agosto.',
+    gettingThere:
+      'Desde Santiago hay vuelos con escala, por ejemplo vía Bogotá o Lima; revisa si hay vuelos directos en tu temporada. Del aeropuerto José María Córdova a la ciudad se llega en bus o taxi.',
+    tips: [
+      'El metro y el Metrocable conectan casi toda la ciudad y son una forma de ver los cerros desde arriba.',
+      'Recorre San Javier con un tour guiado por residentes del barrio.',
+      'Lleva una chaqueta liviana para la tarde y para el Parque ecoturístico Arví, que es más fresco.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Medellín?',
+        a: 'Con 3 días recorres el centro, la Plaza Botero, San Javier y El Poblado. Con 4 o 5 días puedes sumar Guatapé y la Piedra del Peñol.',
+      },
+      {
+        q: '¿Necesito visa para viajar a Medellín desde Chile?',
+        a: 'Los chilenos pueden ingresar a Colombia sin visa por estadías turísticas; confirma los requisitos vigentes antes de viajar.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Medellín en un día?',
+        a: 'La más popular es Guatapé, con la Piedra del Peñol; también puedes ir a Santa Fe de Antioquia. Jardín queda más lejos y conviene pasar una noche allá.',
+      },
+    ],
+  },
+  {
+    slug: 'santiago',
+    cityId: 'santiago',
+    displayName: 'Santiago de Chile',
+    wave: 3,
+    timeZone: 'America/Santiago',
+    reviewed: true,
+    domestic: true,
+    intro:
+      'Santiago es la capital de Chile y está a los pies de la cordillera de los Andes. Puedes subir al Cerro San Cristóbal y al Cerro Santa Lucía, recorrer la Plaza de Armas de Santiago y el Palacio de La Moneda, visitar el Museo de la Memoria y los Derechos Humanos y pasear por el Barrio Lastarria.',
+    bestTime:
+      'Primavera (septiembre a noviembre) y otoño (marzo a mayo) son las épocas más agradables; el verano es caluroso y seco, y en invierno (junio a agosto) se puede ir a la nieve en Valle Nevado o Farellones.',
+    gettingThere:
+      'El Aeropuerto Internacional Arturo Merino Benítez recibe vuelos directos desde las principales ciudades de América y Europa. Del aeropuerto al centro se llega en bus, transfer o taxi.',
+    tips: [
+      'El metro es la forma más rápida de moverse entre el centro, Providencia y Las Condes.',
+      'Sube al Cerro San Cristóbal en funicular o teleférico, idealmente en un día despejado para ver la cordillera.',
+      'En invierno la contaminación puede ser alta: consulta la calidad del aire si vas a hacer deporte al aire libre.',
+      'Muchos museos públicos tienen entrada gratuita; confirma los horarios en su sitio oficial.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Santiago?',
+        a: 'Con 3 días recorres el centro histórico, los cerros San Cristóbal y Santa Lucía, y barrios como Lastarria y Bellavista. Con 4 o 5 días puedes sumar el Cajón del Maipo o una viña.',
+      },
+      {
+        q: '¿Qué excursiones puedo hacer desde Santiago en un día?',
+        a: 'Las más populares son el Cajón del Maipo y el Embalse El Yeso, viñas como la Viña Concha y Toro, el pueblo de Pomaire y, en invierno, los centros de ski de Valle Nevado y Farellones.',
+      },
+      {
+        q: '¿Cuál es la mejor zona para alojarse en Santiago?',
+        a: 'Para una primera visita, Providencia y el sector de Lastarria y Bellas Artes son prácticos: tienen metro, restaurantes y acceso fácil al centro.',
+      },
+    ],
+  },
+  {
+    slug: 'valparaiso',
+    cityId: 'valparaiso',
+    displayName: 'Valparaíso',
+    wave: 3,
+    timeZone: 'America/Santiago',
+    reviewed: true,
+    domestic: true,
+    intro:
+      'Valparaíso es una ciudad puerto construida sobre cerros, con casas de colores, ascensores centenarios y murales en cada esquina. Puedes recorrer el Cerro Alegre y el Cerro Concepción, subir en el Ascensor Artillería, visitar La Sebastiana y caminar por el Museo a Cielo Abierto de Valparaíso.',
+    bestTime:
+      'De octubre a abril el clima es más templado y seco; en invierno llueve más. El Año Nuevo, con fuegos artificiales sobre la bahía, es la fecha más concurrida.',
+    gettingThere:
+      'Desde Santiago hay buses frecuentes que tardan aprox. 1,5 a 2 horas en recorrer unos 110 km. Viña del Mar queda al lado y se llega en metro (Merval) o bus.',
+    tips: [
+      'Lleva zapatos cómodos: los cerros tienen escaleras y pendientes fuertes.',
+      'Combina los ascensores con caminatas para bajar de los cerros al plan.',
+      'Cuida tus pertenencias en el plan y en zonas con poca gente, sobre todo de noche.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Valparaíso?',
+        a: 'Con 2 días recorres los cerros Alegre y Concepción, los ascensores, La Sebastiana y el plan. Con 3 días puedes sumar Viña del Mar.',
+      },
+      {
+        q: '¿Qué ver cerca de Valparaíso?',
+        a: 'Viña del Mar queda a pocos minutos y tiene playas, el Reloj de flores y la Quinta Vergara. Más al sur está la Casa de Isla Negra, de Pablo Neruda, y al norte, las playas de Concón.',
+      },
+      {
+        q: '¿Cómo me muevo entre los cerros de Valparaíso?',
+        a: 'Los ascensores, como el Artillería o el Reina Victoria, suben del plan a los cerros en pocos minutos. También puedes usar colectivos y micros, o recorrer los cerros a pie.',
+      },
+    ],
+  },
+  {
+    slug: 'punta-arenas',
+    cityId: 'puntaarenas',
+    // Owner order: Glaciar Perito Moreno, Parque nacional Torres del Paine, Glaciar Grey.
+    mustSeeDayTrips: ['puntaarenas_50', 'puntaarenas_37', 'puntaarenas_38'],
+    displayName: 'Punta Arenas',
+    wave: 3,
+    timeZone: 'America/Punta_Arenas',
+    reviewed: true,
+    domestic: true,
+    intro:
+      'Punta Arenas está a orillas del Estrecho de Magallanes y es la puerta de entrada a la Patagonia chilena. En la ciudad puedes recorrer la Plaza Muñoz Gamero, el Cementerio Municipal Sara Braun y el Museo Regional de Magallanes, y desde aquí salir a ver pingüinos en la Isla Magdalena o al Parque nacional Torres del Paine.',
+    bestTime:
+      'De noviembre a marzo los días son largos y el clima es más benigno; es también la temporada de pingüinos en la Isla Magdalena. El viento es fuerte todo el año, sobre todo en primavera y verano.',
+    gettingThere:
+      'Desde Santiago hay vuelos directos de aprox. 3,5 a 4 horas. Del aeropuerto al centro se llega en transfer o taxi.',
+    tips: [
+      'Lleva ropa en capas, cortaviento e impermeable: el clima cambia rápido y el viento es intenso.',
+      'Reserva con anticipación los tours a la Isla Magdalena y los buses o traslados a Torres del Paine, sobre todo en enero y febrero.',
+      'Para ir al Glaciar Perito Moreno hay que cruzar a Argentina: lleva tu cédula de identidad o pasaporte vigente y confirma los requisitos vigentes antes de viajar.',
+      'Sube al Mirador Cerro de la Cruz para ver la ciudad y el estrecho.',
+    ],
+    faq: [
+      {
+        q: '¿Cuántos días necesito para conocer Punta Arenas?',
+        a: 'Con 2 días recorres la ciudad, sus museos y el Mirador Cerro de la Cruz, y haces una salida a ver pingüinos. Si quieres conocer Torres del Paine, suma al menos 2 o 3 días más.',
+      },
+      {
+        q: '¿Se puede ir a Torres del Paine desde Punta Arenas en un día?',
+        a: 'Sí, pero es una excursión de día completo: son aprox. 4 a 5 horas por carretera en cada sentido. Muchos viajeros prefieren pasar al menos una noche en Puerto Natales, más cerca del parque, para ver con calma el Glaciar Grey, el Lago Pehoé, los Cuernos del Paine y el Mirador Base Las Torres.',
+      },
+      {
+        q: '¿Dónde puedo ver pingüinos cerca de Punta Arenas?',
+        a: 'En la Isla Magdalena, a la que se llega en barco; en la Pingüinera Seno Otway, por tierra; y en el Parque Pingüino Rey, en Tierra del Fuego, en una excursión de día completo que cruza el estrecho.',
+      },
+      {
+        q: '¿Qué glaciares puedo visitar desde Punta Arenas?',
+        a: 'El Glaciar Grey está dentro de Torres del Paine, y los glaciares Balmaceda y Serrano se visitan en navegación desde Puerto Natales. El Glaciar Perito Moreno queda en Argentina, a aprox. 500 km por carretera vía El Calafate: es un viaje de varios días y se recomienda dormir al menos una noche allá.',
       },
     ],
   },

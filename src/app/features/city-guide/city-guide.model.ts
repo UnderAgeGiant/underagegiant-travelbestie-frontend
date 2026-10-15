@@ -33,9 +33,11 @@ export function buildCityGuide(entry: CityGuideEntry, city: City, attractions: A
   const list = attractions.filter(isGuideAttraction);
   const quality = evaluateGuideQuality(list);
 
+  const pinnedIds = entry.mustSeeDayTrips ?? [];
+  const pinned = pickTopSights(list, pinnedIds.length, pinnedIds).filter(a => pinnedIds.includes(a.id));
   const top = pickTopSights(list, 12);
   const strong = top.filter(a => a.rating >= MUST_SEE_RATING_THRESHOLD);
-  const mustSee = strong.length >= 6 ? strong : top.slice(0, 6);
+  const mustSee = [...pinned, ...(strong.length >= 6 ? strong : top.slice(0, 6)).filter(a => !pinned.includes(a))];
   const used = new Set(mustSee.map(a => a.id));
 
   const rest = list.filter(a => !a.dayTrip && !used.has(a.id)).sort(byRatingThenName);
@@ -55,7 +57,7 @@ export function buildCityGuide(entry: CityGuideEntry, city: City, attractions: A
 
   return {
     entry, city, sightCount: list.length, mustSee, sections,
-    dayTrips: list.filter(a => a.dayTrip).sort(byRatingThenName),
+    dayTrips: list.filter(a => a.dayTrip && !used.has(a.id)).sort(byRatingThenName),
     facts, related, quality, indexable: entry.reviewed && quality.ok,
   };
 }

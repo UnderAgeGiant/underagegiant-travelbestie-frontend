@@ -5,8 +5,13 @@ import { AppFooterComponent } from './app-footer.component';
 jest.mock('../../data/city-guides.data', () => {
   const actual = jest.requireActual('../../data/city-guides.data');
   return { ...actual, CITY_GUIDES: [
-    { ...actual.CITY_GUIDES[0], slug: 'madrid', displayName: 'Madrid', reviewed: true },
-    { ...actual.CITY_GUIDES[0], slug: 'hidden', displayName: 'Oculta', reviewed: false },
+    { ...actual.CITY_GUIDES[0], slug: 'lima', cityId: 'lima', displayName: 'Lima', reviewed: true },
+    { ...actual.CITY_GUIDES[0], slug: 'mendoza', cityId: 'mendoza', displayName: 'Mendoza', reviewed: true },
+    { ...actual.CITY_GUIDES[0], slug: 'cusco', cityId: 'cusco', displayName: 'Cusco', reviewed: true },
+    { ...actual.CITY_GUIDES[0], slug: 'rio-de-janeiro', cityId: 'rio', displayName: 'Río', reviewed: true },
+    { ...actual.CITY_GUIDES[0], slug: 'florencia', cityId: 'florence', displayName: 'Florencia', reviewed: true },
+    { ...actual.CITY_GUIDES[0], slug: 'londres', cityId: 'london', displayName: 'Londres', reviewed: false },
+    { ...actual.CITY_GUIDES[0], slug: 'madrid', cityId: 'madrid', displayName: 'Madrid', reviewed: true },
   ] };
 });
 
@@ -44,12 +49,28 @@ describe('AppFooterComponent — clickable tagline (feedback #2)', () => {
 });
 
 describe('AppFooterComponent — destination guide links (Task 11)', () => {
-  it('links every reviewed guide with a real anchor and hides unreviewed ones', () => {
+  const render = () => {
     TestBed.configureTestingModule({ imports: [AppFooterComponent], providers: [provideRouter([])] });
     const f = TestBed.createComponent(AppFooterComponent);
     f.detectChanges();
-    const links = Array.from((f.nativeElement as HTMLElement).querySelectorAll('a[href^="/ciudad/"]')) as HTMLAnchorElement[];
-    expect(links.map(a => a.getAttribute('href'))).toEqual(['/ciudad/madrid']);
+    return f.nativeElement as HTMLElement;
+  };
+  const hrefs = (el: Element) => Array.from(el.querySelectorAll('a[href^="/ciudad/"]')).map(a => a.getAttribute('href'));
+
+  it('groups reviewed guides by continent, max 3 each, in priority order then manifest order', () => {
+    const blocks = Array.from(render().querySelectorAll('.landing-footer-continent'));
+    expect(blocks.map(b => b.getAttribute('data-continent'))).toEqual(['south_america', 'europe']);
+    expect(hrefs(blocks[0])).toEqual(['/ciudad/rio-de-janeiro', '/ciudad/cusco', '/ciudad/lima']);
+    expect(hrefs(blocks[1])).toEqual(['/ciudad/madrid', '/ciudad/florencia']);
+  });
+
+  it('links each continent heading to its /guides section and ends with "Ver todas las guías"', () => {
+    const el = render();
+    const heads = Array.from(el.querySelectorAll('.landing-footer-continent-head')).map(a => a.getAttribute('href'));
+    expect(heads).toEqual(['/guides#south_america', '/guides#europe']);
+    const all = el.querySelector('.landing-footer-all-guides')!;
+    expect(all.getAttribute('href')).toBe('/guides');
+    expect(all.textContent).toContain('Ver todas las guías');
   });
 
   it('hides the guides column when showGuides is false', () => {
