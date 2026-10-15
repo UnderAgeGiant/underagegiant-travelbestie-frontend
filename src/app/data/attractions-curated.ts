@@ -29917,7 +29917,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/DOsaYphXUAIjSGu.jpg_large.jpg/1280px-DOsaYphXUAIjSGu.jpg_large.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Catedral_de_Sevilla-2025_01.jpg/1280px-Catedral_de_Sevilla-2025_01.jpg",
       website: "http://www.catedraldesevilla.es/",
       ticketPrices: {
         free: false,
