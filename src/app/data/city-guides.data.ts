@@ -364,7 +364,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Miami',
     wave: 2,
     timeZone: 'America/New_York',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Miami combina playa, cultura latina y arte urbano en una sola ciudad. Puedes recorrer South Beach y los edificios art déco de Ocean Drive, la Pequeña Habana, los jardines de Villa Vizcaya y los murales de Wynwood. Es un destino para mezclar playa, compras y gastronomía, con el Parque nacional de los Everglades a poca distancia.',
     bestTime:
@@ -398,7 +398,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Nueva York',
     wave: 2,
     timeZone: 'America/New_York',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Nueva York reúne en pocos kilómetros algunos de los íconos urbanos más reconocibles: la Estatua de la Libertad, el Empire State Building, Times Square, Central Park y el Puente de Brooklyn. Suma museos como el Museo Metropolitano de Arte y barrios con identidad propia como Greenwich Village y Harlem. Es una ciudad para caminar mucho y combinar cultura, arquitectura y gastronomía.',
     bestTime:
@@ -432,7 +432,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Ciudad de México',
     wave: 2,
     timeZone: 'America/Mexico_City',
-    reviewed: false,
+    reviewed: true,
     intro:
       'La Ciudad de México mezcla ruinas mexicas, arquitectura colonial y una gran oferta de museos. En el centro histórico están el Templo Mayor, la Plaza de la Constitución (el Zócalo) y el Palacio de Bellas Artes; en Chapultepec, el Museo Nacional de Antropología y el Castillo de Chapultepec. Es un destino para varios días de cultura y gastronomía, con Teotihuacán como excursión clásica.',
     bestTime:
@@ -466,7 +466,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Tokio',
     wave: 2,
     timeZone: 'Asia/Tokyo',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Tokio combina templos y santuarios tradicionales con barrios de neón y tecnología. En pocos días puedes visitar el templo Sensō-ji, el Santuario Meiji, el cruce de Shibuya y la torre Tokyo Skytree. Es una ciudad muy extensa y bien conectada en tren, que se presta para combinar con excursiones a Kamakura, Hakone o el Monte Fuji.',
     bestTime:
@@ -500,7 +500,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Singapur',
     wave: 2,
     timeZone: 'Asia/Singapore',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Singapur es una ciudad-estado compacta donde conviven las culturas china, malaya e india. Puedes recorrer Marina Bay Sands y los Jardines de la Bahía, el Jardín Botánico de Singapur, el Merlión junto a la bahía y la isla de Sentosa. Es un buen destino para una escala larga o para combinar con otros países del sudeste asiático, y para comer en centros de comida como Lau Pa Sat.',
     bestTime:
@@ -534,7 +534,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Sídney',
     wave: 2,
     timeZone: 'Australia/Sydney',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Sídney se organiza alrededor de su bahía, con la Ópera de Sídney y el Puente de la bahía como postales más reconocidas. En pocos días puedes recorrer el barrio histórico de The Rocks, Darling Harbour, el Zoológico Taronga y playas urbanas como Bondi Beach o la Playa de Manly. Es un destino para combinar ciudad, playa y naturaleza, con las Montañas Azules como excursión clásica.',
     bestTime:
@@ -569,7 +569,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Auckland',
     wave: 2,
     timeZone: 'Pacific/Auckland',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Auckland es la ciudad más grande de Nueva Zelanda y está rodeada de bahías, islas y conos volcánicos. Puedes subir a la Sky Tower, visitar el Museo Conmemorativo de Guerra de Auckland, recorrer Viaduct Harbour, subir al Monte Eden o tomar un ferry a Devonport y a la isla Rangitoto. Es una buena base para conocer la Isla Norte, con excursiones a la Isla Waiheke, la Playa Piha o las Cuevas de Waitomo.',
     bestTime:
