@@ -605,7 +605,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Londres',
     wave: 3,
     timeZone: 'Europe/London',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Londres mezcla siglos de historia con barrios llenos de vida y una oferta enorme de museos, muchos de ellos gratuitos. En pocos días puedes recorrer la Torre de Londres, la Abadía de Westminster y el Palacio de Buckingham, pasar una tarde en el Museo Británico y cruzar el Puente de la Torre.',
     bestTime:
@@ -639,7 +639,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Florencia',
     wave: 3,
     timeZone: 'Europe/Rome',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Florencia fue la cuna del Renacimiento y concentra en pocas cuadras algunas de las obras de arte más famosas del mundo. Puedes subir a la cúpula de la Catedral de Santa María del Fiore, ver el David en la Galería de la Academia, recorrer la Galería Uffizi y cruzar el Ponte Vecchio al atardecer.',
     bestTime:
@@ -672,7 +672,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Berlín',
     wave: 3,
     timeZone: 'Europe/Berlin',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Berlín es una capital marcada por la historia del siglo XX y hoy es una de las ciudades más creativas de Europa. Puedes pasar por la Puerta de Brandeburgo y el Edificio del Reichstag, recorrer los restos del Muro de Berlín en la East Side Gallery y dedicar un día a la Isla de los Museos.',
     bestTime:
@@ -705,7 +705,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Lisboa',
     wave: 3,
     timeZone: 'Europe/Lisbon',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Lisboa se recorre subiendo y bajando colinas, entre tranvías, miradores y fachadas de azulejos. Puedes perderte en el barrio de Alfama, subir al Castillo de San Jorge y pasar un día en Belém, donde están la Torre de Belém y el Monasterio de los Jerónimos.',
     bestTime:
@@ -738,7 +738,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Sevilla',
     wave: 3,
     timeZone: 'Europe/Madrid',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Sevilla es la capital de Andalucía y una de las ciudades con más patrimonio de España. Puedes visitar la Catedral de Sevilla y subir a la Giralda, recorrer el Real Alcázar, pasear por la Plaza de España y perderte en las callejuelas del barrio de Santa Cruz.',
     bestTime:
@@ -771,7 +771,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Ámsterdam',
     wave: 3,
     timeZone: 'Europe/Amsterdam',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Ámsterdam es una ciudad de canales, bicicletas y casas angostas, con museos de primer nivel a pocas cuadras unos de otros. Puedes ver a Rembrandt en el Rijksmuseum, visitar el Museo Van Gogh y la Casa de Ana Frank, y recorrer los Canales de Ámsterdam a pie o en barco.',
     bestTime:
@@ -804,7 +804,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Venecia',
     wave: 3,
     timeZone: 'Europe/Rome',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Venecia está construida sobre una laguna y se recorre a pie o en barco, sin autos. Puedes visitar la Basílica de San Marcos y el Palacio Ducal, cruzar el Puente de Rialto sobre el Gran Canal y tomar un vaporetto a las islas de Murano y Burano.',
     bestTime:
@@ -837,7 +837,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'São Paulo',
     wave: 3,
     timeZone: 'America/Sao_Paulo',
-    reviewed: false,
+    reviewed: true,
     intro:
       'São Paulo es la ciudad más grande de Sudamérica y un centro de arte, gastronomía y vida cultural. Puedes recorrer la Avenida Paulista y el Museo de Arte de São Paulo, pasar una tarde en el Parque do Ibirapuera, visitar la Catedral metropolitana de São Paulo y comer en el barrio de Liberdade.',
     bestTime:
@@ -870,7 +870,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Bogotá',
     wave: 3,
     timeZone: 'America/Bogota',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Bogotá es la capital de Colombia y está a más de 2.600 metros de altura, rodeada de cerros. Puedes subir a Monserrate, recorrer La Candelaria y la Plaza de Bolívar, visitar el Museo del Oro y el Museo Botero, y pasar una tarde en Usaquén.',
     bestTime:
@@ -903,7 +903,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Florianópolis',
     wave: 3,
     timeZone: 'America/Sao_Paulo',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Florianópolis está casi toda en una isla y es famosa por sus playas, lagunas y pueblos de pescadores. Puedes pasar días entre Praia Mole, Campeche y la Playa de Joaquina, recorrer la Laguna de la Concepción y ver el Puente Hercílio Luz iluminado de noche.',
     bestTime:
@@ -936,7 +936,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Cartagena de Indias',
     wave: 3,
     timeZone: 'America/Bogota',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Cartagena de Indias es una ciudad colonial a orillas del Caribe, rodeada de murallas y fortificaciones. Puedes caminar por el centro amurallado hasta la Torre del Reloj, subir al Castillo San Felipe de Barajas, recorrer Getsemaní y salir en lancha a las Islas Corales del Rosario.',
     bestTime:
@@ -969,7 +969,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Medellín',
     wave: 3,
     timeZone: 'America/Bogota',
-    reviewed: false,
+    reviewed: true,
     intro:
       'Medellín es una ciudad de clima templado en un valle de los Andes, conocida por su transformación urbana. Puedes ver las esculturas de la Plaza Botero y el Museo de Antioquia, subir en el Metrocable de Medellín, recorrer San Javier (la Comuna 13) y pasear por el Jardín botánico de Medellín.',
     bestTime:
@@ -1002,7 +1002,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Santiago de Chile',
     wave: 3,
     timeZone: 'America/Santiago',
-    reviewed: false,
+    reviewed: true,
     domestic: true,
     intro:
       'Santiago es la capital de Chile y está a los pies de la cordillera de los Andes. Puedes subir al Cerro San Cristóbal y al Cerro Santa Lucía, recorrer la Plaza de Armas de Santiago y el Palacio de La Moneda, visitar el Museo de la Memoria y los Derechos Humanos y pasear por el Barrio Lastarria.',
@@ -1037,7 +1037,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Valparaíso',
     wave: 3,
     timeZone: 'America/Santiago',
-    reviewed: false,
+    reviewed: true,
     domestic: true,
     intro:
       'Valparaíso es una ciudad puerto construida sobre cerros, con casas de colores, ascensores centenarios y murales en cada esquina. Puedes recorrer el Cerro Alegre y el Cerro Concepción, subir en el Ascensor Artillería, visitar La Sebastiana y caminar por el Museo a Cielo Abierto de Valparaíso.',
@@ -1073,7 +1073,7 @@ export const CITY_GUIDES: CityGuideEntry[] = [
     displayName: 'Punta Arenas',
     wave: 3,
     timeZone: 'America/Punta_Arenas',
-    reviewed: false,
+    reviewed: true,
     domestic: true,
     intro:
       'Punta Arenas está a orillas del Estrecho de Magallanes y es la puerta de entrada a la Patagonia chilena. En la ciudad puedes recorrer la Plaza Muñoz Gamero, el Cementerio Municipal Sara Braun y el Museo Regional de Magallanes, y desde aquí salir a ver pingüinos en la Isla Magdalena o al Parque nacional Torres del Paine.',
