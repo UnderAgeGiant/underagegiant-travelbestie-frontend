@@ -53,6 +53,8 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
 })
 export class CityComboboxComponent {
   excludeIds = input<string[]>([]);
+  /** Pre-selected city (e.g. from a city guide's "Planificar mi viaje" CTA). A user pick overrides it. */
+  initialCity = input<City | null>(null);
   cityChange = output<City>();
 
   @ViewChild('searchInput') private searchInput?: ElementRef<HTMLInputElement>;
@@ -60,7 +62,7 @@ export class CityComboboxComponent {
   open = signal(false);
   query = signal('');
   private selectedCity = signal<City | null>(null);
-  readonly selected = this.selectedCity.asReadonly();
+  readonly selected = computed(() => this.selectedCity() ?? this.initialCity());
 
   readonly filtered = computed(() => {
     const q = normalizeSearch(this.query());

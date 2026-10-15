@@ -63,6 +63,15 @@ describe('AddStopModalComponent — presetCityId (city guide "plan this city" pr
     fixture.detectChanges();
     expect(fixture.componentInstance.selectedCity()).toBeNull();
   });
+
+  it('shows the preset city inside the combobox, not the empty placeholder', () => {
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.componentRef.setInput('presetCityId', 'madrid');
+    fixture.detectChanges();
+    const combo = fixture.nativeElement.querySelector('app-city-combobox') as HTMLElement;
+    expect(combo.textContent).toContain('Madrid');
+    expect(combo.textContent).not.toContain('Buscar ciudad o país');
+  });
 });
 
 describe('AddStopModalComponent — backdrop close guard', () => {
