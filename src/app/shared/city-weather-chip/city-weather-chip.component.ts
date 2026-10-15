@@ -62,7 +62,7 @@ import { iterateDMYRange } from '../../core/utils/event-datetime.util';
   `],
   template: `
     @if (chip(); as w) {
-      <span class="city-weather-chip" [class.city-weather-chip-historic]="w.historic"
+      <span class="city-weather-chip" data-testid="weather-chip" [class.city-weather-chip-historic]="w.historic"
             tabindex="0"
             (mouseenter)="onHover($event)" (mouseleave)="onHoverLeave()"
             (focus)="onHover($event)" (blur)="onHoverLeave()"

@@ -14,7 +14,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
       <div class="nav-logo" tbHighlightTarget="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
       <div style="flex:1"></div>
 
-      <button class="lang-drop-btn" type="button"
+      <button class="lang-drop-btn" data-testid="lang-switch" type="button"
               (click)="facade.switchLocale(facade.locale.other())"
               i18n-aria-label="@@nav.langSwitch" aria-label="Cambiar idioma">
         <img [src]="facade.locale.current() === 'es-CL' ? 'https://flagcdn.com/w20/cl.jpg' : 'https://flagcdn.com/w20/us.jpg'"
@@ -40,7 +40,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
         <button class="btn-pill btn-ghost" tbHighlightTarget="login-btn" (click)="facade.authModal.openLogin()"
                 i18n="@@nav.signInBtn">Iniciar sesión</button>
       } @else {
-        <button class="nav-m-burger" tbHighlightTarget="user-menu-btn" (click)="drawerOpen.set(true)"
+        <button class="nav-m-burger" data-testid="nav-mobile-menu" tbHighlightTarget="user-menu-btn" (click)="drawerOpen.set(true)"
                 i18n-aria-label="@@nav.mobileMenuOpen" aria-label="Abrir menú">☰</button>
       }
     </nav>
