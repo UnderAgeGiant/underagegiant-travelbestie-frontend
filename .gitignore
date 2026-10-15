@@ -52,3 +52,6 @@ testem.log
 Thumbs.db
 
 
+
+# Local agent architecture notes (keep local only)
+ARCHITECTURE.MD
