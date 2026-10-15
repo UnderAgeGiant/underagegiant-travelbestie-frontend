@@ -4,6 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-10
+- feat(city-guides): wave 2 — Americas, Asia, Oceania guides (7) (#165)
 - feat(social): public profiles, follows, following feed (#163)
 - feat(data): city guide enrichment — 55 cities (LatAm, Asia, Chile & Patagonia, Western Europe) (#161)
 - fix(qa): share emojis/wording, search empty state, English placeholders, Escape, curated data (#160)

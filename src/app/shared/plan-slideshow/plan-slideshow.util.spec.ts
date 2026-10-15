@@ -1,7 +1,7 @@
 import { buildPlanSlideshowItems } from './plan-slideshow.util';
 import { TripStop, TransitLeg } from '../../core/models/trip.model';
 
-const PARIS_0_IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg/1920px-Paris_75005_Quai_de_Montebello_Bouquinistes_20071014.jpg';
+const PARIS_0_IMAGE = 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Seine_by_Eiffel.jpg/1280px-Seine_by_Eiffel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail';
 // Task 6 (city-guide-pages, 2026-09-22) re-resolved paris_0 against its real Wikipedia article
 // ("Riberas del Sena en París") — updated description text; no English Wikidata sitelink was
 // found, so descriptionEn was cleared and the English item now falls back to the Spanish text.
