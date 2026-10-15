@@ -1533,6 +1533,10 @@ app-nav { display: block; }
   transition: color .15s;
 }
 .landing-footer-link:hover { color: var(--lav); }
+.landing-footer-continent { margin-bottom: .75rem; }
+.landing-footer-continent-head { display: block; font-size: 13px; font-weight: 600; color: oklch(78% .03 270); text-decoration: none; margin-bottom: .4rem; }
+.landing-footer-continent-head:hover, .landing-footer-all-guides:hover { color: var(--lav); }
+.landing-footer-all-guides { color: oklch(78% .03 270); }
 .landing-footer-copy {
   font-size: 11px;
   color: oklch(38% .02 270);
@@ -1544,7 +1548,7 @@ app-nav { display: block; }
   .landing-footer-logo { font-size: 34px; }
   .landing-footer-tagline { font-size: 14px; }
   .landing-footer-col-head { font-size: 12px; }
-  .landing-footer-link { font-size: 15px; }
+  .landing-footer-link, .landing-footer-continent-head { font-size: 15px; }
   .landing-footer-copy { font-size: 12px; }
 }
 

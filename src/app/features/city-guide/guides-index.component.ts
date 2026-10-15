@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, afterNextRender, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { AppFooterComponent } from '../landing/app-footer.component';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { CITY_GUIDES } from '../../data/city-guides.data';
-import { GUIDE_CONTINENT_ORDER, continentForCity, guideContinentLabel } from '../../core/seo/guide-continent.util';
+import { GUIDE_CONTINENT_ORDER, GuideContinent, continentForCity, guideContinentLabel } from '../../core/seo/guide-continent.util';
 import { guideTopPhoto } from '../../core/seo/city-guide-photo.util';
 import { guidePath } from '../../core/seo/city-guide-seo.util';
 
@@ -77,6 +77,14 @@ export class GuidesIndexComponent {
       .filter(g => g.reviewed && continentForCity(g.cityId) === continent)
       .map(g => ({ slug: g.slug, name: g.displayName, path: guidePath(g.slug), imageUrl: guideTopPhoto(g.cityId) })),
   }));
+
+  constructor() {
+    // Footer continent headings link to /guides#<continent>.
+    const fragment = inject(ActivatedRoute).snapshot.fragment;
+    if (fragment && GUIDE_CONTINENT_ORDER.includes(fragment as GuideContinent)) {
+      afterNextRender(() => this.jumpTo(fragment));
+    }
+  }
 
   goHome(): void { this.router.navigate(['/']); }
 

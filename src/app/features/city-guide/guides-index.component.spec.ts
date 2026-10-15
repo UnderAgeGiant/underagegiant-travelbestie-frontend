@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { ActivatedRoute, provideRouter } from '@angular/router';
 import { GuidesIndexComponent } from './guides-index.component';
 
 jest.mock('../../data/city-guides.data', () => ({
@@ -37,5 +37,28 @@ describe('GuidesIndexComponent (T4)', () => {
 
   it('renders the footer without the guides column', () => {
     expect(render().querySelector('tb-app-footer')!.textContent).not.toContain('Guías de destinos');
+  });
+});
+
+describe('GuidesIndexComponent: fragment jump (wave 3, task 7)', () => {
+  const renderWith = (fragment: string | null) => {
+    const spy = jest.spyOn(GuidesIndexComponent.prototype, 'jumpTo').mockImplementation(() => {});
+    TestBed.configureTestingModule({
+      imports: [GuidesIndexComponent],
+      providers: [provideRouter([]), { provide: ActivatedRoute, useValue: { snapshot: { fragment } } }],
+    });
+    TestBed.createComponent(GuidesIndexComponent).detectChanges();
+    return spy;
+  };
+  afterEach(() => jest.restoreAllMocks());
+
+  it('jumps to the continent named by the fragment', () => {
+    expect(renderWith('europe')).toHaveBeenCalledWith('europe');
+  });
+
+  it('ignores an unknown or missing fragment', () => {
+    expect(renderWith('foo')).not.toHaveBeenCalled();
+    TestBed.resetTestingModule();
+    expect(renderWith(null)).not.toHaveBeenCalled();
   });
 });
