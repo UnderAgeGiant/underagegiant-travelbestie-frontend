@@ -22239,7 +22239,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.7,
       estimatedMinutes: 90,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Midtownmiamicenter.jpg/1280px-Midtownmiamicenter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      imageUrl: "https://images.unsplash.com/photo-1583608176046-c2691400afa9?auto=format&fit=crop&w=800&q=80",
       website: "http://www.ci.miami.fl.us/nets/pages/wynwoodedgewater/wynwood.asp",
       ticketPrices: {
         free: false,
@@ -22452,7 +22452,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       website: "http://www.miamisci.org/",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Lufengosaurus_magnus2.jpg/1280px-Lufengosaurus_magnus2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Frost_Science_Museum_Oculus_Lens.jpg",
       description: "El Museo de la Ciencia Phillip y Patricia Frost, conocido antiguamente como Museo de la Ciencia de Miami o Museo de la Ciencia y Planetario de Tránsito Espacial de Miami, es un museo de ciencia, planetario y acuario situado en Miami.",
       descriptionEn: "The Phillip and Patricia Frost Museum of Science, formerly known as the Miami Science Museum or Miami Science Museum and Space Transit Planetarium, is a science museum, planetarium, and aquarium located in Miami, Florida, United States.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_la_Ciencia_Phillip_y_Patricia_Frost",
