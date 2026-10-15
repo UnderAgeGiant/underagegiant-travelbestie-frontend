@@ -2855,6 +2855,10 @@
         <source>Imperdibles de <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
         <target>Must-sees in <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></target>
       </trans-unit>
+      <trans-unit id="cityGuide.dayTripChip" datatype="html">
+        <source>Excursión</source>
+        <target>Day trip</target>
+      </trans-unit>
       <trans-unit id="cityGuide.srcWikipedia" datatype="html">
         <source>Wikipedia</source>
         <target>Wikipedia</target>

@@ -66,3 +66,24 @@ describe('buildCityGuide', () => {
     expect(g.related.length).toBeLessThanOrEqual(4);
   });
 });
+
+describe('buildCityGuide with mustSeeDayTrips (wave 3, task 8)', () => {
+  it('puts pinned day trips first in Imperdibles, in order, and removes them from dayTrips', () => {
+    const t1 = att({ dayTrip: true, name: 'Glaciar', rating: 4.3 });
+    const t2 = att({ dayTrip: true, name: 'Parque', rating: 4.9 });
+    const t3 = att({ dayTrip: true, name: 'Otra', rating: 4.8 });
+    const g = buildCityGuide({ ...entry, mustSeeDayTrips: [t1.id, 'bogus', t2.id] }, city, [...many(30), t1, t2, t3], facts);
+    expect(g.mustSee.slice(0, 2).map(a => a.name)).toEqual(['Glaciar', 'Parque']);
+    expect(g.dayTrips.map(a => a.name)).toEqual(['Otra']);
+    const ids = [...g.mustSee, ...g.sections.flatMap(s => s.items), ...g.dayTrips].map(a => a.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it('without the field the guide is unchanged', () => {
+    const list = [...many(30), att({ dayTrip: true, name: 'Toledo', rating: 4.8 })];
+    const plain = buildCityGuide(entry, city, list, facts);
+    const empty = buildCityGuide({ ...entry, mustSeeDayTrips: [] }, city, list, facts);
+    expect(empty.mustSee.map(a => a.id)).toEqual(plain.mustSee.map(a => a.id));
+    expect(empty.dayTrips.map(a => a.id)).toEqual([plain.dayTrips[0].id]);
+  });
+});

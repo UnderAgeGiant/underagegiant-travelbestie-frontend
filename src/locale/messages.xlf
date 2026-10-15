@@ -1249,7 +1249,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">174,175</context>
+          <context context-type="linenumber">175,176</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.factsTitle" datatype="html">
@@ -1294,109 +1294,116 @@
           <context context-type="linenumber">62,63</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="cityGuide.dayTripChip" datatype="html">
+        <source>Excursión</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="cityGuide.srcWikipedia" datatype="html">
         <source>Wikipedia</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">73,74</context>
+          <context context-type="linenumber">74,75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.srcPhoto" datatype="html">
         <source>Foto: Wikimedia Commons</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">74,75</context>
+          <context context-type="linenumber">75,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.plansTitle" datatype="html">
         <source>Itinerarios reales de viajeros que pasan por <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">86,87</context>
+          <context context-type="linenumber">87,88</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.planStops" datatype="html">
         <source>lugares</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">92</context>
+          <context context-type="linenumber">93</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.moreIn" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ s.label }}"/> en <x id="INTERPOLATION_1" equiv-text="{{ m.entry.displayName }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">103,104</context>
+          <context context-type="linenumber">104,105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.scrollHint" datatype="html">
         <source>Desliza dentro del recuadro para ver los <x id="INTERPOLATION" equiv-text="{{ s.items.length }}"/> lugares — o sigue bajando para continuar.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">106,107</context>
+          <context context-type="linenumber">107,108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.srcWikipedia2" datatype="html">
         <source>Wikipedia</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">114,116</context>
+          <context context-type="linenumber">115,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.dayTrips" datatype="html">
         <source>Excursiones de un día desde <x id="INTERPOLATION" equiv-text="{{ m.entry.displayName }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">126,127</context>
+          <context context-type="linenumber">127,128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.scrollHintDayTrips" datatype="html">
         <source>Desliza dentro del recuadro para ver las <x id="INTERPOLATION" equiv-text="{{ m.dayTrips.length }}"/> excursiones — o sigue bajando para continuar.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">129,130</context>
+          <context context-type="linenumber">130,131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.srcWikipedia3" datatype="html">
         <source>Wikipedia</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">137,139</context>
+          <context context-type="linenumber">138,140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.whenTitle" datatype="html">
         <source>Cuándo es mejor ir</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">149,151</context>
+          <context context-type="linenumber">150,152</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.tipsTitle" datatype="html">
         <source>Consejos prácticos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">156,158</context>
+          <context context-type="linenumber">157,159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.faqTitle" datatype="html">
         <source>Preguntas frecuentes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">165,167</context>
+          <context context-type="linenumber">166,168</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.relatedTitle" datatype="html">
         <source>Otras guías</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">181,183</context>
+          <context context-type="linenumber">182,184</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.license" datatype="html">
         <source> Las descripciones de los lugares provienen de Wikipedia y se publican bajo licencia CC BY-SA 4.0; las fotos, de Wikimedia Commons, con la licencia indicada en cada archivo. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/city-guide/city-guide.component.ts</context>
-          <context context-type="linenumber">188,189</context>
+          <context context-type="linenumber">189,190</context>
         </context-group>
       </trans-unit>
       <trans-unit id="guides.title" datatype="html">

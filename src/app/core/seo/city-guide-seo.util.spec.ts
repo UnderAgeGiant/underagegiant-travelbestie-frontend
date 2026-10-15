@@ -60,3 +60,19 @@ describe('pickTopSights', () => {
     expect(pickTopSights(list, 2).map(x => x.name)).toEqual(['C', 'A']);
   });
 });
+
+describe('pickTopSights with pinned ids (wave 3, task 8)', () => {
+  const s = (id: string, rating: number, o: Partial<GuideSight & { id: string }> = {}) =>
+    ({ id, active: true, name: id.toUpperCase(), rating, description: 'texto', ...o });
+  const list = [s('a', 4.9), s('b', 4.5), s('trip1', 4.2, { dayTrip: true }), s('trip2', 4.0, { dayTrip: true }),
+    s('off', 5, { dayTrip: true, active: false }), s('bare', 5, { dayTrip: true, description: '' })];
+
+  it('puts existing pinned items first in pinned order (day trips allowed), then the normal ranking, total ≤ n', () => {
+    expect(pickTopSights(list, 10, ['trip2', 'trip1']).map(x => x.id)).toEqual(['trip2', 'trip1', 'a', 'b']);
+    expect(pickTopSights(list, 3, ['trip2', 'trip1']).map(x => x.id)).toEqual(['trip2', 'trip1', 'a']);
+  });
+
+  it('skips missing, inactive and undescribed pinned ids silently and never duplicates', () => {
+    expect(pickTopSights(list, 10, ['nope', 'off', 'bare', 'a']).map(x => x.id)).toEqual(['a', 'b']);
+  });
+});

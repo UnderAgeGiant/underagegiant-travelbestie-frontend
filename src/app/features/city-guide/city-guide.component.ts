@@ -66,6 +66,7 @@ import { photoCreditUrl } from './photo-credit.util';
                 <article class="cg-card">
                   @if (a.imageUrl) { <img [src]="a.imageUrl" [alt]="a.name" loading="lazy" width="640" height="420" /> }
                   <div class="cg-card-body">
+                    @if (a.dayTrip) { <span class="cg-chip-daytrip" i18n="@@cityGuide.dayTripChip">Excursión</span> }
                     <h3>{{ a.name }}</h3>
                     <div class="cg-meta">★ {{ a.rating }} · {{ a.icon }} {{ a.type }}</div>
                     <p>{{ a.description }}</p>
@@ -217,7 +218,7 @@ export class CityGuideComponent {
       const m = this.model();
       if (!m) return;
       untracked(() => {
-        const top = pickTopSights(getAttractions(m.city).filter(isGuideAttraction), 10);
+        const top = pickTopSights(getAttractions(m.city).filter(isGuideAttraction), 10, m.entry.mustSeeDayTrips);
         this.seo.apply(guideSeoPage(m, environment.siteUrl, top));
         this.api.getSeoCityPlans(m.entry.cityId).subscribe({
           next: r => this.plans.set(r.items),

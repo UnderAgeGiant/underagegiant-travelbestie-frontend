@@ -1,6 +1,7 @@
 // IMPORT-FREE on purpose (see guide-quality.util.ts). Single source of the guide <title>/description strings:
 // used by the Angular page AND the build-time static head (scripts/city-pages.mjs) so they can never drift.
 export interface GuideSight {
+  id?: string;
   active: boolean;
   name: string;
   rating: number;
@@ -32,10 +33,18 @@ export function guideDescription(displayName: string, sightCount: number, domest
   return d.length <= 155 ? d : `${d.slice(0, 154).replace(/\s+\S*$/, '')}…`;
 }
 
-/** Active, described, non-day-trip sights, best first (rating desc, then name) — the "imperdibles" and the JSON-LD list. */
-export function pickTopSights<T extends GuideSight>(attractions: T[], n: number): T[] {
-  return attractions
-    .filter(a => a.active && !a.dayTrip && (a.description ?? '').length > 0)
-    .sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name))
-    .slice(0, n);
+/**
+ * Active, described sights, best first: the "imperdibles" and the JSON-LD list.
+ * `pinnedIds` (a guide's mustSeeDayTrips) come first in that order and may be day trips;
+ * missing/inactive/undescribed ids are skipped. Then non-day-trip sights by rating desc, then name.
+ */
+export function pickTopSights<T extends GuideSight>(attractions: T[], n: number, pinnedIds: readonly string[] = []): T[] {
+  const usable = (a: T) => a.active && (a.description ?? '').length > 0;
+  const pinned = pinnedIds
+    .map(id => attractions.find(a => a.id === id))
+    .filter((a, i, arr): a is T => !!a && usable(a) && arr.indexOf(a) === i);
+  const ranked = attractions
+    .filter(a => usable(a) && !a.dayTrip && !pinned.includes(a))
+    .sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name));
+  return [...pinned, ...ranked].slice(0, n);
 }

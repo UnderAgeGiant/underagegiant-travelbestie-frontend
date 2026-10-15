@@ -2,7 +2,7 @@ import { CITY_GUIDES, HOME_TIME_ZONE, guideByCityId, guideBySlug } from './city-
 import { WORLD_CITIES } from './cities.data';
 import { getAttractions } from './attractions.data';
 import { evaluateGuideQuality } from '../core/seo/guide-quality.util';
-import { isGuideAttraction } from '../core/seo/city-guide-seo.util';
+import { isGuideAttraction, pickTopSights } from '../core/seo/city-guide-seo.util';
 
 describe('CITY_GUIDES manifest', () => {
   it('has unique kebab-case slugs and unique city ids that exist in WORLD_CITIES', () => {
@@ -39,5 +39,24 @@ describe('CITY_GUIDES manifest', () => {
       const q = evaluateGuideQuality(getAttractions(city).filter(isGuideAttraction));
       expect({ slug: g.slug, reasons: q.reasons }).toEqual({ slug: g.slug, reasons: [] });
     }
+  });
+});
+
+describe('mustSeeDayTrips (wave 3, task 8)', () => {
+  it('every pinned id is an active, described guide sight of that city', () => {
+    for (const g of CITY_GUIDES.filter(x => x.mustSeeDayTrips)) {
+      const list = getAttractions(WORLD_CITIES.find(c => c.id === g.cityId)!).filter(isGuideAttraction);
+      for (const id of g.mustSeeDayTrips!) {
+        const a = list.find(x => x.id === id);
+        expect([g.slug, id, !!a && (a.description ?? '').length > 0]).toEqual([g.slug, id, true]);
+      }
+    }
+  });
+
+  it('Punta Arenas pins Perito Moreno, Torres del Paine and Glaciar Grey, in that order', () => {
+    const g = guideBySlug('punta-arenas')!;
+    const list = getAttractions(WORLD_CITIES.find(c => c.id === g.cityId)!).filter(isGuideAttraction);
+    expect(pickTopSights(list, 3, g.mustSeeDayTrips).map(a => a.name))
+      .toEqual(['Glaciar Perito Moreno', 'Parque nacional Torres del Paine', 'Glaciar Grey']);
   });
 });

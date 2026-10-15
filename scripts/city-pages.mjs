@@ -40,7 +40,7 @@ export function buildGuidePage({ shell, entry, city, attractions, siteUrl }) {
   const path = guidePath(entry.slug);
   const url = `${origin}${path}`;
   const image = `${origin}/og-default.png`;
-  const top = pickTopSights(list, 10);
+  const top = pickTopSights(list, 10, entry.mustSeeDayTrips);
   const ld = JSON.stringify(cityGuideJsonLd({
     siteUrl: origin, slug: entry.slug, displayName: entry.displayName, country: city.country, description,
     sights: top.map((a) => ({ name: a.name, description: a.description, image: a.imageUrl, lat: a.lat, lng: a.lng })),

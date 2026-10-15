@@ -104,3 +104,12 @@ test('buildCityPages rejects a guide whose city is not in the catalog', () => {
   writeFileSync(join(dist, 'index.html'), SHELL);
   assert.throws(() => buildCityPages({ distDir: dist, siteUrl: SITE, guides: [entry()], cities: [], curated: {} }), /not in WORLD_CITIES/);
 });
+
+test('mustSeeDayTrips are listed first in the JSON-LD and the noscript list (wave 3, task 8)', () => {
+  const trip = sight(99, { name: 'Excursión Pinned', dayTrip: true, rating: 4.0 });
+  const p = buildGuidePage({ shell: SHELL, entry: entry({ mustSeeDayTrips: ['madrid_99', 'nope'] }), city, attractions: [...good, trip], siteUrl: SITE });
+  const ld = JSON.parse(/<script type="application\/ld\+json" id="tb-jsonld">([\s\S]*?)<\/script>/.exec(p.html)[1]);
+  assert.equal(ld['@graph'][0].includesAttraction[0].name, 'Excursión Pinned');
+  assert.equal(ld['@graph'][0].includesAttraction.length, 10);
+  assert.match(p.html, /<noscript><main>[\s\S]*<ul><li>Excursión Pinned<\/li>/);
+});

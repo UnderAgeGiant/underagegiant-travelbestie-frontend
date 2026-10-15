@@ -27,6 +27,7 @@ jest.mock('../../data/attractions.data', () => ({ getAttractions: () => activeDa
 // (Object literal duplicated inline, not a shared outer const: jest hoists jest.mock() factories
 // above even top-level const declarations that precede them in source order.)
 let mockDomestic = false;
+let mockPinned: string[] | undefined;
 jest.mock('../../data/city-guides.data', () => {
   const base = {
     slug: 'madrid', cityId: 'madrid', displayName: 'Madrid', wave: 1, timeZone: 'Europe/Madrid', reviewed: false,
@@ -35,7 +36,7 @@ jest.mock('../../data/city-guides.data', () => {
           { q: '¿Dos?', a: 'Respuesta dos suficientemente larga para pasar el umbral.' },
           { q: '¿Tres?', a: 'Respuesta tres suficientemente larga para pasar el umbral.' }],
   };
-  const guide = () => ({ ...base, ...(mockDomestic ? { domestic: true } : {}) });
+  const guide = () => ({ ...base, ...(mockDomestic ? { domestic: true } : {}), ...(mockPinned ? { mustSeeDayTrips: mockPinned } : {}) });
   return {
     get CITY_GUIDES() { return [guide()]; },
     guideBySlug: (slug: string) => slug === 'madrid' ? guide() : undefined,
@@ -67,7 +68,7 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     return f;
   }
 
-  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; mockDomestic = false; });
+  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; mockDomestic = false; mockPinned = undefined; });
 
   it('domestic guides hide the "Viajando desde Chile" facts box and drop "desde Chile" from the SEO title', () => {
     mockDomestic = true;
@@ -145,5 +146,16 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     const el: HTMLElement = create().nativeElement;
     expect(el.querySelector('.cg-daytrips .cg-scroll-box')).not.toBeNull();
     expect(el.querySelector('.cg-daytrips .cg-scroll-hint')).not.toBeNull();
+  });
+
+  it('pins mustSeeDayTrips first in Imperdibles with an "Excursión" chip, out of the day-trips list and into the JSON-LD', () => {
+    mockPinned = ['madrid_99', 'bogus'];
+    const el: HTMLElement = create().nativeElement;
+    const cards = el.querySelectorAll('.cg-must .cg-card');
+    expect(cards[0].querySelector('h3')!.textContent).toContain('Toledo');
+    expect(cards[0].querySelector('.cg-chip-daytrip')!.textContent).toContain('Excursión');
+    expect(el.querySelectorAll('.cg-must .cg-chip-daytrip')).toHaveLength(1);
+    expect(el.querySelector('.cg-daytrips')?.textContent ?? '').not.toContain('Toledo');
+    expect(JSON.stringify(seo.apply.mock.calls[0][0])).toContain('Toledo');
   });
 });

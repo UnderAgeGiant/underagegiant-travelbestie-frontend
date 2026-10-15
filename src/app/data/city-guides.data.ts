@@ -9,6 +9,7 @@ export interface CityGuideEntry {
   timeZone: string;        // IANA — used for the "diferencia horaria con Chile" fact
   reviewed: boolean;       // owner-approved copy; only reviewed guides can be indexed
   domestic?: true;         // Chilean city: no "desde Chile" framing, no facts box, no visa FAQ
+  mustSeeDayTrips?: string[]; // attraction ids pinned first in Imperdibles (day trips allowed), in this order
   intro: string;           // 2–3 sentences
   bestTime: string;        // one sentence: best seasons and why
   gettingThere: string;    // 1–2 sentences, from Chile, "aprox."
@@ -1067,6 +1068,8 @@ export const CITY_GUIDES: CityGuideEntry[] = [
   {
     slug: 'punta-arenas',
     cityId: 'puntaarenas',
+    // Owner order: Glaciar Perito Moreno, Parque nacional Torres del Paine, Glaciar Grey.
+    mustSeeDayTrips: ['puntaarenas_50', 'puntaarenas_37', 'puntaarenas_38'],
     displayName: 'Punta Arenas',
     wave: 3,
     timeZone: 'America/Punta_Arenas',
