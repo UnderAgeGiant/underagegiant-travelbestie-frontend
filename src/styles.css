@@ -3618,3 +3618,16 @@ tb-landing-ranking { display: block; }
   .guides-card-name { font-size: 20px; padding: 36px 12px 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .guides-card, .guides-card img { transition: none; } .guides-card:hover { transform: none; } }
+
+/* ─── Miel Runner (Feature 73) ─────────────────────────────────────────── */
+.mr { display: block; position: relative; width: 100%; color: var(--t2); }
+.mr-hud { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--t2); margin-bottom: 6px; }
+.mr-canvas { display: block; width: 100%; aspect-ratio: 4 / 1; background: var(--cream); border-radius: 12px; touch-action: manipulation; cursor: pointer; }
+.mr-canvas:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
+.mr-overlay { position: absolute; inset: 24px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; pointer-events: none; text-align: center; }
+.mr-overlay button { pointer-events: auto; }
+.mr-hint, .mr-unsaved { font-size: 12px; color: var(--t3); margin: 0; }
+.mr-final { font-weight: 600; color: var(--t1); margin: 0; }
+.mr-record { color: var(--peach-d); font-weight: 700; margin: 0; }
+.mr-section { margin-top: 24px; }
+.mr-section-sub { font-size: 12px; color: var(--t3); margin: 4px 0 10px; }

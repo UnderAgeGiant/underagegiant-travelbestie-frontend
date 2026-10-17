@@ -8,6 +8,7 @@ import { CountryComboboxComponent } from '../../shared/country-combobox/country-
 import { Country, WORLD_COUNTRIES } from '../../data/countries.data';
 import { CompanionBoostCardComponent } from './companion-boost-card.component';
 import { TrophyShelfComponent } from './trophy-shelf/trophy-shelf.component';
+import { MielRunnerComponent } from '../../shared/miel-runner/miel-runner.component';
 import { FollowingFeedComponent } from './following-feed/following-feed.component';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
@@ -17,7 +18,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
 
 @Component({
     selector: 'app-preferences',
-    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, FollowingFeedComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent],
+    imports: [FlagIconComponent, CountryComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, FollowingFeedComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent, MielRunnerComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -316,6 +317,11 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
         <!-- Trophies (Feature 69) — replaced the visited-places map -->
         @if (auth.isLoggedIn()) {
           <tb-trophy-shelf />
+          <section class="mr-section">
+            <div class="section-head" i18n="@@game.prefsTitle">🐾 Juega con Miel</div>
+            <p class="mr-section-sub" i18n="@@game.prefsSub">Tu mejor puntaje de la semana entra al ranking</p>
+            <tb-miel-runner />
+          </section>
           <tb-following-feed />
         }
 
