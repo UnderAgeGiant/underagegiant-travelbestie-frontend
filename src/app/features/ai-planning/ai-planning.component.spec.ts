@@ -5,6 +5,7 @@ import { provideRouter } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AiPlanningComponent, visibleHighlights, MAX_VISIBLE_HIGHLIGHTS, MAX_PREFERENCES_CHARS, MAX_PLAN_TITLE_CHARS } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
+import { backdropImages } from '../../core/game/runner-backdrop.util';
 import { TripService } from '../trip/trip.service';
 import { Trip } from '../../core/models/trip.model';
 import { TripSuggestion, PlanTripResponse } from '../../core/models/ai.model';
@@ -359,6 +360,13 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
       expect(component.planReadyWhileGaming()).toBe(false);
       tick(5000);
     }));
+
+    it('the game backdrop shows the planned cities (Task 12)', () => {
+      component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [], cityIds: ['paris'] });
+      expect(component.gameBackdrop()).toEqual(backdropImages(['paris']));
+      component.selectedOption.set(null);
+      expect(component.gameBackdrop()).toEqual(backdropImages([]));
+    });
 
     it('reset() closes the game and the banner', () => {
       component.gameOpen.set(true);

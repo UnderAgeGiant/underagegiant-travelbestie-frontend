@@ -122,4 +122,42 @@ describe('MielRunnerComponent', () => {
     img.dispatchEvent(new Event('load'));
     expect(draw).toHaveBeenCalledTimes(1);
   });
+
+  describe('backdrop (Task 12)', () => {
+    const layers = (): HTMLElement[] => [...fixture.nativeElement.querySelectorAll('.mr-bg')];
+
+    it('renders at most 2 faded photo layers (current + next) from the default iconic list', () => {
+      expect(cmp.backdrop().length).toBeGreaterThan(2);
+      expect(layers()).toHaveLength(2);
+      expect(fixture.nativeElement.querySelectorAll('.mr-bg--on')).toHaveLength(1);
+    });
+
+    it('advancing the index moves the visible layer to the next photo', () => {
+      const next = cmp.backdrop()[1];
+      cmp.bgIndex.set(1);
+      fixture.detectChanges();
+      const on = fixture.nativeElement.querySelector('.mr-bg--on') as HTMLElement;
+      expect(on.style.backgroundImage).toContain(next);
+      expect(layers()).toHaveLength(2);
+    });
+
+    it('an empty backdrop renders no layers', () => {
+      fixture.componentRef.setInput('backdrop', []);
+      fixture.detectChanges();
+      expect(layers()).toHaveLength(0);
+    });
+
+    it('rotates every 10 s, but not under prefers-reduced-motion', () => {
+      const spy = jest.spyOn(window, 'setInterval');
+      const mk = (reduce: boolean) => {
+        window.matchMedia = jest.fn(() => ({ matches: reduce })) as never;
+        TestBed.createComponent(MielRunnerComponent).detectChanges();
+      };
+      mk(true);
+      expect(spy).not.toHaveBeenCalledWith(expect.any(Function), 10_000);
+      mk(false);
+      expect(spy).toHaveBeenCalledWith(expect.any(Function), 10_000);
+      delete (window as { matchMedia?: unknown }).matchMedia;
+    });
+  });
 });

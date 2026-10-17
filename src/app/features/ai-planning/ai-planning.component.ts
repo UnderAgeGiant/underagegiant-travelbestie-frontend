@@ -21,6 +21,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
 import { PlanPresentationPillComponent } from '../../shared/plan-presentation-pill/plan-presentation-pill.component';
 import { MielRunnerComponent } from '../../shared/miel-runner/miel-runner.component';
+import { backdropImages } from '../../core/game/runner-backdrop.util';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { LocaleService } from '../../core/i18n/locale.service';
@@ -588,7 +589,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                 <button type="button" class="btn-pill btn-primary ai-game-ready" (click)="viewReadyPlan()"
                         i18n="@@aiplan.gameReady">✨ ¡Tu plan está listo! Ver plan</button>
               }
-              <tb-miel-runner />
+              <tb-miel-runner [backdrop]="gameBackdrop()" />
             }
 
             @if (notifyConfirmVisible()) {
@@ -657,6 +658,8 @@ export class AiPlanningComponent implements OnDestroy {
   readonly gameOpen = signal(false);
   /** The plan finished while the game was open: show a banner instead of covering the game. */
   readonly planReadyWhileGaming = signal(false);
+  /** Task 12 — faded photos of the cities being planned behind the game (iconic list when none). */
+  readonly gameBackdrop = computed(() => backdropImages(this.selectedOption()?.cityIds ?? []));
   private planSub: Subscription | null = null;
   private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
   private celebrateTimer: ReturnType<typeof setTimeout> | null = null;

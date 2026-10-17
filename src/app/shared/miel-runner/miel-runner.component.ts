@@ -1,6 +1,6 @@
 import {
   ChangeDetectionStrategy, Component, ElementRef, NgZone, OnDestroy, AfterViewInit,
-  inject, output, signal, viewChild,
+  computed, inject, input, output, signal, viewChild,
 } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { GameService } from '../../core/game/game.service';
@@ -8,6 +8,7 @@ import { RankingService } from '../../core/rankings/ranking.service';
 import {
   createRun, step, runResult, RunState, WORLD_W, WORLD_H, GROUND_Y, MIEL_BOX, OBSTACLE_SIZES, ObstacleKind,
 } from '../../core/game/runner-engine';
+import { backdropImages, BACKDROP_ROTATE_MS } from '../../core/game/runner-backdrop.util';
 
 /**
  * Sprite sources. A path ('/…') is drawn as an image, anything else as emoji text.
@@ -34,9 +35,14 @@ type Status = 'ready' | 'running' | 'over';
       <span class="mr-score" i18n="@@game.score">Puntos: {{ score() }}</span>
       @if (best() !== null) { <span class="mr-best" i18n="@@game.best">Récord semanal: {{ best() }}</span> }
     </div>
-    <canvas #canvas class="mr-canvas" tabindex="0" role="img"
-            i18n-aria-label="@@game.canvasLabel" aria-label="Juego de Miel: toca o presiona espacio para saltar"
-            (pointerdown)="onPointer()"></canvas>
+    <div class="mr-stage">
+      @for (l of bgLayers(); track l.url) {
+        <div class="mr-bg" [class.mr-bg--on]="l.on" [style.background-image]="'url(' + l.url + ')'" aria-hidden="true"></div>
+      }
+      <canvas #canvas class="mr-canvas" tabindex="0" role="img"
+              i18n-aria-label="@@game.canvasLabel" aria-label="Juego de Miel: toca o presiona espacio para saltar"
+              (pointerdown)="onPointer()"></canvas>
+    </div>
     <div class="mr-overlay" aria-live="polite">
       @switch (status()) {
         @case ('ready') { <p class="mr-hint" i18n="@@game.tapToStart">Toca para empezar · Espacio o ↑ para saltar</p> }
@@ -58,6 +64,16 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   private readonly canvas = viewChild.required<ElementRef<HTMLCanvasElement>>('canvas');
 
   readonly runEnded = output<{ score: number; newRecord: boolean }>();
+  /** Faded photos behind the canvas (curated https URLs). Default: the iconic list; the AI card passes the planned cities. */
+  readonly backdrop = input<string[]>(backdropImages([]));
+  readonly bgIndex = signal(0);
+  /** Only the current and the next photo are ever in the DOM. */
+  readonly bgLayers = computed(() => {
+    const l = this.backdrop();
+    if (!l.length) return [];
+    const i = this.bgIndex() % l.length;
+    return l.length === 1 ? [{ url: l[0], on: true }] : [{ url: l[i], on: true }, { url: l[(i + 1) % l.length], on: false }];
+  });
   readonly status = signal<Status>('ready');
   readonly score = signal(0);
   readonly best = signal<number | null>(null);
@@ -70,6 +86,7 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   private frame = 0;
   private lastTs = 0;
   private destroyed = false;
+  private bgTimer: ReturnType<typeof setInterval> | undefined;
   private ctx: CanvasRenderingContext2D | null = null;
   private readonly images = new Map<string, HTMLImageElement>();
   private readonly onVisibility = (): void => { if (document.visibilityState === 'hidden') void this.endRun(); };
@@ -96,10 +113,16 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     }
     document.addEventListener('visibilitychange', this.onVisibility);
     this.draw();
+    if (!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      this.zone.runOutsideAngular(() => {
+        this.bgTimer = setInterval(() => this.zone.run(() => this.bgIndex.update(i => i + 1)), BACKDROP_ROTATE_MS);
+      });
+    }
   }
 
   ngOnDestroy(): void {
     this.destroyed = true;
+    clearInterval(this.bgTimer);
     document.removeEventListener('visibilitychange', this.onVisibility);
     cancelAnimationFrame(this.frame);
     if (this.status() === 'running') void this.endRun();

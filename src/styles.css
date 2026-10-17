@@ -3627,10 +3627,17 @@ tb-landing-ranking { display: block; }
 /* ─── Miel Runner (Feature 73) ─────────────────────────────────────────── */
 .mr { display: block; position: relative; width: 100%; color: var(--t2); }
 .mr-hud { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--t2); margin-bottom: 6px; }
-.mr-canvas { display: block; width: 100%; aspect-ratio: 4 / 1; background: var(--cream); border: 1px solid var(--border); border-radius: 12px; touch-action: manipulation; cursor: pointer; }
-.mr-canvas:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
+.mr-stage { position: relative; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--cream); }
+.mr-canvas { position: relative; display: block; width: 100%; aspect-ratio: 4 / 1; background: transparent; touch-action: manipulation; cursor: pointer; }
+.mr-bg { position: absolute; inset: -8px; background-size: cover; background-position: 50% 50%; opacity: 0; filter: blur(1.5px) saturate(.8);
+         transition: opacity 1.2s ease; animation: mr-drift 20s linear infinite alternate; }
+.mr-bg--on { opacity: .22; }
+@keyframes mr-drift { from { background-position: 40% 50%; } to { background-position: 60% 50%; } }
+@media (prefers-reduced-motion: reduce) { .mr-bg { animation: none; transition: none; } }
+.mr-canvas:focus-visible { outline: 2px solid var(--lav-d); outline-offset: -2px; } /* inside: .mr-stage clips overflow */
 .mr-overlay { position: absolute; inset: 24px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; pointer-events: none; text-align: center; }
 .mr-overlay button { pointer-events: auto; }
+.mr-overlay p { text-shadow: 0 0 2px var(--cream), 0 0 8px var(--cream); } /* legible over the faded backdrop photos */
 .mr-hint, .mr-unsaved { font-size: 12px; color: var(--t3); margin: 0; }
 .mr-final { font-weight: 600; color: var(--t1); margin: 0; }
 .mr-record { color: var(--peach-d); font-weight: 700; margin: 0; }
