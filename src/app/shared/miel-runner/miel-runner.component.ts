@@ -6,7 +6,7 @@ import { AuthService } from '../../core/auth/auth.service';
 import { GameService } from '../../core/game/game.service';
 import { RankingService } from '../../core/rankings/ranking.service';
 import {
-  createRun, step, runResult, RunState, WORLD_W, WORLD_H, GROUND_Y, MIEL_BOX, OBSTACLE_SIZES, ObstacleKind,
+  createRun, step, runResult, RunState, WORLD_W, WORLD_H, GROUND_Y, MIEL_BOX, OBSTACLE_SIZES, ObstacleKind, obstacleBottom,
 } from '../../core/game/runner-engine';
 import { backdropImages, BACKDROP_ROTATE_MS } from '../../core/game/runner-backdrop.util';
 
@@ -23,11 +23,12 @@ export const MIEL_RUNNER_SPRITES = {
     suitcase: '/game/obstacle-suitcase.png',
     backpack: '/game/obstacle-backpack.png',
     stack:    '/game/obstacle-luggage-stack.png',
+    plane:    '✈️', // placeholder until /game/obstacle-plane.png lands (art faces left, so it won't be mirrored)
   } as Record<ObstacleKind, string>,
 };
 
 /** Drawn while an obstacle's sprite is still loading (stacked glyphs fill the box). */
-const OBSTACLE_FALLBACK: Record<ObstacleKind, string> = { suitcase: '🧳', backpack: '🎒', stack: '🧳🧳' };
+const OBSTACLE_FALLBACK: Record<ObstacleKind, string> = { suitcase: '🧳', backpack: '🎒', stack: '🧳🧳', plane: '✈️' };
 
 const LOCAL_BEST_KEY = 'tb_game_best';
 type Status = 'ready' | 'running' | 'over';
@@ -231,19 +232,27 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     this.sprite(c, frame, MIEL_BOX.x, y, MIEL_BOX.w, MIEL_BOX.h);
     for (const o of s?.obstacles ?? []) {
       const size = OBSTACLE_SIZES[o.kind];
-      this.sprite(c, MIEL_RUNNER_SPRITES.obstacles[o.kind], o.x, GROUND_Y - size.h, size.w, size.h, OBSTACLE_FALLBACK[o.kind]);
+      this.sprite(c, MIEL_RUNNER_SPRITES.obstacles[o.kind], o.x, obstacleBottom(o.kind) - size.h, size.w, size.h,
+                  OBSTACLE_FALLBACK[o.kind], o.kind === 'plane');
     }
   }
 
-  private sprite(c: CanvasRenderingContext2D, src: string, x: number, y: number, w: number, h: number, fallback?: string): void {
+  private sprite(c: CanvasRenderingContext2D, src: string, x: number, y: number, w: number, h: number, fallback?: string, mirrorEmoji = false): void {
     const img = this.images.get(src);
     if (img?.complete && img.naturalWidth) { c.drawImage(img, x, y, w, h); return; }
     if (img) { if (!fallback) return; src = fallback; } // not loaded yet: emoji stand-in, if any
-    // Emoji placeholder: stacked glyphs fill the box top to bottom.
-    const glyphs = [...src];
+    // Emoji placeholder: stacked glyphs fill the box top to bottom. Split by grapheme: '✈️' is 2 code points.
+    const glyphs = [...new Intl.Segmenter().segment(src)].map(g => g.segment);
     const size = h / glyphs.length;
     c.font = `${size}px sans-serif`;
     c.textBaseline = 'top';
+    if (mirrorEmoji) {
+      // ✈️ points right and is square: mirror it (planes fly left) and stretch it over the 3:1 box = its hitbox.
+      c.save(); c.translate(x + w, y); c.scale(-w / size, 1);
+      c.fillText(glyphs[0], 0, 0);
+      c.restore();
+      return;
+    }
     glyphs.forEach((g, i) => c.fillText(g, x, y + i * size, w));
   }
 }

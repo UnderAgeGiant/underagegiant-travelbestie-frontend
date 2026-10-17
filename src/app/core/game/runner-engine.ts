@@ -11,14 +11,21 @@ export const FIRST_SPAWN_MS = 1200;
 const HIT_INSET = 6;                      // forgiving hitboxes, like the dino's
 
 export const MIEL_BOX = { x: 40, w: 44, h: 44 } as const;
-export type ObstacleKind = 'suitcase' | 'backpack' | 'stack';
+export type ObstacleKind = 'suitcase' | 'backpack' | 'stack' | 'plane';
 export const OBSTACLE_SIZES: Record<ObstacleKind, { w: number; h: number }> = {
   // Match the art's aspect (public/game/obstacle-*.png) so drawImage never stretches it. Frontend-only, not RUNNER_RULES.
   suitcase: { w: 21, h: 34 },
   backpack: { w: 35, h: 30 },
   stack:    { w: 58, h: 50 },
+  plane:    { w: 66, h: 22 },
 };
-const KINDS: ObstacleKind[] = ['suitcase', 'backpack', 'stack'];
+const KINDS: ObstacleKind[] = ['suitcase', 'backpack', 'stack']; // ground kinds
+
+/** Flying plane (Task 14): Miel passes under it standing; jumping into it ends the run. Same spawn stream, +5. */
+export const PLANE_FROM_MS = 30_000;
+export const PLANE_CHANCE = 0.25;
+export const PLANE_LIFT = 48;            // px between the ground and the plane's bottom edge
+export const obstacleBottom = (k: ObstacleKind): number => k === 'plane' ? GROUND_Y - PLANE_LIFT : GROUND_Y;
 
 export interface Obstacle { kind: ObstacleKind; x: number; passed: boolean }
 export interface RunState {
@@ -55,10 +62,14 @@ export function createRun(seed: number): RunState {
 function hits(s: RunState, o: Obstacle): boolean {
   const size = OBSTACLE_SIZES[o.kind];
   const mielBottom = GROUND_Y - s.y - HIT_INSET;
-  const obstacleTop = GROUND_Y - size.h + HIT_INSET;
+  const mielTop = GROUND_Y - s.y - MIEL_BOX.h + HIT_INSET;
+  const bottom = obstacleBottom(o.kind);
+  const obstacleTop = bottom - size.h + HIT_INSET;
+  const obstacleBottomHit = bottom - HIT_INSET;   // the ground for luggage → always below Miel's top
   return MIEL_BOX.x + MIEL_BOX.w - HIT_INSET > o.x + HIT_INSET
       && MIEL_BOX.x + HIT_INSET < o.x + size.w - HIT_INSET
-      && mielBottom > obstacleTop;
+      && mielBottom > obstacleTop
+      && mielTop < obstacleBottomHit;
 }
 
 export function step(s: RunState, rawDtMs: number, jump: boolean): RunState {
@@ -86,7 +97,8 @@ export function step(s: RunState, rawDtMs: number, jump: boolean): RunState {
 
   let nextSpawnMs = s.nextSpawnMs;
   if (elapsedMs >= nextSpawnMs) {
-    obstacles.push({ kind: KINDS[Math.floor(s.rng() * KINDS.length)], x: WORLD_W, passed: false });
+    const kind: ObstacleKind = elapsedMs >= PLANE_FROM_MS && s.rng() < PLANE_CHANCE ? 'plane' : KINDS[Math.floor(s.rng() * KINDS.length)];
+    obstacles.push({ kind, x: WORLD_W, passed: false });
     nextSpawnMs = elapsedMs + RUNNER_RULES.MIN_SPAWN_MS + s.rng() * (RUNNER_RULES.MAX_SPAWN_MS - RUNNER_RULES.MIN_SPAWN_MS);
   }
 

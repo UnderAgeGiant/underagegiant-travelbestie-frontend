@@ -1,7 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { MielRunnerComponent } from './miel-runner.component';
-import { createRun } from '../../core/game/runner-engine';
+import { createRun, obstacleBottom, OBSTACLE_SIZES } from '../../core/game/runner-engine';
 import { GameService } from '../../core/game/game.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { RankingService } from '../../core/rankings/ranking.service';
@@ -135,6 +135,24 @@ describe('MielRunnerComponent', () => {
     c.draw();
     expect(ctx.fillText).toHaveBeenCalledWith('🧳', expect.any(Number), expect.any(Number), expect.any(Number));
     expect(ctx.drawImage).not.toHaveBeenCalled();   // jsdom never loads images
+  });
+
+  it('draws the plane placeholder mirrored (flying left) at its height above the ground (Task 14)', () => {
+    const ctx = { clearRect: jest.fn(), beginPath: jest.fn(), moveTo: jest.fn(), lineTo: jest.fn(), stroke: jest.fn(),
+                  scale: jest.fn(), fillText: jest.fn(), drawImage: jest.fn(), save: jest.fn(), restore: jest.fn(), translate: jest.fn(),
+                  strokeStyle: '', font: '', textBaseline: '' };
+    HTMLCanvasElement.prototype.getContext = jest.fn(() => ctx) as never;
+    const f = TestBed.createComponent(MielRunnerComponent);
+    f.detectChanges();
+    ctx.scale.mockClear();
+    const c = f.componentInstance as unknown as { state: unknown; draw(): void };
+    c.state = { ...createRun(1), obstacles: [{ kind: 'plane', x: 300, passed: false }] };
+    c.draw();
+    expect(ctx.translate).toHaveBeenCalledWith(300 + OBSTACLE_SIZES.plane.w, obstacleBottom('plane') - OBSTACLE_SIZES.plane.h);
+    // Mirrored AND stretched to the 3:1 box, so the placeholder covers its whole hitbox (the glyph is square).
+    expect(ctx.scale).toHaveBeenCalledWith(-OBSTACLE_SIZES.plane.w / OBSTACLE_SIZES.plane.h, 1);
+    expect(ctx.fillText).toHaveBeenCalledWith('✈️', 0, 0);
+    expect(ctx.restore).toHaveBeenCalled();
   });
 
   describe('backdrop (Task 12)', () => {
