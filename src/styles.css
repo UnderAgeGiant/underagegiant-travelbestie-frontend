@@ -710,6 +710,8 @@ app-nav { display: block; }
 }
 .ai-loading-overlay { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.4); backdrop-filter: blur(6px); }
 .ai-loading-card { background: #fff; border-radius: 20px; padding: 36px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: var(--sh-lg); max-width: 300px; width: 90%; animation: scaleIn .2s ease; }
+.ai-loading-card--game { max-width: 640px; width: 92%; }
+.ai-game-ready { animation: scaleIn .2s ease; }
 .ai-loading-spinner { width: 52px; height: 52px; border: 3px solid var(--lav); border-top-color: var(--lav-d); border-radius: 50%; animation: spin .75s linear infinite; }
 .ai-loading-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--t1); }
 .ai-loading-sub { font-size: 12px; color: var(--t3); }
@@ -3124,6 +3126,8 @@ tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; ma
 .companion-dog.is-waiting { animation: cscBob 2.4s ease-in-out infinite; }
 .companion-dog.is-standing { animation: cscBob 2.4s ease-in-out infinite; }
 .plan-wait-mascot { position: static; margin-top: 16px; align-items: center; }
+/* AI-wait bubble: the long "play" label gets its own full-width row instead of a 4-line half pill (F73 Task 16) */
+.plan-wait-mascot .companion-bubble-actions .btn-pill { flex: 1 1 auto; }
 @media (min-width: 769px) {
   /* 30% bigger on web (desktop) than the mobile base sizes above */
   .companion-dog { --dog-size: 94px; }
@@ -3155,8 +3159,8 @@ tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; ma
 .companion-bubble-name { font-size: 13px; font-weight: 700; color: var(--t1); }
 .companion-bubble-time { font-size: 10.5px; font-weight: 700; color: var(--t2); margin-left: 6px; }
 .companion-bubble-reason { font-size: 12px; color: var(--t2); line-height: 1.45; margin: 2px 0 0; }
-.companion-bubble-actions { display: flex; gap: 8px; }
-.companion-bubble-actions .btn-pill { flex: 1; justify-content: center; }
+.companion-bubble-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.companion-bubble-actions .btn-pill { flex: 1; justify-content: center; white-space: normal; min-width: 0; text-align: center; }  /* long labels wrap inside the bubble instead of overflowing (F73 Task 16) */
 .companion-dismiss-x {
   position: absolute; top: -10px; right: -10px;
   width: 26px; height: 26px; border-radius: 50%;
@@ -3498,6 +3502,9 @@ tb-landing-ranking { display: block; }
 .rk-chart[data-key="destinations"] { --hue: var(--sky); --hue-d: var(--sky-d); }
 .rk-chart[data-key="trophies"]     { --hue: var(--butter); --hue-d: var(--butter-d); }
 .rk-chart[data-key="favorited"]    { --hue: var(--blush); --hue-d: var(--blush-d); }
+.rk-chart[data-key="runners"]      { --hue: var(--peach); --hue-d: var(--peach-d); }
+/* 5 charts: the odd last one spans both columns on desktop. */
+.rk-grid > .rk-chart:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .rk-chart h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
 .rk-chart h3::before { content: ''; width: 9px; height: 9px; flex: none; border-radius: 3px; background: var(--hue-d); }
 .rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
@@ -3618,3 +3625,23 @@ tb-landing-ranking { display: block; }
   .guides-card-name { font-size: 20px; padding: 36px 12px 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .guides-card, .guides-card img { transition: none; } .guides-card:hover { transform: none; } }
+
+/* ─── Miel Runner (Feature 73) ─────────────────────────────────────────── */
+.mr { display: block; position: relative; width: 100%; color: var(--t2); }
+.mr-hud { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--t2); margin-bottom: 6px; }
+.mr-stage { position: relative; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--cream); }
+.mr-canvas { position: relative; display: block; width: 100%; aspect-ratio: 4 / 1; background: transparent; touch-action: manipulation; cursor: pointer; }
+.mr-bg { position: absolute; inset: -8px; background-size: cover; background-position: 50% 50%; opacity: 0; filter: blur(1.5px) saturate(.8);
+         transition: opacity 1.2s ease; animation: mr-drift 20s linear infinite alternate; }
+.mr-bg--on { opacity: .22; }
+@keyframes mr-drift { from { background-position: 40% 50%; } to { background-position: 60% 50%; } }
+@media (prefers-reduced-motion: reduce) { .mr-bg { animation: none; transition: none; } }
+.mr-canvas:focus-visible { outline: 2px solid var(--lav-d); outline-offset: -2px; } /* inside: .mr-stage clips overflow */
+.mr-overlay { position: absolute; inset: 24px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; pointer-events: none; text-align: center; }
+.mr-overlay button { pointer-events: auto; }
+.mr-overlay p { text-shadow: 0 0 2px var(--cream), 0 0 8px var(--cream); } /* legible over the faded backdrop photos */
+.mr-hint, .mr-unsaved { font-size: 12px; color: var(--t3); margin: 0; }
+.mr-final { font-weight: 600; color: var(--t1); margin: 0; }
+.mr-record { color: var(--peach-d); font-weight: 700; margin: 0; }
+.mr-section { margin-top: 24px; }
+.mr-section-sub { font-size: 12px; color: var(--t3); margin: 4px 0 10px; }

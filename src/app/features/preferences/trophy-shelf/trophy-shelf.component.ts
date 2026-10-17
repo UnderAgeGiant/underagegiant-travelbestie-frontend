@@ -73,7 +73,8 @@ interface Row { type: TrophyType; tier: TrophyTier; earnedAt: string | null; cou
                 <div class="ts-row-desc">{{ desc(r.type, r.tier) }}</div>
                 @if (r.earnedAt) {
                   <div class="ts-date">{{ r.earnedAt | date: 'mediumDate' }}</div>
-                } @else {
+                } @else if (r.type !== 'runner') {
+                  <!-- runner thresholds count tiers reached, not points; its description already states the goal -->
                   <div class="ts-progress"><span [style.width.%]="(r.count / r.needed) * 100"></span></div>
                   <div class="ts-date">{{ r.count }} / {{ r.needed }}</div>
                 }
