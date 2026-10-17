@@ -1,5 +1,5 @@
 import { createRun, step, runResult, MIEL_BOX, RunState, MAX_DT_MS } from './runner-engine';
-import { RUNNER_RULES, maxObstacles } from './runner-rules';
+import { RUNNER_RULES, maxObstacles, scoreFor } from './runner-rules';
 
 const tick = (s: RunState, ms: number, jumpAt: (s: RunState) => boolean = () => false): RunState => {
   for (let t = 0; t < ms && !s.over; t += 16) s = step(s, 16, jumpAt(s));
@@ -47,5 +47,14 @@ describe('runner engine', () => {
     s = tick(s, 120_000, st => st.y === 0 && st.obstacles.some(o => !o.passed && o.x - (MIEL_BOX.x + MIEL_BOX.w) < st.speed * 0.12));
     const r = runResult(s);
     expect(r.obstacles).toBeLessThanOrEqual(maxObstacles(r.durationMs));
+  });
+
+  it('reports an integer durationMs with real (fractional) rAF deltas — the backend schema requires ints', () => {
+    let s: RunState = { ...createRun(3), nextSpawnMs: Infinity };
+    for (let i = 0; i < 175; i++) s = step(s, 16.7, false);
+    const r = runResult(s);
+    expect(Number.isInteger(r.durationMs)).toBe(true);
+    expect(r.durationMs).toBe(Math.floor(s.elapsedMs));
+    expect(r.score).toBe(scoreFor(r.durationMs, r.obstacles));
   });
 });

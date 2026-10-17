@@ -94,6 +94,8 @@ export function step(s: RunState, rawDtMs: number, jump: boolean): RunState {
   return next;
 }
 
+/** durationMs is floored: rAF deltas are fractional and the server accepts integers only (§17.2). */
 export function runResult(s: RunState): { score: number; durationMs: number; obstacles: number } {
-  return { score: scoreFor(s.elapsedMs, s.cleared), durationMs: s.elapsedMs, obstacles: s.cleared };
+  const durationMs = Math.floor(s.elapsedMs);
+  return { score: scoreFor(durationMs, s.cleared), durationMs, obstacles: s.cleared };
 }
