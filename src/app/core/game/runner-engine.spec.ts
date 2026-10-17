@@ -34,6 +34,17 @@ describe('runner engine', () => {
     expect(s.cleared).toBe(1);
   });
 
+  it.each([
+    ['start speed', 0],
+    ['max speed', 200_000],
+  ])('the widest obstacle (stack) is clearable at %s', (_, elapsedMs) => {
+    let s: RunState = { ...createRun(1), elapsedMs, nextSpawnMs: Infinity, obstacles: [{ kind: 'stack', x: 400, passed: false }] };
+    s = step(s, 16, false);
+    s = tick(s, 3000, st => !!st.obstacles[0] && st.y === 0 && st.obstacles[0].x - (MIEL_BOX.x + MIEL_BOX.w) < st.speed * 0.12);
+    expect(s.over).toBe(false);
+    expect(s.cleared).toBe(1);
+  });
+
   it('jumping at nothing earns nothing', () => {
     let s: RunState = { ...createRun(1), nextSpawnMs: Infinity };
     s = tick(s, 3000, () => true);

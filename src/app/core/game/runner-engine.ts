@@ -13,9 +13,10 @@ const HIT_INSET = 6;                      // forgiving hitboxes, like the dino's
 export const MIEL_BOX = { x: 40, w: 44, h: 44 } as const;
 export type ObstacleKind = 'suitcase' | 'backpack' | 'stack';
 export const OBSTACLE_SIZES: Record<ObstacleKind, { w: number; h: number }> = {
-  suitcase: { w: 26, h: 34 },
-  backpack: { w: 34, h: 30 },
-  stack:    { w: 28, h: 56 },
+  // Match the art's aspect (public/game/obstacle-*.png) so drawImage never stretches it. Frontend-only, not RUNNER_RULES.
+  suitcase: { w: 21, h: 34 },
+  backpack: { w: 35, h: 30 },
+  stack:    { w: 58, h: 50 },
 };
 const KINDS: ObstacleKind[] = ['suitcase', 'backpack', 'stack'];
 

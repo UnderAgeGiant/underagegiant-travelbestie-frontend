@@ -11,16 +11,23 @@ import {
 import { backdropImages, BACKDROP_ROTATE_MS } from '../../core/game/runner-backdrop.util';
 
 /**
- * Sprite sources. A path ('/…') is drawn as an image, anything else as emoji text.
- * Placeholders until the owner's art lands in public/game/ (spec "Art"): swap the strings, no code change.
+ * Sprite sources (owner's final art in public/game/). A path ('/…') is drawn as an image; anything else as
+ * emoji text — that branch stays as the fallback while an image hasn't loaded yet.
  */
 export const MIEL_RUNNER_SPRITES = {
-  run1: '/Dog-highlight-wagging-tail-1.png',
-  run2: '/Dog-highlight-wagging-tail-2.png',
-  jump: '/Dog-highlight-wagging-tail-1.png',
-  hit:  '/Dog-highlight-wagging-tail-2.png',
-  obstacles: { suitcase: '🧳', backpack: '🎒', stack: '🧳🧳' } as Record<ObstacleKind, string>,
+  run1: '/game/miel-run-1.png',
+  run2: '/game/miel-run-2.png',
+  jump: '/game/miel-jump.png',
+  hit:  '/game/miel-hit.png',
+  obstacles: {
+    suitcase: '/game/obstacle-suitcase.png',
+    backpack: '/game/obstacle-backpack.png',
+    stack:    '/game/obstacle-luggage-stack.png',
+  } as Record<ObstacleKind, string>,
 };
+
+/** Drawn while an obstacle's sprite is still loading (stacked glyphs fill the box). */
+const OBSTACLE_FALLBACK: Record<ObstacleKind, string> = { suitcase: '🧳', backpack: '🎒', stack: '🧳🧳' };
 
 const LOCAL_BEST_KEY = 'tb_game_best';
 type Status = 'ready' | 'running' | 'over';
@@ -224,13 +231,14 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     this.sprite(c, frame, MIEL_BOX.x, y, MIEL_BOX.w, MIEL_BOX.h);
     for (const o of s?.obstacles ?? []) {
       const size = OBSTACLE_SIZES[o.kind];
-      this.sprite(c, MIEL_RUNNER_SPRITES.obstacles[o.kind], o.x, GROUND_Y - size.h, size.w, size.h);
+      this.sprite(c, MIEL_RUNNER_SPRITES.obstacles[o.kind], o.x, GROUND_Y - size.h, size.w, size.h, OBSTACLE_FALLBACK[o.kind]);
     }
   }
 
-  private sprite(c: CanvasRenderingContext2D, src: string, x: number, y: number, w: number, h: number): void {
+  private sprite(c: CanvasRenderingContext2D, src: string, x: number, y: number, w: number, h: number, fallback?: string): void {
     const img = this.images.get(src);
-    if (img) { if (img.complete && img.naturalWidth) c.drawImage(img, x, y, w, h); return; }
+    if (img?.complete && img.naturalWidth) { c.drawImage(img, x, y, w, h); return; }
+    if (img) { if (!fallback) return; src = fallback; } // not loaded yet: emoji stand-in, if any
     // Emoji placeholder: stacked glyphs fill the box top to bottom.
     const glyphs = [...src];
     const size = h / glyphs.length;

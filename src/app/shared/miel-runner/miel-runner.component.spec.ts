@@ -1,6 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { MielRunnerComponent } from './miel-runner.component';
+import { createRun } from '../../core/game/runner-engine';
 import { GameService } from '../../core/game/game.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { RankingService } from '../../core/rankings/ranking.service';
@@ -121,6 +122,19 @@ describe('MielRunnerComponent', () => {
     const img = (cmp as unknown as { images: Map<string, HTMLImageElement> }).images.values().next().value!;
     img.dispatchEvent(new Event('load'));
     expect(draw).toHaveBeenCalledTimes(1);
+  });
+
+  it('draws an emoji stand-in for an obstacle whose sprite has not loaded yet (Task 13)', () => {
+    const ctx = { clearRect: jest.fn(), beginPath: jest.fn(), moveTo: jest.fn(), lineTo: jest.fn(), stroke: jest.fn(),
+                  scale: jest.fn(), fillText: jest.fn(), drawImage: jest.fn(), strokeStyle: '', font: '', textBaseline: '' };
+    HTMLCanvasElement.prototype.getContext = jest.fn(() => ctx) as never;
+    const f = TestBed.createComponent(MielRunnerComponent);
+    f.detectChanges();
+    const c = f.componentInstance as unknown as { state: unknown; draw(): void };
+    c.state = { ...createRun(1), obstacles: [{ kind: 'stack', x: 300, passed: false }] };
+    c.draw();
+    expect(ctx.fillText).toHaveBeenCalledWith('🧳', expect.any(Number), expect.any(Number), expect.any(Number));
+    expect(ctx.drawImage).not.toHaveBeenCalled();   // jsdom never loads images
   });
 
   describe('backdrop (Task 12)', () => {
