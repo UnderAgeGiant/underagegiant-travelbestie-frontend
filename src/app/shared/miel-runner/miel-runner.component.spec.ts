@@ -141,6 +141,23 @@ describe('MielRunnerComponent', () => {
       expect(layers()).toHaveLength(2);
     });
 
+    it('crossfades in place: no layer node is moved or removed across a rotation (review M3)', () => {
+      const before = layers();
+      const [oldOn] = before.filter(e => e.classList.contains('mr-bg--on'));
+      const oldUrl = oldOn.style.backgroundImage;
+      cmp.bgIndex.set(1);
+      fixture.detectChanges();
+      const after = layers();
+      expect(after).toHaveLength(2);
+      expect(after[0]).toBe(before[0]);      // same instances, same order
+      expect(after[1]).toBe(before[1]);
+      expect(oldOn.classList).not.toContain('mr-bg--on');          // outgoing fades out…
+      expect(oldOn.style.backgroundImage).toBe(oldUrl);            // …still showing its photo
+      const newOn = after.find(e => e.classList.contains('mr-bg--on'))!;
+      expect(newOn).not.toBe(oldOn);
+      expect(newOn.style.backgroundImage).toContain(cmp.backdrop()[1]);
+    });
+
     it('an empty backdrop renders no layers', () => {
       fixture.componentRef.setInput('backdrop', []);
       fixture.detectChanges();

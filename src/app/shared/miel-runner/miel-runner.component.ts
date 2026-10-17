@@ -36,7 +36,7 @@ type Status = 'ready' | 'running' | 'over';
       @if (best() !== null) { <span class="mr-best" i18n="@@game.best">Récord semanal: {{ best() }}</span> }
     </div>
     <div class="mr-stage">
-      @for (l of bgLayers(); track l.url) {
+      @for (l of bgLayers(); track $index) {
         <div class="mr-bg" [class.mr-bg--on]="l.on" [style.background-image]="'url(' + l.url + ')'" aria-hidden="true"></div>
       }
       <canvas #canvas class="mr-canvas" tabindex="0" role="img"
@@ -67,12 +67,20 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   /** Faded photos behind the canvas (curated https URLs). Default: the iconic list; the AI card passes the planned cities. */
   readonly backdrop = input<string[]>(backdropImages([]));
   readonly bgIndex = signal(0);
-  /** Only the current and the next photo are ever in the DOM. */
+  /**
+   * Two fixed slots (never more in the DOM), tracked by index so no node is ever moved or removed — a moved node
+   * has no before-change style and its opacity transition wouldn't run. Slot `i % 2` shows the current photo;
+   * the other keeps the previous one so it can fade out. Its URL is only swapped later, while it sits at opacity 0.
+   */
   readonly bgLayers = computed(() => {
     const l = this.backdrop();
-    if (!l.length) return [];
-    const i = this.bgIndex() % l.length;
-    return l.length === 1 ? [{ url: l[0], on: true }] : [{ url: l[i], on: true }, { url: l[(i + 1) % l.length], on: false }];
+    const n = l.length;
+    if (!n) return [];
+    if (n === 1) return [{ url: l[0], on: true }];
+    const i = this.bgIndex();
+    const cur = { url: l[i % n], on: true };
+    const prev = { url: l[(i - 1 + n) % n], on: false };
+    return i % 2 ? [prev, cur] : [cur, prev];
   });
   readonly status = signal<Status>('ready');
   readonly score = signal(0);
@@ -115,8 +123,9 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     this.draw();
     if (!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
       this.zone.runOutsideAngular(() => {
-        this.bgTimer = setInterval(() => this.zone.run(() => this.bgIndex.update(i => i + 1)), BACKDROP_ROTATE_MS);
+        this.bgTimer = setInterval(() => this.zone.run(() => { this.bgIndex.update(i => i + 1); this.preloadNextBackdrop(); }), BACKDROP_ROTATE_MS);
       });
+      this.preloadNextBackdrop();
     }
   }
 
@@ -188,6 +197,12 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     }
     this.newRecord.set(record);
     if (!this.destroyed) this.runEnded.emit({ score: result.score, newRecord: record }); // hosts close us mid-run (NG0953)
+  }
+
+  /** The next photo is swapped into the hidden slot at the moment it fades in, so fetch it ahead of time. */
+  private preloadNextBackdrop(): void {
+    const l = this.backdrop();
+    if (l.length > 1) new Image().src = l[(this.bgIndex() + 1) % l.length];
   }
 
   private readLocalBest(): number | null {
