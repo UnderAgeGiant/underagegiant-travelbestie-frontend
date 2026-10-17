@@ -11,14 +11,19 @@ export const TROPHY_THRESHOLDS: Record<TrophyType, Partial<Record<TrophyTier, nu
   share_plan:   { single: 1 },
   plan_visited: { single: 1 },
   followers:    { bronze: 1, silver: 25, gold: 100 },
+  runner:       { bronze: 1, silver: 2, gold: 3 }, // score tiers reached — see RUNNER_TIER_SCORES
+  runner_persistent: { single: 10 },
 };
+
+/** Feature 73 — mirrors the manager's src/lib/game.ts runner tier scores. */
+export const RUNNER_TIER_SCORES = { bronze: 500, silver: 2000, gold: 5000 } as const;
 
 /** True only for a type/tier pair this build knows how to name and draw. */
 export const isKnownTrophy = (t: { type: string; tier: string }): boolean =>
   t.type in TROPHY_THRESHOLDS && t.tier in TROPHY_THRESHOLDS[t.type as TrophyType];
 
-export const TIERED_TYPES: TrophyType[] = ['ai_plans', 'comments', 'favorites', 'clones', 'followers'];
-export const SINGLE_TYPES: TrophyType[] = ['excel_export', 'publish_plan', 'share_plan', 'plan_visited'];
+export const TIERED_TYPES: TrophyType[] = ['ai_plans', 'comments', 'favorites', 'clones', 'followers', 'runner'];
+export const SINGLE_TYPES: TrophyType[] = ['excel_export', 'publish_plan', 'share_plan', 'plan_visited', 'runner_persistent'];
 
 export const trophyKey = (type: TrophyType, tier: TrophyTier): string => `${type}:${tier}`;
 
@@ -44,6 +49,8 @@ export function trophyName(type: TrophyType): string {
     case 'share_plan':   return $localize`:@@trophy.name.sharePlan:Corre la voz`;
     case 'plan_visited': return $localize`:@@trophy.name.planVisited:Primera visita`;
     case 'followers':    return $localize`:@@trophy.name.followers:Viajero popular`;
+    case 'runner':       return $localize`:@@trophy.name.runner:Miel Corredora`;
+    case 'runner_persistent': return $localize`:@@trophy.name.runnerPersistent:Persistente`;
   }
 }
 
@@ -58,6 +65,7 @@ export function tierLabel(tier: TrophyTier): string {
 
 export function trophyDescription(type: TrophyType, tier: TrophyTier): string {
   const n = TROPHY_THRESHOLDS[type][tier] ?? 1;
+  const pts = tier === 'bronze' || tier === 'silver' || tier === 'gold' ? RUNNER_TIER_SCORES[tier] : 0;
   switch (type) {
     case 'ai_plans':     return $localize`:@@trophy.desc.aiPlans:Generaste ${n}:count: planes con IA`;
     case 'comments':     return $localize`:@@trophy.desc.comments:Comentaste ${n}:count: veces en planes de otros viajeros`;
@@ -68,5 +76,7 @@ export function trophyDescription(type: TrophyType, tier: TrophyTier): string {
     case 'share_plan':   return $localize`:@@trophy.desc.sharePlan:Compartiste un plan con alguien`;
     case 'plan_visited': return $localize`:@@trophy.desc.planVisited:Un viajero con cuenta visitó un plan que publicaste`;
     case 'followers':    return $localize`:@@trophy.desc.followers:Te siguen ${n}:count: viajeros`;
+    case 'runner':       return $localize`:@@trophy.desc.runner:Lograste ${pts}:count: puntos en una partida con Miel`;
+    case 'runner_persistent': return $localize`:@@trophy.desc.runnerPersistent:Jugaste 10 partidas de al menos 10 segundos`;
   }
 }
