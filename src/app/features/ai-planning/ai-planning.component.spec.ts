@@ -305,6 +305,69 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     expect(component.notifyConfirmVisible()).toBe(false);
     expect(emitted).toBe(true);
   }));
+
+  describe('Miel Runner while waiting (F73)', () => {
+    const startPlan = (): Subject<PlanTripResponse> => {
+      const planTrip$ = new Subject<PlanTripResponse>();
+      (component as any).api.planTrip = jest.fn().mockReturnValue(planTrip$.asObservable());
+      component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
+      component.executePlan();
+      return planTrip$;
+    };
+
+    it('the waiting button now opens the game instead of only dismissing the bubble', () => {
+      component.planTakingLong.set(true);
+      component.waitForPlan();
+      expect(component.planTakingLong()).toBe(false);
+      expect(component.gameOpen()).toBe(true);
+    });
+
+    it('a plan that finishes while playing shows the banner, not the celebration', fakeAsync(() => {
+      const planTrip$ = startPlan();
+      component.gameOpen.set(true);
+      planTrip$.next({ title: 'Plan', stops: [], transits: [] });
+      tick(0);
+      expect(component.planReadyWhileGaming()).toBe(true);
+      expect(component.celebratingPlanReady()).toBe(false);
+      expect(component.gameOpen()).toBe(true);
+    }));
+
+    it('"Ver plan" closes the game, then celebrates', fakeAsync(() => {
+      component.gameOpen.set(true);
+      component.planReadyWhileGaming.set(true);
+      component.viewReadyPlan();
+      expect(component.gameOpen()).toBe(false);
+      expect(component.planReadyWhileGaming()).toBe(false);
+      expect(component.celebratingPlanReady()).toBe(true);
+      tick(5000);
+    }));
+
+    it('a failed plan closes the game', fakeAsync(() => {
+      const planTrip$ = startPlan();
+      component.gameOpen.set(true);
+      planTrip$.error({ status: 500, error: { error: 'boom' } });
+      tick(0);
+      expect(component.gameOpen()).toBe(false);
+      expect(component.planReadyWhileGaming()).toBe(false);
+    }));
+
+    it('without the game, a finished plan celebrates as before', fakeAsync(() => {
+      const planTrip$ = startPlan();
+      planTrip$.next({ title: 'Plan', stops: [], transits: [] });
+      tick(0);
+      expect(component.celebratingPlanReady()).toBe(true);
+      expect(component.planReadyWhileGaming()).toBe(false);
+      tick(5000);
+    }));
+
+    it('reset() closes the game and the banner', () => {
+      component.gameOpen.set(true);
+      component.planReadyWhileGaming.set(true);
+      component.reset();
+      expect(component.gameOpen()).toBe(false);
+      expect(component.planReadyWhileGaming()).toBe(false);
+    });
+  });
 });
 
 describe('AiPlanningComponent — initialResult (revisiting a past "Planes IA Pendientes" plan)', () => {

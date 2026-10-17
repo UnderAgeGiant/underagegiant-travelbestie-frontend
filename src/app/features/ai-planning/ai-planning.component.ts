@@ -20,6 +20,7 @@ import { DatePickerComponent } from '../../shared/date-picker/date-picker.compon
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
 import { PlanPresentationPillComponent } from '../../shared/plan-presentation-pill/plan-presentation-pill.component';
+import { MielRunnerComponent } from '../../shared/miel-runner/miel-runner.component';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { LocaleService } from '../../core/i18n/locale.service';
@@ -57,7 +58,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent],
+    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -556,9 +557,9 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
         <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
       }
 
-      @if (loading() || notifyConfirmVisible()) {
+      @if (loading() || notifyConfirmVisible() || gameOpen()) {
         <div class="ai-loading-overlay">
-          <div class="ai-loading-card">
+          <div class="ai-loading-card" [class.ai-loading-card--game]="gameOpen()">
             @if (loading() && !notifyConfirmVisible()) {
               <div class="ai-loading-spinner"></div>
               <div class="ai-loading-title">{{ loadingMessage() }}</div>
@@ -574,12 +575,20 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   </p>
                   <div class="companion-bubble-actions">
                     <button type="button" class="btn-pill btn-outline" (click)="waitForPlan()"
-                            i18n="@@aiplan.takingLongWait">Esperar</button>
+                            i18n="@@aiplan.takingLongPlay">🐾 Jugar con Miel mientras espero</button>
                     <button type="button" class="btn-pill btn-primary" (click)="notifyMeInstead()"
                             i18n="@@aiplan.takingLongNotify">Notificarme</button>
                   </div>
                 </div>
               </div>
+            }
+
+            @if (gameOpen()) {
+              @if (planReadyWhileGaming()) {
+                <button type="button" class="btn-pill btn-primary ai-game-ready" (click)="viewReadyPlan()"
+                        i18n="@@aiplan.gameReady">✨ ¡Tu plan está listo! Ver plan</button>
+              }
+              <tb-miel-runner />
             }
 
             @if (notifyConfirmVisible()) {
@@ -644,6 +653,10 @@ export class AiPlanningComponent implements OnDestroy {
   planTakingLong = signal(false);
   /** Shown after "Notificarme" is clicked — a hand-off message pointing the user at the featured plans while they wait. */
   notifyConfirmVisible = signal(false);
+  /** F73 — the user chose to play while the plan generates. */
+  readonly gameOpen = signal(false);
+  /** The plan finished while the game was open: show a banner instead of covering the game. */
+  readonly planReadyWhileGaming = signal(false);
   private planSub: Subscription | null = null;
   private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
   private celebrateTimer: ReturnType<typeof setTimeout> | null = null;
@@ -980,7 +993,9 @@ export class AiPlanningComponent implements OnDestroy {
         this.loading.set(false);
         this.step.set('result');
         // Celebrate, then bounce the presentation pill (F3 — no auto-open).
-        this.triggerPlanReadyCelebration();
+        // F73: never cover a running game — show the banner; "Ver plan" celebrates.
+        if (this.gameOpen()) this.planReadyWhileGaming.set(true);
+        else this.triggerPlanReadyCelebration();
 
         if (changeInfo) {
           this.handleChangeInfo(changeInfo);
@@ -990,6 +1005,8 @@ export class AiPlanningComponent implements OnDestroy {
         this.clearPlanTakingLongTimer();
         this.planTakingLong.set(false);
         this.loading.set(false);
+        this.gameOpen.set(false);
+        this.planReadyWhileGaming.set(false);
         if (!this.karmaModal.handleKarmaError(err)) {
           this.error.set(err?.error?.error ?? 'Error al generar el plan');
         }
@@ -997,9 +1014,17 @@ export class AiPlanningComponent implements OnDestroy {
     });
   }
 
-  /** User chose "Esperar" in the taking-long dog bubble — no-op, the existing poll subscription keeps running. */
+  /** "🐾 Jugar con Miel mientras espero" — the poll keeps running; the game opens in the loading card. */
   waitForPlan(): void {
     this.planTakingLong.set(false);
+    this.gameOpen.set(true);
+  }
+
+  /** Banner "Ver plan": closing the game destroys tb-miel-runner, which submits a running run. */
+  viewReadyPlan(): void {
+    this.gameOpen.set(false);
+    this.planReadyWhileGaming.set(false);
+    this.triggerPlanReadyCelebration();
   }
 
   /**
@@ -1135,6 +1160,8 @@ export class AiPlanningComponent implements OnDestroy {
   private clearSession(): void {
     this.step.set('preferences');
     this.notifyConfirmVisible.set(false);
+    this.gameOpen.set(false);
+    this.planReadyWhileGaming.set(false);
     // The fullscreen slideshow overlay (opened by the result's presentation pill) reparents
     // itself on top of everything — leaving it open would hide Step 1 behind it
     // even after step is switched back to 'preferences'.
