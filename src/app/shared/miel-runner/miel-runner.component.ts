@@ -87,7 +87,12 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     this.ctx?.scale(dpr, dpr);
     for (const src of [MIEL_RUNNER_SPRITES.run1, MIEL_RUNNER_SPRITES.run2, MIEL_RUNNER_SPRITES.jump, MIEL_RUNNER_SPRITES.hit,
                        ...Object.values(MIEL_RUNNER_SPRITES.obstacles)]) {
-      if (src.startsWith('/') && !this.images.has(src)) { const img = new Image(); img.src = src; this.images.set(src, img); }
+      if (src.startsWith('/') && !this.images.has(src)) {
+        const img = new Image();
+        img.onload = () => { if (this.status() !== 'running') this.draw(); }; // ready/over scenes are static: paint Miel once loaded
+        img.src = src;
+        this.images.set(src, img);
+      }
     }
     document.addEventListener('visibilitychange', this.onVisibility);
     this.draw();

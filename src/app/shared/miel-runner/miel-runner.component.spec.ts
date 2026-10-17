@@ -115,4 +115,11 @@ describe('MielRunnerComponent', () => {
     expect(cmp.status()).toBe('running');
     expect(cmp.unsaved()).toBe(false);
   });
+
+  it('redraws the ready scene once a sprite finishes loading, so Miel shows before the first tap (review M2)', () => {
+    const draw = jest.spyOn(cmp as never, 'draw' as never);
+    const img = (cmp as unknown as { images: Map<string, HTMLImageElement> }).images.values().next().value!;
+    img.dispatchEvent(new Event('load'));
+    expect(draw).toHaveBeenCalledTimes(1);
+  });
 });
