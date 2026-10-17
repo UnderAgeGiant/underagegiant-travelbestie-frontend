@@ -23,7 +23,7 @@ export const MIEL_RUNNER_SPRITES = {
     suitcase: '/game/obstacle-suitcase.png',
     backpack: '/game/obstacle-backpack.png',
     stack:    '/game/obstacle-luggage-stack.png',
-    plane:    '✈️', // placeholder until /game/obstacle-plane.png lands (art faces left, so it won't be mirrored)
+    plane:    '/game/obstacle-plane.png', // art already faces left: never mirrored (only the ✈️ fallback is)
   } as Record<ObstacleKind, string>,
 };
 

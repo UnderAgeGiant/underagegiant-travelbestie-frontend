@@ -155,6 +155,26 @@ describe('MielRunnerComponent', () => {
     expect(ctx.restore).toHaveBeenCalled();
   });
 
+  it('draws the loaded plane PNG unmirrored, exactly at its hitbox', () => {
+    const ctx = { clearRect: jest.fn(), beginPath: jest.fn(), moveTo: jest.fn(), lineTo: jest.fn(), stroke: jest.fn(),
+                  scale: jest.fn(), fillText: jest.fn(), drawImage: jest.fn(), save: jest.fn(), restore: jest.fn(), translate: jest.fn(),
+                  strokeStyle: '', font: '', textBaseline: '' };
+    HTMLCanvasElement.prototype.getContext = jest.fn(() => ctx) as never;
+    const f = TestBed.createComponent(MielRunnerComponent);
+    f.detectChanges();
+    ctx.scale.mockClear();
+    const c = f.componentInstance as unknown as { state: unknown; draw(): void; images: Map<string, HTMLImageElement> };
+    const img = c.images.get('/game/obstacle-plane.png')!;
+    Object.defineProperty(img, 'complete', { value: true });
+    Object.defineProperty(img, 'naturalWidth', { value: 524 });
+    c.state = { ...createRun(1), obstacles: [{ kind: 'plane', x: 300, passed: false }] };
+    c.draw();
+    const { w, h } = OBSTACLE_SIZES.plane;
+    expect(ctx.drawImage).toHaveBeenCalledWith(img, 300, obstacleBottom('plane') - h, w, h);
+    expect(ctx.scale).not.toHaveBeenCalled();
+    expect(ctx.fillText).not.toHaveBeenCalledWith('✈️', expect.anything(), expect.anything());
+  });
+
   describe('backdrop (Task 12)', () => {
     const layers = (): HTMLElement[] => [...fixture.nativeElement.querySelectorAll('.mr-bg')];
 

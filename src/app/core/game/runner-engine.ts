@@ -17,7 +17,7 @@ export const OBSTACLE_SIZES: Record<ObstacleKind, { w: number; h: number }> = {
   suitcase: { w: 21, h: 34 },
   backpack: { w: 35, h: 30 },
   stack:    { w: 58, h: 50 },
-  plane:    { w: 66, h: 22 },
+  plane:    { w: 66, h: 24 },  // obstacle-plane.png is 524×192 (2.73:1)
 };
 const KINDS: ObstacleKind[] = ['suitcase', 'backpack', 'stack']; // ground kinds
 
