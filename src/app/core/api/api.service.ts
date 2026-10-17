@@ -226,9 +226,9 @@ export class ApiService {
 
   /**
    * Polls GET /ai/plan/:requestId/status every AI_PLAN_POLL_INTERVAL_MS until
-   * the job is no longer 'pending'. Under ~15s this resolves after one or two
+   * the job is no longer 'pending'. A fast job resolves after one or two
    * ticks — visually identical to the old single-request flow. The caller
-   * (AiPlanningComponent) layers its own 15s "taking long" UI timer on top of
+   * (AiPlanningComponent) layers its own "taking long" (AI_PLAN_LONG_WAIT_MS) UI timer on top of
    * the subscription; this method only knows about polling, not about UX timing.
    */
   private pollAiPlanStatus(requestId: string): Observable<PlanTripResponse> {

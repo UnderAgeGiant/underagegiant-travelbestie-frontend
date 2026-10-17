@@ -233,7 +233,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
   });
 });
 
-describe('AiPlanningComponent — 15s taking-long dog', () => {
+describe('AiPlanningComponent — 7s taking-long dog', () => {
   let component: AiPlanningComponent;
   let auth: AuthService;
 
@@ -252,7 +252,7 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  it('shows planTakingLong after 15s while the plan request is still pending', fakeAsync(() => {
+  it('shows planTakingLong after 7s while the plan request is still pending', fakeAsync(() => {
     const planTrip$ = new Subject<PlanTripResponse>();
     (component as any).api.planTrip = jest.fn().mockReturnValue(planTrip$.asObservable());
     component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
@@ -260,7 +260,9 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     component.executePlan();
     expect(component.planTakingLong()).toBe(false);
 
-    tick(15000);
+    tick(6999);
+    expect(component.planTakingLong()).toBe(false);
+    tick(1);
     expect(component.planTakingLong()).toBe(true);
 
     planTrip$.next({ title: 'Plan', stops: [], transits: [] });
@@ -275,7 +277,7 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
 
     component.executePlan();
-    tick(15000);
+    tick(7000);
     expect(component.planTakingLong()).toBe(true);
 
     component.notifyMeInstead();
@@ -295,7 +297,7 @@ describe('AiPlanningComponent — 15s taking-long dog', () => {
     (component as any).api.planTrip = jest.fn().mockReturnValue(planTrip$.asObservable());
     component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
     component.executePlan();
-    tick(15000);
+    tick(7000);
     component.notifyMeInstead();
 
     let emitted = false;

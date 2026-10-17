@@ -663,7 +663,7 @@ export class AiPlanningComponent implements OnDestroy {
   private planSub: Subscription | null = null;
   private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
   private celebrateTimer: ReturnType<typeof setTimeout> | null = null;
-  private static readonly AI_PLAN_LONG_WAIT_MS = 15_000;
+  private static readonly AI_PLAN_LONG_WAIT_MS = 7_000;
 
   preferences = signal('');
   protected readonly maxPreferencesChars = MAX_PREFERENCES_CHARS;
