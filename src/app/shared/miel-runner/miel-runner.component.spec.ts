@@ -95,4 +95,24 @@ describe('MielRunnerComponent', () => {
     await new Promise(r => setTimeout(r));
     expect(game.finishRun).toHaveBeenCalled();
   });
+
+  it('destroying mid-run does not emit after destroy (NG0953)', async () => {
+    const warn = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
+    cmp.onPointer();
+    fixture.destroy();
+    await new Promise(r => setTimeout(r));
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('a late submit of the previous run never overwrites the new run flags', async () => {
+    let resolveFinish!: (v: null) => void;
+    game.finishRun.mockReturnValueOnce(new Promise(r => { resolveFinish = r; }));
+    cmp.onPointer();
+    const first = cmp.endRun();     // submit pending
+    cmp.start();                    // player restarts right away
+    resolveFinish(null);            // old run: not saved
+    await first;
+    expect(cmp.status()).toBe('running');
+    expect(cmp.unsaved()).toBe(false);
+  });
 });

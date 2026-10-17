@@ -69,6 +69,7 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   private jumpQueued = false;
   private frame = 0;
   private lastTs = 0;
+  private destroyed = false;
   private ctx: CanvasRenderingContext2D | null = null;
   private readonly images = new Map<string, HTMLImageElement>();
   private readonly onVisibility = (): void => { if (document.visibilityState === 'hidden') void this.endRun(); };
@@ -93,6 +94,7 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.destroyed = true;
     document.removeEventListener('visibilitychange', this.onVisibility);
     cancelAnimationFrame(this.frame);
     if (this.status() === 'running') void this.endRun();
@@ -143,10 +145,12 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     const result = runResult(this.state);
     this.score.set(result.score);
     this.draw();
+    const run = this.state;
     let record = false;
     if (this.runId) {
       const id = await this.runId;
       const res = id ? await this.game.finishRun(id, result) : null;
+      if (this.state !== run) return; // the player already restarted: the run is submitted, its flags are stale
       if (res) { record = res.newRecord; this.best.set(res.weeklyBest); }
       else this.unsaved.set(true);
     } else if (result.score > (this.readLocalBest() ?? -1)) {
@@ -155,7 +159,7 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
       try { localStorage.setItem(LOCAL_BEST_KEY, String(result.score)); } catch { /* no storage */ }
     }
     this.newRecord.set(record);
-    this.runEnded.emit({ score: result.score, newRecord: record });
+    if (!this.destroyed) this.runEnded.emit({ score: result.score, newRecord: record }); // hosts close us mid-run (NG0953)
   }
 
   private readLocalBest(): number | null {
