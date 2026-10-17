@@ -1,4 +1,4 @@
-import { createRun, step, runResult, MIEL_BOX, RunState, MAX_DT_MS, PLANE_FROM_MS } from './runner-engine';
+import { createRun, step, runResult, MIEL_BOX, RunState, MAX_DT_MS, PLANE_FROM_MS, PLANE_LIFT, OBSTACLE_SIZES, GRAVITY, JUMP_VELOCITY, GROUP_FROM_MS, GROUP_GAP, Obstacle } from './runner-engine';
 import { RUNNER_RULES, maxObstacles, scoreFor } from './runner-rules';
 
 const tick = (s: RunState, ms: number, jumpAt: (s: RunState) => boolean = () => false): RunState => {
@@ -88,14 +88,31 @@ describe('runner engine', () => {
       });
     };
 
-    it.each([[0, 10], [0, 120], [200_000, 40]])('jumping into a plane ends the run (elapsed %i ms, gap %i px)', (elapsedMs, gap) => {
+    // [0, 50] was the old "clear it from above" timing (Task 14 Plan A), reversed in Task 15.
+    it.each([[0, 10], [0, 50], [0, 120], [200_000, 40]])('jumping into a plane ends the run (elapsed %i ms, gap %i px)', (elapsedMs, gap) => {
       expect(jumpAt(elapsedMs, gap).over).toBe(true);
     });
 
-    // Honest physics: the jump peaks ~100 px, the plane spans 48–70 px, so a perfectly timed jump goes over it.
-    // Ruling (Task 14): kept — the spec says "jumping INTO it ends the run". Pinned so a change is deliberate.
-    it('a perfectly timed jump can clear the plane from above (narrow window)', () => {
-      expect(jumpAt(0, 50).over).toBe(false);
+    it('the plane is out of reach of a full jump (feet at peak below its top hit edge)', () => {
+      const peak = JUMP_VELOCITY ** 2 / (2 * GRAVITY);
+      expect(peak + 6).toBeLessThan(PLANE_LIFT + OBSTACLE_SIZES.plane.h - 6);
+    });
+
+    // A low hop that stays under the plane is fine (58 px headroom); reaching its band (Miel's top hit edge, y + 38,
+    // above the plane's bottom hit edge, LIFT + 6) while it overlaps must end the run — so nothing passes over it.
+    it('no jump timing clears a plane: surviving means Miel stayed below it while it overlapped her', () => {
+      for (let d = -120; d <= 400; d += 4) {
+        let s: RunState = { ...createRun(1), nextSpawnMs: Infinity, obstacles: [{ kind: 'plane', x: 400, passed: false }] };
+        let airborneOverlap = false, jumped = false;
+        for (let t = 0; t < 3000 && !s.over && !s.obstacles[0]?.passed; t += 16) {
+          const go = !jumped && s.obstacles[0].x - (MIEL_BOX.x + MIEL_BOX.w) < d;
+          if (go) jumped = true;
+          s = step(s, 16, go);
+          const p = s.obstacles[0];
+          if (p && s.y + MIEL_BOX.h - 6 > PLANE_LIFT + 6 && p.x < MIEL_BOX.x + MIEL_BOX.w - 12 && p.x + OBSTACLE_SIZES.plane.w - 12 > MIEL_BOX.x) airborneOverlap = true;
+        }
+        if (!s.over) expect(airborneOverlap).toBe(false);
+      }
     });
 
     it('no planes before PLANE_FROM_MS, some after', () => {
@@ -108,6 +125,38 @@ describe('runner engine', () => {
       expect(seen).not.toContain('plane');
       for (let t = 0; t < 120_000 && !s.over; t += 16) { s = step(s, 16, bot(s)); seen.push(...kinds(s)); }
       expect(seen).toContain('plane');
+    });
+  });
+
+  describe('obstacle groups (Task 15)', () => {
+    it('one jump clears the widest group (3 backpacks) at START_SPEED and the group scores once', () => {
+      const w = OBSTACLE_SIZES.backpack.w + GROUP_GAP;
+      const group = (): Obstacle[] => [0, 1, 2].map(i => ({ kind: 'backpack' as const, x: 300 + i * w, passed: false, follower: i > 0 }));
+      let survived = false;
+      for (let d = 0; d <= 200 && !survived; d += 2) {
+        let s: RunState = { ...createRun(1), nextSpawnMs: Infinity, obstacles: group() };
+        let jumped = false;
+        for (let t = 0; t < 3000 && !s.over; t += 16) {
+          const go = !jumped && s.obstacles[0].x - (MIEL_BOX.x + MIEL_BOX.w) < d;
+          if (go) jumped = true;
+          s = step(s, 16, go);
+        }
+        if (!s.over) { survived = true; expect(s.cleared).toBe(1); }
+      }
+      expect(survived).toBe(true);
+    });
+
+    it('groups only appear after GROUP_FROM_MS, never contain a stack or plane', () => {
+      let s = createRun(7);
+      const before: Obstacle[] = [], after: Obstacle[] = [];
+      for (let t = 0; t < 120_000; t += 16) {
+        s = step({ ...s, over: false, y: 0, vy: 0 }, 16, false);   // ghost run: ignore collisions, inspect spawns
+        (s.elapsedMs < GROUP_FROM_MS ? before : after).push(...s.obstacles);
+      }
+      expect(before.some(o => o.follower)).toBe(false);
+      const followers = after.filter(o => o.follower);
+      expect(followers.length).toBeGreaterThan(0);
+      expect(followers.every(o => o.kind === 'suitcase' || o.kind === 'backpack')).toBe(true);
     });
   });
 });
