@@ -3498,6 +3498,9 @@ tb-landing-ranking { display: block; }
 .rk-chart[data-key="destinations"] { --hue: var(--sky); --hue-d: var(--sky-d); }
 .rk-chart[data-key="trophies"]     { --hue: var(--butter); --hue-d: var(--butter-d); }
 .rk-chart[data-key="favorited"]    { --hue: var(--blush); --hue-d: var(--blush-d); }
+.rk-chart[data-key="runners"]      { --hue: var(--peach); --hue-d: var(--peach-d); }
+/* 5 charts: the odd last one spans both columns on desktop. */
+.rk-grid > .rk-chart:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .rk-chart h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
 .rk-chart h3::before { content: ''; width: 9px; height: 9px; flex: none; border-radius: 3px; background: var(--hue-d); }
 .rk-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }

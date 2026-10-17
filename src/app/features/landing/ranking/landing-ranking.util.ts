@@ -1,7 +1,7 @@
 import { WORLD_CITIES } from '../../../data/cities.data';
 import { MyRank, MyRankings, WeeklyRankings } from '../../../core/models/ranking.model';
 
-export type RankingKey = 'planners' | 'destinations' | 'trophies' | 'favorited';
+export type RankingKey = 'planners' | 'destinations' | 'trophies' | 'favorited' | 'runners';
 /** `owner` = the user a row belongs to when `label` is not their name (favorited plans). */
 export interface RankingRow { label: string; sublabel?: string; owner?: string; link?: string; value: number; pct: number }
 export interface RankingChart { key: RankingKey; title: string; rows: RankingRow[]; fallback: boolean }
@@ -18,6 +18,7 @@ const titles = (): Record<RankingKey, string> => ({
   destinations: $localize`:@@ranking.destinations:Destinos más planificados`,
   trophies:     $localize`:@@ranking.trophies:Usuarios con más trofeos`,
   favorited:    $localize`:@@ranking.favorited:Planes con más favoritos`,
+  runners:      $localize`:@@ranking.runners:Mejores corredores de la semana`,
 });
 const byOwner = (name: string): string => $localize`:@@ranking.byOwner:de ${name}:owner:`;
 
@@ -39,10 +40,12 @@ function rawRows(key: RankingKey, w: WeeklyRankings): RawRow[] {
     case 'favorited':    return w.topFavorited.map(r => ({
       label: r.title, sublabel: byOwner(r.ownerName), owner: r.ownerName, link: `/shared/${encodeURIComponent(r.shareId)}`, value: r.value,
     }));
+    // F73 — absent on an older backend → empty → Travel Expert fallback for this chart only.
+    case 'runners':      return (w.topRunners ?? []).map(r => ({ label: r.name, value: r.value, ...(r.username ? { link: `/u/${r.username}` } : {}) }));
   }
 }
 
-const KEYS: RankingKey[] = ['planners', 'destinations', 'trophies', 'favorited'];
+const KEYS: RankingKey[] = ['planners', 'destinations', 'trophies', 'favorited', 'runners'];
 
 export function buildCharts(weekly: WeeklyRankings | null, failed: boolean): RankingChart[] {
   const t = titles();
@@ -57,7 +60,7 @@ export function buildCharts(weekly: WeeklyRankings | null, failed: boolean): Ran
 
 export function myRankFor(key: RankingKey, mine: MyRankings | null): MyRank | null {
   if (!mine || key === 'destinations') return null;
-  return mine[key];
+  return mine[key] ?? null;
 }
 
 /** In the viewer's own timezone unless one is passed (tests). dateStyle can't be combined with timeZoneName, so fields are explicit. */

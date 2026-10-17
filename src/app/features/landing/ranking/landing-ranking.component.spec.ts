@@ -43,9 +43,9 @@ describe('LandingRankingComponent', () => {
     expect(svc.loadMine).toHaveBeenCalled();
   });
 
-  it('renders 4 charts with a link for favorited plans', () => {
+  it('renders 5 charts with a link for favorited plans', () => {
     const { el } = setup();
-    expect(el.querySelectorAll('.rk-chart')).toHaveLength(4);
+    expect(el.querySelectorAll('.rk-chart')).toHaveLength(5);
     expect(el.querySelector('.rk-chart a')?.getAttribute('href')).toBe('/shared/s1');
   });
 
@@ -60,9 +60,9 @@ describe('LandingRankingComponent', () => {
     expect(section.classList).toContain('filled');
   });
 
-  it('shows "Calculando…" in the 3 user charts while mine is loading (none for destinations)', () => {
+  it('shows "Calculando…" in the 4 user charts while mine is loading (none for destinations)', () => {
     const { el } = setup({ mineLoading: true });
-    expect(el.querySelectorAll('.rk-calc')).toHaveLength(3);
+    expect(el.querySelectorAll('.rk-calc')).toHaveLength(4);
   });
 
   it('outside the top 3 → own "Tú" row under the chart with rank and bar; other charts say "not yet"', () => {
@@ -74,7 +74,7 @@ describe('LandingRankingComponent', () => {
     expect(you[0].textContent).toContain('Tú');
     expect(you[0].querySelector('.rk-fill')).not.toBeNull();
     const notYet = Array.from(el.querySelectorAll('.rk-me')).map(n => n.textContent!.trim());
-    expect(notYet).toHaveLength(2);
+    expect(notYet).toHaveLength(3);
     expect(notYet.every(t => /Aún no apareces/.test(t))).toBe(true);
   });
 
@@ -90,21 +90,21 @@ describe('LandingRankingComponent', () => {
     const { el } = setup();
     const firsts = Array.from(el.querySelectorAll('.rk-rows')).map(ol => ol.querySelector('.rk-row'));
     expect(firsts.every(r => r!.querySelector('.rk-cup')?.textContent === '🏆')).toBe(true);
-    expect(el.querySelectorAll('.rk-cup')).toHaveLength(4);
+    expect(el.querySelectorAll('.rk-cup')).toHaveLength(5);
   });
 
   it('weekly failed but mine fine → Travel Expert charts, Tú still shown, no last-update line (Review Focus 5)', () => {
     const { el } = setup({ weekly: null, weeklyError: true, mine: { weekStart: '2026-09-28', planners: { rank: 1, value: 2 }, trophies: null, favorited: null } });
     expect(el.textContent).toContain('Travel Expert');
     expect(el.querySelectorAll('.rk-you')).toHaveLength(1);   // podium rank but no matching fallback row → own row
-    expect(el.querySelectorAll('.rk-me')).toHaveLength(2);    // "not yet" for trophies + favorited
+    expect(el.querySelectorAll('.rk-me')).toHaveLength(3);    // "not yet" for trophies + favorited + runners
     expect(el.querySelector('.rk-updated')).toBeNull();
   });
 
   it('mine failed → no Tú rows, charts unaffected (Review Focus 5)', () => {
     const { el } = setup({ mineError: true });
     expect(el.querySelectorAll('.rk-me, .rk-you, .rk-row--me')).toHaveLength(0);
-    expect(el.querySelectorAll('.rk-chart')).toHaveLength(4);
+    expect(el.querySelectorAll('.rk-chart')).toHaveLength(5);
   });
 
   it('shows the faint last-update line with real data', () => {
