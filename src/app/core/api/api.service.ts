@@ -18,6 +18,8 @@ import { PublicProfile } from '../models/public-profile.model';
 import { SeoCityPlan } from '../models/seo-city-plan.model';
 import { TrophiesResponse } from '../models/trophy.model';
 import { MyRankings, WeeklyRankings } from '../models/ranking.model';
+import { FinishRunBody, FinishRunResponse } from '../models/game.model';
+import { santiagoWeekStart } from '../rankings/week-start.util';
 import { MOCK_TRIPS } from '../../mock/trips.mock';
 import { MOCK_COMMENTS } from '../../mock/comments.mock';
 import { mockFeedPage } from './feed.mock';
@@ -224,9 +226,9 @@ export class ApiService {
 
   /**
    * Polls GET /ai/plan/:requestId/status every AI_PLAN_POLL_INTERVAL_MS until
-   * the job is no longer 'pending'. Under ~15s this resolves after one or two
+   * the job is no longer 'pending'. A fast job resolves after one or two
    * ticks — visually identical to the old single-request flow. The caller
-   * (AiPlanningComponent) layers its own 15s "taking long" UI timer on top of
+   * (AiPlanningComponent) layers its own "taking long" (AI_PLAN_LONG_WAIT_MS) UI timer on top of
    * the subscription; this method only knows about polling, not about UX timing.
    */
   private pollAiPlanStatus(requestId: string): Observable<PlanTripResponse> {
@@ -555,6 +557,22 @@ export class ApiService {
   getMyRankings(): Observable<MyRankings> {
     if (this.useMocks) return of(mockMyRankings());
     return this.http.get<MyRankings>(`${this.base}/rankings/me`);
+  }
+
+  startGameRun(): Observable<{ runId: string }> {
+    if (this.useMocks) return of({ runId: crypto.randomUUID() });
+    return this.http.post<{ runId: string }>(`${this.base}/game/runs`, null);
+  }
+
+  finishGameRun(runId: string, body: FinishRunBody): Observable<FinishRunResponse> {
+    if (this.useMocks) {
+      let best = 0;
+      try { best = Number(localStorage.getItem('tb_game_mock_best')) || 0; } catch { /* no storage */ }
+      const newRecord = body.score > best;
+      if (newRecord) { try { localStorage.setItem('tb_game_mock_best', String(body.score)); } catch { /* no storage */ } }
+      return of({ score: body.score, weeklyBest: Math.max(best, body.score), newRecord, weekStart: santiagoWeekStart() });
+    }
+    return this.http.post<FinishRunResponse>(`${this.base}/game/runs/${encodeURIComponent(runId)}/finish`, body);
   }
 
   inviteCollaborator(tripId: string, email: string): Observable<Collaborator> {

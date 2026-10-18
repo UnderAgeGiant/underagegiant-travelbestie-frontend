@@ -2492,10 +2492,6 @@
         <source> Me estoy demorando en encontrar las atracciones correctas. Si quieres puedes esperar o te puedo avisar mediante las notificaciones cuando el plan ya esté listo. </source>
         <target> I'm taking a while to find the right attractions. You can wait, or I can let you know via notifications once the plan is ready. </target>
       </trans-unit>
-      <trans-unit id="aiplan.takingLongWait" datatype="html">
-        <source>Esperar</source>
-        <target>Wait</target>
-      </trans-unit>
       <trans-unit id="aiplan.takingLongNotify" datatype="html">
         <source>Notificarme</source>
         <target>Notify me</target>
@@ -3372,6 +3368,74 @@
       <trans-unit id="tooMany.home" datatype="html">
         <source>Volver al inicio</source>
         <target>Back to home</target>
+      </trans-unit>
+      <trans-unit id="game.score" datatype="html">
+        <source>Puntos: <x id="INTERPOLATION" equiv-text="{{ score() }}"/></source>
+        <target>Points: <x id="INTERPOLATION" equiv-text="{{ score() }}"/></target>
+      </trans-unit>
+      <trans-unit id="game.best" datatype="html">
+        <source>Récord semanal: <x id="INTERPOLATION" equiv-text="{{ best() }}"/></source>
+        <target>Weekly best: <x id="INTERPOLATION" equiv-text="{{ best() }}"/></target>
+      </trans-unit>
+      <trans-unit id="game.canvasLabel" datatype="html">
+        <source>Juego de Miel: toca o presiona espacio para saltar</source>
+        <target>Miel game: tap or press space to jump</target>
+      </trans-unit>
+      <trans-unit id="game.tapToStart" datatype="html">
+        <source>Toca para empezar · Espacio o ↑ para saltar</source>
+        <target>Tap to start · Space or ↑ to jump</target>
+      </trans-unit>
+      <trans-unit id="game.final" datatype="html">
+        <source>¡Fin del juego! <x id="INTERPOLATION" equiv-text="{{ score() }}"/> puntos</source>
+        <target>Game over! <x id="INTERPOLATION" equiv-text="{{ score() }}"/> points</target>
+      </trans-unit>
+      <trans-unit id="game.newRecord" datatype="html">
+        <source>🏆 ¡Nuevo récord!</source>
+        <target>🏆 New record!</target>
+      </trans-unit>
+      <trans-unit id="game.unsaved" datatype="html">
+        <source>Esta partida no se guardará</source>
+        <target>This run won't be saved</target>
+      </trans-unit>
+      <trans-unit id="game.again" datatype="html">
+        <source>Jugar de nuevo</source>
+        <target>Play again</target>
+      </trans-unit>
+      <trans-unit id="game.prefsTitle" datatype="html">
+        <source>🐾 Juega con Miel</source>
+        <target>🐾 Play with Miel</target>
+      </trans-unit>
+      <trans-unit id="game.prefsSub" datatype="html">
+        <source>Tu mejor puntaje de la semana entra al ranking</source>
+        <target>Your best score of the week goes into the ranking</target>
+      </trans-unit>
+      <trans-unit id="aiplan.takingLongPlay" datatype="html">
+        <source>🐾 Jugar con Miel mientras espero</source>
+        <target>🐾 Play with Miel while I wait</target>
+      </trans-unit>
+      <trans-unit id="aiplan.gameReady" datatype="html">
+        <source>✨ ¡Tu plan está listo! Ver plan</source>
+        <target>✨ Your plan is ready! See plan</target>
+      </trans-unit>
+      <trans-unit id="ranking.runners" datatype="html">
+        <source>Mejores corredores de la semana</source>
+        <target>Best runners of the week</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.runner" datatype="html">
+        <source>Miel Corredora</source>
+        <target>Miel the Runner</target>
+      </trans-unit>
+      <trans-unit id="trophy.name.runnerPersistent" datatype="html">
+        <source>Persistente</source>
+        <target>Persistent</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.runner" datatype="html">
+        <source>Lograste <x id="count" equiv-text="pts"/> puntos en una partida con Miel</source>
+        <target>You scored <x id="count" equiv-text="pts"/> points in one game with Miel</target>
+      </trans-unit>
+      <trans-unit id="trophy.desc.runnerPersistent" datatype="html">
+        <source>Jugaste 10 partidas de al menos 10 segundos</source>
+        <target>You played 10 games of at least 10 seconds</target>
       </trans-unit>
     </body>
   </file>

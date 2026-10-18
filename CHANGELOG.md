@@ -4,6 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-10
+- feat(game): Miel Runner game on preferences and the AI wait, runners ranking (#168)
 - feat(city-guides): wave 3 — Europe, LatAm and Chile guides (15) (#166)
 - feat(city-guides): wave 2 — Americas, Asia, Oceania guides (7) (#165)
 - feat(social): public profiles, follows, following feed (#163)

@@ -10,9 +10,9 @@ const W: WeeklyRankings = {
 };
 
 describe('buildCharts', () => {
-  it('builds the 4 charts in order with pct relative to the top value', () => {
+  it('builds the 5 charts in order with pct relative to the top value', () => {
     const charts = buildCharts(W, false);
-    expect(charts.map(c => c.key)).toEqual(['planners', 'destinations', 'trophies', 'favorited']);
+    expect(charts.map(c => c.key)).toEqual(['planners', 'destinations', 'trophies', 'favorited', 'runners']);
     expect(charts[0].rows.map(r => [r.label, r.pct])).toEqual([['Ana', 100], ['Luis', 25]]);
     expect(charts[0].fallback).toBe(false);
   });
@@ -35,6 +35,26 @@ describe('buildCharts', () => {
       expect(charts.every(c => c.fallback)).toBe(true);
       expect(charts.every(c => c.rows.length > 0 && c.rows.every(r => !r.link))).toBe(true);
     }
+  });
+});
+
+describe('runners chart (F73)', () => {
+  it('adds a 5th runners chart with links like planners', () => {
+    const charts = buildCharts({ ...W, topRunners: [{ name: 'Sofía', username: 'sofi', value: 1890 }] }, false);
+    expect(charts.map(c => c.key)).toEqual(['planners', 'destinations', 'trophies', 'favorited', 'runners']);
+    expect(charts[4].rows[0]).toMatchObject({ label: 'Sofía', link: '/u/sofi', value: 1890, pct: 100 });
+  });
+
+  it('falls back to Travel Expert for runners when the backend has no topRunners (old backend) or none this week', () => {
+    const { topRunners: _, ...old } = { ...W, topRunners: [] };
+    expect(buildCharts(old as typeof W, false)[4]).toMatchObject({ key: 'runners', fallback: true });
+    expect(buildCharts({ ...W, topRunners: [] }, false)[4].fallback).toBe(true);
+    expect(buildCharts({ ...W, topRunners: [] }, false)[0].fallback).toBe(false); // others unaffected
+  });
+
+  it('myRankFor reads runners, null when absent', () => {
+    expect(myRankFor('runners', { weekStart: 'x', planners: null, trophies: null, favorited: null, runners: { rank: 2, value: 900 } })).toEqual({ rank: 2, value: 900 });
+    expect(myRankFor('runners', { weekStart: 'x', planners: null, trophies: null, favorited: null })).toBeNull();
   });
 });
 

@@ -5,9 +5,9 @@ describe('trophy catalog', () => {
     expect(trophyImage('ai_plans', 'gold')).toBe('/trophies/trophy-ai-plans-gold.png');
     expect(trophyImage('plan_visited', 'single')).toBe('/trophies/trophy-plan-visited.png');
   });
-  it('groups 5 tiered and 4 single types', () => {
-    expect(TIERED_TYPES).toEqual(['ai_plans', 'comments', 'favorites', 'clones', 'followers']);
-    expect(SINGLE_TYPES).toEqual(['excel_export', 'publish_plan', 'share_plan', 'plan_visited']);
+  it('groups 6 tiered and 5 single types', () => {
+    expect(TIERED_TYPES).toEqual(['ai_plans', 'comments', 'favorites', 'clones', 'followers', 'runner']);
+    expect(SINGLE_TYPES).toEqual(['excel_export', 'publish_plan', 'share_plan', 'plan_visited', 'runner_persistent']);
   });
   it('nextGoal returns the first unmet tier', () => {
     expect(nextGoal('comments', 0)).toEqual({ tier: 'bronze', needed: 1 });
@@ -24,5 +24,11 @@ describe('trophy catalog', () => {
     expect(trophyName('favorites')).toBe('Maravilloso plan!');
     expect(trophyDescription('clones', 'silver')).toContain('5');
     expect(trophyKey('clones', 'gold')).toBe('clones:gold');
+  });
+  it('knows the runner trophies (F73): score tiers in the description', () => {
+    expect(trophyName('runner')).toBe('Miel Corredora');
+    expect(trophyDescription('runner', 'silver')).toContain('2000');
+    expect(trophyImage('runner_persistent', 'single')).toBe('/trophies/trophy-runner-persistent.png');
+    expect(nextGoal('runner_persistent', 3)).toEqual({ tier: 'single', needed: 10 });
   });
 });

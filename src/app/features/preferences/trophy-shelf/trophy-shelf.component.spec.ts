@@ -73,13 +73,28 @@ describe('TrophyShelfComponent', () => {
     f.nativeElement.querySelector('.ts-toggle').click();
     f.detectChanges();
     const rows = f.nativeElement.querySelectorAll('.ts-row');
-    expect(rows.length).toBe(19);   // 5 tiered × 3 + 4 single
+    expect(rows.length).toBe(23);   // 6 tiered × 3 + 5 single
     const locked = f.nativeElement.querySelectorAll('.ts-row.ts-locked');
-    expect(locked.length).toBe(18);
+    expect(locked.length).toBe(22);
     expect(f.nativeElement.textContent).toContain('7 / 20');   // comments silver progress
     f.nativeElement.querySelector('.ts-toggle').click();
     f.detectChanges();
     expect(f.nativeElement.querySelector('.ts-row')).toBeNull();
+  });
+
+  it('runner rows show no tier-count progress (thresholds count tiers, not points — F73 review M1)', () => {
+    earned.set([{ type: 'runner', tier: 'bronze', earnedAt: '2026-10-01T00:00:00.000Z' }]);
+    progress.set({ runner: 1 });
+    const f = create();
+    f.nativeElement.querySelector('.ts-toggle').click();
+    f.detectChanges();
+    const runnerRows = [...f.nativeElement.querySelectorAll('.ts-row.ts-locked')]
+      .filter((r: Element) => r.textContent!.includes('Miel Corredora'));
+    expect(runnerRows.length).toBe(2);   // silver + gold still locked
+    for (const r of runnerRows) {
+      expect(r.querySelector('.ts-progress')).toBeNull();
+      expect(r.textContent).not.toMatch(/\d+ \/ \d+/);
+    }
   });
 
   it('shows an error state with retry', () => {

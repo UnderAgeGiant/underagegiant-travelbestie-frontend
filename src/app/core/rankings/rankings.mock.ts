@@ -9,9 +9,10 @@ export function mockWeeklyRankings(): WeeklyRankings {
     topDestinations: [{ cityId: 'paris', value: 34 }, { cityId: 'rome', value: 21 }, { cityId: 'barcelona', value: 9 }],
     topTrophies: [{ name: 'Luis', value: 3 }, { name: 'Ana', value: 2 }],
     topFavorited: [{ title: 'Europa 15 días', shareId: 'mock-share-1', ownerName: 'Ana', value: 12 }],
+    topRunners: [{ name: 'Sofía', value: 1890 }, { name: 'Ana', value: 1240 }],
   };
 }
 
 export function mockMyRankings(): MyRankings {
-  return { weekStart: santiagoWeekStart(), planners: { rank: 4, value: 1 }, trophies: null, favorited: null };
+  return { weekStart: santiagoWeekStart(), planners: { rank: 4, value: 1 }, trophies: null, favorited: null, runners: { rank: 3, value: 640 } };
 }

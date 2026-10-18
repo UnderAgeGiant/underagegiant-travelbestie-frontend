@@ -9,6 +9,8 @@ export interface WeeklyRankings {
   topDestinations: RankedCity[];
   topTrophies: RankedUser[];
   topFavorited: RankedPlan[];
+  /** F73 — absent on an older backend. */
+  topRunners?: RankedUser[];
 }
 export interface MyRank { rank: number; value: number }
-export interface MyRankings { weekStart: string; planners: MyRank | null; trophies: MyRank | null; favorited: MyRank | null }
+export interface MyRankings { weekStart: string; planners: MyRank | null; trophies: MyRank | null; favorited: MyRank | null; runners?: MyRank | null }
