@@ -1770,7 +1770,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">371,374</context>
+          <context context-type="linenumber">376,379</context>
         </context-group>
       </trans-unit>
       <trans-unit id="personal.addBtn" datatype="html">
@@ -5376,70 +5376,70 @@
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">327,329</context>
+          <context context-type="linenumber">333,336</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookBtn" datatype="html">
         <source>Guardar viaje 🎉 <x id="START_BLOCK_IF" equiv-text="@if (!trip.loadedPlanId()) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">338,342</context>
+          <context context-type="linenumber">343,347</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookNamePlaceholder" datatype="html">
         <source>Nombre del viaje…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">348,349</context>
+          <context context-type="linenumber">353,354</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookSaveBtn" datatype="html">
         <source>Guardar ✓ <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">355,356</context>
+          <context context-type="linenumber">360,361</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.savingMsg" datatype="html">
         <source>Guardando…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">379,381</context>
+          <context context-type="linenumber">384,386</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.bookSavedMsg" datatype="html">
         <source>Viaje guardado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">389,391</context>
+          <context context-type="linenumber">394,396</context>
         </context-group>
       </trans-unit>
       <trans-unit id="timeline.tripMapClose" datatype="html">
         <source>Cerrar mapa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">399,400</context>
+          <context context-type="linenumber">404,405</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOnTitle" datatype="html">
         <source>Guardado automático activado — clic para desactivar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">438</context>
+          <context context-type="linenumber">443</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveToggleOffTitle" datatype="html">
         <source>Guardado automático desactivado — clic para activar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">439</context>
+          <context context-type="linenumber">444</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stopList.autoSaveCountdownTitle" datatype="html">
         <source>Tiempo restante hasta el próximo intento de guardado automático</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip/stop-list/stop-list.component.ts</context>
-          <context context-type="linenumber">440</context>
+          <context context-type="linenumber">445</context>
         </context-group>
       </trans-unit>
       <trans-unit id="transit.removeSegTitle" datatype="html">

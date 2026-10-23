@@ -315,17 +315,22 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                 i18n="@@stopList.addBtn">+ Agregar destino</button>
         @if (trip.stops().length > 0) {
           @if (currentPlan(); as plan) {
-            <app-trip-cost-card style="display:block;margin-top:8px" mode="owner" [canCalculate]="true" [calculating]="cardCalculating()"
-              [estimate]="plan.costEstimate ?? null" [settings]="plan.costSettings ?? defaultCostSettings"
-              (calculate)="calculate()" (editSettings)="editSettings()" />
+            <!-- Card + settings scroll inside a capped area so Cancelar / Guardar viaje stay pinned and reachable. -->
+            <div class="cost-footer-scroll">
+              <app-trip-cost-card style="display:block" mode="owner" [canCalculate]="true" [calculating]="cardCalculating()"
+                [estimate]="plan.costEstimate ?? null" [settings]="plan.costSettings ?? defaultCostSettings"
+                (calculate)="calculate()" (editSettings)="editSettings()" />
+              @if (costEditOpen()) {
+                <div style="margin-top:8px">
+                  <app-cost-settings [settings]="pendingCostSettings()" (settingsChange)="pendingCostSettings.set($event)" />
+                </div>
+              }
+            </div>
             @if (costEditOpen()) {
-              <div style="margin-top:8px">
-                <app-cost-settings [settings]="pendingCostSettings()" (settingsChange)="pendingCostSettings.set($event)" />
-                <button type="button" class="btn-pill btn-outline cost-edit-cancel"
-                        style="width:100%;justify-content:center;margin-top:6px;min-height:40px"
-                        (click)="costEditOpen.set(false)"
-                        i18n="@@stopList.costEditCancel">Cancelar</button>
-              </div>
+              <button type="button" class="btn-pill btn-outline cost-edit-cancel"
+                      style="width:100%;justify-content:center;margin-top:8px;min-height:40px"
+                      (click)="costEditOpen.set(false)"
+                      i18n="@@stopList.costEditCancel">Cancelar</button>
             }
           }
           @if (!bookOpen()) {
