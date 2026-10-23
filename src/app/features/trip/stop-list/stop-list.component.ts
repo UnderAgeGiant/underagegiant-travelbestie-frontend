@@ -565,9 +565,11 @@ export class StopListComponent {
     if (!plan || !user?.email || this.calculating()) return;
     const editing = this.costEditOpen();
     const settings = editing ? this.pendingCostSettings() : plan.costSettings;
-    if (editing || (!plan.costSettings?.origin && user.homePlace)) {
+    // A collaborator never writes their own home city into the owner's trip.
+    const implicitOrigin = plan.isCollaborator ? null : user.homePlace ?? null;
+    if (editing || (!plan.isCollaborator && !plan.costSettings?.origin && user.homePlace)) {
       this.calculating.set(true);
-      const origin = settings?.origin ?? user.homePlace ?? null;
+      const origin = settings?.origin ?? implicitOrigin;
       this.savedPlans.upsert(user.email, plan.id, plan.name, this.trip.stops(), this.trip.transits(), {
         costSettings: { ...(settings ?? DEFAULT_COST_SETTINGS), origin },
       }).subscribe({
@@ -582,7 +584,8 @@ export class StopListComponent {
   /** Opens the inline cost-settings block; its values are applied on the next explicit save. */
   editSettings(): void {
     const plan = this.currentPlan();
-    this.pendingCostSettings.set(plan?.costSettings ?? { ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null });
+    const user = this.auth.currentUser();
+    this.pendingCostSettings.set(plan?.costSettings ?? { ...DEFAULT_COST_SETTINGS, origin: plan?.isCollaborator ? null : user?.homePlace ?? null });
     this.costEditOpen.set(true);
   }
 
