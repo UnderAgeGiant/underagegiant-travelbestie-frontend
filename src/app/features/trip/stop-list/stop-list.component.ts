@@ -22,6 +22,7 @@ import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
 import { TripStop, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../../core/models/trip.model';
 import { CostSettingsComponent } from '../../../shared/cost-settings/cost-settings.component';
+import { TripCostCardComponent } from '../../../shared/trip-cost-card/trip-cost-card.component';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { City } from '../../../core/models/city.model';
@@ -33,7 +34,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent, TripCostCardComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -140,7 +141,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
 
           <!-- Departure flight connector -->
           <app-transit-connector fromId="__start__" toId="__start__"
-            type="departure" [cityLabel]="firstCityLabel()" [cityFlag]="firstCityFlag()" />
+            type="departure" [cityLabel]="firstCityLabel()" [cityFlag]="firstCityFlag()" [homeName]="homeName()" />
 
           @for (stop of trip.stops(); track stop.stopId; let i = $index) {
 
@@ -302,7 +303,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
 
           <!-- Return flight connector -->
           <app-transit-connector fromId="__end__" toId="__end__"
-            type="arrival" [cityLabel]="lastCityLabel()" [cityFlag]="lastCityFlag()" />
+            type="arrival" [cityLabel]="lastCityLabel()" [cityFlag]="lastCityFlag()" [homeName]="homeName()" />
 
         }
       </div>
@@ -313,6 +314,16 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                 (click)="addDestination.emit()"
                 i18n="@@stopList.addBtn">+ Agregar destino</button>
         @if (trip.stops().length > 0) {
+          @if (currentPlan(); as plan) {
+            <app-trip-cost-card mode="owner" [canCalculate]="true" [calculating]="calculating()"
+              [estimate]="plan.costEstimate ?? null" [settings]="plan.costSettings ?? defaultCostSettings"
+              (calculate)="calculate()" (editSettings)="editSettings()" />
+            @if (costEditOpen()) {
+              <div style="margin-top:8px">
+                <app-cost-settings [settings]="pendingCostSettings()" (settingsChange)="pendingCostSettings.set($event)" />
+              </div>
+            }
+          }
           @if (!bookOpen()) {
             <button class="btn-pill btn-primary"
                     style="width:100%;justify-content:center;margin-top:8px"
@@ -526,12 +537,43 @@ export class StopListComponent {
     return this.savedPlans.plans().find(p => p.id === id)?.name ?? null;
   });
 
+  readonly currentPlan = computed(() => this.savedPlans.plans().find(p => p.id === this.trip.loadedPlanId()));
+  readonly homeName = computed(() => this.currentPlan()?.costSettings?.origin?.name ?? null);
+  readonly defaultCostSettings = DEFAULT_COST_SETTINGS;
+  calculating   = signal(false);
+  costEditOpen  = signal(false);
+  pendingCostSettings = signal<CostSettings>(DEFAULT_COST_SETTINGS);
+
   bookOpen   = signal(false);
   bookName   = signal('');
   bookSaved  = signal(false);
   bookSaving = signal(false);
   bookError  = signal('');
   costSettings = signal<CostSettings>(DEFAULT_COST_SETTINGS);
+
+  /** Cost card "Calcular precio". Without a saved origin but with a profile home city, the explicit save
+   *  sets the origin and triggers the estimate itself; otherwise estimate the stored snapshot. */
+  calculate(): void {
+    const plan = this.currentPlan();
+    const user = this.auth.currentUser();
+    if (!plan || !user?.email || this.calculating()) return;
+    this.calculating.set(true);
+    const done = { next: () => this.calculating.set(false), error: () => this.calculating.set(false) };
+    if (!plan.costSettings?.origin && user.homePlace) {
+      this.savedPlans.upsert(user.email, plan.id, plan.name, this.trip.stops(), this.trip.transits(), {
+        costSettings: { ...(plan.costSettings ?? DEFAULT_COST_SETTINGS), origin: user.homePlace },
+      }).subscribe(done);
+    } else {
+      this.savedPlans.estimate(plan.id).subscribe(done);
+    }
+  }
+
+  /** Opens the inline cost-settings block; its values are applied on the next explicit save. */
+  editSettings(): void {
+    const plan = this.currentPlan();
+    this.pendingCostSettings.set(plan?.costSettings ?? { ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null });
+    this.costEditOpen.set(true);
+  }
 
   editingDatesStopId = signal<string | null>(null);
   editCheckIn        = signal('');
@@ -547,8 +589,10 @@ export class StopListComponent {
       const email = this.auth.currentUser()?.email;
       if (!email) return;
       this.bookSaving.set(true);
-      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits()).subscribe({
-        next: () => { this.bookSaving.set(false); this.autoSave.commitSnapshot(this.trip.loadedPlanId()!); this.flashSaved(); },
+      // Cost settings are sent only when the block was opened: background autosave never sends them.
+      const costOpts = this.costEditOpen() ? { costSettings: this.pendingCostSettings() } : {};
+      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits(), costOpts).subscribe({
+        next: () => { this.bookSaving.set(false); this.costEditOpen.set(false); this.autoSave.commitSnapshot(this.trip.loadedPlanId()!); this.flashSaved(); },
         error: () => { this.bookSaving.set(false); },
       });
     } else {

@@ -501,3 +501,41 @@ describe('StopListComponent — cost settings on new-plan save', () => {
     );
   });
 });
+
+describe('StopListComponent — cost card calculate', () => {
+  let component: StopListComponent;
+  let trip: TripService;
+  let auth: AuthService;
+  let savedPlans: SavedPlansService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false); // desktop viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    savedPlans.register({ id: 'plan-1', name: 'Mi viaje', savedAt: '2026-10-22T00:00:00.000Z', stops: trip.stops(), transits: [] });
+    trip.markAsLoadedPlan('plan-1');
+    component = TestBed.createComponent(StopListComponent).componentInstance;
+  });
+
+  it('with no origin and a profile homePlace, saves with that origin and does not call estimate directly', () => {
+    const home: Place = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    const estimate = jest.spyOn(savedPlans, 'estimate');
+
+    component.calculate();
+
+    expect(upsert).toHaveBeenCalledWith(
+      'ana@test.com', 'plan-1', 'Mi viaje', trip.stops(), trip.transits(),
+      expect.objectContaining({ costSettings: expect.objectContaining({ origin: home }) }),
+    );
+    expect(estimate).not.toHaveBeenCalled();
+  });
+});
