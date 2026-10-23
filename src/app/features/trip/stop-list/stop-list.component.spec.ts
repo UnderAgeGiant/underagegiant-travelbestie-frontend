@@ -579,6 +579,28 @@ describe('StopListComponent — cost card calculate with the settings block open
     expect(estimate).not.toHaveBeenCalled();
     expect(component.costEditOpen()).toBe(false);
   });
+
+  it('Cancelar closes the inline settings block, and the next save sends no costSettings', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true);
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: null } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    const fixture = TestBed.createComponent(StopListComponent);
+    const cmp = fixture.componentInstance;
+    cmp.editSettings();
+    cmp.pendingCostSettings.set({ origin: null, adults: 4, children: 0, comfort: 'luxury' });
+    fixture.detectChanges();
+
+    const cancel = (fixture.nativeElement as HTMLElement).querySelector<HTMLButtonElement>('.cost-edit-cancel');
+    expect(cancel?.textContent).toContain('Cancelar');
+    cancel!.click();
+    fixture.detectChanges();
+    expect(cmp.costEditOpen()).toBe(false);
+    expect((fixture.nativeElement as HTMLElement).querySelector('app-cost-settings')).toBeNull();
+    expect(upsert).not.toHaveBeenCalled();
+
+    cmp.doBook();
+    expect(upsert).toHaveBeenCalledWith('ana@test.com', 'plan-1', 'Mi viaje', trip.stops(), trip.transits(), {});
+  });
 });
 
 

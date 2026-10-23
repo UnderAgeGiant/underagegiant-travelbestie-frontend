@@ -321,6 +321,10 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
             @if (costEditOpen()) {
               <div style="margin-top:8px">
                 <app-cost-settings [settings]="pendingCostSettings()" (settingsChange)="pendingCostSettings.set($event)" />
+                <button type="button" class="btn-pill btn-outline cost-edit-cancel"
+                        style="width:100%;justify-content:center;margin-top:6px;min-height:40px"
+                        (click)="costEditOpen.set(false)"
+                        i18n="@@stopList.costEditCancel">Cancelar</button>
               </div>
             }
           }

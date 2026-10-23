@@ -3641,6 +3641,10 @@
         <source>Ciudad sin catálogo</source>
         <target>Uncatalogued city</target>
       </trans-unit>
+      <trans-unit id="stopList.costEditCancel" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+      </trans-unit>
       <trans-unit id="tripCost.editSettings" datatype="html">
         <source>Editar salida, viajeros y estilo</source>
         <target>Edit departure, travelers and style</target>
