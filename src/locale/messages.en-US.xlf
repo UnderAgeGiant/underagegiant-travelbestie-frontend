@@ -3641,6 +3641,14 @@
         <source>Ciudad sin catálogo</source>
         <target>Uncatalogued city</target>
       </trans-unit>
+      <trans-unit id="tripCost.editSettings" datatype="html">
+        <source>Editar salida, viajeros y estilo</source>
+        <target>Edit departure, travelers and style</target>
+      </trans-unit>
+      <trans-unit id="tripCost.home" datatype="html">
+        <source>Casa</source>
+        <target>Home</target>
+      </trans-unit>
       <trans-unit id="tripCost.hotelGap" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · alojamiento — sin estimar</source>
         <target><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · lodging — no estimate</target>

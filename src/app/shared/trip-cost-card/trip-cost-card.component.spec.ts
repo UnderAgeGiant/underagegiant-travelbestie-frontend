@@ -119,6 +119,24 @@ describe('TripCostCardComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('always offers the settings edit link to an owner/collaborator of a priced plan', () => {
+    create({ mode: 'owner', canCalculate: true, estimate: estimate() });
+    const link = el.querySelector<HTMLButtonElement>('.tcc-edit');
+    expect(link?.textContent).toContain('Editar salida, viajeros y estilo');
+    const spy = jest.fn();
+    fixture.componentInstance.editSettings.subscribe(spy);
+    link!.click();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('never shows the settings edit link on the shared page or while calculating', () => {
+    create({ mode: 'shared', estimate: estimate() });
+    expect(el.querySelector('.tcc-edit')).toBeNull();
+    TestBed.resetTestingModule();
+    create({ mode: 'owner', canCalculate: true, calculating: true, estimate: estimate() });
+    expect(el.querySelector('.tcc-edit')).toBeNull();
+  });
+
   it('shows Desactualizado and greys the total when stale, owner only', () => {
     create({ mode: 'owner', estimate: estimate({ stale: true }) });
     expect(text()).toContain('Desactualizado · guarda para recalcular');

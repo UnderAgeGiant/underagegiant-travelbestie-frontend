@@ -104,6 +104,11 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
             <button type="button" class="tcc-btn" (click)="calculate.emit()" i18n="@@tripCost.calculateBtn">Calcular precio</button>
           }
         }
+
+        @if (mode() === 'owner' && canCalculate() && !calculating()) {
+          <button type="button" class="tcc-link tcc-edit" (click)="editSettings.emit()"
+                  i18n="@@tripCost.editSettings">Editar salida, viajeros y estilo</button>
+        }
       </section>
     }
   `,
@@ -153,7 +158,7 @@ export class TripCostCardComponent {
 
   /** City id to display name; '__home__' is the origin name, or "Casa" when there is none. */
   cityName(id: string, s: CostCardSettings | null): string {
-    if (id === '__home__') return s?.origin?.name ?? 'Casa';
+    if (id === '__home__') return s?.origin?.name ?? $localize`:@@tripCost.home:Casa`;
     // AI-made cities can sit outside the catalog; never show their internal id to the user.
     return WORLD_CITIES.find(c => c.id === id)?.name ?? $localize`:@@tripCost.uncataloguedCity:Ciudad sin catálogo`;
   }
