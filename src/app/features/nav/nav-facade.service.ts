@@ -15,7 +15,7 @@ import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-t
 import { ApiService } from '../../core/api/api.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../core/ai/companion-suggestion.service';
-import { FavoritedTrip } from '../../core/models/trip.model';
+import { FavoritedTrip, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { CommentCooldownService } from '../../core/comments/comment-cooldown.service';
 import { TrophyService } from '../../core/trophies/trophy.service';
@@ -304,7 +304,12 @@ export class NavFacadeService {
     const email = this.auth.currentUser()?.email;
     if (!email) return;
     this.savePlanError.set('');
-    this.savedPlans.upsert(email, this.trip.loadedPlanId(), name, this.trip.stops(), this.trip.transits()).subscribe({
+    const loadedId = this.trip.loadedPlanId();
+    // A new plan starts from the profile city; a loaded plan keeps its stored settings (no costSettings sent).
+    const opts = loadedId ? undefined : {
+      costSettings: { ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null },
+    };
+    this.savedPlans.upsert(email, loadedId, name, this.trip.stops(), this.trip.transits(), opts).subscribe({
       next: newId => {
         this.trip.markAsLoadedPlan(newId);
         this.savePlanOpen.set(false);

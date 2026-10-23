@@ -10,6 +10,9 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
+import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
+import { Place } from '../../../core/models/trip.model';
+import { of } from 'rxjs';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -50,6 +53,20 @@ describe('StopListComponent — mobile add-attraction trigger', () => {
 
     expect(trip.activeId()).toBe(stopId);
     expect(destModal.isOpen()).toBe(true);
+  });
+
+  it('reserves footer space under the "Ir arriba" FAB so it never covers the footer buttons', () => {
+    const fixture = TestBed.createComponent(StopListComponent);
+    const el = fixture.nativeElement as HTMLElement;
+    (fixture.componentInstance as any).showScrollTop.set(true);
+    fixture.detectChanges();
+    expect(el.querySelector('.scroll-top-fab')).toBeTruthy();
+    expect(el.querySelector('.panel-footer')?.classList).toContain('panel-footer--fab');
+
+    fixture.componentInstance.bookOpen.set(true);
+    fixture.detectChanges();
+    expect(el.querySelector('.scroll-top-fab')).toBeNull();
+    expect(el.querySelector('.panel-footer')?.classList).not.toContain('panel-footer--fab');
   });
 });
 
@@ -459,5 +476,179 @@ describe('StopListComponent — Escape key handler', () => {
     (fixture.componentInstance as any).tripMapOpen.set(true);
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
     expect((fixture.componentInstance as any).tripMapOpen()).toBe(false);
+  });
+});
+
+describe('StopListComponent — cost settings on new-plan save', () => {
+  let component: StopListComponent;
+  let trip: TripService;
+  let auth: AuthService;
+  let savedPlans: SavedPlansService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false); // desktop viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    component = TestBed.createComponent(StopListComponent).componentInstance;
+  });
+
+  it('saves with costSettings.origin equal to the user homePlace', () => {
+    const home: Place = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true);
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('new-id'));
+
+    component.doBook();
+    component.bookName.set('Mi viaje');
+    component.doBookSave();
+
+    expect(upsert).toHaveBeenCalledWith(
+      'ana@test.com', null, 'Mi viaje', trip.stops(), trip.transits(),
+      expect.objectContaining({ costSettings: expect.objectContaining({ origin: home, adults: 1, children: 0, comfort: 'mid' }) }),
+    );
+  });
+});
+
+describe('StopListComponent — cost card calculate', () => {
+  let component: StopListComponent;
+  let trip: TripService;
+  let auth: AuthService;
+  let savedPlans: SavedPlansService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false); // desktop viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    savedPlans.register({ id: 'plan-1', name: 'Mi viaje', savedAt: '2026-10-22T00:00:00.000Z', stops: trip.stops(), transits: [] });
+    trip.markAsLoadedPlan('plan-1');
+    component = TestBed.createComponent(StopListComponent).componentInstance;
+  });
+
+  it('with no origin and a profile homePlace, saves with that origin and does not call estimate directly', () => {
+    const home: Place = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    const estimate = jest.spyOn(savedPlans, 'estimate');
+
+    component.calculate();
+
+    expect(upsert).toHaveBeenCalledWith(
+      'ana@test.com', 'plan-1', 'Mi viaje', trip.stops(), trip.transits(),
+      expect.objectContaining({ costSettings: expect.objectContaining({ origin: home }) }),
+    );
+    expect(estimate).not.toHaveBeenCalled();
+  });
+});
+
+describe('StopListComponent — cost card calculate with the settings block open', () => {
+  let component: StopListComponent;
+  let trip: TripService;
+  let auth: AuthService;
+  let savedPlans: SavedPlansService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    savedPlans.register({ id: 'plan-1', name: 'Mi viaje', savedAt: '2026-10-22T00:00:00.000Z', stops: trip.stops(), transits: [] });
+    trip.markAsLoadedPlan('plan-1');
+    component = TestBed.createComponent(StopListComponent).componentInstance;
+  });
+
+  it('saves the pending settings instead of estimating the stored snapshot', () => {
+    const home: Place = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    const estimate = jest.spyOn(savedPlans, 'estimate');
+    component.editSettings();
+    component.pendingCostSettings.set({ origin: null, adults: 3, children: 1, comfort: 'luxury' });
+
+    component.calculate();
+
+    expect(upsert).toHaveBeenCalledWith(
+      'ana@test.com', 'plan-1', 'Mi viaje', trip.stops(), trip.transits(),
+      { costSettings: { origin: home, adults: 3, children: 1, comfort: 'luxury' } },
+    );
+    expect(estimate).not.toHaveBeenCalled();
+    expect(component.costEditOpen()).toBe(false);
+  });
+
+  it('Cancelar closes the inline settings block, and the next save sends no costSettings', () => {
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true);
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: null } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    const fixture = TestBed.createComponent(StopListComponent);
+    const cmp = fixture.componentInstance;
+    cmp.editSettings();
+    cmp.pendingCostSettings.set({ origin: null, adults: 4, children: 0, comfort: 'luxury' });
+    fixture.detectChanges();
+
+    const cancel = (fixture.nativeElement as HTMLElement).querySelector<HTMLButtonElement>('.cost-edit-cancel');
+    expect(cancel?.textContent).toContain('Cancelar');
+    cancel!.click();
+    fixture.detectChanges();
+    expect(cmp.costEditOpen()).toBe(false);
+    expect((fixture.nativeElement as HTMLElement).querySelector('app-cost-settings')).toBeNull();
+    expect(upsert).not.toHaveBeenCalled();
+
+    cmp.doBook();
+    expect(upsert).toHaveBeenCalledWith('ana@test.com', 'plan-1', 'Mi viaje', trip.stops(), trip.transits(), {});
+  });
+});
+
+
+describe('StopListComponent — cost card calculate as a collaborator (I4)', () => {
+  let component: StopListComponent;
+  let trip: TripService;
+  let auth: AuthService;
+  let savedPlans: SavedPlansService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    savedPlans.register({ id: 'plan-1', name: 'Mi viaje', savedAt: '2026-10-22T00:00:00.000Z', stops: trip.stops(), transits: [], isCollaborator: true });
+    trip.markAsLoadedPlan('plan-1');
+    component = TestBed.createComponent(StopListComponent).componentInstance;
+  });
+
+  it('estimates the stored snapshot and never writes the collaborator home city into the trip', () => {
+    const home: Place = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    const estimate = jest.spyOn(savedPlans, 'estimate').mockReturnValue(of({} as any));
+
+    component.calculate();
+
+    expect(upsert).not.toHaveBeenCalled();
+    expect(estimate).toHaveBeenCalledWith('plan-1');
   });
 });

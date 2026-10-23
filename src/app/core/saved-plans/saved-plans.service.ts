@@ -1,9 +1,9 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, defer, of } from 'rxjs';
+import { finalize, map, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../api/api.service';
-import { TripStop, TransitLeg, PendingCollaboratorInvite } from '../models/trip.model';
+import { TripStop, TransitLeg, PendingCollaboratorInvite, CostSettings, CostEstimate } from '../models/trip.model';
 import { environment } from '../../../environments/environment';
 import { TravelDocsReminderService } from '../reminders/travel-docs-reminder.service';
 
@@ -18,9 +18,19 @@ export interface SavedPlan {
   isCollaborator?: boolean;
   ownerName?:      string;
   ownerEmail?:     string;
+  costSettings?:   CostSettings;
+  costEstimate?:   CostEstimate | null;
 }
 
 const key = (email: string) => `tb_saved_plans_${email}`;
+
+/** The server's costEstimate when the response carries one (a missing key leaves the local value alone). */
+const serverEstimate = (trip: { costEstimate?: CostEstimate | null }): { costEstimate?: CostEstimate | null } =>
+  trip.costEstimate !== undefined ? { costEstimate: trip.costEstimate } : {};
+
+/** True when the incoming estimate is strictly older than the stored one (ISO strings compare as strings). */
+const isOlderEstimate = (incoming?: CostEstimate | null, existing?: CostEstimate | null): boolean =>
+  !!existing?.calculatedAt && !!incoming?.calculatedAt && existing.calculatedAt > incoming.calculatedAt;
 
 @Injectable({ providedIn: 'root' })
 export class SavedPlansService {
@@ -29,6 +39,9 @@ export class SavedPlansService {
   private readonly travelDocsReminder = inject(TravelDocsReminderService);
   private _plans = signal<SavedPlan[]>([]);
   readonly plans = this._plans.asReadonly();
+  /** Trip ids with an estimate request in flight (true from subscribe until it answers or errors). */
+  private _estimating = signal<ReadonlySet<string>>(new Set());
+  readonly estimating = this._estimating.asReadonly();
 
   private _pendingInvites = signal<PendingCollaboratorInvite[]>([]);
   readonly pendingInvites = this._pendingInvites.asReadonly();
@@ -72,6 +85,8 @@ export class SavedPlansService {
           ...(t.shareId ? { shareId: t.shareId } : {}),
           ...(t.itineraryExportedAt ? { exportedAt: t.itineraryExportedAt } : {}),
           ...(t.isCollaborator ? { isCollaborator: true, ownerName: t.ownerName, ownerEmail: t.ownerEmail } : {}),
+          ...(t.costSettings ? { costSettings: t.costSettings } : {}),
+          ...(t.costEstimate !== undefined ? { costEstimate: t.costEstimate } : {}),
         })));
       },
       error: () => { this.loadedEmail = null; },
@@ -88,20 +103,21 @@ export class SavedPlansService {
    */
   upsert(
     email: string, id: string | null, name: string, stops: TripStop[], transits: TransitLeg[] = [],
-    opts?: { background?: boolean; sourceAiPlanRequestId?: string; sourcePlanSessionId?: string },
+    opts?: { background?: boolean; sourceAiPlanRequestId?: string; sourcePlanSessionId?: string; costSettings?: CostSettings },
   ): Observable<string> {
+    const settingsPatch = opts?.costSettings ? { costSettings: opts.costSettings } : {};
     if (environment.useMocks) {
       const now = new Date().toISOString();
       if (id) {
         const updated = this._plans().map(p =>
-          p.id === id ? { ...p, name, stops, transits, savedAt: now } : p
+          p.id === id ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch } : p
         );
         this._plans.set(updated);
         localStorage.setItem(key(email), JSON.stringify(updated));
         if (!opts?.background) this.travelDocsReminder.maybeShow();
         return of(id);
       }
-      const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits };
+      const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits, ...settingsPatch };
       const updated = [...this._plans(), plan];
       this._plans.set(updated);
       localStorage.setItem(key(email), JSON.stringify(updated));
@@ -110,13 +126,21 @@ export class SavedPlansService {
     }
 
     if (id) {
-      return this.api.updateTrip(id, { title: name, stops, transits }).pipe(
-        tap(() => {
+      return this.api.updateTrip(id, { title: name, stops, transits, ...settingsPatch }).pipe(
+        tap(trip => {
           const now = new Date().toISOString();
+          // Keep the server's estimate (a PUT answers stale:true when the inputs changed), even on background saves.
+          // A slow autosave answer must not overwrite a newer estimate already stored by an explicit save.
           this._plans.set(this._plans().map(p =>
-            p.id === id ? { ...p, name, stops, transits, savedAt: now } : p
+            p.id === id
+              ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch,
+                  ...(isOlderEstimate(trip.costEstimate, p.costEstimate) ? {} : serverEstimate(trip)) }
+              : p
           ));
-          if (!opts?.background) this.travelDocsReminder.maybeShow();
+          if (!opts?.background) {
+            this.travelDocsReminder.maybeShow();
+            this.estimate(id).subscribe({ error: () => { /* estimate failure never fails the save */ } });
+          }
         }),
         map(() => id)
       );
@@ -125,6 +149,7 @@ export class SavedPlansService {
       title: name, stops, transits,
       sourceAiPlanRequestId: opts?.sourceAiPlanRequestId,
       sourcePlanSessionId: opts?.sourcePlanSessionId,
+      ...settingsPatch,
     }).pipe(
       tap(trip => {
         const plan: SavedPlan = {
@@ -133,12 +158,28 @@ export class SavedPlansService {
           savedAt:  trip.createdAt ?? new Date().toISOString(),
           stops:    trip.stops,
           transits: trip.transits ?? [],
+          ...settingsPatch,
+          ...serverEstimate(trip),
         };
         this._plans.set([...this._plans(), plan]);
-        if (!opts?.background) this.travelDocsReminder.maybeShow();
+        if (!opts?.background) {
+          this.travelDocsReminder.maybeShow();
+          this.estimate(trip.id!).subscribe({ error: () => { /* estimate failure never fails the save */ } });
+        }
       }),
       map(trip => trip.id!)
     );
+  }
+
+  /** Calculates the trip's cost estimate on the server and stores it on the local plan. */
+  estimate(id: string): Observable<CostEstimate> {
+    return defer(() => {
+      this._estimating.set(new Set([...this._estimating(), id]));
+      return this.api.estimateTrip(id).pipe(
+        tap(costEstimate => this._plans.set(this._plans().map(p => p.id === id ? { ...p, costEstimate } : p))),
+        finalize(() => this._estimating.set(new Set([...this._estimating()].filter(x => x !== id)))),
+      );
+    });
   }
 
   markExported(email: string, planId: string): void {

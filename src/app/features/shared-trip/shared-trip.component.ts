@@ -47,10 +47,11 @@ import { MapsPinIconComponent } from '../../shared/maps-pin-icon/maps-pin-icon.c
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-weather-chip.component';
 import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-badge.component';
+import { TripCostCardComponent } from '../../shared/trip-cost-card/trip-cost-card.component';
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent],
+    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent, TripCostCardComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -92,6 +93,8 @@ import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-b
               <tb-follow-button [username]="trip()!.ownerUsername!" />
             }
           </div>
+          <app-trip-cost-card class="shared-cost-card" mode="shared" [canCalculate]="false"
+            [estimate]="trip()!.costEstimate ?? null" [settings]="trip()!.costSettings ?? null" />
 
           <!-- Favorite toggle -->
           <div class="fav-row">

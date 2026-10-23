@@ -10,6 +10,7 @@ import { AuthService } from '../../core/auth/auth.service';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { RankingService } from '../../core/rankings/ranking.service';
 import { City } from '../../core/models/city.model';
+import { of } from 'rxjs';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -361,4 +362,47 @@ describe('NavFacadeService — search empty state', () => {
     http.expectOne(r => r.url.includes('/shared?q=')).flush([{ id: 's1', tripName: 'T', stops: [] } as any]);
     expect(facade.navNoResults()).toBe(false);
   }));
+});
+
+describe('NavFacadeService — doSavePlan() cost settings (I2)', () => {
+  let facade: NavFacadeService;
+  let savedPlans: SavedPlansService;
+  let auth: AuthService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    auth = TestBed.inject(AuthService);
+  });
+
+  it('a new plan ("Guardar como nuevo viaje" with no loaded plan) starts from the profile city', () => {
+    const home = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home });
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('new-1'));
+    facade.savePlanName.set('Mi viaje');
+
+    facade.doSavePlan();
+
+    expect(upsert).toHaveBeenCalledWith(
+      'ana@test.com', null, 'Mi viaje', expect.any(Array), expect.any(Array),
+      { costSettings: { origin: home, adults: 1, children: 0, comfort: 'mid' } },
+    );
+  });
+
+  it('a loaded plan sends no costSettings, so its stored settings are kept', () => {
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
+    const trip = TestBed.inject(TripService);
+    trip.markAsLoadedPlan('trip-1');
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('trip-1'));
+    facade.savePlanName.set('Renombrado');
+
+    facade.doSavePlan();
+
+    expect(upsert).toHaveBeenCalledWith('ana@test.com', 'trip-1', 'Renombrado', expect.any(Array), expect.any(Array), undefined);
+  });
 });

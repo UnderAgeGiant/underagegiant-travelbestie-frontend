@@ -2,7 +2,7 @@ import { TestBed, fakeAsync, tick, ComponentFixture } from '@angular/core/testin
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, of } from 'rxjs';
 import { AiPlanningComponent, visibleHighlights, MAX_VISIBLE_HIGHLIGHTS, MAX_PREFERENCES_CHARS, MAX_PLAN_TITLE_CHARS } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
 import { backdropImages } from '../../core/game/runner-backdrop.util';
@@ -168,7 +168,8 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     component.generatedTrip.set(TRIP);
   });
 
-  afterEach(() => http.verify());
+  // A successful explicit save fires the fire-and-forget cost estimate (F74); answer it so verify() stays strict.
+  afterEach(() => { http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({})); http.verify(); });
 
   it('selects the first city and records the server-assigned trip id after saving', () => {
     let saved = false;
@@ -182,6 +183,32 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     expect(trip.activeStop()?.stopId).toBe('s1');
     expect(trip.loadedPlanId()).toBe('trip-42');
     expect(saved).toBe(true);
+  });
+
+  it('save passes costSettings with origin = the user homePlace (follows a profile update after construction)', () => {
+    const home = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    // Log in again with a homePlace AFTER the component was built, as a silent refresh would.
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home });
+    const savedPlans = (component as any).savedPlans;
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('trip-42'));
+
+    component.save();
+
+    expect(upsert).toHaveBeenCalledWith(
+      'ana@test.com', null, TRIP.title, TRIP.stops, TRIP.transits,
+      expect.objectContaining({ costSettings: expect.objectContaining({ origin: home, adults: 1, children: 0, comfort: 'mid' }) }),
+    );
+  });
+
+  it('keeps the adults/comfort the user picked when the user object is replaced with the same homePlace', () => {
+    const home = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home });
+    component.costSettings.set({ ...component.costSettings(), adults: 3, comfort: 'luxury' });
+
+    // Silent refresh / re-login: a new user object, same home place.
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: { ...home } });
+
+    expect(component.costSettings()).toEqual(expect.objectContaining({ origin: home, adults: 3, comfort: 'luxury' }));
   });
 
   it('deletes the backing ai_plan_requests row after a successful save when currentAiPlanRequestId is set', () => {
@@ -206,6 +233,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     const tripReq = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
     tripReq.flush({ id: 'trip-42', ...TRIP });
 
+    http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({}));
     http.verify();   // fails if any unexpected (e.g. DELETE) request was made
   });
 

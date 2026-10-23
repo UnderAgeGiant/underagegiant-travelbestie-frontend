@@ -82,6 +82,9 @@ const CONNECTORS: AboutConnector[] = [
       <p class="about-closing-sub" i18n="@@about.closing.sub">Únete a miles de besties que arman itinerarios juntos, un destino a la vez.</p>
       <button type="button" class="btn-pill btn-primary about-closing-cta" (click)="startPlanning.emit()" i18n="@@about.closing.cta">Comenzar a planificar ✈️</button>
     </section>
+
+    <p class="about-credits" style="font-size:12px;color:var(--t3);text-align:center;margin:0 auto;padding:16px 16px 24px"
+       i18n="@@about.credits.geonames">Ciudades: <a href="https://www.geonames.org" target="_blank" rel="noopener noreferrer">GeoNames</a> (CC BY 4.0)</p>
   `,
 })
 export class AboutContentComponent {

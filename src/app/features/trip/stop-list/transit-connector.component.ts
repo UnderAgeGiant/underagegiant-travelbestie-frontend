@@ -155,9 +155,9 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
       } @else if (transit()) {
         <div class="transit-badge" (click)="openEdit()">
           @if (type() === 'departure') {
-            <div class="transit-edge-ctx"><app-flag-icon [flag]="homeLabel()" [size]="16" /> ✈️ @if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() }}</div>
+            <div class="transit-edge-ctx">@if (homeName()) { <span i18n="@@transit.departureFromHome">🏠 Salida desde {{ homeName() }}</span> } @else { <app-flag-icon [flag]="homeLabel()" [size]="16" /> ✈️ @if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() }} }</div>
           } @else if (type() === 'arrival') {
-            <div class="transit-edge-ctx">@if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() }} ✈️ <app-flag-icon [flag]="homeLabel()" [size]="16" /></div>
+            <div class="transit-edge-ctx">@if (homeName()) { <span i18n="@@transit.returnToHome">Regreso a {{ homeName() }}</span> } @else { @if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() }} ✈️ <app-flag-icon [flag]="homeLabel()" [size]="16" /> }</div>
           }
           <div class="transit-badge-body">
             @for (seg of transit()!.segments; track $index; let last = $last) {
@@ -189,11 +189,19 @@ export type TransitConnectorType = 'default' | 'departure' | 'arrival';
           <div class="transit-line"></div>
           @if (type() === 'departure') {
             <span class="transit-add-label transit-edge-label">
-              <app-flag-icon [flag]="homeLabel()" [size]="16" /> ✈️ @if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() || '+ Vuelo de ida' }}
+              @if (homeName()) {
+                <span i18n="@@transit.departureFromHome">🏠 Salida desde {{ homeName() }}</span>
+              } @else {
+                <app-flag-icon [flag]="homeLabel()" [size]="16" /> ✈️ @if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() || '+ Vuelo de ida' }}
+              }
             </span>
           } @else if (type() === 'arrival') {
             <span class="transit-add-label transit-edge-label">
-              @if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() || '+ Vuelo de vuelta' }} ✈️ <app-flag-icon [flag]="homeLabel()" [size]="16" />
+              @if (homeName()) {
+                <span i18n="@@transit.returnToHome">Regreso a {{ homeName() }}</span>
+              } @else {
+                @if (cityFlag()) { <app-flag-icon [flag]="cityFlag()" [size]="16" /> } {{ cityLabel() || '+ Vuelo de vuelta' }} ✈️ <app-flag-icon [flag]="homeLabel()" [size]="16" />
+              }
             </span>
           } @else {
             <span class="transit-add-label" i18n="@@transit.addBtn">+ Transporte</span>
@@ -210,6 +218,8 @@ export class TransitConnectorComponent {
   readonly type      = input<TransitConnectorType>('default');
   readonly cityLabel = input('');
   readonly cityFlag  = input('');
+  /** Starting city of the loaded plan; labels departure/arrival connectors as "Salida desde …" / "Regreso a …". */
+  readonly homeName  = input<string | null>(null);
 
   private readonly trip        = inject(TripService);
   private readonly homeService = inject(HomeAddressService);
