@@ -1,4 +1,4 @@
-import { Component, input, output, signal, computed, inject, HostListener, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, output, signal, computed, linkedSignal, inject, HostListener, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import type { Place } from '../../core/models/trip.model';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
@@ -16,7 +16,7 @@ let nextId = 0;
   template: `
     <div class="combo-wrap">
       <div style="display:flex;align-items:center;gap:6px">
-        <button #trigger type="button" role="combobox" aria-haspopup="listbox"
+        <button #trigger type="button" aria-haspopup="listbox"
                 [attr.aria-expanded]="open()" [attr.aria-controls]="open() ? listId : null"
                 [class]="'combo-input' + (open() ? ' open' : '')"
                 style="flex:1;width:100%;font:inherit;text-align:left"
@@ -71,7 +71,7 @@ export class PlaceComboboxComponent {
   private readonly uid = `place-combobox-${++nextId}`;
   readonly listId = `${this.uid}-list`;
 
-  /** Current home city, shown as the label. A pick made in this widget overrides it until the parent changes it. */
+  /** Current home city, shown as the label. A pick made in this widget overrides it until `value` changes. */
   value = input<Place | null>(null);
   placeChange = output<Place | null>();
 
@@ -85,11 +85,8 @@ export class PlaceComboboxComponent {
   failed = signal(false);
   protected rows = signal<PlaceRow[] | null>(null);
   private loading = false;
-  private picked = signal<Place | null | undefined>(undefined);
-  readonly selected = computed(() => {
-    const p = this.picked();
-    return p !== undefined ? p : this.value();
-  });
+  /** Label source: follows `value`, and a pick (or clear) overrides it until the parent sends a new `value`. */
+  readonly selected = linkedSignal<Place | null>(() => this.value());
 
   /** Prefix match on the accent-folded ascii name; file order is population order, so the first 8 are the biggest. */
   readonly filtered = computed<Place[]>(() => {
@@ -177,14 +174,15 @@ export class PlaceComboboxComponent {
   }
 
   select(place: Place) {
-    this.picked.set(place);
+    this.selected.set(place);
     this.placeChange.emit(place);
     this.close(true);
   }
 
   clear() {
-    this.picked.set(null);
+    this.selected.set(null);
     this.placeChange.emit(null);
+    this.trigger?.nativeElement.focus();
   }
 
   @HostListener('document:mousedown', ['$event'])

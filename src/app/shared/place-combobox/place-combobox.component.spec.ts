@@ -116,6 +116,41 @@ describe('PlaceComboboxComponent', () => {
     http.expectOne('/data/places.json').flush(ROWS);
   });
 
+  it('clear() moves focus to the trigger instead of dropping it to the body', () => {
+    fixture.componentRef.setInput('value', { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' });
+    fixture.detectChanges();
+    const clearBtn = fixture.nativeElement.querySelector('[aria-label="Quitar ciudad"]') as HTMLButtonElement;
+    clearBtn.click();
+    fixture.detectChanges();
+    expect(document.activeElement).toBe(fixture.nativeElement.querySelector('.combo-input'));
+  });
+
+  it('shows the value label, a pick overrides it, and a new value input resets it', () => {
+    const santiago = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    const rancagua = { geonameId: 3897, name: 'Rancagua', countryCode: 'CL', iata: 'SCL' };
+    const bogota = { geonameId: 3700, name: 'Bogotá', countryCode: 'CO', iata: 'BOG' };
+    fixture.componentRef.setInput('value', santiago);
+    fixture.detectChanges();
+    expect(component.selected()).toEqual(santiago);
+
+    component.select(rancagua);
+    fixture.componentRef.setInput('value', santiago); // same value: the pick stands
+    fixture.detectChanges();
+    expect(component.selected()).toEqual(rancagua);
+
+    fixture.componentRef.setInput('value', bogota); // parent changed it: label follows
+    fixture.detectChanges();
+    expect(component.selected()).toEqual(bogota);
+  });
+
+  it('exposes exactly one combobox role while the list is open (the search input)', () => {
+    openAndType('ranc');
+    http.expectOne('/data/places.json').flush(ROWS);
+    fixture.detectChanges();
+    const roles = Array.from(fixture.nativeElement.querySelectorAll('[role="combobox"]')) as HTMLElement[];
+    expect(roles.map(el => el.tagName)).toEqual(['INPUT']);
+  });
+
   it('emits null when the user clears the selection', () => {
     let emitted: unknown = 'unset';
     component.placeChange.subscribe((p: unknown) => (emitted = p));
