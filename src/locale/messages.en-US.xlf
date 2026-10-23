@@ -3481,6 +3481,166 @@
         <source>Buscar ciudad de origen</source>
         <target>Search for a home city</target>
       </trans-unit>
+      <trans-unit id="costSettings.adults" datatype="html">
+        <source>Adultos</source>
+        <target>Adults</target>
+      </trans-unit>
+      <trans-unit id="costSettings.budget" datatype="html">
+        <source>Económico</source>
+        <target>Budget</target>
+      </trans-unit>
+      <trans-unit id="costSettings.budgetDesc" datatype="html">
+        <source>Cama en hostal por persona · vuelos económicos</source>
+        <target>Hostel bed per person · economy flights</target>
+      </trans-unit>
+      <trans-unit id="costSettings.children" datatype="html">
+        <source>Niños &lt;12</source>
+        <target>Children &lt;12</target>
+      </trans-unit>
+      <trans-unit id="costSettings.comfort" datatype="html">
+        <source>Estilo de viaje</source>
+        <target>Travel style</target>
+      </trans-unit>
+      <trans-unit id="costSettings.lessAdults" datatype="html">
+        <source>Quitar adulto</source>
+        <target>Remove adult</target>
+      </trans-unit>
+      <trans-unit id="costSettings.lessChildren" datatype="html">
+        <source>Quitar niño</source>
+        <target>Remove child</target>
+      </trans-unit>
+      <trans-unit id="costSettings.luxury" datatype="html">
+        <source>Lujo</source>
+        <target>Luxury</target>
+      </trans-unit>
+      <trans-unit id="costSettings.luxuryDesc" datatype="html">
+        <source>Habitación 5★ · vuelos en business</source>
+        <target>5★ room · business-class flights</target>
+      </trans-unit>
+      <trans-unit id="costSettings.mid" datatype="html">
+        <source>Intermedio</source>
+        <target>Mid-range</target>
+      </trans-unit>
+      <trans-unit id="costSettings.midDesc" datatype="html">
+        <source>Habitación 3–4★ · vuelos económicos</source>
+        <target>3–4★ room · economy flights</target>
+      </trans-unit>
+      <trans-unit id="costSettings.moreAdults" datatype="html">
+        <source>Agregar adulto</source>
+        <target>Add adult</target>
+      </trans-unit>
+      <trans-unit id="costSettings.moreChildren" datatype="html">
+        <source>Agregar niño</source>
+        <target>Add child</target>
+      </trans-unit>
+      <trans-unit id="costSettings.origin" datatype="html">
+        <source>Sale desde</source>
+        <target>Leaving from</target>
+      </trans-unit>
+      <trans-unit id="costSettings.originHint" datatype="html">
+        <source>Tu ciudad del perfil · cámbiala solo para este viaje</source>
+        <target>Your profile city · change it only for this trip</target>
+      </trans-unit>
+      <trans-unit id="costSettings.travelers" datatype="html">
+        <source>Viajeros</source>
+        <target>Travelers</target>
+      </trans-unit>
+      <trans-unit id="transit.departureFromHome" datatype="html">
+        <source>🏠 Salida desde <x id="INTERPOLATION" equiv-text="{{ homeName() }}"/></source>
+        <target>🏠 Leaving from <x id="INTERPOLATION" equiv-text="{{ homeName() }}"/></target>
+      </trans-unit>
+      <trans-unit id="transit.returnToHome" datatype="html">
+        <source>Regreso a <x id="INTERPOLATION" equiv-text="{{ homeName() }}"/></source>
+        <target>Return to <x id="INTERPOLATION" equiv-text="{{ homeName() }}"/></target>
+      </trans-unit>
+      <trans-unit id="tripCost.adultPlural" datatype="html">
+        <source>adultos</source>
+        <target>adults</target>
+      </trans-unit>
+      <trans-unit id="tripCost.adultSingular" datatype="html">
+        <source>adulto</source>
+        <target>adult</target>
+      </trans-unit>
+      <trans-unit id="tripCost.breakdown" datatype="html">
+        <source>Desglose</source>
+        <target>Breakdown</target>
+      </trans-unit>
+      <trans-unit id="tripCost.calculateBtn" datatype="html">
+        <source>Calcular precio</source>
+        <target>Calculate price</target>
+      </trans-unit>
+      <trans-unit id="tripCost.calculatedOn" datatype="html">
+        <source>Calculado el <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · aproximado, ±30%</source>
+        <target>Calculated on <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · approximate, ±30%</target>
+      </trans-unit>
+      <trans-unit id="tripCost.calculating" datatype="html">
+        <source>Calculando…</source>
+        <target>Calculating…</target>
+      </trans-unit>
+      <trans-unit id="tripCost.childPlural" datatype="html">
+        <source>niños</source>
+        <target>children</target>
+      </trans-unit>
+      <trans-unit id="tripCost.childSingular" datatype="html">
+        <source>niño</source>
+        <target>child</target>
+      </trans-unit>
+      <trans-unit id="tripCost.departsFrom" datatype="html">
+        <source>Sale desde</source>
+        <target>Leaving from</target>
+      </trans-unit>
+      <trans-unit id="tripCost.flights" datatype="html">
+        <source>Vuelos</source>
+        <target>Flights</target>
+      </trans-unit>
+      <trans-unit id="tripCost.from" datatype="html">
+        <source>Desde</source>
+        <target>From</target>
+      </trans-unit>
+      <trans-unit id="tripCost.groundTransport" datatype="html">
+        <source>Buses y trenes</source>
+        <target>Buses and trains</target>
+      </trans-unit>
+      <trans-unit id="tripCost.infoGlyph" datatype="html">
+        <source>ⓘ</source>
+        <target>ⓘ</target>
+      </trans-unit>
+      <trans-unit id="tripCost.lodging" datatype="html">
+        <source>Alojamiento · <x id="INTERPOLATION" equiv-text="{{ est.nights }}"/> noches · <x id="INTERPOLATION_1" equiv-text="{{ est.rooms }}"/> hab.</source>
+        <target>Lodging · <x id="INTERPOLATION" equiv-text="{{ est.nights }}"/> nights · <x id="INTERPOLATION_1" equiv-text="{{ est.rooms }}"/> rooms</target>
+      </trans-unit>
+      <trans-unit id="tripCost.noHomeFlights" datatype="html">
+        <source>Sin vuelos desde casa</source>
+        <target>No flights from home</target>
+      </trans-unit>
+      <trans-unit id="tripCost.notCalculated" datatype="html">
+        <source>Todavía no calculado</source>
+        <target>Not calculated yet</target>
+      </trans-unit>
+      <trans-unit id="tripCost.sharedTitle" datatype="html">
+        <source>Costo estimado para este grupo</source>
+        <target>Estimated cost for this group</target>
+      </trans-unit>
+      <trans-unit id="tripCost.stale" datatype="html">
+        <source>Desactualizado · guarda para recalcular</source>
+        <target>Outdated · save to recalculate</target>
+      </trans-unit>
+      <trans-unit id="tripCost.tickets" datatype="html">
+        <source>Entradas · <x id="INTERPOLATION" equiv-text="{{ est.ticketCount }}"/></source>
+        <target>Tickets · <x id="INTERPOLATION" equiv-text="{{ est.ticketCount }}"/></target>
+      </trans-unit>
+      <trans-unit id="tripCost.title" datatype="html">
+        <source>Costo estimado del viaje</source>
+        <target>Estimated trip cost</target>
+      </trans-unit>
+      <trans-unit id="tripCost.unestimated" datatype="html">
+        <source>sin estimar</source>
+        <target>no estimate</target>
+      </trans-unit>
+      <trans-unit id="tripCost.unpricedTickets" datatype="html">
+        <source>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> sin precio</source>
+        <target>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> without price</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
