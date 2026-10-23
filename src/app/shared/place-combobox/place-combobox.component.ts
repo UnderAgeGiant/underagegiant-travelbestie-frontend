@@ -30,7 +30,7 @@ let nextId = 0;
         </button>
         @if (selected()) {
           <button type="button" aria-label="Quitar ciudad" i18n-aria-label="@@placeCombobox.clearAria"
-                  style="background:none;border:none;color:var(--t3);cursor:pointer;padding:0 4px"
+                  style="background:none;border:none;color:var(--t3);cursor:pointer;min-width:40px;min-height:40px;padding:0;margin:-8px -6px -8px 0;font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center"
                   (click)="clear()">×</button>
         }
       </div>

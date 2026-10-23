@@ -1,5 +1,5 @@
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
-import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
@@ -633,7 +633,7 @@ export class AiPlanningComponent implements OnDestroy {
 
   readonly auth = inject(AuthService);
   /** Cost estimate inputs for the saved plan; origin starts at the user's profile city. */
-  readonly costSettings = signal<CostSettings>({ ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null });
+  readonly costSettings = linkedSignal<CostSettings>(() => ({ ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null }));
   private readonly api        = inject(ApiService);
   private readonly tripSvc    = inject(TripService);
   private readonly savedPlans = inject(SavedPlansService);
