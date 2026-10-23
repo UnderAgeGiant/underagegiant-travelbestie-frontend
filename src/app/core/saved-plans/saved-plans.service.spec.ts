@@ -4,6 +4,19 @@ import { provideHttpClientTesting, HttpTestingController } from '@angular/common
 import { SavedPlansService } from './saved-plans.service';
 import { TravelDocsReminderService } from '../reminders/travel-docs-reminder.service';
 
+import { CostEstimate } from '../models/trip.model';
+
+const EMPTY_ESTIMATE: CostEstimate = {
+  totalUsd: 0, flightsUsd: 0, lodgingUsd: 0, ticketsUsd: 0, groundUsd: 0,
+  nights: 0, rooms: 0, ticketCount: 0, unpricedTicketCount: 0, unestimated: [],
+  missingOrigin: false,
+  settings: { origin: null, adults: 1, children: 0, comfort: 'mid' },
+  inputsHash: 'h', calculatedAt: '2026-10-22T00:00:00.000Z',
+};
+
+/** Answers any estimate request left pending by an explicit save, so verify() passes. */
+const flushEstimates = () => TestBed.inject(HttpTestingController).match(r => r.url.endsWith('/estimate')).forEach(r => r.flush(EMPTY_ESTIMATE));
+
 describe('SavedPlansService — upsert() and the travel-docs reminder (Finding 4 fix)', () => {
   let service: SavedPlansService;
   let http: HttpTestingController;
@@ -20,7 +33,7 @@ describe('SavedPlansService — upsert() and the travel-docs reminder (Finding 4
     reminder = TestBed.inject(TravelDocsReminderService);
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => { flushEstimates(); http.verify(); });
 
   it('calls maybeShow() on a normal (explicit) update save', () => {
     const spy = jest.spyOn(reminder, 'maybeShow');
@@ -63,7 +76,7 @@ describe('SavedPlansService.upsert — sourceAiPlanRequestId', () => {
     http = TestBed.inject(HttpTestingController);
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => { flushEstimates(); http.verify(); });
 
   it('sends sourceAiPlanRequestId on POST /trips when creating a new trip', () => {
     service.upsert('ana@test.com', null, 'Ruta Clásica', [], [], { sourceAiPlanRequestId: 'req-123' }).subscribe();
@@ -151,5 +164,61 @@ describe('SavedPlansService.loadForUser — load once per account (C1)', () => {
   it('does not fetch pending invites (My Trips loads them on open)', () => {
     service.loadForUser('ana@test.com');
     expect(http.match(r => r.url.endsWith('/trips/invites'))).toHaveLength(0);
+  });
+});
+
+describe('SavedPlansService — save triggers estimate (F74)', () => {
+  let service: SavedPlansService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(SavedPlansService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => http.verify());
+
+  it('does not call estimate on a background save', () => {
+    service.upsert('a@b.com', null, 'Bg Trip', [], [], { background: true }).subscribe();
+    http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST').flush({ id: 'bg-1', title: 'Bg Trip', stops: [], transits: [] });
+    http.expectNone(r => r.url.endsWith('/estimate'));
+  });
+
+  it('calls estimate once after an explicit create and stores the result on the plan', () => {
+    service.upsert('a@b.com', null, 'New Trip', [], []).subscribe();
+    http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST').flush({ id: 'new-1', title: 'New Trip', stops: [], transits: [] });
+    const est = http.expectOne(r => r.url.endsWith('/trips/new-1/estimate') && r.method === 'POST');
+    est.flush({ ...EMPTY_ESTIMATE, totalUsd: 1234 });
+    expect(service.plans()[0].costEstimate?.totalUsd).toBe(1234);
+  });
+
+  it('calls estimate once after an explicit update', () => {
+    service.register({ id: 't1', name: 'Old', savedAt: '', stops: [], transits: [] });
+    service.upsert('a@b.com', 't1', 'Renamed', [], [], { costSettings: { origin: null, adults: 2, children: 0, comfort: 'luxury' } }).subscribe();
+    const put = http.expectOne(r => r.url.endsWith('/trips/t1') && r.method === 'PUT');
+    expect(put.request.body.costSettings).toEqual({ origin: null, adults: 2, children: 0, comfort: 'luxury' });
+    put.flush({ id: 't1', title: 'Renamed', stops: [], transits: [] });
+    http.expectOne(r => r.url.endsWith('/trips/t1/estimate')).flush(EMPTY_ESTIMATE);
+    expect(service.plans()[0].costSettings?.adults).toBe(2);
+  });
+
+  it('does not send costSettings when not given', () => {
+    service.upsert('a@b.com', 't1', 'Renamed', [], []).subscribe();
+    const put = http.expectOne(r => r.url.endsWith('/trips/t1') && r.method === 'PUT');
+    expect('costSettings' in put.request.body).toBe(false);
+    put.flush({ id: 't1', title: 'Renamed', stops: [], transits: [] });
+    http.expectOne(r => r.url.endsWith('/trips/t1/estimate')).flush(EMPTY_ESTIMATE);
+  });
+
+  it('still resolves the save when the estimate fails', () => {
+    let savedId: string | undefined;
+    service.upsert('a@b.com', null, 'New Trip', [], []).subscribe(id => savedId = id);
+    http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST').flush({ id: 'new-2', title: 'New Trip', stops: [], transits: [] });
+    http.expectOne(r => r.url.endsWith('/trips/new-2/estimate')).flush({}, { status: 500, statusText: 'Server Error' });
+    expect(savedId).toBe('new-2');
   });
 });

@@ -84,6 +84,8 @@ export interface Trip {
    *  trip's originating AI-planning session (any of its /ai/suggest calls) should be
    *  linkable from an ai_suggest karma event once this trip is saved. */
   sourcePlanSessionId?: string;
+  costSettings?: CostSettings;
+  costEstimate?: CostEstimate | null;
 }
 
 export interface Collaborator {
@@ -111,4 +113,57 @@ export interface FavoritedTrip {
   favoriteCount?:  number;
   isFavoritedByMe?: boolean;
   favoritedAt:     string;
+}
+
+// ── Trip cost estimate (Feature 74, contracts §18) ──────────────────────────
+
+export type ComfortLevel = 'budget' | 'mid' | 'luxury';
+
+export interface Place {
+  geonameId:   number;
+  name:        string;
+  countryCode: string;
+  iata:        string;   // /^[A-Z]{3}$/
+}
+
+/** adults 1–20, children 0–20 */
+export interface CostSettings {
+  origin:   Place | null;
+  adults:   number;
+  children: number;
+  comfort:  ComfortLevel;
+}
+
+export const DEFAULT_COST_SETTINGS: CostSettings = { origin: null, adults: 1, children: 0, comfort: 'mid' };
+
+/** from/to: catalog cityId or '__home__' */
+export interface UnestimatedLeg {
+  from: string;
+  to:   string;
+  mode: string;
+}
+
+export interface CostEstimate {
+  totalUsd:  number;   // sum of the four lines, rounded to whole USD
+  flightsUsd: number;
+  lodgingUsd: number;
+  ticketsUsd: number;
+  groundUsd:  number;
+  nights: number;
+  rooms:  number;      // rooms = beds when comfort = 'budget'
+  ticketCount: number;
+  unpricedTicketCount: number;
+  unestimated: UnestimatedLeg[];   // legs excluded from the total
+  missingOrigin: boolean;          // no origin → home flights not included
+  settings: CostSettings;          // what this snapshot was computed for
+  inputsHash: string;
+  calculatedAt: string;            // ISO
+  stale?: boolean;                 // computed on read: true when inputsHash ≠ the trip's current hash
+}
+
+/** GET /fx/rates — rates are units of currency per 1 USD */
+export interface FxRates {
+  base:      string;
+  rates:     Record<string, number>;
+  fetchedAt: string | null;
 }

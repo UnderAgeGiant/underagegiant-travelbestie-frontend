@@ -168,7 +168,8 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     component.generatedTrip.set(TRIP);
   });
 
-  afterEach(() => http.verify());
+  // A successful explicit save fires the fire-and-forget cost estimate (F74); answer it so verify() stays strict.
+  afterEach(() => { http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({})); http.verify(); });
 
   it('selects the first city and records the server-assigned trip id after saving', () => {
     let saved = false;
@@ -206,6 +207,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     const tripReq = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
     tripReq.flush({ id: 'trip-42', ...TRIP });
 
+    http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({}));
     http.verify();   // fails if any unexpected (e.g. DELETE) request was made
   });
 

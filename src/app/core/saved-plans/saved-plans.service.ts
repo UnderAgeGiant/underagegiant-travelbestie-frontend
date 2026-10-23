@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../api/api.service';
-import { TripStop, TransitLeg, PendingCollaboratorInvite } from '../models/trip.model';
+import { TripStop, TransitLeg, PendingCollaboratorInvite, CostSettings, CostEstimate } from '../models/trip.model';
 import { environment } from '../../../environments/environment';
 import { TravelDocsReminderService } from '../reminders/travel-docs-reminder.service';
 
@@ -18,6 +18,8 @@ export interface SavedPlan {
   isCollaborator?: boolean;
   ownerName?:      string;
   ownerEmail?:     string;
+  costSettings?:   CostSettings;
+  costEstimate?:   CostEstimate | null;
 }
 
 const key = (email: string) => `tb_saved_plans_${email}`;
@@ -72,6 +74,8 @@ export class SavedPlansService {
           ...(t.shareId ? { shareId: t.shareId } : {}),
           ...(t.itineraryExportedAt ? { exportedAt: t.itineraryExportedAt } : {}),
           ...(t.isCollaborator ? { isCollaborator: true, ownerName: t.ownerName, ownerEmail: t.ownerEmail } : {}),
+          ...(t.costSettings ? { costSettings: t.costSettings } : {}),
+          ...(t.costEstimate !== undefined ? { costEstimate: t.costEstimate } : {}),
         })));
       },
       error: () => { this.loadedEmail = null; },
@@ -88,20 +92,21 @@ export class SavedPlansService {
    */
   upsert(
     email: string, id: string | null, name: string, stops: TripStop[], transits: TransitLeg[] = [],
-    opts?: { background?: boolean; sourceAiPlanRequestId?: string; sourcePlanSessionId?: string },
+    opts?: { background?: boolean; sourceAiPlanRequestId?: string; sourcePlanSessionId?: string; costSettings?: CostSettings },
   ): Observable<string> {
+    const settingsPatch = opts?.costSettings ? { costSettings: opts.costSettings } : {};
     if (environment.useMocks) {
       const now = new Date().toISOString();
       if (id) {
         const updated = this._plans().map(p =>
-          p.id === id ? { ...p, name, stops, transits, savedAt: now } : p
+          p.id === id ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch } : p
         );
         this._plans.set(updated);
         localStorage.setItem(key(email), JSON.stringify(updated));
         if (!opts?.background) this.travelDocsReminder.maybeShow();
         return of(id);
       }
-      const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits };
+      const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits, ...settingsPatch };
       const updated = [...this._plans(), plan];
       this._plans.set(updated);
       localStorage.setItem(key(email), JSON.stringify(updated));
@@ -110,13 +115,16 @@ export class SavedPlansService {
     }
 
     if (id) {
-      return this.api.updateTrip(id, { title: name, stops, transits }).pipe(
+      return this.api.updateTrip(id, { title: name, stops, transits, ...settingsPatch }).pipe(
         tap(() => {
           const now = new Date().toISOString();
           this._plans.set(this._plans().map(p =>
-            p.id === id ? { ...p, name, stops, transits, savedAt: now } : p
+            p.id === id ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch } : p
           ));
-          if (!opts?.background) this.travelDocsReminder.maybeShow();
+          if (!opts?.background) {
+            this.travelDocsReminder.maybeShow();
+            this.estimate(id).subscribe({ error: () => { /* estimate failure never fails the save */ } });
+          }
         }),
         map(() => id)
       );
@@ -125,6 +133,7 @@ export class SavedPlansService {
       title: name, stops, transits,
       sourceAiPlanRequestId: opts?.sourceAiPlanRequestId,
       sourcePlanSessionId: opts?.sourcePlanSessionId,
+      ...settingsPatch,
     }).pipe(
       tap(trip => {
         const plan: SavedPlan = {
@@ -133,11 +142,22 @@ export class SavedPlansService {
           savedAt:  trip.createdAt ?? new Date().toISOString(),
           stops:    trip.stops,
           transits: trip.transits ?? [],
+          ...settingsPatch,
         };
         this._plans.set([...this._plans(), plan]);
-        if (!opts?.background) this.travelDocsReminder.maybeShow();
+        if (!opts?.background) {
+          this.travelDocsReminder.maybeShow();
+          this.estimate(trip.id!).subscribe({ error: () => { /* estimate failure never fails the save */ } });
+        }
       }),
       map(trip => trip.id!)
+    );
+  }
+
+  /** Calculates the trip's cost estimate on the server and stores it on the local plan. */
+  estimate(id: string): Observable<CostEstimate> {
+    return this.api.estimateTrip(id).pipe(
+      tap(costEstimate => this._plans.set(this._plans().map(p => p.id === id ? { ...p, costEstimate } : p))),
     );
   }
 

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular
 import { Observable, from, of, timer, throwError } from 'rxjs';
 import { switchMap, tap, first, map, catchError, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite } from '../models/trip.model';
+import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite, CostEstimate, FxRates, DEFAULT_COST_SETTINGS } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
 import { WeatherDay } from '../models/weather.model';
 import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
@@ -104,6 +104,23 @@ export class ApiService {
   deleteTrip(id: string): Observable<void> {
     if (this.useMocks) return of(undefined);
     return this.http.delete<void>(`${this.base}/trips/${id}`);
+  }
+
+  /** Explicit calculation only (save or "Calcular precio"). No body; never computed on read. */
+  estimateTrip(id: string): Observable<CostEstimate> {
+    if (this.useMocks) return of({
+      totalUsd: 0, flightsUsd: 0, lodgingUsd: 0, ticketsUsd: 0, groundUsd: 0,
+      nights: 0, rooms: 0, ticketCount: 0, unpricedTicketCount: 0, unestimated: [],
+      missingOrigin: false, settings: DEFAULT_COST_SETTINGS,
+      inputsHash: `mock-${id}`, calculatedAt: new Date().toISOString(),
+    });
+    return this.http.post<CostEstimate>(`${this.base}/trips/${id}/estimate`, null);
+  }
+
+  /** Public; lazily fetched by the backend, so the first call may be slow. */
+  getFxRates(): Observable<FxRates> {
+    if (this.useMocks) return of({ base: 'USD', rates: { USD: 1 }, fetchedAt: null });
+    return this.http.get<FxRates>(`${this.base}/fx/rates`);
   }
 
   exportItinerary(
