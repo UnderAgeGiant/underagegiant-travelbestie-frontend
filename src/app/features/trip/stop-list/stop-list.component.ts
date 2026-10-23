@@ -315,7 +315,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                 i18n="@@stopList.addBtn">+ Agregar destino</button>
         @if (trip.stops().length > 0) {
           @if (currentPlan(); as plan) {
-            <app-trip-cost-card mode="owner" [canCalculate]="true" [calculating]="cardCalculating()"
+            <app-trip-cost-card style="display:block;margin-top:8px" mode="owner" [canCalculate]="true" [calculating]="cardCalculating()"
               [estimate]="plan.costEstimate ?? null" [settings]="plan.costSettings ?? defaultCostSettings"
               (calculate)="calculate()" (editSettings)="editSettings()" />
             @if (costEditOpen()) {
@@ -362,7 +362,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
           }
         }
 
-        @if (device.isMobile() && showScrollTop() && trip.stops().length > 0) {
+        @if (device.isMobile() && showScrollTop() && trip.stops().length > 0 && !bookOpen() && !costEditOpen()) {
           <button class="scroll-top-fab" (click)="scrollToActiveCity()" type="button"
                   i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
         }
