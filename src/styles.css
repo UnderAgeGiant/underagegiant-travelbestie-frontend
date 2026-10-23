@@ -636,7 +636,8 @@ app-nav { display: block; }
   .panel-head { padding: 14px 16px 10px; }
   .panel-head-title { font-size: 20px; }
   .panel-footer { border-top: 1.5px solid var(--border); background: #fff; }
-  .cost-footer-scroll { max-height: none; overflow-y: visible; }
+  /* Both axes visible (overflow-x: hidden alone forces overflow-y to auto) and no contain: else a touch drag on the card never scrolls the page. */
+  .cost-footer-scroll { max-height: none; overflow: visible; overscroll-behavior: auto; }
   /* The stop list FAB is absolute inside the footer (bottom 20px, 44px): keep the buttons above it. */
   .panel-footer--fab { padding-bottom: 76px; }
 

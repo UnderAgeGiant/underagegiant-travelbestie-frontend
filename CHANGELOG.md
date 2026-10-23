@@ -5,6 +5,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 
 ## 2026-10
 - feat(cost): trip cost estimate frontend (F74) (#169)
+- fix(cost): cost card and settings block scroll (F74) (#170)
 - feat(game): Miel Runner game on preferences and the AI wait, runners ranking (#168)
 - feat(city-guides): wave 3 — Europe, LatAm and Chile guides (15) (#166)
 - feat(city-guides): wave 2 — Americas, Asia, Oceania guides (7) (#165)
