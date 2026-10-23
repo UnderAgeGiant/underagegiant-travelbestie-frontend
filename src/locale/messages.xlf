@@ -5842,7 +5842,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">51,52</context>
+          <context context-type="linenumber">77,78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="costSettings.mid" datatype="html">
@@ -5853,7 +5853,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">52,53</context>
+          <context context-type="linenumber">78,79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="costSettings.luxury" datatype="html">
@@ -5864,7 +5864,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">53,55</context>
+          <context context-type="linenumber">79,81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="costSettings.budgetDesc" datatype="html">
@@ -6169,200 +6169,227 @@
           <context context-type="linenumber">42,44</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="tripCost.sharedTitle" datatype="html">
-        <source>Costo estimado para este grupo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">26,28</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="tripCost.title" datatype="html">
         <source>Costo estimado del viaje</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">28,31</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCost.calculating" datatype="html">
         <source>Calculando…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">29,30</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.from" datatype="html">
-        <source>Desde</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">58,59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="tripCost.adultSingular" datatype="html">
-        <source>adulto</source>
+      <trans-unit id="tripCost.staleShort" datatype="html">
+        <source>Desactualizado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.adultPlural" datatype="html">
-        <source>adultos</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">44,45</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.childSingular" datatype="html">
-        <source>niño</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.childPlural" datatype="html">
-        <source>niños</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">47,49</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.infoGlyph" datatype="html">
-        <source>ⓘ</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">58</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.calculatedOn" datatype="html">
-        <source>Calculado el <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · aproximado, ±30%</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">58,60</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.stale" datatype="html">
-        <source>Desactualizado · guarda para recalcular</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">61,64</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.noHomeFlights" datatype="html">
-        <source>Sin vuelos desde casa</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">66,67</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.departsFrom" datatype="html">
-        <source>Sale desde</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">68,70</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.flights" datatype="html">
-        <source>Vuelos (ida, vuelta y entre ciudades)</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">78,79</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.lodging" datatype="html">
-        <source>Alojamiento · <x id="INTERPOLATION" equiv-text="{{ est.nights }}"/> noches · <x id="INTERPOLATION_1" equiv-text="{{ est.rooms }}"/> hab.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">82,83</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.ticketsOne" datatype="html">
-        <source>Entradas · 1 atracción</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">89,90</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.tickets" datatype="html">
-        <source>Entradas · <x id="INTERPOLATION" equiv-text="{{ est.ticketCount }}"/> atracciones</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">91,92</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.unpricedTickets" datatype="html">
-        <source>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> sin precio</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">94,95</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.groundTransport" datatype="html">
-        <source>Buses y trenes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">100,101</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.hotelGap" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · alojamiento — sin estimar</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">107,108</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCost.unestimated" datatype="html">
         <source>sin estimar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">112,114</context>
+          <context context-type="linenumber">35,37</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.hideDetail" datatype="html">
-        <source>Ocultar detalle ▲</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">121,123</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="tripCost.showDetail" datatype="html">
-        <source>Ver detalle ▼</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">123,125</context>
+          <context context-type="linenumber">138,140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCost.notCalculated" datatype="html">
         <source>Todavía no calculado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">127,128</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">153,154</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCost.calculateBtn" datatype="html">
         <source>Calcular precio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">129,133</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">155,159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.sharedTitle" datatype="html">
+        <source>Costo estimado para este grupo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">49,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.from" datatype="html">
+        <source>Desde</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.adultSingular" datatype="html">
+        <source>adulto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.adultPlural" datatype="html">
+        <source>adultos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">70,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.childSingular" datatype="html">
+        <source>niño</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.childPlural" datatype="html">
+        <source>niños</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">73,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.infoGlyph" datatype="html">
+        <source>ⓘ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.calculatedOn" datatype="html">
+        <source>Calculado el <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · aproximado, ±30%</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">84,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.stale" datatype="html">
+        <source>Desactualizado · guarda para recalcular</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">87,90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.noHomeFlights" datatype="html">
+        <source>Sin vuelos desde casa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.departsFrom" datatype="html">
+        <source>Sale desde</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">94,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.flights" datatype="html">
+        <source>Vuelos (ida, vuelta y entre ciudades)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">104,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.lodging" datatype="html">
+        <source>Alojamiento · <x id="INTERPOLATION" equiv-text="{{ est.nights }}"/> noches · <x id="INTERPOLATION_1" equiv-text="{{ est.rooms }}"/> hab.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">108,109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.ticketsOne" datatype="html">
+        <source>Entradas · 1 atracción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">115,116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.tickets" datatype="html">
+        <source>Entradas · <x id="INTERPOLATION" equiv-text="{{ est.ticketCount }}"/> atracciones</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">117,118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.unpricedTickets" datatype="html">
+        <source>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> sin precio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">120,121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.groundTransport" datatype="html">
+        <source>Buses y trenes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">126,127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.hotelGap" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · alojamiento — sin estimar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">133,134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.hideDetail" datatype="html">
+        <source>Ocultar detalle ▲</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">147,149</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCost.showDetail" datatype="html">
+        <source>Ver detalle ▼</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
+          <context context-type="linenumber">149,151</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCost.editSettings" datatype="html">
         <source>Editar salida, viajeros y estilo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">135,137</context>
+          <context context-type="linenumber">161,163</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCost.home" datatype="html">
         <source>Casa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">215</context>
+          <context context-type="linenumber">262</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCost.uncataloguedCity" datatype="html">
         <source>Ciudad sin catálogo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-cost-card/trip-cost-card.component.ts</context>
-          <context context-type="linenumber">217</context>
+          <context context-type="linenumber">264</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trophy.new" datatype="html">

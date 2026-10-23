@@ -3681,6 +3681,10 @@
         <source>Hotel 5★ · vuelos en business</source>
         <target>5★ hotel · business-class flights</target>
       </trans-unit>
+      <trans-unit id="tripCost.staleShort" datatype="html">
+        <source>Desactualizado</source>
+        <target>Outdated</target>
+      </trans-unit>
       <trans-unit id="tripCost.hotelGap" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · alojamiento — sin estimar</source>
         <target><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · lodging — no estimate</target>

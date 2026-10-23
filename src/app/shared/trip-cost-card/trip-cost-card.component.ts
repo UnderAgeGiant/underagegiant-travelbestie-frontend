@@ -20,12 +20,38 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
   selector: 'app-trip-cost-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    @if (mode() === 'owner' || estimate()) {
+    @if (mode() === 'owner' && collapsed()) {
+      <!-- Editor only: one slim row by default; the whole row expands the card. -->
+      <section class="tcc tcc--slim" [class.tcc--empty]="!calculating() && !estimate()">
+        <button type="button" class="tcc-bar" aria-expanded="false" (click)="collapsed.set(false)">
+          <span class="tcc-sr" i18n="@@tripCost.title">Costo estimado del viaje</span>
+          @if (calculating()) {
+            <span class="tcc-status" i18n="@@tripCost.calculating">Calculando…</span>
+          } @else if (estimate(); as est) {
+            <span class="tcc-bar-total" [class.tcc-total--stale]="isStale()">≈ {{ cost.format(est.totalUsd) }} <small class="tcc-code">{{ cost.viewerCurrency() }}</small></span>
+            @if (isStale()) {
+              <span class="tcc-flag" i18n="@@tripCost.staleShort">Desactualizado</span>
+            } @else if (est.unestimated.length > 0) {
+              <span class="tcc-flag" i18n="@@tripCost.unestimated">sin estimar</span>
+            }
+          } @else {
+            <span class="tcc-status" i18n="@@tripCost.notCalculated">Todavía no calculado</span>
+          }
+          <span class="tcc-chev" aria-hidden="true">▼</span>
+        </button>
+        @if (!calculating() && !estimate() && canCalculate()) {
+          <button type="button" class="tcc-btn" (click)="calculate.emit()" i18n="@@tripCost.calculateBtn">Calcular precio</button>
+        }
+      </section>
+    } @else if (mode() === 'owner' || estimate()) {
       <section class="tcc" [class.tcc--empty]="!calculating() && !estimate()" [class.tcc-stale]="isStale()">
         @if (mode() === 'shared') {
           <div class="tcc-title" i18n="@@tripCost.sharedTitle">Costo estimado para este grupo</div>
         } @else {
-          <div class="tcc-title" i18n="@@tripCost.title">Costo estimado del viaje</div>
+          <button type="button" class="tcc-head" aria-expanded="true" (click)="collapsed.set(true)">
+            <span class="tcc-title" i18n="@@tripCost.title">Costo estimado del viaje</span>
+            <span class="tcc-chev" aria-hidden="true">▲</span>
+          </button>
         }
 
         @if (calculating()) {
@@ -179,7 +205,26 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
       transition: border-color .15s, color .15s;
     }
     .tcc-btn:hover { border-color: var(--lav-d); color: var(--lav-d); }
+    .tcc--slim { padding: 0; gap: 0; }
+    .tcc--slim .tcc-btn { width: auto; margin: 0 12px 10px; }
+    .tcc-bar, .tcc-head {
+      display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: none;
+      font: inherit; color: inherit; text-align: left; cursor: pointer;
+    }
+    .tcc-bar { min-height: 44px; padding: 6px 14px; flex-wrap: wrap; }
+    .tcc-head { min-height: 32px; padding: 0; margin: -4px 0 0; }
+    .tcc-bar-total { font-size: 17px; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; transition: opacity .2s; }
+    .tcc-flag {
+      font-size: 10px; font-weight: 600; color: var(--t1); padding: 2px 8px; border-radius: 999px;
+      background: color-mix(in oklch, var(--cream) 70%, transparent);
+    }
+    .tcc-chev { margin-left: auto; font-size: 10px; color: var(--lav-d); transition: transform .2s ease-out; }
+    .tcc-bar:hover .tcc-chev { transform: translateY(1px); }
+    .tcc-head:hover .tcc-chev { transform: translateY(-1px); }
+    .tcc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    @media (prefers-reduced-motion: reduce) { .tcc-chev, .tcc-total, .tcc-bar-total { transition: none; } }
     .tcc button:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; border-radius: 8px; }
+    .tcc .tcc-bar:focus-visible { outline-offset: -3px; border-radius: 16px; }
     .tcc .tcc-btn:focus-visible { border-radius: 999px; }
   `],
 })
@@ -197,6 +242,8 @@ export class TripCostCardComponent {
   readonly editSettings = output<void>();
 
   readonly open = signal(false);
+  /** Editor (owner mode) starts as one slim row on every load; the shared page ignores this. */
+  readonly collapsed = signal(true);
 
   /** Stale snapshots are only flagged to the owner; shared viewers never receive one. */
   readonly isStale = computed(() => this.mode() === 'owner' && !!this.estimate()?.stale);

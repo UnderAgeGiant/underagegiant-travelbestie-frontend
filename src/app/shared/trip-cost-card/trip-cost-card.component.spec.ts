@@ -22,7 +22,7 @@ describe('TripCostCardComponent', () => {
   let fixture: ComponentFixture<TripCostCardComponent>;
   let el: HTMLElement;
 
-  function create(inputs: Record<string, unknown>): void {
+  function create(inputs: Record<string, unknown>, expanded = true): void {
     TestBed.configureTestingModule({
       imports: [TripCostCardComponent],
       providers: [{ provide: TripCostService, useValue: fakeCost }],
@@ -31,6 +31,8 @@ describe('TripCostCardComponent', () => {
     for (const [k, v] of Object.entries({ mode: 'owner', canCalculate: false, calculating: false, settings: SETTINGS, estimate: null, ...inputs })) {
       fixture.componentRef.setInput(k, v);
     }
+    // Most specs exercise the full card; the collapsed editor row has its own block below.
+    if (expanded) fixture.componentInstance.collapsed.set(false);
     fixture.detectChanges();
     el = fixture.nativeElement as HTMLElement;
   }
@@ -81,7 +83,7 @@ describe('TripCostCardComponent', () => {
   it('hides the breakdown until the toggle is clicked', () => {
     create({ estimate: estimate() });
     expect(text()).not.toContain('Vuelos');
-    const toggle = el.querySelector<HTMLButtonElement>('button[aria-expanded]')!;
+    const toggle = el.querySelector<HTMLButtonElement>('.tcc-toggle')!;
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
     toggle.click();
     fixture.detectChanges();
@@ -151,5 +153,55 @@ describe('TripCostCardComponent', () => {
   it('uses the shared title in shared mode', () => {
     create({ mode: 'shared', estimate: estimate() });
     expect(text()).toContain('Costo estimado para este grupo');
+  });
+  describe('collapsed editor row (owner mode)', () => {
+    const bar = () => el.querySelector<HTMLButtonElement>('.tcc-bar');
+
+    it('starts collapsed: one row with the total, aria-expanded=false, no context or breakdown', () => {
+      create({ estimate: estimate() }, false);
+      expect(bar()?.getAttribute('aria-expanded')).toBe('false');
+      expect(bar()?.textContent).toContain('≈ US$4000');
+      expect(text()).not.toContain('Calculado el');
+      expect(text()).not.toContain('Editar salida, viajeros y estilo');
+    });
+
+    it('expands to the full card on click, and the head collapses it again', () => {
+      create({ estimate: estimate(), canCalculate: true }, false);
+      bar()!.click();
+      fixture.detectChanges();
+      expect(text()).toContain('Calculado el');
+      expect(el.querySelector('.tcc-edit')).toBeTruthy();
+      const head = el.querySelector<HTMLButtonElement>('.tcc-head')!;
+      expect(head.getAttribute('aria-expanded')).toBe('true');
+      head.click();
+      fixture.detectChanges();
+      expect(bar()).toBeTruthy();
+    });
+
+    it('keeps stale, calculating, not-calculated and gap states visible while collapsed', () => {
+      create({ estimate: estimate({ stale: true }) }, false);
+      expect(bar()?.textContent).toContain('Desactualizado');
+      expect(el.querySelector('.tcc-total--stale')).toBeTruthy();
+      TestBed.resetTestingModule();
+      create({ estimate: estimate(), calculating: true }, false);
+      expect(bar()?.textContent).toContain('Calculando…');
+      TestBed.resetTestingModule();
+      create({ estimate: estimate({ unestimated: [{ from: 'lima', to: 'cusco', mode: 'bus' }] }) }, false);
+      expect(bar()?.textContent).toContain('sin estimar');
+      TestBed.resetTestingModule();
+      create({ estimate: null, canCalculate: true }, false);
+      expect(bar()?.textContent).toContain('Todavía no calculado');
+      const spy = jest.fn();
+      fixture.componentInstance.calculate.subscribe(spy);
+      Array.from(el.querySelectorAll('button')).find(b => b.textContent?.includes('Calcular precio'))!.click();
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('never collapses on the shared page', () => {
+      create({ mode: 'shared', estimate: estimate() }, false);
+      expect(bar()).toBeNull();
+      expect(text()).toContain('Costo estimado para este grupo');
+      expect(text()).toContain('Calculado el');
+    });
   });
 });
