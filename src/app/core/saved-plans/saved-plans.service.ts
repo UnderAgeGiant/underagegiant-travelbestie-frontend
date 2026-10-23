@@ -1,6 +1,6 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, defer, of } from 'rxjs';
+import { finalize, map, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../api/api.service';
 import { TripStop, TransitLeg, PendingCollaboratorInvite, CostSettings, CostEstimate } from '../models/trip.model';
@@ -31,6 +31,9 @@ export class SavedPlansService {
   private readonly travelDocsReminder = inject(TravelDocsReminderService);
   private _plans = signal<SavedPlan[]>([]);
   readonly plans = this._plans.asReadonly();
+  /** Trip ids with an estimate request in flight (true from subscribe until it answers or errors). */
+  private _estimating = signal<ReadonlySet<string>>(new Set());
+  readonly estimating = this._estimating.asReadonly();
 
   private _pendingInvites = signal<PendingCollaboratorInvite[]>([]);
   readonly pendingInvites = this._pendingInvites.asReadonly();
@@ -156,9 +159,13 @@ export class SavedPlansService {
 
   /** Calculates the trip's cost estimate on the server and stores it on the local plan. */
   estimate(id: string): Observable<CostEstimate> {
-    return this.api.estimateTrip(id).pipe(
-      tap(costEstimate => this._plans.set(this._plans().map(p => p.id === id ? { ...p, costEstimate } : p))),
-    );
+    return defer(() => {
+      this._estimating.set(new Set([...this._estimating(), id]));
+      return this.api.estimateTrip(id).pipe(
+        tap(costEstimate => this._plans.set(this._plans().map(p => p.id === id ? { ...p, costEstimate } : p))),
+        finalize(() => this._estimating.set(new Set([...this._estimating()].filter(x => x !== id)))),
+      );
+    });
   }
 
   markExported(email: string, planId: string): void {

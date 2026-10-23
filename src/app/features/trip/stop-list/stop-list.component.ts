@@ -315,7 +315,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                 i18n="@@stopList.addBtn">+ Agregar destino</button>
         @if (trip.stops().length > 0) {
           @if (currentPlan(); as plan) {
-            <app-trip-cost-card mode="owner" [canCalculate]="true" [calculating]="calculating()"
+            <app-trip-cost-card mode="owner" [canCalculate]="true" [calculating]="cardCalculating()"
               [estimate]="plan.costEstimate ?? null" [settings]="plan.costSettings ?? defaultCostSettings"
               (calculate)="calculate()" (editSettings)="editSettings()" />
             @if (costEditOpen()) {
@@ -551,20 +551,31 @@ export class StopListComponent {
   bookError  = signal('');
   costSettings = signal<CostSettings>(DEFAULT_COST_SETTINGS);
 
-  /** Cost card "Calcular precio". Without a saved origin but with a profile home city, the explicit save
-   *  sets the origin and triggers the estimate itself; otherwise estimate the stored snapshot. */
+  /** Calculating for the cost card: the save itself (local flag) or the estimate request in flight. */
+  readonly cardCalculating = computed(() => {
+    const id = this.trip.loadedPlanId();
+    return this.calculating() || (!!id && this.savedPlans.estimating().has(id));
+  });
+
+  /** Cost card "Calcular precio". An open cost-settings block, or a missing saved origin with a profile
+   *  home city, makes this an explicit save (which triggers the estimate); otherwise estimate the stored snapshot. */
   calculate(): void {
     const plan = this.currentPlan();
     const user = this.auth.currentUser();
     if (!plan || !user?.email || this.calculating()) return;
-    this.calculating.set(true);
-    const done = { next: () => this.calculating.set(false), error: () => this.calculating.set(false) };
-    if (!plan.costSettings?.origin && user.homePlace) {
+    const editing = this.costEditOpen();
+    const settings = editing ? this.pendingCostSettings() : plan.costSettings;
+    if (editing || (!plan.costSettings?.origin && user.homePlace)) {
+      this.calculating.set(true);
+      const origin = settings?.origin ?? user.homePlace ?? null;
       this.savedPlans.upsert(user.email, plan.id, plan.name, this.trip.stops(), this.trip.transits(), {
-        costSettings: { ...(plan.costSettings ?? DEFAULT_COST_SETTINGS), origin: user.homePlace },
-      }).subscribe(done);
+        costSettings: { ...(settings ?? DEFAULT_COST_SETTINGS), origin },
+      }).subscribe({
+        next: () => { this.calculating.set(false); this.costEditOpen.set(false); },
+        error: () => this.calculating.set(false),
+      });
     } else {
-      this.savedPlans.estimate(plan.id).subscribe(done);
+      this.savedPlans.estimate(plan.id).subscribe({ error: () => { /* card stays as it was */ } });
     }
   }
 

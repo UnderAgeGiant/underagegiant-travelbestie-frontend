@@ -222,3 +222,42 @@ describe('SavedPlansService — save triggers estimate (F74)', () => {
     expect(savedId).toBe('new-2');
   });
 });
+
+describe('SavedPlansService — estimating() follows the estimate request (F74 fix round 1)', () => {
+  let service: SavedPlansService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(SavedPlansService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => { http.verify(); });
+
+  it('contains the id while the estimate is pending, and not after it answers', () => {
+    service.estimate('t1').subscribe();
+    expect(service.estimating().has('t1')).toBe(true);
+    http.expectOne(r => r.url.endsWith('/trips/t1/estimate')).flush(EMPTY_ESTIMATE);
+    expect(service.estimating().has('t1')).toBe(false);
+  });
+
+  it('removes the id when the estimate errors', () => {
+    service.estimate('t2').subscribe({ error: () => {} });
+    expect(service.estimating().has('t2')).toBe(true);
+    http.expectOne(r => r.url.endsWith('/trips/t2/estimate')).flush({}, { status: 500, statusText: 'Server Error' });
+    expect(service.estimating().has('t2')).toBe(false);
+  });
+
+  it('keeps the id in the set during an explicit save until its estimate answers', () => {
+    service.upsert('a@b.com', 't3', 'Trip', [], [], { costSettings: { origin: null, adults: 1, children: 0, comfort: 'mid' } }).subscribe();
+    http.expectOne(r => r.url.includes('/trips/t3') && r.method === 'PUT').flush({ id: 't3', title: 'Trip', stops: [], transits: [] });
+    expect(service.estimating().has('t3')).toBe(true);
+    http.expectOne(r => r.url.endsWith('/trips/t3/estimate')).flush(EMPTY_ESTIMATE);
+    expect(service.estimating().has('t3')).toBe(false);
+  });
+});
