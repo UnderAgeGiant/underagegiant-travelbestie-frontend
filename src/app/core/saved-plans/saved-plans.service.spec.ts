@@ -289,4 +289,19 @@ describe('SavedPlansService — server costEstimate from the save response (I3)'
     expect(service.plans()[0].costEstimate?.stale).toBe(true);
     http.expectNone(r => r.url.endsWith('/estimate'));
   });
+
+  it('a background upsert answering with an older estimate keeps the newer stored one', () => {
+    const T1 = '2026-10-22T10:00:00.000Z', T2 = '2026-10-22T11:00:00.000Z';
+    service.register({ id: 'trip-1', name: 'Old', savedAt: '', stops: [], transits: [], costEstimate: { ...EMPTY_ESTIMATE, totalUsd: 900, calculatedAt: T2 } });
+
+    service.upsert('a@b.com', 'trip-1', 'Old', [], [], { background: true }).subscribe();
+    http.expectOne(r => r.url.endsWith('/trips/trip-1') && r.method === 'PUT').flush({
+      id: 'trip-1', title: 'Old', stops: [], transits: [],
+      costEstimate: { ...EMPTY_ESTIMATE, totalUsd: 500, calculatedAt: T1, stale: true },
+    });
+
+    expect(service.plans()[0].costEstimate?.calculatedAt).toBe(T2);
+    expect(service.plans()[0].costEstimate?.totalUsd).toBe(900);
+    http.expectNone(r => r.url.endsWith('/estimate'));
+  });
 });

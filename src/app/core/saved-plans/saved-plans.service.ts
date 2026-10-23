@@ -28,6 +28,10 @@ const key = (email: string) => `tb_saved_plans_${email}`;
 const serverEstimate = (trip: { costEstimate?: CostEstimate | null }): { costEstimate?: CostEstimate | null } =>
   trip.costEstimate !== undefined ? { costEstimate: trip.costEstimate } : {};
 
+/** True when the incoming estimate is strictly older than the stored one (ISO strings compare as strings). */
+const isOlderEstimate = (incoming?: CostEstimate | null, existing?: CostEstimate | null): boolean =>
+  !!existing?.calculatedAt && !!incoming?.calculatedAt && existing.calculatedAt > incoming.calculatedAt;
+
 @Injectable({ providedIn: 'root' })
 export class SavedPlansService {
   private readonly auth = inject(AuthService);
@@ -126,8 +130,12 @@ export class SavedPlansService {
         tap(trip => {
           const now = new Date().toISOString();
           // Keep the server's estimate (a PUT answers stale:true when the inputs changed), even on background saves.
+          // A slow autosave answer must not overwrite a newer estimate already stored by an explicit save.
           this._plans.set(this._plans().map(p =>
-            p.id === id ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch, ...serverEstimate(trip) } : p
+            p.id === id
+              ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch,
+                  ...(isOlderEstimate(trip.costEstimate, p.costEstimate) ? {} : serverEstimate(trip)) }
+              : p
           ));
           if (!opts?.background) {
             this.travelDocsReminder.maybeShow();
