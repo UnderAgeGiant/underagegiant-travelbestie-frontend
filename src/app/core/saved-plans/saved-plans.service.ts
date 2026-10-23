@@ -24,6 +24,10 @@ export interface SavedPlan {
 
 const key = (email: string) => `tb_saved_plans_${email}`;
 
+/** The server's costEstimate when the response carries one (a missing key leaves the local value alone). */
+const serverEstimate = (trip: { costEstimate?: CostEstimate | null }): { costEstimate?: CostEstimate | null } =>
+  trip.costEstimate !== undefined ? { costEstimate: trip.costEstimate } : {};
+
 @Injectable({ providedIn: 'root' })
 export class SavedPlansService {
   private readonly auth = inject(AuthService);
@@ -119,10 +123,11 @@ export class SavedPlansService {
 
     if (id) {
       return this.api.updateTrip(id, { title: name, stops, transits, ...settingsPatch }).pipe(
-        tap(() => {
+        tap(trip => {
           const now = new Date().toISOString();
+          // Keep the server's estimate (a PUT answers stale:true when the inputs changed), even on background saves.
           this._plans.set(this._plans().map(p =>
-            p.id === id ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch } : p
+            p.id === id ? { ...p, name, stops, transits, savedAt: now, ...settingsPatch, ...serverEstimate(trip) } : p
           ));
           if (!opts?.background) {
             this.travelDocsReminder.maybeShow();
@@ -146,6 +151,7 @@ export class SavedPlansService {
           stops:    trip.stops,
           transits: trip.transits ?? [],
           ...settingsPatch,
+          ...serverEstimate(trip),
         };
         this._plans.set([...this._plans(), plan]);
         if (!opts?.background) {

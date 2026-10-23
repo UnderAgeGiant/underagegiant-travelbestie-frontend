@@ -261,3 +261,32 @@ describe('SavedPlansService — estimating() follows the estimate request (F74 f
     expect(service.estimating().has('t3')).toBe(false);
   });
 });
+
+describe('SavedPlansService — server costEstimate from the save response (I3)', () => {
+  let service: SavedPlansService;
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(SavedPlansService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => http.verify());
+
+  it('a background upsert whose PUT answers stale:true marks the local estimate stale, with no estimate call', () => {
+    service.register({ id: 'trip-1', name: 'Old', savedAt: '', stops: [], transits: [], costEstimate: { ...EMPTY_ESTIMATE, totalUsd: 500 } });
+
+    service.upsert('a@b.com', 'trip-1', 'Old', [], [], { background: true }).subscribe();
+    http.expectOne(r => r.url.endsWith('/trips/trip-1') && r.method === 'PUT').flush({
+      id: 'trip-1', title: 'Old', stops: [], transits: [],
+      costEstimate: { ...EMPTY_ESTIMATE, totalUsd: 500, stale: true },
+    });
+
+    expect(service.plans()[0].costEstimate?.stale).toBe(true);
+    http.expectNone(r => r.url.endsWith('/estimate'));
+  });
+});
