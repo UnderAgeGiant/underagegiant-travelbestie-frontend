@@ -3477,6 +3477,10 @@
         <source>No se encontraron ciudades</source>
         <target>No cities found</target>
       </trans-unit>
+      <trans-unit id="placeCombobox.searchAria" datatype="html">
+        <source>Buscar ciudad de origen</source>
+        <target>Search for a home city</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

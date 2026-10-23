@@ -7,6 +7,7 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
 interface PlaceRow { g: number; n: string; a: string; c: string; i: string }
 
 const MAX_RESULTS = 8;
+let nextId = 0;
 
 @Component({
   selector: 'app-place-combobox',
@@ -14,27 +15,39 @@ const MAX_RESULTS = 8;
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="combo-wrap">
-      <div [class]="'combo-input' + (open() ? ' open' : '')" (click)="toggleOpen()">
-        @if (selected(); as p) {
-          <span style="font-weight:500">{{ label(p) }}</span>
+      <div style="display:flex;align-items:center;gap:6px">
+        <button #trigger type="button" role="combobox" aria-haspopup="listbox"
+                [attr.aria-expanded]="open()" [attr.aria-controls]="open() ? listId : null"
+                [class]="'combo-input' + (open() ? ' open' : '')"
+                style="flex:1;width:100%;font:inherit;text-align:left"
+                (click)="toggleOpen()" (keydown.arrowdown)="openFromKeyboard($event)">
+          @if (selected(); as p) {
+            <span style="font-weight:500">{{ label(p) }}</span>
+          } @else {
+            <span class="combo-placeholder" i18n="@@placeCombobox.placeholder">Buscar ciudad de origen…</span>
+          }
+          <span style="margin-left:auto;color:var(--t3);font-size:11px">▾</span>
+        </button>
+        @if (selected()) {
           <button type="button" aria-label="Quitar ciudad" i18n-aria-label="@@placeCombobox.clearAria"
-                  style="background:none;border:none;color:var(--t3);cursor:pointer;margin-left:6px;padding:0 4px"
-                  (click)="$event.stopPropagation(); clear()">×</button>
-        } @else {
-          <span class="combo-placeholder" i18n="@@placeCombobox.placeholder">Buscar ciudad de origen…</span>
+                  style="background:none;border:none;color:var(--t3);cursor:pointer;padding:0 4px"
+                  (click)="clear()">×</button>
         }
-        <span style="margin-left:auto;color:var(--t3);font-size:11px">▾</span>
       </div>
 
       @if (open()) {
         <div class="combo-dropdown">
-          <input class="combo-search" #searchInput
+          <input class="combo-search" #searchInput role="combobox" aria-autocomplete="list" aria-expanded="true"
+                 i18n-aria-label="@@placeCombobox.searchAria" aria-label="Buscar ciudad de origen"
+                 [attr.aria-controls]="listId"
+                 [attr.aria-activedescendant]="active() >= 0 ? optionId(active()) : null"
                  i18n-placeholder="@@placeCombobox.searchPlaceholder" placeholder="Escribe para buscar…"
                  [value]="query()"
-                 (input)="query.set($any($event.target).value)"
+                 (input)="onQuery($any($event.target).value)"
+                 (keydown)="onSearchKeydown($event)"
                  (focus)="ensureLoaded()"
                  (click)="$event.stopPropagation()" />
-          <div class="combo-list">
+          <div class="combo-list" role="listbox" [attr.id]="listId">
             @if (failed()) {
               <div class="combo-empty" i18n="@@placeCombobox.loadError">No se pudieron cargar las ciudades</div>
             } @else if (rows() === null) {
@@ -42,8 +55,10 @@ const MAX_RESULTS = 8;
             } @else if (filtered().length === 0) {
               <div class="combo-empty" i18n="@@placeCombobox.noResults">No se encontraron ciudades</div>
             }
-            @for (p of filtered(); track p.geonameId) {
-              <div class="combo-item" (click)="select(p)"><div class="combo-item-city">{{ label(p) }}</div></div>
+            @for (p of filtered(); track p.geonameId; let i = $index) {
+              <div class="combo-item" role="option" [attr.id]="optionId(i)" [attr.aria-selected]="i === active()"
+                   [style.background]="i === active() ? 'oklch(95% 0.03 290)' : ''"
+                   (click)="select(p)"><div class="combo-item-city">{{ label(p) }}</div></div>
             }
           </div>
         </div>
@@ -53,15 +68,20 @@ const MAX_RESULTS = 8;
 })
 export class PlaceComboboxComponent {
   private readonly http = inject(HttpClient);
+  private readonly uid = `place-combobox-${++nextId}`;
+  readonly listId = `${this.uid}-list`;
 
   /** Current home city, shown as the label. A pick made in this widget overrides it until the parent changes it. */
   value = input<Place | null>(null);
   placeChange = output<Place | null>();
 
   @ViewChild('searchInput') private searchInput?: ElementRef<HTMLInputElement>;
+  @ViewChild('trigger') private trigger?: ElementRef<HTMLButtonElement>;
 
   open = signal(false);
   query = signal('');
+  /** Index into `filtered()` of the keyboard-highlighted option; -1 = none. */
+  active = signal(-1);
   failed = signal(false);
   protected rows = signal<PlaceRow[] | null>(null);
   private loading = false;
@@ -89,6 +109,10 @@ export class PlaceComboboxComponent {
     return `${p.name}, ${p.countryCode} · ${p.iata}`;
   }
 
+  optionId(i: number): string {
+    return `${this.uid}-opt-${i}`;
+  }
+
   /** Fetched once per instance, on first open/focus — never on page load. */
   ensureLoaded(): void {
     if (this.rows() || this.loading) return;
@@ -101,18 +125,61 @@ export class PlaceComboboxComponent {
   }
 
   toggleOpen() {
-    this.open.update(v => !v);
-    if (this.open()) {
-      this.ensureLoaded();
-      setTimeout(() => this.searchInput?.nativeElement.focus(), 0);
+    if (this.open()) { this.close(true); return; }
+    this.openList();
+  }
+
+  openFromKeyboard(e: Event) {
+    e.preventDefault();
+    this.openList();
+  }
+
+  private openList() {
+    this.open.set(true);
+    this.ensureLoaded();
+    setTimeout(() => this.searchInput?.nativeElement.focus(), 0);
+  }
+
+  onQuery(value: string) {
+    this.query.set(value);
+    this.active.set(-1);
+  }
+
+  onSearchKeydown(e: KeyboardEvent) {
+    const n = this.filtered().length;
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        if (n) this.active.set((this.active() + 1) % n);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        if (n) this.active.set(this.active() <= 0 ? n - 1 : this.active() - 1);
+        break;
+      case 'Enter': {
+        e.preventDefault();
+        const p = this.filtered()[this.active()];
+        if (p) this.select(p);
+        break;
+      }
+      case 'Escape':
+        e.preventDefault();
+        this.close(true);
+        break;
     }
+  }
+
+  close(refocusTrigger = false) {
+    this.open.set(false);
+    this.query.set('');
+    this.active.set(-1);
+    if (refocusTrigger) this.trigger?.nativeElement.focus();
   }
 
   select(place: Place) {
     this.picked.set(place);
-    this.open.set(false);
-    this.query.set('');
     this.placeChange.emit(place);
+    this.close(true);
   }
 
   clear() {

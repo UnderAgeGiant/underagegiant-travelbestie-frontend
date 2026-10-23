@@ -70,6 +70,52 @@ describe('PlaceComboboxComponent', () => {
     expect(emitted).toEqual({ geonameId: 3897, name: 'Rancagua', countryCode: 'CL', iata: 'SCL' });
   });
 
+  it('ArrowDown then Enter picks the highlighted option (keyboard)', () => {
+    let emitted: unknown = 'unset';
+    component.placeChange.subscribe((p: unknown) => (emitted = p));
+    openAndType('ranc');
+    http.expectOne('/data/places.json').flush(ROWS);
+    fixture.detectChanges();
+
+    const input = fixture.nativeElement.querySelector('.combo-search') as HTMLInputElement;
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+    fixture.detectChanges();
+    expect(input.getAttribute('aria-activedescendant')).toBe(
+      fixture.nativeElement.querySelector('[role="option"]').id,
+    );
+    expect(fixture.nativeElement.querySelector('[role="option"]').getAttribute('aria-selected')).toBe('true');
+
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+    expect(emitted).toEqual({ geonameId: 3897, name: 'Rancagua', countryCode: 'CL', iata: 'SCL' });
+    expect(component.open()).toBe(false);
+  });
+
+  it('Escape closes the dropdown without emitting', () => {
+    let emitted: unknown = 'unset';
+    component.placeChange.subscribe((p: unknown) => (emitted = p));
+    openAndType('ranc');
+    http.expectOne('/data/places.json').flush(ROWS);
+
+    const input = fixture.nativeElement.querySelector('.combo-search') as HTMLInputElement;
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    fixture.detectChanges();
+
+    expect(component.open()).toBe(false);
+    expect(fixture.nativeElement.querySelector('.combo-search')).toBeNull();
+    expect(emitted).toBe('unset');
+  });
+
+  it('the trigger is a real button exposing combobox ARIA state', () => {
+    const trigger = fixture.nativeElement.querySelector('.combo-input') as HTMLElement;
+    expect(trigger.tagName).toBe('BUTTON');
+    expect(trigger.getAttribute('aria-expanded')).toBe('false');
+    trigger.click();
+    fixture.detectChanges();
+    expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    expect(fixture.nativeElement.querySelector('[role="listbox"]')).toBeTruthy();
+    http.expectOne('/data/places.json').flush(ROWS);
+  });
+
   it('emits null when the user clears the selection', () => {
     let emitted: unknown = 'unset';
     component.placeChange.subscribe((p: unknown) => (emitted = p));
