@@ -3637,6 +3637,10 @@
         <source>sin estimar</source>
         <target>no estimate</target>
       </trans-unit>
+      <trans-unit id="tripCost.hotelGap" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · alojamiento — sin estimar</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · lodging — no estimate</target>
+      </trans-unit>
       <trans-unit id="tripCost.unpricedTickets" datatype="html">
         <source>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> sin precio</source>
         <target>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> without price</target>

@@ -69,7 +69,11 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
           }
 
           @for (leg of est.unestimated; track $index) {
-            <div class="tcc-gap">{{ cityName(leg.from, settings()) }} → {{ cityName(leg.to, settings()) }} · <span i18n="@@tripCost.unestimated">sin estimar</span></div>
+            @if (leg.mode === 'hotel') {
+              <div class="tcc-gap"><span i18n="@@tripCost.hotelGap">{{ cityName(leg.from, settings()) }} · alojamiento — sin estimar</span></div>
+            } @else {
+              <div class="tcc-gap">{{ cityName(leg.from, settings()) }} → {{ cityName(leg.to, settings()) }} · <span i18n="@@tripCost.unestimated">sin estimar</span></div>
+            }
           }
 
           <button type="button" class="tcc-toggle" [attr.aria-expanded]="open()" (click)="open.set(!open())"

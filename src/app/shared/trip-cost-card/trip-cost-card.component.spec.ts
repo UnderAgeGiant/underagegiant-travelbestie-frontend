@@ -96,6 +96,12 @@ describe('TripCostCardComponent', () => {
     expect(text()).toContain('sin estimar');
   });
 
+  it('renders an unpriced hotel as "{city} · alojamiento — sin estimar", not as a route', () => {
+    create({ estimate: estimate({ unestimated: [{ from: 'paris', to: 'paris', mode: 'hotel' }] }) });
+    expect(text()).toContain('Paris · alojamiento — sin estimar');
+    expect(text()).not.toContain('→');
+  });
+
   it('shows the edit link when origin is missing and emits editSettings', () => {
     create({ estimate: estimate({ missingOrigin: true }), settings: { ...SETTINGS, origin: null } });
     expect(text()).toContain('Sin vuelos desde casa');
