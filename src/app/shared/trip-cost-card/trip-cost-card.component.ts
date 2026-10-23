@@ -21,7 +21,7 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (mode() === 'owner' || estimate()) {
-      <section class="tcc" [class.tcc-stale]="isStale()">
+      <section class="tcc" [class.tcc--empty]="!calculating() && !estimate()" [class.tcc-stale]="isStale()">
         @if (mode() === 'shared') {
           <div class="tcc-title" i18n="@@tripCost.sharedTitle">Costo estimado para este grupo</div>
         } @else {
@@ -31,7 +31,9 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
         @if (calculating()) {
           <div class="tcc-status" i18n="@@tripCost.calculating">Calculando…</div>
         } @else if (estimate(); as est) {
-          <div class="tcc-total" [class.tcc-total--stale]="isStale()">≈ {{ cost.format(est.totalUsd) }}</div>
+          <div class="tcc-total" [class.tcc-total--stale]="isStale()">
+            ≈ {{ cost.format(est.totalUsd) }} <small class="tcc-code">{{ cost.viewerCurrency() }}</small>
+          </div>
 
           @if (settings(); as s) {
             <div class="tcc-context">
@@ -53,7 +55,7 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
             </div>
           }
 
-          <div class="tcc-meta"><span i18n="@@tripCost.infoGlyph">ⓘ</span> <span i18n="@@tripCost.calculatedOn">Calculado el {{ calculatedDate() }} · aproximado, ±30%</span></div>
+          <div class="tcc-meta"><span class="tcc-glyph" i18n="@@tripCost.infoGlyph">ⓘ</span><span i18n="@@tripCost.calculatedOn">Calculado el {{ calculatedDate() }} · aproximado, ±30%</span></div>
 
           @if (isStale()) {
             <div class="tcc-stale-msg" i18n="@@tripCost.stale">Desactualizado · guarda para recalcular</div>
@@ -68,36 +70,59 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
             </div>
           }
 
-          @for (leg of est.unestimated; track $index) {
-            @if (leg.mode === 'hotel') {
-              <div class="tcc-gap"><span i18n="@@tripCost.hotelGap">{{ cityName(leg.from, settings()) }} · alojamiento — sin estimar</span></div>
-            } @else {
-              <div class="tcc-gap">{{ cityName(leg.from, settings()) }} → {{ cityName(leg.to, settings()) }} · <span i18n="@@tripCost.unestimated">sin estimar</span></div>
-            }
-          }
-
-          <button type="button" class="tcc-toggle" [attr.aria-expanded]="open()" (click)="open.set(!open())"
-                  i18n="@@tripCost.breakdown">Desglose</button>
-
-          @if (open()) {
-            <div class="tcc-breakdown">
-              <div class="tcc-line"><span i18n="@@tripCost.flights">Vuelos</span><span>{{ cost.format(est.flightsUsd) }}</span></div>
-              <div class="tcc-line">
-                <span i18n="@@tripCost.lodging">Alojamiento · {{ est.nights }} noches · {{ est.rooms }} hab.</span>
-                <span>{{ cost.format(est.lodgingUsd) }}</span>
-              </div>
-              <div class="tcc-line">
-                <span i18n="@@tripCost.tickets">Entradas · {{ est.ticketCount }}</span>
-                <span>
-                  {{ cost.format(est.ticketsUsd) }}
-                  @if (est.unpricedTicketCount > 0) {
-                    <span class="tcc-sub" i18n="@@tripCost.unpricedTickets">· {{ est.unpricedTicketCount }} sin precio</span>
-                  }
-                </span>
-              </div>
-              <div class="tcc-line"><span i18n="@@tripCost.groundTransport">Buses y trenes</span><span>{{ cost.format(est.groundUsd) }}</span></div>
+          <!-- Gap rows stay visible even folded, so the owner always sees the total is incomplete. -->
+          @if (open() || est.unestimated.length > 0) {
+            <div class="tcc-rows">
+              @if (open()) {
+                <div class="tcc-row">
+                  <span><span class="tcc-ico" aria-hidden="true">✈️</span><span i18n="@@tripCost.flights">Vuelos (ida, vuelta y entre ciudades)</span></span>
+                  <b>{{ cost.format(est.flightsUsd) }}</b>
+                </div>
+                <div class="tcc-row">
+                  <span><span class="tcc-ico" aria-hidden="true">🏨</span><span i18n="@@tripCost.lodging">Alojamiento · {{ est.nights }} noches · {{ est.rooms }} hab.</span></span>
+                  <b>{{ cost.format(est.lodgingUsd) }}</b>
+                </div>
+                <div class="tcc-row">
+                  <span>
+                    <span class="tcc-ico" aria-hidden="true">🎟️</span>
+                    @if (est.ticketCount === 1) {
+                      <span i18n="@@tripCost.ticketsOne">Entradas · 1 atracción</span>
+                    } @else {
+                      <span i18n="@@tripCost.tickets">Entradas · {{ est.ticketCount }} atracciones</span>
+                    }
+                    @if (est.unpricedTicketCount > 0) {
+                      <span class="tcc-sub" i18n="@@tripCost.unpricedTickets">· {{ est.unpricedTicketCount }} sin precio</span>
+                    }
+                  </span>
+                  <b>{{ cost.format(est.ticketsUsd) }}</b>
+                </div>
+                <div class="tcc-row">
+                  <span><span class="tcc-ico" aria-hidden="true">🚌</span><span i18n="@@tripCost.groundTransport">Buses y trenes</span></span>
+                  <b>{{ cost.format(est.groundUsd) }}</b>
+                </div>
+              }
+              @for (leg of est.unestimated; track $index) {
+                @if (leg.mode === 'hotel') {
+                  <div class="tcc-row tcc-row--na">
+                    <span><span class="tcc-ico" aria-hidden="true">🏨</span><span i18n="@@tripCost.hotelGap">{{ cityName(leg.from, settings()) }} · alojamiento — sin estimar</span></span>
+                  </div>
+                } @else {
+                  <div class="tcc-row tcc-row--na">
+                    <span><span class="tcc-ico" aria-hidden="true">{{ legIcon(leg.mode) }}</span>{{ cityName(leg.from, settings()) }} → {{ cityName(leg.to, settings()) }}</span>
+                    <b i18n="@@tripCost.unestimated">sin estimar</b>
+                  </div>
+                }
+              }
             </div>
           }
+
+          <button type="button" class="tcc-toggle" [attr.aria-expanded]="open()" (click)="open.set(!open())">
+            @if (open()) {
+              <span i18n="@@tripCost.hideDetail">Ocultar detalle ▲</span>
+            } @else {
+              <span i18n="@@tripCost.showDetail">Ver detalle ▼</span>
+            }
+          </button>
         } @else {
           <div class="tcc-status" i18n="@@tripCost.notCalculated">Todavía no calculado</div>
           @if (canCalculate()) {
@@ -113,24 +138,49 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
     }
   `,
   styles: [`
-    .tcc { background: #fff; border: 1.5px solid var(--mint-d); border-radius: 16px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; min-width: 0; font-size: 12px; color: var(--t1); }
-    .tcc-title { font-size: 11px; font-weight: 700; color: var(--t2); letter-spacing: .2px; }
-    .tcc-status { color: var(--t3); }
-    .tcc-total { font-size: 20px; font-weight: 800; color: var(--mint-d); transition: opacity .2s; }
-    .tcc-total--stale { opacity: .45; }
-    .tcc-context { color: var(--t2); line-height: 1.35; }
-    .tcc-meta, .tcc-stale-msg { font-size: 11px; color: var(--t3); line-height: 1.35; }
-    .tcc-stale-msg { color: var(--t2); font-weight: 600; }
-    .tcc-missing { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; color: var(--t2); }
-    .tcc-gap { font-size: 11px; color: var(--t3); }
-    .tcc-btn, .tcc-link, .tcc-toggle {
-      background: none; border: none; padding: 0; font: inherit; cursor: pointer; text-align: left;
-      color: var(--sky-d); font-weight: 600; min-height: 32px; align-self: flex-start;
+    .tcc {
+      background: linear-gradient(135deg, var(--mint), var(--sky));
+      border-radius: 16px; padding: 14px 16px; min-width: 0;
+      display: flex; flex-direction: column; gap: 2px;
+      font-size: 12px; line-height: 1.4; color: var(--t1); text-align: left;
     }
-    .tcc-btn { background: var(--sky); border-radius: 99px; padding: 4px 12px; }
-    .tcc-breakdown { display: flex; flex-direction: column; gap: 4px; border-top: 1px solid var(--border); padding-top: 6px; }
-    .tcc-line { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--t2); }
-    .tcc-sub { font-size: 11px; color: var(--t3); }
+    .tcc--empty { background: var(--cream); border: 1px dashed var(--border); }
+    .tcc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--mint-d); }
+    .tcc--empty .tcc-title { color: var(--t2); }
+    .tcc-status { color: var(--t2); margin-top: 2px; }
+    .tcc-total {
+      font-size: 26px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; margin-top: 2px;
+      font-variant-numeric: tabular-nums; overflow-wrap: anywhere; transition: opacity .2s;
+    }
+    .tcc-code { font-size: 12px; font-weight: 500; letter-spacing: 0; color: var(--t2); }
+    .tcc-total--stale { opacity: .45; }
+    .tcc-context { color: var(--t2); }
+    .tcc-meta { font-size: 11px; color: var(--t2); margin-top: 4px; }
+    .tcc-stale-msg { font-size: 11px; font-weight: 600; color: var(--t1); }
+    .tcc-missing { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; color: var(--t2); }
+    .tcc-rows {
+      margin-top: 8px; padding-top: 6px; display: flex; flex-direction: column; gap: 2px;
+      border-top: 1px solid color-mix(in oklch, var(--sky-d) 30%, transparent);
+    }
+    .tcc-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 2px 0; color: var(--t2); }
+    .tcc-row b { color: var(--t1); font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .tcc-row--na b { color: var(--t2); font-weight: 500; font-style: italic; }
+    .tcc-ico { margin-right: 5px; }
+    .tcc-glyph { margin-right: 4px; }
+    .tcc-sub { color: var(--t2); }
+    .tcc-link, .tcc-toggle {
+      background: none; border: none; padding: 0; font: inherit; font-size: 12px; font-weight: 600;
+      color: var(--lav-d); cursor: pointer; text-align: left; align-self: flex-start; min-height: 32px;
+    }
+    .tcc-link:hover, .tcc-toggle:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .tcc-btn {
+      width: 100%; min-height: 40px; margin-top: 8px; border: 1px dashed var(--border); border-radius: 999px;
+      background: transparent; color: var(--t1); font: inherit; font-size: 13px; font-weight: 500; cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .tcc-btn:hover { border-color: var(--lav-d); color: var(--lav-d); }
+    .tcc button:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; border-radius: 8px; }
+    .tcc .tcc-btn:focus-visible { border-radius: 999px; }
   `],
 })
 export class TripCostCardComponent {
@@ -155,6 +205,10 @@ export class TripCostCardComponent {
     const at = this.estimate()?.calculatedAt;
     return at ? formatDate(at, 'd MMM y', this.locale) : '';
   });
+
+  legIcon(mode: string): string {
+    return mode === 'flight' ? '✈️' : mode === 'boat' ? '⛴️' : '🚌';
+  }
 
   /** City id to display name; '__home__' is the origin name, or "Casa" when there is none. */
   cityName(id: string, s: CostCardSettings | null): string {

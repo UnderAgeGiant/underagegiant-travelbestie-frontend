@@ -3,7 +3,7 @@ import { TripCostCardComponent } from './trip-cost-card.component';
 import { TripCostService } from '../../core/trip-cost/trip-cost.service';
 import { CostEstimate, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
 
-const fakeCost = { format: (usd: number) => `US$${usd}` };
+const fakeCost = { format: (usd: number) => `US$${usd}`, viewerCurrency: () => 'USD' };
 
 function estimate(over: Partial<CostEstimate> = {}): CostEstimate {
   return {

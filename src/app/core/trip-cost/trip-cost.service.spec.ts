@@ -26,7 +26,8 @@ describe('TripCostService', () => {
     service.format(100);            // triggers the one-time load
     await Promise.resolve();        // let the deferred load land
     const text = service.format(100);
-    expect(text).toContain('CLP');
+    expect(text).toBe('$94,012');            // narrow symbol; the card prints the code after it
+    expect(service.viewerCurrency()).toBe('CLP');
     expect(text).toContain('94,012');
   });
 

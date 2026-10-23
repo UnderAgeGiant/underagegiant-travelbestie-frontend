@@ -24,19 +24,23 @@ const MAX_TRAVELERS = 20;
         <div class="cs-steppers">
           <div class="cs-stepper">
             <span class="cs-step-label" i18n="@@costSettings.adults">Adultos</span>
-            <button type="button" class="cs-step" aria-label="Quitar adulto" i18n-aria-label="@@costSettings.lessAdults"
-                    [disabled]="settings().adults <= MIN_ADULTS" (click)="setAdults(settings().adults - 1)">−</button>
-            <span class="cs-value" aria-live="polite">{{ settings().adults }}</span>
-            <button type="button" class="cs-step" aria-label="Agregar adulto" i18n-aria-label="@@costSettings.moreAdults"
-                    [disabled]="settings().adults >= MAX_TRAVELERS" (click)="setAdults(settings().adults + 1)">+</button>
+            <div class="cs-step-row">
+              <button type="button" class="cs-step" aria-label="Quitar adulto" i18n-aria-label="@@costSettings.lessAdults"
+                      [disabled]="settings().adults <= MIN_ADULTS" (click)="setAdults(settings().adults - 1)">−</button>
+              <span class="cs-value" aria-live="polite">{{ settings().adults }}</span>
+              <button type="button" class="cs-step" aria-label="Agregar adulto" i18n-aria-label="@@costSettings.moreAdults"
+                      [disabled]="settings().adults >= MAX_TRAVELERS" (click)="setAdults(settings().adults + 1)">+</button>
+            </div>
           </div>
           <div class="cs-stepper">
             <span class="cs-step-label" i18n="@@costSettings.children">Niños &lt;12</span>
-            <button type="button" class="cs-step" aria-label="Quitar niño" i18n-aria-label="@@costSettings.lessChildren"
-                    [disabled]="settings().children <= 0" (click)="setChildren(settings().children - 1)">−</button>
-            <span class="cs-value" aria-live="polite">{{ settings().children }}</span>
-            <button type="button" class="cs-step" aria-label="Agregar niño" i18n-aria-label="@@costSettings.moreChildren"
-                    [disabled]="settings().children >= MAX_TRAVELERS" (click)="setChildren(settings().children + 1)">+</button>
+            <div class="cs-step-row">
+              <button type="button" class="cs-step" aria-label="Quitar niño" i18n-aria-label="@@costSettings.lessChildren"
+                      [disabled]="settings().children <= 0" (click)="setChildren(settings().children - 1)">−</button>
+              <span class="cs-value" aria-live="polite">{{ settings().children }}</span>
+              <button type="button" class="cs-step" aria-label="Agregar niño" i18n-aria-label="@@costSettings.moreChildren"
+                      [disabled]="settings().children >= MAX_TRAVELERS" (click)="setChildren(settings().children + 1)">+</button>
+            </div>
           </div>
         </div>
       </div>
@@ -57,13 +61,13 @@ const MAX_TRAVELERS = 20;
         <span class="cs-desc">
           @switch (settings().comfort) {
             @case ('budget') {
-              <ng-container i18n="@@costSettings.budgetDesc">Cama en hostal por persona · vuelos económicos</ng-container>
+              <ng-container i18n="@@costSettings.budgetDesc">Cama en hostal por persona · vuelos en clase económica</ng-container>
             }
             @case ('mid') {
-              <ng-container i18n="@@costSettings.midDesc">Habitación 3–4★ · vuelos económicos</ng-container>
+              <ng-container i18n="@@costSettings.midDesc">Hotel 3–4★ · vuelos en clase económica</ng-container>
             }
             @case ('luxury') {
-              <ng-container i18n="@@costSettings.luxuryDesc">Habitación 5★ · vuelos en business</ng-container>
+              <ng-container i18n="@@costSettings.luxuryDesc">Hotel 5★ · vuelos en business</ng-container>
             }
           }
         </span>
@@ -71,25 +75,45 @@ const MAX_TRAVELERS = 20;
     </div>
   `,
   styles: [`
-    .cs { display: flex; flex-direction: column; gap: 10px; }
-    .cs-field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-    .cs-label { font-size: 11px; font-weight: 600; color: var(--t2); letter-spacing: .2px; }
-    .cs-hint, .cs-desc { font-size: 11px; color: var(--t3); line-height: 1.35; }
-    .cs-steppers { display: flex; flex-direction: column; gap: 6px; }
-    .cs-stepper { display: flex; align-items: center; gap: 6px; }
-    .cs-step-label { flex: 1; font-size: 12px; color: var(--t1); }
+    .cs { display: flex; flex-direction: column; gap: 12px; }
+    .cs-field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+    .cs-label { font-size: 12px; font-weight: 600; color: var(--t1); }
+    .cs-hint, .cs-desc { font-size: 11px; color: var(--t2); line-height: 1.35; }
+
+    .cs-steppers { display: flex; gap: 8px; }
+    .cs-stepper {
+      flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0;
+      background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 6px 4px 2px;
+    }
+    .cs-step-label { font-size: 11px; color: var(--t2); padding-left: 8px; white-space: nowrap; }
+    .cs-step-row { display: flex; align-items: center; justify-content: space-between; }
+    /* 40px hit area, 26px lavender dot drawn inside it. */
     .cs-step {
-      min-width: 40px; min-height: 40px; border-radius: 10px; border: 1.5px solid var(--border);
-      background: var(--cream); color: var(--t1); font: inherit; font-size: 16px; cursor: pointer;
+      position: relative; width: 40px; height: 40px; flex: none; padding: 0; border: none; background: none;
+      font: inherit; font-size: 15px; font-weight: 700; color: var(--lav-d); cursor: pointer;
+      display: grid; place-items: center; isolation: isolate;
     }
+    .cs-step::before {
+      content: ''; position: absolute; inset: 7px; border-radius: 50%; background: var(--lav); z-index: -1;
+      transition: transform .15s ease-out, background .15s;
+    }
+    .cs-step:hover:not(:disabled)::before { transform: scale(1.1); }
+    .cs-step:active:not(:disabled)::before { transform: scale(.92); }
     .cs-step:disabled { opacity: .35; cursor: default; }
-    .cs-value { min-width: 24px; text-align: center; font-size: 13px; font-weight: 600; color: var(--t1); }
-    .cs-seg { display: flex; gap: 4px; background: var(--border); border-radius: 12px; padding: 3px; }
+    .cs-step:focus-visible { outline: none; }
+    .cs-step:focus-visible::before { box-shadow: 0 0 0 2px var(--cream), 0 0 0 4px var(--lav-d); }
+    .cs-value { min-width: 20px; text-align: center; font-size: 15px; font-weight: 700; color: var(--t1); font-variant-numeric: tabular-nums; }
+
+    .cs-seg { display: flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
     .cs-seg button {
-      flex: 1; min-height: 40px; border: none; border-radius: 9px; background: transparent;
+      flex: 1; min-width: 0; min-height: 40px; border: none; background: transparent; padding: 0 4px;
       color: var(--t2); font: inherit; font-size: 12px; font-weight: 500; cursor: pointer;
+      transition: background .15s, color .15s;
     }
-    .cs-seg button.on { background: var(--cream); color: var(--t1); font-weight: 600; box-shadow: var(--sh-lg); }
+    .cs-seg button:hover:not(.on) { color: var(--lav-d); }
+    .cs-seg button.on { background: var(--lav-d); color: var(--cream); font-weight: 600; }
+    .cs-seg button:focus-visible { outline: 2px solid var(--lav-d); outline-offset: -4px; border-radius: 999px; }
+    .cs-seg button.on:focus-visible { outline-color: var(--cream); }
   `],
 })
 export class CostSettingsComponent {

@@ -32,7 +32,7 @@ export class TripCostService {
     this.loadRatesOnce();
     const currency = this.viewerCurrency();
     const amount = currency === 'USD' ? usd : usd * (this._rates()!.rates[currency]);
-    return new Intl.NumberFormat(this.locale, { style: 'currency', currency, maximumFractionDigits: 0 }).format(amount);
+    return new Intl.NumberFormat(this.locale, { style: 'currency', currency, currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0 }).format(amount);
   }
 
   private loadRatesOnce(): void {

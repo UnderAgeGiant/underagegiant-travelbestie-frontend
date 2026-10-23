@@ -3561,10 +3561,6 @@
         <source>adulto</source>
         <target>adult</target>
       </trans-unit>
-      <trans-unit id="tripCost.breakdown" datatype="html">
-        <source>Desglose</source>
-        <target>Breakdown</target>
-      </trans-unit>
       <trans-unit id="tripCost.calculateBtn" datatype="html">
         <source>Calcular precio</source>
         <target>Calculate price</target>
@@ -3652,6 +3648,38 @@
       <trans-unit id="tripCost.home" datatype="html">
         <source>Casa</source>
         <target>Home</target>
+      </trans-unit>
+      <trans-unit id="tripCost.flights" datatype="html">
+        <source>Vuelos (ida, vuelta y entre ciudades)</source>
+        <target>Flights (out, back and between cities)</target>
+      </trans-unit>
+      <trans-unit id="tripCost.tickets" datatype="html">
+        <source>Entradas · <x id="INTERPOLATION" equiv-text="{{ est.ticketCount }}"/> atracciones</source>
+        <target>Tickets · <x id="INTERPOLATION" equiv-text="{{ est.ticketCount }}"/> attractions</target>
+      </trans-unit>
+      <trans-unit id="tripCost.ticketsOne" datatype="html">
+        <source>Entradas · 1 atracción</source>
+        <target>Tickets · 1 attraction</target>
+      </trans-unit>
+      <trans-unit id="tripCost.showDetail" datatype="html">
+        <source>Ver detalle ▼</source>
+        <target>Show details ▼</target>
+      </trans-unit>
+      <trans-unit id="tripCost.hideDetail" datatype="html">
+        <source>Ocultar detalle ▲</source>
+        <target>Hide details ▲</target>
+      </trans-unit>
+      <trans-unit id="costSettings.budgetDesc" datatype="html">
+        <source>Cama en hostal por persona · vuelos en clase económica</source>
+        <target>Hostel bed per person · economy flights</target>
+      </trans-unit>
+      <trans-unit id="costSettings.midDesc" datatype="html">
+        <source>Hotel 3–4★ · vuelos en clase económica</source>
+        <target>3–4★ hotel · economy flights</target>
+      </trans-unit>
+      <trans-unit id="costSettings.luxuryDesc" datatype="html">
+        <source>Hotel 5★ · vuelos en business</source>
+        <target>5★ hotel · business-class flights</target>
       </trans-unit>
       <trans-unit id="tripCost.hotelGap" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ cityName(leg.from, settings()) }}"/> · alojamiento — sin estimar</source>
