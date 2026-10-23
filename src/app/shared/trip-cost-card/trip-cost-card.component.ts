@@ -154,6 +154,7 @@ export class TripCostCardComponent {
   /** City id to display name; '__home__' is the origin name, or "Casa" when there is none. */
   cityName(id: string, s: CostCardSettings | null): string {
     if (id === '__home__') return s?.origin?.name ?? 'Casa';
-    return WORLD_CITIES.find(c => c.id === id)?.name ?? id;
+    // AI-made cities can sit outside the catalog; never show their internal id to the user.
+    return WORLD_CITIES.find(c => c.id === id)?.name ?? $localize`:@@tripCost.uncataloguedCity:Ciudad sin catálogo`;
   }
 }

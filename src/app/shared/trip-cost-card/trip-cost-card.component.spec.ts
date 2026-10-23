@@ -96,6 +96,12 @@ describe('TripCostCardComponent', () => {
     expect(text()).toContain('sin estimar');
   });
 
+  it('shows "Ciudad sin catálogo" instead of the raw id for a city outside the catalog (I6)', () => {
+    create({ estimate: estimate({ unestimated: [{ from: 'ai-made-city-42', to: 'ai-made-city-42', mode: 'hotel' }] }) });
+    expect(text()).toContain('Ciudad sin catálogo · alojamiento — sin estimar');
+    expect(text()).not.toContain('ai-made-city-42');
+  });
+
   it('renders an unpriced hotel as "{city} · alojamiento — sin estimar", not as a route', () => {
     create({ estimate: estimate({ unestimated: [{ from: 'paris', to: 'paris', mode: 'hotel' }] }) });
     expect(text()).toContain('Paris · alojamiento — sin estimar');
