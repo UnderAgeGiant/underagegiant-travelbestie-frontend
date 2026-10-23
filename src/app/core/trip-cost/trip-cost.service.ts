@@ -38,9 +38,11 @@ export class TripCostService {
   private loadRatesOnce(): void {
     if (this.ratesRequested) return;
     this.ratesRequested = true;
-    this.api.getFxRates().subscribe({
+    // Deferred out of the caller's reactive context: a synchronous rates write
+    // during a template/computed read would throw NG0600.
+    queueMicrotask(() => this.api.getFxRates().subscribe({
       next: rates => this._rates.set(rates),
       error: () => { /* stay in USD */ },
-    });
+    }));
   }
 }

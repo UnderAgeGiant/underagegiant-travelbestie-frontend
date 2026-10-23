@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { signal } from '@angular/core';
+import { computed, signal } from '@angular/core';
 import { of, Subject, throwError } from 'rxjs';
 import { TripCostService } from './trip-cost.service';
 import { ApiService } from '../api/api.service';
@@ -21,18 +21,29 @@ function setup(country: string | null, fx$: ReturnType<typeof of<FxRates>> | Sub
 }
 
 describe('TripCostService', () => {
-  it('formats in the viewer currency once rates are loaded (CL -> CLP)', () => {
+  it('formats in the viewer currency once rates are loaded (CL -> CLP)', async () => {
     const { service } = setup('CL');
+    service.format(100);            // triggers the one-time load
+    await Promise.resolve();        // let the deferred load land
     const text = service.format(100);
     expect(text).toContain('CLP');
     expect(text).toContain('94,012');
   });
 
-  it('loads the rates at most once across many format() calls', () => {
+  it('can be read from a computed without throwing (no NG0600) and reflects the rate after loading', async () => {
+    const { service } = setup('CL');
+    const view = computed(() => service.format(100));
+    expect(() => view()).not.toThrow();
+    await Promise.resolve();
+    expect(view()).toContain('94,012');
+  });
+
+  it('loads the rates at most once across many format() calls', async () => {
     const { service, getFxRates } = setup('CL');
     service.format(100);
     service.format(200);
     service.format(300);
+    await Promise.resolve();
     expect(getFxRates).toHaveBeenCalledTimes(1);
   });
 
@@ -51,8 +62,10 @@ describe('TripCostService', () => {
     expect(service.format(100)).toBe('$100');
   });
 
-  it('stays USD when the rates request fails', () => {
+  it('stays USD when the rates request fails', async () => {
     const { service, getFxRates } = setup('CL', throwError(() => new Error('upstream')));
+    expect(service.format(100)).toBe('$100');
+    await Promise.resolve();
     expect(service.format(100)).toBe('$100');
     service.format(100);
     expect(getFxRates).toHaveBeenCalledTimes(1);
