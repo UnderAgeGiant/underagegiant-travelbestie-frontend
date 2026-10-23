@@ -10,6 +10,9 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
+import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
+import { Place } from '../../../core/models/trip.model';
+import { of } from 'rxjs';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -459,5 +462,42 @@ describe('StopListComponent — Escape key handler', () => {
     (fixture.componentInstance as any).tripMapOpen.set(true);
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
     expect((fixture.componentInstance as any).tripMapOpen()).toBe(false);
+  });
+});
+
+describe('StopListComponent — cost settings on new-plan save', () => {
+  let component: StopListComponent;
+  let trip: TripService;
+  let auth: AuthService;
+  let savedPlans: SavedPlansService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false); // desktop viewport
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    component = TestBed.createComponent(StopListComponent).componentInstance;
+  });
+
+  it('saves with costSettings.origin equal to the user homePlace', () => {
+    const home: Place = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true);
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home } as any);
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('new-id'));
+
+    component.doBook();
+    component.bookName.set('Mi viaje');
+    component.doBookSave();
+
+    expect(upsert).toHaveBeenCalledWith(
+      'ana@test.com', null, 'Mi viaje', trip.stops(), trip.transits(),
+      expect.objectContaining({ costSettings: expect.objectContaining({ origin: home, adults: 1, children: 0, comfort: 'mid' }) }),
+    );
   });
 });

@@ -20,7 +20,8 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
-import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
+import { TripStop, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../../core/models/trip.model';
+import { CostSettingsComponent } from '../../../shared/cost-settings/cost-settings.component';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { City } from '../../../core/models/city.model';
@@ -32,7 +33,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -331,6 +332,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                      (input)="bookName.set($any($event.target).value)"
                      i18n-placeholder="@@stopList.bookNamePlaceholder" placeholder="Nombre del viaje…"
                      (keydown.enter)="doBookSave()" />
+              <app-cost-settings [settings]="costSettings()" (settingsChange)="costSettings.set($event)" />
               <div style="display:flex;gap:6px">
                 <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
                         [disabled]="bookSaving()"
@@ -529,6 +531,7 @@ export class StopListComponent {
   bookSaved  = signal(false);
   bookSaving = signal(false);
   bookError  = signal('');
+  costSettings = signal<CostSettings>(DEFAULT_COST_SETTINGS);
 
   editingDatesStopId = signal<string | null>(null);
   editCheckIn        = signal('');
@@ -550,6 +553,7 @@ export class StopListComponent {
       });
     } else {
       this.bookName.set('');
+      this.costSettings.set({ ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null });
       this.bookOpen.set(true);
     }
   }
@@ -563,7 +567,7 @@ export class StopListComponent {
     this.bookSaving.set(true);
     // Always null: the form only shows when activeTripName() was null, meaning the stale
     // loadedPlanId doesn't resolve to a known plan — passing it would PUT a ghost trip and fail silently.
-    this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits()).subscribe({
+    this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits(), { costSettings: this.costSettings() }).subscribe({
       next: newId => {
         this.bookSaving.set(false);
         this.trip.markAsLoadedPlan(newId);

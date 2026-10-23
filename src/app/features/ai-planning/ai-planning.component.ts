@@ -8,7 +8,8 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload } from '../../core/models/ai.model';
-import { Trip, TransitLeg, TransitSegment, TransitMode, PlannedAttraction } from '../../core/models/trip.model';
+import { Trip, TransitLeg, TransitSegment, TransitMode, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
+import { CostSettingsComponent } from '../../shared/cost-settings/cost-settings.component';
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { Attraction } from '../../core/models/comment.model';
@@ -59,7 +60,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent],
+    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent, CostSettingsComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -516,7 +517,11 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
               }
             </div>
 
-            <div class="ai-plan-actions" style="margin-top:24px">
+            <div style="margin-top:24px">
+              <app-cost-settings [settings]="costSettings()" (settingsChange)="costSettings.set($event)" />
+            </div>
+
+            <div class="ai-plan-actions" style="margin-top:16px">
               <button class="btn-pill btn-outline"
                       (click)="restart()"
                       type="button"
@@ -627,6 +632,8 @@ export class AiPlanningComponent implements OnDestroy {
   initialResult = input<AiPlanViewPayload | null>(null);
 
   readonly auth = inject(AuthService);
+  /** Cost estimate inputs for the saved plan; origin starts at the user's profile city. */
+  readonly costSettings = signal<CostSettings>({ ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null });
   private readonly api        = inject(ApiService);
   private readonly tripSvc    = inject(TripService);
   private readonly savedPlans = inject(SavedPlansService);
@@ -1127,6 +1134,7 @@ export class AiPlanningComponent implements OnDestroy {
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [], {
       sourceAiPlanRequestId: this.currentAiPlanRequestId() ?? undefined,
       sourcePlanSessionId: this.planSessionId() ?? undefined,
+      costSettings: this.costSettings(),
     })
       .subscribe({
         next: id => {
