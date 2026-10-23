@@ -633,7 +633,15 @@ export class AiPlanningComponent implements OnDestroy {
 
   readonly auth = inject(AuthService);
   /** Cost estimate inputs for the saved plan; origin starts at the user's profile city. */
-  readonly costSettings = linkedSignal<CostSettings>(() => ({ ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null }));
+  // Re-keyed only on the home place: a silent refresh or login replaces the whole user object,
+  // which must not wipe the adults/children/comfort the user already picked.
+  readonly costSettings = linkedSignal<number | null, CostSettings>({
+    source: () => this.auth.currentUser()?.homePlace?.geonameId ?? null,
+    computation: (_id, prev) => ({
+      ...(prev?.value ?? DEFAULT_COST_SETTINGS),
+      origin: this.auth.currentUser()?.homePlace ?? null,
+    }),
+  });
   private readonly api        = inject(ApiService);
   private readonly tripSvc    = inject(TripService);
   private readonly savedPlans = inject(SavedPlansService);

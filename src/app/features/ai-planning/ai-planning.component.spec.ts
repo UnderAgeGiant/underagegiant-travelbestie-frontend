@@ -200,6 +200,17 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     );
   });
 
+  it('keeps the adults/comfort the user picked when the user object is replaced with the same homePlace', () => {
+    const home = { geonameId: 3869, name: 'Santiago', countryCode: 'CL', iata: 'SCL' };
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: home });
+    component.costSettings.set({ ...component.costSettings(), adults: 3, comfort: 'luxury' });
+
+    // Silent refresh / re-login: a new user object, same home place.
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: { ...home } });
+
+    expect(component.costSettings()).toEqual(expect.objectContaining({ origin: home, adults: 3, comfort: 'luxury' }));
+  });
+
   it('deletes the backing ai_plan_requests row after a successful save when currentAiPlanRequestId is set', () => {
     component.currentAiPlanRequestId.set('req-99');
 
