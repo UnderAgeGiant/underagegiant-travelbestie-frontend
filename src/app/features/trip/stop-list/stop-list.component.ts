@@ -309,7 +309,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
       </div>
 
 
-      <div class="panel-footer">
+      <div class="panel-footer" [class.panel-footer--fab]="showFab()">
         <button class="btn-pill btn-ghost" style="width:100%;justify-content:center"
                 (click)="addDestination.emit()"
                 i18n="@@stopList.addBtn">+ Agregar destino</button>
@@ -371,7 +371,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
           }
         }
 
-        @if (device.isMobile() && showScrollTop() && trip.stops().length > 0 && !bookOpen() && !costEditOpen()) {
+        @if (showFab()) {
           <button class="scroll-top-fab" (click)="scrollToActiveCity()" type="button"
                   i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
         }
@@ -466,6 +466,9 @@ export class StopListComponent {
   // popover — see that component if this pattern needs to change in both places.
 
   protected readonly showScrollTop = signal(false);
+  /** Mobile "Ir arriba" FAB; hidden while a form is open so it never covers its buttons. */
+  protected readonly showFab = computed(() =>
+    this.device.isMobile() && this.showScrollTop() && this.trip.stops().length > 0 && !this.bookOpen() && !this.costEditOpen());
 
   // Which stop's inline city timeline is currently open (null = none).
   protected readonly itineraryOpenStopId = signal<string | null>(null);

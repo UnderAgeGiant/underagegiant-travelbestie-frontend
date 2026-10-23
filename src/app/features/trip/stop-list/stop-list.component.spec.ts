@@ -54,6 +54,20 @@ describe('StopListComponent — mobile add-attraction trigger', () => {
     expect(trip.activeId()).toBe(stopId);
     expect(destModal.isOpen()).toBe(true);
   });
+
+  it('reserves footer space under the "Ir arriba" FAB so it never covers the footer buttons', () => {
+    const fixture = TestBed.createComponent(StopListComponent);
+    const el = fixture.nativeElement as HTMLElement;
+    (fixture.componentInstance as any).showScrollTop.set(true);
+    fixture.detectChanges();
+    expect(el.querySelector('.scroll-top-fab')).toBeTruthy();
+    expect(el.querySelector('.panel-footer')?.classList).toContain('panel-footer--fab');
+
+    fixture.componentInstance.bookOpen.set(true);
+    fixture.detectChanges();
+    expect(el.querySelector('.scroll-top-fab')).toBeNull();
+    expect(el.querySelector('.panel-footer')?.classList).not.toContain('panel-footer--fab');
+  });
 });
 
 describe('StopListComponent — AI city suggestions', () => {

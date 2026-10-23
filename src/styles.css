@@ -637,6 +637,8 @@ app-nav { display: block; }
   .panel-head-title { font-size: 20px; }
   .panel-footer { border-top: 1.5px solid var(--border); background: #fff; }
   .cost-footer-scroll { max-height: none; overflow-y: visible; }
+  /* The stop list FAB is absolute inside the footer (bottom 20px, 44px): keep the buttons above it. */
+  .panel-footer--fab { padding-bottom: 76px; }
 
   /* ── Right panel: full-width below stop list ── */
   .right-panel {
