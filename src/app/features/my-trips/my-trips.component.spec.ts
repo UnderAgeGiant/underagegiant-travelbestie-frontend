@@ -574,6 +574,8 @@ describe('MyTripsComponent — "Dejar de publicar" (F74 feedback F3)', () => {
     expect(unshare).toHaveBeenCalledWith('published');
     expect(shareIdOf('published')).toBeUndefined();
     expect(el().querySelector('.saved-plan-published')).toBeNull();
+    expect(el().querySelector('.saved-plan-unpublish')).toBeNull();
+    expect(el().querySelector('.unpublish-confirm')).toBeNull();
   });
 
   it('Cancelar closes the confirm without unpublishing', () => {
