@@ -295,6 +295,9 @@ app-nav { display: block; }
 .share-copied { font-size: 10px; color: var(--mint-d); font-weight: 700; white-space: nowrap; }
 .share-error  { font-size: 10px; color: var(--peach-d); font-weight: 700; white-space: nowrap; }
 .share-search-warning { font-size: 11px; color: var(--t3); line-height: 1.4; }
+.unpublish-confirm { margin: 0 16px 12px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--cream); display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--t1); }
+.unpublish-confirm-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.unpublish-confirm-btns .btn-pill { flex: 1 1 auto; justify-content: center; }
 
 /* SHARED TRIP PAGE */
 .shared-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }

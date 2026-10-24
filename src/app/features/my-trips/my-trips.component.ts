@@ -167,6 +167,10 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                                   style="justify-content:center;gap:6px"
                                   (click)="shareNative(plan)" type="button"
                                   i18n="@@share.shareBtn">📤 Compartir</button>
+                          <button class="btn-pill btn-ghost"
+                                  style="justify-content:center"
+                                  (click)="confirmUnpublishId.set(plan.id)" type="button"
+                                  i18n="@@myTrips.unpublishBtn">Dejar de publicar</button>
                         } @else {
                           <button class="btn-pill btn-outline"
                                   style="justify-content:center;gap:6px"
@@ -189,6 +193,17 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                           <span class="share-error" i18n="@@myTrips.insufficientKarma">Token insuficiente</span>
                         }
                       </div>
+                      @if (confirmUnpublishId() === plan.id) {
+                        <div class="unpublish-confirm" role="group" aria-live="polite">
+                          <span i18n="@@myTrips.unpublishConfirm">¿Dejar de publicar? El enlace dejará de funcionar.</span>
+                          <div class="unpublish-confirm-btns">
+                            <button class="btn-pill btn-outline" type="button" [disabled]="unpublishing()"
+                                    (click)="confirmUnpublishId.set(null)" i18n="@@myTrips.cancelBtn">Cancelar</button>
+                            <button class="btn-pill btn-primary" type="button" [disabled]="unpublishing()"
+                                    (click)="unpublish(plan)" i18n="@@myTrips.unpublishYes">Sí, dejar de publicar</button>
+                          </div>
+                        </div>
+                      }
                       @if (planShareId(plan)) {
                         <p class="share-search-warning" style="margin:0 16px 12px"
                            i18n="@@myTrips.shareSearchWarning">
@@ -576,6 +591,8 @@ export class MyTripsComponent implements AfterViewInit {
   toast           = signal<string | null>(null);
   confirmCloneId  = signal<string | null>(null);
   confirmDeleteId = signal<string | null>(null);
+  confirmUnpublishId = signal<string | null>(null);
+  unpublishing    = signal(false);
   cloningId       = signal<string | null>(null);
 
   inviteEmailByPlan = signal<Record<string, string>>({});
@@ -622,6 +639,26 @@ export class MyTripsComponent implements AfterViewInit {
         error: err => { this.karmaModal.handleKarmaError(err); },
       });
     }
+  }
+
+  unpublish(plan: SavedPlan): void {
+    const email = this.auth.currentUser()?.email;
+    if (!email || this.unpublishing()) return;
+    const sid = this.planShareId(plan);
+    this.unpublishing.set(true);
+    this.api.unshareTrip(plan.id).subscribe({
+      next: () => {
+        if (environment.useMocks && sid) this.sharedTrips.removeShare(sid);
+        this.savedPlans.clearShareId(email, plan.id);
+        this.unpublishing.set(false);
+        this.confirmUnpublishId.set(null);
+      },
+      error: () => {
+        this.unpublishing.set(false);
+        this.confirmUnpublishId.set(null);
+        this.toast.set($localize`:@@myTrips.unpublishError:No se pudo dejar de publicar el viaje`);
+      },
+    });
   }
 
   shareNative(plan: SavedPlan): void {

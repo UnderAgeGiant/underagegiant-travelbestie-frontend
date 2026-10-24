@@ -2997,7 +2997,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">291,292</context>
+          <context context-type="linenumber">306,307</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.cityCountMany" datatype="html">
@@ -3008,7 +3008,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">293,294</context>
+          <context context-type="linenumber">308,309</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.duplicateTitle" datatype="html">
@@ -3047,7 +3047,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">297,298</context>
+          <context context-type="linenumber">312,313</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.viewPublishedBtn" datatype="html">
@@ -3076,176 +3076,212 @@
           <context context-type="linenumber">137,139</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="myTrips.unpublishBtn" datatype="html">
+        <source>Dejar de publicar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
+          <context context-type="linenumber">173,174</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="myTrips.publishBtn" datatype="html">
         <source> 📤 Publicar </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">175,176</context>
+          <context context-type="linenumber">179,180</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.exportExcelBtn" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ exportingPlanId() === plan.id ? &apos;⏳&apos; : &apos;📥&apos; }}"/> Exportar a Excel <x id="START_BLOCK_IF" equiv-text="@if (!plan.exportedAt) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;karma-cost&quot;&gt;"/>−1 ✨ token<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">183,187</context>
+          <context context-type="linenumber">187,191</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.insufficientKarma" datatype="html">
         <source>Token insuficiente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">189,191</context>
+          <context context-type="linenumber">193,195</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myTrips.unpublishConfirm" datatype="html">
+        <source>¿Dejar de publicar? El enlace dejará de funcionar.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
+          <context context-type="linenumber">198,199</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myTrips.cancelBtn" datatype="html">
+        <source>Cancelar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
+          <context context-type="linenumber">201,202</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
+          <context context-type="linenumber">411,412</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
+          <context context-type="linenumber">433,434</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myTrips.unpublishYes" datatype="html">
+        <source>Sí, dejar de publicar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
+          <context context-type="linenumber">203,204</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.shareSearchWarning" datatype="html">
         <source> Tu plan compartido puede aparecer en buscadores como Google </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">195,196</context>
+          <context context-type="linenumber">210,211</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.collaboratorsTitle" datatype="html">
         <source>🤝 Colaboradores</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">202,203</context>
+          <context context-type="linenumber">217,218</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.invitePlaceholder" datatype="html">
         <source>Correo del colaborador</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">217,218</context>
+          <context context-type="linenumber">232,233</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.noResults" datatype="html">
         <source>Sin resultados para &quot;<x id="INTERPOLATION" equiv-text="{{ planSearch() }}"/>&quot; 🔍</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">236,237</context>
+          <context context-type="linenumber">251,252</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.favLoading" datatype="html">
         <source>Cargando favoritos…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">243,244</context>
+          <context context-type="linenumber">258,259</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.favEmpty" datatype="html">
         <source>Todavía no guardaste ningún plan como favorito.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">247,248</context>
+          <context context-type="linenumber">262,263</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.favEmptyHint" datatype="html">
         <source>Explorá planes compartidos y presioná ❤️ para guardarlos aquí.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">248,250</context>
+          <context context-type="linenumber">263,265</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.favCardBy" datatype="html">
         <source>por <x id="INTERPOLATION" equiv-text="{{ trip.ownerName }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">256,257</context>
+          <context context-type="linenumber">271,272</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">311,312</context>
+          <context context-type="linenumber">326,327</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.favCardOpen" datatype="html">
         <source>Ver plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">264,265</context>
+          <context context-type="linenumber">279,280</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.favCardRemove" datatype="html">
         <source>Quitar de favoritos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">267,268</context>
+          <context context-type="linenumber">282,283</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.collabEmpty" datatype="html">
         <source>Todavía no colaboras en ningún viaje.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">279,281</context>
+          <context context-type="linenumber">294,296</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.collabWith" datatype="html">
         <source>Colaborando con <x id="INTERPOLATION" equiv-text="{{ plan.ownerName }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">287,288</context>
+          <context context-type="linenumber">302,303</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.acceptInviteBtn" datatype="html">
         <source>Aceptar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">317,318</context>
+          <context context-type="linenumber">332,333</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mytrips.aiPlansLoading" datatype="html">
         <source>Cargando tus planes…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">328,329</context>
+          <context context-type="linenumber">343,344</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mytrips.aiPlansEmpty" datatype="html">
         <source>Aún no tienes planes de IA pendientes.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">330,332</context>
+          <context context-type="linenumber">345,347</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanBasedOn" datatype="html">
         <source>Basado en: <x id="INTERPOLATION" equiv-text="{{ item.requestParams.selectedOption.title }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">343,344</context>
+          <context context-type="linenumber">358,359</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanViewHint" datatype="html">
         <source>Ver plan →</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">344,345</context>
+          <context context-type="linenumber">359,360</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanFailedTitle" datatype="html">
         <source>No se pudo generar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">346,347</context>
+          <context context-type="linenumber">361,362</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanRefunded" datatype="html">
         <source>Token reembolsado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">349,351</context>
+          <context context-type="linenumber">364,366</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mytrips.aiPlanDiscardBtn" datatype="html">
         <source>🗑️ Descartar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">355,356</context>
+          <context context-type="linenumber">370,371</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.aiBtn" datatype="html">
         <source>✨ Nuevo viaje con IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">370,371</context>
+          <context context-type="linenumber">385,386</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/preferences/preferences.component.ts</context>
@@ -3256,109 +3292,105 @@
         <source>📋 Duplicar viaje</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">386,387</context>
+          <context context-type="linenumber">401,402</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.cloneModalBody" datatype="html">
         <source> Se creará una copia de este viaje en tu lista de guardados.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Costo: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>−1 ✨ token<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">391,394</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="myTrips.cancelBtn" datatype="html">
-        <source>Cancelar</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">396,397</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">418,419</context>
+          <context context-type="linenumber">406,409</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.cloneConfirmBtn" datatype="html">
         <source>📋 Duplicar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">397,399</context>
+          <context context-type="linenumber">412,414</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.deleteModalTitle" datatype="html">
         <source>🗑️ Eliminar viaje</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">408,409</context>
+          <context context-type="linenumber">423,424</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.deleteModalSub" datatype="html">
         <source>Esta acción no se puede deshacer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">409,411</context>
+          <context context-type="linenumber">424,426</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.deleteModalBody" datatype="html">
         <source> ¿Eliminar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ planName(confirmDeleteId()!) }}"/>&quot;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> Perderás este viaje permanentemente. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">413,414</context>
+          <context context-type="linenumber">428,429</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.deleteConfirmBtn" datatype="html">
         <source>🗑️ Eliminar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">420,422</context>
+          <context context-type="linenumber">435,437</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myTrips.unpublishError" datatype="html">
+        <source>No se pudo dejar de publicar el viaje</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
+          <context context-type="linenumber">659</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.excelNeedsBackend" datatype="html">
         <source>La exportación Excel requiere el backend activo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">643</context>
+          <context context-type="linenumber">680</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.itineraryDownloaded" datatype="html">
         <source>Itinerario descargado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">658</context>
+          <context context-type="linenumber">695</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.itineraryDownloadError" datatype="html">
         <source>Error al descargar el itinerario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">666</context>
+          <context context-type="linenumber">703</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.inviteSentToast" datatype="html">
         <source>Invitación enviada</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">707</context>
+          <context context-type="linenumber">744</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.inviteErrorToast" datatype="html">
         <source>No se pudo enviar la invitación</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">712</context>
+          <context context-type="linenumber">749</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.inviteAcceptedToast" datatype="html">
         <source>¡Ahora colaboras en este viaje!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">731</context>
+          <context context-type="linenumber">768</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myTrips.cloneSavedToast" datatype="html">
         <source>&quot;<x id="PH" equiv-text="cloned.title"/>&quot; guardado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/my-trips/my-trips.component.ts</context>
-          <context context-type="linenumber">766</context>
+          <context context-type="linenumber">803</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.searchPlaceholder" datatype="html">

@@ -191,7 +191,11 @@ export class SavedPlansService {
     }
   }
 
-  setShareId(email: string, planId: string, shareId: string): void {
+  clearShareId(email: string, planId: string): void {
+    this.setShareId(email, planId, undefined);
+  }
+
+  setShareId(email: string, planId: string, shareId: string | undefined): void {
     const updated = this._plans().map(p => p.id === planId ? { ...p, shareId } : p);
     this._plans.set(updated);
     if (environment.useMocks) {

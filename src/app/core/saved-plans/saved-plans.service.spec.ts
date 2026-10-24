@@ -305,3 +305,18 @@ describe('SavedPlansService — server costEstimate from the save response (I3)'
     http.expectNone(r => r.url.endsWith('/estimate'));
   });
 });
+
+describe('SavedPlansService.clearShareId — unpublish (F74 feedback F3)', () => {
+  it('drops the shareId of that plan only', () => {
+    localStorage.clear();
+    TestBed.configureTestingModule({ providers: [provideHttpClient(), provideHttpClientTesting()] });
+    const service = TestBed.inject(SavedPlansService);
+    service.register({ id: 'p1', name: 'A', savedAt: '2026-10-24T00:00:00Z', stops: [], shareId: 'sh-1' });
+    service.register({ id: 'p2', name: 'B', savedAt: '2026-10-24T00:00:00Z', stops: [], shareId: 'sh-2' });
+
+    service.clearShareId('a@b.com', 'p1');
+
+    expect(service.plans().find(p => p.id === 'p1')?.shareId).toBeUndefined();
+    expect(service.plans().find(p => p.id === 'p2')?.shareId).toBe('sh-2');
+  });
+});
