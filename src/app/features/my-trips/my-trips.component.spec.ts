@@ -591,6 +591,6 @@ describe('MyTripsComponent — "Dejar de publicar" (F74 feedback F3)', () => {
     btn('Sí, dejar de publicar')!.click();
 
     expect(shareIdOf('published')).toBe('sh-1');
-    expect(component.toast()).toBe('No se pudo dejar de publicar el viaje');
+    expect(component.toast()).toBe('No se pudo despublicar el viaje');
   });
 });

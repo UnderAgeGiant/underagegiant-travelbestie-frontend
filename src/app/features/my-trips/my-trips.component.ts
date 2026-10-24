@@ -656,7 +656,7 @@ export class MyTripsComponent implements AfterViewInit {
       error: () => {
         this.unpublishing.set(false);
         this.confirmUnpublishId.set(null);
-        this.toast.set($localize`:@@myTrips.unpublishError:No se pudo dejar de publicar el viaje`);
+        this.toast.set($localize`:@@myTrips.unpublishError:No se pudo despublicar el viaje`);
       },
     });
   }

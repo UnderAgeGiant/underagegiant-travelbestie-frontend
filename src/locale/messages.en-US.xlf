@@ -3746,7 +3746,7 @@
         <target>Yes, unpublish</target>
       </trans-unit>
       <trans-unit id="myTrips.unpublishError" datatype="html">
-        <source>No se pudo dejar de publicar el viaje</source>
+        <source>No se pudo despublicar el viaje</source>
         <target>Couldn't unpublish the trip</target>
       </trans-unit>
     </body>
