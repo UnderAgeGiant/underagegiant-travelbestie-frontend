@@ -136,6 +136,10 @@ app-nav { display: block; }
 .panel-body { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding: 12px; }
 .panel-footer { padding: 12px; border-top: 1px solid var(--border); position: relative; }
 .cost-footer-scroll { margin-top: 8px; max-height: 36vh; overflow-y: auto; overflow-x: hidden; scrollbar-gutter: stable; overscroll-behavior: contain; }
+.publish-check { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; margin-top: 4px; font-size: 13px; font-weight: 500; color: var(--t1); cursor: pointer; }
+.publish-check input { width: 18px; height: 18px; margin: 0; accent-color: var(--lav-d); cursor: pointer; }
+.publish-check:has(input:disabled) { opacity: .5; cursor: default; }
+.publish-done { min-height: 36px; margin-top: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--mint-d); }
 .right-panel { flex: 1; overflow-y: auto; overflow-x: hidden; background: var(--cream); position: relative; }
 
 /* STOPS */
@@ -249,6 +253,9 @@ app-nav { display: block; }
 .saved-plan-filter-check { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--t2); cursor: pointer; user-select: none; white-space: nowrap; }
 .saved-plan-filter-check input { accent-color: var(--lav-d); cursor: pointer; }
 .saved-plan-published { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 700; color: var(--mint-d); background: var(--mint); border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: 1px; white-space: nowrap; }
+.saved-plan-unpublish { display: inline-flex; align-items: center; min-height: 24px; margin-left: 4px; padding: 0 10px; vertical-align: 1px; border: 1px solid var(--border); border-radius: 999px; background: transparent; font: inherit; font-size: 10px; font-weight: 600; color: var(--t2); cursor: pointer; white-space: nowrap; transition: color .15s, border-color .15s; }
+.saved-plan-unpublish:hover { color: var(--lav-d); border-color: var(--lav-d); }
+.saved-plan-unpublish:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
 .saved-plan-act-btn { display: inline-flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--t2); padding: 4px 8px; border-radius: 6px; opacity: .8; transition: opacity .12s, background .12s; white-space: nowrap; }
 .saved-plan-act-btn:hover { opacity: 1; background: var(--cream); }
 .saved-plan-act-btn:disabled { opacity: .4; cursor: default; }
@@ -291,6 +298,9 @@ app-nav { display: block; }
 .share-copied { font-size: 10px; color: var(--mint-d); font-weight: 700; white-space: nowrap; }
 .share-error  { font-size: 10px; color: var(--peach-d); font-weight: 700; white-space: nowrap; }
 .share-search-warning { font-size: 11px; color: var(--t3); line-height: 1.4; }
+.unpublish-confirm { margin: 0 16px 12px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--cream); display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--t1); }
+.unpublish-confirm-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.unpublish-confirm-btns .btn-pill { flex: 1 1 auto; justify-content: center; }
 
 /* SHARED TRIP PAGE */
 .shared-page { position: relative; height: 100vh; overflow-y: auto; overflow-x: hidden; }

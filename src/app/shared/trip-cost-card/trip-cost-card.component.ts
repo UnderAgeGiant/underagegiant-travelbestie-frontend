@@ -9,6 +9,7 @@ export interface CostCardSettings {
   origin:   { name: string } | null;
   adults:   number;
   children: number;
+  infants?: number;
   comfort:  ComfortLevel;
 }
 
@@ -24,7 +25,7 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
       <!-- Editor only: one slim row by default; the whole row expands the card. -->
       <section class="tcc tcc--slim" [class.tcc--empty]="!calculating() && !estimate()">
         <button type="button" class="tcc-bar" aria-expanded="false" (click)="collapsed.set(false)">
-          <span class="tcc-sr" i18n="@@tripCost.title">Costo estimado del viaje</span>
+          <span class="tcc-title tcc-bar-title" i18n="@@tripCost.title">Costo estimado del viaje</span>
           @if (calculating()) {
             <span class="tcc-status" i18n="@@tripCost.calculating">Calculando…</span>
           } @else if (estimate(); as est) {
@@ -72,6 +73,10 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
                 · {{ s.children }}
                 @if (s.children === 1) { <span i18n="@@tripCost.childSingular">niño</span> } @else { <span i18n="@@tripCost.childPlural">niños</span> }
               }
+              @if (s.infants; as infants) {
+                · {{ infants }}
+                @if (infants === 1) { <span i18n="@@tripCost.infantSingular">bebé</span> } @else { <span i18n="@@tripCost.infantPlural">bebés</span> }
+              }
               ·
               @switch (s.comfort) {
                 @case ('budget') { <span i18n="@@costSettings.budget">Económico</span> }
@@ -81,7 +86,7 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
             </div>
           }
 
-          <div class="tcc-meta"><span class="tcc-glyph" i18n="@@tripCost.infoGlyph">ⓘ</span><span i18n="@@tripCost.calculatedOn">Calculado el {{ calculatedDate() }} · aproximado, ±30%</span></div>
+          <div class="tcc-meta"><span class="tcc-glyph" i18n="@@tripCost.infoGlyph">ⓘ</span><span i18n="@@tripCost.calculatedOn">Calculado el {{ calculatedDate() }} · precio aproximado, ±30%</span></div>
 
           @if (isStale()) {
             <div class="tcc-stale-msg" i18n="@@tripCost.stale">Desactualizado · guarda para recalcular</div>
@@ -211,7 +216,8 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
       display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: none;
       font: inherit; color: inherit; text-align: left; cursor: pointer;
     }
-    .tcc-bar { min-height: 44px; padding: 6px 14px; flex-wrap: wrap; }
+    .tcc-bar { min-height: 44px; padding: 8px 14px; flex-wrap: wrap; row-gap: 0; }
+    .tcc-bar-title { flex-basis: 100%; }
     .tcc-head { min-height: 32px; padding: 0; margin: -4px 0 0; }
     .tcc-bar-total { font-size: 17px; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; transition: opacity .2s; }
     .tcc-flag {
@@ -221,7 +227,6 @@ export type CostCardEstimate = Omit<CostEstimate, 'settings'>;
     .tcc-chev { margin-left: auto; font-size: 10px; color: var(--lav-d); transition: transform .2s ease-out; }
     .tcc-bar:hover .tcc-chev { transform: translateY(1px); }
     .tcc-head:hover .tcc-chev { transform: translateY(-1px); }
-    .tcc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     @media (prefers-reduced-motion: reduce) { .tcc-chev, .tcc-total, .tcc-bar-total { transition: none; } }
     .tcc button:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; border-radius: 8px; }
     .tcc .tcc-bar:focus-visible { outline-offset: -3px; border-radius: 16px; }

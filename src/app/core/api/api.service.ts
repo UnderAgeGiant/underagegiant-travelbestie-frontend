@@ -180,6 +180,12 @@ export class ApiService {
     return this.http.post<{ shareId: string }>(`${this.base}/trips/${tripId}/share`, {});
   }
 
+  /** DELETE /trips/:id/share (§2.6b) — idempotent; old links stay dead. */
+  unshareTrip(tripId: string): Observable<void> {
+    if (this.useMocks) return of(undefined);
+    return this.http.delete<void>(`${this.base}/trips/${tripId}/share`);
+  }
+
   getSharedTrip(shareId: string): Observable<SharedTrip> {
     if (this.useMocks) {
       const trip = this.sharedTripsService.getTrip(shareId);

@@ -54,6 +54,10 @@ export class SharedTripsService {
     return trip;
   }
 
+  removeShare(id: string): void {
+    localStorage.setItem(TRIPS_KEY, JSON.stringify(this.allTrips().filter(t => t.id !== id)));
+  }
+
   getMyTrips(email: string): SharedTrip[] {
     return this.allTrips().filter(t => t.ownerEmail === email);
   }

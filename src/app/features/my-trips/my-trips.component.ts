@@ -119,6 +119,9 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                           {{ plan.name }}
                           @if (planShareId(plan)) {
                             <span class="saved-plan-published" i18n="@@myTrips.publishedBadge">✓ Viaje Publicado</span>
+                            <button type="button" class="saved-plan-unpublish"
+                                    (click)="$event.stopPropagation(); confirmUnpublishId.set(plan.id)"
+                                    i18n="@@myTrips.unpublishBtn">Dejar de publicar</button>
                           }
                         </div>
                         <div class="saved-plan-meta">
@@ -147,6 +150,18 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                         <span class="saved-plan-chevron">{{ selectedPlanId() === plan.id ? '▲' : '▼' }}</span>
                       </div>
                     </div>
+
+                    @if (confirmUnpublishId() === plan.id) {
+                      <div class="unpublish-confirm" role="group" aria-live="polite">
+                        <span i18n="@@myTrips.unpublishConfirm">¿Dejar de publicar? El enlace dejará de funcionar.</span>
+                        <div class="unpublish-confirm-btns">
+                          <button class="btn-pill btn-outline" type="button" [disabled]="unpublishing()"
+                                  (click)="confirmUnpublishId.set(null)" i18n="@@myTrips.cancelBtn">Cancelar</button>
+                          <button class="btn-pill btn-primary" type="button" [disabled]="unpublishing()"
+                                  (click)="unpublish(plan)" i18n="@@myTrips.unpublishYes">Sí, dejar de publicar</button>
+                        </div>
+                      </div>
+                    }
 
                     @if (selectedPlanId() === plan.id) {
                       <div class="saved-plan-actions">
@@ -576,6 +591,8 @@ export class MyTripsComponent implements AfterViewInit {
   toast           = signal<string | null>(null);
   confirmCloneId  = signal<string | null>(null);
   confirmDeleteId = signal<string | null>(null);
+  confirmUnpublishId = signal<string | null>(null);
+  unpublishing    = signal(false);
   cloningId       = signal<string | null>(null);
 
   inviteEmailByPlan = signal<Record<string, string>>({});
@@ -622,6 +639,26 @@ export class MyTripsComponent implements AfterViewInit {
         error: err => { this.karmaModal.handleKarmaError(err); },
       });
     }
+  }
+
+  unpublish(plan: SavedPlan): void {
+    const email = this.auth.currentUser()?.email;
+    if (!email || this.unpublishing()) return;
+    const sid = this.planShareId(plan);
+    this.unpublishing.set(true);
+    this.api.unshareTrip(plan.id).subscribe({
+      next: () => {
+        if (environment.useMocks && sid) this.sharedTrips.removeShare(sid);
+        this.savedPlans.clearShareId(email, plan.id);
+        this.unpublishing.set(false);
+        this.confirmUnpublishId.set(null);
+      },
+      error: () => {
+        this.unpublishing.set(false);
+        this.confirmUnpublishId.set(null);
+        this.toast.set($localize`:@@myTrips.unpublishError:No se pudo despublicar el viaje`);
+      },
+    });
   }
 
   shareNative(plan: SavedPlan): void {

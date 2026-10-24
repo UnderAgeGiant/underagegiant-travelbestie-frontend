@@ -390,7 +390,7 @@ describe('NavFacadeService — doSavePlan() cost settings (I2)', () => {
 
     expect(upsert).toHaveBeenCalledWith(
       'ana@test.com', null, 'Mi viaje', expect.any(Array), expect.any(Array),
-      { costSettings: { origin: home, adults: 1, children: 0, comfort: 'mid' } },
+      { costSettings: { origin: home, adults: 1, children: 0, infants: 0, comfort: 'mid' } },
     );
   });
 

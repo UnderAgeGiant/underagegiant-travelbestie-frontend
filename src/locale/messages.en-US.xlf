@@ -3566,8 +3566,8 @@
         <target>Calculate price</target>
       </trans-unit>
       <trans-unit id="tripCost.calculatedOn" datatype="html">
-        <source>Calculado el <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · aproximado, ±30%</source>
-        <target>Calculated on <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · approximate, ±30%</target>
+        <source>Calculado el <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · precio aproximado, ±30%</source>
+        <target>Calculated on <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · approximate price, ±30%</target>
       </trans-unit>
       <trans-unit id="tripCost.calculating" datatype="html">
         <source>Calculando…</source>
@@ -3692,6 +3692,62 @@
       <trans-unit id="tripCost.unpricedTickets" datatype="html">
         <source>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> sin precio</source>
         <target>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> without price</target>
+      </trans-unit>
+      <trans-unit id="costSettings.boxTitle" datatype="html">
+        <source>Información de los viajeros</source>
+        <target>Traveler information</target>
+      </trans-unit>
+      <trans-unit id="costSettings.infants" datatype="html">
+        <source>Bebés 0–2</source>
+        <target>Babies 0–2</target>
+      </trans-unit>
+      <trans-unit id="costSettings.lessInfants" datatype="html">
+        <source>Quitar bebé</source>
+        <target>Remove baby</target>
+      </trans-unit>
+      <trans-unit id="costSettings.moreInfants" datatype="html">
+        <source>Agregar bebé</source>
+        <target>Add baby</target>
+      </trans-unit>
+      <trans-unit id="tripCost.infantSingular" datatype="html">
+        <source>bebé</source>
+        <target>baby</target>
+      </trans-unit>
+      <trans-unit id="tripCost.infantPlural" datatype="html">
+        <source>bebés</source>
+        <target>babies</target>
+      </trans-unit>
+      <trans-unit id="stopList.published" datatype="html">
+        <source>Publicado ✓</source>
+        <target>Published ✓</target>
+      </trans-unit>
+      <trans-unit id="stopList.publishOnSave" datatype="html">
+        <source>Publicar viaje</source>
+        <target>Publish trip</target>
+      </trans-unit>
+      <trans-unit id="stopList.publishedToast" datatype="html">
+        <source>Viaje publicado</source>
+        <target>Trip published</target>
+      </trans-unit>
+      <trans-unit id="stopList.publishError" datatype="html">
+        <source>No se pudo publicar el viaje</source>
+        <target>Couldn't publish the trip</target>
+      </trans-unit>
+      <trans-unit id="myTrips.unpublishBtn" datatype="html">
+        <source>Dejar de publicar</source>
+        <target>Unpublish</target>
+      </trans-unit>
+      <trans-unit id="myTrips.unpublishConfirm" datatype="html">
+        <source>¿Dejar de publicar? El enlace dejará de funcionar.</source>
+        <target>Unpublish? The link will stop working.</target>
+      </trans-unit>
+      <trans-unit id="myTrips.unpublishYes" datatype="html">
+        <source>Sí, dejar de publicar</source>
+        <target>Yes, unpublish</target>
+      </trans-unit>
+      <trans-unit id="myTrips.unpublishError" datatype="html">
+        <source>No se pudo despublicar el viaje</source>
+        <target>Couldn't unpublish the trip</target>
       </trans-unit>
     </body>
   </file>
