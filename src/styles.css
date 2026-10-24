@@ -136,6 +136,10 @@ app-nav { display: block; }
 .panel-body { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding: 12px; }
 .panel-footer { padding: 12px; border-top: 1px solid var(--border); position: relative; }
 .cost-footer-scroll { margin-top: 8px; max-height: 36vh; overflow-y: auto; overflow-x: hidden; scrollbar-gutter: stable; overscroll-behavior: contain; }
+.publish-check { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; margin-top: 4px; font-size: 13px; font-weight: 500; color: var(--t1); cursor: pointer; }
+.publish-check input { width: 18px; height: 18px; margin: 0; accent-color: var(--lav-d); cursor: pointer; }
+.publish-check:has(input:disabled) { opacity: .5; cursor: default; }
+.publish-done { min-height: 36px; margin-top: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--mint-d); }
 .right-panel { flex: 1; overflow-y: auto; overflow-x: hidden; background: var(--cream); position: relative; }
 
 /* STOPS */

@@ -10,9 +10,11 @@ import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { CitySuggestService } from '../../../core/ai/city-suggest.service';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
-import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
+import { SavedPlansService, SavedPlan } from '../../../core/saved-plans/saved-plans.service';
 import { Place } from '../../../core/models/trip.model';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
+import { ApiService } from '../../../core/api/api.service';
+import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -650,5 +652,138 @@ describe('StopListComponent — cost card calculate as a collaborator (I4)', () 
 
     expect(upsert).not.toHaveBeenCalled();
     expect(estimate).toHaveBeenCalledWith('plan-1');
+  });
+});
+
+describe('StopListComponent — "Publicar viaje" on save (F74 feedback F2)', () => {
+  let trip: TripService;
+  let auth: AuthService;
+  let savedPlans: SavedPlansService;
+  let api: ApiService;
+  let shareTrip: jest.SpyInstance;
+  let fixture: ComponentFixture<StopListComponent>;
+  let cmp: StopListComponent;
+
+  beforeEach(() => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    auth = TestBed.inject(AuthService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    api = TestBed.inject(ApiService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true);
+    jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: null } as any);
+    shareTrip = jest.spyOn(api, 'shareTrip').mockReturnValue(of({ shareId: 'share-1' }));
+  });
+
+  function render(plan?: Partial<SavedPlan>): void {
+    if (plan) {
+      savedPlans.register({ id: 'plan-1', name: 'Mi viaje', savedAt: '2026-10-24T00:00:00.000Z', stops: trip.stops(), transits: [], ...plan });
+      trip.markAsLoadedPlan('plan-1');
+    }
+    fixture = TestBed.createComponent(StopListComponent);
+    cmp = fixture.componentInstance;
+    fixture.detectChanges();
+  }
+  const el = () => fixture.nativeElement as HTMLElement;
+  const box = () => el().querySelector<HTMLInputElement>('.publish-check input[type="checkbox"]');
+
+  it('new plan: the box starts checked and saving publishes the new id once', () => {
+    render();
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('new-id'));
+    const setShareId = jest.spyOn(savedPlans, 'setShareId');
+    cmp.doBook();
+    fixture.detectChanges();
+    expect(box()?.checked).toBe(true);
+    expect(el().textContent).toContain('Publicar viaje');
+
+    cmp.bookName.set('Mi viaje');
+    cmp.doBookSave();
+
+    expect(upsert).toHaveBeenCalledTimes(1);
+    expect(shareTrip).toHaveBeenCalledTimes(1);
+    expect(shareTrip).toHaveBeenCalledWith('new-id');
+    expect(setShareId).toHaveBeenCalledWith('ana@test.com', 'new-id', 'share-1');
+    expect(cmp.toast()).toBe('Viaje publicado');
+  });
+
+  it('new plan: unchecking the box saves without publishing', () => {
+    render();
+    jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('new-id'));
+    cmp.doBook();
+    fixture.detectChanges();
+    box()!.click();
+    fixture.detectChanges();
+    expect(cmp.publishOnSave()).toBe(false);
+
+    cmp.bookName.set('Mi viaje');
+    cmp.doBookSave();
+
+    expect(shareTrip).not.toHaveBeenCalled();
+  });
+
+  it('saved unpublished plan: the box starts unchecked and saving does not publish', () => {
+    render({});
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    expect(box()).toBeTruthy();
+    expect(box()!.checked).toBe(false);
+
+    cmp.doBook();
+
+    expect(upsert).toHaveBeenCalled();
+    expect(shareTrip).not.toHaveBeenCalled();
+  });
+
+  it('saved unpublished plan: checking the box publishes on the next save', () => {
+    render({});
+    jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    box()!.click();
+
+    cmp.doBook();
+
+    expect(shareTrip).toHaveBeenCalledWith('plan-1');
+  });
+
+  it('published plan: shows "Publicado ✓" instead of the box', () => {
+    render({ shareId: 'share-0' });
+    expect(box()).toBeNull();
+    expect(el().querySelector('.publish-done')?.textContent).toContain('Publicado ✓');
+  });
+
+  it('collaborator: neither the box nor "Publicado ✓"', () => {
+    render({ isCollaborator: true });
+    expect(box()).toBeNull();
+    expect(el().querySelector('.publish-done')).toBeNull();
+  });
+
+  it('a background (autosave) save never publishes, even with the box checked', () => {
+    render({});
+    box()!.click();
+    const upsert = jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    trip.addStop({ ...PARIS, id: 'lyon', name: 'Lyon' }, '06/06/2026', '08/06/2026');
+
+    (TestBed.inject(AutoSaveService) as any).tick();
+
+    expect(upsert).toHaveBeenCalledWith('ana@test.com', 'plan-1', 'Mi viaje', expect.anything(), expect.anything(), { background: true });
+    expect(shareTrip).not.toHaveBeenCalled();
+  });
+
+  it('a publish failure keeps the save and shows the error toast', () => {
+    render();
+    jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('new-id'));
+    shareTrip.mockReturnValue(throwError(() => ({ status: 500 })));
+    cmp.doBook();
+    cmp.bookName.set('Mi viaje');
+
+    cmp.doBookSave();
+
+    expect(trip.loadedPlanId()).toBe('new-id');
+    expect(cmp.bookOpen()).toBe(false);
+    expect(cmp.toast()).toBe('No se pudo publicar el viaje');
   });
 });

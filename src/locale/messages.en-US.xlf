@@ -3717,6 +3717,22 @@
         <source>bebés</source>
         <target>babies</target>
       </trans-unit>
+      <trans-unit id="stopList.published" datatype="html">
+        <source>Publicado ✓</source>
+        <target>Published ✓</target>
+      </trans-unit>
+      <trans-unit id="stopList.publishOnSave" datatype="html">
+        <source>Publicar viaje</source>
+        <target>Publish trip</target>
+      </trans-unit>
+      <trans-unit id="stopList.publishedToast" datatype="html">
+        <source>Viaje publicado</source>
+        <target>Trip published</target>
+      </trans-unit>
+      <trans-unit id="stopList.publishError" datatype="html">
+        <source>No se pudo publicar el viaje</source>
+        <target>Couldn't publish the trip</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
