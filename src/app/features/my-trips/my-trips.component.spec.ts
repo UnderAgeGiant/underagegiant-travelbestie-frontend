@@ -546,11 +546,18 @@ describe('MyTripsComponent — "Dejar de publicar" (F74 feedback F3)', () => {
   const open = (id: string) => { component.togglePlan(id); fixture.detectChanges(); };
   const shareIdOf = (id: string) => savedPlans.plans().find(p => p.id === id)?.shareId;
 
-  it('offers "Dejar de publicar" on a published card only', () => {
-    open('published');
-    expect(btn('Dejar de publicar')).toBeTruthy();
-    open('draft');
-    expect(btn('Dejar de publicar')).toBeUndefined();
+  it('offers a small "Dejar de publicar" next to the published pill, on published cards only', () => {
+    const card = (id: string) => el().querySelector(`.saved-plan-card[data-focus-id="${id}"]`)!;
+    const pub = card('published').querySelector('.saved-plan-published + .saved-plan-unpublish');
+    expect(pub?.textContent).toContain('Dejar de publicar');
+    expect(card('draft').querySelector('.saved-plan-unpublish')).toBeNull();
+  });
+
+  it('clicking it asks without expanding the card', () => {
+    btn('Dejar de publicar')!.click();
+    fixture.detectChanges();
+    expect(component.selectedPlanId()).not.toBe('published');
+    expect(el().querySelector('.unpublish-confirm')).toBeTruthy();
   });
 
   it('asks inline, then unpublishes once and clears the shareId', () => {

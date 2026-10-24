@@ -119,6 +119,9 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                           {{ plan.name }}
                           @if (planShareId(plan)) {
                             <span class="saved-plan-published" i18n="@@myTrips.publishedBadge">✓ Viaje Publicado</span>
+                            <button type="button" class="saved-plan-unpublish"
+                                    (click)="$event.stopPropagation(); confirmUnpublishId.set(plan.id)"
+                                    i18n="@@myTrips.unpublishBtn">Dejar de publicar</button>
                           }
                         </div>
                         <div class="saved-plan-meta">
@@ -148,6 +151,18 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                       </div>
                     </div>
 
+                    @if (confirmUnpublishId() === plan.id) {
+                      <div class="unpublish-confirm" role="group" aria-live="polite">
+                        <span i18n="@@myTrips.unpublishConfirm">¿Dejar de publicar? El enlace dejará de funcionar.</span>
+                        <div class="unpublish-confirm-btns">
+                          <button class="btn-pill btn-outline" type="button" [disabled]="unpublishing()"
+                                  (click)="confirmUnpublishId.set(null)" i18n="@@myTrips.cancelBtn">Cancelar</button>
+                          <button class="btn-pill btn-primary" type="button" [disabled]="unpublishing()"
+                                  (click)="unpublish(plan)" i18n="@@myTrips.unpublishYes">Sí, dejar de publicar</button>
+                        </div>
+                      </div>
+                    }
+
                     @if (selectedPlanId() === plan.id) {
                       <div class="saved-plan-actions">
                         <button class="btn-pill btn-primary"
@@ -167,10 +182,6 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                                   style="justify-content:center;gap:6px"
                                   (click)="shareNative(plan)" type="button"
                                   i18n="@@share.shareBtn">📤 Compartir</button>
-                          <button class="btn-pill btn-ghost"
-                                  style="justify-content:center"
-                                  (click)="confirmUnpublishId.set(plan.id)" type="button"
-                                  i18n="@@myTrips.unpublishBtn">Dejar de publicar</button>
                         } @else {
                           <button class="btn-pill btn-outline"
                                   style="justify-content:center;gap:6px"
@@ -193,17 +204,6 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                           <span class="share-error" i18n="@@myTrips.insufficientKarma">Token insuficiente</span>
                         }
                       </div>
-                      @if (confirmUnpublishId() === plan.id) {
-                        <div class="unpublish-confirm" role="group" aria-live="polite">
-                          <span i18n="@@myTrips.unpublishConfirm">¿Dejar de publicar? El enlace dejará de funcionar.</span>
-                          <div class="unpublish-confirm-btns">
-                            <button class="btn-pill btn-outline" type="button" [disabled]="unpublishing()"
-                                    (click)="confirmUnpublishId.set(null)" i18n="@@myTrips.cancelBtn">Cancelar</button>
-                            <button class="btn-pill btn-primary" type="button" [disabled]="unpublishing()"
-                                    (click)="unpublish(plan)" i18n="@@myTrips.unpublishYes">Sí, dejar de publicar</button>
-                          </div>
-                        </div>
-                      }
                       @if (planShareId(plan)) {
                         <p class="share-search-warning" style="margin:0 16px 12px"
                            i18n="@@myTrips.shareSearchWarning">

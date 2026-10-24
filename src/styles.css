@@ -253,6 +253,9 @@ app-nav { display: block; }
 .saved-plan-filter-check { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--t2); cursor: pointer; user-select: none; white-space: nowrap; }
 .saved-plan-filter-check input { accent-color: var(--lav-d); cursor: pointer; }
 .saved-plan-published { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 700; color: var(--mint-d); background: var(--mint); border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: 1px; white-space: nowrap; }
+.saved-plan-unpublish { display: inline-flex; align-items: center; min-height: 24px; margin-left: 4px; padding: 0 10px; vertical-align: 1px; border: 1px solid var(--border); border-radius: 999px; background: transparent; font: inherit; font-size: 10px; font-weight: 600; color: var(--t2); cursor: pointer; white-space: nowrap; transition: color .15s, border-color .15s; }
+.saved-plan-unpublish:hover { color: var(--lav-d); border-color: var(--lav-d); }
+.saved-plan-unpublish:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
 .saved-plan-act-btn { display: inline-flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--t2); padding: 4px 8px; border-radius: 6px; opacity: .8; transition: opacity .12s, background .12s; white-space: nowrap; }
 .saved-plan-act-btn:hover { opacity: 1; background: var(--cream); }
 .saved-plan-act-btn:disabled { opacity: .4; cursor: default; }
