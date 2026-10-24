@@ -74,4 +74,26 @@ describe('CostSettingsComponent', () => {
     expect(text).toContain('5★');
     expect(text).not.toContain('Cama en hostal');
   });
+
+  it('wraps the settings in a group titled "Información de los viajeros"', () => {
+    setup();
+
+    const group = fixture.nativeElement.querySelector('fieldset.cs');
+    expect(group?.querySelector('legend')?.textContent).toContain('Información de los viajeros');
+  });
+
+  it('babies stepper cannot go below 0 and starts at 0 when infants is missing', () => {
+    const { infants: _omit, ...legacy } = { ...DEFAULT_COST_SETTINGS, infants: 0 };
+    setup(legacy as CostSettings);
+
+    expect(button('button[aria-label="Quitar bebé"]').disabled).toBe(true);
+    button('button[aria-label="Agregar bebé"]').click();
+    expect(emitted[0].infants).toBe(1);
+  });
+
+  it('babies stepper cannot go above 20', () => {
+    setup({ ...DEFAULT_COST_SETTINGS, infants: 20 });
+
+    expect(button('button[aria-label="Agregar bebé"]').disabled).toBe(true);
+  });
 });

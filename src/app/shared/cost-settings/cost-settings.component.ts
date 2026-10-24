@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { PlaceComboboxComponent } from '../place-combobox/place-combobox.component';
 import { ComfortLevel, CostSettings, Place } from '../../core/models/trip.model';
 
@@ -12,7 +12,8 @@ const MAX_TRAVELERS = 20;
   imports: [PlaceComboboxComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="cs">
+    <fieldset class="cs">
+      <legend class="cs-title" i18n="@@costSettings.boxTitle">Información de los viajeros</legend>
       <div class="cs-field">
         <span class="cs-label" i18n="@@costSettings.origin">Sale desde</span>
         <app-place-combobox [value]="settings().origin" (placeChange)="setOrigin($event)" />
@@ -40,6 +41,16 @@ const MAX_TRAVELERS = 20;
               <span class="cs-value" aria-live="polite">{{ settings().children }}</span>
               <button type="button" class="cs-step" aria-label="Agregar niño" i18n-aria-label="@@costSettings.moreChildren"
                       [disabled]="settings().children >= MAX_TRAVELERS" (click)="setChildren(settings().children + 1)">+</button>
+            </div>
+          </div>
+          <div class="cs-stepper">
+            <span class="cs-step-label" i18n="@@costSettings.infants">Bebés 0–2</span>
+            <div class="cs-step-row">
+              <button type="button" class="cs-step" aria-label="Quitar bebé" i18n-aria-label="@@costSettings.lessInfants"
+                      [disabled]="infants() <= 0" (click)="setInfants(infants() - 1)">−</button>
+              <span class="cs-value" aria-live="polite">{{ infants() }}</span>
+              <button type="button" class="cs-step" aria-label="Agregar bebé" i18n-aria-label="@@costSettings.moreInfants"
+                      [disabled]="infants() >= MAX_TRAVELERS" (click)="setInfants(infants() + 1)">+</button>
             </div>
           </div>
         </div>
@@ -72,17 +83,21 @@ const MAX_TRAVELERS = 20;
           }
         </span>
       </div>
-    </div>
+    </fieldset>
   `,
   styles: [`
-    .cs { display: flex; flex-direction: column; gap: 12px; }
+    .cs {
+      display: flex; flex-direction: column; gap: 12px; min-width: 0; margin: 0;
+      border: 1px solid var(--border); border-radius: 16px; padding: 10px 12px 12px;
+    }
+    .cs-title { font-size: 13px; font-weight: 700; color: var(--t1); padding: 0 6px; margin-left: -6px; }
     .cs-field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
     .cs-label { font-size: 12px; font-weight: 600; color: var(--t1); }
     .cs-hint, .cs-desc { font-size: 11px; color: var(--t2); line-height: 1.35; }
 
-    .cs-steppers { display: flex; gap: 8px; }
+    .cs-steppers { display: flex; flex-wrap: wrap; gap: 8px; }
     .cs-stepper {
-      flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0;
+      flex: 1 1 96px; min-width: 0; display: flex; flex-direction: column; gap: 0;
       background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 6px 4px 2px;
     }
     .cs-step-label { font-size: 11px; color: var(--t2); padding-left: 8px; white-space: nowrap; }
@@ -122,6 +137,8 @@ export class CostSettingsComponent {
 
   protected readonly MIN_ADULTS = MIN_ADULTS;
   protected readonly MAX_TRAVELERS = MAX_TRAVELERS;
+  /** Older trips have no `infants`. */
+  protected readonly infants = computed(() => this.settings().infants ?? 0);
 
   setOrigin(origin: Place | null): void {
     this.update({ origin });
@@ -133,6 +150,10 @@ export class CostSettingsComponent {
 
   setChildren(n: number): void {
     this.update({ children: clamp(n, 0, MAX_TRAVELERS) });
+  }
+
+  setInfants(n: number): void {
+    this.update({ infants: clamp(n, 0, MAX_TRAVELERS) });
   }
 
   setComfort(comfort: ComfortLevel): void {

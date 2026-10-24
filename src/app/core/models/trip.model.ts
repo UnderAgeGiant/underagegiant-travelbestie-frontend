@@ -126,15 +126,16 @@ export interface Place {
   iata:        string;   // /^[A-Z]{3}$/
 }
 
-/** adults 1–20, children 0–20 */
+/** adults 1–20, children 0–20, infants 0–20 (0–2 years, priced at 0; missing on older trips → 0) */
 export interface CostSettings {
   origin:   Place | null;
   adults:   number;
   children: number;
+  infants?: number;
   comfort:  ComfortLevel;
 }
 
-export const DEFAULT_COST_SETTINGS: CostSettings = { origin: null, adults: 1, children: 0, comfort: 'mid' };
+export const DEFAULT_COST_SETTINGS: CostSettings = { origin: null, adults: 1, children: 0, infants: 0, comfort: 'mid' };
 
 /** from/to: catalog cityId or '__home__' */
 export interface UnestimatedLeg {

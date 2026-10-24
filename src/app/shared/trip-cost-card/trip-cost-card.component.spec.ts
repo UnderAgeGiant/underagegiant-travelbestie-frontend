@@ -71,6 +71,19 @@ describe('TripCostCardComponent', () => {
     create({ estimate: estimate() });
     expect(text()).toContain('±30%');
     expect(text()).toContain('Calculado el');
+    expect(text()).toContain('precio aproximado');
+  });
+
+  it('adds babies to the context line only when there are any', () => {
+    create({ estimate: estimate(), settings: { ...SETTINGS, infants: 2 } });
+    expect(text()).toMatch(/2\s*bebés/);
+    TestBed.resetTestingModule();
+    create({ estimate: estimate(), settings: { ...SETTINGS, infants: 1 } });
+    expect(text()).toMatch(/1\s*bebé/);
+    expect(text()).not.toContain('bebés');
+    TestBed.resetTestingModule();
+    create({ estimate: estimate(), settings: { ...SETTINGS, infants: 0 } });
+    expect(text()).not.toContain('bebé');
   });
 
   it('shows the context line with origin, adults and comfort', () => {
@@ -161,6 +174,9 @@ describe('TripCostCardComponent', () => {
       create({ estimate: estimate() }, false);
       expect(bar()?.getAttribute('aria-expanded')).toBe('false');
       expect(bar()?.textContent).toContain('≈ US$4000');
+      const title = bar()?.querySelector('.tcc-title');
+      expect(title?.textContent).toContain('Costo estimado del viaje');
+      expect(title?.classList.contains('tcc-sr')).toBe(false);
       expect(text()).not.toContain('Calculado el');
       expect(text()).not.toContain('Editar salida, viajeros y estilo');
     });

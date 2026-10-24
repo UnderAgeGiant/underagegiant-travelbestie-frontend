@@ -3566,8 +3566,8 @@
         <target>Calculate price</target>
       </trans-unit>
       <trans-unit id="tripCost.calculatedOn" datatype="html">
-        <source>Calculado el <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · aproximado, ±30%</source>
-        <target>Calculated on <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · approximate, ±30%</target>
+        <source>Calculado el <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · precio aproximado, ±30%</source>
+        <target>Calculated on <x id="INTERPOLATION" equiv-text="{{ calculatedDate() }}"/> · approximate price, ±30%</target>
       </trans-unit>
       <trans-unit id="tripCost.calculating" datatype="html">
         <source>Calculando…</source>
@@ -3692,6 +3692,30 @@
       <trans-unit id="tripCost.unpricedTickets" datatype="html">
         <source>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> sin precio</source>
         <target>· <x id="INTERPOLATION" equiv-text="{{ est.unpricedTicketCount }}"/> without price</target>
+      </trans-unit>
+      <trans-unit id="costSettings.boxTitle" datatype="html">
+        <source>Información de los viajeros</source>
+        <target>Traveler information</target>
+      </trans-unit>
+      <trans-unit id="costSettings.infants" datatype="html">
+        <source>Bebés 0–2</source>
+        <target>Babies 0–2</target>
+      </trans-unit>
+      <trans-unit id="costSettings.lessInfants" datatype="html">
+        <source>Quitar bebé</source>
+        <target>Remove baby</target>
+      </trans-unit>
+      <trans-unit id="costSettings.moreInfants" datatype="html">
+        <source>Agregar bebé</source>
+        <target>Add baby</target>
+      </trans-unit>
+      <trans-unit id="tripCost.infantSingular" datatype="html">
+        <source>bebé</source>
+        <target>baby</target>
+      </trans-unit>
+      <trans-unit id="tripCost.infantPlural" datatype="html">
+        <source>bebés</source>
+        <target>babies</target>
       </trans-unit>
     </body>
   </file>
