@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, map, of, tap } from 'rxjs';
 import { ApiService } from '../../core/api/api.service';
 import { HighlightType } from '../../core/models/highlight.model';
-import { highlightStorageKey } from './highlight-storage.util';
+import { highlightDeviceKey, highlightStorageKey } from './highlight-storage.util';
 
 @Injectable({ providedIn: 'root' })
 export class HighlightSeenService {
@@ -20,11 +20,21 @@ export class HighlightSeenService {
     try { sessionStorage.setItem(highlightStorageKey(type), seen ? '1' : '0'); } catch { /* non-fatal */ }
   }
 
+  /** Layer 0: permanent per-device flag — once a tour was shown (confirmed or dismissed) on this device, it never shows again. */
+  private readDevice(type: HighlightType): boolean {
+    try { return localStorage.getItem(highlightDeviceKey(type)) === '1'; } catch { return false; }
+  }
+
+  private writeDevice(type: HighlightType): void {
+    try { localStorage.setItem(highlightDeviceKey(type), '1'); } catch { /* non-fatal: falls back to session/server */ }
+  }
+
   hasSeenLocally(type: HighlightType): boolean {
-    return this.readCache(type) === true;
+    return this.readDevice(type) || this.readCache(type) === true;
   }
 
   markSeenLocally(type: HighlightType): void {
+    this.writeDevice(type);
     this.writeCache(type, true);
   }
 
@@ -38,6 +48,7 @@ export class HighlightSeenService {
    * call per tab session, ever, for a given highlight type.
    */
   checkServerStatus(type: HighlightType): Observable<boolean> {
+    if (this.readDevice(type)) return of(true);
     const cached = this.readCache(type);
     if (cached !== null) return of(cached);
     return this.api.getHighlightStatus(type).pipe(
@@ -53,14 +64,12 @@ export class HighlightSeenService {
 
   /**
    * Called when the visitor closes the tour WITHOUT confirming it (✕/Escape — never reaching
-   * "¡Entendido!" on the last step). Does NOT touch the local cache or call markSeenLocally —
-   * the backend owns the 3-strikes count (`HIGHLIGHT_DISMISS_LIMIT`) and only escalates to
-   * "seen" once that's exhausted, so the frontend has no way to know from this 204 response
-   * whether this particular dismissal was the one that crossed the limit. Leaving the local
-   * cache untouched means the next real `checkServerStatus()` call (a later tab session) asks
-   * the server fresh and gets the authoritative answer either way.
+   * "¡Entendido!" on the last step). Per the owner (2026-10-25), a dismissal counts as seen on
+   * this device: it sets the per-device flag, so the tour never shows here again. The backend
+   * still gets the dismiss call and keeps its own 3-strikes count (`HIGHLIGHT_DISMISS_LIMIT`).
    */
   markDismissedOnServer(type: HighlightType): void {
+    this.writeDevice(type);
     this.api.markHighlightDismissed(type).subscribe({ error: () => { /* non-fatal */ } });
   }
 }

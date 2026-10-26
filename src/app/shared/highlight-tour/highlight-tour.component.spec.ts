@@ -13,6 +13,7 @@ describe('HighlightTourComponent', () => {
 
   beforeEach(() => {
     sessionStorage.clear();
+    localStorage.clear();
     // HighlightTourService injects DeviceService (mobile scroll-into-view behavior) — stub
     // matchMedia so its constructor doesn't throw when TestBed.inject(HighlightTourService) runs below.
     (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
