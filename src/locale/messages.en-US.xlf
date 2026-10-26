@@ -3,14 +3,14 @@
   <file source-language="es-CL" target-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
 
-      <!-- ── app.component ── -->
-      <trans-unit id="app.selectStop" datatype="html">
-        <source>Selecciona una parada</source>
-        <target>Select a stop</target>
+      <!-- ── editor full plan (2026-10-25) ── -->
+      <trans-unit id="stopList.viewFullPlan" datatype="html">
+        <source>🗺️ Ver plan completo</source>
+        <target>🗺️ View full plan</target>
       </trans-unit>
-      <trans-unit id="app.selectStopDesc" datatype="html">
-        <source>Haz clic en un destino del panel para explorar sus atracciones</source>
-        <target>Click any destination in the panel to explore its attractions</target>
+      <trans-unit id="editor.fullPlanTitle" datatype="html">
+        <source>Plan completo</source>
+        <target>Full plan</target>
       </trans-unit>
 
       <!-- ── visa-requirement.model ── -->

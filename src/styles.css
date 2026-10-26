@@ -3669,3 +3669,5 @@ tb-landing-ranking { display: block; }
 @media (max-width: 768px) {
   .tfp { padding: 16px 14px 100px; }
 }
+
+.tfp-view-btn { width: 100%; justify-content: center; margin-bottom: 12px; }

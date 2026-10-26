@@ -1,5 +1,5 @@
 import { AttractionNamePipe } from '../../../shared/pipes/attraction-name.pipe';
-import { Component, inject, signal, computed, effect, linkedSignal, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
+import { Component, inject, signal, computed, effect, linkedSignal, input, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { TripService } from '../trip.service';
 import { DeviceService } from '../../../core/device/device.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
@@ -144,6 +144,11 @@ import { environment } from '../../../../environments/environment';
           </div>
         } @else {
 
+          @if (allowDeselect() && !device.isMobile()) {
+            <button type="button" class="btn-pill tfp-view-btn" [class.btn-primary]="!trip.activeStop()" [class.btn-ghost]="!!trip.activeStop()"
+                    [attr.aria-pressed]="!trip.activeStop()" (click)="trip.clearActive()" i18n="@@stopList.viewFullPlan">🗺️ Ver plan completo</button>
+          }
+
           <!-- Departure flight connector -->
           <app-transit-connector fromId="__start__" toId="__start__"
             type="departure" [cityLabel]="firstCityLabel()" [cityFlag]="firstCityFlag()" [homeName]="homeName()" />
@@ -159,7 +164,7 @@ import { environment } from '../../../../environments/environment';
             @let city = cityFor(stop.cityId);
             @if (city) {
               <div [class]="'stop-item' + (trip.activeId() === stop.stopId ? ' active' : '')"
-                   (click)="trip.setActive(stop.stopId); stopSelected.emit()">
+                   (click)="onStopClick(stop.stopId)">
                 <div class="stop-row">
                   <app-flag-icon class="stop-flag" [flag]="city.flag" [alt]="city.name" [size]="22" />
                   <div class="stop-info">
@@ -452,6 +457,8 @@ export class StopListComponent {
   addDestination = output<void>();
   openPreferences = output<void>();
   stopSelected = output<void>();   // landing → editor (Feature 68)
+  /** Editor only (2026-10-25): on desktop, clicking the active card unselects it (→ full plan). Landing keeps the default. */
+  readonly allowDeselect = input(false);
 
   protected readonly tripMapOpen = signal(false);
   protected readonly tripMapCities = computed<TripMapCity[]>(() =>
@@ -524,9 +531,16 @@ export class StopListComponent {
     this.showScrollTop.set(window.scrollY > 240);
   }
 
+  protected onStopClick(stopId: string): void {
+    if (this.allowDeselect() && !this.device.isMobile() && this.trip.activeId() === stopId) this.trip.clearActive();
+    else this.trip.setActive(stopId);
+    this.stopSelected.emit();
+  }
+
   protected scrollToActiveCity(): void {
     const el = document.querySelector('.stop-item.active');
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' }); // no city selected (2026-10-25)
   }
 
   protected readonly expandedStops = signal<Set<string>>(new Set());

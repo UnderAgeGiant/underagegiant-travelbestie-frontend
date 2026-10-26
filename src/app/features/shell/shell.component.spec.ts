@@ -294,3 +294,65 @@ describe('ShellComponent', () => {
     expect(el.querySelector('tb-app-footer')).not.toBeNull();
   });
 });
+
+describe('ShellComponent — editor full plan (2026-10-25)', () => {
+  beforeEach(() => { localStorage.clear(); sessionStorage.clear(); });
+
+  function setup(mobile: boolean) {
+    (window as any).matchMedia = () => ({ matches: mobile, media: '', addEventListener: () => {}, removeEventListener: () => {} });
+    (global as any).IntersectionObserver = (global as any).IntersectionObserver ?? class { observe() {} unobserve() {} disconnect() {} };
+    TestBed.configureTestingModule({
+      imports: [ShellComponent],
+      providers: [
+        provideHttpClient(), provideHttpClientTesting(), provideRouter([]),
+        { provide: ActivatedRoute, useValue: { snapshot: { data: { mode: 'editor' }, queryParamMap: convertToParamMap({}), fragment: null } } },
+      ],
+    });
+    const fixture = TestBed.createComponent(ShellComponent);
+    const trip = TestBed.inject(TripService);
+    trip.restoreStops([
+      { stopId: 's0', cityId: 'paris', checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [] },
+      { stopId: 's1', cityId: 'tokyo', checkIn: '05/07/2026', checkOut: '08/07/2026', selectedAttractions: [] },
+    ], null, []);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    const panel = () => el.querySelector('.right-panel')!;
+    return { fixture, trip, panel };
+  }
+
+  it('desktop: shows tb-trip-full-plan and not app-destination when no city is selected', () => {
+    const { trip, panel } = setup(false);
+    expect(trip.activeStop()).toBeNull();
+    expect(panel().querySelector('tb-trip-full-plan')).not.toBeNull();
+    expect(panel().querySelector('app-destination')).toBeNull();
+    expect(panel().querySelector('.tfp-title')).toBeNull();
+  });
+
+  it('desktop: shows app-destination and not the full plan when a city is selected', () => {
+    const { fixture, trip, panel } = setup(false);
+    trip.setActive('s0');
+    fixture.detectChanges();
+    expect(panel().querySelector('app-destination')).not.toBeNull();
+    expect(panel().querySelector('tb-trip-full-plan')).toBeNull();
+  });
+
+  it('mobile: shows the full plan with the title whether or not a city is selected', () => {
+    const { fixture, trip, panel } = setup(true);
+    expect(panel().querySelector('tb-trip-full-plan .tfp-title')).not.toBeNull();
+    trip.setActive('s0');
+    fixture.detectChanges();
+    expect(panel().querySelector('tb-trip-full-plan .tfp-title')).not.toBeNull();
+  });
+
+  it('citySelect from the full plan selects that stop', () => {
+    const { fixture, trip, panel } = setup(false);
+    (panel().querySelectorAll('button.tfp-city-link')[1] as HTMLButtonElement).click();
+    fixture.detectChanges();
+    expect(trip.activeId()).toBe('s1');
+  });
+
+  it('no longer renders the "Selecciona una parada" empty state', () => {
+    const { panel } = setup(false);
+    expect(panel().querySelector('.empty-stop')).toBeNull();
+  });
+});
