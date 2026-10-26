@@ -124,6 +124,7 @@ describe('DayTimelineComponent — trip-wide days', () => {
       { stopId: 's1', cityId: 'paris',  checkIn: '01/06/2026', checkOut: '02/06/2026', selectedAttractions: [] },
       { stopId: 's2', cityId: 'london', checkIn: '04/06/2026', checkOut: '05/06/2026', selectedAttractions: [] },
     ] as any, null, []);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
 
     const comp = TestBed.createComponent(DayTimelineComponent).componentInstance;
     const days = (comp as any).days() as Array<{ key: string; cityId: string }>;
@@ -198,6 +199,7 @@ describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => 
       fromCityId: '__start__', toCityId: 'paris',
       segments: [{ mode: 'flight', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
     }] as any);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture.detectChanges();
 
     (component as any).selectedDay.set('01/06');
@@ -217,6 +219,7 @@ describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => 
       fromCityId: 'paris', toCityId: '__end__',
       segments: [{ mode: 'train', departureDate: '03/06/2026', departureTime: '18:00', arrivalDate: '03/06/2026', arrivalTime: '20:00', notes: '' }],
     }] as any);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture.detectChanges();
 
     (component as any).selectedDay.set('03/06');
@@ -236,6 +239,7 @@ describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => 
       fromCityId: '__start__', toCityId: 'paris',
       segments: [{ mode: 'flight', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
     }] as any);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture.detectChanges();
 
     (component as any).selectedDay.set('02/06');
@@ -255,6 +259,7 @@ describe('DayTimelineComponent — routeUrl arrival/departure terminals', () => 
       fromCityId: '__start__', toCityId: 'paris',
       segments: [{ mode: 'bus', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
     }] as any);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture.detectChanges();
 
     (component as any).selectedDay.set('01/06');
@@ -303,6 +308,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
       fromCityId: '__start__', toCityId: 'paris',
       segments: [{ mode: 'flight', departureDate: '01/06/2026', departureTime: '07:00', arrivalDate: '01/06/2026', arrivalTime: '09:00', notes: '' }],
     }] as any);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture.componentRef.setInput('showPlanSlideshow', true);
     fixture.detectChanges();
     (component as any).selectedDay.set('01/06');
@@ -329,6 +335,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
         { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' },
       ],
     }] as any, null, []);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture.componentRef.setInput('showPlanSlideshow', true);
     fixture.detectChanges();
 
@@ -370,6 +377,7 @@ describe('DayTimelineComponent — hour grid range', () => {
         { entryId: 'e1', attractionId: 'paris_0', startTime: '05:00', endTime: '06:00', date: '01/06/2026' },
       ],
     }] as any, null, []);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     const fixture = TestBed.createComponent(DayTimelineComponent);
     fixture.detectChanges();
     (fixture.componentInstance as any).selectedDay.set('01/06');
@@ -1108,6 +1116,7 @@ describe('DayTimelineComponent — attraction preview on hover (feedback F1 2026
       stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
       selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: '12:00', date: '01/06/2026' }],
     }] as any, null, [] as any);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture = TestBed.createComponent(DayTimelineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -1197,6 +1206,7 @@ describe('DayTimelineComponent — personal activities (Feature 71)', () => {
         { entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: '12:00', date: '01/06/2026' },
       ],
     }] as any, null, [] as any);
+    trip.setActive(trip.stops()[0].stopId); // loads start unselected (2026-10-25)
     fixture = TestBed.createComponent(DayTimelineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

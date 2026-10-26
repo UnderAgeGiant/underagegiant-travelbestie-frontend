@@ -78,16 +78,15 @@ describe('TripService', () => {
     expect(updatedB.ticketPurchased).toBeUndefined();
   });
 
-  it('restoreStops auto-selects the first stop even when the incoming stops have no stopId (AI-generated plan)', () => {
-    // AI-generated trips (POST /ai/plan response) never carry a stopId — it's a
-    // frontend-only concept the AI is never told about. restoreStops must still
-    // land on the first stop as active once migrateStop assigns it a fresh id.
+  it('restoreStops assigns stopIds to AI-generated stops (no stopId) and leaves no city selected (2026-10-25)', () => {
+    // AI-generated trips (POST /ai/plan response) never carry a stopId — migrateStop assigns one.
     service.restoreStops([
       { cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026', selectedAttractions: [] } as any,
       { cityId: 'tokyo', checkIn: '06/06/2026', checkOut: '10/06/2026', selectedAttractions: [] } as any,
     ], null, []);
 
-    expect(service.activeStop()?.cityId).toBe('paris');
+    expect(service.stops().every(s => !!s.stopId)).toBe(true);
+    expect(service.activeStop()).toBeNull();
   });
 });
 
@@ -202,5 +201,63 @@ describe('TripService — personal activities (Feature 71)', () => {
     expect(p).toMatchObject({ activityType: 'coffee', title: 'Café', mapsUrl: 'https://maps.app.goo.gl/x', isPrivate: true });
     expect(c).toMatchObject({ attractionId: 'paris_0', ticketPurchased: true });
     expect(c.activityType).toBeUndefined();
+  });
+});
+
+describe('TripService — selection rules (2026-10-25 full plan)', () => {
+  let service: TripService;
+  const stop = (id: string, cityId: string) => ({ stopId: id, cityId, checkIn: '01/06/2026', checkOut: '03/06/2026', selectedAttractions: [] });
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({ providers: [provideHttpClient(withXhr()), provideHttpClientTesting()] });
+    service = TestBed.inject(TripService);
+  });
+
+  it('restoreStops leaves no city selected', () => {
+    service.restoreStops([stop('a', 'paris'), stop('b', 'tokyo')]);
+    expect(service.stops()).toHaveLength(2);
+    expect(service.activeStop()).toBeNull();
+  });
+
+  it('loading a stored plan leaves no city selected', () => {
+    localStorage.setItem('tb_plan_ana@test.com', JSON.stringify({ stops: [stop('a', 'paris')], transits: [] }));
+    service.loadForUser('ana@test.com');
+    expect(service.stops()).toHaveLength(1);
+    expect(service.activeStop()).toBeNull();
+  });
+
+  it('removing the active stop leaves no city selected', () => {
+    service.addStop(PARIS, '', '');
+    service.addStop(TOKYO, '', '');
+    const tokyo = service.stops()[1].stopId;
+    service.setActive(tokyo);
+    service.removeStop(tokyo);
+    expect(service.activeStop()).toBeNull();
+  });
+
+  it('removing a non-active stop keeps the selection', () => {
+    service.addStop(PARIS, '', '');
+    service.addStop(TOKYO, '', '');
+    const [paris, tokyo] = service.stops().map(s => s.stopId);
+    service.setActive(paris);
+    service.removeStop(tokyo);
+    expect(service.activeId()).toBe(paris);
+  });
+
+  it('addStop still selects the new stop', () => {
+    service.restoreStops([stop('a', 'paris')]);
+    service.addStop(TOKYO, '', '');
+    expect(service.activeStop()?.cityId).toBe('tokyo');
+  });
+
+  it('clearActive() unselects and keeps a selected transit', () => {
+    service.addStop(PARIS, '', '');
+    service.selectTransit('t1');
+    service.setActive(service.stops()[0].stopId);
+    service.selectTransit('t1');
+    service.clearActive();
+    expect(service.activeStop()).toBeNull();
+    expect(service.selectedTransitId()).toBe('t1');
   });
 });

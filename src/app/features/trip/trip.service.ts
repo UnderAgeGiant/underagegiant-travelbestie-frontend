@@ -146,7 +146,7 @@ export class TripService {
         const transits: TransitLeg[] = Array.isArray(parsed) ? []     : (parsed.transits ?? []).map(migrateTransitLeg);
         this._stops.set(stops);
         this._transits.set(transits);
-        this._activeId.set(stops[0]?.stopId ?? null);
+        this._activeId.set(null); // opening a plan starts unselected → full plan view (2026-10-25)
       } catch {
         this._stops.set([]);
         this._transits.set([]);
@@ -198,11 +198,7 @@ export class TripService {
     const migratedStops = stops.map(migrateStop);
     this._stops.set(migratedStops);
     this._transits.set(transits.map(migrateTransitLeg));
-    // Derive activeId from the migrated stops, not the raw input — a stop that
-    // arrives without a stopId (e.g. a freshly AI-generated plan, which never
-    // carries one) gets a brand-new one from migrateStop, so reading stopId off
-    // the raw stops[0] here would set an id that no stop in _stops actually has.
-    this._activeId.set(migratedStops[0]?.stopId ?? null);
+    this._activeId.set(null); // opening a plan starts unselected → full plan view (2026-10-25)
     this._loadedPlanId.set(planId);
     this._loadedPlanOwner.set(owner);
     this._saving = false;
@@ -253,7 +249,7 @@ export class TripService {
       this._transits.update(ts => ts.filter(t => t.fromCityId !== stop.cityId && t.toCityId !== stop.cityId));
     }
     if (this._activeId() === stopId) {
-      this._activeId.set(remaining[0]?.stopId ?? null);
+      this._activeId.set(null);
     }
   }
 
@@ -279,6 +275,11 @@ export class TripService {
   setActive(stopId: string): void {
     this._activeId.set(stopId);
     this._selectedTransitId.set(null);
+  }
+
+  /** Unselects the city (→ full plan view); leaves a selected transit alone. */
+  clearActive(): void {
+    this._activeId.set(null);
   }
 
   selectTransit(transitId: string | null): void {
