@@ -9,23 +9,9 @@ import {
   createRun, step, runResult, RunState, WORLD_W, WORLD_H, GROUND_Y, MIEL_BOX, OBSTACLE_SIZES, ObstacleKind, obstacleBottom,
 } from '../../core/game/runner-engine';
 import { backdropImages, BACKDROP_ROTATE_MS } from '../../core/game/runner-backdrop.util';
+import { MIEL_RUNNER_SPRITES } from '../../core/game/runner-sprites';
 
-/**
- * Sprite sources (owner's final art in public/game/). A path ('/…') is drawn as an image; anything else as
- * emoji text — that branch stays as the fallback while an image hasn't loaded yet.
- */
-export const MIEL_RUNNER_SPRITES = {
-  run1: '/game/miel-run-1.png',
-  run2: '/game/miel-run-2.png',
-  jump: '/game/miel-jump.png',
-  hit:  '/game/miel-hit.png',
-  obstacles: {
-    suitcase: '/game/obstacle-suitcase.png',
-    backpack: '/game/obstacle-backpack.png',
-    stack:    '/game/obstacle-luggage-stack.png',
-    plane:    '/game/obstacle-plane.png', // art already faces left: never mirrored (only the ✈️ fallback is)
-  } as Record<ObstacleKind, string>,
-};
+export { MIEL_RUNNER_SPRITES } from '../../core/game/runner-sprites'; // moved (2026-10-25) so GameAssetsService can preload without an import cycle
 
 /** Drawn while an obstacle's sprite is still loading (stacked glyphs fill the box). */
 const OBSTACLE_FALLBACK: Record<ObstacleKind, string> = { suitcase: '🧳', backpack: '🎒', stack: '🧳🧳', plane: '✈️' };

@@ -17,6 +17,7 @@ import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { UsernameEditComponent } from './username-edit/username-edit.component';
 import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../core/utils/password-strength.util';
+import { GameAssetsService } from '../../core/game/game-assets.service';
 
 @Component({
     selector: 'app-preferences',
@@ -381,6 +382,10 @@ export class PreferencesComponent {
   readonly trip          = inject(TripService);
   readonly homeAddress   = inject(HomeAddressService);
   readonly autoSave      = inject(AutoSaveService);
+
+  constructor() {
+    void inject(GameAssetsService).preload(); // the Miel Runner block lives here (route is authGuard-protected)
+  }
 
   close          = output<void>();
   openAiPlanning = output<void>();
