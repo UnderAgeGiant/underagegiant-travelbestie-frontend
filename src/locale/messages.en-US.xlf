@@ -3,6 +3,20 @@
   <file source-language="es-CL" target-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
 
+      <!-- ── miel runner audio (2026-10-25) ── -->
+      <trans-unit id="game.mute" datatype="html">
+        <source>Silenciar</source>
+        <target>Mute</target>
+      </trans-unit>
+      <trans-unit id="game.unmute" datatype="html">
+        <source>Activar sonido</source>
+        <target>Unmute</target>
+      </trans-unit>
+      <trans-unit id="game.loading" datatype="html">
+        <source>Cargando el juego</source>
+        <target>Loading the game</target>
+      </trans-unit>
+
       <!-- ── editor full plan (2026-10-25) ── -->
       <trans-unit id="stopList.viewFullPlan" datatype="html">
         <source>🗺️ Ver plan completo</source>

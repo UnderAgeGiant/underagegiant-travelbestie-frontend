@@ -10,6 +10,8 @@ import {
 } from '../../core/game/runner-engine';
 import { backdropImages, BACKDROP_ROTATE_MS } from '../../core/game/runner-backdrop.util';
 import { MIEL_RUNNER_SPRITES } from '../../core/game/runner-sprites';
+import { GameAssetsService } from '../../core/game/game-assets.service';
+import { GameAudioService } from '../../core/game/game-audio.service';
 
 export { MIEL_RUNNER_SPRITES } from '../../core/game/runner-sprites'; // moved (2026-10-25) so GameAssetsService can preload without an import cycle
 
@@ -28,6 +30,8 @@ type Status = 'ready' | 'running' | 'over';
     <div class="mr-hud">
       <span class="mr-score" i18n="@@game.score">Puntos: {{ score() }}</span>
       @if (best() !== null) { <span class="mr-best" i18n="@@game.best">Récord semanal: {{ best() }}</span> }
+      <button type="button" class="mr-mute" (click)="audio.toggleMute()" [attr.aria-pressed]="audio.muted()"
+              [attr.aria-label]="audio.muted() ? unmuteLabel : muteLabel">{{ audio.muted() ? '🔇' : '🔊' }}</button>
     </div>
     <div class="mr-stage">
       @for (l of bgLayers(); track $index) {
@@ -39,7 +43,18 @@ type Status = 'ready' | 'running' | 'over';
     </div>
     <div class="mr-overlay" aria-live="polite">
       @switch (status()) {
-        @case ('ready') { <p class="mr-hint" i18n="@@game.tapToStart">Toca para empezar · Espacio o ↑ para saltar</p> }
+        @case ('ready') {
+          @if (!assets.ready()) {
+            <div class="mr-loading" role="progressbar" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="assets.progress()"
+                 i18n-aria-label="@@game.loading" aria-label="Cargando el juego">
+              <svg viewBox="0 0 44 44" aria-hidden="true"><circle class="mr-loading-track" cx="22" cy="22" r="19"/>
+                <circle class="mr-loading-bar" cx="22" cy="22" r="19" pathLength="100" [attr.stroke-dasharray]="assets.progress() + ' 100'"/></svg>
+              <span class="mr-loading-pct">{{ assets.progress() }}%</span>
+            </div>
+          } @else {
+            <p class="mr-hint" i18n="@@game.tapToStart">Toca para empezar · Espacio o ↑ para saltar</p>
+          }
+        }
         @case ('over') {
           <p class="mr-final" i18n="@@game.final">¡Fin del juego! {{ score() }} puntos</p>
           @if (newRecord()) { <p class="mr-record" i18n="@@game.newRecord">🏆 ¡Nuevo récord!</p> }
@@ -55,6 +70,10 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   private readonly game = inject(GameService);
   private readonly rankings = inject(RankingService);
   private readonly zone = inject(NgZone);
+  protected readonly assets = inject(GameAssetsService);
+  protected readonly audio = inject(GameAudioService);
+  protected readonly muteLabel = $localize`:@@game.mute:Silenciar`;
+  protected readonly unmuteLabel = $localize`:@@game.unmute:Activar sonido`;
   private readonly canvas = viewChild.required<ElementRef<HTMLCanvasElement>>('canvas');
 
   readonly runEnded = output<{ score: number; newRecord: boolean }>();
@@ -104,6 +123,7 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     el.height = WORLD_H * dpr;
     this.ctx = el.getContext('2d');
     this.ctx?.scale(dpr, dpr);
+    void this.assets.preload(); // music + sprites; the start hint waits for it (loading ring)
     for (const src of [MIEL_RUNNER_SPRITES.run1, MIEL_RUNNER_SPRITES.run2, MIEL_RUNNER_SPRITES.jump, MIEL_RUNNER_SPRITES.hit,
                        ...Object.values(MIEL_RUNNER_SPRITES.obstacles)]) {
       if (src.startsWith('/') && !this.images.has(src)) {
@@ -128,10 +148,12 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     clearInterval(this.bgTimer);
     document.removeEventListener('visibilitychange', this.onVisibility);
     cancelAnimationFrame(this.frame);
+    this.audio.stopMusic();
     if (this.status() === 'running') void this.endRun();
   }
 
   onPointer(): void {
+    if (!this.assets.ready()) return; // still loading: the ring shows the %
     if (this.status() === 'running') this.jumpQueued = true;
     else this.start();
   }
@@ -150,6 +172,9 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     this.newRecord.set(false);
     this.unsaved.set(false);
     this.status.set('running');
+    this.audio.unlock(); // inside the player's gesture (autoplay policies)
+    this.audio.chime();
+    this.audio.startMusic();
     this.canvas().nativeElement.focus();
     this.lastTs = 0;
     this.zone.runOutsideAngular(() => { this.frame = requestAnimationFrame(ts => this.loop(ts)); });
@@ -159,7 +184,9 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
     if (!this.state || this.status() !== 'running') return;
     const dt = this.lastTs ? ts - this.lastTs : 16;
     this.lastTs = ts;
+    const prev = this.state;
     this.state = step(this.state, dt, this.jumpQueued);
+    if (prev.y === 0 && prev.vy === 0 && this.state.vy > 0) this.audio.jump();
     this.jumpQueued = false;
     this.draw();
     const s = runResult(this.state).score;
@@ -172,6 +199,8 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   async endRun(): Promise<void> {
     if (this.status() !== 'running' || !this.state) return;
     cancelAnimationFrame(this.frame);
+    this.audio.stopMusic();
+    if (this.state.over) this.audio.crash(); // a real hit, not a hidden tab or the host closing us
     this.status.set('over');
     const result = runResult(this.state);
     this.score.set(result.score);
