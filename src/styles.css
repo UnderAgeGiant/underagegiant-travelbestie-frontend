@@ -3660,3 +3660,12 @@ tb-landing-ranking { display: block; }
 .mr-record { color: var(--peach-d); font-weight: 700; margin: 0; }
 .mr-section { margin-top: 24px; }
 .mr-section-sub { font-size: 12px; color: var(--t3); margin: 4px 0 10px; }
+
+/* ── Editor full plan (tb-trip-full-plan, 2026-10-25) — reuses .itin*; only new rules here ── */
+.tfp { padding: 22px 26px; }
+.tfp-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: -.5px; margin: 0 0 12px; color: var(--t1); }
+.tfp-city-link { display: block; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: left; line-height: inherit; }
+.tfp-city-link:hover, .tfp-city-link:focus-visible { text-decoration: underline; }
+@media (max-width: 768px) {
+  .tfp { padding: 16px 14px 100px; }
+}
