@@ -161,6 +161,7 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
   /** Bound on the host: keys only reach us while the game (canvas/button) has focus, so Space never scrolls elsewhere. */
   onKey(e: KeyboardEvent): void {
     if (e.key !== ' ' && e.key !== 'ArrowUp') return;
+    if ((e.target as HTMLElement | null)?.classList?.contains('mr-mute')) return; // the mute button keeps its own Space
     e.preventDefault();
     this.onPointer();
   }

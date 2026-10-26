@@ -121,4 +121,14 @@ describe('GameAudioService', () => {
     s.chime();
     expect(FakeAudioContext.last.oscillators).toBe(5);
   });
+
+  it('a decodeAudioData that throws synchronously never escapes startMusic (final review #3)', () => {
+    (window as any).AudioContext = class extends FakeAudioContext {
+      override decodeAudioData(): Promise<{ duration: number }> { throw new Error('legacy engine'); }
+    };
+    const s = TestBed.inject(GameAudioService);
+    s.unlock();
+    expect(() => s.startMusic()).not.toThrow();
+    expect(() => s.startMusic()).not.toThrow();
+  });
 });

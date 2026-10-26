@@ -111,6 +111,15 @@ describe('MielRunnerComponent', () => {
     expect(btn().getAttribute('aria-pressed')).toBe('true');
   });
 
+  it('Space on the focused mute button never starts or jumps the game (final review #1)', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    const btn = el.querySelector('.mr-mute') as HTMLButtonElement;
+    const ev = new KeyboardEvent('keydown', { key: ' ', bubbles: true, cancelable: true });
+    btn.dispatchEvent(ev);
+    expect(cmp.status()).toBe('ready');
+    expect(ev.defaultPrevented).toBe(false); // the button keeps its native Space → click
+  });
+
   it('destroying mid-run stops the music', () => {
     cmp.onPointer();
     fixture.destroy();

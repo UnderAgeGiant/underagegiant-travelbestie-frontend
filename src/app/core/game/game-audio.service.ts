@@ -51,7 +51,10 @@ export class GameAudioService {
     if (this.buffer) { this.playMusic(this.buffer); return; }
     const data = this.assets.musicData();
     if (!data) return;
-    this.decoding ??= this.ctx!.decodeAudioData(data.slice(0)).catch(() => null); // slice: decoding detaches its input
+    if (!this.decoding) {
+      try { this.decoding = this.ctx!.decodeAudioData(data.slice(0)).catch(() => null); } // slice: decoding detaches its input
+      catch { this.decoding = Promise.resolve(null); } // a legacy engine may throw synchronously
+    }
     void this.decoding.then(b => {
       this.buffer = b;
       if (b && this.musicWanted && !this.music && this.audible()) this.playMusic(b);

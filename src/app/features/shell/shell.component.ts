@@ -229,9 +229,6 @@ export class ShellComponent {
     }
   }
 
-  /** S5's closing CTA (About Us content appended to the landing scroll, feedback #4) — scrolls
-   *  back to S1 at the top of the page. The routed /about page's own CTA still calls goHome()
-   *  instead, since there's no landing scroll to return to on that page. */
   /** A city name in the full plan selects that stop; on mobile the plan sits below, so scroll back up to the card. */
   onFullPlanCity(stopId: string): void {
     this.trip.setActive(stopId);
@@ -240,6 +237,9 @@ export class ShellComponent {
     }
   }
 
+  /** S5's closing CTA (About Us content appended to the landing scroll, feedback #4) — scrolls
+   *  back to S1 at the top of the page. The routed /about page's own CTA still calls goHome()
+   *  instead, since there's no landing scroll to return to on that page. */
   scrollToTop(): void {
     this.topSection()?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
