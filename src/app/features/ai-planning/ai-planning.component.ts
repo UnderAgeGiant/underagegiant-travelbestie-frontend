@@ -1,5 +1,5 @@
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
-import { Component, inject, signal, computed, input, effect, output, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
@@ -8,7 +8,8 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload } from '../../core/models/ai.model';
-import { Trip, TransitLeg, TransitSegment, TransitMode, PlannedAttraction } from '../../core/models/trip.model';
+import { Trip, TransitLeg, TransitSegment, TransitMode, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
+import { CostSettingsComponent } from '../../shared/cost-settings/cost-settings.component';
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { Attraction } from '../../core/models/comment.model';
@@ -20,6 +21,8 @@ import { DatePickerComponent } from '../../shared/date-picker/date-picker.compon
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
 import { PlanPresentationPillComponent } from '../../shared/plan-presentation-pill/plan-presentation-pill.component';
+import { MielRunnerComponent } from '../../shared/miel-runner/miel-runner.component';
+import { backdropImages } from '../../core/game/runner-backdrop.util';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { LocaleService } from '../../core/i18n/locale.service';
@@ -57,7 +60,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent],
+    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent, CostSettingsComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -514,7 +517,11 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
               }
             </div>
 
-            <div class="ai-plan-actions" style="margin-top:24px">
+            <div style="margin-top:24px">
+              <app-cost-settings [settings]="costSettings()" (settingsChange)="costSettings.set($event)" />
+            </div>
+
+            <div class="ai-plan-actions" style="margin-top:16px">
               <button class="btn-pill btn-outline"
                       (click)="restart()"
                       type="button"
@@ -556,9 +563,9 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
         <app-plan-slideshow [items]="planSlideItems()" (closed)="planSlideshowOpen.set(false)" />
       }
 
-      @if (loading() || notifyConfirmVisible()) {
+      @if (loading() || notifyConfirmVisible() || gameOpen()) {
         <div class="ai-loading-overlay">
-          <div class="ai-loading-card">
+          <div class="ai-loading-card" [class.ai-loading-card--game]="gameOpen()">
             @if (loading() && !notifyConfirmVisible()) {
               <div class="ai-loading-spinner"></div>
               <div class="ai-loading-title">{{ loadingMessage() }}</div>
@@ -574,12 +581,20 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   </p>
                   <div class="companion-bubble-actions">
                     <button type="button" class="btn-pill btn-outline" (click)="waitForPlan()"
-                            i18n="@@aiplan.takingLongWait">Esperar</button>
+                            i18n="@@aiplan.takingLongPlay">🐾 Jugar con Miel mientras espero</button>
                     <button type="button" class="btn-pill btn-primary" (click)="notifyMeInstead()"
                             i18n="@@aiplan.takingLongNotify">Notificarme</button>
                   </div>
                 </div>
               </div>
+            }
+
+            @if (gameOpen()) {
+              @if (planReadyWhileGaming()) {
+                <button type="button" class="btn-pill btn-primary ai-game-ready" (click)="viewReadyPlan()"
+                        i18n="@@aiplan.gameReady">✨ ¡Tu plan está listo! Ver plan</button>
+              }
+              <tb-miel-runner [backdrop]="gameBackdrop()" />
             }
 
             @if (notifyConfirmVisible()) {
@@ -617,6 +632,16 @@ export class AiPlanningComponent implements OnDestroy {
   initialResult = input<AiPlanViewPayload | null>(null);
 
   readonly auth = inject(AuthService);
+  /** Cost estimate inputs for the saved plan; origin starts at the user's profile city. */
+  // Re-keyed only on the home place: a silent refresh or login replaces the whole user object,
+  // which must not wipe the adults/children/comfort the user already picked.
+  readonly costSettings = linkedSignal<number | null, CostSettings>({
+    source: () => this.auth.currentUser()?.homePlace?.geonameId ?? null,
+    computation: (_id, prev) => ({
+      ...(prev?.value ?? DEFAULT_COST_SETTINGS),
+      origin: this.auth.currentUser()?.homePlace ?? null,
+    }),
+  });
   private readonly api        = inject(ApiService);
   private readonly tripSvc    = inject(TripService);
   private readonly savedPlans = inject(SavedPlansService);
@@ -644,10 +669,16 @@ export class AiPlanningComponent implements OnDestroy {
   planTakingLong = signal(false);
   /** Shown after "Notificarme" is clicked — a hand-off message pointing the user at the featured plans while they wait. */
   notifyConfirmVisible = signal(false);
+  /** F73 — the user chose to play while the plan generates. */
+  readonly gameOpen = signal(false);
+  /** The plan finished while the game was open: show a banner instead of covering the game. */
+  readonly planReadyWhileGaming = signal(false);
+  /** Task 12 — faded photos of the cities being planned behind the game (iconic list when none). */
+  readonly gameBackdrop = computed(() => backdropImages(this.selectedOption()?.cityIds ?? []));
   private planSub: Subscription | null = null;
   private planTakingLongTimer: ReturnType<typeof setTimeout> | null = null;
   private celebrateTimer: ReturnType<typeof setTimeout> | null = null;
-  private static readonly AI_PLAN_LONG_WAIT_MS = 15_000;
+  private static readonly AI_PLAN_LONG_WAIT_MS = 7_000;
 
   preferences = signal('');
   protected readonly maxPreferencesChars = MAX_PREFERENCES_CHARS;
@@ -980,7 +1011,9 @@ export class AiPlanningComponent implements OnDestroy {
         this.loading.set(false);
         this.step.set('result');
         // Celebrate, then bounce the presentation pill (F3 — no auto-open).
-        this.triggerPlanReadyCelebration();
+        // F73: never cover a running game — show the banner; "Ver plan" celebrates.
+        if (this.gameOpen()) this.planReadyWhileGaming.set(true);
+        else this.triggerPlanReadyCelebration();
 
         if (changeInfo) {
           this.handleChangeInfo(changeInfo);
@@ -990,6 +1023,8 @@ export class AiPlanningComponent implements OnDestroy {
         this.clearPlanTakingLongTimer();
         this.planTakingLong.set(false);
         this.loading.set(false);
+        this.gameOpen.set(false);
+        this.planReadyWhileGaming.set(false);
         if (!this.karmaModal.handleKarmaError(err)) {
           this.error.set(err?.error?.error ?? 'Error al generar el plan');
         }
@@ -997,9 +1032,17 @@ export class AiPlanningComponent implements OnDestroy {
     });
   }
 
-  /** User chose "Esperar" in the taking-long dog bubble — no-op, the existing poll subscription keeps running. */
+  /** "🐾 Jugar con Miel mientras espero" — the poll keeps running; the game opens in the loading card. */
   waitForPlan(): void {
     this.planTakingLong.set(false);
+    this.gameOpen.set(true);
+  }
+
+  /** Banner "Ver plan": closing the game destroys tb-miel-runner, which submits a running run. */
+  viewReadyPlan(): void {
+    this.gameOpen.set(false);
+    this.planReadyWhileGaming.set(false);
+    this.triggerPlanReadyCelebration();
   }
 
   /**
@@ -1099,6 +1142,7 @@ export class AiPlanningComponent implements OnDestroy {
     this.savedPlans.upsert(email, null, trip.title, trip.stops, trip.transits ?? [], {
       sourceAiPlanRequestId: this.currentAiPlanRequestId() ?? undefined,
       sourcePlanSessionId: this.planSessionId() ?? undefined,
+      costSettings: this.costSettings(),
     })
       .subscribe({
         next: id => {
@@ -1135,6 +1179,8 @@ export class AiPlanningComponent implements OnDestroy {
   private clearSession(): void {
     this.step.set('preferences');
     this.notifyConfirmVisible.set(false);
+    this.gameOpen.set(false);
+    this.planReadyWhileGaming.set(false);
     // The fullscreen slideshow overlay (opened by the result's presentation pill) reparents
     // itself on top of everything — leaving it open would hide Step 1 behind it
     // even after step is switched back to 'preferences'.

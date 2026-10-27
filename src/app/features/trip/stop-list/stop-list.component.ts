@@ -1,5 +1,5 @@
 import { AttractionNamePipe } from '../../../shared/pipes/attraction-name.pipe';
-import { Component, inject, signal, computed, effect, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
+import { Component, inject, signal, computed, effect, linkedSignal, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { TripService } from '../trip.service';
 import { DeviceService } from '../../../core/device/device.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
@@ -20,7 +20,9 @@ import { CitySuggestCloudComponent } from './city-suggest-cloud.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
 import { parseDMY } from '../../../core/utils/event-datetime.util';
 import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
-import { TripStop, PlannedAttraction } from '../../../core/models/trip.model';
+import { TripStop, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../../core/models/trip.model';
+import { CostSettingsComponent } from '../../../shared/cost-settings/cost-settings.component';
+import { TripCostCardComponent } from '../../../shared/trip-cost-card/trip-cost-card.component';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { City } from '../../../core/models/city.model';
@@ -29,10 +31,15 @@ import { CityWeatherChipComponent } from '../../../shared/city-weather-chip/city
 import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map.component';
 import { isPersonal, personalAttraction } from '../../../core/utils/personal-activity.util';
 import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
+import { ApiService } from '../../../core/api/api.service';
+import { SharedTripsService } from '../../../core/shared-trips/shared-trips.service';
+import { ToastComponent } from '../../../shared/toast/toast.component';
+import { NgTemplateOutlet } from '@angular/common';
+import { environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe],
+    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent, TripCostCardComponent, ToastComponent, NgTemplateOutlet],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -139,7 +146,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
 
           <!-- Departure flight connector -->
           <app-transit-connector fromId="__start__" toId="__start__"
-            type="departure" [cityLabel]="firstCityLabel()" [cityFlag]="firstCityFlag()" />
+            type="departure" [cityLabel]="firstCityLabel()" [cityFlag]="firstCityFlag()" [homeName]="homeName()" />
 
           @for (stop of trip.stops(); track stop.stopId; let i = $index) {
 
@@ -301,17 +308,36 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
 
           <!-- Return flight connector -->
           <app-transit-connector fromId="__end__" toId="__end__"
-            type="arrival" [cityLabel]="lastCityLabel()" [cityFlag]="lastCityFlag()" />
+            type="arrival" [cityLabel]="lastCityLabel()" [cityFlag]="lastCityFlag()" [homeName]="homeName()" />
 
         }
       </div>
 
 
-      <div class="panel-footer">
+      <div class="panel-footer" [class.panel-footer--fab]="showFab()">
         <button class="btn-pill btn-ghost" style="width:100%;justify-content:center"
                 (click)="addDestination.emit()"
                 i18n="@@stopList.addBtn">+ Agregar destino</button>
         @if (trip.stops().length > 0) {
+          @if (currentPlan(); as plan) {
+            <!-- Card + settings scroll inside a capped area so Cancelar / Guardar viaje stay pinned and reachable. -->
+            <div class="cost-footer-scroll">
+              <app-trip-cost-card style="display:block" mode="owner" [canCalculate]="true" [calculating]="cardCalculating()"
+                [estimate]="plan.costEstimate ?? null" [settings]="plan.costSettings ?? defaultCostSettings"
+                (calculate)="calculate()" (editSettings)="editSettings()" />
+              @if (costEditOpen()) {
+                <div style="margin-top:8px">
+                  <app-cost-settings [settings]="pendingCostSettings()" (settingsChange)="pendingCostSettings.set($event)" />
+                </div>
+              }
+            </div>
+            @if (costEditOpen()) {
+              <button type="button" class="btn-pill btn-outline cost-edit-cancel"
+                      style="width:100%;justify-content:center;margin-top:8px;min-height:40px"
+                      (click)="costEditOpen.set(false)"
+                      i18n="@@stopList.costEditCancel">Cancelar</button>
+            }
+          }
           @if (!bookOpen()) {
             <button class="btn-pill btn-primary"
                     style="width:100%;justify-content:center;margin-top:8px"
@@ -324,6 +350,15 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                 <span class="karma-cost">−1 ✨ token</span>
               }
             </button>
+            @if (currentPlan(); as plan) {
+              @if (!plan.isCollaborator) {
+                @if (plan.shareId) {
+                  <div class="publish-done" i18n="@@stopList.published">Publicado ✓</div>
+                } @else {
+                  <ng-container [ngTemplateOutlet]="publishCheck" />
+                }
+              }
+            }
           } @else {
             <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">
               <input class="form-input"
@@ -331,6 +366,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                      (input)="bookName.set($any($event.target).value)"
                      i18n-placeholder="@@stopList.bookNamePlaceholder" placeholder="Nombre del viaje…"
                      (keydown.enter)="doBookSave()" />
+              <app-cost-settings [settings]="costSettings()" (settingsChange)="costSettings.set($event)" />
               <div style="display:flex;gap:6px">
                 <button class="btn-pill btn-primary" style="flex:1;justify-content:center"
                         [disabled]="bookSaving()"
@@ -340,8 +376,16 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
                         [disabled]="bookSaving()"
                         (click)="bookOpen.set(false)">✕</button>
               </div>
+              <ng-container [ngTemplateOutlet]="publishCheck" />
             </div>
           }
+          <ng-template #publishCheck>
+            <label class="publish-check">
+              <input type="checkbox" [checked]="publishOnSave()" [disabled]="bookSaving()"
+                     (change)="publishOnSave.set($any($event.target).checked)" />
+              <span i18n="@@stopList.publishOnSave">Publicar viaje</span>
+            </label>
+          </ng-template>
           @if (bookError()) {
             <div style="font-size:11px;color:oklch(48% 0.16 50);margin-top:4px;text-align:center">
               ⭐ {{ bookError() }}
@@ -349,7 +393,7 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
           }
         }
 
-        @if (device.isMobile() && showScrollTop() && trip.stops().length > 0) {
+        @if (showFab()) {
           <button class="scroll-top-fab" (click)="scrollToActiveCity()" type="button"
                   i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
         }
@@ -375,6 +419,10 @@ import { PersonalActivityModalService } from '../../destination/personal-activit
         }
       </div>
 
+      @if (toast()) {
+        <app-toast [message]="toast()!" (done)="toast.set(null)" />
+      }
+
       @if (tripMapOpen()) {
         <div class="trip-map-modal-backdrop" (click)="tripMapOpen.set(false)">
           <div class="trip-map-modal-body" (click)="$event.stopPropagation()">
@@ -399,6 +447,8 @@ export class StopListComponent {
   protected readonly citySuggest = inject(CitySuggestService);
   protected readonly autoSave = inject(AutoSaveService);
   protected readonly personalModal = inject(PersonalActivityModalService);
+  private readonly api         = inject(ApiService);
+  private readonly sharedTrips = inject(SharedTripsService);
   addDestination = output<void>();
   openPreferences = output<void>();
   stopSelected = output<void>();   // landing → editor (Feature 68)
@@ -444,6 +494,9 @@ export class StopListComponent {
   // popover — see that component if this pattern needs to change in both places.
 
   protected readonly showScrollTop = signal(false);
+  /** Mobile "Ir arriba" FAB; hidden while a form is open so it never covers its buttons. */
+  protected readonly showFab = computed(() =>
+    this.device.isMobile() && this.showScrollTop() && this.trip.stops().length > 0 && !this.bookOpen() && !this.costEditOpen());
 
   // Which stop's inline city timeline is currently open (null = none).
   protected readonly itineraryOpenStopId = signal<string | null>(null);
@@ -524,11 +577,61 @@ export class StopListComponent {
     return this.savedPlans.plans().find(p => p.id === id)?.name ?? null;
   });
 
+  readonly currentPlan = computed(() => this.savedPlans.plans().find(p => p.id === this.trip.loadedPlanId()));
+  readonly homeName = computed(() => this.currentPlan()?.costSettings?.origin?.name ?? null);
+  readonly defaultCostSettings = DEFAULT_COST_SETTINGS;
+  calculating   = signal(false);
+  costEditOpen  = signal(false);
+  pendingCostSettings = signal<CostSettings>(DEFAULT_COST_SETTINGS);
+
   bookOpen   = signal(false);
   bookName   = signal('');
   bookSaved  = signal(false);
   bookSaving = signal(false);
   bookError  = signal('');
+  costSettings = signal<CostSettings>(DEFAULT_COST_SETTINGS);
+  /** "Publicar viaje": checked for a plan's first save; on a saved, unpublished plan it starts unchecked,
+   *  so a later "Guardar viaje" never silently republishes a plan the owner kept private or unpublished. */
+  readonly publishOnSave = linkedSignal(() => !this.trip.loadedPlanId());
+  toast = signal<string | null>(null);
+
+  /** Calculating for the cost card: the save itself (local flag) or the estimate request in flight. */
+  readonly cardCalculating = computed(() => {
+    const id = this.trip.loadedPlanId();
+    return this.calculating() || (!!id && this.savedPlans.estimating().has(id));
+  });
+
+  /** Cost card "Calcular precio". An open cost-settings block, or a missing saved origin with a profile
+   *  home city, makes this an explicit save (which triggers the estimate); otherwise estimate the stored snapshot. */
+  calculate(): void {
+    const plan = this.currentPlan();
+    const user = this.auth.currentUser();
+    if (!plan || !user?.email || this.calculating()) return;
+    const editing = this.costEditOpen();
+    const settings = editing ? this.pendingCostSettings() : plan.costSettings;
+    // A collaborator never writes their own home city into the owner's trip.
+    const implicitOrigin = plan.isCollaborator ? null : user.homePlace ?? null;
+    if (editing || (!plan.isCollaborator && !plan.costSettings?.origin && user.homePlace)) {
+      this.calculating.set(true);
+      const origin = settings?.origin ?? implicitOrigin;
+      this.savedPlans.upsert(user.email, plan.id, plan.name, this.trip.stops(), this.trip.transits(), {
+        costSettings: { ...(settings ?? DEFAULT_COST_SETTINGS), origin },
+      }).subscribe({
+        next: () => { this.calculating.set(false); this.costEditOpen.set(false); },
+        error: () => this.calculating.set(false),
+      });
+    } else {
+      this.savedPlans.estimate(plan.id).subscribe({ error: () => { /* card stays as it was */ } });
+    }
+  }
+
+  /** Opens the inline cost-settings block; its values are applied on the next explicit save. */
+  editSettings(): void {
+    const plan = this.currentPlan();
+    const user = this.auth.currentUser();
+    this.pendingCostSettings.set(plan?.costSettings ?? { ...DEFAULT_COST_SETTINGS, origin: plan?.isCollaborator ? null : user?.homePlace ?? null });
+    this.costEditOpen.set(true);
+  }
 
   editingDatesStopId = signal<string | null>(null);
   editCheckIn        = signal('');
@@ -544,12 +647,21 @@ export class StopListComponent {
       const email = this.auth.currentUser()?.email;
       if (!email) return;
       this.bookSaving.set(true);
-      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits()).subscribe({
-        next: () => { this.bookSaving.set(false); this.autoSave.commitSnapshot(this.trip.loadedPlanId()!); this.flashSaved(); },
+      // Cost settings are sent only when the block was opened: background autosave never sends them.
+      const costOpts = this.costEditOpen() ? { costSettings: this.pendingCostSettings() } : {};
+      const plan = this.currentPlan();
+      const publish = !!plan && !plan.isCollaborator && !plan.shareId && this.publishOnSave();
+      this.savedPlans.upsert(email, this.trip.loadedPlanId(), existingName, this.trip.stops(), this.trip.transits(), costOpts).subscribe({
+        next: id => {
+          this.bookSaving.set(false); this.costEditOpen.set(false); this.autoSave.commitSnapshot(id); this.flashSaved();
+          if (publish) this.publishSaved(email, id, existingName);
+        },
         error: () => { this.bookSaving.set(false); },
       });
     } else {
       this.bookName.set('');
+      this.costSettings.set({ ...DEFAULT_COST_SETTINGS, origin: this.auth.currentUser()?.homePlace ?? null });
+      this.publishOnSave.set(true);
       this.bookOpen.set(true);
     }
   }
@@ -561,9 +673,10 @@ export class StopListComponent {
     if (!email) return;
     this.bookError.set('');
     this.bookSaving.set(true);
+    const publish = this.publishOnSave();
     // Always null: the form only shows when activeTripName() was null, meaning the stale
     // loadedPlanId doesn't resolve to a known plan — passing it would PUT a ghost trip and fail silently.
-    this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits()).subscribe({
+    this.savedPlans.upsert(email, null, name, this.trip.stops(), this.trip.transits(), { costSettings: this.costSettings() }).subscribe({
       next: newId => {
         this.bookSaving.set(false);
         this.trip.markAsLoadedPlan(newId);
@@ -571,6 +684,7 @@ export class StopListComponent {
         this.bookOpen.set(false);
         this.bookName.set('');
         this.flashSaved();
+        if (publish) this.publishSaved(email, newId, name);
       },
       error: err => {
         this.bookSaving.set(false);
@@ -578,6 +692,25 @@ export class StopListComponent {
           this.bookOpen.set(false);
         }
       },
+    });
+  }
+
+  /** Publishes a just-saved plan (explicit saves only — autosave never gets here). A failure never undoes the save. */
+  private publishSaved(email: string, id: string, name: string): void {
+    const done = (shareId: string) => {
+      this.savedPlans.setShareId(email, id, shareId);
+      this.toast.set($localize`:@@stopList.publishedToast:Viaje publicado`);
+    };
+    if (environment.useMocks) {
+      done(this.sharedTrips.createShare({
+        ownerEmail: email, ownerName: this.auth.currentUser()?.name ?? '', tripName: name,
+        stops: this.trip.stops(), transits: this.trip.transits(), planId: id,
+      }));
+      return;
+    }
+    this.api.shareTrip(id).subscribe({
+      next: ({ shareId }) => done(shareId),
+      error: () => this.toast.set($localize`:@@stopList.publishError:No se pudo publicar el viaje`),
     });
   }
 

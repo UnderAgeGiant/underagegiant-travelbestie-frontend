@@ -59,9 +59,9 @@ describe('PreferencesComponent — edit account accordion', () => {
     expect(navSpy).toHaveBeenCalled();
   });
 
-  it('has exactly four accordion toggle buttons in the edit-account section (username row added first)', () => {
+  it('has exactly five accordion toggle buttons in the edit-account section (username row + Ciudad de origen)', () => {
     const buttons = fixture.nativeElement.querySelectorAll('.pref-accordion-hd');
-    expect(buttons.length).toBe(4);
+    expect(buttons.length).toBe(5);
   });
 
   it('renders the country combobox when the País de residencia section is opened', () => {
@@ -95,6 +95,39 @@ describe('PreferencesComponent — edit account accordion', () => {
 
     expect(spy).toHaveBeenCalledWith({ countryOfResidence: null });
     expect(fixture.componentInstance.editCountryOfResidence()).toBeNull();
+  });
+
+  describe('Ciudad de origen (home city)', () => {
+    const CL_PLACE = { geonameId: 3897, name: 'Rancagua', countryCode: 'CL', iata: 'SCL' };
+
+    function mockUpdate() {
+      return jest.spyOn(TestBed.inject(AuthService), 'updateProfile').mockReturnValue(
+        of({ user: { name: 'Test User', email: 'test@example.com' } }),
+      );
+    }
+
+    it('picking a CL place with an empty country of residence also saves countryOfResidence CL', () => {
+      // Earlier tests leave a session (with a country) in localStorage — make the empty case explicit.
+      TestBed.inject(AuthService).setTokens('dummy-token', { name: 'Test User', email: 'test@example.com', countryOfResidence: null });
+      const spy = mockUpdate();
+      fixture.componentInstance.onHomePlacePicked(CL_PLACE);
+      fixture.componentInstance.editSaveHomePlace();
+
+      expect(spy).toHaveBeenCalledWith({ homePlace: CL_PLACE, countryOfResidence: 'CL' });
+    });
+
+    it('picking a CL place never overwrites an existing country of residence AR', () => {
+      const auth = TestBed.inject(AuthService);
+      auth.setTokens('dummy-token', { name: 'Test User', email: 'test@example.com', countryOfResidence: 'AR' });
+      const spy = mockUpdate();
+
+      fixture.componentInstance.onHomePlacePicked(CL_PLACE);
+      fixture.componentInstance.editSaveHomePlace();
+
+      const arg = spy.mock.calls[0][0];
+      expect(arg).toEqual({ homePlace: CL_PLACE });
+      expect(arg).not.toHaveProperty('countryOfResidence');
+    });
   });
 
   it('does not render a "Volver" back button (feedback #7 — logo click already exits the page)', () => {

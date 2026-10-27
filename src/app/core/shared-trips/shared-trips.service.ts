@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { TripStop, TransitLeg } from '../models/trip.model';
+import { TripStop, TransitLeg, CostSettings, CostEstimate } from '../models/trip.model';
 import { normalizeSearch } from '../utils/normalize-search.util';
+
+/** Public payload: origin reduced to name + country (no geonameId/iata). */
+export type SharedCostSettings = Omit<CostSettings, 'origin'> & {
+  origin: { name: string; countryCode: string } | null;
+};
+export type SharedCostEstimate = Omit<CostEstimate, 'settings'> & { settings: SharedCostSettings };
 
 export interface SharedTrip {
   id:              string;
@@ -15,6 +21,8 @@ export interface SharedTrip {
   tripId?:         string;
   favoriteCount?:  number;
   isFavoritedByMe?: boolean;
+  costSettings?:   SharedCostSettings;
+  costEstimate?:   SharedCostEstimate | null;
 }
 
 const TRIPS_KEY = 'tb_shared_trips';
@@ -44,6 +52,10 @@ export class SharedTripsService {
       }
     } catch { /* fall back to snapshot */ }
     return trip;
+  }
+
+  removeShare(id: string): void {
+    localStorage.setItem(TRIPS_KEY, JSON.stringify(this.allTrips().filter(t => t.id !== id)));
   }
 
   getMyTrips(email: string): SharedTrip[] {

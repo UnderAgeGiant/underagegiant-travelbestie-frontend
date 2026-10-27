@@ -4,11 +4,14 @@ import { Observable, of, throwError, from } from 'rxjs';
 import { tap, switchMap, catchError, map, finalize, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
+import type { Place } from '../models/trip.model';
 
 export interface AuthUser {
   name: string;
   email: string;
   countryOfResidence?: string | null;
+  /** Home city (Feature 74). null = cleared; undefined = not sent by the backend yet. */
+  homePlace?: Place | null;
   username?: string | null;
 }
 
@@ -107,7 +110,7 @@ export class AuthService {
 
   updateProfile(fields: {
     name?: string; newEmail?: string; otp?: string;
-    currentPassword?: string; newPassword?: string; countryOfResidence?: string | null; username?: string;
+    currentPassword?: string; newPassword?: string; countryOfResidence?: string | null; homePlace?: Place | null; username?: string;
   }): Observable<{ user: AuthUser }> {
     if (environment.useMocks) {
       const current = this._user();
@@ -117,6 +120,7 @@ export class AuthService {
         name:               fields.name ?? current.name,
         email:              fields.newEmail ?? current.email,
         countryOfResidence: fields.countryOfResidence !== undefined ? fields.countryOfResidence : (current.countryOfResidence ?? null),
+        homePlace:          fields.homePlace !== undefined ? fields.homePlace : (current.homePlace ?? null),
         username:           fields.username ?? current.username ?? null,
       };
       localStorage.setItem(SESSION_KEY, JSON.stringify(updated));

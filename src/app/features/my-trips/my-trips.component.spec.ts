@@ -518,3 +518,88 @@ describe('MyTripsComponent — ?tab= query param', () => {
     jest.useRealTimers();
   });
 });
+
+describe('MyTripsComponent — "Dejar de publicar" (F74 feedback F3)', () => {
+  let fixture: ComponentFixture<MyTripsComponent>;
+  let component: MyTripsComponent;
+  let savedPlans: SavedPlansService;
+  let unshare: jest.SpyInstance;
+  const el = () => fixture.nativeElement as HTMLElement;
+  const btn = (text: string) => Array.from(el().querySelectorAll('button')).find(b => b.textContent?.trim() === text) as HTMLButtonElement | undefined;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    TestBed.inject(AuthService).setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    savedPlans = TestBed.inject(SavedPlansService);
+    savedPlans.register({ id: 'published', name: 'Published trip', savedAt: '2026-07-01T00:00:00Z', stops: [], shareId: 'sh-1' });
+    savedPlans.register({ id: 'draft', name: 'Draft trip', savedAt: '2026-07-02T00:00:00Z', stops: [] });
+    unshare = jest.spyOn(TestBed.inject(ApiService), 'unshareTrip').mockReturnValue(of(undefined));
+    fixture = TestBed.createComponent(MyTripsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  const open = (id: string) => { component.togglePlan(id); fixture.detectChanges(); };
+  const shareIdOf = (id: string) => savedPlans.plans().find(p => p.id === id)?.shareId;
+
+  it('offers a small "Dejar de publicar" next to the published pill, on published cards only', () => {
+    const card = (id: string) => el().querySelector(`.saved-plan-card[data-focus-id="${id}"]`)!;
+    const pub = card('published').querySelector('.saved-plan-published + .saved-plan-unpublish');
+    expect(pub?.textContent).toContain('Dejar de publicar');
+    expect(card('draft').querySelector('.saved-plan-unpublish')).toBeNull();
+  });
+
+  it('clicking it asks without expanding the card', () => {
+    btn('Dejar de publicar')!.click();
+    fixture.detectChanges();
+    expect(component.selectedPlanId()).not.toBe('published');
+    expect(el().querySelector('.unpublish-confirm')).toBeTruthy();
+  });
+
+  it('asks inline, then unpublishes once and clears the shareId', () => {
+    open('published');
+    btn('Dejar de publicar')!.click();
+    fixture.detectChanges();
+    expect(el().textContent).toContain('¿Dejar de publicar? El enlace dejará de funcionar.');
+    expect(unshare).not.toHaveBeenCalled();
+
+    btn('Sí, dejar de publicar')!.click();
+    fixture.detectChanges();
+
+    expect(unshare).toHaveBeenCalledTimes(1);
+    expect(unshare).toHaveBeenCalledWith('published');
+    expect(shareIdOf('published')).toBeUndefined();
+    expect(el().querySelector('.saved-plan-published')).toBeNull();
+    expect(el().querySelector('.saved-plan-unpublish')).toBeNull();
+    expect(el().querySelector('.unpublish-confirm')).toBeNull();
+  });
+
+  it('Cancelar closes the confirm without unpublishing', () => {
+    open('published');
+    btn('Dejar de publicar')!.click();
+    fixture.detectChanges();
+
+    el().querySelector<HTMLButtonElement>('.unpublish-confirm .btn-outline')!.click();
+    fixture.detectChanges();
+
+    expect(unshare).not.toHaveBeenCalled();
+    expect(el().querySelector('.unpublish-confirm')).toBeNull();
+    expect(shareIdOf('published')).toBe('sh-1');
+  });
+
+  it('keeps the shareId and shows a toast when the call fails', () => {
+    unshare.mockReturnValue(throwError(() => ({ status: 500 })));
+    open('published');
+    btn('Dejar de publicar')!.click();
+    fixture.detectChanges();
+
+    btn('Sí, dejar de publicar')!.click();
+
+    expect(shareIdOf('published')).toBe('sh-1');
+    expect(component.toast()).toBe('No se pudo despublicar el viaje');
+  });
+});
