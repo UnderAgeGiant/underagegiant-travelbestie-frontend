@@ -31,7 +31,7 @@ const cityNames = new Map(WORLD_CITIES.map(c => [c.id, c.name]));
         @case ('ready') {
           @let p = profile()!;
           <header class="pp-head">
-            <h1 class="pp-name">{{ p.name }}</h1>
+            <h1 class="pp-name" data-testid="public-profile-name">{{ p.name }}</h1>
             <div class="pp-handle">&#64;{{ p.username }}</div>
             <div class="pp-counts">
               <span><strong>{{ followerCount() }}</strong> <ng-container i18n="@@publicProfile.followers">seguidores</ng-container></span>

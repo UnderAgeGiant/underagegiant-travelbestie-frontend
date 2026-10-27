@@ -37,7 +37,7 @@ import { photoCreditUrl } from './photo-credit.util';
             </div>
             <h1 i18n="@@cityGuide.h1">Qué hacer en {{ m.entry.displayName }}</h1>
             <p class="cg-intro">{{ m.entry.intro }}</p>
-            <button type="button" class="btn-pill btn-primary cg-cta" (click)="startPlan()"
+            <button type="button" class="btn-pill btn-primary cg-cta" data-testid="guide-cta" (click)="startPlan()"
                     i18n="@@cityGuide.cta">Planificar mi viaje a {{ m.entry.displayName }}</button>
           </header>
 
@@ -171,7 +171,7 @@ import { photoCreditUrl } from './photo-credit.util';
           </section>
 
           <div class="cg-cta-end">
-            <button type="button" class="btn-pill btn-primary cg-cta" (click)="startPlan()"
+            <button type="button" class="btn-pill btn-primary cg-cta" data-testid="guide-cta" (click)="startPlan()"
                     i18n="@@cityGuide.cta">Planificar mi viaje a {{ m.entry.displayName }}</button>
           </div>
 

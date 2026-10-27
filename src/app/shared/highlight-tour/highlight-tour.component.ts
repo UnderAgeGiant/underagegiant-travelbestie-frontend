@@ -24,10 +24,10 @@ const BUBBLE_HEIGHT_ESTIMATE = 220;
     @if (tour.activeType() && tour.currentStep(); as step) {
       <div class="tour-blocker"></div>
       <div class="tour-spotlight-ring" [style]="ringStyle()"></div>
-      <div class="tour-scene" [style]="sceneStyle()">
+      <div class="tour-scene" data-testid="highlight-tour" [style]="sceneStyle()">
         <img class="tour-dog" [src]="dogImage()" alt="Asistente Miel" draggable="false" />
         <div class="tour-bubble">
-          <button type="button" class="tour-close" (click)="tour.close()"
+          <button type="button" class="tour-close" data-testid="highlight-close" (click)="tour.close()"
                   i18n-aria-label="@@highlightTour.closeAria" aria-label="Cerrar">✕</button>
           <p class="tour-bubble-text">{{ stepText(step) }}</p>
           <div class="tour-controls">

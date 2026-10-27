@@ -14,7 +14,7 @@ import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
   standalone: true,
   template: `
     <div class="notif-wrap">
-      <button class="notif-bell" type="button"
+      <button class="notif-bell" data-testid="notif-bell" type="button"
               [class.notif-bell-shake]="notif.shaking()"
               [class.notif-bell-active]="panelOpen()"
               (click)="togglePanel()"
@@ -25,7 +25,7 @@ import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
           <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
         </svg>
         @if (notif.unreadCount() > 0) {
-          <span class="notif-badge">{{ notif.unreadCount() > 9 ? '9+' : notif.unreadCount() }}</span>
+          <span class="notif-badge" data-testid="notif-badge">{{ notif.unreadCount() > 9 ? '9+' : notif.unreadCount() }}</span>
         }
       </button>
 
@@ -33,7 +33,7 @@ import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
         <div class="notif-panel">
           <div class="notif-panel-head">
             <div class="up-title" i18n="@@notif.panelTitle">Notificaciones</div>
-            <button class="notif-mute-btn" type="button" (click)="notif.toggleMute()">
+            <button class="notif-mute-btn" data-testid="notif-mute" type="button" (click)="notif.toggleMute()">
               @if (notif.muted()) {
                 <span i18n="@@notif.unmute">Silenciadas — reactivar</span>
               } @else {
@@ -46,7 +46,7 @@ import { shareRedirectPath } from '../../../core/routing/share-redirect.util';
               <div class="notif-empty" i18n="@@notif.empty">Sin notificaciones aún</div>
             }
             @for (n of notif.notifications(); track n.notificationId) {
-              <button class="notif-item" [class.unread]="!n.read" type="button" (click)="open(n)">
+              <button class="notif-item" data-testid="notif-item" [class.unread]="!n.read" type="button" (click)="open(n)">
                 <div class="notif-item-title">{{ n.title }}</div>
                 <div class="notif-item-body">{{ n.body }}</div>
                 <div class="notif-item-date">{{ relativeDate(n.createdAt) }}</div>

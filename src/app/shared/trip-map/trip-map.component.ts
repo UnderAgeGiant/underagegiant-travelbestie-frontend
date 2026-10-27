@@ -25,7 +25,7 @@ interface TripMapPin {
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="trip-map" [class.tm-played]="played()">
+    <div class="trip-map" data-testid="trip-map" [class.tm-played]="played()">
       <svg class="trip-map-svg" [attr.viewBox]="viewBoxAttr()" preserveAspectRatio="none">
         @if (showCountryBorders()) {
           @for (country of worldMapCountries; track country.id) {
