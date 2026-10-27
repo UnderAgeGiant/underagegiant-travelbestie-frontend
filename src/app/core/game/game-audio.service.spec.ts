@@ -109,6 +109,34 @@ describe('GameAudioService', () => {
     expect(FakeAudioContext.last.sources[0].stopped).toBe(true);
   });
 
+  it('mute then unmute mid-run resumes the music loop (review round 2 F1)', async () => {
+    (window as any).AudioContext = FakeAudioContext;
+    const s = TestBed.inject(GameAudioService);
+    s.unlock();
+    s.startMusic();
+    await Promise.resolve(); await Promise.resolve();
+    s.toggleMute();
+    s.toggleMute();
+    await Promise.resolve(); await Promise.resolve();
+    const srcs = FakeAudioContext.last.sources;
+    expect(srcs).toHaveLength(2);
+    expect(srcs[1].loop).toBe(true);
+    expect(srcs[1].started).toBe(true);
+  });
+
+  it('unmute after the run ended does not start music', async () => {
+    (window as any).AudioContext = FakeAudioContext;
+    const s = TestBed.inject(GameAudioService);
+    s.unlock();
+    s.startMusic();
+    await Promise.resolve(); await Promise.resolve();
+    s.toggleMute();
+    s.stopMusic();
+    s.toggleMute();
+    await Promise.resolve(); await Promise.resolve();
+    expect(FakeAudioContext.last.sources).toHaveLength(1);
+  });
+
   it('missing music data: startMusic is a no-op, effects still play', () => {
     music = null;
     (window as any).AudioContext = FakeAudioContext;

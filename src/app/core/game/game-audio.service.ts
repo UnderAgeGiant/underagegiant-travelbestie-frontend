@@ -26,8 +26,9 @@ export class GameAudioService {
     const muted = !this._muted();
     this._muted.set(muted);
     try { localStorage.setItem(MUTED_KEY, muted ? '1' : '0'); } catch { /* in-memory only */ }
-    if (muted) this.stopMusic(); // music starts again with the next run
     try { this.master?.gain.setValueAtTime(muted ? 0 : 1, this.ctx!.currentTime); } catch { /* */ } // cuts effects already playing
+    if (muted) this.stopSource(); // keeps musicWanted, so unmuting mid-run resumes the loop
+    else if (this.musicWanted) this.startMusic();
   }
 
   /** Must run inside the user gesture that starts a run (autoplay policies). */
@@ -63,6 +64,10 @@ export class GameAudioService {
 
   stopMusic(): void {
     this.musicWanted = false;
+    this.stopSource();
+  }
+
+  private stopSource(): void {
     try { this.music?.stop(); } catch { /* already stopped */ }
     this.music = null;
   }
