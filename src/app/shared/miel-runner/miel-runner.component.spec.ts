@@ -1,25 +1,38 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { signal } from '@angular/core';
+import { computed, signal } from '@angular/core';
 import { MielRunnerComponent } from './miel-runner.component';
 import { createRun, obstacleBottom, OBSTACLE_SIZES } from '../../core/game/runner-engine';
 import { GameService } from '../../core/game/game.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { RankingService } from '../../core/rankings/ranking.service';
+import { GameAssetsService } from '../../core/game/game-assets.service';
+import { GameAudioService } from '../../core/game/game-audio.service';
 
 describe('MielRunnerComponent', () => {
   let fixture: ComponentFixture<MielRunnerComponent>;
   let cmp: MielRunnerComponent;
   let game: { startRun: jest.Mock; finishRun: jest.Mock };
   const loggedIn = signal(true);
+  const progress = signal(100);
+  const muted = signal(false);
+  let assets: { progress: typeof progress; ready: ReturnType<typeof computed<boolean>>; preload: jest.Mock };
+  let audio: Record<'unlock' | 'startMusic' | 'stopMusic' | 'chime' | 'jump' | 'crash' | 'toggleMute', jest.Mock> & { muted: typeof muted };
 
   beforeEach(() => {
     jest.spyOn(window, 'requestAnimationFrame').mockImplementation(() => 1);
     jest.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => undefined);
     HTMLCanvasElement.prototype.getContext = jest.fn(() => null) as never; // jsdom has no canvas
     game = { startRun: jest.fn().mockResolvedValue('r1'), finishRun: jest.fn().mockResolvedValue({ score: 10, weeklyBest: 10, newRecord: true, weekStart: '2026-10-12' }) };
+    progress.set(100);
+    muted.set(false);
+    assets = { progress, ready: computed(() => progress() === 100), preload: jest.fn().mockResolvedValue(undefined) };
+    audio = { muted, unlock: jest.fn(), startMusic: jest.fn(), stopMusic: jest.fn(), chime: jest.fn(), jump: jest.fn(), crash: jest.fn(),
+              toggleMute: jest.fn(() => muted.set(!muted())) };
     TestBed.configureTestingModule({
       imports: [MielRunnerComponent],
       providers: [
+        { provide: GameAssetsService, useValue: assets },
+        { provide: GameAudioService, useValue: audio },
         { provide: GameService, useValue: game },
         { provide: AuthService, useValue: { isLoggedIn: loggedIn } },
         { provide: RankingService, useValue: { mine: signal(null) } },
@@ -35,6 +48,82 @@ describe('MielRunnerComponent', () => {
   it('starts in "ready" and never auto-plays', () => {
     expect(cmp.status()).toBe('ready');
     expect(game.startRun).not.toHaveBeenCalled();
+  });
+
+  it('shows a progressbar with the % and no start hint until assets are ready (2026-10-25)', () => {
+    progress.set(40);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    const bar = el.querySelector('[role="progressbar"]')!;
+    expect(bar.getAttribute('aria-valuenow')).toBe('40');
+    expect(bar.textContent).toContain('40%');
+    expect(el.querySelector('.mr-hint')).toBeNull();
+    expect(assets.preload).toHaveBeenCalled();
+    progress.set(100);
+    fixture.detectChanges();
+    expect(el.querySelector('[role="progressbar"]')).toBeNull();
+    expect(el.querySelector('.mr-hint')).not.toBeNull();
+  });
+
+  it('a click or key before ready does not start a run', () => {
+    progress.set(40);
+    cmp.onPointer();
+    cmp.onKey(new KeyboardEvent('keydown', { key: ' ', cancelable: true }));
+    expect(cmp.status()).toBe('ready');
+    expect(audio.unlock).not.toHaveBeenCalled();
+  });
+
+  it('start(): unlock + chime + startMusic', () => {
+    cmp.onPointer();
+    expect(audio.unlock).toHaveBeenCalled();
+    expect(audio.chime).toHaveBeenCalled();
+    expect(audio.startMusic).toHaveBeenCalled();
+  });
+
+  it('a jump plays the jump sound once; the ending hit plays crash and stops the music', async () => {
+    cmp.onPointer();
+    (cmp as any).jumpQueued = true;
+    (cmp as any).loop(16);
+    (cmp as any).loop(32);
+    expect(audio.jump).toHaveBeenCalledTimes(1);
+    (cmp as any).state = { ...(cmp as any).state, over: true };
+    await cmp.endRun();
+    expect(audio.crash).toHaveBeenCalledTimes(1);
+    expect(audio.stopMusic).toHaveBeenCalled();
+  });
+
+  it('a run ended by a hidden tab stops the music without the crash sound', async () => {
+    cmp.onPointer();
+    await cmp.endRun();
+    expect(audio.stopMusic).toHaveBeenCalled();
+    expect(audio.crash).not.toHaveBeenCalled();
+  });
+
+  it('the mute button toggles muted and its aria-label', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    const btn = () => el.querySelector('.mr-mute') as HTMLButtonElement;
+    expect(btn().getAttribute('aria-label')).toBe('Silenciar');
+    expect(btn().getAttribute('aria-pressed')).toBe('false');
+    btn().click();
+    fixture.detectChanges();
+    expect(audio.toggleMute).toHaveBeenCalled();
+    expect(btn().getAttribute('aria-label')).toBe('Activar sonido');
+    expect(btn().getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('Space on the focused mute button never starts or jumps the game (final review #1)', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    const btn = el.querySelector('.mr-mute') as HTMLButtonElement;
+    const ev = new KeyboardEvent('keydown', { key: ' ', bubbles: true, cancelable: true });
+    btn.dispatchEvent(ev);
+    expect(cmp.status()).toBe('ready');
+    expect(ev.defaultPrevented).toBe(false); // the button keeps its native Space → click
+  });
+
+  it('destroying mid-run stops the music', () => {
+    cmp.onPointer();
+    fixture.destroy();
+    expect(audio.stopMusic).toHaveBeenCalled();
   });
 
   it('a tap starts a run and requests a runId when logged in', () => {

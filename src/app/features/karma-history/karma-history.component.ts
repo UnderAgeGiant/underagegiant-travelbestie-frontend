@@ -173,7 +173,6 @@ export class KarmaHistoryComponent implements OnInit {
   ): void {
     const owner = isCollaborator ? { name: ownerName!, email: ownerEmail! } : null;
     this.trip.restoreStops(stops, id, transits, owner);
-    if (stops.length > 0) this.trip.setActive(stops[0].stopId);
     this.autoSave.commitSnapshot(id);
     if (owner && !this.autoSave.enabled()) this.autoSave.showReminderNow();
     this.facade.openEditor();

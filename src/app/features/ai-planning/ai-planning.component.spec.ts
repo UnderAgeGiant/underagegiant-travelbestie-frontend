@@ -171,7 +171,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
   // A successful explicit save fires the fire-and-forget cost estimate (F74); answer it so verify() stays strict.
   afterEach(() => { http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({})); http.verify(); });
 
-  it('selects the first city and records the server-assigned trip id after saving', () => {
+  it('leaves no city selected and records the server-assigned trip id after saving', () => {
     let saved = false;
     component.planSaved.subscribe(() => { saved = true; });
 
@@ -180,7 +180,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     const req = http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST');
     req.flush({ id: 'trip-42', ...TRIP });
 
-    expect(trip.activeStop()?.stopId).toBe('s1');
+    expect(trip.activeStop()).toBeNull(); // saved AI plan opens unselected → full plan (2026-10-25)
     expect(trip.loadedPlanId()).toBe('trip-42');
     expect(saved).toBe(true);
   });

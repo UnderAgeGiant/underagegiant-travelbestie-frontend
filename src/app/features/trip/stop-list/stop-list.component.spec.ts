@@ -787,3 +787,85 @@ describe('StopListComponent — "Publicar viaje" on save (F74 feedback F2)', () 
     expect(cmp.toast()).toBe('No se pudo publicar el viaje');
   });
 });
+
+describe('StopListComponent — full plan toggle (2026-10-25)', () => {
+  const TOKYO: City = { id: 'tokyo', name: 'Tokyo', country: 'Japan', flag: '🇯🇵', region: 'asia' };
+  let trip: TripService;
+
+  function setup(mobile: boolean, allowDeselect: boolean) {
+    localStorage.clear();
+    installMatchMediaMock(mobile);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    trip = TestBed.inject(TripService);
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    trip.addStop(TOKYO, '05/06/2026', '08/06/2026');
+    const fixture = TestBed.createComponent(StopListComponent);
+    fixture.componentRef.setInput('allowDeselect', allowDeselect);
+    let emitted = 0;
+    fixture.componentInstance.stopSelected.subscribe(() => emitted++);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    const card = (i: number) => el.querySelectorAll<HTMLElement>('.stop-item')[i];
+    return { fixture, el, card, emitted: () => emitted };
+  }
+
+  it('allowDeselect + desktop: clicking the active card unselects it', () => {
+    const { card } = setup(false, true);
+    const tokyo = trip.stops()[1].stopId;
+    expect(trip.activeId()).toBe(tokyo);
+    card(1).click();
+    expect(trip.activeStop()).toBeNull();
+    card(0).click();
+    expect(trip.activeStop()?.cityId).toBe('paris');
+  });
+
+  it('allowDeselect=false (landing default): clicking the active card keeps it selected and still emits stopSelected', () => {
+    const { card, emitted } = setup(false, false);
+    card(1).click();
+    expect(trip.activeStop()?.cityId).toBe('tokyo');
+    expect(emitted()).toBe(1);
+  });
+
+  it('mobile: clicking the active card keeps it selected even with allowDeselect', () => {
+    const { card } = setup(true, true);
+    card(1).click();
+    expect(trip.activeStop()?.cityId).toBe('tokyo');
+  });
+
+  it('"Ver plan completo" shows only with allowDeselect on desktop, primary + pressed when nothing is selected, ghost when a city is', () => {
+    expect(setup(false, false).el.querySelector('.tfp-view-btn')).toBeNull();
+    TestBed.resetTestingModule();
+    expect(setup(true, true).el.querySelector('.tfp-view-btn')).toBeNull();
+    TestBed.resetTestingModule();
+    const { fixture, el } = setup(false, true);
+    let btn = el.querySelector('.tfp-view-btn')!;
+    expect(btn.classList).toContain('btn-ghost');
+    expect(btn.getAttribute('aria-pressed')).toBe('false');
+    trip.clearActive();
+    fixture.detectChanges();
+    btn = el.querySelector('.tfp-view-btn')!;
+    expect(btn.classList).toContain('btn-primary');
+    expect(btn.getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('"Ver plan completo" click calls clearActive()', () => {
+    const { el } = setup(false, true);
+    const spy = jest.spyOn(trip, 'clearActive');
+    (el.querySelector('.tfp-view-btn') as HTMLButtonElement).click();
+    expect(spy).toHaveBeenCalled();
+    expect(trip.activeStop()).toBeNull();
+  });
+
+  it('mobile FAB scrolls to the page top when no city is active', () => {
+    const { fixture } = setup(true, true);
+    trip.clearActive();
+    fixture.detectChanges();
+    const scrollTo = jest.fn();
+    (window as any).scrollTo = scrollTo;
+    (fixture.componentInstance as any).scrollToActiveCity();
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+  });
+});

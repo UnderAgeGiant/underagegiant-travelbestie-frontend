@@ -3660,3 +3660,28 @@ tb-landing-ranking { display: block; }
 .mr-record { color: var(--peach-d); font-weight: 700; margin: 0; }
 .mr-section { margin-top: 24px; }
 .mr-section-sub { font-size: 12px; color: var(--t3); margin: 4px 0 10px; }
+
+/* ── Editor full plan (tb-trip-full-plan, 2026-10-25) — reuses .itin*; only new rules here ── */
+.tfp { padding: 22px 26px; }
+.tfp-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: -.5px; margin: 0 0 12px; color: var(--t1); }
+.tfp-city-link { display: block; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: left; line-height: inherit; }
+.tfp-city-link:hover, .tfp-city-link:focus-visible { text-decoration: underline; }
+@media (max-width: 768px) {
+  .tfp { padding: 16px 14px 100px; }
+}
+
+.tfp-view-btn { width: 100%; justify-content: center; margin-bottom: 12px; }
+
+/* ── Miel Runner audio + loading ring (2026-10-25) — new rules only ── */
+.mr-hud { align-items: center; }
+.mr-hud .mr-best { margin-left: auto; } /* keeps the record at the right, next to the mute button */
+/* 44×44 hit area; negative vertical margins keep the HUD row (and .mr-overlay's 24px offset) unchanged */
+.mr-mute { width: 44px; height: 44px; margin: -14px -10px -14px 4px; padding: 0; border: 0; background: transparent; font-size: 16px; line-height: 1; cursor: pointer; pointer-events: auto; border-radius: 99px; }
+.mr-mute:focus-visible { outline: 2px solid var(--lav-d); outline-offset: -6px; }
+.mr-loading { position: relative; width: 64px; height: 64px; }
+.mr-loading svg { width: 100%; height: 100%; display: block; }
+.mr-loading-track, .mr-loading-bar { fill: none; stroke-width: 4; }
+.mr-loading-track { stroke: var(--border); }
+.mr-loading-bar { stroke: var(--lav-d); stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; transition: stroke-dasharray .2s linear; }
+.mr-loading-pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--t2); }
+@media (prefers-reduced-motion: reduce) { .mr-loading-bar { transition: none; } }

@@ -45,6 +45,7 @@ describe('HighlightTourService', () => {
 
   beforeEach(() => {
     sessionStorage.clear();
+    localStorage.clear();
     media = installMatchMediaMock(false); // desktop by default — individual tests opt into mobile via media.fire(true)
     TestBed.configureTestingModule({
       providers: [
@@ -111,7 +112,7 @@ describe('HighlightTourService', () => {
     postReq.flush(null);
   });
 
-  it('close() dismisses the tour immediately regardless of step index, without marking it seen', () => {
+  it('close() dismisses the tour immediately regardless of step index, counting as seen on this device (2026-10-25) without a /seen call', () => {
     registerAllLandingTargets();
     service.start('landing_welcome');
     http.expectOne(r => r.url.includes('/status')).flush({ seen: false });
@@ -119,8 +120,9 @@ describe('HighlightTourService', () => {
     service.close();
 
     expect(service.activeType()).toBeNull();
-    expect(seen.hasSeenLocally('landing_welcome')).toBe(false);
+    expect(seen.hasSeenLocally('landing_welcome')).toBe(true);
     http.expectOne(r => r.url.includes('/highlights/landing_welcome/dismiss') && r.method === 'POST').flush(null);
+    http.expectNone(r => r.url.includes('/highlights/landing_welcome/seen'));
   });
 
   it('prev() at step 0 is a no-op', () => {

@@ -5,6 +5,7 @@ import { SavedPlansService } from './saved-plans.service';
 import { TravelDocsReminderService } from '../reminders/travel-docs-reminder.service';
 
 import { CostEstimate } from '../models/trip.model';
+import { environment } from '../../../environments/environment';
 
 const EMPTY_ESTIMATE: CostEstimate = {
   totalUsd: 0, flightsUsd: 0, lodgingUsd: 0, ticketsUsd: 0, groundUsd: 0,
@@ -318,5 +319,52 @@ describe('SavedPlansService.clearShareId — unpublish (F74 feedback F3)', () =>
 
     expect(service.plans().find(p => p.id === 'p1')?.shareId).toBeUndefined();
     expect(service.plans().find(p => p.id === 'p2')?.shareId).toBe('sh-2');
+  });
+});
+
+describe('SavedPlansService — new plans go first (2026-10-25 feedback)', () => {
+  let service: SavedPlansService;
+  let http: HttpTestingController;
+  const seed = () => {
+    service.register({ id: 'B', name: 'B', savedAt: '2026-10-24T00:00:00Z', stops: [] });
+    service.register({ id: 'A', name: 'A', savedAt: '2026-10-24T00:00:00Z', stops: [] });
+  };
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({ providers: [provideHttpClient(), provideHttpClientTesting()] });
+    service = TestBed.inject(SavedPlansService);
+    http = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => { environment.useMocks = false; flushEstimates(); http.verify(); });
+
+  it('puts a newly created plan first (real mode)', () => {
+    seed();
+    service.upsert('ana@test.com', null, 'New', []).subscribe();
+    http.expectOne(r => r.url.endsWith('/trips') && r.method === 'POST').flush({ id: 'n1', title: 'New', stops: [], transits: [] });
+    expect(service.plans().map(p => p.id)).toEqual(['n1', 'A', 'B']);
+  });
+
+  it('puts a newly created plan first (mock mode)', () => {
+    environment.useMocks = true;
+    seed();
+    let id = '';
+    service.upsert('ana@test.com', null, 'New', []).subscribe(v => (id = v));
+    expect(service.plans().map(p => p.id)).toEqual([id, 'A', 'B']);
+    expect(JSON.parse(localStorage.getItem('tb_saved_plans_ana@test.com')!)[0].id).toBe(id);
+  });
+
+  it('register() puts the clone first', () => {
+    seed();
+    service.register({ id: 'c1', name: 'C', savedAt: '2026-10-25T00:00:00Z', stops: [] });
+    expect(service.plans().map(p => p.id)).toEqual(['c1', 'A', 'B']);
+  });
+
+  it('an update keeps the plan in place', () => {
+    seed();
+    service.upsert('ana@test.com', 'A', 'A2', [], [], { background: true }).subscribe();
+    http.expectOne(r => r.url.endsWith('/trips/A') && r.method === 'PUT').flush({ id: 'A', title: 'A2', stops: [], transits: [] });
+    expect(service.plans().map(p => p.id)).toEqual(['A', 'B']);
   });
 });

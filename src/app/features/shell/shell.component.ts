@@ -28,6 +28,8 @@ import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-
 import { HighlightTourComponent } from '../../shared/highlight-tour/highlight-tour.component';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
 import { shouldShowProfileIntro } from '../../shared/highlight-tour/profile-intro.util';
+import { TripFullPlanComponent } from '../../shared/trip-full-plan/trip-full-plan.component';
+import { DeviceService } from '../../core/device/device.service';
 
 @Component({
     selector: 'tb-shell',
@@ -50,6 +52,7 @@ import { shouldShowProfileIntro } from '../../shared/highlight-tour/profile-intr
         TravelDocsReminderComponent,
         AutosaveReminderBannerComponent,
         HighlightTourComponent,
+        TripFullPlanComponent,
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
@@ -104,19 +107,16 @@ import { shouldShowProfileIntro } from '../../shared/highlight-tour/profile-intr
     } @else {
       <!-- ── APP MODE: normal layout ── -->
       <div class="layout">
-        <app-stop-list (addDestination)="showAddModal.set(true)" (openPreferences)="facade.openPreferences()" />
+        <app-stop-list [allowDeselect]="true" (addDestination)="showAddModal.set(true)" (openPreferences)="facade.openPreferences()" />
         <tb-day-timeline [showPlanSlideshow]="true" />
         <div class="right-panel">
-          @if (!trip.activeStop()) {
-            <div class="empty-stop">
-              <div class="empty-stop-icon">👆</div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:6px"
-                   i18n="@@app.selectStop">Selecciona una parada</div>
-              <div style="font-size:13px;color:var(--t3);max-width:240px;line-height:1.5;text-align:center"
-                   i18n="@@app.selectStopDesc">Haz clic en un destino del panel para explorar sus atracciones</div>
-            </div>
-          } @else {
+          @if (trip.activeStop()) {
             <app-destination />
+          }
+          <!-- Full plan: desktop iff no city is selected; mobile always, at the bottom, titled (2026-10-25) -->
+          @if (device.isMobile() || !trip.activeStop()) {
+            <tb-trip-full-plan [stops]="trip.stops()" [transits]="trip.transits()" [showTitle]="device.isMobile()"
+                               (citySelect)="onFullPlanCity($event)" />
           }
         </div>
       </div>
@@ -153,6 +153,7 @@ export class ShellComponent {
   readonly mode: 'landing' | 'editor' = inject(ActivatedRoute).snapshot.data?.['mode'] ?? 'landing';
   protected readonly auth = inject(AuthService);
   protected readonly landingFeed = inject(LandingFeedService);
+  protected readonly device = inject(DeviceService);
   private readonly highlightTour = inject(HighlightTourService);
   showAddModal   = signal(false);
   /** City id to pre-fill the add-stop modal with, from `?addCity=` — see the constructor. */
@@ -225,6 +226,14 @@ export class ShellComponent {
     // ponytail: scrolls once after first render; if featured trips arrive later the section may still be collapsed — add a retry when that bites.
     if (route.snapshot.fragment === 'featured') {
       afterNextRender(() => this.scrollToFeatured());
+    }
+  }
+
+  /** A city name in the full plan selects that stop; on mobile the plan sits below, so scroll back up to the card. */
+  onFullPlanCity(stopId: string): void {
+    this.trip.setActive(stopId);
+    if (this.device.isMobile()) {
+      setTimeout(() => document.querySelector('.stop-item.active')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     }
   }
 

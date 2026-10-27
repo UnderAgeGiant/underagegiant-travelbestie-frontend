@@ -164,7 +164,7 @@ describe('KarmaHistoryComponent', () => {
     btn.click();
 
     expect(restoreStops).toHaveBeenCalledWith([{ stopId: 's1' }], 'trip-1', [], null);
-    expect(setActive).toHaveBeenCalledWith('s1');
+    expect(setActive).not.toHaveBeenCalled(); // opening a plan starts unselected (2026-10-25)
     expect(openEditor).toHaveBeenCalled();
     // getTrips fallback must not be consulted when the plan is already found locally.
     expect(mockApiService.getTrips).not.toHaveBeenCalled();
@@ -231,7 +231,7 @@ describe('KarmaHistoryComponent', () => {
     fixture.detectChanges();
 
     expect(restoreStops).toHaveBeenCalledWith([{ stopId: 's9' }], 'trip-missing', [], null);
-    expect(setActive).toHaveBeenCalledWith('s9');
+    expect(setActive).not.toHaveBeenCalled(); // opening a plan starts unselected (2026-10-25)
     expect(openEditor).toHaveBeenCalled();
   });
 

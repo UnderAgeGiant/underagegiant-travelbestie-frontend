@@ -1,4 +1,5 @@
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
+import { GameAssetsService } from '../../core/game/game-assets.service';
 import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
@@ -643,6 +644,7 @@ export class AiPlanningComponent implements OnDestroy {
     }),
   });
   private readonly api        = inject(ApiService);
+  private readonly gameAssets = inject(GameAssetsService);
   private readonly tripSvc    = inject(TripService);
   private readonly savedPlans = inject(SavedPlansService);
   private readonly karmaModal = inject(KarmaModalService);
@@ -969,6 +971,7 @@ export class AiPlanningComponent implements OnDestroy {
 
     // Preload the celebration GIF so it's ready when the plan finishes generating
     new Image().src = '/ai-plan-ready.gif';
+    void this.gameAssets.preload(); // Miel Runner files, so "Jugar con Miel" opens without a wait (2026-10-25)
 
     this.planConfirmPending.set(null);
     this.changeWarning.set(null);

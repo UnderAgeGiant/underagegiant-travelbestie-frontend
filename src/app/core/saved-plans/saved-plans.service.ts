@@ -118,7 +118,7 @@ export class SavedPlansService {
         return of(id);
       }
       const plan: SavedPlan = { id: crypto.randomUUID(), name, savedAt: now, stops, transits, ...settingsPatch };
-      const updated = [...this._plans(), plan];
+      const updated = [plan, ...this._plans()];
       this._plans.set(updated);
       localStorage.setItem(key(email), JSON.stringify(updated));
       if (!opts?.background) this.travelDocsReminder.maybeShow();
@@ -161,7 +161,7 @@ export class SavedPlansService {
           ...settingsPatch,
           ...serverEstimate(trip),
         };
-        this._plans.set([...this._plans(), plan]);
+        this._plans.set([plan, ...this._plans()]);
         if (!opts?.background) {
           this.travelDocsReminder.maybeShow();
           this.estimate(trip.id!).subscribe({ error: () => { /* estimate failure never fails the save */ } });
@@ -217,7 +217,7 @@ export class SavedPlansService {
   /** Register a trip that already exists on the server into the local plans list. */
   register(plan: SavedPlan): void {
     if (this._plans().some(p => p.id === plan.id)) return;
-    this._plans.set([...this._plans(), plan]);
+    this._plans.set([plan, ...this._plans()]);
   }
 
   clear(): void {

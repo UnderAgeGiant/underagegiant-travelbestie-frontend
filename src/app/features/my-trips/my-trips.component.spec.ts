@@ -25,7 +25,7 @@ describe('MyTripsComponent — published-only filter', () => {
       providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
     });
     const savedPlans = TestBed.inject(SavedPlansService);
-    // register() pushes straight into the plans signal — no auth/API round-trip needed
+    // register() prepends straight into the plans signal (newest first) — no auth/API round-trip needed
     savedPlans.register({ id: 'p1', name: 'Euro trip', savedAt: '2026-07-01T00:00:00Z', stops: [], shareId: 'sh-1' });
     savedPlans.register({ id: 'p2', name: 'Asia trip', savedAt: '2026-07-02T00:00:00Z', stops: [] });
     component = TestBed.createComponent(MyTripsComponent).componentInstance;
@@ -33,7 +33,7 @@ describe('MyTripsComponent — published-only filter', () => {
 
   it('shows all plans when the checkbox is off (default)', () => {
     expect(component.publishedOnly()).toBe(false);
-    expect(component.filteredPlans().map(p => p.id)).toEqual(['p1', 'p2']);
+    expect(component.filteredPlans().map(p => p.id)).toEqual(['p2', 'p1']);
   });
 
   it('shows only published plans when the checkbox is on', () => {
