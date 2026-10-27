@@ -52,7 +52,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
       <div class="nav-right">
         <!-- Language switcher -->
         <div style="position:relative">
-          <button class="lang-drop-btn" type="button"
+          <button class="lang-drop-btn" data-testid="lang-switch" type="button"
                   (click)="facade.langOpen.set(!facade.langOpen())"
                   i18n-aria-label="@@nav.langSwitch" aria-label="Cambiar idioma">
             <img [src]="facade.locale.current() === 'es-CL' ? 'https://flagcdn.com/w20/cl.jpg' : 'https://flagcdn.com/w20/us.jpg'"
@@ -119,7 +119,7 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           <button class="btn-pill btn-ghost" tbHighlightTarget="login-btn" (click)="facade.authModal.openLogin()" i18n="@@nav.signInBtn">Iniciar sesión</button>
         } @else {
           <div style="position:relative">
-            <button class="user-btn" tbHighlightTarget="user-menu-btn" (click)="facade.toggleUserMenu()">
+            <button class="user-btn" data-testid="nav-user-menu" tbHighlightTarget="user-menu-btn" (click)="facade.toggleUserMenu()">
               <div class="user-avatar">{{ facade.initials() }}</div>
               <span class="user-btn-name">{{ facade.auth.currentUser()?.name }}</span>
               <span style="font-size:10px;color:var(--t3)">▾</span>

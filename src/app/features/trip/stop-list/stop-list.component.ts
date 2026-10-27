@@ -227,7 +227,7 @@ import { environment } from '../../../../environments/environment';
                     <span class="karma-cost">−2 ✨ token</span>
                   </button>
                   @if (device.isMobile()) {
-                    <button type="button" class="stop-itinerary-pill stop-add-attraction-pill"
+                    <button type="button" class="stop-itinerary-pill stop-add-attraction-pill" data-testid="add-attraction-mobile"
                             (click)="$event.stopPropagation(); openAddAttraction(stop.stopId)"
                             i18n="@@stopList.addAttractionBtn">➕ Agregar atracción</button>
                   }

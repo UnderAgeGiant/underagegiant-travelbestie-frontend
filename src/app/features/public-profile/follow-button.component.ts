@@ -8,7 +8,7 @@ import { AuthModalService } from '../../core/auth/auth-modal.service';
   selector: 'tb-follow-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button type="button" class="btn-pill" [class.btn-primary]="!following()" [class.btn-outline]="following()"
+    <button type="button" class="btn-pill" data-testid="follow-button" [class.btn-primary]="!following()" [class.btn-outline]="following()"
             [attr.aria-pressed]="following()" [disabled]="busy()" (click)="toggle()">
       @if (following()) { <ng-container i18n="@@follow.following">Siguiendo</ng-container> }
       @else { <ng-container i18n="@@follow.follow">Seguir</ng-container> }

@@ -5,6 +5,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 
 ## 2026-10
 - feat(editor): full plan view, list order, once-per-device tour, Miel Runner audio (#172)
+- test(e2e): add data-testid hooks for Playwright suite (#167)
 - feat(cost): travelers box, babies, publish on save, unpublish (F74 feedback) (#171)
 - feat(cost): trip cost estimate frontend (F74) (#169)
 - fix(cost): cost card and settings block scroll (F74) (#170)

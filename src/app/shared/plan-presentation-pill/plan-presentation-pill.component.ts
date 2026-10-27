@@ -30,7 +30,7 @@ const ROTATE_MS = 5000;
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (items().length > 0) {
-      <button type="button" class="pp-pill" [class.pp-pill--attention]="attention()" (click)="open.emit()"
+      <button type="button" class="pp-pill" data-testid="slideshow-open" [class.pp-pill--attention]="attention()" (click)="open.emit()"
               i18n-aria-label="@@planPill.aria" aria-label="Presentación del plan">
         @for (item of items(); track item.id; let i = $index) {
           <span class="pp-slide" [class.active]="i === active()">
@@ -44,7 +44,7 @@ const ROTATE_MS = 5000;
         </span>
       </button>
     } @else {
-      <button type="button" class="btn-pill btn-outline" (click)="open.emit()" i18n="@@planPill.label">🎞️ Presentación del plan</button>
+      <button type="button" class="btn-pill btn-outline" data-testid="slideshow-open" (click)="open.emit()" i18n="@@planPill.label">🎞️ Presentación del plan</button>
     }
   `,
 })

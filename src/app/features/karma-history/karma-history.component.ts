@@ -40,7 +40,7 @@ const PAGE_SIZE = 20;
           } @else {
             <div class="karma-history-list">
               @for (event of events(); track event.eventId) {
-                <div class="karma-history-row">
+                <div class="karma-history-row" data-testid="karma-event-row">
                   <div class="karma-history-main">
                     <span class="karma-history-label">{{ karmaReasonLabel(event.reason) }}</span>
                     @if (event.target?.name) {
