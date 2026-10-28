@@ -4,7 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-10
-- data(attractions): city enrichment waves 4–13 (95 cities) (#173)
+- data(attractions): city enrichment waves 4–14 (103 cities) (#173)
 - feat(editor): full plan view, list order, once-per-device tour, Miel Runner audio (#172)
 - test(e2e): add data-testid hooks for Playwright suite (#167)
 - feat(cost): travelers box, babies, publish on save, unpublish (F74 feedback) (#171)
