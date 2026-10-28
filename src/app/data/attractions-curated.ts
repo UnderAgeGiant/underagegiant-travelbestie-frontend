@@ -19879,8 +19879,8 @@ export const CURATED_ALL: CuratedMap = {
       lng: 132.99333,
       dayTrip: true,
       website: "http://rabbit-island.info/",
-      description: "Esta es una traducción al español del artículo original.",
-      descriptionEn: "Ōkunoshima is a small island in the Seto Inland Sea of Japan. It is considered to be part of the city of Takehara, Hiroshima Prefecture.",
+      description: "Okunoshima es una pequeña isla en la prefectura de Hiroshima, en el mar Interior de Seto, conocida como la Isla de los Conejos por su numerosa población de conejos libres. También conserva ruinas de una antigua fábrica de gas venenoso.",
+      descriptionEn: "Okunoshima is a small island in Hiroshima Prefecture, in the Seto Inland Sea, known as Rabbit Island for its large population of free-roaming rabbits. It also preserves ruins of a former poison gas factory.",
       sourceUrl: "https://es.wikipedia.org/wiki/Okunoshima",
     },
     {
@@ -170407,8 +170407,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 90,
       website: "https://ajaramuseums.ge/en/museums/arch",
-      description: "Kobuleti es una ciudad de Georgia, ubicada en el noroeste de la República Autónoma de Ayaria, siendo la capital del municipio homónimo. Kobuleti es un centro turístico costero, visitado anualmente por georgianos y por muchos habitantes de antiguas repúblicas soviéticas.",
-      descriptionEn: "Museo Arqueológico is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Arqueológico de Batumi es un museo de la ciudad de Batumi, en la región de Adjaria, Georgia. Reúne hallazgos arqueológicos de la zona y expone objetos que abarcan desde la prehistoria hasta la Edad Media.",
+      descriptionEn: "The Batumi Archaeological Museum is a museum in Batumi, in Georgia's Adjara region. It houses archaeological finds from the area and displays objects ranging from prehistory to the Middle Ages.",
     },
     {
       id: "batumi_4",
@@ -181676,8 +181676,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.8,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Phewa_lake_on_early_Summer_morning_as_seen_from_the_Ratna_mandir_palace%2C_Pokhara.jpg/1920px-Phewa_lake_on_early_Summer_morning_as_seen_from_the_Ratna_mandir_palace%2C_Pokhara.jpg",
-      description: "La unificación de Nepal fue el proceso de construcción del estado moderno de Nepal, a partir de los fragmentados reinos menores, incluyendo el Baise Rajya y el Chaubisi Rajya, que comenzó en 1743 d. C..",
-      descriptionEn: "Ratna Mandir is a former palace used by the Nepalese royal family.",
+      description: "Ratna Mandir es un antiguo palacio real ubicado a orillas del lago Phewa, en Pokhara. Fue construido para la reina Ratna y se distingue por su arquitectura y su emplazamiento junto al lago.",
+      descriptionEn: "Ratna Mandir is a former royal palace on the shores of Phewa Lake in Pokhara. It was built for Queen Ratna and is known for its architecture and lakeside setting.",
     },
     {
       id: "pokhara_11",
