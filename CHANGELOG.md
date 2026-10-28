@@ -4,6 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-10
+- data(attractions): city enrichment wave 7 (9 cities) (#177)
 - data(attractions): city enrichment wave 6 (8 cities) (#176)
 - data(attractions): city enrichment wave 5 (8 cities) (#175)
 - data(attractions): city enrichment wave 4 (23 cities) (#173)
