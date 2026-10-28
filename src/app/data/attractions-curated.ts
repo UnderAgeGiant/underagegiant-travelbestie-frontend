@@ -70806,7 +70806,7 @@ export const CURATED_ALL: CuratedMap = {
       active: true,
       name: "Bulevar Vitosha",
       nameEn: "Vitosha Boulevard",
-      nativeName: "Витоша",
+      nativeName: "булевард Витоша",
       category: "poi",
       type: "Barrio",
       icon: "✨",
