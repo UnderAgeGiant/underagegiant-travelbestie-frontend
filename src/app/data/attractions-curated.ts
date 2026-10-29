@@ -93706,7 +93706,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "laserena_4",
-      active: true,
+      active: false,
       name: "Parque Jardín del Corazón",
       nameEn: "Parque Japonés de La Serena",
       nativeName: "Parque Jardín del Corazón",
@@ -211893,7 +211893,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Trujillo%2C_Plazoleta_Iglesia_La_Merced_-_panoramio.jpg/1920px-Trujillo%2C_Plazoleta_Iglesia_La_Merced_-_panoramio.jpg",
       description: "La iglesia de la Merced de Trujillo está ubicada en Trujillo, Perú.",
-      descriptionEn: "The Merced church is a Catholic church in Comayagua, Honduras built in 1550 during the colonial era of New Spain. It is the oldest church in Honduras, being built in 1550 by Fray Gaspar de Quintanilla with the name of Iglesia de la Inmaculada Concepción.",
+      descriptionEn: "The Church of La Merced is located in Trujillo, Peru.",
     },
     {
       id: "trujillo_9",
@@ -212060,7 +212060,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 30,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/00_1635_Reed_Islands_of_Lake_Titicaca.jpg/1280px-00_1635_Reed_Islands_of_Lake_Titicaca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Las balsas de totora son unas embarcaciones elaboradas desde tiempos prehispánicos a partir de tallos y hojas de totora en áreas del litoral del norte peruano como Santa Rosa, Pimentel, Huanchaco y en zonas lacustres de Bolivia como Copacabana y alrededores del lago Titicaca.",
       descriptionEn: "A balsa is a boat or ship built by various pre-Columbian South American civilizations constructed from woven reeds of the totora bulrush. They varied in size from small canoe sized personal fishing boats to large ships up to 30 metres long.",
       sourceUrl: "https://es.wikipedia.org/wiki/Balsas_de_totora",
