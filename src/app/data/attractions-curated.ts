@@ -215233,7 +215233,7 @@ export const CURATED_ALL: CuratedMap = {
       active: true,
       name: "Volcán Tungurahua",
       nameEn: "Tungurahua Volcano",
-      nativeName: "Provincia de Tungurahua",
+      nativeName: "Tungurahua",
       category: "poi",
       type: "Volcán",
       icon: "🌋",
