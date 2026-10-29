@@ -22165,6 +22165,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1477587458883-5b68073a7c81?auto=format&fit=crop&w=800&q=80",
       description: "El Jantar Mantar es un conjunto de 19 instrumentos astronómicos construido por el rey rajput Sawai Jai Singh, fundador de Jaipur, en Rajastán, India. Se terminó en 1734, alberga el reloj de sol de piedra más grande del mundo y es Patrimonio de la Humanidad por la UNESCO.",
       descriptionEn: "The Jantar Mantar is a collection of 19 astronomical instruments built by the Rajput king Sawai Jai Singh, the founder of Jaipur, Rajasthan, India. The monument was completed in 1734. It features the world's largest stone sundial, and is a UNESCO World Heritage Site.",
+      lat: 26.9247694,
+      lng: 75.8245002,
     },
     {
       id: "jaipur_1",
@@ -22182,6 +22184,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.tourism.rajasthan.gov.in/content/rajasthan-tourism/en/tourist-destinations/jal-mahal.html",
       description: "Jal Mahal es una edificación situada en medio del lago de Man Sagar en Jaipur, Estado del Rajastán, India. Está situado al norte de la ciudad en dirección a Amber. El palacio y el lago fueron arreglados por el maharajà Jai Singh II (1699-1743) en el siglo XVIII.",
       descriptionEn: "Jal Mahal is a historical palace in the middle of Man Sagar Lake in the city of Jaipur, capital of the Indian state of Rajasthan.",
+      lat: 26.953333333333333,
+      lng: 75.84611111111111,
     },
     {
       id: "jaipur_2",
@@ -22218,6 +22222,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.royaljaipur.in/",
       description: "El palacio de Jaipur, que incluye a los palacios Chandra Mahal y Mubarak Mahal junto con otras construcciones, es un complejo palaciego en Jaipur, la capital del estado de Rajasthan, India. Era la sede del Maharaja de Jaipur, el jefe del clan Kachwaha Rajput.",
       descriptionEn: "The City Palace, Jaipur is a royal residence and former administrative headquarters of the rulers of the Jaipur State in Jaipur, Rajasthan.",
+      lat: 26.9255,
+      lng: 75.8236,
     },
     {
       id: "jaipur_4",
@@ -22234,6 +22240,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Sisodia_Rani_Bagh%2C_Jaipur%2C_Rajasthan_%28DSCN4756%29.jpg/1920px-Sisodia_Rani_Bagh%2C_Jaipur%2C_Rajasthan_%28DSCN4756%29.jpg",
       description: "El Jardín Sisodiya Rani es un jardín histórico del siglo XVIII construido por el rey Sawai Jai Singh II para su reina. Destaca por sus murales, fuentes y diseño en terrazas de estilo rajput.",
       descriptionEn: "Sisodia Rani Garden is an 18th-century historic garden built by King Sawai Jai Singh II for his queen. It features murals, fountains and terraced Rajput-style design.",
+      lat: 26.8992687,
+      lng: 75.858629,
     },
     {
       id: "jaipur_5",
@@ -22266,6 +22274,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Birla_mandir_jaipur.JPG/1920px-Birla_mandir_jaipur.JPG",
       description: "El templo Birla se refiere a diferentes templos hindúes o Mandirs construidos por la familia Birla en diferentes ciudades. Todos estos templos son magníficamente construidos, algunos de ellos en mármol blanco o en arenisca.",
       descriptionEn: "Birla Mandir is a Hindu temple located in Jaipur, India, and is one of many Birla mandirs. It was built by the B.M. Birla Foundation in 1988 and is constructed solely of white marble.",
+      lat: 26.8921584,
+      lng: 75.8154896,
     },
     {
       id: "jaipur_7",
@@ -22282,6 +22292,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Albert_Hall_%27Museum%27.JPG/1920px-Albert_Hall_%27Museum%27.JPG",
       description: "Los Jardines Públicos Ram Niwas son un parque urbano del siglo XIX creado por el maharajá Sawai Ram Singh II. En su interior se encuentran el Museo Albert Hall y otros edificios públicos de Jaipur.",
       descriptionEn: "Ram Niwas Garden is a 19th-century public park created by Maharaja Sawai Ram Singh II. It contains the Albert Hall Museum and other public buildings in Jaipur.",
+      lat: 26.9131156,
+      lng: 75.8199189,
     },
     {
       id: "jaipur_8",
@@ -22298,6 +22310,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Patrika_Gate_Jawahar_Circle_Jaipur_2022-07.jpg/1920px-Patrika_Gate_Jawahar_Circle_Jaipur_2022-07.jpg",
       description: "Jawahar Circle es un parque circular de gran tamaño ubicado cerca del aeropuerto de Jaipur. Su diseño incluye senderos, áreas verdes y el acceso monumental conocido como Patrika Gate.",
       descriptionEn: "Jawahar Circle is a large circular park located near Jaipur Airport. Its design includes walkways, green areas and the monumental entrance known as Patrika Gate.",
+      lat: 26.8404,
+      lng: 75.8003,
     },
     {
       id: "jaipur_9",
@@ -22347,6 +22361,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/1920px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg",
       description: "El Hawa Mahal es un palacio de la ciudad de Jaipur en la India. El palacio fue construido en el año 1799 por el marajá Sawai Pratap Singh (1764-1803) y fue diseñado por Lal Chand Usta. Forma parte del Palacio de Jaipur.",
       descriptionEn: "The Hawa Mahal is a palace in the city of Jaipur, Rajasthan, India. Built from red and pink sandstone, it is on the edge of the City Palace, Jaipur, and extends to the Zenana, or women's chambers.",
+      lat: 26.924,
+      lng: 75.82672,
     },
     {
       id: "jaipur_12",
@@ -22363,6 +22379,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Jaipur_03-2016_02_Amber_Fort.jpg/1920px-Jaipur_03-2016_02_Amber_Fort.jpg",
       description: "El Fuerte Amber (o Fuerte Amer) se encuentra en Amer, a unos 11 kilómetros de Jaipur, la capital de Rajastán, India. Situado en lo alto de una colina, es la principal atracción turística de Jaipur.",
       descriptionEn: "Amer Fort or Amber Fort is a fort located in Amer, Rajasthan, India. Amer is a town with an area of 4 square kilometres (1.5 sq mi) located 11 kilometres (6.8 mi) from Jaipur, the capital of Rajasthan. Located high on a hill, it is the principal tourist attraction in Jaipur.",
+      lat: 26.9859,
+      lng: 75.8507,
     },
     {
       id: "jaipur_13",
@@ -22379,6 +22397,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/53/Samode_Palace_Jaipur.jpg",
       description: "Samode Palace, Samode Haveli y Samode Bagh (Jardín) son una serie de monumentos y estructuras construidas por los nobles feudales con el título hereditario de 'Maha Rawal' o 'Maha Saheb' del principado de Amber y Jaipur en Rajasthan, India.",
       descriptionEn: "Samode Palace, Samode Haveli and Samode Bagh (Garden) are heritage monuments and structures built by the noble feudatory with the hereditary title of 'Maha Rawal' or 'Maha Saheb’ of the Amber and Jaipur principality in Rajasthan, India.",
+      lat: 27.205,
+      lng: 75.8055,
+      dayTrip: true,
     },
     {
       id: "jaipur_14",
@@ -22484,6 +22505,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/20191219_Panna_Meena_ka_Kund_step_well%2C_Amber%2C_Jaipur%2C_1130_9630.jpg/1280px-20191219_Panna_Meena_ka_Kund_step_well%2C_Amber%2C_Jaipur%2C_1130_9630.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Panna Meena Ka Kund es un pozo escalonado histórico cerca de Amber, en las afueras de Jaipur. Su estructura de escaleras en zigzag y galerías laterales es característica de la arquitectura rajput.",
       descriptionEn: "Panna Meena Ka Kund is a historic stepwell near Amber, on the outskirts of Jaipur. Its zigzag staircases and side galleries are characteristic of Rajput architecture.",
+      lat: 26.99116666666667,
+      lng: 75.85122222222222,
     },
     {
       id: "jaipur_20",
@@ -22515,6 +22538,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Bazar Bapu es un mercado urbano de Jaipur conocido por la venta de telas, ropa, artesanías y productos locales. Se ubica en el área central de la ciudad, cerca de otros bazares históricos.",
       descriptionEn: "Bapu Bazaar is an urban market in Jaipur known for selling fabrics, clothing, handicrafts and local products. It is located in the central area of the city, near other historic bazaars.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Bapu_Bazar%2C_Jaipur%2C_20191218_1853_9472.jpg/1280px-Bapu_Bazar%2C_Jaipur%2C_20191218_1853_9472.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "jaipur_22",
@@ -146644,6 +146668,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Elizabeth_Fort_-_geograph.org.uk_-_1383565.jpg",
       description: "El Fuerte de Elizabeth es una fortaleza histórica de forma estrellada en Cork, construida originalmente a comienzos del siglo XVII. Se visita por su arquitectura militar, sus antiguos usos como cuartel y prisión, y las vistas sobre la ciudad.",
       descriptionEn: "Elizabeth Fort is a historic star-shaped fort in Cork, originally built in the early 17th century. It is visited for its military architecture, its former uses as a barracks and prison, and views over the city.",
+      lat: 51.8945,
+      lng: -8.478,
     },
     {
       id: "cork_1",
@@ -146661,6 +146687,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Cork_City_Jail.jpg/960px-Cork_City_Jail.jpg",
       description: "La Cárcel de la ciudad de Cork es una antigua prisión del siglo XIX que funcionó entre 1824 y 1923 y hoy alberga un museo. Se visita para conocer las condiciones de reclusión y la historia penal de la ciudad.",
       descriptionEn: "Cork City Gaol is a former 19th-century prison that operated between 1824 and 1923 and now houses a museum. It is visited to learn about prison conditions and the city's penal history.",
+      lat: 51.89955318,
+      lng: -8.498611618,
     },
     {
       id: "cork_2",
@@ -146676,8 +146704,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.glucksman.org",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Glucksman2.jpg/960px-Glucksman2.jpg",
-      description: "Cork es una ciudad en la República de Irlanda, capital del condado homónimo, en la provincia de Munster. Con una población de 125 622 habitantes en 2016, a raíz de una extensión de los límites de la ciudad en 2019, esta cifra ha incrementado a aproximadamente 210 000 habitantes.",
+      description: "La Galería Glucksman es una galería de arte contemporáneo en el campus de University College Cork. Se visita por sus exposiciones temporales y por su edificio moderno, diseñado por O'Donnell + Tuomey.",
       descriptionEn: "The Glucksman, formerly known as the Lewis Glucksman Gallery, is an art museum in University College Cork, Ireland.",
+      lat: 51.8947012,
+      lng: -8.4903105,
     },
     {
       id: "cork_3",
@@ -146693,8 +146723,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "https://www.bco.ie/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Blackrock_Castle_%28Blackrock%2C_Co.Cork%29.jpg",
-      description: "Blackrock Castle es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Blackrock Castle está situado en las cercanías de Cork, provincia de Munster en Irlanda.",
       descriptionEn: "Blackrock Castle is a castellated fortification located at Blackrock, about 2 km from Cork city centre on the banks of the River Lee in Ireland.",
+      lat: 51.90000001,
+      lng: -8.40250001,
+      sourceUrl: "https://es.wikipedia.org/wiki/Castillo_de_Blackrock",
     },
     {
       id: "cork_4",
@@ -146712,6 +146745,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Cork-Butter-Museum-2012.JPG/960px-Cork-Butter-Museum-2012.JPG",
       description: "El Museo de la Mantequilla ocupa un edificio en el área de Shandon y explora la historia de la producción de mantequilla y el comercio lácteo de Cork. Se visita por sus exposiciones sobre la industria mantequera irlandesa y el antiguo mercado de la mantequilla.",
       descriptionEn: "The Butter Museum occupies a building in the Shandon area and explores the history of butter production and Cork's dairy trade. It is visited for its exhibitions on the Irish butter industry and the former butter market.",
+      lat: 51.9027472,
+      lng: -8.4770333,
     },
     {
       id: "cork_5",
@@ -146726,8 +146761,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Cork-Public-Museum-2012.JPG/960px-Cork-Public-Museum-2012.JPG",
-      description: "El transporte ferroviario en Irlanda corre a cargo de Iarnród Éireann en la República de Irlanda y de Northern Ireland Railways en Irlanda del Norte.",
+      description: "El Museo Público de Cork está en Fitzgerald Park y recorre la historia de la ciudad y su región, desde la prehistoria hasta la época moderna. Su colección incluye piezas arqueológicas e históricas.",
       descriptionEn: "Cork Public Museum is a city museum in Cork, Ireland. Housed in a mid-19th-century building within Fitzgerald Park in the Mardyke area of the city, the museum's exhibits focus mainly on the history and archaeology of the Cork area.",
+      lat: 51.8961,
+      lng: -8.4943,
     },
     {
       id: "cork_6",
@@ -146810,8 +146847,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       website: "https://corkcathedral.webs.com/",
       imageUrl: "https://images.unsplash.com/photo-1537011781055-1afcb459ee5e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYWludCUyMEZpbiUyMEJhcnJlJTIwQ29yayUyMElyZWxhbmR8ZW58MXwwfHx8MTc4MzAwNTIyMXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Cork",
+      description: "La Catedral de San Finbar o Catedral de San Fin Barre es una catedral de la Iglesia de Irlanda situada en la ciudad de Cork, en Irlanda. El emplazamiento de la catedral ha sido lugar de culto desde el siglo VII.",
       descriptionEn: "Saint Fin Barre's Cathedral is a Gothic Revival three-spire Church of Ireland cathedral in Cork city, Ireland. It is located on the south bank of the River Lee and dedicated to Finbarr of Cork, patron saint of the city.",
+      lat: 51.8944,
+      lng: -8.48064,
+      sourceUrl: "https://es.wikipedia.org/wiki/Catedral_de_San_Finbar",
     },
     {
       id: "cork_11",
@@ -146843,8 +146883,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Crawford_Art_Gallery%2C_Cork_City.jpg/960px-Crawford_Art_Gallery%2C_Cork_City.jpg",
-      description: "Cork es una ciudad en la República de Irlanda, capital del condado homónimo, en la provincia de Munster. Con una población de 125 622 habitantes en 2016, a raíz de una extensión de los límites de la ciudad en 2019, esta cifra ha incrementado a aproximadamente 210 000 habitantes.",
+      description: "La Galería de Arte Crawford es una galería pública en el centro de Cork con una colección de arte irlandés y europeo. Ocupa un edificio histórico y programa exposiciones temporales.",
       descriptionEn: "The Crawford Art Gallery is a public art gallery and museum in the city of Cork, Ireland. Known informally as the Crawford, it was designated a 'National Cultural Institution' in 2006.",
+      lat: 51.900972222222,
+      lng: -8.4734166666667,
     },
     {
       id: "cork_13",
@@ -146877,8 +146919,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       website: "https://corkcathedralfop.ie/parishes/the-cathedral",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/CorkRCCathedral.JPG/960px-CorkRCCathedral.JPG",
-      description: "Cork es una ciudad en la República de Irlanda, capital del condado homónimo, en la provincia de Munster. Con una población de 125 622 habitantes en 2016, a raíz de una extensión de los límites de la ciudad en 2019, esta cifra ha incrementado a aproximadamente 210 000 habitantes.",
+      description: "La Catedral de Santa María y Santa Ana es la catedral católica de Cork, conocida como la Catedral del Norte. Su edificio actual fue remodelado en estilo neogótico en el siglo XIX.",
       descriptionEn: "The Cathedral of Saint Mary and Saint Anne, also known as Saint Mary's Cathedral, The North Cathedral or The North Chapel, is a Roman Catholic cathedral located at the top of Shandon Street in Cork, Ireland.",
+      lat: 51.9047056,
+      lng: -8.4761453,
     },
     {
       id: "cork_15",
@@ -146910,8 +146954,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "https://www.everymancork.com/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Everyman_Palace_Theatre_-_MacCurtain_Street_%285745077424%29.jpg/960px-Everyman_Palace_Theatre_-_MacCurtain_Street_%285745077424%29.jpg",
-      description: "Cork es una ciudad en la República de Irlanda, capital del condado homónimo, en la provincia de Munster. Con una población de 125 622 habitantes en 2016, a raíz de una extensión de los límites de la ciudad en 2019, esta cifra ha incrementado a aproximadamente 210 000 habitantes.",
+      description: "El Everyman Palace Theatre es un teatro histórico en MacCurtain Street, en el centro de Cork. Su programación incluye teatro, música y comedia en un edificio del siglo XIX.",
       descriptionEn: "The Everyman, also referred to as the Everyman Theatre and historically known as the Everyman Palace, is a 650-seat Victorian theatre on MacCurtain Street in Cork, Ireland. It opened in 1897, and is the oldest purpose-built theatre building in Cork.",
+      lat: 51.901393,
+      lng: -8.468221,
     },
     {
       id: "cork_17",
@@ -146960,6 +147006,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1718121151452-ca4e4c419a27?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGaXR6Z2VyYWxkJTIwQ29yayUyMElyZWxhbmR8ZW58MXwwfHx8MTc4MzAwNTI5Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "George Francis FitzGerald fue un físico irlandés y profesor en el Trinity College de Dublín, a finales del siglo XIX. Es conocido por formular el fenómeno físico denominado Contracción de FitzGerald-Lorentz, posteriormente integrado en la Teoría de la Relatividad.",
       descriptionEn: "Fitzgerald's Park or Fitzgerald Park is a public park in Cork city and the location of the Cork Public Museum. The park is located on the Mardyke and is a short distance from Cork city centre and University College Cork.",
+      lat: 51.895833333333336,
+      lng: -8.49611111111111,
     },
     {
       id: "cork_20",
@@ -146977,6 +147025,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/CorkOperaHouse2017.jpg/960px-CorkOperaHouse2017.jpg",
       description: "La Cork Opera House es un teatro y ópera en Cork, en la República de Irlanda. Fue construido originalmente en 1855, y fue modelado sobre la base de una plantilla que el arquitecto había utilizado para los edificios de exhibición en la Exposición Industiral irlandesa.",
       descriptionEn: "Cork Opera House is a theatre and opera house in Cork in Ireland. The first venue opened in 1855 on Emmet Place to the rear of the Crawford Art Gallery. This original building was destroyed by fire in 1955, and a replacement opened in 1965.",
+      lat: 51.9003,
+      lng: -8.47258,
     },
     {
       id: "cork_21",
@@ -147136,8 +147186,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b1/The_English_Market%2C_Cork.jpg",
-      description: "English Market es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Mercado Inglés comprende el mercado de la calle Princes y el mercado Grand Parade, se trata de un mercado de alimentos municipal en el centro de Cork, Irlanda.",
       descriptionEn: "The English Market is a municipal food market in the center of Cork city, Ireland. It stretches from Princes Street to the Grand Parade, and combines Princes Street Market and Grand Parade Market.",
+      lat: 51.898,
+      lng: -8.474,
+      sourceUrl: "https://es.wikipedia.org/wiki/Mercado_Ingl%C3%A9s",
     },
     {
       id: "cork_31",
@@ -147173,6 +147226,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "La iglesia de Santa Ana, en el barrio de Shandon, al norte del centro de Cork, es conocida por su torre con una veleta en forma de pez y por el carillón de campanas que los visitantes pueden tañer; desde lo alto se domina la ciudad.",
       descriptionEn: "St Anne's Church in the Shandon district, north of Cork city centre, is known for its tower topped by a fish-shaped weathervane and for its bells, which visitors can ring; the tower gives views over the city.",
+      lat: 51.9047056,
+      lng: -8.4761453,
     },
     {
       id: "cork_33",
@@ -147251,6 +147306,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La isla Spike, en la bahía de Cork, alberga una gran fortaleza construida desde fines del siglo XVIII que luego sirvió como prisión militar, y antes fue sede de un monasterio; se llega en ferry desde Cobh con recorridos guiados.",
       descriptionEn: "Spike Island in Cork Harbour holds a large fort begun in the late 18th century that later served as a military prison, and was earlier the site of a monastery; it is reached by ferry from Cobh on guided tours.",
+      lat: 51.835,
+      lng: -8.285,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Entry_of_Fort_Mitchel_on_Spike_Island_1.jpg/1280px-Entry_of_Fort_Mitchel_on_Spike_Island_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "cork_37",
@@ -147286,6 +147344,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La destilería de Midleton, en el condado de Cork, es donde se produce el whiskey Jameson; su centro de visitantes ocupa los edificios de la antigua destilería del siglo XIX y ofrece recorridos guiados por las instalaciones.",
       descriptionEn: "The Midleton distillery in County Cork is where Jameson whiskey is produced; its visitor centre occupies the 19th-century buildings of the old distillery and offers guided tours of the site.",
+      lat: 51.9138187,
+      lng: -8.1683088,
     },
     {
       id: "cork_39",
@@ -147302,6 +147362,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Gateway_to_Fota_House_and_Gardens_-_geograph.org.uk_-_5819199.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "La Casa Fota es una mansión georgiana del siglo XIX en la isla de Fota, rodeada de jardines y un arboreto; perteneció a la familia Smith-Barry y hoy abre al público con visitas a sus salones y colecciones.",
       descriptionEn: "Fota House is a 19th-century Georgian mansion on Fota Island surrounded by gardens and an arboretum; it was home to the Smith-Barry family and is now open to visitors, with its rooms and collections on display.",
+      lat: 51.8938956,
+      lng: -8.3037806,
     },
     {
       id: "cork_40",
@@ -147352,6 +147414,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/DV405_no.278_Cork_Harbour.png/1280px-DV405_no.278_Cork_Harbour.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El puerto de Cork es una gran rada natural en la desembocadura del río Lee, protegida por islas; en sus orillas se encuentran la ciudad de Cork, Cobh, Ringaskiddy y la base del Servicio Naval de Irlanda en Haulbowline.",
       descriptionEn: "Cork Harbour is a large natural harbour at the mouth of the River Lee, sheltered by islands; the city of Cork, Cobh and Ringaskiddy sit on its shores, along with the Irish Naval Service base at Haulbowline.",
+      lat: 51.85,
+      lng: -8.26667,
     },
   ],
   killarney: [
@@ -218714,6 +218778,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.acuariorodadero.com",
       description: "Acuario ubicado en El Rodadero, en el sector costero de Santa Marta, con peceras de especies marinas del Caribe y una sala de museo con esqueletos, conchas y piezas de fauna marina. Se visita como actividad breve junto a la playa, orientada al público familiar.",
       descriptionEn: "An aquarium in the El Rodadero area of Santa Marta, with tanks holding Caribbean marine species and a museum room displaying skeletons, shells and marine specimens. It is visited as a short activity near the beach, aimed at families.",
+      lat: 11.216969,
+      lng: -74.237151,
     },
     {
       id: "santamarta_3",
@@ -218730,6 +218796,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/2019_Santa_Marta_-_Ensenadas_en_el_Parque_nacional_natural_Tayrona.jpg/1920px-2019_Santa_Marta_-_Ensenadas_en_el_Parque_nacional_natural_Tayrona.jpg",
       description: "El Parque Nacional Natural Tayrona se encuentra ubicado en las estribaciones de la Sierra Nevada de Santa Marta en la Región Caribe de Colombia. Políticamente, forma parte de Santa Marta.",
       descriptionEn: "The Tayrona National Natural Park is a protected area in the Colombian northern Caribbean region and within the jurisdiction of the city of Santa Marta, 34 kilometres (21 mi) from the city centre.",
+      lat: 11.31,
+      lng: -73.997,
     },
     {
       id: "santamarta_4",
@@ -218744,8 +218812,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/2018_Santa_Marta_%28Colombia%29_-_Centro_Hist%C3%B3rico_-_Palomas_en_el_Parque_de_los_Novios.jpg/1920px-2018_Santa_Marta_%28Colombia%29_-_Centro_Hist%C3%B3rico_-_Palomas_en_el_Parque_de_los_Novios.jpg",
-      description: "Plaza del centro histórico de Santa Marta, rodeada de casas coloniales y hoy flanqueada por restaurantes y bares. Es un punto de encuentro y de paso habitual en los recorridos por el centro de la ciudad.",
+      description: "El parque de Los Novios o parque Santander es un espacio público situado en el centro histórico de Santa Marta, en el departamento colombiano de Magdalena. Alberga varios edificios de valor patrimonial y es uno de los centros gastronómicos y turísticos de la ciudad.",
       descriptionEn: "A square in Santa Marta's historic centre, surrounded by colonial houses and now lined with restaurants and bars. It is a meeting point and a common stop on walks through the city centre.",
+      lat: 11.24223,
+      lng: -74.21329,
+      sourceUrl: "https://es.wikipedia.org/wiki/Parque_de_Los_Novios_(Santa_Marta)",
     },
     {
       id: "santamarta_5",
@@ -218764,6 +218835,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Catedral_bas%C3%ADlica_de_Santa_Marta",
       lat: 11.24342,
       lng: -74.21119,
+      descriptionEn: "The Cathedral Basilica of Santa Marta is the city's main Catholic church, located in the historic center. Its current building dates from the colonial period and retains architectural and religious significance.",
     },
     {
       id: "santamarta_6",
@@ -218895,6 +218967,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/V%C3%8DA_PARQUE_ISLA_DE_SALAMANCA.jpg/1920px-V%C3%8DA_PARQUE_ISLA_DE_SALAMANCA.jpg",
       description: "La vía parque Isla de Salamanca, única área protegida de Colombia con tal denominación, se encuentra ubicada en la Costa Caribe. Debido a que es la zona donde confluyen las aguas dulces del río Magdalena y las salinas del Mar Caribe, la abundancia de fauna y flora es enorme.",
       descriptionEn: "The Salamanca Island Road Park is a national park located in the Caribbean Region of Colombia, on the western outskirts of the city of Ciénaga in the Magdalena Department.",
+      lat: 10.93333333,
+      lng: -74.45,
+      dayTrip: true,
     },
     {
       id: "santamarta_14",
@@ -218915,6 +218990,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -73.71667,
       dayTrip: true,
       website: "http://www.parquesnacionales.gov.co/PNN/portel/libreria/php/decide.php?patron=01.020224",
+      descriptionEn: "Sierra Nevada de Santa Marta National Natural Park protects part of the mountain range of the same name, a coastal range with ecosystems ranging from rainforest to paramo. It includes areas of archaeological importance and indigenous territories.",
     },
     {
       id: "santamarta_15",
@@ -218953,6 +219029,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -74.1175,
       description: "Minca es un centro poblado ubicado en la Localidad III del Distrito de Santa Marta (Colombia). Está ubicada en las estribaciones de la Sierra Nevada de Santa Marta, a unos 15 km del centro de la ciudad. Minca es la capital ecológica de la Sierra Nevada de Santa Marta.",
       sourceUrl: "https://es.wikipedia.org/wiki/Minca_(Santa_Marta)",
+      descriptionEn: "Minca is a village in the municipality of Santa Marta, located on the slopes of the Sierra Nevada. Its mountain surroundings include coffee farms, waterfalls and forest, and it is known for birdwatching.",
     },
     {
       id: "santamarta_17",
@@ -218990,6 +219067,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -74.22812,
       description: "El Rodadero es un balneario de la ciudad de Santa Marta, a orillas del mar Caribe en Colombia. Corresponde a la zona norte de la Localidad III (Turística - Perla del Caribe) y se caracteriza por sus playas de arena clara y sus edificios de gran altura.",
       sourceUrl: "https://es.wikipedia.org/wiki/El_Rodadero",
+      descriptionEn: "El Rodadero is a tourist area of Santa Marta with an urban beach on the Caribbean Sea. It brings together hotels, restaurants and services related to beach activity.",
     },
     {
       id: "santamarta_19",
@@ -219045,6 +219123,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/2021_Santa_Marta_-_Parque_de_Bol%C3%ADvar.jpg/1280px-2021_Santa_Marta_-_Parque_de_Bol%C3%ADvar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Plaza principal de Santa Marta, en el centro histórico, presidida por una estatua de Simón Bolívar y rodeada por la Catedral y edificios antiguos. Es el punto de partida habitual para recorrer a pie el centro de la ciudad.",
       descriptionEn: "Santa Marta's main square in the historic centre, dominated by a statue of Simón Bolívar and surrounded by the cathedral and old buildings. It is the usual starting point for walking tours of the city centre.",
+      lat: 11.2449225,
+      lng: -74.2135066,
     },
     {
       id: "santamarta_22",
