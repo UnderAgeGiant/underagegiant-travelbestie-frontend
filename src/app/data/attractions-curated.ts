@@ -22163,7 +22163,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1477587458883-5b68073a7c81?auto=format&fit=crop&w=800&q=80",
-      description: "Jaipur, conocida también como La ciudad rosa, es la capital del estado de Rajastán, en la India.",
+      description: "El Jantar Mantar es un conjunto de 19 instrumentos astronómicos construido por el rey rajput Sawai Jai Singh, fundador de Jaipur, en Rajastán, India. Se terminó en 1734, alberga el reloj de sol de piedra más grande del mundo y es Patrimonio de la Humanidad por la UNESCO.",
       descriptionEn: "The Jantar Mantar is a collection of 19 astronomical instruments built by the Rajput king Sawai Jai Singh, the founder of Jaipur, Rajasthan, India. The monument was completed in 1734. It features the world's largest stone sundial, and is a UNESCO World Heritage Site.",
     },
     {
@@ -22361,7 +22361,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Jaipur_03-2016_02_Amber_Fort.jpg/1920px-Jaipur_03-2016_02_Amber_Fort.jpg",
-      description: "El fuerte Jaigarh es una antigua instalación militar situada a 10 kilómetros de la ciudad de Jaipur, cerca del pueblo de Amer, en un promontorio llamado Cheel ka Teela de la cordillera Aravalli.",
+      description: "El Fuerte Amber (o Fuerte Amer) se encuentra en Amer, a unos 11 kilómetros de Jaipur, la capital de Rajastán, India. Situado en lo alto de una colina, es la principal atracción turística de Jaipur.",
       descriptionEn: "Amer Fort or Amber Fort is a fort located in Amer, Rajasthan, India. Amer is a town with an area of 4 square kilometres (1.5 sq mi) located 11 kilometres (6.8 mi) from Jaipur, the capital of Rajasthan. Located high on a hill, it is the principal tourist attraction in Jaipur.",
     },
     {
