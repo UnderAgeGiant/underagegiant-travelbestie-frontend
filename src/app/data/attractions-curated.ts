@@ -983,6 +983,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://athensolympicmuseum.org/",
       description: "El Museo Olímpico de Atenas alberga una exposición permanente de recuerdos de los Juegos Olímpicos, testimonios de atletas y objetos desde la Antigüedad griega hasta la actualidad, centrada en los tres grandes hitos: la Antigua Olimpia, Atenas 1896 y Atenas 2004.",
       descriptionEn: "The Athens Olympic Museum holds a permanent exhibition of Olympic Games memorabilia, athletes' testimonies, and artefacts from Greek antiquity to the present, spotlighting the three great milestones of the Games: Ancient Olympia, Athens 1896, and Athens 2004.",
+      lat: 38.03368,
+      lng: 23.79316,
     },
     {
       id: "athens_6",
@@ -1000,6 +1002,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://mariacallasmuseum.gr/en/",
       description: "El Museo Maria Callas es un museo biográfico dedicado a la célebre soprano griega Maria Callas. Abrió sus puertas el 26 de octubre de 2023 cerca de la plaza Syntagma, en la calle Mitropoleos 44, en Atenas.",
       descriptionEn: "The Maria Callas Museum is a biographical museum dedicated to the renowned Greek soprano Maria Callas. It opened on 26 October 2023, and is situated near Syntagma Square at 44 Mitropoleos Street in Athens, Greece.",
+      lat: 37.9755,
+      lng: 23.7308,
     },
     {
       id: "athens_7",
@@ -1017,6 +1021,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://diomedes-bg.gr/",
       description: "El Jardín Botánico Diomedes es el mayor jardín botánico de Grecia, fundado en 1951 gracias al legado del profesor Alexandros Diomedes y abierto al público en 1975. Ubicado en Jaidari, al oeste de Atenas, alberga más de 3000 especies vegetales en unas 186 hectáreas.",
       descriptionEn: "The Diomedes Botanical Garden is the largest botanical garden in Greece, founded in 1951 through the bequest of Professor Alexandros Diomedes and opened to the public in 1975. Located in Haidari, west of Athens, it holds over 3,000 plant species across roughly 186 hectares.",
+      lat: 38.01111,
+      lng: 23.64306,
     },
     {
       id: "athens_8",
@@ -1034,6 +1040,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://pediontouareostoparkomas.gr/",
       description: "El Pedión tu Áreos es uno de los parques públicos más grandes de Atenas, Grecia.",
       descriptionEn: "The Pedion tou Areos or Pedion Areos is one of the largest public parks in Athens, Greece.",
+      lat: 37.99284,
+      lng: 23.73651,
     },
     {
       id: "athens_9",
@@ -1068,6 +1076,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.snfcc.org/",
       description: "El Centro Cultural de la Fundación Stavros Niarchos o CCFSN es un centro cultural situado en el municipio de Kallithea del Gran Atenas (Grecia).",
       descriptionEn: "The Stavros Niarchos Foundation Cultural Center (SNFCC) is a cultural center complex in the municipality of Kallithea in Athens, Greece.",
+      lat: 37.9397,
+      lng: 23.6917,
     },
     {
       id: "athens_11",
@@ -1085,6 +1095,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://gnhm.gr/the-museum/",
       description: "El Museo Goulandris de Historia Natural es un museo situado en Kifisiá, un suburbio al noreste de Atenas, Grecia. Fue fundado por Ángelos y Niki Goulandris en 1965 para promover el interés por las ciencias naturales.",
       descriptionEn: "The Goulandris Museum of Natural History is a museum in Kifisia, a northeastern suburb of Athens, Greece. It was founded by Angelos Goulandris and Niki Goulandris in 1965 in order to promote interest in the natural sciences, to raise the awareness of the public, in general, and…",
+      lat: 38.07437,
+      lng: 23.81466,
     },
     {
       id: "athens_12",
@@ -4207,6 +4219,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
       description: "La Grand-Place o Grote Markt es la plaza central de Bruselas, Bélgica. Está rodeada de opulentas casas gremiales barrocas y dos grandes edificios: el Ayuntamiento gótico flamígero y la Casa del Rey o Casa del Pan, de estilo neogótico. Fue declarada Patrimonio de la Humanidad por la Unesco en 1998.",
       descriptionEn: "The Grand-Place or Grote Markt is the central square of Brussels, Belgium. It is surrounded by opulent Baroque guildhalls of the former Guilds of Brussels and two larger edifices: the city's Flamboyant Town Hall, and the neo-Gothic King's House or Bread House building, housing…",
+      lat: 50.84673,
+      lng: 4.35241,
     },
     {
       id: "brussels_1",
@@ -4239,6 +4253,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Palais_Stoclet%2C_Brussels.jpg/1920px-Palais_Stoclet%2C_Brussels.jpg",
       description: "El Árbol de la Vida, Friso Stoclet es una pintura al óleo sobre tela del pintor simbolista austriaco Gustav Klimt. Fue terminado en 1909 y está basado en el estilo Art nouveau (Modernismo) dentro del género de pintura simbólica. Tiene unas dimensiones de 200 por 102 centímetros.",
       descriptionEn: "The Stoclet Palace, also known as the Stoclet House, is a historic mansion in Woluwe-Saint-Pierre, a municipality of Brussels, Belgium.",
+      lat: 50.83514,
+      lng: 4.41625,
     },
     {
       id: "brussels_3",
@@ -4419,6 +4435,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://beermuseum.be",
       description: "El Museo de los Cerveceros Belgas ocupa la Casa del Gremio de los Cerveceros en la Grand-Place de Bruselas y exhibe la historia y el equipamiento tradicional de la elaboración de cerveza belga.",
       descriptionEn: "The Museum of Belgian Brewers occupies the Brewers' Guild House on Brussels' Grand-Place and showcases the history and traditional equipment of Belgian beer brewing.",
+      lat: 50.84625,
+      lng: 4.35253,
     },
     {
       id: "brussels_14",
@@ -4748,6 +4766,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "La casa estudio de Víctor Horta en Bruselas se caracteriza por sus espacios emblemáticos y significativos relacionados con el arquitecto, ya que este la habitaba. Los dos edificios que componen esta casa se construyeron entre 1898 y 1901.",
       descriptionEn: "The Horta Museum is a museum in Brussels, Belgium, dedicated to the life and work of the architect Victor Horta and his time. The museum is housed in Horta's former town house and workshop, built between 1898 and 1901, in Art Nouveau style.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Horta",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Mus%C3%A9e_Horta.001_-_Brussel.JPG/1280px-Mus%C3%A9e_Horta.001_-_Brussel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "brussels_31",
@@ -4806,6 +4825,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Parlamentarium_-_Parlement_europ%C3%A9en_-_Je_suis_Nice.jpg/1280px-Parlamentarium_-_Parlement_europ%C3%A9en_-_Je_suis_Nice.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Parlamentarium es el centro de visitantes del Parlamento Europeo en Bruselas. Su exposición interactiva explica cómo funciona la institución, su historia y el proceso de integración europea.",
       descriptionEn: "The Parlamentarium is the European Parliament's visitors' centre in Brussels. Its interactive exhibition explains how the institution works, its history and the process of European integration.",
+      lat: 50.8385,
+      lng: 4.37616,
     },
     {
       id: "brussels_34",
@@ -4840,6 +4861,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/2016_10_02_Brussels_%2846%29_%2830115662292%29.jpg/1280px-2016_10_02_Brussels_%2846%29_%2830115662292%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Les Marolles es un barrio histórico de Bruselas, cerca del Palacio de Justicia. Se asocia a la vida popular de la ciudad y al mercado de pulgas de la place du Jeu de Balle, con calles estrechas y comercios de antigüedades.",
       descriptionEn: "Les Marolles is a historic district of Brussels, near the Palace of Justice. It is associated with the city's working-class life and the flea market on Place du Jeu de Balle, with narrow streets and antique shops.",
+      lat: 50.8345,
+      lng: 4.35092,
     },
     {
       id: "brussels_36",
@@ -4925,6 +4948,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.lisztmuseum.hu/",
       description: "El Museo Conmemorativo y Centro de Investigación Ferenc Liszt abrió en 1986 en el antiguo apartamento del compositor en la Academia de Música de Budapest, donde vivió entre 1881 y 1886. Conserva sus instrumentos, muebles, partituras y objetos personales originales.",
       descriptionEn: "The Ferenc Liszt Memorial Museum and Research Centre opened in 1986 in the composer's former apartment at the Budapest Academy of Music, where he lived from 1881 to 1886. It preserves his original instruments, furniture, scores, and personal belongings.",
+      lat: 47.50696,
+      lng: 19.06662,
     },
     {
       id: "budapest_4",
@@ -4942,6 +4967,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.bkv.hu/hu/muzeumok/foldalatti_vasuti_muzeum_budapest",
       description: "El Museo del Ferrocarril Subterráneo está dedicado a la Línea 1 del metro de Budapest, la más antigua de la ciudad, construida entre 1894 y 1896 y conocida localmente como \"el pequeño subterráneo\".",
       descriptionEn: "Line 1 is the oldest line of the Budapest Metro, built from 1894 to 1896. It is known locally as \"the small underground\", while the M2, M3 and M4 are called \"metró\".",
+      lat: 47.49778,
+      lng: 19.05472,
     },
     {
       id: "budapest_5",
@@ -4976,6 +5003,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://mng.hu/",
       description: "La Galería Nacional Húngara se estableció en 1957 como el museo de arte nacional del país. Está ubicada en el Castillo de Buda, en Budapest, y alberga la mayor colección de arte húngaro del mundo.",
       descriptionEn: "The Hungarian National Gallery was established in 1957 as the national art museum. It is located in Buda Castle in Budapest, Hungary.",
+      lat: 47.49623,
+      lng: 19.03977,
     },
     {
       id: "budapest_7",
@@ -4993,6 +5022,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.varmuzeum.hu/",
       description: "El Museo Histórico de Budapest, también llamado Museo del Castillo, ocupa parte del Palacio Real en el Castillo de Buda y presenta la historia de la ciudad desde la prehistoria hasta la actualidad, incluyendo restos del castillo medieval original.",
       descriptionEn: "The Budapest History Museum, also known as the Castle Museum, occupies part of the Royal Palace in Buda Castle and traces the city's history from prehistoric times to the present, including remains of the original medieval castle.",
+      lat: 47.49528,
+      lng: 19.04056,
     },
     {
       id: "budapest_8",
@@ -5095,6 +5126,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.tropicarium.hu/",
       description: "El Tropicarium de Budapest, en el centro comercial Campona, es el mayor acuario de agua salada de Europa Central, célebre por su túnel de tiburones de 12 metros. También alberga rayas, cocodrilos, aves tropicales en vuelo libre y monos.",
       descriptionEn: "The Budapest Tropicarium, at the Campona shopping mall, is Central Europe's largest saltwater aquarium, famous for its 12-metre shark tunnel. It also houses stingrays, alligators, free-flying tropical birds, and monkeys.",
+      lat: 47.40783,
+      lng: 19.01808,
     },
     {
       id: "budapest_14",
@@ -5578,6 +5611,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 18.99896,
       description: "Memento Park es un museo al aire libre en las afueras de Budapest que reúne estatuas monumentales y placas del período comunista húngaro, retiradas de la ciudad después de 1989. Se visita para ver esos monumentos de propaganda en un contexto histórico.",
       descriptionEn: "Memento Park is an open-air museum on the outskirts of Budapest that displays monumental statues and plaques from Hungary's communist period, removed from the city after 1989. It is visited to see these propaganda monuments in a historical context.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Main_entrance_of_the_Memento_Park_with_Lenin%2C_Marx_and_Engels.JPG/1280px-Main_entrance_of_the_Memento_Park_with_Lenin%2C_Marx_and_Engels.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "budapest_39",
@@ -9971,6 +10005,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=800&q=80",
       description: "El paisaje de caza a la par force del norte de Selandia es un conjunto de cotos de caza y bosques al norte de Copenhague, diseñados en el siglo XVII para la caza real. Fue declarado Patrimonio de la Humanidad por la Unesco en 2015.",
       descriptionEn: "The Par force hunting landscape in North Zealand is a collection of hunting grounds and forests north of Copenhagen. The landscape was submitted for admission to the UNESCO List of World Heritage Sites on 1 August 2010 and was inscribed on 4 July 2015.",
+      lat: 55.9136,
+      lng: 12.3578,
+      dayTrip: true,
     },
     {
       id: "copenhagen_1",
@@ -9988,6 +10025,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.roskildedomkirke.dk/",
       description: "La catedral de Roskilde, en la ciudad de Roskilde, en la isla de Selandia, es una catedral de la Iglesia luterana de Dinamarca y el panteón tradicional de los monarcas daneses. Fue declarada Patrimonio de la Humanidad por la Unesco en 1995.",
       descriptionEn: "Roskilde Cathedral, in the city of Roskilde on the island of Zealand (Sjælland) in eastern Denmark, is a cathedral of the Lutheran Church of Denmark.",
+      lat: 55.64267,
+      lng: 12.08031,
+      dayTrip: true,
     },
     {
       id: "copenhagen_2",
@@ -10005,6 +10045,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.kronborg.dk",
       description: "El castillo de Kronborg es una fortaleza histórica situada en la ciudad de Helsingør, Dinamarca. Inmortalizado como Elsinor en la obra Hamlet de William Shakespeare, es uno de los castillos renacentistas más importantes del norte de Europa.",
       descriptionEn: "Kronborg is a castle and historical stronghold in the town of Helsingør, Denmark. Immortalised as Elsinore in William Shakespeare's play Hamlet, Kronborg is one of the most important Renaissance castles in Northern Europe.",
+      lat: 56.03861,
+      lng: 12.62194,
+      dayTrip: true,
     },
     {
       id: "copenhagen_3",
@@ -10021,6 +10064,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Georg_Emil_Libert_-_Parti_af_Stevns_Klint_-_1856.png/1920px-Georg_Emil_Libert_-_Parti_af_Stevns_Klint_-_1856.png",
       description: "El acantilado de Stevns es un acantilado de tiza de 15 km situado en la costa este de Selandia, Dinamarca, célebre por conservar en sus estratos el límite geológico Cretácico-Paleógeno, asociado a la extinción de los dinosaurios. Fue declarado Patrimonio de la Humanidad por la Unesco en 2014.",
       descriptionEn: "Stevns Klint is a 15 km chalk cliff on the east coast of Zealand, Denmark, famous for preserving in its strata the Cretaceous–Paleogene boundary layer linked to the dinosaur extinction event. It was inscribed as a UNESCO World Heritage Site in 2014.",
+      lat: 55.2822,
+      lng: 12.45,
+      dayTrip: true,
     },
     {
       id: "copenhagen_4",
@@ -10055,6 +10101,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://jewmus.dk/",
       description: "El Museo Judío Danés, en Copenhague, se encuentra en la antigua Casa de la Galera de la Biblioteca Real y exhibe artefactos históricos y arte de la comunidad judía danesa.",
       descriptionEn: "The Danish Jewish Museum, in Copenhagen, Denmark, sits inside the Danish Royal Library’s old Galley House and exhibits Danish Jewish historical artifacts and art.",
+      lat: 55.67417,
+      lng: 12.58222,
     },
     {
       id: "copenhagen_6",
@@ -10072,6 +10120,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museion.ku.dk/",
       description: "Medicinsk Museion es un museo y unidad de investigación de Copenhague dedicado a la historia de la salud y la enfermedad desde una perspectiva cultural, con colecciones de instrumental médico histórico.",
       descriptionEn: "Medical Museion is a museum and research unit in Copenhagen, Denmark, dedicated to the history of health and disease in a cultural perspective.",
+      lat: 55.6859,
+      lng: 12.5919,
     },
     {
       id: "copenhagen_7",
@@ -10089,6 +10139,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.davidmus.dk/",
       description: "La Colección David es un museo de bellas artes y artes aplicadas en Copenhague, construido en torno a las colecciones privadas del abogado, empresario y coleccionista de arte C. L. David, con una destacada sección de arte islámico.",
       descriptionEn: "The David Collection is a museum of fine and applied art in Copenhagen, Denmark, built around the private collections of lawyer, businessman and art collector C. L. David.",
+      lat: 55.68429,
+      lng: 12.58225,
     },
     {
       id: "copenhagen_8",
@@ -10123,6 +10175,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.flakfortet.dk/",
       description: "Flakfortet, que significa \"fortaleza del banco de arena\", es un fuerte marítimo construido en la isla artificial de Saltholmrev, en el estrecho de Øresund entre Copenhague y Saltholm, hoy reconvertido en destino turístico.",
       descriptionEn: "Flakfortet, meaning sand-shoal fortress, is a sea fort located on the artificially built island of Saltholmrev, in the Øresund between Copenhagen and Saltholm.",
+      lat: 55.70361,
+      lng: 12.73139,
     },
     {
       id: "copenhagen_10",
@@ -10140,6 +10194,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.kongernessamling.dk/rosenborg/",
       description: "El castillo de Rosenborg es un castillo renacentista en Copenhague, Dinamarca. Fue construido originalmente como casa de verano en 1606 y es un ejemplo de los numerosos proyectos arquitectónicos del rey Cristián IV.",
       descriptionEn: "Rosenborg Castle is a renaissance castle in Copenhagen, Denmark. The castle was originally built as a country summerhouse in 1606 and is an example of Christian IV's many architectural projects.",
+      lat: 55.68566,
+      lng: 12.57748,
     },
     {
       id: "copenhagen_11",
@@ -10157,6 +10213,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://denkongeligesamling.dk/christiansborg-slot/",
       description: "El Palacio de Christiansborg es un palacio y edificio gubernamental situado en el islote de Slotsholmen en Copenhague, Dinamarca. Es la sede del Folketing, la oficina del primer ministro danés y la Corte Suprema danesa.",
       descriptionEn: "Christiansborg Palace is a palace and government building on the islet of Slotsholmen in central Copenhagen, Denmark. It is the seat of the Danish Parliament (Folketing), the Danish Prime Minister's Office, and the Supreme Court of Denmark.",
+      lat: 55.67583,
+      lng: 12.57889,
     },
     {
       id: "copenhagen_12",
@@ -10208,6 +10266,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://snm.dk/en/botanical-garden",
       description: "El Jardín Botánico de la Universidad de Copenhague, es un jardín botánico de unas 10 hectáreas de extensión. El jardín botánico es parte del Museo de Historia Natural de Dinamarca, que así mismo es parte de la Facultad de Ciencias de la Universidad de Copenhague.",
       descriptionEn: "The University of Copenhagen Botanical Garden, usually referred to simply as Copenhagen Botanical Garden, is a botanical garden located in the centre of Copenhagen, Denmark.",
+      lat: 55.68694,
+      lng: 12.57389,
     },
     {
       id: "copenhagen_15",
@@ -10304,6 +10364,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 12.57579,
       description: "La Torre Redonda es una torre del siglo XVII en el centro de Copenhague, unida a la iglesia Trinitatis. Se visita por su rampa helicoidal, su antigua función de observatorio astronómico y la plataforma panorámica.",
       descriptionEn: "The Round Tower is a 17th-century tower in central Copenhagen, attached to Trinitatis Church. Visitors come for its spiral ramp, its former role as an astronomical observatory, and the panoramic platform.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Torre_Redonda.jpg/1280px-Torre_Redonda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "copenhagen_20",
@@ -10655,6 +10716,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "CopenHill es una planta de conversión de residuos en energía en Amager, Copenhague. Su techo alberga una pista de esquí artificial y un sendero, y el edificio se visita por su diseño y vistas.",
       descriptionEn: "CopenHill is a waste-to-energy plant on Amager in Copenhagen. Its roof holds an artificial ski slope and a walking path, and the building is visited for its design and views.",
+      lat: 55.68487,
+      lng: 12.6211,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Copenhill_2.jpg/1280px-Copenhill_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   cusco: [
@@ -12610,6 +12674,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.tours.jamesonwhiskey.com/Home/The-Old-Jameson-Distillery-Dublin.aspx",
       description: "La Old Jameson Distillery, hoy conocida como Jameson Distillery Bow St., fue la destilería original de whiskey Jameson en Dublín desde 1780 hasta que la producción se trasladó a Midleton en 1971. El edificio de Bow Street se convirtió en centro de visitantes en 1997.",
       descriptionEn: "The Old Jameson Distillery, today known as Jameson Distillery Bow St., was the original home of Jameson whiskey production in Dublin from 1780 until distilling moved to Midleton in 1971. The Bow Street building was converted into a visitor centre in 1997.",
+      lat: 53.34817,
+      lng: -6.27681,
     },
     {
       id: "dublin_2",
@@ -12625,8 +12691,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Wall_plaques_Irish_Jewish_museum.jpg",
       website: "http://www.jewishireland.org/museum.html",
-      description: "El Museo Judío de Irlanda es un pequeño museo situado en la zona de Portobello, antiguo barrio de gran población judía en Dublín, dedicado a la historia de la comunidad judía irlandesa. Incluye una antigua sinagoga con su mobiliario ritual.",
+      description: "El Museo Judío Irlandés es un museo en Dublín dedicado a la historia de la comunidad judía en Irlanda. Ocupa una antigua sinagoga en el barrio de Portobello y exhibe objetos, fotografías y documentos sobre esa comunidad.",
       descriptionEn: "The Irish Jewish Museum is a small museum located in the once highly Jewish-populated area of Portobello, around the South Circular Road, Dublin, dedicated to the history of the Irish Jewish community. It includes a former synagogue with ritual fittings.",
+      lat: 53.3307,
+      lng: -6.2696,
     },
     {
       id: "dublin_3",
@@ -12661,6 +12729,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.littlemuseum.ie/",
       description: "El Little Museum of Dublin es un museo de historia local situado en St Stephen's Green, Dublín. Ocupa una casa georgiana del siglo XVIII propiedad del ayuntamiento y busca presentar la historia social y cultural de Dublín a través de objetos cotidianos.",
       descriptionEn: "The Little Museum of Dublin is a local history museum situated at St Stephen's Green, Dublin, Ireland. The museum, which is located in an 18th-century Georgian townhouse owned by Dublin City Council, aims to present the \"social and cultural history of Dublin through everyday…",
+      lat: 53.33948,
+      lng: -6.25817,
     },
     {
       id: "dublin_5",
@@ -12712,6 +12782,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://heritageireland.ie/places-to-visit/rathfarnham-castle/",
       description: "El Castillo de Rathfarnham es una construcción del siglo XVI situada en Rathfarnham, en el condado de Dublín, Irlanda.",
       descriptionEn: "Rathfarnham Castle is a 16th-century fortified house in Rathfarnham, South Dublin, Ireland. Originally a semi-fortified and battlemented structure, it underwent extensive alterations in the 18th century. It is in the care of the state, has been restored and is open to the public.",
+      lat: 53.2981,
+      lng: -6.28361,
     },
     {
       id: "dublin_8",
@@ -12820,6 +12892,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.dublinia.ie/",
       description: "Dublinia es un museo de recreación histórica y una atracción turística de Dublín, Irlanda, cuyo enfoque es la historia vikinga y medieval de la ciudad.",
       descriptionEn: "Dublinia is a historical recreation museum and visitor attraction in Dublin, Ireland, focusing on the Viking and Medieval history of the city. Dublinia is located in a part of Dublin's Christ Church Cathedral, known as the Synod hall.",
+      lat: 53.34312,
+      lng: -6.27199,
     },
     {
       id: "dublin_14",
@@ -12858,6 +12932,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Libro de Kells es un manuscrito iluminado que data aproximadamente del año 800 d. C., creado por monjes celtas en Kells, un pueblo de Irlanda. También es conocido como el Gran Evangeliario de San Columba.",
       descriptionEn: "The Book of Kells is an illustrated manuscript and Celtic Gospel book in Latin, containing the four Gospels of the New Testament together with various prefatory texts and tables.",
       sourceUrl: "https://es.wikipedia.org/wiki/Libro_de_Kells",
+      lat: 53.3439,
+      lng: -6.25649,
     },
     {
       id: "dublin_16",
@@ -13301,6 +13377,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "La Iglesia de San Salvador es una pequeña iglesia votiva que pertenece a la Iglesia católica y está ubicada en la ciudad antigua de Dubrovnik, Croacia. Está dedicada a Jesucristo.",
       descriptionEn: "Dubrovnik, historically also known as Ragusa, is a city in southern Dalmatia, Croatia, by the Adriatic Sea. It is one of the most prominent tourist destinations in the Mediterranean, a seaport and the centre of the Dubrovnik-Neretva County.",
+      lat: 42.6409,
+      lng: 18.1091,
     },
     {
       id: "dubrovnik_1",
@@ -13363,8 +13441,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/19/Pomorski_muzej.JPG",
-      description: "Pomorski muzej es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Marítimo de Dubrovnik ocupa el Fuerte San Juan, dentro de las murallas. Reúne piezas sobre la historia naval y comercial de Ragusa y su relación con el mar Adriático.",
       descriptionEn: "Croatia is home to a rich and diverse museum scene, with over 200 institutions scattered across the country, showcasing its history, culture, and art. In 2018, Croatia saw record visits to the museums across country, with over 5,4 million visitors.",
+      lat: 42.63985,
+      lng: 18.11238,
     },
     {
       id: "dubrovnik_5",
@@ -13379,8 +13459,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/Muzej_Domovinskog_rata_22.JPG",
-      description: "Muzej domovinskog rata es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de la Guerra de la Patria está en el Fuerte Imperial, en la cima del monte Srđ. Documenta la guerra de independencia croata y el asedio de Dubrovnik en la década de 1990.",
       descriptionEn: "Croatia is home to a rich and diverse museum scene, with over 200 institutions scattered across the country, showcasing its history, culture, and art. In 2018, Croatia saw record visits to the museums across country, with over 5,4 million visitors.",
+      lat: 42.64994,
+      lng: 18.11061,
     },
     {
       id: "dubrovnik_6",
@@ -13397,6 +13479,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Fort_Lovrijenac_-_Dubrovnik.jpg/1920px-Fort_Lovrijenac_-_Dubrovnik.jpg",
       description: "La fortaleza Lovrijenac o de San Lorenzo, a menudo llamado \"el Gibraltar de Dubrovnik\", es una fortaleza y teatro fuera de la muralla occidental de la ciudad de Dubrovnik en Croacia, 37 metros por encima del nivel del mar.",
       descriptionEn: "Fort Lovrijenac or St. Lawrence Fortress, Italian Fortezza di San Lorenzo, often called \"Dubrovnik's Gibraltar\", is a fortress and theater outside the western wall of the city of Dubrovnik in Croatia, 37 metres (121 ft) above sea level.",
+      lat: 42.64073,
+      lng: 18.10441,
     },
     {
       id: "dubrovnik_7",
@@ -13413,6 +13497,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/47/S_UTVRDE_Fort_Royal_na_Grad_Dubrovnik_pogled.JPG",
       description: "Lokrum conocida también por el nombre italiano de Lacroma, su nombre deriva de la palabra latina Acrumen, que significa fruta amarga y deriva del cultivo de plantas exóticas por parte de los monjes benedictinos en la Edad Media.",
       descriptionEn: "The Walls of Dubrovnik are a series of defensive stone walls surrounding the city of Dubrovnik in southern Croatia. Ramparts were built in the outlying areas of the city, including the mountain slopes as part of a set of statues from 1272.",
+      lat: 42.62997,
+      lng: 18.11674,
     },
     {
       id: "dubrovnik_8",
@@ -13427,8 +13513,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cannon_at_Fort_Revelin%2C_Dubrovnik%2C_Croatia_%28PPL1-Corrected%29_julesvernex2.jpg/1920px-Cannon_at_Fort_Revelin%2C_Dubrovnik%2C_Croatia_%28PPL1-Corrected%29_julesvernex2.jpg",
-      description: "Las Murallas de Dubrovnik son una serie de muros defensivos de piedra que han rodeado y protegido a los ciudadanos de la, más tarde proclamada, ciudad-Estado marítima de Dubrovnik, situada en el sur de Dalmacia.",
+      description: "La Fortaleza Revelin es una fortificación del siglo XVI situada junto a la puerta de Ploče, en Dubrovnik. Se construyó para proteger el acceso oriental de la ciudad y hoy se usa para eventos y visitas.",
       descriptionEn: "The Walls of Dubrovnik are a series of defensive stone walls surrounding the city of Dubrovnik in southern Croatia. Ramparts were built in the outlying areas of the city, including the mountain slopes as part of a set of statues from 1272.",
+      lat: 42.64232,
+      lng: 18.11258,
     },
     {
       id: "dubrovnik_9",
@@ -13636,6 +13724,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Colina de 412 metros sobre Dubrovnik que ofrece vistas panorámicas de la ciudad amurallada y del mar Adriático. En la cima está el fuerte Imperial, del siglo XIX, y hasta allí llega el teleférico.",
       descriptionEn: "A 412-metre hill above Dubrovnik with panoramic views of the walled city and the Adriatic Sea. Fort Imperial, built in the 19th century, stands at the top, and the cable car runs up to it.",
+      lat: 42.65056,
+      lng: 18.10973,
     },
     {
       id: "dubrovnik_21",
@@ -13711,6 +13801,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 18.10722,
       description: "La Fuente de Onofrio, en Dubrovnik (Croacia), fue creada por el napolitano Onofrio della Cava en el siglo XV (1438), como parte del proyecto de abastecimiento de agua mediante acueductos de la ciudad de Ragusa.",
       sourceUrl: "https://es.wikipedia.org/wiki/Fuente_de_Onofrio",
+      descriptionEn: "Onofrio’s Fountain is a large public fountain built in 1438 by Onofrio della Cava near the Pile Gate. It was part of Dubrovnik’s water supply system.",
     },
     {
       id: "dubrovnik_25",
@@ -13727,6 +13818,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Saint_Blaise%27s_Church%2C_Dubrovnik_-_September_2017.jpg/1280px-Saint_Blaise%27s_Church%2C_Dubrovnik_-_September_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Columna de piedra del siglo XV levantada en la plaza Luža, frente a la iglesia de San Blas. Está tallada con la figura del caballero Orlando y es uno de los símbolos de la ciudad.",
       descriptionEn: "A 15th-century stone column in Luža Square, in front of St Blaise's Church. It is carved with the figure of the knight Orlando and is one of the symbols of the city.",
+      lat: 42.64095,
+      lng: 18.11035,
     },
     {
       id: "dubrovnik_26",
@@ -13765,6 +13858,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Archipiélago al noroeste de Dubrovnik formado por varias islas, entre ellas Koločep, Lopud y Šipan. Se visitan en excursión desde la ciudad; en Lopud está la playa de arena Šunj.",
       descriptionEn: "An archipelago northwest of Dubrovnik made up of several islands, including Koločep, Lopud and Šipan. They are visited on day trips from the city; Lopud is home to the sandy Šunj beach.",
+      lat: 42.72777,
+      lng: 17.88361,
     },
     {
       id: "dubrovnik_28",
@@ -13853,6 +13948,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Pequeño puerto al este de la ciudad amurallada, junto a la puerta de Ploče. Desde allí salen embarcaciones hacia la isla de Lokrum y las islas Elafitas.",
       descriptionEn: "A small harbour at the eastern side of the walled city, next to the Ploče Gate. Boats leave from there for the island of Lokrum and the Elaphiti Islands.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Casco_viejo_de_Dubrovnik%2C_Croacia%2C_2014-04-13%2C_DD_03.JPG/1280px-Casco_viejo_de_Dubrovnik%2C_Croacia%2C_2014-04-13%2C_DD_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "dubrovnik_33",
@@ -14539,7 +14635,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/An_outline_of_the_system_of_education_at_New_Lanark_%28IA_outlineofsystemo00owen%29.pdf/page1-500px-An_outline_of_the_system_of_education_at_New_Lanark_%28IA_outlineofsystemo00owen%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bb/NewlanarkNL06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       website: "https://www.newlanark.org/",
       description: "New Lanark es un pueblo situado a la orilla del río Clyde, a aproximadamente dos kilómetros de Royal Burgh de Lanark, en el South Lanarkshire en Escocia. Fue fundado en 1785 por David Dale (1739-1806), quien hizo construir fábricas de algodón y residencias para los obreros.",
       descriptionEn: "New Lanark is a village on the River Clyde, approximately 1.4 miles from Lanark, in Lanarkshire, and some 25 miles (40 km) southeast of Glasgow, Scotland. It was founded in 1785 and opened in 1786 by David Dale, who built cotton mills and housing for the mill workers.",
@@ -14615,6 +14711,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.edinburghmuseums.org.uk/venue/museum-childhood",
       description: "El Museo de la Infancia es un museo que alberga una colección de juguetes y objetos infantiles, situado en la Royal Mile de Edimburgo, Escocia. Fue el primer museo del mundo especializado en la historia de la infancia. La entrada es gratuita.",
       descriptionEn: "The Museum of Childhood is a museum that houses a collection of children's toys and playthings, situated on the Royal Mile, in Edinburgh, Scotland. It is the first museum in the world to specialise in the history of childhood. Admission to the museum is free.",
+      lat: 55.95039,
+      lng: -3.18558,
     },
     {
       id: "edinburgh_7",
@@ -14743,6 +14841,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.canongatekirk.org.uk/",
       description: "Canongate Kirk es la iglesia parroquial del barrio de Canongate, en el Casco Antiguo de Edimburgo, Escocia, y pertenece a la Iglesia de Escocia. Su parroquia incluye el Palacio de Holyroodhouse y el Parlamento escocés.",
       descriptionEn: "The Kirk of the Canongate, or Canongate Kirk, serves the Parish of Canongate in Edinburgh's Old Town, in Scotland. It is a congregation of the Church of Scotland. The parish includes the Palace of Holyroodhouse and the Scottish Parliament.",
+      lat: 55.95172,
+      lng: -3.17956,
     },
     {
       id: "edinburgh_14",
@@ -15012,6 +15112,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "Greyfriars Bobby fue un perro de la raza Skye Terrier que se hizo conocido en Edimburgo en el siglo XIX por permanecer junto a la tumba de su dueño, John Gray, hasta su muerte el 14 de enero de 1872.",
       descriptionEn: "Greyfriars Bobby was a Skye Terrier or Dandie Dinmont Terrier who became known in 19th-century Edinburgh for reportedly spending 14 years guarding the grave of his owner until his death.",
       sourceUrl: "https://es.wikipedia.org/wiki/Greyfriars_Bobby",
+      lat: 55.94692,
+      lng: -3.1913,
     },
     {
       id: "edinburgh_28",
@@ -15146,6 +15248,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Grassmarket es una zona histórica en el casco antiguo de Edimburgo, situada a los pies del castillo. Antiguamente funcionó como mercado y lugar de ejecuciones públicas, y hoy concentra pubs, restaurantes y tiendas.",
       descriptionEn: "Grassmarket is a historic area in Edinburgh's Old Town, at the foot of the castle. It once served as a market and site of public executions, and today it is lined with pubs, restaurants and shops.",
+      lat: 55.9475,
+      lng: -3.19611,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Grassmarket_-_aerial_-_2025-04-19_02.jpg/1280px-Grassmarket_-_aerial_-_2025-04-19_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "edinburgh_35",
@@ -15823,6 +15928,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://guccigarden.gucci.com/",
       description: "El Gucci Garden (antes Gucci Museum) es un espacio en el Palazzo della Mercanzia de Florencia que combina exhibiciones sobre la historia de la casa de moda Gucci con una tienda exclusiva y un restaurante.",
       descriptionEn: "Guccio Giovanbattista Giacinto Dario Maria Gucci was an Italian businessman and fashion designer and founder of the fashion house Gucci.",
+      lat: 43.76975,
+      lng: 11.25523,
     },
     {
       id: "florence_12",
@@ -15860,6 +15967,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://museicivicifiorentini.comune.fi.it/fortebelvedere/",
       description: "El Forte di Belvedere es una fortificación en Florencia, Italia, construida a finales del siglo XVI por orden del gran duque Fernando I de Medici, que ofrece vistas panorámicas de la ciudad.",
       descriptionEn: "The Forte di Belvedere or Fortezza di Santa Maria in San Giorgio del Belvedere is a fortification in Florence, Italy.",
+      lat: 43.76305,
+      lng: 11.25374,
     },
     {
       id: "florence_14",
@@ -16293,6 +16402,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Chianti (//) es uno de los vinos tintos italianos más prestigiosos y conocidos en el mundo, forma parte del grupos de los vinos toscanos.",
       descriptionEn: "Chianti is an Italian red wine produced in the Chianti region of central Tuscany, principally from the Sangiovese grape. It was historically associated with a squat bottle enclosed in a straw basket, called a fiasco.",
       sourceUrl: "https://es.wikipedia.org/wiki/Chianti",
+      lat: 43.60695,
+      lng: 11.33201,
     },
     {
       id: "florence_36",
@@ -23912,6 +24023,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Cracovia es la capital del voivodato de Pequeña Polonia y una de las ciudades más grandes, antiguas e importantes de Polonia. Situada en las márgenes del río Vístula, tiene una población de 766 000 habitantes, lo que la convierte en la segunda ciudad más poblada de Polonia.",
       descriptionEn: "Old Town is the oldest, historic part of the city of Kraków within the Planty Park, Poland.",
+      lat: 50.05481,
+      lng: 19.93621,
     },
     {
       id: "krakow_1",
@@ -23928,6 +24041,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/%CE%91%CE%BB%CE%B1%CF%84%CF%89%CF%81%CF%85%CF%87%CE%B5%CE%AF%CE%B1_%CE%92%CE%B9%CE%B5%CE%BB%CE%AF%CF%84%CF%83%CE%BA%CE%B1_5021.jpg/3840px-%CE%91%CE%BB%CE%B1%CF%84%CF%89%CF%81%CF%85%CF%87%CE%B5%CE%AF%CE%B1_%CE%92%CE%B9%CE%B5%CE%BB%CE%AF%CF%84%CF%83%CE%BA%CE%B1_5021.jpg",
       description: "Las minas de sal de Wieliczka, en la ciudad polaca de Wieliczka, perteneciente al área metropolitana de Cracovia. Han sido explotadas sin interrupción desde el siglo XIII, y aún hoy en día siguen produciendo sal de mesa.",
       descriptionEn: "The Wieliczka Salt Mine is a salt mine in the town of Wieliczka, near Kraków in southern Poland.",
+      lat: 49.97917,
+      lng: 20.06389,
     },
     {
       id: "krakow_2",
@@ -23994,6 +24109,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://maius.uj.edu.pl/",
       description: "El Museo de la Universidad Jaguelónica ocupa el Collegium Maius, el edificio más antiguo de la Universidad Jaguelónica de Cracovia, y exhibe instrumentos científicos históricos, globos terráqueos antiguos y la célebre rueda giratoria de libros (bookwheel).",
       descriptionEn: "The Jagiellonian University Museum occupies the Collegium Maius, the oldest building of Kraków's Jagiellonian University, and displays historic scientific instruments, antique globes, and the famous rotating bookwheel.",
+      lat: 50.06174,
+      lng: 19.93376,
     },
     {
       id: "krakow_6",
@@ -24028,6 +24145,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://galiciajewishmuseum.org/",
       description: "El Museo Judío Galicia se ubica en la calle Dajwór, en Kazimierz, el histórico barrio judío de Cracovia. Presenta una exposición fotográfica que documenta los vestigios de la cultura y vida judías en la región polaca de Galicia.",
       descriptionEn: "The Galicia Jewish Museum is located at 18 Dajwór Street in Kazimierz the historic Jewish district of Kraków, Poland. It is a photo exhibition documenting the remnants of Jewish culture and life in Polish Galicia, which used to be very vibrant in this area.",
+      lat: 50.05086,
+      lng: 19.94968,
     },
     {
       id: "krakow_8",
@@ -24045,6 +24164,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://etnomuzeum.eu/",
       description: "El Museo Etnográfico Seweryn Udziela de Cracovia es un museo en el barrio de Kazimierz, Cracovia, Polonia.",
       descriptionEn: "The Seweryn Udziela Ethnographic Museum of Kraków is a museum in Kazimierz, Kraków, Poland. It was established in 1902.",
+      lat: 50.04866,
+      lng: 19.94349,
     },
     {
       id: "krakow_9",
@@ -24145,6 +24266,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://bunkier.art.pl/",
       description: "Bunkier Sztuki es una galería de arte contemporáneo en Cracovia.",
       descriptionEn: "Bunkier Sztuki is a contemporary art gallery in Kraków.",
+      lat: 50.06347,
+      lng: 19.93431,
     },
     {
       id: "krakow_15",
@@ -24340,6 +24463,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 19.89335,
       description: "Montículo artificial de unos 34 metros en el distrito de Zwierzyniec, levantado entre 1820 y 1823 en honor al héroe nacional Tadeusz Kościuszko. Desde la cima se obtiene una vista amplia de la ciudad y del valle del Vístula.",
       descriptionEn: "An artificial mound about 34 metres high in the Zwierzyniec district, raised between 1820 and 1823 to honour the national hero Tadeusz Kościuszko. Its summit offers a wide view over the city and the Vistula valley.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/DJI_0236_Kopiec_Ko%C5%9Bciuszki.jpg/1280px-DJI_0236_Kopiec_Ko%C5%9Bciuszki.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "krakow_25",
@@ -24474,6 +24598,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg/1280px-Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Torre gótica del siglo XIV, único vestigio del antiguo ayuntamiento que ocupaba la plaza. Alberga un pequeño museo y un mirador sobre el Rynek Główny.",
       descriptionEn: "A 14th-century Gothic tower, the only remnant of the old town hall that once stood on the square. It houses a small museum and a viewing terrace over the Rynek Główny.",
+      lat: 50.06149,
+      lng: 19.93641,
     },
     {
       id: "krakow_32",
@@ -24508,6 +24634,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/20240625_193720_MOCAK_-_Museum_of_Contemporary_Art_in_Krak%C3%B3w_01.jpg/1280px-20240625_193720_MOCAK_-_Museum_of_Contemporary_Art_in_Krak%C3%B3w_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Museo de Arte Contemporáneo de Cracovia, inaugurado en 2011 en el barrio industrial de Zabłocie. Su edificio se levanta en el terreno de la antigua fábrica de Oskar Schindler.",
       descriptionEn: "Kraków's Museum of Contemporary Art, opened in 2011 in the industrial district of Zabłocie. Its building stands on the grounds of Oskar Schindler's former factory.",
+      lat: 50.04788,
+      lng: 19.96137,
     },
     {
       id: "krakow_34",
@@ -24524,7 +24652,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tenement_house%2C_5_Bohater%C3%B3w_Getta_Square%2C_Podg%C3%B3rze%2C_Krak%C3%B3w%2C_Poland.jpg/1280px-Tenement_house%2C_5_Bohater%C3%B3w_Getta_Square%2C_Podg%C3%B3rze%2C_Krak%C3%B3w%2C_Poland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       lat: 50.04652,
       lng: 19.95427,
-      description: "Plaza del barrio de Podgórze donde fue reunida la población judía durante las deportaciones al campo de Płaszów. Un monumento de sillas vacías recuerda a las víctimas.",
+      description: "La Plaza de los Héroes del Gueto está en el barrio de Podgórze, en el área que ocupó el gueto judío de Kraków durante la Segunda Guerra Mundial. Hoy es un espacio memorial con sillas de metal que recuerdan a los habitantes del gueto y las deportaciones.",
       descriptionEn: "A square in the Podgórze district where the Jewish population was assembled during deportations to the Płaszów camp. A memorial of empty chairs commemorates the victims.",
     },
     {
@@ -24542,6 +24670,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Krak%C3%B3w_-_Wawel_-_Smocza_Jama_-_inside.jpg/1280px-Krak%C3%B3w_-_Wawel_-_Smocza_Jama_-_inside.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Cueva caliza en la colina de Wawel, con un recorrido corto que desciende hasta la orilla del Vístula. Su nombre proviene de la leyenda del dragón que habitaba la colina.",
       descriptionEn: "A limestone cave in Wawel Hill with a short route that descends to the bank of the Vistula. Its name comes from the legend of the dragon said to have lived in the hill.",
+      lat: 50.05314,
+      lng: 19.93364,
     },
   ],
   kyoto: [
@@ -26108,6 +26238,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: 38.78839,
       lng: -9.43382,
       dayTrip: true,
+      descriptionEn: "The Cultural Landscape of Sintra is a UNESCO World Heritage Site in the hills west of Lisbon. It comprises palaces, estates, gardens, and forests that reflect the region's Romantic architecture and history.",
     },
     {
       id: "lisbon_2",
@@ -26149,6 +26280,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.ccb.pt/macccb/",
       description: "El Museu de Arte Contemporânea MAC/CCB, integrado en el Centro Cultural de Belém, en Lisboa, exhibe una colección de arte contemporáneo portugués e internacional.",
       descriptionEn: "The Museu de Arte Contemporânea MAC/CCB, part of Lisbon's Centro Cultural de Belém, exhibits a collection of Portuguese and international contemporary art.",
+      lat: 38.69565,
+      lng: -9.20931,
     },
     {
       id: "lisbon_4",
@@ -26220,6 +26353,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://museudamarioneta.pt",
       description: "El Museu da Marioneta se ubica desde 2001 en el Convento das Bernardas de Lisboa y es el primer museo de Portugal dedicado por completo a la interpretación y difusión de la historia de los títeres.",
       descriptionEn: "The Museu da Marioneta has been located since November 2001 in the Convent of Bernardas in Lisbon, Portugal, establishing itself as the first museum in Portugal entirely dedicated to the interpretation and dissemination of the history of puppetry, covering the history of this…",
+      lat: 38.70811,
+      lng: -9.15596,
     },
     {
       id: "lisbon_8",
@@ -29053,6 +29188,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Madrid_20.JPG/1280px-Madrid_20.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El barrio de las Letras es un área de la ciudad de Madrid, ubicada en el barrio gaveta de Cortes, en el distrito Centro de la capital.",
       sourceUrl: "https://es.wikipedia.org/wiki/Barrio_de_las_Letras",
+      lat: 40.41527,
+      lng: -3.70089,
+      descriptionEn: "Central Madrid neighborhood known for its literary ties: Golden Age writers such as Cervantes and Lope de Vega lived on its streets. Today it combines historic buildings, squares and streets with inscriptions alluding to literature.",
     },
     {
       id: "madrid_22",
@@ -29111,6 +29249,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -3.69763,
       description: "El Mercado de San Antón es un mercado de abastos ubicado en el barrio de Chueca en Madrid. El primer edificio se construye en el año 1945 bajo el proyecto del arquitecto Carlos de la Torre y Costa.",
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_de_San_Ant%C3%B3n",
+      descriptionEn: "Municipal market in Madrid, in the Chueca neighborhood, renovated as a gastronomic market. It brings together food stalls and dining areas.",
     },
     {
       id: "madrid_25",
@@ -29404,6 +29543,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.mercadodechamberi.es",
       description: "El Mercado Municipal de Chamberí es un mercado municipal de Madrid (España), ubicado en el distrito de Chamberí.",
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_de_Chamber%C3%AD",
+      descriptionEn: "Municipal market in Madrid located in the Chamberí district. It is a neighborhood market with food stalls and commercial services.",
     },
   ],
   medellin: [
@@ -32490,7 +32630,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Stained_Glass_Coat_of_Arms_dated_1674%2C_Sforza_Castle%2C_Milan.jpg/1920px-Stained_Glass_Coat_of_Arms_dated_1674%2C_Sforza_Castle%2C_Milan.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/20110725_Castello_Sforzesco_Milan_5557.jpg/1280px-20110725_Castello_Sforzesco_Milan_5557.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       website: "http://www.milanocastello.it/",
       description: "El Castillo Sforzesco es un gran complejo fortificado situado en Milán, Italia, junto al centro histórico de la ciudad.",
       descriptionEn: "The Sforza Castle is a medieval fortification located in Milan, northern Italy. It was built in the 15th century by Francesco Sforza, Duke of Milan, on the remnants of a 14th-century fortification.",
@@ -32727,6 +32867,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 9.17241,
       description: "El Arco della Pace es un arco de triunfo situado en la Piazza Sempione de Milán, Italia, que formaba parte de la antigua Porta Sempione.",
       sourceUrl: "https://es.wikipedia.org/wiki/Arco_della_Pace",
+      descriptionEn: "Neoclassical triumphal arch in Parco Sempione, completed in the 19th century. It is visited for its architecture and its location at the end of the park, near Castello Sforzesco.",
     },
     {
       id: "milan_24",
@@ -32805,6 +32946,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 9.20428,
       description: "La Fundación Prada es un conjunto de edificios museísticos ubicado en Milán, consta de una galería de arte contemporánea permanente con obras de varios artistas, entre otros Jeff Koons, Walter De Maria, Pino Pascali, Damien Hirst, Carsten Höller, y que acoge con regularidad…",
       sourceUrl: "https://es.wikipedia.org/wiki/Fundaci%C3%B3n_Prada_(edificio)",
+      descriptionEn: "Cultural institution and contemporary art museum founded by Prada, housed in a former industrial complex in Milan. It presents exhibitions, cinema and art projects.",
     },
     {
       id: "milan_28",
@@ -33474,6 +33616,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.spielzeugmuseummuenchen.de/",
       description: "El Spielzeugmuseum ocupa la torre del Antiguo Ayuntamiento de Múnich y alberga desde 1983 la colección del caricaturista Ivan Steiger: juguetes de madera y hojalata, muñecas, osos de peluche, trenes y máquinas de vapor que datan desde el año 1800.",
       descriptionEn: "The Spielzeugmuseum (Toy Museum) occupies the tower of Munich's Old Town Hall and has housed the collection of caricaturist Ivan Steiger since 1983: wooden and tin toys, dolls, teddy bears, trains, and steam engines dating back to the year 1800.",
+      lat: 48.13669,
+      lng: 11.57688,
     },
     {
       id: "munich_2",
@@ -34170,7 +34314,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.9,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/%28untitled%29_The_North_American_Review%2C_%281868-04-01%29%2C_pages_396-446_%28IA_jstor-25108163%29.pdf/page1-500px-%28untitled%29_The_North_American_Review%2C_%281868-04-01%29%2C_pages_396-446_%28IA_jstor-25108163%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Campania_Pompei3_tango7174.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Pompeya fue una antigua ciudad romana situada en la que era, en la época de su destrucción, la Regio I Latium et Campania de la Italia romana, y próxima a la ciudad de Nápoles, a orillas del golfo homónimo de dicha ciudad, dentro del término municipal de la moderna Pompeya.",
       descriptionEn: "Pompeii was a city in what is now the municipality of Pompei, near Naples, in the Campania region of Italy. Along with Herculaneum, Stabiae, and many surrounding villas, it was buried under 4 to 6 m of volcanic ash and pumice in the eruption of Mount Vesuvius in 79 AD.",
       sourceUrl: "https://es.wikipedia.org/wiki/Pompeya",
@@ -34275,6 +34419,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.gallerieditalia.com/it/napoli/",
       description: "El Palazzo Zevallos es un palacio monumental situado en la Via Toledo de Nápoles, Italia. Alberga la homónima galería de arte, que forma parte de las Gallerie d'Italia propiedad del grupo Intesa Sanpaolo.",
       descriptionEn: "Gallerie d'Italia – Napoli is a museum housed in the Palazzo Zevallos Stigliano on Via Toledo, part of the Gallerie d'Italia network of the Intesa Sanpaolo banking group, exhibiting 17th- to 20th-century Neapolitan art.",
+      lat: 40.84042,
+      lng: 14.24881,
     },
     {
       id: "naples_7",
@@ -34309,6 +34455,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.polomusealecampania.beniculturali.it/index.php/il-castello",
       description: "El Castel Sant’Elmo es un castillo medieval, hoy destinado a museo, situado en la colina del Vomero, en la ciudad italiana de Nápoles.",
       descriptionEn: "Castel Sant'Elmo is a medieval fortress located on Vomero Hill adjacent to the Certosa di San Martino, overlooking Naples, Italy. The name \"Sant'Elmo\" derives from a former 10th-century church dedicated to Sant'Erasmo, shortened to \"Ermo\" and ultimately altered to \"Elmo\".",
+      lat: 40.84362,
+      lng: 14.23933,
     },
     {
       id: "naples_9",
@@ -34382,7 +34530,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Del_Real_teatro_di_San_Carlo_cenno_storico_%28IA_delrealteatrodis00tadd_0%29.pdf/page1-500px-Del_Real_teatro_di_San_Carlo_cenno_storico_%28IA_delrealteatrodis00tadd_0%29.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Theatre_herculanum_Piranese.jpg/1280px-Theatre_herculanum_Piranese.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       website: "http://ercolano.beniculturali.it/",
       description: "Herculano fue una antigua ciudad romana de la región de la Campania, sur de Italia. En su tiempo era más pequeña, pero sus más mundanos comerciantes y mercaderes eran más ricos, cultos e intelectuales que la élite de la vecina Pompeya.",
       descriptionEn: "Herculaneum is an ancient Roman town located in the modern-day comune of Ercolano, Campania, Italy. Herculaneum was buried under a massive pyroclastic flow in the eruption of Mount Vesuvius in 79 AD.",
@@ -36593,6 +36741,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Centro_hist%C3%B3rico_de_Oporto",
       lat: 41.14319,
       lng: -8.61297,
+      descriptionEn: "Porto’s historic centre stretches along the Douro River and includes Ribeira, narrow streets and centuries-old buildings. It was declared a UNESCO World Heritage Site and is visited to learn about the city’s urban evolution.",
     },
     {
       id: "porto_1",
@@ -36606,7 +36755,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/The_production_of_protective_earth-based_mortars_for_earth_constructions_in_southeastern_Brazil_during_the_19th_century_coffee_economy%2C_Anais_do_Museu_Paulista.pdf/page1-960px-thumbnail.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Castelo_de_Guimar%C3%A3es_%28Homenagem%29.JPG/1280px-Castelo_de_Guimar%C3%A3es_%28Homenagem%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       website: "http://motocidade.pt/",
       schedule: {
         sat: {
@@ -36687,6 +36836,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.fcporto.pt/pt/museu",
       description: "El Museu FC Porto es el museo oficial del Futebol Clube do Porto, uno de los principales clubes de fútbol portugueses, situado en el Estádio do Dragão, y recoge la historia y los principales trofeos del club.",
       descriptionEn: "Futebol Clube do Porto, MHIH, OM, commonly known as FC Porto, or simply Porto, is a Portuguese professional sports club based in Porto. It is best known for the professional football team playing in the Primeira Liga, the top flight of Portuguese football.",
+      lat: 41.1611,
+      lng: -8.58235,
     },
     {
       id: "porto_6",
@@ -36721,6 +36872,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.mhporto.com/",
       description: "El Museu do Holocausto do Porto es un museo dedicado a la memoria del Holocausto y a la historia de la comunidad judía de Oporto, con exposiciones sobre la persecución nazi y el legado judío en la ciudad.",
       descriptionEn: "The Museu do Holocausto do Porto is dedicated to Holocaust remembrance and the history of Porto's Jewish community, with exhibits on Nazi persecution and the city's Jewish heritage.",
+      lat: 41.15298,
+      lng: -8.63772,
     },
     {
       id: "porto_8",
@@ -36863,6 +37016,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -8.61472,
       description: "La Torre de los Clérigos conforma, junto con la iglesia, el complejo arquitectónico de la Iglesia y Torre de los Clérigos y se encuentra en el casco antiguo de la ciudad de Oporto, Portugal.",
       sourceUrl: "https://es.wikipedia.org/wiki/Torre_de_los_Cl%C3%A9rigos",
+      descriptionEn: "The Clérigos Tower is a Baroque tower belonging to the church of the same name, designed by Nicolau Nasoni in the 18th century. Its viewpoint overlooks central Porto and the Douro River, and it is one of the city’s symbols.",
     },
     {
       id: "porto_16",
@@ -37000,6 +37154,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://visitporto.travel/Visitar/Paginas/Descobrir/detalhespoi.aspx?POI=1393",
       description: "El Mercado de Bolhão es un emblemático mercado de la ciudad de Oporto, en Portugal. Su construcción se caracteriza por su monumentalidad, propia de la arquitectura neoclásica. Los vendedores del mercado se distribuyen en dos plantas.",
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_do_Bolh%C3%A3o",
+      descriptionEn: "Bolhão Market is a historic market in Porto, with stalls selling fresh food and local products in a renovated building. It is visited to experience traditional commerce and the city’s daily life.",
     },
     {
       id: "porto_23",
@@ -37097,6 +37252,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -8.61627,
       description: "La Iglesia del Carmo, o Iglesia de la Venerable Tercera Orden de Nuestra Señora del Carmen, está situada en el cruce de la Praça de Carlos Alberto y la Rua do Carmo, cerca de la Iglesia y Torre de los Clérigos, en la parroquia portuguesa de Vitória, ciudad de Porto.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_del_Carmen_(Oporto)",
+      descriptionEn: "The Carmo Church, also known as Igreja do Carmo, is a church in Porto with a side facade covered in blue-and-white tiles. It stands next to the Carmelitas Church and is visited for its Baroque architecture.",
     },
     {
       id: "porto_28",
@@ -37115,6 +37271,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -8.62646,
       description: "Los Jardines del Palacio de Cristal es un parque situado en la antigua freguesia de Massarelos de la ciudad de Oporto, Portugal, desde el que se observan panorámicas del río Duero y del océano Atlántico.",
       sourceUrl: "https://es.wikipedia.org/wiki/Jardines_del_Palacio_de_Cristal_(Oporto)",
+      descriptionEn: "The Crystal Palace Gardens are a public park in Porto with viewpoints over the Douro, fountains and varied vegetation. They are visited for walking and enjoying panoramic views of the city and river.",
     },
     {
       id: "porto_29",
@@ -37310,6 +37467,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.vhu.cz/",
       description: "El Instituto de Historia Militar de Praga es una institución checa dedicada a la investigación y difusión de la historia militar, que gestiona varios museos militares en la ciudad.",
       descriptionEn: "The Military History Institute Prague is a Czech institution dedicated to research and public presentation of military history, which manages several military museums across the city.",
+      lat: 50.08766,
+      lng: 14.44516,
     },
     {
       id: "prague_4",
@@ -37327,6 +37486,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.nm.cz/",
       description: "El Museo Náprstek de Culturas Asiáticas, Africanas y Americanas es un museo de Praga dedicado a la etnografía de las culturas no europeas, y forma parte del Museo Nacional checo.",
       descriptionEn: "The Náprstek Museum of Asian, African and American Cultures is a museum in Prague dedicated to the ethnography of non-European cultures, forming part of the National Museum.",
+      lat: 50.08409,
+      lng: 14.41597,
     },
     {
       id: "prague_5",
@@ -37361,6 +37522,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://kafkamuseum.cz/",
       description: "Franz Kafka fue un escritor bohemio de lengua alemana. Su obra, una de las más influyentes de la literatura universal, es una de las pioneras en la fusión de elementos realistas con fantásticos y tiene como principales temas los conflictos paternofiliales, la ansiedad, el…",
       descriptionEn: "The Franz Kafka Museum in Prague is dedicated to the author Franz Kafka. The museum hosts a number of first edition Kafka books.",
+      lat: 50.08798,
+      lng: 14.41051,
     },
     {
       id: "prague_7",
@@ -37398,6 +37561,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.zofin.cz",
       description: "El palacio Žofín es un edificio neorrenacentista situado en la isla de Slovanský ostrov, en el río Moldava, en Praga. Funciona como centro cultural y es sede de conciertos, bailes, conferencias y exposiciones.",
       descriptionEn: "Žofín Palace is a Neo-Renaissance building in Prague, in the Czech Republic. It is a cultural centre, a venue for concerts, balls, conferences and exhibitions.",
+      lat: 50.0789,
+      lng: 14.4128,
     },
     {
       id: "prague_9",
@@ -37415,6 +37580,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.ghmp.cz/",
       description: "El Palacio de Troja es un palacio barroco situado en Troja, un barrio del noroeste de Praga. Fue construido para los condes de Sternberg entre 1679 y 1691.",
       descriptionEn: "Troja Palace is a Baroque château situated in Troja, a district in the northwest of Prague. It was built for the Counts of Sternberg between 1679 and 1691.",
+      lat: 50.11972,
+      lng: 14.42111,
     },
     {
       id: "prague_10",
@@ -37432,6 +37599,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.chodovskatvrz.cz/",
       description: "La Chodovská tvrz es una antigua fortaleza medieval del siglo XIII situada en el barrio praguense de Chodov, remodelada posteriormente como casa señorial barroca y luego neoclásica. Hoy funciona como centro cultural con sala de conciertos y galería de arte.",
       descriptionEn: "Chodovská tvrz is a medieval fortress dating back to the 13th century in Prague's Chodov district, later rebuilt as a Baroque and then Neoclassical manor house. Today it operates as a cultural centre with a concert hall and art gallery.",
+      lat: 50.03472,
+      lng: 14.49889,
     },
     {
       id: "prague_11",
@@ -37469,6 +37638,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://farnostprosek.cz",
       description: "La iglesia de San Wenceslao de Prosek es un templo católico de origen románico situado en el barrio praguense de Prosek, considerado el monumento arquitectónico más antiguo de la zona.",
       descriptionEn: "The Church of St. Wenceslas in Prosek is a Roman Catholic church of Romanesque origin located in Prague's Prosek district, considered the oldest architectural monument in the area.",
+      lat: 49.8405,
+      lng: 14.29181,
+      dayTrip: true,
     },
     {
       id: "prague_13",
@@ -37486,6 +37658,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://ludmilavinohrady.cz/",
       description: "La iglesia de Santa Ludmila es un templo neogótico situado en la plaza Náměstí Míru, en el barrio de Vinohrady, Praga, construido entre 1888 y 1893 según el diseño del arquitecto Josef Mocker.",
       descriptionEn: "The Church of St. Ludmila is a Neo-Gothic church located on Náměstí Míru square in the Vinohrady district of Prague, built between 1888 and 1893 to a design by architect Josef Mocker.",
+      lat: 50.08656,
+      lng: 14.41021,
     },
     {
       id: "prague_14",
@@ -37503,6 +37677,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.nm.cz/",
       description: "El Museo Antonín Dvořák en Praga es un museo dedicado al gran compositor checo Antonín Dvořák (1841-1904).",
       descriptionEn: "The Antonín Dvořák Museum is a museum in Prague in the Czech Republic dedicated to the Czech composer Antonín Dvořák.",
+      lat: 50.07367,
+      lng: 14.42698,
     },
     {
       id: "prague_15",
@@ -38695,8 +38871,12 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1476610185059-30c73c46e191?auto=format&fit=crop&w=800&q=80",
       website: "https://www.thingvellir.is/en",
-      description: "La diócesis de Skálholt fue una circunscripción eclesiástica de la Iglesia católica en Islandia. Se trataba de una diócesis latina, sufragánea de la arquidiócesis de Nidaros.",
+      description: "Þingvellir, también transcrito como Thingvellir, es un valle y parque nacional situado en el suroeste de Islandia, cercano a la península de Reykjanes y a la zona volcánica de Hengill. Se encuentra a unos 44 km de Reikiavik, en la región de Suðurland.",
       descriptionEn: "Þingvellir was the site of the Alþing, the annual parliament of Iceland from the year 930 until the last session held at Þingvellir in 1798. Since 1881, the parliament has been located within Alþingishúsið in Iceland's capital, Reykjavík.",
+      lat: 64.25806,
+      lng: -21.125,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/%C3%9Eingvellir",
     },
     {
       id: "reykjavik_1",
@@ -38714,6 +38894,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://listasafnreykjavikur.is/",
       description: "Ásmundur Sveinsson, nacido el 20 de mayo de 1893 en Kolsstadir, al oeste de Islandia y fallecido el 9 de diciembre de 1982 en Reikiavik, fue un escultor islandés.",
       descriptionEn: "Reykjavik Art Museum is the largest visual art institution in Iceland. It occupies three locations in Reykjavík; Hafnarhús by the old harbour (64.1490°N 21.9406°W), Kjarvalsstaðir by Klambratún (64.1378°N 21.9135°W) and Ásmundarsafn in Laugardalur (64.1416°N 21.8853°W).",
+      lat: 64.149,
+      lng: -21.9406,
     },
     {
       id: "reykjavik_2",
@@ -38748,6 +38930,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.listasafn.is/",
       description: "El arte de Islandia se desarrolló con base en las tradiciones de Europa del Norte del siglo XIX, pero se desarrolló en diferentes direcciones en el siglo XX, influido en particular por la mitología, la cultura y el característico paisaje islandeses.",
       descriptionEn: "Icelandic art has been built on northern European traditions of the nineteenth century, but developed in distinct directions in the twentieth century, influenced in particular by the unique Icelandic landscape as well as by Icelandic mythology and culture.",
+      lat: 64.14417,
+      lng: -21.93917,
     },
     {
       id: "reykjavik_4",
@@ -38763,8 +38947,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Hi%C3%B0_%C3%ADslenzka_re%C3%B0asafn_The_Icelandic_Phallological_Museum_in_Reykjav%C3%ADk%2C_Iceland_April_2016_01.jpg/1920px-Hi%C3%B0_%C3%ADslenzka_re%C3%B0asafn_The_Icelandic_Phallological_Museum_in_Reykjav%C3%ADk%2C_Iceland_April_2016_01.jpg",
       website: "https://www.phallus.is/",
-      description: "Hið Íslenzka Reðasafn es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Faloteca islandesa se encuentra en Reykjavík, la capital de Islandia, y se caracteriza por poseer la más extensa colección de penes de diferentes especies.",
       descriptionEn: "The Icelandic Phallological Museum, located in Reykjavík, Iceland, houses the world's largest display of penises and penile parts. It holds over 300 penises from more than 100 species of mammals. The museum also holds 22 imagined penises of creatures from Icelandic folklore.",
+      lat: 64.1485,
+      lng: -21.93578,
+      sourceUrl: "https://es.wikipedia.org/wiki/Faloteca_islandesa",
     },
     {
       id: "reykjavik_5",
@@ -38797,8 +38984,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Iceland_-_Peace_Tower_28_%286571385177%29.jpg",
       website: "https://imaginepeacetower.com/",
-      description: "Friðarsúlan es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Torre Imagina la Paz es un monumento en la isla de Viðey en la bahía de Kollafjörður, en el área de Reikiavik, la capital de Islandia. Se lo dedicó Yoko Ono a John Lennon, autor de la canción Imagine.",
       descriptionEn: "The Imagine Peace Tower is a memorial to John Lennon from his widow, Yoko Ono, located on Viðey Island in Kollafjörður Bay near Reykjavík, Iceland.",
+      lat: 64.16324,
+      lng: -21.85947,
+      sourceUrl: "https://es.wikipedia.org/wiki/Torre_Imagina_la_Paz",
     },
     {
       id: "reykjavik_7",
@@ -38814,8 +39004,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/46/Kolaportid.jpg",
       website: "https://kolaportid.is/",
-      description: "Kolaportið es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Kolaportið es un mercado cubierto de pulgas en el centro de Reikiavik, junto al puerto antiguo. Se visita para recorrer puestos de objetos usados, antigüedades, libros y alimentos locales.",
       descriptionEn: "Kolaportið is Iceland's only flea market. It takes place indoors in the old Customs building, close to the harbour of the capital city, Reykjavík.",
+      lat: 64.14889,
+      lng: -21.93861,
     },
     {
       id: "reykjavik_8",
@@ -38848,8 +39040,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fj%C3%B6lskyldu_og_h%C3%BAsd%C3%BDragar%C3%B0urinn_0663.jpg/1920px-Fj%C3%B6lskyldu_og_h%C3%BAsd%C3%BDragar%C3%B0urinn_0663.jpg",
       website: "https://mu.is",
-      description: "Fjölskyldu- og húsdýragarðurinn es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Fjölskyldu- og húsdýragarðurinn is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Parque y Zoológico de Reikiavik es un parque familiar en el valle de Laugardalur. Tiene animales domésticos, áreas de juego y atracciones infantiles, y se visita como espacio recreativo para familias.",
+      descriptionEn: "Reykjavík Zoo and Family Park is a family park in the Laugardalur valley. It has domestic animals, playgrounds and children’s rides, and is visited as a recreational space for families.",
+      lat: 64.13833,
+      lng: -21.87083,
     },
     {
       id: "reykjavik_10",
@@ -38865,8 +39059,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Blue-lagoon-spa-spring_%28Unsplash%29.jpg/1920px-Blue-lagoon-spa-spring_%28Unsplash%29.jpg",
       website: "https://www.skylagoon.com/",
-      description: "Sky Lagoon es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Sky Lagoon es una laguna geotérmica junto al mar en Kópavogur, cerca de Reikiavik. Cuenta con piscina infinita, sauna, baño frío y un ritual de spa; se visita por sus vistas y aguas termales.",
       descriptionEn: "Sky Lagoon is a geothermal spa in southwestern Iceland. It is located at Kársnes Harbour, Kópavogur,",
+      lat: 64.1163,
+      lng: -21.946,
     },
     {
       id: "reykjavik_11",
@@ -38898,8 +39094,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Iceland_thrihnukagigur-volcano_inside_of_crater.jpg",
       website: "https://insidethevolcano.com/",
-      description: "Þríhnúkagígur es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Þríhnúkagígur es un volcán inactivo en las montañas Bláfjöll, cerca de Reikiavik. Su cámara magmática vacía se visita en excursiones guiadas que descienden al interior del conducto volcánico.",
       descriptionEn: "Þríhnúkagígur is a dormant volcano in the volcanic system of Brennisteinsfjöll near Reykjavík, Iceland. Covering a 3,270 square metres (35,200 sq ft) area and a depth of 213 meters (699 ft), it has not erupted in the past 4000 years.",
+      lat: 63.99833,
+      lng: -21.69889,
     },
     {
       id: "reykjavik_13",
@@ -39133,6 +39331,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Harpa_harpa_01.jpg/1280px-Harpa_harpa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Sala de conciertos y centro de congresos junto al puerto antiguo de Reykjavík, inaugurada en 2011. Su fachada de vidrio, desarrollada con el artista Ólafur Elíasson, evoca las columnas de basalto de la costa islandesa.",
       descriptionEn: "Concert hall and conference centre by Reykjavík's old harbour, opened in 2011. Its glass facade, developed with artist Ólafur Elíasson, echoes the basalt columns of Iceland's coast.",
+      lat: 64.15028,
+      lng: -21.9325,
     },
     {
       id: "reykjavik_25",
@@ -39166,6 +39366,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Rocks_on_the_coast_in_Reykjav%C3%ADk.JPG/1280px-Rocks_on_the_coast_in_Reykjav%C3%ADk.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Escultura de acero de Jón Gunnar Árnason en la costa de Sæbraut, en Reykjavík. Su forma de barco alude al sol y a los viajes, y se visita por las vistas al mar y al monte Esja.",
       descriptionEn: "Steel sculpture by Jón Gunnar Árnason on the Sæbraut shoreline in Reykjavík. Its boat-like form evokes the sun and journeys, and it is visited for views over the sea and Mount Esja.",
+      lat: 64.14761,
+      lng: -21.92226,
     },
     {
       id: "reykjavik_27",
@@ -39182,6 +39384,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Ruta circular de excursión de un día desde Reykjavík que incluye el parque nacional Þingvellir, el área geotérmica de Geysir con el géiser Strokkur y la cascada Gullfoss.",
       descriptionEn: "A day-trip loop from Reykjavík that takes in Þingvellir National Park, the Geysir geothermal area with the Strokkur geyser, and Gullfoss waterfall.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Golden_Circle_%285057421087%29.jpg/1280px-Golden_Circle_%285057421087%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "reykjavik_28",
@@ -39214,6 +39417,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Elding_Whale_Watching_boats_Reykjavik_harbour_%2825381979881%29.jpg/1280px-Elding_Whale_Watching_boats_Reykjavik_harbour_%2825381979881%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Excursiones en barco desde el puerto antiguo de Reykjavík hacia la bahía de Faxaflói, donde se avistan ballenas minke y jorobadas, además de delfines y marsopas.",
       descriptionEn: "Boat tours from Reykjavík's old harbour into Faxaflói bay, where minke and humpback whales are sighted, along with dolphins and porpoises.",
+      lat: 64.15202,
+      lng: -21.94167,
     },
     {
       id: "reykjavik_30",
@@ -39262,6 +39467,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Exposición en el área del puerto de Reykjavík con modelos a tamaño real de las ballenas que habitan en aguas islandesas, acompañados de información sobre su biología y conservación.",
       descriptionEn: "Exhibition in Reykjavík's harbour area with life-size models of the whales found in Icelandic waters, along with information on their biology and conservation.",
+      lat: 64.15571,
+      lng: -21.94884,
     },
     {
       id: "reykjavik_33",
@@ -41935,6 +42142,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_del_Baile_Flamenco_(Sevilla)",
       lat: 37.38889,
       lng: -5.99111,
+      descriptionEn: "The Museo del Baile Flamenco is a museum in Seville dedicated to the history and practice of flamenco dance. It brings together costumes, photographs, instruments and audiovisual material about this Andalusian art form.",
     },
     {
       id: "seville_3",
@@ -42034,6 +42242,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Castillo_de_Alcal%C3%A1_de_Guada%C3%ADra",
       lat: 37.33549,
       lng: -5.8554,
+      descriptionEn: "The Castillo de Alcalá de Guadaíra is a medieval fortress on a hill in Alcalá de Guadaíra, a town near Seville. The complex preserves sections of wall and towers, reflecting the defensive role of the site in the region's history.",
     },
     {
       id: "seville_8",
@@ -42141,6 +42350,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Pabell%C3%B3n_de_la_Navegaci%C3%B3n_(Sevilla)",
       lat: 37.39451,
       lng: -6.00789,
+      descriptionEn: "The Pabellón de la Navegación is a museum in Seville dedicated to the history of navigation and the city's relationship with maritime travel. It occupies a building from Expo 1992 on the Isla de la Cartuja.",
     },
     {
       id: "seville_14",
@@ -42354,6 +42564,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.hermandaddelamacarena.es/la-basilica/",
       description: "La basílica de la Macarena, denominada oficialmente basílica de María Santísima de la Esperanza Macarena,[cita requerida] es un templo católico situado en el número 1 de la Plaza de la Esperanza Macarena, junto a la Ronda Histórica en el barrio Macarena,perteneciente al…",
       sourceUrl: "https://es.wikipedia.org/wiki/Bas%C3%ADlica_de_la_Macarena",
+      descriptionEn: "The Basílica de la Macarena is a Catholic church in Seville that houses the image of the Virgen de la Esperanza Macarena, associated with Holy Week. Its interior includes altarpieces and religious ornamentation.",
     },
     {
       id: "seville_25",
@@ -42432,6 +42643,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -5.99444,
       description: "La calle Sierpes es una calle comercial de la ciudad española de Sevilla, constituyendo una de las vías más significativas y emblemáticas del centro de la ciudad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Sierpes_(Sevilla)",
+      descriptionEn: "Calle Sierpes is a pedestrian street in Seville's historic center, known for its shops and for connecting central squares and streets. It forms part of the city's traditional commercial and urban route.",
     },
     {
       id: "seville_29",
@@ -44535,8 +44747,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80",
-      description: "Estocolmo es la capital y además, la ciudad más grande de Suecia, en la que residen 972 647 personas y 2,4 millones en su área metropolitana. La ciudad está compuesta por 14 islas donde el lago Mälar desemboca en el mar Báltico.",
+      description: "Skogskyrkogården, está ubicado al sur de la ciudad de Estocolmo.",
       descriptionEn: "Skogskyrkogården is a cemetery located in the Gamla Enskede district south of central Stockholm, Sweden. It was inaugurated in 1920 and was inscribed on the UNESCO World Heritage List in 1994.",
+      lat: 59.27556,
+      lng: 18.09944,
+      sourceUrl: "https://es.wikipedia.org/wiki/Skogskyrkog%C3%A5rden",
     },
     {
       id: "stockholm_1",
@@ -44551,8 +44766,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Stockholm_Sweden_Royal-Domain-of_Drottningholm-01.jpg/1920px-Stockholm_Sweden_Royal-Domain-of_Drottningholm-01.jpg",
-      description: "Royal Domain of Drottningholm es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Palacio de Drottningholm es una residencia real en la isla de Lovön, cerca de Estocolmo. Construido en el siglo XVII e inspirado en Versalles, forma parte del Patrimonio Mundial de la UNESCO y conserva jardines, un teatro y el Pabellón Chino.",
       descriptionEn: "Drottningholm Palace, or Drottningholm, one of Sweden's royal palaces, situated near Sweden's capital Stockholm, is the private residence of the Swedish royal family.",
+      lat: 59.32169,
+      lng: 17.88638,
     },
     {
       id: "stockholm_2",
@@ -44567,8 +44784,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Birka_fornborg_September_2014.jpg/1920px-Birka_fornborg_September_2014.jpg",
-      description: "Birka and Hovgarden es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Birka, situada en la isla de Björkö, y Hovgården, en la vecina isla de Adelsö, ambas en el lago Mälaren, en Suecia, son uno de los ejemplos mejor conservados de asentamiento vikingo. Ambos fueron incluidos en 1993 en la lista del Patrimonio de la Humanidad de la Unesco.",
       descriptionEn: "Birka and Hovgården are two sites in Sweden that together form an archaeological complex dating from the Viking Age, inscribed on the UNESCO World Heritage List.",
+      lat: 59.335,
+      lng: 17.5425,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/Birka_y_Hovg%C3%A5rden",
     },
     {
       id: "stockholm_3",
@@ -44584,8 +44805,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Moderna_museet%2C_2006.jpg/1920px-Moderna_museet%2C_2006.jpg",
       website: "https://www.modernamuseet.se/",
-      description: "Vera Amalia Märta Nilsson fue una artista sueca, una de las más populares de su época, durante el siglo XX. Las exposiciones que hacía atraían numeroso y entusiasta público.",
+      description: "El Moderna Museet, inaugurado en 1958, es el principal museo de arte moderno y contemporáneo de Suecia, situado en la isla de Skeppsholmen en el centro de Estocolmo. En 2009 se inauguró el Moderna Museet Malmö, delegación del museo en el sur del país.",
       descriptionEn: "Moderna Museet is a state museum for modern and contemporary art and design, located on the island of Skeppsholmen in central Stockholm, opened in 1958.",
+      lat: 59.32639,
+      lng: 18.08361,
+      sourceUrl: "https://es.wikipedia.org/wiki/Moderna_Museet",
     },
     {
       id: "stockholm_4",
@@ -44603,6 +44827,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.nrm.se/",
       description: "Rune Bertil Nordenstam (1936) es un botánico sueco y profesor emérito en el Museo Sueco de Historia Natural, Departamento de Botánica Fanerogámica.",
       descriptionEn: "The Swedish Museum of Natural History, in Stockholm, is one of two major museums of natural history in Sweden, the other one being located in Gothenburg.",
+      lat: 59.36889,
+      lng: 18.05361,
     },
     {
       id: "stockholm_5",
@@ -44654,6 +44880,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.riddarhuset.se/",
       description: "El Riddarhuspalatset, coloquialmente Riddarhuset, es un palacio construido entre 1641 y 1674 en Riddarhustorget 10 en el barrio Hércules Gamla Stan de Estocolmo, que pertenece y está administrado por la caballería y la nobleza de Suecia.",
       descriptionEn: "Stockholm is the capital and most populous city of Sweden, as well as the largest urban area in the Nordic countries. Approximately 1 million people live in the municipality, with 1.6 million in the urban area, and 2.5 million in the metropolitan area.",
+      lat: 59.32593,
+      lng: 18.06573,
     },
     {
       id: "stockholm_8",
@@ -44671,6 +44899,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.kungligaslotten.se/vara-besoksmal/rosendals-slott.html",
       description: "El Palacio de Rosendal es un palacio situado en Djurgården, una isla en el centro de Estocolmo, Suecia. Fue construido entre 1823 y 1827 para el Rey Carlos XIV Juan, el primer rey de Suecia de la Casa de Bernadotte.",
       descriptionEn: "Rosendal Palace is a Swedish palace pavilion located on Djurgården, an island in central Stockholm. It was built between 1823 and 1827 for King Charles XIV John, the first Bernadotte king of Sweden.",
+      lat: 59.32889,
+      lng: 18.11833,
     },
     {
       id: "stockholm_9",
@@ -44688,6 +44918,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.kungligaslotten.se",
       description: "El palacio de Estocolmo es la residencia oficial y el mayor de los palacios de la monarquía sueca. Aunque la residencia privada de la familia real es el palacio de Drottningholm.",
       descriptionEn: "Stockholm Palace, or the Royal Palace, is the official residence and major royal palace of the Swedish monarch. Stockholm Palace is in Stadsholmen, in Gamla stan in the capital, Stockholm. It neighbours the Riksdag building.",
+      lat: 59.32667,
+      lng: 18.07167,
     },
     {
       id: "stockholm_10",
@@ -44703,8 +44935,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Haga_slott_Solna_juni_2006.jpg/1920px-Haga_slott_Solna_juni_2006.jpg",
       website: "https://www.sfv.se/sv/fastigheter/sverige/stockholms-lan-ab/slott/haga-slott/",
-      description: "El Palacio de Rosendal es un palacio situado en Djurgården, una isla en el centro de Estocolmo, Suecia. Fue construido entre 1823 y 1827 para el Rey Carlos XIV Juan, el primer rey de Suecia de la Casa de Bernadotte.",
+      description: "El Palacio de Haga, anteriormente llamado Pabellón de la Reina, se halla en el Parque de Haga, municipio de Solna, dentro del área metropolitana de Estocolmo.",
       descriptionEn: "Haga Palace, formerly known as the Queen's Pavilion, is located in the Haga Park, Solna Municipality in Metropolitan Stockholm, Sweden.",
+      lat: 59.36361,
+      lng: 18.03944,
+      sourceUrl: "https://es.wikipedia.org/wiki/Palacio_de_Haga",
     },
     {
       id: "stockholm_11",
@@ -44888,6 +45123,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "Fotografiska es una red internacional de museos que presenta fotografía y arte. Fundada en 2010 en Estocolmo, Fotografiska cuenta con sedes en Estocolmo, Tallin, Berlín y Shanghái.",
       descriptionEn: "Fotografiska is an international museum network that presents photography and art. Founded in 2010 in Stockholm, Fotografiska has locations in Stockholm, Tallinn, Berlin, and Shanghai.",
       sourceUrl: "https://es.wikipedia.org/wiki/Fotografiska",
+      lat: 59.318,
+      lng: 18.0847,
     },
     {
       id: "stockholm_21",
@@ -45193,6 +45430,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Conjunto de miles de islas e islotes en el mar Báltico que se extiende desde la ciudad hacia el este. Se recorre en ferry y barcos turísticos, con paradas como Vaxholm y Sandhamn, y combina bosques, rocas y pequeñas poblaciones.",
       descriptionEn: "A group of thousands of islands and islets in the Baltic Sea stretching east from the city. It is explored by ferry and tour boats, with stops such as Vaxholm and Sandhamn, and combines forests, rocky shores and small settlements.",
+      lat: 59.38333,
+      lng: 18.73333,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/S%C3%B6derarms_sk%C3%A4rg%C3%A5rd.jpg/1280px-S%C3%B6derarms_sk%C3%A4rg%C3%A5rd.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   strasbourg: [
@@ -48277,6 +48517,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://museovetro.visitmuve.it/",
       description: "El Museo del Vidrio es un museo dedicado a la historia del vidrio, incluido el célebre vidrio de Murano, ubicado en la isla de Murano, al norte de Venecia, Italia.",
       descriptionEn: "The Murano Glass Museum is a museum on the history of glass, including local Murano glass, located on the island of Murano, just north of Venice, Italy.",
+      lat: 45.45662,
+      lng: 12.35689,
     },
     {
       id: "venice_4",
@@ -48331,6 +48573,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://museomerletto.visitmuve.it/",
       description: "El Museo del Encaje se encuentra en el histórico palacio del Podestà de Torcello, en la plaza Galuppi, en la isla de Burano, cerca de Venecia, Italia.",
       descriptionEn: "The Lace Museum is located at the historic palace of Podestà of Torcello, in Galuppi square, on the island of Burano, near Venice, Italy.",
+      lat: 45.48472,
+      lng: 12.41861,
     },
     {
       id: "venice_7",
@@ -49684,6 +49928,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.kunstforumwien.at/",
       description: "El Bank Austria Kunstforum es un museo de arte moderno y contemporáneo situado en el centro de Viena, conocido por sus exposiciones temporales de artistas internacionales de primer nivel.",
       descriptionEn: "The Bank Austria Kunstforum is a museum of modern and contemporary art located in central Vienna, known for its temporary exhibitions of leading international artists.",
+      lat: 48.2115,
+      lng: 16.3662,
     },
     {
       id: "vienna_9",
@@ -50200,6 +50446,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "El Kahlenberg al este de Ringsheim en el distrito de Ortenau en Baden-Wurtemberg, Alemania, tiene una altura de 391 m.",
       sourceUrl: "https://es.wikipedia.org/wiki/Kahlenberg",
+      lat: 48.27634,
+      lng: 16.33307,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Kahlenberg_Vienna_Austro-Hungary.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      descriptionEn: "Kahlenberg is a hill in Vienna’s 19th district, within the Vienna Woods. Visitors come for views over the city and the Danube, and for nearby trails and vineyards.",
     },
     {
       id: "vienna_36",
@@ -50838,8 +51088,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Kredytowa_Pa%C5%84stwowe_Muzeum_Etnograficzne_P3289037_%28Nemo5576%29.jpg/1920px-Kredytowa_Pa%C5%84stwowe_Muzeum_Etnograficzne_P3289037_%28Nemo5576%29.jpg",
       website: "https://ethnomuseum.pl/",
-      description: "Leopold Ludwik Janikowski fue un meteorólogo, explorador y etnógrafo polaco. Participó en la primera expedición polaca al África, que recorrió Guinea, Liberia y Camerún de 1882 a 1884.",
+      description: "El Museo Etnográfico de Varsovia reúne colecciones sobre culturas populares de Polonia y de otros pueblos del mundo. Se visita para conocer trajes, objetos rituales y tradiciones documentadas por etnógrafos.",
       descriptionEn: "The National Museum of Ethnography is a museum of ethnography in Warsaw, Poland. It was established in 1888.",
+      lat: 52.23815,
+      lng: 21.01217,
     },
     {
       id: "warsaw_2",
@@ -50855,8 +51107,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/%C5%BBydowski_Instytut_Historyczny_wej%C5%9Bcie_g%C5%82%C3%B3wne.jpg/1920px-%C5%BBydowski_Instytut_Historyczny_wej%C5%9Bcie_g%C5%82%C3%B3wne.jpg",
       website: "https://www.jhi.pl/",
-      description: "Gela Seksztajn, también conocida como Gele Seckstein, fue una artista y pintora judío polaca. Es conocida principalmente por sus retratos y otras pinturas escondidas en el Archivo Ringelblum, en el gueto de Varsovia durante el Holocausto.",
+      description: "El Instituto de Historia Judía, también conocido como el Instituto de Historia Judía Emanuel Ringelblum, es una fundación ubicada en Varsovia, Polonia, centrada en la investigación y el estudio de la historia de los judíos en Polonia.",
       descriptionEn: "The Jewish Historical Institute, also known as the Emanuel Ringelblum Jewish Historical Institute, is a public cultural and research institution in Warsaw, Poland, chiefly dealing with the history of Jews in Poland and Jewish culture.",
+      lat: 52.24417,
+      lng: 21.00278,
+      sourceUrl: "https://es.wikipedia.org/wiki/Instituto_de_Historia_Jud%C3%ADa_de_Polonia",
     },
     {
       id: "warsaw_3",
@@ -50874,6 +51129,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://muzeumwarszawy.pl",
       description: "El Museo de Asia y Pacífico es un museo fundado en 1973 en Varsovia. Es el único en Polonia con colecciones dedicadas exclusivamente a las culturas de Asia, Oceanía y Australia.",
       descriptionEn: "Museum of Warsaw is a museum in the Old Town Market Place in Warsaw, Poland. It was established in 1936.",
+      lat: 52.25023,
+      lng: 21.01168,
     },
     {
       id: "warsaw_4",
@@ -50889,8 +51146,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Warszawa_-_Muzeum_Literatury_-_Pimpus_Sadelko_na_102_-_2012_%284%29.JPG",
       website: "https://muzeumliteratury.pl/",
-      description: "Anna Nakwaska, de soltera Krajewska fue una escritora de ficción, memorista, autora de libros infantiles y pedagoga polaca.",
+      description: "El Museo de Literatura de Varsovia, dedicado a Adam Mickiewicz y a la literatura polaca, conserva manuscritos, libros y recuerdos de escritores. Se visita para recorrer la historia literaria del país a través de sus colecciones.",
       descriptionEn: "The Museum of Modern Art in Warsaw, also known as MSN Warsaw, is a modern and contemporary art museum in Warsaw, Poland. The museum was founded in 2005 and the director of the museum since June 6, 2007 has been Joanna Mytkowska.",
+      lat: 52.25023,
+      lng: 21.01239,
     },
     {
       id: "warsaw_5",
@@ -50923,8 +51182,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Kr%C3%B3likarnia_w_Warszawie_2023.jpg/1920px-Kr%C3%B3likarnia_w_Warszawie_2023.jpg",
       website: "http://www.krolikarnia.mnw.art.pl",
-      description: "Varsovia es la capital y ciudad más grande de Polonia desde 1596. Es también la sede del presidente de la República, del Parlamento y del resto de las autoridades centrales.",
+      description: "El Palacio de Królikarnia es un palacio clasicista del siglo XVIII en el distrito de Mokotów, rodeado de parque. Alberga el Museo de Escultura Xawery Dunikowski y se visita por su arquitectura y sus exposiciones.",
       descriptionEn: "Królikarnia is a historic classicist palace in Warsaw, Poland; and a neighborhood in the Mokotów district of Warsaw.",
+      lat: 52.18902,
+      lng: 21.02837,
     },
     {
       id: "warsaw_7",
@@ -50940,8 +51201,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/25/5_Warszawa_083.jpg",
       website: "https://www.prezydent.pl/kancelaria/rezydencje-kprp/rezydencja-prezydenta-rp-belweder",
-      description: "El Parque Real Łazienki es el parque público más grande de Varsovia (Polonia). Se extiende por un área de cerca de 80 ha. Alberga un conjunto palaciego y cuenta con un lago y un jardín botánico.",
+      description: "El palacio del Belvedere es un palacio de estilo neoclásico, situado en Varsovia, la capital de Polonia, a algunos kilómetros al sur del castillo Real.",
       descriptionEn: "Belweder is a neoclassical palace in Warsaw, Poland. Erected in 1660 and remodelled in the early 1800s, it is one of several official residences used by Polish presidents as well as a state guest house for visiting heads of state.",
+      lat: 52.21306,
+      lng: 21.02778,
+      sourceUrl: "https://es.wikipedia.org/wiki/Palacio_Belwederski",
     },
     {
       id: "warsaw_8",
@@ -50957,8 +51221,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Pa%C5%82ac_My%C5%9Blewicki_w_Warszawie_2019.jpg/1920px-Pa%C5%82ac_My%C5%9Blewicki_w_Warszawie_2019.jpg",
       website: "https://www.lazienki-krolewskie.pl/pl/architektura/palac-myslewicki",
-      description: "El Parque Real Łazienki es el parque público más grande de Varsovia (Polonia). Se extiende por un área de cerca de 80 ha. Alberga un conjunto palaciego y cuenta con un lago y un jardín botánico.",
+      description: "El Palacio Myślewicki es un palacete clasicista del siglo XVIII situado en el Parque Łazienki, en Varsovia. Forma parte del conjunto histórico real y se visita por su arquitectura y su entorno de jardines.",
       descriptionEn: "The Myślewice Palace is a rococo-neoclassical palace in Warsaw's Royal Baths Park, in Poland. It was created for King Stanisław August Poniatowski as one of the first buildings in the Royal Baths. Its name derives from that of the nearby now nonexistent village of Myślewice.",
+      lat: 52.21551,
+      lng: 21.03822,
     },
     {
       id: "warsaw_9",
@@ -51042,8 +51308,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mauzoleum_Walki_i_M%C4%99cze%C5%84stwa_w_Warszawie_2020c.jpg/1920px-Mauzoleum_Walki_i_M%C4%99cze%C5%84stwa_w_Warszawie_2020c.jpg",
       website: "http://muzeum-niepodleglosci.pl/",
-      description: "Treblinka fue un campo de exterminio construido y operado por la Alemania nazi en la Polonia ocupada durante la Segunda Guerra Mundial.",
+      description: "El Mausoleo de la Lucha y el Martirio es un museo en Varsovia, Polonia. Es una rama del Museo de la independencia.",
       descriptionEn: "Mausoleum of Struggle and Martyrdom is a museum in Warsaw, Poland. It is a branch of the Museum of Independence. The museum presents the conditions in which Polish patriots and resistance fighters were jailed by Nazi Germany during World War II.",
+      lat: 52.21739,
+      lng: 21.02347,
+      sourceUrl: "https://es.wikipedia.org/wiki/Mausoleo_de_la_lucha_y_el_martirio",
     },
     {
       id: "warsaw_14",
@@ -51234,6 +51503,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/PL_Warsaw_Ostrogski_Palace_and_Fryderyk_Chopin_Institute_Tamka_Street.JPG/1280px-PL_Warsaw_Ostrogski_Palace_and_Fryderyk_Chopin_Institute_Tamka_Street.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Ocupa el palacio Ostrogski y reúne manuscritos, partituras, cartas y objetos personales del compositor, además de salas de escucha de su música.",
       descriptionEn: "Housed in the Ostrogski Palace, it holds manuscripts, scores, letters and personal objects of the composer, along with listening rooms for his music.",
+      lat: 52.23647,
+      lng: 21.02292,
     },
     {
       id: "warsaw_24",
@@ -51288,6 +51559,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Monument_to_the_Ghetto_Heroes%2C_Warsaw.JPG/1280px-Monument_to_the_Ghetto_Heroes%2C_Warsaw.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Conjunto de piedra y bronce inaugurado en 1948 junto al Museo POLIN, dedicado a los combatientes del levantamiento del gueto de Varsovia de 1943.",
       descriptionEn: "A stone and bronze monument unveiled in 1948 next to the POLIN Museum, dedicated to the fighters of the 1943 Warsaw Ghetto Uprising.",
+      lat: 52.24974,
+      lng: 20.99422,
     },
     {
       id: "warsaw_27",
@@ -51381,6 +51654,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 21.01217,
       description: "Plaza central de la Ciudad Vieja, reconstruida tras la Segunda Guerra Mundial con casas burguesas de colores y declarada Patrimonio de la Humanidad junto con el casco antiguo.",
       descriptionEn: "The central square of the Old Town, rebuilt after the Second World War with colourful burgher houses and listed as a World Heritage site together with the old town.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Plaza_del_Mercado_de_la_Ciudad_Vieja%2C_Varsovia%2C_Polonia3.jpg/1280px-Plaza_del_Mercado_de_la_Ciudad_Vieja%2C_Varsovia%2C_Polonia3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "warsaw_32",
@@ -51413,6 +51687,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e1/BUW_Rooftop_Garden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Jardín paisajístico sobre la azotea de la Biblioteca de la Universidad de Varsovia, con senderos, puentes, estanques y miradores hacia el Vístula; abrió con el edificio en 1999.",
       descriptionEn: "A landscaped garden on the roof of the University of Warsaw Library, with paths, bridges, ponds and viewpoints over the Vistula; it opened with the building in 1999.",
+      lat: 52.24268,
+      lng: 21.02567,
     },
     {
       id: "warsaw_34",
@@ -52338,6 +52614,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museum-gestaltung.ch",
       description: "El Museo del Diseño de Zúrich, es un museo dedicado al diseño industrial, la comunicación visual, la arquitectura y la artesanía, ubicado en la ciudad suiza de Zúrich.",
       descriptionEn: "The Museum of Design, Zürich is a museum for industrial design, visual communication, architecture, and craft in Zurich, Switzerland.",
+      lat: 47.3828,
+      lng: 8.53637,
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_del_Dise%C3%B1o_de_Z%C3%BArich",
     },
     {
       id: "zurich_6",
@@ -52372,6 +52651,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.rietberg.ch/",
       description: "El Museo Rietberg es un museo en Zúrich, Suiza, especializado en exhibiciones de arte asiático, africano, americano y oceánico.",
       descriptionEn: "The Rietberg Museum is a museum in Zürich, Switzerland, displaying Asian, African, American and Oceanian art. It is the largest art museum focusing on non-European art and design in Switzerland, the third-largest museum in Zürich, and the largest to be run by the city itself.",
+      lat: 47.35892,
+      lng: 8.53027,
     },
     {
       id: "zurich_8",
@@ -52389,6 +52670,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.beyer-ch.com/de/uhrenmuseum/",
       description: "El Uhrenmuseum Beyer, en el sótano de la joyería Beyer sobre la Bahnhofstrasse de Zúrich, exhibe una colección de instrumentos de medición del tiempo que abarca 3000 años, desde relojes de sol y de arena egipcios hasta relojes suizos de precisión.",
       descriptionEn: "The Uhrenmuseum Beyer, in the basement of the Beyer jewelry store on Zurich's Bahnhofstrasse, exhibits a collection of timekeeping instruments spanning 3,000 years, from ancient Egyptian sundials and hourglasses to precision Swiss watches.",
+      lat: 47.37092,
+      lng: 8.53854,
     },
     {
       id: "zurich_9",
@@ -52624,6 +52907,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/One_of_Uetliberg_Deer_Lamp_Posts%2C_Uetliberg_Mountain%2C_Zurich%2C_20250330_1115_7907.jpg/1280px-One_of_Uetliberg_Deer_Lamp_Posts%2C_Uetliberg_Mountain%2C_Zurich%2C_20250330_1115_7907.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Montaña de unos 870 metros al suroeste de Zúrich, con senderos señalizados y una torre de observación en la cima. Desde arriba se ven la ciudad, el lago y, en días despejados, los Alpes.",
       descriptionEn: "An 870-metre hill southwest of Zurich with marked hiking trails and an observation tower at the summit. From the top there are views of the city, the lake and, on clear days, the Alps.",
+      lat: 47.35187,
+      lng: 8.48742,
     },
     {
       id: "zurich_22",
@@ -52801,6 +53086,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Lindenhof_Hill%2C_Zurich%2C_20250330_1227_7917.jpg/1280px-Lindenhof_Hill%2C_Zurich%2C_20250330_1227_7917.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Plaza elevada en el casco antiguo, en el lugar donde se estableció el asentamiento romano de Turicum. Sombreada por tilos, ofrece vistas al río Limmat y al barrio de Niederdorf.",
       descriptionEn: "An elevated square in the old town on the site of the Roman settlement of Turicum. Shaded by lime trees, it looks out over the Limmat river and the Niederdorf quarter.",
+      lat: 47.37306,
+      lng: 8.54139,
     },
     {
       id: "zurich_31",
@@ -52833,6 +53120,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 8.5509,
       description: "Centro de visitantes de Lindt en Kilchberg, en las afueras de Zúrich, dedicado a la historia del chocolate suizo. Su sala principal alberga una gran fuente de chocolate y una exposición sobre la elaboración.",
       descriptionEn: "Lindt's visitor centre in Kilchberg, just outside Zurich, devoted to the history of Swiss chocolate. Its main hall holds a large chocolate fountain and an exhibition on how chocolate is made.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Two_story_chocolate_fountain_in_the_lobby_of_the_Lindt_factory_in_Zurich%2C_Switzerland_%2852167915483%29.jpg/1280px-Two_story_chocolate_fountain_in_the_lobby_of_the_Lindt_factory_in_Zurich%2C_Switzerland_%2852167915483%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "zurich_33",
@@ -54732,6 +55020,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museumvanloon.nl/",
       description: "El Museo Van Loon es un museo ubicado en una casa junto al canal Keizersgracht en Ámsterdam, Países Bajos. El museo lleva el nombre de la familia Van Loon, que habitó la casa desde el siglo XIX.",
       descriptionEn: "Museum Van Loon is a museum located in a canalside house alongside the Keizersgracht in Amsterdam, Netherlands. The museum is named after the family Van Loon that lived in the house from the 19th century.",
+      lat: 52.36346,
+      lng: 4.89338,
     },
     {
       id: "amsterdam_13",
@@ -54825,6 +55115,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "Los «beguinajes» eran los lugares donde vivían las beguinas, religiosas laicas que vivían en comunidad. Solían estar constituidos por una o dos filas de casitas unidas por corredores, enfermería e iglesia, por lo general, todo construido alrededor de un patio o jardín.",
       descriptionEn: "A beguinage, from the French term béguinage, is an architectural complex which was created to house beguines: lay religious women who lived in community without taking vows or retiring from the world.",
       sourceUrl: "https://es.wikipedia.org/wiki/Beguinaje",
+      lat: 52.36943,
+      lng: 4.89004,
     },
     {
       id: "amsterdam_18",
@@ -56718,6 +57010,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Playa_de_la_Barceloneta",
       lat: 41.37842,
       lng: 2.19242,
+      descriptionEn: "Barceloneta Beach is an urban beach in Barcelona, located next to the Barceloneta neighborhood and facing the Mediterranean Sea. People visit it to sunbathe, swim, and walk along the seaside promenade.",
     },
     {
       id: "barcelona_10",
@@ -57021,6 +57314,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.mercatdesantantoni.com/cat/index.html",
       description: "El Mercado de San Antonio, es uno de los mercados más grandes e importantes de Barcelona. Lo constituyen tres mercados: el de frescos, es decir alimentos; el de ropa, también conocido como els Encants; y el Dominical que es de libros.",
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_de_San_Antonio_(Barcelona)",
+      descriptionEn: "Mercado de San Antonio, known in Catalan as Mercat de Sant Antoni, is a municipal market in Barcelona's Sant Antoni neighborhood. It houses food stalls and a Sunday market for books and collectibles.",
     },
     {
       id: "barcelona_25",
@@ -57203,6 +57497,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 2.16171,
       description: "Las baterías antiaéreas se encuentran situadas en Barcelona, en el barrio del Carmelo, en lo alto del Turó de la Rovira. Está protegido por la Declaración genérica del Decreto de 22 de abril de 1949 y por la Ley 16/1985 sobre el Patrimonio Histórico Español.",
       sourceUrl: "https://es.wikipedia.org/wiki/Bater%C3%ADas_antia%C3%A9reas_del_Carmelo",
+      descriptionEn: "The Carmel anti-aircraft batteries are remains of Spanish Civil War air defenses on top of Turó de la Rovira in Barcelona. The site is visited as a viewpoint with wide views of the city.",
     },
     {
       id: "barcelona_34",
@@ -57998,8 +58293,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Berlin_Museum_fuer_Kommunikation_asv2019-07.jpg/1920px-Berlin_Museum_fuer_Kommunikation_asv2019-07.jpg",
       website: "https://www.mfk-berlin.de/",
-      description: "El Museo de la Comunicación de Berlín es un museo dedicado a la historia de la comunicación, ubicado en un edificio histórico de Berlín-Mitte. Es la sede central de la fundación que también opera museos hermanos en Fráncfort y Núremberg.",
+      description: "El Museo de las Comunicaciones de Berlín explora la historia de la comunicación, desde el correo y el telégrafo hasta los medios digitales. Está en un edificio histórico en Mitte y reúne colecciones sobre tecnología, diseño y cultura de la comunicación.",
       descriptionEn: "The Museum für Kommunikation (MfK) is a museum of the history of communication in Frankfurt, Germany. It opened on 31 January 1958 under the name Bundespostmuseum and is on Frankfurt's Museumsufer.",
+      lat: 52.50993,
+      lng: 13.38726,
     },
     {
       id: "berlin_7",
@@ -58034,6 +58331,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://berliner-unterwelten.de/",
       description: "El Museo de los Bajos Fondos de Berlín (Berliner Unterwelten) ofrece recorridos guiados por búnkeres, túneles y refugios subterráneos construidos bajo la ciudad durante la Segunda Guerra Mundial y la Guerra Fría.",
       descriptionEn: "The Berlin Underworlds Museum offers guided tours through bunkers, tunnels, and underground shelters built beneath the city during World War II and the Cold War.",
+      lat: 52.54781,
+      lng: 13.38925,
     },
     {
       id: "berlin_9",
@@ -69685,6 +69984,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Riberas_del_Sena_en_Par%C3%ADs",
       lat: 48.85,
       lng: 2.35889,
+      descriptionEn: "The Banks of the Seine in Paris are the network of quays, bridges and historic buildings along the river as it crosses the city. They are a UNESCO World Heritage site, visited for their architecture and the urban landscape shaped by the Seine.",
     },
     {
       id: "paris_1",
@@ -72399,6 +72699,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museocanonica.it/",
       description: "El Museo Pietro Canonica, situado en Villa Borghese, es la antigua residencia y estudio del escultor italiano Pietro Canonica, y conserva sus obras, muebles y objetos personales.",
       descriptionEn: "Pietro Canonica was an Italian sculptor, painter, opera composer, professor of arts and senator for life.",
+      lat: 41.9151,
+      lng: 12.4863,
     },
     {
       id: "rome_14",
@@ -79333,6 +79635,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1589110211335-319c28fe49e4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWdlbGFuZCUyMFNjdWxwdHVyZSUyMFBhcmslMjBvc2xvfGVufDF8MHx8fDE3ODIxNzMwMTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El parque de Vigeland, o Parque de las esculturas, probablemente el parque más famoso de Noruega, es un área en el interior del Frognerparken, situado al oeste del centro de Oslo, capital del país.",
       descriptionEn: "Gustav Vigeland, born as Adolf Gustav Thorsen, was a Norwegian sculptor. Gustav Vigeland occupies a special position among Norwegian sculptors, both in the power of his creative imagination and in his productivity.",
+      lat: 59.92659,
+      lng: 10.70165,
     },
     {
       id: "oslo_1",
@@ -79350,6 +79654,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.operaen.no/",
       description: "La Ópera de Oslo fue erigida frente al fiordo de Oslo, en la ciudad homónima de Noruega, es el centro de artes escénicas más importante de ese país.",
       descriptionEn: "The Oslo Opera House is the home of the Norwegian National Opera and Ballet, and the national opera house in Norway. The building is situated in the Bjørvika neighbourhood of central Oslo, at the head of the Oslofjord.",
+      lat: 59.90694,
+      lng: 10.75361,
     },
     {
       id: "oslo_2",
@@ -79370,6 +79676,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "La fortaleza de Akershus es un complejo de edificaciones militares ubicado en Oslo, Noruega, y situado estratégicamente junto al fiordo de Oslo. Fue fundada en la Edad Media como un castillo real, que servía también de sede para los representantes del rey.",
       descriptionEn: "Akershus Fortress or Akershus Castle is a medieval castle in the Norwegian capital Oslo that was built to protect and provide a royal residence for the city. It is located on the banks of the Oslofjord.",
+      lat: 59.90661,
+      lng: 10.73625,
     },
     {
       id: "oslo_3",
@@ -79387,6 +79695,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.khm.uio.no/vikingskipshuset/",
       description: "El Museo de barcos vikingos o Vikingeskibsmuseet es un museo situado en Roskilde (Dinamarca), que presenta barcos del tiempo de los Vikingos, encontrados sumergidos en el fiordo de Roskilde.",
       descriptionEn: "The Viking Ship Museum is located on the Bygdøy peninsula in Oslo, Norway. It is temporarily closed from September 2021 until 2027.",
+      lat: 59.90475,
+      lng: 10.68444,
     },
     {
       id: "oslo_4",
@@ -79403,6 +79713,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1690531069524-30eadeddf45d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIb2xtZW5rb2xsZW4lMjBTa2klMjBKdW1wJTIwb3Nsb3xlbnwxfDB8fHwxNzgyMTczMDIzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Matti Ensio Nykänen fue un cantante y deportista finlandés que compitió en salto en esquí.",
       descriptionEn: "Holmenkollbakken is a large ski jumping hill located at Holmenkollen in Oslo, Norway. It has a hill size of HS134, a construction point of K-120, and a capacity for 70,000 spectators.",
+      lat: 59.96445,
+      lng: 10.66679,
     },
     {
       id: "oslo_5",
@@ -79450,6 +79762,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Los Juegos Olímpicos de Oslo 1952, oficialmente conocidos como los VI Juegos Olímpicos de Invierno, fueron un evento multideportivo internacional celebrado en Oslo, Noruega, del 14 al 25 de febrero de 1952.",
       descriptionEn: "The National Museum is a museum in Oslo, Norway which holds the Norwegian state's public collection of art, architecture, and design objects. The collection totals over 400,000 works, amongst them the first copy of Edvard Munch's The Scream from 1893.",
+      lat: 59.91167,
+      lng: 10.72917,
     },
     {
       id: "oslo_6",
@@ -79466,6 +79780,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-0n5G1HjukZ8?auto=format&fit=crop&w=800&q=80",
       description: "Bygdøy o Bygdø es un barrio de Oslo ubicado en una península occidental de Oslo.",
       descriptionEn: "Bygdøy Royal Estate, also known as the Bygdø Royal Farm, is a Kongsgård estate and manor house that occupies a large part of the northwestern part of the Bygdøy peninsula in Oslo, Norway. It is the official summer residence of the king of Norway.",
+      lat: 59.90699,
+      lng: 10.67975,
     },
     {
       id: "oslo_7",
@@ -79482,6 +79798,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1589110211335-319c28fe49e4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLYXJsJTIwSm9oYW5zJTIwR2F0ZSUyMG9zbG98ZW58MXwwfHx8MTc4MjE3MzAyN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La calle Karl Johans es la calle principal de la ciudad de Oslo, Noruega. Fue nombrada en honor de Carlos III Juan, rey de Suecia y Noruega.",
       descriptionEn: "Karl Johans gate is the main street of the city of Oslo, Norway. The street was named in honor of King Charles III John, who was also King of Sweden as Charles XIV John.",
+      lat: 59.91306,
+      lng: 10.74083,
     },
     {
       id: "oslo_8",
@@ -79516,6 +79834,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://kultur.forsvaret.no/museer/norges-hjemmefrontmuseum",
       description: "El Museo de la Resistencia Noruega, también conocido como Museo del Frente Interno es un museo ubicado en la Fortaleza de Akershus, en Oslo, Noruega.",
       descriptionEn: "Norway's Resistance Museum also known as the Norwegian Home Front Museum is a museum located at the Akershus Fortress in Oslo.",
+      lat: 59.9079,
+      lng: 10.7358,
     },
     {
       id: "oslo_10",
@@ -79550,6 +79870,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.oslomuseum.no/besok-oss/bymuseet/",
       description: "La arquitectura de Dinamarca tiene sus orígenes en el período vikingo, ricamente revelado por los hallazgos arqueológicos. Se estableció fuertemente en la Edad Media, primero con arte románico, luego con catedrales e iglesias góticas diseminadas por todo el país.",
       descriptionEn: "Oslo City Museum is a department of Oslo Museum in Oslo, Norway since 2006. The museum is located at Frogner Manor in Frogner Park (Frognerparken).",
+      lat: 59.92392,
+      lng: 10.70301,
     },
     {
       id: "oslo_12",
@@ -79565,8 +79887,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/93/Norsk_Maritimt_Museum.jpg",
       website: "https://marmuseum.no",
-      description: "El Gjøa fue el primer barco que logró atravesar el paso del Noroeste, en el océano Ártico. La expedición, encabezada por Roald Amundsen, partió de Oslo en 1903 y arribó a la bahía de San Francisco en 1906.",
+      description: "El Museo Marítimo Noruego (Norsk Maritimt Museum) está en la península de Bygdøy, en Oslo. Reúne colecciones sobre historia marítima, navegación, arqueología subacuática y cultura costera de Noruega.",
       descriptionEn: "The Norwegian Maritime Museum is located at Bygdøynesveien on the Bygdøy peninsula, on the western side of Oslo, Norway.",
+      lat: 59.9025,
+      lng: 10.69861,
     },
     {
       id: "oslo_13",
@@ -79584,6 +79908,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.kongehuset.no/",
       description: "La arquitectura neoclásica en Escandinavia apareció alrededor de la segunda mitad del siglo XVIII y continuó allí en el siglo XIX, hasta ser sustituida por los estilos neogótico y neorrenacentista a partir de los años 1850.",
       descriptionEn: "The Royal Palace in Oslo was built in the first half of the 19th century as the Norwegian residence of the French-born Charles XIV John, who reigned as king of Norway and Sweden.",
+      lat: 59.9172,
+      lng: 10.72763,
     },
     {
       id: "oslo_14",
@@ -79871,6 +80197,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 10.72253,
       description: "Barrio portuario remodelado en una península del fiordo, con canales, pasarelas de madera, pequeñas playas y galerías de arte. Alberga el Museo Astrup Fearnley y una concentración de restaurantes frente al agua.",
       descriptionEn: "Redeveloped harbour district on a fjord peninsula, with canals, wooden walkways, small beaches and art galleries. It is home to the Astrup Fearnley Museum and a cluster of waterfront restaurants.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Odden_Tjuvholmen_seen_from_Holmen.JPG/1280px-Odden_Tjuvholmen_seen_from_Holmen.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "oslo_29",
@@ -79920,6 +80247,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Sognsvann_-_Oslo%2C_Norway_2020-08-04_%2809%29.jpg/1280px-Sognsvann_-_Oslo%2C_Norway_2020-08-04_%2809%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Lago rodeado de bosque en Nordmarka, al norte de Oslo, al que se llega con la línea 5 del metro. Un sendero circular lo recorre y en invierno se practica esquí de fondo en sus alrededores.",
       descriptionEn: "Lake surrounded by forest in Nordmarka, north of Oslo, reached by metro line 5. A circular path runs around it, and in winter cross-country skiing is practised in the surrounding area.",
+      lat: 59.9752,
+      lng: 10.72909,
     },
     {
       id: "oslo_32",
@@ -79954,6 +80283,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/HL-SENTERET_Bygd%C3%B8y_Oslo_NORWAY_2021-11-22_Senter_for_studier_av_Holocaust_og_livssynsminoriteter_Norwegian_Center_for_Holocaust_and_Minority_Studies_Villa_Grande_building_%281917_WW2_Quisling_residence%29_park_entrance_driveway_wide.jpg/1280px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Centro de investigación y exposición sobre el Holocausto y las minorías religiosas en Noruega, ubicado en la Villa Grande, en la península de Bygdøy. Aborda la persecución de los judíos noruegos durante la Segunda Guerra Mundial.",
       descriptionEn: "Research and exhibition centre on the Holocaust and religious minorities in Norway, located in Villa Grande on the Bygdøy peninsula. It addresses the persecution of Norwegian Jews during the Second World War.",
+      lat: 59.89895,
+      lng: 10.67814,
     },
   ],
   santorini: [
@@ -79970,8 +80301,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1554487124-13a9507a78a0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxPaWElMjBWaWxsYWdlJTIwc2FudG9yaW5pfGVufDF8MHx8fDE3ODIxNzMwMjl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Oia Village es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Oia Village is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Oía es un pueblo en el norte de Santorini, con casas blancas, iglesias de cúpula azul y molinos sobre la caldera. Se recorre por sus callejones escalonados y las vistas al mar Egeo.",
+      descriptionEn: "Oia is a village in northern Santorini, with whitewashed houses, blue-domed churches and windmills above the caldera. Visitors walk its stepped alleys and take in views of the Aegean Sea.",
+      lat: 36.46221,
+      lng: 25.37573,
     },
     {
       id: "santorini_1",
@@ -79991,8 +80324,11 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
         notes: "Check official website.",
       },
-      description: "Fira es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Firá es la localidad principal de la isla de Santorini, en las Cícladas, Egeo Meridional, Grecia. Situada a 206 m s. n. m., en 2014 contaba con 2376 habitantes.",
       descriptionEn: "Firá is the modern capital of the Greek Aegean island of Santorini (Thera). A traditional settlement, \"Firá\" derives its name from an alternative pronunciation of \"Thíra\", the ancient name of the island itself.",
+      lat: 36.42,
+      lng: 25.43167,
+      sourceUrl: "https://es.wikipedia.org/wiki/Fir%C3%A1",
     },
     {
       id: "santorini_2",
@@ -80013,6 +80349,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Acrotiri o Akrotiri es un yacimiento arqueológico que se encuentra en la isla de Santorini, también llamada Thera, la cual conforma un pequeño archipiélago, a su vez parte de las Cícladas meridionales, situadas a 100 km al norte de Creta.",
       descriptionEn: "Akrotiri is a Cycladic Bronze Age settlement site on the volcanic Greek island of Santorini. The name comes from the nearby village of Akrotiri, the name of the site in antiquity is unknown.",
+      lat: 36.35179,
+      lng: 25.40349,
     },
     {
       id: "santorini_3",
@@ -80027,8 +80365,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1572164025411-8a045959bfe7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSZWQlMjBCZWFjaCUyMHNhbnRvcmluaXxlbnwxfDB8fHwxNzgyMTczMDM2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El mar Egeo es la parte del mar Mediterráneo comprendida entre Grecia y Turquía. Se considera que este mar está delimitado al sur por un arco que atraviesa, en dirección oeste-este, las islas de Citera, Anticitera, Creta, Kasos, Kárpatos y Rodas.",
+      description: "La Playa Roja está cerca de Akrotiri, en el sur de Santorini, y debe su color a acantilados de roca volcánica rojiza. Se visita para observar el contraste entre el mar y las paredes de lava.",
       descriptionEn: "Red Beach is a volcanic sand beach on the Aegean island of Santorini. The beach is famed for its titular red-hued sand, and is a noted for being a popular tourist attraction.",
+      lat: 36.34732,
+      lng: 25.39459,
     },
     {
       id: "santorini_4",
@@ -80043,7 +80383,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxzYW50b3JpbmklMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE3MzA0MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Perissa Black Sand Beach es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La playa de Perissa se extiende en la costa sureste de Santorini y tiene arena oscura de origen volcánico. Se visita para conocer el litoral y ver cómo el color negro contrasta con el agua.",
       descriptionEn: "Santorini, officially Thira or Thera, is a Greek island in the southern Aegean Sea, about 200 km (120 mi) southeast from the mainland. It is the largest island of a small, circular archipelago formed by the Santorini caldera.",
     },
     {
@@ -80059,7 +80399,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-9NsP7Q7oBm0?auto=format&fit=crop&w=800&q=80",
-      description: "Santo Wines Winery es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Bodega Santo Wines es una bodega cooperativa de Santorini, situada cerca de Pyrgos, con vistas a la caldera. Se visita para conocer la vinificación local y variedades como la Assyrtiko.",
       descriptionEn: "Santorini is a Greek wine region located on the archipelago of Santorini in the southern Cyclades islands of Greece.",
     },
     {
@@ -80146,6 +80486,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "La Antigua Tera es un yacimiento arqueológico en la montaña Mesa Vouno, cerca de Kamari y Perissa. Conserva ruinas de una ciudad griega y romana, con vistas a la costa.",
       descriptionEn: "Ancient Thera is an archaeological site on Mesa Vouno mountain, near Kamari and Perissa. It preserves ruins of a Greek and Roman city, with views of the coast.",
+      lat: 36.36363,
+      lng: 25.4782,
     },
     {
       id: "santorini_11",
@@ -80241,6 +80583,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 25.44612,
       description: "Emporio es un pueblo del sur de Santorini con calles estrechas y casas encaladas. Destaca por su castillo medieval y su ambiente tradicional.",
       descriptionEn: "Emporio is a village in southern Santorini with narrow streets and whitewashed houses. It stands out for its medieval castle and traditional atmosphere.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Emporeio001.jpg/1280px-Emporeio001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "santorini_16",
@@ -80293,6 +80636,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Santorini%2C_Route_9%2C_22M8935%2C_Imerovigli_and_Skaros.jpg/1280px-Santorini%2C_Route_9%2C_22M8935%2C_Imerovigli_and_Skaros.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Roca de Skaros es una formación rocosa junto a Imerovigli, con restos de una fortaleza veneciana. Se accede por un sendero y ofrece vistas a la caldera.",
       descriptionEn: "Skaros Rock is a rock formation next to Imerovigli, with remains of a Venetian fortress. It is reached by a trail and offers views of the caldera.",
+      lat: 36.43244,
+      lng: 25.41822,
     },
     {
       id: "santorini_19",
@@ -80394,6 +80739,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Santorin_%28GR%29%2C_Fira_--_2017_--_2620.jpg/1280px-Santorin_%28GR%29%2C_Fira_--_2017_--_2620.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Catedral ortodoxa de Fira es un templo de la Iglesia ortodoxa griega en el centro de la capital. Destaca por su fachada blanca y sus frescos interiores.",
       descriptionEn: "The Orthodox Cathedral of Fira is a Greek Orthodox church in the center of the capital. It stands out for its white facade and interior frescoes.",
+      lat: 36.41694,
+      lng: 25.43185,
     },
     {
       id: "santorini_25",
@@ -80409,6 +80756,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Castillo de Oía son los restos de una fortaleza veneciana en el extremo de Oía. Es un mirador frecuentado para ver el atardecer sobre la caldera.",
       descriptionEn: "Oia Castle is the remains of a Venetian fortress at the edge of Oia. It is a popular viewpoint for watching the sunset over the caldera.",
+      lat: 36.46019,
+      lng: 25.37324,
     },
   ],
   taipei: [
@@ -138293,7 +138642,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 75,
       imageUrl: "https://images.unsplash.com/photo-1572895854902-117546c75fb3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW1wYW5hcmlvJTIwZGUlMjBCcnVqYXMlMjAlMjhCZWxmb3J0JTI5JTIwQnJ1Z2VzJTIwQmVsZ2l1bXxlbnwxfDB8fHwxNzgyOTYwMDEzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El campanario de Brujas es una edificación medieval situada en la Grote Markt del centro histórico de Brujas en Bélgica.",
-      descriptionEn: "Campanario de Brujas (Belfort) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Bruges Belfry is a 13th-century medieval tower in the Markt square and a UNESCO World Heritage site. It is visited for its carillon and the views from the top.",
+      lat: 51.20823,
+      lng: 3.22479,
     },
     {
       id: "bruges_1",
@@ -138308,7 +138659,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 60,
       description: "La Grote Markt es la plaza principal de Brujas, Bélgica, situada en el centro de la ciudad y tiene una superficie de una hectárea. En la zona meridional de la plaza se encuentra el campanario de Brujas del siglo XIII, uno de los monumentos más célebres de la ciudad.",
-      descriptionEn: "Markt de Brujas is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Markt square is the historic center of Bruges, surrounded by guild houses and dominated by the Belfry. It is a meeting point and a starting point for exploring the old town.",
     },
     {
       id: "bruges_2",
@@ -138323,8 +138674,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 45,
       imageUrl: "https://images.unsplash.com/photo-1572895854902-117546c75fb3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXNlbyUyMGVuJTIwQmFyY28lMjBwb3IlMjBsb3MlMjBDYW5hbGVzJTIwZGUlMjBCcnVqYXMlMjBCcnVnZXMlMjBCZWxnaXVtfGVufDF8MHx8fDE3ODI5NjAxNjR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Amberes, antiguamente conocida como Antuerpia, es una ciudad belga, la capital de la homónima provincia de Amberes, en Flandes o Región Flamenca.",
-      descriptionEn: "Paseo en Barco por los Canales de Brujas is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Los paseos en barco recorren los canales que atraviesan el casco antiguo de Brujas, declarado Patrimonio de la Humanidad. Permiten ver casas históricas y puentes desde el agua.",
+      descriptionEn: "Boat tours travel along the canals that cross the historic center of Bruges, a UNESCO World Heritage site. They offer views of historic houses and bridges from the water.",
     },
     {
       id: "bruges_3",
@@ -138357,8 +138708,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Choco-Story_Brugge-1.JPG/1920px-Choco-Story_Brugge-1.JPG",
       website: "https://www.choco-story.be/",
-      description: "El Museo del Cacao y el Chocolate es un museo privado en Bruselas, Bélgica, fundado en 1998 por iniciativa de Gabrielle Draps, esposa de un famoso chocolatero belga, Joseph \"Jo\" Draps, fundador de Godiva Chocolatier.",
+      description: "Choco-Story es un museo dedicado a la historia del chocolate, con exhibiciones sobre el cacao y la elaboración artesanal. Se encuentra en el centro de Brujas.",
       descriptionEn: "Choco-Story, the Chocolate Museum in Bruges, Belgium, is located in the sixteenth-century \"Huis de Crone\" building on Sint-Jansplein in central Bruges. This building was originally the home of a wine tavern. It later housed a bakery and, most recently, a furniture making shop.",
+      lat: 51.21081,
+      lng: 3.22628,
     },
     {
       id: "bruges_5",
@@ -138374,8 +138727,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Posthuset_Br%C3%BCgge.jpg",
       website: "https://mybeerexperience.com",
-      description: "Brugs Biermuseum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Brugs Biermuseum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de la Cerveza de Brujas explica la historia y elaboración de la cerveza belga mediante exposiciones interactivas. Está ubicado en la plaza del Mercado.",
+      descriptionEn: "The Bruges Beer Museum explains the history and brewing of Belgian beer through interactive exhibits. It is located on the Markt square.",
+      lat: 51.20856,
+      lng: 3.22524,
     },
     {
       id: "bruges_6",
@@ -138391,8 +138746,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Mus%C3%A9e_de_la_Torture_-_Bruges.JPG/1920px-Mus%C3%A9e_de_la_Torture_-_Bruges.JPG",
       website: "https://www.torturemuseum.be/",
-      description: "Torture Museum Oude Steen es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de la Tortura Oude Steen exhibe instrumentos de tortura y relata prácticas judiciales de la Europa medieval. Se ubica en un edificio histórico del centro de Brujas.",
       descriptionEn: "A torture museum is a museum that exhibits instruments of torture and provides an insight on the history of torture and its use in human society. Several museums dedicated to the history of torture are located worldwide, but a higher amount are concentrated in Europe.",
+      lat: 51.20765,
+      lng: 3.22625,
     },
     {
       id: "bruges_7",
@@ -138408,8 +138765,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Loppem_kasteel_03.jpg/1920px-Loppem_kasteel_03.jpg",
       website: "https://www.kasteelvanloppem.be/",
-      description: "Kasteel van Loppem es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Castillo de Loppem es un castillo neogótico del siglo XIX situado a pocos kilómetros de Brujas. Se visita por su arquitectura, interiores y jardines.",
       descriptionEn: "Loppem Castle is a mansion situated in Loppem in the municipality of Zedelgem, near Bruges in West Flanders, in the Flemish Region of Belgium.",
+      lat: 51.15611,
+      lng: 3.20306,
     },
     {
       id: "bruges_8",
@@ -138459,8 +138818,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Brugge_-_Basiliek_van_het_Heilig_Bloed_1492.jpg/1920px-Brugge_-_Basiliek_van_het_Heilig_Bloed_1492.jpg",
       website: "https://www.holyblood.com/",
-      description: "Basiliek van het Heilig Bloed es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Basiliek van het Heilig Bloed is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Basílica de la Santa Sangre es una iglesia del centro de Brujas que alberga una reliquia de la sangre de Cristo. Combina una capilla románica inferior y una superior de estilo gótico.",
+      descriptionEn: "The Basilica of the Holy Blood is a church in central Bruges that houses a relic of the blood of Christ. It combines a Romanesque lower chapel with a Gothic upper chapel.",
+      lat: 51.20813,
+      lng: 3.2267,
     },
     {
       id: "bruges_11",
@@ -138707,6 +139068,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Burg_Square%2C_Bruges_IMG_8716_-_panoramio.jpg/1280px-Burg_Square%2C_Bruges_IMG_8716_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Plaza histórica del centro de Brujas, antigua sede del poder civil y religioso de la ciudad. En ella se encuentran el Ayuntamiento gótico y la Basílica de la Santa Sangre.",
       descriptionEn: "Historic square in central Bruges, once the seat of the city's civic and religious power. It is home to the Gothic City Hall and the Basilica of the Holy Blood.",
+      lat: 51.20882,
+      lng: 3.22685,
     },
     {
       id: "bruges_24",
@@ -138739,6 +139102,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Bruegge_View_from_Rozenhoedkaai.jpg/1280px-Bruegge_View_from_Rozenhoedkaai.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Muelle sobre el canal Dijver, en el centro de Brujas, con vistas al campanario y a los puentes cercanos. Es punto de partida habitual de los paseos en barco por los canales.",
       descriptionEn: "Quay on the Dijver canal in central Bruges, with views of the belfry and nearby bridges. It is a common starting point for boat trips along the canals.",
+      lat: 51.20737,
+      lng: 3.22784,
     },
     {
       id: "bruges_26",
@@ -138755,6 +139120,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Municipio costero belga a orillas del mar del Norte, a unos 20 kilómetros de Brujas. Combina playa de arena, dique marítimo y una localidad conocida por sus galerías de arte.",
       descriptionEn: "Belgian coastal municipality on the North Sea, about 20 kilometres from Bruges. It combines a sandy beach, a seafront dyke and a resort known for its art galleries.",
+      lat: 51.34139,
+      lng: 3.28694,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Knocke-Heist.jpg/1280px-Knocke-Heist.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   ghent: [
@@ -138772,8 +139140,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.museumdrguislain.be/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Mus%C3%A9e_du_Dr_Guislain.jpg/960px-Mus%C3%A9e_du_Dr_Guislain.jpg",
-      description: "Museum Dr. Guislain es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Dr. Guislain es un museo de Gante dedicado a la historia de la psiquiatría y la salud mental. Sus colecciones y exposiciones muestran cómo se ha entendido y tratado la enfermedad mental a lo largo del tiempo.",
       descriptionEn: "Joseph Guislain was a Belgian medical doctor and a pioneer in psychiatry.",
+      lat: 51.06679,
+      lng: 3.70326,
     },
     {
       id: "ghent_1",
@@ -138823,8 +139193,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://stamgent.be/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Gent_STAM_12-10-2010_10-33-23.JPG/960px-Gent_STAM_12-10-2010_10-33-23.JPG",
-      description: "Stadsmuseum Gent es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de la Ciudad de Gante (STAM) ocupa el sitio de la antigua abadía de Bijloke y recorre la historia urbana de Gante con mapas, objetos y exposiciones. Explica la evolución de la ciudad desde sus orígenes hasta el presente.",
       descriptionEn: "Ghent is a city and a municipality in the East Flanders province of the Flemish Region of Belgium. It is the capital and largest city of the province and the third largest in the country, after Brussels and Antwerp. It is a port and university city.",
+      lat: 51.04397,
+      lng: 3.71737,
     },
     {
       id: "ghent_4",
@@ -138842,6 +139214,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/MSK19122008.JPG/960px-MSK19122008.JPG",
       description: "El museo de Bellas Artes de Gante es un museo situado en Gante (Bélgica). Se encuentra situado en el lado oriental del Citadelpark, cerca del Museo de Arte Contemporáneo.",
       descriptionEn: "Museum voor Schone Kunsten may refer to:Museum of Fine Arts, Ghent Museum of Fine Arts, Ostend Royal Museum of Fine Arts, Antwerp Royal Museums of Fine Arts of Belgium",
+      lat: 51.03798,
+      lng: 3.72424,
     },
     {
       id: "ghent_5",
@@ -138876,6 +139250,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Gravensteengent22042008.JPG/960px-Gravensteengent22042008.JPG",
       description: "El Castillo de los Condes de Gante se encuentra en el casco urbano de la provincia de Flandes, en la ciudad de Gante, Bélgica. Es el único castillo medieval en Flandes con un sistema de defensa casi intacto.",
       descriptionEn: "The Gravensteen is a medieval castle in the city of Ghent, East Flanders in Belgium. The current castle dates from 1180 and was the residence of the Counts of Flanders until 1353. It was subsequently re-purposed as a court, prison, mint, and even as a cotton mill.",
+      lat: 51.05722,
+      lng: 3.72056,
     },
     {
       id: "ghent_7",
@@ -138924,8 +139300,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://stad.gent/blaarmeersen",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Strandoblaarmeersen.JPG/960px-Strandoblaarmeersen.JPG",
-      description: "Blaarmeersen es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Blaarmeersen es un parque recreativo de Gante con un lago, zonas verdes y áreas deportivas. Se visita para caminar, hacer deporte y disfrutar de actividades al aire libre junto al agua.",
       descriptionEn: "Ghent is a city and a municipality in the East Flanders province of the Flemish Region of Belgium. It is the capital and largest city of the province and the third largest in the country, after Brussels and Antwerp. It is a port and university city.",
+      lat: 51.04417,
+      lng: 3.68806,
     },
     {
       id: "ghent_10",
@@ -138957,8 +139335,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Gent_-_Geeraard_de_Duivelsteen_1.jpg/960px-Gent_-_Geeraard_de_Duivelsteen_1.jpg",
-      description: "Geeraard de Duivelsteen es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Geeraard de Duivelsteen es una casa fortificada medieval de Gante construida en el siglo XIII. A lo largo de su historia ha tenido usos diversos, como prisión, monasterio y archivo, y destaca por su arquitectura junto al canal.",
       descriptionEn: "The Geeraard de Duivelsteen is a 13th-century gothic architecture building in Ghent, Belgium. It served as defense of the Portus Ganda, the city's port.",
+      lat: 51.05194,
+      lng: 3.72833,
     },
     {
       id: "ghent_12",
@@ -139057,8 +139437,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "https://operaballet.be/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/20110410_Gent_%280141%29.jpg/960px-20110410_Gent_%280141%29.jpg",
-      description: "Lukas Dhont es un director y guionista belga, actualmente vive en Gante. Ha trabajado como director de varios cortometrajes y colaboró como director de fotografía.",
+      description: "La Ópera de Flandes (Opera Ballet Vlaanderen) es una compañía de ópera y ballet con sedes en Gante y Amberes. En Gante presenta espectáculos en un teatro histórico del centro de la ciudad.",
       descriptionEn: "Opera Ballet Vlaanderen is an opera and ballet company in Belgium directed by Jan Vandenhouwe. It operates in two different opera houses in the Flemish cities of Ghent and Antwerp. However, the company shares one orchestra, choir, ballet company, technical team, etc.",
+      lat: 51.04953,
+      lng: 3.72191,
     },
     {
       id: "ghent_18",
@@ -139187,8 +139569,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Werregarenstraat%2C_Ghent.jpg/1920px-Werregarenstraat%2C_Ghent.jpg",
-      description: "Werregarenstraat es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La calle Werregaren, conocida como la calle del grafiti de Gante, es un pasaje urbano donde se pintan murales y grafitis de forma continua. Se visita para observar arte urbano que cambia con el tiempo.",
       descriptionEn: "street in Ghent, Belgium",
+      lat: 51.05551,
+      lng: 3.7246,
     },
     {
       id: "ghent_26",
@@ -139286,7 +139670,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gent-Sint-Baafskathedraal_vom_Belfried_aus_gesehen.jpg/1920px-Gent-Sint-Baafskathedraal_vom_Belfried_aus_gesehen.jpg",
       description: "La catedral de San Bavón en Gante es un edificio religioso católico que funciona como la sede de la diócesis de Gante. Recibe su nombre de san Bavón, santo que vivió entre 589 y 654, nacido en una noble familia franca cerca de Lieja, santo patrón de Gante, (Bélgica) y Haarlem.",
-      descriptionEn: "Catedral de San Bavón is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Saint Bavo's Cathedral, also known as Sint-Baafs Cathedral, is a Roman Catholic cathedral in Ghent, Belgium. The 89-metre-tall (292 ft) Gothic building is the seat of the Diocese of Ghent and is named for Saint Bavo of Ghent.",
+      lat: 51.05297,
+      lng: 3.72706,
     },
     {
       id: "ghent_32",
@@ -139485,6 +139871,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Ruines_van_de_Sint-Baafsabdij_in_Gent%2C_1848%2C_Musea_Brugge%2C_0020.GRO0064.III.jpg/1280px-Ruines_van_de_Sint-Baafsabdij_in_Gent%2C_1848%2C_Musea_Brugge%2C_0020.GRO0064.III.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Abadía de San Bavón es un antiguo monasterio benedictino fundado en el siglo VII por San Amando, junto al río Escalda. Hoy se conservan ruinas y partes del conjunto, que muestran su historia medieval.",
       descriptionEn: "St Bavo's Abbey is a former Benedictine monastery founded in the 7th century by Saint Amand, beside the Scheldt River. Ruins and parts of the complex remain today, showing its medieval history.",
+      lat: 51.05389,
+      lng: 3.73611,
     },
     {
       id: "ghent_43",
@@ -139568,6 +139956,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1541966890190-cde82668a4fb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXRlZHJhbCUyMGRlJTIwTnVlc3RyYSUyMFNlJUMzJUIxb3JhJTIwZGUlMjBBbWJlcmVzJTIwQW50d2VycCUyMEJlbGdpdW18ZW58MXwwfHx8MTc4Mjk5Njk5NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La catedral de Amberes se encuentra en Amberes, Bélgica, está dedicada a la Virgen María y es de estilo gótico.",
       descriptionEn: "The 1570s decade ran from January 1, 1570, to December 31, 1579.",
+      lat: 51.22027,
+      lng: 4.40025,
     },
     {
       id: "antwerp_1",
@@ -139581,8 +139971,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 75,
-      description: "Casa de Rubens es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Casa museo en Amberes que fue vivienda y taller del pintor Peter Paul Rubens; se visita por su arquitectura, su patio y su colección de arte.",
       descriptionEn: "The Circumcision is an oil on canvas painting of the Circumcision of Jesus by Peter Paul Rubens, produced in 1605 during his stay in Rome. It is now in the Chiesa del Gesù e dei Santi Ambrogio e Andrea church in Genoa.",
+      lat: 51.21701,
+      lng: 4.40964,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Rubenshuis_2005-07-16_01.jpg/1280px-Rubenshuis_2005-07-16_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "antwerp_2",
@@ -139615,8 +140008,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e0/MOMU_building.jpg",
       website: "https://www.momu.be/",
-      description: "In A World Like This Tour fue la gira de Backstreet Boys en el vigésimo aniversario del grupo que comenzó el 2 de agosto en Estados Unidos.",
+      description: "Museo de moda en Amberes dedicado al diseño y la industria de la moda, con exposiciones temporales y una colección centrada en creadores belgas.",
       descriptionEn: "The Antwerp Six are a group of fashion designers who trained at Antwerp's Royal Academy of Fine Arts between 1980–1981 under Mary Prijot.",
+      lat: 51.217,
+      lng: 4.39957,
     },
     {
       id: "antwerp_4",
@@ -139751,8 +140146,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Tindersticks_at_Openluchttheater_Rivierenhof_%283679133803%29.jpg/1920px-Tindersticks_at_Openluchttheater_Rivierenhof_%283679133803%29.jpg",
       website: "https://www.provincieantwerpen.be/aanbod/dvt/rivierenhof.html",
-      description: "Deurne es el segundo distrito más grande del municipio de Amberes, Bélgica, y tiene 79.627 habitantes (2019).",
+      description: "Parque público en el distrito de Deurne, en Amberes, que ocupa terrenos de una antigua propiedad señorial; tiene lagos, jardines y senderos.",
       descriptionEn: "Antwerp is a city and a municipality in the Flemish Region of Belgium. It is the capital and largest city of Antwerp Province, and the third-largest municipality in Belgium by area at 208.22 km2 (80.39 sq mi).",
+      lat: 51.215,
+      lng: 4.47056,
     },
     {
       id: "antwerp_12",
@@ -140048,6 +140445,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Antwerp_diamond_district_-_shops.jpg/1280px-Antwerp_diamond_district_-_shops.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Barrio de los Diamantes se ubica cerca de la estación central de Amberes y concentra comercio y talleres relacionados con diamantes. Es una zona asociada a la industria diamantífera de la ciudad.",
       descriptionEn: "The Diamond District is located near Antwerp's central station and concentrates diamond-related trade and workshops. It is an area associated with the city's diamond industry.",
+      lat: 51.21443,
+      lng: 4.41862,
     },
     {
       id: "antwerp_28",
@@ -140081,6 +140480,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Antwerpen-haven%2C_het_gebouw_the_Port_of_Antwerp_IMG_0263_2019-06-24_15.33.jpg/1280px-Antwerpen-haven%2C_het_gebouw_the_Port_of_Antwerp_IMG_0263_2019-06-24_15.33.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Casa del Puerto (Havenhuis) es la sede de la autoridad portuaria de Amberes. El edificio combina una antigua estación de bomberos con una extensión moderna de vidrio diseñada por Zaha Hadid.",
       descriptionEn: "The Port House (Havenhuis) is the headquarters of the Antwerp port authority. The building combines an old fire station with a modern glass extension designed by Zaha Hadid.",
+      lat: 51.24059,
+      lng: 4.40735,
     },
     {
       id: "antwerp_30",
@@ -140182,6 +140583,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Museumsite_Leuven.jpg/960px-Museumsite_Leuven.jpg",
       description: "El Museo M de Lovaina en neerlandés: M - Museum Leuven) o simplemente M es un museo de arte que está en el centro de Lovaina (Leuven), Bélgica, que se inauguró oficialmente en 2009.",
       descriptionEn: "M Leuven or simply M is an art museum in the inner city of Leuven, Belgium, which was officially opened in 2009. The museum has a collection of some 46,000 works, which range from late-Gothic paintings and sculptures to 16th century local artists such as Jan Rombouts the Elder…",
+      lat: 50.8787,
+      lng: 4.70476,
     },
     {
       id: "leuven_2",
@@ -140265,6 +140668,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Castle_Arenberg%2C_Katholieke_Universiteit_Leuven_adj.jpg/960px-Castle_Arenberg%2C_Katholieke_Universiteit_Leuven_adj.jpg",
       description: "Palacio ubicado en Lovaina, Bélgica",
       descriptionEn: "The Château of Arenberg or Arenberg Castle is a Flemish Renaissance style château in Heverlee, close to Leuven, Belgium. It is surrounded by a park.",
+      lat: 50.86333,
+      lng: 4.68306,
     },
     {
       id: "leuven_7",
@@ -140313,8 +140718,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       website: "https://www.toerismevlaamsbrabant.be/bezoeken/bezienswaardigheden/standbeeld-fiere-margriet/index.jsp",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Fiere_Margriet_Willy_Meysmans_03.jpg/960px-Fiere_Margriet_Willy_Meysmans_03.jpg",
-      description: "Fiere Margriet es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Estatua en el centro de Leuven dedicada a Fiere Margriet, una joven de la tradición local. Se visita como parte del recorrido por el casco histórico y sus leyendas.",
       descriptionEn: "Margaret of Louvain was a servant murdered by thieves. She is venerated in the Roman Catholic Church; her shrine is in St. Peter's Church in Louvain.",
+      lat: 50.88131,
+      lng: 4.69685,
     },
     {
       id: "leuven_10",
@@ -140361,8 +140768,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Leuven_Sint-Donatuspark_II.jpg/960px-Leuven_Sint-Donatuspark_II.jpg",
-      description: "Sint-Donatuspark es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Parque público en el centro de Leuven, con senderos, un estanque y restos de la antigua muralla de la ciudad. Se visita para caminar y descansar cerca del casco histórico.",
       descriptionEn: "The Sint-Donatus Park is a public urban park in the historic centre of Leuven, Flemish Brabant, Belgium. The park combines a landscape garden dating from the 19th century with surviving remnants of Leuven's medieval fortification.",
+      lat: 50.87555,
+      lng: 4.70291,
     },
     {
       id: "leuven_13",
@@ -140411,6 +140820,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/42127_Pieterskerk.jpg/960px-42127_Pieterskerk.jpg",
       description: "La iglesia de San Pedro de Lovaina, Bélgica, está situada en el Grote Markt, justo al otro lado del Ayuntamiento. Construida principalmente en el siglo XV en estilo gótico brabanzón, la planta de la iglesia tiene forma de cruz latina, su campanario nunca se acabó.",
       descriptionEn: "Saint Peter's Church is a Roman Catholic church in Leuven, Belgium, built in the 15th century in the Brabantine Gothic style. The church has a cruciform floor plan and a low bell tower that has never been completed. It is 93 metres (305 ft) long.",
+      lat: 51.07801,
+      lng: 4.42703,
+      dayTrip: true,
     },
     {
       id: "leuven_16",
@@ -140522,6 +140934,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Fonske.JPG/960px-Fonske.JPG",
       description: "Fons Sapientiae es una fuente escultórica pública en Leuven, vinculada a la Universidad. Se visita como punto de referencia urbano y por su simbolismo en torno al conocimiento y la vida estudiantil.",
       descriptionEn: "Fons Sapientiae is a public sculptural fountain in Leuven associated with the university. It is visited as an urban landmark and for its symbolism around knowledge and student life.",
+      lat: 50.87917,
+      lng: 4.70194,
     },
     {
       id: "leuven_23",
@@ -140554,6 +140968,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.parcum.be/",
       description: "PARCUM es un museo de arte y patrimonio religioso en Leuven, instalado en la abadía de Park. Su colección y exposiciones abordan la cultura católica y el patrimonio eclesiástico de la región.",
       descriptionEn: "PARCUM is a museum of religious art and heritage in Leuven, housed in Park Abbey. Its collection and exhibitions address Catholic culture and the ecclesiastical heritage of the region.",
+      lat: 50.86481,
+      lng: 4.71659,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Former_Pastry_now_Parcum_Museum.jpg/1280px-Former_Pastry_now_Parcum_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "leuven_25",
@@ -140647,7 +141064,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://images.unsplash.com/photo-1684698769392-c6404a6427cb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBeXVudGFtaWVudG8lMjBkZSUyMExvdmFpbmElMjBMZXV2ZW4lMjBCZWxnaXVtfGVufDF8MHx8fDE3ODI5OTc5MDJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Ayuntamiento de Lovaina, Bélgica, es un edificio histórico que se levanta en la Grote Markt, frente a la monumental Iglesia de San Pedro. Fue construido en estilo gótico brabantino tardío, entre 1439 y 1469, con una arquitectura ornamentada.",
-      descriptionEn: "Ayuntamiento de Lovaina is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Town Hall of Leuven, Flemish Brabant, Belgium, is a landmark building on that city's Grote Markt, across from the monumental St. Peter's Church.",
+      lat: 50.87889,
+      lng: 4.70111,
     },
     {
       id: "leuven_31",
@@ -140662,7 +141081,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 60,
       description: "El Gran Beaterio de Lovaina es un centro histórico bien conservado y completamente restaurado que comprende una docena de calles en el sur de la ciudad de Lovaina.",
-      descriptionEn: "Gran Beguinaje de Lovaina is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Great Beguinage of Leuven is a well-preserved beguinage and completely restored historical quarter containing a dozen streets in the south of downtown Leuven, Belgium.",
+      lat: 50.87167,
+      lng: 4.69694,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Leuven-Groot-Begijnhof.jpg/1280px-Leuven-Groot-Begijnhof.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "leuven_32",
@@ -140678,6 +141100,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "La Biblioteca Universitaria de Lovaina es la biblioteca central de la KU Leuven, ubicada en la plaza Ladeuze. Su edificio, reconstruido tras la Primera Guerra Mundial, tiene una torre que destaca en el centro histórico.",
       descriptionEn: "The University Library of Leuven is the central library of KU Leuven, located on Ladeuzeplein. Its building, rebuilt after World War I, has a tower that stands out in the historic center.",
+      lat: 50.878,
+      lng: 4.70732,
     },
     {
       id: "leuven_33",
@@ -140788,6 +141212,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 4.69015,
       description: "El Jardín Botánico Kruidtuin es el jardín botánico de la Universidad de Lovaina, situado cerca del centro. Reúne colecciones de plantas, invernaderos y zonas ajardinadas.",
       descriptionEn: "The Kruidtuin Botanical Garden is the botanical garden of the University of Leuven, located near the center. It brings together plant collections, greenhouses and landscaped areas.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Lovaina%2C_bot%C3%A1nico_20.jpg/1280px-Lovaina%2C_bot%C3%A1nico_20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "leuven_39",
@@ -140803,6 +141228,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "La cervecería Stella Artois es la planta de producción de esta cerveza belga en Lovaina. El complejo industrial incluye visitas guiadas que explican la historia y el proceso de elaboración.",
       descriptionEn: "The Stella Artois brewery is the production plant for this Belgian beer in Leuven. The industrial complex includes guided tours that explain the history and the brewing process.",
+      lat: 50.88813,
+      lng: 4.71054,
     },
     {
       id: "leuven_40",
@@ -146135,8 +146562,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 45,
       imageUrl: "https://images.unsplash.com/photo-1723065433386-f0fe5192d578?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFeXJlJTIwU3F1YXJlJTIwR2Fsd2F5JTIwSXJlbGFuZHxlbnwxfDB8fHwxNzgzMDA1MDY5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Galway o Galvia es la capital del condado de Galway, en Irlanda. La ciudad se encuentra en la costa oeste de la isla, en el rincón noroccidental de la bahía de Galway. El río Corrib atraviesa la ciudad.",
+      description: "Plaza Eyre es la plaza central de Galway, un espacio público abierto con áreas verdes y el monumento a John F. Kennedy. Se visita por su ubicación céntrica y por los edificios históricos que la rodean.",
       descriptionEn: "Eyre Square is a city public park in Galway, Ireland. The park is within the city centre, adjoining the nearby shopping area of William Street and Shop Street. Galway railway station is adjacent to Eyre Square.",
+      lat: 53.2745,
+      lng: -9.049,
     },
     {
       id: "galway_1",
@@ -146182,8 +146611,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/46/Galway_City_Museum_Entrance.jpg",
-      description: "Galway o Galvia es la capital del condado de Galway, en Irlanda. La ciudad se encuentra en la costa oeste de la isla, en el rincón noroccidental de la bahía de Galway. El río Corrib atraviesa la ciudad.",
+      description: "Galway City Museum es un museo en el centro de Galway que exhibe colecciones sobre la historia, la arqueología y la cultura de la ciudad y su región. Se visita para conocer el pasado de Galway a través de objetos y exposiciones.",
       descriptionEn: "Galway United Football Club is an Irish professional football club based in Galway. They play in the League of Ireland Premier Division, following a promotion from the First Division in 2023. The team was founded as Galway Rovers F.C. during the 1930s.",
+      lat: 53.26984,
+      lng: -9.05351,
     },
     {
       id: "galway_4",
@@ -146248,8 +146679,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Oranmore_Castle.jpg/1920px-Oranmore_Castle.jpg",
       website: "http://www.oranmorecastle.com/",
-      description: "Nobleza de Irlanda es el término usado para aquellos nobles creados por los monarcas británicos en su capacidad como Señor o Rey de Irlanda.",
+      description: "El Castillo de Oranmore es una casa torre medieval en Oranmore, condado de Galway. Data del siglo XV y forma parte del patrimonio histórico de la zona.",
       descriptionEn: "Oranmore is a town in County Galway, Ireland, 9 km (5.6 mi) east of Galway city on an inlet of Galway Bay. At the 2022 census, Oranmore had a population of 5,819. The town is in a civil parish of the same name.",
+      lat: 53.26826,
+      lng: -8.93507,
     },
     {
       id: "galway_8",
@@ -146281,8 +146714,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.8,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Blake%27s_Castle_-_geograph.org.uk_-_6679657.jpg",
-      description: "Alan Lake fue un actor inglés, conocido sobre todo por ser el tercer marido de la actriz Diana Dors.",
+      description: "Blake's Castle es una casa torre medieval en el centro de Galway, vinculada a la familia Blake, una de las Tribus de Galway. Forma parte de los edificios históricos que se conservan en la ciudad.",
       descriptionEn: "Blake's Castle is an urban tower house built around 1470. The castle was used as the Galway County Gaol from 1686 to 1810. It is located on Quay Street in Galway City, Ireland.",
+      lat: 53.27079,
+      lng: -9.05455,
     },
     {
       id: "galway_10",
@@ -146366,6 +146801,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.heritageireland.ie/en/West/AthenryCastle/",
       description: "Richard Sassanach Burke, II conde de Clanricarde, muerto 1582.",
       descriptionEn: "Athenry is a town in County Galway, Ireland, which lies 25 kilometres east of Galway city. Some of the attractions of the medieval town are its town wall, Athenry Castle, its priory and its 13th-century street-plan.",
+      lat: 53.30015,
+      lng: -8.74434,
     },
     {
       id: "galway_15",
@@ -146515,6 +146952,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Salthill_Promenade%2C_Galway_Bay_and_1930s_concrete_-_geograph.org.uk_-_1969039.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "El paseo marítimo de Salthill recorre la costa de Galway Bay en el barrio de Salthill, con vistas al mar y zonas de descanso frente a la playa. Es un lugar tradicional para caminar junto al agua.",
       descriptionEn: "The Salthill Promenade runs along the Galway Bay coast in Salthill, with sea views and resting spots facing the beach. It is a traditional place for walking by the water.",
+      lat: 53.26203,
+      lng: -9.07463,
     },
     {
       id: "galway_23",
@@ -146563,6 +147002,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Mercado de Galway es un mercado al aire libre junto a la iglesia de San Nicolás, con puestos de alimentos, artesanías y productos locales. Ocupa un espacio céntrico y reúne a vendedores y visitantes.",
       descriptionEn: "Galway Market is an open-air market beside St Nicholas' Church, with stalls selling food, crafts and local products. It occupies a central space and brings together traders and visitors.",
+      lat: 53.27007,
+      lng: -9.05429,
     },
     {
       id: "galway_26",
@@ -146633,6 +147074,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Castillo de Dunguaire es una torre residencial del siglo XVI situada en Kinvarra, en la costa de Galway Bay. Se visita desde Galway como excursión por su arquitectura y su ubicación frente al mar.",
       descriptionEn: "Dunguaire Castle is a 16th-century tower house in Kinvara, on the shore of Galway Bay. It is visited from Galway as a day trip for its architecture and its seaside setting.",
+      lat: 53.14219,
+      lng: -8.92629,
     },
     {
       id: "galway_30",
@@ -146649,6 +147092,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/County_Galway_-_NUI_Galway_-_20180512103033.jpg/1280px-County_Galway_-_NUI_Galway_-_20180512103033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Universidad de Galway es una universidad fundada en el siglo XIX, con edificios históricos como el Quadrangle. Su campus se encuentra junto al centro de la ciudad y se visita por su arquitectura y su vida académica.",
       descriptionEn: "The University of Galway is a university founded in the 19th century, with historic buildings such as the Quadrangle. Its campus lies near the city center and is visited for its architecture and academic life.",
+      lat: 53.29363,
+      lng: -9.07506,
     },
   ],
   cork: [
@@ -147473,7 +147918,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ireland_Muckross_House_BW_2025-09-12_16-59-33.jpg/1920px-Ireland_Muckross_House_BW_2025-09-12_16-59-33.jpg",
       website: "https://muckross-house.ie/",
       description: "Los lagos de Killarney son un conjunto de tres lagos situados cerca de la ciudad de Killarney, en el condado de Kerry (Irlanda). El más grande de los lagos es Lough Leane ; los otros dos se llaman Muckross Lake y Upper Lake.",
-      descriptionEn: "Muckross House is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Muckross House is located on the small Muckross Peninsula between Muckross Lake and Lough Leane, two of the lakes of Killarney, 6 kilometres (3.7 mi) from the town of Killarney in County Kerry, Ireland.",
+      lat: 52.01778,
+      lng: -9.50167,
     },
     {
       id: "killarney_3",
@@ -147553,8 +148000,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Lissivigeen.jpg",
-      description: "Lissivigeen Stone Circle es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Círculo de piedras de Lissivigeen es un monumento megalítico cercano a Killarney, en el condado de Kerry. Está formado por piedras erguidas dispuestas en círculo y se asocia a la prehistoria de la zona.",
       descriptionEn: "Killarney National Park, near the town of Killarney, County Kerry, was the first national park in Ireland, created when the Muckross Estate was donated to the Irish Free State in 1932.",
+      lat: 52.05878,
+      lng: -9.46257,
     },
     {
       id: "killarney_8",
@@ -147569,8 +148018,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Killarney-St-Marys-Cathedral-2012.JPG/1920px-Killarney-St-Marys-Cathedral-2012.JPG",
-      description: "Cork es una ciudad en la República de Irlanda, capital del condado homónimo, en la provincia de Munster. Con una población de 125 622 habitantes en 2016, a raíz de una extensión de los límites de la ciudad en 2019, esta cifra ha incrementado a aproximadamente 210 000 habitantes.",
+      description: "La Catedral de Santa María es la catedral católica de Killarney, en el condado de Kerry. Su edificio neogótico, diseñado por Augustus Pugin, destaca por su aguja y su interior de piedra.",
       descriptionEn: "St. Mary's Cathedral, St. Mary Cathedral, Cathedral of St. Mary the Virgin and similar may refer to:",
+      lat: 52.05956,
+      lng: -9.51804,
     },
     {
       id: "killarney_9",
@@ -147649,8 +148100,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Torc_upper_lake_killarney.jpg",
-      description: "Los lagos de Killarney son un conjunto de tres lagos situados cerca de la ciudad de Killarney, en el condado de Kerry (Irlanda). El más grande de los lagos es Lough Leane ; los otros dos se llaman Muckross Lake y Upper Lake.",
+      description: "El Monte Torc es una montaña junto a Killarney, dentro del Parque Nacional de Killarney. Se visita por sus rutas de senderismo y las vistas sobre los lagos y bosques del parque.",
       descriptionEn: "Torc Mountain, at 535 metres (1,755 ft), is the 329th–highest peak in Ireland on the Arderin list. It is a popular mountain for hill walkers as it has a stone or boarded path from its base at Torc Waterfall to its summit, which has views of the Lakes of Killarney.",
+      lat: 52,
+      lng: -9.51667,
     },
     {
       id: "killarney_14",
@@ -147833,6 +148286,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "La Isla Inisfallen es una isla del Lough Leane, en Killarney, con las ruinas de la abadía de Innisfallen. El sitio monástico fue fundado en el siglo VII y está asociado a los Anales de Inisfallen.",
       descriptionEn: "Innisfallen Island is an island in Lough Leane, Killarney, with the ruins of Innisfallen Abbey. The monastic site was founded in the 7th century and is associated with the Annals of Innisfallen.",
+      lat: 52.04563,
+      lng: -9.55575,
     },
     {
       id: "killarney_24",
@@ -147865,6 +148320,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Kenmare es una localidad del condado de Kerry, en la cabecera de la bahía de Kenmare y cerca del límite con Cork. Se conoce por sus calles de casas coloridas y como punto de partida hacia las penínsulas de Iveragh y Beara.",
       descriptionEn: "Kenmare is a town in County Kerry, at the head of Kenmare Bay near the Cork border. It is known for its streets of colorful houses and as a gateway to the Iveragh and Beara peninsulas.",
+      lat: 51.87996,
+      lng: -9.5836,
     },
     {
       id: "killarney_26",
@@ -147881,6 +148338,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Carrauntoohil es la montaña más alta de Irlanda, con 1.038 metros, en los MacGillycuddy's Reeks, cerca de Killarney. Se visita para ascender por rutas de montaña y ver el paisaje de la península de Iveragh.",
       descriptionEn: "Carrauntoohil is the highest mountain in Ireland, at 1,038 metres, in the MacGillycuddy's Reeks near Killarney. It is visited for mountain hikes and views of the Iveragh Peninsula.",
+      lat: 51.99889,
+      lng: -9.74278,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carrauntoohil_2016.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
   ],
   cliffsofmoher: [
@@ -147897,8 +148357,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Doonagore_Castle_-_IrishKeep.jpg/960px-Doonagore_Castle_-_IrishKeep.jpg",
-      description: "Doonagore Castle es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El castillo de Doonagore es una casa torre circular del siglo XVI con un pequeño recinto amurallado, situada a un kilómetro de distancia aproximadamente de la localidad costera de Doolin, en el condado de Clare, Irlanda.",
       descriptionEn: "Doolin is a coastal village in County Clare, Ireland, on the Atlantic coast. It is southwest of the spa town of Lisdoonvarna and 4 miles from the Cliffs of Moher.",
+      lat: 53.00381,
+      lng: -9.38739,
+      sourceUrl: "https://es.wikipedia.org/wiki/Castillo_de_Doonagore",
     },
     {
       id: "cliffsofmoher_1",
@@ -147931,6 +148394,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Moher_Tower.JPG/960px-Moher_Tower.JPG",
       description: "Los acantilados de Moher se encuentran en el límite suroccidental de la región de El Burren, zona famosa también por sus castillos, cuevas y una rica historia celta, cerca del pueblo de Doolin, en el condado de Clare de la República de Irlanda.",
       descriptionEn: "The Cliffs of Moher are sea cliffs located at the southwestern edge of the Burren region in County Clare, Ireland. They run for about 14 kilometres.",
+      lat: 52.9476,
+      lng: -9.4691,
     },
     {
       id: "cliffsofmoher_3",
@@ -148090,7 +148555,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "http://www.beaches.ie/find-a-beach/#/beach/IESHBWC100_0000_0100",
       imageUrl: "https://images.unsplash.com/photo-1571937309203-1ab490f5276f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYWhpbmNoJTIwQmVhY2glMjBDbGlmZnMlMjBvZiUyME1vaGVyJTIwSXJlbGFuZHxlbnwxfDB8fHwxNzgzMDA2NDMzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Lahinch Beach es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La playa de Lahinch es una playa de arena en la costa atlántica del condado de Clare, junto al pueblo de Lahinch. Es conocida por la práctica del surf y por su paseo frente al mar.",
       descriptionEn: "The Cliffs of Moher are sea cliffs located at the southwestern edge of the Burren region in County Clare, Ireland. They run for about 14 kilometres.",
     },
     {
@@ -148105,7 +148570,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 120,
-      description: "Doolin Ferries es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El ferry de Doolin es un servicio marítimo que sale del puerto de Doolin hacia las islas Aran y ofrece recorridos para observar los acantilados de Moher desde el agua.",
       descriptionEn: "The Cliffs of Moher are sea cliffs located at the southwestern edge of the Burren region in County Clare, Ireland. They run for about 14 kilometres.",
     },
     {
@@ -148121,7 +148586,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1557843961-b589ce207737?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEb29saW4lMjBDYXZlJTIwVmlzaXRvciUyMENlbnRyZSUyMENsaWZmcyUyMG9mJTIwTW9oZXIlMjBJcmVsYW5kfGVufDF8MHx8fDE3ODMwMDY1ODV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Doolin Cave Visitor Centre es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Centro de Visitantes de la Cueva de Doolin da acceso a la cueva de Doolin y presenta información sobre su formación geológica. La cueva alberga una gran estalactita.",
       descriptionEn: "The Cliffs of Moher are sea cliffs located at the southwestern edge of the Burren region in County Clare, Ireland. They run for about 14 kilometres.",
     },
     {
@@ -148217,6 +148682,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La más pequeña de las tres islas Aran, frente a la costa de Clare. Se llega en ferry desde Doolin y se recorre a pie entre muros de piedra seca; en ella están el pecio del Plassy y un castillo en ruinas.",
       descriptionEn: "The smallest of the three Aran Islands, off the Clare coast. Reached by ferry from Doolin and explored on foot among dry-stone walls; it holds the wreck of the Plassy and a ruined castle.",
+      lat: 53.05806,
+      lng: -9.5275,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Inisheer_landscape.jpg/1280px-Inisheer_landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "cliffsofmoher_20",
@@ -148232,6 +148700,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Cueva en el Burren, cerca de Ballyvaughan, con río y cascada subterráneos y restos fósiles de oso de las cavernas. Se recorre en visita guiada por pasarelas acondicionadas.",
       descriptionEn: "A cave in the Burren near Ballyvaughan with an underground river and waterfall and fossil remains of cave bears. It is visited on a guided tour along fitted walkways.",
+      lat: 53.08939,
+      lng: -9.14577,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Aillwee_cave_waterfall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "cliffsofmoher_21",
@@ -148293,6 +148764,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Pueblo pesquero al sur de los acantilados, con un puerto pequeño y casas junto al mar. Es el lugar de nacimiento de John P. Holland, pionero del submarino.",
       descriptionEn: "A fishing village south of the cliffs with a small harbour and houses by the sea. It is the birthplace of John P. Holland, a submarine pioneer.",
+      lat: 52.93861,
+      lng: -9.39111,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Liscannor_Panorama.JPG/1280px-Liscannor_Panorama.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "cliffsofmoher_25",
@@ -149320,6 +149794,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Rotterdam_wereldmuseum.jpg/960px-Rotterdam_wereldmuseum.jpg",
       description: "El Wereldmuseum en provincia de Holanda Meridional en la ciudad holandesa de Róterdam es un museo sobre las culturas del pasado y del presente. Es la continuación del Museum voor Land- en Volkenkunde y está situado en la esquina de Veerhaven y Willemskade.",
       descriptionEn: "The Wereldmuseum Rotterdam is an ethnographic museum, situated at Willemskade in Rotterdam, the Netherlands.",
+      lat: 51.90788,
+      lng: 4.4805,
     },
     {
       id: "rotterdam_1",
@@ -149335,8 +149811,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.huissonneveld.nl/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotterdam_sonneveld.jpg/960px-Rotterdam_sonneveld.jpg",
-      description: "Huis Sonneveld es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Casa Sonneveld es una vivienda modernista de 1933 en Rotterdam, diseñada por Brinkman y Van der Vlugt para la familia Sonneveld. Se conserva amueblada y se visita como museo para conocer la arquitectura y la vida doméstica de la época.",
       descriptionEn: "Willem \"Wim\" Sonneveld was a Dutch cabaret artist and singer. Together with Toon Hermans and Wim Kan, he is considered to be one of the \"Great Three\" of Dutch cabaret. Sonneveld is generally viewed as a Dutch cultural icon for his work and legacy in theatre, musicals and music.",
+      lat: 51.91561,
+      lng: 4.47234,
     },
     {
       id: "rotterdam_2",
@@ -149403,8 +149881,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.miniworldrotterdam.com",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Railz_Miniworld.jpg/960px-Railz_Miniworld.jpg",
-      description: "Miniworld Rotterdam es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Miniworld Rotterdam es una atracción cubierta con una ciudad en miniatura inspirada en Rotterdam, con edificios, puerto y trenes a escala. Se recorre para observar el trabajo de modelismo y las escenas urbanas representadas.",
       descriptionEn: "The length of a train may be measured in number of wagons or in metres for general freight. On electrified railways, particularly those using lower-voltage systems such as 3 kV DC and 1.5 kV DC, train lengths and loads are often limited by traction and power supply constraints.",
+      lat: 51.92283,
+      lng: 4.46513,
     },
     {
       id: "rotterdam_6",
@@ -149507,6 +149987,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Blijdorp_entree.jpg/960px-Blijdorp_entree.jpg",
       description: "Feyenoord Rotterdam es una entidad deportiva neerlandesa con sede en la ciudad de Róterdam. Fue fundado el 19 de julio de 1908 en el pub «de Vereeniging» bajo el nombre de Wilhelmina.",
       descriptionEn: "Diergaarde Blijdorp, officially Rotterdam Zoo, is a zoo located in the northwestern part of Rotterdam. It is one of the oldest zoos in the Netherlands, and has been operated by the Stichting Koninklijke Rotterdamse Diergaarde.",
+      lat: 51.92669,
+      lng: 4.45165,
     },
     {
       id: "rotterdam_12",
@@ -149624,6 +150106,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/01_Die_Rotterdam_-_Passagierschiff.jpg/960px-01_Die_Rotterdam_-_Passagierschiff.jpg",
       description: "El SS Rotterdam, también conocido como \"The Grande Dame\", es un antiguo transatlántico y barco de cruceros que perteneció a la compañía naviera Holland America Line, actualmente reconvertido en hotel flotante en la ciudad de Róterdam (Holanda), desde 2010.",
       descriptionEn: "In 1940, Rotterdam was subjected to heavy aerial bombardment by the Luftwaffe during the German invasion of the Netherlands during the Second World War.",
+      lat: 51.8978,
+      lng: 4.47328,
     },
     {
       id: "rotterdam_19",
@@ -149822,8 +150306,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Casas Cubo (Kijk-Kubus) es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Casas Cubo (Kijk-Kubus) is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Las Casas Cubo son un conjunto de viviendas diseñadas por Piet Blom en Rotterdam, formadas por cubos inclinados apoyados sobre pilares hexagonales. Una de ellas está abierta al público como casa muestra para ver su distribución interior.",
+      descriptionEn: "The Cube Houses are a housing complex designed by Piet Blom in Rotterdam, made up of tilted cubes resting on hexagonal pillars. One of them is open to the public as a show house, allowing visitors to see its interior layout.",
+      lat: 51.92033,
+      lng: 4.49033,
     },
     {
       id: "rotterdam_31",
@@ -149840,6 +150326,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1655045070274-c56baecd2c70?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNYXJrdGhhbCUyMFJvdHRlcmRhbSUyMFJvdHRlcmRhbSUyME5ldGhlcmxhbmRzfGVufDF8MHx8fDE3ODMwMDc4NzV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Róterdam es una ciudad neerlandesa situada al oeste del país, en la provincia de Holanda Meridional, y puerto sobre el río Mosa, cerca de La Haya. Situada a 30 km del mar, tiene una población de 634 660 habitantes.",
       descriptionEn: "Rotterdam is the second-largest city in the Netherlands by population and the largest by area (319.4 km2). It is in the province of South Holland, part of the North Sea mouth of the Rhine–Meuse–Scheldt delta, via the New Meuse inland shipping channel, dug to connect to the Meuse…",
+      lat: 51.92011,
+      lng: 4.48696,
     },
     {
       id: "rotterdam_32",
@@ -149854,8 +150342,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1572202378710-71d8b1cce96c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFdXJvbWFzdCUyMFJvdHRlcmRhbSUyME5ldGhlcmxhbmRzfGVufDF8MHx8fDE3ODMwMDc5NTF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Róterdam es una ciudad neerlandesa situada al oeste del país, en la provincia de Holanda Meridional, y puerto sobre el río Mosa, cerca de La Haya. Situada a 30 km del mar, tiene una población de 634 660 habitantes.",
+      description: "Euromast es una torre de observación de hormigón en Rotterdam, inaugurada en 1960 y diseñada por Hugh Maaskant. Su plataforma permite vistas de la ciudad y el puerto, y la torre forma parte del skyline local.",
       descriptionEn: "Euromast is an observation tower in Rotterdam, Netherlands, designed by Hugh Maaskant constructed between 1958 and 1960. It was specially built for the 1960 Floriade, and is a listed monument since 2010.",
+      lat: 51.9054,
+      lng: 4.4666,
     },
     {
       id: "rotterdam_33",
@@ -149969,6 +150459,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Rotterdam_-_Historisch_Delfshaven_%2812%29.jpg/1280px-Rotterdam_-_Historisch_Delfshaven_%2812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Antiguo puerto y barrio histórico al oeste del centro, con canales, almacenes y edificios que se conservaron tras el bombardeo de 1940. Desde aquí partió en 1620 un grupo de peregrinos que viajó en el Mayflower hacia Norteamérica.",
       descriptionEn: "A historic former harbour and neighbourhood west of the centre, with canals, warehouses and buildings that survived the 1940 bombing. In 1620 a group of Pilgrims left from here and later sailed to North America on the Mayflower.",
+      lat: 51.9081,
+      lng: 4.44837,
     },
     {
       id: "rotterdam_39",
@@ -150139,6 +150631,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Harbour_Tour_%40_Spido_%40_Rotterdam_%2830478676001%29.jpg/1280px-Harbour_Tour_%40_Spido_%40_Rotterdam_%2830478676001%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Recorridos en barco por el puerto de Róterdam, uno de los mayores del mundo, con salida cerca del puente Erasmus. Los recorridos muestran las dársenas, terminales de contenedores, astilleros y la actividad industrial de la zona portuaria.",
       descriptionEn: "Boat tours of the Port of Rotterdam, one of the largest in the world, departing near the Erasmus Bridge. The trips show the docks, container terminals, shipyards and industrial activity of the harbour area.",
+      lat: 51.89234,
+      lng: 4.39958,
     },
     {
       id: "rotterdam_48",
@@ -150173,6 +150667,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/FENIX_museum_building%2C_Katendrecht%2C_Rotterdam.jpg/1280px-FENIX_museum_building%2C_Katendrecht%2C_Rotterdam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Museo sobre migración instalado en un antiguo almacén portuario del barrio de Katendrecht, abierto en 2025. Aborda la historia de la emigración que salió de Róterdam y de la inmigración que llegó a la ciudad.",
       descriptionEn: "A museum about migration housed in a former port warehouse in the Katendrecht district, opened in 2025. It covers the history of emigration from Rotterdam and of immigration into the city.",
+      lat: 51.90209,
+      lng: 4.48431,
     },
     {
       id: "rotterdam_50",
@@ -150225,8 +150721,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://beeldengeluid.nl/denhaag/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/52/Museumvoorcommunicatie.jpg",
-      description: "Beeld en Geluid Den Haag es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "The Kunstmuseum Den Haag is an art museum in The Hague in the Netherlands, founded in 1866 as the Museum voor Moderne Kunst. Later, until 1998, it was known as Haags Gemeentemuseum, and until the end of September 2019 as Gemeentemuseum Den Haag.",
+      lat: 52.08594,
+      lng: 4.30161,
     },
     {
       id: "thehague_1",
@@ -150259,8 +150756,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.beeldenaanzee.nl/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/April_2004_Beeld_Scheveningen.JPG/960px-April_2004_Beeld_Scheveningen.JPG",
-      description: "Héctor Zamora es un artista contemporáneo mexicano, vivió de 2007 a 2016 en São Paulo, Brasil, de 2016 a 2020 en Lisboa, Portugal, actualmente vive y trabaja en Ciudad de México, México.",
+      description: "Museo de escultura en el barrio de Scheveningen, en La Haya, dedicado al arte moderno y contemporáneo, con una terraza frente al mar que exhibe esculturas de cuentos. Abrió en 1994.",
       descriptionEn: "Beelden aan Zee museum in the Scheveningen district of The Hague, founded in 1994 by the sculpture collectors Theo and Lida Scholten, is the only Dutch museum which specialises in only exhibiting sculpture.",
+      lat: 52.11059,
+      lng: 4.27755,
     },
     {
       id: "thehague_3",
@@ -150329,6 +150828,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Friedenspalast_Den_Haag_%28100MP%29.jpg/960px-Friedenspalast_Den_Haag_%28100MP%29.jpg",
       description: "La Haya es una ciudad de los Países Bajos, capital administrativa del país y sede de la realeza neerlandesa. Es conocida mundialmente por albergar las sedes del Tribunal Internacional de Justicia y la Corte Penal Internacional.",
       descriptionEn: "The Peace Palace is an international courthouse in The Hague, Netherlands. It houses the International Court of Justice, and the Permanent Court of Arbitration (PCA).",
+      lat: 52.08639,
+      lng: 4.29563,
     },
     {
       id: "thehague_7",
@@ -150427,8 +150928,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://madurodam.nl/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Madurodam_pays_bas.JPG/960px-Madurodam_pays_bas.JPG",
-      description: "La Haya es una ciudad de los Países Bajos, capital administrativa del país y sede de la realeza neerlandesa. Es conocida mundialmente por albergar las sedes del Tribunal Internacional de Justicia y la Corte Penal Internacional.",
+      description: "Parque en miniatura en Scheveningen, La Haya, con maquetas a escala de edificios, canales y paisajes de los Países Bajos. Abrió en 1952 y sus ingresos se destinan a fines benéficos.",
       descriptionEn: "Madurodam is a miniature park and tourist attraction in the Scheveningen district of The Hague in the Netherlands. It is home to a range of 1:25 scale model replicas of famous Dutch landmarks, historical cities and large developments.",
+      lat: 52.09954,
+      lng: 4.29738,
     },
     {
       id: "thehague_13",
@@ -150446,6 +150949,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Market_at_Herman_Costerstraat%2C_The_Hague_%282007%29_02.jpg",
       description: "La Haya es una ciudad de los Países Bajos, capital administrativa del país y sede de la realeza neerlandesa. Es conocida mundialmente por albergar las sedes del Tribunal Internacional de Justicia y la Corte Penal Internacional.",
       descriptionEn: "The Hague Tram is a tram network forming part of the public transport system in and around the city of The Hague in South Holland, Netherlands.",
+      lat: 52.0644,
+      lng: 4.29932,
     },
     {
       id: "thehague_14",
@@ -150563,8 +151068,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.drievliet.nl/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Drievliet.jpg/960px-Drievliet.jpg",
-      description: "Familiepark Drievliet es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Parque de atracciones familiar en el sur de La Haya, con montañas rusas, atracciones infantiles y áreas de juego. Tiene más de un siglo de historia y está pensado para familias con niños.",
       descriptionEn: "Drievliet Family Park is an amusement park in The Hague, South Holland, the Netherlands. The park originated on the grounds of the former Drievliet country estate in nearby Rijswijk, and primarily attracts families and younger visitors.",
+      lat: 52.05423,
+      lng: 4.35005,
     },
     {
       id: "thehague_21",
@@ -150614,7 +151121,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.duinrell.nl",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/67/LocatieWassenaar.png",
-      description: "Duinrell es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Parque de atracciones y camping en Wassenaar, a corta distancia de La Haya. Combina atracciones mecánicas con un parque acuático de toboganes, en un entorno de dunas y bosque.",
       descriptionEn: "Den Haag Centraal is the largest railway station in the city of The Hague in South Holland, Netherlands, and with twelve tracks, the largest terminal station in the Netherlands.",
     },
     {
@@ -150731,8 +151238,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1586174035695-35ab9e19215c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNYXVyaXRzaHVpcyUyMFRoZSUyMEhhZ3VlJTIwTmV0aGVybGFuZHN8ZW58MXwwfHx8MTc4MzAwODE3OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Autorretrato de 1628, o Autorretrato con cabello despeinado es un de los primeros autorretratos del artista holandés Rembrandt, actualmente en el Rijksmuseum. Data de 1628 y es un ejercicio en claroscuro. Es uno de los autorretratos de Rembrandt más antiguos.",
+      description: "Museo de arte en un palacete del siglo XVII junto al Binnenhof, en el centro de La Haya. Su colección reúne pintura neerlandesa de la Edad de Oro, incluida \"La joven de la perla\" de Vermeer.",
       descriptionEn: "The Mauritshuis is an art museum in The Hague, Netherlands. The museum houses the Royal Cabinet of Paintings which consists of 854 objects, mostly Dutch Golden Age paintings.",
+      lat: 52.08039,
+      lng: 4.31431,
     },
     {
       id: "thehague_31",
@@ -150747,7 +151256,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-1766247096232-36fdf6f2bb94?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMGRlJTIwU2NoZXZlbmluZ2VuJTIwVGhlJTIwSGFndWUlMjBOZXRoZXJsYW5kc3xlbnwxfDB8fHwxNzgzMDA4MjU0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Johannes Bosboom fue un pintor y acuarelista holandés enmarcado dentro del grupo de pintores conocidos como la Escuela de La Haya y famoso especialmente por sus pinturas de interiores de iglesias.",
+      description: "Playa y balneario de La Haya, en el mar del Norte, con un paseo marítimo, un muelle con atracciones y restaurantes frente al agua. Es el sector costero de la ciudad y se llega en tranvía desde el centro.",
       descriptionEn: "The Red Bull Knock Out was a motorcycle beach race held at Scheveningen, The Hague, Netherlands that has been run six times. It was organised by Red Bull, the Royal Dutch Motorcyclists Association (KNMV), KTM and the Municipality of The Hague.",
     },
     {
@@ -150939,6 +151448,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Pier_Scheveningen_2024.jpg/1280px-Pier_Scheveningen_2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Muelle de Scheveningen es una estructura sobre el mar en la costa de La Haya, en el distrito de Scheveningen. Ofrece vistas al Mar del Norte y a la playa, y forma parte del paseo marítimo costero.",
       descriptionEn: "Scheveningen Pier is a structure over the sea on The Hague's coast, in the Scheveningen district. It offers views of the North Sea and the beach and is part of the coastal promenade.",
+      lat: 52.11778,
+      lng: 4.28,
     },
     {
       id: "thehague_42",
@@ -151027,6 +151538,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Beach_Kijkduin_The_Hague_%2814228671211%29.jpg/1280px-Beach_Kijkduin_The_Hague_%2814228671211%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Playa de Kijkduin es una playa del Mar del Norte en el distrito costero de Kijkduin, en La Haya. Está rodeada de dunas y forma parte de la costa occidental neerlandesa, junto a áreas residenciales y comerciales.",
       descriptionEn: "Kijkduin Beach is a North Sea beach in the coastal Kijkduin district of The Hague. It is surrounded by dunes and forms part of the Dutch west coast, alongside residential and commercial areas.",
+      lat: 52.06883,
+      lng: 4.22231,
     },
   ],
   utrecht: [
@@ -151043,8 +151556,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1743844183879-e0fc461aed77?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUb3JyZSUyMERvbSUyMCUyOERvbXRvcmVuJTI5JTIwVXRyZWNodCUyME5ldGhlcmxhbmRzfGVufDF8MHx8fDE3ODMwMDgyNTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "La Catedral de San Martín o la Catedral de Utrecht es un edificio religioso que fue la catedral de la diócesis de Utrecht en los Países Bajos durante la Edad Media.",
-      descriptionEn: "Torre Dom (Domtoren) is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Torre Dom es la torre gótica de la antigua catedral de Utrecht; se visita por sus vistas de la ciudad y su historia medieval.",
+      descriptionEn: "The Dom Tower is the Gothic tower of Utrecht's former cathedral; it is visited for its city views and medieval history.",
+      lat: 52.09065,
+      lng: 5.12131,
     },
     {
       id: "utrecht_1",
@@ -151059,8 +151574,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1558855358-0984bf9e51c2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW5hbCUyME91ZGVncmFjaHQlMjBVdHJlY2h0JTIwTmV0aGVybGFuZHN8ZW58MXwwfHx8MTc4MzAwODMzMHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Utrecht es una ciudad de los Países Bajos, capital de la provincia homónima. Ubicada en la parte central del país, se trata de la cuarta ciudad en importancia.",
+      description: "El Oudegracht es el canal más antiguo de Utrecht y recorre el centro histórico; se visita por sus muelles a dos niveles, puentes y casas junto al agua.",
       descriptionEn: "The Oudegracht, or \"old canal\", runs through the center of Utrecht, the Netherlands. It starts in the southeast of the city.",
+      lat: 52.08982,
+      lng: 5.12077,
     },
     {
       id: "utrecht_2",
@@ -151144,8 +151661,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Dick_Bruna_huis.jpg/1920px-Dick_Bruna_huis.jpg",
       website: "https://nijntjemuseum.nl/",
-      description: "Nijntjemuseum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Nijntjemuseum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Miffy (Nijntje Museum) es un museo infantil en Utrecht dedicado al personaje creado por Dick Bruna; sus salas están pensadas para el juego y la exploración.",
+      descriptionEn: "The Miffy Museum (Nijntje Museum) is a children's museum in Utrecht dedicated to the character created by Dick Bruna; its rooms are designed for play and exploration.",
+      lat: 52.08393,
+      lng: 5.12578,
     },
     {
       id: "utrecht_7",
@@ -151213,7 +151732,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/De_Haar_Castle_South_in_the_Netherlands.jpg/1920px-De_Haar_Castle_South_in_the_Netherlands.jpg",
       website: "https://www.kasteeldehaar.nl",
       description: "El castillo de Haar se encuentra cerca de Haarzuilens, en la provincia de Utrecht en los Países Bajos. Los edificios actuales, todos construidos a partir de 1892 sobre el castillo original del siglo XIV, son obra del arquitecto holandés Pierre Cuypers, en un proyecto de…",
-      descriptionEn: "Kasteel de Haar is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "De Haar Castle, near Haarzuilens and a short distance from Utrecht, is a neo-Gothic castle surrounded by gardens and a moat; it is visited for its architecture and historic rooms.",
+      lat: 52.12144,
+      lng: 4.98622,
     },
     {
       id: "utrecht_11",
@@ -151229,8 +151750,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/32/Landgoed_Oud-Amelisweerd.jpg",
       website: "https://www.vriendenvanamelisweerd.nl/",
-      description: "Amelisweerd es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Amelisweerd es una finca y zona boscosa junto al río Kromme Rijn, al este de Utrecht; se visita para caminar entre árboles, prados y jardines históricos.",
       descriptionEn: "street in Amersfoort, the Netherlands",
+      lat: 52.07316,
+      lng: 5.15587,
     },
     {
       id: "utrecht_12",
@@ -151246,8 +151769,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oude_Hortus_Utrecht_buiten_2025.jpg/1920px-Oude_Hortus_Utrecht_buiten_2025.jpg",
       website: "https://umu.nl/over-umu/oude-hortus/",
-      description: "El Jardín Botánico de la Universidad de Utrecht es un jardín botánico y arboreto satelital, que está administrado por la Universidad de Utrecht y se encuentran en De Uithof, Holanda.",
+      description: "El Hortus Antiguo (Oude Hortus) es un jardín botánico histórico en el centro de Utrecht, vinculado a la universidad; se visita por sus colecciones de plantas y sus invernaderos.",
       descriptionEn: "Sonnenborgh Observatory is an astronomical observatory and museum open to the public, located in Utrecht, Netherlands. It is located in one of the four stone forts built by Charles V as defense buildings for Utrecht.",
+      lat: 52.08488,
+      lng: 5.12646,
     },
     {
       id: "utrecht_13",
@@ -151540,6 +152065,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Antigua residencia real en Baarn, a unos 30 kilómetros de Utrecht, ocupada durante décadas por la reina Juliana y el príncipe Bernardo; se puede visitar como excursión de un día.",
       descriptionEn: "A former royal residence in Baarn, about 30 kilometres from Utrecht, occupied for decades by Queen Juliana and Prince Bernhard; it can be visited as a day trip.",
+      lat: 52.19352,
+      lng: 5.27911,
     },
   ],
   maastricht: [
@@ -151557,8 +152084,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.museumaanhetvrijthof.nl",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Museum_aan_het_Vrijthof_-_Exterieur_2012.jpg/960px-Museum_aan_het_Vrijthof_-_Exterieur_2012.jpg",
-      description: "Museum aan het Vrijthof es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo en el Vrijthof es un museo de Maastricht dedicado al arte y la historia de la ciudad y su región. Ocupa un edificio histórico junto a la plaza Vrijthof y reúne colecciones de arte, historia y cultura local.",
       descriptionEn: "Vrijthof is a large urban square in the centre of Maastricht, Netherlands. The square developed from an ancient Roman and Frankish cemetery into a semi-private space that belonged to the Collegiate Church of Saint Servatius. In the 19th century, it became the town's main square.",
+      lat: 50.84835,
+      lng: 5.68876,
     },
     {
       id: "maastricht_1",
@@ -151576,6 +152105,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/MosasaurMaastricht080910.JPG/960px-MosasaurMaastricht080910.JPG",
       description: "El Museo de Historia Natural de Maastricht (Natuurhistorisch Museum Maastricht) es un museo dedicado a la geología, la paleontología y la flora y fauna de Limburgo. Su colección incluye fósiles del período Cretácico asociados al área de Maastricht.",
       descriptionEn: "The Maastricht Natural History Museum (Natuurhistorisch Museum Maastricht) focuses on the geology, paleontology, and flora and fauna of Limburg. Its collection includes Cretaceous fossils associated with the Maastricht area.",
+      lat: 50.84504,
+      lng: 5.6878,
     },
     {
       id: "maastricht_2",
@@ -151593,6 +152124,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/20130504_Maastricht_C%C3%A9ramique_seen_from_West_bank_of_the_Meuse_01_Bonnefantenmuseum.JPG/960px-20130504_Maastricht_C%C3%A9ramique_seen_from_West_bank_of_the_Meuse_01_Bonnefantenmuseum.JPG",
       description: "El Bonnefantenmuseum o Museo Bonnefanten es un museo dedicado al arte y la artesanía en Maastricht.",
       descriptionEn: "The Bonnefanten Museum is a museum of historic, modern and contemporary art in Maastricht, Netherlands.",
+      lat: 50.84248,
+      lng: 5.70134,
     },
     {
       id: "maastricht_3",
@@ -151758,7 +152291,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.nationaalparkhogekempen.be",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hoge_Kempen_034.jpg/960px-Hoge_Kempen_034.jpg",
-      description: "Nationaal Park Hoge Kempen es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Nacional Hoge Kempen, en la provincia belga de Limburgo, es una reserva de bosques y brezales y el primer parque nacional de Bélgica. Se encuentra cerca de la frontera con los Países Bajos, a poca distancia de Maastricht, y tiene rutas de senderismo y ciclismo.",
       descriptionEn: "The Campine or Kempen is a natural region situated chiefly in north-eastern Belgium and parts of the south-eastern Netherlands which once consisted mainly of extensive moors, tracts of sandy heath, and wetlands.",
     },
     {
@@ -151887,8 +152420,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Maastricht%2C_Maas_en_stadspark1.jpg/960px-Maastricht%2C_Maas_en_stadspark1.jpg",
-      description: "Stadspark Maastricht es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Municipal de Maastricht, conocido como Stadspark, es un parque urbano cerca del centro de la ciudad. Tiene senderos, estanques y áreas verdes, y se usa para caminar, descansar y actividades al aire libre.",
       descriptionEn: "Maastricht University is a public research university in Maastricht, Netherlands. Founded in 1976, it is the second youngest of the fourteen Dutch universities.",
+      lat: 50.84501,
+      lng: 5.69499,
     },
     {
       id: "maastricht_21",
@@ -151919,8 +152454,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Maastricht_Theater_Vrijthof_46_BW_2017-08-19_12-51-27.jpg/960px-Maastricht_Theater_Vrijthof_46_BW_2017-08-19_12-51-27.jpg",
-      description: "Maastricht es la capital de la provincia de Limburgo, en los Países Bajos. La ciudad está situada en ambas orillas del río Mosa, en el extremo sur del país, entre Bélgica y Alemania.",
+      description: "El Teatro del Vrijthof, o Theater aan het Vrijthof, es un teatro y sala de conciertos en la plaza Vrijthof de Maastricht. Su programación incluye teatro, danza, música y ópera.",
       descriptionEn: "Vrijthof is a large urban square in the centre of Maastricht, Netherlands. The square developed from an ancient Roman and Frankish cemetery into a semi-private space that belonged to the Collegiate Church of Saint Servatius. In the 19th century, it became the town's main square.",
+      lat: 50.85022,
+      lng: 5.68798,
     },
     {
       id: "maastricht_23",
@@ -152015,8 +152552,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1631107452534-b8f9868a8b20?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEJTIwTWFhc3RyaWNodCUyME5ldGhlcmxhbmRzfGVufDF8MHx8fDE3ODMwMDg1NTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Maastricht es la capital de la provincia de Limburgo, en los Países Bajos. La ciudad está situada en ambas orillas del río Mosa, en el extremo sur del país, entre Bélgica y Alemania.",
+      description: "D'n Observant es una colina en Maastricht que se utiliza como mirador y zona de caminata. Desde allí se tienen vistas amplias de la ciudad y del paisaje del valle del Mosa.",
       descriptionEn: "Maastricht is a city and a municipality in the southeastern Netherlands. It is the capital and largest city of the province of Limburg. Maastricht is located on both sides of the Meuse, at the point where the river is joined by the Jeker.",
+      lat: 50.81354,
+      lng: 5.6891,
     },
     {
       id: "maastricht_29",
@@ -152048,7 +152587,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1666533522907-265f4252df17?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXMlQzMlQURsaWNhJTIwZGUlMjBTYW4lMjBTZXJ2YWNpbyUyME1hYXN0cmljaHQlMjBOZXRoZXJsYW5kc3xlbnwxfDB8fHwxNzgzMDA4NjM0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La basílica de San Servacio es una iglesia católica dedicada a San Servacio en la ciudad de Maastricht, en los Países Bajos.",
-      descriptionEn: "Basílica de San Servacio is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Basilica of Saint Servatius is a Romanesque church on the Vrijthof square in Maastricht, built around the tomb of Saint Servatius. It is noted for its architecture, cloister and religious treasury.",
+      lat: 50.84899,
+      lng: 5.68739,
     },
     {
       id: "maastricht_31",
@@ -152301,6 +152842,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Museum_elven_delft.jpg/960px-Museum_elven_delft.jpg",
       description: "El Museo Paul Tétar van Elven ocupa la antigua casa y taller del pintor Paul Tétar van Elven en Delft. Se visita por sus interiores históricos y su colección de arte y objetos del siglo XIX.",
       descriptionEn: "The Paul Tétar van Elven Museum occupies the former home and studio of painter Paul Tétar van Elven in Delft. It is visited for its historic interiors and its collection of 19th-century art and objects.",
+      lat: 52.00952,
+      lng: 4.35878,
     },
     {
       id: "delft_2",
@@ -152333,8 +152876,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.tudelft.nl/sciencecentre",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Delft_-_Mijnbouwstraat_120.jpg/960px-Delft_-_Mijnbouwstraat_120.jpg",
-      description: "La Biblioteca de la Universidad Técnica de Delft es la biblioteca principal de la Universidad Técnica de Delft, localizado en Delft, Holanda. Fue diseñada por la empresa de arquitectura holandesa Mecanoo y construida en 1997.",
+      description: "El Centro de Ciencias de Delft es un museo interactivo vinculado a la Universidad Tecnológica de Delft que presenta exposiciones sobre ciencia, ingeniería y tecnología. Se visita para explorar conceptos científicos mediante instalaciones y actividades prácticas.",
       descriptionEn: "The Delft University of Technology is the oldest and largest Dutch public technical university, located in Delft, Netherlands. It specializes in engineering, technology, computing, design, and natural sciences.",
+      lat: 51.99761,
+      lng: 4.37856,
     },
     {
       id: "delft_4",
@@ -152352,6 +152897,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/2010-05-15-delft-by-RalfR-13.jpg/960px-2010-05-15-delft-by-RalfR-13.jpg",
       description: "Johannes Vermeer van Delft /joˈɦɑnəs vərˈmeːr vɑn dɛlft/, llamado por sus contemporáneos Joannis ver Meer o Joannis van der Meer e incluso Jan ver Meer, es uno de los pintores neerlandeses más reconocidos del arte Barroco.",
       descriptionEn: "The Vermeer Centre is an information center dedicated to the painter Johannes Vermeer and the work of his contemporaries in Delft, the Netherlands.",
+      lat: 52.01238,
+      lng: 4.35944,
     },
     {
       id: "delft_5",
@@ -152420,6 +152967,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Delft_Botanische_Tuin.jpg/960px-Delft_Botanische_Tuin.jpg",
       description: "El Hortus Botanicus TU Delft o en neerlandés; Botanische Tuin TU Delft es un jardín botánico que depende de la Universidad Técnica de Delft en Delft, Holanda. Se fundó en 1917, como un \"Jardín de Cultivo de plantas de interés económico\".",
       descriptionEn: "Botanical gardens in Netherlands have collections consisting entirely of Netherlands native and endemic species; most have a collection that include plants from around the world.",
+      lat: 52.00826,
+      lng: 4.36985,
     },
     {
       id: "delft_9",
@@ -152502,8 +153051,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://arboretum-heempark-delft.nl/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Panoramio_-_henkiedenkie_-_Aboretum_Heempark_-_Delft_-_2009.jpg/960px-Panoramio_-_henkiedenkie_-_Aboretum_Heempark_-_Delft_-_2009.jpg",
-      description: "Arboretum-Heempark Delft es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Arboretum-Heempark de Delft es un parque con colecciones de árboles y plantas nativas organizadas con fines educativos. Se visita para recorrer sus senderos y observar la vegetación.",
       descriptionEn: "Delftse Hout is a district in the northeast of Delft, Netherlands. Delftse Hout has about 300 inhabitants.",
+      lat: 52.01509,
+      lng: 4.37921,
     },
     {
       id: "delft_14",
@@ -152738,6 +153289,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/25/Molen_Delft.jpg",
       description: "De Roos es un molino de viento histórico de Delft que forma parte del patrimonio molinero de la ciudad. Se visita para conocer su estructura y el papel de los molinos en los Países Bajos.",
       descriptionEn: "De Roos is a historic windmill in Delft that forms part of the city's milling heritage. It is visited to learn about its structure and the role of windmills in the Netherlands.",
+      lat: 52.0139,
+      lng: 4.35128,
     },
     {
       id: "delft_28",
@@ -152771,6 +153324,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/19/009_Delft%2C_Netherlands.jpg",
       description: "Nieuwe Kerk es un templo de la iglesia protestante de la ciudad de Delft, Países Bajos, construido en estilo gótico. El edificio está situado en la plaza del mercado de Delft, frente al ayuntamiento de la ciudad.",
       descriptionEn: "Delft is a city and municipality in the province of South Holland, Netherlands. It is located between Rotterdam, to the southeast, and The Hague, to the northwest. Together with them, it is a part of both the Rotterdam–The Hague metropolitan area and the Randstad.",
+      lat: 52.01171,
+      lng: 4.35919,
     },
     {
       id: "delft_30",
@@ -152785,7 +153340,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 75,
       description: "La cerámica de Delft es un tipo de alfarería desarrollado desde finales del siglo XVI en la ciudad Delft, en los Países Bajos. Se hizo muy popular por la calidad del esmalte cerámico y el refinamiento de sus decoraciones pintadas.",
-      descriptionEn: "Royal Delft (Cerámica Delft Azul) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Royal Delft is the historic Delft Blue pottery factory, officially Koninklijke Porceleyne Fles, founded in the 17th century. Visitors learn about the production process and see hand-painted earthenware.",
+      lat: 52.00149,
+      lng: 4.36687,
     },
     {
       id: "delft_31",
@@ -152802,6 +153359,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1574617425757-4b756d0674b7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOaWV1d2UlMjBLZXJrJTIwRGVsZnQlMjBEZWxmdCUyME5ldGhlcmxhbmRzfGVufDF8MHx8fDE3ODMwMDkwODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Nieuwe Kerk es un templo de la iglesia protestante de la ciudad de Delft, Países Bajos, construido en estilo gótico. El edificio está situado en la plaza del mercado de Delft, frente al ayuntamiento de la ciudad.",
       descriptionEn: "The Nieuwe Kerk is a Protestant church in the city of Delft in the Netherlands. The building is located on Delft Market Square (Markt), opposite to the City Hall. In 1584, William the Silent was entombed there in a mausoleum designed by Hendrick and Pieter de Keyser.",
+      lat: 52.01229,
+      lng: 4.36072,
     },
     {
       id: "delft_32",
@@ -152922,6 +153481,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 4.35681,
       description: "El canal más antiguo de Delft, bordeado de casas históricas, iglesias y el antiguo convento que hoy alberga el Museo Prinsenhof. Recorre el eje del casco antiguo medieval.",
       descriptionEn: "Delft's oldest canal, lined with historic houses, churches and the former convent that now houses the Museum Prinsenhof. It runs through the heart of the medieval old town.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Delft%2C_straatzicht_de_Oude_Delft_vanaf_de_Bagijnhofbrug_foto6-_2016-03-13_12.08.JPG/1280px-Delft%2C_straatzicht_de_Oude_Delft_vanaf_de_Bagijnhofbrug_foto6-_2016-03-13_12.08.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   giethoorn: [
@@ -152938,8 +153498,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1603917817377-ee53733f5be8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXNlbyUyMGVuJTIwQmFyY28lMjBwb3IlMjBsb3MlMjBDYW5hbGVzJTIwZGUlMjBHaWV0aG9vcm4lMjBHaWV0aG9vcm4lMjBOZXRoZXJsYW5kc3xlbnwxfDB8fHwxNzgzMDA5MDg5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Paseo en Barco por los Canales de Giethoorn es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Paseo en Barco por los Canales de Giethoorn is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Giethoorn es una aldea de canales, puentes y casas con techo de paja en Overijssel. Un paseo en barco recorre sus vías de agua y permite ver el pueblo desde el agua, junto a sus senderos.",
+      descriptionEn: "Giethoorn is a village of canals, bridges and thatched-roof houses in Overijssel. A boat tour follows its waterways and shows the village from the water, alongside its footpaths.",
     },
     {
       id: "giethoorn_1",
@@ -152955,7 +153515,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Giethoorn-Holland_%287%29.jpg/1920px-Giethoorn-Holland_%287%29.jpg",
       website: "https://npweerribbenwieden.nl/",
-      description: "Steenwijkerland es un municipio de la provincia de Overijssel, en los Países Bajos. Cuenta con una superficie de 321,59 km ², de los que 31,43 km ² corresponden a la superficie ocupada por el agua.",
+      description: "Weerribben-Wieden es un parque nacional de humedales y turberas en Overijssel, cerca de Giethoorn. Se recorre en barca o bicicleta entre canales, cañaverales y hábitats de aves acuáticas.",
       descriptionEn: "Weerribben-Wieden National Park is a Dutch national park in the Steenwijkerland and Zwartewaterland municipalities in the Overijssel province.",
     },
     {
@@ -153038,6 +153598,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museumgiethoorn.nl/",
       description: "El Museo Giethoorn 't Olde Maat Uus es una granja convertida en museo que muestra cómo era la vida cotidiana en la aldea de canales. Sus habitaciones y dependencias recrean el interior de una vivienda rural y el pasado ligado a la turba.",
       descriptionEn: "Museum Giethoorn 't Olde Maat Uus is a farmhouse turned museum that shows everyday life in the canal village. Its rooms and outbuildings recreate the interior of a rural home and the area's peat-related past.",
+      lat: 52.72222,
+      lng: 6.08983,
     },
     {
       id: "giethoorn_7",
@@ -153297,8 +153859,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://visit.cern/universe-of-particles",
       imageUrl: "https://images.unsplash.com/photo-1771504223764-3fa04d2c7848?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHbG9iZSUyMGRlJTIwbGElMjBTY2llbmNlJTIwZXQlMjBkZSUyMGwlMjBHZW5ldmElMjBTd2l0emVybGFuZHxlbnwxfDB8fHwxNzgzMDA5MDkxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Globe de la Science et de l'Innovation es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Globo de la Ciencia y la Innovación es un edificio esférico de madera situado en el campus del CERN, cerca de Ginebra. Alberga exposiciones sobre física de partículas, el CERN y la investigación científica.",
       descriptionEn: "Sciences Po or Sciences Po Paris, formally known as the Paris Institute of Political Studies, is a public research university located in Paris, France, which holds the status of grande école and the legal status of grand établissement.",
+      lat: 46.2339,
+      lng: 6.05583,
     },
     {
       id: "geneva_1",
@@ -153316,6 +153880,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1584200463394-bba4b2117e4d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXMlQzMlQTllJTIwZCUyMEdlbmV2YSUyMFN3aXR6ZXJsYW5kfGVufDF8MHx8fDE3ODMwMDkxNjZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Emil Hassler. fue un naturalista, botánico, y médico suizo. Sus padres fueron Johann Friedrich Hassler y María Stampfli.",
       descriptionEn: "The Musée d'histoire des sciences de la Ville de Genève is a small museum in Switzerland dedicated to the history of science.",
+      lat: 46.22083,
+      lng: 6.15213,
     },
     {
       id: "geneva_2",
@@ -153333,6 +153899,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/10/Patek_Philippe_Museum.JPG",
       description: "Patek Philippe SA es una manufactura suiza dedicada a la fabricación y a la comercialización de sus propios relojes de lujo, ubicada en el cantón de Ginebra y en el Valle de Joux. Fundada en 1839, lleva el nombre de dos de sus fundadores, Antoni Patek y Adrien Philippe.",
       descriptionEn: "Patek Philippe SA is a Swiss luxury watchmaker and clock manufacturer, located in the Canton of Geneva and the Vallée de Joux. Established in 1839, it is named after two of its founders, Antoni Patek and Adrien Philippe.",
+      lat: 46.1983,
+      lng: 6.1382,
     },
     {
       id: "geneva_3",
@@ -153348,8 +153916,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.barbier-mueller.ch/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Barbier-Mueller_Museum.JPG",
-      description: "Ginebra es una ciudad y comuna de la Confederación Suiza, ubicada cerca de la frontera con Francia, capital del cantón de Ginebra. Es la ciudad más poblada de Romandía y la segunda de Suiza después de Zúrich.",
-      descriptionEn: "Musée Barbier-Mueller is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Barbier-Mueller está en el casco antiguo de Ginebra y reúne colecciones de arte no europeo, con piezas de África, Oceanía, Asia y América. Su colección proviene de la familia Barbier-Mueller.",
+      descriptionEn: "The Barbier-Mueller Museum is located in Geneva's old town and brings together collections of non-European art, with pieces from Africa, Oceania, Asia and the Americas. Its collection comes from the Barbier-Mueller family.",
+      lat: 46.20203,
+      lng: 6.1467,
     },
     {
       id: "geneva_4",
@@ -153367,6 +153937,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mus%C3%A9e_d%27Ethnographie_%40_Geneva_%2823693634920%29.jpg/1920px-Mus%C3%A9e_d%27Ethnographie_%40_Geneva_%2823693634920%29.jpg",
       description: "La música de Níger se ha desarrollado a partir de las tradiciones musicales de diferentes grupos étnicos.",
       descriptionEn: "The Musée d'ethnographie de Genève is one of the most important ethnographic museums in Switzerland.",
+      lat: 46.19787,
+      lng: 6.13688,
     },
     {
       id: "geneva_5",
@@ -153482,8 +154054,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.geneve.ch/parc-repos",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Villa_console_lac_250417.jpg/960px-Villa_console_lac_250417.jpg",
-      description: "Parc Mon-Repos es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Mon-Repos es un parque público de Ginebra con amplias zonas verdes, árboles y caminos. Es un espacio urbano tranquilo utilizado para pasear y descansar.",
       descriptionEn: "Gustave Moynier was a Swiss jurist who was active in many charitable organizations in Geneva.",
+      lat: 46.2186,
+      lng: 6.15073,
     },
     {
       id: "geneva_12",
@@ -153614,8 +154188,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.geneve.com/en/see-do/jardin-anglais",
       imageUrl: "https://images.unsplash.com/photo-1584200463394-bba4b2117e4d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKYXJkaW4lMjBBbmdsYWlzJTIwR2VuZXZhJTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAwOTYxOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Jet d'Eau es una gran fuente situada en Ginebra, Suiza. Es uno de los monumentos más importantes de la ciudad. Aparece en la página web oficial de turismo de la ciudad y en el logo oficial de la celebración de la Eurocopa de 2008 en Ginebra.",
+      description: "El Jardin Anglais es un parque público a orillas del lago de Ginebra, cerca del puente de Mont-Blanc. Es conocido por su reloj floral y por las vistas al lago y al Jet d'Eau.",
       descriptionEn: "The Jardin anglais is an urban park in Geneva, Switzerland, situated at the location of an ancient harbor and a wood. It marks the beginning of the Quai Gustave-Ador.",
+      lat: 46.204,
+      lng: 6.152,
     },
     {
       id: "geneva_20",
@@ -153650,6 +154226,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Broken_Chair_Chaise_cass%C3%A9e_Gen%C3%A8ve_2019.jpg/960px-Broken_Chair_Chaise_cass%C3%A9e_Gen%C3%A8ve_2019.jpg",
       description: "Broken Chair es una escultura monumental de madera realizada obra del artista suizo Daniel Berset y realizada por el carpintero Louis Genève. Representa una silla gigante con una pata rota.",
       descriptionEn: "Broken Chair is a monumental sculpture in wood designed by Swiss artist Daniel Berset, and constructed by carpenter Louis Genève. It is constructed of 5.5 tons of wood and is 12 metres high.",
+      lat: 46.2226,
+      lng: 6.139,
     },
     {
       id: "geneva_22",
@@ -153751,6 +154329,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1584200463394-bba4b2117e4d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYWxhaXMlMjBkZXMlMjBOYXRpb25zJTIwR2VuZXZhJTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAwOTk5N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Ariana de cerámica y cristal, en Ginebra (Suiza), también conocido como Musée suisse de la céramique et du verre, contiene alrededor de 20,000 objetos de los últimos 1,200 años, que representan la amplitud histórica, geográfica, artística y tecnológica de la fabricación…",
       descriptionEn: "The United Nations Office at Geneva in Geneva, Switzerland, is one of the four major offices of the United Nations where numerous different UN agencies have a joint presence.",
+      lat: 46.22656,
+      lng: 6.14048,
     },
     {
       id: "geneva_28",
@@ -153767,6 +154347,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1584200463394-bba4b2117e4d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKZXQlMjBkJTIwR2VuZXZhJTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAxMDA3M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Jet d'Eau es una gran fuente situada en Ginebra, Suiza. Es uno de los monumentos más importantes de la ciudad. Aparece en la página web oficial de turismo de la ciudad y en el logo oficial de la celebración de la Eurocopa de 2008 en Ginebra.",
       descriptionEn: "The Jet d'Eau is a large fountain in Geneva, Switzerland, and is one of the city's most famous landmarks, being featured on the city's official tourism web site.",
+      lat: 46.20739,
+      lng: 6.1559,
     },
     {
       id: "geneva_29",
@@ -154053,6 +154635,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Maison_Tavel_%28Mus%C3%A9e%29.jpg/1280px-Maison_Tavel_%28Mus%C3%A9e%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La casa más antigua conservada de Ginebra, en el casco antiguo, alberga un museo de historia urbana con maquetas, objetos cotidianos y una bodega medieval subterránea.",
       descriptionEn: "Geneva's oldest surviving house, in the Old Town, houses a museum of urban history with scale models, everyday objects and a medieval underground cellar.",
+      lat: 46.20137,
+      lng: 6.14713,
     },
     {
       id: "geneva_44",
@@ -154142,6 +154726,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Amplio parque junto al lago en la orilla izquierda, con rosaleda, grandes árboles, zonas de juego y los restos de una villa romana.",
       descriptionEn: "A large lakeside park on the left bank, with a rose garden, big trees, play areas and the remains of a Roman villa.",
+      lat: 46.2061,
+      lng: 6.16751,
     },
     {
       id: "geneva_49",
@@ -154176,7 +154762,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://images.unsplash.com/photo-1673018647266-7517c04099a9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQdWVudGUlMjBkZSUyMGxhJTIwQ2FwaWxsYSUyMCUyOEthcGVsbGJyJUMzJUJDY2tlJTI5JTIwTHVjZXJuZSUyMFN3aXR6ZXJsYW5kfGVufDF8MHx8fDE3ODMwMTAyMjR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Kapellbrücke es un puente que atraviesa el río Reuss en la ciudad de Lucerna (Suiza). Llamado así por la cercana iglesia de San Pedro, el puente alberga una serie de pinturas en el interior que datan del siglo XVII, aunque muchas de ellas se perdieron durante un incendio en…",
-      descriptionEn: "Puente de la Capilla (Kapellbrücke) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Chapel Bridge is a 14th-century covered wooden bridge over the Reuss River, with the Water Tower and painted panels inside. It is visited for its historical value and views of Lucerne's old town.",
+      lat: 47.05183,
+      lng: 8.30771,
     },
     {
       id: "lucerne_1",
@@ -154192,6 +154780,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "El monte Pilatus es un macizo montañoso de los Prealpes suizos, cerca de la ciudad de Lucerna. Es la máxima altura de los Prealpes de Lucerna. El macizo afecta a los cantones de Lucerna, Nidwalden y Obwalden. Su cima más elevada, el Pilatus Kulm, alcanza los 2.132 m s. n. m.",
       descriptionEn: "Pilatus, also often referred to as Mount Pilatus, is a mountain massif overlooking Lucerne in Central Switzerland. It is composed of several peaks, of which the highest (2,128.5 m [6,983 ft]) is named Tomlishorn.",
+      lat: 46.97389,
+      lng: 8.24111,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Pilatus_%28mountain%29.JPG/1280px-Pilatus_%28mountain%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "lucerne_2",
@@ -154209,6 +154800,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.kunstmuseumluzern.ch/",
       description: "Lucerna es una ciudad y comuna suiza, capital del distrito y del cantón de Lucerna. Centro económico, cultural y social de la región de la Suiza central, séptima ciudad de Suiza. La ciudad es el centro de una aglomeración de unas 200.000 personas.",
       descriptionEn: "Kunstmuseum Luzern is an art museum founded in 1932, is located within the Lucerne Culture and Congress Centre. It is one of the most important art museums in Switzerland, known for its temporary rotating exhibitions of all genres, including contemporary art.",
+      lat: 47.05028,
+      lng: 8.31194,
     },
     {
       id: "lucerne_3",
@@ -154224,8 +154817,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Sammlung_Rosengart%2C_Luzern_IMG_4912.jpg/1920px-Sammlung_Rosengart%2C_Luzern_IMG_4912.jpg",
       website: "https://www.rosengart.ch",
-      description: "Sammlung Rosengart es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Colección Rosengart es un museo de arte moderno en Lucerna que reúne obras de Picasso, Paul Klee y otros artistas. Se visita por su colección de arte moderno.",
       descriptionEn: "The Rosengart Collection Museum is an art museum located in Lucerne, Switzerland. It houses a collection of modern art based on two main artists: Paul Klee and Pablo Picasso.",
+      lat: 47.04956,
+      lng: 8.3074,
     },
     {
       id: "lucerne_4",
@@ -154243,6 +154838,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.bourbakipanorama.ch/",
       description: "Charles Denis Sauter Bourbaki fue un general francés.",
       descriptionEn: "The Bourbaki Panorama is a circular panoramic painting depicting the internment of the French Armée de l'Est in neutral Switzerland at the end of the 1870–71 Franco-Prussian War.",
+      lat: 47.05697,
+      lng: 8.31122,
     },
     {
       id: "lucerne_5",
@@ -154258,8 +154855,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Natur_Museum_Luzern_%28Milit%C3%A4rstrasse%29.jpg/1920px-Natur_Museum_Luzern_%28Milit%C3%A4rstrasse%29.jpg",
       website: "https://www.museumluzern.ch/",
-      description: "Walter Linsenmaier fue un artista y entomólogo suizo. Fue especialmente conocido por sus detalladas ilustraciones de animales, plantas e insectos, que se publicaron ampliamente en revistas y libros.",
+      description: "El Museo de Lucerna es un museo de historia local que reúne objetos, documentos y exposiciones sobre la ciudad y su región. Se visita para conocer el desarrollo urbano y cultural de Lucerna.",
       descriptionEn: "Lucerne or Luzern is a city and a municipality in central Switzerland, in the German-speaking portion of the country. Lucerne is the capital of the canton of Lucerne and part of the district of the same name.",
+      lat: 47.05135,
+      lng: 8.30173,
     },
     {
       id: "lucerne_6",
@@ -154357,8 +154956,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/DS_Unterwalden_vor_Hotel_National_und_Hofkirche_St._Leodegar_in_Luzern.jpg/1920px-DS_Unterwalden_vor_Hotel_National_und_Hofkirche_St._Leodegar_in_Luzern.jpg",
       website: "https://www.kathluzern.ch/st-leodegar-im-hof/",
-      description: "St. Leodegar im Hof (Hofkirche) es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Iglesia de San Leodegario, o Hofkirche, es una iglesia católica de Lucerna situada cerca del lago. Se visita por su arquitectura y por su papel en la historia religiosa de la ciudad.",
       descriptionEn: "The Church of St. Leodegar is a Roman Catholic church in the city of Lucerne, Switzerland. It was built in parts from 1633 to 1639 on the foundation of the Roman basilica, begun in 735, which had burnt in 1633.",
+      lat: 47.0556,
+      lng: 8.31408,
     },
     {
       id: "lucerne_12",
@@ -154605,6 +155206,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://gletschergarten.ch",
       description: "El Jardín Glaciar de Lucerna es un monumento natural que cuenta con un parque y un museo. Está situado cerca del Monumento del León, el Alpineum y el Panorama de Bourbaki, y está catalogado como bien cultural de importancia nacional en la categoría A.",
       sourceUrl: "https://es.wikipedia.org/wiki/Gletschergarten_Luzern",
+      descriptionEn: "The Gletschergarten in Lucerne is a geological museum and park with glacial potholes, sandstone formations and exhibits on the Ice Age. It is visited for its geological features and mirror maze.",
     },
     {
       id: "lucerne_25",
@@ -154622,6 +155224,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Stanserhorn es una montaña cerca de Stans, en Nidwalden, a la que se sube con un funicular y un teleférico con cubierta superior descubierta. Desde la cima se ven los Alpes y el lago de Lucerna; es una excursión de un día desde Lucerna.",
       descriptionEn: "The Stanserhorn is a mountain near Stans in Nidwalden, reached by a funicular and a cable car with an open upper deck. The summit offers views of the Alps and Lake Lucerne, and it is a day trip from Lucerne.",
+      lat: 46.92972,
+      lng: 8.34028,
     },
     {
       id: "lucerne_26",
@@ -154638,6 +155242,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Luzern_B%C3%BCrgenstock_Hammetschwand_lift.jpg/1280px-Luzern_B%C3%BCrgenstock_Hammetschwand_lift.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Bürgenstock es una montaña sobre el lago de Lucerna, en Nidwalden, con un complejo hotelero y rutas de senderismo. Se llega en barco desde Lucerna y luego en funicular, y alberga el ascensor exterior Hammetschwand.",
       descriptionEn: "Bürgenstock is a mountain above Lake Lucerne in Nidwalden, with a resort complex and hiking trails. It is reached by boat from Lucerne and then by funicular, and it is home to the Hammetschwand outdoor lift.",
+      lat: 47.00031,
+      lng: 8.39839,
     },
     {
       id: "lucerne_27",
@@ -154670,6 +155276,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 8.32904,
       description: "El Museo Richard Wagner ocupa la villa Tribschen, en las afueras de Lucerna, donde el compositor vivió entre 1866 y 1872. La casa conserva objetos y documentos relacionados con su estancia y su obra.",
       descriptionEn: "The Richard Wagner Museum is housed in the Tribschen villa on the outskirts of Lucerne, where the composer lived from 1866 to 1872. The house holds objects and documents related to his stay and work.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Tribschen-Wagner-Museum-Klavier-Raum.jpg/1280px-Tribschen-Wagner-Museum-Klavier-Raum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "lucerne_29",
@@ -154686,6 +155293,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/00_0073_Weggis_-_Kirche.jpg/1280px-00_0073_Weggis_-_Kirche.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Weggis es un pueblo a orillas del lago de Lucerna, al pie del monte Rigi, en el cantón de Lucerna. Tiene un paseo costero y sirve de punto de partida para excursiones al Rigi.",
       descriptionEn: "Weggis is a village on the shore of Lake Lucerne, at the foot of Mount Rigi in the canton of Lucerne. It has a lakeside promenade and is a starting point for excursions to Rigi.",
+      lat: 47.03222,
+      lng: 8.43833,
     },
   ],
   interlaken: [
@@ -154702,7 +155311,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 360,
       imageUrl: "https://images.unsplash.com/photo-1719343113554-1a60f8764403?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxKdW5nZnJhdWpvY2glMjAlRTIlODAlOTMlMjBUb3AlMjBvZiUyMEV1cm9wZSUyMEludGVybGFrZW4lMjBTd2l0emVybGFuZHxlbnwxfDB8fHwxNzgzMDEwMzAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Harder Kulm, también conocido como Harderkulm, es una estación de funicular ubicada a 1.322 metros de altura con vistas a los municipios de Interlaken y Unterseen en el oberland de Berna en Suiza.",
+      description: "Jungfraujoch es un collado en los Alpes berneses, entre el Mönch y la Jungfrau, a 3.454 metros. Se accede con el ferrocarril de Jungfrau desde Kleine Scheidegg y allí hay un mirador, un observatorio y el palacio de hielo, con vistas al glaciar Aletsch.",
       descriptionEn: "The Jungfraujoch is a saddle connecting two major 4000ers of the Bernese Alps: the Jungfrau and the Mönch. It lies at an elevation of 3,463 metres (11,362 ft) above sea level and is directly overlooked by the rocky prominence of the Sphinx.",
     },
     {
@@ -154720,6 +155329,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1607286665769-39e080316c65?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYWdvJTIwZGUlMjBCcmllbnolMjBJbnRlcmxha2VuJTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAxMDM3Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El lago de Brienz es un lago en el cantón de Berna en Suiza. Está ubicado al norte de los Alpes.",
       descriptionEn: "Lake Brienz is a lake just north of the Alps, in the canton of Bern in Switzerland. It has a length of about 14 kilometres (8.7 mi), a width of 2.8 kilometres (1.7 mi) and a maximum depth of 260 metres (850 ft).",
+      lat: 46.71667,
+      lng: 7.95,
     },
     {
       id: "interlaken_2",
@@ -154752,8 +155363,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Schloss_Spiez_2008.jpg",
       website: "https://www.schloss-spiez.ch",
-      description: "Swiss Quality Hotels International es una organización sin fines de lucro y la cadena de hoteles más grande de Suiza. Swiss Quality Hotels International comercializa 75 hoteles en 52 ciudades y lugares turísticos en Suiza, Alemania, Austria e Italia.",
+      description: "El castillo de Spiez es un castillo en el municipio de Spiez del cantón suizo de Berna. Es un sitio del patrimonio suizo de importancia nacional.",
       descriptionEn: "Lake Thun is an Alpine lake in the Bernese Oberland in Switzerland named after the city of Thun, on its northern shore. At 48.3 km2 (18.6 sq mi) in surface area, it is the largest Swiss lake entirely within a single canton.",
+      lat: 46.68942,
+      lng: 7.68742,
+      sourceUrl: "https://es.wikipedia.org/wiki/Castillo_de_Spiez",
     },
     {
       id: "interlaken_4",
@@ -154786,6 +155400,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/2011-07-21-Interlaken_%28Foto_Dietrich_Michael_Weidmann%29_047.JPG/1920px-2011-07-21-Interlaken_%28Foto_Dietrich_Michael_Weidmann%29_047.JPG",
       description: "El monasterio de Interlaken fue un convento de los agustinos desde 1133 hasta 1528 en Interlaken, en el cantón de Berna, Suiza. Está considerado como patrimonio protegido suizo. Actualmente es la sede del distrito de Interlaken.",
       descriptionEn: "Lake Thun is an Alpine lake in the Bernese Oberland in Switzerland named after the city of Thun, on its northern shore. At 48.3 km2 (18.6 sq mi) in surface area, it is the largest Swiss lake entirely within a single canton.",
+      lat: 46.687,
+      lng: 7.86381,
     },
     {
       id: "interlaken_6",
@@ -154803,6 +155419,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://lauterbrunnen.swiss/de/sommer/sehen-und-erleben/ausfluege/ausflugsziele/staubbach-wasserfall/",
       description: "El Staubbach es un arroyo de montaña que se encuentra en la zona central-sur de Suiza, cerca de la ciudad de Interlaken.",
       descriptionEn: "The Mürrenbachfall is a waterfall in the Lauterbrunnental in the Bernese Oberland, Switzerland. The Mürrenbach, which rises above Mürren, passes the village on the southern edge of the town and falls here over the high rock walls of the Trogtal almost to the valley floor, is a…",
+      lat: 46.58965,
+      lng: 7.90551,
     },
     {
       id: "interlaken_7",
@@ -154882,8 +155500,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Unspunnenfest_Interlaken_2017_Umzug_1K4A6127.jpg/1920px-Unspunnenfest_Interlaken_2017_Umzug_1K4A6127.jpg",
       website: "https://www.ballenberg.ch/",
-      description: "Freilichtmuseum Ballenberg es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Ballenberg es un museo al aire libre en Suiza que muestra edificios y arquitectura tradicionales de todo el país.",
       descriptionEn: "Hofstetten bei Brienz is a municipality in the Interlaken-Oberhasli administrative district in the canton of Bern in Switzerland.",
+      lat: 46.74955,
+      lng: 8.08645,
+      sourceUrl: "https://es.wikipedia.org/wiki/Ballenberg",
     },
     {
       id: "interlaken_12",
@@ -155050,6 +155671,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "Schynige Platte es una terraza montañosa sobre el valle de Interlaken, con vistas al lago de Thun y a los Alpes. Se llega en un tren de cremallera desde Wilderswil.",
       descriptionEn: "Schynige Platte is a mountain terrace above the Interlaken valley, with views of Lake Thun and the Alps. It is reached by a cogwheel train from Wilderswil.",
+      lat: 46.65611,
+      lng: 7.90694,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Schynige_Platte.jpg/1280px-Schynige_Platte.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "interlaken_21",
@@ -155200,6 +155824,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "Grindelwald First es una montaña sobre Grindelwald, en la región de Interlaken, con miradores y el First Cliff Walk. Se accede en teleférico desde el pueblo.",
       descriptionEn: "Grindelwald First is a mountain above Grindelwald in the Interlaken region, with viewpoints and the First Cliff Walk. It is reached by gondola from the village.",
+      lat: 46.63583,
+      lng: 7.98888,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/.00_0387_Bergrestaurant_Grindelwald-First_mit_Blick_auf_das_Schreckhorn_%284.078_Meter%29.jpg/1280px-.00_0387_Bergrestaurant_Grindelwald-First_mit_Blick_auf_das_Schreckhorn_%284.078_Meter%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "interlaken_29",
@@ -155234,6 +155861,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Beatushoehlen01.jpg/1280px-Beatushoehlen01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Las cuevas de San Beato son grutas kársticas en la ladera sobre el lago de Thun, cerca de Interlaken. Incluyen pasarelas subterráneas y están vinculadas a la leyenda de San Beato.",
       descriptionEn: "The St. Beatus Caves are karst caves on the slope above Lake Thun near Interlaken. They include underground walkways and are linked to the legend of St. Beatus.",
+      lat: 46.68465,
+      lng: 7.7823,
     },
     {
       id: "interlaken_31",
@@ -155267,6 +155896,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "Männlichen es una cumbre mirador sobre los valles de Grindelwald y Lauterbrunnen, en la región de Interlaken. Se llega en teleférico desde Wengen o en góndola desde Grindelwald.",
       descriptionEn: "Männlichen is a summit viewpoint above the Grindelwald and Lauterbrunnen valleys in the Interlaken region. It is reached by cable car from Wengen or gondola from Grindelwald.",
+      lat: 46.61806,
+      lng: 7.93806,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Maennlichen_gipfel.JPG/1280px-Maennlichen_gipfel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   bern: [
@@ -155286,6 +155918,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Le_centre_Paul_Klee_%28Berne%2C_Suisse%29_%2828648115807%29.jpg/960px-Le_centre_Paul_Klee_%28Berne%2C_Suisse%29_%2828648115807%29.jpg",
       description: "Paul Klee fue un pintor alemán nacido en Suiza, cuyo estilo varía entre el surrealismo, el expresionismo y la abstracción.",
       descriptionEn: "The Zentrum Paul Klee is a museum dedicated to the artist Paul Klee, located in Bern, Switzerland, and designed by the Italian architect Renzo Piano. It features about 40 percent of Paul Klee's entire pictorial oeuvre.",
+      lat: 46.94917,
+      lng: 7.47389,
     },
     {
       id: "bern_1",
@@ -155320,6 +155954,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Albert_einstein_house_bern.JPG/960px-Albert_einstein_house_bern.JPG",
       description: "Einsteinhouse es un museo organizado en la antigua residencia de Albert Einstein, ubicada en la calle Kramgasse 49 de Berna, Suiza.",
       descriptionEn: "The Einsteinhaus is a museum and a former residence of Albert Einstein. It is located on Kramgasse No. 49 in Bern, Switzerland. A flat on the second floor of the house was occupied by Einstein, his wife Mileva Marić, and their son Hans Einstein from 1903 to 1905.",
+      lat: 46.94767,
+      lng: 7.44997,
+      sourceUrl: "https://es.wikipedia.org/wiki/Einsteinhaus",
     },
     {
       id: "bern_3",
@@ -155489,6 +156126,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Berner_Muenster2.jpg/960px-Berner_Muenster2.jpg",
       description: "El término alemán münster, y el inglés minster, designan en esos idiomas a la iglesia cristiana que no es independiente, sino que forma parte de un monasterio, de donde le viene el nombre.",
       descriptionEn: "Bern Minster is a Swiss Reformed cathedral in the old city of Bern, Switzerland. Built in the Gothic style, its construction started in 1421. Its tower, with a height of 100.6 m (330 ft), was only completed in 1893.",
+      lat: 46.94724,
+      lng: 7.45158,
     },
     {
       id: "bern_13",
@@ -155540,6 +156179,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Baerenpark_Bern_01_09.jpg/960px-Baerenpark_Bern_01_09.jpg",
       description: "juego de mesa multijugador",
       descriptionEn: "Bärenpark is a multiplayer board game designed by game designer Phil Walker-Harding and was first published in 2017 by Lookout Games.",
+      lat: 46.94768,
+      lng: 7.45918,
     },
     {
       id: "bern_16",
@@ -155555,8 +156196,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.boga.unibe.ch/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Botanischer_Garten_Bern_DSC04005.jpg/960px-Botanischer_Garten_Bern_DSC04005.jpg",
-      description: "Botanischer Garten Bern es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Jardín botánico de la Universidad de Berna con colecciones de plantas alpinas y exóticas, invernaderos y senderos; se visita para conocer la diversidad vegetal en un entorno tranquilo.",
       descriptionEn: "The Bern Botanical Garden is a botanical garden located in Bern, the capital city of Switzerland.",
+      lat: 46.9527,
+      lng: 7.44491,
     },
     {
       id: "bern_17",
@@ -155574,6 +156217,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Bern_Rosengarten_Teil-Ansicht.jpg/960px-Bern_Rosengarten_Teil-Ansicht.jpg",
       description: "Dietrich von Bern es el nombre de un personaje de leyenda heroica germánica que se originó como una versión legendaria del rey ostrogodo Teodorico el Grande.",
       descriptionEn: "Rosengarten may refer to:the German word for \"rose garden\" Rosengarten, Lower Saxony, a municipality in Lower Saxony, Germany Rosengarten, Baden-Württemberg, a municipality in Baden-Württemberg, Germany Mannheimer Rosengarten, congress centre in Baden-Württemberg, Germany…",
+      lat: 46.75732,
+      lng: 7.6306,
+      dayTrip: true,
     },
     {
       id: "bern_18",
@@ -155589,8 +156235,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.tierpark-bern.ch/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Wisent-Wald_Bern.jpg/960px-Wisent-Wald_Bern.jpg",
-      description: "Tierpark Bern es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Zoológico de Berna ubicado en un bosque junto al río Aare, con recintos de animales nativos y exóticos; se visita para observar fauna y recorrer sus senderos.",
       descriptionEn: "The Tierpark Dählhölzli, or Dählhölzli Zoo, is a public zoo in Bern, Switzerland.",
+      lat: 46.9344,
+      lng: 7.44972,
     },
     {
       id: "bern_19",
@@ -155639,8 +156287,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Muensterplattform01.jpg/960px-Muensterplattform01.jpg",
-      description: "Münsterplattform es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Terraza ajardinada junto a la catedral de Berna, con muros históricos y vistas al río Aare y a los tejados de la ciudad; se visita para pasear y contemplar el paisaje.",
       descriptionEn: "Bern Minster is a Swiss Reformed cathedral in the old city of Bern, Switzerland. Built in the Gothic style, its construction started in 1421. Its tower, with a height of 100.6 m (330 ft), was only completed in 1893.",
+      lat: 46.94667,
+      lng: 7.45194,
     },
     {
       id: "bern_22",
@@ -155690,6 +156340,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Konzert_Theater_Bern_.jpg/960px-Konzert_Theater_Bern_.jpg",
       description: "El Teatro de la Ópera de Berna, conocido en la ciudad como Stadttheater Bern, es una casa de ópera y teatro en Berna, Suiza. El teatro funciona en cuatro áreas o categorías: Orquesta Sinfónica de Berna, Musiktheater (ópera), Schauspiel (teatro) y Tanz (danza).",
       descriptionEn: "Bern Theatre, known in the city as Stadttheater Bern, is an opera house and theatre in Bern, Switzerland. The theatre works in four areas: Bern Symphony Orchestra, Musiktheater (opera), Schauspiel (theatre) and Tanz (dance).",
+      lat: 46.94937,
+      lng: 7.4475,
     },
     {
       id: "bern_25",
@@ -155722,8 +156374,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.sta.be.ch/de/start/themen/rathaus.html",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Rathaus_im_Bern_Bern_Town_Hall_Switzerland_by_Robbie_Conceptuel.png/960px-Rathaus_im_Bern_Bern_Town_Hall_Switzerland_by_Robbie_Conceptuel.png",
-      description: "Berna es una ciudad de Suiza. Tiene el estatus de \"ciudad federal\" (bundesstadt ) y como tal cumple la función de capital del país. Su población, a fines de 2023, era de 145 873 habitantes.",
+      description: "Edificio histórico de la Ciudad Vieja de Berna que alberga el gobierno municipal; se visita desde el exterior por su arquitectura y su plaza, cerca de otros monumentos.",
       descriptionEn: "The Bern Town Hall is the building in Bern, Switzerland that houses the Grand Council of Bern, the Executive Council of Bern and the Grand Council of the City of Bern.",
+      lat: 46.94872,
+      lng: 7.45234,
     },
     {
       id: "bern_27",
@@ -155785,8 +156439,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 45,
-      description: "La Ciudad Vieja es el centro de la ciudad medieval de Berna, Suiza. Construida sobre una estrecha colina rodeada por tres lados por el Río Aar, su diseño compacto se ha mantenido prácticamente sin cambios desde su construcción, desde el siglo XII hasta el siglo XV.",
-      descriptionEn: "Zytglogge (Torre del Reloj) is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Torre medieval de Berna con reloj astronómico y figuras mecánicas; es uno de los símbolos de la Ciudad Vieja y se visita para ver su fachada y el mecanismo.",
+      descriptionEn: "Medieval tower in Bern with an astronomical clock and mechanical figures; it is a symbol of the Old Town and is visited to see its facade and mechanism.",
+      lat: 46.94795,
+      lng: 7.4478,
     },
     {
       id: "bern_31",
@@ -155802,7 +156458,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1749588599066-635304e9a44d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNjbyUyMEFudGlndW8lMjBkZSUyMEJlcm5hJTIwQmVybiUyMFN3aXR6ZXJsYW5kfGVufDF8MHx8fDE3ODMwMTA5ODN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Ciudad Vieja es el centro de la ciudad medieval de Berna, Suiza. Construida sobre una estrecha colina rodeada por tres lados por el Río Aar, su diseño compacto se ha mantenido prácticamente sin cambios desde su construcción, desde el siglo XII hasta el siglo XV.",
-      descriptionEn: "Casco Antiguo de Berna is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Medieval historic center of Bern, a UNESCO World Heritage Site, with arcaded streets, fountains and sandstone buildings; it is explored for its architecture and atmosphere.",
+      lat: 47.14165,
+      lng: 7.24555,
+      dayTrip: true,
     },
     {
       id: "bern_32",
@@ -155880,6 +156539,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 7.4402,
       description: "El Gurten es una colina de 858 metros al sur de Berna, en Wabern, accesible en funicular desde la ciudad. Tiene un parque, senderos y miradores con vistas a Berna y a los Alpes.",
       descriptionEn: "Gurten is an 858-metre hill south of Bern, in Wabern, reachable by funicular from the city. It has a park, trails and viewpoints overlooking Bern and the Alps.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Osservatorio_Astronomico_auf_dem_Gurten.jpg/1280px-Osservatorio_Astronomico_auf_dem_Gurten.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bern_36",
@@ -155955,6 +156615,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El río Aar rodea el casco antiguo de Berna con un meandro profundo; sus riberas, puentes y escaleras ofrecen vistas de la ciudad vieja y se usan para caminar y bañarse en verano.",
       descriptionEn: "The Aare river loops around Bern's old town in a deep bend; its banks, bridges and stairways offer views of the medieval centre and are used for walking and summer swimming.",
+      lat: 46.94599,
+      lng: 7.45331,
     },
     {
       id: "bern_40",
@@ -156039,6 +156701,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El valle del Emmental se extiende al este de Berna entre colinas de pastos y granjas dispersas; es la región de origen del queso Emmental y conserva pueblos con casas tradicionales de madera.",
       descriptionEn: "The Emmental valley stretches east of Bern among grassy hills and scattered farms; it is the home region of Emmental cheese and has villages with traditional timber houses.",
+      lat: 46.97698,
+      lng: 7.80259,
     },
   ],
   zermatt: [
@@ -156058,6 +156722,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Matterhorn_Museum.jpg/960px-Matterhorn_Museum.jpg",
       description: "La arquitectura de Suiza se refiera a todas las formas de este arte presentes en el territorio de la actual Suiza, así como de las resultantes de la actividad de los arquitectos suizos en el extranjero —como Pietro Antonio Solari, Pietro Lombardo, Domenico Fontana, Carlo Maderno…",
       descriptionEn: "Zermatt is a municipality in the district of Visp in the German-speaking section of the canton of Valais in Switzerland. It has a year-round population of about 5,800 and is classified as a town by the Swiss Federal Statistical Office (FSO).",
+      lat: 46.01972,
+      lng: 7.74611,
     },
     {
       id: "zermatt_1",
@@ -156073,8 +156739,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.valais.ch/en/explore/activities/other-summer-activities/footbridges/the-charles-kuonen-suspension-footbridge",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/SWISSROPE_SkyWalk_Randa_494_m.jpg/960px-SWISSROPE_SkyWalk_Randa_494_m.jpg",
-      description: "Charles Kuonen Hängebrücke es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El puente Charles Kuonen o Charles Kuonen Hängebrücke es un puente atirantado en Randa en Suiza.",
       descriptionEn: "At the time of its opening in July 2017, the Charles Kuonen Suspension Bridge was the longest pedestrian suspension bridge in the world. It is located in Randa, Switzerland and replaced the defunct Europabrücke, which had been damaged by a rock slide.",
+      lat: 46.10122,
+      lng: 7.80214,
+      sourceUrl: "https://es.wikipedia.org/wiki/Puente_Charles_Kuonen",
     },
     {
       id: "zermatt_2",
@@ -156089,8 +156758,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Pfarrkirche_St_Mauritius_Zermatt_20110605.jpg/960px-Pfarrkirche_St_Mauritius_Zermatt_20110605.jpg",
-      description: "Kirche St. Mauritius es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Iglesia de San Mauricio es la iglesia parroquial católica de Zermatt, ubicada en el centro del pueblo. Se visita por su arquitectura y por el cementerio de montañeros cercano, donde hay tumbas de escaladores.",
       descriptionEn: "This list contains all cultural property of regional significance in the canton of Valais from the 2009 Swiss Inventory of Cultural Property of National and Regional Significance. It is sorted by municipality.",
+      lat: 46.01949,
+      lng: 7.74653,
     },
     {
       id: "zermatt_3",
@@ -156153,8 +156824,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cervino_cloud.jpg/960px-Cervino_cloud.jpg",
-      description: "Zermatt es una comuna suiza del cantón del Valais, localizada en el distrito de Visp. Es una de las estaciones de esquí más conocidas y exclusivas de Suiza junto con Sankt Moritz, Klosters y Gstaad.",
+      description: "El monte Cervino o Matterhorn es una montaña de los Alpes, situada en la frontera entre Suiza e Italia.",
       descriptionEn: "The Matterhorn is a mountain of the Alps, straddling the main watershed and border between Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa area of the Pennine Alps, whose summit is 4,478 metres (14,692 ft) above sea level, making it…",
+      lat: 45.97639,
+      lng: 7.65861,
+      sourceUrl: "https://es.wikipedia.org/wiki/Cervino",
     },
     {
       id: "zermatt_7",
@@ -156203,6 +156877,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Klein_Matterhorn.jpg",
       description: "El monte Cervino o Matterhorn es una montaña de los Alpes, situada en la frontera entre Suiza e Italia. Se trata de una gran cumbre piramidal casi simétrica situada en la región ampliada del Monte Rosa, en los Alpes Peninos, cuya cima alcanza los 4478 m s. n.",
       descriptionEn: "The Klein Matterhorn is a peak of the Pennine Alps, overlooking Zermatt in the Swiss canton of Valais. At 3,883 metres (12,740 ft) above sea level, it is the highest place in Europe that can be reached by aerial tramway or gondola lift, as well as by any other means of…",
+      lat: 45.93833,
+      lng: 7.72972,
     },
     {
       id: "zermatt_10",
@@ -156250,8 +156926,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.gornergrat.ch/en/pages/zooom-the-matterhorn",
       imageUrl: "https://images.unsplash.com/photo-1586752488885-6ce47fdfd874?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxab29vbSUyMFRoZSUyME1hdHRlcmhvcm4lMjBaZXJtYXR0JTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAxMTA1OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Zooom The Matterhorn es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Zooom The Matterhorn is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Zooom The Matterhorn es una exposición interactiva en Zermatt dedicada al Matterhorn, su formación y las personas que lo han escalado. Combina proyecciones y recursos audiovisuales para explicar la montaña.",
+      descriptionEn: "Zooom The Matterhorn is an interactive exhibition in Zermatt devoted to the Matterhorn, its formation, and the people who have climbed it. It uses projections and audiovisual displays to explain the mountain.",
+      lat: 45.98363,
+      lng: 7.78301,
     },
     {
       id: "zermatt_13",
@@ -156329,8 +157007,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 120,
-      description: "Eingang Gourmet Gorner Schlucht es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Eingang Gourmet Gorner Schlucht is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Garganta Gorner es una garganta estrecha cerca de Zermatt, formada por el río Gornera, con pasarelas de madera que permiten recorrerla. Se visita para observar las rocas erosionadas y el agua.",
+      descriptionEn: "Gorner Gorge is a narrow gorge near Zermatt, formed by the Gornera River, with wooden walkways that allow visitors to walk through it. It is visited to see the eroded rocks and the water.",
+      lat: 46.0093,
+      lng: 7.73979,
     },
     {
       id: "zermatt_18",
@@ -156361,8 +157041,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 240,
       imageUrl: "https://images.unsplash.com/photo-1492119884860-63772f175a02?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHb3JuZXJncmF0JTIwJUUyJTgwJTkzJTIwVmlzdGElMjBhbCUyME1hdHRlcmhvcm4lMjBaZXJtYXR0JTIwU3dpdHplcmxhbmR8ZW58MXwwfHx8MTc4MzAxNTUyOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Zermatt es una comuna suiza del cantón del Valais, localizada en el distrito de Visp. Es una de las estaciones de esquí más conocidas y exclusivas de Suiza junto con Sankt Moritz, Klosters y Gstaad.",
-      descriptionEn: "Gornergrat – Vista al Matterhorn is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Gornergrat es una cresta y mirador sobre Zermatt al que se llega en tren cremallera. Desde allí se ven el Matterhorn, el glaciar Gorner y varias cumbres de los Alpes.",
+      descriptionEn: "Gornergrat is a ridge and viewpoint above Zermatt reached by cog railway. From there, visitors see the Matterhorn, the Gorner Glacier, and several Alpine peaks.",
     },
     {
       id: "zermatt_20",
@@ -156440,6 +157120,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Matterhorn_Zermatt_Schweiz.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Pequeño lago alpino en el recorrido del Gornergrat, cerca de la estación Rotenboden, conocido porque en sus aguas tranquilas suele reflejarse el Matterhorn. Se llega caminando y es parada habitual de las excursiones desde Zermatt.",
       descriptionEn: "Small alpine lake on the Gornergrat route near Rotenboden station, known for the reflection of the Matterhorn in its still water. It is reached on foot and is a common stop on hikes from Zermatt.",
+      lat: 45.98336,
+      lng: 7.76205,
     },
     {
       id: "zermatt_24",
@@ -156470,6 +157152,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Mirador y estación de funicular sobre Zermatt, a unos 2.288 metros, con vistas al Matterhorn y acceso al lago Leisee. Es punto de partida de caminatas y de la zona de esquí.",
       descriptionEn: "Viewpoint and funicular station above Zermatt at about 2,288 metres, with views of the Matterhorn and access to Leisee lake. It is a starting point for walks and for the ski area.",
+      lat: 46.01694,
+      lng: 7.77031,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/3995_-_Zermatt%2C_Riffelalp%2C_and_Sunnegga_viewed_from_Riffelberg.JPG/1280px-3995_-_Zermatt%2C_Riffelalp%2C_and_Sunnegga_viewed_from_Riffelberg.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "zermatt_26",
@@ -156486,6 +157171,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Zermatt-rothorn.jpg/1280px-Zermatt-rothorn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Estación de montaña a unos 3.100 metros, alcanzable en teleférico desde Sunnegga, con panorama amplio del Matterhorn, el Monte Rosa y los glaciares cercanos.",
       descriptionEn: "Mountain station at about 3,100 metres, reached by cable car from Sunnegga, with wide views of the Matterhorn, Monte Rosa and the nearby glaciers.",
+      lat: 46.39089,
+      lng: 7.45638,
+      dayTrip: true,
     },
     {
       id: "zermatt_27",
@@ -156517,6 +157205,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Bergsteigerfriedhof_Zermatt_Grabstein.jpg/1280px-Bergsteigerfriedhof_Zermatt_Grabstein.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Cementerio junto a la iglesia de Zermatt donde están enterrados alpinistas muertos en el Matterhorn y otras montañas, entre ellos participantes de la primera ascensión de 1865.",
       descriptionEn: "Cemetery beside the church in Zermatt where climbers who died on the Matterhorn and other mountains are buried, including members of the 1865 first ascent.",
+      lat: 46.01943,
+      lng: 7.74696,
     },
     {
       id: "zermatt_29",
