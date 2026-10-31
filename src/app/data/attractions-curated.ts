@@ -3679,7 +3679,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "La Jurisdicción de Saint-Émilion es una región vitivinícola declarada Patrimonio de la Humanidad por la Unesco en 1999, situada en torno a la comuna medieval de Saint-Émilion, en el departamento de Gironda, al sudoeste de Francia.",
       descriptionEn: "Saint-Émilion is a commune in the Gironde department in Nouvelle-Aquitaine in Southwestern France.",
       lat: 44.89472,
-      lng: 0.15528,
+      lng: -0.15528,
       dayTrip: true,
     },
     {
@@ -8743,7 +8743,6 @@ export const CURATED_ALL: CuratedMap = {
       description: "La Iglesia del Sagrado Corazón, o simplemente Catedral de Casablanca, es una antigua iglesia católica marroquí.",
       descriptionEn: "The Casablanca Cathedral, or Church of the Sacred Heart, is a former church located west of the Arab League Park in Casablanca, Morocco.",
       sourceUrl: "https://es.wikipedia.org/wiki/Antigua_catedral_del_Sagrado_Coraz%C3%B3n_de_Casablanca",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Casablanca_%285281127436%29.jpg/1280px-Casablanca_%285281127436%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "casablanca_16",
@@ -17690,8 +17689,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Hamburg%2C_Hamburg_-_Au%C3%9Fenalster_und_Binnenalster_mit_Lamsard-Br%C3%BCcke%3B_Elbbr%C3%BCcke_%28Zeno_Ansichtskarten%29.jpg/1280px-Hamburg%2C_Hamburg_-_Au%C3%9Fenalster_und_Binnenalster_mit_Lamsard-Br%C3%BCcke%3B_Elbbr%C3%BCcke_%28Zeno_Ansichtskarten%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Alster es un río de Hamburgo que forma dos lagos artificiales en el centro: el Binnenalster y el Außenalster. Sus orillas tienen parques y rutas de paseo, y se navega en botes.",
       descriptionEn: "The Alster is a river in Hamburg that forms two artificial lakes in the city center: the Binnenalster and the Außenalster. Its shores have parks and walking paths, and boats navigate the lakes.",
-      lat: 53.62057,
-      lng: 10.02717,
+      lat: 53.56667,
+      lng: 10.00833,
     },
     {
       id: "hamburg_21",
@@ -18008,7 +18007,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Deichstraße es una calle histórica del centro de Hamburgo, junto al Nikolaifleet, con casas de comerciantes y almacenes. Se visita por su arquitectura tradicional, que conserva parte del aspecto de la ciudad antigua.",
       descriptionEn: "Deichstraße is a historic street in central Hamburg, beside the Nikolaifleet, with merchant houses and warehouses. It is visited for its traditional architecture, which preserves part of the old city's appearance.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Cuxhaven_-Stadtsee-_2007_by-RaBoe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "hamburg_38",
@@ -50189,7 +50187,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 3.8,
       estimatedMinutes: 90,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Museo_africano_a_Roma.jpg/1280px-Museo_africano_a_Roma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       website: "https://www.museoafricano.org/",
       description: "El Museo Africano de Verona, gestionado por los misioneros combonianos, reúne una colección etnográfica y artística procedente de distintos países africanos, fruto del trabajo misionero de la orden en el continente.",
       descriptionEn: "The Museo Africano in Verona, run by the Comboni Missionaries, houses an ethnographic and artistic collection gathered from various African countries through the order's missionary work on the continent.",
@@ -57828,7 +57825,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/28/St._ERHARD%C2%AE_Farmer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       website: "https://www.evangelisch-steppach.de/kirchen.php",
       description: "St. Erhard es una iglesia evangélica de la región de Bamberg, en Baviera, que toma su nombre del santo homónimo y sirve como lugar de culto de la comunidad protestante local.",
       descriptionEn: "St. Erhard is an Evangelical church in the Bamberg region of Bavaria, named after the saint, serving as a place of worship for the local Protestant community.",
@@ -73350,7 +73346,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Petra by Night is a nighttime event where visitors walk the Siq lit by candles to the Treasury. It is offered as a separate activity from the daytime visit.",
       lat: 30.322,
       lng: 35.48034,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Kent_Logsdon_und_Petra_Maus%2C_2016.jpg/1280px-Kent_Logsdon_und_Petra_Maus%2C_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "petra_23",
@@ -92011,7 +92006,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "La Zona Rosa es el sector de entretenimiento y vida nocturna del norte de Bogotá, articulado en torno a la Zona T. Concentra restaurantes, bares, discotecas y tiendas, y suele recorrerse a pie, especialmente de noche.",
       descriptionEn: "The Zona Rosa is Bogotá's northern entertainment and nightlife district, built around the Zona T. It concentrates restaurants, bars, nightclubs, and shops, and is commonly explored on foot, especially at night.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Bogot%C3%A1_Beer_Company.jpg/1280px-Bogot%C3%A1_Beer_Company.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   nairobi: [
@@ -99193,7 +99187,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Avenida principal del centro de Pucón, donde se concentran comercio, restaurantes, cafés y servicios turísticos. Es el eje por el que circulan visitantes y residentes en el casco urbano de la ciudad.",
       descriptionEn: "The main avenue in downtown Pucón, lined with shops, restaurants, cafés and tourism services. It is the central axis where visitors and residents move through the town centre.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Comercio_en_Puc%C3%B3n_de_noche.jpg/1280px-Comercio_en_Puc%C3%B3n_de_noche.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "pucon_27",
@@ -117916,7 +117909,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Museo_de_los_ni%C3%B1os_CCS.JPG/1280px-Museo_de_los_ni%C3%B1os_CCS.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Museo de los Niños es una institución privada, sin fines de lucro ubicada en Caracas, Venezuela. Fundado por Alicia Pietri de Caldera.",
       descriptionEn: "Juana Inés de Asbaje y Ramírez de Santillana, better known as Sor Juana Inés de la Cruz, was a Hieronymite nun and a Novohispanic writer, philosopher, composer and poet of the Baroque period, nicknamed \"The Tenth Muse\", \"The Mexican Phoenix\", and \"The Phoenix of America\" by her…",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_los_Ni%C3%B1os_(Caracas)",
@@ -127864,7 +127856,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "La Ceiba is a municipality, the capital of the Honduran department of Atlántida and a port city on the northern coast of Honduras in Central America. It is located on the southern edge of the Caribbean, forming part of the south eastern boundary of the Gulf of Honduras.",
       lat: 15.78402,
       lng: -86.68296,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/La_Ceiba_Wikivoyage_banner.jpg/1280px-La_Ceiba_Wikivoyage_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "laceiba_4",
@@ -131168,7 +131159,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "El Cerrito is a town and municipality located in the Department of Valle del Cauca, Colombia. This is one of the 42 municipalities of the department.",
       lat: 11.88764,
       lng: -86.03118,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Seal_of_El_Cerrito%2C_California.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "granada_ni_8",
@@ -131413,7 +131403,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Málaga is a municipality of Spain and the capital of the province of Málaga, in the autonomous community of Andalusia. With a population of 592,346 in 2024, it is the 2nd-largest city in Andalusia and the 6th-largest in the country.",
       lat: 11.93069,
       lng: -85.94067,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Ciutat_de_Granada_78.jpg/1280px-Ciutat_de_Granada_78.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "granada_ni_22",
@@ -136956,7 +136945,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Lavonte Lamar David is an American former professional football player who spent his entire 14-season career as a linebacker with the Tampa Bay Buccaneers of the National Football League (NFL).",
       lat: 8.38568,
       lng: -82.43212,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Instituto_Provincial_de_Badajoz_%28J._David%2C_1880-81%29.jpg/1280px-Instituto_Provincial_de_Badajoz_%28J._David%2C_1880-81%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "daviddechiriqui_2",
@@ -156063,7 +156051,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Bock es un promontorio situado en el extremo noreste del casco antiguo de Luxemburgo. Sus acantilados rocosos, que constituyen una fortificación natural, se elevan sobre el río Alzette, que lo rodea por tres lados.",
       descriptionEn: "The Bock Casemates are a network of underground tunnels carved into the Bock rock in Luxembourg City, part of the former Fortress of Luxembourg, first excavated in 1644 and later expanded.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Gronn%2C_L%C3%ABtzebuerg%2C_Luxembourg_-_panoramio_%2814%29.jpg/1280px-Gronn%2C_L%C3%ABtzebuerg%2C_Luxembourg_-_panoramio_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "luxembourgcity_31",
@@ -164627,7 +164614,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Bate Collection of Historical Musical Instruments is a museum of musical instruments from the Middle Ages onwards. It was housed in Oxford University's Faculty of Music near Christ Church on St.",
       lat: 51.7488,
       lng: -1.2562,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Handel_harpsichord_%28first_quarter_of_the_18th_century%2C_London%29_by_William_Smith%2C_with_an_inscription_Gulielmus_Smith_Londini_fecit_-_Bate_Collection%2C_University_of_Oxford_%282007-01-17_%40pxhere_1344710%29.jpg/1280px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "oxford_2",
@@ -171711,7 +171697,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4,
       estimatedMinutes: 90,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/WTMP_Team_Kampai_DSC_0023.JPG/1280px-WTMP_Team_Kampai_DSC_0023.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       website: "https://museopambata.org/",
       description: "El Museo Pambata es un museo orientado a los niños en Ermita, en la ciudad de Manila, en el país asiático de las Filipinas. Se encuentra ubicado en el antiguo edificio del Manila Elks Club, construido en 1911, a lo largo del Bulevar Roxas, esquina Drive Katigbak.",
       descriptionEn: "The Museo Pambata is a children's museum in the Ermita district of Manila, near Rizal Park, in the Philippines. It is located in the former Elks Club Building, a historic structure built in 1910, along Roxas Boulevard at the corner of South Drive.",
@@ -178095,7 +178080,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Monument to the Earthquake Victims in Gyumri commemorates those who died in the 1988 earthquake. It is a place of urban memory linked to the reconstruction of the city.",
       lat: 40.82966,
       lng: 43.82838,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Zaven_earthquake.jpg/1280px-Zaven_earthquake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "gyumri_9",
@@ -178915,7 +178899,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A walled area in central Baku with centuries of history, listed as a UNESCO World Heritage site together with the Palace of the Shirvanshahs and the Maiden Tower. Its stone alleys contain houses, workshops, mosques and caravanserais.",
       lat: 40.36596,
       lng: 49.83165,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Fuente_en_Baku%2C_Azerbaiy%C3%A1n%2C_2016-09-26%2C_DD_227-229_HDR.jpg/1280px-Fuente_en_Baku%2C_Azerbaiy%C3%A1n%2C_2016-09-26%2C_DD_227-229_HDR.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "baku_31",
@@ -184571,7 +184554,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Congregational mosque of Yazd, with a large portal and minarets covered in tilework. Its construction dates back to medieval times and it is a central monument of the historic center.",
       lat: 31.90145,
       lng: 54.36885,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/79/Yazd_%282000%29_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "yazd_25",
@@ -184605,7 +184587,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A dakhma, also known as a Tower of Silence, is a circular, raised structure built by Zoroastrians for excarnation, in order to avoid contamination of the soil and other natural elements by the dead bodies. Carrion birds, usually vultures, and other scavengers, consume the flesh.",
       lat: 31.82397,
       lng: 54.35241,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Towers_of_silence_Wellcome_L0046619.jpg/1280px-Towers_of_silence_Wellcome_L0046619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       sourceUrl: "https://es.wikipedia.org/wiki/Torre_del_silencio",
     },
   ],
@@ -189039,7 +189020,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Astana Cemetery is an ancient cemetery 37 kilometers (23 mi) southeast of Turpan, in Xinjiang, China, 6 kilometres (3.7 mi) from the ancient city of Gaochang.",
       lat: 51.12275,
       lng: 71.44197,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/Stamp_of_Sarawak_-_1957_-_Colnect_306408_-_1_-_Astana_palace_in_Kuching.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "astana_10",
@@ -189075,7 +189055,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Astana is the capital city of Kazakhstan. With a population of 1,622,245 within the city limits, it is the second-largest in the country after Almaty, the national capital until 1997.",
       lat: 51.12949,
       lng: 71.41825,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/The_Prime_Minister%2C_Shri_Narendra_Modi_being_welcomed_by_the_President_of_Kazakhstan%2C_Mr._Nursultan_Nazarbayev%2C_at_the_inauguration_of_the_Astana_EXPO-2017%2C_in_Astana%2C_Kazakhstan_on_June_09%2C_2017_%282%29.jpg/1280px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "astana_12",
@@ -196542,7 +196521,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Nishan-e-Haider is the highest military gallantry award of Pakistan. The Nishan-e-Haider is awarded only to members of the Pakistan Armed Forces. It recognises the highest acts of extraordinary bravery in the face of the enemy in air, land, or sea.",
       lat: 24.79627,
       lng: 67.03753,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Full_Box_Set_for_the_Current_Nishan-e-Pakistan_%283%29.jpg/1280px-Full_Box_Set_for_the_Current_Nishan-e-Pakistan_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "karachi_12",
@@ -197642,7 +197620,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The National Museum of Saudi Arabia is a national museum located in the al-Murabba neighborhood of Riyadh, Saudi Arabia.",
       lat: 24.64714,
       lng: 46.7107,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Hand_written_Quran_in_Saudi_Arabia.jpg/1280px-Hand_written_Quran_in_Saudi_Arabia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "riyadh_22",
@@ -198390,7 +198367,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 150,
       description: "Mada'in Saleh, también denominada Al-Hijr, es una antigua ciudad localizada en el norte de Hejaz, en la actualidad en Arabia Saudita, a 22 kilómetros de la ciudad de Al-Ula. En la Antigüedad, la ciudad estaba habitada por zamudíes y nabateos, siendo denominada como Hegra.",
       descriptionEn: "Hegra, also known as Madāʾin Ṣāliḥ, is an archaeological site located in the area of Al-'Ula within Medina Province in the Hejaz region, Saudi Arabia.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Qasr_al-Farid%2C_a_1st-century_AD_Nabatean_unfinished_tomb_carved_into_a_giant_boulder_in_Hegra_%28Mada%27in_Salih%29%2C_the_kingdom%27s_second_Nabatean_capital_after_Petra%2C_Saudi_Arabia_-_53534952258.jpg/1280px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "alula_1",
@@ -200991,7 +200967,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Colombo es la ciudad más poblada de Sri Lanka, capital comercial y sede del Gobierno. Está situada en la costa occidental de la isla en proximidades de Sri Jayawardenapura Kotte, la capital administrativa de Sri Lanka.",
       descriptionEn: "Galle Fort, in the Bay of Galle on the southwest coast of Sri Lanka, was built first in 1588 by the Portuguese, then extensively fortified by the Dutch during the 17th century from 1649 onwards.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Cornelis_galle-La_carreta.jpg/1280px-Cornelis_galle-La_carreta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "galle_1",
@@ -204497,7 +204472,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Pamukkale travertine terraces in Denizli Province are white calcium carbonate formations created by mineral-rich thermal springs. They are part of the UNESCO World Heritage site together with Hierapolis.",
       lat: 37.92448,
       lng: 29.11901,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Mujer_musulmana_en_Pamukkale%2C_Turqu%C3%ADa_%2826486551590%29.jpg/1280px-Mujer_musulmana_en_Pamukkale%2C_Turqu%C3%ADa_%2826486551590%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "pamukkale_1",
@@ -205936,7 +205910,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Barjeel Art Foundation is a non-profit arts organisation based in Sharjah, United Arab Emirates. The foundation was established in 2010 by Emirati commentator Sultan Sooud Al Qassemi to manage and exhibit his personal art collection.",
       lat: 25.32179,
       lng: 55.37659,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c8/LogoFullColourRGB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "sharjah_1",
@@ -218258,7 +218231,6 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://en.wikipedia.org/wiki/Umhlanga",
       lat: -29.85349,
       lng: 31.01039,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Eswatini_Reed_Dance_2006_-01.jpg/1280px-Eswatini_Reed_Dance_2006_-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   kruger: [
@@ -221609,7 +221581,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Kenneth Robert Livingstone is an English politician who served as the Leader of the Greater London Council (GLC) from 1981 until the council was abolished in 1986, and as the first mayor of London from the creation of the office in 2000 until 2008.",
       lat: -17.92361,
       lng: 25.85472,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Livingstone_statue1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "livingstone_15",
@@ -225626,7 +225597,6 @@ export const CURATED_ALL: CuratedMap = {
       description: "Las balsas de totora son unas embarcaciones elaboradas desde tiempos prehispánicos a partir de tallos y hojas de totora en áreas del litoral del norte peruano como Santa Rosa, Pimentel, Huanchaco y en zonas lacustres de Bolivia como Copacabana y alrededores del lago Titicaca.",
       descriptionEn: "A balsa is a boat or ship built by various pre-Columbian South American civilizations constructed from woven reeds of the totora bulrush. They varied in size from small canoe sized personal fishing boats to large ships up to 30 metres long.",
       sourceUrl: "https://es.wikipedia.org/wiki/Balsas_de_totora",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/00_1635_Reed_Islands_of_Lake_Titicaca.jpg/1280px-00_1635_Reed_Islands_of_Lake_Titicaca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "trujillo_19",
@@ -230349,7 +230319,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Riobamba's old railway station, preserved as a historic building and the departure point for tourist train journeys in the central highlands. It is visited for its architecture and railway history.",
       lat: -1.66984,
       lng: -78.65357,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Collage_Riobamba.png/1280px-Collage_Riobamba.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "riobamba_20",
