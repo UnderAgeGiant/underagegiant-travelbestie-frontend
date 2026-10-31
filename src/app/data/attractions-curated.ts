@@ -55707,7 +55707,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "algiers_8",
-      active: true,
+      active: false,
       name: "Embajada de Francia",
       nameEn: "Embassy of France",
       nativeName: "سفارة فرنسا",
@@ -55745,7 +55745,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "algiers_10",
-      active: true,
+      active: false,
       name: "Embajada de Italia",
       nameEn: "Embassy of Italy",
       nativeName: "سفارة إيطاليا",
@@ -59269,7 +59269,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "bergen_9",
-      active: true,
+      active: false,
       name: "Ejército de Salvación, Cuerpo 1 de Bergen",
       nameEn: "Salvation Army Bergen 1st Corps",
       nativeName: "Frelsesarmeen Bergen 1. korps",
@@ -94411,7 +94411,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "queenstown_11",
-      active: true,
+      active: false,
       name: "Comisaría de Queenstown",
       nameEn: "Queenstown Police Station",
       nativeName: "Queenstown Police Station",
@@ -113175,7 +113175,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "sucre_17",
-      active: true,
+      active: false,
       name: "Parque Escuela",
       nameEn: "School Park",
       nativeName: "Parque Escuela",
@@ -126659,7 +126659,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "dangriga_17",
-      active: true,
+      active: false,
       name: "Tienda de Buceo Seemore Adventures",
       nameEn: "Seemore Adventures Dive Shop",
       nativeName: "Seemore Adventures Dive Shop",
@@ -127205,7 +127205,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "tegucigalpa_21",
-      active: true,
+      active: false,
       name: "Ministerio del Trabajo",
       nameEn: "Ministry of Labor",
       nativeName: "Ministerio del Trabajo",
@@ -140590,7 +140590,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "lasterrenas_2",
-      active: true,
+      active: false,
       name: "Banco Real de Canadá",
       nameEn: "Royal Bank of Canada",
       nativeName: "Banco Real de Canadá",
@@ -141317,7 +141317,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "santiago_dr_11",
-      active: true,
+      active: false,
       name: "Colegio Padre Emiliano Tardif",
       nameEn: "Padre Emiliano Tardif School",
       nativeName: "Colegio Padre Emiliano Tardif",
@@ -155620,7 +155620,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "luxembourgcity_6",
-      active: true,
+      active: false,
       name: "Embajada de Rusia",
       nameEn: "Embassy of Russia",
       nativeName: "Ambassade de Russie",
@@ -179609,7 +179609,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "manama_15",
-      active: true,
+      active: false,
       name: "Oficina de TerraFirma Spc",
       nameEn: "TerraFirma Spc Office",
       nativeName: "مكتب تيرافيرما إس بي سي",
@@ -180213,7 +180213,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "dhaka_24",
-      active: true,
+      active: false,
       name: "Colegio Internacional Oxford de Dhaka",
       nameEn: "Oxford International College Dhaka",
       nativeName: "ঢাকা অক্সফোর্ড ইন্টারন্যাশনাল কলেজ",
@@ -187629,7 +187629,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "wadimusa_15",
-      active: true,
+      active: false,
       name: "Hotel Mussa Spring",
       nameEn: "Mussa Spring Hotel",
       nativeName: "فندق موسى سبرينغ",
@@ -198680,7 +198680,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "medina_7",
-      active: true,
+      active: false,
       name: "Oficina de Abu Abdullah Al Yabri, Medina",
       nameEn: "Abu Abdullah Al-Jabri Office, Medina",
       nativeName: "مكتب ابو عبدالله الجابري المدينة",
@@ -211367,7 +211367,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "abidjan_3",
-      active: true,
+      active: false,
       name: "Embajada de Francia",
       nameEn: "Embassy of France",
       nativeName: "Ambassade de France",
@@ -211736,7 +211736,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "yamoussoukro_11",
-      active: true,
+      active: false,
       name: "Embajada de Francia",
       nameEn: "Embassy of France",
       nativeName: "Ambassade de France",
@@ -211861,7 +211861,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "grandbassam_6",
-      active: true,
+      active: false,
       name: "Embajada de Francia",
       nameEn: "Embassy of France",
       nativeName: "Ambassade de France",
@@ -220119,7 +220119,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "sidibousaid_2",
-      active: true,
+      active: false,
       name: "Escuela Internacional Británica de Túnez",
       nameEn: "British International School of Tunis",
       nativeName: "المدرسة البريطانية الدولية بتونس",
@@ -220348,7 +220348,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "kampala_7",
-      active: true,
+      active: false,
       name: "Capilla de la Escuela",
       nameEn: "School Chapel",
       nativeName: "School Chapel",
@@ -220838,7 +220838,7 @@ export const CURATED_ALL: CuratedMap = {
     },
     {
       id: "entebbe_13",
-      active: true,
+      active: false,
       name: "Capilla de la Escuela",
       nameEn: "School Chapel",
       nativeName: "School Chapel",

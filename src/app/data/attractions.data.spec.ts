@@ -117,7 +117,7 @@ const isPlaceholder = (t?: string | null) => !t?.trim() || PLACEHOLDER.some(re =
 
 describe('curated attraction data quality gate (2026-10-30)', () => {
   // Pinned counts. A new bad entry raises one → fail. Fixing entries lowers one → lower the number here in the same PR.
-  const BASELINE = { noCoords: 1768, noImage: 1471, placeholderEs: 569, placeholderEn: 504 };
+  const BASELINE = { noCoords: 1762, noImage: 1464, placeholderEs: 562, placeholderEn: 499 };
   const scope = Object.values(CURATED_ALL).flat()
     .filter(a => a.active && !a.id.startsWith('ft_') && a.category !== 'event_party');
   const count = (bad: (a: Attraction) => boolean) => scope.filter(bad).length;
