@@ -3948,6 +3948,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -0.55316,
       description: "Museo dedicado a la cultura del vino que recorre su historia y su presencia en el mundo mediante exposiciones interactivas; está situado en la ribera del río Garona.",
       descriptionEn: "Museum devoted to wine culture, tracing its history and presence around the world through interactive exhibitions; it is located on the banks of the Garonne River.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/%C2%A9ANAKA-2024-HD-citeExt2.jpg/3840px-%C2%A9ANAKA-2024-HD-citeExt2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bordeaux_16",
@@ -4216,6 +4217,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Centro de arte digital instalado en una antigua base de submarinos, donde proyecciones inmersivas de gran formato ocupan los muros y los diques de agua.",
       descriptionEn: "Digital art center housed in a former submarine base, where large-scale immersive projections cover the walls and water basins.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/71/Gustav_Klimt_-_d%27or_et_du_couleurs.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bordeaux_30",
@@ -4251,6 +4253,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -0.57216,
       description: "Museo de arte contemporáneo instalado en un antiguo almacén portuario del siglo XIX; presenta exposiciones temporales y una colección de arte moderno y contemporáneo.",
       descriptionEn: "Contemporary art museum housed in a 19th-century former port warehouse; it presents temporary exhibitions and a collection of modern and contemporary art.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/CAPC%2C_Bordeaux%2C_July_2014_%2809%29.JPG/3840px-CAPC%2C_Bordeaux%2C_July_2014_%2809%29.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bordeaux_32",
@@ -9526,7 +9529,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/The_Rhine%2C_legends%2C_traditions%2C_history%2C_from_Cologne_to_Mainz_%28IA_b29350232_0002%29.pdf/page1-500px-The_Rhine%2C_legends%2C_traditions%2C_history%2C_from_Cologne_to_Mainz_%28IA_b29350232_0002%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Karte_Mittelrhein.png?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       description: "El Rin medio es uno de los tramos alemanes del río Rin, el que discurre entre las ciudades de Bingen y Bonn, en que el río fluye a través de la garganta del Rin.",
       descriptionEn: "The Rhine is one of the major rivers of Europe. The river begins in the Swiss canton of Graubünden in the southeastern Swiss Alps. It forms part of the Swiss–Liechtenstein border, then part of the Swiss–Austrian border.",
     },
@@ -17884,6 +17887,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "St. James' Church is one of Hamburg's five main churches, with medieval origins and Gothic architecture. Visitors come for its interior, artworks and organ, associated with builder Arp Schnitger.",
       lat: 53.55036,
       lng: 10.00074,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Hamburg_-_Hauptkirche_St._Jacobi_%281%29.jpg/1280px-Hamburg_-_Hauptkirche_St._Jacobi_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hamburg_31",
@@ -21780,7 +21784,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 45,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Flagstaff_House_Original_Plan_1844.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/84/Flagstaff_House_02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       lat: 22.2785,
       lng: 114.1625,
       website: "http://www.lcsd.gov.hk/ce/Museum/Arts/english/tea/intro/eintro.html",
@@ -37092,6 +37096,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Norman church in Palermo with red domes and a cloister with a garden. It retains traces of its time as a mosque and is an example of Sicily's Arab-Norman architecture.",
       lat: 38.10956,
       lng: 13.3546,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Chiesa_di_San_Giovanni_degli_Eremiti_%2837751601161%29.jpg/1280px-Chiesa_di_San_Giovanni_degli_Eremiti_%2837751601161%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "palermo_20",
@@ -37360,6 +37365,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Reserva natural costera al oeste de Palermo, entre Castellammare del Golfo y San Vito Lo Capo. Ofrece senderos por acantilados, calas y vegetación mediterránea.",
       descriptionEn: "Coastal nature reserve west of Palermo, between Castellammare del Golfo and San Vito Lo Capo. It offers trails along cliffs, coves and Mediterranean vegetation.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/Riserva_dello_Zingaro_-_caletta.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "palermo_34",
@@ -47480,6 +47486,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La cascada de Keila-Joa se encuentra en el río Keila, cerca del pueblo de Keila-Joa, al oeste de Tallin. Es un salto de agua visitado por su entorno natural y por el paisaje del cañón y el parque cercano.",
       descriptionEn: "Keila-Joa Waterfall is on the Keila River near the village of Keila-Joa, west of Tallinn. It is a waterfall visited for its natural surroundings and the landscape of the canyon and nearby park.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Keila_juga_%28suvi_2011%29.jpg?utm_source=et.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tallinn_35",
@@ -47496,6 +47503,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La cantera de Rummu es una antigua cantera y prisión cercana a Rummu, en Estonia, parcialmente inundada por aguas subterráneas. Se visita para ver los edificios sumergidos y practicar buceo en un entorno industrial abandonado.",
       descriptionEn: "Rummu Quarry is a former quarry and prison near Rummu, Estonia, partly flooded by groundwater. Visitors go there to see the submerged buildings and to dive in an abandoned industrial setting.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Rummu_karj%C3%A4%C3%A4r2.jpg/3840px-Rummu_karj%C3%A4%C3%A4r2.jpg?utm_source=et.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
   ],
   tbilisi: [
@@ -47901,6 +47909,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Hill above central Tbilisi that is home to Mtatsminda Park and offers city views. It can be reached by funicular or on foot and is a common spot for overlooking the old town.",
       lat: 41.69458,
       lng: 44.78549,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Mamadaviti_church_%285%29.jpg/3840px-Mamadaviti_church_%285%29.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "tbilisi_22",
@@ -51833,6 +51842,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A wooded hill in Kalnai Park crowned by a monument of three white concrete crosses. A path leads up for views over Vilnius Old Town and Gediminas Tower.",
       lat: 54.68674,
       lng: 25.29755,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/The_Hill_of_Three_Crosses%2C_Vilnius_%2855176284797%29.jpg/1280px-The_Hill_of_Three_Crosses%2C_Vilnius_%2855176284797%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "vilnius_24",
@@ -51868,6 +51878,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 25.29028,
       description: "Una callejuela peatonal del casco antiguo de Vilnius con paredes y fachadas cubiertas de placas, esculturas y pequeños objetos de arte dedicados a escritores lituanos y extranjeros.",
       descriptionEn: "A narrow pedestrian lane in Vilnius Old Town whose walls and facades are covered with plaques, sculptures and small art objects honouring Lithuanian and foreign writers.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Literatu_by_Augustas_Didzgalvis.jpg?utm_source=lt.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "vilnius_26",
@@ -85108,6 +85119,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Bua Tong Waterfall, or Sticky Waterfall, is in the Mae Taeng area north of Chiang Mai. Its limestone rocks allow visitors to walk on the waterfall and climb its levels.",
       lat: 19.06799,
       lng: 99.07953,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%81%E0%B8%9A%E0%B8%B1%E0%B8%A7%E0%B8%95%E0%B8%AD%E0%B8%87_Buatong_Waterfall_Thailand_-_panoramio_%288%29.jpg/1280px-%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%81%E0%B8%9A%E0%B8%B1%E0%B8%A7%E0%B8%95%E0%B8%AD%E0%B8%87_Buatong_Waterfall_Thailand_-_panoramio_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "chiangmai_26",
@@ -85160,6 +85172,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Queen Sirikit Botanic Garden is in Mae Rim, north of Chiang Mai. It brings together collections of tropical plants, greenhouses, and trails in a mountain setting.",
       lat: 18.89003,
       lng: 98.86041,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Queen_Sirikit_Botanic_Garden_%28III%29.jpg/1280px-Queen_Sirikit_Botanic_Garden_%28III%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "chiangmai_29",
@@ -86596,6 +86609,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Main temple of Caodaism, a Vietnamese religion blending Buddhist, Taoist, Confucian and Catholic elements. It stands in Tay Ninh city, about 90 km from Ho Chi Minh City, and is recognizable by its towers and the Divine Eye.",
       lat: 10.62322,
       lng: 107.0552,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cao_Dai_Holy_See.jpg?utm_source=vi.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hcmc_29",
@@ -143569,6 +143583,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Stubai Glacier is a glacial area in the Stubai Alps, south of Innsbruck. It is visited for its ice and snow landscapes, with mountain facilities and seasonal skiing activities.",
       lat: 46.99188,
       lng: 11.11722,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Schaufelspitze_links%2C_Stubaier_Wildspitze_rechts.jpg/3840px-Schaufelspitze_links%2C_Stubaier_Wildspitze_rechts.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "innsbruck_22",
@@ -143697,6 +143712,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Museo de Arte Popular Tirolés ocupa un antiguo monasterio franciscano en Innsbruck. Sus salas reúnen trajes, artesanías, arte religioso y objetos de la vida tradicional del Tirol.",
       descriptionEn: "The Tyrolean Folk Art Museum occupies a former Franciscan monastery in Innsbruck. Its rooms display costumes, crafts, religious art, and objects from traditional Tyrolean life.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/65/Kreuzgang_in_Tirolervolkskunstmuseum.JPG?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "innsbruck_29",
@@ -144302,6 +144318,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Hallstatt Ossuary is a chapel next to the Catholic church that preserves decorated skulls and bones, a local funerary tradition. It is visited for its historical and cultural value.",
       lat: 47.56364,
       lng: 13.64869,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Beinhaus_Karner_Hallstatt_Austria_-_panoramio.jpg/1280px-Beinhaus_Karner_Hallstatt_Austria_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hallstatt_34",
@@ -144837,6 +144854,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 15,
       description: "La Escalera doble del castillo es una escalera gótica de doble hélice situada en el Burg de Graz. Sus dos rampas ascienden entrelazadas y comunican pisos distintos del edificio histórico.",
       descriptionEn: "The Castle Double Staircase is a Gothic double-helix staircase located in the Burg of Graz. Its two flights rise intertwined and connect different floors of the historic building.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/53/Doppelwendeltreppe_Grazer_Burg.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "graz_26",
@@ -144905,6 +144923,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Lurgrotte is a karst cave with stalactite and stalagmite formations, located in the municipalities of Peggau and Semriach near Graz. It has accessible sections and an underground route.",
       lat: 47.2163,
       lng: 15.34337,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Lurgrotte_Semriach.JPG?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "graz_30",
@@ -144939,6 +144958,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Stübing Open-Air Museum brings together historic rural buildings from different regions of Austria in a natural setting near Graz. The structures were relocated and preserved to show rural life and architecture.",
       lat: 47.15597,
       lng: 15.30889,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/2020_%C3%96sterreichisches_Freilichtmuseum_St%C3%BCbing_01.jpg/3840px-2020_%C3%96sterreichisches_Freilichtmuseum_St%C3%BCbing_01.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
   ],
   bruges: [
@@ -167687,6 +167707,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "In various Asian religious traditions, the Nāgas are a divine, or semi-divine, race of half-human, half-serpent beings that reside in the netherworld (Patala), and can occasionally take human or part-human form, or are so depicted in art.",
       lat: -8.48892,
       lng: 115.25368,
+      description: "La Galería de Arte Contemporáneo Naka corresponde al Neka Art Museum, un museo de arte en Ubud. Se visita como parte del panorama museístico y cultural de la ciudad.",
     },
     {
       id: "ubud_4",
@@ -167885,7 +167906,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Atlas_Pariwisata_2022_Bali.pdf/page1-960px-Atlas_Pariwisata_2022_Bali.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/id/d/db/Candi_Margarana.jpeg?utm_source=id.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       description: "El Monumento a la Lucha Nacional de Margarana conmemora la batalla de Margarana de 1946 y la lucha independentista balinesa. Es un sitio histórico en Marga, Tabanan, con monumentos y jardines.",
       descriptionEn: "The Margarana National Struggle Monument commemorates the 1946 Battle of Margarana and the Balinese independence struggle. It is a historical site in Marga, Tabanan, with monuments and gardens.",
     },
@@ -167939,6 +167960,8 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Gianyar Regency is a regency (kabupaten) of the province of Bali, Indonesia. It has an area of 368.0 km2 and had a population 523,973 at mid of 2022 census.",
       lat: -8.50696,
       lng: 115.2625,
+      description: "Ida Tjokorda Gde Agung Sukawati (1910–1978) fue un rey de Ubud recordado por impulsar el turismo y las artes. Es una figura histórica clave para entender el desarrollo cultural de Ubud.",
+      sourceUrl: "https://id.wikipedia.org/wiki/Tjokorda_Gde_Agung_Sukawati",
     },
     {
       id: "ubud_18",
@@ -168183,6 +168206,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Museo Le Mayeur, en Sanur, fue la casa y estudio del pintor belga Adrien-Jean Le Mayeur de Merprès. Exhibe sus pinturas y objetos de la cultura balinesa, y se visita para conocer su obra y su vínculo con Bali.",
       descriptionEn: "The Le Mayeur Museum, in Sanur, was the home and studio of Belgian painter Adrien-Jean Le Mayeur de Merprès. It displays his paintings and Balinese cultural objects, and is visited to learn about his work and his connection to Bali.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Museum_Le_Mayeur_03.jpg?utm_source=id.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "denpasar_6",
@@ -168354,6 +168378,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://balireptilepark.id/",
       description: "El Parque de Reptiles de Bali es un parque en Singapadu, Gianyar, dedicado a reptiles y anfibios. Se visita para observar serpientes, cocodrilos, tortugas y otras especies en recintos y exhibiciones.",
       descriptionEn: "Badung Regency is a regency (kabupaten) of the province of Bali, Indonesia. Its regency seat is in the upland town of Mangupura. It covers districts to the west of the provincial capital of Denpasar, and it has a land area of 398.75 km2.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Komodo_Indonesian_Fauna_Museum.jpg?utm_source=id.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "denpasar_16",
@@ -168401,8 +168426,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1664786634148-926ab20b05c5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQdXJhJTIwU3VzdW5hbiUyMFdhZG9uJTIwS3V0YSUyMCUyRiUyMERlbnBhc2FyJTIwSW5kb25lc2lhfGVufDF8MHx8fDE3ODMxMTA2NzZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Pura Susunan Wadon es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Pura Susunan Wadon is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Conjunto templario construido en el siglo XVI, en tiempos del reino de Mengwi, y ordenado según el concepto balinés Tri Mandala. En el recinto se conservan objetos arqueológicos, entre ellos un prasada y varias arca (esculturas).",
+      descriptionEn: "A temple complex built in the 16th century during the Mengwi kingdom and laid out according to the Balinese Tri Mandala concept. The grounds preserve archaeological objects, including a prasada shrine and several arca (stone sculptures).",
     },
     {
       id: "denpasar_19",
@@ -169257,6 +169282,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 110.4234,
       description: "Museo en Kaliurang, en las faldas del Merapi, dedicado a la cultura javanesa y a las cortes de Yogyakarta y Surakarta; exhibe batik, objetos históricos y fotografías.",
       descriptionEn: "Museum in Kaliurang, on the slopes of Merapi, dedicated to Javanese culture and the courts of Yogyakarta and Surakarta; it displays batik, historical objects and photographs.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Papan_penanda_di_area_Museum_Ullen_Sentalu%2C_Kaliurang.jpg?utm_source=id.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "yogyakarta_44",
@@ -169273,6 +169299,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Cueva en Gunungkidul con un río subterráneo que se recorre en neumático entre formaciones rocosas; es una excursión frecuente desde Yogyakarta.",
       descriptionEn: "Cave in Gunungkidul with an underground river traveled by inner tube among rock formations; it is a frequent excursion from Yogyakarta.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/33/Pindul_Cave%2C_Indonesia.JPG?utm_source=id.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "yogyakarta_45",
@@ -169327,6 +169354,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Beach in Gunungkidul with a rock offshore reached by a manual gondola or a suspension bridge; it is known for its cliff landscape and surf.",
       lat: -8.17565,
       lng: 110.66328,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Gondala_pantai_Timang_-_Gunung_Kidul%2C_DIY.jpg/3840px-Gondala_pantai_Timang_-_Gunung_Kidul%2C_DIY.jpg?utm_source=id.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
   ],
   malacca: [
@@ -169539,6 +169567,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Saint Paul's Church is a historic church building in Malacca City, Malaysia, that was originally built from 1566 to 1590. It is the oldest European building east of India and the oldest surviving church building in Southeast Asia and the Far East.",
       lat: 2.19266,
       lng: 102.24962,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Church_of_Saint_Paul_and_a_lighthouse_in_Malacca.jpg/1280px-Church_of_Saint_Paul_and_a_lighthouse_in_Malacca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "malacca_12",
@@ -169895,6 +169924,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Malacca Maritime Museum is housed in a replica of the Portuguese ship Flor de la Mar. Its rooms show the maritime and commercial history of Malacca and the region.",
       lat: 2.19185,
       lng: 102.24644,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/%22Flora_de_la_Mar%22_at_the_Maritime_Museum_%2812648436893%29.jpg/1280px-%22Flora_de_la_Mar%22_at_the_Maritime_Museum_%2812648436893%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "malacca_33",
@@ -169964,6 +169994,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "El Museo de Historia y Etnografía de Malaca ocupa el edificio del Stadthuys y reúne piezas sobre la historia local y las culturas de la región. Se visita para contextualizar el pasado colonial y multicultural de Malaca.",
       descriptionEn: "The Malacca Museum of History and Ethnography occupies the Stadthuys building and gathers pieces on local history and the region's cultures. It is visited to contextualize Malacca's colonial and multicultural past.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ac/History_%26_Ethnography_Museum.JPG?utm_source=ms.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "malacca_37",
@@ -170458,6 +170489,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Pulau Dayang Bunting, the Island of the Pregnant Maiden, has a freshwater lake surrounded by rainforest and karst hills; it is visited on boat trips from Langkawi.",
       lat: 6.2317,
       lng: 99.80019,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Pulau_Dayang_Bunting_-_pangkalan.jpg?utm_source=ms.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "langkawi_27",
@@ -170493,6 +170525,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Telaga Tujuh, or Seven Wells, is a waterfall made up of a series of natural pools on the slope of Mount Machinchang; it is reached by a trail through the rainforest.",
       lat: 6.38177,
       lng: 99.67288,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Air_Terjun_Telaga_Tujuh.jpg/1280px-Air_Terjun_Telaga_Tujuh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "langkawi_29",
@@ -170526,6 +170559,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "Las excursiones de isla en isla salen en lancha desde Langkawi y recorren islas cercanas como Dayang Bunting y Beras Basah, con paradas para nadar y observar el paisaje.",
       descriptionEn: "Island-hopping tours leave by boat from Langkawi and visit nearby islands such as Dayang Bunting and Beras Basah, with stops for swimming and viewing the landscape.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Perhentian_Kecil_from_far.JPG?utm_source=ms.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "langkawi_31",
@@ -170613,6 +170647,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 99.6742,
       description: "Datai es una playa de arena en el noroeste de Langkawi, rodeada de selva tropical y colinas; sus aguas son tranquilas y forma parte de una zona de resorts.",
       descriptionEn: "Datai is a sandy beach in northwest Langkawi, surrounded by tropical rainforest and hills; its waters are calm and it is part of a resort area.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/The_Datai_Beach_Langkawi_-_panoramio.jpg/1280px-The_Datai_Beach_Langkawi_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "langkawi_36",
@@ -170631,6 +170666,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Pulau Payar Marine Park is a marine reserve with coral reefs and clear waters; it is visited on day trips for swimming and snorkeling.",
       lat: 6.07404,
       lng: 100.05621,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Malaysia_Pulau_Payar.JPG?utm_source=ms.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "langkawi_37",
@@ -173896,6 +173932,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Jurong Lake Gardens are the three interconnected gardens located in and around Jurong Lake in western Singapore, they being the Chinese, Japanese, and Lakeside gardens.",
       lat: 1.34241,
       lng: 103.73255,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Chinese_Garden_Station_to_Exit_B_10-11-2023.jpg/1280px-Chinese_Garden_Station_to_Exit_B_10-11-2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "singaporecity_18",
@@ -174008,6 +174045,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Upper Peirce Reservoir is Singapore's fourth reservoir. The 6-hectare Upper Peirce Reservoir Park overlooks the Upper Peirce Reservoir.",
       lat: 1.37292,
       lng: 103.81111,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Upper_Peirce_Reservoir_01.jpg/1280px-Upper_Peirce_Reservoir_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "singaporecity_24",
@@ -174097,6 +174135,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "\"A Visit to the Museum\" is a cultural program or experience associated with one of Singapore's museums, designed to guide visitors through its collections and exhibitions.",
       lat: 1.29418,
       lng: 103.84932,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Plaque_of_Chern_Lian_Shan%2C_A_Visit_to_the_Museum_%E2%80%93_Taking_the_Past_Forward_%28installed_2000%29%2C_Peranakan_Museum%2C_Singapore_-_20151116.jpg/1280px-Plaque_of_Chern_Lian_Shan%2C_A_Visit_to_the_Museum_%E2%80%93_Taking_the_Past_Forward_%28installed_2000%29%2C_Peranakan_Museum%2C_Singapore_-_20151116.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "singaporecity_29",
@@ -174220,6 +174259,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Little India is an ethnic enclave in Singapore, located east of the Singapore River, across from Chinatown and north of Kampong Glam. It is commonly known as Tekka among Singapore's Indian community.",
       lat: 1.30684,
       lng: 103.84928,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/2016_Singapur%2C_Little_India%2C_Ulica_Kerbau%2C_Domy-sklepy_%2801%29.jpg/1280px-2016_Singapur%2C_Little_India%2C_Ulica_Kerbau%2C_Domy-sklepy_%2801%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "singaporecity_36",
@@ -174277,6 +174317,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Big Buddha of Phuket is a roughly 45-meter-tall marble-clad statue atop Nakkerd Hill in the south of the island, and one of Phuket's most-visited viewpoints.",
       lat: 7.82774,
       lng: 98.31281,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/The_Big_Buddha_statues_%2853667853716%29.jpg/1280px-The_Big_Buddha_statues_%2853667853716%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "phuket_2",
@@ -174448,6 +174489,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Old Phuket Town preserves streets lined with 19th-century Sino-Portuguese architecture, a legacy of the prosperous Chinese trading community that settled on the island during the tin-mining boom.",
       lat: 7.88478,
       lng: 98.38922,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Murals_in_Phuket_Town.jpg/1280px-Murals_in_Phuket_Town.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "phuket_12",
@@ -174626,6 +174668,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Patong refers to the beach and town on Phuket's west coast. It is the main tourist resort on the island of Phuket, and is the centre of Phuket's nightlife and shopping. The beach became popular with Western tourists, especially Europeans, in the late-1980s.",
       lat: 7.89663,
       lng: 98.29543,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Beautiful_girls_at_Phuket_Bike_Week_2019%2C_Patong_beach%2C_Thailand_%2847780338252%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "phuket_22",
@@ -181336,6 +181379,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Batumi Art Museum displays paintings and decorative arts from Georgia and Europe, including works by local and Caucasus artists. It is a stop to see Adjara's art collection.",
       lat: 41.64862,
       lng: 41.63386,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/State_Art_Museum_of_Adjara.jpg/3840px-State_Art_Museum_of_Adjara.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "batumi_2",
@@ -181370,6 +181414,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Batumi Archaeological Museum is a museum in Batumi, in Georgia's Adjara region. It houses archaeological finds from the area and displays objects ranging from prehistory to the Middle Ages.",
       lat: 41.64315,
       lng: 41.63214,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Batumi._Archaeological_Museum_in_Chavchavadze_Street.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "batumi_4",
@@ -181455,6 +181500,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Batumi's state drama theatre, named after the Georgian writer Ilia Chavchavadze, staging works by Georgian and foreign playwrights in the city centre.",
       lat: 41.65282,
       lng: 41.63834,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/%D0%90%D0%B4%D0%B6%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B8%D0%B9_%D0%B4%D1%80%D0%B0%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D1%96%D0%BC%D0%B5%D0%BD%D1%96_%D0%86%D0%BB%D0%BB%D1%96_%D0%A7%D0%B0%D0%B2%D1%87%D0%B0%D0%B2%D0%B0%D0%B4%D0%B7%D0%B5.jpg/3840px-%D0%90%D0%B4%D0%B6%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B8%D0%B9_%D0%B4%D1%80%D0%B0%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D1%96%D0%BC%D0%B5%D0%BD%D1%96_%D0%86%D0%BB%D0%BB%D1%96_%D0%A7%D0%B0%D0%B2%D1%87%D0%B0%D0%B2%D0%B0%D0%B4%D0%B7%D0%B5.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "batumi_9",
@@ -181520,6 +181566,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Mosque in Batumi's old town known as Orta Jame, serving the local Muslim community and standing among the historic buildings of the central district.",
       lat: 41.64869,
       lng: 41.64377,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Batumi_Mosque.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "batumi_13",
@@ -181810,6 +181857,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Tree-lined seaside promenade along the Black Sea running through the city with parks, fountains and bike paths; its layout dates to the late 19th century and it is a common place for walking and cycling.",
       lat: 41.65361,
       lng: 41.63454,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Batumi_Boulevard_Colonnades_%28cropped%29.jpg/1280px-Batumi_Boulevard_Colonnades_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "batumi_31",
@@ -201664,6 +201712,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Cihou Fort stands on Cijin Island, facing Kaohsiung Harbor. It is a 19th-century fortification with walls, gates and cannons, and offers views of the sea and the city.",
       lat: 22.61316,
       lng: 120.26418,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Cihou_Fort_03_20250930.jpg/1280px-Cihou_Fort_03_20250930.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kaohsiung_6",
@@ -201758,6 +201807,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Former British Consulate at Takao Cultural Park occupies a hill facing Kaohsiung Harbor. It brings together restored 19th-century buildings that served as the British consular office and offers views of the port and the city.",
       lat: 22.61828,
       lng: 120.26721,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Robert_Swinhoe_exhibit%2C_Former_British_Consulate_at_Takao%2C_Kaohsiung%2C_Taiwan%2C_2024_12_17_112841.jpg/1280px-Robert_Swinhoe_exhibit%2C_Former_British_Consulate_at_Takao%2C_Kaohsiung%2C_Taiwan%2C_2024_12_17_112841.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kaohsiung_11",
@@ -201857,6 +201907,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Spring and Autumn Pavilions are twin pavilions on Lotus Pond in Kaohsiung, linked by an arched bridge. They are dedicated to Guanyin and form part of a religious and scenic complex.",
       lat: 22.68225,
       lng: 120.29283,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Dragon_tunnel_at_the_Spring_and_Autumn_Pavilions_%E6%98%A5%E7%A7%8B%E9%96%A3_Kaohsiung_%282026%29_-_IMG_02.jpg/1280px-Dragon_tunnel_at_the_Spring_and_Autumn_Pavilions_%E6%98%A5%E7%A7%8B%E9%96%A3_Kaohsiung_%282026%29_-_IMG_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kaohsiung_17",
@@ -202312,6 +202363,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A Confucian temple founded in the 17th century in central Tainan. It is visited for its traditional architecture, courtyards, and its link to the city’s educational and ritual history.",
       lat: 22.9903,
       lng: 120.20425,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/%E5%8F%B0%E5%8D%97%E5%AD%94%E5%BB%9F_Tainan_Confucian_Temple_-_panoramio_%281%29.jpg/1280px-%E5%8F%B0%E5%8D%97%E5%AD%94%E5%BB%9F_Tainan_Confucian_Temple_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "tainan_2",
