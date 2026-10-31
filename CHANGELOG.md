@@ -4,6 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-10
+- test(data): CI gate on curated attraction coordinates, photos and descriptions (#179)
 - data(attractions): backfill coordinates, photos and placeholder text (#178)
 - data(attractions): city enrichment waves 4–21 (165 cities) (#173)
 - feat(editor): full plan view, list order, once-per-device tour, Miel Runner audio (#172)
