@@ -110,3 +110,24 @@ describe('curated data hygiene (QA 2026-10-09)', () => {
     }
   });
 });
+
+// Same rule as needsWork in lib/backfill-geo-images.mjs (root repo); PLACEHOLDER copies lib/backfill-lib.mjs. Change both together.
+const PLACEHOLDER = [/es un lugar recomendado para visitar/i, /is a recommended place to visit/i, /traducción al español del artículo/i, /^Wikimedia disambiguation page$/i];
+const isPlaceholder = (t?: string | null) => !t?.trim() || PLACEHOLDER.some(re => re.test(t));
+
+describe('curated attraction data quality gate (2026-10-30)', () => {
+  // Pinned counts. A new bad entry raises one → fail. Fixing entries lowers one → lower the number here in the same PR.
+  const BASELINE = { noCoords: 1768, noImage: 1471, placeholderEs: 569, placeholderEn: 504 };
+  const scope = Object.values(CURATED_ALL).flat()
+    .filter(a => a.active && !a.id.startsWith('ft_') && a.category !== 'event_party');
+  const count = (bad: (a: Attraction) => boolean) => scope.filter(bad).length;
+
+  it.each([
+    ['noCoords', (a: Attraction) => a.lat == null && a.lng == null],
+    ['noImage', (a: Attraction) => !a.imageUrl],
+    ['placeholderEs', (a: Attraction) => isPlaceholder(a.description)],
+    ['placeholderEn', (a: Attraction) => isPlaceholder(a.descriptionEn)],
+  ] as const)('%s count matches the pinned baseline (run lib/backfill-geo-images.mjs on new cities)', (key, bad) => {
+    expect(count(bad)).toBe(BASELINE[key]);
+  });
+});
