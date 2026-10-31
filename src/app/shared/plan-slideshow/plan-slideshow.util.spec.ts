@@ -4,9 +4,10 @@ import { TripStop, TransitLeg } from '../../core/models/trip.model';
 const PARIS_0_IMAGE = 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Seine_by_Eiffel.jpg/1280px-Seine_by_Eiffel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail';
 // Task 6 (city-guide-pages, 2026-09-22) re-resolved paris_0 against its real Wikipedia article
 // ("Riberas del Sena en París") — updated description text; no English Wikidata sitelink was
-// found, so descriptionEn was cleared and the English item now falls back to the Spanish text.
+// found, so descriptionEn was cleared. The 2026-10-29 geo/photo backfill filled the empty
+// descriptionEn, so the English item now has its own text.
 const PARIS_0_DESC_ES = 'Sobre las orillas del Sena en París se pueden contemplar algunos de los más bellos monumentos de la capital de Francia, de la Torre Eiffel a Notre-Dame pasando por la Concordia, pero también los puentes históricos que las unen.';
-const PARIS_0_DESC_EN = PARIS_0_DESC_ES;
+const PARIS_0_DESC_EN = 'The Banks of the Seine in Paris are the network of quays, bridges and historic buildings along the river as it crosses the city. They are a UNESCO World Heritage site, visited for their architecture and the urban landscape shaped by the Seine.';
 
 const PARIS_STOP: TripStop = {
   stopId: 'stop-1',
