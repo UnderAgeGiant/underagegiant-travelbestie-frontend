@@ -150,6 +150,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Agra_03-2016_03_view_from_Mehtab_Bagh.jpg/1920px-Agra_03-2016_03_view_from_Mehtab_Bagh.jpg",
       description: "Mehtab Bagh es un complejo de jardín mogol tipo charbagh en Agra, al norte de India. Se ubica frente al Taj Mahal y al fuerte de Agra, al otro lado del río Yamuna, en la llanura de inundación.",
       descriptionEn: "Mehtab Bagh is a charbagh complex in Agra, North India. It lies north of the Taj Mahal complex and the Agra Fort on the opposite side of the Yamuna River, in the flood plains.",
+      lat: 27.17972,
+      lng: 78.04194,
     },
     {
       id: "agra_8",
@@ -201,6 +203,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Mariam%27s_Tomb%2C_Sikandra%2C_Agra.JPG/1920px-Mariam%27s_Tomb%2C_Sikandra%2C_Agra.JPG",
       description: "La Tumba de Mariam es el mausoleo de Mariam-uz-Zamani, comúnmente conocida por el nombre erróneo de Jodha Bai, la esposa favorita del emperador mogol Akbar.",
       descriptionEn: "The Tomb of Mariam-uz-Zamani or Mariam's tomb is the mausoleum of Mariam-uz-Zamani, commonly known by the misnomer Jodha Bai, the favorite wife of the Mughal Emperor Akbar.",
+      lat: 27.2153,
+      lng: 77.9428,
     },
     {
       id: "agra_11",
@@ -217,6 +221,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Chini_ki_Rauza_10.jpg/1920px-Chini_ki_Rauza_10.jpg",
       description: "Chini ka Rauza es un monumento funerario en Agra, India, que contiene la tumba de Afzal Khan Shirazi, erudito y poeta que fue gran visir del emperador mogol Shah Jahan. La tumba fue construida en 1635.",
       descriptionEn: "Chini ka Rauza is a funerary monument, rauza in Agra, India, containing the tomb of Afzal Khan Shirazi, a scholar and poet who was the Grand Vizier of the Mughal Emperor Shah Jahan. The tomb was built in 1635.",
+      lat: 27.20083,
+      lng: 78.03417,
     },
     {
       id: "agra_12",
@@ -377,7 +383,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-      description: "Um er-Rasas (Kastrom Mefa'a) es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Yacimiento arqueológico a unos 30 km al sureste de Madaba, inscrito como Patrimonio de la UNESCO, con ruinas romanas, bizantinas e islámicas tempranas, entre ellas iglesias con pisos de mosaico.",
       descriptionEn: "Umm ar-Rasas is located 30 km southeast of Madaba in the Amman Governorate in central Jordan. It was once accessible by branches of the King's Highway, and is situated in the semi-arid steppe region of the Jordanian Desert.",
     },
     {
@@ -393,7 +399,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/03/Qasr_Amra_-_36646245316.jpg",
-      description: "Quseir Amra es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Castillo del desierto omeya situado a unos 85 km al este de Amman, Patrimonio de la UNESCO, conocido por los frescos figurados que decoran sus baños y su sala de recepción.",
       descriptionEn: "Qusayr 'Amra or Quseir Amra, sometimes also named Qasr Amra, is the best-known of the desert castles located in present-day eastern Jordan.",
     },
     {
@@ -428,6 +434,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://jordanmuseum.jo/",
       description: "El Museo de Jordania se encuentra en el distrito de Ras Al-Ein en Amán, Jordania. Construido en 2014, el museo es el más grande de Jordania y alberga los hallazgos arqueológicos más importantes del país.",
       descriptionEn: "The Children's Museum Jordan is a children's museum in Amman, Jordan. It is part of Al Hussein Public Parks.",
+      lat: 31.94565,
+      lng: 35.92652,
     },
     {
       id: "amman_4",
@@ -443,8 +451,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Royal_Tank_Museum_20.jpg/1920px-Royal_Tank_Museum_20.jpg",
       website: "https://rtm.jo/",
-      description: "متحف الدبابات الملكي es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo Real de Tanques, es un museo militar ubicado en Amán, capital de Jordania. Es el primero de su tipo en el mundo árabe y uno de los mayores museos históricos de tanques del mundo. Fue inaugurado el 29 de enero de 2018.",
       descriptionEn: "The Royal Tank Museum is a military museum in Amman, Jordan, inaugurated on January 29, 2018. Located next to the King Abdullah II Park in Al Muqabalain.",
+      lat: 31.90861,
+      lng: 35.92444,
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_Real_de_Tanques",
     },
     {
       id: "amman_5",
@@ -459,8 +470,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/%D9%85%D8%AA%D8%AD%D9%81_%D8%A7%D9%84%D9%82%D9%84%D8%B9%D8%A9.jpg/1920px-%D9%85%D8%AA%D8%AD%D9%81_%D8%A7%D9%84%D9%82%D9%84%D8%B9%D8%A9.jpg",
-      description: "متحف القلعة es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "متحف القلعة is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo arqueológico ubicado en la colina de la Ciudadela, en el centro de Amman, con piezas halladas en yacimientos jordanos que abarcan desde la prehistoria hasta la época islámica.",
+      descriptionEn: "Archaeological museum on Citadel Hill in central Amman, holding objects found at Jordanian sites and ranging from prehistoric to Islamic times.",
+      lat: 31.95414,
+      lng: 35.93429,
     },
     {
       id: "amman_6",
@@ -475,8 +488,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Jordan_Royal_Automobile_Museum_3.JPG/1920px-Jordan_Royal_Automobile_Museum_3.JPG",
-      description: "Royal Automobile Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo en el oeste de Amman dedicado a la colección de automóviles y motocicletas que perteneció al rey Hussein, con vehículos históricos, motos y algunos prototipos.",
       descriptionEn: "The Royal Automobile Museum is an automobile museum in Amman, Jordan. It is the first public automotive museum in the Arab region.",
+      lat: 31.98411,
+      lng: 35.82597,
     },
     {
       id: "amman_7",
@@ -491,8 +506,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Model_of_the_Nymphaeum_in_Amman%2C_2024.jpg/1920px-Model_of_the_Nymphaeum_in_Amman%2C_2024.jpg",
-      description: "Mona Saudi fue una escultora, editora y activista jordana.",
+      description: "Restos de una fuente monumental de época romana, del siglo II d.C., en el centro de Amman, junto a la calle Quraysh; se conservan parte de su estructura y columnas.",
       descriptionEn: "The Nymphaeum is a partially preserved Roman public fountain in Amman, Jordan.",
+      lat: 31.95046,
+      lng: 35.93609,
     },
     {
       id: "amman_8",
@@ -523,8 +540,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Umayyed_Palace-Amman_Citadel.jpg/1920px-Umayyed_Palace-Amman_Citadel.jpg",
-      description: "تل القلعة es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "تل القلعة is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Colina en el centro de Amman con vestigios de varias épocas, entre ellos el templo romano de Hércules, una iglesia bizantina y un palacio omeya, además de vistas sobre la ciudad.",
+      descriptionEn: "Hill in central Amman with remains from several periods, including the Roman Temple of Hercules, a Byzantine church and an Umayyad palace, as well as views over the city.",
+      lat: 31.95492,
+      lng: 35.93433,
     },
     {
       id: "amman_10",
@@ -539,8 +558,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Automobile_royal_museum_Amman.JPG/1920px-Automobile_royal_museum_Amman.JPG",
-      description: "حدائق الحسين es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "حدائق الحسين is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Conjunto de parques públicos en el oeste de Amman con áreas verdes, senderos y zonas recreativas; en sus terrenos se encuentran el Museo Real del Automóvil y la mezquita del rey Hussein.",
+      descriptionEn: "Al Hussein Park is a public park in Amman, Jordan that continues to be under construction.",
+      lat: 31.986,
+      lng: 35.828,
     },
     {
       id: "amman_11",
@@ -571,8 +592,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Amman_BW_29.JPG/1920px-Amman_BW_29.JPG",
-      description: "مسجد الملك عبد الله es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Mezquita en el oeste de Amman terminada a fines de la década de 1980, reconocible por su gran cúpula azul y sus dos minaretes; en su interior funciona un museo islámico.",
       descriptionEn: "The King Abdullah I Mosque is a mosque, located in Amman, Jordan. Named in honour of Abdullah I, the mosque was built between 1982 and 1989 and is capped by a blue mosaic dome beneath which 3,000 Muslims may offer prayer. It is in the Abdali area of the city.",
+      lat: 31.96117,
+      lng: 35.91287,
     },
     {
       id: "amman_13",
@@ -813,6 +836,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Temple_of_Hercules_-_Amman_citadel.jpg/1280px-Temple_of_Hercules_-_Amman_citadel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Templo de Hércules se encuentra en la Ciudadela de Amán y conserva columnas y restos de un templo romano del siglo II. Se visita por su relación con la historia romana de la ciudad y las vistas desde la colina.",
       descriptionEn: "The Temple of Hercules is located in the Amman Citadel and preserves columns and remains of a 2nd-century Roman temple. It is visited for its connection to the city's Roman history and the views from the hill.",
+      lat: 31.95376,
+      lng: 35.93486,
     },
     {
       id: "amman_26",
@@ -846,6 +871,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Scene_in_front_of_Amman%27s_Husseini_mosque%2C_1950s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "La Mezquita Al-Husseini es una mezquita del centro de Amán, construida en el siglo XX sobre el sitio de una mezquita anterior. Destaca por su arquitectura y su ubicación cerca de los mercados del centro.",
       descriptionEn: "Al-Husseini Mosque is a mosque in downtown Amman, built in the 20th century on the site of an earlier mosque. It stands out for its architecture and its location near the downtown markets.",
+      lat: 31.94961,
+      lng: 35.93469,
     },
     {
       id: "amman_28",
@@ -5712,6 +5739,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Nacional_Ferroviario_Ra%C3%BAl_Scalabrini_Ortiz",
       lat: -34.58972,
       lng: -58.37861,
+      descriptionEn: "The Museo Nacional Ferroviario Raúl Scalabrini Ortiz preserves and displays Argentina's railway heritage, including historical, technical and documentary material. It is based in the City of Buenos Aires.",
     },
     {
       id: "buenosaires_2",
@@ -5751,6 +5779,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_Arte_Popular_Jos%C3%A9_Hern%C3%A1ndez",
       lat: -34.5803,
       lng: -58.4049,
+      descriptionEn: "The Museo de Arte Popular José Hernández focuses on Argentine popular art and crafts. Its collection includes pieces from different regions and traditions, and it operates in Buenos Aires.",
     },
     {
       id: "buenosaires_4",
@@ -5790,6 +5819,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_del_Holocausto_(Buenos_Aires)",
       lat: -34.5982,
       lng: -58.3897,
+      descriptionEn: "The Museo del Holocausto in Buenos Aires documents the Shoah and the history of Jewish communities. It displays testimonies, objects and educational material about the Nazi genocide.",
     },
     {
       id: "buenosaires_6",
@@ -5917,6 +5947,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Bas%C3%ADlica_de_San_Jos%C3%A9_de_Flores",
       lat: -34.62917,
       lng: -58.46327,
+      descriptionEn: "The Basílica de San José de Flores is a Catholic church in the Flores neighborhood of Buenos Aires. Its history dates back to the old parish, and it is a local landmark.",
     },
     {
       id: "buenosaires_13",
@@ -5936,6 +5967,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Casa_de_Ricardo_Rojas",
       lat: -34.5939,
       lng: -58.4065,
+      descriptionEn: "The Casa de Ricardo Rojas is a house museum in Buenos Aires dedicated to the Argentine writer Ricardo Rojas. It preserves his library, personal objects and original rooms.",
     },
     {
       id: "buenosaires_14",
@@ -5955,6 +5987,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_la_Pasi%C3%B3n_Boquense",
       lat: -34.63667,
       lng: -58.36474,
+      descriptionEn: "The Museo de la Pasión Boquense is in La Boca and traces the history of Club Atlético Boca Juniors. It displays trophies, jerseys and objects related to the club and its stadium.",
     },
     {
       id: "buenosaires_15",
@@ -6326,6 +6359,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -58.37283,
       description: "El Mercado San Telmo es un gran mercado bajo techo que se encuentra en el barrio de San Telmo de la ciudad de Buenos Aires, Argentina. Aunque conserva antiguos comercios de venta de verduras y carnes, en la actualidad es un lugar turístico y abundan los anticuarios.",
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_San_Telmo",
+      descriptionEn: "Mercado San Telmo is a covered market in Buenos Aires with stalls selling food and other products. It occupies a historic building in the San Telmo neighborhood.",
     },
     {
       id: "buenosaires_34",
@@ -6445,6 +6479,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -58.50003,
       description: "La Feria de Mataderos, oficialmente Feria de las Artesanías y Tradiciones Populares Argentinas, se halla en el barrio de Mataderos de la ciudad de Buenos Aires, Argentina.",
       sourceUrl: "https://es.wikipedia.org/wiki/Feria_de_Mataderos",
+      descriptionEn: "La Feria de Mataderos is a traditional fair in the Mataderos neighborhood of Buenos Aires. It brings together craft stalls, food and expressions of gaucho culture.",
     },
     {
       id: "buenosaires_40",
@@ -6463,6 +6498,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -58.41729,
       description: "El Rosedal de Palermo, también denominado Paseo del Rosedal, es un tradicional jardín ubicado en el barrio de Palermo de la Ciudad de Buenos Aires, Argentina, que forma parte del conjunto paisajístico del Parque Tres de Febrero.",
       sourceUrl: "https://es.wikipedia.org/wiki/Rosedal_de_Palermo",
+      descriptionEn: "The Rosedal de Palermo is a rose garden within Parque Tres de Febrero in Buenos Aires. It has paths, a lake and collections of rose bushes.",
     },
     {
       id: "buenosaires_41",
@@ -6520,6 +6556,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -58.41092,
       description: "El Mercado de Abasto proveedor de Buenos Aires fue un mercado proveedor de frutas y verduras ubicado en Avenida Corrientes 3247, en Buenos Aires, Argentina.",
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_de_Abasto_de_Buenos_Aires",
+      descriptionEn: "The Mercado de Abasto de Buenos Aires was the city's former wholesale market. Its historic building in Balvanera has operated as a shopping center since the late 20th century.",
     },
   ],
   cairo: [
@@ -8803,7 +8840,7 @@ export const CURATED_ALL: CuratedMap = {
         currency: "USD",
         adult: "USD 11.83",
       },
-      description: "Chengdu es una ciudad ubicada en el suroeste de China y capital de la provincia de Sichuan. Sirve como un centro económico y de transporte en la región. En 2020, Chengdu tenía una población de aproximadamente 21 millones de personas.",
+      description: "El monte Qingcheng es una montaña taoísta cerca de Dujiangyan, y el sistema de riego de Dujiangyan es una obra hidráulica antigua que desvía el río Min. Ambos están a un día de viaje desde Chengdu e integran el patrimonio mundial.",
       descriptionEn: "The Dujiangyan is an ancient hydraulic engineering system in Dujiangyan City, Sichuan, China. Originally constructed around 256 BC by the State of Qin as an irrigation and flood control project, it is still in use today.",
     },
     {
@@ -8820,8 +8857,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/%E6%88%90%E9%83%BD%E7%9A%84%E6%AD%A6%E4%BE%AF%E7%A5%A0.jpg/1920px-%E6%88%90%E9%83%BD%E7%9A%84%E6%AD%A6%E4%BE%AF%E7%A5%A0.jpg",
       website: "https://www.wuhouci.net.cn/index.html",
-      description: "Wuhou léase Uú-Jóu es un distrito urbano bajo la administración directa de la Subprovincia de Chengdu, capital provincial de Sichuan. El distrito se extiende en una llanura con una altitud promedio de 500 m s. n.",
+      description: "El Templo del Marqués Wu es un conjunto conmemorativo y museo en Chengdu dedicado a Liu Bei y Zhuge Liang, figuras del período de los Tres Reinos. Incluye salas tradicionales, estatuas y jardines.",
       descriptionEn: "Wuhou District is a central urban district of the City of Chengdu, capital of Sichuan, China.",
+      lat: 30.64831,
+      lng: 104.04703,
     },
     {
       id: "chengdu_2",
@@ -8839,6 +8878,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.cdmuseum.com/",
       description: "Museo de Chengdu es un museo municipal público ubicado en la ciudad de Chengdu, Sichuan, China.",
       descriptionEn: "Chengdu is the capital city of the Chinese province of Sichuan. With a population of 20,937,757 at the 2020 census, it is the country's fourth most populous city and the only city with a population of over 20 million apart from provincial-level municipalities.",
+      lat: 30.65973,
+      lng: 104.0612,
     },
     {
       id: "chengdu_3",
@@ -8854,8 +8895,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E6%9C%9B%E6%B1%9F%E6%A5%BC%E5%85%AC%E5%9B%AD%E4%BB%8B%E7%BB%8D.jpg/1920px-%E6%9C%9B%E6%B1%9F%E6%A5%BC%E5%85%AC%E5%9B%AD%E4%BB%8B%E7%BB%8D.jpg",
       website: "https://www.wangjianglou.com/",
-      description: "望江楼公园 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Wangjianglou es un parque de Chengdu con una torre histórica, bambúes y el memorial de la poeta Xue Tao. Sus jardines y edificios tradicionales se encuentran junto al río Jin.",
       descriptionEn: "The following is a list of stations found within the Chengdu Metro.",
+      lat: 30.63189,
+      lng: 104.08988,
     },
     {
       id: "chengdu_4",
@@ -8886,8 +8929,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/%E9%87%91%E6%B2%99%E9%81%97%E5%9D%80%E5%8D%9A%E7%89%A9%E9%A6%86_Jinsha_Site_Museum_5.jpg/1920px-%E9%87%91%E6%B2%99%E9%81%97%E5%9D%80%E5%8D%9A%E7%89%A9%E9%A6%86_Jinsha_Site_Museum_5.jpg",
-      description: "金沙遗址博物馆 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo del Yacimiento de Jinsha exhibe hallazgos arqueológicos de la cultura Shu, como objetos de oro, jade y bronce, en el sitio donde fueron excavados. Se ubica en el oeste de Chengdu.",
       descriptionEn: "Chengdu is the capital city of the Chinese province of Sichuan. With a population of 20,937,757 at the 2020 census, it is the country's fourth most populous city and the only city with a population of over 20 million apart from provincial-level municipalities.",
+      lat: 30.68415,
+      lng: 104.01032,
     },
     {
       id: "chengdu_6",
@@ -8950,8 +8995,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Chengdu_Metro_Zhaojuesi_Road_South_Station_14_52_35_483000.jpeg/1920px-Chengdu_Metro_Zhaojuesi_Road_South_Station_14_52_35_483000.jpeg",
-      description: "昭觉寺 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Templo de Zhaojue es un templo budista en Chengdu con salas tradicionales y jardines. Es un centro monástico activo y forma parte de la historia religiosa de la ciudad.",
       descriptionEn: "Zhaojuesi South Road ,formerly known as Zhaojuesi Road South, is a station on Line 3 of the Chengdu Metro in China.",
+      lat: 30.70811,
+      lng: 104.10347,
     },
     {
       id: "chengdu_10",
@@ -8968,6 +9015,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/%E6%88%90%E9%83%BD%E5%9C%B0%E9%93%812%E5%8F%B7%E7%BA%BF%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD%E7%AB%99%E5%8F%B0.jpg",
       description: "Parque del Pueblo (人民公园) es un parque público urbano en el centro de Chengdu, capital de la provincia de Sichuan, China. Construido en 1911 como Parque Shaocheng (少城公园), es el primer parque público de la ciudad.",
       descriptionEn: "People's Park is an urban public park in central Chengdu, capital of Sichuan province, China. Built in 1911 as Shaocheng Park (少城公园), it is the first public park in the city.",
+      lat: 30.65972,
+      lng: 104.05482,
     },
     {
       id: "chengdu_11",
@@ -8982,8 +9031,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Dacisi_Temple_in_chengdu.jpg/1920px-Dacisi_Temple_in_chengdu.jpg",
-      description: "大慈寺 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Templo de Daci es un templo budista en el centro de Chengdu, junto al área de Taikoo Li. Conserva salas y patios tradicionales rodeados por la ciudad moderna.",
       descriptionEn: "Chengdu is the capital city of the Chinese province of Sichuan. With a population of 20,937,757 at the 2020 census, it is the country's fourth most populous city and the only city with a population of over 20 million apart from provincial-level municipalities.",
+      lat: 30.657,
+      lng: 104.08141,
     },
     {
       id: "chengdu_12",
@@ -9000,6 +9051,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chengdu_Sichuan_China_Du-Fu-Thatched-Cottage-Park-01.jpg/1920px-Chengdu_Sichuan_China_Du-Fu-Thatched-Cottage-Park-01.jpg",
       description: "La cabaña con techo de paja de Du Fu es un museo y parque de 97 000 m.² dedicado al poeta Du Fu de la dinastía Tang, ubicada en el distrito de Qingyang de la ciudad de Chengdu, junto al arroyo Huanhua Xi. En 1961, el gobierno chino la declaró Patrimonio Nacional.",
       descriptionEn: "Chengdu is the capital city of the Chinese province of Sichuan. With a population of 20,937,757 at the 2020 census, it is the country's fourth most populous city and the only city with a population of over 20 million apart from provincial-level municipalities.",
+      lat: 30.66217,
+      lng: 104.02633,
     },
     {
       id: "chengdu_13",
@@ -9017,6 +9070,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.panda.org.cn/",
       description: "La Centro de investigación y cría del panda gigante de Chengdu es un instituto de investigación y cría de pandas gigantes, pandas rojos y otros animales raros, sin fines de lucro y financiado por el gobierno, se encuentra ubicado en Chengdu, provincia de Sichuan, China.",
       descriptionEn: "The Chengdu Research Base of Giant Panda Breeding is a government-funded non-profit breeding and research institute for giant pandas, red pandas, and other rare animals, located in Chengdu, Sichuan, China.",
+      lat: 30.73861,
+      lng: 104.14194,
     },
     {
       id: "chengdu_14",
@@ -9144,6 +9199,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Chengdu_Kuanzhai_Alley_Touristic_Spot_Relics_%E6%88%90%E9%83%BD%E5%AE%BD%E7%AA%84%E5%B7%B7%E5%AD%90%E6%96%87%E7%89%A9%E5%8F%91%E6%8E%98%E9%81%97%E4%BA%A7.jpg/1280px-Chengdu_Kuanzhai_Alley_Touristic_Spot_Relics_%E6%88%90%E9%83%BD%E5%AE%BD%E7%AA%84%E5%B7%B7%E5%AD%90%E6%96%87%E7%89%A9%E5%8F%91%E6%8E%98%E9%81%97%E4%BA%A7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Tres callejones paralelos —Kuan, Zhai y Jing— dentro de un barrio residencial de la época Qing, hoy restaurado como paseo peatonal. Conserva patios y portales de ladrillo tradicionales, ocupados por cafés, restaurantes y galerías.",
       descriptionEn: "Three parallel alleys — Kuan, Zhai and Jing — in a Qing-era residential neighbourhood, now restored as a pedestrian area. It preserves traditional courtyards and brick gateways, occupied by cafés, restaurants and galleries.",
+      lat: 30.66777,
+      lng: 104.04792,
     },
     {
       id: "chengdu_21",
@@ -9159,6 +9216,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Número de la ópera de Sichuan en el que el intérprete cambia de máscara o de rostro pintado en una fracción de segundo, sin que el público vea el gesto. Se presenta en teatros y casas de té de Chengdu, dentro de programas con música, acrobacias y fragmentos de obras.",
       descriptionEn: "A Sichuan opera act in which the performer switches masks or painted faces in a fraction of a second, without the audience seeing the move. It is performed in Chengdu theatres and teahouses as part of programmes with music, acrobatics and excerpts of plays.",
+      lat: 30.68855,
+      lng: 104.05076,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Chengdu-opera-sichuan-actores-d04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "chengdu_22",
@@ -9174,6 +9234,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Templo taoísta activo en el oeste de Chengdu, con pabellones reconstruidos en época Qing. Sus patios reúnen salas con deidades taoístas, inscripciones y una casa de té frecuentada por vecinos.",
       descriptionEn: "An active Taoist temple in western Chengdu, with halls rebuilt in the Qing period. Its courtyards hold shrines to Taoist deities, inscriptions and a teahouse frequented by local residents.",
+      lat: 30.66307,
+      lng: 104.03837,
     },
     {
       id: "chengdu_23",
@@ -9190,6 +9252,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Sino-Ocean_Taikoo_Li_Chengdu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Distrito comercial a cielo abierto en el sector de Jinjiang, junto al templo Daci, formado por edificios bajos de ladrillo gris y calles peatonales. Combina tiendas de marcas internacionales, restaurantes y oficinas, y sigue el trazado de callejuelas anteriores.",
       descriptionEn: "An open-air shopping district in the Jinjiang area, next to Daci Temple, made up of low grey-brick buildings and pedestrian lanes. It combines international brand stores, restaurants and offices, and follows the line of earlier alleyways.",
+      lat: 30.65582,
+      lng: 104.08097,
     },
     {
       id: "chengdu_24",
@@ -9223,6 +9287,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Puente sobre el río Jin, en el sector de Jiuyanqiao, reconstruido en 2003 con un corredor cubierto de estilo tradicional y locales de restaurantes. De noche se ilumina y es un lugar habitual para fotografías junto al río.",
       descriptionEn: "A bridge over the Jin River in the Jiuyanqiao area, rebuilt in 2003 with a covered corridor in traditional style and restaurant spaces. It is lit at night and is a common spot for photographs by the river.",
+      lat: 30.64406,
+      lng: 104.08344,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Chengdu_2012-03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "chengdu_26",
@@ -9258,6 +9325,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Pueblo antiguo a unos 40 km al sur de Chengdu, con calles empedradas, casas de madera sobre pilotes junto al río y varios templos. Se visita como excursión de un día para recorrer su arquitectura tradicional y probar la comida local.",
       descriptionEn: "An old town about 40 km south of Chengdu, with cobbled streets, wooden stilt houses along the river and several temples. It is visited as a day trip to see its traditional architecture and try local food.",
+      lat: 30.31764,
+      lng: 103.96905,
     },
     {
       id: "chengdu_28",
@@ -9273,6 +9342,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Pabellón junto a la confluencia de los ríos Fu y Nan, en el este del centro de Chengdu, reconstruido sobre un emplazamiento antiguo. Es un mirador sobre el agua, cercano al puente Anshun, frecuentado al atardecer.",
       descriptionEn: "A pavilion by the confluence of the Fu and Nan rivers in eastern central Chengdu, rebuilt on an old site. It is a viewpoint over the water, close to Anshun Bridge, and popular around sunset.",
+      lat: 30.64533,
+      lng: 104.08119,
     },
   ],
   cologne: [
@@ -10966,6 +11037,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_Arte_Religioso_del_Cusco",
       lat: -13.51619,
       lng: -71.97643,
+      descriptionEn: "Museum housed in the former Archbishop's Palace, next to Hatun Rumiyoc street. It displays colonial religious paintings and objects, including works from the Cusco School.",
     },
     {
       id: "cusco_8",
@@ -10984,6 +11056,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_San_Pedro_(Cusco)",
       lat: -13.52087,
       lng: -71.98361,
+      descriptionEn: "Colonial church in Cusco located near San Pedro Market. Its facade and interior preserve religious and artistic elements from the viceregal period.",
     },
     {
       id: "cusco_9",
@@ -11037,6 +11110,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Convento_de_Santa_Clara_(Cusco)",
       lat: -13.52002,
       lng: -71.98209,
+      descriptionEn: "Colonial convent and church in Cusco associated with the Poor Clares. The complex preserves religious architecture and viceregal artworks.",
     },
     {
       id: "cusco_12",
@@ -11055,6 +11129,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Plazoleta_de_San_Blas",
       lat: -13.5152,
       lng: -71.97437,
+      descriptionEn: "Small square in the San Blas neighborhood of Cusco's historic center. It is surrounded by cobblestone streets and colonial buildings, and serves as a passage toward San Blas Church.",
     },
     {
       id: "cusco_13",
@@ -11128,6 +11203,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.98262,
       description: "El Mercado Central de San Pedro es el principal y más antiguo mercado de abastos de la ciudad de Cusco, Perú, y se encuentra ubicado en su centro histórico frente a la Plazoleta San Pedro y la calle Santa Clara cuyo recorrido actual corresponde con el antiguo camino inca que…",
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_Central_de_San_Pedro",
+      descriptionEn: "Municipal market in Cusco selling food, local products, and crafts. It is a space of daily activity and commercial life in the city.",
     },
     {
       id: "cusco_17",
@@ -11282,6 +11358,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -72.0598,
       description: "Chinchero es una localidad peruana capital del distrito homónimo ubicado en la provincia de Urubamba en el departamento del Cusco. Es cuna del prócer de la independencia peruana, Mateo Pumacahua, quien participó al lado de los hermanos Angulo en la Rebelión del Cuzco de 1814.",
       sourceUrl: "https://es.wikipedia.org/wiki/Chinchero",
+      descriptionEn: "Andean town and archaeological site outside Cusco, in Urubamba Province. It preserves terraces, Inca walls, and a colonial church built over pre-Hispanic structures.",
     },
     {
       id: "cusco_25",
@@ -11340,6 +11417,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.97448,
       description: "La iglesia de San Blas es un templo religioso de culto católico bajo la advocación de San Blas ubicado en el centro histórico de la ciudad del Cuzco, Perú.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_San_Blas_(Cusco)",
+      descriptionEn: "Colonial church in Cusco's San Blas neighborhood. It is known for its carved wooden pulpit and its religious architecture from the viceregal period.",
     },
     {
       id: "cusco_28",
@@ -11358,6 +11436,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.98122,
       description: "La Plaza San Francisco es una plaza pública ubicada en el centro histórico de Cusco, Perú. En ella se encuentra la Iglesia de San Francisco, el edificio del Colegio Ciencias y el Arco de Santa Clara.",
       sourceUrl: "https://es.wikipedia.org/wiki/Plaza_San_Francisco_(Per%C3%BA)",
+      descriptionEn: "Square in Cusco's historic center, in front of the San Francisco convent and church. It serves as a public space and landmark within the colonial urban layout.",
     },
     {
       id: "cusco_29",
@@ -11376,6 +11455,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.97898,
       description: "La Iglesia de la Merced, llamada también Basílica Menor de La Merced, es una iglesia católica ubicada en la ciudad del Cusco, Perú. Se encuentra 100 metros al suroeste de la plaza de armas de la ciudad frente a la Plazoleta Espinar.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_la_Merced_(Cusco)",
+      descriptionEn: "Colonial church and convent in Cusco belonging to the Mercedarian order. The complex preserves viceregal architecture and houses religious works, including paintings and liturgical objects.",
     },
     {
       id: "cusco_30",
@@ -11394,6 +11474,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.97727,
       description: "La Iglesia y Convento de Santa Catalina es un convento de monjas de clausura ubicado en la ciudad del Cusco, Perú. Se encuentra ubicada a 100 metros al sureste de la Plaza de Armas en el solar donde, durante la época incaica, se encontraba el palacio del Acllawasi.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_Santa_Catalina_(Cusco)",
+      descriptionEn: "Colonial church in Cusco built over an ancient Inca site. It preserves viceregal religious architecture and artistic elements associated with the city.",
     },
     {
       id: "cusco_31",
@@ -11433,6 +11514,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://cosituc.gob.pe/museo-de-arte-contemporaneo/",
       description: "El Museo de Arte Contemporáneo de Cusco está ubicado dentro del Palacio del Cabildo ubicada en la Plaza Regocijo en el centro histórico de Cusco, y muestra obras de artistas nacionales e internacionales en más de 50 exposiciones temporales al año, con una colección permanente…",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_Arte_Contempor%C3%A1neo_de_Cusco",
+      descriptionEn: "Museum dedicated to contemporary art in Cusco, with exhibitions by local and national artists. It occupies a cultural space in the city's historic center.",
     },
     {
       id: "cusco_33",
@@ -17923,8 +18005,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/%E4%B8%AD%E5%9B%BD%E8%8C%B6%E5%8F%B6%E5%8D%9A%E7%89%A9%E9%A6%86%E5%8F%8C%E5%B3%B0%E9%A6%86%E5%8C%BA%2C_2022-05-01_03.jpg/1920px-%E4%B8%AD%E5%9B%BD%E8%8C%B6%E5%8F%B6%E5%8D%9A%E7%89%A9%E9%A6%86%E5%8F%8C%E5%B3%B0%E9%A6%86%E5%8C%BA%2C_2022-05-01_03.jpg",
       website: "https://www.teamuseum.cn/",
-      description: "中国茶叶博物馆（双峰馆区） es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "中国茶叶博物馆（双峰馆区） is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Nacional del Té de China, en la zona de Shuangfeng, exhibe la historia, la producción y la cultura del té chino, incluido el té Longjing de Hangzhou. Se visita para conocer utensilios, variedades y ceremonias del té.",
+      descriptionEn: "The China National Tea Museum, in the Shuangfeng area, displays the history, production and culture of Chinese tea, including Hangzhou's Longjing tea. Visitors come to see tea utensils, varieties and tea ceremonies.",
+      lat: 30.23475,
+      lng: 120.11555,
     },
     {
       id: "hangzhou_2",
@@ -17942,6 +18026,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://chinasilkmuseum.com",
       description: "El Museo Nacional de la Seda de China es un museo de ámbito nacional situado en Hangzhou, provincia de Zhejiang, China.",
       descriptionEn: "This is a list of the most-visited museums in the world in 2024. Primary sources include annual attendance statistics in the \"Art Newspaper\" (March 2025}! the TEA Museum Index for 2024, published August 2025, the annual report of the National Cultural Heritage Administration of…",
+      lat: 30.225,
+      lng: 120.14722,
     },
     {
       id: "hangzhou_3",
@@ -17973,8 +18059,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Zhejiang_Provincial_Museum_72.jpg/1920px-Zhejiang_Provincial_Museum_72.jpg",
-      description: "浙江省博物馆 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Provincial de Zhejiang reúne piezas arqueológicas y artísticas de la región, desde culturas neolíticas hasta las dinastías imperiales. Se visita por sus colecciones de cerámica, caligrafía, jade y objetos históricos.",
       descriptionEn: "Hangzhou is the capital and most populous city of Zhejiang province, China, situated at the intersection of the southern terminus of the Grand Canal and the head of Hangzhou Bay.",
+      lat: 30.25353,
+      lng: 120.13878,
     },
     {
       id: "hangzhou_5",
@@ -17991,6 +18079,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Lingyin_Temple%2C_Hangzhou_20161003.jpg/1920px-Lingyin_Temple%2C_Hangzhou_20161003.jpg",
       description: "El templo Lingyin es un prominente templo budista chan cerca de Hangzhou, famoso por sus numerosas pagodas y grutas.Su nombre se traduce común y literalmente al español como Templo del Retiro del Alma o del Alma Escondida.",
       descriptionEn: "Hangzhou is the capital and most populous city of Zhejiang province, China, situated at the intersection of the southern terminus of the Grand Canal and the head of Hangzhou Bay.",
+      lat: 30.24278,
+      lng: 120.09667,
     },
     {
       id: "hangzhou_6",
@@ -18007,6 +18097,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/%E6%9D%AD%E5%B7%9E%E5%8A%A8%E7%89%A9%E5%9B%AD.jpg/1920px-%E6%9D%AD%E5%B7%9E%E5%8A%A8%E7%89%A9%E5%9B%AD.jpg",
       description: "El Zoológico de Hangzhou es un zoológico ubicado en Hangzhou, provincia de Zhejiang, China.",
       descriptionEn: "Hangzhou Zoo is a zoo located in Hangzhou, Zhejiang province, People's Republic of China.",
+      lat: 30.2137,
+      lng: 120.1337,
     },
     {
       id: "hangzhou_7",
@@ -18039,6 +18131,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/10/Cathedral_of_the_Immaculate_Conception_of_Hangzhou_-_1.jpg",
       description: "La Catedral de la Inmaculada Concepción es una catedral católica, situada en el 415 de la vía Zhongshan norte (中山北路415号), no lejos de la plaza Wulin (武林广场) en el centro de Hangzhou, en el país asiático de China.",
       descriptionEn: "The Cathedral of Our Lady of the Immaculate Conception is a Roman Catholic cathedral, located at 415 Zhongshan Road North (中山北路415号) not far from Wulin Square (武林广场) in downtown Hangzhou, China.",
+      lat: 30.26985,
+      lng: 120.16259,
     },
     {
       id: "hangzhou_9",
@@ -18053,8 +18147,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/20210328%E6%9D%AD%E5%B7%9E%E4%B9%90%E5%9B%AD%E9%B8%9F%E7%9E%B0.jpg/1920px-20210328%E6%9D%AD%E5%B7%9E%E4%B9%90%E5%9B%AD%E9%B8%9F%E7%9E%B0.jpg",
-      description: "杭州乐园 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Hangzhou Paradise es un parque de atracciones en Hangzhou con montañas rusas, juegos mecánicos y áreas temáticas. También cuenta con atracciones acuáticas y espectáculos.",
       descriptionEn: "Hangzhou Bay Sunac Tourism City is a partially completed theme park and entertainment complex in Jiaxing, Zhejiang, China, about 45 miles from downtown Shanghai.",
+      lat: 30.16261,
+      lng: 120.24121,
     },
     {
       id: "hangzhou_10",
@@ -18069,8 +18165,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/%E6%9D%AD%E5%B7%9E%E5%87%A4%E5%87%B0%E5%AF%BA%E7%A4%BC%E6%8B%9C%E6%AE%BF%E6%AD%A3%E9%97%A82026.3.jpg/1920px-%E6%9D%AD%E5%B7%9E%E5%87%A4%E5%87%B0%E5%AF%BA%E7%A4%BC%E6%8B%9C%E6%AE%BF%E6%AD%A3%E9%97%A82026.3.jpg",
-      description: "凤凰寺 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Mezquita del Fénix es una mezquita histórica de Hangzhou que combina elementos de la arquitectura islámica y china. Su conjunto incluye una sala de oración y piezas que reflejan la presencia musulmana en la ciudad.",
       descriptionEn: "The Phoenix Mosque is a mosque in Hangzhou, in the Zhejiang province of China. It is known for being one of the four great mosques of China. It is also one of the earliest mosque built in China. The origin of the mosque dates from the Tang or Song dynasty.",
+      lat: 30.24778,
+      lng: 120.16556,
     },
     {
       id: "hangzhou_11",
@@ -18211,6 +18309,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Lingyin_grotto.JPG/1280px-Lingyin_grotto.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Pico Feilai es una formación de piedra caliza cerca del Templo Lingyin, conocida por sus numerosas esculturas budistas talladas en la roca. Se recorre por senderos entre las grutas y figuras.",
       descriptionEn: "Feilai Peak is a limestone formation near Lingyin Temple, known for its many Buddhist carvings cut into the rock. Pathways lead among the grottoes and figures.",
+      lat: 30.23888,
+      lng: 120.09642,
     },
     {
       id: "hangzhou_19",
@@ -18227,6 +18327,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Hangzhou_China_West_Lake_4.jpg/1280px-Hangzhou_China_West_Lake_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Calzada Su es un paseo sobre el Lago del Oeste, nombrado en honor al poeta Su Shi. Tiene puentes y vistas al lago, y se recorre a pie o en bicicleta.",
       descriptionEn: "Su Causeway is a walkway across West Lake, named after the poet Su Shi. It has bridges and lake views, and is traveled on foot or by bicycle.",
+      lat: 30.25245,
+      lng: 120.13123,
     },
     {
       id: "hangzhou_20",
@@ -18312,6 +18414,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Longjing_Tea_field%2C_Dragon_Well_area%2C_Meijiawu_China.jpg/1280px-Longjing_Tea_field%2C_Dragon_Well_area%2C_Meijiawu_China.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La aldea de té de Longjing se encuentra entre colinas y campos de té cerca de Hangzhou. Es conocida por el té Longjing y por las visitas a plantaciones y casas de té.",
       descriptionEn: "Longjing tea village lies among hills and tea fields near Hangzhou. It is known for Longjing tea and for visits to plantations and tea houses.",
+      lat: 30.22187,
+      lng: 120.09807,
     },
     {
       id: "hangzhou_25",
@@ -18328,6 +18432,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c6/%27Three_Pools_Mirroring_the_Moon%27_%28%E4%B8%89%E6%BD%AD%E5%8D%B0%E6%9C%88%29%2C_West_Lake_%28%E8%A5%BF%E6%B9%96%29%2C_Hangzhou_%28%E6%9D%AD%E5%B7%9E%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Los Tres estanques que reflejan la luna son tres pequeñas pagodas de piedra en el Lago del Oeste. El conjunto es uno de los paisajes clásicos del lago y se observa desde la orilla o en bote.",
       descriptionEn: "Three Pools Mirroring the Moon are three small stone pagodas in West Lake. The group is one of the lake's classic views and is seen from the shore or by boat.",
+      lat: 30.24082,
+      lng: 120.1405,
     },
     {
       id: "hangzhou_26",
@@ -18358,6 +18464,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "El Pabellón Orioles cantando en los sauces es un parque ajardinado a orillas del Lago del Oeste. Tiene sauces, senderos y vistas al lago, y es un lugar para pasear.",
       descriptionEn: "Orioles Singing in the Willows is a garden park on the shores of West Lake. It has willows, paths and lake views, and is a place for walking.",
+      lat: 30.2419,
+      lng: 120.15108,
     },
     {
       id: "hangzhou_28",
@@ -18373,6 +18481,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Impresión del Lago del Oeste es un espectáculo nocturno al aire libre montado sobre el agua del Lago del Oeste. Combina música, luces y escenas escénicas inspiradas en la cultura local.",
       descriptionEn: "Impression West Lake is an outdoor nighttime performance staged on the water of West Lake. It combines music, lights and theatrical scenes inspired by local culture.",
+      lat: 30.29613,
+      lng: 120.09463,
     },
     {
       id: "hangzhou_29",
@@ -18409,6 +18519,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Xitang es un pueblo de agua antiguo en Zhejiang, con canales, puentes de piedra y callejones estrechos. Se puede visitar como excursión de un día desde Hangzhou para recorrer su casco histórico.",
       descriptionEn: "Xitang is an ancient water town in Zhejiang, with canals, stone bridges and narrow lanes. It can be visited as a day trip from Hangzhou to explore its historic center.",
+      lat: 30.15342,
+      lng: 120.0764,
     },
     {
       id: "hangzhou_31",
@@ -19707,6 +19819,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.itsukushimajinja.jp/",
       description: "El Santuario Itsukushima es un santuario sintoísta situado en la isla de Itsukushima, cerca de la ciudad de Hatsukaichi, en la prefectura de Hiroshima, en Japón.",
       descriptionEn: "Itsukushima Shrine is a Shinto shrine on the island of Itsukushima, best known for its \"floating\" torii. It is in the city of Hatsukaichi, in Hiroshima Prefecture in Japan, accessible from the mainland by ferry at Miyajimaguchi Station.",
+      lat: 34.29577,
+      lng: 132.32011,
     },
     {
       id: "hiroshima_2",
@@ -19756,6 +19870,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://raisanyou.com",
       description: "El Museo Histórico de Rai San'yō se dedica al erudito confuciano y poeta japonés Rai San'yō, vinculado a Hiroshima durante el periodo Edo. Reúne documentos, manuscritos y objetos relacionados con su vida y con la historia intelectual de esa época.",
       descriptionEn: "The Rai San'yō Historical Museum is dedicated to the Japanese Confucian scholar and poet Rai San'yō, who was linked to Hiroshima during the Edo period. It holds documents, manuscripts and objects related to his life and to the intellectual history of that era.",
+      lat: 34.3915,
+      lng: 132.45728,
     },
     {
       id: "hiroshima_5",
@@ -19773,6 +19889,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.hiroshima-moca.jp/",
       description: "El Museo de Arte Contemporáneo de Hiroshima es un museo de arte fundado en 1989. Está ubicado en el Parque Hijiyama en Hiroshima, Japón. El edificio fue diseñado por el arquitecto Kisho Kurokawa.",
       descriptionEn: "The Hiroshima City Museum of Contemporary Art is an art museum founded in 1989. It is in Hijiyama Park in Hiroshima, Japan. The building was designed by architect Kisho Kurokawa.",
+      lat: 34.38639,
+      lng: 132.47333,
     },
     {
       id: "hiroshima_6",
@@ -19839,8 +19957,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hiroshima_National_Peace_Memorial_Hall_for_the_Atomic_Bomb_Victims_2008_01.JPG/1920px-Hiroshima_National_Peace_Memorial_Hall_for_the_Atomic_Bomb_Victims_2008_01.JPG",
       website: "https://www.hiro-tsuitokinenkan.go.jp/english/index.php",
-      description: "国立広島原爆死没者追悼平和祈念館 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "国立広島原爆死没者追悼平和祈念館 is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Sala Conmemorativa Nacional de la Paz de Hiroshima para las Víctimas de la Bomba Atómica es un espacio en el Parque Memorial de la Paz dedicado a recordar a quienes murieron por el ataque atómico. Alberga nombres, fotografías y testimonios de las víctimas.",
+      descriptionEn: "Hiroshima National Peace Memorial Hall for the Atomic Bomb Victims is one of the National Memorial Halls in Hiroshima, Japan.",
+      lat: 34.39333,
+      lng: 132.45349,
     },
     {
       id: "hiroshima_10",
@@ -20120,6 +20240,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Okonomimura es un edificio de varios pisos en el centro de Hiroshima con numerosos puestos de okonomiyaki. Es conocido por reunir cocineros que preparan la versión local de este plato en planchas calientes.",
       descriptionEn: "Okonomimura is a multi-story building in central Hiroshima with numerous okonomiyaki stalls. It is known for bringing together cooks who prepare the local version of the dish on hot griddles.",
+      lat: 34.39131,
+      lng: 132.46193,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/%E3%81%8A%E5%A5%BD%E3%81%BF%E6%9D%911.jpg/1280px-%E3%81%8A%E5%A5%BD%E3%81%BF%E6%9D%911.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hiroshima_25",
@@ -20136,6 +20259,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Hiroshima-Hondori_Shopping_Street_at_night.jpg/1280px-Hiroshima-Hondori_Shopping_Street_at_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La calle comercial Hondori es una galería peatonal cubierta en el centro de Hiroshima, con tiendas, cafés y restaurantes. Conecta zonas céntricas de la ciudad y es un eje comercial local.",
       descriptionEn: "Hondori shopping street is a covered pedestrian arcade in central Hiroshima, with shops, cafés and restaurants. It links central areas of the city and is a local commercial artery.",
+      lat: 34.39382,
+      lng: 132.45697,
     },
     {
       id: "hiroshima_26",
@@ -20153,6 +20278,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Museo Yamato de Kure, en la ciudad portuaria de Kure, cerca de Hiroshima, exhibe la historia naval japonesa y una gran maqueta del acorazado Yamato. También presenta tecnología y ciencia relacionadas con la construcción naval.",
       descriptionEn: "The Yamato Museum in the port city of Kure, near Hiroshima, exhibits Japanese naval history and a large model of the battleship Yamato. It also presents science and technology related to shipbuilding.",
+      lat: 34.24118,
+      lng: 132.55588,
     },
     {
       id: "hiroshima_27",
@@ -20187,6 +20314,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Mitaki-dera_temple_-_panoramio.jpg/1280px-Mitaki-dera_temple_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El templo Mitaki-dera es un templo budista en las colinas de Hiroshima, rodeado de bosque y conocido por sus cascadas y senderos. Su recinto incluye edificios religiosos y monumentos conmemorativos.",
       descriptionEn: "Mitaki-dera is a Buddhist temple in the hills of Hiroshima, surrounded by forest and known for its waterfalls and trails. Its grounds include religious buildings and memorial monuments.",
+      lat: 34.41993,
+      lng: 132.43841,
     },
     {
       id: "hiroshima_29",
@@ -20203,6 +20332,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Stairs_with_Dai-hannyakyo_Sutra%2C_Daisho-in%2C_Miyajima_-_Apr_11%2C_2006.jpg/1280px-Stairs_with_Dai-hannyakyo_Sutra%2C_Daisho-in%2C_Miyajima_-_Apr_11%2C_2006.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El templo Daisho-in es un templo budista de la secta Shingon en la isla de Miyajima, cerca de Hiroshima. Se encuentra al pie del monte Misen y cuenta con escalinatas, estatuas y salas de oración.",
       descriptionEn: "Daisho-in is a Shingon Buddhist temple on Miyajima island, near Hiroshima. It stands at the foot of Mount Misen and features stairways, statues and prayer halls.",
+      lat: 34.29173,
+      lng: 132.31858,
     },
   ],
   hoian: [
@@ -20256,6 +20387,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "El casco antiguo de Hội An es una antigua ciudad portuaria del centro de Vietnam, muy bien conservada, que floreció como puerto comercial del sudeste asiático entre los siglos XV y XIX. Es Patrimonio de la Humanidad por la Unesco desde 1999.",
       descriptionEn: "Hội An is a former city of Quảng Nam Province in Central Vietnam. Hội An Old Town has been registered as a UNESCO World Heritage Site since 1999 and is recognized as a well-preserved former site of a once-thriving Southeast Asian trading port dating from the 15th–19th century.",
+      lat: 15.87714,
+      lng: 108.32863,
     },
     {
       id: "hoian_1",
@@ -20272,6 +20405,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Group_B-C-D_monuments_of_My_Son_world_heritage_site%2C_Vietnam.jpg/1920px-Group_B-C-D_monuments_of_My_Son_world_heritage_site%2C_Vietnam.jpg",
       description: "El Santuario de My Son es un conjunto de templos hindúes abandonados y parcialmente en ruinas, construidos entre el siglo IV y el XIV por los reyes champa.",
       descriptionEn: "Mỹ Sơn is a cluster of abandoned and partially ruined Shaiva Hindu temples in central Vietnam, constructed between the 4th and the 13th century by the Kings of Champa, an Indianized kingdom of the Cham people.",
+      lat: 15.76324,
+      lng: 108.12445,
+      dayTrip: true,
     },
     {
       id: "hoian_2",
@@ -20289,6 +20425,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://vi.m.wikipedia.org/wiki/Kazimierz_Kwiatkowski",
       description: "Kazimierz Kwiatkowski fue un arquitecto y conservacionista polaco, conocido por sus esfuerzos para preservar sitios históricos y arqueológicos de Vietnam como la Ciudad Imperial de Huế, Hội An y My Son, hoy incluidos en la lista de Patrimonio de la Humanidad de la Unesco. Este busto lo honra en Hội An.",
       descriptionEn: "Kazimierz Kwiatkowski was a Polish architect and conservationist. He is well known for his efforts to preserve historical and archaeological sites in Vietnam such as the Imperial City of Huế, Hội An and Mỹ Sơn, which are currently in the World Heritage Site list of UNESCO.",
+      lat: 15.87728,
+      lng: 108.32779,
     },
     {
       id: "hoian_3",
@@ -20318,9 +20456,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.2,
       estimatedMinutes: 45,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/C%C3%B4ng_b%C3%A1o_Vi%E1%BB%87t_Nam_C%E1%BB%99ng_Ho%C3%A0%2C_%E1%BA%A5n_b%E1%BA%A3n_Qu%E1%BB%91c_h%E1%BB%99i_%28H%E1%BA%A1_Ngh%E1%BB%8B_Vi%E1%BB%87n%29%2C_no.7-13%2C_1973.pdf/page1-1280px-C%C3%B4ng_b%C3%A1o_Vi%E1%BB%87t_Nam_C%E1%BB%99ng_Ho%C3%A0%2C_%E1%BA%A5n_b%E1%BA%A3n_Qu%E1%BB%91c_h%E1%BB%99i_%28H%E1%BA%A1_Ngh%E1%BB%8B_Vi%E1%BB%87n%29%2C_no.7-13%2C_1973.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Phuoc_Lam_Pagoda_4.jpg/1280px-Phuoc_Lam_Pagoda_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La pagoda Phước Lâm es un templo budista del casco antiguo de Hội An, con más de tres siglos de historia, conocido por su arquitectura tradicional vietnamita y su papel como uno de los principales centros budistas de la ciudad.",
       descriptionEn: "Phước Lâm Pagoda is a Buddhist temple in Hội An's ancient town, with over three centuries of history, known for its traditional Vietnamese architecture and its role as one of the city's leading Buddhist centers.",
+      lat: 15.89244,
+      lng: 108.32367,
     },
     {
       id: "hoian_5",
@@ -20337,6 +20477,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/V%C4%83n_ch%E1%BB%89_Minh_H%C6%B0%C6%A1ng_%28H%E1%BB%99i_An%29_2024_-_img_02.jpg/1920px-V%C4%83n_ch%E1%BB%89_Minh_H%C6%B0%C6%A1ng_%28H%E1%BB%99i_An%29_2024_-_img_02.jpg",
       description: "El Văn Chỉ Minh Hương es un templo confuciano del casco antiguo de Hội An dedicado a honrar a los eruditos de la comunidad Minh Hương, descendientes de comerciantes chinos leales a la dinastía Ming que se establecieron en la ciudad tras su caída en el siglo XVII.",
       descriptionEn: "Văn Chỉ Minh Hương is a Confucian temple in Hội An's ancient town dedicated to honoring the scholars of the Minh Hương community, descendants of Chinese merchants loyal to the Ming dynasty who settled in the city after its fall in the 17th century.",
+      lat: 15.87863,
+      lng: 108.33049,
     },
     {
       id: "hoian_6",
@@ -20369,6 +20511,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/H%E1%BB%99i_An%2C_Ch%C3%B9a_C%E1%BA%A7u%2C_2020-01_CN-01.jpg/1920px-H%E1%BB%99i_An%2C_Ch%C3%B9a_C%E1%BA%A7u%2C_2020-01_CN-01.jpg",
       description: "El Puente Japonés es un puente-pagoda de piedra cubierto de la ciudad Hội An, en Vietnam central, hoy monumento histórico. Divide dos barrios tradicionales, el chino y el japonés. Su construcción duró desde el año 1593 hasta el 1595.",
       descriptionEn: "The Japanese Bridge is a footbridge with a temple atop, located in Hội An, Da Nang, Vietnam. It dates from the late 16th century by Japanese merchantmen but successive renovations and repairs on the bridge have occurred throughout the period to the modern day.",
+      lat: 15.87719,
+      lng: 108.32597,
     },
     {
       id: "hoian_8",
@@ -20385,6 +20529,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/H%E1%BB%99i_An%2C_Trieu_Chau_Assembly_Hall%2C_2020-01_CN-02.jpg/1920px-H%E1%BB%99i_An%2C_Trieu_Chau_Assembly_Hall%2C_2020-01_CN-02.jpg",
       description: "El Salón de la Asamblea de Triều Châu (Chaozhou), construido en 1845 por la comunidad china de esa región, está dedicado al General Phục Ba, venerado por calmar los mares. Destaca por sus intrincadas tallas en madera y su decoración de estilo chino.",
       descriptionEn: "The Triều Châu (Chaozhou) Assembly Hall, built in 1845 by the local Chinese community from that region, is dedicated to General Phục Ba, revered for calming the seas. It is notable for its intricate wood carvings and Chinese-style decoration.",
+      lat: 15.87791,
+      lng: 108.33303,
     },
     {
       id: "hoian_9",
@@ -20419,6 +20565,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.rehahnphotographer.com",
       description: "Museo de la Galería de Arte Precious Heritage es un museo ubicado en Hoi An, Vietnam. Inaugurado el 1 de enero de 2017, el museo presenta las diversas culturas de los grupos étnicos de Vietnam a través de retratos a gran escala, trajes tradicionales, historias y educación…",
       descriptionEn: "The Precious Heritage Art Gallery Museum, in Hoi An, Vietnam, opened on January 1, 2017. Founded by French photographer Réhahn, it presents Vietnam's diverse ethnic cultures through large-scale portraits, traditional costumes, and educational displays.",
+      lat: 15.87723,
+      lng: 108.33421,
     },
     {
       id: "hoian_11",
@@ -20435,6 +20583,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Bi%E1%BB%83u_tr%C6%B0ng_huy%E1%BB%87n_%C4%90%E1%BB%A9c_C%C6%A1%2C_t%E1%BB%89nh_Gia_Lai%2C_Vi%E1%BB%87t_Nam.svg/1920px-Bi%E1%BB%83u_tr%C6%B0ng_huy%E1%BB%87n_%C4%90%E1%BB%A9c_C%C6%A1%2C_t%E1%BB%89nh_Gia_Lai%2C_Vi%E1%BB%87t_Nam.svg.png",
       description: "La casa antigua Đức An es una vivienda-comercio de más de 150 años en el casco antiguo de Hội An, que funcionó como librería y punto de encuentro de figuras revolucionarias vietnamitas a comienzos del siglo XX.",
       descriptionEn: "Đức An Old House is a merchant home over 150 years old in Hội An's ancient town, which once operated as a bookshop and gathering place for Vietnamese revolutionary figures in the early 20th century.",
+      lat: 15.87705,
+      lng: 108.32736,
     },
     {
       id: "hoian_12",
@@ -20451,6 +20601,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/T%E1%BB%A7_S%C3%A1ch_C%E1%BB%95_V%C4%83n%2C_Thanh_H%C3%B3a_Quan_Phong_%281973%29.pdf/page1-500px-T%E1%BB%A7_S%C3%A1ch_C%E1%BB%95_V%C4%83n%2C_Thanh_H%C3%B3a_Quan_Phong_%281973%29.pdf.jpg",
       description: "La casa antigua Quân Thắng es una de las viviendas-comercio mejor conservadas del casco antiguo de Hội An, con más de 150 años de historia, construida por un comerciante chino y famosa por sus elaboradas tallas en madera.",
       descriptionEn: "Quân Thắng Old House is one of the best-preserved merchant homes in Hội An's ancient town, over 150 years old, built by a Chinese merchant and renowned for its elaborate wood carvings.",
+      lat: 15.8771,
+      lng: 108.32929,
     },
     {
       id: "hoian_13",
@@ -20467,6 +20619,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Tam_quoc_Nguyen_An_Cu_1928_-_16.pdf/page1-1920px-Tam_quoc_Nguyen_An_Cu_1928_-_16.pdf.jpg",
       description: "El Museo de Cerámica Comercial, en una casa tradicional de madera del casco antiguo de Hội An, exhibe cerámicas recuperadas de rutas comerciales y naufragios, testimonio del papel de la ciudad como puerto internacional entre los siglos XV y XVII.",
       descriptionEn: "The Museum of Trade Ceramics, housed in a traditional wooden house in Hội An's ancient town, displays ceramics recovered from trade routes and shipwrecks, evidence of the city's role as an international port between the 15th and 17th centuries.",
+      lat: 15.87727,
+      lng: 108.32955,
     },
     {
       id: "hoian_14",
@@ -20541,6 +20695,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Conjunto de cinco colinas de mármol al sur de Da Nang, a una excursión de un día desde Hoi An. Sus cuevas, pagodas y miradores son los principales motivos de visita.",
       descriptionEn: "A cluster of five marble hills south of Da Nang, reachable as a day trip from Hoi An. Its caves, pagodas and viewpoints are the main reasons to visit.",
+      lat: 16.0108,
+      lng: 108.25318,
     },
     {
       id: "hoian_18",
@@ -20572,6 +20728,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Mercado nocturno en la isla An Hoi, al otro lado del río Thu Bon desde el casco antiguo de Hoi An. Reúne puestos de comida, artesanías, recuerdos y linternas.",
       descriptionEn: "A night market on An Hoi Island, across the Thu Bon River from Hoi An's old town. It brings together food stalls, crafts, souvenirs and lanterns.",
+      lat: 15.87578,
+      lng: 108.32593,
     },
     {
       id: "hoian_20",
@@ -20588,6 +20746,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Hoi_An_Central_Market_%2815242392187%29.jpg/1280px-Hoi_An_Central_Market_%2815242392187%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Mercado tradicional en el casco antiguo de Hoi An, cercano al río Thu Bon. Vende alimentos frescos, especias, utensilios y productos locales, y funciona como mercado de abastos.",
       descriptionEn: "A traditional market in Hoi An's old town, near the Thu Bon River. It sells fresh food, spices, utensils and local products, and operates as a food market.",
+      lat: 15.87682,
+      lng: 108.33134,
     },
     {
       id: "hoian_21",
@@ -20639,6 +20799,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 108.33147,
       description: "Aldea de alfarería cerca de Hoi An, conocida por la producción de cerámica tradicional. Se visitan talleres y hornos donde los artesanos modelan y cuecen piezas.",
       descriptionEn: "A pottery village near Hoi An, known for traditional ceramics. Visitors can see workshops and kilns where artisans shape and fire pieces.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6c/R%C3%ADo_Thu_Bon%2C_Hoi_An%2C_Vietnam_%2828292832687%29.jpg",
     },
     {
       id: "hoian_24",
@@ -22905,6 +23066,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1552895839-8a840d2bd86e?auto=format&fit=crop&w=800&q=80",
       description: "Las murallas de Jerusalén rodean el casco antiguo de la ciudad. En 1535, bajo el Imperio otomano, el sultán Solimán el Magnífico ordenó reconstruir las murallas en ruinas; la obra se completó entre 1537 y 1541.",
       descriptionEn: "The Walls of Jerusalem surround the Old City of Jerusalem. In 1535, when Jerusalem was part of the Ottoman Empire, Sultan Suleiman the Magnificent ordered the ruined city walls to be rebuilt. The walls were constructed between 1537 and 1541.",
+      lat: 31.77821,
+      lng: 35.23191,
     },
     {
       id: "jerusalem_1",
@@ -22938,6 +23101,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.tzadik.com",
       description: "Masada es una antigua fortaleza situada en la cima de una meseta rocosa en el actual Israel. Fue sitiada y tomada por las fuerzas imperiales romanas entre los años 72 y 73 d.C., en la fase final de la primera guerra judeo-romana, cuando estaba en manos del grupo rebelde de los sicarios.",
       descriptionEn: "The hilltop fortress of Masada, in present-day Israel, was successfully besieged and taken by Roman imperial forces between 72 and 73 AD, during the final period of the First Jewish–Roman War. At the time, the fortress was held by members of the Sicarii rebel group.",
+      lat: 31.31556,
+      lng: 35.35389,
+      dayTrip: true,
     },
     {
       id: "jerusalem_3",
@@ -22987,6 +23153,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.ijamuseum.org",
       description: "El Museo Umberto Nahon de Arte Judío Italiano conserva y exhibe el patrimonio judío-italiano, incluyendo el interior completo de una sinagoga del siglo XVII trasladada desde Conegliano Véneto, Italia, junto con objetos ceremoniales, textiles y documentos.",
       descriptionEn: "The Umberto Nahon Museum of Italian Jewish Art preserves and exhibits Italian Jewish heritage, including the complete interior of a 17th-century synagogue relocated from Conegliano Veneto, Italy, along with ceremonial objects, textiles, and documents.",
+      lat: 31.78013,
+      lng: 35.2191,
     },
     {
       id: "jerusalem_6",
@@ -23004,6 +23172,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.begincenter.org.il/",
       description: "El Centro Begin (Menachem Begin Heritage Center), en Jerusalén, está dedicado a la vida y legado de Menachem Begin, sexto primer ministro de Israel, con exhibiciones sobre su papel en la independencia israelí y el tratado de paz con Egipto de 1979.",
       descriptionEn: "The Begin Center (Menachem Begin Heritage Center), in Jerusalem, is dedicated to the life and legacy of Menachem Begin, Israel's sixth Prime Minister, with exhibits on his role in Israeli independence and the 1979 Israel–Egypt peace treaty.",
+      lat: 31.76927,
+      lng: 35.22544,
     },
     {
       id: "jerusalem_7",
@@ -23038,6 +23208,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.islamicart.co.il/",
       description: "El Museo L. A. Mayer de Arte Islámico, fundado en 1974 en Jerusalén, alberga una de las mejores colecciones de arte islámico del mundo, incluyendo textiles, cerámica, joyería y una reconocida colección de relojes antiguos.",
       descriptionEn: "The L. A. Mayer Museum for Islamic Art, founded in 1974 in Jerusalem, houses one of the world's finest collections of Islamic art, including textiles, ceramics, jewelry, and a renowned collection of antique clocks and watches.",
+      lat: 31.7686,
+      lng: 35.21302,
     },
     {
       id: "jerusalem_9",
@@ -23072,6 +23244,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://tod.org.il/",
       description: "La Torre de David es una antigua ciudadela en el Barrio Armenio de la Ciudad Vieja de Jerusalén. Se encuentra junto a la puerta de Jaffa.",
       descriptionEn: "The Tower of David, also known as the Citadel, is an ancient citadel and contemporary museum, located near the Jaffa Gate entrance to the Old City of Jerusalem.",
+      lat: 31.77611,
+      lng: 35.22778,
     },
     {
       id: "jerusalem_11",
@@ -23089,6 +23263,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://gardentomb.com",
       description: "El Huerto de la Tumba (Garden Tomb) es un jardín con una tumba excavada en la roca en Jerusalén, considerado por muchos cristianos protestantes como un posible sitio alternativo del entierro y la resurrección de Jesús, distinto del sitio tradicional en la Iglesia del Santo Sepulcro.",
       descriptionEn: "The Garden Tomb is a rock-cut tomb garden in Jerusalem, regarded by many Protestant Christians as a possible alternative site of the burial and resurrection of Jesus, distinct from the traditional site at the Church of the Holy Sepulchre.",
+      lat: 31.78402,
+      lng: 35.2302,
     },
     {
       id: "jerusalem_12",
@@ -23592,8 +23768,10 @@ export const CURATED_ALL: CuratedMap = {
           close: "18:00",
         },
       },
-      description: "Swayambhunath es un antiguo complejo religioso a lo alto de una colina en el valle de Katmandú, al oeste de la ciudad de Katmandú. Junto a otras construcciones del valle, fueron elegidas como Patrimonio de la Humanidad de la Unesco en 1979.",
+      description: "La Estupa de Boudhanath es un monumento budista tibetano en el noreste de Katmandú. Forma parte del Patrimonio Mundial de la UNESCO del valle de Katmandú y es un centro de peregrinación y de vida comunitaria tibetana.",
       descriptionEn: "Boudha Stupa, Boudhanath Stupa, also known as Khasti Chaitya or Khāsa Chaitya, is a stupa and major spiritual landmark seen as the embodiment of the enlightened mind of all the Buddhas, located in Boudha, within the city of Kathmandu, Nepal.",
+      lat: 27.72143,
+      lng: 85.36201,
     },
     {
       id: "kathmandu_2",
@@ -23639,8 +23817,10 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
         notes: "$$$$",
       },
-      description: "Swayambhunath (Monkey Temple) es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Swayambhunath es un complejo religioso con una estupa sobre una colina al oeste de Katmandú. Se le conoce como el Templo de los Monos por los macacos que viven en el lugar, y desde allí se ven la ciudad y el valle.",
       descriptionEn: "Swayambhunath is an ancient religious complex atop a hill in the Kathmandu Valley, west of Kathmandu city. The Tibetan and Sanskrit name for the site means 'self-arising' or 'self-sprung'.",
+      lat: 27.71561,
+      lng: 85.28876,
     },
     {
       id: "kathmandu_3",
@@ -23661,6 +23841,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "El templo Pashupatinath es uno de los más importantes templos hinduistas de Shiva en el mundo. Se encuentra ubicado a orillas del río Bagmati en la zona este de la ciudad de Katmandú, capital de Nepal.",
       descriptionEn: "Pashupatinath Temple is a revered Hindu temple dedicated to Pashupati, a manifestation of Shiva. Located on the banks of the sacred Bagmati River in Kathmandu, Nepal, the temple is one of the oldest and most significant religious complexes in South Asia.",
+      lat: 27.7105,
+      lng: 85.34865,
     },
     {
       id: "kathmandu_4",
@@ -23706,8 +23888,10 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
         notes: "$$$$",
       },
-      description: "Katmandú () es la capital y mayor ciudad de Nepal. Tiene una población de 1 003 285 habitantes, según censo de 2013. Situada en el valle del mismo nombre en Nepal central, en las cercanías del río Bisnumati, a una altitud de 1317 m s. n. m.",
+      description: "La Plaza Durbar de Patan es un conjunto histórico de palacios, templos y patios en Lalitpur, junto a Katmandú. Forma parte del Patrimonio Mundial de la UNESCO del valle de Katmandú y es conocida por su arquitectura newar.",
       descriptionEn: "Kathmandu Durbar Square is a historically and culturally significant site in Kathmandu, Nepal. It is one of the three Durbar Squares in the Kathmandu Valley in Nepal that are UNESCO World Heritage Sites.",
+      lat: 27.67307,
+      lng: 85.32571,
     },
     {
       id: "kathmandu_5",
@@ -23722,8 +23906,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1701255136115-1b7c094c2b9f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxrYXRobWFuZHUlMjB0cmF2ZWx8ZW58MXwwfHx8MTc4MjE2OTIxNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Doctor Strange es una película de superhéroes estadounidense de 2016 basada en el personaje homónimo de Marvel Comics, producida por Marvel Studios y distribuida por Walt Disney Studios Motion Pictures. Es la decimocuarta película del Universo cinematográfico de Marvel (UCM).",
+      description: "Thamel es un barrio céntrico de Katmandú con calles comerciales, alojamientos, restaurantes y tiendas orientadas al turismo. Funciona como base para viajeros y punto de partida hacia otras zonas de la ciudad y del valle.",
       descriptionEn: "Thamel is a commercial neighborhood located in Kathmandu, the capital of Nepal. The name comes from Tha Bahi, indicating its root origin to have come from the Newar community, the indigenous people of Kathmandu Valley.",
+      lat: 27.71666,
+      lng: 85.3127,
     },
     {
       id: "kathmandu_6",
@@ -23756,8 +23942,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Interior_of_Natural_History_Museum%2C_Kathmandu_%282%29.jpg/1920px-Interior_of_Natural_History_Museum%2C_Kathmandu_%282%29.jpg",
       website: "http://nhmnepal@edu.np",
-      description: "Bagale Thapa o Bagalya Thapa es un clan o subgrupo prominente dentro de Thapa de la comunidad de Khas. Pertenecen a Aatreya Gotra en el sistema Gotra del hinduismo.",
+      description: "El Museo Nacional de Historia forma parte del Museo Nacional de Nepal, en Chhauni, Katmandú. Sus salas reúnen arte, objetos históricos y muestras de historia natural.",
       descriptionEn: "The history of the city of Kathmandu, which is inseparable from that of the Kathmandu Valley, dates back to ancient times.",
+      lat: 27.71457,
+      lng: 85.28783,
     },
     {
       id: "kathmandu_8",
@@ -23774,6 +23962,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Narayanhiti_Palace-070A1259.jpg/1920px-Narayanhiti_Palace-070A1259.jpg",
       description: "El Tribhuvan Sadan es una mansión en el Palacio Narayanhity, Katmandú, Nepal. Es conocido por ser el lugar de la masacre real en Nepal, donde diez miembros de la familia real, incluidos el rey Birendra, la reina Aishwarya y el príncipe heredero Dipendra, fueron asesinados.",
       descriptionEn: "The Narayanhiti Palace Museum is a public museum in Kathmandu, Nepal located east of the Kaiser Mahal and next to Thamel. The museum was created in 2008 from the complex of the former Narayanhiti Palace following the 2006 revolution.",
+      lat: 27.71556,
+      lng: 85.32,
     },
     {
       id: "kathmandu_9",
@@ -23791,6 +23981,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://gardenofdreams.org.np/",
       description: "El Jardín de los Sueños También, el Jardín de seis estaciones, es un jardín histórico neoclásico en Katmandú, la capital del país asiático de Nepal, construido en 1920.",
       descriptionEn: "The Garden of Dreams, also, the Garden of Six Seasons, is a neo-classical garden in Kaiser Mahal Kathmandu, Nepal, built in 1920.",
+      lat: 27.71417,
+      lng: 85.31472,
     },
     {
       id: "kathmandu_10",
@@ -23821,8 +24013,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.8,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Zoo_Kathmandu_Nepal_%285085903803%29.jpg/1920px-Zoo_Kathmandu_Nepal_%285085903803%29.jpg",
-      description: "Central Zoo es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Zoológico Central es un parque zoológico de 6 hectáreas en Jawalakhel, en el país asiático de Nepal. Es el hogar de unos 870 animales que representan 109 especies, y es operado por el Fideicomiso Nacional para la Conservación de la Naturaleza (NTNC).",
       descriptionEn: "The Central Zoo is a 6-hectare (15-acre) zoo in Jawalakhel, Nepal. It is home to some 969 animals in 109 species, and is operated by the National Trust for Nature Conservation (NTNC). Although it was originally a private zoo, it was opened to the public in 1956.",
+      lat: 27.67318,
+      lng: 85.31093,
+      sourceUrl: "https://es.wikipedia.org/wiki/Zool%C3%B3gico_Central",
     },
     {
       id: "kathmandu_12",
@@ -23839,6 +24034,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/A_view_of_the_Nyatapola_Pagoda_Temple_at_the_Bhaktapur_Durbar_Square_in_Kathmandu_Valley_in_Nepal.jpg/1920px-A_view_of_the_Nyatapola_Pagoda_Temple_at_the_Bhaktapur_Durbar_Square_in_Kathmandu_Valley_in_Nepal.jpg",
       description: "El templo Kumbheshwar forma parte de un complejo hindú al norte de la plaza Durbar en Patan. Es una de las dos únicas pagodas de cinco pisos del valle de Katmandú. El edificio, que data del año 1392, domina las calles adyacentes y es el templo más antiguo de la ciudad.",
       descriptionEn: "Nyātāpola is a five tiered temple located in the central part of Bhaktapur, Nepal. It is the tallest monument within the city and is also the tallest temple of Nepal.",
+      lat: 27.6714,
+      lng: 85.4293,
     },
     {
       id: "kathmandu_13",
@@ -23911,6 +24108,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Pueblo en las colinas al este de Katmandú, conocido por sus vistas panorámicas del Himalaya al amanecer. Es una excursión popular para observar la cordillera en días despejados.",
       descriptionEn: "Hill village east of Kathmandu known for panoramic Himalayan views at sunrise. It is a popular day trip to see the mountain range on clear days.",
+      lat: 27.71833,
+      lng: 85.51806,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/NAST_Astronomical_Observatory_Nagarkot_Nepal.jpg/1280px-NAST_Astronomical_Observatory_Nagarkot_Nepal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kathmandu_17",
@@ -23962,6 +24162,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Templo hindú en las afueras de Katmandú, famoso por su gran estatua de Vishnu recostado sobre una serpiente en un estanque. Es un importante lugar de peregrinación.",
       descriptionEn: "Hindu temple on the outskirts of Kathmandu, known for its large statue of Vishnu reclining on a serpent in a pond. It is an important pilgrimage site.",
+      lat: 27.77583,
+      lng: 85.36194,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Budanilkantha_town_and_Shivapuri_hills.jpg/1280px-Budanilkantha_town_and_Shivapuri_hills.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kathmandu_20",
@@ -23978,6 +24181,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Kumari_Ghar%2C_Kathmandu_Durbar_Square.jpg/1280px-Kumari_Ghar%2C_Kathmandu_Durbar_Square.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Residencia de la Kumari, la 'diosa viviente' de Katmandú, ubicada en la plaza Durbar. Se visita por su arquitectura tradicional y su papel en las festividades locales.",
       descriptionEn: "Home of the Kumari, Kathmandu's 'living goddess', located on Durbar Square. It is visited for its traditional architecture and role in local festivals.",
+      lat: 27.70377,
+      lng: 85.30652,
     },
     {
       id: "kathmandu_21",
@@ -23993,6 +24198,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Plaza y mercado bullicioso en el centro de Katmandú, donde se venden especias, verduras y productos cotidianos. Es un punto para observar la vida local y el comercio tradicional.",
       descriptionEn: "Bustling market square in central Kathmandu selling spices, vegetables and everyday goods. It is a place to observe local life and traditional trade.",
+      lat: 27.70755,
+      lng: 85.31252,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Kathmandu-Asan-Annapurna-02-2007-gje.jpg/1280px-Kathmandu-Asan-Annapurna-02-2007-gje.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kathmandu_22",
@@ -24009,6 +24217,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Chandragiri_Cable_Car%2CKathmandu%2CNepal_August_2026_%2816%29.jpg/1280px-Chandragiri_Cable_Car%2CKathmandu%2CNepal_August_2026_%2816%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Teleférico que sube a la colina Chandragiri, al suroeste de Katmandú. Ofrece vistas de la ciudad y de la cordillera del Himalaya en días despejados.",
       descriptionEn: "Cable car that ascends Chandragiri Hill, southwest of Kathmandu. It offers views of the city and the Himalayan range on clear days.",
+      lat: 27.67667,
+      lng: 85.21019,
     },
     {
       id: "kathmandu_23",
@@ -24026,6 +24236,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Templo hindú dedicado a la diosa Kali, al sur de Katmandú. Es frecuentado por peregrinos y conocido por sus rituales tradicionales.",
       descriptionEn: "Hindu temple dedicated to the goddess Kali, south of Kathmandu. It is frequented by pilgrims and known for its traditional rituals.",
+      lat: 27.69669,
+      lng: 85.30868,
     },
     {
       id: "kathmandu_24",
@@ -24043,6 +24255,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 85.36388,
       description: "Monasterio budista tibetano en una colina al noreste de Katmandú. Se visita por su ambiente tranquilo, sus cursos y sus vistas sobre el valle.",
       descriptionEn: "Tibetan Buddhist monastery on a hill northeast of Kathmandu. It is visited for its peaceful atmosphere, courses and views over the valley.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Kopan_01.JPG/1280px-Kopan_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kathmandu_25",
@@ -24060,6 +24273,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Sitio budista en las colinas de Kavre, a unas horas de Katmandú. Reúne una estupa y un monasterio asociados a una leyenda sobre el Buda.",
       descriptionEn: "Buddhist site in the hills of Kavre, a few hours from Kathmandu. It includes a stupa and a monastery linked to a legend about the Buddha.",
+      lat: 27.571,
+      lng: 85.584,
     },
     {
       id: "kathmandu_26",
@@ -24076,6 +24291,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Pueblo en las colinas al este de Katmandú, conocido por sus vistas del Himalaya y por su casco antiguo con templos. Es una excursión habitual desde la ciudad.",
       descriptionEn: "Hill town east of Kathmandu known for its Himalayan views and old town with temples. It is a common day trip from the city.",
+      lat: 27.61667,
+      lng: 85.55,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Dhulikhel1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "kathmandu_27",
@@ -25671,6 +25889,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_N%C2%B01_de_Surquillo",
       lat: -12.11805,
       lng: -77.02547,
+      descriptionEn: "Mercado N°1 de Surquillo is a traditional market in Lima's Surquillo district, with stalls selling fruit, vegetables, meat and prepared food. Visitors come to see local produce and everyday neighborhood life.",
     },
     {
       id: "lima_6",
@@ -26288,6 +26507,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://museopedrodeosma.org",
       description: "El Museo Pedro de Osma es un museo histórico, ubicado en el Distrito de Barranco, Lima, Perú.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Pedro_de_Osma",
+      descriptionEn: "The Museo Pedro de Osma occupies a historic mansion in Barranco and houses viceregal art, paintings, sculptures, silverwork and furniture. It is visited to see its collection and learn about Peruvian colonial art.",
     },
     {
       id: "lima_38",
@@ -27125,8 +27345,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-      description: "Luang Prabang, antiguamente conocida como Xieng Thong, es la capital de la provincia de Luang Prabang, en el norte-centro de Laos. Su nombre, que significa «Imagen Real de Buda», proviene del Phra Bang, una estatua que simboliza la soberanía lao.",
+      description: "Luang Prabang es una ciudad del norte de Laos, situada en la confluencia de los ríos Mekong y Nam Khan. Fue capital del reino de Lan Xang y hoy su centro histórico, con monasterios budistas y arquitectura colonial, está inscrito como Patrimonio de la Humanidad por la UNESCO.",
       descriptionEn: "Luang Prabang, historically known as Xieng Thong, and alternatively spelled Luang Phabang or Louangphabang, is the capital of Luang Prabang Province in north-central Laos. Its name, meaning “Royal Buddha Image,” derives from the Phra Bang, a statue symbolizing Lao sovereignty.",
+      lat: 19.81873,
+      lng: 102.07783,
     },
     {
       id: "luangprabang_1",
@@ -27143,6 +27365,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Temple_Wat_Xieng_Thong_-_Luang_Prabang_-_Laos.jpg/3840px-Temple_Wat_Xieng_Thong_-_Luang_Prabang_-_Laos.jpg",
       description: "El Wat Xieng Thong es un templo budista situado en la punta norte de la península de Luang Prabang, Laos. Construido entre 1559 y 1560 por el rey Setthathirath, es uno de los monasterios lao más importantes y un monumento destacado del espíritu religioso del país.",
       descriptionEn: "Wat Xieng Thong is a Buddhist temple on the northern tip of the peninsula of Luang Prabang, Laos. Built between 1559 and 1560 by King Setthathirath, Wat Xieng Thong is one of the most important of Lao monasteries and remains a significant monument to the spirit of religion,…",
+      lat: 19.8975,
+      lng: 102.14306,
     },
     {
       id: "luangprabang_2",
@@ -27159,6 +27383,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Front_view_of_Wat_Mai_Suwannaphumaham_Buddhist_temple_at_blue_hour_in_Luang_Prabang_Laos.jpg/3840px-Front_view_of_Wat_Mai_Suwannaphumaham_Buddhist_temple_at_blue_hour_in_Luang_Prabang_Laos.jpg",
       description: "El Wat Mai Suwannaphumaham, comúnmente llamado Wat Mai, es un templo budista de Luang Prabang, Laos. Construido a comienzos del siglo XVIII, es el templo más grande de la ciudad.",
       descriptionEn: "Wat Mai Suwannaphumaham often simply Wat Mai or Wat May (ວັດໃໝ່) is a Buddhist temple or wat in Luang Prabang, Laos. Built at the turn of the 18th century, it is the largest temple in Luang Prabang.",
+      lat: 19.89057,
+      lng: 102.13499,
     },
     {
       id: "luangprabang_3",
@@ -27175,6 +27401,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Praying_bhikkhus_inside_Wat_Sensoukharam_in_Luang_Prabang_Laos.jpg/1920px-Praying_bhikkhus_inside_Wat_Sensoukharam_in_Luang_Prabang_Laos.jpg",
       description: "El Wat Sensoukharam, también llamado Wat Sene, es un templo budista de Luang Prabang, Laos, construido en 1718. Su nombre significa «templo de las cien mil piedras», en referencia a la cuantiosa donación que financió su construcción, y destaca por su fachada roja y dorada.",
       descriptionEn: "Wat Sensoukharam, also known as Wat Sene, is a Buddhist temple in Luang Prabang, Laos, built in 1718. Its name means \"temple of a hundred thousand stones,\" referring to the large donation that funded its construction, and it is known for its striking red-and-gold façade.",
+      lat: 19.89551,
+      lng: 102.14161,
     },
     {
       id: "luangprabang_4",
@@ -27191,6 +27419,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Luang_Prabang-Wat_Manorom-05-gje.jpg/1920px-Luang_Prabang-Wat_Manorom-05-gje.jpg",
       description: "El Wat Manorom es uno de los templos budistas más antiguos de Luang Prabang, Laos, con orígenes que se remontarían a los inicios del reino de Lan Xang. El templo actual, reconstruido en el siglo XX, alberga una gran imagen de Buda de bronce.",
       descriptionEn: "Wat Manorom is one of the oldest temple sites in Luang Prabang, Laos, with origins said to date back to the early Lan Xang kingdom. The present-day temple, rebuilt in the 20th century, houses a large bronze Buddha image.",
+      lat: 19.88271,
+      lng: 102.13277,
     },
     {
       id: "luangprabang_5",
@@ -27241,6 +27471,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.taeclaos.org/",
       description: "El Traditional Arts and Ethnology Centre (TAEC) es un museo independiente sin fines de lucro en Luang Prabang, Laos, dedicado a documentar y preservar el patrimonio cultural de los más de 50 grupos étnicos del país a través de exhibiciones textiles y artesanales.",
       descriptionEn: "The Traditional Arts and Ethnology Centre (TAEC) is an independent, non-profit museum in Luang Prabang, Laos, dedicated to documenting and preserving the cultural heritage of the country's more than 50 ethnic groups through textile and craft exhibitions.",
+      lat: 19.88862,
+      lng: 102.13531,
     },
     {
       id: "luangprabang_8",
@@ -27273,6 +27505,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mekong-River_Laos_jetty-at-Pak-Ou-Caves-01.jpg/1920px-Mekong-River_Laos_jetty-at-Pak-Ou-Caves-01.jpg",
       description: "Cuevas de Pak Ou es el nombre de unas cuevas con vistas al río Mekong, a 25 km de Luang Prabang, Laos. Se trata de un grupo de cuevas en el lado izquierdo del río Mekong, cerca de dos horas río arriba desde el centro de Luang Prabang.",
       descriptionEn: "The Pak Ou Caves are a set of caves overlooking the Mekong River, about 25 km from Luang Prabang, Laos. Housing thousands of Buddha statues left by pilgrims over the centuries, they lie roughly two hours upriver from the town center.",
+      lat: 20.0487,
+      lng: 102.2105,
     },
     {
       id: "luangprabang_10",
@@ -27289,6 +27523,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Kuang_Si_Falls_and_a_turquoise_water_pool_in_Luang_Prabang_province_Laos.jpg/1920px-Kuang_Si_Falls_and_a_turquoise_water_pool_in_Luang_Prabang_province_Laos.jpg",
       description: "Cataratas Kuang Si a veces escrito Kuang Xi, es una cascada de tres niveles alrededor de 29 kilómetros al sur de Luang Prabang en Laos. Estas cascadas son un sitio preferido por los turistas en Luang Prabang.",
       descriptionEn: "The Kuang Si Falls or Kuang Xi Falls, alternatively known as the Tat Kuang Si Waterfalls, is a multi-tiered waterfall in Laos about 29 kilometers (18 mi) south of the town of Luang Prabang. The journey takes 53 minutes from Luang Prabang Night Market downtown.",
+      lat: 19.74974,
+      lng: 101.99207,
     },
     {
       id: "luangprabang_11",
@@ -27373,6 +27609,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Ceremonia matutina de limosna en Luang Prabang: monjes budistas desfilan en procesión y reciben arroz glutinoso de los fieles. Es una práctica religiosa tradicional que forma parte de la vida local.",
       descriptionEn: "Morning alms-giving ceremony in Luang Prabang: Buddhist monks walk in procession and receive sticky rice from laypeople. It is a traditional religious practice that is part of local life.",
+      lat: 19.89513,
+      lng: 102.14155,
     },
     {
       id: "luangprabang_16",
@@ -27389,6 +27627,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Luang_Prabang-Wat_Visounarath-06-Sim-gje.jpg/1280px-Luang_Prabang-Wat_Visounarath-06-Sim-gje.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Templo budista de Luang Prabang conocido por su estupa en forma de loto, llamada That Makmo. Forma parte del conjunto de monasterios históricos de la ciudad y conserva objetos religiosos.",
       descriptionEn: "Buddhist temple in Luang Prabang known for its lotus-shaped stupa, called That Makmo. It is part of the city's historic monastery complex and houses religious objects.",
+      lat: 19.88699,
+      lng: 102.13827,
     },
     {
       id: "luangprabang_17",
@@ -27405,6 +27645,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Cascada de varios niveles y pozas en un entorno boscoso cerca de Luang Prabang. Su caudal varía según la temporada, por lo que el paisaje cambia entre la estación seca y la lluviosa.",
       descriptionEn: "Waterfall with several levels and pools in a wooded area near Luang Prabang. Its flow varies by season, so the landscape changes between the dry and rainy months.",
+      lat: 19.84419,
+      lng: 102.21924,
     },
     {
       id: "luangprabang_18",
@@ -27453,6 +27695,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Templo budista de Luang Prabang asociado a una huella de Buda, según la tradición local. Su conjunto incluye una sala de oración y una estupa, y forma parte del patrimonio religioso de la ciudad.",
       descriptionEn: "Buddhist temple in Luang Prabang associated with a Buddha footprint, according to local tradition. Its complex includes a prayer hall and a stupa, and it is part of the city's religious heritage.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Wat_Siphoutthabath_2.jpg/1280px-Wat_Siphoutthabath_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "luangprabang_21",
@@ -29720,6 +29963,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Paisaje Cultural Cafetero de Colombia (PCC) es un Patrimonio Mundial declarado por la Unesco el 25 de junio de 2011 en la categoría de Paisaje cultural.",
       sourceUrl: "https://es.wikipedia.org/wiki/Paisaje_Cultural_Cafetero",
       dayTrip: true,
+      descriptionEn: "The Coffee Cultural Landscape is a UNESCO World Heritage region in Colombia made up of mountainous coffee-growing areas in Caldas, Quindío, Risaralda and Valle del Cauca. It is visited for its farms, traditional architecture and hillside crops.",
     },
     {
       id: "medellin_1",
@@ -29915,6 +30159,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.museocasadelamemoria.org/",
       description: "El Museo casa de la memoria, es un museo con entrada gratuita situado en el centro de Medellín, inaugurado en 2012, cuyo objetivo es exponer y superar las consecuencias del conflicto armado en Colombia, Antioquia y Medellín.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_casa_de_la_memoria",
+      lat: 6.2459,
+      lng: -75.5567,
+      descriptionEn: "The Museo Casa de la Memoria is a museum space in Medellín dedicated to the memory of Colombia's armed conflict, with exhibits on victims, testimonies and human rights. It is visited to learn about archives and accounts of recent violence.",
     },
     {
       id: "medellin_11",
@@ -29932,6 +30179,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://arqmedellin.co/parroquias/san-ignacio-de-loyola/",
       description: "La Iglesia de San Ignacio es un templo religioso de culto católico que tiene como titular a San Ignacio de Loyola, en el centro de Medellín, Colombia, al costado oriental de la plazuela San Ignacio.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_San_Ignacio_(Medell%C3%ADn)",
+      lat: 6.24609,
+      lng: -75.56413,
+      descriptionEn: "The Iglesia de San Ignacio is a Catholic church in downtown Medellín linked to the Society of Jesus. It is visited for its religious architecture and its location among other heritage sites in the historic center.",
     },
     {
       id: "medellin_12",
@@ -30079,6 +30329,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Metrocable es una red de teleféricos, del tipo monocable; para la movilización urbana de pasajeros en Medellín, Colombia. Está compuesto por seis líneas de servicio comercial: H, J, K, L, M y P, que suman una extensión total de 14.62 km.",
       descriptionEn: "Metrocable is a gondola lift system implemented by the City Council of Medellín, Colombia, with the purpose of providing a transportation service that complements the Medellín Metro.",
       sourceUrl: "https://es.wikipedia.org/wiki/Metrocable_de_Medell%C3%ADn",
+      lat: 6.26927,
+      lng: -75.61386,
     },
     {
       id: "medellin_20",
@@ -30195,6 +30447,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -75.56611,
       description: "El Parque de los Deseos es un parque urbano de la ciudad colombiana de Medellín, creado con el fin de relacionar el universo con la gente.",
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_de_los_Deseos",
+      descriptionEn: "Parque de los Deseos is a public space in Medellín next to the Planetarium and Parque Explora. It is visited for its open areas and for the cultural and astronomical activities held in its surroundings.",
     },
     {
       id: "medellin_26",
@@ -30311,6 +30564,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Iglesia_de_Nuestra_Se%C3%B1ora_de_la_Candelaria-Mede.JPG/1280px-Iglesia_de_Nuestra_Se%C3%B1ora_de_la_Candelaria-Mede.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Iglesia católica del centro de Medellín, ubicada junto al Parque Berrío. Su origen se remonta a la época colonial y es uno de los templos más antiguos de la ciudad, además de un referente histórico y religioso del sector.",
       descriptionEn: "Catholic church in downtown Medellín, located next to Parque Berrío. Its origins date back to the colonial period and it is one of the oldest temples in the city, as well as a historic and religious landmark in the area.",
+      lat: 6.25055,
+      lng: -75.5565,
     },
     {
       id: "medellin_32",
@@ -30327,6 +30582,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/18/Mesa_de_tenis_en_el_parque_Lleras_de_Medell%C3%ADn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Plaza pequeña del barrio El Poblado, en la zona rosa de Medellín. Es conocida por concentrar bares y restaurantes y funciona como punto de referencia para la vida nocturna de la ciudad.",
       descriptionEn: "Small square in the El Poblado district, in Medellín's zona rosa (nightlife area). It is known for its cluster of bars and restaurants and serves as a reference point for the city's nightlife.",
+      lat: 6.20882,
+      lng: -75.56761,
     },
     {
       id: "medellin_33",
@@ -31063,6 +31320,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.elmodo.mx/",
       description: "El Museo del Objeto del Objeto (MODO) es un museo inaugurado en 2010 que se ha dedicado a contar historias mediante objetos que han acompañado la vida diaria en México desde hace más de 200 años.",
       descriptionEn: "The Museo del Objeto del Objeto, or MODO, is a museum in Mexico City and the first museum in Mexico dedicated to design and communications.",
+      lat: 19.42021,
+      lng: -99.15907,
     },
     {
       id: "mexicocity_8",
@@ -32024,6 +32283,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Dolphin Mall es un gran centro comercial de estilo abierto en el oeste del condado de Miami-Dade, cerca del aeropuerto internacional. Reúne cientos de tiendas de descuento, restaurantes y cines, y es uno de los principales destinos de compras de la zona.",
       descriptionEn: "Dolphin Mall is a large open-air shopping center in western Miami-Dade County, near the international airport. It houses hundreds of outlet stores, restaurants and a cinema, and is one of the area's main shopping destinations.",
+      lat: 25.7876,
+      lng: -80.3806,
     },
     {
       id: "miami_10",
@@ -32041,6 +32302,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.sawgrassmills.com/",
       description: "Sawgrass Mills es un enorme centro comercial de outlets en Sunrise, Florida, al norte de Miami. Es uno de los centros comerciales más grandes de Estados Unidos y atrae visitantes por sus tiendas de marca y precios rebajados.",
       descriptionEn: "Sawgrass Mills is a huge outlet shopping mall in Sunrise, Florida, north of Miami. It is one of the largest shopping centers in the United States and draws visitors with its brand-name stores and discounted prices.",
+      lat: 26.1514,
+      lng: -80.3208,
+      dayTrip: true,
     },
     {
       id: "miami_11",
@@ -32118,6 +32382,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Bill_Baggs_Cape_Florida_State_Park.jpg/1280px-Bill_Baggs_Cape_Florida_State_Park.jpg",
       description: "El Parque Estatal Bill Baggs Cape Florida ocupa el extremo sur de Cayo Vizcaíno (Key Biscayne), cerca de Miami, y conserva playas, manglares y senderos. En él se encuentra el faro de Cape Florida, construido en el siglo XIX y uno de los más antiguos del estado.",
       descriptionEn: "Bill Baggs Cape Florida State Park covers the southern tip of Key Biscayne near Miami and preserves beaches, mangroves and trails. It is home to the Cape Florida Lighthouse, built in the 19th century and one of the oldest in the state.",
+      lat: 25.67361,
+      lng: -80.15944,
     },
     {
       id: "miami_15",
@@ -32215,6 +32481,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Bal_Harbour_Shops.jpg/1280px-Bal_Harbour_Shops.jpg",
       description: "Bal Harbour Shops es un centro comercial a cielo abierto en Bal Harbour, al norte de Miami Beach. Se distingue por sus tiendas de lujo y sus jardines tropicales, y está frente a la playa.",
       descriptionEn: "Bal Harbour Shops is an open-air shopping center in Bal Harbour, north of Miami Beach. It is known for its luxury boutiques and tropical gardens, and sits across from the beach.",
+      lat: 25.8883,
+      lng: -80.1252,
     },
     {
       id: "miami_20",
@@ -32251,6 +32519,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1579641665137-2037024da8a4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCcmlja2VsbCUyMENpdHklMjBDZW50cmUlMjBtaWFtaXxlbnwxfDB8fHwxNzgyMTY5Mjk4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Brickell City Centre es un complejo de uso mixto en el barrio de Brickell, en el centro de Miami, con centro comercial, oficinas, residencias y hoteles. Una cubierta de climatización sobre las calles, llamada Climate Ribbon, es una de sus características distintivas.",
       descriptionEn: "Brickell City Centre is a mixed-use development in Miami's Brickell district, featuring a shopping mall, offices, residences and hotels. A climate-control canopy over its streets, known as the Climate Ribbon, is one of its distinctive features.",
+      lat: 25.76716,
+      lng: -80.19309,
     },
     {
       id: "miami_22",
@@ -40533,6 +40803,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Museo_de_Artes_Visuales%2C_Santiago_20230815.jpg/960px-Museo_de_Artes_Visuales%2C_Santiago_20230815.jpg",
       description: "El Museo de Artes Visuales se encuentra ubicado a un costado del Museo Arqueológico de Santiago, en la Plaza Mulato Gil de Castro, en el Barrio Lastarria de la ciudad de Santiago, Chile.",
       descriptionEn: "The Museo de Artes Visuales (MAVI) is a contemporary art museum in the Lastarria neighborhood of Santiago, Chile, next to the Museo Arqueológico de Santiago.",
+      lat: -33.43796,
+      lng: -70.64067,
     },
     {
       id: "santiago_11",
@@ -40630,6 +40902,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Santuario_de_la_Inmaculada_Concepci%C3%B3n%2C_Cerro_San_Crist%C3%B3bal_%2825059260397%29.jpg/960px-Santuario_de_la_Inmaculada_Concepci%C3%B3n%2C_Cerro_San_Crist%C3%B3bal_%2825059260397%29.jpg",
       description: "La Virgen de la Inmaculada Concepción es una gran estatua de la Virgen María ubicada en la cima del cerro San Cristóbal, en Santiago de Chile. Inaugurada en 1908, mide 14 metros y es uno de los símbolos más reconocidos de la ciudad.",
       descriptionEn: "The Virgen de la Inmaculada Concepción is a large statue of the Virgin Mary standing atop Cerro San Cristóbal in Santiago, Chile. Inaugurated in 1908, it rises 14 metres and is one of the city's most recognizable landmarks.",
+      lat: -33.4253,
+      lng: -70.63316,
     },
     {
       id: "santiago_16",
@@ -40647,6 +40921,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Parque_Mahuida_20201011.jpg/960px-Parque_Mahuida_20201011.jpg",
       description: "El parque Mahuida está ubicado en la precordillera, en la comuna de La Reina, Santiago de Chile y tiene una superficie de 170 hectáreas.",
       descriptionEn: "Parque Mahuida is a nature park in the foothills of the Andes, in the La Reina commune of Santiago, Chile, covering approximately 170 hectares of native forest and hiking trails.",
+      lat: -33.45666,
+      lng: -70.51911,
     },
     {
       id: "santiago_17",
@@ -40993,6 +41269,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "La Catedral Metropolitana de Santiago es la sede de la arquidiócesis de Santiago de Chile y el principal templo de la Iglesia católica en Chile. Como Iglesia Catedral es la sede permanente del arzobispo de Santiago y está dedicada a la Asunción de la Virgen María.",
       descriptionEn: "Santiago Metropolitan Cathedral is the seat of the Archdiocese of Santiago and the main temple of the Catholic Church in that country. As a Cathedral Church, it is the permanent seat of the Archbishop of Santiago and is dedicated to the Assumption of the Virgin Mary.",
       sourceUrl: "https://es.wikipedia.org/wiki/Catedral_Metropolitana_de_Santiago",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Catedral_Metropolitana_de_Santiago_I.jpg/1280px-Catedral_Metropolitana_de_Santiago_I.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "santiago_36",
@@ -41401,6 +41678,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.mim.cl",
       description: "El Museo Interactivo Mirador (MIM) es un museo de artes, ciencias y naturaleza dedicado a las infancias e inaugurado el año 2000 en la ciudad de Santiago, Chile.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Interactivo_Mirador",
+      descriptionEn: "The Museo Interactivo Mirador (MIM) is a science museum in Santiago focused on science communication through interactive exhibits. Its halls and outdoor spaces invite visitors to experiment and learn about natural phenomena, technology, and perception.",
     },
     {
       id: "santiago_57",
@@ -41589,6 +41867,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Costanera_Center_at_evening_%28cropped%29.jpg/1280px-Costanera_Center_at_evening_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Costanera Center es un complejo de usos mixtos en Santiago que alberga un centro comercial, oficinas y un hotel, coronado por la Gran Torre Santiago. Se visita por su oferta comercial y gastronómica, y por las vistas desde su mirador.",
       descriptionEn: "Costanera Center is a mixed-use complex in Santiago that houses a shopping mall, offices and a hotel, topped by the Gran Torre Santiago. It is visited for its commercial and dining options, and for the views from its observation deck.",
+      lat: -33.4175,
+      lng: -70.60667,
     },
     {
       id: "santiago_67",
@@ -41623,6 +41903,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Entrada_posterior_Persa_Biobi%C3%B3.JPG/1280px-Entrada_posterior_Persa_Biobi%C3%B3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Persa Biobío es un mercado popular de Santiago donde se venden objetos usados, antigüedades, ropa y artículos variados. Se visita por su ambiente de feria y la posibilidad de encontrar piezas de segunda mano.",
       descriptionEn: "Persa Biobío is a popular market in Santiago where used goods, antiques, clothing and assorted items are sold. It is visited for its flea market atmosphere and the possibility of finding second-hand pieces.",
+      lat: -33.4746,
+      lng: -70.64431,
     },
     {
       id: "santiago_69",
@@ -41678,6 +41960,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Santuario de la Naturaleza Yerba Loca es un área protegida en la cordillera de los Andes, cerca de Santiago, en la comuna de Lo Barnechea. Se visita para hacer senderismo y observar su flora y fauna de montaña.",
       descriptionEn: "Santuario de la Naturaleza Yerba Loca is a protected area in the Andes mountains, near Santiago, in the commune of Lo Barnechea. It is visited for hiking and observing its mountain flora and fauna.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Estero_Yerba_loca.jpg/1280px-Estero_Yerba_loca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "santiago_72",
@@ -41695,6 +41978,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Viña Santa Rita es una de las viñas históricas de Chile, ubicada en Alto Jahuel, en la provincia de Maipo, al sur de Santiago. Se visita por sus viñedos, bodegas y su patrimonio vitivinícola.",
       descriptionEn: "Viña Santa Rita is one of Chile's historic wineries, located in Alto Jahuel, in the Maipo province, south of Santiago. It is visited for its vineyards, cellars and wine-making heritage.",
+      lat: -33.72492,
+      lng: -70.67638,
     },
   ],
   seoul: [
@@ -43613,6 +43898,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://beyondangkor.org/index.php/Prasat_Kravan",
       description: "Prasat Kravan es un templo hinduista de Angkor, Camboya, construido en el año 921. Está dedicado a Vishnú y es célebre por los relieves de ladrillo tallado en su interior, que representan a Vishnú y a su consorte Lakshmi.",
       descriptionEn: "Prasat Kravan is a Hindu temple at Angkor, Cambodia, built in 921. Dedicated to Vishnu, it is notable for the carved brick reliefs inside its towers depicting Vishnu and his consort Lakshmi.",
+      lat: 13.41972,
+      lng: 103.89965,
     },
     {
       id: "siemreap_2",
@@ -43630,6 +43917,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.angkornationalmuseum.com",
       description: "El Angkor National Museum, inaugurado en 2007 en Siem Reap, exhibe más de mil artefactos jemeres en galerías temáticas dedicadas a la historia, religión y cultura de la civilización de Angkor.",
       descriptionEn: "The Angkor National Museum, opened in 2007 in Siem Reap, exhibits over a thousand Khmer artifacts across themed galleries dedicated to the history, religion, and culture of the Angkorian civilization.",
+      lat: 13.3666,
+      lng: 103.86,
     },
     {
       id: "siemreap_3",
@@ -43647,6 +43936,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.warmuseumcambodia.com/",
       description: "El War Museum Cambodia es un museo al aire libre cerca de Siem Reap que exhibe tanques, armas y aeronaves de la guerra civil camboyana y la era de los jemeres rojos, con antiguos soldados como guías.",
       descriptionEn: "The War Museum Cambodia is an open-air museum near Siem Reap displaying tanks, weapons, and aircraft from the Cambodian Civil War and Khmer Rouge era, with former soldiers serving as guides.",
+      lat: 13.38755,
+      lng: 103.83127,
     },
     {
       id: "siemreap_4",
@@ -43663,6 +43954,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/%E1%9E%9F%E1%9F%92%E1%9E%96%E1%9E%B6%E1%9E%93%E1%9E%90%E1%9F%92%E1%9E%98_-_Spean_Thma.jpg/1920px-%E1%9E%9F%E1%9F%92%E1%9E%96%E1%9E%B6%E1%9E%93%E1%9E%90%E1%9F%92%E1%9E%98_-_Spean_Thma.jpg",
       description: "Spean Thma («puente de piedra») es un antiguo puente de la época angkoriana que cruza el río Siem Reap, construido como parte de la red vial que conectaba los templos de Angkor.",
       descriptionEn: "Spean Thma (\"stone bridge\") is an ancient Angkorian-era bridge crossing the Siem Reap River, built as part of the road network connecting the temples of Angkor.",
+      lat: 13.44472,
+      lng: 103.8775,
     },
     {
       id: "siemreap_5",
@@ -43679,6 +43972,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/81/Thommanon_%28Angkor%29_%286844745654%29.jpg",
       description: "Thommanon es uno de un par de templos hinduistas construidos durante el reinado de Suryavarman II (1113–1150) en Angkor, Camboya. Este pequeño y elegante templo se ubica al este de la Puerta de la Victoria de Angkor Thom y al norte de Chau Say Tevoda.",
       descriptionEn: "Thommanon is one of a pair of Hindu temples built during the reign of Suryavarman II (1113–1150) at Angkor, Cambodia. This small and elegant temple is east of the Gate of Victory of Angkor Thom and north of Chau Say Tevoda.",
+      lat: 13.4471,
+      lng: 103.87736,
     },
     {
       id: "siemreap_6",
@@ -43712,8 +44007,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Old_Market_%28Krong_Siem_Reap%29.jpg/1920px-Old_Market_%28Krong_Siem_Reap%29.jpg",
-      description: "El Old Market, también romanizado como Psar Chas, es un mercado tradicional del centro de Siem Reap, Camboya, donde se venden productos frescos, artesanía y recuerdos.",
+      description: "El Mercado Viejo (Psar Chas) es un mercado céntrico de Siem Reap, junto al río, con puestos de artesanías, textiles, recuerdos y alimentos. Se visita para recorrer sus pasillos y conocer la oferta local y turística.",
       descriptionEn: "Old Market, also commonly romanized as Psah Chas, Phsar Chas, Psar Chas or Psar Chaa, is a market in Siem Reap in northern Cambodia.",
+      lat: 13.3538,
+      lng: 103.855,
     },
     {
       id: "siemreap_8",
@@ -43800,6 +44097,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.angkorbutterfly.com/",
       description: "Banteay Srey Butterfly Centre es un zoológico de mariposas cerca de Siem Reap, Camboya. Fundado en 2009, es el mayor centro de mariposas cerrado del sudeste asiático, también conocido como Angkor Butterfly Center.",
       descriptionEn: "Banteay Srey Butterfly Centre is a butterfly zoo near Siem Reap, Cambodia. Founded in 2009, it is the largest enclosed butterfly centre in Southeast Asia. The centre is sometimes referred to as the Angkor Butterfly Center.",
+      lat: 13.50869,
+      lng: 103.94096,
     },
     {
       id: "siemreap_13",
@@ -68527,6 +68826,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Top of the Rock es el mirador ubicado en los pisos 67 al 70 del edificio 30 Rockefeller Plaza, en Midtown Manhattan, Nueva York, que ofrece vistas panorámicas del Empire State Building y Central Park.",
       descriptionEn: "Top of the Rock is the observation deck on the 67th, 69th and 70th floors of 30 Rockefeller Plaza in Midtown Manhattan, New York City, offering panoramic views of the Empire State Building and Central Park.",
+      lat: 40.75897,
+      lng: -73.97939,
     },
     {
       id: "newyork_6",
@@ -77998,6 +78299,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Playa Delfines es una de las playas públicas más conocidas de Cancún, en la Zona Hotelera, famosa por su gran letrero \"CANCUN\", su oleaje y sus vistas panorámicas al mar Caribe desde un acantilado.",
       descriptionEn: "Playa Delfines is one of Cancún's best-known public beaches, in the Hotel Zone, famous for its large \"CANCUN\" sign, its waves, and its panoramic clifftop views of the Caribbean Sea.",
+      lat: 21.06196,
+      lng: -86.77858,
     },
     {
       id: "cancun_8",
@@ -78051,6 +78354,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_nacional_Costa_Occidental_de_Isla_Mujeres%2C_Punta_Canc%C3%BAn_y_Punta_Nizuc",
       lat: 21.18056,
       lng: -86.75833,
+      descriptionEn: "Protected marine area in the Mexican Caribbean covering the reefs and waters off Isla Mujeres, Punta Cancún and Punta Nizuc. It is part of the Mesoamerican Barrier Reef System and is visited for snorkeling and diving.",
     },
     {
       id: "cancun_11",
@@ -78087,6 +78391,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Collage_Merida_Yucatan.jpg",
       description: "La Casa Museo Parque Kabah, construida en 1969, fue trasladada pieza por pieza en 1993 al Parque Urbano-Ecológico Kabah para convertirse en museo, inaugurado en 1998. Su colección de más de 400 piezas históricas y fotográficas narra los orígenes y primeros años de Cancún.",
       descriptionEn: "The Casa Lima Museo Parque, built in 1969, was relocated piece by piece in 1993 to the Kabah Urban-Ecological Park to become a museum, opened in 1998. Its collection of over 400 historical and photographic pieces documents the origins and early years of Cancún.",
+      lat: 21.1422,
+      lng: -86.83696,
     },
     {
       id: "cancun_13",
@@ -78122,6 +78428,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/San_Miguelito_(sitio_arqueol%C3%B3gico)",
       lat: 21.07104,
       lng: -86.77889,
+      descriptionEn: "Maya archaeological site in Cancún's Hotel Zone, next to the Museo Maya de Cancún. It preserves platforms and structures of a pre-Hispanic settlement located between the lagoon and the Caribbean Sea.",
     },
     {
       id: "cancun_15",
@@ -78200,6 +78507,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Holbox es una isla mexicana localizada en el canal de Yucatán, en el litoral noreste de la península yucateca. Se ubica en el estado de Quintana Roo y pertenece al municipio de Lázaro Cárdenas,.",
       sourceUrl: "https://es.wikipedia.org/wiki/Holbox",
+      descriptionEn: "Island in northern Quintana Roo, inside the Yum Balam flora and fauna protection area. It is reached by ferry from Chiquilá and is known for its calm beaches, birdwatching and whale shark season.",
     },
     {
       id: "cancun_19",
@@ -78281,6 +78589,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.cozumel.gob.mx/",
       description: "El municipio de Cozumel es uno de los once municipios que conforman al estado de Quintana Roo, México. Su cabecera es la localidad de San Miguel de Cozumel. Está integrado por la isla de Cozumel y los asentamientos continentales de Calica y Xel-Há.",
       sourceUrl: "https://es.wikipedia.org/wiki/Municipio_de_Cozumel",
+      descriptionEn: "Island municipality of Quintana Roo made up of Cozumel island and nearby keys, off the Riviera Maya coast. It has coral reefs and Maya sites, and is reached by ferry from Playa del Carmen.",
     },
     {
       id: "cancun_23",
@@ -78321,6 +78630,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El parque nacional Arrecife de Puerto Morelos forma parte de la barrera arrecifal denominada «Gran Cinturón de Arrecifes del Atlántico Occidental» considerada como la segunda barrera arrecifal más grande del mundo, así mismo esta sección de la barrera, ubicada frente a Puerto…",
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_nacional_Arrecife_de_Puerto_Morelos",
+      descriptionEn: "Marine national park off Puerto Morelos on the Quintana Roo coast. It protects a section of reef with seagrass beds and coral colonies, visited for snorkeling and diving.",
     },
     {
       id: "cancun_25",
@@ -78687,6 +78997,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "SeaWorld Entertainment Inc., SeaWorld es una cadena estadounidense de parques temáticos con sede en Orlando, Florida. Es propietario de parques de mamíferos marinos, oceanarios, parques temáticos de animales y centros de rehabilitación propiedad de SeaWorld Parks & Entertainment.",
       descriptionEn: "SeaWorld is an American theme park chain with headquarters in Orlando, Florida. It is a proprietor of marine mammal parks, oceanariums, animal theme parks, and rehabilitation centers owned by United Parks & Resorts.",
       sourceUrl: "https://es.wikipedia.org/wiki/SeaWorld",
+      lat: 28.4108,
+      lng: -81.4625,
     },
     {
       id: "orlando_9",
@@ -78705,8 +79017,10 @@ export const CURATED_ALL: CuratedMap = {
       ticketPrices: {
         free: false,
       },
-      description: "Universal Orlando Resort es un complejo de entretenmiento turístico de parques temáticos y hoteles con sede en Orlando, Florida. Es operado por Universal Destinations & Experiences, una filial de NBCUniversal de Comcast.",
+      description: "ICON Park es un complejo de entretenimiento en International Drive, Orlando, que reúne la rueda de observación The Wheel, el acuario SEA LIFE Orlando y el museo de cera Madame Tussauds, además de restaurantes y tiendas.",
       descriptionEn: "Icon Park, originally named I-Drive 360 until 2018, is an entertainment complex in Orlando, Florida, that has been operating since 2015.",
+      lat: 28.4432,
+      lng: -81.4693,
     },
     {
       id: "orlando_10",
@@ -78763,8 +79077,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 180,
       website: "https://www.gatorland.com/",
       imageUrl: "https://images.unsplash.com/photo-1649360152238-16c8f031bd39?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxvcmxhbmRvJTIwdHJhdmVsfGVufDF8MHx8fDE3ODIxNzI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "La ciudad de Orlando es la sede del condado de Orange y es ciudad central de la zona metropolitana del mismo nombre, así como también cabecera de la región conocida como Florida Central, en el estado de Florida, del sudeste de Estados Unidos.",
+      description: "Gatorland es un parque de vida silvestre en Orlando, Florida, dedicado a caimanes y cocodrilos. Se visita para ver exhibiciones de reptiles, aves y otros animales, y para conocer sobre la fauna de los humedales de Florida.",
       descriptionEn: "Gatorland is a 110-acre (45 ha) theme park and wildlife preserve in Florida, located along South Orange Blossom Trail south of Orlando. It was founded in 1949 by Owen Godwin on former cattle land, and is privately owned by his family.",
+      lat: 28.3556,
+      lng: -81.4042,
     },
     {
       id: "orlando_13",
@@ -78782,6 +79098,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1618586280321-c43292d1e5c4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEaXNjb3ZlcnklMjBDb3ZlJTIwb3JsYW5kb3xlbnwxfDB8fHwxNzgyMTcyOTkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "SeaWorld Entertainment Inc., SeaWorld es una cadena estadounidense de parques temáticos con sede en Orlando, Florida.",
       descriptionEn: "Discovery Cove is a theme park owned and operated by United Parks & Resorts, and located in Orlando, Florida. It is the sister park of SeaWorld Orlando and Aquatica Orlando. Visitors to the park can interact with a range of marine animals including bottlenose dolphins.",
+      lat: 28.4054,
+      lng: -81.4617,
     },
     {
       id: "orlando_14",
@@ -78819,6 +79137,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Aquatica-roasrapids.jpg",
       description: "SeaWorld Entertainment Inc., SeaWorld es una cadena estadounidense de parques temáticos con sede en Orlando, Florida.",
       descriptionEn: "SeaWorld Orlando is an animal theme park located just outside Orlando, Florida. Although separately gated, it is often promoted with neighboring parks Discovery Cove and Aquatica as well as Busch Gardens Tampa Bay, all of which are owned and operated by United Parks & Resorts.",
+      lat: 28.41564,
+      lng: -81.45697,
     },
     {
       id: "orlando_16",
@@ -78874,8 +79194,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 150,
       website: "https://www.mallatmillenia.com/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Millenia_Mall_02.JPG/1920px-Millenia_Mall_02.JPG",
-      description: "Oviedo es una ciudad ubicada en el condado de Seminole en el estado estadounidense de Florida. En el Censo de 2010 tenía una población de 33.342 habitantes y una densidad poblacional de 830,38 personas por km².",
+      description: "El Centro Comercial Millenia (Mall at Millenia) es un centro comercial en Orlando, Florida, con tiendas de moda, joyerías y restaurantes. Se visita para comprar y recorrer sus instalaciones cubiertas.",
       descriptionEn: "The Mall at Millenia is an indoor shopping mall located in Orlando, Florida. The two-level, 1.12-million-square-foot (104,000 m2) mall is located on Conroy Road near the intersection of Interstate 4 and Florida's Turnpike, as well as the northern end of International Drive.",
+      lat: 28.48578,
+      lng: -81.43158,
     },
     {
       id: "orlando_19",
@@ -78893,6 +79215,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/The_Florida_Mall_west_entrance_near_Macy%27s.jpg/1920px-The_Florida_Mall_west_entrance_near_Macy%27s.jpg",
       description: "La ciudad de Orlando es la sede del condado de Orange y es ciudad central de la zona metropolitana del mismo nombre, así como también cabecera de la región conocida como Florida Central, en el estado de Florida, del sudeste de Estados Unidos.",
       descriptionEn: "The Florida Mall is a super-regional enclosed shopping mall located south of Orlando in unincorporated Orange County, Florida, United States, on the southeast corner of Orange Blossom Trail and Sand Lake Road; it opened in 1986.",
+      lat: 28.44592,
+      lng: -81.39554,
     },
     {
       id: "orlando_20",
@@ -78908,8 +79232,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 180,
       website: "https://www.premiumoutlets.com/outlet/orlando-international",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Orlando_Premium_Outlets_08.JPG/1920px-Orlando_Premium_Outlets_08.JPG",
-      description: "Orlando International Premium Outlets es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Orlando International Premium Outlets es un centro comercial de outlets al aire libre en International Drive, Orlando. Reúne tiendas de marcas de ropa, calzado y accesorios con descuentos.",
       descriptionEn: "Orlando International Premium Outlets is an outdoor outlet mall in Orlando, Florida, United States along the northern end of International Drive.",
+      lat: 28.47559,
+      lng: -81.45061,
     },
     {
       id: "orlando_21",
@@ -79143,6 +79469,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c5/IDrive_Street_View.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Avenida turística de Orlando, Florida, con hoteles, restaurantes, centros de entretenimiento, tiendas y atracciones. Se visita por su oferta gastronómica, compras y fácil acceso a los parques temáticos de la zona.",
       descriptionEn: "Tourist avenue in Orlando, Florida, with hotels, restaurants, entertainment centers, shops, and attractions. It is visited for its dining, shopping, and easy access to the area's theme parks.",
+      lat: 28.4172,
+      lng: -81.4598,
     },
     {
       id: "orlando_33",
@@ -81966,6 +82294,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.gangesgrand.in/",
       description: "Los ghats de Benarés son gradas que descienden al río Ganges en su paso por esta ciudad del estado de Uttar Pradesh, India. La ciudad cuenta con un total de 88 ghats.",
       descriptionEn: "Ghats in Varanasi are riverfront steps leading to the banks of the Ganges river. The city has 84 ghats. Most of the ghats are bathing and puja ceremonial ghats, while two ghats, Manikarnika and Harishchandra, are used exclusively as cremation sites.",
+      lat: 25.29493,
+      lng: 82.97277,
     },
     {
       id: "varanasi_1",
@@ -81980,8 +82310,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1599831069477-b2acdc0bcb91?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHYW5nYSUyMEFhcnRpJTIwQ2VyZW1vbnklMjB2YXJhbmFzaXxlbnwxfDB8fHwxNzgyMTc2NDk4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Ganga Aarti Ceremony es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Ganga Aarti Ceremony is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Ganga Aarti es una ceremonia hindú nocturna que se realiza en los ghats de Varanasi, junto al río Ganges. Sacerdotes ofrecen luces, fuego y cantos, y el público la observa desde las escalinatas.",
+      descriptionEn: "Ganga Aarti is a nightly Hindu ceremony held at the ghats of Varanasi, beside the Ganges River. Priests offer lights, fire and chants while the public watches from the steps.",
     },
     {
       id: "varanasi_2",
@@ -81996,8 +82326,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1710521282645-3f06663adb5e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEYXNoYXNod2FtZWRoJTIwR2hhdCUyMHZhcmFuYXNpfGVufDF8MHx8fDE3ODIxNzY1MDB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Los ghats de Benarés son gradas que descienden al río Ganges en su paso por esta ciudad del estado de Uttar Pradesh, India. La ciudad cuenta con un total de 88 ghats.",
+      description: "El Ghat de Dashashwamedh es uno de los ghats principales de Varanasi, a orillas del Ganges. Es conocido por albergar la ceremonia Ganga Aarti y por su asociación con un antiguo sacrificio de diez caballos.",
       descriptionEn: "Dashashwamedh Ghat is a main ghat in Varanasi located on the Ganges River in Uttar Pradesh, India. It is located close to Vishwanath Temple.",
+      lat: 25.30717,
+      lng: 83.01034,
     },
     {
       id: "varanasi_3",
@@ -82015,6 +82347,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.shrikashivishwanath.org/",
       description: "El templo de Kashi Vishwanath es uno de los doce jyotirlingas, lugares sagrados principales dedicados a Shiva. Se encuentra en la ciudad de Varanasi, en el estado de Uttar Pradesh, en la India.",
       descriptionEn: "Kashi Vishwanath Temple is a Hindu temple dedicated to Shiva. It is located in Vishwanath Gali, in Varanasi, Uttar Pradesh, India. The temple is a Hindu pilgrimage site and is one of the twelve Jyotirlinga shrines.",
+      lat: 25.31078,
+      lng: 83.01061,
     },
     {
       id: "varanasi_4",
@@ -82066,6 +82400,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Sarnath es una ciudad de India ubicada en el distrito de Varanasi, estado de Uttar Pradesh. Es una de las cuatro ciudades santas del budismo, siendo el lugar histórico donde Buda por primera vez predicó el budismo, dando nacimiento al Dharma, y cuna de la primera comunidad…",
       descriptionEn: "Sarnath is a town northeast of Varanasi, in Uttar Pradesh, India. It was here that the Buddha gave his first sermon after attaining enlightenment at Bodh Gaya.",
+      lat: 25.38111,
+      lng: 83.02139,
     },
     {
       id: "varanasi_5",
@@ -82082,6 +82418,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1706186829065-ede677efe384?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSYW1uYWdhciUyMEZvcnQlMjB2YXJhbmFzaXxlbnwxfDB8fHwxNzgyMTc2NTA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El fuerte de Ramnagar es una fortificación en Ramnagar, India. Se encuentra cerca del Ganges en su margen oriental, frente al ghat de Tulsi. La estructura de piedra arenisca fue construida en estilo mogol en 1750 por Kashi Naresh Maharaja Balwant Singh.",
       descriptionEn: "Ramnagar is a town, just adjacent to Varanasi city and a municipal board in Varanasi district in the Indian state of Uttar Pradesh. Ramnagar has a fort known as Ramnagar Fort which is still the residence of King of Varanasi (Benares).",
+      lat: 25.26972,
+      lng: 83.02472,
     },
     {
       id: "varanasi_6",
@@ -82128,8 +82466,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Wall_of_Gyanvapi_Mosque.jpg",
-      description: "Gyanvapi Mosque es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La mezquita Gyanvapi es un edificio religioso islámico en Varanasi, situado junto al Templo Kashi Vishwanath. Su historia y su estatus son objeto de una disputa legal y religiosa de larga data.",
       descriptionEn: "The Gyanvapi Mosque is a mosque located in Varanasi, in the state of Uttar Pradesh, India. The site was originally an ancient Hindu temple of Shiva or \"Kashi Vishveshwara\", one of the twelve sacred Jyotirlingas. The mosque was constructed in c.",
+      lat: 25.31125,
+      lng: 83.01043,
     },
     {
       id: "varanasi_9",
@@ -82160,8 +82500,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Varanasi_256_-_Bharat_Mata_temple_%2833982674090%29.jpg",
-      description: "Bharatmata Mandir es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Templo Bharatmata está dedicado a la Madre India y alberga un gran mapa en relieve del país. Fue inaugurado en 1936 y se visita por su significado nacional y su particular propuesta arquitectónica.",
       descriptionEn: "Bharat Mata is a national personification of India as a mother goddess. She is commonly depicted dressed in a red or saffron-coloured sari and in more contemporary iterations, holding a national flag; she sometimes stands on a lotus and is accompanied by a lion.",
+      lat: 25.3172,
+      lng: 82.9893,
     },
     {
       id: "varanasi_11",
@@ -82176,8 +82518,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Varanasi_07_-_Tulsi_Manas_mandir_%2824424161768%29.jpg/1920px-Varanasi_07_-_Tulsi_Manas_mandir_%2824424161768%29.jpg",
-      description: "Gosvāmī Tulsīdās o Tulasī Dāsa o Tulsidas (1532-1623) fue un poeta, filósofo, compositor y autor del Ramacharitamanasa, un poema épico dedicado al dios hindú Rāma.",
+      description: "El Templo Tulsi Manas está dedicado a Rama y se asocia tradicionalmente al lugar donde Tulsidas escribió el Ramcharitmanas. Sus muros muestran versos de esa obra, por lo que atrae a devotos y visitantes.",
       descriptionEn: "Tulsi Manas Mandir is one of the most famous temples in the holy city of Varanasi. This temple has great historical and cultural importance in Hinduism since the ancient Hindu epic Ramcharitmanas was originally written at this place by Hindu poet-saint, reformer and philosopher…",
+      lat: 25.28715,
+      lng: 83.0004,
     },
     {
       id: "varanasi_12",
@@ -82192,8 +82536,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/18/Nepali_Temple_exterior%2C_Varanasi.jpg",
-      description: "Los ghats de Benarés son gradas que descienden al río Ganges en su paso por esta ciudad del estado de Uttar Pradesh, India. La ciudad cuenta con un total de 88 ghats.",
+      description: "El Templo Nepalí, también llamado Kathwala, está cerca del ghat Lalita y fue construido en estilo arquitectónico nepalí. Está dedicado a Shiva y destaca por sus tallados en madera.",
       descriptionEn: "Shri Samrajeswar Pashupatinath Mahadev Mandir, also known as the Nepali Mandir, Kanthwala Mandir, and Mini Khajuraho, is one of the oldest and most famous temples in the holy city of Varanasi.",
+      lat: 25.30982,
+      lng: 83.01286,
     },
     {
       id: "varanasi_13",
@@ -82227,6 +82573,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Assi_River.jpg/1920px-Assi_River.jpg",
       description: "El fuerte de Ramnagar es una fortificación en Ramnagar, India. Se encuentra cerca del Ganges en su margen oriental, frente al ghat de Tulsi. La estructura de piedra arenisca fue construida en estilo mogol en 1750 por Kashi Naresh Maharaja Balwant Singh.",
       descriptionEn: "The Chunar Fort is located in Mirzapur district of Uttar Pradesh, in India. The fort and Chunar town, near Mirzapur city, are two historic places with common history and legends. The fort is located 34 kilometres (21 mi) northwest of Mirzapur.",
+      lat: 25.1255,
+      lng: 82.8747,
     },
     {
       id: "varanasi_15",
@@ -82281,6 +82629,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Subah-e-Banaras_with_Ganga.jpg/1280px-Subah-e-Banaras_with_Ganga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Ghat del sur de Varanasi, en la desembocadura del río Assi; es un lugar tradicional de baños rituales y actividades religiosas junto al Ganges.",
       descriptionEn: "Ghat in southern Varanasi, at the mouth of the Assi River; it is a traditional place for ritual bathing and religious activity beside the Ganges.",
+      lat: 25.28904,
+      lng: 83.00697,
     },
     {
       id: "varanasi_18",
@@ -82297,6 +82647,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Durga_Temple_Durga_Kund_Varanasi_India_-_panoramio.jpg/1280px-Durga_Temple_Durga_Kund_Varanasi_India_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Templo hindú dedicado a la diosa Durga, conocido por su arquitectura y por los monos que lo habitan; es un importante lugar de culto en Varanasi.",
       descriptionEn: "Hindu temple dedicated to the goddess Durga, known for its architecture and for the monkeys that inhabit it; it is an important place of worship in Varanasi.",
+      lat: 25.28862,
+      lng: 82.9999,
     },
     {
       id: "varanasi_19",
@@ -82331,6 +82683,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Bharat_Kala_Bhavan_Museum%2C_Banaras_Hindu_University%2C_Varanasi.jpg/1280px-Bharat_Kala_Bhavan_Museum%2C_Banaras_Hindu_University%2C_Varanasi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Museo de arte y arqueología en el campus de la Universidad Hindú de Banaras, con colecciones de esculturas, pinturas y objetos históricos.",
       descriptionEn: "Museum of art and archaeology on the campus of Banaras Hindu University, with collections of sculptures, paintings and historical objects.",
+      lat: 25.27143,
+      lng: 82.99579,
     },
     {
       id: "varanasi_21",
@@ -82377,6 +82731,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Kaal_Bhairab%2C_Kathmandu%2C_Nepal.jpg/1280px-Kaal_Bhairab%2C_Kathmandu%2C_Nepal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Templo hindú dedicado a Kal Bhairav, deidad protectora de Varanasi; forma parte de la tradición religiosa local de la ciudad.",
       descriptionEn: "Hindu temple dedicated to Kal Bhairav, the protective deity of Varanasi; it is part of the local religious tradition of the city.",
+      lat: 25.30629,
+      lng: 83.01,
     },
     {
       id: "varanasi_24",
@@ -84509,6 +84865,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1505869598013-e93d676a97b5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWZW5pY2UlMjBCZWFjaCUyMGxvc2FuZ2VsZXN8ZW58MXwwfHx8MTc4MjE3NjU4MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Venice es un distrito de Los Ángeles, California, Estados Unidos. Es más conocida por sus canales y playas, pero también tiene un área residencial algo bohemia, así como su colorido paseo de 4 km junto al océano. Está situada a 23 km del centro de Los Ángeles.",
       descriptionEn: "Venice is a neighborhood of the City of Los Angeles within the Westside region of Los Angeles County, California, United States.",
+      lat: 33.98644,
+      lng: -118.47538,
     },
     {
       id: "losangeles_3",
@@ -84635,6 +84993,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://theautry.org/",
       description: "El Autry Museum of the American West es un museo de Los Ángeles, California, dedicado a explorar una historia inclusiva del Oeste americano a través de arte, artefactos históricos y culturas indígenas.",
       descriptionEn: "The Autry Museum of the American West is a museum in Los Angeles, California, dedicated to exploring an inclusive history of the American West.",
+      lat: 34.1486,
+      lng: -118.282,
     },
     {
       id: "losangeles_9",
@@ -84652,6 +85012,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://pasadenahistory.org/",
       description: "El Pasadena Museum of History es un museo y biblioteca de investigación sin fines de lucro ubicado en Pasadena, California. Es la única institución dedicada a la historia, el arte y la cultura de la Pasadena histórica y el oeste del valle de San Gabriel.",
       descriptionEn: "Pasadena Museum of History is a private, nonprofit museum and research library located in Pasadena, California. It is the only institution dedicated to the history, art and culture of historic Pasadena and the west San Gabriel Valley.",
+      lat: 34.1491,
+      lng: -118.16099,
     },
     {
       id: "losangeles_10",
@@ -84669,6 +85031,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://pacificasiamuseum.usc.edu/",
       description: "El USC Pacific Asia Museum es un museo de arte asiático ubicado en la avenida N. Los Robles, en Pasadena, California, Estados Unidos.",
       descriptionEn: "USC Pacific Asia Museum is an Asian art museum located at 46 N. Los Robles Avenue, Pasadena, California, United States.",
+      lat: 34.14675,
+      lng: -118.14104,
     },
     {
       id: "losangeles_11",
@@ -84686,6 +85050,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://grammymuseum.org/",
       description: "El Grammy Museum es un museo interactivo y educativo dedicado a la historia y los ganadores de los premios Grammy. Cuenta con pantallas táctiles interactivas, vídeos, cabinas de grabación y una colección de artefactos musicales históricos.",
       descriptionEn: "The Grammy Museum is an interactive, educational museum devoted to the history and winners of the Grammy Awards. The Museum has interactive touch-screens, videos, recording booths, and a collection of historical music artifacts including costumes and instruments from the Grammy…",
+      lat: 34.04472,
+      lng: -118.26472,
     },
     {
       id: "losangeles_12",
@@ -84703,6 +85069,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://camla.org",
       description: "El Chinese American Museum es un museo de Los Ángeles ubicado en el edificio Garnier, dentro del Monumento Histórico El Pueblo de Los Ángeles, dedicado a la historia y cultura chino-estadounidense en el sur de California.",
       descriptionEn: "The Chinese American Museum is a museum in Los Angeles housed in the Garnier Building within the El Pueblo de Los Ángeles Historical Monument, dedicated to Chinese American history and culture in Southern California.",
+      lat: 34.0556,
+      lng: -118.2391,
     },
     {
       id: "losangeles_13",
@@ -85227,6 +85595,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.artic.edu",
       description: "El Instituto de Arte de Chicago es un museo y escuela de arte nortamericanos, situado en la avenida Míchigan junto al Grant Park, enfrente del lago Míchigan en Chicago, Estados Unidos.",
       descriptionEn: "The Art Institute of Chicago is a private, nonprofit art museum in Grant Park, Chicago, Illinois, United States.",
+      lat: 41.87944,
+      lng: -87.62389,
     },
     {
       id: "chicago_2",
@@ -85244,6 +85614,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.navypier.com/",
       description: "El Navy Pier es un muelle de 1010 m de longitud situado en la costa del lago Míchigan, en el barrio de Streeterville del área comunitaria de Near North Side de Chicago.",
       descriptionEn: "Navy Pier is a 3,300-foot-long (1,010 m) pier on the shoreline of Lake Michigan, located in the Streeterville neighborhood of the Near North Side community area in Chicago, Illinois, United States.",
+      lat: 41.89139,
+      lng: -87.59972,
     },
     {
       id: "chicago_3",
@@ -85291,6 +85663,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "El Chicago Riverwalk es un espacio público de uso múltiple ubicado en la orilla sur del ramal principal del río Chicago, que se extiende desde el lago Míchigan hasta el área de Wolf Point.",
       descriptionEn: "The Chicago Riverwalk is a multi-use public open space located on the south bank of the main branch of the Chicago River in Chicago, extending from Lake Michigan and the Outer Drive Bridge westward to the Wolf Point area and Lake Street.",
+      lat: 41.8883,
+      lng: -87.6218,
     },
     {
       id: "chicago_4",
@@ -85314,6 +85688,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "La Torre Willis, conocida anteriormente como Torre Sears, es un rascacielos de 442 metros en Chicago, Illinois. En el momento de su inauguración, en 1973, fue el edificio más alto del mundo durante veinte años.",
       descriptionEn: "Willis Tower, formerly known as Sears Tower, is a 442-metre skyscraper in Chicago, Illinois. Upon its completion in 1973, it was the tallest building in the world for nearly 25 years, and its Skydeck observation deck remains a top visitor attraction.",
+      lat: 41.8785,
+      lng: -87.63589,
     },
     {
       id: "chicago_5",
@@ -85356,6 +85732,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "El Lincoln Park Zoo, también conocido como Jardines Zoológicos de Lincoln Park, es un zoológico de 14 hectáreas situado en Lincoln Park, Chicago. Fundado en 1868, es uno de los zoológicos más antiguos de Estados Unidos y uno de los pocos con entrada gratuita.",
       descriptionEn: "Lincoln Park Zoo, also known as Lincoln Park Zoological Gardens, is a 35-acre (14 ha) zoo in Lincoln Park in Chicago, Illinois. The zoo was founded in 1868 and is one of the oldest zoos in the United States. It is also one of a small number of zoos to offer free admission.",
+      lat: 41.92139,
+      lng: -87.63389,
     },
     {
       id: "chicago_6",
@@ -85373,6 +85751,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.mlb.com/cubs/ballpark",
       description: "El Wrigley Field es un recinto deportivo ubicado en Chicago, Illinois, Estados Unidos. Alberga los partidos que disputan como locales los Chicago Cubs de las Grandes Ligas de Béisbol (MLB) y tiene una capacidad para 41.649 espectadores.",
       descriptionEn: "Wrigley Field is a ballpark on the North Side of Chicago, Illinois, United States. It is the home ballpark of Major League Baseball's Chicago Cubs, one of the city's two MLB franchises.",
+      lat: 41.94806,
+      lng: -87.65556,
     },
     {
       id: "chicago_7",
@@ -85390,6 +85770,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.bloomingdaletrail.org/",
       description: "El Bloomingdale Trail Park, conocido como The 606, es un parque lineal elevado de 4,3 km de longitud que discurre de este a oeste junto a Bloomingdale Avenue, entre Ashland Avenue y Lawndale Avenue, en el noroeste de Chicago.",
       descriptionEn: "Bloomingdale Trail Park, previously Park No. 572, is a 15.6-acre (6.3 ha) 2.7-mile (4.3 km) long elevated linear park running east–west along Bloomingdale Avenue between Ashland Avenue and Lawndale Avenue on the northwest side of Chicago.",
+      lat: 41.91389,
+      lng: -87.70194,
     },
     {
       id: "chicago_8",
@@ -85407,6 +85789,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.chicagofed.org/education/money-museum/",
       description: "El Money Museum es un museo dedicado al dinero y la economía, gestionado por el Banco de la Reserva Federal de Chicago, uno de los doce bancos que junto con la Junta de Gobernadores conforman el Sistema de la Reserva Federal de Estados Unidos.",
       descriptionEn: "The Federal Reserve Bank of Chicago is one of twelve Federal Reserve Banks that, along with the Federal Reserve Board of Governors, make up the Federal Reserve System, the United States' central bank.",
+      lat: 41.87833,
+      lng: -87.63257,
     },
     {
       id: "chicago_9",
@@ -85424,6 +85808,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.bridgehousemuseum.org/",
       description: "El McCormick Bridgehouse & Chicago River Museum es un pequeño museo alojado en la torreta del puente de Michigan Avenue, dedicado a la historia y a los mecanismos de los puentes basculantes del río Chicago.",
       descriptionEn: "The Chicago River is a system of rivers and canals with a combined length of 156 miles (251 km) that runs through the city of Chicago, including its center.",
+      lat: 41.8885,
+      lng: -87.62469,
     },
     {
       id: "chicago_10",
@@ -85911,6 +86297,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/We-Are-A-Nation-Of-Immigrants-Mural-Pilsen-Chicago-September-2014.jpg/1280px-We-Are-A-Nation-Of-Immigrants-Mural-Pilsen-Chicago-September-2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Barrio del Lower West Side, en el lado oeste de Chicago, conocido por su comunidad mexicano-estadounidense, sus murales callejeros y su escena gastronómica. Conserva edificios residenciales de ladrillo del siglo XIX.",
       descriptionEn: "Neighborhood in the Lower West Side, known for its Mexican-American community, street murals and food scene, and for its 19th-century brick residential buildings.",
+      lat: 41.85704,
+      lng: -87.66188,
     },
     {
       id: "chicago_36",
@@ -85945,6 +86333,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Chicago_Union_Station_1943.jpg/1280px-Chicago_Union_Station_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Estación de trenes inaugurada en 1925, de estilo Beaux-Arts, con un amplio vestíbulo de columnas y tragaluces. Sigue siendo la principal terminal ferroviaria de Chicago y sede de Amtrak.",
       descriptionEn: "Train station opened in 1925 in Beaux-Arts style, with a large columned waiting room and skylights. It remains Chicago's main rail terminal and an Amtrak hub.",
+      lat: 41.8787,
+      lng: -87.64041,
     },
     {
       id: "chicago_38",
@@ -86047,6 +86437,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.explorechinatown.com",
       description: "El Barrio chino de San Francisco es el barrio chino más antiguo en América del Norte y la comunidad china más grande fuera de Asia.",
       descriptionEn: "The Chinatown, centered on Grant Avenue and Stockton Street in San Francisco, California, is the oldest Chinatown in North America and is one of the largest Chinese enclaves outside Asia.",
+      lat: 37.79472,
+      lng: -122.40722,
+      sourceUrl: "https://es.wikipedia.org/wiki/Chinatown_(San_Francisco)",
     },
     {
       id: "sanfrancisco_4",
@@ -86134,8 +86527,10 @@ export const CURATED_ALL: CuratedMap = {
         free: false,
         notes: "$$",
       },
-      description: "El Tranvía Funicular de San Francisco es un sistema funicular que opera en San Francisco, California. Inaugurado el 18 de junio de 1878, llegó a tener 23 líneas repartidas en varias empresas. Actualmente el sistema cuenta con 3.",
+      description: "Los tranvías de cable (cable cars) son el sistema de transporte histórico de San Francisco y el último de su tipo que sigue operando en el mundo. Sus líneas suben las empinadas calles del centro y son un símbolo de la ciudad.",
       descriptionEn: "The San Francisco cable car system is the world's last manually operated cable car system and an icon of the city of San Francisco, California.",
+      lat: 37.79032,
+      lng: -122.42202,
     },
     {
       id: "sanfrancisco_7",
@@ -86152,6 +86547,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1611588233730-6e47888e5ee2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxkZSUyMFlvdW5nJTIwTXVzZXVtJTIwc2FuZnJhbmNpc2NvfGVufDF8MHx8fDE3ODIyMTkwMjB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El de Young Museum, también conocido simplemente como de Young, es un museo de arte ubicado en el parque del Golden Gate en San Francisco. Fue nombrado en honor al periodista Michael H. de Young, cofundador del San Francisco Chronicle.",
       descriptionEn: "The de Young Museum, formally the M. H. de Young Memorial Museum, is a fine arts museum located in San Francisco, California, United States, named for early San Francisco newspaperman M. H. de Young.",
+      lat: 37.77147,
+      lng: -122.46868,
     },
     {
       id: "sanfrancisco_8",
@@ -86186,6 +86583,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.californiapioneers.org/",
       description: "La Sociedad de Pioneros de California, fundada en 1850, está dedicada al estudio y difusión del arte, la historia y la cultura de California a través de su museo y biblioteca en San Francisco.",
       descriptionEn: "The Society of California Pioneers, established in 1850, is dedicated to the study and enjoyment of California art, history, and culture.",
+      lat: 37.8,
+      lng: -122.45962,
     },
     {
       id: "sanfrancisco_10",
@@ -86203,6 +86602,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.nps.gov/goga/nike-missile-site.htm",
       description: "SF-88 es un antiguo emplazamiento de misiles Nike ubicado en Fort Barry, en las Marin Headlands, al norte de San Francisco, California, preservado como museo militar de la Guerra Fría.",
       descriptionEn: "SF-88 is a former Nike Missile launch site at Fort Barry, in the Marin Headlands to the north of San Francisco, California, United States.",
+      lat: 37.71487,
+      lng: -122.50185,
     },
     {
       id: "sanfrancisco_11",
@@ -86220,6 +86621,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://museemecanique.com/",
       description: "El Musée Mécanique es un museo interactivo con fines de lucro propiedad y administrado por Dan Zelinsky de artefactos y juegos de arcade de centavo del siglo XX, ubicado en Fisherman's Wharf en San Francisco, California.",
       descriptionEn: "The Musée Mécanique is a for-profit interactive museum of 20th-century penny arcade games and artifacts, located at Fisherman's Wharf in San Francisco, California. With over 300 mechanical machines, it is one of the world's largest privately owned collections.",
+      lat: 37.8104,
+      lng: -122.417,
     },
     {
       id: "sanfrancisco_12",
@@ -86254,6 +86657,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.nps.gov/fopo/",
       description: "Fort Point, conocido históricamente como el Castillo de San Joaquín, es una fortificación costera de mampostería situada en el lado sur del Golden Gate, en la entrada de la bahía de San Francisco.",
       descriptionEn: "Fort Point, known historically as the Castillo de San Joaquín is a masonry seacoast fortification located on the southern side of the Golden Gate at the entrance to San Francisco Bay.",
+      lat: 37.81056,
+      lng: -122.47722,
     },
     {
       id: "sanfrancisco_14",
@@ -86270,6 +86675,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Presidio_and_Fort_Winfield_Scott%2C_San_Francisco%2C_Calif_LCCN2007664170.tif/lossy-page1-1920px-Presidio_and_Fort_Winfield_Scott%2C_San_Francisco%2C_Calif_LCCN2007664170.tif.jpg",
       description: "Fort Winfield Scott es un antiguo puesto de artillería costera construido entre 1909 y 1912 en la parte occidental del Presidio de San Francisco, que sirvió como cuartel general de la defensa costera de la bahía durante medio siglo.",
       descriptionEn: "Fort Winfield Scott is a former coast artillery post built between 1909 and 1912 in the western Presidio of San Francisco, which served as the headquarters for the Bay Area's coastal defense for half a century.",
+      lat: 37.8016,
+      lng: -122.47358,
     },
     {
       id: "sanfrancisco_15",
@@ -86628,6 +87035,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Las Fuentes del Bellagio son una atracción gratuita del resort Bellagio, ubicada en el Strip de Las Vegas, en Paradise, Nevada. Consisten en un espectáculo de fuentes musicales realizado en un lago artificial de 3,4 hectáreas frente al hotel.",
       descriptionEn: "Fountains of Bellagio is a free attraction at the Bellagio resort, located on the Las Vegas Strip in Paradise, Nevada. It consists of a musical fountain show performed in an 8.5-acre (3.4 ha) man-made lake in front of the resort.",
+      lat: 36.1128,
+      lng: -115.174,
     },
     {
       id: "lasvegas_2",
@@ -86704,6 +87113,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1516653980844-c68df1de5249?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSZWQlMjBSb2NrJTIwQ2FueW9uJTIwbGFzdmVnYXN8ZW58MXwwfHx8MTc4MjIxOTAzM3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El área de conservación nacional del Cañón Red Rock es un área de conservación nacional de los Estados Unidos localizada en el estado de Nevada. Tiene un área de 801 km² y está gestionada por la Gestión de Tierras como parte del Sistema de Conservación de Paisajes.",
       descriptionEn: "The Red Rock Canyon National Conservation Area in Clark County, Nevada, United States, is an area managed by the Bureau of Land Management as part of its National Landscape Conservation System, and protected as a National Conservation Area.",
+      lat: 36.23272,
+      lng: -115.44748,
+      dayTrip: true,
     },
     {
       id: "lasvegas_6",
@@ -86721,6 +87133,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.neonmuseum.org",
       description: "Neon Museum at the Fremont Street Experience, en Las Vegas, Nevada, Estados Unidos, es un museo que exhibe letreros de los casinos antiguos y otras vallas publicitarias de negocios.",
       descriptionEn: "The Neon Museum in Las Vegas, Nevada, United States, features signs from old casinos and other businesses displayed outdoors on 2.27 acres (0.92 ha). Efforts to establish a neon sign museum were underway in the late 1980s, but stalled due to a lack of resources.",
+      lat: 36.1777,
+      lng: -115.137,
     },
     {
       id: "lasvegas_7",
@@ -86738,6 +87152,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.discoverykidslv.org/",
       description: "El DISCOVERY Children's Museum es un museo infantil sin fines de lucro en Las Vegas, Nevada. Antes conocido como Lied Discovery Children's Museum, este espacio de tres pisos y 5400 m² se ubica junto al The Smith Center, en el centro de Las Vegas.",
       descriptionEn: "DISCOVERY Children's Museum is a nonprofit children's museum in Las Vegas, Nevada. Formerly known as Lied Discovery Children's museum, this 58,000-square-foot (5,400 m2), three-story space is now located adjacent to The Smith Center in Downtown Las Vegas.",
+      lat: 36.1689,
+      lng: -115.152,
     },
     {
       id: "lasvegas_8",
@@ -86753,8 +87169,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Las_Vegas_Mob_Museum_2012.jpg",
       website: "https://themobmuseum.org",
-      description: "The Mob Museum, oficialmente el Museo Nacional del Crimen Organizado y la Aplicación de la Ley, es un museo de historia ubicado en el centro de Las Vegas, Nevada, Estados Unidos.",
+      description: "El Museo de la Mafia es un museo en el centro de Las Vegas dedicado a la historia del crimen organizado y su persecución por las autoridades. Ocupa un antiguo edificio federal y exhibe objetos, documentos y relatos sobre ese fenómeno en Estados Unidos.",
       descriptionEn: "The Mob Museum, officially the National Museum of Organized Crime and Law Enforcement, is a history museum located in Downtown Las Vegas, Nevada, United States.",
+      lat: 36.1728,
+      lng: -115.1412,
     },
     {
       id: "lasvegas_9",
@@ -86806,6 +87224,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.burlesquehall.com/",
       description: "El Burlesque Hall of Fame fue el único museo del mundo dedicado a la historia, preservación y futuro del arte del burlesque. Se ubica en el distrito de las Artes de Las Vegas, en el número 1027 de South Main Street.",
       descriptionEn: "The Burlesque Hall of Fame (BHOF) was the world's only museum dedicated to the history, preservation, and future of the art of burlesque. Located in the Las Vegas Arts district at 1027 S Main St.",
+      lat: 36.16898,
+      lng: -115.13971,
     },
     {
       id: "lasvegas_12",
@@ -87336,6 +87756,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1488331531757-77fd056ebe43?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEaXN0aWxsZXJ5JTIwRGlzdHJpY3QlMjB0b3JvbnRvfGVufDF8MHx8fDE3ODIyMTkwNDR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Distillery District es un barrio comercial y residencial de Toronto, Ontario, Canadá, situado al este del centro. Contiene numerosos cafés, restaurantes y tiendas alojados en edificios patrimoniales de la antigua destilería Gooderham and Worts.",
       descriptionEn: "The Distillery District is a commercial and residential district in Toronto, Ontario, Canada, located east of downtown. It contains numerous cafés, restaurants, and shops housed within heritage buildings of the former Gooderham and Worts Distillery.",
+      lat: 43.6506,
+      lng: -79.3597,
     },
     {
       id: "toronto_4",
@@ -87356,6 +87778,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Kensington Market es un barrio multicultural distintivo del centro de Toronto, Ontario, Canadá. Es uno de los barrios más antiguos y reconocidos de la ciudad, designado Sitio Histórico Nacional de Canadá en noviembre de 2006.",
       descriptionEn: "Kensington Market is a distinctive multicultural neighbourhood in Downtown Toronto, Ontario, Canada. The Market is an older neighbourhood and one of the city's best-known. In November 2006, it was designated a National Historic Site of Canada.",
+      lat: 43.65477,
+      lng: -79.40068,
     },
     {
       id: "toronto_5",
@@ -87425,6 +87849,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1603466182843-75f713ba06b3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUb3JvbnRvJTIwSXNsYW5kcyUyMHRvcm9udG98ZW58MXwwfHx8MTc4MjIxOTA1NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Las Islas de Toronto son una cadena de 15 pequeñas islas en el lago Ontario, al sur del centro de Toronto, Ontario, Canadá.",
       descriptionEn: "The Toronto Islands are a chain of 15 small islands in Lake Ontario, south of mainland Toronto, Ontario, Canada.",
+      lat: 43.62083,
+      lng: -79.37861,
     },
     {
       id: "toronto_7",
@@ -87442,6 +87868,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.stlawrencemarket.com/",
       description: "El St. Lawrence Market es un importante mercado público de Toronto, Ontario, Canadá, ubicado a lo largo de Front Street East y Jarvis Street, en el barrio de St. Lawrence, en el centro de la ciudad.",
       descriptionEn: "St. Lawrence Market is a major public market in Toronto, Ontario, Canada. It is located along Front Street East and Jarvis Street in the St. Lawrence neighbourhood of downtown Toronto. The public market is made up of two sites adjacent to one another west of Jarvis Street, St.",
+      lat: 43.65018,
+      lng: -79.37219,
     },
     {
       id: "toronto_8",
@@ -87459,6 +87887,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.toronto.ca/explore-enjoy/history-art-culture/museums/spadina-museum/",
       description: "El Museo Spadina, también conocido como Spadina House, es una mansión histórica ubicada en el 285 de Spadina Road, en Toronto, Ontario. Es hoy una casa museo operada por la división de Desarrollo Económico y Cultura de la ciudad de Toronto.",
       descriptionEn: "Spadina Museum, also known as Spadina House, is a historic mansion at 285 Spadina Road in Toronto, Ontario. It is now a historic house museum operated by the City of Toronto's Economic Development & Culture division.",
+      lat: 43.67893,
+      lng: -79.40811,
     },
     {
       id: "toronto_9",
@@ -87476,6 +87906,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.textilemuseum.ca/",
       description: "El Museo Textil de Canadá, ubicado en Toronto, Ontario, Canadá, es un museo dedicado a la colección, exhibición y documentación de textiles.",
       descriptionEn: "The Textile Museum of Canada, located in Toronto, Ontario, Canada, is a museum dedicated to the collection, exhibition, and documentation of textiles.",
+      lat: 43.6546,
+      lng: -79.3868,
     },
     {
       id: "toronto_10",
@@ -87493,6 +87925,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://designexchangetoronto.com/",
       description: "El Design Exchange (DX) es un espacio para eventos en Toronto, Ontario, Canadá. Se ubica en el Distrito Financiero, en el histórico edificio de la Bolsa de Valores de Toronto, que en 1991 fue incorporado a un rascacielos, el Toronto-Dominion Centre.",
       descriptionEn: "The Design Exchange (DX) is an event venue in Toronto, Ontario, Canada. It is located in the Financial District in the historical Toronto Stock Exchange building, which in 1991 was incorporated into a skyscraper, the Toronto-Dominion Centre.",
+      lat: 43.6479,
+      lng: -79.3801,
     },
     {
       id: "toronto_11",
@@ -87527,6 +87961,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://torontorailwaymuseum.com",
       description: "El Museo Ferroviario de Toronto, fundado en 2010, ocupa la histórica rotonda ferroviaria John Street, construida en 1929-1931 para el Canadian Pacific Railway, en el Roundhouse Park. Exhibe locomotoras y vagones a tamaño real que narran la historia del ferrocarril en Toronto.",
       descriptionEn: "The Toronto Railway Museum, founded in 2010, occupies the historic John Street Roundhouse, built in 1929–1931 for the Canadian Pacific Railway, in Roundhouse Park. It displays full-size locomotives and rolling stock telling the story of rail in Toronto.",
+      lat: 43.64111,
+      lng: -79.38528,
     },
     {
       id: "toronto_13",
@@ -87544,6 +87980,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.toronto.ca/explore-enjoy/history-art-culture/museums/mackenzie-house/",
       description: "La casa Mackenzie es un edificio y museo histórico localizado en Toronto, Canadá. Fue el último hogar de William Lyon Mackenzie, primer alcalde de la ciudad. Mackenzie se vio obligado a exiliarse en los Estados Unidos, después de haber encabezado la rebelión de 1837.",
       descriptionEn: "Mackenzie House is a historic building and museum located at 82 Bond Street within the Garden District in downtown Toronto, Ontario, Canada.",
+      lat: 43.6557,
+      lng: -79.3783,
     },
     {
       id: "toronto_14",
@@ -87561,6 +87999,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.facebook.com/MarketGallery",
       description: "The Market Gallery ocupa lo que fueron las primeras cámaras del Concejo Municipal de Toronto, dentro del edificio del St. Lawrence Market. Tras la restauración del mercado entre 1974 y 1978, el espacio se convirtió en una galería con exposiciones rotativas sobre la historia, el arte y la cultura de Toronto.",
       descriptionEn: "The Market Gallery occupies what was once Toronto's first purpose-built City Council Chambers, within the St. Lawrence Market building. Following the market's restoration between 1974 and 1978, the space became a gallery with changing exhibits on Toronto's history, art, and culture.",
+      lat: 43.64912,
+      lng: -79.37181,
     },
     {
       id: "toronto_15",
@@ -87879,8 +88319,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1699421073998-541468d86551?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxHcmFudmlsbGUlMjBJc2xhbmQlMjBQdWJsaWMlMjBNYXJrZXQlMjB2YW5jb3V2ZXJ8ZW58MXwwfHx8MTc4MjIxOTA1OXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://granvilleisland.com/public-market",
-      description: "Granville Island Public Market es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Mercado Público de Granville Island es un mercado cubierto en la isla del mismo nombre, con puestos de productos frescos, mariscos, panadería y artesanías. Se visita para recorrer sus pasillos y conocer la oferta local.",
       descriptionEn: "Granville Island is a peninsula and shopping district in the Fairview neighbourhood of Vancouver, British Columbia, Canada, across False Creek from Downtown Vancouver, under the south end of the Granville Street Bridge.",
+      lat: 49.2724,
+      lng: -123.1351,
     },
     {
       id: "vancouver_2",
@@ -87979,6 +88421,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "La Galería de Arte de Vancouver, en inglés Vancouver Art Gallery (VAG), es la quinta mayor galería de arte de Canadá y la mayor del oeste del país. Se encuentra en la calle Hornby, 750 en Vancouver, Columbia Británica.",
       descriptionEn: "The Vancouver Art Gallery (VAG) is an art museum in Vancouver, British Columbia, Canada. The museum occupies a 15,300-square-metre-building (165,000 sq ft) adjacent to Robson Square in downtown Vancouver, making it the largest art museum in Western Canada by building size.",
+      lat: 49.2829,
+      lng: -123.12,
     },
     {
       id: "vancouver_5",
@@ -87996,6 +88440,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.grousemountain.com/",
       description: "La montaña Grouse es una de las montañas de la cadena costera del Pacífico, ubicada en North Vancouver, Columbia Británica, Canadá. Allí se encuentra una pequeña y muy conocida estación de esquí abierta al público durante el invierno.",
       descriptionEn: "Grouse Mountain is one of the North Shore Mountains of the Pacific Ranges in the District Municipality of North Vancouver, British Columbia, Canada.",
+      lat: 49.38611,
+      lng: -123.07639,
     },
     {
       id: "vancouver_6",
@@ -88017,6 +88463,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Whistler es un municipio turístico ubicado en las montañas costeras del sur de la Columbia Británica, Canadá. Se encuentra aproximadamente a dos horas por carretera al norte de la ciudad de Vancouver.",
       descriptionEn: "Whistler is a resort municipality in Squamish-Lillooet Regional District, British Columbia, Canada. It is located in the southern Pacific Ranges of the Coast Mountains, approximately 125 km (78 mi) north of Vancouver and 36 km (22 mi) south of Pemberton.",
+      lat: 49.38994,
+      lng: -123.07072,
     },
     {
       id: "vancouver_7",
@@ -88034,6 +88482,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.vancouverpolicemuseum.ca/",
       description: "El museo de la Policía de Vancouver es un museo de historia abierto al público para conmemorar el centenario del Departamento de Policía de Vancouver y la ciudad de Vancouver, British Columbia en 1986.",
       descriptionEn: "The Vancouver Police Department is the police force in Vancouver, British Columbia, Canada. It is one of several police departments within the Metro Vancouver Area and is the second largest police force in the province after RCMP \"E\" Division.",
+      lat: 49.28216,
+      lng: -123.09816,
     },
     {
       id: "vancouver_8",
@@ -88051,6 +88501,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.spacecentre.ca/",
       description: "El centro espacial H. R. MacMillan es un museo de astronomía situado en Vancouver, British Columbia, Canadá, que se encuentra en el parque Vanier.",
       descriptionEn: "The H.R. MacMillan Space Centre, is an astronomy museum located at Vanier Park in Vancouver, British Columbia. The museum was opened on October 28, 1968, containing a Planetarium Star Theatre.",
+      lat: 49.2762,
+      lng: -123.144,
     },
     {
       id: "vancouver_9",
@@ -88083,8 +88535,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sunset_playgrounds%3B_fishing_days_and_others_in_California_and_Canada_.._%28IA_cu31924014018976%29.pdf/page1-500px-Sunset_playgrounds%3B_fishing_days_and_others_in_California_and_Canada_.._%28IA_cu31924014018976%29.pdf.jpg",
       website: "https://bcsportshall.com/",
-      description: "Norman Henry \"Norm\" Baker fue un jugador de baloncesto y lacrosse canadiense que disputó una temporada en la Basketball Association of America (BAA), y dos más en la PCPBL, además de jugar un año el World Professional Basketball Tournament.",
+      description: "El Salón de la Fama y Museo del Deporte de Columbia Británica es un museo en Vancouver dedicado a atletas, equipos y eventos deportivos de la provincia. Sus exhibiciones incluyen objetos históricos y espacios interactivos.",
       descriptionEn: "The BC Sports Hall of Fame is a museum located in the BC Place stadium, at Gate A, the main entrance to the stadium, in Vancouver, British Columbia, Canada.",
+      lat: 49.2767,
+      lng: -123.112,
     },
     {
       id: "vancouver_11",
@@ -88117,8 +88571,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/The_night_market_vancouver_richmond_-_panoramio.jpg/1920px-The_night_market_vancouver_richmond_-_panoramio.jpg",
       website: "https://richmondnightmarket.com/",
-      description: "Un etnoburbio es un área residencial y comercial suburbana con un notable agrupamiento de una determinada población de minoría étnica, que puede o no ser mayoría local.",
+      description: "El Mercado Nocturno de Richmond es un mercado de temporada en Richmond, en el área metropolitana de Vancouver, con puestos de comida, productos y entretenimiento. Funciona durante las noches de verano.",
       descriptionEn: "The Richmond Night Market is an annual night market founded by entrepreneur Raymond Cheung. It runs from April to September on Fridays and Saturdays and Sundays and Holidays. It is held in Richmond, British Columbia in Canada.",
+      lat: 49.19378,
+      lng: -123.13358,
     },
     {
       id: "vancouver_13",
@@ -88134,8 +88590,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Vancouver_from_Queen_Elizabeth_Park.jpg/1920px-Vancouver_from_Queen_Elizabeth_Park.jpg",
       website: "https://vancouver.ca/parks-recreation-culture/queen-elizabeth-park.aspx",
-      description: "Isabel Bowes-Lyon fue la esposa del rey-emperador Jorge VI, por lo tanto, ostentó el título de reina consorte del Reino Unido y los dominios británicos, entre 1936 y 1952. También fue la última reina consorte de Irlanda y la última emperatriz consorte de la India.",
+      description: "El Parque Queen Elizabeth es un parque en una colina de Vancouver con jardines, el Jardín de la Cantera y un invernadero. Se visita para caminar entre sus áreas verdes y ver vistas de la ciudad.",
       descriptionEn: "Queen Elizabeth Park is a 130-acre municipal park located in Vancouver, British Columbia, Canada. It is located on top of Little Mountain approximately 125 metres (410 ft) above sea level and is the location of former basalt quarries dug in the beginning of the twentieth century…",
+      lat: 49.2422,
+      lng: -123.115,
     },
     {
       id: "vancouver_14",
@@ -88368,8 +88826,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1577872133778-fd7638801be0?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb3VudCUyMFJveWFsJTIwUGFyayUyMG1vbnRyZWFsfGVufDF8MHx8fDE3ODIyMTkwNzV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://montreal.ca/lieux/parc-du-mont-royal",
-      description: "Hazen Edward Sise fue un arquitecto canadiense. Llegó a trabajar en París para Le Corbusier, y ejerció también a lo largo de su vida como educador y cooperante, participando en el equipo de transfusiones de sangre de Norman Bethune en la Guerra Civil Española.",
+      description: "Gran parque urbano diseñado por Frederick Law Olmsted en la colina que da nombre a la ciudad. Se visita por sus senderos boscosos, sus miradores y el Kondiaronk, que enfrenta el centro de Montreal.",
       descriptionEn: "Mount Royal is a mountain in the city of Montreal, immediately west of Downtown Montreal, Quebec, Canada. The city's name is derived from its name.",
+      lat: 45.50306,
+      lng: -73.59028,
     },
     {
       id: "montreal_3",
@@ -88570,6 +89030,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://moeb.ca/",
       description: "El Museo de las Ondas Émile Berliner es un museo de historia técnica que presenta exhibiciones relacionadas con el desarrollo de la grabación, la transmisión de la música y las industrias posteriores, ubicado en la histórica fábrica de la «Berliner Gram-o-phone Company» en…",
       descriptionEn: "Emile Berliner was a German-American inventor and businessman who invented the lateral-cut flat disc record, also known as a \"gramophone record,\" used with a gramophone. He founded the United States Gramophone Company in 1894.",
+      lat: 45.47677,
+      lng: -73.59226,
     },
     {
       id: "montreal_9",
@@ -88585,8 +89047,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Beside_the_Tombeau_du_frere_Andree.jpg/1920px-Beside_the_Tombeau_du_frere_Andree.jpg",
       website: "https://www.saint-joseph.org/",
-      description: "Musée de l'Oratoire es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo dentro del Oratorio San José, en la ladera del Mont Royal, dedicado al arte religioso y a la memoria de su fundador, el hermano André. Reúne objetos litúrgicos, esculturas y exvotos.",
       descriptionEn: "Saint Joseph's Oratory of Mount Royal is a Roman Catholic minor basilica and national shrine located at 3800 Queen Mary Road in the Côte-des-Neiges neighborhood on Mount Royal's Westmount Summit in Montreal, Quebec.",
+      lat: 45.49244,
+      lng: -73.61726,
     },
     {
       id: "montreal_10",
@@ -88602,8 +89066,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Ecomusee_du_Fier_Monde.jpg/1920px-Ecomusee_du_Fier_Monde.jpg",
       website: "https://ecomusee.qc.ca/",
-      description: "Écomusée du Fier Monde es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Ecomuseo instalado en una antigua casa de baños públicos del barrio Centro-Sur. Documenta la historia industrial y obrera de Montreal con exposiciones y recorridos por el vecindario.",
       descriptionEn: "The Écomusée du fier monde is a history and community ecomuseum about the industrial and working-class people of Centre-Sud, Montreal, Canada. The name translates to \"Ecomuseum of the Proud People\".",
+      lat: 45.5204,
+      lng: -73.5638,
     },
     {
       id: "montreal_11",
@@ -88619,8 +89085,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Logo_MUMAQ.jpg",
       website: "https://www.mumaq.com/",
-      description: "Musée des maîtres et artisans du Québec es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo del barrio de Saint-Laurent, en un antiguo templo, dedicado a las artes y oficios tradicionales de Quebec. Conserva esculturas, orfebrería y objetos religiosos de los siglos XVII al XX.",
       descriptionEn: "Areg Elibekyan is an Armenian painter.",
+      lat: 45.51169,
+      lng: -73.67133,
     },
     {
       id: "montreal_12",
@@ -88652,8 +89120,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Fort_de_la_Montagne_Montreal_09.jpg/1920px-Fort_de_la_Montagne_Montreal_09.jpg",
-      description: "El Gran Premio de Quebec es una carrera de un día profesional que se disputa en la ciudad de Quebec desde 2010.",
+      description: "Sitio histórico en la ladera sur del Mont Royal donde los sulpicianos levantaron un fuerte y misión en el siglo XVII. Quedan dos torres de piedra junto al Colegio de Montreal.",
       descriptionEn: "The Fort de la Montagne was an old fortification, the remaining structures of which are located on Sherbrooke Street in Montreal, Quebec, Canada. The fort was constructed in 1685 and parts of it were demolished in the mid 19th century.",
+      lat: 45.49371,
+      lng: -73.58474,
     },
     {
       id: "montreal_14",
@@ -89212,6 +89682,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museodelchico.com/",
       description: "El Museo El Chicó o Museo Mercedes Sierra de Pérez es un parque-museo localizado en el barrio El Chicó, al norte de la ciudad de Bogotá. Fue declarado bien de interés cultural del ámbito distrital en 1992 y hoy día da su nombre al barrio que lo rodea.",
       descriptionEn: "The Museo El Chicó, or Museo Mercedes Sierra de Pérez, is a park-museum located in the El Chicó neighborhood in northern Bogotá. Declared a cultural heritage site of the district in 1992, it now gives its name to the surrounding neighborhood.",
+      lat: 4.67286,
+      lng: -74.04341,
     },
     {
       id: "bogota_10",
@@ -89230,6 +89702,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Iglesia_de_Santa_Clara",
       lat: 4.59667,
       lng: -74.07722,
+      descriptionEn: "The Museo Iglesia de Santa Clara occupies a former colonial church in La Candelaria, Bogotá. It preserves religious art, mural paintings and baroque altarpieces, and traces the history of the temple and convent.",
     },
     {
       id: "bogota_11",
@@ -89247,6 +89720,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://votonacional.com.co/",
       description: "La Basílica menor del Sagrado Corazón de Jesús, conocida como Basílica del Voto Nacional, es un importante templo colombiano de culto católico, consagrado a Jesucristo, bajo la advocación del Sagrado Corazón de Jesús.",
       descriptionEn: "The Minor Basilica of the Sacred Heart of Jesus, known as the Basílica del Voto Nacional, is an important Colombian Roman Catholic church consecrated to Jesus Christ under the title of the Sacred Heart of Jesus.",
+      lat: 4.60233,
+      lng: -74.08241,
     },
     {
       id: "bogota_12",
@@ -89301,6 +89776,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://plaporciuncula.arquibogota.org.co/es/",
       description: "La Parroquia de Nuestra Señora de los Ángeles - La Porciúncula, o simplemente Parroquia de la Porciúncula es un templo religioso de culto católico dedicado a la Porciúncula, el lugar donde comenzó el movimiento Franciscano, en la localidad de Chapinero de la ciudad de Bogotá, en…",
       descriptionEn: "La Porciúncula is a neighbourhood (barrio) in the locality of Chapinero in Bogotá, Colombia.",
+      lat: 4.65731,
+      lng: -74.05826,
     },
     {
       id: "bogota_15",
@@ -89418,6 +89895,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -74.07333,
       description: "La iglesia de San Francisco es un templo religioso de culto católico bajo la advocación de San Francisco de Asís de la ciudad de Bogotá, en Colombia.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_San_Francisco_(Bogot%C3%A1)",
+      descriptionEn: "The Iglesia de San Francisco is a Catholic church of colonial origin in La Candelaria, Bogotá. It is visited for its religious architecture, altarpieces and historical value within the city center.",
     },
     {
       id: "bogota_21",
@@ -89454,6 +89932,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "La Quinta de Bolívar es una casa museo de estilo colonial situada cerca de la localidad de La Candelaria, que forma parte del Distrito Capital de Bogotá.",
       descriptionEn: "The Quinta de Bolívar is a colonial house in Bogotá, Colombia, that served as a residence to Simón Bolívar in the capital after the war of independence. It is now used as a museum dedicated to Bolívar's life and times.",
       sourceUrl: "https://es.wikipedia.org/wiki/Quinta_de_Bol%C3%ADvar",
+      lat: 4.60257,
+      lng: -74.06285,
     },
     {
       id: "bogota_23",
@@ -89529,6 +90009,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Bogot%C3%A1_plaza_de_Paloquemao.JPG/1280px-Bogot%C3%A1_plaza_de_Paloquemao.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Paloquemao es un barrio de Bogotá situado en el sector oriental de la localidad Los Mártires.",
       sourceUrl: "https://es.wikipedia.org/wiki/Paloquemao",
+      lat: 4.61653,
+      lng: -74.08989,
+      descriptionEn: "Paloquemao is one of Bogotá's main market halls, located in the neighborhood of the same name. It sells fruits, vegetables, flowers and prepared food, and offers a view of the country's agricultural and gastronomic offerings.",
     },
     {
       id: "bogota_27",
@@ -89648,6 +90131,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://jesuitas.co",
       description: "La Iglesia de San Ignacio es un templo religioso de culto católico bajo la advocación de San Ignacio de Loyola.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_San_Ignacio_(Bogot%C3%A1)",
+      descriptionEn: "The Iglesia de San Ignacio is a Catholic church in La Candelaria, Bogotá, linked to the Society of Jesus. It is visited for its colonial architecture and altarpieces, which are part of the historic center's religious heritage.",
     },
     {
       id: "bogota_33",
@@ -89665,6 +90149,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -74.06281,
       description: "El Centro Cultural Biblioteca Pública Julio Mario Santo Domingo acoge a la Biblioteca y al complejo teatral conformado por el Teatro Mayor y el Teatro Estudio, gestionado y administrado gracias a una alianza entre el sector privado y la administración distrital, a través de la…",
       sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Mayor_Julio_Mario_Santo_Domingo",
+      descriptionEn: "The Teatro Mayor Julio Mario Santo Domingo is a cultural and performing arts center in northern Bogotá. It presents opera, music, dance and theater in a main hall and complementary spaces, and is part of the Julio Mario Santo Domingo Cultural Center.",
     },
     {
       id: "bogota_34",
@@ -89720,6 +90205,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "La Zona Rosa es el sector de entretenimiento y vida nocturna del norte de Bogotá, articulado en torno a la Zona T. Concentra restaurantes, bares, discotecas y tiendas, y suele recorrerse a pie, especialmente de noche.",
       descriptionEn: "The Zona Rosa is Bogotá's northern entertainment and nightlife district, built around the Zona T. It concentrates restaurants, bars, nightclubs, and shops, and is commonly explored on foot, especially at night.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Bogot%C3%A1_Beer_Company.jpg/1280px-Bogot%C3%A1_Beer_Company.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   nairobi: [
@@ -92747,6 +93233,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Mar%C3%ADtimo_Nacional_(Chile)",
       lat: -33.03194,
       lng: -71.63167,
+      descriptionEn: "Naval museum on Cerro Artillería, housed in the former Naval School building; it exhibits Chile's maritime and naval history.",
     },
     {
       id: "valparaiso_1",
@@ -92783,6 +93270,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_luterana_de_Valpara%C3%ADso",
       lat: -33.04269,
       lng: -71.6262,
+      descriptionEn: "Lutheran church of German origin on Cerro Concepción, part of the hill's historic ensemble; it preserves late-19th-century architecture.",
     },
     {
       id: "valparaiso_3",
@@ -92799,6 +93287,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Palacio_Astoreca%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20201102_94.jpg/960px-Palacio_Astoreca%2C_Cerro_Alegre%2C_Valpara%C3%ADso_20201102_94.jpg",
       description: "El Palacio Astoreca es un inmueble ubicado en el cerro Alegre, de la ciudad de Valparaíso, Chile. Fue edificado en 1923 en estilo victoriano como residencia para Francisco Petrinovic.",
       descriptionEn: "Palacio Astoreca is a historic mansion on Cerro Alegre in Valparaíso, Chile, built in 1923 in Victorian style.",
+      lat: -33.04075,
+      lng: -71.62895,
     },
     {
       id: "valparaiso_4",
@@ -92837,6 +93327,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_Cultural_de_Valpara%C3%ADso",
       lat: -33.0462,
       lng: -71.62758,
+      descriptionEn: "Cultural center housed in the former Valparaíso prison on Cerro Cárcel; it offers exhibitions, workshops, and spaces for performing arts.",
     },
     {
       id: "valparaiso_6",
@@ -92906,6 +93397,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Monumento_a_los_H%C3%A9roes_de_Iquique",
       lat: -33.03825,
       lng: -71.62864,
+      descriptionEn: "Monument in Plaza Sotomayor honoring the heroes of the naval battle of Iquique, including Arturo Prat; it is a civic landmark in Valparaíso.",
     },
     {
       id: "valparaiso_10",
@@ -92922,6 +93414,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Torre_Reloj_Bar%C3%B3n%2C_Valpara%C3%ADso_20230901.jpg/960px-Torre_Reloj_Bar%C3%B3n%2C_Valpara%C3%ADso_20230901.jpg",
       description: "La Torre Reloj Barón es una torre ubicada en el barrio El Almendral de la ciudad chilena de Valparaíso, específicamente al comienzo de la Avenida España.",
       descriptionEn: "The Torre Reloj Barón is a clock tower in the El Almendral neighborhood of Valparaíso, Chile, at the start of Avenida España.",
+      lat: -33.0417,
+      lng: -71.60496,
     },
     {
       id: "valparaiso_11",
@@ -92940,6 +93434,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Plaza_Echaurren",
       lat: -33.03642,
       lng: -71.63255,
+      descriptionEn: "Plaza in the Barrio Puerto, near La Matriz Church; it connects a historic area of streets and heritage buildings in Valparaíso.",
     },
     {
       id: "valparaiso_12",
@@ -92956,6 +93451,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Mercado_Puerto%2C_Valpara%C3%ADso_20200207_63.jpg/960px-Mercado_Puerto%2C_Valpara%C3%ADso_20200207_63.jpg",
       description: "El Mercado Puerto es un mercado de abastos ubicado en el Barrio Puerto de la ciudad de Valparaíso, Chile, uno de los sectores históricos más antiguos de la ciudad.",
       descriptionEn: "Mercado Puerto is a traditional produce market in the historic Barrio Puerto of Valparaíso, Chile.",
+      lat: -33.03576,
+      lng: -71.62996,
     },
     {
       id: "valparaiso_13",
@@ -93024,6 +93521,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Parque_Italia%2C_Valpara%C3%ADso_20230901_01.jpg/960px-Parque_Italia%2C_Valpara%C3%ADso_20230901_01.jpg",
       description: "El Parque Italia es un área verde ubicado en el barrio El Almendral de la ciudad chilena de Valparaíso.",
       descriptionEn: "Parque Italia is a green space in the El Almendral neighborhood of Valparaíso, Chile.",
+      lat: -33.04792,
+      lng: -71.61433,
     },
     {
       id: "valparaiso_17",
@@ -93043,6 +93542,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Municipal_de_Valpara%C3%ADso",
       lat: -33.04765,
       lng: -71.60849,
+      descriptionEn: "Historic theater in Valparaíso dedicated to performing arts and music, with a main hall and cultural programming in the city center.",
     },
     {
       id: "valparaiso_18",
@@ -93059,6 +93559,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mercado_Cardonal%2C_Valpara%C3%ADso_20230704.jpg/960px-Mercado_Cardonal%2C_Valpara%C3%ADso_20230704.jpg",
       description: "El Mercado El Cardonal, antiguamente también conocido como la Recoba del Cardonal, es un mercado de abastos ubicado en el barrio El Almendral del plan de la ciudad chilena de Valparaíso, más específicamente en la manzana conformada por las calles Uruguay, Brasil, Rawson y…",
       descriptionEn: "El Mercado El Cardonal, formerly known as La Recoba del Cardonal, is a produce market in the El Almendral neighborhood of Valparaíso, Chile.",
+      lat: -33.04521,
+      lng: -71.60748,
     },
     {
       id: "valparaiso_19",
@@ -93112,6 +93614,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Reloj_Turri",
       lat: -33.04058,
       lng: -71.62635,
+      descriptionEn: "Building with a tower and clock in central Valparaíso, at an intersection of downtown streets; it is a recognizable urban landmark.",
     },
     {
       id: "valparaiso_22",
@@ -93128,6 +93631,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Teatro_Mauri%2C_Valparaiso_20240214.jpg/960px-Teatro_Mauri%2C_Valparaiso_20240214.jpg",
       description: "El Teatro Mauri es un teatro ubicado en el cerro Bellavista, en la ciudad de Valparaíso, Chile. Iniciativa del empresario Sebastián Collado Mauri y diseñado por el arquitecto Alfredo Vargas Stoller, fue inaugurado el 28 de diciembre de 1951 como sala de espectáculos y de cine.",
       descriptionEn: "Teatro Mauri is a theater on Cerro Bellavista in Valparaíso, Chile. Commissioned by businessman Sebastián Collado Mauri and designed by architect Alfredo Vargas Stoller, it opened on 28 December 1951 as a cinema and performance venue.",
+      lat: -33.05398,
+      lng: -71.6231,
     },
     {
       id: "valparaiso_23",
@@ -93162,6 +93667,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_a_Cielo_Abierto_de_Valpara%C3%ADso",
       lat: -33.04796,
       lng: -71.62168,
+      descriptionEn: "Open-air mural museum on Cerro Bellavista; it runs along streets with works by Chilean artists and is part of Valparaíso's cultural heritage.",
     },
     {
       id: "valparaiso_25",
@@ -93180,6 +93686,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Muelle_Bar%C3%B3n",
       lat: -33.04083,
       lng: -71.60828,
+      descriptionEn: "Pier on the Valparaíso coast in the Barón area; it is a port and promenade space with views of the bay and hills.",
     },
     {
       id: "valparaiso_26",
@@ -93271,6 +93778,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.neruda.uchile.cl/sebastiana.html",
       description: "La Sebastiana es una de las tres casas —junto con La Chascona en Santiago y la Casa de Isla Negra— que fueron propiedad del poeta chileno Pablo Neruda.",
       sourceUrl: "https://es.wikipedia.org/wiki/La_Sebastiana",
+      descriptionEn: "Pablo Neruda's house museum on Cerro Florida; it preserves the poet's objects and rooms and offers views of Valparaíso Bay.",
     },
     {
       id: "valparaiso_31",
@@ -93289,6 +93797,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.62959,
       description: "Cerro Alegre es un barrio de la ciudad de Valparaíso, Chile y se encuentra sobre el centro político y financiero de la ciudad. Su nombre se debe a los bellos jardines que adornaban las casas del sector, que en el siglo XIX estaba habitado principalmente por inmigrantes ingleses.",
       sourceUrl: "https://es.wikipedia.org/wiki/Cerro_Alegre",
+      descriptionEn: "Historic hill with steep streets, colorful houses, and elevators; it is part of Valparaíso's heritage area designated by UNESCO.",
     },
     {
       id: "valparaiso_32",
@@ -93307,6 +93816,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.62678,
       description: "El cerro Concepción es un conocido barrio turístico del puerto chileno de Valparaíso. Es conocido por su patrimonio arquitectónico y su rica historia, razones que impulsaron a la Unesco a decretar la ciudad como Patrimonio de la Humanidad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Cerro_Concepci%C3%B3n",
+      descriptionEn: "Historic hill next to Alegre, with heritage architecture, passageways, and viewpoints over the bay; it is part of central Valparaíso.",
     },
     {
       id: "valparaiso_33",
@@ -93382,6 +93892,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.60542,
       description: "El edificio del Congreso Nacional de Chile es la sede que alberga las dos cámaras del Congreso Nacional desde 1990 a la fecha.",
       sourceUrl: "https://es.wikipedia.org/wiki/Edificio_del_Congreso_Nacional_de_Chile",
+      descriptionEn: "Seat of Chile's National Congress in Valparaíso, housing the Chamber of Deputies and Senate; a modern building in the El Almendral area.",
     },
     {
       id: "valparaiso_37",
@@ -93420,6 +93931,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.56746,
       description: "El Reloj de Flores es un reloj jardinizado que se encuentra a los pies del cerro Castillo, frente al balneario de Caleta Abarca, en la comuna de Viña del Mar, Región de Valparaíso, Chile.",
       sourceUrl: "https://es.wikipedia.org/wiki/Reloj_de_flores_(Vi%C3%B1a_del_Mar)",
+      descriptionEn: "Ornamental clock with a flower garden in Viña del Mar, near the coast; it is a landmark in the neighboring city.",
     },
     {
       id: "valparaiso_39",
@@ -93457,6 +93969,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.54667,
       description: "El Palacio Rioja es un edificio ubicado en Viña del Mar, Región de Valparaíso, Chile, en el sector de la Población Vergara, en calle bella entre 3 y 4 Norte.",
       sourceUrl: "https://es.wikipedia.org/wiki/Palacio_Rioja",
+      descriptionEn: "Historic palace in Viña del Mar converted into a museum and cultural center; it preserves early-20th-century furniture and gardens.",
     },
     {
       id: "valparaiso_41",
@@ -93495,6 +94008,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museofonck.cl",
       description: "El Museo Fonck es el nombre con el que se conoce al Museo de Arqueología e Historia Francisco Fonck. Se encuentra ubicado en calle 4 Norte 784 esquina 1 Oriente, Viña del Mar, Valparaíso, en Chile.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Fonck",
+      descriptionEn: "Archaeological and historical museum in Viña del Mar, with collections from pre-Columbian cultures and a Rapa Nui moai brought from Easter Island.",
     },
     {
       id: "valparaiso_43",
@@ -93643,6 +94157,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Cristo_Redentor_%28Valparaiso%29.jpg/1280px-Cristo_Redentor_%28Valparaiso%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Cerro Bellavista es uno de los cerros de Valparaíso. Es conocido por el Museo a Cielo Abierto, que exhibe murales en sus calles y escaleras.",
       descriptionEn: "Cerro Bellavista is one of the hills of Valparaíso. It is known for the Open Sky Museum, which displays murals on its streets and stairways.",
+      lat: -33.05013,
+      lng: -71.62227,
     },
     {
       id: "valparaiso_51",
@@ -99633,6 +100149,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Morro_Dois_Irm%C3%A3os_(R%C3%ADo_de_Janeiro)",
       lat: -22.9908,
       lng: -43.2396,
+      descriptionEn: "Morro Dois Irmãos is a pair of peaks next to Ipanema and Leblon in Rio de Janeiro. It is visited for the trail that climbs from Vidigal and for views of Rodrigo de Freitas Lagoon, the beaches and Christ the Redeemer.",
     },
     {
       id: "rio_16",
@@ -100492,6 +101009,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Casa_de_Vidro_13.jpg/960px-Casa_de_Vidro_13.jpg",
       description: "El Instituto Bardi preserva el legado de los arquitectos Lina Bo Bardi y Pietro Maria Bardi. Tiene su sede en la Casa de Vidro, la residencia modernista que Lina Bo Bardi diseñó y habitó en el barrio de Morumbi, São Paulo.",
       descriptionEn: "The Instituto Bardi preserves the legacy of architects Lina Bo Bardi and Pietro Maria Bardi. It is headquartered at the Casa de Vidro (Glass House), the modernist residence Lina Bo Bardi designed and lived in, in São Paulo's Morumbi district.",
+      lat: -23.61298,
+      lng: -46.71184,
     },
     {
       id: "saopaulo_4",
@@ -100529,6 +101048,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Viaduto_do_Ch%C3%A1_%26_Shoping_Light%28By_Felipe_Mostarda%29.JPG/960px-Viaduto_do_Ch%C3%A1_%26_Shoping_Light%28By_Felipe_Mostarda%29.JPG",
       description: "El Viaduto do Chá es uno de los viaductos más antiguos de São Paulo, inaugurado en 1892 y reconstruido en 1938. Conecta el Vale do Anhangabaú con el centro histórico y es uno de los símbolos de la ciudad.",
       descriptionEn: "The Viaduto do Chá is one of São Paulo's oldest viaducts, opened in 1892 and rebuilt in 1938. It connects the Vale do Anhangabaú with the historic centre and is one of the city's landmark structures.",
+      lat: -23.54665,
+      lng: -46.6378,
     },
     {
       id: "saopaulo_6",
@@ -100614,6 +101135,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Igreja_de_S%C3%A3o_Francisco_17.jpg/960px-Igreja_de_S%C3%A3o_Francisco_17.jpg",
       description: "La Igreja e Convento de São Francisco es un templo católico franciscano histórico del centro de São Paulo, uno de los conjuntos religiosos coloniales más importantes de la ciudad.",
       descriptionEn: "The Igreja e Convento de São Francisco is a historic Franciscan Catholic church and convent in downtown São Paulo, one of the city's most important colonial-era religious complexes.",
+      lat: -23.54973,
+      lng: -46.63716,
     },
     {
       id: "saopaulo_11",
@@ -100685,6 +101208,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Pq.aclima%C3%A7%C3%A3o7.JPG",
       description: "El Parque da Aclimação es uno de los parques urbanos más antiguos de São Paulo, con lagos, jardines y una amplia variedad de aves, ubicado en el barrio homónimo de la zona sur-central de la ciudad.",
       descriptionEn: "Parque da Aclimação is one of São Paulo's oldest urban parks, featuring lakes, gardens, and a wide variety of birdlife, located in the neighborhood of the same name in the south-central part of the city.",
+      lat: -23.57465,
+      lng: -46.62898,
     },
     {
       id: "saopaulo_15",
@@ -100722,6 +101247,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/f3ScaTh2mlc?auto=format&fit=crop&w=800&q=80",
       description: "El Centro Cultural São Paulo es un espacio público municipal dedicado al arte y la cultura, con biblioteca, teatros, galerías y espacios de exposición, inaugurado en 1982.",
       descriptionEn: "The Centro Cultural São Paulo is a municipal public arts and culture space with a library, theaters, galleries, and exhibition areas, opened in 1982.",
+      lat: -23.5708,
+      lng: -46.6403,
     },
     {
       id: "saopaulo_17",
@@ -100793,6 +101320,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Fachada_da_frente_do_Mosteiro_da_Luz.jpg/960px-Fachada_da_frente_do_Mosteiro_da_Luz.jpg",
       description: "El Mosteiro da Luz es el monasterio benedictino más antiguo de São Paulo, fundado en el siglo XVIII, y alberga el Museu de Arte Sacra, con una de las mayores colecciones de arte sacro de Brasil.",
       descriptionEn: "The Mosteiro da Luz is São Paulo's oldest Benedictine monastery, founded in the 18th century, and now houses the Museu de Arte Sacra, home to one of Brazil's largest collections of sacred art.",
+      lat: -23.53045,
+      lng: -46.63059,
     },
     {
       id: "saopaulo_21",
@@ -100810,6 +101339,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Parque_da_%C3%81gua_Branca_01.jpg",
       description: "El Parque da Água Branca es un parque urbano de São Paulo con jardines, viveros y áreas de exposición agropecuaria, administrado por el gobierno del estado.",
       descriptionEn: "Parque da Água Branca is an urban park in São Paulo with gardens, plant nurseries, and agricultural exhibition areas, managed by the state government.",
+      lat: -23.53043,
+      lng: -46.66968,
     },
     {
       id: "saopaulo_22",
@@ -100827,6 +101358,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Zoo_Safari_-_panoramio.jpg/960px-Zoo_Safari_-_panoramio.jpg",
       description: "Simba Safari es un parque de safari en la región metropolitana de São Paulo donde los visitantes recorren en su propio vehículo áreas con animales en semi-libertad, como leones, jirafas y cebras.",
       descriptionEn: "Simba Safari is a drive-through safari park in the São Paulo metropolitan region where visitors tour semi-free-roaming animal areas — including lions, giraffes, and zebras — in their own vehicle.",
+      lat: -23.65433,
+      lng: -46.61572,
     },
     {
       id: "saopaulo_23",
@@ -100878,6 +101411,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Aquariodesao.JPG/960px-Aquariodesao.JPG",
       description: "El Aquário de São Paulo es uno de los mayores acuarios de Sudamérica, con miles de especies marinas y de agua dulce distribuidas en distintos ambientes temáticos.",
       descriptionEn: "The Aquário de São Paulo is one of South America's largest aquariums, home to thousands of marine and freshwater species across a series of themed environments.",
+      lat: -23.59331,
+      lng: -46.61408,
     },
     {
       id: "saopaulo_26",
@@ -100915,6 +101450,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/O_riso%2C_o_choro_e_a_vida_-_Teatro_Oficina.jpg/960px-O_riso%2C_o_choro_e_a_vida_-_Teatro_Oficina.jpg",
       description: "El Teatro Oficina Uzyna Uzona es un histórico grupo y edificio teatral de São Paulo, fundado en 1958, cuya actual sede fue rediseñada por la arquitecta Lina Bo Bardi en un formato de galpón alargado sin escenario fijo.",
       descriptionEn: "Teatro Oficina Uzyna Uzona is a historic theater company and building in São Paulo, founded in 1958, whose current venue was redesigned by architect Lina Bo Bardi as an elongated warehouse space with no fixed stage.",
+      lat: -23.55513,
+      lng: -46.64123,
     },
     {
       id: "saopaulo_28",
@@ -159582,8 +160119,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "http://www.tuolslenggenocidemuseum.com",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tuol_Sleng.jpg/960px-Tuol_Sleng.jpg",
-      description: "Museo del Genocidio Tuol Sleng es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo del Genocidio Tuol Sleng is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo del Genocidio Tuol Sleng ocupa una antigua escuela convertida por el régimen de los Jemeres Rojos en la prisión S-21. Conserva celdas, archivos y testimonios que documentan las detenciones y torturas ocurridas allí entre 1975 y 1979.",
+      descriptionEn: "The Tuol Sleng Genocide Museum occupies a former school that the Khmer Rouge regime turned into S-21 prison. It preserves cells, archives and testimonies documenting the detentions and torture that occurred there between 1975 and 1979.",
+      lat: 11.54945,
+      lng: 104.9176,
     },
     {
       id: "phnompenh_1",
@@ -159599,8 +160138,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.cambodiamuseum.info/en_information_visitors.html",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/2016_Phnom_Penh%2C_Muzeum_Narodowe_Kambod%C5%BCy_%2810%29.jpg/960px-2016_Phnom_Penh%2C_Muzeum_Narodowe_Kambod%C5%BCy_%2810%29.jpg",
-      description: "Museo Nacional de Camboya es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo Nacional de Camboya is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo nacional de Camboya se localiza en Nom Pen en el país asiático de Camboya. Se trata del museo más grande de la historia cultural del país y el museo líder en temas históricos y arqueológicos del país.",
+      descriptionEn: "The National Museum of Cambodia is Cambodia's largest museum of cultural history and is the country's leading historical and archaeological museum. It is located in Chey Chumneas, Phnom Penh.",
+      lat: 11.5658,
+      lng: 104.929,
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_nacional_de_Camboya",
     },
     {
       id: "phnompenh_2",
@@ -159632,8 +160174,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Le_Palais_Royal_%28Phnom_Penh%29_%286997773481%29.jpg/960px-Le_Palais_Royal_%28Phnom_Penh%29_%286997773481%29.jpg",
-      description: "Palacio Real del Reino de Camboya es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Palacio Real del Reino de Camboya is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Palacio Real de Camboya es la residencia oficial del rey y un conjunto de edificios ceremoniales de techos dorados junto al río. Incluye la Pagoda de Plata, con su suelo de plata y objetos históricos, y jardines que se recorren en visita.",
+      descriptionEn: "The Royal Palace of Cambodia is the king's official residence and a complex of ceremonial buildings with golden roofs beside the river. It includes the Silver Pagoda, with its silver floor and historical objects, and gardens visited on a tour.",
     },
     {
       id: "phnompenh_4",
@@ -159680,8 +160222,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Silver_Pagoda%2C_Phnom_Penh.jpg/960px-Silver_Pagoda%2C_Phnom_Penh.jpg",
-      description: "Pagoda de Plata es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Pagoda de Plata is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Pagoda de Plata se encuentra en el lado sur del Palacio Real en Chey Chumneah, Nom Pen, Camboya.",
+      descriptionEn: "The Silver Pagoda is located on the south side of the Royal Palace in Chey Chumneas, Phnom Penh. The official name is Wat Ubaosoth Ratanaram, also known as Wat Preah Keo Morakot which is commonly shortened to Wat Preah Keo in Khmer.",
+      lat: 11.56248,
+      lng: 104.93167,
+      sourceUrl: "https://es.wikipedia.org/wiki/Pagoda_de_plata",
     },
     {
       id: "phnompenh_7",
@@ -159696,8 +160241,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/WatMohaMontrey_PhnomPenh_2005_1.JPG/960px-WatMohaMontrey_PhnomPenh_2005_1.JPG",
-      description: "Templo Wat Moha Montrei es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Templo Wat Moha Montrei is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Wat Moha Montrei es un templo budista de Phnom Penh que funciona como centro religioso y educativo. Su recinto reúne edificios de culto, estupas y jardines, y muestra la presencia del budismo en la vida urbana camboyana.",
+      descriptionEn: "Wat Moha Montrei is a Buddhist temple in Phnom Penh that serves as a religious and educational center. Its grounds bring together worship buildings, stupas and gardens, showing the presence of Buddhism in Cambodian urban life.",
     },
     {
       id: "phnompenh_8",
@@ -159728,8 +160273,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Wat_Botum.JPG/960px-Wat_Botum.JPG",
-      description: "Templo Wat Botum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Templo Wat Botum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Wat Botum es un templo budista cercano al Palacio Real, sede de una orden monástica y centro de ceremonias religiosas. Su recinto contiene estupas, jardines y edificios ornamentados que forman parte del paisaje histórico de Phnom Penh.",
+      descriptionEn: "Wat Botum is a Buddhist temple near the Royal Palace, home to a monastic order and a center for religious ceremonies. Its grounds contain stupas, gardens and ornate buildings that are part of Phnom Penh's historic landscape.",
+      lat: 11.55893,
+      lng: 104.93186,
     },
     {
       id: "phnompenh_10",
@@ -159744,8 +160291,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/2016_Phnom_Penh%2C_Pomnik_Przyja%C5%BAni_Kambod%C5%BCy_i_Wietnamu_%2802%29.jpg/960px-2016_Phnom_Penh%2C_Pomnik_Przyja%C5%BAni_Kambod%C5%BCy_i_Wietnamu_%2802%29.jpg",
-      description: "Monumento a la Amistad Camboya-Vietnam es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Monumento a la Amistad Camboya-Vietnam is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Monumento a la Amistad Camboya-Vietnam es una escultura pública en Phnom Penh que conmemora la cooperación entre ambos países y la intervención vietnamita que puso fin al régimen de los Jemeres Rojos. Está situado cerca del Palacio Real y de la ribera.",
+      descriptionEn: "The Cambodia-Vietnam Friendship Monument is a public sculpture in Phnom Penh commemorating cooperation between the two countries and the Vietnamese intervention that ended the Khmer Rouge regime. It stands near the Royal Palace and the riverfront.",
+      lat: 11.5587,
+      lng: 104.93277,
     },
     {
       id: "phnompenh_11",
@@ -159761,7 +160310,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/ff/100_riel_2001_obverse.jpg",
       description: "página de desambiguación de Wikimedia",
-      descriptionEn: "Wikimedia disambiguation page",
+      descriptionEn: "Phnom Penh's Independence Monument is a lotus-shaped tower in Khmer style, erected to commemorate Cambodia's independence from France in 1953. It stands in the center of a roundabout and is the setting for official ceremonies.",
+      lat: 11.55644,
+      lng: 104.92819,
     },
     {
       id: "phnompenh_12",
@@ -159776,8 +160327,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/PhsarThmei.JPG/960px-PhsarThmei.JPG",
-      description: "Mercado Central Phsar Thmei es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mercado Central Phsar Thmei is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Mercado Central de Phnom Penh es un mercado cubierto de arquitectura art déco, construido en la década de 1930. Sus pasillos venden alimentos, textiles, joyas y artículos cotidianos, y el edificio es un referente urbano de la ciudad.",
+      descriptionEn: "Phnom Penh's Central Market is a covered market with Art Deco architecture, built in the 1930s. Its aisles sell food, textiles, jewelry and everyday goods, and the building is an urban landmark of the city.",
+      lat: 11.65594,
+      lng: 104.86095,
     },
     {
       id: "phnompenh_13",
@@ -159808,8 +160361,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 90,
       website: "https://sosoro.nbc.org.kh",
-      description: "Museo Sosoro es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo Sosoro is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Sosoro, también conocido como Museo Preah Srey Içanavarman, está dedicado a la historia del dinero en Camboya. Sus exposiciones reúnen monedas, billetes y objetos que explican el comercio y la economía del país.",
+      descriptionEn: "The Sosoro Museum, also known as the Preah Srey Içanavarman Museum, is dedicated to the history of money in Cambodia. Its exhibitions bring together coins, banknotes and objects that explain the country's trade and economy.",
+      lat: 11.57435,
+      lng: 104.92544,
     },
     {
       id: "phnompenh_15",
@@ -159903,8 +160458,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1598533880212-f7019e320c02?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHwlRTElOUUlOTUlRTElOUYlOTIlRTElOUUlOUYlRTElOUUlQjYlRTElOUUlOUElRTIlODAlOEIlRTElOUUlOUElRTElOUUlQjYlRTElOUUlOEYlRTElOUYlOTIlRTElOUUlOUElRTElOUUlQjglMjBQaG5vbSUyMFBlbmglMjBDYW1ib2RpYXxlbnwxfDB8fHwxNzgzMTA3Nzk5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Mercado Nocturno es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mercado Nocturno is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Mercado Nocturno de Phnom Penh se instala por la tarde cerca de la ribera y reúne puestos de comida, ropa y artesanías. Es un espacio concurrido donde se puede observar la vida comercial nocturna de la ciudad.",
+      descriptionEn: "Phnom Penh's Night Market sets up in the evening near the riverfront and brings together stalls selling food, clothing and handicrafts. It is a busy space where the city's nighttime commercial life can be observed.",
+      lat: 11.57405,
+      lng: 104.92723,
     },
     {
       id: "phnompenh_21",
@@ -160028,8 +160585,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-1728740303677-da7b05eba98e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYW1wb3MlMjBkZSUyMGxhJTIwTXVlcnRlJTIwZGUlMjBDaG9ldW5nJTIwRWslMjBQaG5vbSUyMFBlbmglMjBDYW1ib2RpYXxlbnwxfDB8fHwxNzgzMTA4NDA0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Campos de la Muerte de Choeung Ek es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Campos de la Muerte de Choeung Ek is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Los Campos de la Muerte de Choeung Ek son un sitio memorial a unos 15 kilómetros de Phnom Penh, donde el régimen de los Jemeres Rojos ejecutó y enterró a prisioneros. Un stupa y senderos conservan la memoria de las víctimas.",
+      descriptionEn: "The Choeung Ek Killing Fields are a memorial site about 15 kilometers from Phnom Penh, where the Khmer Rouge regime executed and buried prisoners. A stupa and pathways preserve the memory of the victims.",
+      lat: 11.48398,
+      lng: 104.90231,
     },
     {
       id: "phnompenh_29",
@@ -160104,6 +160663,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Mercado Ruso, o Psar Toul Tom Poung, es un mercado cubierto de Phnom Penh donde se venden telas, artesanías, joyas, ropa y productos locales. Es conocido por sus puestos de seda y recuerdos.",
       descriptionEn: "The Russian Market, or Psar Toul Tom Poung, is a covered market in Phnom Penh selling fabrics, handicrafts, jewelry, clothing and local goods. It is known for its silk and souvenir stalls.",
+      lat: 11.54052,
+      lng: 104.9147,
     },
     {
       id: "phnompenh_33",
@@ -160120,6 +160681,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Riverside_Park%2C_Phnom_Penh_3.jpg/1280px-Riverside_Park%2C_Phnom_Penh_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Paseo Sisowath es el bulevar y malecón junto al río en el centro de Phnom Penh, bordeando la confluencia del Tonlé Sap y el Mekong. Allí se ubican restaurantes, hoteles y edificios coloniales, y es un punto para caminar al atardecer.",
       descriptionEn: "Sisowath Quay is the riverside boulevard and promenade in central Phnom Penh, along the confluence of the Tonle Sap and Mekong rivers. Restaurants, hotels and colonial-era buildings line the area, and it is a place to walk at sunset.",
+      lat: 11.56058,
+      lng: 104.93418,
     },
     {
       id: "phnompenh_34",
@@ -169443,7 +170006,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.baotangchungtichchientranh.vn/contact.html",
       description: "El Museo de los Vestigios de la Guerra es un museo situado en la calle Vo Van Tan de la ciudad Ho Chi Minh, en Vietnam. Su objetivo es mostrar al mundo el resultado de la ocupación estadounidense y de ese periodo de la historia.",
-      descriptionEn: "Museo de los Vestigios de Guerra is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The War Remnants Museum is a war museum at 28 Võ Văn Tần Street, Xuân Hòa, Ho Chi Minh City, Vietnam. It contains exhibits relating to the First Indochina War and the Vietnam War.",
+      lat: 10.7795,
+      lng: 106.692,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/War_Remnants_Museum%2C_HCMC%2C_front.JPG/1280px-War_Remnants_Museum%2C_HCMC%2C_front.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_1",
@@ -169458,8 +170024,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://baotangmythuattphcm.com.vn",
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
-      descriptionEn: "Museo de Bellas Artes de Ho Chi Minh is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de Bellas Artes de Ciudad Ho Chi Minh es el principal museo de arte de la ciudad Ho Chi Minh, Vietnam, antiguamente conocida como Saigón, y su colección es la segunda en el país, solo por detrás del Museo Nacional de Bellas Artes de Vietnam en Hanói.",
+      descriptionEn: "Ho Chi Minh City Museum of Fine Arts is the major art museum of Ho Chi Minh City, Vietnam, and second in the country only to the Vietnam National Museum of Fine Arts in Hanoi.",
+      lat: 10.76944,
+      lng: 106.7,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Museum_of_Fine_Arts%2C_HCMC.jpg/1280px-Museum_of_Fine_Arts%2C_HCMC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_Bellas_Artes_de_Ciudad_Ho_Chi_Minh",
     },
     {
       id: "hochiminh_2",
@@ -169474,8 +170044,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://www.baotanglichsutphcm.com.vn/en-US/sightseeing/policy",
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
+      description: "El Museo de Historia de la ciudad de Ho Chi Minh, anteriormente museo Blanchard de La Brosse, y desde 1956 a 1979 Museo Nacional de Vietnam en Saigón, es un museo de historia ubicado en el primer distrito de la ciudad de Ho Chi Minh (Saigón), al sur de Vietnam.",
       descriptionEn: "Manila, officially the City of Manila, is the capital and second-most populous city of the Philippines after Quezon City. According to the 2024 census, it has a population of 1,902,590 people.",
+      lat: 10.78484,
+      lng: 106.70759,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Vietnam_History_Museum_HCMC.JPG/1280px-Vietnam_History_Museum_HCMC.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_Historia_de_la_ciudad_de_Ho_Chi_Minh",
     },
     {
       id: "hochiminh_3",
@@ -169490,8 +170064,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.saigonzoo.net/",
-      description: "Zoológico y Jardín Botánico de Saigón es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El jardín botánico y zoológico de Saigón es un parque zoológico y jardín botánico situado en el distrito 1, de la ciudad de Ho Chi Minh, en Vietnam. Se encuentra ubicado en la esquina de la calle Nguyen Binh Khiem y la calle Le Duan(enfrente del Palacio de la Reunificación ).",
       descriptionEn: "This is a list of zoological gardens (zoos) around the world. For aquaria, see List of aquaria. For dolphinariums, see List of dolphinariums. For an annotated list of defunct zoos and aquariums, see List of former zoos and aquariums.",
+      lat: 10.78806,
+      lng: 106.70472,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/H%E1%BB%93_n%C6%B0%E1%BB%9Bc_%E1%BB%9F_Th%E1%BA%A3o_C%E1%BA%A7m_Vi%C3%AAn.JPG/1280px-H%E1%BB%93_n%C6%B0%E1%BB%9Bc_%E1%BB%9F_Th%E1%BA%A3o_C%E1%BA%A7m_Vi%C3%AAn.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Jard%C3%ADn_bot%C3%A1nico_y_zool%C3%B3gico_de_Saig%C3%B3n",
     },
     {
       id: "hochiminh_4",
@@ -169506,8 +170084,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://benthanhmarket.vn/",
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
+      description: "El Mercado Ben Thanh es el mayor mercado del centro de Ciudad Ho Chi Minh, Vietnam. Es una de las estructuras modernas que se conservan y es considerado uno de los símbolos de la ciudad. Muy popular entre los turistas que buscan manualidades, textiles, áo dài, y suvenires.",
       descriptionEn: "This is the list of notorious markets compiled by the Office of the United States Trade Representative, which claims that they are markets where large-scale intellectual property infringement takes place.",
+      lat: 10.77252,
+      lng: 106.69802,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Ben_Thanh_market_in_Vietnam_%28340932410%29.jpg/1280px-Ben_Thanh_market_in_Vietnam_%28340932410%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Mercado_Ben_Thanh",
     },
     {
       id: "hochiminh_5",
@@ -169521,8 +170103,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Vinh es una ciudad en Vietnam. Se encuentra en el norte del país, y es la capital de la provincia de Nghe An. El 5 de septiembre de 2008, Vinh fue ascendida a ciudad grado I, siendo la cuarta de Vietnam con dicho status después de Hai Phong, Da Nang y Hué.",
-      descriptionEn: "Museo de la Fuerza Aérea del Sur is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo militar que reúne aeronaves, equipo y documentos sobre la historia de la aviación militar en el sur de Vietnam. Sus exhibiciones permiten conocer el desarrollo y las operaciones de la fuerza aérea en la región.",
+      descriptionEn: "Military museum that gathers aircraft, equipment and documents on the history of military aviation in southern Vietnam. Its exhibits cover the development and operations of the air force in the region.",
+      lat: 10.80525,
+      lng: 106.66059,
     },
     {
       id: "hochiminh_6",
@@ -169536,8 +170120,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
-      descriptionEn: "Museo de las Fuerzas Armadas del Sureste is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo dedicado a la historia de las fuerzas armadas revolucionarias del sureste de Vietnam. Exhibe fotografías, armas, documentos y objetos relacionados con los conflictos del siglo XX en la región.",
+      descriptionEn: "The Southeastern Armed Forces Museum Military Zone 7 is a military museum located at 247 Hoàng Văn Thụ Street, Tân Sơn Hòa, Ho Chi Minh City, Vietnam.",
+      lat: 10.8,
+      lng: 106.666,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/31/Vietnam-021-3rd-Field-front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "hochiminh_7",
@@ -169552,8 +170139,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       website: "https://www.vinhnghiemvn.com/",
-      description: "Pagoda Vinh Nghiem es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Templo budista en el distrito 3 de Ciudad Ho Chi Minh, conocido por su arquitectura, sus jardines y una gran estatua de Guanyin. Es un centro activo de culto y un lugar de visita por su valor religioso y cultural.",
       descriptionEn: "Vĩnh Nghiêm Pagoda is a pagoda in an area of 6,000 square metres (65,000 sq ft) at 339, Nam Kỳ Khởi Nghĩa street, Ward 7, District 3 Ho Chi Minh City. This is the first pagoda in Vietnam to be built in Vietnamese traditional architecture style but with concrete.",
+      lat: 10.7904,
+      lng: 106.682,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Chua_Vinh_nghiem%2C_tphcm_vietnam_-_panoramio_%281%29.jpg/1280px-Chua_Vinh_nghiem%2C_tphcm_vietnam_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_8",
@@ -169569,6 +170159,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Pagoda perfumada es un inmenso complejo budista y un centro de peregrinación construido en los Montes Huong Tich en Vietnam.",
       descriptionEn: "Chợ Lớn, is a ward of Ho Chi Minh City, Vietnam. It is one of the 168 new wards, communes and special zones of the city following the 2025 Vietnamese administrative reforms under Resolution No. 1685/NQ-UBTVQH15 of the Standing Committee of the National Assembly of Vietnam.",
+      lat: 10.84346,
+      lng: 106.76279,
     },
     {
       id: "hochiminh_9",
@@ -169582,8 +170174,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Pagoda Phung Son es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Templo budista tradicional en Ciudad Ho Chi Minh, con patios, ornamentación vietnamita y estatuas religiosas. Forma parte del patrimonio religioso local y se visita por su arquitectura y ambiente de culto.",
       descriptionEn: "Minh Phụng is a ward of Ho Chi Minh City, Vietnam. It is one of the 168 new wards, communes and special zones of the city following the reorganization in 2025.",
+      lat: 10.76645,
+      lng: 106.6984,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Phung_Son_Pagoda_%2810017983676%29.jpg/1280px-Phung_Son_Pagoda_%2810017983676%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_10",
@@ -169597,8 +170192,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
+      description: "Parque cultural y de ocio en el distrito 11 de Ciudad Ho Chi Minh, con jardines, áreas de juegos y un parque acuático. Es visitado por familias y grupos escolares en busca de entretenimiento.",
       descriptionEn: "The following is a timeline for Google Street View, a technology implemented in Google Maps and Google Earth that provides ground-level interactive panoramas of cities.",
+      lat: 10.76611,
+      lng: 106.63806,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/T%C3%A0u_l%E1%BB%99n_v%C3%B2ng_si%C3%AAu_t%E1%BB%91c%2C_C%C3%B4ng_vi%C3%AAn_%C4%90%E1%BA%A7m_Sen.JPG/1280px-T%C3%A0u_l%E1%BB%99n_v%C3%B2ng_si%C3%AAu_t%E1%BB%91c%2C_C%C3%B4ng_vi%C3%AAn_%C4%90%E1%BA%A7m_Sen.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_11",
@@ -169614,6 +170212,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Hanói es la capital de Vietnam, así como la segunda ciudad más grande del país tras la ciudad de Ho Chi Minh. Se encuentra en la zona norte del país, en la margen derecha del río Rojo a una distancia de aproximadamente 1760 km al norte de Ciudad Ho Chi Minh y a unos 120 km al…",
       descriptionEn: "List of famous or notable Vietnamese people. This list is incomplete.",
+      lat: 10.78861,
+      lng: 106.69372,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Le_Van_Tam_park.JPG/1280px-Le_Van_Tam_park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_12",
@@ -169628,7 +170229,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
-      descriptionEn: "Oficina Central de Correos de Saigón is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Saigon Central Post Office is a post office in Paris Commune Square, Saigon ward, Ho Chi Minh City, next to the Saigon Notre-Dame Basilica, the city's cathedral.",
+      lat: 10.78,
+      lng: 106.7,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Ho_Chi_Minh_City%2C_Central_Post_Office%2C_2020-01_CN-01.jpg/1280px-Ho_Chi_Minh_City%2C_Central_Post_Office%2C_2020-01_CN-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_13",
@@ -169643,8 +170247,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://dinhdoclap.gov.vn",
-      description: "Hanói es la capital de Vietnam, así como la segunda ciudad más grande del país tras la ciudad de Ho Chi Minh. Se encuentra en la zona norte del país, en la margen derecha del río Rojo a una distancia de aproximadamente 1760 km al norte de Ciudad Ho Chi Minh y a unos 120 km al…",
+      description: "El Palacio de la Reunificación antes conocido como Palacio de la Independencia, construido en la ubicación del antiguo Palacio Norodom, es un edificio histórico en Ciudad Ho Chi Minh, Vietnam.",
       descriptionEn: "This is a list of notable opera houses listed by continent, then by country with the name of the opera house and city. The opera company is sometimes named for clarity.",
+      lat: 10.77705,
+      lng: 106.69537,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/20190923_Independence_Palace-10.jpg/1280px-20190923_Independence_Palace-10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Palacio_de_la_Reunificaci%C3%B3n",
     },
     {
       id: "hochiminh_14",
@@ -169658,8 +170266,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "La Universidad de Economía de la Ciudad de Ho Chi Minh (UEH), también conocida como la Universidad UEH, es una institución pública y multidisciplinaria bajo el Ministerio de Educación y Formación de Vietnam, clasificada entre las universidades nacionales clave.",
+      description: "Parque urbano de Ciudad Ho Chi Minh con árboles, caminos y áreas de descanso. Funciona como espacio público para caminar, reunirse y realizar actividades recreativas al aire libre.",
       descriptionEn: "Hòa Hưng is a ward of Ho Chi Minh City, Vietnam. It is one of the city's 168 new wards, communes and special zones following the 2025 Vietnamese administrative reforms, as stated under Resolution No. 1685/NQ-UBTVQH15 of the Standing Committee of the National Assembly of Vietnam.",
+      lat: 10.76065,
+      lng: 106.67375,
     },
     {
       id: "hochiminh_15",
@@ -169673,8 +170283,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "La calle Đồng Khởi, conocida antiguamente como Rue Catinat y calle Tự Do, es una calle situada en el Distrito 1 de la Ciudad Ho Chi Minh (Vietnam).",
+      description: "Parque urbano en Ciudad Ho Chi Minh con vegetación, senderos y zonas de descanso. Es un espacio público utilizado para caminar y actividades recreativas cotidianas.",
       descriptionEn: "The 4th Hanoi International Film Festival opened on November 1 and closed on November 5, 2016, at Hanoi Friendship Cultural Palace, with the slogan \"Cinema - Integration and Sustainable Development\".",
+      lat: 10.7777,
+      lng: 106.7017,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Chi_Lang_Park.jpg/1280px-Chi_Lang_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_16",
@@ -169688,8 +170301,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Hanói es la capital de Vietnam, así como la segunda ciudad más grande del país tras la ciudad de Ho Chi Minh. Se encuentra en la zona norte del país, en la margen derecha del río Rojo a una distancia de aproximadamente 1760 km al norte de Ciudad Ho Chi Minh y a unos 120 km al…",
+      description: "Parque en el distrito 1 de Ciudad Ho Chi Minh con un pequeño lago, árboles y senderos. Es un espacio verde céntrico para descansar, caminar y escapar del tráfico.",
       descriptionEn: "List of famous or notable Vietnamese people. This list is incomplete.",
+      lat: 10.7762,
+      lng: 106.6991,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/B%C3%A1ch_T%C3%B9ng_Di%E1%BB%87p_Park.jpg/1280px-B%C3%A1ch_T%C3%B9ng_Di%E1%BB%87p_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_17",
@@ -169703,8 +170319,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Templo Sri Mariamman es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Templo Sri Mariamman is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Templo hinduista en el distrito 1 de Ciudad Ho Chi Minh, construido por la comunidad tamil y dedicado a la diosa Mariamman. Destaca por su colorida ornamentación y sus rituales religiosos.",
+      descriptionEn: "Hindu temple in District 1 of Ho Chi Minh City, built by the Tamil community and dedicated to the goddess Mariamman. It stands out for its colorful ornamentation and religious rituals.",
+      lat: 10.77229,
+      lng: 106.69556,
     },
     {
       id: "hochiminh_18",
@@ -169718,8 +170336,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Lady Triệu fue una líder rebelde vietnamita del siglo III que logró, durante un tiempo, resistir al estado chino de Wu Oriental que ocupaba el norte de Vietnam. También se la llama Triệu Thị Trinh, aunque se desconoce su nombre real.",
-      descriptionEn: "Templo de los Reyes Hung is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Templo dedicado a los reyes Hung, fundadores legendarios de Vietnam, con arquitectura tradicional y espacios de culto. Se visita por su significado histórico y cultural para el país.",
+      descriptionEn: "The Hùng King Temple is a temple dedicated to the Hùng kings, the Vietnamese rulers of the Hồng Bàng dynasty. The temple is located in the Saigon Zoo and Botanical Gardens, next to the Ho Chi Minh City Museum of History.",
+      lat: 10.7872,
+      lng: 106.7057,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/H%C3%B9ng_Kings_Temple%2C_Ho_Chi_Minh_City%2C_Vietnam_-_DSC06242.JPG/1280px-H%C3%B9ng_Kings_Temple%2C_Ho_Chi_Minh_City%2C_Vietnam_-_DSC06242.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_19",
@@ -169733,8 +170354,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Hanói es la capital de Vietnam, así como la segunda ciudad más grande del país tras la ciudad de Ho Chi Minh. Se encuentra en la zona norte del país, en la margen derecha del río Rojo a una distancia de aproximadamente 1760 km al norte de Ciudad Ho Chi Minh y a unos 120 km al…",
+      description: "Puente histórico sobre el canal Ben Nghe en Ciudad Ho Chi Minh, construido a finales del siglo XIX. Destaca por su estructura metálica y su valor patrimonial dentro del paisaje urbano.",
       descriptionEn: "Alexandre Gustave Eiffel was a French civil engineer. A graduate of École Centrale des Arts et Métiers, he made his name with various bridges for the French railway network, most famously the Garabit Viaduct.",
+      lat: 10.768,
+      lng: 106.7037,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Rainbow_Bridge_and_Bitexco_Tower_%2816270005045%29.jpg/1280px-Rainbow_Bridge_and_Bitexco_Tower_%2816270005045%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_20",
@@ -169748,8 +170372,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Hanói es la capital de Vietnam, así como la segunda ciudad más grande del país tras la ciudad de Ho Chi Minh. Se encuentra en la zona norte del país, en la margen derecha del río Rojo a una distancia de aproximadamente 1760 km al norte de Ciudad Ho Chi Minh y a unos 120 km al…",
-      descriptionEn: "Mercado Ba Chieu is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Mercado tradicional en el distrito de Binh Thanh, Ciudad Ho Chi Minh, donde se venden alimentos frescos, productos básicos y artículos cotidianos. Permite observar la vida comercial local.",
+      descriptionEn: "Traditional market in Binh Thanh District, Ho Chi Minh City, selling fresh food, basic goods and everyday items. It offers a view of local commercial life.",
+      lat: 10.80139,
+      lng: 106.69889,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Cho_ba_Chieu-quan_binh_thanh_._Hcm_-_panoramio.jpg/1280px-Cho_ba_Chieu-quan_binh_thanh_._Hcm_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_21",
@@ -169763,8 +170390,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Mercado Mayorista de Thu Duc es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mercado Mayorista de Thu Duc is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Mercado mayorista en la zona de Thu Duc, Ciudad Ho Chi Minh, dedicado a la comercialización de productos agrícolas y alimentos. Funciona como centro de distribución para comerciantes de la ciudad.",
+      descriptionEn: "Wholesale market in the Thu Duc area of Ho Chi Minh City, dedicated to trading agricultural products and food. It functions as a distribution center for city traders.",
+      lat: 10.77373,
+      lng: 106.7166,
     },
     {
       id: "hochiminh_22",
@@ -169779,8 +170408,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://vpub.hochiminhcity.gov.vn/",
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
+      description: "El Ayuntamiento de Ciudad Ho Chi Minh u Hotel de Ville fue construido entre 1902 y 1908 para la entonces ciudad de Saigón. En 1975 se cambió su nombre por el de Comité Popular.",
       descriptionEn: "The 11th edition of the Miss Grand International pageant was held at the Phú Thọ Indoor Stadium in Ho Chi Minh City, Vietnam on October 25, 2023, in which candidates from 71 countries and territories participated.",
+      lat: 10.77647,
+      lng: 106.70097,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Ayuntamiento%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_09.JPG/1280px-Ayuntamiento%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_09.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Ayuntamiento_de_Ciudad_Ho_Chi_Minh",
     },
     {
       id: "hochiminh_23",
@@ -169797,6 +170430,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://saigonconcert.com/",
       description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
       descriptionEn: "This is a list of notable opera houses listed by continent, then by country with the name of the opera house and city. The opera company is sometimes named for clarity.",
+      lat: 10.77639,
+      lng: 106.70278,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Municipal_Theatre_of_Ho_Chi_Minh_City%2C_2023_%2801%29.jpg/1280px-Municipal_Theatre_of_Ho_Chi_Minh_City%2C_2023_%2801%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_24",
@@ -169810,8 +170446,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Estatua de Ton Duc Thang es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Estatua de Ton Duc Thang is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Monumento en Ciudad Ho Chi Minh que honra a Ton Duc Thang, líder revolucionario y expresidente de Vietnam. Se encuentra en un espacio público y es un punto de referencia cívica.",
+      descriptionEn: "Monument in Ho Chi Minh City honoring Ton Duc Thang, revolutionary leader and former president of Vietnam. It stands in a public space and serves as a civic landmark.",
+      lat: 10.73197,
+      lng: 106.69952,
     },
     {
       id: "hochiminh_25",
@@ -169826,8 +170464,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://www.chobinhtay.gov.vn/",
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
+      description: "Mercado grande en el barrio chino de Cholon, distrito 6, construido en la década de 1920. Vende alimentos, especias, telas y productos al por mayor y menor.",
       descriptionEn: "This article is a list of US MIAs of the Vietnam War in the period 1966–67. In 1973, the United States listed 2,646 Americans as unaccounted for from the entire Vietnam War.",
+      lat: 10.74938,
+      lng: 106.65108,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Vn-hcm-cho-binh-tay-27-07-07.JPG/1280px-Vn-hcm-cho-binh-tay-27-07-07.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_26",
@@ -169841,8 +170482,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Tumba de Le Van Duyet es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Tumba de Le Van Duyet is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Conjunto histórico y templo en el distrito de Binh Thanh que alberga la tumba de Le Van Duyet, militar y funcionario de la dinastía Nguyen. Es un sitio de culto y patrimonio local.",
+      descriptionEn: "Tomb of Lê Văn Duyệt, also known as Tomb of the Marshal in Ba Chieu, is a Vietnamese tomb located in Bình Thạnh District, Ho Chi Minh City, Vietnam.",
+      lat: 10.8019,
+      lng: 106.697,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Mi%E1%BA%BFu_th%E1%BB%9D_L%C3%AA_V%C4%83n_Duy%E1%BB%87t.jpg/1280px-Mi%E1%BA%BFu_th%E1%BB%9D_L%C3%AA_V%C4%83n_Duy%E1%BB%87t.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_27",
@@ -169874,6 +170518,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Vestigio del Palomar de la Comunidad Tamil es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Vestigio del Palomar de la Comunidad Tamil is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 10.77402,
+      lng: 106.7014,
     },
     {
       id: "hochiminh_29",
@@ -169887,8 +170533,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Paraíso de Diversión Conejo Blanco es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Paraíso de Diversión Conejo Blanco is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Parque de atracciones para niños en Ciudad Ho Chi Minh, con juegos mecánicos, áreas de juego y entretenimiento familiar. Es un espacio recreativo orientado al público infantil.",
+      descriptionEn: "Children's amusement park in Ho Chi Minh City with mechanical rides, play areas and family entertainment. It is a recreational space aimed at young visitors.",
+      lat: 10.78498,
+      lng: 106.66526,
     },
     {
       id: "hochiminh_30",
@@ -169903,7 +170551,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 90,
       description: "El Museo de los Vestigios de la Guerra es un museo situado en la calle Vo Van Tan de la ciudad Ho Chi Minh, en Vietnam. Su objetivo es mostrar al mundo el resultado de la ocupación estadounidense y de ese periodo de la historia.",
-      descriptionEn: "Museo de los Vestigios de Guerra is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Museum in District 3 of Ho Chi Minh City that displays photographs, military equipment and testimonies about the Vietnam War and its consequences. It is a well-known museum in the city.",
+      lat: 10.77936,
+      lng: 106.69228,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Artiller%C3%ADa%2C_Museo_de_los_Vestigios_de_la_Guerra_de_Vietnam%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_01.JPG/1280px-Artiller%C3%ADa%2C_Museo_de_los_Vestigios_de_la_Guerra_de_Vietnam%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_31",
@@ -169919,6 +170570,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
       descriptionEn: "The following is a list of notable buildings in the Gothic Revival style.",
+      lat: 10.77977,
+      lng: 106.69904,
     },
     {
       id: "hochiminh_32",
@@ -169932,8 +170585,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.4,
       estimatedMinutes: 90,
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
+      description: "El Mercado Ben Thanh es el mayor mercado del centro de Ciudad Ho Chi Minh, Vietnam. Es una de las estructuras modernas que se conservan y es considerado uno de los símbolos de la ciudad. Muy popular entre los turistas que buscan manualidades, textiles, áo dài, y suvenires.",
       descriptionEn: "This is the list of notorious markets compiled by the Office of the United States Trade Representative, which claims that they are markets where large-scale intellectual property infringement takes place.",
+      lat: 10.77252,
+      lng: 106.69802,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Ben_Thanh_market_in_Vietnam_%28340932410%29.jpg/1280px-Ben_Thanh_market_in_Vietnam_%28340932410%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Mercado_Ben_Thanh",
     },
     {
       id: "hochiminh_33",
@@ -169947,8 +170604,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 240,
-      description: "Ciudad Ho Chi Minh, comúnmente conocida también como Saigón, es la ciudad más poblada de Vietnam. Situada al oeste de la desembocadura del río Saigón y al norte del delta del río Mekong.",
-      descriptionEn: "Túneles de Cu Chi is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Los Túneles de Cu Chi son una red de pasajes subterráneos en el distrito de Cu Chi, cerca de Ciudad Ho Chi Minh, usada por el Viet Cong durante la guerra de Vietnam. Los visitantes recorren secciones habilitadas con túneles y espacios subterráneos.",
+      descriptionEn: "The Cu Chi Tunnels are a network of underground passages in Cu Chi District, near Ho Chi Minh City, used by the Viet Cong during the Vietnam War. Visitors tour opened sections that include tunnels and underground spaces.",
+      lat: 11.06304,
+      lng: 106.52912,
+      dayTrip: true,
     },
   ],
   halong: [
@@ -169967,6 +170627,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://vuonquocgiacatba.com.vn/",
       description: "El Parque Nacional Cat Ba ocupa buena parte de la isla de Cat Ba, con bosques, colinas kársticas y senderos. Protege fauna como el langur de Cat Ba y ofrece rutas de caminata desde las que se conoce el interior de la isla.",
       descriptionEn: "Cat Ba National Park covers much of Cat Ba Island, with forests, karst hills and trails. It protects wildlife such as the Cat Ba langur and has hiking routes that explore the island's interior.",
+      lat: 20.80528,
+      lng: 107.02,
     },
     {
       id: "halong_1",
@@ -170000,8 +170662,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Isla Titop es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Isla Titop is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La isla Titop es una pequeña isla en la bahía de Ha Long con playa de arena y un mirador en lo alto. Se visita por sus vistas panorámicas de las formaciones calizas y el agua.",
+      descriptionEn: "Ti Top Island is a small island in Ha Long Bay with a sandy beach and a hilltop viewpoint. It is visited for panoramic views of the limestone formations and the water.",
+      lat: 20.90844,
+      lng: 107.06828,
     },
     {
       id: "halong_3",
@@ -170030,7 +170694,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.2,
       estimatedMinutes: 120,
-      description: "Cai Beo es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La aldea flotante de Cai Beo es una comunidad de pescadores sobre el agua en la bahía de Lan Ha, cerca de la isla Cat Ba. Se conoce por sus casas flotantes y su forma de vida vinculada al mar.",
       descriptionEn: "Hạ Long Bay or Halong Bay is a bay located in Northeastern Vietnam, administered by Quảng Ninh province. The name Hạ Long means \"descending dragon\".",
     },
     {
@@ -170045,8 +170709,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.3,
       estimatedMinutes: 90,
-      description: "Islote del Gallo de Pelea es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Islote del Gallo de Pelea is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El islote del Gallo de Pelea es una formación caliza de la bahía de Ha Long que, vista desde cierto ángulo, recuerda a dos gallos frente a frente. Es uno de los paisajes rocosos característicos de la bahía.",
+      descriptionEn: "Fighting Cocks Islet is a limestone formation in Ha Long Bay that, from a certain angle, resembles two roosters facing each other. It is one of the bay's characteristic rocky landscapes.",
+      lat: 20.89028,
+      lng: 107.02611,
     },
     {
       id: "halong_6",
@@ -170062,6 +170728,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Museo de Quang Ninh está en la ciudad de Ha Long y funciona en un edificio de arquitectura contemporánea. Sus salas reúnen piezas sobre la historia, la cultura y la minería del carbón de la provincia.",
       descriptionEn: "The Quang Ninh Museum is in Ha Long city and is housed in a contemporary building. Its galleries display objects related to the province's history, culture and coal mining.",
+      lat: 20.94877,
+      lng: 107.09749,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Quang_Ninh_Museum_facade_1.jpg/1280px-Quang_Ninh_Museum_facade_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "halong_7",
@@ -170154,6 +170823,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 107.10731,
       description: "La Bahía de Lan Ha está junto a la isla de Cat Ba y comparte con Ha Long un paisaje de islas kársticas y aguas tranquilas. En ella hay pequeñas playas, formaciones rocosas y zonas de pesca.",
       descriptionEn: "Lan Ha Bay lies next to Cat Ba Island and shares with Ha Long a landscape of karst islands and calm waters. It has small beaches, rocky formations and fishing areas.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Bah%C3%ADa_de_Lan_Ha%2C_Vietnam_%2836947144935%29.jpg/1280px-Bah%C3%ADa_de_Lan_Ha%2C_Vietnam_%2836947144935%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "halong_13",
@@ -170296,6 +170966,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Palacio An Dinh es una residencia real de comienzos del siglo XX en Huế, construida para un príncipe de la dinastía Nguyễn. Se visita por su arquitectura de influencia europea y sus interiores decorados con murales.",
       descriptionEn: "An Dinh Palace is an early 20th-century royal residence in Hue, built for a prince of the Nguyen dynasty. It is visited for its European-influenced architecture and interiors decorated with murals.",
+      lat: 16.45648,
+      lng: 107.59842,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/AnDinhResidence5.jpg/1280px-AnDinhResidence5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_2",
@@ -170326,6 +170999,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "La Tumba de Khải Định, oficialmente Ứng Mausoleum, es una tumba construida para Khải Định, duodécimo emperador de la dinastía Nguyễn de Vietnam. Presenta una mezcla de arquitectura vietnamita con estilos occidentales. La tumba se terminó en 1931 tras 11 años de construcción.",
       descriptionEn: "The Tomb of Khải Định, officially Ứng Mausoleum is a tomb built for Khải Định, the twelfth Emperor of the Nguyễn dynasty of Vietnam. It features a blend of Vietnamese architecture with Western styles. The tomb was completed in 1931 after 11 years of construction.",
+      lat: 16.39902,
+      lng: 107.59034,
     },
     {
       id: "hue_4",
@@ -170341,6 +171016,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "La Pagoda de la Dama Celestial es un templo budista histórico en la ciudad de Huế en Vietnam. Su icónica pagoda de siete pisos está considerada como el símbolo no oficial de la ciudad, y el templo a menudo ha sido objeto de rimas populares y literatura de Vietnam sobre Huế.",
       descriptionEn: "The Thiên Mụ Temple is a historic temple in the city of Huế in Vietnam. Its iconic seven-story Phước Duyên pagoda is regarded as the unofficial symbol of the city, and the temple has often been the subject of folk rhymes and ca dao about Huế.",
+      lat: 16.4536,
+      lng: 107.54481,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/ThienMuPagoda.jpg/1280px-ThienMuPagoda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_5",
@@ -170356,6 +171034,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "La Pagoda Tu Hieu es un monasterio budista de Huế fundado en el siglo XIX. Se visita por sus jardines, sus edificios tradicionales y su vínculo con la práctica del zen en Vietnam.",
       descriptionEn: "Tu Hieu Pagoda is a Buddhist monastery in Hue founded in the 19th century. It is visited for its gardens, traditional buildings and connection to Zen practice in Vietnam.",
+      lat: 16.43855,
+      lng: 107.57299,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/T%E1%BB%AB_Hi%E1%BA%BFu_Pagoda_03.jpg/1280px-T%E1%BB%AB_Hi%E1%BA%BFu_Pagoda_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_6",
@@ -170401,6 +171082,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "El Palacio Thai Hoa es el salón del trono principal dentro de la Ciudad Imperial de Huế, construido a comienzos del siglo XIX bajo la dinastía Nguyễn. Se visita por su arquitectura ceremonial y su papel en las audiencias imperiales.",
       descriptionEn: "Thai Hoa Palace is the main throne hall inside the Imperial City of Hue, built in the early 19th century under the Nguyen dynasty. It is visited for its ceremonial architecture and its role in imperial audiences.",
+      lat: 16.46873,
+      lng: 107.57839,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Thai_Hoa_palace.jpg/1280px-Thai_Hoa_palace.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_9",
@@ -170477,7 +171161,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       description: "La Ciudad Púrpura Prohibida (en vietnamita: Tử Cấm thành es la parte de la Ciudad Imperial de Hue reservada para el Emperador de Annam que vivía allí.",
-      descriptionEn: "Ciudad Púrpura Prohibida is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Purple Forbidden City is the inner enclosure of Hue's Imperial City, where the Nguyen emperors and their court lived. Visitors see its gates, courtyards and restored buildings, examples of Vietnamese palace architecture.",
+      lat: 16.46949,
+      lng: 107.57776,
     },
     {
       id: "hue_14",
@@ -170521,8 +171207,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.4,
       estimatedMinutes: 60,
-      description: "El príncipe Nguyễn Phúc Bảo Long fue el heredero de Nguyễn Phúc Vĩnh Thụy, llamado Bảo Đại, último emperador del Imperio vietnamita, 13° soberano de la dinastía Nguyễn.",
-      descriptionEn: "Palacio Kien Trung is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Palacio Kien Trung fue una residencia imperial dentro de la Ciudad Imperial de Hue, asociada a los emperadores Khai Dinh y Bao Dai. Su restauración reciente permite ver una mezcla de arquitectura tradicional vietnamita y estilos europeos.",
+      descriptionEn: "Kiến Trung Hall is a building within the Imperial City of Huế, the former imperial capital of Vietnam. It was the residence of the last two emperors of the Nguyễn dynasty. In 1947, the palace was destroyed by the Viet Minh during the Indochina Wars.",
+      lat: 16.47109,
+      lng: 107.57651,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Hu%E1%BA%BF_%282024%29_-_%C4%90i%E1%BB%87n_Ki%E1%BA%BFn_Trung_-_Kien_Trung_Palace_-_img_06.jpg/1280px-Hu%E1%BA%BF_%282024%29_-_%C4%90i%E1%BB%87n_Ki%E1%BA%BFn_Trung_-_Kien_Trung_Palace_-_img_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_17",
@@ -170536,8 +171225,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      description: "Huế es una ciudad situada en el centro de Vietnam. Como uno de los seis municipios bajo control directo del país, está bajo la administración del gobierno central. Tiene aproximadamente 1.236.393 habitantes. Fue la capital del país asiático hasta 1945.",
-      descriptionEn: "Tumba de Tu Duc is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Tumba de Tu Duc es el complejo funerario del emperador Tu Duc, situado en las afueras de Hue. Incluye un lago, pabellones y jardines, y refleja la arquitectura y el paisajismo de la corte Nguyen.",
+      descriptionEn: "Tomb of Tự Đức, officially Khiêm Mausoleum, is located in Huế, Vietnam. It is built for the Nguyễn Emperor Tự Đức and took three years to build, from 1864 to 1867. It is divided into a Temple Area and a Tomb Area.",
+      lat: 16.4325,
+      lng: 107.566,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/TuDucTombeau_06.jpg/1280px-TuDucTombeau_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_18",
@@ -170553,6 +171245,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Mercado Dong Ba es un mercado tradicional de Huế situado cerca del río del Perfume. Se visita para recorrer sus puestos de alimentos, productos locales y artículos de uso cotidiano.",
       descriptionEn: "Dong Ba Market is a traditional market in Hue located near the Perfume River. It is visited to explore its food stalls, local products and everyday goods.",
+      lat: 16.4725,
+      lng: 107.58861,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Dong_Ba_Market_%28Hue%29_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_%28July_2024%29_-_img_02.jpg/1280px-Dong_Ba_Market_%28Hue%29_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_%28July_2024%29_-_img_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_19",
@@ -170626,8 +171321,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.2,
       estimatedMinutes: 60,
-      description: "La danza del león es una danza tradicional en la cultura china y otros países asiáticos en los que los artistas imitan los movimientos de un león, disfrazados de la representación de este animal, para traer buena suerte y fortuna.",
-      descriptionEn: "Teatro Real Duyet Thi Duong is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Teatro Real Duyet Thi Duong es un teatro de la corte Nguyen dentro de la Ciudad Imperial de Hue. En su espacio restaurado se presentan formas de música y danza tradicional vietnamita.",
+      descriptionEn: "Duyet Thi Duong Royal Theater is a Nguyen court theater inside Hue's Imperial City. Its restored space hosts traditional Vietnamese music and dance performances.",
+      lat: 16.4703,
+      lng: 107.57848,
     },
     {
       id: "hue_24",
@@ -170643,6 +171340,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 180,
       description: "La Ciudad Imperial de Huế es el recinto amurallado de la antigua capital de la dinastía Nguyễn, construido en el siglo XIX. Se visita por sus puertas, palacios y templos, reconocidos como Patrimonio de la Humanidad.",
       descriptionEn: "The Imperial City of Hue is the walled enclosure of the former capital of the Nguyen dynasty, built in the 19th century. It is visited for its gates, palaces and temples, recognized as a World Heritage Site.",
+      lat: 16.46944,
+      lng: 107.57778,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Citadel_Hue.jpg/1280px-Citadel_Hue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_25",
@@ -170691,6 +171391,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Hue_Vietnam_Tomb-of-Emperor-Minh-Mang-03a.jpg/1280px-Hue_Vietnam_Tomb-of-Emperor-Minh-Mang-03a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Tumba de Minh Mang es el mausoleo del emperador Minh Mang, construido en el siglo XIX en las afueras de Huế. Se visita por su conjunto de lagos, jardines, patios y templos integrados en el paisaje.",
       descriptionEn: "Minh Mang's Tomb is the mausoleum of Emperor Minh Mang, built in the 19th century outside Hue. It is visited for its complex of lakes, gardens, courtyards and temples integrated into the landscape.",
+      lat: 16.38775,
+      lng: 107.56778,
     },
     {
       id: "hue_28",
@@ -170723,6 +171425,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Truong_Tien_bridge_%28I%29.jpg/1280px-Truong_Tien_bridge_%28I%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Puente Truong Tien es un puente de acero sobre el río del Perfume, en el centro de Huế, construido a fines del siglo XIX. Se visita por su estructura de arcos y su iluminación nocturna.",
       descriptionEn: "Truong Tien Bridge is a steel bridge over the Perfume River in central Hue, built in the late 19th century. It is visited for its arched structure and nighttime lighting.",
+      lat: 16.46895,
+      lng: 107.58879,
     },
     {
       id: "hue_30",
@@ -170774,6 +171478,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La Laguna de Tam Giang es un sistema lagunar costero cerca de Huế, con aldeas de pescadores y zonas de humedales. Se visita para observar el paisaje, la vida pesquera y las puestas de sol sobre el agua.",
       descriptionEn: "Tam Giang Lagoon is a coastal lagoon system near Hue, with fishing villages and wetland areas. It is visited to observe the landscape, fishing life and sunsets over the water.",
+      lat: 16.62053,
+      lng: 107.50497,
     },
     {
       id: "hue_33",
@@ -174767,8 +175473,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4,
       estimatedMinutes: 90,
-      description: "Stepantsminda es un asentamiento urbano en el norte de Georgia, ubicada en el norte de la región de Mtsjeta-Mtianeti y siendo capital del municipio homónimo.",
-      descriptionEn: "Museo Histórico de Stepantsminda. Casa-museo de Alexander Kazbegi is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Histórico de Stepantsminda funciona en la casa natal del escritor Alexander Kazbegi y reúne objetos y documentos sobre su vida y la historia local.",
+      descriptionEn: "The Stepantsminda History Museum is housed in the birthplace of writer Alexander Kazbegi and displays objects and documents related to his life and local history.",
+      lat: 42.66066,
+      lng: 44.64327,
     },
     {
       id: "stepantsminda_3",
@@ -174948,7 +175656,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 120,
       description: "La iglesia de la Trinidad de Guergueti es una de las iglesias de la Iglesia ortodoxa georgiana de la región de Mtsjeta-Mtianeti (Jevi), en la municipalidad de Qazbegi, Georgia.",
-      descriptionEn: "Iglesia de la Trinidad de Gergeti is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Gergeti Trinity Church is a 14th-century Georgian Orthodox church on a hill above Stepantsminda, with views over the valley and Mount Kazbek.",
+      lat: 42.66239,
+      lng: 44.62048,
     },
     {
       id: "stepantsminda_15",
@@ -174964,6 +175674,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "El monte Kazbek es un estratovolcán de la cordillera del Cáucaso, en la frontera entre Georgia y Rusia. Desde Stepantsminda se contempla su cumbre nevada y es una referencia para el montañismo y el senderismo.",
       descriptionEn: "Mount Kazbek is a stratovolcano in the Caucasus Mountains on the Georgia–Russia border. Its snow-capped peak is visible from Stepantsminda and is a landmark for mountaineering and hiking.",
+      lat: 42.69694,
+      lng: 44.51889,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/28/Mkinvarcveri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "stepantsminda_16",
@@ -175059,6 +175772,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Monumento a la Amistad entre Georgia y Rusia se alza junto a la carretera militar georgiana, cerca de Gudauri. Es un mirador con vistas al valle y a las montañas, y suele incluirse en excursiones desde Stepantsminda.",
       descriptionEn: "The Russia–Georgia Friendship Monument stands beside the Georgian Military Highway near Gudauri. It is a viewpoint over the valley and mountains and is often included in excursions from Stepantsminda.",
+      lat: 42.49228,
+      lng: 44.4529,
     },
     {
       id: "stepantsminda_22",
@@ -175075,6 +175790,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El paso de Jvari es un paso de montaña de la carretera militar georgiana, situado entre Gudauri y Stepantsminda. Se detiene como mirador para contemplar los valles y las cumbres del Cáucaso.",
       descriptionEn: "Jvari Pass is a mountain pass on the Georgian Military Highway between Gudauri and Stepantsminda. It is a stopping point and viewpoint over the valleys and peaks of the Caucasus.",
+      lat: 42.5046,
+      lng: 44.45369,
     },
     {
       id: "stepantsminda_23",
@@ -175091,6 +175808,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Gudauri es una localidad de montaña y estación de esquí en la carretera militar georgiana, al sur de Stepantsminda. Se visita por sus paisajes de altura y como base para actividades de nieve y senderismo.",
       descriptionEn: "Gudauri is a mountain village and ski resort on the Georgian Military Highway south of Stepantsminda. It is visited for its high-altitude scenery and as a base for snow activities and hiking.",
+      lat: 42.47583,
+      lng: 44.47861,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Gudauri_%2811%29.jpg/1280px-Gudauri_%2811%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "stepantsminda_24",
@@ -175107,6 +175827,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Beautiful_Dariali_monastery%2C_right_on_the_Georgia-_Russia_border_%2831309978975%29.jpg/1280px-Beautiful_Dariali_monastery%2C_right_on_the_Georgia-_Russia_border_%2831309978975%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El monasterio de Dariali es un complejo ortodoxo georgiano ubicado en la garganta de Dariali, cerca de Stepantsminda. Se visita por su arquitectura religiosa y su emplazamiento entre montañas, junto a la ruta hacia la frontera.",
       descriptionEn: "Dariali Monastery is a Georgian Orthodox complex in Dariali Gorge near Stepantsminda. It is visited for its religious architecture and its setting among mountains along the route to the border.",
+      lat: 42.73596,
+      lng: 44.63188,
     },
     {
       id: "stepantsminda_25",
@@ -177167,6 +177889,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.eng.ihi.org.il",
       description: "El Salón de la Independencia es el edificio de Tel Aviv donde David Ben-Gurión proclamó la independencia del Estado de Israel el 14 de mayo de 1948. Hoy funciona como museo dedicado a ese momento histórico.",
       descriptionEn: "Independence Hall is the building in Tel Aviv where David Ben-Gurion proclaimed the independence of the State of Israel on May 14, 1948. It now operates as a museum dedicated to that historic moment.",
+      lat: 32.06283,
+      lng: 34.77092,
     },
     {
       id: "telaviv_2",
@@ -177215,6 +177939,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.eretzmuseum.org.il/",
       description: "El Museo Eretz Israel, en Tel Aviv, es un complejo museístico dedicado a la historia cultural y arqueológica del país, con pabellones temáticos sobre vidrio, cerámica, monedas y el yacimiento arqueológico de Tel Qasile dentro de su recinto.",
       descriptionEn: "The Eretz Israel Museum in Tel Aviv is a museum complex devoted to the country's cultural and archaeological history, with themed pavilions on glass, ceramics, coins, and the Tel Qasile archaeological site within its grounds.",
+      lat: 32.10315,
+      lng: 34.79642,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Eretz_Israel_Museum2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "telaviv_5",
@@ -177311,6 +178038,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.meymadion.co.il",
       description: "Meymadion es un parque acuático cerca de Tel Aviv, con toboganes, piscinas de olas y atracciones acuáticas para toda la familia.",
       descriptionEn: "Meymadion is a water park near Tel Aviv, featuring slides, wave pools, and water attractions for the whole family.",
+      lat: 32.10202,
+      lng: 34.82005,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Memadion008.jpg/1280px-Memadion008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_11",
@@ -177327,6 +178057,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.lunapark.co.il/",
       description: "Luna Park es un parque de diversiones en la región de Tel Aviv, con juegos mecánicos y atracciones para niños y familias.",
       descriptionEn: "Luna Park is an amusement park in the Tel Aviv region, with rides and attractions for children and families.",
+      lat: 32.10659,
+      lng: 34.81215,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/The_anaconda_roller_costaer_in_Luna_park_Tel_Aviv_upside_down.jpg/1280px-The_anaconda_roller_costaer_in_Luna_park_Tel_Aviv_upside_down.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_12",
@@ -177359,6 +178092,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.shuktlv.co.il/category/שוק-הפשפשים",
       description: "El Mercado de las Pulgas de Jaffa (Shuk HaPishpeshim) es un famoso mercadillo de antigüedades y objetos de segunda mano en la Jaffa Vieja, hoy también reconocido por sus cafés y tiendas de diseño.",
       descriptionEn: "The Jaffa Flea Market (Shuk HaPishpeshim) is a famous market for antiques and secondhand goods in Old Jaffa, today also known for its trendy cafés and design shops.",
+      lat: 32.05358,
+      lng: 34.75627,
     },
     {
       id: "telaviv_14",
@@ -177423,6 +178158,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://saronamarket.co.il/",
       description: "El Mercado Sarona es un gran mercado gastronómico cubierto en el complejo Sarona de Tel Aviv, una antigua colonia templaria alemana reconvertida en un moderno distrito de compras y restaurantes.",
       descriptionEn: "Sarona Market is a large indoor food market in Tel Aviv's Sarona complex, a former German Templer colony redeveloped into a modern shopping and dining district.",
+      lat: 32.07167,
+      lng: 34.78661,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/PikiWiki_Israel_46147_Sarona_Market.JPG/1280px-PikiWiki_Israel_46147_Sarona_Market.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_18",
@@ -177471,6 +178209,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.safari.co.il/",
       description: "El Safari de Ramat Gan (Centro Zoológico de Tel Aviv-Ramat Gan) es un gran parque safari y zoológico donde los visitantes recorren en auto un área abierta con animales africanos en libertad.",
       descriptionEn: "The Ramat Gan Safari (Zoological Center Tel Aviv-Ramat Gan) is a large safari park and zoo where visitors drive through an open area with free-roaming African animals.",
+      lat: 32.045,
+      lng: 34.825,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Lake_and_animals_at_Zoological_Center_of_Tel_Aviv-Ramat_Gan.JPG/1280px-Lake_and_animals_at_Zoological_Center_of_Tel_Aviv-Ramat_Gan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_21",
@@ -177517,6 +178258,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.cameri.co.il/",
       description: "El Teatro Cameri es una de las principales compañías de teatro de repertorio de Israel, con sede en Tel Aviv, junto al complejo de la Ópera de Israel.",
       descriptionEn: "The Cameri Theatre is one of Israel's leading repertory theatre companies, based in Tel Aviv alongside the Israeli Opera House complex.",
+      lat: 32.07685,
+      lng: 34.7847,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Cameri_Theater.JPG/1280px-Cameri_Theater.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_24",
@@ -177533,6 +178277,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.gesher-theatre.co.il/he/home/a/main/",
       description: "El Teatro Gesher, fundado en 1991 por inmigrantes rusos en Tel Aviv, es reconocido por sus producciones bilingües en hebreo y ruso y por tender puentes culturales entre ambas comunidades.",
       descriptionEn: "Gesher Theatre, founded in 1991 by Russian immigrant artists in Tel Aviv, is renowned for its bilingual Hebrew-Russian productions and for bridging both cultural communities.",
+      lat: 32.05614,
+      lng: 34.76013,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/%22Gesher%22_theatre_in_Jaffa.JPG/1280px-%22Gesher%22_theatre_in_Jaffa.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_25",
@@ -177548,6 +178295,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "La Gran Sinagoga de Tel Aviv, construida en la década de 1920 en la calle Allenby, es una de las sinagogas más grandes e históricas de la ciudad.",
       descriptionEn: "The Great Synagogue of Tel Aviv, built in the 1920s on Allenby Street, is one of the city's largest and most historic synagogues.",
+      lat: 31.96434,
+      lng: 34.80778,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%D7%91%D7%99%D7%AA_%D7%94%D7%9B%D7%A0%D7%A1%D7%AA_%D7%94%D7%92%D7%93%D7%95%D7%9C_%D7%91%D7%9C%D7%99%D7%9C%D7%94.jpg/1280px-%D7%91%D7%99%D7%AA_%D7%94%D7%9B%D7%A0%D7%A1%D7%AA_%D7%94%D7%92%D7%93%D7%95%D7%9C_%D7%91%D7%9C%D7%99%D7%9C%D7%94.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_26",
@@ -177580,6 +178330,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.oldjaffa.co.il/otherist-attractions/the-gate-of-faith/",
       description: "La Estatua de la Puerta de la Fe, obra del escultor Daniel Kafri en el Jardín HaPisgá de Jaffa Vieja, representa tres escenas bíblicas: el sacrificio de Isaac, la escalera de Jacob y la caída de los muros de Jericó.",
       descriptionEn: "The Statue of Faith (Gate of Faith), by sculptor Daniel Kafri in Old Jaffa's HaPisgah Garden, depicts three biblical scenes: the sacrifice of Isaac, Jacob's ladder, and the fall of the walls of Jericho.",
+      lat: 32.05411,
+      lng: 34.75312,
     },
     {
       id: "telaviv_28",
@@ -177626,6 +178378,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Jaffa Vieja es uno de los puertos más antiguos del mundo, hoy parte de Tel Aviv-Yafo, conocida por su casco histórico, su barrio de artistas y sus vistas al mar Mediterráneo.",
       descriptionEn: "Old Jaffa is one of the oldest ports in the world, now part of Tel Aviv-Yafo, known for its historic old town, artists' quarter, and views over the Mediterranean Sea.",
+      lat: 32.05382,
+      lng: 34.75333,
     },
     {
       id: "telaviv_31",
@@ -177641,6 +178395,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Mercado Carmel (Shuk HaCarmel) es el mercado al aire libre más grande y famoso de Tel Aviv, conocido por sus productos frescos, especias y puestos de comida callejera.",
       descriptionEn: "Carmel Market (Shuk HaCarmel) is Tel Aviv's largest and most famous open-air market, known for its fresh produce, spices, and street food stalls.",
+      lat: 32.06837,
+      lng: 34.76855,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Carmel_Market%2C_2019_%2807%29.jpg/1280px-Carmel_Market%2C_2019_%2807%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_32",
@@ -177656,6 +178413,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "El Bulevar Rothschild es una histórica avenida arbolada en el centro de Tel Aviv, bordeada de edificios de estilo Bauhaus, cafés y donde se ubica la casa donde se proclamó la independencia de Israel.",
       descriptionEn: "Rothschild Boulevard is a historic tree-lined avenue in central Tel Aviv, lined with Bauhaus-style buildings and cafés, near the house where Israel's independence was declared.",
+      lat: 32.06552,
+      lng: 34.77703,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Rothschild_Boulevard_bike_lane.JPG/1280px-Rothschild_Boulevard_bike_lane.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_33",
@@ -177711,6 +178471,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Neve_Tzedek_Tel_Aviv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Uno de los primeros barrios judíos fundados fuera de Jaffa, en 1887. Sus casas de estilo ecléctico, restauradas, albergan hoy galerías, tiendas y cafés en calles estrechas y tranquilas.",
       descriptionEn: "One of the first Jewish neighborhoods founded outside Jaffa, in 1887. Its restored eclectic houses now hold galleries, shops and cafés along narrow, quiet streets.",
+      lat: 32.06144,
+      lng: 34.76475,
     },
     {
       id: "telaviv_36",
@@ -177868,6 +178630,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "San Juan de Acre, llamada Acco o Ptolemaida desde la Edad Antigua hasta la Edad Media, es el nombre dado por los cristianos a la ciudad que más tarde se convertirá en Acre, Israel.",
       sourceUrl: "https://es.wikipedia.org/wiki/San_Juan_de_Acre",
+      descriptionEn: "Acre (San Juan de Acre) is a coastal city in northern Israel with a walled old town and remains from the Crusader period. It is visited for its historic heritage and harbor, and is a UNESCO World Heritage Site.",
     },
     {
       id: "telaviv_44",
@@ -177920,6 +178683,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Tel_Aviv_Tayelet-Strand-Promenade_Beach_%2834257299744%29.jpg/1280px-Tel_Aviv_Tayelet-Strand-Promenade_Beach_%2834257299744%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Avenida peatonal que bordea el Mediterráneo desde el puerto hasta Jaffa, con playas, ciclovías, jardines y vistas abiertas al mar a lo largo de varios kilómetros.",
       descriptionEn: "A pedestrian avenue along the Mediterranean from the port to Jaffa, with beaches, bike paths, gardens and open sea views over several kilometers.",
+      lat: 32.10028,
+      lng: 34.77837,
     },
     {
       id: "telaviv_47",
@@ -177990,6 +178755,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/93/Dogman_graffiti_in_Florentin_neighborhood%2C_Tel_Aviv_by_Ana_Kogan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Barrio del sur de Tel Aviv, de origen obrero y con talleres y pequeñas fábricas, hoy conocido por sus murales de arte urbano, bares y galerías.",
       descriptionEn: "A neighborhood in south Tel Aviv with working-class roots, workshops and small factories, now known for its street-art murals, bars and galleries.",
+      lat: 32.05776,
+      lng: 34.76864,
     },
     {
       id: "telaviv_51",
@@ -178005,6 +178772,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Avenida central que atraviesa la ciudad, llamada así por Meir Dizengoff, primer alcalde de Tel Aviv; concentra comercio, cafés y la plaza Dizengoff.",
       descriptionEn: "A central avenue running through the city, named after Meir Dizengoff, Tel Aviv's first mayor; it concentrates shops, cafés and Dizengoff Square.",
+      lat: 32.08054,
+      lng: 34.77377,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/71/Dizengoff_Street.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
   ],
   haifa: [
@@ -178021,8 +178791,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 90,
       website: "https://www.hms.org.il/",
-      description: "Museo de Arte de Haifa es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo de Arte de Haifa is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de arte de Haifa es un museo establecido en 1951, localizado en un histórico edificio construido en 1930, en el poblado de Wadi Nisnas en el centro de la ciudad de Haifa en Israel; es el tercer museo más grande del país, se enfoca en el arte contemporáneo nacional e…",
+      descriptionEn: "The Haifa Museum of Art, established in 1951, is located in a historic building built in the 1930s in Wadi Nisnas, downtown Haifa.",
+      lat: 32.815,
+      lng: 34.9925,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Haifa_Museum_of_Art.JPG/1280px-Haifa_Museum_of_Art.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_arte_de_Haifa",
     },
     {
       id: "haifa_1",
@@ -178068,8 +178842,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.3,
       estimatedMinutes: 90,
-      description: "Museo de la Inmigración Clandestina y la Marina es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo de la Inmigración Clandestina y la Marina is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Naval y de Inmigración Clandestina es un museo de historia naval de Haifa, al norte de Israel.",
+      descriptionEn: "The Clandestine Immigration and Naval Museum is a technical history museum located in Haifa, Israel.",
+      lat: 32.83,
+      lng: 34.97139,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b6/PikiWiki_Israel_3335_Israel_Defense_Forces.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_Naval_y_de_Inmigraci%C3%B3n_Clandestina",
     },
     {
       id: "haifa_4",
@@ -178099,8 +178877,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4,
       estimatedMinutes: 120,
       website: "https://www.haifazoo.co.il/",
-      description: "Zoológico Educativo de Haifa es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Zoológico Educativo de Haifa is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Zoológico Educativo de Haifa es un zoológico urbano con colecciones de animales y programas educativos. Se visita para conocer la fauna y pasar un rato en familia.",
+      descriptionEn: "The Haifa Educational Zoo is an urban zoo with animal collections and educational programs. It is visited to learn about wildlife and spend time with family.",
+      lat: 32.80579,
+      lng: 34.98613,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Haifa_White_Tigers-9129-13.jpg/1280px-Haifa_White_Tigers-9129-13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_6",
@@ -178114,8 +178895,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.3,
       estimatedMinutes: 90,
-      description: "Campo de Detención de Atlit es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Campo de Detención de Atlit is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Campo de Detención de Atlit es un museo en el antiguo campamento británico que recluía a inmigrantes judíos en la década de 1940. Se visita para conocer esa historia mediante barracones y objetos conservados.",
+      descriptionEn: "The Atlit detainee camp was an internment camp established by the authorities of Mandatory Palestine in the late 1930s on what is now the Israeli coastal plain, 20 kilometres (12 mi) south of Haifa.",
+      lat: 32.71254,
+      lng: 34.94914,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/55/Atlitmuseum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "haifa_7",
@@ -178129,8 +178913,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.2,
       estimatedMinutes: 90,
-      description: "Museo Tikotin de Arte Japonés es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo Tikotin de Arte Japonés is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Tikotin de arte japonés es un museo dedicado completamente a la exhibición y difusión de la cultura japonesa, está ubicado en la ciudad de Haifa en Israel.",
+      descriptionEn: "The Tikotin Museum of Japanese Art is a museum on the crest of Mount Carmel, in Haifa, Israel, dedicated to the preservation and exhibition of Japanese art. It is the only such museum in the Middle East.",
+      lat: 32.8093,
+      lng: 34.9854,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Tikotin_Museum_of_Japanese_Art%2C_Haifa%2C_Israel_-_Facade%2C_Daytime%2C_cropped_-1.jpg/1280px-Tikotin_Museum_of_Japanese_Art%2C_Haifa%2C_Israel_-_Facade%2C_Daytime%2C_cropped_-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_Tikotin_de_arte_japon%C3%A9s",
     },
     {
       id: "haifa_8",
@@ -178161,8 +178949,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 120,
       website: "https://www.parks.org.il/reserve-park/%D7%A9%D7%9E%D7%95%D7%A8%D7%AA-%D7%98%D7%91%D7%A2-%D7%97%D7%99-%D7%91%D7%A8-%D7%91%D7%9B%D7%A8%D7%9E%D7%9C/",
-      description: "Reserva Hai-Bar Carmel es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Reserva Hai-Bar Carmel is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Reserva Natural Carmel Hai-Bar es un centro de reproducción y reaclimacion de 6.000 dunams, administrado por la Autoridad de la Naturaleza y Parques de Israel. Está ubicada en el Monte Carmelo, en el noroeste de Israel.",
+      descriptionEn: "Carmel Hai-Bar Nature Reserve is a wildlife breeding and acclimatisation centre in the Carmel mountains of northwestern Israel.",
+      lat: 32.74994,
+      lng: 34.99959,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Carmel_Hai-Bar_%282%29.JPG/1280px-Carmel_Hai-Bar_%282%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Reserva_natural_Hai_Bar_Carmel",
     },
     {
       id: "haifa_10",
@@ -178176,8 +178968,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 3.9,
       estimatedMinutes: 60,
-      description: "Tel Shikmona es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Tel Shikmona is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Tel Shikmona es un sitio arqueológico en la costa de Haifa con restos de asentamientos antiguos, entre ellos mosaicos de época bizantina. Se visita para recorrer sus ruinas junto al mar.",
+      descriptionEn: "Tell es-Samak (Arabic) or Tel Shikmona, meaning 'mound of the fish', is an ancient Phoenician tell (mound) situated near the sea coast in the modern city of Haifa, Israel, just south of the Israeli National Institute of Oceanography.",
+      lat: 32.8249,
+      lng: 34.9553,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/%D7%A4%D7%95%D7%A8%D7%A4%D7%99%D7%A8%D7%90%D7%95%D7%9F_%28%D7%AA%D7%9C_%D7%90-%D7%A1%D7%9E%D7%9B-%22%D7%A9%D7%A7%D7%9E%D7%95%D7%A0%D7%94%22%29.jpg/1280px-%D7%A4%D7%95%D7%A8%D7%A4%D7%99%D7%A8%D7%90%D7%95%D7%9F_%28%D7%AA%D7%9C_%D7%90-%D7%A1%D7%9E%D7%9B-%22%D7%A9%D7%A7%D7%9E%D7%95%D7%A0%D7%94%22%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_11",
@@ -178298,8 +179093,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.2,
       estimatedMinutes: 120,
-      description: "Jardín de Esculturas de Ursula Malbin es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Jardín de Esculturas de Ursula Malbin is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Jardín de Esculturas de Ursula Malbin es un espacio público en Haifa dedicado a las esculturas de bronce de la artista. Se visita para recorrer las obras al aire libre.",
+      descriptionEn: "The Ursula Malbin Sculpture Garden is a public space in Haifa dedicated to the artist's bronze sculptures. It is visited to walk among the works outdoors.",
+      lat: 32.81608,
+      lng: 34.98161,
     },
     {
       id: "haifa_19",
@@ -178328,8 +179125,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 45,
-      description: "Santuario del Báb es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Santuario del Báb is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Santuario del Báb es un santuario bahá'í en el Monte Carmelo, con una cúpula dorada que alberga los restos del Báb. Se visita por su arquitectura y los jardines que lo rodean.",
+      descriptionEn: "The Shrine of the Báb is a Bahá'í shrine on Mount Carmel, with a golden dome that houses the remains of the Báb. It is visited for its architecture and the surrounding gardens.",
+      lat: 32.81462,
+      lng: 34.98716,
     },
     {
       id: "haifa_21",
@@ -178388,8 +179187,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4,
       estimatedMinutes: 90,
-      description: "Mercado de Talpiot es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mercado de Talpiot is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Mercado de Talpiot es un mercado histórico de Haifa con puestos de alimentos, especias y productos cotidianos. Se visita para recorrer sus pasillos y conocer la vida comercial local.",
+      descriptionEn: "Talpiot Market is a historic market in Haifa with stalls selling food, spices, and everyday goods. It is visited to wander its aisles and experience local commercial life.",
+      lat: 32.80845,
+      lng: 35.00222,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Talpiyot_Market_1.JPG/1280px-Talpiyot_Market_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_25",
@@ -178403,8 +179205,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.3,
       estimatedMinutes: 120,
-      description: "Cueva de Elías es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Cueva de Elías is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Cueva de Elías es una gruta en la que según la Biblia, el profeta Elías se refugió durante un viaje por el desierto.",
+      descriptionEn: "Cave of Elijah is the name used for two grottoes on Mount Carmel, in Haifa, Israel, associated with Biblical prophet Elijah.",
+      lat: 32.82973,
+      lng: 34.96777,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Israel%2C_Muntele_Carmel%2C_Manastirea_Stella_Maris._Grota_Sfantului_Proroc_Ilie._%282%29.jpg/1280px-Israel%2C_Muntele_Carmel%2C_Manastirea_Stella_Maris._Grota_Sfantului_Proroc_Ilie._%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://es.wikipedia.org/wiki/Cueva_de_El%C3%ADas",
     },
     {
       id: "haifa_26",
@@ -178478,8 +179284,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.9,
       estimatedMinutes: 90,
-      description: "Jardines Bahá'ís de Haifa es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Jardines Bahá'ís de Haifa is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Los Jardines Bahá'ís de Haifa son terrazas ajardinadas en el Monte Carmelo que rodean el Santuario del Báb. Se visita para caminar por sus jardines y ver vistas de la ciudad y el puerto.",
+      descriptionEn: "The Bahá'í Gardens in Haifa are terraced gardens on Mount Carmel that surround the Shrine of the Báb. They are visited to walk through the gardens and see views of the city and port.",
+      lat: 32.8135,
+      lng: 34.98567,
     },
     {
       id: "haifa_31",
@@ -178518,6 +179326,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "San Juan de Acre, llamada Acco o Ptolemaida desde la Edad Antigua hasta la Edad Media, es el nombre dado por los cristianos a la ciudad que más tarde se convertirá en Acre, Israel.",
       sourceUrl: "https://es.wikipedia.org/wiki/San_Juan_de_Acre",
+      descriptionEn: "San Juan de Acre is the Spanish name for Acre, a coastal city near Haifa with a walled old town and remains from the Crusader period. It is visited to explore its historical heritage.",
     },
     {
       id: "haifa_33",
@@ -178572,6 +179381,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/142364_bat_galim_-_a_look_at_stella_maris_PikiWiki_Israel.jpg/1280px-142364_bat_galim_-_a_look_at_stella_maris_PikiWiki_Israel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Teleférico que conecta el paseo de Bat Galim, junto a la playa, con el monasterio de Stella Maris en la ladera del Monte Carmelo. En el trayecto se ven la bahía de Haifa y la costa mediterránea.",
       descriptionEn: "Cable car linking the Bat Galim promenade, next to the beach, with the Stella Maris monastery on the slope of Mount Carmel. The ride offers views of Haifa Bay and the Mediterranean coast.",
+      lat: 32.82807,
+      lng: 34.97006,
     },
     {
       id: "haifa_36",
@@ -178637,6 +179448,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 150,
       description: "Pueblo druso en la cima del Monte Carmelo, a unos 20 kilómetros de Haifa. Su calle principal y su mercado ofrecen artesanía, textiles y comida drusa, y permiten conocer a esa comunidad.",
       descriptionEn: "Druze town on the top of Mount Carmel, about 20 kilometers from Haifa. Its main street and market offer handicrafts, textiles and Druze food, and give insight into that community.",
+      lat: 32.69306,
+      lng: 35.04944,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Dalyat4.jpg/1280px-Dalyat4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_40",
@@ -178669,6 +179483,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Localidad fundada en 1882 por inmigrantes judíos rumanos al sur de Haifa, en la falda del Carmelo. Es conocida por su calle peatonal de edificios antiguos y por la bodega Carmel, una de las primeras del país.",
       descriptionEn: "Town founded in 1882 by Romanian Jewish immigrants south of Haifa, on the slopes of Mount Carmel. It is known for its pedestrian street of old buildings and for the Carmel winery, one of the country's first.",
+      lat: 32.57083,
+      lng: 34.95167,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Ohel_Yaakov_sinagogue_Zichron_Yaacov_from_north_east.jpg/1280px-Ohel_Yaakov_sinagogue_Zichron_Yaacov_from_north_east.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_42",
@@ -178703,6 +179520,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/57/Paysage_%C3%A0_Giverny%2C_effet_de_neige_%281886%29_Claude_Monet_-_Hecht_Museum%2C_University_of_Haifa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Museo de arqueología y arte de la Universidad de Haifa, con colecciones de piezas del Mediterráneo antiguo y el barco de hierro hallado en Ma'agan Michael. También exhibe pintura impresionista y judaica.",
       descriptionEn: "Archaeology and art museum at the University of Haifa, with collections of ancient Mediterranean objects and the Iron Age boat found at Ma'agan Michael. It also displays Impressionist painting and Judaica.",
+      lat: 32.76348,
+      lng: 35.01798,
     },
   ],
   eilat: [
@@ -178719,8 +179538,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 90,
       website: "https://www.eilat-history.co.il/",
-      description: "Museo de Historia de Eilat es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo de Historia de Eilat is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo dedicado a la historia de Eilat y su región; reúne fotografías, objetos y documentos sobre el desarrollo urbano y la vida en el desierto.",
+      descriptionEn: "Museum dedicated to the history of Eilat and its region, with photographs, objects, and documents on the city's development and desert life.",
+      lat: 29.55177,
+      lng: 34.95296,
     },
     {
       id: "eilat_1",
@@ -178751,8 +179572,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://www.coralworld.co.il/",
-      description: "Parque del Observatorio Submarino es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Parque del Observatorio Submarino is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Parque marino en la costa de Eilat con un observatorio submarino, acuario y exhibiciones sobre el arrecife coralino. Permite ver corales y peces sin necesidad de bucear.",
+      descriptionEn: "Marine park on the Eilat coast with an underwater observatory, aquarium, and exhibits about the coral reef. It allows visitors to see corals and fish without diving.",
+      lat: 29.5037,
+      lng: 34.91783,
     },
     {
       id: "eilat_3",
@@ -178767,8 +179590,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       website: "https://hebrew.dolphinreef.co.il/",
-      description: "Arrecife de los Delfines es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Arrecife de los Delfines is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Playa y centro marino en Eilat asociado a los delfines; combina zona de baño con actividades de observación y educación sobre estos animales y el entorno costero.",
+      descriptionEn: "The Dolphin Reef is a tourist attraction in Eilat, Israel. It advertises the following activities that they claim focus mainly on dolphins and conserving them: swimming with dolphins, diving lessons, guided tours, lectures and workshops and an information centre.",
+      lat: 29.52633,
+      lng: 34.93625,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Eilat_Dolphin_Reef_%284%29.jpg/1280px-Eilat_Dolphin_Reef_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "eilat_4",
@@ -178812,8 +179638,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 3.9,
       estimatedMinutes: 60,
-      description: "Monumento de la Bandera de Tinta es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Monumento de la Bandera de Tinta is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La bandera de tinta fue una bandera de Israel hecha a mano e izada durante la guerra árabe-israelí de 1948 para señalar la captura de Umm Rashrash.",
+      descriptionEn: "The Ink Flag was a handmade Israeli flag raised in March 1949 during the 1948 Arab–Israeli War to mark the capture of Umm Rashrash. The flag’s display in what later became the city of Eilat was replaced two hours later by an official flag when the Golani Brigade arrived.",
+      lat: 29.54939,
+      lng: 34.95333,
+      sourceUrl: "https://es.wikipedia.org/wiki/Bandera_de_tinta",
     },
     {
       id: "eilat_7",
@@ -178873,8 +179702,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 120,
       website: "https://activenaturists.net/2010/12/28/snorkeling-naked-in-coral-reefs-eilat/",
-      description: "Playa de la Princesa es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Playa de la Princesa is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Playa en la costa del mar Rojo, en Eilat, con acceso al agua para nadar y hacer snorkel. Se visita por su acceso al mar y por las actividades acuáticas en aguas cercanas.",
+      descriptionEn: "Beach on the Red Sea coast in Eilat with water access for swimming and snorkeling. It is visited for its sea access and water activities in nearby waters.",
+      lat: 29.49613,
+      lng: 34.90903,
     },
     {
       id: "eilat_11",
@@ -178903,8 +179734,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4,
       estimatedMinutes: 45,
-      description: "Monte Salomón es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Monte Salomón is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Cumbre en las montañas de Eilat, en el sur del Néguev, que ofrece vistas panorámicas de la ciudad, el mar Rojo y el desierto. Se llega por rutas de senderismo o excursiones en vehículo.",
+      descriptionEn: "Peak in the Eilat Mountains, in the southern Negev, offering panoramic views of the city, the Red Sea, and the desert. It is reached by hiking routes or vehicle excursions.",
+      lat: 29.58028,
+      lng: 34.89972,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Har-shlomo01.jpg/1280px-Har-shlomo01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "eilat_13",
@@ -178918,8 +179752,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4,
       estimatedMinutes: 120,
-      description: "Granja de Camellos es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Granja de Camellos is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Granja y centro de camellos en las afueras de Eilat, en el desierto de Arava. Ofrece paseos en camello y actividades en el desierto, con vistas del paisaje árido.",
+      descriptionEn: "Camel farm and center outside Eilat, in the Arava Desert. It offers camel rides and desert activities, with views of the arid landscape.",
+      lat: 29.52675,
+      lng: 34.91363,
     },
     {
       id: "eilat_14",
@@ -179054,8 +179890,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 60,
       website: "https://www.diving.org.il/%D7%94%D7%A1%D7%98%D7%99%D7%9C-%D7%A1%D7%95%D7%A4%D7%94",
-      description: "Sitio de buceo Satil (24 metros) es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Sitio de buceo Satil (24 metros) is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Pecio de una lancha misilística israelí hundida como arrecife artificial frente a Eilat. El sitio de buceo está a unos 24 metros de profundidad y es visitado por buceadores.",
+      descriptionEn: "Wreck of an Israeli missile boat sunk as an artificial reef off Eilat. The dive site lies at a depth of about 24 meters and is visited by divers.",
     },
     {
       id: "eilat_23",
@@ -179084,8 +179920,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 120,
-      description: "Reserva Natural de la Playa de Coral es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Reserva Natural de la Playa de Coral is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Reserva natural en la costa de Eilat que protege un tramo de arrecife coralino del mar Rojo. Tiene senderos, plataformas y zonas para observar corales y peces.",
+      descriptionEn: "Nature reserve on the Eilat coast that protects a stretch of Red Sea coral reef. It has paths, platforms, and areas for observing corals and fish.",
+      lat: 29.50721,
+      lng: 34.92028,
     },
     {
       id: "eilat_25",
@@ -179140,6 +179978,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/PikiWiki_Israel_8099_rechavam_zeevy_promenade.jpg/1280px-PikiWiki_Israel_8099_rechavam_zeevy_promenade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El paseo marítimo de Eilat es una vía peatonal que bordea la costa del golfo de Aqaba, junto a playas, hoteles y la marina. Ofrece vistas al agua y a las montañas circundantes.",
       descriptionEn: "The Eilat Promenade is a pedestrian waterfront route along the Gulf of Aqaba, next to beaches, hotels and the marina. It offers views of the water and surrounding mountains.",
+      lat: 29.55017,
+      lng: 34.9594,
     },
     {
       id: "eilat_28",
@@ -179172,6 +180012,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ice_Park_Mall_in_Eilat%2C_inside.jpg/1280px-Ice_Park_Mall_in_Eilat%2C_inside.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Ice Mall es un centro comercial en Eilat que incluye una pista de hielo cubierta. Combina tiendas, restaurantes y entretenimiento bajo un mismo techo.",
       descriptionEn: "Ice Mall is a shopping center in Eilat that includes an indoor ice-skating rink. It combines shops, restaurants and entertainment under one roof.",
+      lat: 29.55407,
+      lng: 34.96553,
     },
     {
       id: "eilat_30",
@@ -179202,6 +180044,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "Las montañas de Eilat son una cadena desértica que rodea la ciudad y el golfo de Aqaba. Sus rutas de senderismo recorren cañones, crestas y paisajes de arenisca.",
       descriptionEn: "The Eilat Mountains are a desert range surrounding the city and the Gulf of Aqaba. Their hiking routes cross canyons, ridges and sandstone landscapes.",
+      lat: 29.54632,
+      lng: 34.93105,
     },
   ],
   nara: [
@@ -185616,8 +186460,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.6,
       estimatedMinutes: 90,
-      description: "Pokhara es una ciudad del centro de Nepal, aproximadamente 200 kilómetros al oeste de la capital, Katmandú. Con unos 599 504 habitantes, es la tercera ciudad más importante del país, tras ésta y Biratnagar. Es la capital del distrito de Kaski, en la provincia de Gandaki.",
-      descriptionEn: "Pagoda de la Paz Mundial is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Pagoda de la Paz Mundial es un stupa budista situado en la colina Anadu, sobre el lago Phewa, en Pokhara. Se visita por sus vistas al lago, la ciudad y la cordillera de Annapurna.",
+      descriptionEn: "The World Peace Pagoda is a Buddhist stupa on Anadu Hill above Phewa Lake in Pokhara. Visitors go for views of the lake, the city and the Annapurna range.",
+      lat: 28.20102,
+      lng: 83.94474,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Pagoda_Pokhara.JPG/1280px-Pagoda_Pokhara.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "pokhara_2",
@@ -185650,6 +186497,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "www.internationalmountainmuseum.org",
       description: "El Museo Internacional de la Montaña es un museo en Pokhara dedicado a las montañas del Himalaya, el montañismo y las culturas de la región. Exhibe equipos, mapas, fotografías y testimonios de expediciones.",
       descriptionEn: "The International Mountain Museum is a museum in Pokhara devoted to the Himalayan mountains, mountaineering and the cultures of the region. It displays equipment, maps, photographs and expedition accounts.",
+      lat: 28.19007,
+      lng: 83.98286,
     },
     {
       id: "pokhara_4",
@@ -185682,6 +186531,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Taal_Barahi_Mandir.jpg/1920px-Taal_Barahi_Mandir.jpg",
       description: "El Templo Taal Barahi es un templo hindú situado en una pequeña isla del lago Phewa, en Pokhara. Está dedicado a la diosa Barahi y se llega en bote desde la orilla.",
       descriptionEn: "Taal Barahi Temple is a Hindu temple located on a small island in Phewa Lake, in Pokhara. It is dedicated to the goddess Barahi and is reached by boat from the shore.",
+      lat: 28.20745,
+      lng: 83.95344,
     },
     {
       id: "pokhara_6",
@@ -185698,6 +186549,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/65535/49741484812_9f14d03077_b.jpg",
       description: "El mirador de Sarangkot es una colina cerca de Pokhara que ofrece vistas al valle de Pokhara y a la cordillera del Annapurna. Es conocido por las vistas del amanecer sobre las montañas.",
       descriptionEn: "Sarangkot viewpoint is a hill near Pokhara that offers views of the Pokhara Valley and the Annapurna range. It is known for sunrise views over the mountains.",
+      lat: 28.24369,
+      lng: 83.9575,
     },
     {
       id: "pokhara_7",
@@ -185715,6 +186568,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://gurkhamuseum.org.np/",
       description: "El Museo Memorial Gurkha es un museo en Pokhara sobre la historia y el servicio de los soldados gurkha. Reúne uniformes, medallas, fotografías y documentos de regimientos gurkha.",
       descriptionEn: "The Gurkha Memorial Museum is a museum in Pokhara about the history and service of Gurkha soldiers. It brings together uniforms, medals, photographs and documents from Gurkha regiments.",
+      lat: 28.24618,
+      lng: 83.98854,
     },
     {
       id: "pokhara_8",
@@ -185763,6 +186618,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Phewa_lake_on_early_Summer_morning_as_seen_from_the_Ratna_mandir_palace%2C_Pokhara.jpg/1920px-Phewa_lake_on_early_Summer_morning_as_seen_from_the_Ratna_mandir_palace%2C_Pokhara.jpg",
       description: "Ratna Mandir es un antiguo palacio real ubicado a orillas del lago Phewa, en Pokhara. Fue construido para la reina Ratna y se distingue por su arquitectura y su emplazamiento junto al lago.",
       descriptionEn: "Ratna Mandir is a former royal palace on the shores of Phewa Lake in Pokhara. It was built for Queen Ratna and is known for its architecture and lakeside setting.",
+      lat: 28.20626,
+      lng: 83.95871,
     },
     {
       id: "pokhara_11",
@@ -185863,6 +186720,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Davis_Falls_%28_patale_chhango%29.jpg/1280px-Davis_Falls_%28_patale_chhango%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La cascada Davis, conocida localmente como Patale Chhango, es una caída de agua en Pokhara que se precipita hacia una garganta subterránea. El agua desaparece en una cueva y continúa bajo tierra.",
       descriptionEn: "Davis Falls, known locally as Patale Chhango, is a waterfall in Pokhara that plunges into a subterranean gorge. The water disappears into a cave and continues underground.",
+      lat: 28.19196,
+      lng: 83.96413,
     },
     {
       id: "pokhara_17",
@@ -186001,6 +186860,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Poon Hill es un mirador en la región de Annapurna, cerca del pueblo de Ghorepani, al que se llega por rutas de trekking desde Pokhara. Es conocido por las vistas al Dhaulagiri, al Annapurna y al valle.",
       descriptionEn: "Poon Hill is a viewpoint in the Annapurna region, near the village of Ghorepani, reached by trekking routes from Pokhara. It is known for views of Dhaulagiri, Annapurna and the valley.",
+      lat: 28.40004,
+      lng: 83.68954,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Poon_Hill-68-Besucher_vor_Dhaulagiri-2013-gje.jpg/1280px-Poon_Hill-68-Besucher_vor_Dhaulagiri-2013-gje.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "pokhara_25",
@@ -186067,8 +186929,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4,
       estimatedMinutes: 90,
-      description: "Ethnic Tharu Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo etnográfico dedicado al pueblo tharu, uno de los grupos indígenas de la llanura del Terai. Exhibe objetos domésticos, vestimenta, utensilios y artesanías que documentan su vida rural y tradiciones.",
       descriptionEn: "The Tharu people are an ethnic group living in the Terai in southern Nepal and northern India. They speak Tharu languages. They are recognized as an official ethnicity by the Government of Nepal. In the Indian Terai, they live foremost in Uttarakhand, Uttar Pradesh and Bihar.",
+      lat: 27.61647,
+      lng: 84.24194,
     },
     {
       id: "chitwan_3",
@@ -186099,6 +186963,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "En Kasara se ubica la sede administrativa del Parque Nacional de Chitwan, junto a un proyecto de cría de gaviales que busca conservar esta especie de cocodrilo fluvial.",
       descriptionEn: "Kasara hosts the administrative headquarters of Chitwan National Park, next to a gharial breeding project aimed at conserving this river crocodile species.",
+      lat: 27.55337,
+      lng: 84.33903,
     },
     {
       id: "chitwan_5",
@@ -186114,6 +186980,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "En la orilla del río Rapti, en Sauraha, se encuentra el punto donde comienzan los recorridos en canoa por el río y los alrededores del parque.",
       descriptionEn: "On the bank of the Rapti River in Sauraha is the departure point for canoe trips along the river and around the park.",
+      lat: 27.57506,
+      lng: 84.49244,
     },
     {
       id: "chitwan_6",
@@ -186196,6 +187064,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Village_Scene_with_Cattle_Pen_-_Sauraha_%28Chitwan_National_Park%29_-_Nepal_%2813911709293%29.jpg/1280px-Village_Scene_with_Cattle_Pen_-_Sauraha_%28Chitwan_National_Park%29_-_Nepal_%2813911709293%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Sauraha es un poblado a orillas del río Rapti, junto al Parque Nacional de Chitwan, y sirve como base para visitar la zona.",
       descriptionEn: "Sauraha is a village on the banks of the Rapti River, next to Chitwan National Park, and serves as a base for visiting the area.",
+      lat: 27.57472,
+      lng: 84.49361,
     },
     {
       id: "chitwan_11",
@@ -186211,6 +187081,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Centro de Cría de Elefantes, en Khorsor, se dedica a la reproducción y cuidado de elefantes asiáticos dentro del Parque Nacional de Chitwan.",
       descriptionEn: "The Elephant Breeding Centre in Khorsor is dedicated to the breeding and care of Asian elephants within Chitwan National Park.",
+      lat: 27.58206,
+      lng: 84.46304,
     },
     {
       id: "chitwan_12",
@@ -186225,7 +187097,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 180,
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Bis_Hajari_Tal_%28_Lake_twenty_thousand%29.JPG/1280px-Bis_Hajari_Tal_%28_Lake_twenty_thousand%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      description: "Bis Hajari es un lago dentro del Parque Nacional de Chitwan, rodeado de bosque y humedales, donde se observan aves y cocodrilos.",
+      description: "El lago Bishazari es un humedal de agua dulce dentro del Parque Nacional de Chitwan, rodeado de bosque y pastizales. Se visita para observar aves y conocer un ecosistema importante para la fauna del parque.",
       descriptionEn: "Bis Hajari is a lake inside Chitwan National Park, surrounded by forest and wetlands, where birds and crocodiles can be observed.",
     },
     {
@@ -186273,6 +187145,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Cerca de Sauraha hay aldeas del pueblo tharu, comunidad indígena del Terai, con casas tradicionales y prácticas agrícolas.",
       descriptionEn: "Near Sauraha are villages of the Tharu people, an indigenous community of the Terai, with traditional houses and agricultural practices.",
+      lat: 27.58004,
+      lng: 84.47245,
     },
   ],
   muscat: [
@@ -212440,8 +213314,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Machu_Picchu%2C_Peru_%282018%29.jpg",
-      description: "Machu Picchu es el nombre contemporáneo que se da a una llacta construida antes del siglo XV, en la cordillera Oriental del sur del Perú, en la cadena montañosa de los Andes a 2.430 metros sobre el nivel del mar.",
+      description: "Sayacmarca es un sitio arqueológico ubicado en el Perú. Está situado sobre una cima a 3,600 metros. Está dividido en dos partes: ceremonial y residencial. El sitio presenta una portada y escalera, además de un sistema de irrigación por medio de canales que abastece a las casas.",
       descriptionEn: "The Inca Trail to Machu Picchu is a hiking trail in Peru that terminates at Machu Picchu. It consists of three overlapping trails: Mollepata, Classic, and One Day.",
+      lat: -13.22817,
+      lng: -72.51692,
+      sourceUrl: "https://es.wikipedia.org/wiki/Sayacmarca",
     },
     {
       id: "aguascalientes_1",
@@ -212455,9 +213332,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Peru_physical_map.svg/langes-960px-Peru_physical_map.svg.png",
-      description: "Chachabamba es un yacimiento arqueológico inca ubicado en el Santuario histórico de Machu Picchu, Perú.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Peru_Wi%C3%B1ay_Wayna.jpg/1280px-Peru_Wi%C3%B1ay_Wayna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      description: "Huiñay Huayna es un sitio arqueológico incaico en Perú. Se encuentra ubicado en la ruta del camino inca, 3,3 km a vuelo de pájaro al sursureste de Machu Picchu, entre Puyupatamarca e Intipunku.",
       descriptionEn: "Machupicchu or Machupicchu Pueblo, also known as Aguas Calientes, is a location in Peru situated in the Cusco Region, Urubamba Province. It is the seat of Machupicchu District. Machupicchu lies at the Vilcanota River.",
+      lat: -13.19278,
+      lng: -72.53639,
+      sourceUrl: "https://es.wikipedia.org/wiki/Hui%C3%B1ay_Huayna",
     },
     {
       id: "aguascalientes_2",
@@ -212491,9 +213371,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.6,
       estimatedMinutes: 45,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Memoria_sobre_las_aguas_s%C3%BAlfuro-termales_de_Esparraguera%2C_en_la_provincia_de_Barcelona%2C_concidas_con_el_nombre_de_la_Puda_%28IA_b30366793%29.pdf/page1-1280px-Memoria_sobre_las_aguas_s%C3%BAlfuro-termales_de_Esparraguera%2C_en_la_provincia_de_Barcelona%2C_concidas_con_el_nombre_de_la_Puda_%28IA_b30366793%29.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/102_-_Machu_Picchu_-_Juin_2009.jpg/1280px-102_-_Machu_Picchu_-_Juin_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Sitio arqueológico inca ubicado en una cueva en las faldas del Huayna Picchu, cerca de Machu Picchu. Conserva muros, nichos y elementos ceremoniales, y se accede por senderos de montaña.",
       descriptionEn: "Inca archaeological site set in a cave on the slopes of Huayna Picchu, near Machu Picchu. It preserves walls, niches and ceremonial features, and is reached by mountain trails.",
+      lat: -13.1522,
+      lng: -72.5469,
     },
     {
       id: "aguascalientes_4",
@@ -212510,6 +213392,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Intipunku_%28Sun_Gate%29.jpg/3840px-Intipunku_%28Sun_Gate%29.jpg",
       description: "lugar arqueológico de Perú",
       descriptionEn: "Inti Punku or Intipunku is an archaeological site in the Cusco Region of Peru that was once a fortress of the sacred city, Machu Picchu. It is now also the name of the final section of the Incan Trail between the Sun Gate complex and the city of Machu Picchu.",
+      lat: -13.23128,
+      lng: -72.50525,
     },
     {
       id: "aguascalientes_5",
@@ -212524,8 +213408,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Aguas_Calientes_%285687403357%29.jpg/1920px-Aguas_Calientes_%285687403357%29.jpg",
-      description: "Chachabamba es un yacimiento arqueológico inca ubicado en el Santuario histórico de Machu Picchu, Perú.",
+      description: "El Puente Inka es un camino inca tallado en un acantilado cerca de Machu Picchu, con un puente que cruza un abismo. Se visita desde la ciudadela por un sendero corto.",
       descriptionEn: "Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a mountain ridge at 2,430 meters (7,970 ft).",
+      lat: -13.17078,
+      lng: -72.54383,
     },
     {
       id: "aguascalientes_6",
@@ -212574,6 +213460,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Tourists_at_Inti_Punku.jpg/3840px-Tourists_at_Inti_Punku.jpg",
       description: "Intipuncu o Inti Punku es un sitio arqueológico en el departamento del Cuzco en el sur del Perú. El sitio fue en sus origines el principal puesto de control de ingreso y salida de la ciudad sagrada de Machu Picchu. y al camino inca que llevaba a dicha llacta.",
       descriptionEn: "Inti Punku or Intipunku is an archaeological site in the Cusco Region of Peru that was once a fortress of the sacred city, Machu Picchu. It is now also the name of the final section of the Incan Trail between the Sun Gate complex and the city of Machu Picchu.",
+      lat: -13.16974,
+      lng: -72.53396,
     },
     {
       id: "aguascalientes_9",
@@ -212588,8 +213476,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Sacred_Valley_%28around_Pisaq%29%2C_Peru.jpg/3840px-Sacred_Valley_%28around_Pisaq%29%2C_Peru.jpg",
-      description: "El río Urubamba, es el nombre que toma el río Vilcanota a partir del pueblo de Urubamba. Nace en el nudo de Vilcanota, en el departamento del Cuzco, en la parte suroriental del Perú. Es una de las fuentes del río Ucayali, y parte de la cuenca del Amazonas.",
+      description: "Llactapata es un sitio arqueológico ubicado cerca de 5 kilómetros al oeste de Machu Picchu.",
       descriptionEn: "archaeological site in Peru",
+      lat: -13.18619,
+      lng: -72.5848,
+      sourceUrl: "https://es.wikipedia.org/wiki/Llactapata",
     },
     {
       id: "aguascalientes_10",
@@ -212604,8 +213495,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://live.staticflickr.com/2807/10143962053_21b05c8d35_b.jpg",
-      description: "Nevado Salkantay es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Nevado Salkantay is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Nevado Salkantay es una montaña nevada de la Cordillera Vilcabamba, en los Andes peruanos. Es conocido por la ruta de trekking Salkantay, que recorre paisajes de alta montaña hasta Aguas Calientes.",
+      descriptionEn: "Nevado Salkantay is a snow-capped mountain in the Vilcabamba Range of the Peruvian Andes. It is known for the Salkantay Trek, a route through high-mountain landscapes to Aguas Calientes.",
     },
     {
       id: "aguascalientes_11",
@@ -212762,6 +213653,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 20,
       description: "Recinto de Machu Picchu con tres ventanas trapezoidales y muros de piedra finamente labrada. Es uno de los edificios ceremoniales del sector sagrado del santuario inca.",
       descriptionEn: "Machu Picchu structure with three trapezoidal windows and finely worked stone walls. It is one of the ceremonial buildings in the sacred sector of the Inca sanctuary.",
+      lat: -13.16362,
+      lng: -72.54526,
     },
     {
       id: "aguascalientes_20",
@@ -212777,6 +213670,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Museo arqueológico junto al camino de acceso a Machu Picchu, en la base del santuario. Exhibe cerámica, piezas líticas y materiales de las investigaciones sobre la ciudad inca.",
       descriptionEn: "Archaeological museum beside the access road to Machu Picchu, at the base of the sanctuary. It displays ceramics, stone objects and materials from research on the Inca city.",
+      lat: -13.16068,
+      lng: -72.53944,
     },
     {
       id: "aguascalientes_21",
@@ -212792,6 +213687,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Baños termales naturales en Aguas Calientes, junto al río. Son un punto de descanso para los viajeros que visitan Machu Picchu y se llega a ellos caminando por el pueblo.",
       descriptionEn: "Natural hot springs in Aguas Calientes, beside the river. They are a resting point for travelers visiting Machu Picchu and are reached on foot through the town.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/93/Taquilla_-_Termales_Aguas_Calientes_del_Llano.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "aguascalientes_22",
@@ -212837,6 +213733,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Mercado de artesanías en el centro de Aguas Calientes, con puestos de textiles, cerámica y recuerdos. Reúne productos locales y refleja el movimiento turístico del pueblo.",
       descriptionEn: "Handicraft market in central Aguas Calientes, with stalls selling textiles, ceramics and souvenirs. It brings together local products and reflects the town's tourist activity.",
+      lat: -13.15543,
+      lng: -72.52457,
     },
     {
       id: "aguascalientes_25",
@@ -212929,6 +213827,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Casa_Museo_Mario_Vargas_Llosa.jpg/3840px-Casa_Museo_Mario_Vargas_Llosa.jpg",
       description: "Casa museo en Arequipa dedicada a la vida y obra de Mario Vargas Llosa, escritor arequipeño y Premio Nobel de Literatura 2010. Reúne libros, fotografías y objetos personales del autor.",
       descriptionEn: "House museum in Arequipa devoted to the life and work of Mario Vargas Llosa, the Arequipa-born writer and 2010 Nobel Prize in Literature laureate. It holds books, photographs and personal objects of the author.",
+      lat: -16.40646,
+      lng: -71.54078,
     },
     {
       id: "arequipa_4",
@@ -213001,6 +213901,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/df/Parque_Selva_Alegre.jpg",
       description: "Parque urbano del distrito de Selva Alegre, uno de los espacios verdes más amplios de Arequipa, con arboledas, césped y senderos. Es lugar de paseo y recreación para los habitantes de la ciudad.",
       descriptionEn: "Urban park in the Selva Alegre district, one of the largest green spaces in Arequipa, with trees, lawns and walking paths. It is a place for strolling and recreation for city residents.",
+      lat: -16.3894,
+      lng: -71.53228,
     },
     {
       id: "arequipa_8",
@@ -213019,6 +213921,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Mercado_San_Camilo",
       lat: -16.40275,
       lng: -71.53487,
+      descriptionEn: "Mercado San Camilo is a traditional food market in central Arequipa, with stalls selling fruit, meat, cheese and prepared food. Visitors come to see local products and everyday city life.",
     },
     {
       id: "arequipa_9",
@@ -213037,6 +213940,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_la_Compa%C3%B1%C3%ADa_(Arequipa)",
       lat: -16.4,
       lng: -71.53667,
+      descriptionEn: "The Church of the Company is a Jesuit church in Arequipa's historic center. Visitors come for its facade carved in sillar stone and its colonial architecture, part of the city's heritage complex.",
     },
     {
       id: "arequipa_10",
@@ -213071,6 +213975,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.muniarequipa.gob.pe/",
       description: "Teatro de fines del siglo XIX en el centro histórico de Arequipa, con sala y fachada de estilo europeo. Programa obras de teatro, conciertos y espectáculos de danza.",
       descriptionEn: "Late 19th-century theater in the historic center of Arequipa, with a European-style auditorium and facade. It hosts plays, concerts and dance performances.",
+      lat: -16.39912,
+      lng: -71.53427,
     },
     {
       id: "arequipa_12",
@@ -213125,6 +214031,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Barrio_de_San_L%C3%A1zaro.jpg/1920px-Barrio_de_San_L%C3%A1zaro.jpg",
       description: "Barrio colonial considerado el más antiguo de Arequipa, con calles estrechas de piedra y casas de sillar blanco. Se recorre a pie para conocer la arquitectura tradicional de la ciudad.",
       descriptionEn: "Colonial neighborhood regarded as the oldest in Arequipa, with narrow stone streets and white sillar stone houses. It is explored on foot to see the city's traditional architecture.",
+      lat: -16.39333,
+      lng: -71.53456,
     },
     {
       id: "arequipa_15",
@@ -213143,6 +214051,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.53691,
       description: "La plaza de Armas de Arequipa es uno de los principales espacios públicos de Arequipa y el lugar de fundación de la ciudad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Plaza_de_Armas_de_Arequipa",
+      descriptionEn: "The Plaza de Armas is the historic center of Arequipa, surrounded by the cathedral, arcades and colonial buildings. Visitors come to walk the civic space and see the sillar stone architecture.",
     },
     {
       id: "arequipa_16",
@@ -213252,6 +214161,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Casona colonial en Huasacache, cerca de Sabandía, asociada a Garcí Manuel de Carbajal, fundador de Arequipa. Conserva patios, capilla y ambientes amoblados de época.",
       descriptionEn: "Colonial mansion in Huasacache, near Sabandía, linked to Garcí Manuel de Carbajal, the founder of Arequipa. It preserves courtyards, a chapel and period-furnished rooms.",
+      lat: -16.46395,
+      lng: -71.55642,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/MansionFundador.JPG/1280px-MansionFundador.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "arequipa_22",
@@ -213322,6 +214234,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 180,
       description: "Recorrido por las canteras de sillar de Añashuayco, en el distrito de Cerro Colorado, donde se extrae la piedra volcánica blanca de Arequipa. Se observa el trabajo de los canteros.",
       descriptionEn: "Tour through the Añashuayco sillar quarries in the Cerro Colorado district, where Arequipa's white volcanic stone is extracted. Visitors watch the work of the stone cutters.",
+      lat: -16.36034,
+      lng: -71.61115,
     },
     {
       id: "arequipa_26",
@@ -213338,6 +214252,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/PSM_V64_D524_The_city_of_arequipa.png/1280px-PSM_V64_D524_The_city_of_arequipa.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Puente de sillar sobre el río Chili, en el centro histórico de Arequipa, de origen colonial y reconstruido a lo largo del tiempo. Es uno de los accesos tradicionales al casco antiguo.",
       descriptionEn: "Sillar stone bridge over the Chili River in the historic center of Arequipa, of colonial origin and rebuilt over time. It is one of the traditional entrances to the old town.",
+      lat: -16.39762,
+      lng: -71.54185,
     },
     {
       id: "arequipa_27",
@@ -213447,6 +214363,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/49/Calle_Mercaderes_in_1926%2C_Arequipa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Calle comercial del centro histórico de Arequipa, en parte peatonal, con tiendas y oficinas instaladas en casonas coloniales y republicanas.",
       descriptionEn: "Commercial street in the historic center of Arequipa, partly pedestrian, with shops and offices set in colonial and republican-era houses.",
+      lat: -16.40015,
+      lng: -71.53482,
     },
     {
       id: "arequipa_33",
@@ -213482,6 +214400,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Baños termales en el distrito de Yura, cerca de Arequipa, con piscinas de aguas minerales calientes. Es un destino tradicional de descanso en la zona.",
       descriptionEn: "Hot springs in the Yura district, near Arequipa, with pools of warm mineral water. It is a traditional place to rest in the area.",
+      lat: -16.24583,
+      lng: -71.69389,
     },
     {
       id: "arequipa_35",
@@ -213518,6 +214438,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Museo_Carlos_Dreyer_en_Puno_02.jpg/1920px-Museo_Carlos_Dreyer_en_Puno_02.jpg",
       description: "Museo instalado en una casona colonial del centro de Puno. Reúne piezas arqueológicas prehispánicas, arte virreinal, objetos de plata y la colección reunida por el artista Carlos Dreyer.",
       descriptionEn: "Museum housed in a colonial mansion in central Puno. Its rooms display pre-Hispanic archaeological pieces, colonial art, silver objects and the collection assembled by artist Carlos Dreyer.",
+      lat: -15.84052,
+      lng: -70.02902,
     },
     {
       id: "puno_1",
@@ -213653,6 +214575,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Mujer_tejedora_en_Islas_Flotantes_de_Uros.JPG",
       description: "Conjunto de islas artificiales construidas con capas de totora en la bahía de Puno, sobre el lago Titicaca. Familias uros viven en ellas y reciben a visitantes que llegan en lancha.",
       descriptionEn: "Group of artificial islands built from layers of totora reeds in Puno's bay on Lake Titicaca. Uros families live on them and receive visitors who arrive by boat.",
+      lat: -15.81895,
+      lng: -69.96957,
     },
     {
       id: "puno_9",
@@ -213830,6 +214754,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Mirador en lo alto de un cerro al este del centro de Puno, al que se sube por una escalera. Ofrece vistas de la ciudad, la bahía y el lago Titicaca.",
       descriptionEn: "Viewpoint atop a hill east of central Puno, reached by a long staircase. It offers views over the city, the bay and Lake Titicaca.",
+      lat: -15.84714,
+      lng: -70.02995,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Mirador_Kuntur_Wasi%2C_Puno_08.jpg/1280px-Mirador_Kuntur_Wasi%2C_Puno_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "puno_19",
@@ -213899,6 +214826,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -70.02722,
       description: "Calle peatonal del centro de Puno que conduce hasta la Plaza de Armas. Está flanqueada por casonas coloniales y concentra comercios, restaurantes y alojamientos.",
       descriptionEn: "Pedestrian street in central Puno that leads to the Plaza de Armas. Lined with colonial houses, it concentrates shops, restaurants and lodging.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Jir%C3%B3n_Puno_en_Lima_02.jpg/1280px-Jir%C3%B3n_Puno_en_Lima_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "puno_23",
@@ -214012,6 +214940,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Península que se adentra en el lago Titicaca, con comunidades campesinas, andenes agrícolas y playas. Se llega por carretera desde Puno y sirve de base para visitar Llachón y otros poblados.",
       descriptionEn: "Peninsula jutting into Lake Titicaca with farming communities, agricultural terraces and beaches. It is reached by road from Puno and serves as a base for visiting Llachón and other villages.",
+      lat: -15.62056,
+      lng: -69.83111,
     },
     {
       id: "puno_29",
@@ -214030,6 +214960,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Comunidad campesina de la península de Capachica, en el lago Titicaca, con andenes, playas y alojamiento en casas de familias locales. Es un destino de turismo rural.",
       descriptionEn: "Rural community on the Capachica peninsula on Lake Titicaca, with terraces, beaches and homestay lodging with local families. It is a rural tourism destination.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/LLachon_-_Coreta.jpg/1280px-LLachon_-_Coreta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "puno_30",
@@ -214111,6 +215042,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/%28CCC_No._16._1926%29_-_Vista_de_los_muelles_de_Mollendo_%28...%29.png/1280px-%28CCC_No._16._1926%29_-_Vista_de_los_muelles_de_Mollendo_%28...%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Muelle principal de la ciudad sobre el lago Titicaca. Desde aquí parten las embarcaciones hacia las islas de los uros, Taquile y Amantaní.",
       descriptionEn: "Puno's main pier on Lake Titicaca. Boats to the Uros islands, Taquile and Amantaní depart from here.",
+      lat: -15.83508,
+      lng: -70.01444,
     },
   ],
   nazca: [
@@ -214129,6 +215062,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/VW-Bus_Wreck%2C_Maria-Reiche-Museum_near_Nazca%2C_Peru.jpg/1920px-VW-Bus_Wreck%2C_Maria-Reiche-Museum_near_Nazca%2C_Peru.jpg",
       description: "Museo en Nazca dedicado a Maria Reiche y a sus investigaciones sobre las Líneas de Nazca. Reúne fotografías, objetos personales y materiales que explican su trabajo de conservación y estudio.",
       descriptionEn: "Museum in Nazca dedicated to Maria Reiche and her research on the Nazca Lines. It displays photographs, personal objects and materials explaining her conservation and study work.",
+      lat: -14.68193,
+      lng: -75.13712,
+      dayTrip: true,
     },
     {
       id: "nazca_1",
@@ -214145,6 +215081,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Los_Paredones%2C_Nazca%2C_Per%C3%BA%2C_2015-07-29%2C_DD_20.JPG/1920px-Los_Paredones%2C_Nazca%2C_Per%C3%BA%2C_2015-07-29%2C_DD_20.JPG",
       description: "Sitio arqueológico de muros de piedra atribuido a la ocupación inca en el valle de Nazca. Se visita por sus restos arquitectónicos y por la vista del entorno agrícola.",
       descriptionEn: "Archaeological site of stone walls attributed to the Inca occupation of the Nazca Valley. It is visited for its architectural remains and views of the surrounding farmland.",
+      lat: -14.84166,
+      lng: -74.93348,
     },
     {
       id: "nazca_2",
@@ -214310,6 +215248,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://digilander.libero.it/MDAntonini",
       description: "Museo arqueológico en Nazca que exhibe cerámica, textiles, fardos funerarios y piezas de culturas prehispánicas de la región. Su colección ayuda a entender la historia antigua de la zona.",
       descriptionEn: "Archaeological museum in Nazca displaying ceramics, textiles, funerary bundles and objects from pre-Hispanic cultures of the region. Its collection helps explain the area's ancient history.",
+      lat: -14.82545,
+      lng: -74.92924,
     },
     {
       id: "nazca_12",
@@ -214326,6 +215266,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/02-Aqueductos_de_Cantalloc-nX-33.jpg/1280px-02-Aqueductos_de_Cantalloc-nX-33.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Los acueductos de Nazca son un sistema hidráulico construidos a mitad del siglo VI por la cultura Nazca y riegan a tres valles: Las Trancas, Taruga y Nazca; en la provincia de Nazca, departamento de Ica, Perú.",
       sourceUrl: "https://es.wikipedia.org/wiki/Acueductos_de_Nazca",
+      lat: -14.82644,
+      lng: -74.91095,
+      descriptionEn: "The Nazca Aqueducts, also known as the Cantalloc Aqueducts, are a network of underground channels built by the Nazca culture to use groundwater for agriculture; visitors see their spiral access openings and hydraulic engineering.",
     },
     {
       id: "nazca_13",
@@ -214378,6 +215321,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Torre de observación junto a la carretera Panamericana desde la que se pueden ver algunos geoglifos de las Líneas de Nazca. Permite apreciar figuras sin realizar un sobrevuelo.",
       descriptionEn: "Observation tower beside the Panamericana highway from which some Nazca Lines geoglyphs can be seen. It allows viewing figures without taking a flight.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/El_antiguo_mirador_de_las_l%C3%ADneas_de_nasca.jpg/1280px-El_antiguo_mirador_de_las_l%C3%ADneas_de_nasca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "nazca_16",
@@ -214430,6 +215374,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Gran duna de arena blanca cerca de Nazca, en el desierto costero peruano. Se visita para caminar sobre la arena y practicar sandboard en sus pendientes.",
       descriptionEn: "Large white sand dune near Nazca, in the Peruvian coastal desert. It is visited for walking on the sand and sandboarding on its slopes.",
+      lat: -14.8679,
+      lng: -74.83286,
     },
     {
       id: "nazca_19",
@@ -214445,6 +215391,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Planetario en Nazca dedicado a la relación entre la astronomía y las Líneas de Nazca. Ofrece proyecciones sobre el cielo y las teorías de Maria Reiche.",
       descriptionEn: "Planetarium in Nazca dedicated to the relationship between astronomy and the Nazca Lines. It offers projections about the sky and Maria Reiche's theories.",
+      lat: -14.82802,
+      lng: -74.94063,
     },
     {
       id: "nazca_20",
@@ -214499,6 +215447,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Reserva nacional en la costa de la región Ica, al sur de Nazca, que protege desierto, humedales y ecosistemas marinos. Es hábitat de aves, lobos marinos y guanacos.",
       descriptionEn: "National reserve on the coast of Ica Region, south of Nazca, protecting desert, wetlands and marine ecosystems. It is habitat for birds, sea lions and guanacos.",
+      lat: -14.97139,
+      lng: -75.29504,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/35/El_Elefante_de_Marcona.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "nazca_23",
@@ -214535,6 +215486,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.amazonanimalorphanage.org",
       description: "Pilpintuwasi es un mariposario y centro de rescate de animales en Padre Cocha, cerca de Iquitos. Se visita para observar mariposas en distintas etapas y animales rescatados que viven en el lugar.",
       descriptionEn: "Pilpintuwasi is a butterfly farm and animal rescue center in Padre Cocha, near Iquitos. Visitors go to see butterflies at different stages and rescued animals kept at the site.",
+      lat: -3.70477,
+      lng: -73.28354,
     },
     {
       id: "iquitos_1",
@@ -214551,6 +215504,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Plaza_28_de_julio_de_Iquitos.JPG",
       description: "La Plaza 28 de Julio es un espacio público urbano de Iquitos, utilizado para reuniones y actividades cotidianas. Se visita como punto de referencia para observar la vida local y el entorno de la ciudad.",
       descriptionEn: "Plaza 28 de Julio is an urban public space in Iquitos used for gatherings and everyday activities. It is visited as a reference point to observe local life and the city surroundings.",
+      lat: -3.7546,
+      lng: -73.24932,
     },
     {
       id: "iquitos_2",
@@ -214567,6 +215522,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/dc/El_Chullachaqui_-_Quistococha_%28Iquitos%2C_Peru%29.jpg",
       description: "El Zoológico de Quistococha forma parte del complejo turístico de Quistococha, cerca de Iquitos. Alberga animales de la Amazonía y se visita junto con la laguna y el área recreativa del complejo.",
       descriptionEn: "Quistococha Zoo is part of the Quistococha tourist complex near Iquitos. It houses Amazonian animals and is visited along with the lagoon and the recreation area of the complex.",
+      lat: -3.82762,
+      lng: -73.32226,
     },
     {
       id: "iquitos_3",
@@ -214603,6 +215560,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://historicboatmuseum.org/site/es/",
       description: "El Museo Ayapua ocupa una embarcación fluvial restaurada de la era del caucho en Iquitos. Se visita para conocer la historia de la navegación amazónica y de la explotación cauchera en la región.",
       descriptionEn: "The Ayapua Museum occupies a restored riverboat from the rubber era in Iquitos. It is visited to learn about the history of Amazonian navigation and the rubber industry in the region.",
+      lat: -3.74666,
+      lng: -73.24125,
     },
     {
       id: "iquitos_5",
@@ -214620,6 +215579,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://iquitosperu.net/lugares-turisticos/museo-culturas-indigenas-amazonicas/",
       description: "El Museo de Culturas Indígenas Amazónicas exhibe objetos y testimonios de pueblos indígenas de la Amazonía peruana. Se encuentra en Iquitos y se visita para conocer aspectos de sus culturas, creencias y vida cotidiana.",
       descriptionEn: "The Museum of Amazonian Indigenous Cultures displays objects and testimonies from indigenous peoples of the Peruvian Amazon. It is located in Iquitos and is visited to learn about their cultures, beliefs, and daily life.",
+      lat: -3.75192,
+      lng: -73.24404,
     },
     {
       id: "iquitos_6",
@@ -214685,6 +215646,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://centroderescateamazonico.com/es/inicio/",
       description: "El Centro de Rescate Amazónico (CREA) es un centro de rescate de fauna silvestre cerca de Iquitos, conocido por el cuidado de manatíes amazónicos. Se visita para conocer su labor con animales rescatados y la conservación regional.",
       descriptionEn: "The Amazon Rescue Center (CREA) is a wildlife rescue center near Iquitos, known for caring for Amazonian manatees. It is visited to learn about its work with rescued animals and regional conservation.",
+      lat: -3.81817,
+      lng: -73.32096,
     },
     {
       id: "iquitos_10",
@@ -214719,6 +215682,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://laisladelosmonos.org/",
       description: "La Isla de los Monos es un centro de rescate de primates situado en una isla cercana a Iquitos, al que se llega en bote. Se visita para observar monos rescatados y conocer el trabajo de rehabilitación y cuidado.",
       descriptionEn: "Monkey Island is a primate rescue center on an island near Iquitos, reached by boat. It is visited to observe rescued monkeys and learn about rehabilitation and care work.",
+      lat: -3.74567,
+      lng: -73.24358,
     },
     {
       id: "iquitos_12",
@@ -214751,6 +215716,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bellavista_Nanay.JPG/3840px-Bellavista_Nanay.JPG",
       description: "El Puerto Bellavista Nanay es un embarcadero en la ribera del río Nanay, en el distrito de Punchana, Iquitos. Desde allí salen botes hacia comunidades y atractivos cercanos, y se visita para observar la actividad fluvial.",
       descriptionEn: "Puerto Bellavista Nanay is a dock on the bank of the Nanay River in the Punchana district of Iquitos. Boats leave from there for nearby communities and attractions, and it is visited to observe river activity.",
+      lat: -3.72238,
+      lng: -73.24011,
     },
     {
       id: "iquitos_14",
@@ -214808,6 +215775,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -73.24441,
       description: "La Plaza de Armas de Iquitos es el espacio central del casco histórico, rodeado de edificios y calles comerciales. Se visita para observar la arquitectura alrededor y como punto de partida para recorrer el centro.",
       descriptionEn: "Iquitos' Plaza de Armas is the central space of the historic center, surrounded by buildings and commercial streets. It is visited to observe the surrounding architecture and as a starting point for exploring the center.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Plaza_de_Armas_en_Iquitos.jpg/1280px-Plaza_de_Armas_en_Iquitos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "iquitos_17",
@@ -214843,6 +215811,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/02/Iquitos_city_Malecon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "El Malecón Tarapacá es un paseo ribereño del centro de Iquitos, junto al frente fluvial de la ciudad. Se visita para caminar con vistas al río y observar edificios históricos y la actividad de la ribera.",
       descriptionEn: "Malecón Tarapacá is a waterfront promenade in central Iquitos, beside the city's riverfront. It is visited to walk with river views and observe historic buildings and riverside activity.",
+      lat: -3.75253,
+      lng: -73.2464,
     },
     {
       id: "iquitos_19",
@@ -214934,6 +215904,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "La Laguna Moronacocha es una laguna urbana de Iquitos, rodeada de vegetación y áreas de la ciudad. Se visita para observar el paisaje de agua y vegetación, y la relación del área con la vida local.",
       descriptionEn: "Moronacocha Lagoon is an urban lagoon in Iquitos, surrounded by vegetation and city areas. It is visited to observe the water and vegetation landscape and the area's relationship with local life.",
+      lat: -3.74778,
+      lng: -73.27139,
     },
     {
       id: "iquitos_25",
@@ -214967,6 +215939,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Trujillo_museo_de_las_huacas.jpg/1920px-Trujillo_museo_de_las_huacas.jpg",
       description: "Museo situado junto al complejo arqueológico Moche, en el valle del mismo nombre, que exhibe cerámica, textiles y objetos recuperados en las excavaciones de Huaca de la Luna.",
       descriptionEn: "Museum located next to the Moche archaeological complex in the valley of the same name, displaying ceramics, textiles and objects recovered from the excavations at Huaca de la Luna.",
+      lat: -8.14156,
+      lng: -78.99215,
     },
     {
       id: "trujillo_1",
@@ -214983,6 +215957,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/20/MuseoChanChan.jpg",
       description: "Museo de sitio del conjunto arqueológico de Chan Chan que reúne cerámica, objetos de metal y madera hallados en la ciudadela chimú, con paneles sobre su historia y su conservación.",
       descriptionEn: "Site museum at the Chan Chan archaeological complex, bringing together ceramics, metal and wood objects found in the Chimú citadel, with displays on its history and conservation.",
+      lat: -8.10004,
+      lng: -79.06572,
     },
     {
       id: "trujillo_2",
@@ -214999,6 +215975,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Prospecto_de_la_compa%C3%B1ia_anonima_exploradoras_de_las_%22Huacas_del_Inca%22_limitada_%28IA_prospectodelacom00lima%29.pdf/page1-500px-Prospecto_de_la_compa%C3%B1ia_anonima_exploradoras_de_las_%22Huacas_del_Inca%22_limitada_%28IA_prospectodelacom00lima%29.pdf.jpg",
       description: "La Huaca La Esmeralda es una construcción arqueológica pertenece a la Cultura Chimú, se encuentra ubicada en la ciudad de Trujillo, Perú.",
       descriptionEn: "The Huaca La Esmeralda is an archaeological building belonging to the Chimu culture, is located in the Peruvian city of Trujillo.",
+      lat: -8.10471,
+      lng: -79.04497,
     },
     {
       id: "trujillo_3",
@@ -215017,6 +215995,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Palacio_Iturregui",
       lat: -8.10967,
       lng: -79.02573,
+      descriptionEn: "A 19th-century neoclassical mansion in Trujillo's historic center, associated with independence hero Juan Manuel Iturregui. Visitors go for its facade, courtyards and halls, which reflect the civil architecture of the period.",
     },
     {
       id: "trujillo_4",
@@ -215076,6 +216055,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: -8.13265,
       lng: -78.99204,
       website: "https://huacasdemoche.pe/",
+      descriptionEn: "The Huaca del Sol is an adobe brick pyramid built by the Moche civilization on the northern coast of what is now Peru. The pyramid is one of several ruins found near the volcanic peak of Cerro Blanco, in the coastal desert near Trujillo at the Moche Valley.",
     },
     {
       id: "trujillo_7",
@@ -215111,6 +216091,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Trujillo%2C_Plazoleta_Iglesia_La_Merced_-_panoramio.jpg/1920px-Trujillo%2C_Plazoleta_Iglesia_La_Merced_-_panoramio.jpg",
       description: "La iglesia de la Merced de Trujillo está ubicada en Trujillo, Perú.",
       descriptionEn: "The Church of La Merced is located in Trujillo, Peru.",
+      lat: -8.11126,
+      lng: -79.02685,
     },
     {
       id: "trujillo_9",
@@ -215127,6 +216109,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Vuelos_arqueol%C3%B3gicos_-_bdh0000113428.pdf/page1-1280px-Vuelos_arqueol%C3%B3gicos_-_bdh0000113428.pdf.jpg",
       description: "Museo de la Universidad Nacional de Trujillo, en el centro histórico, con colecciones de arqueología, antropología e historia que abarcan desde los pobladores antiguos de la costa hasta la época republicana.",
       descriptionEn: "Museum run by the National University of Trujillo in the historic centre, with archaeology, anthropology and history collections spanning from the region's early coastal peoples to the republican era.",
+      lat: -8.11089,
+      lng: -79.02428,
     },
     {
       id: "trujillo_10",
@@ -215207,6 +216191,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ausgrabungsst%C3%A4tte_Huaca_de_la_Luna_78.jpg/3840px-Ausgrabungsst%C3%A4tte_Huaca_de_la_Luna_78.jpg",
       description: "Museo de zoología de la Universidad Nacional de Trujillo, con colecciones de fauna de la región y ejemplares naturalizados empleados en la enseñanza y la divulgación científica.",
       descriptionEn: "Zoology museum of the National University of Trujillo, with collections of regional fauna and taxidermy specimens used for teaching and science outreach.",
+      lat: -8.11141,
+      lng: -79.03059,
     },
     {
       id: "trujillo_15",
@@ -215280,6 +216266,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "Las balsas de totora son unas embarcaciones elaboradas desde tiempos prehispánicos a partir de tallos y hojas de totora en áreas del litoral del norte peruano como Santa Rosa, Pimentel, Huanchaco y en zonas lacustres de Bolivia como Copacabana y alrededores del lago Titicaca.",
       descriptionEn: "A balsa is a boat or ship built by various pre-Columbian South American civilizations constructed from woven reeds of the totora bulrush. They varied in size from small canoe sized personal fishing boats to large ships up to 30 metres long.",
       sourceUrl: "https://es.wikipedia.org/wiki/Balsas_de_totora",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/00_1635_Reed_Islands_of_Lake_Titicaca.jpg/1280px-00_1635_Reed_Islands_of_Lake_Titicaca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "trujillo_19",
@@ -215297,6 +216284,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Complejo arqueológico del valle de Chicama, a unos 60 km de Trujillo, formado por varias huacas; en Huaca Cao Viejo se encontró la tumba de la Dama de Cao, con su ajuar y restos momificados.",
       descriptionEn: "Archaeological complex in the Chicama valley, about 60 km from Trujillo, made up of several huacas; the tomb of the Lady of Cao, with her grave goods and mummified remains, was found at Huaca Cao Viejo.",
+      lat: -7.91498,
+      lng: -79.30549,
     },
     {
       id: "trujillo_20",
@@ -215333,6 +216322,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -79.02788,
       description: "La Casa Urquiaga o Casa Calonge es una casa de estilo neoclásico ubicada en Trujillo. Actualmente es sede del Banco Central de Reserva del Perú y museo.",
       sourceUrl: "https://es.wikipedia.org/wiki/Casa_Urquiaga",
+      descriptionEn: "A colonial mansion in Trujillo's historic center, now a seat of the Central Reserve Bank of Peru. Visitors go for its architecture, courtyards and the cultural display it houses.",
     },
     {
       id: "trujillo_22",
@@ -215365,6 +216355,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Templo católico de origen virreinal en el centro histórico de Trujillo, parte del conjunto de iglesias coloniales que se conservan en la ciudad.",
       descriptionEn: "Catholic church of colonial origin in Trujillo's historic centre, one of the group of viceregal-era churches preserved in the city.",
+      lat: -8.11349,
+      lng: -79.02994,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Ruinas_de_la_iglesia_de_Santo_Domingo_%289_de_diciembre_de_2016%2C_Trujillo%29_13.jpg/1280px-Ruinas_de_la_iglesia_de_Santo_Domingo_%289_de_diciembre_de_2016%2C_Trujillo%29_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "trujillo_24",
@@ -215499,6 +216492,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/88/Monumento_a_la_libertad_-_Fuente_de_la_Plaza_de_Armas_de_Trujillo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Monumento escultórico dedicado a la libertad emplazado en la Plaza de Armas de Trujillo, en el centro del casco histórico, junto a la catedral y el palacio municipal.",
       descriptionEn: "Sculptural monument dedicated to liberty, standing in Trujillo's Plaza de Armas in the heart of the historic centre, next to the cathedral and the municipal palace.",
+      lat: -8.11182,
+      lng: -79.02866,
     },
     {
       id: "trujillo_32",
@@ -215515,6 +216510,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Parada_de_fruites_del_mercat_de_Trujillo.jpg/1280px-Parada_de_fruites_del_mercat_de_Trujillo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Mercado de abastos del centro de Trujillo donde se venden productos frescos, hierbas, comidas preparadas y artículos de uso diario, con fuerte presencia de vida cotidiana local.",
       descriptionEn: "Food market in central Trujillo selling fresh produce, herbs, prepared meals and everyday goods, offering a strong dose of local daily life.",
+      lat: -8.11229,
+      lng: -79.02575,
     },
   ],
   huaraz: [
@@ -215549,6 +216546,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/MUSEO_HUARAZ.jpg/1920px-MUSEO_HUARAZ.jpg",
       description: "Museo de Huaraz que reúne cerámica, textiles y esculturas líticas de las culturas Recuay, Chavín y Huaylas, además de un jardín de monolitos. Se visita para conocer la historia prehispánica de la región Áncash.",
       descriptionEn: "Museum in Huaraz holding ceramics, textiles and stone carvings from the Recuay, Chavín and Huaylas cultures, along with a garden of monoliths. It is visited to learn about the pre-Hispanic history of the Áncash region.",
+      lat: -9.53035,
+      lng: -77.52956,
     },
     {
       id: "huaraz_2",
@@ -215581,6 +216580,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://commons.wikimedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png",
       description: "Sitio arqueológico preincaico a unos 7 km de Huaraz, con edificaciones de piedra de varios pisos atribuidas a la cultura Wari. Se visita por su buen estado de conservación y su valor ceremonial.",
       descriptionEn: "Pre-Inca archaeological site about 7 km from Huaraz, with multi-storey stone buildings attributed to the Wari culture. It is visited for its good state of preservation and its ceremonial significance.",
+      lat: -9.48328,
+      lng: -77.51117,
     },
     {
       id: "huaraz_4",
@@ -215597,6 +216598,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Huaraz_-_Laguna_Churup_2.JPG/1920px-Huaraz_-_Laguna_Churup_2.JPG",
       description: "Laguna glaciar de color turquesa en la Cordillera Blanca, a unos 4.450 metros de altitud, a la que se llega por una caminata de un día desde Huaraz. Se visita por el paisaje de montaña y la cascada del sendero.",
       descriptionEn: "Turquoise glacial lake in the Cordillera Blanca at about 4,450 metres above sea level, reached on a day hike from Huaraz. It is visited for the mountain scenery and the waterfall along the trail.",
+      lat: -9.46806,
+      lng: -77.41556,
     },
     {
       id: "huaraz_5",
@@ -215661,6 +216664,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Monterrey%2C_Peru_-_panoramio_%281%29.jpg/1920px-Monterrey%2C_Peru_-_panoramio_%281%29.jpg",
       description: "Baños termales en el distrito de Independencia, a pocos kilómetros de Huaraz, con piscinas de aguas minerales calientes. Se visita para descansar y por las vistas hacia la Cordillera Blanca.",
       descriptionEn: "Hot springs in the Independencia district, a few kilometres from Huaraz, with pools of hot mineral water. They are visited for relaxation and for views towards the Cordillera Blanca.",
+      lat: -9.46889,
+      lng: -77.53604,
     },
     {
       id: "huaraz_9",
@@ -215995,6 +217000,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Laguna andina a unos 3.980 metros de altitud, junto a la carretera que une Huaraz con Chavín de Huántar, en la provincia de Recuay. Se visita como parada panorámica durante ese recorrido.",
       descriptionEn: "Andean lake at about 3,980 metres above sea level, beside the road linking Huaraz with Chavín de Huántar in Recuay province. It is visited as a scenic stop along that route.",
+      lat: -9.71611,
+      lng: -77.32417,
     },
     {
       id: "huaraz_27",
@@ -216099,6 +217106,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Memorial en el lugar donde el terremoto y aluvión de 1970 sepultaron la antigua ciudad de Yungay, a unos 60 km de Huaraz. Se visita para recordar la tragedia y conserva un monumento y el cementerio de las víctimas.",
       descriptionEn: "Memorial at the site where the 1970 earthquake and landslide buried the old town of Yungay, about 60 km from Huaraz. It is visited to remember the disaster and preserves a monument and the victims' cemetery.",
+      lat: -9.15114,
+      lng: -77.73826,
     },
     {
       id: "huaraz_33",
@@ -216116,6 +217125,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Laguna glaciar del Parque Nacional Huascarán, a unos 4.500 metros de altitud y a unos 27 km de Huaraz, al pie de los nevados Ranrapalca y Ocshapalca. Se visita por el paisaje de montaña y sus aguas de deshielo.",
       descriptionEn: "Glacial lake in Huascarán National Park at about 4,500 metres above sea level, some 27 km from Huaraz, at the foot of the Ranrapalca and Ocshapalca peaks. It is visited for the mountain scenery and its meltwater.",
+      lat: -9.43552,
+      lng: -77.44383,
     },
     {
       id: "huaraz_34",
@@ -216150,6 +217161,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Baños termales en el distrito de Marcará, provincia de Carhuaz, a unos 30 km de Huaraz, con piscinas de aguas minerales calientes de origen volcánico. Se visitan de paso por el Callejón de Huaylas.",
       descriptionEn: "Hot springs in the Marcará district of Carhuaz province, about 30 km from Huaraz, with pools of hot mineral water of volcanic origin. They are visited while travelling through the Callejón de Huaylas.",
+      lat: -9.31933,
+      lng: -77.57495,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Ba%C3%B1os_termales_de_Chancos%2C_detalles_04.jpg/1280px-Ba%C3%B1os_termales_de_Chancos%2C_detalles_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   paracas: [
@@ -216168,6 +217182,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/Falsas_cabezas.jpg",
       description: "Museo ubicado en Paracas que exhibe piezas de la cultura Paracas, como textiles y cerámica, y explica el contexto de los fardos funerarios hallados en la península.",
       descriptionEn: "Museum in Paracas displaying artifacts from the Paracas culture, including textiles and ceramics, and explaining the context of funerary bundles found on the peninsula.",
+      lat: -13.86845,
+      lng: -76.273,
     },
     {
       id: "paracas_1",
@@ -216331,6 +217347,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Paracas_National_Reserve._Ica%2C_Peru.jpg/3840px-Paracas_National_Reserve._Ica%2C_Peru.jpg",
       description: "Playa dentro de la Reserva Nacional de Paracas, de arena clara y aguas tranquilas, conocida por la acumulación de conchas y por ser punto de observación de aves marinas.",
       descriptionEn: "Beach within the Paracas National Reserve, with light sand and calm waters, known for the accumulation of shells and as a spot for observing seabirds.",
+      lat: -13.93889,
+      lng: -76.275,
     },
     {
       id: "paracas_11",
@@ -216360,9 +217378,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Aclamacion_panegirica_en_la_solemne_celebridad%2C_que_consagro_a_la_santissima_trinidad%2C_y_a_Christo_sacramentado%2C_su_tutelar%2C_la_venerable%2C_ilustre%2C_y_piadosa_cofradia_del_Santissmo._Sacramento_%28IA_A11302016%29.pdf/page1-500px-thumbnail.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c1/La_Centinela_%28Sector_VIII%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Complejo arqueológico de la cultura Chincha, ubicado en el valle de Chincha, con pirámides de adobe y plazas; se visita como excursión desde Paracas para conocer la historia prehispánica de la costa.",
       descriptionEn: "Archaeological complex of the Chincha culture, located in the Chincha Valley, with adobe pyramids and plazas; visited as a day trip from Paracas to learn about the pre-Hispanic history of the coast.",
+      lat: -13.45029,
+      lng: -76.17131,
+      dayTrip: true,
     },
     {
       id: "paracas_13",
@@ -216591,6 +217612,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Bahía natural protegida por la península de Paracas, con aguas relativamente calmadas; en ella se ubica el balneario de Paracas y desde su muelle salen embarcaciones turísticas.",
       descriptionEn: "Natural bay sheltered by the Paracas Peninsula, with relatively calm waters; the Paracas resort area is located there, and tourist boats depart from its pier.",
+      lat: -13.82667,
+      lng: -76.27278,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Paracas_bay_-_Peru.jpg/1280px-Paracas_bay_-_Peru.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "paracas_26",
