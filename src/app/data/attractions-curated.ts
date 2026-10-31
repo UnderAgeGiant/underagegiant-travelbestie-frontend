@@ -6579,6 +6579,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "El Cairo histórico se ubica en el centro de El Cairo y se caracteriza por sus mezquitas y otros monumentos islámicos de importancia histórica.",
       descriptionEn: "Historic Cairo is located in the center of Cairo, Egypt, and is characterized by its mosques and other Islamic monuments of historical importance.",
+      lat: 30.046,
+      lng: 31.2627,
     },
     {
       id: "cairo_1",
@@ -6595,6 +6597,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Memphis_-_Museum_-_back_courtyard.JPG",
       description: "Menfis, también conocida como Men-nefer, fue la antigua capital de Inebu-hedy, el primer nomo del Bajo Egipto conocido como mḥw (\"norte\"). Sus ruinas se encuentran en las inmediaciones de la actual aldea de Mit Rahina, en el condado de Badrashin, Gobernación de Guiza, Egipto.",
       descriptionEn: "The Egyptian pyramids are ancient masonry structures located in Egypt. Most were built as tombs for the pharaohs and their consorts during the Old and Middle Kingdom periods. At least 138 identified pyramids have been discovered in Egypt.",
+      lat: 29.976,
+      lng: 31.1304,
     },
     {
       id: "cairo_2",
@@ -6652,6 +6656,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.icm.gov.eg/",
       description: "El Museo de Cerámica Islámica ocupa el antiguo palacio de verano del príncipe Amr Ibrahim, construido en 1921 en Zamalek. Reabierto en 2024 tras 14 años de restauración, exhibe más de 300 piezas cerámicas de los siglos X al XIX.",
       descriptionEn: "The Museum of Islamic Ceramics occupies the former summer palace of Prince Amr Ibrahim, built in 1921 in Zamalek. Reopened in 2024 after a 14-year restoration, it displays over 300 ceramic pieces spanning the 10th to 19th centuries.",
+      lat: 30.0552,
+      lng: 31.2257,
     },
     {
       id: "cairo_5",
@@ -6728,6 +6734,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5d/The_exterior_of_the_Baron_Empain_palace.jpg",
       description: "El Palacio del Barón Empain es un palacio de estilo hindú construido en 1911 por el industrial belga Édouard Empain en el barrio de Heliópolis, El Cairo, que él mismo fundó. Es célebre por su arquitectura inspirada en los templos de Angkor y Orissa.",
       descriptionEn: "Baron Empain Palace is a Hindu-style palace built in 1911 by Belgian industrialist Édouard Empain in Heliopolis, Cairo, the district he himself founded. It is renowned for its architecture inspired by the temples of Angkor and Orissa.",
+      lat: 30.08665,
+      lng: 31.33024,
     },
     {
       id: "cairo_9",
@@ -6763,6 +6771,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/17/Abdeen_Palace.jpg",
       description: "El Palacio de Abdín es un histórico palacio de El Cairo, y una de las residencias oficiales y el lugar de trabajo principal del Presidente de Egipto, que se encuentra por encima de la calle Qasr el-Nil, en el centro este de El Cairo, Egipto.",
       descriptionEn: "Abdeen Palace is a historic palace in Cairo, and one of the official residences and main workplaces of the President of Egypt, located above Qasr el-Nil Street in east-central Cairo, Egypt.",
+      lat: 30.0417,
+      lng: 31.2483,
+      sourceUrl: "https://es.wikipedia.org/wiki/Palacio_de_Abd%C3%ADn",
     },
     {
       id: "cairo_11",
@@ -6795,6 +6806,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/60/CairoSakakini1.jpg",
       description: "El Palacio Habib Pasha El Sakakini es un palacio en el distrito de al-Zahir de El Cairo, Egipto. Construido para el contratista Gabriel Habib Sakakini y terminado en 1897, se alza sobre el emplazamiento de un antiguo lago en el punto de encuentro de ocho calles.",
       descriptionEn: "Habib Pasha El Sakakini Palace is a palace in the al-Zahir district of Cairo, Egypt. Built for the contractor Gabriel Habib Sakakini and completed in 1897, it stands on the site of a former lake at the meeting point of eight roads.",
+      lat: 30.06569,
+      lng: 31.26617,
     },
     {
       id: "cairo_13",
@@ -6812,6 +6825,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.samaanchurch.com/",
       description: "El Monasterio de San Simón el Curtidor, conocido como la «Iglesia de la Cueva», está tallado en la roca de la montaña Mocatam, en el barrio de la Ciudad de la Basura de El Cairo. Es la iglesia más grande de Oriente Medio, con capacidad para unas 20 000 personas.",
       descriptionEn: "The Monastery of Saint Simon the Tanner, known as the \"Cave Church,\" is carved into the rock of Mokattam Mountain in Cairo's Garbage City district. It is the largest church in the Middle East, with capacity for roughly 20,000 people.",
+      lat: 30.03166,
+      lng: 31.27675,
     },
     {
       id: "cairo_14",
@@ -7290,6 +7305,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.chavonnesbattery.co.za/",
       description: "El Museo de la Batería Chavonnes conserva los restos de una fortificación construida a principios del siglo XVIII para proteger Ciudad del Cabo. Hoy funciona como museo y espacio de eventos en el Victoria & Alfred Waterfront.",
       descriptionEn: "The Chavonnes Battery was a fortification protecting Cape Town, South Africa, built in the early 18th century. It is now a museum and function venue.",
+      lat: -33.90711,
+      lng: 18.4216,
     },
     {
       id: "capetown_3",
@@ -7307,6 +7324,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://heartofcapetown.co.za/",
       description: "El Heart of Cape Town Museum se encuentra en el antiguo quirófano del Hospital Groote Schuur, donde el cirujano Christiaan Barnard realizó en 1967 el primer trasplante de corazón humano del mundo.",
       descriptionEn: "Cape Town is the legislative capital of South Africa. It is the country's oldest city and the seat of the Parliament of South Africa. Cape Town is the country's second-largest city by population, after Johannesburg, and the largest city in the Western Cape.",
+      lat: -33.941,
+      lng: 18.463,
     },
     {
       id: "capetown_4",
@@ -7324,6 +7343,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://zeitzmocaa.museum",
       description: "El Zeitz MOCAA es un museo público sin fines de lucro de Ciudad del Cabo, Sudáfrica. Inaugurado en 2017 en un antiguo silo de granos del Waterfront, es el mayor museo dedicado al arte contemporáneo africano y su diáspora.",
       descriptionEn: "Zeitz Museum of Contemporary Art Africa is a public non-profit museum in Cape Town, South Africa. Zeitz MOCAA opened on September 22, 2017 as the largest museum of contemporary art from Africa and its diaspora.",
+      lat: -33.9084,
+      lng: 18.423,
     },
     {
       id: "capetown_5",
@@ -7341,6 +7362,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.ctholocaust.co.za/",
       description: "El Cape Town Holocaust & Genocide Centre es un museo educativo ubicado en el barrio de Gardens, Ciudad del Cabo, dedicado a la memoria del Holocausto y a la educación en derechos humanos y tolerancia.",
       descriptionEn: "The Cape Town Holocaust & Genocide Centre is an educational museum in the Gardens neighbourhood of Cape Town, South Africa, dedicated to Holocaust remembrance and human rights education.",
+      lat: -33.9303,
+      lng: 18.41663,
     },
     {
       id: "capetown_6",
@@ -7358,6 +7381,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.sajewishmuseum.co.za/",
       description: "El Museo Judío Sudafricano, ubicado en el barrio de Gardens de Ciudad del Cabo, narra la historia y la identidad de la comunidad judía en Sudáfrica a través de exhibiciones interactivas.",
       descriptionEn: "The South African Jewish Museum is a museum of South African Jewish life, history and identity. The museum is situated in the downtown neighbourhood of Gardens in Cape Town.",
+      lat: -33.92986,
+      lng: 18.41698,
     },
     {
       id: "capetown_7",
@@ -7395,6 +7420,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.ardernegardens.org.za/",
       description: "Arderne Gardens es un parque público y arboreto en Claremont, Ciudad del Cabo, en la provincia del Cabo Occidental de Sudáfrica. Fue fundado en 1845 por Ralph Henry Arderne, un comerciante de maderas originario de Cheshire, Inglaterra.",
       descriptionEn: "Arderne Gardens is a public park and arboretum in Claremont, Cape Town, located in the Western Cape of South Africa. It was established in 1845 by Ralph Henry Arderne, a timber merchant originally from Cheshire, England.",
+      lat: -33.98728,
+      lng: 18.46486,
     },
     {
       id: "capetown_9",
@@ -7412,6 +7439,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.aquarium.co.za/",
       description: "El Two Oceans Aquarium es un acuario ubicado en el Victoria & Alfred Waterfront de Ciudad del Cabo, Sudáfrica, que exhibe la vida marina de los océanos Atlántico e Índico que confluyen en la región.",
       descriptionEn: "The Two Oceans Aquarium is an aquarium located at the Victoria & Alfred Waterfront in Cape Town, Western Cape, South Africa.",
+      lat: -33.90806,
+      lng: 18.41767,
     },
     {
       id: "capetown_10",
@@ -7446,6 +7475,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://stmaryscathedral.org.za/",
       description: "La Catedral de Santa María es el nombre que recibe un edificio religioso que pertenece a la iglesia católica y que está ubicado en Ciudad del Cabo, en Sudáfrica. Es la sede de la arquidiócesis de Ciudad del Cabo y la catedral más antigua de la Iglesia católica en Sudáfrica.",
       descriptionEn: "St Mary's Cathedral is a Roman Catholic cathedral in Cape Town, South Africa. It is the seat of the Archdiocese of Cape Town and the oldest Catholic cathedral in South Africa.",
+      lat: -33.92826,
+      lng: 18.41936,
     },
     {
       id: "capetown_12",
@@ -7497,6 +7528,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.districtsix.co.za/",
       description: "El Museo District Six, en Ciudad del Cabo, conmemora el barrio del mismo nombre, cuyos habitantes fueron desplazados por la fuerza a partir de 1966, cuando el régimen del apartheid lo declaró zona exclusiva para blancos.",
       descriptionEn: "District Six is a residential neighborhood in Cape Town, South Africa, located next to the city's CBD. In 1959, people of color were banned from the area and most of them were resettled in Gugulethu.",
+      lat: -33.9277,
+      lng: 18.4237,
     },
     {
       id: "capetown_15",
@@ -7798,6 +7831,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Puerto%2C_fortalezas_y_conjunto_monumental_de_Cartagena",
       lat: 10.41667,
       lng: -75.53333,
+      descriptionEn: "A UNESCO World Heritage Site since 1984, it brings together the historic port, the defensive system of walls and forts such as Castillo San Felipe de Barajas, and the walled old town with its squares, churches and colonial houses.",
     },
     {
       id: "cartagena_1",
@@ -7815,6 +7849,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.banrepcultural.org/cartagena/museo-del-oro-zenu",
       description: "El Museo del Oro del Banco de la República de Colombia es una institución pública la cual tiene como principal objetivo la adquisición, conservación y exposición de piezas de orfebrería y alfarería de culturas indígenas del periodo precolombino de la actual Colombia, cuenta con…",
       descriptionEn: "The Museo del Oro Zenú in Cartagena is a branch of Colombia's Banco de la República gold museum network, dedicated to acquiring, conserving, and exhibiting pre-Columbian goldwork and pottery from the Zenú culture of the Caribbean coast.",
+      lat: 10.42309,
+      lng: -75.55089,
     },
     {
       id: "cartagena_2",
@@ -7869,6 +7905,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Colombia%2C_Cartagena%2C_Equestrian_of_Sim%C3%B3n_Bol%C3%ADvar.jpg/1280px-Colombia%2C_Cartagena%2C_Equestrian_of_Sim%C3%B3n_Bol%C3%ADvar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El parque de Bolívar, también conocido como plaza de Bolívar, es un parque urbano ubicado en el centro histórico de la ciudad colombiana de Cartagena de Indias. Es un sitio emblemático de la ciudad, cargado de simbolismos históricos y culturales.",
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_de_Bol%C3%ADvar_(Cartagena_de_Indias)",
+      lat: 10.42328,
+      lng: -75.55126,
+      descriptionEn: "The central square of Cartagena's walled old town, surrounded by the cathedral, the Palace of the Inquisition and colonial houses with balconies; a statue of Simón Bolívar stands in the middle, and it is a meeting point and walking hub.",
     },
     {
       id: "cartagena_5",
@@ -7943,6 +7982,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Baluarte_de_San_Ignacio%2C_Cartagena.jpg/1920px-Baluarte_de_San_Ignacio%2C_Cartagena.jpg",
       description: "El Baluarte de San Ignacio es un bastión ubicado en Cartagena de Indias, Colombia. Originalmente llamado Bastión de los Moros, está situado junto a la Casa de los Jesuitas y es obra del ingeniero militar Cristóbal de Roda.",
       descriptionEn: "The Baluarte de San Ignacio is a bastion located in Cartagena de Indias, in Colombia. This bastion, originally called the Bastión de los Moros, is located on the side of the House of the Jesuits and is the work of Cristóbal de Roda.",
+      lat: 10.42114,
+      lng: -75.55069,
     },
     {
       id: "cartagena_9",
@@ -7959,6 +8000,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Baluarte_de_Santo_Domingo%2C_Cartagena_03.jpg/1920px-Baluarte_de_Santo_Domingo%2C_Cartagena_03.jpg",
       description: "El Bastión de Santo Domingo es un baluarte ubicado en Cartagena de Indias, en Colombia. El baluarte de Santo Domingo tiene una especial importancia, ya que es el origen de la construcción de las murallas de la ciudad de Cartagena de Indias a principios del siglo XVII.",
       descriptionEn: "The Baluarte de Santo Domingo is a bastion located in Cartagena de Indias, in Colombia. The bastion of Santo Domingo has a particular importance, since it is the origin of the construction of the city walls of Cartagena de Indias in the early 17th century.",
+      lat: 10.42446,
+      lng: -75.55405,
     },
     {
       id: "cartagena_10",
@@ -7974,8 +8017,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Combate_naval_de_Cartagena_%2811_de_octubre_de_1873%29.jpg/1920px-Combate_naval_de_Cartagena_%2811_de_octubre_de_1873%29.jpg",
       website: "http://www fortificacionescartagena.com",
-      description: "El Museo Histórico Militar de Cartagena está situado en lo que fue el Real Parque y Maestranza de Artillería, edificio levantado en el siglo XVIII bajo el reinado de Carlos III, recoge la historia de la Artillería y de las unidades artilleras asentadas en la ciudad de Cartagena,…",
+      description: "Museo dedicado al sistema defensivo de Cartagena, con planos, maquetas y documentos que explican cómo funcionaban las murallas, los baluartes y los castillos que protegían la ciudad de los ataques navales.",
       descriptionEn: "The Museo de las Fortificaciones (Museo Histórico Militar de Cartagena) is housed in the 18th-century Real Parque y Maestranza de Artillería, built under King Charles III, and chronicles the history of the artillery corps and units stationed in Cartagena, Colombia.",
+      lat: 10.4306,
+      lng: -75.54593,
     },
     {
       id: "cartagena_11",
@@ -7992,6 +8037,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Casa_Museo_Rafael_N%C3%BA%C3%B1ez%2C_Cartagena%2C_Colombia_%2824435967039%29.jpg/1280px-Casa_Museo_Rafael_N%C3%BA%C3%B1ez%2C_Cartagena%2C_Colombia_%2824435967039%29.jpg",
       description: "Rafael Wenceslao Núñez Moledo fue un abogado, periodista, escritor, político y militar colombiano. Fue presidente de Colombia en cuatro periodos: entre 1880 y 1882, luego entre 1884 y 1886, entre 1887 y 1888, finalmente entre 1892 y 1894.",
       descriptionEn: "Rafael Wenceslao Núñez Moledo was a Colombian lawyer, journalist, writer, politician, and military figure who served as President of Colombia across four terms between 1880 and 1894. This former beach house in Cartagena's El Cabrero neighborhood, where he lived and died, is now a museum dedicated to his life.",
+      lat: 10.43114,
+      lng: -75.5441,
     },
     {
       id: "cartagena_12",
@@ -8008,6 +8055,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Vista_frontal_del_Museo_Naval_del_Caribe._Cartagena._Colombia.JPG/1920px-Vista_frontal_del_Museo_Naval_del_Caribe._Cartagena._Colombia.JPG",
       description: "El Museo Naval del Caribe ocupa un edificio de 1612, antiguo colegio jesuita convertido después en hospital militar y cuartel de la Armada. Desde 1992 exhibe la historia naval de Colombia y el Caribe, con salas dedicadas a la época colonial, la republicana y la construcción naval en Cartagena.",
       descriptionEn: "The Museo Naval del Caribe occupies a 1612 building, originally a Jesuit college later used as a military hospital and naval barracks. Since 1992 it has showcased the naval history of Colombia and the Caribbean, with colonial- and republican-era halls covering shipbuilding, cartography, and maritime battles.",
+      lat: 10.42192,
+      lng: -75.55207,
     },
     {
       id: "cartagena_13",
@@ -8024,6 +8073,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Campa%C3%B1as_navales_de_la_Rep%C3%BAblica_Argentina_-_Tomo_IV.djvu/page1-1920px-Campa%C3%B1as_navales_de_la_Rep%C3%BAblica_Argentina_-_Tomo_IV.djvu.jpg",
       description: "El Museo de la Esmeralda de Cartagena exhibe una colección de esmeraldas colombianas y de otras partes del mundo, con una réplica de mina y salas dedicadas a la historia y explotación de esta piedra preciosa, incluyendo la veta \"Petra\", la más grande hallada en Colombia.",
       descriptionEn: "The Museo de la Esmeralda in Cartagena displays a collection of Colombian and international emeralds, including a mock mining tunnel and halls devoted to the history and mining of the gemstone, featuring \"Petra,\" the largest emerald vein ever found in Colombia.",
+      lat: 10.42219,
+      lng: -75.55087,
     },
     {
       id: "cartagena_14",
@@ -8176,6 +8227,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -75.55098,
       description: "El Teatro Heredia, oficialmente Teatro Adolfo Mejía es un teatro colombiano ubicado en el interior de la ciudad amurallada de Cartagena de Indias, Bolívar, Colombia.",
       sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Heredia",
+      descriptionEn: "A historic theatre in the walled old town, opened in 1911 and now known as Teatro Adolfo Mejía; built in neoclassical style, its hall hosts concerts, plays and cultural events.",
     },
     {
       id: "cartagena_22",
@@ -8233,6 +8285,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -75.61424,
       description: "El monumento a la India Catalina es una estatua de bronce que se encuentra en Cartagena de Indias, Colombia.",
       sourceUrl: "https://es.wikipedia.org/wiki/Monumento_a_la_india_Catalina",
+      descriptionEn: "An urban sculpture honouring the indigenous woman Catalina, who served as an interpreter between the Spanish and the region's native peoples; her figure is one of the symbols of Cartagena.",
     },
     {
       id: "cartagena_25",
@@ -8456,8 +8509,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Eglise_orthodoxe_russe_de_la_Dormition_%C3%A0_Casablanca.jpg/1920px-Eglise_orthodoxe_russe_de_la_Dormition_%C3%A0_Casablanca.jpg",
       website: "https://orthodox.ma/",
-      description: "Église orthodoxe russe de la Dormition es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Église orthodoxe russe de la Dormition is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Iglesia ortodoxa rusa de la Dormición es un templo ortodoxo en Casablanca, asociado a la comunidad rusa local. Se visita por su arquitectura religiosa y su valor cultural.",
+      descriptionEn: "The Russian Orthodox Church of the Dormition is an Orthodox temple in Casablanca associated with the local Russian community. It is visited for its religious architecture and cultural value.",
     },
     {
       id: "casablanca_3",
@@ -8505,8 +8558,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Temple_Beth-El_service.png",
-      description: "Temple Beth El معبد بيت إيل es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Templo Beth-El de Casablanca es una sinagoga judía en Casablanca, Marruecos. Mientras que la ciudad cuenta con más de 30 sinagogas, Beth-El a menudo se considera la pieza central de una comunidad judía que una vez fue vibrante.",
       descriptionEn: "The Temple Beth-El also called Beit-El or the Algerian Temple, is an Orthodox Jewish congregation and synagogue in the Sidi Belyout district of Casablanca, Morocco.",
+      lat: 33.5968,
+      lng: -7.62965,
+      sourceUrl: "https://es.wikipedia.org/wiki/Templo_Beth-El_de_Casablanca",
     },
     {
       id: "casablanca_6",
@@ -8521,8 +8577,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Arab_League_Park%2C_Casablanca%3B_%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%D8%8C_%D8%A7%D9%84%D8%AF%D8%A7%D8%B1_%D8%A7%D9%84%D8%A8%D9%8A%D8%B6%D8%A7%D8%A1.jpg/1920px-Arab_League_Park%2C_Casablanca%3B_%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%D8%8C_%D8%A7%D9%84%D8%AF%D8%A7%D8%B1_%D8%A7%D9%84%D8%A8%D9%8A%D8%B6%D8%A7%D8%A1.jpg",
-      description: "Parc de la Ligue Arabe حديقة الجامعة العربية es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Parc de la Ligue Arabe حديقة الجامعة العربية is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Parque de la Liga Árabe es un amplio parque urbano en el centro de Casablanca, con jardines, palmeras y senderos. Es un espacio público usado para pasear y descansar.",
+      descriptionEn: "Arab League Park is a large urban park in central Casablanca, with gardens, palm trees, and paths. It is a public space used for walking and relaxing.",
+      lat: 33.58794,
+      lng: -7.62176,
     },
     {
       id: "casablanca_7",
@@ -8559,6 +8617,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Twin_Center%2C_Boulevard_Mohamed_Zerktouni%2C_Casablanca.JPG/1920px-Twin_Center%2C_Boulevard_Mohamed_Zerktouni%2C_Casablanca.JPG",
       description: "Casablanca Twin Center son 2 torres gemelas situadas en la ciudad marroquí de Casablanca, la más importante del país.",
       descriptionEn: "The Casablanca Twin Center is a complex of two skyscrapers located at Casablanca, Morocco. The two structures, the West Tower and the East Tower, have 28 floors each.",
+      lat: 33.58658,
+      lng: -7.63229,
     },
     {
       id: "casablanca_9",
@@ -8575,6 +8635,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Downtown%2C_Casablanca.jpg/1920px-Downtown%2C_Casablanca.jpg",
       description: "Plaza de las Naciones Unidas es una plaza pública ubicada el centro de Casablanca, Marruecos.",
       descriptionEn: "United Nations Square is a public square in the center of Casablanca, Morocco. It has been central in the history of Casablanca.",
+      lat: 33.59486,
+      lng: -7.61856,
     },
     {
       id: "casablanca_10",
@@ -8681,6 +8743,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "La Iglesia del Sagrado Corazón, o simplemente Catedral de Casablanca, es una antigua iglesia católica marroquí.",
       descriptionEn: "The Casablanca Cathedral, or Church of the Sacred Heart, is a former church located west of the Arab League Park in Casablanca, Morocco.",
       sourceUrl: "https://es.wikipedia.org/wiki/Antigua_catedral_del_Sagrado_Coraz%C3%B3n_de_Casablanca",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Casablanca_%285281127436%29.jpg/1280px-Casablanca_%285281127436%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "casablanca_16",
@@ -8758,6 +8821,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -7.62164,
       description: "El Gran Teatro de Casablanca (Cas Arts) es un teatro situado en la Plaza Mohammed V de Casablanca, Marruecos.",
       sourceUrl: "https://es.wikipedia.org/wiki/Gran_Teatro_de_Casablanca",
+      descriptionEn: "The Grand Theatre of Casablanca is a contemporary performing arts center in the city. It is visited for its design and cultural programming.",
     },
     {
       id: "casablanca_20",
@@ -19243,6 +19307,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Plaza_de_la_Revoluci%C3%B3n",
       lat: 23.12242,
       lng: -82.38669,
+      descriptionEn: "Plaza de la Revolución is a municipality and a square in Havana, Cuba.",
     },
     {
       id: "havana_4",
@@ -19296,6 +19361,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.hemingwayhavana.com/",
       description: "El Museo Ernest Hemingway ocupa la Finca Vigía, la residencia del escritor en el barrio de San Francisco de Paula, donde vivió desde 1940 hasta su muerte en 1961. Convertida en museo en 1962, es la primera institución del mundo dedicada a divulgar su vida y obra.",
       descriptionEn: "The Ernest Hemingway Museum occupies Finca Vigía, the writer's residence in the San Francisco de Paula neighborhood of Havana, where he lived from 1940 until his death in 1961. Turned into a museum in 1962, it was the first institution in the world dedicated to his life and work.",
+      lat: 23.06777,
+      lng: -82.29641,
     },
     {
       id: "havana_7",
@@ -19313,6 +19380,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.centenariobenny.home.blog/",
       description: "El Museo Nacional de la Música, fundado en 1971, ocupa una mansión ecléctica de 1905 en La Habana Vieja. Recorre la evolución de la música y los instrumentos cubanos desde el siglo XVI hasta el XX, con una colección de instrumentos, partituras y documentos.",
       descriptionEn: "The National Museum of Music, founded in 1971, occupies an eclectic 1905 mansion in Old Havana. It traces the development of Cuban music and instruments from the 16th to the 20th century through a collection of instruments, scores, and documents.",
+      lat: 23.1437,
+      lng: -82.3556,
     },
     {
       id: "havana_8",
@@ -19401,6 +19470,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cuba_y_Quisqueya_%28IA_cubayquisqueya00henr%29.pdf/page1-500px-Cuba_y_Quisqueya_%28IA_cubayquisqueya00henr%29.pdf.jpg",
       description: "La Casa Natal de José Martí, construida a comienzos del siglo XIX, es donde nació el héroe nacional cubano el 28 de enero de 1853. Convertida en museo en 1925, es el museo más antiguo de La Habana y se ubica en La Habana Vieja, Patrimonio de la Humanidad.",
       descriptionEn: "The José Martí Birthplace House, built in the early 19th century, is where the Cuban national hero was born on January 28, 1853. Turned into a museum in 1925, it is Havana's oldest museum, located in the World Heritage site of Old Havana.",
+      lat: 23.12997,
+      lng: -82.35368,
     },
     {
       id: "havana_13",
@@ -19591,6 +19662,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -82.37583,
       description: "El Callejón de Hamel es un callejón situado entre las calles Aramburu y Hospital en la La Habana. Este callejón posee pinturas, murales y esculturas que rinden tributo a la cultura afrocubana, de hecho, la mayoría de sus murales describen deidades afrocubanas.",
       sourceUrl: "https://es.wikipedia.org/wiki/Callej%C3%B3n_de_Hamel",
+      descriptionEn: "Callejón de Hamel is an alley in Havana's Cayo Hueso neighborhood, known for its Afro-Cuban murals and for the rumba performances held there. It is a cultural space associated with the work of artist Salvador González Escalona.",
     },
     {
       id: "havana_23",
@@ -35439,6 +35511,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Monte_Alban_Oaxaca_1976_-_Oaxaca_Valley.jpg",
       description: "Monte Albán es un sitio arqueológico localizado a 8 km de la ciudad de Oaxaca de Juárez. Fue la antigua capital de los zapotecos y una de las primeras ciudades de Mesoamérica, y de las más populosas durante su auge. Se fundó aproximadamente 500 años a.",
       descriptionEn: "Monte Albán is a large pre-Columbian archaeological site in the Santa Cruz Xoxocotlán Municipality in the southern Mexican state of Oaxaca.",
+      lat: 17.04389,
+      lng: -96.76778,
     },
     {
       id: "oaxaca_5",
@@ -35475,6 +35549,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://youtu.be/dQUR9tH7hmM",
       description: "El Templo de Santo Domingo de Guzmán de la ciudad de Oaxaca de Juárez (México) es un ejemplo de la arquitectura barroca novohispana.",
       descriptionEn: "The Church and Convent of Santo Domingo de Guzmán in the city of Oaxaca de Juárez (Mexico) is an example of New Spanish Baroque architecture.",
+      lat: 17.06556,
+      lng: -96.72306,
     },
     {
       id: "oaxaca_7",
@@ -35491,6 +35567,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Jos%C3%A9_Mar%C3%ADa_Velasco_-_Oaxaca_Cathedral_-_Google_Art_Project.jpg/1920px-Jos%C3%A9_Mar%C3%ADa_Velasco_-_Oaxaca_Cathedral_-_Google_Art_Project.jpg",
       description: "La Catedral de Nuestra Señora de la Asunción de la ciudad de Oaxaca de Juárez, Oaxaca, México, es la sede de la Arquidiócesis de Antequera. Su construcción fue iniciada en 1535, siendo consagrado el templo el 12 de julio de 1733. Está dedicada a Nuestra Señora de la Asunción.",
       descriptionEn: "The Cathedral of Our Lady of the Assumption, located in the city of Oaxaca de Juarez, Oaxaca, Mexico, is the seat of the Roman Catholic Archdiocese of Antequera, Oaxaca. Its construction began circa 1535 and it was consecrated on 12 July 1733.",
+      lat: 17.0615,
+      lng: -96.72508,
     },
     {
       id: "oaxaca_8",
@@ -35507,6 +35585,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Imagen_de_la_Virgen_de_la_Soledad%2C_Oaxaca_-_4.tif/lossy-page1-1280px-Imagen_de_la_Virgen_de_la_Soledad%2C_Oaxaca_-_4.tif.jpg",
       description: "La Basílica de Nuestra Señora de la Soledad se localiza en la ciudad de Oaxaca de Juárez, al sureste de México. Fue construida entre 1682 y 1690, y es un santuario dedicado a la Virgen de la Soledad, patrona de la ciudad de Oaxaca.",
       descriptionEn: "The Basilica of Nuestra Señora de Soledad is a Roman Catholic Basilica located in Oaxaca de Juárez, Oaxaca, Mexico. It was built between 1682 and 1690, and is a sanctuary dedicated to Our Lady of Solitude, patron saint of Oaxaca.",
+      lat: 17.0635,
+      lng: -96.73015,
     },
     {
       id: "oaxaca_9",
@@ -35524,6 +35604,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://youtu.be/aVIdV4p7bHM",
       description: "El Árbol del Tule es el árbol con el diámetro de tronco más grande del mundo. Su edad real es desconocida, pero según estimaciones es de más de 2000 años. Es un ahuehuete con una circunferencia de copa de aproximadamente 58 metros y una altura de 42 metros.",
       descriptionEn: "El Árbol del Tule is a tree located in the church grounds in the town center of Santa María del Tule in the Mexican state of Oaxaca, approximately 9 km (6 mi) east of the city of Oaxaca on the road to Mitla. It is a Montezuma cypress, or ahuehuete.",
+      lat: 17.0465,
+      lng: -96.63611,
     },
     {
       id: "oaxaca_10",
@@ -35542,6 +35624,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Macedonio_Alcal%C3%A1",
       lat: 17.06137,
       lng: -96.72339,
+      descriptionEn: "A neoclassical theater in Oaxaca's historic center, inaugurated in 1909 and formerly known as Teatro Mier y Terán. It is visited for its architecture and because it hosts concerts, dance, theater and cultural performances.",
     },
     {
       id: "oaxaca_11",
@@ -35579,6 +35662,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "www.cfmab.co.mx",
       description: "El Centro Fotográfico Manuel Álvarez Bravo es un centro de exposiciones fotográficas en la ciudad de Oaxaca, México, dedicado a la obra del fotógrafo mexicano que le da nombre.",
       descriptionEn: "The Centro Fotográfico Manuel Álvarez Bravo is a photographic exhibition centre in the city of Oaxaca, Mexico.",
+      lat: 17.0649,
+      lng: -96.72478,
     },
     {
       id: "oaxaca_13",
@@ -35655,6 +35740,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Pasillo_de_claustro_Ex_convento_de_Santo_Domingo_de_Guzm%C3%A1n_Oaxaca.JPG/1280px-Pasillo_de_claustro_Ex_convento_de_Santo_Domingo_de_Guzm%C3%A1n_Oaxaca.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Centro Cultural Santo Domingo es un conjunto arquitectónico que fue abierto al público el 24 de julio de 1998 y pertenece al Museo de las Culturas de Oaxaca.",
       sourceUrl: "https://es.wikipedia.org/wiki/Centro_Cultural_Santo_Domingo",
+      descriptionEn: "A cultural complex set in the former Santo Domingo convent in central Oaxaca. It houses the Museum of Oaxacan Cultures, the Fray Francisco de Burgoa library and an ethnobotanical garden.",
     },
     {
       id: "oaxaca_17",
@@ -35727,6 +35813,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Z%C3%B3calo-Oaxaca-Mayo2008.jpg/1280px-Z%C3%B3calo-Oaxaca-Mayo2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Plaza principal de la ciudad de Oaxaca, rodeada por la Catedral, el Palacio de Gobierno y portales con cafés y restaurantes. Funciona como punto de reunión y escenario de conciertos, ferias y actos cívicos.",
       descriptionEn: "Main square of Oaxaca city, bordered by the Cathedral, the Government Palace and arcades with cafés and restaurants. It serves as a gathering place and a venue for concerts, fairs and civic events.",
+      lat: 17.0606,
+      lng: -96.72534,
     },
     {
       id: "oaxaca_21",
@@ -35743,6 +35831,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Macedonio_de_Alcal%C3%A1.jpg/1280px-Macedonio_de_Alcal%C3%A1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Calle peatonal del centro histórico de Oaxaca que conecta el Zócalo con el Templo de Santo Domingo. A lo largo de su recorrido hay galerías, tiendas, restaurantes y hoteles instalados en casas coloniales.",
       descriptionEn: "Pedestrian street in Oaxaca's historic center linking the Zócalo with the Santo Domingo church. Along its route are galleries, shops, restaurants and hotels housed in colonial buildings.",
+      lat: 17.06312,
+      lng: -96.72432,
     },
     {
       id: "oaxaca_22",
@@ -35761,6 +35851,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -96.73389,
       description: "El Cerro del Fortín, es una elevación montañosa localizada en la Sierra Madre del Sur, se localiza en la ciudad de Oaxaca de Juárez, México; es el punto geográfico más elevado y símbolo de la ciudad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Cerro_del_Fort%C3%ADn",
+      descriptionEn: "A hill west of Oaxaca city with panoramic views over the valley and the historic center. It is home to the auditorium where the Guelaguetza festival takes place.",
     },
     {
       id: "oaxaca_23",
@@ -35779,6 +35870,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -96.52,
       description: "Teotitlán del Valle es un pueblo del estado de Oaxaca, Localizado a 30 Kilómetros de la Ciudad de Oaxaca, sobre la carretera federal 190 rumbo al Istmo de Tehuantepec. Es la cabecera del municipio de Teotitlán del Valle.",
       sourceUrl: "https://es.wikipedia.org/wiki/Teotitl%C3%A1n_del_Valle",
+      descriptionEn: "A Zapotec town east of Oaxaca known for making wool rugs and textiles woven on treadle looms. It is a common day trip from the city to see the craftwork.",
     },
     {
       id: "oaxaca_24",
@@ -35797,6 +35889,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -96.7075,
       description: "San Bartolo Coyotepec es una población del estado mexicano de Oaxaca, localizado en el centro del estado y en la Zona metropolitana de Oaxaca.",
       sourceUrl: "https://es.wikipedia.org/wiki/San_Bartolo_Coyotepec",
+      descriptionEn: "A town south of Oaxaca known for its black pottery, with pieces featuring a dark, burnished surface. Family workshops, linked to the tradition of Doña Rosa, can be visited.",
     },
     {
       id: "oaxaca_25",
@@ -35816,6 +35909,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://museotextildeoaxaca.org/",
       description: "El Museo Textil de Oaxaca es un museo textil ubicado en el Centro Histórico de Oaxaca de Juaréz en la Avenida Hidalgo 917. El museo es albergado en la Casa Antelo.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Textil_de_Oaxaca",
+      descriptionEn: "A museum devoted to Oaxacan textiles in the city's historic center. It displays garments and weaving and embroidery techniques from different regions of the state.",
     },
     {
       id: "oaxaca_26",
@@ -38731,6 +38825,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Centro_hist%C3%B3rico_de_Quito",
       lat: -0.22,
       lng: -78.51208,
+      descriptionEn: "Quito’s Historic Center is the city’s colonial core, declared a UNESCO World Heritage Site in 1978. Visitors come to walk its streets, plazas and churches and learn about Quito’s architecture and history.",
     },
     {
       id: "quito_1",
@@ -38748,6 +38843,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://alabado.org/",
       description: "El Museo de Arte Precolombino Casa del Alabado es un museo ecuatoriano ubicado en el centro histórico de Quito, dedicado al arte precolombino.",
       descriptionEn: "The Museo de Arte Precolombino Casa del Alabado is an Ecuadorian museum located in Quito's historic center, dedicated to pre-Columbian art.",
+      lat: -0.22126,
+      lng: -78.51582,
     },
     {
       id: "quito_2",
@@ -38764,6 +38861,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Contrastes_Ilal%C3%B3_-_panoramio.jpg/1920px-Contrastes_Ilal%C3%B3_-_panoramio.jpg",
       description: "El Ilaló es un volcán inactivo y altamente erosionado, significa: 'caña y aguacate', del cayapa ela: la caña, y alu: aguacate, situado en la cuenca del río San Pedro, frente al río Guayllabamba, en el Distrito Metropolitano de Quito de la provincia de Pichincha en el norte de…",
       descriptionEn: "Ilaló is an eroded stratovolcano located to the southeast of Quito, Ecuador.",
+      lat: -0.26667,
+      lng: -78.4,
     },
     {
       id: "quito_3",
@@ -38780,6 +38879,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/El_Pichincha_Volc%C3%A1n_en_Quito_Ecuador.JPG/1920px-El_Pichincha_Volc%C3%A1n_en_Quito_Ecuador.JPG",
       description: "El Macizo de los Pichinchas son un conjunto de cerros y volcanes de Ecuador, situado en la capital del país, Quito. Pertenecen a la Cordillera Occidental de los Andes ecuatorianos. Sus principales volcanes son el Guagua Pichincha y el Ruku Pichincha.",
       descriptionEn: "Pichincha is a stratovolcano in Ecuador. The capital Quito wraps around its eastern slopes.",
+      lat: -0.17722,
+      lng: -78.59889,
     },
     {
       id: "quito_4",
@@ -38796,6 +38897,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Museo_Alberto_Mena_Caama%C3%B1o_%28Quito%29.JPG/1920px-Museo_Alberto_Mena_Caama%C3%B1o_%28Quito%29.JPG",
       description: "El Museo Alberto Mena Caamaño es una institución de carácter cultural de la ciudad de Quito, capital de Ecuador. Se encuentra ubicado en el centro histórico de la urbe, sobre la calle Espejo, junto al Palacio de Carondelet.",
       descriptionEn: "Alberto Mena Caamaño Museum is a museum in Quito, Ecuador. A cultural institution of Quito, the capital of Ecuador, it is located in the historic center of the city, next to the Palacio de Carondelet.",
+      lat: -0.21987,
+      lng: -78.51312,
     },
     {
       id: "quito_5",
@@ -38813,6 +38916,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://facebook.com/LaMagdalenaQuito",
       description: "La Magdalena es una de las 32 parroquias urbanas de la ciudad de Quito. Se ubica en el sur de la urbe y lleva ese nombre en honor a la santa católica María Magdalena.",
       descriptionEn: "La Magdalena is one of Quito's 32 urban parishes, located in the south of the city and named in honor of Saint Mary Magdalene.",
+      lat: -0.24159,
+      lng: -78.52848,
     },
     {
       id: "quito_6",
@@ -38829,6 +38934,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Quito_Museo_Camilo_Egas_seen_from_the_intersection.jpg/1920px-Quito_Museo_Camilo_Egas_seen_from_the_intersection.jpg",
       description: "El Museo Camilo Egas es un museo de arte en Quito, Ecuador de las obras de arte del pintor modernista ecuatoriano Camilo Egas.",
       descriptionEn: "The Museo Camilo Egas is an Ecuadorian art museum about the modernist painter Camilo Egas. It was established in 1980 and is located in Quito, Ecuador.",
+      lat: -0.21741,
+      lng: -78.50923,
     },
     {
       id: "quito_7",
@@ -38846,6 +38953,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://facebook.com/SantuarioDeGuapulo",
       description: "La iglesia de Nuestra Señora de Guápulo o Santuario de Guápulo fue el primer santuario mariano de la hoy República del Ecuador, fundado en 1620 en Guápulo, al noreste de la ciudad de Quito, ubicada a 2690 m s. n. m.",
       descriptionEn: "The Church of Our Lady of Guápulo, or Sanctuary of Guápulo, was the first Marian sanctuary in what is now the Republic of Ecuador, founded in 1620 in the Guápulo neighborhood northeast of Quito, at an elevation of 2,690 meters above sea level.",
+      lat: -0.20008,
+      lng: -78.47537,
     },
     {
       id: "quito_8",
@@ -38862,6 +38971,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Museo_Casa_de_Sucre%2C_Quito%2C_pic.a.1aa.jpg/1920px-Museo_Casa_de_Sucre%2C_Quito%2C_pic.a.1aa.jpg",
       description: "El Museo Casa de Sucre o Museo de la Defensa “Casa de Sucre” es una institución de carácter cultural ubicada en la ciudad de Quito, capital de Ecuador, en la que vivió el mariscal Antonio José de Sucre, prócer de la independencia sudamericana.",
       descriptionEn: "The Museo Casa de Sucre, or Museo de la Defensa 'Casa de Sucre,' is a cultural institution in Quito, Ecuador, housed in the former residence of Marshal Antonio José de Sucre, hero of South American independence.",
+      lat: -0.22189,
+      lng: -78.51317,
     },
     {
       id: "quito_9",
@@ -38878,6 +38989,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/La_Capilla_del_Hombre%2C_Quito.jpg/1920px-La_Capilla_del_Hombre%2C_Quito.jpg",
       description: "La Capilla del Hombre es un museo de arte, construido en Quito, Ecuador por iniciativa del pintor ecuatoriano Oswaldo Guayasamín en homenaje al ser humano.",
       descriptionEn: "La Capilla del Hombre (Chapel of Man) is an art museum in Quito, Ecuador, built at the initiative of Ecuadorian painter Oswaldo Guayasamín as a tribute to humankind.",
+      lat: -0.19076,
+      lng: -78.46947,
     },
     {
       id: "quito_10",
@@ -38915,6 +39028,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.mercedarios.ec/vocaciones/",
       description: "El convento e iglesia de La Merced es un templo católico de estilo barroco en el centro histórico de Quito, construido por la Orden de la Merced en el siglo XVIII. Es conocido por su alta torre-campanario, la más alta del Quito colonial, y por su reloj traído de Londres en 1817.",
       descriptionEn: "The Convento Máximo de La Merced is a Baroque-style Catholic church in Quito's historic center, built by the Mercedarian Order in the 18th century. It is known for its bell tower, the tallest in colonial Quito, and for its clock brought from London in 1817.",
+      lat: -0.2181,
+      lng: -78.5138,
     },
     {
       id: "quito_12",
@@ -38932,6 +39047,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.facebook.com/SanBlas1571",
       description: "La Iglesia de San Blas es un templo católico ubicado en el extremo norte del Centro Histórico de Quito, sobre un promontorio que domina la plaza del mismo nombre, junto al Parque La Alameda. Fue fundada en 1568.",
       descriptionEn: "The Church of San Blas is a Catholic church located at the northern edge of Quito's historic center, on a promontory overlooking the square of the same name, next to La Alameda Park. It was founded in 1568.",
+      lat: -0.21821,
+      lng: -78.50493,
     },
     {
       id: "quito_13",
@@ -38948,6 +39065,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Atacazo_volcano.jpg",
       description: "El Atacazo es un volcán de la Cordillera Occidental del norte de Ecuador. Se encuentra en el Cantón Mejía, al sur de la ciudad de Quito, a 4.463 metros sobre el nivel del mar.",
       descriptionEn: "Atacazo is a volcano of the Western Cordillera located 25 kilometers southwest of Quito, Ecuador. Atacazo is a stratovolcano formed by the action of a Late-Pleistocene to Holocene caldera. The last eruption of the Atacazo was nearly 2300 years ago.",
+      lat: -0.35722,
+      lng: -78.61917,
     },
     {
       id: "quito_14",
@@ -38964,6 +39083,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/Pasochoa.jpg",
       description: "El volcán Pasochoa es un volcán extinto, localizado al sureste de Quito. La depresión en forma de anfiteatro de su flanco occidental alberga hoy un importante ecosistema de bosque andino.",
       descriptionEn: "Pasochoa is an extinct volcano located southeast of Quito. The amphitheater-shaped depression on its western flank today shelters an important Andean forest ecosystem.",
+      lat: -0.43333,
+      lng: -78.48333,
     },
     {
       id: "quito_15",
@@ -39079,6 +39200,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.51431,
       description: "La Ronda es una calle histórica ubicada en el Centro Histórico de Quito, en la ciudad de Quito, Ecuador.",
       sourceUrl: "https://es.wikipedia.org/wiki/Calle_La_Ronda_(Quito)",
+      descriptionEn: "La Ronda Street is a cobblestone lane in Quito’s Historic Center, lined with restored colonial houses and artisan workshops. Visitors come for its architecture, history and atmosphere of traditional music and food.",
     },
     {
       id: "quito_21",
@@ -39213,6 +39335,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.50062,
       description: "Centro Cultural Itchimbía. Edificio de acero y cristal de la ciudad de Quito D.M., Ecuador. Se ubica en la cima de la colina homónima como parte del complejo recreativo llamado Parque Itchimbía y es destinado para exposiciones y eventos culturales de la ciudad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Centro_cultural_Itchimb%C3%ADa",
+      descriptionEn: "The Itchimbía Cultural Center is located in Itchimbía Park in Quito, housed in a glass-and-steel building. Visitors come for its exhibitions and for views toward the Historic Center and the city.",
     },
     {
       id: "quito_28",
@@ -48508,6 +48631,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "La medina de Túnez fue declarada Patrimonio de la Humanidad por la Unesco en 1979. La medina es el centro de la ciudad de Túnez: un grupo de callejuelas y pasadizos cubiertos, llenos de densos olores y colores, bulliciosos y activos centros de comercio y trueque, un sinfín de…",
       descriptionEn: "Tunis is the capital and largest city of Tunisia. The greater metropolitan area of Tunis, often referred to as \"Grand Tunis\", has about 2,700,000 inhabitants. As of 2020, it is the third-largest city in the Maghreb region and the fifteenth-largest in the Arab world.",
+      lat: 36.79903,
+      lng: 10.17006,
     },
     {
       id: "tunis_1",
@@ -48524,6 +48649,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Maquette_quartier_magon_carthag.jpg",
       description: "Las Termas de Antonino o Termas de Cartago fueron unas de las termas más importantes del Imperio romano, y las mayores construidas en suelo africano.",
       descriptionEn: "The Archaeological Site of Carthage is a site dispersed in the current city of Carthage (Tunisia) and classified as part of the World Heritage by UNESCO since 1979.",
+      lat: 36.85788,
+      lng: 10.33084,
     },
     {
       id: "tunis_2",
@@ -48537,9 +48664,13 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.1,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Wle-jury-report-2018-hires.pdf/page1-960px-Wle-jury-report-2018-hires.pdf.jpg",
-      description: "Túnez, oficialmente República de Túnez o República Tunecina, es un país soberano situado en el norte de África, más concretamente en la costa mediterránea. Su territorio está organizado en 24 gobernaciones o wilayat.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/%28%D9%84%D8%AD%D8%B8%D8%A9_%D8%BA%D8%B1%D9%88%D8%A8_%D8%A7%D9%84%D8%B4%D9%85%D8%B3_%D9%80_%D9%85%D8%AD%D9%85%D9%8A%D8%A9_%D8%A5%D8%B4%D9%83%D9%84_%28%D8%AA%D9%88%D9%86%D8%B3.jpg/1280px-%28%D9%84%D8%AD%D8%B8%D8%A9_%D8%BA%D8%B1%D9%88%D8%A8_%D8%A7%D9%84%D8%B4%D9%85%D8%B3_%D9%80_%D9%85%D8%AD%D9%85%D9%8A%D8%A9_%D8%A5%D8%B4%D9%83%D9%84_%28%D8%AA%D9%88%D9%86%D8%B3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      description: "El Parque Nacional del Ichkeul, espacio natural situado en el norte de Túnez, en el distrito de Bizerta, es uno de los humedales más importantes de África del Norte, y uno de los pocos que no se secan en todo el año.",
       descriptionEn: "The United Nations Educational, Scientific and Cultural Organization (UNESCO) World Heritage Sites are places of importance to cultural or natural heritage as described in the UNESCO World Heritage Convention, established in 1972.",
+      lat: 37.12344,
+      lng: 9.65544,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/Parque_nacional_del_Ichkeul",
     },
     {
       id: "tunis_3",
@@ -48554,7 +48685,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Kerkouane_-_panorama.jpg",
-      description: "Punic Town of Kerkuane and its Necropolis es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Antigua ciudad púnica en la costa del cabo Bon, abandonada hacia el siglo III a. C. y nunca reconstruida, conserva casas, calles y una necrópolis. Es Patrimonio Mundial de la UNESCO y se visita como excursión de un día desde Túnez.",
       descriptionEn: "Kerkouane or Kerkuane is the site of an ancient Punic city in north-eastern Tunisia, near Cape Bon. Kerkouane was one of the most important Punic cities, with Carthage, Hadrumetum, and Utica.",
     },
     {
@@ -48589,6 +48720,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.bardomuseum.tn/",
       description: "El Museo Nacional del Bardo es un museo de la ciudad de Túnez (Túnez). Se encuentra situado en el barrio del Bardo a las afueras de la ciudad, lugar residencial desde el siglo XIII de los sultanes hafsidas, y reconstruido más tarde como palacio del bey.",
       descriptionEn: "The Bardo National Museum or Bardo Palace is an arts and North African history museum in Le Bardo, Tunis, Tunisia. It is one of the most important museums in the Mediterranean region and the second largest museum in Africa after the Egyptian Museum of Cairo.",
+      lat: 36.80944,
+      lng: 10.13444,
     },
     {
       id: "tunis_6",
@@ -48715,8 +48848,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 3.9,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/84/%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%A7%D9%84%D8%B9%D9%84%D9%88%D9%85_%D8%A8%D8%AA%D9%88%D9%86%D8%B3.JPG",
-      description: "مدينة العلوم es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo científico a orillas del lago de Túnez, inaugurado en 1992, con exposiciones interactivas, un planetario y una sala de cine en gran formato. Está dedicado a la divulgación de la ciencia y la tecnología para el público general.",
       descriptionEn: "The Almoravid dynasty was a Berber Muslim dynasty centered in the territory of present-day Morocco. It established an empire that stretched over the western Maghreb and al-Andalus, starting in the 1050s and lasting until its fall to the Almohads in 1147.",
+      lat: 36.8496,
+      lng: 10.18847,
     },
     {
       id: "tunis_14",
@@ -48731,8 +48866,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/da/Facade_Musee_Carthage.jpg",
-      description: "المتحف الوطني بقرطاج es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Nacional de Cartago es junto con el Museo Nacional de Bardo uno de los dos principales museos arqueológicos en el país africano de Túnez.",
       descriptionEn: "Carthage National Museum is a national museum in Byrsa, Tunisia. Along with the Bardo National Museum, it is one of the two main local archaeological museums in the region. The edifice sits atop Byrsa Hill, in the heart of the city of Carthage.",
+      lat: 36.85314,
+      lng: 10.3244,
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_Nacional_de_Cartago",
     },
     {
       id: "tunis_15",
@@ -48926,6 +49064,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/AFR_V2_D217_Old_ports_of_Carthage.jpg/1280px-AFR_V2_D217_Old_ports_of_Carthage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Los puertos púnicos de Cartago son los restos de las instalaciones portuarias de la antigua ciudad, con un puerto militar circular y un área comercial rectangular. Se conservan lagunas y estructuras junto a la costa de Cartago.",
       descriptionEn: "The Punic ports of Carthage are the remains of the ancient city's harbor installations, with a circular military harbor and a rectangular commercial area. Lagoons and structures survive along the Carthage coast.",
+      lat: 36.8452,
+      lng: 10.3251,
     },
     {
       id: "tunis_25",
@@ -48958,6 +49098,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/64/Bab_El_Bhar_-_Tunis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Bab Bhar, también conocida como Puerta de Francia, es una de las puertas históricas de la medina de Túnez. Marca el paso entre la ciudad antigua y la avenida Habib Burguiba.",
       descriptionEn: "Bab Bhar, also known as Porte de France, is one of the historic gates of the Tunis medina. It marks the passage between the old city and Avenue Habib Bourguiba.",
+      lat: 36.79917,
+      lng: 10.17562,
     },
     {
       id: "tunis_27",
@@ -48974,6 +49116,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Souk_El_Attarine%2C_la_m%C3%A9dina_de_Tunis.jpg/1280px-Souk_El_Attarine%2C_la_m%C3%A9dina_de_Tunis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Zoco El Attarine es un mercado de la medina de Túnez especializado en perfumes, esencias y productos aromáticos. Sus callejones forman parte del entramado comercial tradicional de la medina.",
       descriptionEn: "Souk El Attarine is a market in the Tunis medina specializing in perfumes, essences and aromatic products. Its alleys form part of the medina's traditional commercial network.",
+      lat: 36.7978,
+      lng: 10.17149,
     },
     {
       id: "tunis_28",
@@ -49008,6 +49152,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Acueducto de Zaghouan es una obra hidráulica romana que llevaba agua desde Zaghouan hasta Cartago. A lo largo de su recorrido se conservan tramos de arcos y ruinas, algunos visibles en los alrededores de Túnez.",
       descriptionEn: "The Zaghouan Aqueduct is a Roman hydraulic work that carried water from Zaghouan to Carthage. Along its route, stretches of arches and ruins survive, some visible in the surroundings of Tunis.",
+      lat: 36.61606,
+      lng: 10.13419,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Zaghouane_Aqueduc.JPG/1280px-Zaghouane_Aqueduc.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "tunis_30",
@@ -49060,6 +49207,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Cabo Bon es una península del noreste de Túnez que se adentra en el Mediterráneo, con costas, colinas y pueblos rurales. La zona incluye paisajes costeros y viñedos.",
       descriptionEn: "Cape Bon is a peninsula in northeastern Tunisia that extends into the Mediterranean, with coastlines, hills and rural villages. The area includes coastal landscapes and vineyards.",
+      lat: 36.79855,
+      lng: 10.07589,
     },
     {
       id: "tunis_33",
@@ -52904,7 +53053,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.8,
       estimatedMinutes: 120,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Topographic_map_of_Zanzibar-en.svg/1280px-Topographic_map_of_Zanzibar-en.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Sail_Boat_Sunset_Stone_Town_Zanzibar_Oct26_OM3_1123.jpg/1280px-Sail_Boat_Sunset_Stone_Town_Zanzibar_Oct26_OM3_1123.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       website: "https://altezzatravel.com",
       schedule: {
         mon: "closed",
@@ -52939,8 +53088,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1731329571540-a1d6dfc902b8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOdW5nd2klMjBCZWFjaCUyMHphbnppYmFyfGVufDF8MHx8fDE3ODIxNzI5NjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.originzanzibar.com/",
-      description: "El archipiélago de Zanzíbar es un archipiélago del océano Índico ubicado frente a la costa de Tanzania, formado por tres islas principales —Unguja, Pemba y Mafia— y por muchas otras islas chicas.",
+      description: "Playa en el extremo norte de la isla de Unguja, en Zanzíbar, conocida por su arena blanca y aguas claras. El pueblo de Nungwi sirve como base para paseos en dhow y actividades de buceo.",
       descriptionEn: "Nungwi, or Ras Nungwi, is a large village located in the far northern end of the island of Zanzibar. With a population of 30,762, Nungwi is the second largest settlement on the island. It is situated in the Nungwi Ward in the Kaskazini A District of the Unguja North Region.",
+      lat: -5.726,
+      lng: 39.296,
+      dayTrip: true,
     },
     {
       id: "zanzibar_2",
@@ -52976,6 +53128,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-3dVx9j1iepM?auto=format&fit=crop&w=800&q=80",
       description: "El turismo en Zanzíbar incluye la industria turística y sus efectos en las islas de Unguja y Pemba en Zanzíbar, una región semiautónoma en la República Unida de Tanzania.",
       descriptionEn: "Zanzibar is a Tanzanian semi-autonomous region off the coast of East Africa. It is located in the Indian Ocean, and consists of many small islands and two large ones: Unguja Island and Pemba Island. The capital is Zanzibar City, located on the island of Unguja.",
+      lat: -6.1796,
+      lng: 39.21784,
     },
     {
       id: "zanzibar_4",
@@ -52990,8 +53144,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1603728450199-fa59664ff482?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQcmlzb24lMjBJc2xhbmQlMjAlMjhDaGFuZ3V1JTI5JTIwemFuemliYXJ8ZW58MXwwfHx8MTc4MjE3Mjk2OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Prison Island (Changuu) es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Isla pequeña frente a Stone Town, conocida por sus tortugas gigantes de Aldabra y por las ruinas de un centro de cuarentena. Se construyó allí una prisión que nunca funcionó como tal.",
       descriptionEn: "Changuu Island is an island in the Mjini Magharibi Region, Tanzania, off the coast of Mjini District. It is situated in the Zanzibar Channel. It is located 5.6 km (3.5 mi) northwest of Stone Town.",
+      lat: -6.11922,
+      lng: 39.1661,
     },
     {
       id: "zanzibar_5",
@@ -53027,8 +53183,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Peace_museum_%2CZanzibar.jpg/1920px-Peace_museum_%2CZanzibar.jpg",
       website: "http://www.zanzibartourism.net/museums.php",
-      description: "El genocidio es la destrucción intencional de un pueblo, grupo étnico, racial, religioso o nacional, total o parcialmente. Calificado como el mayor crimen contra la humanidad, el genocidio está ampliamente considerado como el epítome de la maldad humana.",
+      description: "Museo en Stone Town que recorre la historia y la cultura de Zanzíbar y la costa suajili, con colecciones de arqueología, etnografía y periodos coloniales.",
       descriptionEn: "This is a list of museums in Tanzania.",
+      lat: -6.16798,
+      lng: 39.19132,
     },
     {
       id: "zanzibar_7",
@@ -53043,8 +53201,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Anderson-Morshead_1909_The_Old_Slave_Market%2C_Zanzibar_historyofuniver00ande_0492.jpg/1920px-Anderson-Morshead_1909_The_Old_Slave_Market%2C_Zanzibar_historyofuniver00ande_0492.jpg",
-      description: "Stone Town, es la parte antigua de la Ciudad de Zanzíbar, la capital del archipiélago de Zanzíbar, que forma parte de Tanzania.",
+      description: "Sitio histórico en Stone Town donde funcionó el mercado de esclavos, cerrado en 1873. Hoy alberga un memorial y un museo junto a la iglesia anglicana de Cristo.",
       descriptionEn: "A slave market was a place where slaves were bought and sold. These markets were a key phenomenon in the history of slavery.",
+      lat: -6.16338,
+      lng: 39.19249,
     },
     {
       id: "zanzibar_8",
@@ -53078,8 +53238,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Palacio_del_Sult%C3%A1n%2C_Stone_Town%2C_Zanz%C3%ADbar%2C_Tanzania%2C_2024-05-31%2C_DD_25.jpg/1920px-Palacio_del_Sult%C3%A1n%2C_Stone_Town%2C_Zanz%C3%ADbar%2C_Tanzania%2C_2024-05-31%2C_DD_25.jpg",
-      description: "El Museo del Palacio es uno de los principales edificios históricos de Stone Town, Zanzíbar en Tanzania. Es un edificio de 3 pisos con decoradas paredes blancas, que se encuentra en la ruta Mizingani, en el paseo marítimo, entre la Casa de las Maravillas y el Dispensario Antiguo.",
+      description: "Palacio del siglo XIX en Stone Town que fue residencia de los sultanes de Zanzíbar. Hoy es un museo que muestra la vida de la corte y objetos del periodo del sultanato.",
       descriptionEn: "The Sultan's Palace is one of the main historical buildings of Stone Town, Zanzibar, Tanzania. It is a 3-story building with merlon-decorated white walls, located in Mizingani Road, on the seafront, between the House of Wonders and the Old Dispensary.",
+      lat: -6.15997,
+      lng: 39.19038,
     },
     {
       id: "zanzibar_10",
@@ -53094,8 +53256,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Christ_Church_Stone_Town_Zanzibar.jpg",
-      description: "Abdulrazak Gurnah es un novelista tanzano que escribe en lengua inglesa y reside en el Reino Unido desde su adolescencia.",
+      description: "Iglesia anglicana de Stone Town construida en el sitio del antiguo mercado de esclavos. Su torre y su arquitectura la hacen un punto de referencia histórico de la ciudad.",
       descriptionEn: "Christ Church is an Anglican cathedral in Stone Town, Zanzibar, Tanzania. It belongs to the Anglican Church of Tanzania. It is a landmark historical church, as well as one of the most prominent examples of early Christian architecture in East Africa.",
+      lat: -6.16291,
+      lng: 39.19257,
     },
     {
       id: "zanzibar_11",
@@ -53112,6 +53276,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Dolphin_leap.JPG/1920px-Dolphin_leap.JPG",
       description: "La vida salvaje en el archipiélago de Zanzíbar, región autónoma de Tanzania, está formada por numerosa flora y fauna salvaje.",
       descriptionEn: "The Menai Bay Conservation Area (MBCA) is located in Menai Bay, Zanzibar Tanzania. At 470 square kilometres (180 sq mi), it is Zanzibar's largest marine protected area.",
+      lat: -6.38333,
+      lng: 39.36667,
+      dayTrip: true,
     },
     {
       id: "zanzibar_12",
@@ -53144,6 +53311,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Stone_Town%2C_St._Joseph_Cathedral.jpg/1920px-Stone_Town%2C_St._Joseph_Cathedral.jpg",
       description: "La Catedral de San José es uno de los edificios históricos más importantes en Stone Town, Zanzíbar, así como uno de sus principales atracciones turísticas, está localizada en el país africano de Tanzania.",
       descriptionEn: "The Roman Catholic cathedral of St. Joseph is one of the most important historical buildings in Stone Town, Zanzibar, as well as one of its main visitor attractions.",
+      lat: -6.16278,
+      lng: 39.18882,
     },
     {
       id: "zanzibar_14",
@@ -68012,6 +68181,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://museedelamusique.ma/",
       description: "El Musée de la Musique de Marrakech está dedicado a la música y los instrumentos tradicionales de Marruecos, exhibiendo piezas relacionadas con los géneros musicales del país en un edificio próximo a la mezquita de Mouassine, en la medina.",
       descriptionEn: "The Musée de la Musique in Marrakesh is dedicated to Morocco's traditional music and instruments, displaying pieces related to the country's musical genres in a building near the Mouassine Mosque, in the medina.",
+      lat: 31.62936,
+      lng: -7.98878,
     },
     {
       id: "marrakech_7",
@@ -68029,6 +68200,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://darbacha.com/",
       description: "Dar el Bacha es un palacio situado en la antigua medina de Marrakech, Marruecos. Actualmente alberga el Museo de las Confluencias de Marrakech.",
       descriptionEn: "Dar el Bacha is a palace situated in the old medina of Marrakesh, Morocco. It currently houses the Museum of Confluences.",
+      lat: 31.63159,
+      lng: -7.99219,
     },
     {
       id: "marrakech_8",
@@ -68046,6 +68219,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://marrakechmuseum.com",
       description: "El Musée de Marrakech ocupa el Palacio Mnebhi, construido a fines del siglo XIX, y fue convertido en museo en 1997 tras su restauración. Exhibe arte marroquí en torno a un patio central decorado con arcos de cedro, vitrales y azulejos zellige.",
       descriptionEn: "The Musée de Marrakech occupies the Mnebhi Palace, built in the late 19th century, and was converted into a museum in 1997 after restoration. It displays Moroccan art around a central courtyard decorated with cedar archways, stained glass, and zellige tilework.",
+      lat: 31.63121,
+      lng: -7.98677,
     },
     {
       id: "marrakech_9",
@@ -68079,6 +68254,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Marrakech_-_Salat_Al_Azama_%28Laazama%29_Synagogue_-_interior.jpg/1920px-Marrakech_-_Salat_Al_Azama_%28Laazama%29_Synagogue_-_interior.jpg",
       description: "La sinagoga Salat Al Azama, considerada la más antigua de Marrakech, se encuentra en el mellah (barrio judío) de la medina. Fue fundada por judíos sefardíes llegados de España tras 1492, y su patio sirvió de yeshivá para cientos de niños de la comunidad.",
       descriptionEn: "The Slat al-Azama Synagogue, considered the oldest in Marrakesh, is located in the mellah (Jewish quarter) of the medina. It was founded by Sephardic Jews who arrived from Spain after 1492, and its courtyard once served as a yeshiva for hundreds of children in the community.",
+      lat: 31.62007,
+      lng: -7.9823,
     },
     {
       id: "marrakech_11",
@@ -68129,6 +68306,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Bab_Ksiba%2C_Marrakech.jpg/1920px-Bab_Ksiba%2C_Marrakech.jpg",
       description: "Bab Ksiba es una de las diecinueve puertas de Marrakech, construida en el siglo XII bajo la dinastía almohade. Junto con la cercana Bab Agnaou, servía de acceso a la Kasbah, el distrito fortificado del sur de la medina.",
       descriptionEn: "Bab Ksiba is one of the nineteen gates of Marrakesh, built in the 12th century under the Almohad dynasty. Together with the nearby Bab Agnaou, it served as an entrance to the Kasbah, the fortified district in the southern part of the medina.",
+      lat: 31.6122,
+      lng: -7.9893,
     },
     {
       id: "marrakech_14",
@@ -68280,6 +68459,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -8.00861,
       description: "Guéliz es un distrito (arrodissement) de la ciudad de Marrakech, Marruecos. Es un barrio orientado a la actividad cultural y comercial, con presencia de galerías, tiendas de diseño y espacios creativos.",
       sourceUrl: "https://es.wikipedia.org/wiki/Gu%C3%A9liz",
+      descriptionEn: "Guéliz is Marrakech’s modern district, developed during the French protectorate outside the medina. Visitors come for its wide avenues, shops, cafés, art galleries, and commercial and administrative activity.",
     },
     {
       id: "marrakech_22",
@@ -90275,6 +90455,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.giraffecenter.org",
       description: "El Giraffe Centre se encuentra en Langata, a unos 5 kilómetros del centro de Nairobi, en Kenia. Se estableció con el fin de proteger la jirafa amenazada de nombre Giraffa camelopardalis rothschildi, que solo se encuentra en las praderas del este de África.",
       descriptionEn: "The Giraffe Centre is a wildlife conservation facility located in Lang'ata, approximately 20 kilometres (12 mi) from the centre of Nairobi, Kenya. It was established to protect the vulnerable Rothschild's giraffe, that is found only in the grasslands of East Africa.",
+      lat: -1.37447,
+      lng: 36.74232,
     },
     {
       id: "nairobi_2",
@@ -90295,6 +90477,8 @@ export const CURATED_ALL: CuratedMap = {
       },
       description: "Karen Christence Blixen-Finecke, nacida Karen Christentze Dinesen, fue una escritora danesa, también conocida por sus pseudónimos literarios Isak Dinesen en los países de habla inglesa, Tania Blixen en lengua alemana, Osceola, y Pierre Andrézel.",
       descriptionEn: "The Karen Blixen Museum, located 10 km (6.2 mi) outside of Nairobi, Kenya, \"at the foot of the Ngong Hills\", is the former African home of Danish author Karen Blixen, famous for her 1937 book Out of Africa which chronicles life at the estate.",
+      lat: -1.35194,
+      lng: 36.7125,
     },
     {
       id: "nairobi_3",
@@ -90312,6 +90496,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museums.or.ke/nairobi-national-museum/",
       description: "Ingrid Mwangi es una artista keniana-alemana. Asistió a la Hochschule der Bildenden Künste Saar en Saarbrücken, Alemania, de 1996 a 2002. Trabaja en fotografía, escultura, multimedia, performance e instalación.",
       descriptionEn: "Nairobi is the capital and largest city of Kenya, located in the south-central part of the country. As of 2026, it has a population of 5.6 million and a metropolitan population of 15.95 million, making it the 8th most populous city in Africa and the 4th most populous…",
+      lat: -1.27404,
+      lng: 36.8145,
     },
     {
       id: "nairobi_4",
@@ -90329,6 +90515,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.bomasofkenya.co.ke",
       description: "La cultura de Kenia se caracteriza por sus múltiples raíces, producto principalmente de la diversidad de pueblos originarios que conforman el país. A lo largo de la costa de Kenia, predomina el pueblo Suajili.",
       descriptionEn: "Bomas of Kenya is a tourist village in Langata, Nairobi, in Kenya. Bomas interpreted to mean (homesteads) displays traditional villages belonging to the several Kenyan tribes. Bomas of Kenya is home to one of the largest auditoriums in Africa.",
+      lat: -1.33688,
+      lng: 36.76912,
     },
     {
       id: "nairobi_5",
@@ -90344,8 +90532,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1608462420763-e680c1078ca9?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEYXZpZCUyMFNoZWxkcmljayUyMFdpbGRsaWZlJTIwVHJ1c3QlMjBuYWlyb2JpfGVufDF8MHx8fDE3ODIyMTkxMTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "https://www.sheldrickwildlifetrust.org/",
-      description: "David Sheldrick Wildlife Trust es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Centro de rescate de crías de elefante y rinoceronte ubicado dentro de los límites del Parque Nacional de Nairobi. Se visita para ver a los cuidadores alimentar y bañar a las crías huérfanas.",
       descriptionEn: "The Sheldrick Wildlife Trust (SWT) operates an orphaned elephant rescue and wildlife rehabilitation program in Nairobi, Kenya. It was founded in 1977 by Dame Daphne Sheldrick to honour her late husband, David. Since 2001, it has been run by their daughter, Angela.",
+      lat: -1.37778,
+      lng: 36.77305,
     },
     {
       id: "nairobi_6",
@@ -90362,6 +90552,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Kenya_National_Archives%2C_2025_%2802%29.jpg/1920px-Kenya_National_Archives%2C_2025_%2802%29.jpg",
       description: "Nairobi es la capital y ciudad más grande de la República de Kenia. El nombre Nairobi proviene de la frase masái Enkare Nyorobi, que significa «el lugar de aguas frescas», en referencia al río Nairobi que la atraviesa.",
       descriptionEn: "The Kenya National Archives and Documentation Services (KNADS) is situated at the edge of the central business district in downtown Nairobi along Moi Avenue next to Ambassadeur Hotel. The archives look out on the landmark Hilton Hotel, while on the rear side is Tom Mboya street.",
+      lat: -1.28489,
+      lng: 36.82594,
     },
     {
       id: "nairobi_7",
@@ -90394,6 +90586,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/At_Nairobi_Railway_Museum_2025_004_-_Kenya_%26_Uganda_Railway_No._327.jpg/1920px-At_Nairobi_Railway_Museum_2025_004_-_Kenya_%26_Uganda_Railway_No._327.jpg",
       description: "El Museo del ferrocarril de Nairobi es un museo ferroviario en Nairobi, en el país africano de Kenia, junto a la estación de tren de Nairobi. Contiene exhibiciones del extinto Ferrocarril del Este de África.",
       descriptionEn: "Nairobi is the capital and largest city of Kenya, located in the south-central part of the country. As of 2026, it has a population of 5.6 million and a metropolitan population of 15.95 million, making it the 8th most populous city in Africa and the 4th most populous…",
+      lat: -1.29372,
+      lng: 36.82219,
     },
     {
       id: "nairobi_9",
@@ -90441,8 +90635,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ee/View_of_Monument_in_Uhuru_Park%2C_Nairobi.jpg",
-      description: "Uhuru Gardens es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Monumento nacional que conmemora la independencia de Kenia, situado en Langata, al sur del centro de Nairobi. Incluye el arco de la independencia, un memorial y jardines usados para actos cívicos.",
       descriptionEn: "Uhuru Gardens National Monument and Museum is a commemorative park and museum in the Lang'ata area of Nairobi, Kenya. Spanning approximately 68 acres (28 ha), it is Kenya's largest urban memorial park.",
+      lat: -1.32514,
+      lng: 36.79847,
     },
     {
       id: "nairobi_12",
@@ -90473,8 +90669,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/da/Wangari_Maathai_in_2001.jpg",
-      description: "Wangari Muta Maathai fue una política y ecologista keniana y Premio Nobel de la Paz.",
+      description: "Parque público en el centro de Nairobi, junto al distrito financiero, con un lago artificial, áreas de pasto y vistas a la ciudad. Funciona como lugar de reunión y de actos públicos.",
       descriptionEn: "Uhuru Park is a 12.9 hectare recreational park adjacent to the central business district of Nairobi, Kenya. It was opened to the public by the late Mzee Jomo Kenyatta on 23 May 1969.",
+      lat: -1.28939,
+      lng: 36.81743,
     },
     {
       id: "nairobi_14",
@@ -90489,8 +90687,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Beautiful_scenery_at_the_Nairobi_National_safari_walk.jpg/1920px-Beautiful_scenery_at_the_Nairobi_National_safari_walk.jpg",
-      description: "Nairobi Safari Walk es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Recorrido de pasarelas elevadas de madera en el acceso principal del Parque Nacional de Nairobi, que presenta hábitats y fauna de Kenia, como grandes felinos, rinocerontes y primates.",
       descriptionEn: "Nairobi is the capital and largest city of Kenya, located in the south-central part of the country. As of 2026, it has a population of 5.6 million and a metropolitan population of 15.95 million, making it the 8th most populous city in Africa and the 4th most populous…",
+      lat: -1.3368,
+      lng: 36.77731,
     },
     {
       id: "nairobi_15",
@@ -90551,6 +90751,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El parque nacional Lago Nakuru es un parque nacional situado en Kenia, ubicado a 157 km de Nairobi, cerca del municipio de Nakuru, en el condado del mismo nombre. Dentro de su perímetro se encuentra el lago Nakuru, conocido por su antigüedad geológica y por su alcalinidad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_nacional_Lago_Nakuru",
+      descriptionEn: "A national park around an alkaline lake in the Great Rift Valley, about 160 km from Nairobi. It is known for its flamingos and for the white rhino sanctuary it protects.",
     },
     {
       id: "nairobi_18",
@@ -90709,6 +90910,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.ncfnigeria.org/projects/lekki-conservation-centre",
       description: "Hay un millar de áreas protegidas en Nigeria, unos 126.735 km², el 14 por ciento del territorio y solo 33 km² de áreas marinas, el 0,02 por ciento de los 178.066 km² que pertenecen al país.",
       descriptionEn: "Lekki Conservation Centre (LCC) is a 78-hectare (190-acre) Natural Resource Conservation reserve in Lekki, Lagos State Nigeria. It is part of the PARCC West Africa project.",
+      lat: 6.43639,
+      lng: 3.53556,
     },
     {
       id: "lagos_1",
@@ -90724,8 +90927,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1553279398-4f3c0c997421?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOaWtlJTIwQXJ0JTIwR2FsbGVyeSUyMGxhZ29zfGVufDF8MHx8fDE3ODIyMjAzNTl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       website: "http://www.nikeart.com/",
-      description: "Lagos es una ciudad portuaria ubicada en las costas de Nigeria, en el estado homónimo, del que fue capital hasta 1991, en la costa de la bahía de Benín y en un archipiélago frente al continente.",
+      description: "La Nike Art Gallery es una amplia colección de arte situada en el barrio de Lekki, en el área metropolitana de Lagos (Nigeria). Junto con el Lekki Conservation Centre, situado en las inmediaciones, es una de las principales atracciones turísticas de Lagos.",
       descriptionEn: "Nike Art Gallery is an art gallery in Lekki, Nigeria owned by Nike Davies-Okundaye. The gallery is one of the largest of its kind in West Africa, it boasts a collection of about 8,000 diverse artworks from various Nigerian artists like Chief Josephine Oboh Macleod.",
+      lat: 6.43152,
+      lng: 3.48189,
+      sourceUrl: "https://es.wikipedia.org/wiki/Nike_Art_Gallery",
     },
     {
       id: "lagos_2",
@@ -90742,6 +90948,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRpb25hbCUyME11c2V1bSUyMExhZ29zJTIwbGFnb3N8ZW58MXwwfHx8MTc4MjIyMDM2MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Nacional de Nigeria es un museo nacional del país africano de Nigeria, que se encuentra en la ciudad de Lagos. El museo cuenta con una colección notable de arte nigeriano, incluyendo piezas de estatuas y tallas y piezas arqueológicas y etnográficas.",
       descriptionEn: "Lagos, or Lagos City, is a large metropolitan port city in southwestern Nigeria. As of November 2025, the size of the city's population has been estimated to be between 17 and 21 million residents, making Lagos the largest city in Nigeria, the most populous urban area on the…",
+      lat: 6.44283,
+      lng: 3.40286,
     },
     {
       id: "lagos_3",
@@ -90756,8 +90964,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.2,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1738369349907-be6290e624c7?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUYXJrd2ElMjBCYXklMjBCZWFjaCUyMGxhZ29zfGVufDF8MHx8fDE3ODIyMjAzNjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Tarkwa Bay Beach es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Tarkwa Bay es una playa resguardada en la entrada del puerto de Lagos, a la que se llega principalmente en lancha. Se visita por su arena, sus aguas calmas y su ambiente de descanso frente a la ciudad.",
       descriptionEn: "Tarkwa Bay is an artificial sheltered beach located near the Lagos harbour in Nigeria.",
+      lat: 6.40144,
+      lng: 3.39564,
     },
     {
       id: "lagos_4",
@@ -90773,8 +90983,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-67ruAEYmp4c?auto=format&fit=crop&w=800&q=80",
       website: "https://www.terrakulture.com/",
-      description: "Love Castle es una película nigeriana de 2021 dirigida por Desmond Elliot, producida por Beatrice Funke Ogunmola y coproducida por Victor Ogunmola.",
+      description: "Terra Kulture es un centro cultural en Victoria Island, Lagos, con galería de arte, teatro y librería. Se visita por sus exposiciones, obras de teatro y actividades dedicadas al arte y la cultura nigeriana.",
       descriptionEn: "Terra Kulture is an arts and culture center located in Victoria Island in Lagos, Nigeria with an attached restaurant. The story has it that film-makers are indicating interest in producing plays and other entertainment at the Terra Kulture because of its cultural setting.",
+      lat: 6.45986,
+      lng: 3.33888,
     },
     {
       id: "lagos_5",
@@ -90792,6 +91004,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.thecathedrallagos.org/",
       description: "La Iglesia Catedral de Cristo es una catedral anglicana en la isla de Lagos, en la ciudad de Lagos, al sur del país africano de Nigeria.",
       descriptionEn: "The Cathedral Church of Christ Marina, Lagos is an Anglican cathedral on Lagos Island, Lagos, Nigeria.",
+      lat: 6.45089,
+      lng: 3.39021,
     },
     {
       id: "lagos_6",
@@ -90855,8 +91069,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Images_of_Freedom_Park_23.jpg/1920px-Images_of_Freedom_Park_23.jpg",
-      description: "El Parque Flushing Meadows-Corona, a menudo conocido como el Parque Flushing Meadows, o simplemente Flushing Meadows, es un parque público en la parte norte de Queens, en la ciudad de Nueva York.",
+      description: "Freedom Park es un parque y centro cultural de Lagos, construido en el sitio de una antigua prisión colonial. Se visita por sus áreas verdes, esculturas y eventos culturales.",
       descriptionEn: "Freedom Park is a memorial and leisure park area in the middle of downtown Lagos in Lagos Island, Nigeria which was formerly Her Majesty's Broad Street Prison. It was designed by the architect Theo Lawson as a speculative project under the CIA-Lagos in 1999.",
+      lat: 6.4489,
+      lng: 3.3965,
     },
     {
       id: "lagos_10",
@@ -90873,6 +91089,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Holy_Cross_Cathedral_Lagos.jpg/1920px-Holy_Cross_Cathedral_Lagos.jpg",
       description: "La Catedral de la Santa Cruz es el nombre que recibe un edificio religioso que pertenece a la Iglesia católica y funciona como la sede la arquidiócesis de Lagos, al sur del país africano de Nigeria.",
       descriptionEn: "Holy Cross Cathedral is a Roman Catholic cathedral located in Lagos, Nigeria, and is the seat of the Archdiocese of Lagos.",
+      lat: 6.45001,
+      lng: 3.39643,
     },
     {
       id: "lagos_11",
@@ -90887,8 +91105,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/76/Lagos_Central_Mosque.jpg",
-      description: "Lagos es una ciudad portuaria ubicada en las costas de Nigeria, en el estado homónimo, del que fue capital hasta 1991, en la costa de la bahía de Benín y en un archipiélago frente al continente.",
+      description: "La Mezquita Central de Lagos es un templo islámico situado en la isla de Lagos. Se destaca por su arquitectura y por su papel como centro de oración y reunión de la comunidad musulmana local.",
       descriptionEn: "Lagos Island is an island and Local government area of Lagos State. It is the principal and central area in Lagos, Nigeria and was the capital of Lagos State until 1957. It is part of the Lagos Division.",
+      lat: 6.4574,
+      lng: 3.3882,
     },
     {
       id: "lagos_12",
@@ -90905,6 +91125,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/2014_Tinubu_Square_Lagos_Nigeria_14640600637.jpg/1920px-2014_Tinubu_Square_Lagos_Nigeria_14640600637.jpg",
       description: "Efunroye Tinubu, cuyo nombre de nacimiento era Efunporoye Osuntinubu, fue una figura políticamente significativa en la historia de Nigeria debido a su papel como una política, poderosa aristócrata y comerciante traficante de esclavos en la Nigeria precolonial y colonial.",
       descriptionEn: "Tinubu Square, formerly Independence Square, is an open space landmark located in Broad Street, Lagos Island, Lagos State, Nigeria named after the Yoruba slave trader, merchant, and aristocrat Madam Efunroye Tinubu.",
+      lat: 6.4538,
+      lng: 3.3894,
     },
     {
       id: "lagos_13",
@@ -90921,6 +91143,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/76/The_National_Arts_Theatre_in_Lagos_%287099736099%29.jpg",
       description: "El Teatro Nacional de Nigeria es el principal centro de artes escénicas del país. El edificio está ubicado en Surulere (Lagos) y su construcción se completó en 1976, en preparación para el Festival Mundial de las Artes Negras de 1977.",
       descriptionEn: "The National Theatre, Nigeria now known as The Wole Soyinka Center for Culture and Creative Arts, Nigeria is the primary centre for the performing arts in Nigeria.",
+      lat: 6.47639,
+      lng: 3.36944,
     },
     {
       id: "lagos_14",
@@ -91038,6 +91262,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/Eko_Atlantic_%28Lagos%29_Skyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Ciudad planificada construida sobre terreno ganado al mar junto a Victoria Island. Alberga rascacielos, oficinas y un malecón, y se presenta como un distrito financiero moderno.",
       descriptionEn: "Planned city built on land reclaimed from the sea next to Victoria Island. It contains skyscrapers, offices and a seawall promenade, and is presented as a modern financial district.",
+      lat: 6.4,
+      lng: 3.405,
     },
     {
       id: "lagos_21",
@@ -94214,6 +94440,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Artequinvina_cl.JPG/960px-Artequinvina_cl.JPG",
       description: "Artequin Viña del Mar es un museo educativo de arte, el cual a través de una metodología participativa, propone incentivar la creatividad en niños y niñas, por medio de visitas grupales, talleres y diferentes experiencias didácticas.",
       descriptionEn: "Artequin Viña del Mar is an educational art museum that uses participatory methods to spark creativity in children through group visits, workshops, and interactive experiences.",
+      lat: -33.03041,
+      lng: -71.55009,
     },
     {
       id: "vinadelmar_1",
@@ -94230,6 +94458,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Castillo_Brunet%2C_Vi%C3%B1a_del_Mar_20230907.jpg/960px-Castillo_Brunet%2C_Vi%C3%B1a_del_Mar_20230907.jpg",
       description: "El Castillo Brunet es una edificación ubicada en la parte norte del cerro Castillo, en la ciudad de Viña del Mar, Región de Valparaíso, Chile.",
       descriptionEn: "Castillo Brunet is a building on the northern side of Cerro Castillo in Viña del Mar, Valparaíso Region, Chile.",
+      lat: -33.02178,
+      lng: -71.56206,
     },
     {
       id: "vinadelmar_2",
@@ -94246,6 +94476,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Palacio_Rioja%2C_Vi%C3%B1a_del_Mar_20230716_01.jpg/960px-Palacio_Rioja%2C_Vi%C3%B1a_del_Mar_20230716_01.jpg",
       description: "El Palacio Rioja es un edificio ubicado en Viña del Mar, Región de Valparaíso, Chile, en el sector de la Población Vergara, en calle bella entre 3 y 4 Norte.",
       descriptionEn: "Palacio Rioja is a heritage mansion in the Población Vergara sector of Viña del Mar, Chile, now home to the Museo de Artes Decorativas, which displays the building's original period furnishings and decor.",
+      lat: -33.02049,
+      lng: -71.54647,
     },
     {
       id: "vinadelmar_3",
@@ -94262,6 +94494,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Castillo_Wulff%2C_Vi%C3%B1a_del_Mar_20230907.jpg/960px-Castillo_Wulff%2C_Vi%C3%B1a_del_Mar_20230907.jpg",
       description: "El Castillo Wulff o Wülff es una edificación ubicada en el borde costero de la ciudad de Viña del Mar, Región de Valparaíso, Chile, en la Avenida La Marina 37, entre la desembocadura del estero Marga Marga y el balneario Caleta Abarca.",
       descriptionEn: "Castillo Wulff is a building on the coastal edge of Viña del Mar, Valparaíso Region, Chile, between the mouth of the Marga Marga estuary and Caleta Abarca beach.",
+      lat: -33.0191,
+      lng: -71.5652,
     },
     {
       id: "vinadelmar_4",
@@ -94278,6 +94512,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Palacio_de_Cerro_Castillo_-_frontis.jpg",
       description: "El Palacio Presidencial de Cerro Castillo es un palacio ubicado en la ciudad de Viña del Mar, en el Gran Valparaíso, Chile. Es ocupado como lugar de descanso del presidente de la República de Chile y sede alternativa al Palacio de La Moneda.",
       descriptionEn: "The Palacio Presidencial de Cerro Castillo is a palace in Viña del Mar, in Greater Valparaíso, Chile. It is used as a rest residence for the President of Chile and as an alternative seat to the Palacio de La Moneda.",
+      lat: -33.02011,
+      lng: -71.56441,
     },
     {
       id: "vinadelmar_5",
@@ -94294,6 +94530,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Palacio_Carrasco%2C_Vi%C3%B1a_del_Mar_20230716.jpg/960px-Palacio_Carrasco%2C_Vi%C3%B1a_del_Mar_20230716.jpg",
       description: "El Palacio Carrasco es un edificio patrimonial ubicado en la ciudad de Viña del Mar, Chile, construido a comienzos del siglo XX y actualmente sede de actividades culturales municipales.",
       descriptionEn: "Palacio Carrasco is a heritage building in Viña del Mar, Chile, built in the early 20th century and now used for municipal cultural activities.",
+      lat: -33.02003,
+      lng: -71.55068,
     },
     {
       id: "vinadelmar_6",
@@ -94310,6 +94548,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Palacio_Astoreca%2C_Vi%C3%B1a_del_Mar_20200206_08.jpg/960px-Palacio_Astoreca%2C_Vi%C3%B1a_del_Mar_20200206_08.jpg",
       description: "El Palacio Astoreca, también denominado Casa Astoreca o simplemente La Casona, es una edificación ubicada en la Población Vergara, en la ciudad de Viña del Mar, Chile.",
       descriptionEn: "Palacio Astoreca, also known as Casa Astoreca or La Casona, is a historic building in the Población Vergara sector of Viña del Mar, Chile.",
+      lat: -33.04075,
+      lng: -71.62895,
     },
     {
       id: "vinadelmar_7",
@@ -94326,6 +94566,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1782177387300-b50be2ab7c89?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF6YSUyMERvY3RvciUyMEFuJUMzJUFEYmFsJTIwU2NhcmVsbGElMjB2aW5hZGVsbWFyfGVufDF8MHx8fDE3ODIyMjA0NTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Plaza Doctor Aníbal Scarella es una plaza urbana ubicada en el sector de 12 Norte con 4 Oriente, en Viña del Mar, Chile, que lleva el nombre del abogado y político chileno Aníbal Scarella Calandroni (1932-1996).",
       descriptionEn: "Plaza Doctor Aníbal Scarella is an urban square at 12 Norte and 4 Oriente in Viña del Mar, Chile, named after the Chilean lawyer and politician Aníbal Scarella Calandroni (1932–1996).",
+      lat: -33.0117,
+      lng: -71.54457,
     },
     {
       id: "vinadelmar_8",
@@ -94342,6 +94584,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Parque_Quinta_Vergara%2C_Vi%C3%B1a_del_Mar_-_%C3%A1rea_verde_02.JPG/960px-Parque_Quinta_Vergara%2C_Vi%C3%B1a_del_Mar_-_%C3%A1rea_verde_02.JPG",
       description: "Quinta Vergara es un parque de la comuna de Viña del Mar, Valparaíso, Chile en el que se encuentra el palacio Vergara, con sus jardines, y el anfiteatro donde se realiza anualmente el Festival Internacional de la Canción de Viña del Mar.",
       descriptionEn: "Quinta Vergara is a park in Viña del Mar, Chile, home to the Vergara Palace, its gardens, and the amphitheater that hosts the annual Viña del Mar International Song Festival.",
+      lat: -33.02806,
+      lng: -71.55361,
     },
     {
       id: "vinadelmar_9",
@@ -94358,6 +94602,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mercado_Municipal%2C_Vi%C3%B1a_del_Mar_20230828.jpg/960px-Mercado_Municipal%2C_Vi%C3%B1a_del_Mar_20230828.jpg",
       description: "El Mercado Municipal de Viña del Mar es un establecimiento comercial que comercializa de forma mayoritaria frutas, verduras, carne, pescados y mariscos.",
       descriptionEn: "The Mercado Municipal de Viña del Mar is a market mainly selling fruit, vegetables, meat, fish, and seafood.",
+      lat: -33.02468,
+      lng: -71.54497,
     },
     {
       id: "vinadelmar_10",
@@ -94374,6 +94620,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Plaza_Sucre%2C_Vi%C3%B1a_del_Mar_20201105.jpg/960px-Plaza_Sucre%2C_Vi%C3%B1a_del_Mar_20201105.jpg",
       description: "La plaza Sucre es una plaza de forma rectangular ubicada en el centro de la ciudad de Viña del Mar, Región de Valparaíso, Chile, al sur de la Plaza José Francisco Vergara, nombrada así en honor a Antonio José de Sucre, prócer de la independencia hispanoamericana.",
       descriptionEn: "Plaza Sucre is a rectangular square in the center of Viña del Mar, Valparaíso Region, Chile, south of Plaza José Francisco Vergara, named after Antonio José de Sucre, hero of Spanish American independence.",
+      lat: -33.02558,
+      lng: -71.55212,
     },
     {
       id: "vinadelmar_11",
@@ -94390,6 +94638,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Alberto_Larraguibel%2C_Estadio%2C_1949-03-05_%28303%29.jpg",
       description: "Este monumento en el borde costero de Viña del Mar rinde homenaje al capitán Alberto Larraguibel Morales y su caballo Huaso, quienes establecieron el 5 de febrero de 1949 el récord mundial de salto alto ecuestre, con 2,47 metros, aún vigente. Obra del escultor Francisco Javier Torres, fue inaugurado el 14 de diciembre de 2007 en Avenida Jorge Montt.",
       descriptionEn: "This monument on Viña del Mar's coastal promenade honors Captain Alberto Larraguibel Morales and his horse Huaso, who set the world equestrian high-jump record of 2.47 metres on 5 February 1949 — a record still unbroken. Created by sculptor Francisco Javier Torres, it was unveiled on 14 December 2007 on Avenida Jorge Montt.",
+      lat: -33.00665,
+      lng: -71.55098,
     },
     {
       id: "vinadelmar_12",
@@ -94406,6 +94656,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Teatro_Municipal%2C_Vi%C3%B1a_del_Mar_20260129_01.jpg/960px-Teatro_Municipal%2C_Vi%C3%B1a_del_Mar_20260129_01.jpg",
       description: "El Teatro Municipal de Viña del Mar es un teatro ubicado en la ciudad de Viña del Mar, Chile, sede de espectáculos culturales.",
       descriptionEn: "The Teatro Municipal de Viña del Mar is a theater in Viña del Mar, Chile, hosting cultural performances.",
+      lat: -33.02469,
+      lng: -71.55053,
     },
     {
       id: "vinadelmar_13",
@@ -94422,6 +94674,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Escenario_quinta.jpg",
       description: "El Anfiteatro de la Quinta Vergara es un escenario al aire libre ubicado en el parque Quinta Vergara de la comuna de Viña del Mar, Región de Valparaíso, Chile.",
       descriptionEn: "The Quinta Vergara Amphitheater is an open-air theatre and concert venue within the Parque Quinta Vergara in Viña del Mar, Chile. It hosts the Viña del Mar International Song Festival held yearly in February. The venue is owned by the Viña del Mar Municipality.",
+      lat: -33.02965,
+      lng: -71.55243,
     },
     {
       id: "vinadelmar_14",
@@ -94439,6 +94693,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Moai_head_at_Corporacion_Museo_de_Arqueologia_e_Historia_Francisco_Fonck.jpg/1920px-Moai_head_at_Corporacion_Museo_de_Arqueologia_e_Historia_Francisco_Fonck.jpg",
       description: "El Museo Fonck es el nombre con el que se conoce al Museo de Arqueología e Historia Francisco Fonck. Se encuentra ubicado en calle 4 Norte 784 esquina 1 Oriente, Viña del Mar, Valparaíso, en Chile.",
       descriptionEn: "The Museo Fonck, formally the Museo de Arqueología e Historia Francisco Fonck, is a museum in Viña del Mar, Chile, known for its archaeological and natural history collections, including an original moai from Easter Island.",
+      lat: -33.01983,
+      lng: -71.54987,
     },
     {
       id: "vinadelmar_15",
@@ -94455,6 +94711,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/SnKFnVWa9FU?auto=format&fit=crop&w=800&q=80",
       description: "El Museo de Bellas Artes Palacio Vergara es un museo de arte ubicado en el palacio Vergara, dentro del parque Quinta Vergara, en Viña del Mar, Chile.",
       descriptionEn: "The Museo de Bellas Artes Palacio Vergara is an art museum housed in the Vergara Palace, within Quinta Vergara park, in Viña del Mar, Chile.",
+      lat: -33.02789,
+      lng: -71.55384,
     },
     {
       id: "vinadelmar_16",
@@ -94471,6 +94729,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Escuela_Municipal_de_Bellas_Artes%2C_Vi%C3%B1a_del_Mar_20231002.jpg/3840px-Escuela_Municipal_de_Bellas_Artes%2C_Vi%C3%B1a_del_Mar_20231002.jpg",
       description: "El Museo Carlos Hermosilla Álvarez, ubicado en la Escuela Municipal de Bellas Artes de Viña del Mar, Chile, lleva el nombre del grabador chileno Carlos Hermosilla Álvarez (1905-1991), quien fue profesor de dibujo y grabado en la escuela desde 1939 y fundador de su taller de artes gráficas.",
       descriptionEn: "The Museo Carlos Hermosilla Álvarez, housed at the Escuela Municipal de Bellas Artes de Viña del Mar, Chile, is named after Chilean printmaker Carlos Hermosilla Álvarez (1905–1991), who taught drawing and engraving at the school from 1939 and founded its graphic arts workshop.",
+      lat: -33.03276,
+      lng: -71.5437,
     },
     {
       id: "vinadelmar_17",
@@ -94487,6 +94747,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Muelle_Vergara%2C_Vi%C3%B1a_del_Mar_20200121_22.jpg/1920px-Muelle_Vergara%2C_Vi%C3%B1a_del_Mar_20200121_22.jpg",
       description: "El muelle Vergara es una antigua estructura de uso industrial e hito turístico ubicado en la playa de la ciudad de Viña del Mar (Chile).",
       descriptionEn: "Muelle Vergara is a former industrial-use pier and tourist landmark on the beach in Viña del Mar, Chile.",
+      lat: -33.01122,
+      lng: -71.55476,
     },
     {
       id: "vinadelmar_18",
@@ -94503,6 +94765,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1728571812263-770017729f48?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMGRlJTIwbG9zJTIwQXJ0aXN0YXMlMjB2aW5hZGVsbWFyfGVufDF8MHx8fDE3ODIyMjA0NTd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Playa de los Artistas es una playa ubicada en la ciudad de Viña del Mar, Región de Valparaíso, Chile.",
       descriptionEn: "Playa de los Artistas is a beach in Viña del Mar, Valparaíso Region, Chile.",
+      lat: -33.0206,
+      lng: -71.56581,
     },
     {
       id: "vinadelmar_19",
@@ -94519,6 +94783,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Reloj_de_flores.%28Vi%C3%B1a_del_Mar%29.jpg/1920px-Reloj_de_flores.%28Vi%C3%B1a_del_Mar%29.jpg",
       description: "El Reloj de Flores es un reloj jardinizado que se encuentra a los pies del cerro Castillo, frente al balneario de Caleta Abarca, en la comuna de Viña del Mar, Región de Valparaíso, Chile.",
       descriptionEn: "The Reloj de Flores is a floral clock at the foot of Cerro Castillo, facing Caleta Abarca beach, in Viña del Mar, Valparaíso Region, Chile.",
+      lat: -33.02329,
+      lng: -71.56718,
     },
     {
       id: "vinadelmar_20",
@@ -94538,6 +94804,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://jbn.cl/",
       description: "El Jardín Botánico Nacional es un jardín botánico de 395 ha, ubicado en Viña del Mar. Contiene cerros de matorral y bosque esclerófilo. Dentro de su superficie hay 32 ha correspondientes al antiguo parque El Salitre, construido por Pascual Baburizza.",
       sourceUrl: "https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Nacional_de_Vi%C3%B1a_del_Mar",
+      descriptionEn: "The National Botanical Garden of Viña del Mar is a park with collections of native and exotic plants, trails and wooded areas. Visitors go to walk through its gardens and learn about the region's vegetation.",
     },
     {
       id: "vinadelmar_21",
@@ -94556,6 +94823,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.56014,
       description: "El Casino Municipal de Viña del Mar, cuyo nombre comercial es Enjoy Viña del Mar, es un casino de juego ubicado en la ciudad chilena de Viña del Mar, en la Región de Valparaíso. Es propiedad de la municipalidad de esa ciudad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Casino_Municipal_de_Vi%C3%B1a_del_Mar",
+      descriptionEn: "The Casino Municipal de Viña del Mar is an entertainment venue with gaming rooms, restaurants and spaces for shows. Visitors go for its gaming and nighttime activities.",
     },
     {
       id: "vinadelmar_22",
@@ -94572,6 +94840,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Placa_Avenida_Per%C3%BA%2C_Vi%C3%B1a_del_Mar_20230907.jpg/1280px-Placa_Avenida_Per%C3%BA%2C_Vi%C3%B1a_del_Mar_20230907.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Avenida Perú es una vía costera de Viña del Mar que recorre el borde litoral junto a varias playas de la ciudad. Su trazado urbano frente al mar conecta sectores del centro con la costa.",
       descriptionEn: "Avenida Perú is a coastal avenue in Viña del Mar that runs along the shoreline next to several city beaches. Its urban layout facing the sea connects central areas with the coast.",
+      lat: -33.01679,
+      lng: -71.55913,
     },
     {
       id: "vinadelmar_23",
@@ -94606,6 +94876,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Playa_El_Sol%2C_Vi%C3%B1a_del_Mar_20200121_27.jpg/1280px-Playa_El_Sol%2C_Vi%C3%B1a_del_Mar_20200121_27.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Playa El Sol es una playa de Viña del Mar situada en el borde costero cercano al centro de la ciudad, junto a la Avenida Perú. Es una playa urbana de arena que forma parte del litoral frente al Pacífico.",
       descriptionEn: "Playa El Sol is a beach in Viña del Mar on the coastline near the city center, next to Avenida Perú. It is an urban sand beach that forms part of the Pacific shoreline.",
+      lat: -33.01013,
+      lng: -71.55329,
     },
     {
       id: "vinadelmar_25",
@@ -94624,6 +94896,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -71.54927,
       description: "Las dunas de Concón, oficialmente nombradas Campo dunar de la Punta de Concón, es un conjunto de dunas chileno ubicado entre la comuna de Concón y la localidad de Reñaca en la Región de Valparaíso.",
       sourceUrl: "https://es.wikipedia.org/wiki/Dunas_de_Conc%C3%B3n",
+      descriptionEn: "The Concón Dunes are a coastal dune field in Concón, near Viña del Mar, with sand, low vegetation and ocean views. Visitors go to explore the dune landscape and observe the coastline.",
     },
     {
       id: "vinadelmar_26",
@@ -94834,6 +95107,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Museo_del_Meteorito_%2849573887767%29.jpg/960px-Museo_del_Meteorito_%2849573887767%29.jpg",
       description: "El Museo del Meteorito es un museo chileno ubicado en la comuna de San Pedro de Atacama que exhibe permanentemente una colección de meteoritos hallados en el desierto de Atacama, en el norte de Chile.",
       descriptionEn: "The Museo del Meteorito is a Chilean museum in the commune of San Pedro de Atacama that permanently exhibits a collection of meteorites found in the Atacama Desert, in northern Chile.",
+      lat: -22.90819,
+      lng: -68.2017,
     },
     {
       id: "sanpedroatacama_6",
@@ -94851,6 +95126,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Museo Arqueológico R. P. Gustavo Le Paige estaba ubicado en la comuna de San Pedro de Atacama, en la II Región de Antofagasta, Chile. Este museo pertenecía a la Universidad Católica del Norte.",
       descriptionEn: "R. P. Gustavo Le Paige Archaeological Museum is a museum located in San Pedro de Atacama, Chile. It houses a collection of about 380,000 pre-Columbian artifacts from the Atacameño culture. The museum is named after Jesuit missionary Father Gustavo Le Paige, who was its founder.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Arqueol%C3%B3gico_R.P._Gustavo_Le_Paige",
+      lat: -22.90548,
+      lng: -68.19671,
     },
     {
       id: "sanpedroatacama_7",
@@ -95296,6 +95573,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La laguna Chaxa es un cuerpo de agua superficial ubicado en el salar de Atacama, en la comuna de San Pedro de Atacama, Provincia de El Loa, norte de Chile. Es un destino turístico, así como una estación de observación ornitológica.",
       sourceUrl: "https://es.wikipedia.org/wiki/Laguna_Chaxa",
+      descriptionEn: "Laguna Chaxa is a saltwater lagoon within the Salar de Atacama, in Los Flamencos National Reserve. It is visited for its salt-crust landscapes and the birds that frequent its waters.",
     },
     {
       id: "sanpedroatacama_32",
@@ -95334,6 +95612,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -68.21667,
       description: "La laguna Cejar es un cuerpo de agua superficial salado ubicado en el Salar de Atacama, en la comuna de San Pedro de Atacama, Provincia de El Loa, norte de Chile.",
       sourceUrl: "https://es.wikipedia.org/wiki/Laguna_Cejar",
+      descriptionEn: "Laguna Cejar is a salt lagoon in the Salar de Atacama, near San Pedro de Atacama. It is known for the high salt concentration of its waters, which makes floating easier.",
     },
     {
       id: "sanpedroatacama_34",
@@ -95353,6 +95632,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Salar de Tara es un salar situado a unos 150 km al este de la localidad de San Pedro de Atacama, Provincia de El Loa, en la Región de Antofagasta, Chile, no lejos de la frontera con Argentina.",
       sourceUrl: "https://es.wikipedia.org/wiki/Salar_de_Tara",
+      descriptionEn: "Salar de Tara is a high-altitude salt basin in the mountains east of San Pedro de Atacama, within Los Flamencos National Reserve. Its landscape combines lagoons, salt crusts and rock formations.",
     },
     {
       id: "sanpedroatacama_35",
@@ -95392,6 +95672,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -68.35125,
       description: "La cordillera de la Sal es una cadena montañosa ubicada cerca de San Pedro de Atacama en el norte de Chile. Fue creada por actividad tectónica en el Salar de Atacama, durante la cual se desplegaron y levantaron capas de sedimentos rojos continentales y evaporitas blancas.",
       sourceUrl: "https://es.wikipedia.org/wiki/Cordillera_de_la_Sal",
+      descriptionEn: "Cordillera de la Sal is a mountain formation of sedimentary rock and salt located west of San Pedro de Atacama. Its ridges and ravines shaped by erosion surround areas such as Valle de la Luna.",
     },
     {
       id: "sanpedroatacama_37",
@@ -95427,6 +95708,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/San_Pedro_de_Atacama_1.jpg/1280px-San_Pedro_de_Atacama_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Valle de la Muerte es una depresión desértica cercana a San Pedro de Atacama, con dunas de arena y formaciones de sal y roca. Se visita para recorrer sus senderos y miradores, con vistas que cambian al atardecer.",
       descriptionEn: "Death Valley is a desert depression near San Pedro de Atacama, with sand dunes and salt and rock formations. It is visited to walk its trails and viewpoints, with views that change at sunset.",
+      lat: -22.90699,
+      lng: -68.24605,
     },
     {
       id: "sanpedroatacama_39",
@@ -95557,6 +95840,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseo251921univ%29.pdf/page1-960px-Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseo251921univ%29.pdf.jpg",
       description: "El Museo Sala de Arte Religioso, dependiente del Arzobispado de La Serena, exhibe una colección de arte sacro colonial y republicano, con piezas de orfebrería, imaginería y pintura religiosa de la región de Coquimbo.",
       descriptionEn: "The Museo Sala de Arte Religioso, run by the Archbishopric of La Serena, displays a collection of colonial and republican-era religious art, including silverwork, sculpture, and religious paintings from the Coquimbo Region.",
+      lat: -29.90259,
+      lng: -71.25104,
     },
     {
       id: "laserena_1",
@@ -95574,6 +95859,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Casa_Museo_G.G.Videla_00.jpg/960px-Casa_Museo_G.G.Videla_00.jpg",
       description: "El Museo Histórico Regional Casa Gabriel González Videla, ubicado en la casa natal del expresidente chileno, exhibe piezas y documentos sobre la historia de La Serena y de la Región de Coquimbo.",
       descriptionEn: "The Museo Histórico Regional, housed in the birth home of former Chilean president Gabriel González Videla, displays artifacts and documents on the history of La Serena and the Coquimbo Region.",
+      lat: -29.90316,
+      lng: -71.25292,
     },
     {
       id: "laserena_2",
@@ -95591,6 +95878,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Museo_Arqueol%C3%B3gico_de_La_Serena.jpg/960px-Museo_Arqueol%C3%B3gico_de_La_Serena.jpg",
       description: "El Museo Arqueológico de La Serena es un museo especializado en la prehistoria y arquelogía local, ubicado en el centro de la ciudad de La Serena, capital de la Región de Coquimbo. Fue creado el 3 de abril de 1943, como museo municipal.",
       descriptionEn: "The Museo Arqueológico de La Serena specializes in the region's prehistory and archaeology, housed in the city center of La Serena, capital of the Coquimbo Region. It was founded on April 3, 1943 as a municipal museum, and its outdoor courtyard displays a moai brought from Easter Island.",
+      lat: -29.90355,
+      lng: -71.24715,
     },
     {
       id: "laserena_3",
@@ -95607,6 +95896,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/0TshHecLBXI?auto=format&fit=crop&w=800&q=80",
       description: "El Museo Mineralógico Ignacio Domeyko es un museo chileno ubicado en la ciudad de La Serena que exhibe una colección de gemas, minerales, piedras y rocas.",
       descriptionEn: "The Museo Mineralógico Ignacio Domeyko is a Chilean museum in the city of La Serena displaying a collection of gems, minerals, and rocks.",
+      lat: -29.90883,
+      lng: -71.24561,
     },
     {
       id: "laserena_4",
@@ -95640,6 +95931,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Casa_que_fuera_de_Gabriela_Mistral%2C_vista_04.jpg/960px-Casa_que_fuera_de_Gabriela_Mistral%2C_vista_04.jpg",
       description: "La Casa de las Palmeras es la vivienda que fue propiedad de la poeta chilena Gabriela Mistral. Se encuentra ubicada en la Avenida Francisco de Aguirre de la comuna de La Serena, y en su parte posterior se encuentra la Biblioteca Regional Gabriela Mistral.",
       descriptionEn: "Casa de las Palmeras was the home of Chilean poet Gabriela Mistral, located on Avenida Francisco de Aguirre in La Serena; the Biblioteca Regional Gabriela Mistral stands behind it.",
+      lat: -29.90538,
+      lng: -71.26355,
     },
     {
       id: "laserena_6",
@@ -95656,6 +95949,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Avenida_Francisco_de_Aguirre.jpg/960px-Avenida_Francisco_de_Aguirre.jpg",
       description: "La Avenida Francisco de Aguirre, llamada así en honor al conquistador español fundador de La Serena, es una de las principales vías costeras de la ciudad, bordeada de palmeras y monumentos históricos.",
       descriptionEn: "Avenida Francisco de Aguirre, named after the Spanish conquistador who founded La Serena, is one of the city's main coastal avenues, lined with palm trees and historic monuments.",
+      lat: -29.90577,
+      lng: -71.25634,
     },
     {
       id: "laserena_7",
@@ -95672,6 +95967,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Iglesia_San_Agust%C3%ADn%2C_La_Serena_-_panoramio.jpg/960px-Iglesia_San_Agust%C3%ADn%2C_La_Serena_-_panoramio.jpg",
       description: "La iglesia de San Agustín es un templo católico ubicado en la ciudad chilena de La Serena.",
       descriptionEn: "The Church of St Augustine is a Catholic church located in La Serena, Chile.",
+      lat: -29.902,
+      lng: -71.24661,
     },
     {
       id: "laserena_8",
@@ -95688,6 +95985,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Iglesia_de_Santa_In%C3%A9s.JPG/960px-Iglesia_de_Santa_In%C3%A9s.JPG",
       description: "La Iglesia de Santa Inés es un antiguo templo católico ubicado en la intersección de las calles Diego de Almagro y Matta, en la ciudad de La Serena, Chile.",
       descriptionEn: "The Iglesia de Santa Inés is a former Catholic church located at the intersection of Diego de Almagro and Matta streets in the city of La Serena, Chile.",
+      lat: -29.89819,
+      lng: -71.25218,
     },
     {
       id: "laserena_9",
@@ -95704,6 +96003,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Faro_Monumental_de_La_Serena._09.12.2022.jpg/960px-Faro_Monumental_de_La_Serena._09.12.2022.jpg",
       description: "El Faro Monumental de La Serena es un faro chileno ubicado en la Avenida del Mar de la ciudad de La Serena. La estructura se caracteriza por ser el símbolo de reconocimiento público de la ciudad, siendo uno de los lugares turísticos más representativos y concurridos de la zona.",
       descriptionEn: "The Faro Monumental de La Serena is a Chilean lighthouse located on Avenida del Mar in the city of La Serena. The structure is a recognized symbol of the city and one of its most iconic and visited landmarks.",
+      lat: -29.90555,
+      lng: -71.27431,
     },
     {
       id: "laserena_10",
@@ -95720,6 +96021,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Iglesia_de_La_Merced_desde_calle_Balmaceda.JPG",
       description: "La Iglesia La Merced es un templo católico de estilo colonial ubicado en el centro histórico de la ciudad de La Serena, Chile.",
       descriptionEn: "The Iglesia La Merced is a colonial-style Catholic church located in the historic center of the city of La Serena, Chile.",
+      lat: -29.90181,
+      lng: -71.24939,
     },
     {
       id: "laserena_11",
@@ -95736,6 +96039,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Parque_Municipal_Gabriel_Coll_Dalmau.jpg",
       description: "El Parque Municipal Gabriel Coll Dalmau es un parque perteneciente a la Municipalidad de La Serena. es ideal para disfrutar en familia, ubicado entre la Colina del Pino y Avenida 18 de Septiembre en La Serena.",
       descriptionEn: "Parque Municipal Gabriel Coll Dalmau is a municipal park in La Serena, ideal for family outings, located between Colina del Pino and Avenida 18 de Septiembre.",
+      lat: -29.91253,
+      lng: -71.23177,
     },
     {
       id: "laserena_12",
@@ -95752,6 +96057,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Vista_general_con_campanario_incluido.jpg/960px-Vista_general_con_campanario_incluido.jpg",
       description: "La Iglesia de Santo Domingo es un templo de estilo colonial y de una sola nave ubicado en la ciudad de La Serena, en Chile.",
       descriptionEn: "The Iglesia de Santo Domingo is a Catholic church at 235 Gregorio Cordovez Street, between Manuel Antonio Matta and Pedro Pablo Muñoz streets, in the historic quarter of La Serena, Chile. It was declared a National Monument of Chile on May 16, 2001.",
+      lat: -29.9035,
+      lng: -71.25375,
     },
     {
       id: "laserena_13",
@@ -95768,6 +96075,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Plaza_de_Armas_La_Serena.JPG/960px-Plaza_de_Armas_La_Serena.JPG",
       description: "La plaza de Armas de La Serena es la plaza principal de la ciudad de La Serena, en la Región de Coquimbo en Chile.",
       descriptionEn: "The Plaza de Armas of La Serena is the main square of the city of La Serena, in the Coquimbo Region of Chile.",
+      lat: -29.90272,
+      lng: -71.25195,
     },
     {
       id: "laserena_14",
@@ -95784,6 +96093,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Iglesia_san_fco_la_serena.jpg/960px-Iglesia_san_fco_la_serena.jpg",
       description: "La Iglesia de San Francisco es un templo católico ubicado en la ciudad chilena de La Serena. Su estructura es altamente representativa de la arquitectura hispanoamericana de fines de siglo XVI y constituye uno de los más antiguos edificios religiosos de aquella época.",
       descriptionEn: "The Iglesia de San Francisco is a Catholic church located in La Serena, Chile. It was declared a National Monument of Chile in 1977.",
+      lat: -29.90456,
+      lng: -71.24968,
     },
     {
       id: "laserena_15",
@@ -95800,6 +96111,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Capilla_del_Hospital_San_Juan_de_Dios.JPG/960px-Capilla_del_Hospital_San_Juan_de_Dios.JPG",
       description: "La Capilla del Hospital San Juan de Dios es una pequeña iglesia de estilo neoclásico y de una sola nave ubicada en la ciudad de La Serena, en Chile.",
       descriptionEn: "The Capilla San Juan de Dios is a small neoclassical, single-nave chapel located in the city of La Serena, Chile.",
+      lat: -29.90764,
+      lng: -71.24951,
     },
     {
       id: "laserena_16",
@@ -95816,6 +96129,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Su_uso_actual_es_de_Casa_de_estudio.jpg/960px-Su_uso_actual_es_de_Casa_de_estudio.jpg",
       description: "La Casa Herreros es una vivienda típica de estilo neoclásico ubicada en la ciudad de La Serena, en la Región de Coquimbo, en Chile.",
       descriptionEn: "Casa Herreros is a typical neoclassical-style house located in the city of La Serena, in the Coquimbo Region of Chile.",
+      lat: -29.90139,
+      lng: -71.2525,
     },
     {
       id: "laserena_17",
@@ -95832,6 +96147,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1679015632691-f9e3ed595155?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTaXRpbyUyMFBhbGVvaW5kaW8lMjBkZSUyMEFzZW50YW1pZW50byUyMHklMjBOZWNyJUMzJUIzcG9saXMlMjBFbCUyME9saXZhciUyMGxhc2VyZW5hfGVufDF8MHx8fDE3ODIyMjMzNjl8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El sitio arqueológico El Olivar es un asentamiento y necrópolis prehispánica ubicada en el sector Las Compañías de La Serena, uno de los yacimientos más importantes de Chile por sus vestigios de las culturas El Molle, Las Ánimas y Diaguita.",
       descriptionEn: "The El Olivar archaeological site is a pre-Hispanic settlement and necropolis in the Las Compañías sector of La Serena, one of Chile's most important archaeological sites for its remains of the El Molle, Las Ánimas, and Diaguita cultures.",
+      lat: -29.88559,
+      lng: -71.25507,
     },
     {
       id: "laserena_18",
@@ -95848,6 +96165,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Recova_La_Serena.JPG/960px-Recova_La_Serena.JPG",
       description: "La Recova es un edificio ubicado en La Serena, Chile, construido como mercado de abastos y feria artesanal.",
       descriptionEn: "La Recova is a building in La Serena, Chile, built as a produce market and crafts fair.",
+      lat: -29.9016,
+      lng: -71.24618,
     },
     {
       id: "laserena_19",
@@ -95864,6 +96183,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/HDtqftPlT_Q?auto=format&fit=crop&w=800&q=80",
       description: "El Parque Pedro de Valdivia es un parque ubicado en La Serena, de propiedad municipal. Representa una de las principales áreas verdes de la ciudad.",
       descriptionEn: "Parque Pedro de Valdivia is a municipally-owned park in La Serena, representing one of the city's main green spaces.",
+      lat: -29.89969,
+      lng: -71.2548,
     },
     {
       id: "laserena_20",
@@ -95880,6 +96201,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cerro_Grande_La_Serena.jpg/960px-Cerro_Grande_La_Serena.jpg",
       description: "El Cerro Grande es la mayor elevación de la ciudad de La Serena. En él se encuentran las antenas de comunicaciones y televisión que cubren el área de La Serena y Coquimbo.",
       descriptionEn: "Cerro Grande is the highest elevation in the city of La Serena, home to the communications and television antennas that cover the La Serena and Coquimbo area.",
+      lat: -29.9387,
+      lng: -71.2246,
     },
     {
       id: "laserena_21",
@@ -95896,6 +96219,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1615378809683-6737a9e362f2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMExvcyUyMExvcm9zJTIwbGFzZXJlbmF8ZW58MXwwfHx8MTc4MjIyMzM3NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Cerro Los Loros es una elevación ubicada en las cercanías de La Serena, Chile, cuyo nombre recuerda la Batalla de Los Loros, un episodio bélico de la Revolución de 1859 librado en la zona.",
       descriptionEn: "Cerro Los Loros is a hill near La Serena, Chile, whose name recalls the Battle of Los Loros, an episode of the 1859 Chilean Revolution fought in the area.",
+      lat: -29.8655,
+      lng: -71.19987,
     },
     {
       id: "laserena_22",
@@ -95929,6 +96254,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Breeder_and_sportsman_%28IA_breedersportsma321898sanf%29.pdf/page1-1280px-Breeder_and_sportsman_%28IA_breedersportsma321898sanf%29.pdf.jpg",
       description: "Big Bang Park es un parque de diversiones familiar ubicado en La Serena, Chile, con juegos mecánicos y atracciones para niños y adultos.",
       descriptionEn: "Big Bang Park is a family amusement park located in La Serena, Chile, featuring rides and attractions for children and adults.",
+      lat: -29.9453,
+      lng: -71.28276,
     },
     {
       id: "laserena_24",
@@ -95961,6 +96288,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1604649419242-51926211e3fb?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBkZSUyMERpdmVyc2lvbmVzJTIwU2VyZW5hJTIwQXZlbnR1cmElMjBsYXNlcmVuYXxlbnwxfDB8fHwxNzgyMjIzMzgwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Serena Aventura es un parque de diversiones familiar ubicado en La Serena, Chile, con juegos y atracciones para todas las edades.",
       descriptionEn: "Serena Aventura is a family amusement park in La Serena, Chile, featuring rides and attractions for all ages.",
+      lat: -29.93213,
+      lng: -71.27286,
     },
     {
       id: "laserena_26",
@@ -95977,6 +96306,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Aurora_de_Chile_-_N%C2%B0_Extraordinario_-_1_de_septiembre_de_2010.pdf/page1-960px-Aurora_de_Chile_-_N%C2%B0_Extraordinario_-_1_de_septiembre_de_2010.pdf.jpg",
       description: "La Bandera del Bicentenario es un mástil monumental instalado en La Serena, Chile, para conmemorar el bicentenario de la independencia del país.",
       descriptionEn: "The Bandera del Bicentenario is a monumental flagpole erected in La Serena, Chile, to commemorate the bicentennial of the country's independence.",
+      lat: -29.90418,
+      lng: -71.23897,
     },
     {
       id: "laserena_27",
@@ -95993,6 +96324,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Jard%C3%ADn_Japon%C3%A9s_de_La_Serena_%2815190973631%29.jpg/1920px-Jard%C3%ADn_Japon%C3%A9s_de_La_Serena_%2815190973631%29.jpg",
       description: "El Jardín Japonés de La Serena, también conocido como Parque Jardín del Corazón, es un jardín temático inaugurado en 1994 que recrea la estética paisajística japonesa con especies vegetales y animales de ese país.",
       descriptionEn: "The Jardín Japonés de La Serena, also known as Parque Jardín del Corazón, is a themed garden opened in 1994 that recreates Japanese landscape aesthetics with plant and animal species from Japan.",
+      lat: -29.90334,
+      lng: -71.25506,
     },
     {
       id: "laserena_28",
@@ -96028,6 +96361,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El valle de Elqui, llamado antiguamente también como valle de Coquimbo, es el espacio cultural desarrollado en la cuenca del río Elqui ubicada en la provincia de Elqui, región de Coquimbo, en Chile.",
       sourceUrl: "https://es.wikipedia.org/wiki/Valle_del_Elqui",
+      lat: -29.90276,
+      lng: -71.25628,
+      descriptionEn: "The Elqui Valley is a mountain valley in the Coquimbo Region known for its vineyards, small towns and clear skies. It is visited for its arid landscapes, grape growing and astronomical activities.",
     },
     {
       id: "laserena_30",
@@ -96088,6 +96424,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Observatorio Cerro Mamalluca es un observatorio turístico ubicado a 9 kilómetros al nororiente de la ciudad de Vicuña, Región de Coquimbo, Chile. En 1994, se convirtió en el primer observatorio aficionado con fines turísticos del país.",
       sourceUrl: "https://es.wikipedia.org/wiki/Observatorio_Cerro_Mamalluca",
+      descriptionEn: "Cerro Mamalluca Observatory is an astronomical observatory located near Vicuña, in the Elqui Valley. It receives visitors for nighttime tours and sky observation with telescopes.",
     },
     {
       id: "laserena_33",
@@ -96149,6 +96486,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La isla Damas es una isla chilena en la región de Coquimbo, una de las tres islas que componen la reserva nacional Pingüino de Humboldt, la cual fue fundada el 3 de enero de 1990 y que forman parte del denominado Archipiélago de Humboldt.",
       sourceUrl: "https://es.wikipedia.org/wiki/Isla_Damas",
+      descriptionEn: "Isla Damas is an island in the Pingüino de Humboldt National Reserve, on the coast of the Coquimbo Region. It is visited on excursions from nearby ports to walk its beaches and observe marine wildlife and birds.",
     },
     {
       id: "laserena_36",
@@ -96169,6 +96507,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.mgmistral.gob.cl",
       description: "El Museo Gabriela Mistral es un museo chileno, ubicado en la ciudad de Vicuña, en la Región de Coquimbo, fundado el 18 de septiembre de 1957. Posee diversas muestras dedicadas a difundir la vida y obra de la poetisa chilena Gabriela Mistral.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Gabriela_Mistral",
+      descriptionEn: "The Gabriela Mistral Museum is located in Vicuña, the poet's hometown, and brings together objects, documents and material about her life and work. It is about 60 km from La Serena, in the Elqui Valley.",
     },
     {
       id: "laserena_37",
@@ -96224,6 +96563,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6f/IglesiaGuayac%C3%A1n.jpg",
       description: "La iglesia de Guayacán es un templo católico ubicado en el sector de Guayacán, en la bahía de La Herradura de la ciudad de Coquimbo, Chile.",
       descriptionEn: "The Iglesia de Guayacán is a Catholic church located in the Guayacán sector, on the Bahía de La Herradura, in the city of Coquimbo, Chile.",
+      lat: -29.96706,
+      lng: -71.3466,
     },
     {
       id: "coquimbo_1",
@@ -96240,6 +96581,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Fuerte_Lambert.JPG/960px-Fuerte_Lambert.JPG",
       description: "El Fuerte Lambert es una fortificación existente en la ciudad chilena de Coquimbo, específicamente en el cerro Castillo del Carmen, en el sector denominado Punta Pelícanos, debido a que 40 metros frente a la costa existe un islote poblado con dichas aves.",
       descriptionEn: "Fuerte Lambert is a fortification in the Chilean city of Coquimbo, located on Cerro Castillo del Carmen in the sector known as Punta Pelícanos, named for a small islet 40 meters offshore inhabited by pelicans.",
+      lat: -29.93389,
+      lng: -71.33583,
     },
     {
       id: "coquimbo_2",
@@ -96257,6 +96600,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wiki_Tour_-_Cruz_del_Tercer_Milenio_01.JPG/960px-Wiki_Tour_-_Cruz_del_Tercer_Milenio_01.JPG",
       description: "La Cruz del Tercer Milenio es un monumento conmemorativo religioso ubicado en el cerro El Vigía de Coquimbo, Chile. Fue construido con el motivo del jubileo del año 2000 de la Iglesia católica. Su construcción fue iniciada en 1999 y terminada en 2000.",
       descriptionEn: "Cruz del Tercer Milenio is an 83 meter tall, 40 meter wide, concrete cross located at the top of El Vigía hill in Coquimbo, Chile. Construction began in 1999 and it was completed in 2001. It sits 197 meters above sea level. It was considered the tallest monument in South America.",
+      lat: -29.95222,
+      lng: -71.3475,
     },
     {
       id: "coquimbo_3",
@@ -96273,6 +96618,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Mezquita_de_Coquimbo_-_panoramio_%281%29.jpg/960px-Mezquita_de_Coquimbo_-_panoramio_%281%29.jpg",
       description: "El Centro Mohammed VI para el Diálogo de las Civilizaciones, más conocido como la Mezquita, es un centro cultural situado en el cerro Dominante de la ciudad de Coquimbo, Chile. El minarete de su mezquita es una réplica a escala de la Mezquita Kutubia de Marrakech, Marruecos.",
       descriptionEn: "The Mohammed VI Center for Dialogue of Civilizations is a mosque in Coquimbo, Chile. The structure is a replica of the Kutubiyya Mosque in Marrakesh and was funded by the Kingdom of Morocco and the municipality of Coquimbo, being named in honor of king Mohammed VI of Morocco.",
+      lat: -29.96306,
+      lng: -71.33542,
     },
     {
       id: "coquimbo_4",
@@ -96289,6 +96636,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Cerro_Dominante_y_Mezquita_de_Coquimbo.jpg/960px-Cerro_Dominante_y_Mezquita_de_Coquimbo.jpg",
       description: "Cerro Dominante es un cerro isla ubicado en la ciudad chilena de Coquimbo. Posee una altura de 54 m s. n. m.",
       descriptionEn: "Cerro Dominante is an island hill in the Chilean city of Coquimbo, rising 54 meters above sea level.",
+      lat: -29.96308,
+      lng: -71.33539,
     },
     {
       id: "coquimbo_5",
@@ -96322,6 +96671,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/54/De_Elqui-vallei_in_Coquimbo-p1906-151.jpg",
       description: "El Museo OVNI es un museo temático ubicado en Coquimbo, Chile, dedicado a fenómenos ovni y avistamientos reportados en la región de Coquimbo.",
       descriptionEn: "Museo OVNI is a themed museum in Coquimbo, Chile, dedicated to UFO phenomena and sightings reported in the Coquimbo Region.",
+      lat: -29.94573,
+      lng: -71.28259,
     },
     {
       id: "coquimbo_7",
@@ -96338,6 +96689,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1729711667600-b3f1e2839ab4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlby1BY3VhcmlvJTIwRkNNJTIwVS4lMjBDYXQlQzMlQjNsaWNhJTIwZGVsJTIwTm9ydGUlMjBjb3F1aW1ib3xlbnwxfDB8fHwxNzgyMjIzMzkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo-Acuario de la Facultad de Ciencias del Mar de la Universidad Católica del Norte, en el campus Guayacán de Coquimbo, exhibe acuarios marinos y colecciones biológicas de especies de la región, incluyendo una piscina interactiva de invertebrados.",
       descriptionEn: "The Museo-Acuario of the Universidad Católica del Norte's Faculty of Marine Sciences, on the Guayacán campus in Coquimbo, displays marine aquariums and biological collections from the region, including an interactive invertebrate touch pool.",
+      lat: -29.96594,
+      lng: -71.35324,
     },
     {
       id: "coquimbo_8",
@@ -96354,6 +96707,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1729711667600-b3f1e2839ab4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMENhcmRlbmFsJTIwSm9yZ2UlMjBNZWRpbmElMjBFc3QlQzMlQTl2ZXolMjBjb3F1aW1ib3xlbnwxfDB8fHwxNzgyMjIzMzkzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Cardenal Jorge Medina Estévez está ubicado detrás del altar mayor de la Cruz del Tercer Milenio, en el cerro El Vigía de Coquimbo, Chile. Llamado así en honor al cardenal chileno del mismo nombre.",
       descriptionEn: "The Museo Cardenal Jorge Medina Estévez sits behind the main altar of the Cruz del Tercer Milenio, on Cerro El Vigía in Coquimbo, Chile, named after the Chilean cardinal.",
+      lat: -29.97477,
+      lng: -71.29891,
     },
     {
       id: "coquimbo_9",
@@ -96370,6 +96725,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/ECH_515_20_-_Polca%2C_La.djvu/page1-1920px-ECH_515_20_-_Polca%2C_La.djvu.jpg",
       description: "La Casa del Arte Rural es un espacio cultural en Coquimbo, Chile, dedicado a la exhibición de artesanía y arte tradicional de la zona rural de la región.",
       descriptionEn: "Casa del Arte Rural is a cultural space in Coquimbo, Chile, dedicated to displaying crafts and traditional art from the region's rural areas.",
+      lat: -29.9728,
+      lng: -71.30043,
     },
     {
       id: "coquimbo_10",
@@ -96386,6 +96743,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/79/Domo_Cultura_Animas.jpg",
       description: "El Domo Cultura Ánimas es un museo de sitio ubicado en la ciudad chilena de Coquimbo. Debe su nombre a la cultura Ánimas, precursora de la cultura diaguita que habitó el norte chico de Chile entre 900 y 1200 d.",
       descriptionEn: "The Domo Cultura Ánimas is a site museum located in the Chilean city of Coquimbo. It takes its name from the Ánimas culture, a precursor of the Diaguita culture that inhabited northern Chile between 900 and 1200 AD.",
+      lat: -29.95232,
+      lng: -71.33777,
     },
     {
       id: "coquimbo_11",
@@ -96450,6 +96809,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1723897275347-624e147ba431?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXNlbyUyMEJhcmNvJTIwUGlyYXRhJTIwY29xdWltYm98ZW58MXwwfHx8MTc4MjIyMzQwNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Paseo Barco Pirata es una atracción costera en Coquimbo, Chile, con un paseo temático de piratas para el disfrute familiar.",
       descriptionEn: "Paseo Barco Pirata is a coastal attraction in Coquimbo, Chile, with a pirate-themed boardwalk for family enjoyment.",
+      lat: -29.95645,
+      lng: -71.33507,
     },
     {
       id: "coquimbo_15",
@@ -96466,6 +96827,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Barrio_Ingl%C3%A9s%2C_Coquimbo_-_panoramio.jpg/1280px-Barrio_Ingl%C3%A9s%2C_Coquimbo_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Barrio Inglés es un sector de la comuna de Coquimbo, Chile, principal puerto de la región homónima, ubicado a un costado del centro de la comuna, frente a su bahía, que se destaca por ser una activa zona turística, gastronómica y cultural de la conurbación La Serena-Coquimbo.",
       sourceUrl: "https://es.wikipedia.org/wiki/Barrio_Ingl%C3%A9s_(Coquimbo)",
+      descriptionEn: "The Barrio Inglés is a historic district in Coquimbo, near the port, with houses and buildings linked to the British community that settled in the city. It is visited for its heritage architecture and port history.",
     },
     {
       id: "coquimbo_16",
@@ -96563,6 +96925,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Sitio arqueológico en la comuna de Ovalle, en la cuenca del río Limarí, con petroglifos, pictografías y piedras tacitas de culturas precolombinas. Es monumento nacional y se recorre por un sendero habilitado.",
       descriptionEn: "An archaeological site in the Ovalle district, in the Limarí River basin, with petroglyphs, pictographs and grinding-stone holes left by pre-Columbian cultures. It is a national monument and is visited along a marked trail.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/87/Valle_del_Encanto_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "coquimbo_21",
@@ -96645,6 +97008,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Leandro Penchulef es un museo dedicado a la cultura y el arte mapuche, ubicado en la zona de Pucón, en la Región de la Araucanía, Chile.",
       descriptionEn: "Museo Leandro Penchulef is a museum dedicated to Mapuche culture and art, located in the Pucón area, in the La Araucanía Region, Chile.",
+      lat: -39.27752,
+      lng: -72.2257,
     },
     {
       id: "pucon_1",
@@ -96661,6 +97026,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pucon-y-su-Volcan.jpg/960px-Pucon-y-su-Volcan.jpg",
       description: "El volcán Villarrica es un estratovolcán chileno de 2847 m s. n. m. —2450 m, contando desde la base— ubicado en los Andes meridionales. Está situado en el límite de las provincias de Cautín y Valdivia, en Chile, entre los lagos Villarrica y Calafquén.",
       descriptionEn: "Villarrica is one of Chile's most active volcanoes, rising above the lake and town of the same name, 750 km (470 mi) south of Santiago. It is also known as Rucapillán, a Mapuche word meaning \"great spirit's house\" or \" the demon's house\".",
+      lat: -39.42,
+      lng: -71.93917,
     },
     {
       id: "pucon_2",
@@ -96677,6 +97044,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/Villarrica_town_and_volcano.jpg",
       description: "El Museo Histórico y Arqueológico Municipal de Villarrica exhibe piezas arqueológicas mapuche y objetos históricos de la ciudad de Villarrica, en la Región de la Araucanía, Chile.",
       descriptionEn: "The Museo Histórico y Arqueológico Municipal de Villarrica displays Mapuche archaeological pieces and historical objects from the city of Villarrica, in the La Araucanía Region, Chile.",
+      lat: -39.28496,
+      lng: -72.22436,
     },
     {
       id: "pucon_3",
@@ -96693,6 +97062,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Casa_Museo_Padre_Pancho.jpg/960px-Casa_Museo_Padre_Pancho.jpg",
       description: "La Casa Museo Padre Pancho es una casa patrimonial de 1930 frente a la Plaza de Armas de Pucón, dedicada a la vida del misionero capuchino Francisco Valdés Subercaseaux, párroco de Pucón y primer obispo de Osorno.",
       descriptionEn: "The Casa Museo Padre Pancho is a 1930 heritage house facing Pucón's main square, dedicated to the life of Capuchin missionary Francisco Valdés Subercaseaux, parish priest of Pucón and first bishop of Osorno.",
+      lat: -39.27357,
+      lng: -71.97755,
     },
     {
       id: "pucon_4",
@@ -96709,6 +97080,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Catedral_de_Villarrica.JPG/960px-Catedral_de_Villarrica.JPG",
       description: "La Catedral de Villarrica es un templo católico ubicado en la ciudad de Villarrica, en la Región de la Araucanía, Chile.",
       descriptionEn: "The Catedral de Villarrica is a Catholic church located in the city of Villarrica, in the La Araucanía Region, Chile.",
+      lat: -39.27874,
+      lng: -72.224,
     },
     {
       id: "pucon_5",
@@ -96725,6 +97098,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Nevados_de_Sollipulli.jpg/960px-Nevados_de_Sollipulli.jpg",
       description: "El parque nacional Villarrica es un parque nacional ubicado en Chile en la provincia de Cautín y la provincia de Valdivia, a 12 km al suroeste de Pucón, en una zona de grandes volcanes y montañas que alcanzan los 3.776 m s. n. m. Su superficie es de 63.000 ha.",
       descriptionEn: "Villarrica National Park is a national park located in Chile in the provinces of Cautín and Valdivia, 12 km southwest of Pucón, in an area of large volcanoes and mountains reaching 3,776 m above sea level. It covers an area of 63,000 hectares.",
+      lat: -38.9667,
+      lng: -71.5167,
+      dayTrip: true,
     },
     {
       id: "pucon_6",
@@ -96741,6 +97117,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Casino%2C_Puc%C3%B3n_20230921.jpg/960px-Casino%2C_Puc%C3%B3n_20230921.jpg",
       description: "El Casino de Pucón, también conocido como Enjoy Pucón, es un casino de juego chileno ubicado en la ciudad de Pucón, Región de la Araucanía. Es propiedad de la municipalidad de Pucón, y actualmente está licitado a la empresa Enjoy.",
       descriptionEn: "Casino Pucón, also known as Enjoy Pucón, is a Chilean casino located in the city of Pucón, La Araucanía Region. It is owned by the municipality of Pucón and currently operated under license by the Enjoy company.",
+      lat: -39.2724,
+      lng: -71.97619,
     },
     {
       id: "pucon_7",
@@ -96757,6 +97135,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Cerro Redondo es una elevación cercana a Pucón, Chile, apreciada por sus senderos de trekking y sus vistas del volcán Villarrica y el lago Villarrica.",
       descriptionEn: "Cerro Redondo is a hill near Pucón, Chile, popular for its hiking trails and views of Villarrica volcano and Lake Villarrica.",
+      lat: -39.26845,
+      lng: -71.71186,
     },
     {
       id: "pucon_8",
@@ -96774,6 +97154,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El CIVUR 39° es un museo interactivo vulcanológico de la Universidad de La Frontera en Pucón, con exhibiciones sobre la historia geológica y la cosmovisión mapuche del volcán Villarrica (Rukapillán).",
       descriptionEn: "CIVUR 39° is an interactive volcanology museum run by Universidad de La Frontera in Pucón, with exhibits on the geological history and Mapuche worldview of the Villarrica volcano (Rukapillán).",
+      lat: -39.27364,
+      lng: -71.97914,
     },
     {
       id: "pucon_9",
@@ -96806,6 +97188,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1722239311715-90b2b89cfcbc?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGZXJpYSUyMEFydGVzYW5hbCUyMFB1YyVDMyVCM24lMjBwdWNvbnxlbnwxfDB8fHwxNzgyMjIzNDIyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Feria Artesanal Pucón reúne puestos de artesanía local, textiles y objetos de madera, en la ciudad de Pucón, Región de la Araucanía, Chile.",
       descriptionEn: "The Feria Artesanal Pucón brings together stalls of local crafts, textiles, and woodwork, in the city of Pucón, La Araucanía Region, Chile.",
+      lat: -39.27693,
+      lng: -71.97423,
     },
     {
       id: "pucon_11",
@@ -96823,6 +97207,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Rancho Carhuello es un centro de cabalgatas ubicado a unos 12 km de Pucón, Chile, que ofrece paseos a caballo con caballos criollos por senderos y cerros de la zona.",
       descriptionEn: "Rancho Carhuello is a horseback-riding ranch about 12 km from Pucón, Chile, offering guided rides on Criollo horses along local trails and hills.",
+      lat: -39.26248,
+      lng: -71.8839,
     },
     {
       id: "pucon_12",
@@ -96840,6 +97226,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1663599388073-c0fd88b414ff?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwdWNvbiUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjIzNDExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El río Liucura, cercano a Pucón, es un curso de aguas tranquilas rodeado de bosque nativo utilizado para paseos en kayak aptos para principiantes y familias.",
       descriptionEn: "The Liucura River, near Pucón, is a gentle waterway surrounded by native forest, used for beginner- and family-friendly kayak tours.",
+      lat: -39.25998,
+      lng: -71.8269,
     },
     {
       id: "pucon_13",
@@ -96868,9 +97256,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.4,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Chile_en_1908_-_bdh0000119585.pdf/page1-1920px-Chile_en_1908_-_bdh0000119585.pdf.jpg",
+      imageUrl: "https://live.staticflickr.com/65535/54070538243_17a0ee2843_b.jpg",
       description: "La Laguna Negra es una laguna de origen volcánico ubicada cerca de Pucón, en la Región de la Araucanía, Chile, rodeada de bosque nativo.",
       descriptionEn: "Laguna Negra is a lagoon of volcanic origin located near Pucón, in the La Araucanía Region, Chile, surrounded by native forest.",
+      lat: -39.25798,
+      lng: -71.70994,
     },
     {
       id: "pucon_15",
@@ -96887,6 +97277,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Termas_de_Quimey-Co_Puc%C3%B3n.jpg",
       description: "Las Termas Quimey-Co son aguas termales ubicadas cerca de Pucón, en la Región de la Araucanía, Chile, rodeadas de bosque nativo.",
       descriptionEn: "Termas Quimey-Co is a hot springs resort near Pucón, in the La Araucanía Region, Chile, surrounded by native forest.",
+      lat: -39.21895,
+      lng: -71.69626,
     },
     {
       id: "pucon_16",
@@ -96945,6 +97337,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Las Termas Geométricas, son unas baños termales ubicados en la Región de Los Ríos, en Chile. inmersas en el Fundo Cajón Negro de propiedad de la familia Martini Becerra, cercanas a la localidad de Coñaripe, junto al estero Aihué, afluente del río El Venado.",
       sourceUrl: "https://es.wikipedia.org/wiki/Termas_Geom%C3%A9tricas",
+      descriptionEn: "Termas Geométricas is a hot springs complex in native forest near Coñaripe, in the Los Ríos Region. It is visited for its pools and wooden walkways designed to blend into the landscape.",
     },
     {
       id: "pucon_19",
@@ -97015,6 +97408,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Cascada en el sector de El Claro, camino al lago Caburgua, formada por un curso de agua que cae entre rocas y vegetación. El lugar cuenta con pozones naturales y un sendero de acceso corto.",
       descriptionEn: "A waterfall in the El Claro area, on the road to Lake Caburgua, where a stream drops between rocks and vegetation. The site has natural pools and a short access trail.",
+      lat: -39.31601,
+      lng: -71.9306,
     },
     {
       id: "pucon_23",
@@ -97031,6 +97426,9 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Santuario de la naturaleza de administración privada en la precordillera andina cercana a Pucón, con bosque nativo de araucarias y senderos de excursión. Se visita para caminar y apreciar la flora y el paisaje volcánico de la zona.",
       descriptionEn: "A privately managed nature sanctuary in the Andean foothills near Pucón, with native araucaria forest and hiking trails. Visitors come to walk and see the area's flora and volcanic scenery.",
+      lat: -39.26837,
+      lng: -71.71455,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Reflejo_Silencioso.jpg",
     },
     {
       id: "pucon_24",
@@ -97080,6 +97478,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Avenida principal del centro de Pucón, donde se concentran comercio, restaurantes, cafés y servicios turísticos. Es el eje por el que circulan visitantes y residentes en el casco urbano de la ciudad.",
       descriptionEn: "The main avenue in downtown Pucón, lined with shops, restaurants, cafés and tourism services. It is the central axis where visitors and residents move through the town centre.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Comercio_en_Puc%C3%B3n_de_noche.jpg/1280px-Comercio_en_Puc%C3%B3n_de_noche.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "pucon_27",
@@ -97118,6 +97517,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museoaleman.cl/",
       description: "El Museo Antonio Felmer es un museo chileno ubicado en la localidad de Nueva Braunau, comuna de Puerto Varas, en la Región de Los Lagos.",
       descriptionEn: "The Museo Antonio Felmer is a Chilean museum located in the locality of Nueva Braunau, commune of Puerto Varas, in the Los Lagos Region.",
+      lat: -41.32604,
+      lng: -73.09273,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Museo_antonio_felmer_Nueva_Braunau-_Puerto_Varas.jpg/1280px-Museo_antonio_felmer_Nueva_Braunau-_Puerto_Varas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "puertovaras_1",
@@ -97134,6 +97536,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/00_126_2680_Vulcano_Calbuco_-_Chile.jpg/960px-00_126_2680_Vulcano_Calbuco_-_Chile.jpg",
       description: "El volcán Calbuco es un volcán activo del sur de Chile, localizado al sureste del lago Llanquihue, en la Región de Los Lagos. Su ladera norte está dentro de la comuna de Puerto Varas y su ladera sur, en la de Puerto Montt.",
       descriptionEn: "Calbuco is a stratovolcano in southern Chile, located southeast of Llanquihue Lake and northwest of Chapo Lake, in the Los Lagos Region, and close to the cities of Puerto Varas and Puerto Montt.",
+      lat: -41.33278,
+      lng: -72.61111,
+      dayTrip: true,
     },
     {
       id: "puertovaras_2",
@@ -97182,6 +97587,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Capilla_Punta_Cruz_entre_Ensenda_y_Puerto_Varas%2C_2019.jpg/960px-Capilla_Punta_Cruz_entre_Ensenda_y_Puerto_Varas%2C_2019.jpg",
       description: "La Capilla Punta Cruz es una pequeña capilla ubicada entre Ensenada y Puerto Varas, a orillas del lago Llanquihue, en la Región de Los Lagos, Chile.",
       descriptionEn: "The Capilla Punta Cruz is a small chapel located between Ensenada and Puerto Varas, on the shores of Lake Llanquihue, in the Los Lagos Region, Chile.",
+      lat: -41.2536,
+      lng: -72.7884,
     },
     {
       id: "puertovaras_5",
@@ -97198,6 +97605,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Puerto_Varas_La_Puntilla_-escultra_de_la_princesa_Licarayen_f02.jpg/1920px-Puerto_Varas_La_Puntilla_-escultra_de_la_princesa_Licarayen_f02.jpg",
       description: "La Princesa Licarayén es una escultura de casi ocho metros de altura ubicada en el sector de La Puntilla, Puerto Varas, frente al lago Llanquihue y el volcán Osorno. Rinde homenaje a una leyenda mapuche sobre una princesa que se sacrificó para calmar al volcán.",
       descriptionEn: "Princesa Licarayén is an almost eight-meter-tall sculpture located in the La Puntilla area of Puerto Varas, facing Lake Llanquihue and Osorno Volcano. It honors a Mapuche legend about a princess who sacrificed herself to calm the volcano.",
+      lat: -41.31264,
+      lng: -72.97841,
     },
     {
       id: "puertovaras_6",
@@ -97214,6 +97623,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Casa_Raddatz.JPG/960px-Casa_Raddatz.JPG",
       description: "La Casa Raddatz, sede del Centro Cultural Bosque Nativo desde el 2002, es un monumento histórico localizado en la ciudad de Puerto Varas, Región de Los Lagos, Chile.",
       descriptionEn: "Casa Raddatz, home to the Centro Cultural Bosque Nativo since 2002, is a historic monument located in the city of Puerto Varas, Los Lagos Region, Chile.",
+      lat: -41.3275,
+      lng: -72.96528,
     },
     {
       id: "puertovaras_7",
@@ -97230,6 +97641,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/00_1691_Church_of_Puerto_Varas_%28Chile%29.jpg/960px-00_1691_Church_of_Puerto_Varas_%28Chile%29.jpg",
       description: "La iglesia del Sagrado Corazón de Jesús es una iglesia parroquial ubicada en la ciudad chilena de Puerto Varas, en la región de Los Lagos. Por su ubicación y estilo característico lo convierte en el templo más representativo de la arquitectura del sur de Chile.",
       descriptionEn: "The Iglesia del Sagrado Corazón de Jesús is a parish church located in the Chilean city of Puerto Varas, in the Los Lagos Region. Its location and distinctive style make it the most representative temple of southern Chilean architecture.",
+      lat: -41.32072,
+      lng: -72.98616,
     },
     {
       id: "puertovaras_8",
@@ -97246,6 +97659,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/Iglesia_Luterana_Natalia_Aceituno.JPG",
       description: "El templo luterano de Puerto Varas es una iglesia de estilo neogótico de la ciudad homónima, en la región de Los Lagos, Chile.",
       descriptionEn: "The Lutheran Temple of Puerto Varas is a Neo-Gothic style church in the city of the same name, in the Los Lagos Region, Chile.",
+      lat: -41.32539,
+      lng: -72.97219,
     },
     {
       id: "puertovaras_9",
@@ -97262,6 +97677,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Casa_Gotschlich.jpg/960px-Casa_Gotschlich.jpg",
       description: "La Casa Gotschlich es un monumento histórico localizado en la ciudad de Puerto Varas, región de Los Lagos, Chile. Su data de construcción se remonta aproximadamente al período comprendido entre 1905 y 1910.",
       descriptionEn: "Casa Gotschlich is a historic monument located in the city of Puerto Varas, Los Lagos Region, Chile. Its construction dates back to approximately 1905–1910.",
+      lat: -41.31823,
+      lng: -72.99057,
     },
     {
       id: "puertovaras_10",
@@ -97278,6 +97695,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Casa_2_puerto_varas.jpg/960px-Casa_2_puerto_varas.jpg",
       description: "La Casa Maldonado es una vivienda de 1890 ubicada en la ciudad de Puerto Varas, Región de Los Lagos, Chile. Declarada Monumento Histórico en 1992, destaca por su arquitectura de tablas horizontales y tejuelas de madera, propia de la colonización alemana de la zona.",
       descriptionEn: "Casa Maldonado is a house built in 1890 in the city of Puerto Varas, Los Lagos Region, Chile. Declared a National Historic Monument in 1992, it stands out for its horizontal wood-plank walls and wooden shingle roof, characteristic of the region's German colonial architecture.",
+      lat: -41.31526,
+      lng: -72.98993,
     },
     {
       id: "puertovaras_11",
@@ -97294,6 +97713,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Iglesia_de_los_Padres_Jesuitas_de_Puerto_Montt.jpg/960px-Iglesia_de_los_Padres_Jesuitas_de_Puerto_Montt.jpg",
       description: "La iglesia de los Padres Jesuitas, también conocida como iglesia San José, es un templo católico de Puerto Montt construido en 1872 por la orden jesuita para la comunidad católica alemana de la colonización de Llanquihue.",
       descriptionEn: "The Iglesia de los Padres Jesuitas, also known as Iglesia San José, is a Catholic church in Puerto Montt built in 1872 by the Jesuit order to serve the German Catholic community of the Llanquihue colonization.",
+      lat: -41.47064,
+      lng: -72.94241,
     },
     {
       id: "puertovaras_12",
@@ -97310,6 +97731,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/27-nWcZ2HCQ?auto=format&fit=crop&w=800&q=80",
       description: "El Jardín Botánico VerdeNativo es un espacio dedicado a la exhibición de flora nativa chilena, ubicado en la ciudad de Puerto Varas, Región de Los Lagos.",
       descriptionEn: "Jardín Botánico VerdeNativo is a botanical garden dedicated to showcasing native Chilean flora, located in the city of Puerto Varas, Los Lagos Region.",
+      lat: -40.98889,
+      lng: -72.91027,
+      dayTrip: true,
     },
     {
       id: "puertovaras_13",
@@ -97326,6 +97750,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Losmas_grandes_enamorados_del_mundo.JPG/960px-Losmas_grandes_enamorados_del_mundo.JPG",
       description: "Sentados frente al mar es una escultura pública ubicada en la costanera de Puerto Varas, Región de Los Lagos, Chile, frente al lago Llanquihue.",
       descriptionEn: "Sentados frente al mar (Seated facing the sea) is a public sculpture located on the waterfront promenade of Puerto Varas, Los Lagos Region, Chile, facing Lake Llanquihue.",
+      lat: -41.47333,
+      lng: -72.94183,
     },
     {
       id: "puertovaras_14",
@@ -97358,6 +97784,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Frutillar-Theatro-del-Lago-1030906-PSD.jpg/960px-Frutillar-Theatro-del-Lago-1030906-PSD.jpg",
       description: "El Teatro del Lago es un centro cultural y sala de conciertos ubicado en Frutillar, a orillas del lago Llanquihue, en la Región de Los Lagos, Chile.",
       descriptionEn: "Teatro del Lago is a cultural center and concert hall located in Frutillar, on the shores of Lake Llanquihue, in the Los Lagos Region, Chile.",
+      lat: -41.1395,
+      lng: -73.0254,
     },
     {
       id: "puertovaras_16",
@@ -97390,6 +97818,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1601325382888-155b67b7b82f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCaXNpZXN0byUyMENhc2ElMjBkZSUyMEFydGUlMjB5JTIwQ2FmJUMzJUE5JTIwcHVlcnRvdmFyYXN8ZW58MXwwfHx8MTc4MjIyMzQ0M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Bisiesto Casa de Arte y Café es un café de especialidad y centro cultural del barrio Verbo Divino en Puerto Varas, Chile, que combina cafetería con exposiciones de arte, cine y jazz.",
       descriptionEn: "Bisiesto Casa de Arte y Café is a specialty coffee shop and cultural venue in the Verbo Divino neighborhood of Puerto Varas, Chile, combining a café with art exhibitions, film screenings, and jazz events.",
+      lat: -41.32341,
+      lng: -72.98914,
     },
     {
       id: "puertovaras_18",
@@ -97454,6 +97884,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/2928/13957831973_5c239d9b2e_b.jpg",
       description: "Chester Beer es una microcervecería artesanal ubicada en el sector Línea Nueva, en las afueras de Puerto Varas, Chile. Fundada por el estadounidense Derek Way, ha ganado premios latinoamericanos por sus cervezas IPA y Stout.",
       descriptionEn: "Chester Beer is a craft microbrewery located in the Línea Nueva sector on the outskirts of Puerto Varas, Chile. Founded by American Derek Way, it has won Latin American awards for its IPA and Stout beers.",
+      lat: -41.29203,
+      lng: -72.98455,
     },
     {
       id: "puertovaras_22",
@@ -97470,6 +97902,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1719141072378-ffbf93c99eb2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYSUyMElzbGElMjBNYWdpY2ElMjBkZWwlMjBTdXIlMjBwdWVydG92YXJhc3xlbnwxfDB8fHwxNzgyMjIzNDQ1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Isla Mágica del Sur es un parque de entretención familiar en la zona de Puerto Varas, Región de Los Lagos, Chile, con juegos y actividades pensadas para niños.",
       descriptionEn: "La Isla Mágica del Sur is a family entertainment park in the Puerto Varas area, Los Lagos Region, Chile, offering games and activities designed for children.",
+      lat: -41.33967,
+      lng: -73.02524,
     },
     {
       id: "puertovaras_23",
@@ -97486,6 +97920,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1594493013710-3f8fcd6ea6ed?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJZ2xlc2lhJTIwUiVDMyVBRG8lMjBQZXNjYWRvJTIwcHVlcnRvdmFyYXN8ZW58MXwwfHx8MTc4MjIyMzQ0OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La iglesia de Río Pescado es una histórica capilla de tejuelas de alerce construida en 1914, ubicada en el camino entre Puerto Varas y Ensenada, junto al río Pescado. En 1953 fue elevada a parroquia por la Diócesis de Puerto Montt.",
       descriptionEn: "Iglesia Río Pescado is a historic larch-shingle chapel built in 1914, located on the road between Puerto Varas and Ensenada, by the Río Pescado. It was granted parish status by the Diocese of Puerto Montt in 1953.",
+      lat: -41.24837,
+      lng: -72.77014,
     },
     {
       id: "puertovaras_24",
@@ -97641,6 +98077,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -72.97943,
       description: "Cerro Philippi es una colina con mirador en Puerto Varas, desde donde se ven el lago Llanquihue y los volcanes Osorno y Calbuco. Se visita por sus vistas panorámicas de la ciudad y el entorno.",
       descriptionEn: "Cerro Philippi is a hill with a viewpoint in Puerto Varas, offering views of Lake Llanquihue and the Osorno and Calbuco volcanoes. It is visited for panoramic views of the city and surroundings.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Cerro_Philippi_desde_costanera_de_Puerto_Varas.jpg/1280px-Cerro_Philippi_desde_costanera_de_Puerto_Varas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "puertovaras_32",
@@ -97698,6 +98135,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Peulla o Villa Peulla es una localidad lacustre en la orilla oriental del lago Todos los Santos en la comuna de Puerto Varas, región de Los Lagos, Chile. La localidad se encuentra dentro del parque nacional Vicente Pérez Rosales.",
       sourceUrl: "https://es.wikipedia.org/wiki/Peulla",
+      descriptionEn: "Peulla is a small village in Vicente Pérez Rosales National Park, on the shore of Lake Todos los Santos near the Argentine border. It is visited as a stop on the lake crossing to Bariloche and for exploring the park's forests, waterfalls, and viewpoints.",
     },
     {
       id: "puertovaras_35",
@@ -97714,6 +98152,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Valle de Cochamó es un valle de la Región de Los Lagos conocido por sus paredes de granito, bosques nativos y senderos. Se accede desde el pueblo de Cochamó y se visita por su paisaje de montaña.",
       descriptionEn: "The Cochamó Valley is a valley in the Los Lagos Region known for its granite walls, native forests, and trails. It is accessed from the town of Cochamó and visited for its mountain landscape.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Amanecer_en_La_Junta.jpg",
     },
   ],
   puertonatales: [
@@ -97750,6 +98189,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Frigor%C3%ADfico_Bories",
       lat: -51.69336,
       lng: -72.53336,
+      descriptionEn: "Frigorífico Bories is a former early-20th-century cold-storage and meat-processing plant in Puerto Bories, near Puerto Natales. It is visited for its industrial-history value and heritage architecture.",
     },
     {
       id: "puertonatales_2",
@@ -97876,6 +98316,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Silla_del_diablo.JPG/1920px-Silla_del_diablo.JPG",
       description: "La Silla del Diablo es una formación rocosa de unos 35 metros de altura, ubicada junto a la Cueva del Milodón, 24 km al norte de Puerto Natales. Su forma de asiento, moldeada por la erosión glaciar, dio origen a una leyenda local.",
       descriptionEn: "Silla del Diablo (Devil's Chair) is a rock formation about 35 meters high, located next to the Milodón Cave, 24 km north of Puerto Natales. Its chair-like shape, carved by glacial erosion, gave rise to a local legend.",
+      lat: -51.57651,
+      lng: -72.59994,
     },
     {
       id: "puertonatales_9",
@@ -97948,6 +98390,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Puerto_Natales%2C_2019_0613.jpg/960px-Puerto_Natales%2C_2019_0613.jpg",
       description: "La Sierra Dorotea es una cadena montañosa en la frontera entre Chile y Argentina, cerca de Puerto Natales, popular por su sendero hasta un mirador con vistas panorámicas de la ciudad, el fiordo Última Esperanza y el macizo del Paine.",
       descriptionEn: "Sierra Dorotea is a mountain range on the Chile–Argentina border near Puerto Natales, popular for its trail to a viewpoint with panoramic views of the town, the Última Esperanza fjord, and the Paine Massif.",
+      lat: -51.60395,
+      lng: -72.35321,
     },
     {
       id: "puertonatales_13",
@@ -98093,6 +98537,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Muelle Histórico Braun & Blanchard es un antiguo embarcadero de madera construido a comienzos del siglo XX por la empresa ganadera homónima, usado para exportar productos de Patagonia hacia Europa. Es hoy un ícono fotográfico de Puerto Natales.",
       descriptionEn: "Muelle Histórico Braun & Blanchard is an old wooden pier built in the early 20th century by the ranching company of the same name, once used to export Patagonian goods to Europe. It is now a photographic icon of Puerto Natales.",
+      lat: -51.72318,
+      lng: -72.51135,
     },
     {
       id: "puertonatales_22",
@@ -98277,6 +98723,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Glaciar Serrano es un glaciar ubicado en el Parque Nacional Bernardo O'Higgins, cercano al glaciar Balmaceda. Se visita en navegaciones desde Puerto Natales para recorrer el seno Última Esperanza y ver el frente de hielo y la vegetación del entorno.",
       descriptionEn: "The Serrano Glacier is a glacier in Bernardo O'Higgins National Park, near the Balmaceda Glacier. It is visited on boat trips from Puerto Natales to navigate the Última Esperanza Sound and see the ice front and surrounding vegetation.",
+      lat: -51.73811,
+      lng: -72.47292,
     },
     {
       id: "puertonatales_32",
@@ -98293,6 +98741,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La Laguna Azul es una laguna ubicada en el sector oriental del Parque Nacional Torres del Paine. Se visita por sus aguas de tono azulado y por las vistas de las Torres del Paine y de la estepa patagónica que la rodea.",
       descriptionEn: "Laguna Azul is a lake in the eastern sector of Torres del Paine National Park. It is visited for its blue-toned waters and for views of the Torres del Paine and the surrounding Patagonian steppe.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Glaciar_Serrano%2C_Laguna_Serrano%2C_a_4_horas_de_Puerto_Natales%2C_Magallanes%2C_sur_de_Chile.jpg/1280px-Glaciar_Serrano%2C_Laguna_Serrano%2C_a_4_horas_de_Puerto_Natales%2C_Magallanes%2C_sur_de_Chile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "puertonatales_33",
@@ -98330,6 +98779,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/ZOa6NcAqGRE?auto=format&fit=crop&w=800&q=80",
       description: "El Museo de Historia Natural Río Seco, fundado en 2013 por los hermanos Cáceres, exhibe esqueletos de ballenas y otra fauna de Magallanes en las instalaciones de una antigua planta frigorífica en las afueras de Punta Arenas.",
       descriptionEn: "The Museo de Historia Natural Río Seco, founded in 2013 by the Cáceres brothers, displays whale skeletons and other Magallanes fauna inside a former cold-storage plant on the outskirts of Punta Arenas.",
+      lat: -53.06424,
+      lng: -70.85943,
     },
     {
       id: "puntaarenas_1",
@@ -98349,6 +98800,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: -53.16206,
       lng: -70.90598,
       website: "http://www.museodemagallanes.cl",
+      descriptionEn: "The Museo Regional de Magallanes is housed in the former Palacio Braun Menéndez and displays collections on the history of Magallanes, Indigenous peoples and the pioneer period. It is visited to learn about the region's heritage in a historic building.",
     },
     {
       id: "puntaarenas_2",
@@ -98366,6 +98818,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/ReplicaNaoVictoriaMagallanes.jpg",
       description: "El Museo Nao Victoria es un museo marítimo al aire libre en Punta Arenas que exhibe réplicas a tamaño real de barcos históricos, como la nao Victoria, el bote James Caird de Shackleton, la goleta Ancud y el HMS Beagle de Darwin.",
       descriptionEn: "Museo Nao Victoria is an open-air maritime museum in Punta Arenas featuring full-scale replicas of historic ships, including the Nao Victoria, Shackleton's James Caird, the Goleta Ancud, and Darwin's HMS Beagle.",
+      lat: -53.10746,
+      lng: -70.87954,
     },
     {
       id: "puntaarenas_3",
@@ -98384,6 +98838,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Palacio_Montes",
       lat: -53.16326,
       lng: -70.90878,
+      descriptionEn: "The Palacio Montes is a historic mansion in Punta Arenas that forms part of the city's architectural heritage. It is visited for its architecture and as a testimony to the urban development linked to the region's major merchants.",
     },
     {
       id: "puntaarenas_4",
@@ -98400,6 +98855,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Parque_Mar%C3%ADa_Behety_4.jpg/960px-Parque_Mar%C3%ADa_Behety_4.jpg",
       description: "El Parque María Behety es un área verde de 24 hectáreas al sur de Punta Arenas, reconocida como el primer humedal urbano de la región de Magallanes, con bosque nativo de lengas y ñirres.",
       descriptionEn: "Parque María Behety is a 24-hectare green space south of Punta Arenas, recognized as the first urban wetland in the Magallanes region, home to native lenga and ñirre forest.",
+      lat: -53.17988,
+      lng: -70.92569,
     },
     {
       id: "puntaarenas_5",
@@ -98435,6 +98892,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Residencia_Beaulier.jpg/960px-Residencia_Beaulier.jpg",
       description: "La Residencia Beaulier es un edificio de 1936 en estilo neoclásico francés, construido por el arquitecto Antonio Beaulier como su propia vivienda en Punta Arenas. Hoy es Monumento Nacional y funciona como Casa de los Derechos Humanos.",
       descriptionEn: "Residencia Beaulier is a 1936 French neoclassical building in Punta Arenas, built by architect Antonio Beaulier as his own home. It is now a National Monument and serves as the city's Casa de los Derechos Humanos (Human Rights House).",
+      lat: -53.15928,
+      lng: -70.90679,
     },
     {
       id: "puntaarenas_7",
@@ -98467,6 +98926,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Penitencier%C3%ADa_%28ex_c%C3%A1rcel_Pta.Arenas%29.JPG/960px-Penitencier%C3%ADa_%28ex_c%C3%A1rcel_Pta.Arenas%29.JPG",
       description: "La ex Penitenciaría de Punta Arenas es un edificio neoclásico construido entre 1898 y 1906, declarado Monumento Histórico en 2009. Tras su cierre en 2003, fue restaurado para albergar la Biblioteca Pública Regional y el Archivo Regional de Magallanes.",
       descriptionEn: "The former Punta Arenas Penitentiary is a neoclassical building constructed between 1898 and 1906, declared a National Historic Monument in 2009. After closing in 2003, it was restored to house the Regional Public Library and the Magallanes Regional Archive.",
+      lat: -53.16139,
+      lng: -70.90944,
     },
     {
       id: "puntaarenas_9",
@@ -98519,6 +98980,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Reserva_nacional_Magallanes%2C_Punta_Arenas%2C_2019_%2812%29.jpg/960px-Reserva_nacional_Magallanes%2C_Punta_Arenas%2C_2019_%2812%29.jpg",
       description: "El Mirador Zapador Austral es un punto panorámico dentro de la Reserva Nacional Magallanes, cerca de Punta Arenas, con vistas al estrecho de Magallanes y al bosque magallánico circundante.",
       descriptionEn: "Mirador Zapador Austral is a scenic viewpoint within Reserva Nacional Magallanes, near Punta Arenas, offering views over the Strait of Magellan and the surrounding Magellanic forest.",
+      lat: -53.15278,
+      lng: -71.02739,
     },
     {
       id: "puntaarenas_12",
@@ -98535,6 +98998,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/StateLibQld_1_148935_County_of_Peebles_%28ship%29.jpg/960px-StateLibQld_1_148935_County_of_Peebles_%28ship%29.jpg",
       description: "El Pontón Muñoz Gamero es el casco varado del antiguo velero británico County of Peebles (1875), comprado por la Armada de Chile en 1898 como pontón carbonero y hoy utilizado como rompeolas en la bahía de Punta Arenas.",
       descriptionEn: "Pontón Muñoz Gamero is the beached hull of the former British sailing ship County of Peebles (1875), purchased by the Chilean Navy in 1898 as a coal hulk and now used as a breakwater in the bay of Punta Arenas.",
+      lat: -53.17676,
+      lng: -70.91893,
     },
     {
       id: "puntaarenas_13",
@@ -98567,6 +99032,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/aqgshrMVDm8?auto=format&fit=crop&w=800&q=80",
       description: "El Cerro Laurita es una elevación en las cercanías de Punta Arenas, en la región de Magallanes, popular entre los senderistas locales.",
       descriptionEn: "Cerro Laurita is a hill near Punta Arenas, in the Magallanes Region, popular among local hikers.",
+      lat: -53.1101,
+      lng: -71.1279,
     },
     {
       id: "puntaarenas_15",
@@ -98615,6 +99082,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/vEDzCSqyzS0?auto=format&fit=crop&w=800&q=80",
       description: "El Monte Fenton, también conocido como Cerro Andino, es una elevación cercana a Punta Arenas, en la región de Magallanes, utilizada para caminatas y actividades al aire libre.",
       descriptionEn: "Monte Fenton, also known as Cerro Andino, is a hill near Punta Arenas, in the Magallanes Region, used for hiking and outdoor activities.",
+      lat: -53.1558,
+      lng: -71.0508,
     },
     {
       id: "puntaarenas_18",
@@ -98634,6 +99103,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Salesiano_Maggiorino_Borgatello",
       lat: -53.15562,
       lng: -70.90229,
+      descriptionEn: "The Museo Salesiano Maggiorino Borgatello brings together collections of natural history, ethnography and religious art from Patagonia and Tierra del Fuego. It is visited to learn about Salesian work and the heritage of the region's Indigenous peoples.",
     },
     {
       id: "puntaarenas_19",
@@ -98666,6 +99136,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/ZOa6NcAqGRE?auto=format&fit=crop&w=800&q=80",
       description: "El Chalet Milward es una casa patrimonial de 1900 en la avenida España de Punta Arenas, residencia del cónsul británico Charles Milward, quien recibió al explorador Ernest Shackleton en 1916.",
       descriptionEn: "Chalet Milward is a heritage house from 1900 on Avenida España in Punta Arenas, the residence of British consul Charles Milward, who hosted explorer Ernest Shackleton there in 1916.",
+      lat: -53.15974,
+      lng: -70.91221,
     },
     {
       id: "puntaarenas_21",
@@ -98732,6 +99204,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -70.90792,
       description: "La plaza Muñoz Gamero, conocida también como plaza de Armas, es un espacio público ubicado en la ciudad de Punta Arenas, Chile.",
       sourceUrl: "https://es.wikipedia.org/wiki/Plaza_Mu%C3%B1oz_Gamero",
+      descriptionEn: "Plaza Muñoz Gamero is the main square of Punta Arenas, surrounded by historic buildings and with a central monument to the navigator Hernando de Magallanes. It is visited as a reference point in the city center and to observe the city's heritage surroundings.",
     },
     {
       id: "puntaarenas_25",
@@ -98748,6 +99221,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Plaza_Mu%C3%B1oz_Gamero_Punta_Arenas.jpg/1280px-Plaza_Mu%C3%B1oz_Gamero_Punta_Arenas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Monumento en el centro de la Plaza Muñoz Gamero que honra al navegante Fernando de Magallanes. Incluye una estatua de Magallanes y figuras indígenas; según la tradición, besar el pie de una de ellas da buena suerte.",
       descriptionEn: "Monument in the center of Plaza Muñoz Gamero honoring the navigator Ferdinand Magellan. It includes a statue of Magellan and indigenous figures; according to tradition, kissing the foot of one of them brings good luck.",
+      lat: -53.16247,
+      lng: -70.90918,
     },
     {
       id: "puntaarenas_26",
@@ -98785,6 +99260,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -70.90806,
       description: "El Palacio Sara Braun es un histórico inmueble de la ciudad chilena de Punta Arenas. Está ubicado frente a la reconocida Plaza Muñoz Gamero. Fue construido entre 1895 y 1905 con el diseño del arquitecto francés Numa Mayer.",
       sourceUrl: "https://es.wikipedia.org/wiki/Palacio_Sara_Braun",
+      descriptionEn: "The Palacio Sara Braun is a historic mansion located facing Plaza Muñoz Gamero in central Punta Arenas. It is visited for its architecture and for its value as a testimony to the city's urban heritage.",
     },
     {
       id: "puntaarenas_28",
@@ -98855,6 +99331,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Tractor_Instituto_de_la_Patagonia.jpg/1280px-Tractor_Instituto_de_la_Patagonia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Museo que exhibe objetos, herramientas y maquinaria de los primeros colonos de la Patagonia. Forma parte del Instituto de la Patagonia y se visita para conocer la historia regional.",
       descriptionEn: "Museum displaying objects, tools, and machinery from the early settlers of Patagonia. It is part of the Instituto de la Patagonia and is visited to learn about regional history.",
+      lat: -53.1326,
+      lng: -70.88275,
     },
     {
       id: "puntaarenas_32",
@@ -99145,6 +99623,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Colonia de pingüinos de Magallanes ubicada en el Seno Otway, a unos 60 km de Punta Arenas. Se visita para observar a los pingüinos en su hábitat natural.",
       descriptionEn: "Magellanic penguin colony located in Seno Otway, about 60 km from Punta Arenas. It is visited to observe the penguins in their natural habitat.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Pinguineras_Seno_Ottway%2C_Punta_Arenas%2C_Chile_-_panoramio_%281%29.jpg/1280px-Pinguineras_Seno_Ottway%2C_Punta_Arenas%2C_Chile_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "puntaarenas_48",
@@ -99303,6 +99782,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Antigua estancia ovejera fundada en el siglo XIX, con construcciones históricas y un cementerio. Se visita por su valor patrimonial y para conocer la vida rural de la Patagonia.",
       descriptionEn: "Former sheep ranch founded in the 19th century, with historic buildings and a cemetery. It is visited for its heritage value and to learn about rural life in Patagonia.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Estancia_san_gregorio_2018-11-14_%286%29.jpg/1280px-Estancia_san_gregorio_2018-11-14_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   hangaroa: [
@@ -99353,6 +99833,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Chile-03400_-_Anthropological_Museum_%2849073330612%29.jpg/960px-Chile-03400_-_Anthropological_Museum_%2849073330612%29.jpg",
       description: "El Museo Antropológico Padre Sebastián Englert, en Hanga Roa, reúne la colección más importante sobre la cultura, historia y arqueología de Rapa Nui, incluyendo uno de los pocos moai con ojos originales.",
       descriptionEn: "The Father Sebastian Englert Anthropological Museum, in Hanga Roa, holds the most important collection on Rapa Nui culture, history, and archaeology, including one of the few moai with its original eyes.",
+      lat: -27.13672,
+      lng: -109.42377,
     },
     {
       id: "hangaroa_3",
@@ -99369,6 +99851,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chile-03344_-_Subdivision..._%2849073146321%29.jpg/960px-Chile-03344_-_Subdivision..._%2849073146321%29.jpg",
       description: "Orongo es una aldea ceremonial en el borde del cráter Rano Kau, en Rapa Nui, centro del culto al hombre-pájaro (tangata manu) practicado hasta mediados del siglo XIX.",
       descriptionEn: "Orongo is a ceremonial village on the rim of the Rano Kau crater, on Rapa Nui, the center of the birdman (tangata manu) cult practiced until the mid-19th century.",
+      lat: -27.18944,
+      lng: -109.4425,
     },
     {
       id: "hangaroa_4",
@@ -99385,6 +99869,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Puna_Pau.jpg/960px-Puna_Pau.jpg",
       description: "Puna Pau es una cantera de escoria volcánica roja en Rapa Nui de donde se extraían los pukao, los grandes 'tocados' cilíndricos colocados sobre la cabeza de algunos moai.",
       descriptionEn: "Puna Pau is a red volcanic scoria quarry on Rapa Nui, the source of the pukao — the large cylindrical 'topknots' placed on the heads of some moai.",
+      lat: -27.1482,
+      lng: -109.4039,
     },
     {
       id: "hangaroa_5",
@@ -99401,6 +99887,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Wyspa_Wielkanocna_-_Ahu_a_Kivi.jpg/960px-Wyspa_Wielkanocna_-_Ahu_a_Kivi.jpg",
       description: "El Ahu Akivi es una plataforma ceremonial de Rapa Nui con siete moai alineados mirando hacia el océano, a diferencia de la mayoría de los moai de la isla, que miran tierra adentro.",
       descriptionEn: "Ahu Akivi is a ceremonial platform on Rapa Nui with seven moai facing the ocean, unlike most of the island's moai, which face inland.",
+      lat: -27.11503,
+      lng: -109.39508,
     },
     {
       id: "hangaroa_6",
@@ -99417,6 +99905,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hanga_Roa_Catholic_Church_exterior_2.JPG/960px-Hanga_Roa_Catholic_Church_exterior_2.JPG",
       description: "La Iglesia de la Santa Cruz de Hanga Roa combina la arquitectura católica con símbolos y tallas de la cultura rapanui, reflejando el sincretismo religioso de la isla.",
       descriptionEn: "The Church of the Holy Cross in Hanga Roa blends Catholic architecture with Rapa Nui carvings and symbols, reflecting the island's religious syncretism.",
+      lat: -27.14908,
+      lng: -109.42425,
     },
     {
       id: "hangaroa_7",
@@ -99433,6 +99923,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Osterinsel_Krater-Rano_Kao.jpg/960px-Osterinsel_Krater-Rano_Kao.jpg",
       description: "El Parque Nacional Rapa Nui protege gran parte de la Isla de Pascua y sus sitios arqueológicos, incluidos los moai, y es Patrimonio de la Humanidad de la Unesco desde 1995.",
       descriptionEn: "Rapa Nui National Park protects much of Easter Island and its archaeological sites, including the moai, and has been a UNESCO World Heritage Site since 1995.",
+      lat: -27.07288,
+      lng: -109.34858,
     },
     {
       id: "hangaroa_8",
@@ -99449,6 +99941,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1583813365826-eb578f8bd5a3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxoYW5nYXJvYSUyMHRyYXZlbHxlbnwxfDB8fHwxNzgyMjI2OTMwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Galería Mana, ubicada en el barrio de artistas de Hanga Roa, exhibe obras de artistas rapanui y fue fundada por Cristián Arévalo Pakarati y la investigadora Jo Anne Van Tilburg.",
       descriptionEn: "Galería Mana, located in the artists' quarter of Hanga Roa, showcases works by Rapa Nui artists and was founded by Cristián Arévalo Pakarati and researcher Jo Anne Van Tilburg.",
+      lat: -27.14371,
+      lng: -109.42688,
     },
     {
       id: "hangaroa_9",
@@ -99480,6 +99974,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "La Galería Oreko es un espacio de exhibición de arte local ubicado en Hanga Roa, en la Isla de Pascua.",
       descriptionEn: "Galería Oreko is a local art exhibition space located in Hanga Roa, on Easter Island.",
+      lat: -27.15887,
+      lng: -109.43929,
     },
     {
       id: "hangaroa_11",
@@ -99512,6 +100008,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Easter_Island_5.jpg/3840px-Easter_Island_5.jpg",
       description: "Los petroglifos del hombre-pájaro (tangata manu), tallados en las rocas de Orongo, representan al ganador de la competencia ritual anual que definía al líder ceremonial de Rapa Nui.",
       descriptionEn: "The birdman (tangata manu) petroglyphs, carved into the rocks at Orongo, depict the winner of the annual ritual competition that determined Rapa Nui's ceremonial leader.",
+      lat: -27.17943,
+      lng: -109.43808,
     },
     {
       id: "hangaroa_13",
@@ -99528,6 +100026,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1610413322878-ee8c50e10a82?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbmElMjBLYWtlJUM1JThCYSUyMGhhbmdhcm9hfGVufDF8MHx8fDE3ODIyMjY5NDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Ana Kakenga, o Cueva de las Dos Ventanas, es un túnel de lava en Rapa Nui con dos aberturas naturales hacia el océano, formadas por la erosión de la costa.",
       descriptionEn: "Ana Kakenga, or the Cave of Two Windows, is a lava tube on Rapa Nui with two natural openings toward the ocean, formed by coastal erosion.",
+      lat: -27.11119,
+      lng: -109.42042,
     },
     {
       id: "hangaroa_14",
@@ -99544,6 +100044,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1665904457714-df18e8c142a1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb2FpJTIwaGFuZ2Fyb2F8ZW58MXwwfHx8MTc4MjIyNjk0M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Los moai son las monumentales estatuas de piedra talladas por el pueblo rapanui entre los siglos XIII y XVI, símbolo icónico de la Isla de Pascua.",
       descriptionEn: "Moai are the monumental stone statues carved by the Rapa Nui people between the 13th and 16th centuries, the iconic symbol of Easter Island.",
+      lat: -27.11423,
+      lng: -109.36399,
     },
     {
       id: "hangaroa_15",
@@ -99608,6 +100110,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Hanga_Roa%2C_Easter_Island%2C_Valparaiso_Region%2C_Chile_-_panoramio_%286%29.jpg/1920px-Hanga_Roa%2C_Easter_Island%2C_Valparaiso_Region%2C_Chile_-_panoramio_%286%29.jpg",
       description: "Poko Poko es una pequeña piscina natural en Hanga Vare Vare, Rapa Nui, formada por un cerco de rocas volcánicas que contiene el oleaje y crea un área apta para el baño.",
       descriptionEn: "Poko Poko is a small natural pool at Hanga Vare Vare, on Rapa Nui, enclosed by a wall of volcanic rock that holds back the waves and creates a swimmable area.",
+      lat: -27.14473,
+      lng: -109.42977,
     },
     {
       id: "hangaroa_19",
@@ -99750,6 +100254,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -109.30202,
       description: "Sitio arqueológico de la costa norte de Isla de Pascua que conserva el ahu con el moái Paro, uno de los mayores erigidos y hoy derribado, y una piedra esférica llamada Te Pito o Te Henua. Se visita por su valor histórico.",
       descriptionEn: "Archaeological site on the north coast of Easter Island that preserves the ahu with the Paro moai, one of the largest ever erected and now fallen, and a spherical stone called Te Pito o Te Henua. It is visited for its historical value.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Plataforma_nivelada_por_la_l%C3%ADnea_del_horizonte..JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "hangaroa_27",
@@ -99767,6 +100272,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -109.33643,
       description: "Complejo arqueológico en la costa sur de Isla de Pascua con una plataforma ceremonial, moáis derribados y restos de viviendas y aldeas. Se visita para conocer la organización de los antiguos asentamientos rapanui.",
       descriptionEn: "Archaeological complex on the south coast of Easter Island with a ceremonial platform, fallen moai, and remains of houses and villages. It is visited to learn about the organization of ancient Rapa Nui settlements.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Ahu_Akahanga_1.jpg/1280px-Ahu_Akahanga_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hangaroa_28",
@@ -99782,6 +100288,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Gran tubo de lava en Isla de Pascua que forma una cueva con aberturas y vegetación en su interior. Fue usado como refugio y espacio de cultivo; se visita por su interés natural y arqueológico.",
       descriptionEn: "Large lava tube on Easter Island that forms a cave with openings and vegetation inside. It was used as a shelter and cultivation space; it is visited for its natural and archaeological interest.",
+      lat: -27.11739,
+      lng: -109.39846,
     },
     {
       id: "hangaroa_29",
@@ -203420,6 +203928,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Fort_JesusMombasa.jpg",
       description: "El Fuerte Jesús es un fuerte Hispano-Portugués ubicado en Mombasa (Kenia), el cual fue construido desde 1593 al 1596 por orden del rey Felipe II de España, situado en la isla de Mombasa para proteger el antiguo puerto.",
       descriptionEn: "Fort Jesus, is a fort located on Mombasa Island. Designed by the Italian architect Giovanni Battista Cairati, it was built between 1593 and 1596 by order of King Felipe II of Spain, who also reigned as King Filipe I of Portugal and the Algarves, to guard the Old Port of Mombasa.",
+      lat: -4.06263,
+      lng: 39.67964,
     },
     {
       id: "mombasa_1",
@@ -203436,6 +203946,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Orix_and_eland.JPG/960px-Orix_and_eland.JPG",
       description: "El Parque Haller es un parque natural en Bamburi, condado de Mombasa, en la costa de Kenia. Es el resultado de la transformación de un terreno baldío en un paraíso ecológico.",
       descriptionEn: "Haller Park may refer to:Haller Park (Kenya), a nature park in Mombasa, Kenya Haller Park (Hungary), a park in Budapest, Hungary",
+      lat: -4.01667,
+      lng: 39.71944,
     },
     {
       id: "mombasa_2",
@@ -203452,6 +203964,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Mombasa_tusks%2C_2025_%2808%29.jpg/960px-Mombasa_tusks%2C_2025_%2808%29.jpg",
       description: "Según la IUCN, en Kenia hay, en 2024, 457 áreas protegidas que cubren 81.460 km², un 13,97% de la superficie del país, 582.127 km². La superficie marina protegida es de 725 km², un 0,59% de los 123.783 km² de áreas marinas que pertenecen a Kenia.",
       descriptionEn: "Mombasa is a coastal city in southeastern Kenya along the Indian Ocean. It was the first capital of British East Africa, before Nairobi was elevated to capital status in 1907. It now serves as the capital of Mombasa County.",
+      lat: -4.06153,
+      lng: 39.66611,
     },
     {
       id: "mombasa_3",
@@ -203465,8 +203979,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "El mtepe es un tipo de barco cosido que se asocia a los suajilis. Las tracas del mtepe se unen con espigas de madera y cuerdas de fibra de coco. Al contrario que los barcos rígidos construidos con la técnica occidental, los mtepe se construyeron para ser flexibles.",
+      description: "El Fuerte Jesús es un fuerte hispano-portugués ubicado en la ciudad de Mombasa, Kenia, el cual fue construido desde 1593 al 1596 por orden del rey Felipe II de España, situado en la isla de Mombasa para proteger el antiguo puerto.",
       descriptionEn: "Fort Jesus, is a fort located on Mombasa Island. Designed by the Italian architect Giovanni Battista Cairati, it was built between 1593 and 1596 by order of King Felipe II of Spain, who also reigned as King Filipe I of Portugal and the Algarves, to guard the Old Port of Mombasa.",
+      lat: -4.07117,
+      lng: 39.68206,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Fort_JesusMombasa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://es.wikipedia.org/wiki/Fuerte_Jes%C3%BAs",
     },
     {
       id: "mombasa_4",
@@ -203480,8 +203998,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDF5E8",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Akamba handcraft market es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Akamba handcraft market is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Mercado de Artesanía Akamba es una cooperativa de artesanos en Mombasa conocida por sus tallas en madera y recuerdos. Se visita para ver el trabajo de los talladores y comprar artesanías locales.",
+      descriptionEn: "Akamba Handicraft Market is an artisans' cooperative in Mombasa known for wood carvings and souvenirs. Visitors come to see the carvers at work and buy local crafts.",
+      lat: -4.02793,
+      lng: 39.62491,
     },
     {
       id: "mombasa_5",
@@ -203497,8 +204017,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://mambavillagecentre.co.ke/",
       imageUrl: "https://images.unsplash.com/photo-1761662923472-e60f84ab48d2?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNYW1iYSUyMFZpbGxhZ2UlMjBNb21iYXNhJTIwS2VueWF8ZW58MXwwfHx8MTc4MzI4NjIxNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Kilimanjaro o Kilimanyaro es una montaña situada en el noreste de Tanzania, formada por tres volcanes inactivos: el Shira, en el oeste, de 3962 m de altitud; el Mawenzi, en el este, de 5149 m y el Kibo, entre ambos, el más reciente desde el punto de vista geológico y cuyo…",
+      description: "La Aldea Mamba es un criadero de cocodrilos y centro de visitantes en Nyali, Mombasa. Se visita para observar cocodrilos, conocer sobre su cría y recorrer sus jardines.",
       descriptionEn: "Mombasa is a coastal city in southeastern Kenya along the Indian Ocean. It was the first capital of British East Africa, before Nairobi was elevated to capital status in 1907. It now serves as the capital of Mombasa County.",
+      lat: -4.04072,
+      lng: 39.70245,
     },
     {
       id: "mombasa_6",
@@ -203513,8 +204035,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1673902214509-d49f47c46586?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMaWtvbmklMjBGZXJyeSUyME1vbWJhc2ElMjBLZW55YXxlbnwxfDB8fHwxNzgzMjg2MjkwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Mombasa es una localidad de Kenia, con estatus de ciudad, capital del condado de Mombasa.",
+      description: "El Ferry de Likoni cruza el canal del puerto de Kilindini entre la isla de Mombasa y Likoni, en la costa sur. Se usa para transportar personas y vehículos, y ofrece vistas del puerto.",
       descriptionEn: "The Likoni Ferry is a ferry service across Kilindini Harbour, serving the Kenyan city of Mombasa between Mombasa Island and the mainland suburb of Likoni. Double-ended ferries alternate across the harbour, carrying both road and foot traffic.",
+      lat: -4.08462,
+      lng: 39.65943,
     },
     {
       id: "mombasa_7",
@@ -203528,8 +204052,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Bombolulu Workshops & Cultural Center es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Los Talleres y Centro Cultural Bombolulu son un centro de artesanía en Mombasa donde artesanos con discapacidad producen joyería, cuero y textiles. Se visita para conocer los talleres y comprar productos locales.",
       descriptionEn: "This is a list of building or structure fires where a building or structure has caught fire. For major urban conflagrations, see List of town and city fires.",
+      lat: -4.02144,
+      lng: 39.70328,
     },
     {
       id: "mombasa_8",
@@ -203543,8 +204069,9 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Go Kart racing mombasa es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Sport is an important element of Kenyan culture. Various indigenous traditional sports have prevailed in Kenyan culture from its earliest history.",
+      lat: -3.98403,
+      lng: 39.7392,
     },
     {
       id: "mombasa_9",
@@ -203577,6 +204104,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1708119063168-4785d1359824?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEaWFuaSUyMEJlYWNoJTIwTW9tYmFzYSUyMEtlbnlhfGVufDF8MHx8fDE3ODMyODY1MTd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Playa de Diani es un gran resort de playa en la costa del Océano Índico de Kenia, 30 km al sur de Mombasa, en el condado de Kwale.",
       descriptionEn: "Diani Beach is a beach on the Indian Ocean coast of Kenya. It is located 30 kilometres (19 mi) south of Mombasa, in Kwale County.",
+      lat: -4.32222,
+      lng: 39.575,
+      dayTrip: true,
     },
     {
       id: "mombasa_11",
@@ -203591,8 +204121,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/%22The_Koenigsberg_Gun%22%2C_Fort_Jesus%2C_Mombasa%2C_Kenya_-_panoramio.jpg/1920px-%22The_Koenigsberg_Gun%22%2C_Fort_Jesus%2C_Mombasa%2C_Kenya_-_panoramio.jpg",
-      description: "The Koenigsberg Gun es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "SMS Königsberg was the lead ship of her class of light cruisers built by the German Kaiserliche Marine. Named after Königsberg, the capital of East Prussia, she was laid down in January 1905, launched in December of that year and completed by June 1906.",
+      lat: -4.06218,
+      lng: 39.67934,
     },
     {
       id: "mombasa_12",
@@ -203609,6 +204140,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Gun_from_HMS_Pegasus.jpg",
       description: "La Batalla de Zanzíbar fue un breve enfrentamiento naval al comienzo de la Primera Guerra Mundial, el 20 de septiembre de 1914, frente a la isla de Zanzíbar en el Océano Índico.",
       descriptionEn: "HMS Pegasus was one of 11 Pelorus-class protected cruisers ordered for the Royal Navy in 1893 under the Spencer Program and based on the earlier Pearl class.",
+      lat: -4.06213,
+      lng: 39.67927,
     },
     {
       id: "mombasa_13",
@@ -203623,8 +204156,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Leven_House_Mombasa._Kenya.JPG/1920px-Leven_House_Mombasa._Kenya.JPG",
-      description: "Leven House es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "The Lamu Fort, is a fortification in the town of Lamu in northeastern Kenya. Originally situated on the waterfront, the fort today is located in a central position in the town, about 70 metres (230 ft) from the main jetty on the shore.",
+      lat: -4.05836,
+      lng: 39.67822,
     },
     {
       id: "mombasa_14",
@@ -203641,6 +204175,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Africa_Hotel_%28Mombasa%29%2C_2025_%2801%29.jpg/1920px-Africa_Hotel_%28Mombasa%29%2C_2025_%2801%29.jpg",
       description: "Mombasa es una localidad de Kenia, con estatus de ciudad, capital del condado de Mombasa.",
       descriptionEn: "The 2002 Mombasa attacks were two coordinated terrorist attacks on 28 November 2002 in Mombasa, Kenya, against an Israeli-owned hotel and a plane belonging to Arkia Airlines.",
+      lat: -4.06061,
+      lng: 39.6795,
     },
   ],
   maasaimara: [
@@ -203678,6 +204214,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1740928507887-e7dd7e8bac94?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxLaWxpbWFuamFybyUyMEJhbGxvb24lMjBTYWZhcmlzJTIwQW1ib3NlbGklMjBLZW55YXxlbnwxfDB8fHwxNzgzMjg2NTIwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Kilimanjaro Balloon Safaris es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Kilimanjaro Balloon Safaris is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -2.74215,
+      lng: 37.36982,
     },
     {
       id: "amboseli_1",
@@ -203691,7 +204229,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Hyena Rock es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "The spotted hyena, also known as the laughing hyena, is a hyena species, currently classed as the sole extant member of the genus Crocuta, native to sub-Saharan Africa.",
     },
     {
@@ -203706,8 +204243,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Massai Manyata Village es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Massai Manyata Village is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Una manyata es un poblado tradicional masái formado por casas de barro y ramas. En los alrededores de Amboseli se visitan algunas manyatas para conocer la cultura y la vida cotidiana de la comunidad masái.",
+      descriptionEn: "A manyatta is a traditional Maasai village made up of mud-and-branch houses. Around Amboseli, some manyattas are visited to learn about Maasai culture and daily community life.",
     },
     {
       id: "amboseli_3",
@@ -203754,7 +204291,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 300,
       imageUrl: "https://images.unsplash.com/photo-1739703213318-acc03d446981?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbWJvc2VsaSUyME5hdGlvbmFsJTIwUGFyayUyMCVFMiU4MCU5MyUyMEVsZXBoYW50cyUyMCUyNiUyMEtpbGltYW5qYXJvJTIwVmlld3MlMjBBbWJvc2VsaSUyMEtlbnlhfGVufDF8MHx8fDE3ODMyODY4OTh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Amboseli National Park – Elephants & Kilimanjaro Views es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Nacional de Amboseli es un área protegida de Kenia conocida por sus manadas de elefantes y por las vistas del monte Kilimanjaro, que se alza al otro lado de la frontera con Tanzania. Se visita para observar fauna en la sabana y paisajes abiertos.",
       descriptionEn: "Mount Kilimanjaro is a large dormant volcano in Tanzania. It is the highest mountain in Africa and the highest free-standing mountain above sea level in the world, at 5,895 m (19,341 ft) above sea level and 4,900 m (16,100 ft) above its plateau base.",
     },
   ],
@@ -207098,8 +207635,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Magic_Land.jpg/960px-Magic_Land.jpg",
-      description: "Magicland Amusement Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Magicland Amusement Park is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Magicland es un parque de atracciones en Abuja, Nigeria, con juegos mecánicos y áreas recreativas. Se visita como lugar de ocio familiar y para pasar el día con atracciones para distintas edades.",
+      descriptionEn: "Magicland is an amusement park in Abuja, Nigeria, with mechanical rides and recreation areas. It is visited as a family leisure destination and for spending the day with attractions for different ages.",
+      lat: 9.04284,
+      lng: 7.45291,
     },
     {
       id: "abuja_1",
@@ -207113,8 +207652,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Abuya es la capital federal y la cuarta ciudad más poblada de Nigeria. Está situada en el Territorio de la Capital Federal, en el centro del país, y tiene una población de 3 840 000 en su área metropolitana en 2023.",
+      description: "Thought Pyramid Art Centre es un centro de arte y galería en Abuja que exhibe arte moderno y contemporáneo de Nigeria y África. Se visita para ver exposiciones y conocer la producción de artistas locales y regionales.",
       descriptionEn: "Aisha Augie-Kuta is a Nigerian photographer and filmmaker based in Abuja. She is a Hausa from Argungu Local Government Area in northern Nigeria. She won the award for Creative Artist of the year at the 2011 The Future Awards.",
+      lat: 9.07647,
+      lng: 7.46054,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Thought_Pyramid_Art_Centre_Abuja_09.jpg/1280px-Thought_Pyramid_Art_Centre_Abuja_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "abuja_2",
@@ -207129,8 +207671,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1554457606-ed16c39db884?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTJTIwQWJ1amElMjBOaWdlcmlhfGVufDF8MHx8fDE3ODMyOTAwOTF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "S'apeyi of Garki Palace es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "S'apeyi of Garki Palace is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Palacio del Sapeyi de Garki es la sede tradicional del gobernante Sapeyi en Garki, Abuja. Se visita por su significado cultural y como referencia de la tradición local.",
+      descriptionEn: "The Palace of the Sapeyi of Garki is the traditional seat of the Sapeyi ruler in Garki, Abuja. It is visited for its cultural significance and as a reference point for local tradition.",
+      lat: 9.0211,
+      lng: 7.48745,
     },
     {
       id: "abuja_3",
@@ -207144,8 +207688,9 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Sarki Palace, Dutsen Alhaji es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "This is a list of villages and settlements in Niger State, Nigeria organised by local government area (LGA) and district/area.",
+      lat: 9.13959,
+      lng: 7.37167,
     },
     {
       id: "abuja_4",
@@ -207160,8 +207705,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1617056239820-8ce90ba48193?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaGlsZHJlbiUyMEFidWphJTIwTmlnZXJpYXxlbnwxfDB8fHwxNzgzMjkwMjQyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Abuya es la capital federal y la cuarta ciudad más poblada de Nigeria. Está situada en el Territorio de la Capital Federal, en el centro del país, y tiene una población de 3 840 000 en su área metropolitana en 2023.",
+      description: "El Zoológico Infantil de Abuja es un espacio recreativo y educativo con animales y áreas para niños. Se visita para actividades familiares y para que los menores conozcan distintas especies.",
       descriptionEn: "Abuja is the capital city of Nigeria, strategically situated at the geographic midpoint of the country within the Federal Capital Territory (FCT).",
+      lat: 9.08195,
+      lng: 7.51849,
     },
     {
       id: "abuja_5",
@@ -207176,8 +207723,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1537372023620-37161b1ad8ac?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNYWl0YW1hJTIwQW11c2VtZW50JTIwUGFyayUyMEFidWphJTIwTmlnZXJpYXxlbnwxfDB8fHwxNzgzMjkwMzE4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Maitama Amusement Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Abuja is the capital city of Nigeria, strategically situated at the geographic midpoint of the country within the Federal Capital Territory (FCT).",
+      lat: 9.08464,
+      lng: 7.50027,
     },
     {
       id: "abuja_6",
@@ -207192,8 +207740,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1554457606-ed16c39db884?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFc3UlMjBQYWxhY2UlMjBBYnVqYSUyME5pZ2VyaWF8ZW58MXwwfHx8MTc4MzI5MDM5NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Esu Palace es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Bwari is a city and local government area in the Federal Capital Territory in Nigeria. The original inhabitants of the town are the Gbagyi speaking people. The paramount ruler is the Esu who is otherwise known as Sa-bwaya.",
+      lat: 9.14349,
+      lng: 7.37281,
     },
     {
       id: "abuja_7",
@@ -207208,8 +207757,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Silueta_de_comparsa_en_el_Carnaval_de_Veracruz_2023.jpg/960px-Silueta_de_comparsa_en_el_Carnaval_de_Veracruz_2023.jpg",
-      description: "The State House es la sede de gobierno y residencia oficial del Presidente de Nigeria desde 1991, cuando Nigeria trasladó su capital de Lagos a Abuja. Está ubicada en Yakubu Gowon Crescent, distrito de Asokoro, Abuja, en el Territorio de la Capital Federal de Nigeria.",
+      description: "La roca Aso, más conocida como Aso Rock, es un gran afloramiento rocoso que se encuentra en las afueras de la ciudad de Abuya, capital de Nigeria. Se trata de un monolito de 400 metros de altura, siendo uno de los referentes más importantes de dicha ciudad.",
       descriptionEn: "The State House is the workplace and official residence of the President of Nigeria since 1991, when Nigeria moved its capital from Lagos to Abuja. It is located at Yakubu Gowon Crescent, Asokoro District, Abuja in the Federal Capital Territory of Nigeria.",
+      lat: 9.08333,
+      lng: 7.53611,
+      sourceUrl: "https://es.wikipedia.org/wiki/Roca_Aso",
     },
     {
       id: "abuja_8",
@@ -207225,6 +207777,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "La roca Zuma o Zuma Rock es un gran monolito que se encuentra en el estado de Níger, en Nigeria. Se encuentra al norte de la capital de ese país, Abuya, y al costado de la carretera principal que une a esta ciudad con Kaduna.",
       descriptionEn: "Zuma Rock is a large natural monolith, or inselberg, an igneous intrusion composed of gabbro and granodiorite and of Precambrian age, located in Madalla, a town in Niger State, Nigeria.",
+      lat: 9.13042,
+      lng: 7.23395,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Zuma_rock.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "abuja_9",
@@ -207241,6 +207796,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1554457606-ed16c39db884?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRpb25hbCUyME1vc3F1ZSUyMG9mJTIwQWJ1amElMjBBYnVqYSUyME5pZ2VyaWF8ZW58MXwwfHx8MTc4MzI5MDU0NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Mezquita Nacional de Abuya es la mezquita nacional de Nigeria. Fue construida en 1984 y está abierta al público no musulmán, excepto durante las oraciones colectivas.",
       descriptionEn: "Abuja is the capital city of Nigeria, strategically situated at the geographic midpoint of the country within the Federal Capital Territory (FCT).",
+      lat: 9.0602,
+      lng: 7.48964,
     },
   ],
   kigali: [
@@ -208261,8 +208818,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 150,
       imageUrl: "https://images.unsplash.com/photo-1604614948385-51f6a414145a?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBcGFydGhlaWQlMjBNdXNldW0lMjBKb2hhbm5lc2J1cmclMjBTb3V0aCUyMEFmcmljYXxlbnwxfDB8fHwxNzgzMjkyNDQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Linda Mvusi, es el nombre de una actriz y arquitecta sudafricana nacida en Bloemfontein en 1955. Mvusi es conocida por haber obtenido el galardón de Mejor interpretación femenina en el Festival de Cannes por la película A World Apart.",
+      description: "El Museo del Apartheid, situado junto a Gold Reef City, recorre la historia del apartheid en Sudáfrica mediante exposiciones, fotografías y testimonios. Se visita para comprender las políticas de segregación racial y su impacto social.",
       descriptionEn: "The Apartheid Museum is a museum illustrating apartheid and the 20th-century history of South Africa. The museum, part of the Gold Reef City complex in Johannesburg, was opened in November 2001.",
+      lat: -26.23806,
+      lng: 28.00889,
     },
     {
       id: "johannesburg_1",
@@ -208277,8 +208836,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1729766124507-9582f2aa9a19?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb25zdGl0dXRpb24lMjBIaWxsJTIwSm9oYW5uZXNidXJnJTIwU291dGglMjBBZnJpY2F8ZW58MXwwfHx8MTc4MzI5MjUxOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Yaya Mavundla es una activista transgénero, curadora, periodista, publicista, influencer, diseñadora de moda y artista multidisciplinaria sudafricana.",
+      description: "La Colina de la Constitución es un antiguo complejo carcelario de Johannesburgo que hoy alberga el Tribunal Constitucional y exposiciones sobre derechos humanos. Se recorre para conocer la historia del encarcelamiento y la transición democrática sudafricana.",
       descriptionEn: "The Constitution Hill precinct is the seat of the Constitutional Court of South Africa. It is located in Braamfontein, Johannesburg near the western end of the suburb of Hillbrow. The complex consists of the Constitutional Court, the Old Fort Prison and museum.",
+      lat: -26.18859,
+      lng: 28.04254,
     },
     {
       id: "johannesburg_2",
@@ -208316,6 +208877,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "www.militarymuseum.co.za",
       description: "Las Fuerzas de Seguridad de Rodesia fueron las fuerzas militares del gobierno de Rodesia. Las Fuerzas de Seguridad consistieron en un ejército terrestre, la Fuerza Aérea de Rodesia, la Policía Británica de Sudáfrica (BSAP) y varios miembros del personal afiliados al Ministerio…",
       descriptionEn: "The South African National Museum of Military History in Johannesburg was officially opened by Prime Minister Jan Smuts on 29 August 1947 to preserve the history of South Africa's involvement in the Second World War.",
+      lat: -26.16306,
+      lng: 28.04178,
     },
     {
       id: "johannesburg_4",
@@ -208331,8 +208894,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/James_Hall_Transport_Museum%2C_Johannesburg.jpg/1920px-James_Hall_Transport_Museum%2C_Johannesburg.jpg",
       website: "https://www.jhmt.org.za/",
-      description: "El Lockheed Constellation es un avión comercial de cuatro hélices con motores a pistón, fabricado por Lockheed Corporation entre 1943 y 1958 en su planta de Burbank, California.",
+      description: "El Museo de Transporte James Hall, en Johannesburgo, exhibe vehículos terrestres como carros de bueyes, bicicletas, motocicletas, automóviles y tranvías. Se visita para recorrer la evolución del transporte en Sudáfrica.",
       descriptionEn: "James Hall Museum of Transport is a transport museum that aims to preserve and promote the history of hundreds of years of transport in South Africa in particular, and Africa in general. It is the largest transport museum in Africa.",
+      lat: -26.23393,
+      lng: 28.05351,
     },
     {
       id: "johannesburg_5",
@@ -208348,8 +208913,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Goodman_Gallery%2C_Johannesburg.jpg/1920px-Goodman_Gallery%2C_Johannesburg.jpg",
       website: "https://www.goodman-gallery.com/",
-      description: "Tracey Rose es una artista sudafricana que vive y trabaja en Johannesburgo. Rose es conocida principalmente por sus performances, instalaciones de video y fotografías.",
+      description: "La Galería Goodman es una galería de arte contemporáneo de Johannesburgo fundada en 1966. Su programación incluye exposiciones temporales de artistas sudafricanos e internacionales, por lo que se visita para conocer la escena artística local.",
       descriptionEn: "art gallery is Cape Town",
+      lat: -26.14939,
+      lng: 28.03415,
     },
     {
       id: "johannesburg_6",
@@ -208367,6 +208934,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.wits.ac.za/wam/",
       description: "Patricia Joan Vinnicombe fue una arqueóloga y artista sudafricana, conocida por identificar y copiar las pinturas rupestres San en los valles y laderas del Drakensberg. Su trabajo transformó el estudio del arte sobre roca en una ciencia.",
       descriptionEn: "The Johannesburg Art Gallery (JAG) is an art gallery in Joubert Park in the city centre of Johannesburg, South Africa. It was once the largest gallery on the continent with a collection of more than 9000 artworks.",
+      lat: -26.19284,
+      lng: 28.03297,
     },
     {
       id: "johannesburg_7",
@@ -208381,8 +208950,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Satyagraha_House_4.jpg",
-      description: "Sonia Schlesin fue una sudafricana conocida por su trabajo con Mohandas Gandhi mientras este vivió en Sudáfrica. Comenzando su servicio a la edad de 17 años como su secretaria, deprisa ascendió hasta ser la persona de confianza de Gandhi y tener poder decisivo dentro de tanto el…",
+      description: "La Casa Satyagraha, también conocida como The Kraal, fue residencia de Mahatma Gandhi y Hermann Kallenbach en Johannesburgo. Hoy funciona como museo y alojamiento, y se visita para conocer la vida de Gandhi en Sudáfrica y el origen del satyagraha.",
       descriptionEn: "Satyagraha House, commonly known as Gandhi House, is a museum and guest house located in Johannesburg. The house belonged to Mahatma Gandhi: he lived and worked there between 1908 and 1909. It is registered as part of Johannesburg's historical heritage.",
+      lat: -26.1555,
+      lng: 28.08364,
     },
     {
       id: "johannesburg_8",
@@ -208448,6 +209019,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Delta_Park%2C_Randburg.jpg/1920px-Delta_Park%2C_Randburg.jpg",
       description: "El Aeropuerto Internacional de Johannesburgo o Aeropuerto O.R. Tambo es un aeropuerto que se localiza en Johannesburgo.",
       descriptionEn: "Delta Park is one of the biggest parks in Randburg, Johannesburg, South Africa. It is adjacent to the suburbs of Blairgowrie and Victory Park. It comprises 108 hectares of grassland and woodland, and three tree-lined dams.",
+      lat: -26.1247,
+      lng: 28.0091,
     },
     {
       id: "johannesburg_12",
@@ -208462,8 +209035,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.1,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/South-Africa_Johannesburg_Botanical_Garden-005.jpg/1920px-South-Africa_Johannesburg_Botanical_Garden-005.jpg",
-      description: "El Jardín Botánico Nacional Walter Sisulu es un área de reserva de 308 hectáreas y en su interior se encuentra un jardín botánico y una zona paisajista de unas 20 hectáreas de extensión.",
+      description: "Los Jardines Botánicos de Johannesburgo ocupan el parque Emmarentia, con áreas de césped, un embalse y colecciones de plantas. Se visitan para caminar, observar aves y conocer la flora local en un espacio urbano.",
       descriptionEn: "The Johannesburg Botanical Garden is located in the suburb of Emmarentia in Johannesburg, South Africa. The gardens grew out of a large rose garden that was established in 1964 and subsequently expanded from 1969 to cover an area of around 125 hectares (1.25 km2).",
+      lat: -26.15911,
+      lng: 28.00088,
     },
     {
       id: "johannesburg_13",
@@ -208739,6 +209314,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/UmgeniRiverBirdPark.DemoiselleCrane.jpg/960px-UmgeniRiverBirdPark.DemoiselleCrane.jpg",
       description: "El Parque de Aves del Río Umgeni es un zoológico de aves ubicado en Durban, en la provincia de KwaZulu-Natal, Sudáfrica.",
       descriptionEn: "The Umgeni River Bird Park is a bird zoo located in Durban, in the province of KwaZulu-Natal, South Africa.",
+      lat: -29.8082,
+      lng: 31.0167,
     },
     {
       id: "durban_1",
@@ -208755,6 +209332,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Old_Fort%2C_Durban%2C_IXVII_9_2_407_0028.jpg/960px-Old_Fort%2C_Durban%2C_IXVII_9_2_407_0028.jpg",
       description: "El Fuerte Viejo es un fuerte construido en Durban, Sudáfrica, por las tropas del capitán Thomas Charlton Smith en 1842, como parte de una campaña del Imperio británico para impedir que los bóeres establecieran una república en Natal.",
       descriptionEn: "The Old Fort is a fort built in Durban, South Africa by Captain Thomas Charlton Smith's troops in 1842 as part of a visibility campaign by the British Empire to prevent Boers from establishing a republic in Natal.",
+      lat: -29.85068,
+      lng: 31.02573,
     },
     {
       id: "durban_2",
@@ -208771,6 +209350,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1696761354493-b54ae0e49c76?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFbW1hbnVlbCUyMENhdGhlZHJhbCUyMER1cmJhbiUyMFNvdXRoJTIwQWZyaWNhfGVufDF8MHx8fDE3ODMyOTI1MjB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Catedral Emmanuel o simplemente Catedral de Durban es el nombre que recibe un templo de la Iglesia católica que se localiza en el 48 Cathedral Road en pleno centro de la ciudad de Durban en la provincia de KwaZulu-Natal en Sudáfrica.",
       descriptionEn: "The Emmanuel Cathedral or simply Cathedral of Durban, is the name given to the Catholic Church which is located at 48 Cathedral Road in the heart of the city of Durban in KwaZulu-Natal in South Africa.",
+      lat: -29.8575,
+      lng: 31.0157,
     },
     {
       id: "durban_3",
@@ -208786,6 +209367,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "El Parque Jameson y su Jardín de Rosas es una rosaleda ubicada en Durban, Sudáfrica.",
       descriptionEn: "Jameson Park and Rose Garden is a rose garden located in Durban, South Africa.",
+      lat: -29.82735,
+      lng: 31.009,
     },
     {
       id: "durban_4",
@@ -208802,6 +209385,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Grey_Street_Masjid_%28Grey_%26Queen_Street%29-20140223.jpg/960px-Grey_Street_Masjid_%28Grey_%26Queen_Street%29-20140223.jpg",
       description: "La Mezquita Juma es un templo islámico ubicado en el centro de Durban, en el área de Grey Street. Forma parte del patrimonio religioso y arquitectónico de la ciudad y es un punto de referencia para la comunidad musulmana local.",
       descriptionEn: "Juma Mosque is an Islamic temple located in central Durban, in the Grey Street area. It is part of the city's religious and architectural heritage and serves as a landmark for the local Muslim community.",
+      lat: -29.85715,
+      lng: 31.01658,
     },
     {
       id: "durban_5",
@@ -208818,6 +209403,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Suricate_Mitchell_Park.JPG",
       description: "El Zoológico del parque Mitchell está situado en el barrio de Morningside de Durban, Sudáfrica, siendo el único zoológico de esa ciudad.",
       descriptionEn: "Mitchell Park Zoo is also known as Mitchell Park or Mitchell's Park. Situated in the Morningside suburb of Durban, South Africa, it is the only zoo in Durban.",
+      lat: -29.82549,
+      lng: 31.01132,
     },
     {
       id: "durban_6",
@@ -208850,6 +209437,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Durban_Botanic_cycads_and_trees.JPG",
       description: "Helena Madelain Lamond Forbes fue una botánica escocesa, que con su familia, y siendo ella muy joven, se trasladaron a Sudáfrica. Entre 1936 y 1937 trabajó en Kew Gardens.",
       descriptionEn: "The Durban Botanic Gardens is situated in the city of Durban, KwaZulu-Natal, South Africa. It is Durban's oldest public institution and Africa's oldest surviving botanical gardens. The gardens cover an area of 15 hectares in a subtropical climate.",
+      lat: -29.8467,
+      lng: 31.0067,
     },
     {
       id: "durban_8",
@@ -208885,6 +209474,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1696761354493-b54ae0e49c76?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxOYXRhbCUyME1hcml0aW1lJTIwTXVzZXVtJTIwRHVyYmFuJTIwU291dGglMjBBZnJpY2F8ZW58MXwwfHx8MTc4MzI5MjY3MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Marítimo de Natal se encuentra en Durban y reúne embarcaciones, objetos y documentos sobre la historia marítima de la región. Sus exposiciones permiten conocer la relación de la ciudad con el puerto y el comercio naval.",
       descriptionEn: "The Natal Maritime Museum is located in Durban and brings together vessels, objects and documents about the region's maritime history. Its exhibitions show the city's relationship with the port and naval trade.",
+      lat: -29.86159,
+      lng: 31.0287,
     },
     {
       id: "durban_10",
@@ -208948,6 +209539,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1623278904835-152b03aba4ea?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEdXJiYW4lMjBIb2xvY2F1c3QlMjAlMjYlMjBHZW5vY2lkZSUyMENlbnRyZSUyMER1cmJhbiUyMFNvdXRoJTIwQWZyaWNhfGVufDF8MHx8fDE3ODMyOTI5NzR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Centro del Holocausto y Genocidio de Durban es un espacio educativo y museístico dedicado a la memoria del Holocausto y otros genocidios. Ofrece exposiciones y actividades sobre derechos humanos, historia y prevención de la violencia.",
       descriptionEn: "The Durban Holocaust and Genocide Centre is an educational and museum space dedicated to the memory of the Holocaust and other genocides. It offers exhibitions and activities on human rights, history and violence prevention.",
+      lat: -29.84933,
+      lng: 31.03402,
     },
     {
       id: "durban_14",
@@ -208981,6 +209574,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1592239658467-35433cdba25f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxPbGQlMjBDb3VydCUyMEhvdXNlJTIwTXVzZXVtJTIwRHVyYmFuJTIwU291dGglMjBBZnJpY2F8ZW58MXwwfHx8MTc4MzI5MzEyNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo del Antiguo Tribunal ocupa un edificio histórico en Durban y exhibe colecciones sobre la historia judicial y social de la ciudad. Su arquitectura y sus salas permiten conocer el pasado colonial y legal de la región.",
       descriptionEn: "The Old Court House Museum occupies a historic building in Durban and displays collections on the city's judicial and social history. Its architecture and rooms illustrate the region's colonial and legal past.",
+      lat: -29.85835,
+      lng: 31.02757,
     },
     {
       id: "durban_16",
@@ -209013,6 +209608,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.victoriastreetmarket.co.za",
       description: "El Mercado de la calle Victoria es un mercado de eThekwini que data de 1890 y surgió de los comerciantes que se instalaron junto a la mezquita de Grey Street. Hoy \"el Vic\" tiene cientos de puestos de comida, arte tradicional y productos diversos.",
       descriptionEn: "The Victoria Street Market is a market in EThekwini, dating back to 1890, which grew from traders who set up in the Grey Street Mosque. Today, \"the Vic\" has hundreds of stalls selling various foods, traditional artwork, and goods.",
+      lat: -29.85639,
+      lng: 31.01444,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Downtown_Durban_%28dennissylvesterhurd%29.jpg/1280px-Downtown_Durban_%28dennissylvesterhurd%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "durban_18",
@@ -209207,6 +209805,9 @@ export const CURATED_ALL: CuratedMap = {
       description: "Umhlanga Rocks es una localidad costera al norte de Durban, conocida por sus playas, su paseo marítimo junto al océano Índico y su faro rojo y blanco. Es una zona popular para pasear, bañarse y comer frente al mar.",
       descriptionEn: "Umhlanga Rocks is a coastal town just north of Durban, known for its beaches, its promenade along the Indian Ocean and its red-and-white lighthouse. It is a popular spot for walks, swimming and seafront dining.",
       sourceUrl: "https://en.wikipedia.org/wiki/Umhlanga",
+      lat: -29.85349,
+      lng: 31.01039,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Eswatini_Reed_Dance_2006_-01.jpg/1280px-Eswatini_Reed_Dance_2006_-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   kruger: [
@@ -209223,7 +209824,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 360,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Gary_Russell_promo.jpg",
-      description: "El Parque nacional Kruger es un parque nacional situado en el extremo noreste de Sudáfrica. Constituye la reserva de animales más importante del Sur de África, con 18 989 km², extendiéndose 350 km de norte a sur y 60 km de este a oeste.",
+      description: "El Parque Nacional Kruger es una de las reservas de fauna más grandes de Sudáfrica y se recorre en safaris para observar elefantes, leones, leopardos, rinocerontes y búfalos, conocidos como los Cinco Grandes.",
       descriptionEn: "Kruger National Park is a national park in South Africa covering an area of 19,623 km2 (7,576 sq mi) in the provinces of Limpopo and Mpumalanga in the country's northeast. It extends 360 km (220 mi) from north to south and 65 km (40 mi) from east to west.",
     },
     {
@@ -209426,6 +210027,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Bourke's Luck Potholes es un conjunto de pozos y formas erosionadas en la confluencia de los ríos Blyde y Treur, en Mpumalanga. Se visita por sus pasarelas sobre el cañón.",
       descriptionEn: "Bourke's Luck Potholes is a set of eroded pools and rock formations at the confluence of the Blyde and Treur rivers in Mpumalanga. Walkways cross the canyon area.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Blyde_River_Canyon_Nature_Reserve_%28ZA%29%2C_Blyde_River%2C_Bourke%27s_Luck_Potholes_--_2024_--_9984.jpg/1280px-Blyde_River_Canyon_Nature_Reserve_%28ZA%29%2C_Blyde_River%2C_Bourke%27s_Luck_Potholes_--_2024_--_9984.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kruger_13",
@@ -209493,6 +210095,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Skukuza es un campamento del Parque nacional Kruger situado a orillas del río Sabie. Funciona como centro administrativo y de visitantes del parque.",
       descriptionEn: "Skukuza is a rest camp in Kruger National Park on the banks of the Sabie River. It serves as an administrative and visitor center for the park.",
+      lat: -24.99526,
+      lng: 31.59456,
     },
     {
       id: "kruger_17",
@@ -209574,6 +210178,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Franschhoek_Motor_Museum_%2829893308474%29.jpg/960px-Franschhoek_Motor_Museum_%2829893308474%29.jpg",
       description: "El Museo del Motor de Franschhoek, en la finca L'Ormarins, exhibe una colección de automóviles históricos y deportivos. Está fuera de Stellenbosch y se visita como excursión de un día al valle de Franschhoek.",
       descriptionEn: "The Franschhoek Motor Museum, on the L'Ormarins estate, displays a collection of historic and sports cars. It lies outside Stellenbosch and is visited as a day trip in the Franschhoek Valley.",
+      lat: -33.87986,
+      lng: 19.00299,
     },
     {
       id: "stellenbosch_1",
@@ -209591,6 +210197,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/StellenboschMoederKerk.jpg/960px-StellenboschMoederKerk.jpg",
       description: "La Congregación Madre, conocida como Moederkerk, es la iglesia reformada holandesa de Stellenbosch. Su edificio neogótico y su ubicación céntrica forman parte del recorrido histórico de la ciudad.",
       descriptionEn: "The Mother Congregation, known as Moederkerk, is Stellenbosch's Dutch Reformed church. Its neo-Gothic building and central location are part of the town's historic route.",
+      lat: -33.93765,
+      lng: 18.8642,
     },
     {
       id: "stellenbosch_2",
@@ -209608,6 +210216,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oom_Samie_se_winkel_02_%283556639892%29.jpg/960px-Oom_Samie_se_winkel_02_%283556639892%29.jpg",
       description: "Oom Samie se Winkel es una de las tiendas más antiguas que se conservan en Stellenbosch, Sudáfrica. Este almacén general de la calle Dorp es famoso por funcionar casi igual que en la época victoriana.",
       descriptionEn: "Oom Samie se Winkel is a tourist attraction and one of the oldest surviving shops in Stellenbosch, South Africa. It is a known general dealer in Dorp street and is famous for operating almost in exactly the same way as it did in the Victorian era.",
+      lat: -33.93954,
+      lng: 18.85581,
     },
     {
       id: "stellenbosch_3",
@@ -209640,6 +210250,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Stellenbosch_University_Botanical_Garden_-_garden.jpg/960px-Stellenbosch_University_Botanical_Garden_-_garden.jpg",
       description: "El Jardín Botánico de Stellenbosch pertenece a la universidad local y reúne plantas nativas y exóticas en un espacio ajardinado. Se encuentra cerca del centro y se visita por su valor botánico y educativo.",
       descriptionEn: "The Stellenbosch Botanical Garden belongs to the local university and brings together native and exotic plants in a landscaped space. It is near the centre and is visited for its botanical and educational value.",
+      lat: -33.93613,
+      lng: 18.86531,
     },
     {
       id: "stellenbosch_5",
@@ -209656,6 +210268,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Burgher_House_in_Stellenbosch_by_TW.jpg/960px-Burgher_House_in_Stellenbosch_by_TW.jpg",
       description: "La Burgerhuis es una casa histórica de Stellenbosch, vinculada al patrimonio arquitectónico de estilo caboverdiano del centro. Se visita por su valor como ejemplo de vivienda urbana antigua.",
       descriptionEn: "The Burgerhuis is a historic house in Stellenbosch, linked to the town centre's Cape Dutch architectural heritage. It is visited as an example of an old urban dwelling.",
+      lat: -33.93629,
+      lng: 18.85756,
     },
     {
       id: "stellenbosch_6",
@@ -209720,6 +210334,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.dylanlewis.com/garden/visit-the-garden",
       description: "El Estudio y Jardín de Esculturas de Dylan Lewis es un espacio al aire libre creado por el escultor sudafricano Dylan Lewis. Combina esculturas, jardines y paisaje en las afueras de Stellenbosch.",
       descriptionEn: "The Dylan Lewis Sculpture Garden and Studio is an outdoor space created by South African sculptor Dylan Lewis. It combines sculptures, gardens and landscape outside Stellenbosch.",
+      lat: -33.97153,
+      lng: 18.87304,
     },
     {
       id: "stellenbosch_10",
@@ -209847,6 +210463,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1489676138048-ba1786a7f026?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTdGVsbGVuYm9zY2glMjBXaW5lbGFuZHMlMjBTdGVsbGVuYm9zY2glMjBTb3V0aCUyMEFmcmljYXxlbnwxfDB8fHwxNzgzMjk0MzM3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La región vinícola de Stellenbosch es una zona productora de vino dentro de los Cape Winelands, con viñedos y bodegas alrededor de la ciudad. Se visita por sus paisajes agrícolas y su producción vitivinícola.",
       descriptionEn: "The Stellenbosch wine region is a wine-producing area within the Cape Winelands, with vineyards and wineries around the town. It is visited for its agricultural landscapes and wine production.",
+      lat: -33.96404,
+      lng: 18.83964,
     },
     {
       id: "stellenbosch_18",
@@ -209860,7 +210478,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.3,
       estimatedMinutes: 45,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Stellenbosch_University_New_Logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Stellenbosch_University_KONSERVATORIUM.jpg/1280px-Stellenbosch_University_KONSERVATORIUM.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       lat: -33.93278,
       lng: 18.86417,
       website: "https://www.sun.ac.za/",
@@ -209883,6 +210501,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Theological_Seminary%2C_Dorp_Street%2C_Stellenbosch.jpg/1280px-Theological_Seminary%2C_Dorp_Street%2C_Stellenbosch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Calle Dorp es una de las calles históricas de Stellenbosch, con edificios antiguos, robles y comercios. Forma parte del centro urbano y se recorre para conocer la arquitectura y la vida cotidiana local.",
       descriptionEn: "Dorp Street is one of Stellenbosch's historic streets, with old buildings, oak trees and shops. It forms part of the town centre and is walked to see local architecture and daily life.",
+      lat: -33.93924,
+      lng: 18.85699,
     },
     {
       id: "stellenbosch_20",
@@ -209975,6 +210595,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6e/The_lake_at_the_Spier_Wine_Estate%2C_Stellenbosch_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Spier Wine Farm es una finca vinícola cercana a Stellenbosch, con viñedos, jardines y espacios para visitantes. Produce vino y desarrolla actividades agrícolas y culturales en el entorno rural.",
       descriptionEn: "Spier Wine Farm is a wine estate near Stellenbosch, with vineyards, gardens and visitor areas. It produces wine and carries out agricultural and cultural activities in the rural setting.",
+      lat: -33.9745,
+      lng: 18.78277,
     },
     {
       id: "stellenbosch_25",
@@ -210057,6 +210679,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 180,
       description: "Babylonstoren es una finca histórica cerca de Franschhoek y Paarl, con huertos, jardines y viñedos. Se visita por su arquitectura rural, sus productos agrícolas y su paisaje de Cape Winelands.",
       descriptionEn: "Babylonstoren is a historic farm near Franschhoek and Paarl, with orchards, gardens and vineyards. It is visited for its rural architecture, agricultural produce and Cape Winelands landscape.",
+      lat: -33.82409,
+      lng: 18.92748,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/DSC04935_BABYLONSTOREN_%2816094034029%29.jpg/1280px-DSC04935_BABYLONSTOREN_%2816094034029%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "stellenbosch_30",
@@ -210091,7 +210716,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 360,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Palmhuis.jpg",
-      description: "El Parque Nacional Serengueti es un parque nacional de grandes proporciones en Tanzania, África. Es famoso por las migraciones anuales de miles de ñúes.",
+      description: "El Parque Nacional del Serengeti es una gran sabana protegida en el norte de Tanzania, conocida por sus migraciones de ñus y cebras y por la fauna que concentra. Desde Arusha se organizan safaris de varios días para recorrerlo.",
       descriptionEn: "The Serengeti is a geographical region in Africa, spanning the Mara and Arusha Regions of Tanzania and extending to southwestern Kenya.",
     },
     {
@@ -210126,6 +210751,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.culturalheritage.co.tz",
       description: "El Museo Nacional de Tanzania es una institución museística nacional de Tanzania dedicada a la conservación, investigación y difusión del patrimonio cultural, histórico y natural del país.",
       descriptionEn: "Arusha is a city in Tanzania. The city is the capital of the Arusha Region. It has a population of 617,631 people.",
+      lat: -3.3772,
+      lng: 36.65825,
     },
     {
       id: "arusha_3",
@@ -210142,6 +210769,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Kilimo_cha_mazao.jpg/1920px-Kilimo_cha_mazao.jpg",
       description: "Chakula Cha mifugo es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Chakula Cha mifugo is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -3.43979,
+      lng: 36.70638,
     },
     {
       id: "arusha_4",
@@ -210156,8 +210785,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Wonderland_of_Big_Game.djvu/page1-960px-The_Wonderland_of_Big_Game.djvu.jpg",
-      description: "Simba Road es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Mombasa Road, also known as the Nairobi–Mombasa Road, or Mombasa–Nairobi Road or A109 Road (Kenya) is the main road between Nairobi, Kenya's capital and largest city and Mombasa, the country's largest port city. The road is a component of the Northern Corridor.",
+      lat: -3.44924,
+      lng: 36.70856,
     },
     {
       id: "arusha_5",
@@ -210172,8 +210802,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/79/COLLECTIE_TROPENMUSEUM_Zicht_op_het_Ujamaa_dorp_Hondogo_TMnr_20014585.jpg",
-      description: "Arusha Declaration Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de la Declaración de Arusha ocupa un edificio vinculado a la firma de la Declaración de Arusha de 1967, que definió el socialismo africano de Tanzania. Exhibe documentos y objetos sobre ese periodo político.",
       descriptionEn: "Arusha is a city in Tanzania. The city is the capital of the Arusha Region. It has a population of 617,631 people.",
+      lat: -3.3692,
+      lng: 36.68765,
     },
     {
       id: "arusha_6",
@@ -210188,8 +210820,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Natural_History_Museum%2C_Arusha_2011.jpg/1920px-Natural_History_Museum%2C_Arusha_2011.jpg",
-      description: "OH 65 es el nombre de catálogo de una mandíbula, con la dentición completa, y parte del cráneo fósiles de Homo habilis, con una antigüedad estimada de 1,8 millones de años, dentro del Calabriense, descubierto en 1995 por Amy Cushing y Agustino Venance y descrito por primera vez…",
+      description: "El Museo Nacional de Historia Natural de Arusha presenta colecciones sobre la fauna, la geología y la evolución humana de Tanzania. Funciona en un edificio histórico y permite conocer el patrimonio natural del país.",
       descriptionEn: "The National Museum of Tanzania (NMT),, is a consortium of several Tanzanian museums whose purpose is to preserve and show objects from the history and natural environment of Tanzania.",
+      lat: -3.36959,
+      lng: 36.69618,
     },
     {
       id: "arusha_7",
@@ -210204,8 +210838,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/87/German_Boma_at_Arusha_c.1900s.jpg",
-      description: "German Boma es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Boma alemán es un edificio fortificado de la época colonial alemana en Arusha. Hoy alberga el Museo Nacional de Historia Natural y conserva parte de la arquitectura administrativa colonial.",
       descriptionEn: "Arusha is a city in Tanzania. The city is the capital of the Arusha Region. It has a population of 617,631 people.",
+      lat: -3.3694,
+      lng: 36.69608,
     },
     {
       id: "arusha_8",
@@ -210222,6 +210858,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Mount_meru_with_snow%2C_Arusha_Region%2C_Tanzania.jpg",
       description: "El monte Meru es un estratovolcán, ubicado en el cordón montañoso al este del Gran Valle del Rift, a 70 km al oeste del Kilimanjaro en Tanzania. Con una altura de 4.566 m s. n. m., es la segunda montaña más alta del país.",
       descriptionEn: "Arusha is a city in Tanzania. The city is the capital of the Arusha Region. It has a population of 617,631 people.",
+      lat: -3.24678,
+      lng: 36.76025,
     },
     {
       id: "arusha_9",
@@ -210236,8 +210874,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/Meru_Ashcone.jpg",
-      description: "Mount Meru Ashcone es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Monte Meru es un volcán situado en el Parque Nacional Arusha, cerca de la ciudad. Su cono de ceniza forma parte del paisaje volcánico y se observa en las rutas de ascenso a la montaña.",
       descriptionEn: "The Arusha National Park is a national park of Tanzania, with the IUCN category II located within Meru District and Arusha Rural District of the Arusha Region of Tanzania that covers Mount Meru, a prominent volcano with an elevation of 4566 m.",
+      lat: -3.23777,
+      lng: 36.76246,
     },
     {
       id: "arusha_10",
@@ -210252,8 +210892,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://live.staticflickr.com/1049/825225455_757c41450e_b.jpg",
-      description: "Meserani Snake Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Meserani Snake Park is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Parque de Serpientes de Meserani es un centro de reptiles ubicado en Meserani, en las afueras de Arusha. Reúne serpientes y otros animales y se visita como excursión desde la ciudad.",
+      descriptionEn: "Meserani Snake Park is a reptile center located in Meserani, on the outskirts of Arusha. It houses snakes and other animals and is visited as a day trip from the city.",
+      lat: -3.40953,
+      lng: 36.48354,
     },
   ],
   daressalaam: [
@@ -210273,6 +210915,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.houseofculture.or.tz",
       description: "El Museo Nacional de Tanzania es una institución museística nacional de Tanzania dedicada a la conservación, investigación y difusión del patrimonio cultural, histórico y natural del país.",
       descriptionEn: "Dar es Salaam Region is one of Tanzania's 31 administrative regions and is located on the east coast of the country. The region covers an area of 1,599 km2 (617 sq mi). The region is comparable in size to the combined land and water areas of the nation state of Mauritius.",
+      lat: -6.8131,
+      lng: 39.2938,
     },
     {
       id: "daressalaam_1",
@@ -210289,6 +210933,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Askari_monument_dar_es_salaam.jpg/1920px-Askari_monument_dar_es_salaam.jpg",
       description: "El Monumento Askari es un monumento ubicado en la ciudad tanzana de Dar es Salaam que rinde homenaje a los soldados askari que sirvieron en las fuerzas armadas británicas durante la Primera Guerra Mundial. Fue inaugurado en 1927.",
       descriptionEn: "Dar es Salaam is the largest city and financial hub of Tanzania and capital of the Dar es Salaam Region. It is located on the Swahili coast.",
+      lat: -6.81667,
+      lng: 39.28953,
     },
     {
       id: "daressalaam_2",
@@ -210320,8 +210966,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/61/George_Lilanga_insieme_all%27opera_Banana_guarda_ho_l%27acquolina_in_bocca.jpg",
       website: "https://rangigallery.com/",
-      description: "George Lilanga fue un pintor y escultor tanzano, considerado una de las figuras más reconocidas del arte contemporáneo africano de finales del siglo XX.",
+      description: "Galería Rangi es un espacio de arte en Dar es Salaam que expone obras de artistas tanzanos contemporáneos. Se visita para conocer la escena artística local.",
       descriptionEn: "Dodoma, officially Dodoma City, is the capital city of Tanzania. With a population of 765,179 as per 2022 which is projected to reach 1,000,000 by the end of 2026, it is also the administrative capital of both Dodoma Municipal Council and the entire Dodoma Region.",
+      lat: -6.76869,
+      lng: 39.27127,
     },
     {
       id: "daressalaam_4",
@@ -210336,8 +210984,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Nyakyusa_House%2C_Kijiji_Cha_Makumbusho%2C_Mikocheni%2C_Kinondoni_MC%2C_Dar_es_Salaam.jpg/1920px-Nyakyusa_House%2C_Kijiji_Cha_Makumbusho%2C_Mikocheni%2C_Kinondoni_MC%2C_Dar_es_Salaam.jpg",
-      description: "El Museo Nacional de Tanzania es una institución museística nacional de Tanzania dedicada a la conservación, investigación y difusión del patrimonio cultural, histórico y natural del país.",
+      description: "El Museo Makumbusho, también conocido como Village Museum, es un museo al aire libre en Dar es Salaam que reúne viviendas tradicionales de distintos grupos étnicos de Tanzania. Se recorre para conocer la arquitectura y la vida rural del país.",
       descriptionEn: "Dar es Salaam is the largest city and financial hub of Tanzania and capital of the Dar es Salaam Region. It is located on the Swahili coast.",
+      lat: -6.78854,
+      lng: 39.24942,
     },
     {
       id: "daressalaam_5",
@@ -210352,8 +211002,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nyakyusa_Village_at_Kijiji_Cha_Makumbusho%2C_Mikocheni%2C_Kinondoni_MC%2C_Dar_es_Salaam.jpg/1920px-Nyakyusa_Village_at_Kijiji_Cha_Makumbusho%2C_Mikocheni%2C_Kinondoni_MC%2C_Dar_es_Salaam.jpg",
-      description: "El Museo Nacional de Tanzania es una institución museística nacional de Tanzania dedicada a la conservación, investigación y difusión del patrimonio cultural, histórico y natural del país.",
+      description: "La Aldea Makumbusho, o Village Museum, es un museo al aire libre en Dar es Salaam con casas tradicionales de varios grupos étnicos tanzanos. Se visita para ver ejemplos de arquitectura rural.",
       descriptionEn: "Dar es Salaam is the largest city and financial hub of Tanzania and capital of the Dar es Salaam Region. It is located on the Swahili coast.",
+      lat: -6.77557,
+      lng: 39.24582,
     },
     {
       id: "daressalaam_6",
@@ -210371,6 +211023,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.nafasiartspace.org/",
       description: "Elias Eliezar Jengo es un pintor tanzano, profesor jubilado de Bellas Artes en el Departamento de Artes Creativas de la Universidad de Dar es Salaam y estudioso de la historia del arte.",
       descriptionEn: "Elias Eliezar Jengo is a Tanzanian painter, retired professor of Fine Art at the Department of Creative Arts of the University of Dar es Salaam and scholar of art history.",
+      lat: -6.76342,
+      lng: 39.24079,
     },
     {
       id: "daressalaam_7",
@@ -210385,8 +211039,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1e/A-cup-of-cappuccino-coffee-dar-es-salaam-cafe.jpg",
-      description: "Cappuccino cafe es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "The following is an incomplete list of Islamist terrorist attacks.",
+      lat: -6.77202,
+      lng: 39.23654,
     },
     {
       id: "daressalaam_8",
@@ -210419,6 +211074,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Museum_Office_at_Mwalimu_Nyerere_Memorial_House%2C_Mzimuni%2C_Kinondoni_MC%2C_Dar_es_Salaam.jpg/1920px-Museum_Office_at_Mwalimu_Nyerere_Memorial_House%2C_Mzimuni%2C_Kinondoni_MC%2C_Dar_es_Salaam.jpg",
       description: "El Museo Nacional de Tanzania es una institución museística nacional de Tanzania dedicada a la conservación, investigación y difusión del patrimonio cultural, histórico y natural del país.",
       descriptionEn: "Dar es Salaam is the largest city and financial hub of Tanzania and capital of the Dar es Salaam Region. It is located on the Swahili coast.",
+      lat: -6.80722,
+      lng: 39.25361,
     },
     {
       id: "daressalaam_10",
@@ -210433,8 +211090,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Under_the_African_sun%3B_a_description_of_native_races_in_Uganda%2C_sporting_adventures_and_other_experiences_%28IA_underafricansund00anso%29.pdf/page1-500px-Under_the_African_sun%3B_a_description_of_native_races_in_Uganda%2C_sporting_adventures_and_other_experiences_%28IA_underafricansund00anso%29.pdf.jpg",
-      description: "Old Boma Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Dar es Salaam is the largest city and financial hub of Tanzania and capital of the Dar es Salaam Region. It is located on the Swahili coast.",
+      lat: -6.82049,
+      lng: 39.28721,
     },
     {
       id: "daressalaam_11",
@@ -210449,8 +211107,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/State_Magazine_2002-03-_Iss_455_%28IA_sim_state-magazine_2002-03_455%29.pdf/page1-960px-State_Magazine_2002-03-_Iss_455_%28IA_sim_state-magazine_2002-03_455%29.pdf.jpg",
-      description: "Fun City Water & Theme Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Fun City es un parque de atracciones y acuático en Dar es Salaam, con juegos mecánicos, toboganes y piscinas. Se visita como una actividad recreativa familiar.",
       descriptionEn: "The Amazing Race 11 is the eleventh season of the American reality competition show The Amazing Race. Hosted by Phil Keoghan, it featured eleven teams of two, all consisting of individuals from previous seasons of The Amazing Race, competing in a race around the world.",
+      lat: -6.93952,
+      lng: 39.33476,
     },
     {
       id: "daressalaam_12",
@@ -210464,9 +211124,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/59/Tanzania_parks_map.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Dolphin_leap.JPG/1280px-Dolphin_leap.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Según la IUCN, en Tanzania, en 2025, hay 867 áreas protegidas, que ocupan 375 849 km², el 39,95 % de la superficie total del país, 940 689 km², y 5 576 km² de áreas marinas, el 2.31 % de la superficie marina total que corresponde a Tanzania, 241 134 km², pero se han hecho…",
       descriptionEn: "Tanzania, officially the United Republic of Tanzania, is a country in East Africa within the African Great Lakes region.",
+      lat: -6.38333,
+      lng: 39.36667,
+      dayTrip: true,
     },
   ],
   ngorongoro: [
@@ -210483,8 +211146,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1745885979468-44a855f8a5fa?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb3VudCUyME9sZGVhbmklMjBOZ29yb25nb3JvJTIwVGFuemFuaWF8ZW58MXwwfHx8MTc4MzI5NDMzOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Mount Oldeani es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El monte Oldeani es un volcán extinto cubierto de bosque montano en las tierras altas del norte de Tanzania, cerca del pueblo de Oldeani y del Área de Conservación del Ngorongoro. Sus senderos de bosque se usan para caminatas y observación de aves.",
       descriptionEn: "The Crater Highlands or Ngorongoro Volcanic Highlands are a geological region along the East African Rift in the Arusha Region and parts of northern Manyara Region in north Tanzania.",
+      lat: -3.27132,
+      lng: 35.44288,
     },
     {
       id: "ngorongoro_1",
@@ -210501,6 +211166,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1741850820728-3b8d1aca20e8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWlucyUyMG9mJTIwU2llZGVudG9wZiUyME5nb3Jvbmdvcm8lMjBUYW56YW5pYXxlbnwxfDB8fHwxNzgzMjk0NDE1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Ruins of Siedentopf's Farm es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Ruins of Siedentopf's Farm is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -3.15376,
+      lng: 35.60389,
     },
     {
       id: "ngorongoro_2",
@@ -210517,6 +211184,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1597684233833-329bf7035965?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDaHVyY2glMjBOZ29yb25nb3JvJTIwVGFuemFuaWF8ZW58MXwwfHx8MTc4MzI5NDQ5MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Tanzania, oficialmente la República Unida de Tanzania, es un país situado en la costa oriental del África Central.",
       descriptionEn: "The Maasai are an Eastern Nilotic ethnic group native to northern, central and southern regions of Kenya including northern Tanzania, near the African Great Lakes region.",
+      lat: -3.31682,
+      lng: 35.59711,
     },
     {
       id: "ngorongoro_3",
@@ -210533,6 +211202,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1613864309738-9102a9e22883?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMb29uZ29rdSUyMEN1bHR1cmFsJTIwQm9tYSUyME5nb3Jvbmdvcm8lMjBUYW56YW5pYXxlbnwxfDB8fHwxNzgzMjk0NTY2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Loongoku Cultural Boma es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Loongoku Cultural Boma is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -3.0934,
+      lng: 35.40225,
     },
     {
       id: "ngorongoro_4",
@@ -210548,6 +211219,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Elerai Cultural Boma es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Elerai Cultural Boma is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -3.12185,
+      lng: 35.41749,
     },
     {
       id: "ngorongoro_5",
@@ -210564,6 +211237,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1613864309738-9102a9e22883?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTZW5ldG8lMjBDdWx0dXJhbCUyMEJvbWElMjBOZ29yb25nb3JvJTIwVGFuemFuaWF8ZW58MXwwfHx8MTc4MzI5NDcxN3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Seneto Cultural Boma es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Seneto Cultural Boma is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -3.15039,
+      lng: 35.47463,
     },
     {
       id: "ngorongoro_6",
@@ -210578,7 +211253,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 300,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kronborg_flygfoto_1%2C_2021.jpg/960px-Kronborg_flygfoto_1%2C_2021.jpg",
-      description: "La Zona de conservación de Ngorongoro es una zona protegida situada a 180 km al oeste de la ciudad de Arusha, en las tierras altas volcánicas de Tanzania. La delimitación de la zona de conservación va a lo largo de la frontera del Distrito de Ngorongoro.",
+      description: "El cráter del Ngorongoro es una gran caldera volcánica dentro del Área de Conservación del Ngorongoro, inscrita como Patrimonio Mundial de la UNESCO. Se recorre en safaris vehiculares para observar elefantes, leones, rinocerontes negros y flamencos en el lago Magadi.",
       descriptionEn: "Ngorongoro Conservation Area is a protected area and a UNESCO World Heritage Site located in Ngorongoro District, 180 km (110 mi) west of Arusha City in Arusha Region, within the Crater Highlands geological area of northeastern Tanzania.",
     },
   ],
@@ -210597,8 +211272,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.patrimoinedetunisie.com.tn/eng/musees/sousse.php",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Archaeological_Museum_of_Sousse_07042013.jpg/960px-Archaeological_Museum_of_Sousse_07042013.jpg",
-      description: "المتحف الأثري بسوسة es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Arqueológico de Susa es un museo tunecino ubicado en la ciudad de Susa, la antigua Hadrumetum. Posee la colección más grande de mosaicos de Túnez después de la del Museo Nacional del Bardo.",
       descriptionEn: "The Sousse Archaeological Museum is an archaeological museum located in Sousse, Sousse Governorate, Tunisia.",
+      lat: 35.82194,
+      lng: 10.63528,
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_Arqueol%C3%B3gico_de_Susa",
     },
     {
       id: "sousse_1",
@@ -210616,6 +211294,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Tunisie_Sousse_Catacombes_2.JPG/960px-Tunisie_Sousse_Catacombes_2.JPG",
       description: "La ciudad de Susa, capital de la gobernación de Susa, está situada en la costa este de Túnez, a 140 km al sur de la ciudad de Túnez, y tiene 206 413 habitantes. Está bañada por el mar Mediterráneo y por el golfo de Hammamet. Susa se llamaba Hadrumetum, durante la época púnica.",
       descriptionEn: "Sousse, Sūsah, or Soussa, is a city in Tunisia, capital of the Sousse Governorate. Located 140 km (87 mi) south of the capital Tunis, the city has 271,428 inhabitants (2014).",
+      lat: 35.81814,
+      lng: 10.6264,
     },
     {
       id: "sousse_2",
@@ -210630,8 +211310,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Dar_Essid_Museum%2C_Sousse%2C_Tunisia.JPG",
-      description: "Musée Dar Essid es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo instalado en una casa tradicional de la medina de Sousse, con habitaciones, patio y objetos que muestran la vida doméstica tunecina de los siglos XIX y XX. Su terraza ofrece vistas al Ribat y al casco antiguo.",
       descriptionEn: "Following is a sortable list of museums in Tunisia.",
+      lat: 35.82715,
+      lng: 10.63544,
     },
     {
       id: "sousse_3",
@@ -210646,8 +211328,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Medina_of_Sousse-130323.jpg/960px-Medina_of_Sousse-130323.jpg",
-      description: "رباط سوسة es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Fortaleza-monasterio islámica fundada en el siglo VIII, con patio, celdas, sala de oración y una torre de vigilancia. Es un ribat antiguo conservado en Túnez y muestra la arquitectura militar y religiosa de la época.",
       descriptionEn: "Ribat of Sousse is a ribat in the city of Sousse, Tunisia. Although scholars differ on the chronology of its original construction, it was most likely founded in the 8th century and reconstructed or completed in its current form during the early 9th century, under the Aghlabid…",
+      lat: 35.82768,
+      lng: 10.63875,
     },
     {
       id: "sousse_4",
@@ -210662,8 +211346,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/%C3%89glise_Saint_F%C3%A9lix_Sousse%2C_Tunisie_2013.JPG/960px-%C3%89glise_Saint_F%C3%A9lix_Sousse%2C_Tunisie_2013.JPG",
-      description: "كنيسة مار فيلكس es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "كنيسة مار فيلكس is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Iglesia católica de San Félix, construida en el centro de Sousse durante el protectorado francés. Su arquitectura religiosa y su historia forman parte del patrimonio urbano de la ciudad.",
+      descriptionEn: "Catholic Church of Saint Felix, built in central Sousse during the French protectorate. Its religious architecture and history are part of the city's urban heritage.",
+      lat: 35.83294,
+      lng: 10.63472,
     },
     {
       id: "sousse_5",
@@ -210678,8 +211364,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Remparts_de_la_m%C3%A9dina_de_Sousse%2C_23_septembre_2013_%2805%29.jpg/960px-Remparts_de_la_m%C3%A9dina_de_Sousse%2C_23_septembre_2013_%2805%29.jpg",
-      description: "Bab El-Gharbi es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Puerta histórica de la medina de Sousse que marcaba el acceso occidental al recinto amurallado. Forma parte del conjunto de puertas que articulaban la entrada y salida de la ciudad antigua.",
       descriptionEn: "The Neptune Triumph and the House of Sorothus mosaic, also known as the Neptune and Nereids mosaic or the Neptune Procession mosaic, is a Roman mosaic dating from the 1st or 2nd century, discovered in Tunisia at the end of the 19th century, in the House of Sorothus on the site…",
+      lat: 35.82462,
+      lng: 10.63479,
     },
     {
       id: "sousse_6",
@@ -210694,8 +211382,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Portes_de_Sousse_Finga4.jpg/960px-Portes_de_Sousse_Finga4.jpg",
-      description: "Bab el Finga es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Puerta histórica de la medina de Sousse, integrada en el recinto amurallado. Forma parte de los accesos tradicionales al casco antiguo y de su patrimonio urbano.",
       descriptionEn: "Sousse, Sūsah, or Soussa, is a city in Tunisia, capital of the Sousse Governorate. Located 140 km (87 mi) south of the capital Tunis, the city has 271,428 inhabitants (2014).",
+      lat: 35.82594,
+      lng: 10.63489,
     },
     {
       id: "sousse_7",
@@ -210712,6 +211402,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Sousse_Grosse_Moschee.JPG/960px-Sousse_Grosse_Moschee.JPG",
       description: "La Gran Mezquita de Susa es una mezquita del siglo IX construida en la ciudad costera de Susa, Túnez.",
       descriptionEn: "The Great Mosque of Sousse is a historical mosque in the coastal city of Sousse, Tunisia. The construction dates back to 851, during the rule of the Aghlabid dynasty, vassals of the Abbasid Caliphate. It was commissioned by the ruler Abu al-‘Abbas Muhammad al-Aghlabi.",
+      lat: 35.8269,
+      lng: 10.6397,
     },
     {
       id: "sousse_8",
@@ -210725,8 +211417,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Kobba - Musée Arts & Trad. Populaires es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Kobba - Musée Arts & Trad. Populaires is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo de artes y tradiciones populares en la medina de Sousse, instalado en un edificio con cúpula conocido como kobba. Reúne piezas de artesanía, indumentaria y objetos de la vida tradicional de la región.",
+      descriptionEn: "Museum of popular arts and traditions in the Sousse medina, housed in a domed building known as a kobba. It displays crafts, clothing and objects from the region's traditional life.",
     },
     {
       id: "sousse_9",
@@ -210743,6 +211435,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1568631654593-bab7dea0d4d6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTb3Vzc2UlMjBBcmNoYWVvbG9naWNhbCUyME11c2V1bSUyMFNvdXNzZSUyMFR1bmlzaWF8ZW58MXwwfHx8MTc4MzI5NDc5NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Arqueológico de Susa es un museo tunecino ubicado en la ciudad de Susa, la antigua Hadrumetum. Posee la colección más grande de mosaicos de Túnez después de la del Museo Nacional del Bardo.",
       descriptionEn: "Sousse, Sūsah, or Soussa, is a city in Tunisia, capital of the Sousse Governorate. Located 140 km (87 mi) south of the capital Tunis, the city has 271,428 inhabitants (2014).",
+      lat: 35.82194,
+      lng: 10.63528,
     },
     {
       id: "sousse_10",
@@ -210758,8 +211452,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.hannibalpark.com",
       imageUrl: "https://images.unsplash.com/photo-1674811137758-88b65d9795e1?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxIYW5uaWJhbCUyMFBhcmslMjBTb3Vzc2UlMjBTb3Vzc2UlMjBUdW5pc2lhfGVufDF8MHx8fDE3ODMyOTQ4NzB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Hannibal Park Sousse es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Parque de atracciones en Sousse, con juegos mecánicos y espacios recreativos. Es una opción de ocio urbano fuera del circuito de monumentos de la medina.",
       descriptionEn: "The present day Republic of Tunisia, al-Jumhuriyyah at-Tunisiyyah, is situated in Northern Africa. Geographically situated between Libya to the east, Algeria to the west and the Mediterranean Sea to the north.",
+      lat: 35.8915,
+      lng: 10.5949,
     },
     {
       id: "sousse_11",
@@ -210774,8 +211470,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://youtu.be/znw5kIFtJmY?t=336",
-      description: "القصبة es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Ciudadela fortificada de Sousse que corona el casco antiguo y alberga el Museo Arqueológico de Sousse. Sus murallas y su torre permiten observar la medina y el puerto.",
       descriptionEn: "This article reviews the history of military architecture in the Maghreb under Islamic rule from the 7th century onward.",
+      lat: 35.82228,
+      lng: 10.63587,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Kasbah_of_Sousse_Walls.jpg/1280px-Kasbah_of_Sousse_Walls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "sousse_12",
@@ -210789,8 +211488,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Museum El-Kobba es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Museo de artes y tradiciones populares conocido como El-Kobba, ubicado en la medina de Sousse. Expone objetos de la vida cotidiana, artesanía e indumentaria tradicional de la región.",
       descriptionEn: "Following is a sortable list of museums in Tunisia.",
+      lat: 35.825,
+      lng: 10.63829,
     },
     {
       id: "sousse_13",
@@ -210866,8 +211567,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Roman House of Masks es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Yacimiento de una casa romana de Hadrumetum, la Sousse antigua, conocida por sus mosaicos con máscaras teatrales. Forma parte del patrimonio arqueológico de la ciudad.",
       descriptionEn: "The Neptune Triumph and the House of Sorothus mosaic, also known as the Neptune and Nereids mosaic or the Neptune Procession mosaic, is a Roman mosaic dating from the 1st or 2nd century, discovered in Tunisia at the end of the 19th century, in the House of Sorothus on the site…",
+      lat: 35.81731,
+      lng: 10.6365,
     },
     {
       id: "sousse_18",
@@ -210881,7 +211584,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "House of the masks, Hadrumetum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Casa romana de Hadrumetum, la antigua Sousse, asociada a mosaicos con máscaras teatrales. El sitio se integra al patrimonio arqueológico de la ciudad y documenta la presencia romana en la zona.",
       descriptionEn: "The Neptune Triumph and the House of Sorothus mosaic, also known as the Neptune and Nereids mosaic or the Neptune Procession mosaic, is a Roman mosaic dating from the 1st or 2nd century, discovered in Tunisia at the end of the 19th century, in the House of Sorothus on the site…",
     },
     {
@@ -210915,6 +211618,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1605196690813-15582706ac34?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSaWJhdCUyMG9mJTIwU291c3NlJTIwU291c3NlJTIwVHVuaXNpYXxlbnwxfDB8fHwxNzgzMjk1NTUxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Fortificación en Susa, Túnez",
       descriptionEn: "fort in Tunisia",
+      lat: 35.82768,
+      lng: 10.63875,
     },
   ],
   djerba: [
@@ -210933,6 +211638,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Hoyerswerda_Einsteinstra%C3%9Fe_-_Auf_Regen_wartend_-_1.jpg/960px-Hoyerswerda_Einsteinstra%C3%9Fe_-_Auf_Regen_wartend_-_1.jpg",
       description: "La Sinagoga de la Ghriba es un templo judío en el centro de la isla de Djerba, en el sur de Túnez. Es una de las principales señas de identidad de los judíos de Djerba, una de las comunidades judías del mundo árabe.",
       descriptionEn: "The El Ghriba Synagogue, also known as the Djerba Synagogue, is an ancient Maghrebi Jewish congregation and synagogue, located in the Jewish village of Hara Seghira, several kilometres southwest of Houmt El Souk, the main town on the island of Djerba, Tunisia.",
+      lat: 33.81389,
+      lng: 10.85944,
     },
     {
       id: "djerba_1",
@@ -210947,8 +211654,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 240,
       imageUrl: "https://images.unsplash.com/photo-1598554361597-0858e58aee6f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxEamVyYmElMjBCZWFjaGVzJTIwRGplcmJhJTIwVHVuaXNpYXxlbnwxfDB8fHwxNzgzMjk1NTUyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Caledonia Curry, cuyo trabajo aparece bajo el nombre de Swoon, es una artista contemporánea estadounidense que trabaja con el grabado, la escultura y la animación stop-motion para crear instalaciones inmersivas, proyectos comunitarios y obras de arte públicas.",
+      description: "Djerba es una isla tunecina en el Mediterráneo, y sus playas de arena son uno de los principales atractivos turísticos de la región. A lo largo de la costa hay zonas de baño y complejos turísticos.",
       descriptionEn: "The Battle of Djerba took place in May 1560 near the island of Djerba, Tunisia. The Ottomans under Piali Pasha's command overwhelmed a large joint Christian alliance fleet, composed chiefly of Spanish, Papal, Genoese, Maltese, and Neapolitan forces.",
+      lat: 33.72258,
+      lng: 10.95244,
     },
   ],
   sidibousaid: [
@@ -217653,6 +218362,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Museo_Antropologico_y_de_Arte_Contemporaneo.jpg/1920px-Museo_Antropologico_y_de_Arte_Contemporaneo.jpg",
       description: "El Museo Antropológico y de Arte Contemporáneo es un museo de la ciudad de Guayaquil, Ecuador. En este museo se expone arte y cultura de Ecuador, Latinoamérica y de la Era Precolombina.",
       descriptionEn: "Museo Antropologico y de Arte Contemporaneo, or MAAC is a state-of-the-art museum in Guayaquil, Ecuador celebrating Ecuadorian, Latin American and Pre-Columbian art and culture. MAAC is a welcome addition to Malecón 2000, the renovated riverwalk in Guayaquil.",
+      lat: -2.18559,
+      lng: -79.87605,
     },
     {
       id: "guayaquil_1",
@@ -217670,6 +218381,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.parquehistoricoguayaquil.com/#",
       description: "Parque temático y museo al aire libre en las afueras de Guayaquil que recrea la ciudad de fines del siglo XIX y comienzos del XX con edificaciones restauradas, y que incluye áreas de vida silvestre y de tradiciones rurales del Litoral.",
       descriptionEn: "An open-air theme park and museum on the outskirts of Guayaquil that recreates the city of the late 19th and early 20th centuries with restored buildings, and includes areas devoted to wildlife and to rural traditions of the coastal region.",
+      lat: -2.14516,
+      lng: -79.8701,
     },
     {
       id: "guayaquil_2",
@@ -217703,6 +218416,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Presley_Norton_Museum.jpg/1920px-Presley_Norton_Museum.jpg",
       description: "Museo arqueológico en el centro de Guayaquil que reúne piezas de culturas prehispánicas de la costa ecuatoriana, como Valdivia, Machalilla y Chorrera, exhibidas en una casa republicana restaurada.",
       descriptionEn: "An archaeology museum in central Guayaquil holding pieces from pre-Hispanic cultures of coastal Ecuador, such as Valdivia, Machalilla and Chorrera, displayed in a restored republican-era house.",
+      lat: -2.18762,
+      lng: -79.89539,
     },
     {
       id: "guayaquil_4",
@@ -217839,6 +218554,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_Seminario",
       lat: -2.19476,
       lng: -79.8832,
+      descriptionEn: "Parque Seminario, also known as Iguana Park, is a central square in Guayaquil next to the Metropolitan Cathedral. It is visited for the green iguanas that roam freely among its trees and visitors.",
     },
     {
       id: "guayaquil_12",
@@ -217872,6 +218588,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Parque_Centenario.jpg/1920px-Parque_Centenario.jpg",
       description: "Parque del centro de Guayaquil, trazado a comienzos del siglo XX, con un monumento a José Joaquín de Olmedo, estatuas y senderos arbolados; funciona como espacio público y referencia urbana entre avenidas céntricas.",
       descriptionEn: "A park in central Guayaquil laid out in the early 20th century, with a monument to José Joaquín de Olmedo, statues and tree-lined paths; it serves as a public space and urban landmark among the downtown avenues.",
+      lat: -2.18997,
+      lng: -79.88766,
     },
     {
       id: "guayaquil_14",
@@ -217926,6 +218644,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -79.87502,
       description: "Las Peñas es un barrio emblemático de la ciudad de Guayaquil. Es reconocido por su estilo arquitectónico colonial y por ser el lugar donde nació la ciudad.",
       sourceUrl: "https://es.wikipedia.org/wiki/Las_Pe%C3%B1as_(Guayaquil)",
+      descriptionEn: "Las Peñas is a historic neighborhood in Guayaquil, at the foot of Cerro Santa Ana and near the Guayas River. Its colorful houses and narrow streets are home to galleries, workshops, and viewpoints.",
     },
     {
       id: "guayaquil_17",
@@ -217963,6 +218682,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -79.87937,
       description: "El Hemiciclo de la Rotonda (también conocido como Monumento a la Entrevista de Guayaquil o Monumento a Bolívar y San Martín), es un monumento que simboliza la alianza de Simón Bolivar y José de San Martín. De la ciudad de Guayaquil, Ecuador.",
       sourceUrl: "https://es.wikipedia.org/wiki/Hemiciclo_de_la_Rotonda",
+      descriptionEn: "The Hemiciclo de la Rotonda is a monument on the Malecón Simón Bolívar in Guayaquil. It commemorates the 1822 meeting between Simón Bolívar and José de San Martín in the city.",
     },
     {
       id: "guayaquil_19",
@@ -218000,6 +218720,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -79.8981,
       description: "Malecón del Salado o Malecón del Estero Salado es un malecón construido bajo la administración municipal de Jaime Nebot Saadi, en 2009, el proyecto abarca desde la Facultad de Educación Física de la Universidad de Guayaquil hasta el Puente del Velero, desde allí cambia de…",
       sourceUrl: "https://es.wikipedia.org/wiki/Malec%C3%B3n_del_Salado",
+      descriptionEn: "The Malecón del Salado is an urban promenade along the Salado estuary in Guayaquil. It has pedestrian paths, green areas, and recreational spaces along the estuary bank.",
     },
     {
       id: "guayaquil_21",
@@ -218018,6 +218739,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -79.88092,
       description: "El Palacio Municipal de Guayaquil, también conocido como Cabildo porteño o simplemente como Municipio, es la sede de la Muy Ilustre Municipalidad de la ciudad, es decir, del Concejo Municipal y de la Alcaldía.",
       sourceUrl: "https://es.wikipedia.org/wiki/Palacio_Municipal_de_Guayaquil",
+      descriptionEn: "The Palacio Municipal de Guayaquil is the seat of the city government and part of the civic complex in the historic center. It is visited for its architecture and its role as an administrative building.",
     },
     {
       id: "guayaquil_22",
@@ -218054,6 +218776,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -79.88191,
       description: "La Iglesia de San Francisco, también conocida como Iglesia de Nuestra Señora de los Ángeles, es un templo católico de mayor relevancia dentro de la ciudad de Guayaquil.",
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_San_Francisco_(Guayaquil)",
+      descriptionEn: "The Iglesia de San Francisco is a Catholic church in Guayaquil. It is visited for its religious value and as part of the city's ecclesiastical architecture.",
     },
     {
       id: "guayaquil_24",
@@ -218071,6 +218794,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Museo Municipal de Guayaquil es un museo de Ecuador consagrado a las piezas arqueológicas, objetos y artículos históricos relacionados con la historia guayaquileña. Es considerado como el más importante de la ciudad y uno de los mejores del país.",
       descriptionEn: "Guayaquil Municipal Museum is a museum in Guayaquil, Ecuador. It contains artifacts, objects and historical items relating to the history of Guayaquil. It is considered the most important of the city and one of the best in the country.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Municipal_de_Guayaquil",
+      lat: -2.19586,
+      lng: -79.88261,
     },
     {
       id: "guayaquil_25",
@@ -218088,6 +218813,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -79.90936,
       description: "Jardín botánico en el sector norte de Guayaquil con colecciones de plantas nativas y exóticas, orquídeas y palmas, recorridos entre vegetación y áreas dedicadas a la conservación y la educación ambiental.",
       descriptionEn: "A botanical garden in northern Guayaquil with collections of native and exotic plants, orchids and palms, paths through the vegetation and areas devoted to conservation and environmental education.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Schwarzleguan.JPG/1280px-Schwarzleguan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "guayaquil_26",
@@ -218120,7 +218846,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 150,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Ecuador_relief_location_map.svg/1280px-Ecuador_relief_location_map.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/CAMINERAS_ISLA_SANTAY_%2842189772395%29.jpg/1280px-CAMINERAS_ISLA_SANTAY_%2842189772395%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       lat: -2.2181,
       lng: -79.8536,
       description: "La isla Santay es una isla ecuatoriana. Se encuentra en el río Guayas y pertenece al cantón Durán. El área de la isla comprendía 2.214 hectáreas en 2010. Allí radican 86 familias ubicadas en 56 viviendas ecológicas, 36 de las cuales se encuentran al ingreso de la zona.",
@@ -218142,6 +218868,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Noria_en_Malec%C3%B3n_2000%2C_Guayaquil%2C_Junio_de_2017.jpg/1280px-Noria_en_Malec%C3%B3n_2000%2C_Guayaquil%2C_Junio_de_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Noria de gran altura instalada en Puerto Santa Ana, a la orilla del río Guayas; sus cabinas ofrecen vistas de la ciudad y del río, y por la noche se ilumina con luces de colores.",
       descriptionEn: "A large Ferris wheel installed at Puerto Santa Ana on the bank of the Guayas River; its cabins offer views of the city and the river, and at night it is lit with colored lights.",
+      lat: -2.18643,
+      lng: -79.87586,
     },
     {
       id: "guayaquil_29",
@@ -218181,6 +218909,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.cementeriopatrimonial.org.ec/",
       description: "El Cementerio General de Guayaquil o llamado también Cementerio Patrimonial, es el camposanto más antiguo de la ciudad. Se encuentra ubicado en el centro de la urbe, en la Av. Pedro Menéndez Gilbert y calle Morán de Buitrón, al pie del Cerro del Carmen.",
       sourceUrl: "https://es.wikipedia.org/wiki/Cementerio_General_de_Guayaquil",
+      descriptionEn: "The Cementerio General de Guayaquil is a historic cemetery in the city, with mausoleums, sculptures, and graves of local figures. It is visited for its heritage value and funerary architecture.",
     },
     {
       id: "guayaquil_31",
@@ -218217,6 +218946,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Milagro_Quevedo_funerary_urns.jpg/1920px-Milagro_Quevedo_funerary_urns.jpg",
       description: "Museo privado en Cuenca que reúne cerámica, textiles y objetos arqueológicos de distintas culturas indígenas del Ecuador. Su colección permite recorrer la historia prehispánica del país.",
       descriptionEn: "Private museum in Cuenca with ceramics, textiles and archaeological objects from various indigenous cultures of Ecuador. Its collection traces the country's pre-Hispanic history.",
+      lat: -2.90265,
+      lng: -79.00231,
     },
     {
       id: "cuenca_1",
@@ -218233,6 +218964,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/TEATRO_PUMAPUNGO_%2832097417774%29.jpg/1920px-TEATRO_PUMAPUNGO_%2832097417774%29.jpg",
       description: "El Museo y Parque Arqueológico Pumapungo es una Entidad Operativa Desconcentrada (EOD) del Ministerio de Cultura y Patrimonio, ubicada en Cuenca y también con museos regionales en las ciudades de Riobamba y Loja.",
       descriptionEn: "The Pumapungo Museum is an ethnographic and art museum in Cuenca, Ecuador.",
+      lat: -2.90608,
+      lng: -78.99682,
     },
     {
       id: "cuenca_2",
@@ -218266,6 +218999,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://facebook.com/parroquia.sanalfonso.127",
       description: "La Basílica y Santuario Nuestra Señora del Perpetuo Socorro es un templo católico de Cuenca dedicado a la Virgen del Perpetuo Socorro, centro de devoción mariana para los fieles de la ciudad. Se visita por su arquitectura y su ambiente de recogimiento.",
       descriptionEn: "The Basilica and Shrine of Our Lady of Perpetual Help is a Catholic church in Cuenca dedicated to Our Lady of Perpetual Help, a centre of Marian devotion for the city's faithful. It is visited for its architecture and quiet, devotional atmosphere.",
+      lat: -2.89699,
+      lng: -79.00275,
     },
     {
       id: "cuenca_4",
@@ -218283,6 +219018,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.facebook.com/Iglesia-Santisimo-Rosario-de-Cuenca-Pagina-Oficial-101902295138126",
       description: "Iglesia colonial de Cuenca ubicada junto a la plaza de Santo Domingo. Su fachada y su interior forman parte del patrimonio religioso del centro histórico.",
       descriptionEn: "Colonial church in Cuenca located next to Santo Domingo square. Its facade and interior are part of the historic center's religious heritage.",
+      lat: -2.89635,
+      lng: -79.00793,
     },
     {
       id: "cuenca_5",
@@ -218300,6 +219037,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://facebook.com/parroquiacorazon.dejesus.77",
       description: "Iglesia colonial en la plaza San Sebastián, en el centro histórico de Cuenca. Destaca por su arquitectura religiosa y por su entorno urbano tradicional.",
       descriptionEn: "Colonial church on San Sebastián square in Cuenca's historic center. It stands out for its religious architecture and traditional urban setting.",
+      lat: -2.89526,
+      lng: -79.01115,
     },
     {
       id: "cuenca_6",
@@ -218317,6 +219056,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://facebook.com/ParroquiaSanFranciscoCuenca",
       description: "Iglesia y convento franciscano en el centro histórico de Cuenca, cerca de la plaza San Francisco. Es uno de los conjuntos religiosos coloniales de la ciudad.",
       descriptionEn: "Franciscan church and convent in Cuenca's historic center, near San Francisco square. It is one of the city's colonial religious complexes.",
+      lat: -2.89866,
+      lng: -79.00657,
     },
     {
       id: "cuenca_7",
@@ -218333,6 +219074,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Cuenca_Museo_Remigio_Crespo_Toral_seen_from_the_east.jpg/1920px-Cuenca_Museo_Remigio_Crespo_Toral_seen_from_the_east.jpg",
       description: "Museo municipal en Cuenca dedicado a la historia y el arte, ubicado en la casa del escritor Remigio Crespo Toral. Exhibe colecciones y documentos vinculados a la ciudad.",
       descriptionEn: "Municipal museum in Cuenca dedicated to history and art, located in the house of writer Remigio Crespo Toral. It displays collections and documents related to the city.",
+      lat: -2.90204,
+      lng: -79.00396,
     },
     {
       id: "cuenca_8",
@@ -218349,6 +219092,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Monumento_a_Abd%C3%B3n_Calder%C3%B3n_-_panoramio.jpg/1920px-Monumento_a_Abd%C3%B3n_Calder%C3%B3n_-_panoramio.jpg",
       description: "Plaza central de Cuenca conocida como Parque Calderón, dedicada al héroe independentista Abdón Calderón. Es un punto de referencia del centro histórico y reúne edificios patrimoniales.",
       descriptionEn: "Central square in Cuenca known as Parque Calderón, dedicated to independence hero Abdón Calderón. It is a landmark of the historic center surrounded by heritage buildings.",
+      lat: -2.89739,
+      lng: -79.00448,
     },
     {
       id: "cuenca_9",
@@ -218365,6 +219110,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/CUENCA_%2832126167163%29.jpg",
       description: "Parque arqueológico en Cuenca con vestigios incas y un museo etnográfico. Se visita para conocer el pasado prehispánico y la historia de la ciudad.",
       descriptionEn: "Archaeological park in Cuenca with Inca remains and an ethnographic museum. It is visited to learn about the pre-Hispanic past and the city's history.",
+      lat: -2.90769,
+      lng: -78.99722,
     },
     {
       id: "cuenca_10",
@@ -218414,6 +219161,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.facebook.com/Parroquia-San-Blas-Cuenca-103299201495103",
       description: "Iglesia colonial de Cuenca situada en la plaza San Blas. Forma parte del patrimonio religioso del centro histórico y de la vida de su barrio.",
       descriptionEn: "Colonial church in Cuenca located on San Blas square. It is part of the historic center's religious heritage and neighborhood life.",
+      lat: -2.8986,
+      lng: -78.99769,
     },
     {
       id: "cuenca_13",
@@ -218564,6 +219313,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.99736,
       description: "Calle histórica de Cuenca que recorre el borde del centro, junto al río Tomebamba. Conserva casas coloniales y alberga museos, cafés y comercios.",
       descriptionEn: "Historic street in Cuenca that runs along the edge of the center, next to the Tomebamba River. It preserves colonial houses and is home to museums, cafes and shops.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Cuenca_Calle_Larga_seen_from_the_Central_Bank_to_the_northwest.jpg/1280px-Cuenca_Calle_Larga_seen_from_the_Central_Bank_to_the_northwest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "cuenca_21",
@@ -218579,6 +219329,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Zona ribereña del río Tomebamba en Cuenca, conocida por las casas coloniales construidas sobre el barranco. Es parte del paisaje patrimonial del centro histórico.",
       descriptionEn: "Riverside area of the Tomebamba River in Cuenca, known for colonial houses built on the bank. It is part of the historic center's heritage landscape.",
+      lat: -2.90058,
+      lng: -79.00769,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/09/Tienda_%22El_Barranco%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "cuenca_22",
@@ -218758,6 +219511,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "El Parque Nacional Galápagos protege la mayor parte del archipiélago volcánico de Galápagos, en el Pacífico oriental frente a Ecuador. Es famoso por su fauna única, como tortugas gigantes, iguanas marinas y piqueros, y fue el primer sitio declarado Patrimonio de la Humanidad por la UNESCO.",
       descriptionEn: "The Galápagos Islands are an archipelago of volcanic islands in the Eastern Pacific, located around the equator, 485 nautical miles west of the mainland of South America.",
+      lat: -0.33333,
+      lng: -90,
+      dayTrip: true,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cerro_Dragon_1.jpg/1280px-Cerro_Dragon_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "galapagos_1",
@@ -218853,6 +219610,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Los túneles de lava de Santa Cruz son tubos volcánicos formados por el enfriamiento superficial de coladas de lava; se visitan en la zona alta de la isla, cerca de Bellavista.",
       descriptionEn: "The lava tunnels of Santa Cruz are volcanic tubes formed by the surface cooling of lava flows; they are visited in the highlands of the island, near Bellavista.",
+      lat: -0.73211,
+      lng: -90.32829,
     },
     {
       id: "galapagos_7",
@@ -218917,6 +219676,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Caleta Tortuga Negra es una laguna de manglares en la costa de Santa Cruz, a la que se llega en lancha; sus aguas tranquilas y manglares sirven de refugio a tortugas marinas, rayas y aves.",
       descriptionEn: "Black Turtle Cove is a mangrove lagoon on the coast of Santa Cruz, reached by boat; its calm waters and mangroves provide shelter for sea turtles, rays, and birds.",
+      lat: -0.501,
+      lng: -90.328,
+      dayTrip: true,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Black_Turtle_Cove_-_panorama.jpg/1280px-Black_Turtle_Cove_-_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "galapagos_11",
@@ -219289,6 +220052,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Museo Fray Enrique Mideros reúne arte religioso, piezas coloniales y objetos de la historia local de Baños. Se visita para conocer la tradición católica y el patrimonio de la zona.",
       descriptionEn: "The Fray Enrique Mideros Museum houses religious art, colonial pieces and objects from Baños's local history. It is visited to learn about Catholic tradition and the area's heritage.",
+      lat: -1.39733,
+      lng: -78.42091,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Masturberende_vrouw_-_Precolombiaanse_kunst_-_Museo_Fray_Enrique_Mideros_-_Banos.jpg/1280px-Masturberende_vrouw_-_Precolombiaanse_kunst_-_Museo_Fray_Enrique_Mideros_-_Banos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "banos_4",
@@ -219354,6 +220120,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.guiadebanios.com/Proveedor/ver/tarabita-agoyan",
       description: "El Canopy Tarabita Agoyán es un sitio de aventura cerca del puente de Agoyán, con una tarabita y líneas de canopy sobre el cañón del río Pastaza. Se visita por las vistas y la experiencia de cruzar el valle.",
       descriptionEn: "Canopy Tarabita Agoyán is an adventure site near the Agoyán bridge, with a tarabita cable car and canopy lines over the Pastaza River canyon. It is visited for the views and the experience of crossing the valley.",
+      lat: -1.39841,
+      lng: -78.36641,
     },
     {
       id: "banos_8",
@@ -219402,6 +220170,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "El Mercado Central de Baños es un mercado municipal donde se venden frutas, verduras, productos locales y comidas. Se visita para ver la vida cotidiana y la oferta gastronómica de la ciudad.",
       descriptionEn: "Baños's Central Market is a municipal market where fruits, vegetables, local products and meals are sold. It is visited to see everyday life and the city's food offerings.",
+      lat: -1.39788,
+      lng: -78.42234,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/El_mercado_central_de_Valencia.JPG/1280px-El_mercado_central_de_Valencia.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "banos_11",
@@ -219500,6 +220271,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "La Casa del Árbol es un mirador con un columpio conocido como 'el columpio del fin del mundo', ubicado en las alturas cerca de Baños. Se visita por la vista amplia del valle y las montañas.",
       descriptionEn: "La Casa del Árbol is a viewpoint with a swing known as 'the swing at the end of the world', located in the heights near Baños. It is visited for the wide view of the valley and mountains.",
+      lat: -1.39848,
+      lng: -78.42519,
     },
     {
       id: "banos_17",
@@ -219531,6 +220304,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Canopy_-_Cascada_Manto_de_la_Novia.JPG/1280px-Canopy_-_Cascada_Manto_de_la_Novia.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La Cascada Manto de la Novia es una caída de agua en la Ruta de las Cascadas, cerca de Río Verde. Se visita por su forma de velo y por el entorno del cañón del Pastaza.",
       descriptionEn: "Manto de la Novia Waterfall is a waterfall on the Route of the Waterfalls, near Río Verde. It is visited for its veil-like shape and the setting of the Pastaza canyon.",
+      lat: -1.40519,
+      lng: -78.3362,
     },
     {
       id: "banos_19",
@@ -219566,6 +220341,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.4186,
       description: "Las Termas de la Virgen son piscinas termales en Baños, alimentadas por aguas subterráneas y ubicadas cerca de la Cascada Cabellera de la Virgen. Se visita para usar sus aguas termales.",
       descriptionEn: "Termas de la Virgen are thermal pools in Baños, fed by underground waters and located near Cabellera de la Virgen Waterfall. They are visited to use their thermal waters.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Termas_de_la_Virgen%2C_Ba%C3%B1os.jpg/1280px-Termas_de_la_Virgen%2C_Ba%C3%B1os.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "banos_21",
@@ -219693,6 +220469,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "La Cascada de Agoyán es una caída de agua cerca del puente y la central hidroeléctrica de Agoyán, en la vía entre Baños y Puyo. Se visita por su cercanía a la carretera y el paisaje del río Pastaza.",
       descriptionEn: "Agoyán Waterfall is a waterfall near the Agoyán bridge and hydroelectric plant, on the road between Baños and Puyo. It is visited for its proximity to the road and the Pastaza River landscape.",
+      lat: -1.4068,
+      lng: -78.3093,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Ba%C3%B1os_Agoy%C3%A1n_and_Agollan_waterfalls_seen_from_the_viewpoint_1.jpg/1280px-Ba%C3%B1os_Agoy%C3%A1n_and_Agollan_waterfalls_seen_from_the_viewpoint_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "banos_29",
@@ -220023,6 +220802,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.21913,
       description: "El lago San Pablo es un cuerpo de agua ubicado en la provincia de Imbabura, Ecuador, a una altitud de 2 700 metros sobre el nivel del mar. Posee un área de 3,5 x 2,2 km que cubren alrededor de 583 hectáreas y una profundidad aproximada de 83 m.",
       sourceUrl: "https://es.wikipedia.org/wiki/Lago_San_Pablo",
+      descriptionEn: "Lake San Pablo is a lake in Imbabura Province, near Otavalo, at the foot of Imbabura Volcano. It is visited for its Andean scenery and views of the volcano and the communities around its shore.",
     },
     {
       id: "otavalo_18",
@@ -220250,6 +221030,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.bellavistacloudforest.com/",
       description: "Reserva privada de bosque nuboso en las estribaciones occidentales de los Andes, cerca de Mindo. Tiene senderos, comederos de colibríes y alojamiento, y es conocida por la observación de aves.",
       descriptionEn: "Private cloud forest reserve on the western slopes of the Andes, near Mindo. It has trails, hummingbird feeders and lodging, and is known for birdwatching.",
+      lat: -0.01583,
+      lng: -78.68139,
     },
     {
       id: "mindo_5",
@@ -220430,6 +221212,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Mindo-Nambillo_river.JPG/1280px-Mindo-Nambillo_river.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Área protegida de bosque nuboso que rodea Mindo y la cuenca de los ríos Mindo y Nambillo. Conserva bosques, cascadas y ríos que abastecen de agua a la zona y albergan una alta diversidad de aves y plantas.",
       descriptionEn: "Protected cloud forest area surrounding Mindo and the Mindo and Nambillo river basins. It preserves forests, waterfalls and rivers that supply water to the area and support high bird and plant diversity.",
+      lat: -0.06667,
+      lng: -78.75,
     },
     {
       id: "mindo_16",
@@ -220531,6 +221315,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1f/MINDO_ZIPLINES_TOUR.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "Circuito de tirolinas y plataformas suspendidas en el bosque nuboso de Mindo. Permite recorrer el dosel del bosque mediante cables y arneses, con vistas a la vegetación y a las quebradas.",
       descriptionEn: "Zip-line circuit with suspended platforms in the Mindo cloud forest. It allows crossing the forest canopy on cables and harnesses, with views of vegetation and ravines.",
+      lat: -0.06621,
+      lng: -78.77319,
     },
     {
       id: "mindo_22",
@@ -220581,6 +221367,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/be/Riobamba_Bas%C3%ADlica_del_Sagrado_Coraz%C3%B3n_de_Jes%C3%BAs.jpg",
       description: "Templo católico de gran tamaño y torres altas en el centro de Riobamba, visible desde buena parte de la ciudad. Se visita por su arquitectura y porque funciona como punto de referencia del casco urbano.",
       descriptionEn: "A large Catholic church with tall towers in central Riobamba, visible from much of the city. It is visited for its architecture and as a landmark of the downtown area.",
+      lat: -1.674,
+      lng: -78.64566,
     },
     {
       id: "riobamba_1",
@@ -220798,6 +221586,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La Reserva de Producción de Fauna de Chimborazo (RPFCH) está ubicada entre los cantones de Guano, Riobamba, Guaranda y Ambato, pertenecientes a las provincias de Chimborazo, Bolívar y Tungurahua.",
       sourceUrl: "https://es.wikipedia.org/wiki/Reserva_de_producci%C3%B3n_de_fauna_Chimborazo",
+      descriptionEn: "The Chimborazo Fauna Production Reserve is an Andean protected area surrounding Chimborazo Volcano in Ecuador. Visitors come for its páramo landscapes, views of the volcano, and the presence of vicuñas.",
     },
     {
       id: "riobamba_14",
@@ -220832,6 +221621,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.75551,
       description: "La laguna de Colta está ubicada en el Cantón Colta de la provincia de Chimborazo, dentro de la sierra centro ecuatoriana. Tiene una extensión aproximada de 275 hectáreas. En su interior hay diversas especies de aves nativas y gran variedad de peces multicolores.",
       sourceUrl: "https://es.wikipedia.org/wiki/Laguna_de_Colta",
+      descriptionEn: "Laguna de Colta is a shallow Andean lagoon in Chimborazo Province, near Riobamba. It is visited for its rural landscape and for the nearby Balbanera Church.",
     },
     {
       id: "riobamba_16",
@@ -220906,6 +221696,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 30,
       description: "Antigua estación de tren de Riobamba, conservada como edificio histórico y punto de partida de los recorridos turísticos del ferrocarril andino en la sierra central. Se visita por su arquitectura y su historia ferroviaria.",
       descriptionEn: "Riobamba's old railway station, preserved as a historic building and the departure point for tourist train journeys in the central highlands. It is visited for its architecture and railway history.",
+      lat: -1.66984,
+      lng: -78.65357,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Collage_Riobamba.png/1280px-Collage_Riobamba.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "riobamba_20",
@@ -220923,6 +221716,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.58222,
       description: "Cantón y poblado a pocos kilómetros al norte de Riobamba, conocido por sus talleres artesanales de textiles y alfombras y por la torre de su iglesia. Se llega por carretera y suele combinarse con el balneario de Los Elenes.",
       descriptionEn: "Canton and town a few kilometres north of Riobamba, known for its craft workshops making textiles and rugs and for the tower of its church. It is reached by road and often combined with the Los Elenes baths.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Parque_Central_Guano.jpg/1280px-Parque_Central_Guano.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   montanita: [
@@ -221186,6 +221980,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "La playa principal del pueblo de Montañita, en la costa de Santa Elena, de arena y oleaje constante. Es el centro de la vida del balneario y uno de los puntos de surf más conocidos del Ecuador.",
       descriptionEn: "The main beach of Montañita town on the Santa Elena coast, with sand and consistent surf. It is the heart of the resort's daily life and one of Ecuador's best-known surf spots.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Playa_Monta%C3%B1ita.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "montanita_16",
@@ -221251,7 +222046,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Ecuador_adm_location_map.svg/1280px-Ecuador_adm_location_map.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Monta%C3%B1ita-Ol%C3%B3n_locality_-_Dos_Bocas_Formation.png/1280px-Monta%C3%B1ita-Ol%C3%B3n_locality_-_Dos_Bocas_Formation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       lat: -1.79815,
       lng: -80.7582,
       description: "Olón es una comuna ubicada en la zona norte de la parroquia Manglaralto, en el cantón y provincia de Santa Elena, Ecuador. Se encuentra en la Ruta del sol, al noroeste de la provincia, a aproximadamente 195 km de Guayaquil.",
@@ -221343,6 +222138,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Reserva_Ecol%C3%B3gica_Colonso_Chalupas%2C_Sta._Rita_%28Archidona%29.jpg/3840px-Reserva_Ecol%C3%B3gica_Colonso_Chalupas%2C_Sta._Rita_%28Archidona%29.jpg",
       description: "La Reserva Biológica Colonso-Chalupas (RBCC) se ubica en los cantones de Archidona y Tena, entre la Reserva Ecológica Antisana y el Parque Nacional Llanganates, y de esta manera conforma un corredor natural en la zona alta de la cuenca amazónica.",
       descriptionEn: "The Colonso-Chalupas Biological Reserve lies in the Archidona and Tena cantons, between the Antisana Ecological Reserve and Llanganates National Park, forming a natural corridor in the upper Amazon basin.",
+      lat: -0.7825,
+      lng: -78.13919,
+      dayTrip: true,
     },
     {
       id: "tena_1",
@@ -221407,6 +222205,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Cascada rodeada de vegetación amazónica en las cercanías de Tena. Es un destino de caminata y baño natural en la selva, frecuentado en excursiones de un día desde la ciudad.",
       descriptionEn: "A waterfall surrounded by Amazonian vegetation near Tena. It is a hiking and natural swimming destination in the rainforest, often visited on day trips from the city.",
+      lat: -1.02486,
+      lng: -77.72925,
     },
     {
       id: "tena_5",
@@ -221463,6 +222263,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://gadprpuertomisahualli.gob.ec/napo/",
       description: "Puerto Misahuallí es una parroquia rural perteneciente al cantón Tena y a la provincia de Napo en la República del Ecuador. Tiene una población de 5393 habitantes y 9,60 hab/km². Es además, un puerto fluvial en el río Napo en la Región Amazónica ecuatoriana.",
       sourceUrl: "https://es.wikipedia.org/wiki/Puerto_Misahuall%C3%AD",
+      descriptionEn: "Puerto Misahuallí is a small river port at the confluence of the Misahuallí and Napo rivers, near Tena. It is visited for its sandy beach and as a starting point for boat trips and excursions in the Amazon.",
     },
     {
       id: "tena_8",
@@ -221981,6 +222782,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.caliwood.com.co/",
       description: "Museo del cine en el barrio San Antonio, dedicado a la historia del cine colombiano y a la conservación de equipos, películas y documentos audiovisuales. Se visita por sus salas de exposición y su archivo cinematográfico.",
       descriptionEn: "A cinema museum in the San Antonio neighborhood devoted to the history of Colombian film and the preservation of film equipment, movies and audiovisual documents. Visitors come for its exhibition rooms and film archive.",
+      lat: 3.45064,
+      lng: -76.54743,
     },
     {
       id: "cali_1",
@@ -222014,6 +222817,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.zoologicodecali.com.co/",
       description: "El zoológico de Cali es un parque zoológico fundado en el año de 1969 ubicado en la ciudad colombiana de Santiago de Cali (Colombia).",
       descriptionEn: "Cali Zoo is located in the city of Cali in the country of Colombia. The Zoo belongs to a foundation that carries its name and whose mission, since it took the zoo's administration in 1981, has been to improve the animals' diet, their natural environment, and the medical care of…",
+      lat: 3.44861,
+      lng: -76.55861,
     },
     {
       id: "cali_3",
@@ -222096,6 +222901,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_la_Ermita_(Cali)",
       lat: 3.454,
       lng: -76.53199,
+      descriptionEn: "A neo-Gothic brick church in downtown Cali, recognizable by its pointed spires. It is visited for its architecture and as one of the city's urban landmarks.",
     },
     {
       id: "cali_8",
@@ -222114,6 +222920,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Cerro_de_las_Tres_Cruces",
       lat: 3.48453,
       lng: -76.5621,
+      descriptionEn: "A monument of three crosses on top of a hill west of Cali. The site serves as a pilgrimage spot and as a viewpoint over the city and the valley.",
     },
     {
       id: "cali_9",
@@ -222130,6 +222937,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Capilla_de_San_Antonio._Cali%2C_Valle..JPG/1920px-Capilla_de_San_Antonio._Cali%2C_Valle..JPG",
       description: "Capilla de origen colonial situada en lo alto del barrio San Antonio, uno de los sectores más antiguos de Cali. Se visita por su arquitectura sencilla y por el parque que la rodea, con vistas hacia la ciudad.",
       descriptionEn: "A colonial-era chapel on the hill of the San Antonio neighborhood, one of the oldest districts in Cali. It is visited for its simple architecture and the surrounding park, which offers views over the city.",
+      lat: 3.44751,
+      lng: -76.54193,
     },
     {
       id: "cali_10",
@@ -222146,6 +222955,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Catedral_de_San_Pedro_Cali_03.JPG/1920px-Catedral_de_San_Pedro_Cali_03.JPG",
       description: "La catedral metropolitana de San Pedro Apóstol o catedral metropolitana de Cali es una iglesia catedralicia de culto católico dedicada a San Pedro Apóstol.",
       descriptionEn: "The Cathedral of St. Peter the Apostle in Cali also called the Metropolitan Cathedral of Cali or simply the Cali Cathedral, is the mother church of the city of Cali, Colombia, and the seat of the Roman Catholic Archdiocese of Cali.",
+      lat: 3.4508,
+      lng: -76.5324,
     },
     {
       id: "cali_11",
@@ -222164,6 +222975,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Complejo_religioso_de_San_Francisco_(Cali)",
       lat: 3.45027,
       lng: -76.53378,
+      descriptionEn: "A church in Cali's historic center, part of the group of colonial and republican-era temples in the downtown area.",
     },
     {
       id: "cali_12",
@@ -222197,6 +223009,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Loma_de_la_cruz_cali_02.jpg/1920px-Loma_de_la_cruz_cali_02.jpg",
       description: "Parque en la ladera de la Loma de la Cruz donde artesanos ofrecen tejidos, joyería, cerámica y objetos de madera. Se visita para recorrer sus puestos de artesanía y conocer el trabajo de los talleres locales.",
       descriptionEn: "A park on the slope of Loma de la Cruz where artisans sell textiles, jewelry, ceramics and wooden objects. It is visited to browse the craft stalls and see the work of local workshops.",
+      lat: 3.44301,
+      lng: -76.5374,
     },
     {
       id: "cali_14",
@@ -222213,6 +223027,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7d/La_otra_cara_de_la_moneda.jpg",
       description: "Paseo peatonal arbolado a lo largo de la Avenida Colombia, junto al río Cali, con fuentes, esculturas y bancas. Se visita para caminar y conectar con el centro histórico y el área del Peñón.",
       descriptionEn: "A tree-lined pedestrian boulevard along Avenida Colombia beside the Cali River, with fountains, sculptures and benches. It is visited for walking and for reaching the historic center and the Peñón area.",
+      lat: 3.4531,
+      lng: -76.53397,
     },
     {
       id: "cali_15",
@@ -222289,6 +223105,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -76.5403,
       description: "San Antonio es un barrio del occidente de Cali, Colombia. Limita al norte con el barrio El Peñón, al oriente con el barrio La Merced y la Calle 5.ª, al sur-oriente con Santa Rosa y San Bosco, al sur con San Cayetano y al occidente con el acueducto de San Antonio y Los Cristales.",
       sourceUrl: "https://es.wikipedia.org/wiki/Barrio_San_Antonio_(Cali)",
+      descriptionEn: "A traditional neighborhood set on a hill in Cali, with cobblestone streets and old houses. It is known for its artisan workshops, galleries and views over downtown.",
     },
     {
       id: "cali_19",
@@ -222307,6 +223124,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -76.53586,
       description: "El Teatro Municipal Enrique Buenaventura, anteriormente llamado Teatro Municipal de Cali, fue construido el 9 de abril de 1918 y se declaró monumento nacional en 1982, se encuentra ubicado en el centro de la ciudad de Santiago de Cali.",
       sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Municipal_Enrique_Buenaventura",
+      descriptionEn: "Cali's municipal theater, named after playwright Enrique Buenaventura. Its main hall hosts theater, music and dance seasons.",
     },
     {
       id: "cali_20",
@@ -222380,6 +223198,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.parquesnacionales.gov.co/portal/es/parques-reabiertos/parque-nacional-natural-farallones-de-cali/",
       description: "El parque nacional natural Farallones de Cali es una de las 59 áreas protegidas del sistema de Parques Nacionales Naturales de Colombia y una de las más antiguas, creada en 1968.",
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_nacional_natural_Farallones_de_Cali",
+      descriptionEn: "A national park in the Western Cordillera northwest of Cali, with Andean forest and páramo. It is an area of high bird diversity and of river headwaters.",
     },
     {
       id: "cali_24",
@@ -222420,6 +223239,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.inciva.org/content/view/48/",
       description: "La Hacienda el Paraíso es una casa museo, ubicada en jurisdicción del municipio de El Cerrito, en el departamento de Valle del Cauca.",
       sourceUrl: "https://es.wikipedia.org/wiki/Hacienda_El_Para%C3%ADso",
+      descriptionEn: "A 19th-century country house in El Cerrito, Valle del Cauca, about 40 km from Cali. It is known as the setting of Jorge Isaacs's novel María.",
     },
     {
       id: "cali_26",
@@ -222438,6 +223258,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -76.5367,
       description: "El Complejo la Merced es un complejo religioso ubicado en el lugar de fundación de la ciudad de Santiago de Cali, Colombia.",
       sourceUrl: "https://es.wikipedia.org/wiki/Complejo_religioso_la_Merced",
+      descriptionEn: "A church with attached religious buildings in downtown Cali, one of the historic church complexes in the area.",
     },
   ],
   salento: [
@@ -222457,6 +223278,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.parquesnacionales.gov.co/nuestros-parques/pnn-los-nevados/",
       description: "El Parque Nacional Natural Los Nevados se encuentra ubicado en la Cordillera Central en la región Andina de los Andes colombianos.",
       descriptionEn: "Los Nevados National Natural Park is a national park located in the Cordillera Central of the Colombian Andes. The park features Colombia's highest and northernmost active volcanoes including the glacier-capped Nevado del Ruiz, Nevado del Tolima, and Nevado de Santa Isabel, and…",
+      lat: 4.8,
+      lng: -75.36667,
+      dayTrip: true,
     },
     {
       id: "salento_1",
@@ -222682,6 +223506,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "La Calle Real es la vía principal del centro histórico de Salento, bordeada de casas de colores con balcones y tiendas de artesanías. Se recorre para conocer la arquitectura paisa y la vida cotidiana del pueblo.",
       descriptionEn: "Calle Real is the main street of Salento's historic center, lined with colorful houses with balconies and handicraft shops. It is walked to see paisa architecture and everyday town life.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Callerealsalento.JPG/1280px-Callerealsalento.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "salento_14",
@@ -222772,6 +223597,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.jardinbotanicoquindio.org",
       description: "El Jardín botánico del Quindío es un conglomerado de predios rurales en el departamento del Quindío.",
       sourceUrl: "https://es.wikipedia.org/wiki/Jard%C3%ADn_bot%C3%A1nico_del_Quind%C3%ADo",
+      descriptionEn: "The Jardín Botánico del Quindío is a botanical garden in Calarcá, Quindío, focused on Andean flora, with trails and a butterfly house. Visitors go to explore its plant collections and observe butterflies.",
     },
   ],
   villadeley: [
@@ -222823,6 +223649,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Museo_el_Fosil_05.JPG/1920px-Museo_el_Fosil_05.JPG",
       description: "El Museo El Fósil resguarda el esqueleto de un Kronosaurus boyacensis, un reptil marino del Cretácico hallado en la zona; se visita para ver el fósil en el lugar de su descubrimiento y conocer la paleontología regional.",
       descriptionEn: "Museo El Fósil houses the skeleton of a Kronosaurus boyacensis, a Cretaceous marine reptile found in the area; visitors come to see the fossil at its discovery site and learn about regional paleontology.",
+      lat: 5.63706,
+      lng: -73.55862,
     },
     {
       id: "villadeley_3",
@@ -222839,6 +223667,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Museo_Luis_Alberto_Acu%C3%B1a.jpg/1920px-Museo_Luis_Alberto_Acu%C3%B1a.jpg",
       description: "El Museo Luis Acuña es un museo de arte en Villa de Leyva que exhibe obras y objetos de colección; se visita para recorrer sus salas y conocer la producción artística asociada a Luis Acuña.",
       descriptionEn: "Museo Luis Acuña is an art museum in Villa de Leyva that displays artworks and collected objects; visitors come to explore its rooms and learn about the artistic output associated with Luis Acuña.",
+      lat: 5.63442,
+      lng: -73.52367,
     },
     {
       id: "villadeley_4",
@@ -223058,6 +223888,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -73.53652,
       description: "La Casa Terracota es una vivienda escultórica construida con arcilla por el arquitecto Octavio Mendoza cerca de Villa de Leyva; se visita para recorrer su estructura orgánica de formas curvas y conocer esta técnica constructiva.",
       descriptionEn: "Casa Terracota is a sculptural house built of clay by architect Octavio Mendoza near Villa de Leyva; visitors come to explore its organic, curved structure and learn about this construction technique.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Casa_Terracota_in_Villa_de_Leyva.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "villadeley_17",
@@ -223074,6 +223905,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Monasterio_Santo_ecce-homo_-_Exterior.JPG/1280px-Monasterio_Santo_ecce-homo_-_Exterior.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El convento del Santo Ecce Homo en Colombia es un convento dominico del siglo XVII situado en el municipio de Sutamarchán del departamento de Boyacá a 8 kilómetros de Villa de Leyva.",
       sourceUrl: "https://es.wikipedia.org/wiki/Convento_del_Santo_Ecce_Homo_(Colombia)",
+      descriptionEn: "The Convento del Santo Ecce Homo is a Dominican colonial complex founded in 1620 near Villa de Leyva, Boyacá. It is visited for its religious architecture, cloisters and historic heritage.",
     },
     {
       id: "villadeley_18",
@@ -223090,6 +223922,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Pozos_Azules_en_Villa_de_Leyva%2C_Boyac%C3%A1%2C_Colombia.jpg/1280px-Pozos_Azules_en_Villa_de_Leyva%2C_Boyac%C3%A1%2C_Colombia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "Los Pozos Azules son antiguas canteras de arcilla inundadas cerca de Villa de Leyva, cuyas aguas adquieren tonos azul verdosos; se visitan para observar el paisaje y los contrastes de color en el terreno.",
       descriptionEn: "Pozos Azules are former clay quarries filled with water near Villa de Leyva, whose pools take on blue-green tones; visitors come to see the landscape and the color contrasts in the terrain.",
+      lat: 5.62617,
+      lng: -73.5493,
     },
     {
       id: "villadeley_19",
@@ -223108,6 +223942,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -73.43604,
       description: "El Santuario de Fauna y Flora Iguaque es uno de los 56 parques nacionales naturales de Colombia (2010). Tiene una extensión de 6750 hectáreas de páramo y bosque andino, y se ubica en la cordillera Oriental en el departamento de Boyacá.",
       sourceUrl: "https://es.wikipedia.org/wiki/Santuario_de_fauna_y_flora_Iguaque",
+      descriptionEn: "The Iguaque Fauna and Flora Sanctuary is a protected area of Andean forest and paramo near Villa de Leyva. It includes Lake Iguaque, linked to the Muisca myth of Bachué, and mountain trails.",
     },
     {
       id: "villadeley_20",
@@ -223220,6 +224055,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Fuente_Ceremonial_de_Lavapatas_07.jpg/1920px-Fuente_Ceremonial_de_Lavapatas_07.jpg",
       description: "La Fuente de Lavapatas es un conjunto de rocas talladas en el cauce de una quebrada dentro del Parque Arqueológico de San Agustín. Sus canales, piletas y figuras esculpidas se asocian a un sitio ceremonial prehispánico.",
       descriptionEn: "The Fuente de Lavapatas is a group of carved rocks in a stream bed within San Agustín Archaeological Park. Its channels, basins and sculpted figures are associated with a pre-Hispanic ceremonial site.",
+      lat: 1.88068,
+      lng: -76.29922,
     },
     {
       id: "sanagustin_1",
@@ -223336,6 +224173,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Estrecho_del_rio_Magdalena_-_panoramio.jpg/1920px-Estrecho_del_rio_Magdalena_-_panoramio.jpg",
       description: "El Estrecho del Río Magdalena es un paso angosto donde el río Magdalena se encajona entre rocas, cerca de San Agustín. Se visita por su paisaje fluvial y por la fuerza del río en ese punto.",
       descriptionEn: "The Estrecho del Río Magdalena is a narrow passage where the Magdalena River is confined between rocks, near San Agustín. It is visited for its river landscape and the force of the water at that point.",
+      lat: 1.92429,
+      lng: -76.2999,
     },
     {
       id: "sanagustin_8",
@@ -223415,8 +224254,12 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Colombia_-_Huila_-_Sur.svg/langes-1920px-Colombia_-_Huila_-_Sur.svg.png",
       website: "https://www.parquesnacionales.gov.co/nuestros-parques/pnn-cueva-de-los-guacharos/",
-      description: "La subregión Sur o Subsur es una de las 4 subregiones del departamento colombiano de Huila. Se ubica al sur del departamento y cuenta con 8 municipios, su municipio principal es Pitalito.",
+      description: "El parque nacional natural Cueva de los Guácharos es una de las 59 áreas protegidas del sistema de Parques Nacionales Naturales de Colombia y la más antigua, creada en 1960.",
       descriptionEn: "Cueva de los Guácharos National Natural Park is the oldest national park in Colombia. Located in the western face of the Colombian Eastern Andean Range in the departments of Huila and Caquetá, the park covers an area of 9,000 hectares.",
+      lat: 1.55,
+      lng: -76.13333,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/Parque_nacional_natural_Cueva_de_los_Gu%C3%A1charos",
     },
     {
       id: "sanagustin_13",
@@ -223482,6 +224325,8 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "El Salto de Bordones es una cascada del río Bordones, en la región de Isnos, Huila, cerca de San Agustín. El agua cae por un cañón andino y forma parte de los paisajes naturales del sur del Huila.",
       descriptionEn: "Salto de Bordones is a waterfall on the Bordones River in the Isnos region of Huila, near San Agustín. The water falls through an Andean canyon and is part of the natural landscapes of southern Huila.",
+      lat: 2.01333,
+      lng: -76.16917,
     },
     {
       id: "sanagustin_17",
@@ -223534,6 +224379,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_del_Carnaval_(Barranquilla)",
       lat: 10.9929,
       lng: -74.78761,
+      descriptionEn: "Museum dedicated to the Barranquilla Carnival, with exhibits on costumes, music, and traditions of the festival. It offers insight into the history and cultural significance of this celebration.",
     },
     {
       id: "barranquilla_1",
@@ -223584,6 +224430,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://arquidiocesisbaq.org/",
       description: "La Catedral Metropolitana de Barranquilla, oficialmente Catedral Metropolitana María Reina y Auxiliadora de Barranquilla es una iglesia catedralicia de culto católico dedicada a la Virgen María bajo las advocaciones de Reina de los Cielos y Auxilio de los Cristianos.",
       descriptionEn: "The Queen Mary Cathedral also called Metropolitan Cathedral of Queen Mary is a cathedral church of Catholic worship dedicated to the Blessed Virgin Mary.",
+      lat: 10.9883,
+      lng: -74.7904,
     },
     {
       id: "barranquilla_4",
@@ -223600,6 +224448,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Crocodylus_acutus%2C_Zool%C3%B3gico_de_Barranquilla%2C_Colombia_-_20080727.jpg/1920px-Crocodylus_acutus%2C_Zool%C3%B3gico_de_Barranquilla%2C_Colombia_-_20080727.jpg",
       description: "El Zoológico de Barranquilla es un parque zoológico de la ciudad que alberga especies de la fauna caribeña y de otras regiones. Se visita para observar animales y conocer labores de conservación y educación ambiental.",
       descriptionEn: "The Barranquilla Zoo is a city zoo that houses species from the Caribbean and other regions. Visitors go to see animals and learn about conservation and environmental education efforts.",
+      lat: 11.0106,
+      lng: -74.7969,
     },
     {
       id: "barranquilla_5",
@@ -223634,6 +224484,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Iglesia_de_San_Nicol%C3%A1s_de_Tolentino_(Barranquilla)",
       lat: 10.9803,
       lng: -74.7779,
+      descriptionEn: "Catholic church in downtown Barranquilla, dedicated to Saint Nicholas of Tolentino. It is visited for its religious value and its presence in the city's urban heritage.",
     },
     {
       id: "barranquilla_7",
@@ -223653,6 +224504,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: 11.02583,
       lng: -74.79861,
       website: "https://granmalecon.com",
+      descriptionEn: "Pedestrian and recreational promenade along the Magdalena River, with green areas, bike lanes, and spaces for events. It is a place to walk and enjoy the river in Barranquilla.",
     },
     {
       id: "barranquilla_8",
@@ -223669,6 +224521,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/La_ventana_al_mundo.jpg",
       description: "La Ventana al mundo es un monumento público ubicado en Barranquilla, Colombia. Fue construido a finales de 2018 para coincidir con los XXIII Juegos Centroamericanos y del Caribe de los cuales la ciudad fue anfitriona.",
       descriptionEn: "The Window to the World is a public monument located in Barranquilla, Colombia. It was built in 2018 to commemorate the 23rd Central American and Caribbean Games, which the city hosted.",
+      lat: 11.03308,
+      lng: -74.83141,
     },
     {
       id: "barranquilla_9",
@@ -223736,6 +224590,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8e/EsculturaShakira.jpg",
       description: "La escultura de Shakira es un monumento que se encuentra en el parque Metropolitano, adyacente al estadio Metropolitano, en Barranquilla, Colombia.",
       descriptionEn: "Colombian singer-songwriter Shakira has had a considerable impact on the musical landscape of Latin America and further afield.",
+      lat: 10.92458,
+      lng: -74.80051,
     },
     {
       id: "barranquilla_13",
@@ -223770,6 +224626,7 @@ export const CURATED_ALL: CuratedMap = {
       sourceUrl: "https://es.wikipedia.org/wiki/Castillo_de_San_Antonio_de_Salgar",
       lat: 11.0182,
       lng: -74.9417,
+      descriptionEn: "Historic building facing the sea in Salgar, Puerto Colombia, used as a cultural and events venue. It is visited as a day trip from Barranquilla to learn about the coastal heritage.",
     },
     {
       id: "barranquilla_15",
@@ -223788,6 +224645,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -74.7887,
       description: "El Parque Cultural del Caribe fue un complejo cultural ubicado en Barranquilla, Colombia, dedicado a promover el patrimonio natural, cultural e histórico de la región Caribe colombiana.",
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_Cultural_del_Caribe",
+      descriptionEn: "Cultural complex in Barranquilla that houses the Museo del Caribe and spaces for exhibitions, research, and events. It brings together cultural expressions from Colombia's Caribbean region.",
     },
     {
       id: "barranquilla_16",
@@ -223826,6 +224684,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -74.78972,
       description: "El teatro Municipal Amira de la Rosa es un complejo cultural de la ciudad colombiana de Barranquilla. Fue bautizado en honor de la escritora Amira de la Rosa, autora de la letra del himno de Barranquilla.",
       sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Amira_de_la_Rosa",
+      descriptionEn: "Theater located in Barranquilla, dedicated to promoting performing arts and cultural events. It is named after the writer Amira de la Rosa and is part of local cultural life.",
     },
     {
       id: "barranquilla_18",
@@ -223844,6 +224703,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: -74.79806,
       description: "El Prado es un barrio de Barranquilla, Colombia. Está ubicado entre las carreras 50 y 60 y entre las calles 53 y 75.",
       sourceUrl: "https://es.wikipedia.org/wiki/El_Prado_(Barranquilla)",
+      descriptionEn: "Historic neighborhood in Barranquilla with republican-style houses and tree-lined streets. It is explored to learn about the city's urban and residential heritage.",
     },
     {
       id: "barranquilla_19",
@@ -223918,6 +224778,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/2020_Barranquilla_-_Fachada_de_la_Antigua_Aduana.jpg/1280px-2020_Barranquilla_-_Fachada_de_la_Antigua_Aduana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Complejo Cultural de la Antigua Aduana es un centro cultural de Barranquilla, Colombia.",
       sourceUrl: "https://es.wikipedia.org/wiki/Complejo_Cultural_de_la_Antigua_Aduana",
+      descriptionEn: "Former Barranquilla Customs building, restored as a cultural complex with spaces for exhibitions and events. It represents the city's port and commercial history.",
     },
   ],
   leticia: [
@@ -223936,6 +224797,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Colombia_Banrep.svg/langes-120px-Colombia_Banrep.svg.png",
       description: "La Biblioteca y Museo Etnográfico del Banco de la República es un espacio cultural en Leticia que reúne una biblioteca y una colección sobre los pueblos indígenas de la Amazonia colombiana. Se visita para conocer objetos, imágenes y documentación sobre las culturas de la región.",
       descriptionEn: "The Banco de la República Library and Ethnographic Museum is a cultural space in Leticia with a library and a collection on the indigenous peoples of the Colombian Amazon. Visitors can learn about objects, images and documents related to regional cultures.",
+      lat: -4.21422,
+      lng: -69.94372,
     },
     {
       id: "leticia_1",
@@ -223951,6 +224814,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "El Jardín de la Victoria Regia es un espacio con estanques donde se cultiva la Victoria amazonica, una planta acuática conocida por sus grandes hojas circulares. Se visita para observar esta especie y conocer un poco de la flora amazónica.",
       descriptionEn: "The Victoria Regia Garden is a space with ponds where Victoria amazonica, an aquatic plant known for its large circular leaves, is grown. It is visited to observe this species and learn about Amazonian flora.",
+      lat: -4.18434,
+      lng: -69.97347,
     },
     {
       id: "leticia_2",
@@ -224130,6 +224995,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "La isla de los Micos, también conocida como Isla Santa Sofía o isla Arara, es una isla fluvial del río Amazonas y reserva natural, perteneciente a Colombia, ubicado en el municipio de Leticia, al sureste del departamento de Amazonas, cerca de la frontera entre Colombia y Perú.",
       sourceUrl: "https://es.wikipedia.org/wiki/Isla_de_los_Micos",
+      descriptionEn: "Isla de los Micos is an island on the Amazon River near Leticia, known for its monkeys, which are observed during boat trips along the riverbank. It is a nature destination linked to the region's river tourism.",
     },
     {
       id: "leticia_13",
@@ -224207,6 +225073,7 @@ export const CURATED_ALL: CuratedMap = {
       dayTrip: true,
       description: "Los lagos de Tarapoto son el conjunto de varios cuerpos de agua fluviales ubicados en el Trapecio Amazónico, al sureste de Amazonas, en Colombia, cerca de la frontera con el Perú.",
       sourceUrl: "https://es.wikipedia.org/wiki/Lagos_de_Tarapoto",
+      descriptionEn: "The Tarapoto Lakes are a system of lakes and wetlands in the Colombian Amazon, near Puerto Nariño. They are visited by boat to see aquatic wildlife and the riverine landscape; the area is a Ramsar site.",
     },
     {
       id: "leticia_17",
