@@ -94932,7 +94932,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-9BcGT8SyVCY?auto=format&fit=crop&w=800&q=80",
-      description: "El outback es el interior escasamente poblado, de difícil acceso y semiárido de Australia. Se consideran outback las regiones más alejadas de los centros urbanos que el bush.",
+      description: "Kata Tjuta, también conocida como The Olgas, es un conjunto de grandes domos de arenisca en el Parque Nacional Uluru-Kata Tjuta, a unos 360 km de Alice Springs. Se visita para recorrer senderos como el Valle de los Vientos y observar sus formaciones rocosas.",
       descriptionEn: "Uluṟu-Kata Tjuṯa National Park is a protected area in the Northern Territory of Australia. The park is home to both Uluru and Kata Tjuta.",
     },
     {
@@ -94966,6 +94966,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1532295039064-229629db1073?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBbGljZSUyMFNwcmluZ3MlMjBEZXNlcnQlMjBQYXJrJTIwYWxpY2VzcHJpbmdzfGVufDF8MHx8fDE3ODIyMjA0MzB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Alice Springs es la tercera ciudad más grande en el Territorio del Norte, Australia. Está situada en el centro geográfico de Australia, cerca de la frontera sur del Territorio del Norte, en medio del desierto australiano.",
       descriptionEn: "Alice Springs is a town in the Northern Territory, Australia; it is the third-largest settlement in the Northern Territory after Darwin and Palmerston.",
+      lat: -23.7065,
+      lng: 133.833,
     },
     {
       id: "alicesprings_4",
@@ -94980,8 +94982,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-x6sSdo5k0Aw?auto=format&fit=crop&w=800&q=80",
-      description: "El ANEC III fue un avión británico de pasajeros y de correos de seis asientos de la década de 1920, construido por Air Navigation and Engineering Company Limited en Addlestone, Surrey.",
+      description: "Simpson's Gap es una brecha en la cordillera MacDonnell Oeste, a unos 18 km de Alice Springs, con altas paredes de roca y una poza de agua permanente. Se visita por sus senderos y miradores.",
       descriptionEn: "Simpsons Gap is one of the gaps in the West MacDonnell Ranges in Australia's Northern Territory. It is located 18 kilometres west from Alice Springs, on the Larapinta Trail.",
+      lat: -23.71667,
+      lng: 133.71667,
     },
     {
       id: "alicesprings_5",
@@ -94997,8 +95001,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bedford_TK%2C_National_Road_Transport_Hall_of_Fame%2C_2015.JPG/1920px-Bedford_TK%2C_National_Road_Transport_Hall_of_Fame%2C_2015.JPG",
       website: "https://roadtransporthall.com/",
-      description: "National Road Transport Hall of Fame es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Nacional del Transporte por Carretera, en Alice Springs, exhibe camiones y vehículos históricos del transporte terrestre en Australia. Se visita para conocer la historia del transporte por carretera en zonas remotas.",
       descriptionEn: "The National Road Transport Museum is an Australian transport museum in Alice Springs, Northern Territory, owned by the Road Transport Historical Society.",
+      lat: -23.77711,
+      lng: 133.86753,
     },
     {
       id: "alicesprings_6",
@@ -95016,6 +95022,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.opbg.com.au/",
       description: "El Jardín Botánico Olive Pink es un jardín botánico de 16 hectáreas de extensión, especializado en las plantas de las zonas áridas de Australia, y localizado en Alice Springs, estando administrado por un consejo de gestión sin ánimo de lucro.",
       descriptionEn: "Olive Pink Botanic Garden is a 16-hectare (40-acre) botanic garden in Alice Springs in the Northern Territory of Australia, specialising in plants native to the arid central Australian region.",
+      lat: -23.7064,
+      lng: 133.885,
     },
     {
       id: "alicesprings_7",
@@ -95030,7 +95038,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Commonwealth_Railways_NSU_class_diesel-electric_locomotive_at_the_Old_Ghan_Heritage_Railway_and_Museum%2C_2006.jpg/1920px-Commonwealth_Railways_NSU_class_diesel-electric_locomotive_at_the_Old_Ghan_Heritage_Railway_and_Museum%2C_2006.jpg",
-      description: "Oodnadatta es un pequeño y remoto outback en el estado australiano de Australia Meridional, localizado a 1043 kilómetros por carretera al nornoroeste de la capital estatal, Adelaide, o 873 km (542,5 mi) en línea reacta, con una altitud de 112 metros.",
+      description: "El Museo del Viejo Ghan, en Alice Springs, conserva locomotoras, vagones y objetos del antiguo ferrocarril Ghan. Se visita para conocer la historia del tren que unió el centro de Australia con el sur.",
       descriptionEn: "The Ghan is an experiential tourism-oriented passenger train service that operates between the northern and southern coasts of Australia, through the cities of Adelaide, Alice Springs and Darwin on the Adelaide–Darwin rail corridor.",
     },
     {
@@ -95046,8 +95054,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/CAAM%2C_2015_%2803%29.JPG/1920px-CAAM%2C_2015_%2803%29.JPG",
-      description: "El Percival Proctor fue un avión de comunicaciones y de entrenamiento de radio británico de la Segunda Guerra Mundial. Era un monoplano de ala baja monomotor con acomodo para tres o cuatro ocupantes, dependiendo del modelo.",
+      description: "El Museo de Aviación de Australia Central, en Alice Springs, ocupa instalaciones del antiguo aeródromo de Connellan y exhibe aviones y objetos de la aviación regional. Se visita para conocer la historia del transporte aéreo en el centro de Australia.",
       descriptionEn: "The Central Australian Aviation Museum is an aviation museum in Alice Springs, Northern Territory, Australia.",
+      lat: -23.70261,
+      lng: 133.86431,
     },
     {
       id: "alicesprings_9",
@@ -95063,8 +95073,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Alice_Springs_Reptile_Centre%2C_October_2025.jpg/1920px-Alice_Springs_Reptile_Centre%2C_October_2025.jpg",
       website: "www.reptilecentre.com.au",
-      description: "El territorio del Norte es uno de los dos territorios continentales que, junto con los seis estados y los seis territorios insulares, conforman la Mancomunidad de Australia. Su capital y ciudad más poblada es Darwin.",
+      description: "El Centro de Reptiles de Alice Springs es un centro de exhibición y conservación de reptiles del centro de Australia. Se visita para observar lagartos, serpientes y cocodrilos y aprender sobre su hábitat.",
       descriptionEn: "Alice Springs is a town in the Northern Territory, Australia; it is the third-largest settlement in the Northern Territory after Darwin and Palmerston.",
+      lat: -23.7,
+      lng: 133.87,
     },
     {
       id: "alicesprings_10",
@@ -95079,8 +95091,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/MU_KPB_032_The_years_at_the_Spring_-_An_Anthology_of_recent_Poetry.pdf/page1-1280px-MU_KPB_032_The_years_at_the_Spring_-_An_Anthology_of_recent_Poetry.pdf.jpg",
-      description: "Chalmers Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Wolfe Creek Crater is a well-preserved meteorite impact crater (astrobleme) in Western Australia.",
+      lat: -23.71001,
+      lng: 133.85786,
     },
     {
       id: "alicesprings_11",
@@ -95097,6 +95110,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/The_Crafts_family_-_a_genealogical_and_biographical_history_of_the_descendants_of_Griffin_and_Alice_Craft%2C_of_Roxbury%2C_Mass.%2C1630-1890_%28IA_craftsfamilygene02craf%29.pdf/page1-500px-thumbnail.pdf.jpg",
       description: "Genevieve Dolores Gerber fue una actriz estadounidense de cine mudo que apareció en más de 120 películas entre 1912 y 1930.",
       descriptionEn: "Ruby Gap Nature Park or Tyweltherreme is a protected area in the Northern Territory of Australia consisting of 9,257 hectares and access to it is through Arltunga Historical Reserve.",
+      lat: -23.71262,
+      lng: 133.86046,
     },
     {
       id: "alicesprings_12",
@@ -95113,6 +95128,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Park%27s_novelties_and_specialties_in_seeds_%28IA_CAT31285232%29.pdf/page1-500px-Park%27s_novelties_and_specialties_in_seeds_%28IA_CAT31285232%29.pdf.jpg",
       description: "Los internados indígenas en Estados Unidos, también denominados, en uso más reciente, escuelas residenciales para indígenas americanos, se establecieron en los Estados Unidos desde mediados del siglo xvii hasta principios del siglo xx con el objetivo principal de «civilizar» o…",
       descriptionEn: "The Adelaide–Darwin rail corridor consists of the 2975-kilometre (1849-mile) long 1435 mm standard-gauge main line between the South Australian capital city of Adelaide and the Northern Territory capital of Darwin, and the lines immediately connected to it.",
+      lat: -23.70998,
+      lng: 133.86909,
     },
     {
       id: "alicesprings_13",
@@ -95129,6 +95146,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Book_of_remembrance%2C_Presbyterian_church%2C_Spencer%2C_N._Y.%2C_1815-1915_.._%28IA_bookofremembranc00spen%29.pdf/page1-500px-Book_of_remembrance%2C_Presbyterian_church%2C_Spencer%2C_N._Y.%2C_1815-1915_.._%28IA_bookofremembranc00spen%29.pdf.jpg",
       description: "Priscilla, reina del desierto es un musical jukebox con libreto de Stephan Elliott y Allan Scott, y un repertorio de canciones formado por éxitos del pop y la música disco.",
       descriptionEn: "Alice of Schaerbeek, was a Cistercian lay sister who is venerated as the patron saint of the blind and paralyzed. Her feast day is 15 June.",
+      lat: -23.70639,
+      lng: 133.85972,
     },
     {
       id: "alicesprings_14",
@@ -95144,7 +95163,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Alice_Springs%2C_2015_%2801%29.JPG",
       website: "https://www.magnt.net.au/",
-      description: "Museum of Central Australia & Strehlow Research Center es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de Australia Central y Centro de Investigación Strehlow, en el precinto cultural Araluen de Alice Springs, reúne colecciones de historia natural, arqueología y cultura aborigen. Se visita para conocer el patrimonio del centro de Australia.",
       descriptionEn: "Alice Springs is a town in the Northern Territory, Australia; it is the third-largest settlement in the Northern Territory after Darwin and Palmerston.",
     },
   ],
@@ -108105,6 +108124,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Casa_De_Rivera.jpg/960px-Casa_De_Rivera.jpg",
       description: "La Casa de Fructuoso Rivera es la sede principal del Museo Histórico Nacional de Uruguay, en la Ciudad Vieja de Montevideo. Toma su nombre del general Fructuoso Rivera, primer presidente constitucional del país, y es Monumento Histórico Nacional desde 1975.",
       descriptionEn: "The Casa de Fructuoso Rivera is the main headquarters of Uruguay's National Historical Museum, in Montevideo's Ciudad Vieja. Named after General Fructuoso Rivera, Uruguay's first constitutional president, it has been a National Historic Monument since 1975.",
+      lat: -34.90701,
+      lng: -56.20662,
     },
     {
       id: "montevideo_1",
@@ -108122,6 +108143,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Casa_Antonio_Montero%2C_Montevideo_16.jpg/960px-Casa_Antonio_Montero%2C_Montevideo_16.jpg",
       description: "La Casa de Antonio Montero, construida en 1831 para el comerciante Antonio Montero, alberga el Museo Romántico de Montevideo desde 1962, con una exhibición permanente sobre la vida y el ambiente de la alta sociedad de fines del siglo XIX.",
       descriptionEn: "The Casa de Antonio Montero, built in 1831 for the merchant Antonio Montero, has housed Montevideo's Romantic Museum since 1962, with a permanent exhibition on the life and setting of the city's upper class in the late 19th century.",
+      lat: -34.90642,
+      lng: -56.207,
     },
     {
       id: "montevideo_2",
@@ -108139,6 +108162,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3d/MuHAr.jpg",
       description: "El Museo de Historia del Arte (MuHAr), dependiente de la Intendencia de Montevideo, reúne obras originales y réplicas que van desde la Prehistoria hasta el siglo XIX, con una destacada colección de arte precolombino, egipcio y textiles mayas-guatemaltecos.",
       descriptionEn: "The Museo de Historia del Arte (MuHAr), run by the Montevideo city government, holds original works and replicas spanning from Prehistory to the 19th century, with a notable collection of pre-Columbian art, Egyptian artifacts, and Maya-Guatemalan textiles.",
+      lat: -34.90628,
+      lng: -56.18659,
     },
     {
       id: "montevideo_3",
@@ -108156,6 +108181,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Museo_Gurvich.jpg/960px-Museo_Gurvich.jpg",
       description: "El Museo Gurvich, en la Ciudad Vieja de Montevideo, exhibe la obra del pintor uruguayo José Gurvich, discípulo del Taller Torres García, conocido por su fusión de la tradición constructivista con elementos de la cultura judía y latinoamericana.",
       descriptionEn: "The Museo Gurvich, in Montevideo's Ciudad Vieja, exhibits the work of Uruguayan painter José Gurvich, a disciple of the Torres García Workshop known for blending constructivist tradition with Jewish and Latin American cultural elements.",
+      lat: -34.90748,
+      lng: -56.20429,
     },
     {
       id: "montevideo_4",
@@ -108173,6 +108200,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Casa_quinta_de_la_Flia._Mendilaharsu._Entre_el_Prado_y_Sayago.JPG/960px-Casa_quinta_de_la_Flia._Mendilaharsu._Entre_el_Prado_y_Sayago.JPG",
       description: "El Museo Nacional de Antropología, creado en 1981, funciona en la antigua quinta de la familia Mendilaharsu, en el barrio Prado Norte de Montevideo, declarada Monumento Histórico Nacional. Su colección principal reúne más de 120.000 piezas arqueológicas prehistóricas.",
       descriptionEn: "The Museo Nacional de Antropología, established in 1981, occupies the former Mendilaharsu family country house in Montevideo's Prado Norte neighborhood, declared a National Historic Monument. Its main collection holds over 120,000 prehistoric archaeological pieces.",
+      lat: -34.84505,
+      lng: -56.19995,
     },
     {
       id: "montevideo_5",
@@ -108190,6 +108219,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Obelisco_a_los_constituyentes.jpg",
       description: "El Obelisco a los Constituyentes de 1830 es un monumento de Montevideo que honra a los redactores de la primera Constitución de Uruguay. Se encuentra en la avenida 18 de Julio, en la entrada del Parque Batlle, y fue realizado por el escultor José Luis Zorrilla de San Martín.",
       descriptionEn: "The Obelisco a los Constituyentes de 1830 is a monument in Montevideo honoring the authors of Uruguay's first Constitution. Located on 18 de Julio Avenue at the entrance to Parque Batlle, it was created by sculptor José Luis Zorrilla de San Martín.",
+      lat: -34.89739,
+      lng: -56.16439,
     },
     {
       id: "montevideo_6",
@@ -108258,6 +108289,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Zoo_Villa_Dolores.png/960px-Zoo_Villa_Dolores.png",
       description: "El Zoológico Villa Dolores es el parque zoológico municipal de Montevideo, originado en 1894 como una colección privada de animales y plantas, legada a la ciudad en 1919. Es uno de los espacios recreativos más antiguos de Montevideo.",
       descriptionEn: "The Zoológico Villa Dolores is Montevideo's municipal zoo, originating in 1894 as a private collection of animals and plants that was bequeathed to the city in 1919. It is one of Montevideo's oldest recreational spaces.",
+      lat: -34.90089,
+      lng: -56.14526,
     },
     {
       id: "montevideo_10",
@@ -108312,6 +108345,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Planetario_6.jpg/960px-Planetario_6.jpg",
       description: "El Parque de la Amistad es el primer parque infantil inclusivo de Montevideo, con juegos adaptados a distintas discapacidades para permitir la mayor autonomía posible. Está ubicado frente al Planetario, en el predio del Parque Villa Dolores.",
       descriptionEn: "The Parque de la Amistad is Montevideo's first inclusive children's park, with play equipment adapted for different disabilities to allow the greatest possible independence. It is located across from the Planetarium, within Parque Villa Dolores.",
+      lat: -34.90192,
+      lng: -56.14417,
     },
     {
       id: "montevideo_13",
@@ -108348,6 +108383,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766792678419-669f3ac03189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudG8lMjBhbCUyMEdhdWNobyUyME1vbnRldmlkZW8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODI5ODh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Monumento al Gaucho es una escultura ecuestre en bronce sobre un pedestal de granito rosado, realizada por el escultor uruguayo José Luis Zorrilla de San Martín entre 1922 y 1925. Al año siguiente, la escultura fue inaugurada en Montevideo.",
       descriptionEn: "The Monumento al Gaucho is a bronze equestrian sculpture on a pink granite pedestal, created by Uruguayan sculptor José Luis Zorrilla de San Martín between 1922 and 1925 and unveiled in Montevideo the following year.",
+      lat: -34.90546,
+      lng: -56.18484,
     },
     {
       id: "montevideo_15",
@@ -108383,6 +108420,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Holocaust_Memorial%2C_Montevideo_01.jpg/960px-Holocaust_Memorial%2C_Montevideo_01.jpg",
       description: "Memorial del Holocausto del Pueblo Judío es un memorial dedicado a las víctimas del Holocausto. Está localizado en el barrio montevideano de Punta Carretas, en la Rambla Presidente Wilson, sobre el Río de la Plata.",
       descriptionEn: "The Holocaust Memorial to the Jewish People is a memorial dedicated to the victims of the Holocaust, located in Montevideo's Punta Carretas neighborhood, on the Rambla Presidente Wilson along the Río de la Plata.",
+      lat: -34.9251,
+      lng: -56.17025,
     },
     {
       id: "montevideo_17",
@@ -108400,6 +108439,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/1a.vista_parcial_del_antiguo_monumento_de_La_Carreta_con_sus_bueyes.JPG/960px-1a.vista_parcial_del_antiguo_monumento_de_La_Carreta_con_sus_bueyes.JPG",
       description: "El Monumento a la Carreta es una escultura de bronce de 22 metros y 150 toneladas realizada por José Belloni e inaugurada en 1934 en el Parque Batlle de Montevideo. Representa una carreta tirada por bueyes, en homenaje al trabajo rural previo a la llegada del automóvil.",
       descriptionEn: "The Monumento a la Carreta is a 22-meter, 150-ton bronze sculpture by José Belloni, unveiled in 1934 in Montevideo's Parque Batlle. It depicts an ox-drawn cart, honoring rural labor before the arrival of the automobile.",
+      lat: -34.89258,
+      lng: -56.15527,
     },
     {
       id: "montevideo_18",
@@ -108417,6 +108458,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Monumento_Coreano.jpg/960px-Monumento_Coreano.jpg",
       description: "Greetingman es un moderno proyecto de escultura de Corea del Sur.",
       descriptionEn: "Greetingman is a South Korean modern sculpture project. Its main artist is sculptor Yoo Young-ho. The concept provides a man, 6 meters high, bowing in a typically Asian greeting gesture. The blue color symbolizes a lack of prejudice.",
+      lat: -34.89818,
+      lng: -56.12069,
     },
     {
       id: "montevideo_19",
@@ -108433,6 +108476,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Monumento_al_Bombero_-_panoramio.jpg/960px-Monumento_al_Bombero_-_panoramio.jpg",
       description: "El Monumento al Bombero es una escultura de Montevideo dedicada a los integrantes del Cuerpo de Bomberos de Uruguay, en homenaje a su labor de prevención y extinción de incendios, rescate de personas y protección civil.",
       descriptionEn: "The Monumento al Bombero is a sculpture in Montevideo dedicated to the members of Uruguay's Fire Corps, honoring their work in fire prevention and suppression, rescue, and civil protection.",
+      lat: -34.90283,
+      lng: -56.18094,
     },
     {
       id: "montevideo_20",
@@ -108450,6 +108495,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1598289993193-5efe1657f971?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBdWRpdG9yaW8lMjBOYWNpb25hbCUyMCU1QyUyME1vbnRldmlkZW8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODMwNjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Auditorio Nacional Doctora Adela Reta es el auditorio nacional uruguayo perteneciente al Servicio Oficial de Difusión, Representaciones y Espectáculos.",
       descriptionEn: "The National Auditorium of Sodre Dr. Adela Reta is a venue located in Montevideo, Uruguay. It is named after the lawyer, former minister and president of the Official Service of Broadcasting, Television and Entertainment, Adela Reta (1921–2001).",
+      lat: -34.90434,
+      lng: -56.19905,
     },
     {
       id: "montevideo_21",
@@ -108467,6 +108514,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Columna_de_la_Paz%2C_Montevideo_-_1.jpg/960px-Columna_de_la_Paz%2C_Montevideo_-_1.jpg",
       description: "La Columna de la Paz, obra del escultor José Livi inaugurada en 1867, fue el primer monumento público de Montevideo, erigida en homenaje a la paz entre los partidos tradicionales tras la guerra civil. Se ubica en la Plaza Cagancha, con 17 metros de altura.",
       descriptionEn: "The Columna de la Paz, by sculptor José Livi and unveiled in 1867, was Montevideo's first public monument, erected to commemorate peace between the traditional political parties after the civil war. It stands 17 meters tall in Plaza Cagancha.",
+      lat: -34.90591,
+      lng: -56.19134,
     },
     {
       id: "montevideo_22",
@@ -108484,6 +108533,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Casa_Tom%C3%A1s_Toribio%2C_Montevideo.jpg/960px-Casa_Tom%C3%A1s_Toribio%2C_Montevideo.jpg",
       description: "La Casa Tomás Toribio fue la residencia del arquitecto Tomás Toribio, de destacada actuación en la ciudad de Montevideo durante la época colonial española.",
       descriptionEn: "Casa Tomás Toribio was the residence of architect Tomás Toribio, a prominent figure in Montevideo during the Spanish colonial era.",
+      lat: -34.90412,
+      lng: -56.20595,
     },
     {
       id: "montevideo_23",
@@ -108538,6 +108589,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Jardinjaponesmdeo.jpg",
       description: "El Jardín Japonés de Montevideo se emplaza en las áreas exteriores del Museo Juan Manuel Blanes de Montevideo.",
       descriptionEn: "The Japanese Garden of Montevideo is located in the Prado neighbourhood of Montevideo, behind the Juan Manuel Blanes Museum.",
+      lat: -34.8533,
+      lng: -56.19911,
     },
     {
       id: "montevideo_26",
@@ -108554,6 +108607,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Plaza_Zabala.jpg/960px-Plaza_Zabala.jpg",
       description: "La Plaza Zabala es un espacio público ubicado en la Ciudad Vieja de Montevideo. Inaugurada en diciembre de 1890, fue nombrada en honor al militar español Bruno Mauricio de Zabala, fundador de la ciudad.",
       descriptionEn: "Plaza Zabala is a plaza in the Ciudad Vieja of Montevideo, Uruguay. In late 1878, during the dictatorship of Colonel Lorenzo Latorre, it was decided to demolish the old fort and build a public square in its place. But for 12 years this site remained a wasteland.",
+      lat: -34.90766,
+      lng: -56.20814,
     },
     {
       id: "montevideo_27",
@@ -108588,6 +108643,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Planetario_Municipal_Agrimensor_Germ%C3%A1n_Barbato._Montevideo%2C_Uruguay.JPG",
       description: "El Planetario de Montevideo Agrimensor Germán Barbato es un planetario de Uruguay, ubicado en la ciudad de Montevideo, en el barrio de Villa Dolores. Dentro del predio del entonces zoológico Villa Dolores y el hoy Parque Villa Dolores.",
       descriptionEn: "The Planetario de Montevideo \"Agrimensor Germán Barbato\" is a planetarium in Montevideo, Uruguay, located in the Villa Dolores neighborhood, within the grounds of the former Villa Dolores zoo, today Parque Villa Dolores.",
+      lat: -34.90187,
+      lng: -56.14455,
     },
     {
       id: "montevideo_29",
@@ -108604,6 +108661,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1637522384613-ad7295e4373c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXN0aWxsbyUyMElkaWFydGUlMjBCb3JkYSUyME1vbnRldmlkZW8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODMyMTR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Castillo Idiarte Borda es una mansión neoclásica de fines del siglo XIX en el barrio Colón de Montevideo, construida como residencia del presidente Juan Bautista Idiarte Borda, quien fue asesinado antes de llegar a habitarla. Hoy es sede de la Comisión de Patrimonio Cultural de la Nación.",
       descriptionEn: "The Castillo Idiarte Borda is a late 19th-century neoclassical mansion in Montevideo's Colón neighborhood, built as a residence for President Juan Bautista Idiarte Borda, who was assassinated before ever occupying it. It now houses the National Cultural Heritage Commission.",
+      lat: -34.80212,
+      lng: -56.23207,
     },
     {
       id: "montevideo_30",
@@ -108817,6 +108876,8 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Museo Andes 1972 está ubicado en la peatonal Rincón 619, en el barrio Ciudad Vieja de Montevideo, Uruguay.",
       descriptionEn: "The Andes Museum 1972 is located in The Old City in Montevideo, the capital city of Uruguay.",
       sourceUrl: "https://es.wikipedia.org/wiki/Museo_Andes_1972",
+      lat: -34.90585,
+      lng: -56.20291,
     },
     {
       id: "montevideo_41",
@@ -108970,8 +109031,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.museoscolonia.com.uy/index.php/esp-azulejo",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/TileMuseum2.jpg/960px-TileMuseum2.jpg",
-      description: "La Casa Vicens es un edificio modernista situado en Barcelona, en el distrito de Gracia. Obra de Antoni Gaudí, fue el primer proyecto de importancia del arquitecto. Se construyó entre 1883 y 1885, aunque Gaudí elaboró el proyecto original entre 1878 y 1880.",
+      description: "Espacio expositivo en el Barrio Histórico de Colonia del Sacramento dedicado al azulejo, la cerámica vidriada que decora fachadas e interiores de la ciudad. Se ven piezas y paneles sobre su historia y su uso en la arquitectura local.",
       descriptionEn: "The Portuguese people (Portuguese: Portugueses generic plural, Português, or Portuguesa are a Romance group and nation indigenous to Portugal, a country that occupies the west side of the Iberian Peninsula in south-west Europe, who share culture, ancestry and language.",
+      lat: -34.47227,
+      lng: -57.85337,
     },
     {
       id: "coloniadelsacramento_1",
@@ -108989,6 +109052,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PortugueseMuseum-Colonia2.jpg/960px-PortugueseMuseum-Colonia2.jpg",
       description: "El término colonia puede referirse en esta enciclopedia:",
       descriptionEn: "The Portuguese people (Portuguese: Portugueses generic plural, Português, or Portuguesa are a Romance group and nation indigenous to Portugal, a country that occupies the west side of the Iberian Peninsula in south-west Europe, who share culture, ancestry and language.",
+      lat: -34.47264,
+      lng: -57.85142,
     },
     {
       id: "coloniadelsacramento_2",
@@ -109005,7 +109070,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museoscolonia.com.uy/index.php/espvivienda",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/NacarelloHouse2.jpg/960px-NacarelloHouse2.jpg",
       description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
-      descriptionEn: "Vivienda Portuguesa is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.47244,
+      lng: -57.85241,
     },
     {
       id: "coloniadelsacramento_3",
@@ -109022,6 +109088,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/Frente_del_Museo_Paleontol%C3%B3gico_Prof.Armando_Calcaterra.jpg",
       description: "El Museo Paleontológico Profesor Armando Calcaterra es un museo ubicado en la calle Roger Balet 181, Colonia del Sacramento, departamento de Colonia, Uruguay, en la zona de Real de San Carlos.",
       descriptionEn: "In Uruguay, paleontology has been influenced by various academic centers, both Uruguayan and foreign; in recent decades, it has become professionalized mainly at the University of the Republic.",
+      lat: -34.43906,
+      lng: -57.859,
     },
     {
       id: "coloniadelsacramento_4",
@@ -109036,8 +109104,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Plaza_de_Toros_-_Colonia_del_Sacramento_2.jpg/960px-Plaza_de_Toros_-_Colonia_del_Sacramento_2.jpg",
-      description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
+      description: "Antigua plaza de toros de comienzos del siglo XX en Real de San Carlos, a pocos kilómetros del centro de Colonia del Sacramento. Integra un conjunto histórico levantado en esa época y hoy se conserva como monumento.",
       descriptionEn: "Colonia del Sacramento is a city in southwestern Uruguay, by the Río de la Plata, facing Buenos Aires, Argentina. It is one of the oldest towns in Uruguay and the capital of the Colonia Department. As of the 2023 census, it has a population of around 32,174.",
+      lat: -34.43655,
+      lng: -57.86522,
     },
     {
       id: "coloniadelsacramento_5",
@@ -109052,8 +109122,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Colonia_del_Sacramento_2016_025.jpg/960px-Colonia_del_Sacramento_2016_025.jpg",
-      description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
+      description: "Puerta de entrada al Barrio Histórico de Colonia del Sacramento, con puente levadizo sobre un foso. Es uno de los restos de las fortificaciones portuguesas del siglo XVIII y el acceso tradicional al casco antiguo.",
       descriptionEn: "Colonia del Sacramento is a city in southwestern Uruguay, by the Río de la Plata, facing Buenos Aires, Argentina. It is one of the oldest towns in Uruguay and the capital of the Colonia Department. As of the 2023 census, it has a population of around 32,174.",
+      lat: -34.47267,
+      lng: -57.85042,
     },
     {
       id: "coloniadelsacramento_6",
@@ -109070,6 +109142,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Colonia-SouthViewChurchHolySacrament.jpg/960px-Colonia-SouthViewChurchHolySacrament.jpg",
       description: "La Iglesia Matriz, Basílica do Santíssimo Sacramento o Basílica del Santísimo Sacramento, a pesar de haber sido reconstruida en varias ocasiones, se le considera la iglesia más antigua del Uruguay.",
       descriptionEn: "Colonia del Sacramento is a city in southwestern Uruguay, by the Río de la Plata, facing Buenos Aires, Argentina. It is one of the oldest towns in Uruguay and the capital of the Colonia Department. As of the 2023 census, it has a population of around 32,174.",
+      lat: -34.4711,
+      lng: -57.85073,
     },
     {
       id: "coloniadelsacramento_7",
@@ -109086,7 +109160,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museoscolonia.com.uy/espesp",
       imageUrl: "https://images.unsplash.com/photo-1692707863207-c3be405ac813?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxFc3BhY2lvJTIwRXNwYSVDMyVCMW9sJTIwQ29sb25pYSUyMGRlbCUyMFNhY3JhbWVudG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODM4NTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El término colonia puede referirse en esta enciclopedia:",
-      descriptionEn: "Espacio Español is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Museum in Colonia del Sacramento's historic quarter, housed in a colonial house. It gathers objects, furniture and everyday items from the city's Spanish colonial period.",
+      lat: -34.46994,
+      lng: -57.8515,
     },
     {
       id: "coloniadelsacramento_8",
@@ -109101,8 +109177,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1692707863207-c3be405ac813?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDb252ZW50byUyMGRlJTIwU2FuJTIwRnJhbmNpc2NvJTIwQ29sb25pYSUyMGRlbCUyMFNhY3JhbWVudG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODM5MjZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
+      description: "Ruinas del convento franciscano levantado en el siglo XVII en Colonia del Sacramento. Sobre sus restos se construyó el faro de la ciudad, y el conjunto se encuentra dentro del Barrio Histórico.",
       descriptionEn: "Juan de Torquemada was a Franciscan friar, active as missionary in colonial Mexico and considered the \"leading Franciscan chronicler of his generation.\" Administrator, engineer, architect and ethnographer, he is most famous for his monumental work commonly known as Monarquía…",
+      lat: -34.47272,
+      lng: -57.85231,
     },
     {
       id: "coloniadelsacramento_9",
@@ -109118,7 +109196,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Historia_de_los_gobernadores_de_las_provincias_Argentinas_-_Antonio_Zinny_%28Tomo_5%29.pdf/page1-330px-Historia_de_los_gobernadores_de_las_provincias_Argentinas_-_Antonio_Zinny_%28Tomo_5%29.pdf.jpg",
       description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
-      descriptionEn: "Casa de los Gobernadores is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.47155,
+      lng: -57.85087,
     },
     {
       id: "coloniadelsacramento_10",
@@ -109134,7 +109213,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Colonia_del_Sacramento%2C_Uruguay_%285459692691%29.jpg/1920px-Colonia_del_Sacramento%2C_Uruguay_%285459692691%29.jpg",
       description: "The Amazing Race Latinoamérica 2011 fue la tercera edición latinoamericana del programa The Amazing Race. Fue la primera temporada emitida por el canal Space en conjunto con Disney Media Networks Latin America y la firma venezolana Cinemat.",
-      descriptionEn: "Acuario is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.46984,
+      lng: -57.85071,
     },
     {
       id: "coloniadelsacramento_11",
@@ -109150,7 +109230,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1692707863207-c3be405ac813?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJbnRlcnZlbmNpJUMzJUIzbiUyMGFycXVlb2wlQzMlQjNnaWNhJTIwQ29sb25pYSUyMGRlbCUyMFNhY3JhbWVudG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODQxNTN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El municipio de Huimanguillo es un municipio localizado en la región del río Grijalva y en la subregión de la Chontalpa, es el municipio más grande del estado mexicano de Tabasco.",
-      descriptionEn: "Intervención arqueológica is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.47308,
+      lng: -57.85072,
     },
     {
       id: "coloniadelsacramento_12",
@@ -109166,7 +109247,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1766792595532-1e2787492041?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHx5YWNodCUyMHJlc3RvJTIwQ29sb25pYSUyMGRlbCUyMFNhY3JhbWVudG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODQyMjh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Juan Antonio Varese es un escribano uruguayo, y además, periodista, fotógrafo, editor, e investigador sobre temas históricos así como sobre tradiciones populares y sobre la formación de la identidad nacional.",
-      descriptionEn: "yacht resto is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.46834,
+      lng: -57.85385,
     },
     {
       id: "coloniadelsacramento_13",
@@ -109183,6 +109265,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1524169394167-ed82ab06ac05?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMZXRyYXMlMjBkZSUyMENvbG9uaWElMjBDb2xvbmlhJTIwZGVsJTIwU2FjcmFtZW50byUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NDMwNHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Colonia Del Valle, o simplemente Del Valle, es una colonia ubicada al centro-sur de la Ciudad de México, en la Alcaldía Benito Juárez.",
       descriptionEn: "Carmelo is a city located in the department of Colonia of western Uruguay, noted for its wineries.",
+      lat: -34.44459,
+      lng: -57.8597,
     },
     {
       id: "coloniadelsacramento_14",
@@ -109198,7 +109282,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Metrica_descripcion_de_las_magnificas_demonstraciones%2C_y_sublimes_Fiestas%2C_celebradas_en_las_Ciudades_de_Granada%2C_y_Alhama_en_los_Desagravios_del_Ssmo._Sacramento%2C_a_los_oprobios_%28IA_A11202410%29.pdf/page1-250px-thumbnail.pdf.jpg",
       description: "La red ferroviaria uruguaya es el sistema de líneas de vía férrea que se extiende por toda la República Oriental del Uruguay.",
-      descriptionEn: "Coche Florido is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.47108,
+      lng: -57.85139,
     },
     {
       id: "coloniadelsacramento_15",
@@ -109215,6 +109300,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766792235524-65aec0d48dcd?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxwYXNlbyUyMGd1aWRhZG8lMjAxMWFtJTIwM3BtJTIwQ29sb25pYSUyMGRlbCUyMFNhY3JhbWVudG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODQ0NTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "paseo guidado 11am 3pm es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "paseo guidado 11am 3pm is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.47264,
+      lng: -57.84983,
     },
     {
       id: "coloniadelsacramento_16",
@@ -109229,8 +109316,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 180,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/EPN._Reunion_APEC_2013.jpg/960px-EPN._Reunion_APEC_2013.jpg",
-      description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
+      description: "Casco antiguo de Colonia del Sacramento, declarado Patrimonio Mundial por la UNESCO en 1995. Conserva calles de piedra y construcciones portuguesas y españolas de los siglos XVII y XVIII, y es el principal paseo de la ciudad.",
       descriptionEn: "Colonia del Sacramento is a city in southwestern Uruguay, by the Río de la Plata, facing Buenos Aires, Argentina. It is one of the oldest towns in Uruguay and the capital of the Colonia Department. As of the 2023 census, it has a population of around 32,174.",
+      lat: -34.47136,
+      lng: -57.85136,
     },
     {
       id: "coloniadelsacramento_17",
@@ -109245,8 +109334,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 45,
       imageUrl: "https://images.unsplash.com/photo-1766792235388-18264e42501d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGYXJvJTIwZGUlMjBDb2xvbmlhJTIwZGVsJTIwU2FjcmFtZW50byUyMENvbG9uaWElMjBkZWwlMjBTYWNyYW1lbnRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg0NTMxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
+      description: "El Faro de Colonia del Sacramento está ubicado sobre la costa del Río de la Plata, en Colonia, Uruguay.",
       descriptionEn: "Colonia del Sacramento Lighthouse is a lighthouse located on the ruins of the Saint Francis Xavier convent in the historic district of Colonia del Sacramento, Colonia Department, Uruguay. It was erected in 1857.",
+      lat: -34.4728,
+      lng: -57.8517,
+      sourceUrl: "https://es.wikipedia.org/wiki/Faro_de_Colonia_del_Sacramento",
     },
     {
       id: "coloniadelsacramento_18",
@@ -109261,8 +109353,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 30,
       imageUrl: "https://images.unsplash.com/photo-1692707863507-a048f5a70410?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYWxsZSUyMGRlJTIwbG9zJTIwU3VzcGlyb3MlMjBDb2xvbmlhJTIwZGVsJTIwU2FjcmFtZW50byUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NDYwNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Colonia del Sacramento, conocida en el medio local como Colonia, es la capital del departamento de Colonia, en el suroeste de Uruguay. Está ubicada en la ribera norte —izquierda— del Río de la Plata, a 177 km de Montevideo y a 50 km de la ciudad de Buenos Aires en barco.",
+      description: "La Calle de los suspiros es una calle de la ciudad uruguaya de Colonia del Sacramento. Está ubicada dentro del casco histórico, declarado Patrimonio de la Humanidad por la Unesco en 1995.",
       descriptionEn: "Colonia del Sacramento is a city in southwestern Uruguay, by the Río de la Plata, facing Buenos Aires, Argentina. It is one of the oldest towns in Uruguay and the capital of the Colonia Department. As of the 2023 census, it has a population of around 32,174.",
+      lat: -34.47292,
+      lng: -57.85117,
+      sourceUrl: "https://es.wikipedia.org/wiki/Calle_de_los_Suspiros",
     },
   ],
   puntadeleste: [
@@ -109281,7 +109376,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://casapueblo.com.uy/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Casapueblo.JPG/960px-Casapueblo.JPG",
       description: "El Museo Casapueblo es el nombre con el que se conoce a una edificación construida por el artista uruguayo Carlos Páez Vilaró ubicada en Punta Ballena, a 13 kilómetros de Punta del Este, Uruguay.",
-      descriptionEn: "Museo – Taller de Casapueblo is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Architectural complex and workshop-museum of Uruguayan artist Carlos Páez Vilaró in Punta Ballena, near Punta del Este. It is visited for its white architecture and sea views.",
     },
     {
       id: "puntadeleste_1",
@@ -109299,6 +109394,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1589550552885-7ca9f2088974?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMFJhbGxpJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg0NjA4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Ralli de Uruguay, ubicado en la ciudad de Punta del Este, es un museo de arte contemporáneo latinoamericano, de los más importantes del mundo, y de arte europeo. Fundado en 1988, es el primero de los museos Ralli en abrir sus puertas.",
       descriptionEn: "Marbella is a city and municipality in southern Spain, belonging to the province of Málaga in the autonomous community of Andalusia.",
+      lat: -34.92967,
+      lng: -54.92705,
     },
     {
       id: "puntadeleste_2",
@@ -109316,6 +109413,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Museo_del_Mar_-_Sala_principal.jpg/960px-Museo_del_Mar_-_Sala_principal.jpg",
       description: "El Museo del Mar está ubicado en La Barra de Maldonado, Uruguay y abarca cinco museos. El Museo del Mar, Museo de Los Recuerdos, Museo de Los Balnearios, Insectario y Museo del Libro.",
       descriptionEn: "Viña del Mar is a city and commune on central Chile's Pacific coast. Often referred to as La Ciudad Jardín, the city is located on the central coast, on the basins of the Reñaca and Marga Marga streams and along the shores of Valparaíso Bay.",
+      lat: -34.89896,
+      lng: -54.87037,
     },
     {
       id: "puntadeleste_3",
@@ -109330,8 +109429,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Arboretum_Lussich_Observatory.jpg",
-      description: "Arboleto Lussich es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Arboleto Lussich is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Parque arbóreo creado por Antonio Lussich en Punta Ballena, cerca de Punta del Este. Se recorre por senderos entre especies nativas y exóticas.",
+      descriptionEn: "Arboreal park created by Antonio Lussich in Punta Ballena, near Punta del Este. It is explored along paths among native and exotic species.",
     },
     {
       id: "puntadeleste_4",
@@ -109348,6 +109447,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Cuartel_de_Dragones_-_Maldonado.JPG/960px-Cuartel_de_Dragones_-_Maldonado.JPG",
       description: "El Regimiento n.º 9 de Dragones, también conocido como Lanceros de la Reina, o Lanceros de Delhi, fue un regimiento de caballería del Ejército Británico.",
       descriptionEn: "Maldonado is the capital city of Maldonado Department, in eastern Uruguay. According to the 2023 Census, it is the fourth most populated city in the country, with about 102 thousand inhabitants.",
+      lat: -34.91001,
+      lng: -54.95884,
     },
     {
       id: "puntadeleste_5",
@@ -109364,6 +109465,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/86/HMS_Ajax.jpg",
       description: "El Amsterdamsche Football Club Ajax, simplemente conocido como A. F. C. Ajax, Ajax de Ámsterdam, o más popularmente Ajax, es un club de fútbol con sede en Ámsterdam, capital de los Países Bajos.",
       descriptionEn: "Punta Cana is a resort town in the easternmost region of the Dominican Republic. It was politically incorporated as the \"Verón–Punta Cana Touristic Municipal District\" in 2006, and it is subject to the municipality of Higüey.",
+      lat: -34.97293,
+      lng: -54.95218,
     },
     {
       id: "puntadeleste_6",
@@ -109379,7 +109482,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e8/WP_Eichmann_Passport.jpg",
       description: "La Operación Finale, también llamada Operación Garibaldi fue una acción de inteligencia del servicio secreto israelí, Mosad, llevada a cabo en Argentina en mayo de 1960, que consistió en el secuestro y posterior traslado a Israel del fugitivo líder nazi Adolf Eichmann.",
-      descriptionEn: "Bet Yaacob is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.95699,
+      lng: -54.9394,
     },
     {
       id: "puntadeleste_7",
@@ -109412,6 +109516,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Iglesia_de_la_Candelaria_en_Punta_del_Este.jpg/960px-Iglesia_de_la_Candelaria_en_Punta_del_Este.jpg",
       description: "La Iglesia de Santa María de la Candelaria es el templo católico más importante de Punta del Este, Uruguay. Ubicado en la península, constituye un centro de culto importante durante todo el año.",
       descriptionEn: "The Church of Our Lady of Candelaria is a Roman Catholic parish church in Punta del Este, Uruguay.",
+      lat: -34.96889,
+      lng: -54.95028,
     },
     {
       id: "puntadeleste_9",
@@ -109428,6 +109534,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/El_Uruguay_a_trav%C3%A9s_de_un_siglo_page_013_recorte_01.tif/lossy-page1-1920px-El_Uruguay_a_trav%C3%A9s_de_un_siglo_page_013_recorte_01.tif.jpg",
       description: "El Arboretum Lussich es un arboreto de 192 ha de extensión, que se encuentra en el departamento de Maldonado en Uruguay.",
       descriptionEn: "Punta del Este is a seaside city and peninsula on the Atlantic Coast in the Maldonado Department of southeastern Uruguay. Starting as a small town, Punta del Este grew to become a resort for the Latin and North American jet set and tourists.",
+      lat: -34.88333,
+      lng: -55.03556,
     },
     {
       id: "puntadeleste_10",
@@ -109444,6 +109552,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/La_mano_de_Punta_del_Este.JPG/960px-La_mano_de_Punta_del_Este.JPG",
       description: "La mano es una escultura de cinco dedos emergiendo en arena, localizada en la parada 1 de la playa Brava en Punta del Este, Uruguay. Se lo refiere coloquialmente como Los dedos u Hombre emergiendo a la vida.",
       descriptionEn: "La Mano is a sculpture in Punta del Este by Chilean artist Mario Irarrázabal. It depicts five human fingers partially emerging from sand and is located on Parada 1 at Brava Beach in Punta del Este, a popular tourist town in Uruguay.",
+      lat: -34.95786,
+      lng: -54.93718,
     },
     {
       id: "puntadeleste_11",
@@ -109460,6 +109570,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1589550552885-7ca9f2088974?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMFBlbGFkbyUyMFB1bnRhJTIwZGVsJTIwRXN0ZSUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NDc2MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Cerro Pelado es una localidad peruana ubicada en el distrito de Canoas de Punta Sal, perteneciente a la provincia de Contralmirante Villar del departamento de Tumbes, al norte del Perú.",
       descriptionEn: "Punta del Este is a seaside city and peninsula on the Atlantic Coast in the Maldonado Department of southeastern Uruguay. Starting as a small town, Punta del Este grew to become a resort for the Latin and North American jet set and tourists.",
+      lat: -34.88139,
+      lng: -54.97694,
     },
     {
       id: "puntadeleste_12",
@@ -109476,6 +109588,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1690667606448-5357ea92f42e?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMGRlbCUyMERpYXJpbyUyMFB1bnRhJTIwZGVsJTIwRXN0ZSUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NDgzNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Villa del Cerro es un barrio de la Ciudad de Montevideo, ubicado sobre las faldas del Cerro de Montevideo, creado en 1834 como un poblado independiente de la capital uruguaya, y diseñado con la finalidad de albergar a los miles de inmigrantes que arribaron a Uruguay en…",
       descriptionEn: "Ushuaia is the capital of Tierra del Fuego, Antártida e Islas del Atlántico Sur Province, Argentina. With a population of 89,606 and a location below the 54th parallel south latitude, Ushuaia claims the title of world's southernmost city.",
+      lat: -34.8727,
+      lng: -55.0213,
     },
     {
       id: "puntadeleste_13",
@@ -109492,6 +109606,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1589550552885-7ca9f2088974?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMEVsJTIwUGUlQzMlQjFhc2NvJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg0OTExfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Puerto Peñasco es una ciudad mexicana ubicada en el noroeste del estado de Sonora en la zona del gran desierto de Altar.",
       descriptionEn: "This is a list of municipalities in Mexico which have standing links to local communities in other countries. In most cases, the association, especially when formalised by local government, is known as \"town twinning\" or \"sister cities\".",
+      lat: -34.8507,
+      lng: -54.9528,
     },
     {
       id: "puntadeleste_14",
@@ -109539,7 +109655,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1589550552885-7ca9f2088974?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXRlciVDMyVBRGElMjBkZSUyMExhJTIwYWd1YWRhJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg1MTM3fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El sistema de fuertes de Valdivia es un conjunto de baterías, fuertes y castillos situados en estuario de los ríos que protegieron el acceso a la ciudad de Valdivia, en la zona sur de Chile; creados en el periodo colonial.",
-      descriptionEn: "Batería de La aguada is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "puntadeleste_17",
@@ -109556,6 +109671,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1589550552885-7ca9f2088974?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXRlciVDMyVBRGElMjBkZSUyMExhJTIwQ29uY2VwY2klQzMlQjNuJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg1MjEzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Batería de la Atunara de La Línea de la Concepción fue una construcción militar cuyas obras debieron comenzar en 1735 como parte de la línea de defensas de la zona próxima a la ciudad de Gibraltar emprendida por el gobierno de España ante el temor de que la colonia británica…",
       descriptionEn: "This is a list of national monuments in Colombia.",
+      lat: -34.95001,
+      lng: -54.9726,
     },
     {
       id: "puntadeleste_18",
@@ -109572,6 +109689,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/BaANH50721_Memoria_del_Ministerio_de_Guerra_y_Marina_%281882%29.pdf/page1-500px-BaANH50721_Memoria_del_Ministerio_de_Guerra_y_Marina_%281882%29.pdf.jpg",
       description: "El Santa Ana fue un navío de línea español de 112 cañones y tres puentes, buque líder de su clase homónima, que prestó en servicio en la Armada Española desde 1784 hasta 1816.",
       descriptionEn: "This is a list of national monuments in Colombia.",
+      lat: -34.95189,
+      lng: -54.9757,
     },
     {
       id: "puntadeleste_19",
@@ -109588,6 +109707,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Torre_del_Rayo_Vistas.jpg",
       description: "La Cruceta del Vigía es una cruz de 30 metros de alto localizada en la colina del Vigía en Ponce, Puerto Rico, específicamente frente al Castillo Serrallés.",
       descriptionEn: "The Torre del Vigía is a tower located in central Maldonado, Uruguay. It is located in the Plaza del Vigía. The building was constructed during the Uruguayan colonial period.",
+      lat: -34.91056,
+      lng: -54.96139,
     },
     {
       id: "puntadeleste_20",
@@ -109637,6 +109758,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Conus_damottai_damottai_1.jpg",
       description: "El Museo Casapueblo es el nombre con el que se conoce a una edificación construida por el artista uruguayo Carlos Páez Vilaró ubicada en Punta Ballena, a 13 kilómetros de Punta del Este, Uruguay.",
       descriptionEn: "Punta del Este is a seaside city and peninsula on the Atlantic Coast in the Maldonado Department of southeastern Uruguay. Starting as a small town, Punta del Este grew to become a resort for the Latin and North American jet set and tourists.",
+      lat: -34.90887,
+      lng: -55.04491,
     },
     {
       id: "puntadeleste_23",
@@ -109651,7 +109774,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 30,
       imageUrl: "https://images.unsplash.com/photo-1766792740296-85d930331584?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYSUyME1hbm8lMjBkZSUyMFB1bnRhJTIwZGVsJTIwRXN0ZSUyMFB1bnRhJTIwZGVsJTIwRXN0ZSUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NTU5MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Punta del Este es una ciudad peninsular, situada en el extremo meridional de Uruguay, en el departamento de Maldonado, a 5 km de distancia de la ciudad capital homónima del mismo.",
+      description: "Escultura de una mano emergiendo de la arena en la playa Brava, obra de Mario Irarrázabal. Es un símbolo de Punta del Este y un punto de paseo y fotografías.",
       descriptionEn: "Punta del Este is a seaside city and peninsula on the Atlantic Coast in the Maldonado Department of southeastern Uruguay. Starting as a small town, Punta del Este grew to become a resort for the Latin and North American jet set and tourists.",
     },
     {
@@ -109669,6 +109792,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1738728418259-a4df334546ba?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxJc2xhJTIwR29ycml0aSUyMFB1bnRhJTIwZGVsJTIwRXN0ZSUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NTY2Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La isla Gorriti es una isla del Río de la Plata, en el sudeste del Uruguay, frente al puerto de Punta del Este. Es visible desde la playa Mansa entre Punta Ballena y el puerto de Punta del Este.",
       descriptionEn: "Punta del Este is a seaside city and peninsula on the Atlantic Coast in the Maldonado Department of southeastern Uruguay. Starting as a small town, Punta del Este grew to become a resort for the Latin and North American jet set and tourists.",
+      lat: -34.95339,
+      lng: -54.97155,
     },
     {
       id: "puntadeleste_25",
@@ -109685,6 +109810,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1692278069812-fc4b7754422f?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyMEJyYXZhJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg1NzQyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Playa Brava es una playa uruguaya situada en Punta del Este, Maldonado, en la costa del océano Atlántico.",
       descriptionEn: "Punta del Este is a seaside city and peninsula on the Atlantic Coast in the Maldonado Department of southeastern Uruguay. Starting as a small town, Punta del Este grew to become a resort for the Latin and North American jet set and tourists.",
+      lat: -34.95761,
+      lng: -54.93578,
     },
     {
       id: "puntadeleste_26",
@@ -109701,6 +109828,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1618774627345-84fc474c4f45?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQbGF5YSUyME1hbnNhJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg1ODE4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La playa Mansa es una playa situada en las ciudades de Maldonado y Punta del Este, Maldonado, Uruguay. Se ubica en la costa del Río de la Plata, entre la playa de Pinares y la de los Ingleses, en el lado oeste de la península.",
       descriptionEn: "Punta del Este is a seaside city and peninsula on the Atlantic Coast in the Maldonado Department of southeastern Uruguay. Starting as a small town, Punta del Este grew to become a resort for the Latin and North American jet set and tourists.",
+      lat: -34.95284,
+      lng: -54.94102,
     },
   ],
   maldonado: [
@@ -109719,7 +109848,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://casapueblo.com.uy/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Casapueblo.JPG/960px-Casapueblo.JPG",
       description: "El Museo Casapueblo es el nombre con el que se conoce a una edificación construida por el artista uruguayo Carlos Páez Vilaró ubicada en Punta Ballena, a 13 kilómetros de Punta del Este, Uruguay.",
-      descriptionEn: "Museo – Taller de Casapueblo is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Casapueblo is the house-workshop that Uruguayan artist Carlos Páez Vilaró built in Punta Ballena, near Punta del Este. It now operates as a museum and workshop, visited for its white architecture facing the sea and its artworks.",
+      lat: -34.90876,
+      lng: -55.04459,
     },
     {
       id: "maldonado_1",
@@ -109737,6 +109868,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1607900936647-6314dca5910c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMFJhbGxpJTIwUHVudGElMjBkZWwlMjBFc3RlJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg1ODE5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Museo Ralli de Uruguay, ubicado en la ciudad de Punta del Este, es un museo de arte contemporáneo latinoamericano, de los más importantes del mundo, y de arte europeo. Fundado en 1988, es el primero de los museos Ralli en abrir sus puertas.",
       descriptionEn: "Marbella is a city and municipality in southern Spain, belonging to the province of Málaga in the autonomous community of Andalusia.",
+      lat: -34.92967,
+      lng: -54.92705,
     },
     {
       id: "maldonado_2",
@@ -109754,6 +109887,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Museo_del_Mar_-_Sala_principal.jpg/960px-Museo_del_Mar_-_Sala_principal.jpg",
       description: "El Museo del Mar está ubicado en La Barra de Maldonado, Uruguay y abarca cinco museos. El Museo del Mar, Museo de Los Recuerdos, Museo de Los Balnearios, Insectario y Museo del Libro.",
       descriptionEn: "The Museum of the Sea, opened in 1996, is a museum of natural history located in La Barra, in the department of Maldonado, Uruguay. It occupies about 2,300 m2 (25,000 sq ft) and is divided into four large halls, which are open to the public all year round.",
+      lat: -34.89896,
+      lng: -54.87037,
     },
     {
       id: "maldonado_3",
@@ -109768,8 +109903,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Arboretum_Lussich_Observatory.jpg",
-      description: "Arboleto Lussich es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Arboleto Lussich is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Arboreto Lussich es un parque arbóreo en Punta Ballena, Maldonado, creado por Antonio Lussich a fines del siglo XIX. Reúne especies nativas y exóticas y se recorre por senderos entre bosques y dunas.",
+      descriptionEn: "Arboreto Lussich is an arboretum park in Punta Ballena, Maldonado, created by Antonio Lussich in the late 19th century. It brings together native and exotic species and is explored along paths through woods and dunes.",
+      lat: -34.88484,
+      lng: -55.03585,
     },
     {
       id: "maldonado_4",
@@ -109784,8 +109921,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Cuartel_de_Dragones_-_Maldonado.JPG/960px-Cuartel_de_Dragones_-_Maldonado.JPG",
-      description: "Maldonado es uno de los diecinueve departamentos que componen la República Oriental del Uruguay. Ubicado en el sureste del país, limita al norte con el departamento de Lavalleja, al este con Rocha, al oeste con Canelones, y al sur con las costas del Río de la Plata y el océano…",
+      description: "El Cuartel de Dragones es un edificio militar histórico de Maldonado, vinculado a las fuerzas coloniales españolas. Hoy es un espacio cultural y su arquitectura permite conocer el pasado defensivo de la ciudad.",
       descriptionEn: "Maldonado is the capital city of Maldonado Department, in eastern Uruguay. According to the 2023 Census, it is the fourth most populated city in the country, with about 102 thousand inhabitants.",
+      lat: -34.91001,
+      lng: -54.95884,
     },
     {
       id: "maldonado_5",
@@ -109802,6 +109941,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/86/HMS_Ajax.jpg",
       description: "Claudio Andrés del Tránsito Maldonado Rivera es un exfutbolista chileno que se desempeñó como mediocampista. Actualmente forma parte del cuerpo técnico del Red Bull Bragantino.",
       descriptionEn: "Gerónimo Rulli is an Argentine footballer who plays as a goalkeeper for Premier League club Manchester City and the Argentina national team.",
+      lat: -34.97293,
+      lng: -54.95218,
     },
     {
       id: "maldonado_6",
@@ -109818,6 +109959,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766792235307-5321761f0faf?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCZXQlMjBZYWFjb2IlMjBNYWxkb25hZG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODU4OTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Bet Yaacob es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Bet Yaacob is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.95699,
+      lng: -54.9394,
     },
     {
       id: "maldonado_7",
@@ -109834,6 +109977,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Catedral_de_Maldonado_-_Una_tarde_calida.jpg/960px-Catedral_de_Maldonado_-_Una_tarde_calida.jpg",
       description: "La Catedral de San Fernando es el principal edificio de la Iglesia católica en Maldonado, Uruguay. Desde 1966 tomó el nombre de Catedral por ser sede de la Diócesis de Maldonado-Punta del Este, fundada por S.S. Pablo VI el 10 de enero de 1966.",
       descriptionEn: "The Cathedral of Saint Ferdinand of Maldonado is the main Roman Catholic church building of Maldonado, Uruguay. Since 1966, it took the name of Cathedral for being the seat of the Roman Catholic Diocese of Maldonado-Punta del Este, founded by S.S. Paul VI on January 10, 1966.",
+      lat: -34.9088,
+      lng: -54.95905,
     },
     {
       id: "maldonado_8",
@@ -109850,6 +109995,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Iglesia_de_la_Candelaria_en_Punta_del_Este.jpg/960px-Iglesia_de_la_Candelaria_en_Punta_del_Este.jpg",
       description: "El nombre de Iglesia de la Candelaria, o cualquiera de sus variantes: Iglesia de Nuestra Señora de Candelaria, Iglesia de Nuestra Señora de la Candelaria, Iglesia de la Virgen de la Candelaria, Iglesia de las Candelas, Iglesia de la Virgen de las Candelas, o Iglesia de Nuestra…",
       descriptionEn: "The Church of Our Lady of Candelaria is a Roman Catholic parish church in Punta del Este, Uruguay.",
+      lat: -34.96889,
+      lng: -54.95028,
     },
     {
       id: "maldonado_9",
@@ -109866,6 +110013,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Arboretum_Lussich_%28172196377%29.jpeg/1920px-Arboretum_Lussich_%28172196377%29.jpeg",
       description: "El Arboretum Lussich es un arboreto de 192 ha de extensión, que se encuentra en el departamento de Maldonado en Uruguay.",
       descriptionEn: "The Lussich Arboretum is an arboretum of 192 hectares located in the Maldonado Department of Uruguay near Punta del Este and Punta Ballena.",
+      lat: -34.88333,
+      lng: -55.03556,
     },
     {
       id: "maldonado_10",
@@ -109883,6 +110032,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/90/Naked_couple_walking_along_the_beach_%28Chihuahua%2C_Uruguay%29.jpg",
       description: "La playa Chihuahua está situada en la bahía de Portezuelo, departamento de Maldonado, Uruguay. Es un lugar autorizado oficialmente desde 2012 por la Intendencia Municipal de Maldonado para la práctica del nudismo naturista y se fijaron sus límites en el mismo año, reconociendo…",
       descriptionEn: "Chihuahua is a resort (balneario) in the Maldonado Department of Uruguay.",
+      lat: -34.87778,
+      lng: -55.09167,
     },
     {
       id: "maldonado_11",
@@ -109897,8 +110048,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/La_mano_de_Punta_del_Este.JPG/960px-La_mano_de_Punta_del_Este.JPG",
-      description: "El Club Deportivo Maldonado es una institución social y deportiva de Uruguay, con sede en la ciudad de Maldonado. Fue fundado el 25 de agosto de 1928.",
+      description: "La mano es una escultura de cinco dedos emergiendo en arena, localizada en la parada 1 de la playa Brava en Punta del Este, Uruguay. Se lo refiere coloquialmente como Los dedos u Hombre emergiendo a la vida.",
       descriptionEn: "Maldonado is the capital city of Maldonado Department, in eastern Uruguay. According to the 2023 Census, it is the fourth most populated city in the country, with about 102 thousand inhabitants.",
+      lat: -34.95786,
+      lng: -54.93718,
+      sourceUrl: "https://es.wikipedia.org/wiki/La_Mano_de_Punta_del_Este",
     },
     {
       id: "maldonado_12",
@@ -109915,6 +110069,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766791789221-77a7cfc188de?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMFBlbGFkbyUyME1hbGRvbmFkbyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NTk3MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La línea 19 es una línea de transporte público del departamento de Maldonado, Uruguay.",
       descriptionEn: "Cerro Pelado is a fast-growing population centre, or neighborhood, in the Maldonado Department of southeastern Uruguay. It is one of the northern suburbs of Maldonado, along with Villa Delia and La Sonrisa.",
+      lat: -34.88139,
+      lng: -54.97694,
     },
     {
       id: "maldonado_13",
@@ -109931,6 +110087,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766792816587-eeefac490387?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMGRlbCUyMERpYXJpbyUyME1hbGRvbmFkbyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NjA0Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El municipio de Maldonado es uno de los ocho municipios del departamento de Maldonado, en Uruguay. Fue creado por la Ley N.º 18 653 del 15 de marzo de 2010.",
       descriptionEn: "The Maldonado Department, with an area of 4,793 km2 (1,851 sq mi) and 212,951 inhabitants (2023), is located to the southeast of Uruguay. Its capital is Maldonado.",
+      lat: -34.8727,
+      lng: -55.0213,
     },
     {
       id: "maldonado_14",
@@ -109947,6 +110105,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1589550552885-7ca9f2088974?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMEVsJTIwUGUlQzMlQjFhc2NvJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg2MTIxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Lavalleja es uno de los diecinueve departamentos que componen la República Oriental del Uruguay. Su capital y ciudad más poblada es Minas.",
       descriptionEn: "This is a list of lighthouses in Mexico. They are located along the Pacific, Gulf of Mexico, and Caribbean coastlines of the country. These are named landfall lights, or those with a range of over fifteen nautical miles.",
+      lat: -34.8507,
+      lng: -54.9528,
     },
     {
       id: "maldonado_15",
@@ -109963,6 +110123,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766791789221-77a7cfc188de?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYXBhdGFpYSUyME1hbGRvbmFkbyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NjE5N3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La línea 63 fue una línea de transporte del departamento de Maldonado, Uruguay. Unía Maldonado con la localidad de La Capuera.",
       descriptionEn: "Laetitia Marie Madeleine Susanne Valentine de Belzunce d'Arenberg, mostly known as Laetitia d'Arenberg, is a French-Uruguayan businesswoman, socialite and philanthropist.",
+      lat: -34.85167,
+      lng: -55.01968,
     },
     {
       id: "maldonado_16",
@@ -109979,6 +110141,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1692707863207-c3be405ac813?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaWVqbyUyME1vbGlubyUyMEhpc3QlQzMlQjNyaWNvJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg2MjczfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Molino Lavagna es un histórico molino ubicado en la ciudad de San Carlos, en el departamento de Maldonado, y forma parte del patrimonio cultural de la ciudad.",
       descriptionEn: "The Molino Lavagna is a historic mill located in the city of San Carlos, in the Maldonado department of Uruguay, and forms part of the city's cultural heritage.",
+      lat: -34.89629,
+      lng: -54.95281,
     },
     {
       id: "maldonado_17",
@@ -109994,7 +110158,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1607900936647-6314dca5910c?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXRlciVDMyVBRGElMjBkZSUyMExhJTIwYWd1YWRhJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg2MzQ4fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El certamen de Carnaval uruguayo que comenzó en 1905 y es realizado cada año, donde participan varios conjuntos de 5 categorías distintas: Parodistas, Humoristas, Revistas, Murgas y Comparsa de Negros y Lubolos.",
-      descriptionEn: "Batería de La aguada is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.92014,
+      lng: -54.97208,
     },
     {
       id: "maldonado_18",
@@ -110010,7 +110175,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1750024853166-a11833e5fdd8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXRlciVDMyVBRGElMjBkZSUyMExhJTIwQ29uY2VwY2klQzMlQjNuJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg2NDI0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Fuerte de San Miguel fue un fuerte militar español situado en la Cala de los Amigos, actualmente Yuquot, en la Columbia Británica en Canadá para la defensa de Santa Cruz de Nuca, siendo el primer establecimiento europeo en la Columbia Británica.",
-      descriptionEn: "Batería de La Concepción is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.95001,
+      lng: -54.9726,
     },
     {
       id: "maldonado_19",
@@ -110026,7 +110192,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1750024853166-a11833e5fdd8?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCYXRlciVDMyVBRGElMjBkZSUyMFNhbnRhJTIwQW5hJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg2NTAwfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La guerra hispano-portuguesa de 1776-1777 tuvo lugar en el límite entre ambos imperios en la Banda Oriental en Sudamérica. Fue la continuación del conflicto ocurrido entre 1761 y 1763 durante la guerra de los Siete Años. La guerra concluyó con el tratado de San Ildefonso.",
-      descriptionEn: "Batería de Santa Ana is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.95189,
+      lng: -54.9757,
     },
     {
       id: "maldonado_20",
@@ -110042,7 +110209,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1691237264837-c77390e52de5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUb3JyZSUyMGRlbCUyMFZpZyVDMyVBRGElMjBNYWxkb25hZG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODY1NzV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Torre del Vigía es una histórica construcción en la ciudad de Maldonado, ubicada en la plaza homónima.",
-      descriptionEn: "Torre del Vigía is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Torre del Vigía is a tower located in central Maldonado, Uruguay. It is located in the Plaza del Vigía. The building was constructed during the Uruguayan colonial period.",
+      lat: -34.91056,
+      lng: -54.96139,
     },
     {
       id: "maldonado_21",
@@ -110059,6 +110228,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1693610684507-f13db36d7754?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXNlbyUyMExhJTIwQWd1YWRhJTIwTWFsZG9uYWRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg2NjUxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La Asociación Hebraica y Macabi es un club social y deportivo con sede en Montevideo, Uruguay. Fue fundado por miembros de la comunidad judía uruguaya como resultado de la fusión, concretada en marzo de 1963, entre el Club Macabi Hacoaj, fundado en 1939, y la Asociación Hebraica…",
       descriptionEn: "Tourism in Uruguay is an important part of the nation's economy. Uruguay's tourist destinations include: Punta del Este, Piriápolis, Montevideo, Colonia del Sacramento, Salto, Lavalleja, Rocha, Artigas, Rivera, and others.",
+      lat: -34.91862,
+      lng: -54.9658,
     },
     {
       id: "maldonado_22",
@@ -110089,7 +110260,6 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 180,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Chile._Atividades_Subversivas._Rela%C3%A7%C3%A3o_de_Elementos_Extremistas%2C_Arquivo_Nacional_%28BR_DFANBSB_IE.0.0.6_%282-8%29%29.pdf/page1-1280px-Chile._Atividades_Subversivas._Rela%C3%A7%C3%A3o_de_Elementos_Extremistas%2C_Arquivo_Nacional_%28BR_DFANBSB_IE.0.0.6_%282-8%29%29.pdf.jpg",
-      description: "Parque Nacional Santa Teresa es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Arequipa is a city in southern Peru and the capital of Arequipa Province and the Department of Arequipa. With a projected population of 1,195,700 in 2025, it is the country's second most populous city after Lima.",
     },
     {
@@ -110107,6 +110277,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/91/20003_Punta_Ballena%2C_Maldonado_Department%2C_Uruguay_-_panoramio_%288%29.jpg",
       description: "Las ciudades uruguayas de Maldonado y Punta del Este conforman una conurbación al sur del departamento de Maldonado. Sumadas a otras localidades como San Carlos o Punta Ballena, suponen un área donde residen casi 170 000 habitantes.",
       descriptionEn: "Punta Ballena is a small peninsula (punta) and a resort (balneario), as well as an important tourist attraction on the coast of Río de la Plata in the Maldonado Department of southeastern Uruguay.",
+      lat: -34.88889,
+      lng: -55.04056,
     },
   ],
   salto: [
@@ -110126,6 +110298,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Museo_del_Hombre_y_la_Tecnolog%C3%ADa_%28Salto%2C_Uruguay%29.JPG/960px-Museo_del_Hombre_y_la_Tecnolog%C3%ADa_%28Salto%2C_Uruguay%29.JPG",
       description: "El Museo del Hombre y la Tecnología - Néstor Minutti es un museo de la ciudad de Salto, capital del departamento homónimo, dedicado a documentar la historia y el desarrollo de la tecnología en Uruguay.",
       descriptionEn: "Salto is a city in and the capital of the Salto Department in northwestern Uruguay. As of the 2023 census it had a population of 114,084 and is the second most populated city in Uruguay, after Montevideo.",
+      lat: -31.38596,
+      lng: -57.96911,
     },
     {
       id: "salto_1",
@@ -110141,8 +110315,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.concordia.gob.ar/turismo/atractivos/museos/museo-arruabarrena",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Museo_Regional_Palacio_Arruabarrena_de_Concordia.jpg/960px-Museo_Regional_Palacio_Arruabarrena_de_Concordia.jpg",
-      description: "Concordia, formalmente llamada San Antonio de Padua de la Concordia, es una ciudad y municipio cuyo ejido está distribuido entre los distritos Suburbios, Yuquerí y Ejido del departamento Concordia en la provincia de Entre Ríos, Argentina.",
-      descriptionEn: "Museo Regional Municipal Palacio Arruabarrena is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo municipal instalado en el Palacio Arruabarrena, una casona histórica de Salto. Reúne colecciones de historia regional, arqueología y arte que documentan la vida del litoral uruguayo.",
+      descriptionEn: "Municipal museum housed in the historic Arruabarrena Palace in Salto. Its collections cover regional history, archaeology, and art, documenting life in Uruguay’s littoral.",
     },
     {
       id: "salto_2",
@@ -110191,7 +110365,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Museo_de_Antropolog%C3%ADa_y_Ciencias_Naturales._Concordia%2C_Entre_R%C3%ADos_02.jpg/960px-Museo_de_Antropolog%C3%ADa_y_Ciencias_Naturales._Concordia%2C_Entre_R%C3%ADos_02.jpg",
       description: "Concordia, formalmente llamada San Antonio de Padua de la Concordia, es una ciudad y municipio cuyo ejido está distribuido entre los distritos Suburbios, Yuquerí y Ejido del departamento Concordia en la provincia de Entre Ríos, Argentina.",
-      descriptionEn: "Museo de Antropología y Ciencias Naturales de Concordia is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Museum in the Argentine city of Concordia, across from Salto, dedicated to anthropology and natural sciences. It displays collections on Indigenous cultures, fossils, and regional fauna.",
     },
     {
       id: "salto_5",
@@ -110207,7 +110381,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1647436339799-f9e61e11720d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMEhpc3QlQzMlQjNyaWNvJTIwTWlsaXRhciUyMENvcm9uZWwlMjBMZW9wb2xkbyUyME9ybnN0ZWluJTIwU2FsdG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODY5NTR8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Manuel José Joaquín del Corazón de Jesús Belgrano, más conocido como Manuel Belgrano, fue un abogado, economista, periodista, político, militar y diplomático argentino de destacada actuación en la causa independentista y americana de Argentina, Bolivia y Paraguay durante las dos…",
-      descriptionEn: "Museo Histórico Militar Coronel Leopoldo Ornstein is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Military museum in Salto that preserves documents, uniforms, and objects linked to Uruguayan military history and the region’s memory.",
     },
     {
       id: "salto_6",
@@ -110225,6 +110399,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/TEATRO_LARRA%C3%91AGA_REFORMADO.JPG/960px-TEATRO_LARRA%C3%91AGA_REFORMADO.JPG",
       description: "Larrañaga hace referencia a varios artículos en Wikipedia:",
       descriptionEn: "Montevideo, is the capital and largest city of Uruguay. As of the 2023 census, the city proper has a population of 1,287,452, making up about 36.8% of the country's total population, in an area of 201 square kilometers (78 sq mi).",
+      lat: -31.38682,
+      lng: -57.96825,
     },
     {
       id: "salto_7",
@@ -110257,6 +110433,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/65/Catedral_de_Salto%2C_Uruguay.jpg",
       description: "La parroquia Catedral basílica de San Juan Bautista se levanta en la ciudad de Salto (Uruguay).",
       descriptionEn: "The Cathedral Basilica of Saint John the Baptist is the main Roman Catholic church building of Salto. It is the see of the Roman Catholic Diocese of Salto since 1939.",
+      lat: -31.38877,
+      lng: -57.95926,
     },
     {
       id: "salto_9",
@@ -110271,8 +110449,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Zool%C3%B3gico_Salto_Entrada_1.JPG/960px-Zool%C3%B3gico_Salto_Entrada_1.JPG",
-      description: "Parque Harriague es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Parque Harriague es un parque ubicado en la ciudad de Salto, Uruguay.",
       descriptionEn: "Salto is a city in and the capital of the Salto Department in northwestern Uruguay. As of the 2023 census it had a population of 114,084 and is the second most populated city in Uruguay, after Montevideo.",
+      lat: -31.3979,
+      lng: -57.96295,
+      sourceUrl: "https://es.wikipedia.org/wiki/Parque_Harriague",
     },
     {
       id: "salto_10",
@@ -110287,8 +110468,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Plaza_de_Salto.JPG/960px-Plaza_de_Salto.JPG",
-      description: "La plaza Treinta y Tres en la ciudad de Salto, es la plaza más antigua. Su nacimiento es casi coincidente con el de la ciudad, se la conoció como plaza Vieja.",
+      description: "Plaza pública de Salto que lleva el nombre de los 33 Orientales. Cuenta con espacios verdes y caminos, y funciona como punto de referencia del barrio.",
       descriptionEn: "José Gervasio Artigas Arnal was a soldier and statesman who is regarded as a national hero in Uruguay and the Father of the Nation.",
+      lat: -31.38765,
+      lng: -57.97023,
     },
     {
       id: "salto_11",
@@ -110305,6 +110488,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Plaza_Artigas_en_Salto.JPG/960px-Plaza_Artigas_en_Salto.JPG",
       description: "La plaza Artigas es una plaza de la ciudad de Salto, Uruguay, se encuentra en la manzana comprendida por las calles Uruguay, Artigas, 25 de agosto y 18 de julio.",
       descriptionEn: "Salto is a city in and the capital of the Salto Department in northwestern Uruguay. As of the 2023 census it had a population of 114,084 and is the second most populated city in Uruguay, after Montevideo.",
+      lat: -31.38878,
+      lng: -57.96069,
     },
     {
       id: "salto_12",
@@ -110321,6 +110506,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Plaza_Treinta_y_Tres_1-2.jpg/960px-Plaza_Treinta_y_Tres_1-2.jpg",
       description: "La \"Virgen del Carmen\" es la denominación común que suele recibir Santa María del Monte Carmelo, una de las diversas advocaciones de la Virgen María. Su denominación procede de su veneración en el monte Carmelo, en Tierra Santa, cerca de Haifa.",
       descriptionEn: "The Church of Our Lady of the Mount Carmel, popularly known as Iglesia del Cordón, is a Roman Catholic parish church in Montevideo, Uruguay.",
+      lat: -31.38771,
+      lng: -57.96923,
     },
     {
       id: "salto_13",
@@ -110335,8 +110522,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Pitanga1.jpg",
-      description: "Concordia, formalmente llamada San Antonio de Padua de la Concordia, es una ciudad y municipio cuyo ejido está distribuido entre los distritos Suburbios, Yuquerí y Ejido del departamento Concordia en la provincia de Entre Ríos, Argentina.",
-      descriptionEn: "Jardín Botánico Aníbal Oscar Carnevalini is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Jardín botánico de Salto que reúne especies vegetales nativas y ornamentales. Sus senderos permiten conocer la flora regional en un espacio de conservación y educación.",
+      descriptionEn: "Botanical garden in Salto that brings together native and ornamental plant species. Its paths allow visitors to learn about regional flora in a space for conservation and education.",
     },
     {
       id: "salto_14",
@@ -110370,6 +110557,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1647436339799-f9e61e11720d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUZXJtYXMlMjBkZWwlMjBEYXltJUMzJUExbiUyMFNhbHRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg3MTA1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Termas del Daymán es un centro termal ubicado a 10 kilómetros de la ciudad de Salto, en el departamento de Salto, sobre las márgenes del río Daymán.",
       descriptionEn: "Termas del Arapey is a resort village in the Salto Department of northwestern Uruguay.",
+      lat: -31.45758,
+      lng: -57.90958,
     },
     {
       id: "salto_16",
@@ -110384,8 +110573,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1766791789962-b783b221b4e4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxTYWxhZGVybyUyME5hcmFuamFsJTIwZGUlMjBQZXJlZGElMjBTYWx0byUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NzE4M3ww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "San Antonio del Salto Chico fue un establecimiento militar y comercial del Imperio español que es el antecedente fundacional de las ciudades de Concordia y Salto (Uruguay), ambas ubicadas una frente a la otra en las márgenes del río Uruguay.",
-      descriptionEn: "Saladero Naranjal de Pereda is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Sitio histórico con vestigios de un saladero del siglo XIX, una instalación donde se procesaba carne vacuna para su conservación y exportación. Conserva restos de estructuras en la zona.",
+      descriptionEn: "Historic site with remains of a 19th-century meat-salting plant, where beef was processed for preservation and export. It preserves structural remnants in the area.",
     },
     {
       id: "salto_17",
@@ -110433,7 +110622,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Melchor_Mendez_Margari%C3%B1os_-_El_Exodo_del_pueblo_oriental.jpg",
       description: "Se denomina Éxodo Oriental o Éxodo del Pueblo Oriental a la emigración colectiva de habitantes de la Banda Oriental que siguieron a José Artigas hasta el Salto Chico del río Uruguay, —en donde hoy se halla la ciudad argentina de Concordia— después del levantamiento del Sitio de…",
-      descriptionEn: "Ayuí (Cruce Éxodo) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Historic site in Ayuí, by the Uruguay River, associated with the crossing of the Oriental Exodus led by José Artigas in 1811. It is a place linked to the memory of Uruguayan independence.",
+      lat: -31.35973,
+      lng: -57.98626,
     },
     {
       id: "salto_20",
@@ -110448,8 +110639,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1647436339799-f9e61e11720d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXNlbyUyMGRlJTIwbGElMjBMYWd1bmElMjBTYWx0byUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4NzQ4NXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Salto La Llovizna es una cascada ubicada en el río Caroní, cerca de su confluencia con el río Orinoco. Está situada en el Parque Nacional La Llovizna de Ciudad Guayana en el Municipio Caroní en el Estado Bolívar en Venezuela.",
+      description: "Paseo urbano alrededor de una laguna en Salto, con senderos y áreas verdes. Es un espacio para caminar y observar aves en contacto con la naturaleza.",
       descriptionEn: "Segovia is a city in the autonomous community of Castile and León, Spain. It is the capital and most populated municipality of the Province of Segovia.",
+      lat: -31.37535,
+      lng: -57.9792,
     },
     {
       id: "salto_21",
@@ -110464,8 +110657,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1647436339799-f9e61e11720d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdWVsbGUlMjBOZWdybyUyMFNhbHRvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg3NTYxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "La Estación Salto Noroeste fue una estación de ferrocarriles de la ciudad de Salto propiedad de la The North Western Uruguay Railway Co.",
+      description: "Antiguo muelle de Salto sobre el río Uruguay, vinculado a la actividad portuaria de la ciudad. Hoy se conserva como espacio histórico y mirador hacia el río.",
       descriptionEn: "Portuguese and Spanish, although closely related Romance languages, differ in many aspects of their phonology, grammar, and lexicon.",
+      lat: -31.38417,
+      lng: -57.9744,
     },
     {
       id: "salto_22",
@@ -110499,6 +110694,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Termas_de_Daym%C3%A1n.jpg",
       description: "Termas del Daymán es un centro termal ubicado a 10 kilómetros de la ciudad de Salto, en el departamento de Salto, sobre las márgenes del río Daymán.",
       descriptionEn: "Termas del Arapey is a resort village in the Salto Department of northwestern Uruguay.",
+      lat: -31.45758,
+      lng: -57.90958,
     },
     {
       id: "salto_24",
@@ -110515,6 +110712,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Represa_Salto_Grande_-_satellite_image.JPG/1920px-Represa_Salto_Grande_-_satellite_image.JPG",
       description: "La Central Hidroeléctrica Binacional Salto Grande es una represa y central hidroeléctrica ubicada en el curso medio del río Uruguay, unos 15 km al norte de las ciudades uruguaya y argentina de Salto y Concordia, respectivamente.",
       descriptionEn: "The Salto Grande Dam is a large hydroelectric dam on the Uruguay River, located between Concordia, Argentina, and Salto, Uruguay; thus shared between the two countries.",
+      lat: -31.27487,
+      lng: -57.93859,
     },
   ],
   piriapolis: [
@@ -110532,7 +110731,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Museo_Ferroviario_de_Piri%C3%A1polis_01.jpg/960px-Museo_Ferroviario_de_Piri%C3%A1polis_01.jpg",
       description: "El Museo Ferroviario de Piriápolis está ubicado próximo a la Rambla de los Argentinos de esta ciudad, sobre la calle Armenia casi Héctor Barrios. Es fácil llegar al museo, pues se encuentra frente al famoso Argentino Hotel.",
-      descriptionEn: "Museo Ferroviario is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Piriápolis Railway Museum displays material about the history of the railway in the area. It is visited to learn how the train shaped the development of the town and the resort.",
+      lat: -34.86399,
+      lng: -55.27725,
     },
     {
       id: "piriapolis_1",
@@ -110549,6 +110750,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Castillo_Piria.jpg/960px-Castillo_Piria.jpg",
       description: "El Castillo de Piria es un edificio monumental uruguayo, que fue construido con el objeto de servir de residencia particular a Fernando Juan Santiago Francisco María Piria de Grossi, más conocido como Francisco Piria, un empresario famoso por crear el balneario denominado…",
       descriptionEn: "Julio Herrera y Reissig was a Uruguayan poet, playwright and essayist, who began his career during the late Romanticist period and later became an early proponent of Modernism.",
+      lat: -34.82869,
+      lng: -55.25167,
     },
     {
       id: "piriapolis_2",
@@ -110563,7 +110766,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Reserva_de_Flora_y_Fauna_del_Pan_de_Az%C3%BAcar.jpg",
-      description: "Maldonado es uno de los diecinueve departamentos que componen la República Oriental del Uruguay. Ubicado en el sureste del país, limita al norte con el departamento de Lavalleja, al este con Rocha, al oeste con Canelones, y al sur con las costas del Río de la Plata y el océano…",
+      description: "La Reserva de Fauna y Flora Pan de Azúcar es un área natural protegida en el cerro Pan de Azúcar, cerca de Piriápolis. Tiene senderos, vegetación nativa y fauna autóctona, con vistas del paisaje serrano y costero.",
       descriptionEn: "Cerro Pan de Azúcar is among the top 10 highest points of Uruguay, with an altitude of 423 metres (1,387.8 ft).",
     },
     {
@@ -110581,6 +110784,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/46/Cerro_San_Antonio.jpg",
       description: "El Cerro San Antonio, también llamado Cerro del Inglés, es un cerro que se encuentra en Piriápolis. Tiene una altura de 130 m s. n. m..",
       descriptionEn: "Cerro San Antonio is a hill in Maldonado Department, Uruguay.",
+      lat: -34.87833,
+      lng: -55.27389,
     },
     {
       id: "piriapolis_4",
@@ -110597,6 +110802,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1574967749251-936d3470aab5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMGRlbCUyMFRvcm8lMjBQaXJpJUMzJUExcG9saXMlMjBVcnVndWF5fGVufDF8MHx8fDE3ODI3ODc3OTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Cerro del Toro es uno de los cinco cerros de Piriápolis, Uruguay. En su ladera se encuentra la fuente del Toro.",
       descriptionEn: "Piriápolis is a city in the Maldonado Department of Uruguay. It is an important summer resort in the country, predating the larger and better known resort town of Punta del Este.",
+      lat: -34.7303,
+      lng: -55.3444,
     },
     {
       id: "piriapolis_5",
@@ -110613,6 +110820,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Cerro_Pan_de_Az%C3%BAcar_01.jpg",
       description: "El cerro Pan de Azúcar es una elevación ubicada en el departamento de Maldonado, Uruguay. Con sus 389 m s. n. m., se ubica entre los cerros más altos del país.",
       descriptionEn: "Cerro Pan de Azúcar is among the top 10 highest points of Uruguay, with an altitude of 423 metres (1,387.8 ft).",
+      lat: -34.80917,
+      lng: -55.25861,
     },
     {
       id: "piriapolis_6",
@@ -110627,8 +110836,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1574967749251-936d3470aab5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyME5lZ3JvJTIwUGlyaSVDMyVBMXBvbGlzJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyNzg3ODY1fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Piriápolis es una ciudad balnearia uruguaya del departamento de Maldonado, sede del municipio homónimo, ubicada 98 kilómetros al este de la capital y ciudad más poblada del Uruguay, Montevideo.",
+      description: "El Cerro Negro es una elevación natural de la zona de Piriápolis, cubierta de vegetación. Se visita por sus senderos y por las vistas del entorno serrano y costero.",
       descriptionEn: "The 2024 Copa Uruguay, was the third edition of the Copa Uruguay, the country's national football cup tournament. The tournament began on 10 August 2024 with 58 teams participating and ended on 6 December 2024.",
+      lat: -34.80111,
+      lng: -55.26778,
     },
     {
       id: "piriapolis_7",
@@ -110644,7 +110855,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1574967749251-936d3470aab5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDZXJybyUyMGRlJTIwbGFzJTIwRXNwaW5hcyUyMFBpcmklQzMlQTFwb2xpcyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4Mjc4Nzk0MHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Cristo Redentor puede referirse a los siguientes ítems:",
-      descriptionEn: "Cerro de las Espinas is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Cerro de las Espinas is a natural hill near Piriápolis, with vegetation and trails. It is visited for panoramic views of the town, the coast and neighboring hills.",
+      lat: -34.56639,
+      lng: -54.98833,
+      dayTrip: true,
     },
     {
       id: "piriapolis_8",
@@ -110659,7 +110873,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       description: "Humberto Pittamiglio fue un arquitecto, empresario y político uruguayo.",
-      descriptionEn: "Castillo Pittamiglio is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Castillo Pittamiglio, in Las Flores near Piriápolis, is a building by architect Humberto Pittamiglio. It is visited for its unusual architecture, symbols and history.",
+      lat: -34.8028,
+      lng: -55.32168,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Castillo_Pitamiglio_Las_Flores_Uruguay.jpg/1280px-Castillo_Pitamiglio_Las_Flores_Uruguay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "piriapolis_9",
@@ -110673,8 +110890,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Museo de Arte de Piriápolis - Les Mouettes es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo de Arte de Piriápolis - Les Mouettes is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de Arte de Piriápolis - Les Mouettes es un espacio cultural con exposiciones de arte en un edificio histórico. Se visita por sus muestras y por el valor patrimonial de la antigua villa.",
+      descriptionEn: "The Piriápolis Art Museum - Les Mouettes is a cultural space with art exhibitions in a historic building. It is visited for its shows and for the heritage value of the former villa.",
+      lat: -34.87274,
+      lng: -55.27536,
     },
     {
       id: "piriapolis_10",
@@ -110689,8 +110908,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Memorias_MinGob_Provincia_de_Buenos_Aires_1936-1937_%28Tomo_4%29.pdf/page1-960px-Memorias_MinGob_Provincia_de_Buenos_Aires_1936-1937_%28Tomo_4%29.pdf.jpg",
-      description: "El Castillo de Piria es un edificio monumental uruguayo, que fue construido con el objeto de servir de residencia particular a Fernando Juan Santiago Francisco María Piria de Grossi, más conocido como Francisco Piria, un empresario famoso por crear el balneario denominado…",
+      description: "El Museo de Arte de Piriápolis es un espacio dedicado a las artes visuales, con exposiciones y actividades culturales. Funciona en un edificio de valor patrimonial y se visita por su colección y su historia local.",
       descriptionEn: "Atilio Malinverno was an Argentine painter. He was a post-Impressionist, a part of a movement started in the first year of the 20th century.",
+      lat: -34.87282,
+      lng: -55.27529,
     },
     {
       id: "piriapolis_11",
@@ -110705,8 +110926,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1574967749251-936d3470aab5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXBpbGxhJTIwU2FuJTIwQW50b25pbyUyMFBpcmklQzMlQTFwb2xpcyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4MjgyNDUzMnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Piriápolis es una ciudad balnearia uruguaya del departamento de Maldonado, sede del municipio homónimo, ubicada 98 kilómetros al este de la capital y ciudad más poblada del Uruguay, Montevideo.",
+      description: "La Capilla San Antonio está en el Cerro San Antonio, en Piriápolis, junto a la estatua dedicada al santo. Es un pequeño templo católico que forma parte del paseo panorámico del cerro.",
       descriptionEn: "This is a list of any populated place in Uruguay by department, sortable by population or alphabetically. The population number may be followed by a letter indicating the official status of the place as follows:",
+      lat: -34.87796,
+      lng: -55.27412,
     },
     {
       id: "piriapolis_12",
@@ -110737,8 +110960,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1574967749251-936d3470aab5?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWaXN0YSUyMHBhbm9yYW1pY2ElMjBkZSUyMFBsYXlhJTIwZGUlMjBQaXJpJUMzJUExcG9saXMlMjBQaXJpJUMzJUExcG9saXMlMjBVcnVndWF5fGVufDF8MHx8fDE3ODI4MjQ2ODN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Piriápolis es una ciudad balnearia uruguaya del departamento de Maldonado, sede del municipio homónimo, ubicada 98 kilómetros al este de la capital y ciudad más poblada del Uruguay, Montevideo.",
+      description: "La vista panorámica de la Playa de Piriápolis se aprecia desde puntos elevados como el Cerro San Antonio y la rambla. Permite observar la bahía, la ciudad y la línea de costa.",
       descriptionEn: "The following is a timeline for Google Street View, a technology implemented in Google Maps and Google Earth that provides ground-level interactive panoramas of cities.",
+      lat: -34.87222,
+      lng: -55.27694,
     },
     {
       id: "piriapolis_14",
@@ -110755,6 +110980,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/PiriapolisUru-1.jpg/1920px-PiriapolisUru-1.jpg",
       description: "El Cerro San Antonio, también llamado Cerro del Inglés, es un cerro que se encuentra en Piriápolis. Tiene una altura de 130 m s. n. m..",
       descriptionEn: "Cerro San Antonio is a hill in Maldonado Department, Uruguay.",
+      lat: -34.87833,
+      lng: -55.27389,
     },
     {
       id: "piriapolis_15",
@@ -110787,8 +111014,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Anglo_puerto.jpg/1920px-Anglo_puerto.jpg",
-      description: "Fray Bentos es una ciudad que se encuentra en Uruguay y es capital del departamento de Río Negro. Fue fundada oficialmente el 16 de abril de 1859, aunque su origen es anterior. Inicialmente se llamó Villa Independencia y en 1900 cambió su nombre a Fray Bentos.",
-      descriptionEn: "Paisaje Cultural Industrial Fray Bentos is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Paisaje Cultural Industrial de Fray Bentos es un sitio declarado Patrimonio de la Humanidad por la UNESCO. Conserva el antiguo complejo Liebig, dedicado a la producción de extracto de carne, que marcó la industrialización de la región.",
+      descriptionEn: "The Fray Bentos Industrial Landscape is a UNESCO World Heritage Site. It preserves the old Liebig complex, dedicated to meat extract production, which shaped the region's industrialization.",
     },
     {
       id: "fraybentos_1",
@@ -110803,7 +111030,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1770629794457-e1989bbaad56?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwbGElMjBSZXZvbHVjaSVDMyVCM24lMjBJbmR1c3RyaWFsJTIwRnJheSUyMEJlbnRvcyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4MjgyNDgzNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El Frigorífico Anglo del país de nacional Sociedad Anónima fue una de las principales agroindustrias del Uruguay durante el siglo XX y una de las principales fábricas ya que contaba con las procesadoras de productos cárnicos más importantes de América del Sur.",
+      description: "El Museo de la Revolución Industrial funciona en el antiguo complejo Liebig de Fray Bentos. Exhibe maquinaria, documentos y espacios de la producción de extracto de carne y de la vida obrera del complejo.",
       descriptionEn: "Liebig's Extract of Meat Company, established in the United Kingdom, was the producer of LEMCO brand Liebig's Extract of Meat and the originator of Oxo meat extracts and Oxo beef stock cubes.",
     },
     {
@@ -110819,7 +111046,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/Museo_de_la_Revoluci%C3%B3n_Industrial_-_Ex_Frigor%C3%ADfico_ANGLO.jpg",
-      description: "El Frigorífico Anglo del país de nacional Sociedad Anónima fue una de las principales agroindustrias del Uruguay durante el siglo XX y una de las principales fábricas ya que contaba con las procesadoras de productos cárnicos más importantes de América del Sur.",
+      description: "El Museo de la Revolución Industrial funciona en el antiguo complejo Liebig de Fray Bentos. Exhibe maquinaria, documentos y espacios de la producción de extracto de carne y de la vida obrera del complejo.",
       descriptionEn: "Liebig's Extract of Meat Company, established in the United Kingdom, was the producer of LEMCO brand Liebig's Extract of Meat and the originator of Oxo meat extracts and Oxo beef stock cubes.",
     },
     {
@@ -110837,6 +111064,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f3/MUSEO_SOLARI_ENTRADA.jpg",
       description: "El Museo Luis Alberto Solari es un museo de Bellas Artes ubicado en la ciudad de Fray Bentos, capital del departamento de Río Negro, Uruguay.",
       descriptionEn: "Luis Alberto Solari (1918–1993) was a Uruguayan painter and engraver.",
+      lat: -33.11613,
+      lng: -58.31367,
     },
     {
       id: "fraybentos_4",
@@ -110851,7 +111080,6 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/The_New_Brazil%2C_its_resources_and_attractions%2C_historical_descriptive_and_industrial_%28IA_cu31924020666792%29.pdf/page1-960px-The_New_Brazil%2C_its_resources_and_attractions%2C_historical_descriptive_and_industrial_%28IA_cu31924020666792%29.pdf.jpg",
-      description: "Visitors Centre es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Baxters Food Group Limited,, is a food processing company, based in Fochabers, Scotland. It produces foods such as canned soups, canned meat products, sour pickles, sauces, vinegars, antipasto, chutneys, fruit preserves and salad and meat condiments.",
     },
     {
@@ -110868,7 +111096,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Centro_Hist%C3%B3rico_de_Jo%C3%A3o_Pessoa.jpg/3840px-Centro_Hist%C3%B3rico_de_Jo%C3%A3o_Pessoa.jpg",
       description: "João Pessoa es una ciudad brasileña, capital del estado de Paraíba. Es conocida como \"la ciudad donde el sol nace primero\", debido a que la ciudad se encuentra ubicada en el punto más oriental de América, la Punta de Seixas.",
-      descriptionEn: "Kiosco de la Reina is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -33.11656,
+      lng: -58.31306,
     },
     {
       id: "fraybentos_6",
@@ -111015,6 +111244,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Cruz_ubicada_en_la_llamada_plaza_Ansina_en_la_ciudad_de_Rocha_-_Uruguay.JPG/960px-Cruz_ubicada_en_la_llamada_plaza_Ansina_en_la_ciudad_de_Rocha_-_Uruguay.JPG",
       description: "Richelieu puede referirse a personas, lugares y otras entidades en países francófonos:",
       descriptionEn: "The following is a timeline for Google Street View, a technology implemented in Google Maps and Google Earth that provides ground-level interactive panoramas of cities.",
+      lat: -34.48421,
+      lng: -54.33032,
     },
     {
       id: "rocha_1",
@@ -111031,6 +111262,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Teatro_25_de_Mayo._Rocha._Uruguay.jpg/960px-Teatro_25_de_Mayo._Rocha._Uruguay.jpg",
       description: "El Teatro 25 de Mayo es un complejo cultural uruguayo, ubicado en la calle 25 de mayo, Rocha, departamento homónimo.",
       descriptionEn: "There are many landmarks in Buenos Aires, Argentina, some of which are of considerable historical or artistic interest.",
+      lat: -34.48152,
+      lng: -54.33602,
     },
     {
       id: "rocha_2",
@@ -111045,8 +111278,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1667428457577-529364cd3178?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxMYWd1bmElMjBkZSUyMFJvY2hhJTIwUm9jaGElMjBVcnVndWF5fGVufDF8MHx8fDE3ODI4MjQ4MzZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Laguna de Rocha es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Laguna de Rocha is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La laguna de Rocha es un extenso espejo de agua de escasa profundidad separado del mar por una barrera arenosa, ubicado en el departamento de Rocha, Uruguay.",
+      descriptionEn: "Laguna de Rocha is a body of water located in Rocha Department, Uruguay.",
+      lat: -34.62318,
+      lng: -54.28946,
+      sourceUrl: "https://es.wikipedia.org/wiki/Laguna_de_Rocha_(Uruguay)",
     },
     {
       id: "rocha_3",
@@ -111077,8 +111313,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/La_Pedrera_2022_06.jpg/1920px-La_Pedrera_2022_06.jpg",
-      description: "Capilla Virgen de Lourdes es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Capilla católica dedicada a la Virgen de Lourdes en Rocha, Uruguay. Es un pequeño templo de devoción mariana que se visita por su valor religioso y su presencia en la vida barrial.",
       descriptionEn: "This article contains a list of well-known Mexicans in science, publication, arts, politics and sports.",
+      lat: -34.5916,
+      lng: -54.12478,
     },
     {
       id: "rocha_5",
@@ -111093,8 +111331,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Esopete_RediVivo%2C_ou%2C_vida_%26_fabulas_do_insigne%2C_prudente%2C_%26_gracioso_fabulador%2C_Esopo_Frigio%2C_de_Grecia._Recolhidas%2C_acrecentadas%2C_traduzidas_%26_%28IA_EsopeteRediVivoOuVidaFabulas1672%29.pdf/page1-500px-thumbnail.pdf.jpg",
-      description: "El Escudo de Armas del Estado o simplemente Escudo Nacional del Uruguay es uno de los símbolos nacionales del país. Fue aprobado por las leyes del 19 de marzo de 1829 y del 12 de julio de 1906 y el decreto del 26 de octubre de 1908.",
+      description: "Cerro Olivo es una elevación natural en el departamento de Rocha, Uruguay. Se visita por su entorno rural y para caminar por el paisaje de sierras y campos.",
       descriptionEn: "In the 2011–12 football season, the top league, Uruguayan Primera División, was won by Nacional. Progreso won the Segunda División and won promotion along with Central Español and Juventud.",
+      lat: -34.34861,
+      lng: -54.49222,
     },
     {
       id: "rocha_6",
@@ -111109,8 +111349,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Hacia_la_cumbre_.._%28IA_hacialacumbre00stef%29.pdf/page1-500px-Hacia_la_cumbre_.._%28IA_hacialacumbre00stef%29.pdf.jpg",
-      description: "Cerro de las Figuritas es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Cerro de las Figuritas is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Cerro de las Figuritas es una elevación natural en el departamento de Rocha, Uruguay. Se visita por su entorno natural y por las vistas del paisaje desde la zona alta.",
+      descriptionEn: "Cerro de las Figuritas is a natural hill in the department of Rocha, Uruguay. It is visited for its natural surroundings and for views of the landscape from the higher area.",
+      lat: -34.34186,
+      lng: -54.31392,
     },
     {
       id: "rocha_7",
@@ -111125,8 +111367,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/La_Patagonia_-_IA_lapatagoniaestud00vicuuoft.djvu/page1-1280px-La_Patagonia_-_IA_lapatagoniaestud00vicuuoft.djvu.jpg",
-      description: "Almeida es un municipio situado en el extremo suroriente de la Provincia del Oriente, en el Departamento Colombiano de Boyacá.",
+      description: "Cerro del Infierno es una elevación natural en el departamento de Rocha, Uruguay. Se visita por su entorno natural y para recorrer caminos rurales con vistas del paisaje.",
       descriptionEn: "In the archipelago and island of Puerto Rico, there are 78 municipalities serving as second-level administrative divisions, and 902 barrios proper, consisting of 828 barrios and 74 barrios-pueblos, serving as third-level divisions.",
+      lat: -34.32472,
+      lng: -54.27056,
     },
     {
       id: "rocha_8",
@@ -111141,8 +111385,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blanco_y_negro_%28IA_blancoynegro6096unse%29.pdf/page1-960px-Blanco_y_negro_%28IA_blancoynegro6096unse%29.pdf.jpg",
-      description: "Rocha Fútbol Club es un club de fútbol uruguayo de la ciudad de Rocha, en el departamento homónimo. Fue fundado en 1999 y es recordado por ser el primer club del interior en obtener un campeonato en Primera División, al lograr el Torneo Apertura 2005-06.",
+      description: "Cerro Negro es una elevación natural en el departamento de Rocha, Uruguay. Se visita por su entorno rural y para caminatas de observación del paisaje.",
       descriptionEn: "The Fifty Legislature of the Chamber of Representatives of Uruguay is the current meeting of the lower house of the Uruguayan General Assembly.",
+      lat: -34.28826,
+      lng: -54.71779,
+      dayTrip: true,
     },
     {
       id: "rocha_9",
@@ -111159,6 +111406,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Faro_Cabo_Santa_Maria_-_Vista_diurna.JPG/1920px-Faro_Cabo_Santa_Maria_-_Vista_diurna.JPG",
       description: "El cabo de Santa María es un accidente geográfico de la costa atlántica, dentro del Departamento de Rocha, en Uruguay. Sobre el cabo se construyó la ciudad de La Paloma y el puerto homónimo.",
       descriptionEn: "Cabo Santa María Lighthouse is a lighthouse located in the headland of Cabo Santa María, Rocha Department, Uruguay, overlooking the Atlantic Ocean. Erected in 1871, it is a notable landmark of the seaside resort La Paloma.",
+      lat: -34.66739,
+      lng: -54.15308,
+      dayTrip: true,
     },
     {
       id: "rocha_10",
@@ -111175,6 +111425,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Faro_Polonio.JPG/1920px-Faro_Polonio.JPG",
       description: "El Faro de Cabo Polonio se ubica sobre la costa del Océano Atlántico, en Cabo Polonio, Rocha, Uruguay. Construido a 15 metros sobre el nivel del océano, cerca de masas rocosas fue iluminado en mayo de 1881, tiene destellos lumínicos blancos cada 12 segundos, con un alcance de…",
       descriptionEn: "Cabo Polonio Lighthouse is a lighthouse located in the headland of Cabo Polonio, Rocha Department, Uruguay, overlooking the Atlantic Ocean. It was erected in 1881.",
+      lat: -34.40528,
+      lng: -53.77778,
+      dayTrip: true,
     },
     {
       id: "rocha_11",
@@ -111191,6 +111444,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Suna_Rocha_en_la_Fiesta_de_la_Nieve_2014_%2814863893941%29.jpg/1920px-Suna_Rocha_en_la_Fiesta_de_la_Nieve_2014_%2814863893941%29.jpg",
       description: "El Cerro Catedral o Cerro Cordillera, como también se lo denomina, es el punto más alto de la República Oriental del Uruguay, con 513,66 m s. n. m.",
       descriptionEn: "Cerro Catedral, also known as Cerro Cordillera, is a peak and the highest point of Uruguay, with an altitude of 513.66 m (1,685.2 ft).",
+      lat: -34.38083,
+      lng: -54.67361,
+      dayTrip: true,
     },
     {
       id: "rocha_12",
@@ -111205,8 +111461,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Discurso_le%C3%ADdo_ante_la_Real_Sociedad_Aragonesa_de_los_amigos_del_pa%C3%ADs_-_en_la_Junta_General_de_apertura_que_celebr%C3%B3_el_13_de_enero_de_1815_%28IA_A1140799%29.pdf/page1-500px-Discurso_le%C3%ADdo_ante_la_Real_Sociedad_Aragonesa_de_los_amigos_del_pa%C3%ADs_-_en_la_Junta_General_de_apertura_que_celebr%C3%B3_el_13_de_enero_de_1815_%28IA_A1140799%29.pdf.jpg",
-      description: "El Obelisco a los Niños Héroes o Monumento de Chapultepec es un monumento hecho por Ramón Rodríguez Arangoiti en 1880 con el fin de conmemorar a los Niños Héroes y a los militares caídos en la Batalla de Chapultepec.",
-      descriptionEn: "Cerro de la Herreria is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Cerro de la Herrería es una elevación natural en el departamento de Rocha, Uruguay. Se visita por su entorno rural y su interés como punto del paisaje serrano.",
+      descriptionEn: "Cerro de la Herrería is a natural hill in the department of Rocha, Uruguay. It is visited for its rural surroundings and its interest as part of the hill landscape.",
+      lat: -34.2677,
+      lng: -54.7604,
+      dayTrip: true,
     },
     {
       id: "rocha_13",
@@ -111221,8 +111480,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Colecci%C3%B3n_de_obras_y_documentos_relativos_a_la_historia_antigua_y_moderna_de_las_provincias_del_R%C3%ADo_de_la_Plata_%28Tomo_III%29.djvu/page1-1920px-Colecci%C3%B3n_de_obras_y_documentos_relativos_a_la_historia_antigua_y_moderna_de_las_provincias_del_R%C3%ADo_de_la_Plata_%28Tomo_III%29.djvu.jpg",
-      description: "Rocha es uno de los diecinueve departamentos que componen la República Oriental del Uruguay. Su capital es la homónima Rocha.",
+      description: "Cerro de las Palomas es una elevación natural en el departamento de Rocha, Uruguay. Se visita por su entorno de campo y para caminatas con vistas del paisaje.",
       descriptionEn: "This is a list of any populated place in Uruguay by department, sortable by population or alphabetically. The population number may be followed by a letter indicating the official status of the place as follows:",
+      lat: -34.29939,
+      lng: -54.89542,
+      dayTrip: true,
     },
     {
       id: "rocha_14",
@@ -111237,8 +111499,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Contribuci%C3%B3n_documental_para_La_historia_del_Rio_de_La_Plata_-_Museo_Mitre_%28tomo_2%29.pdf/page1-500px-Contribuci%C3%B3n_documental_para_La_historia_del_Rio_de_La_Plata_-_Museo_Mitre_%28tomo_2%29.pdf.jpg",
-      description: "El Fuerte de San Miguel es una antigua fortificación militar uruguaya ubicada seis kilómetros al sur de la Laguna Merín, dentro del departamento de Rocha y próxima a la ciudad de Chuy.",
+      description: "Cerro del Teniente es una elevación natural en el departamento de Rocha, Uruguay. Se visita por su entorno rural y para caminatas de observación del paisaje.",
       descriptionEn: "Format of entries is:ICAO (IATA) – Airport name – Airport location",
+      lat: -34.23116,
+      lng: -54.74453,
+      dayTrip: true,
     },
   ],
   carmelo: [
@@ -111258,6 +111523,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1579360346224-3fa409f5a652?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNlbyUyMGRlJTIwTWFkZWlyYSUyMENhcm1lbG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI4MjQ5MTJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "La creación del Centro de Fotografía Isla de Tenerife, basada en la premisa de “tratar de impulsar vertientes de la creación artística de enorme potencial de expresión contemporánea, y en el rescate y preservación de nuestro propio patrimonio de imágenes”, tiene lugar en sesión…",
       descriptionEn: "Alfred Diston was a British merchant and writer on a wide variety of subjects who lived in Puerto de la Cruz, Tenerife, between 1810 and 1861.",
+      lat: -33.99755,
+      lng: -58.28592,
     },
     {
       id: "carmelo_1",
@@ -111274,6 +111541,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/%C3%91and%C3%BA_de_la_REserva_de_Fauna_de_Carmelo.jpg/1920px-%C3%91and%C3%BA_de_la_REserva_de_Fauna_de_Carmelo.jpg",
       description: "Fue creada en el año 1976 como una iniciativa privada del carmelitano Raúl Ruben Igoa Angeli. En 1988 se forma una Comisión de Apoyo a la Reserva de Fauna de la que es electo presidente.",
       descriptionEn: "The crab-eating raccoon, southern raccoon, or South American raccoon is a species of raccoon native to marshy and jungle areas of Central and South America.",
+      lat: -34.01057,
+      lng: -58.28831,
     },
     {
       id: "carmelo_2",
@@ -111288,8 +111557,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1766792678419-669f3ac03189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudG8lMjBhJTIwQXJ0aWdhcyUyMENhcm1lbG8lMjBVcnVndWF5fGVufDF8MHx8fDE3ODI4MjUwNjN8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Manuel Rosé fue un artista plástico uruguayo.",
+      description: "Busto dedicado a José Gervasio Artigas, figura central de la independencia uruguaya, emplazado en Carmelo como homenaje cívico. Se visita por su valor histórico y su presencia en el espacio público local.",
       descriptionEn: "Rosario is a city (ciudad) in the Colonia Department of Uruguay. It had a population of 10,584 inhabitants as per the 2023 census. The city was founded by Benito Herosa on 24 January 1775, during the Spanish colonial rule.",
+      lat: -33.99913,
+      lng: -58.28785,
     },
     {
       id: "carmelo_3",
@@ -111304,8 +111575,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1766792678419-669f3ac03189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudG8lMjBhJTIwbGElMjBWaWQlMjBDYXJtZWxvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyODI1MTM5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Vincenzo Salvatore Carmelo Francesco Bellini fue un compositor italiano y uno de los tres máximos representantes de la era del bel canto de principios del siglo XIX, junto con los compositores italianos Gioachino Rossini y Gaetano Donizetti.",
+      description: "Monumento dedicado a la vid y a la tradición vitivinícola de la zona de Carmelo. Se visita como símbolo del vínculo entre la ciudad y la producción de vino.",
       descriptionEn: "Tubilla del Agua is a village and municipality located in the province of Burgos, Castile and León, Spain. According to the 2004 census (INE), the municipality has a population of 209 inhabitants. The climate is relatively cool in the summer and cold in the winter.",
+      lat: -34.00352,
+      lng: -58.28594,
     },
     {
       id: "carmelo_4",
@@ -111320,8 +111593,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1766792678419-669f3ac03189?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNb251bWVudG8lMjBhbCUyMFZvbHVudGFyaW8lMjBDYXJtZWxvJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyODI1MjE0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "La \"Virgen del Carmen\" es la denominación común que suele recibir Santa María del Monte Carmelo, una de las diversas advocaciones de la Virgen María. Su denominación procede de su veneración en el monte Carmelo, en Tierra Santa, cerca de Haifa.",
-      descriptionEn: "Monumento al Voluntario is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Monumento conmemorativo que rinde homenaje a los voluntarios, ubicado en Carmelo. Se visita como parte de los espacios de memoria y homenaje público de la ciudad.",
+      descriptionEn: "Commemorative monument honoring volunteers, located in Carmelo. It is visited as part of the city's public memory and tribute spaces.",
+      lat: -33.99906,
+      lng: -58.2875,
     },
     {
       id: "carmelo_5",
@@ -111337,7 +111612,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Notas_de_un_viaje_-_sefarad18263.pdf/page1-1280px-Notas_de_un_viaje_-_sefarad18263.pdf.jpg",
       description: "El Reloj Colgate es un reloj octogonal junto al río Hudson cerca de Exchange Place en Jersey City, en el estado de Nueva Jersey.",
-      descriptionEn: "Reloj Inglés is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Public clock of English origin preserved in Carmelo as a heritage piece. It is visited for its historical value and its presence in the city's urban landscape.",
+      lat: -34.00348,
+      lng: -58.28572,
     },
     {
       id: "carmelo_6",
@@ -111354,7 +111631,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.narbona.com.uy/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/SF_maig_2026.jpg",
       description: "La arquitectura de Barcelona ha tenido una evolución paralela a la del resto de la arquitectura catalana y española, y ha seguido de forma diversa las múltiples tendencias que se han ido produciendo en el contexto de la historia del arte occidental.",
-      descriptionEn: "Bodega Narbona is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Winery and wine estate of the Narbona family on the outskirts of Carmelo, with wine production and a rural setting. It is visited to learn about the area's winemaking tradition.",
     },
     {
       id: "carmelo_7",
@@ -111369,7 +111646,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 180,
       imageUrl: "https://images.unsplash.com/photo-1679671597217-eb324f6a29af?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHwlQzMlODFyZWElMjBkZSUyMENhbXBpbmclMjBMYXMlMjBDYSVDMyVCMWFzJTIwQ2FybWVsbyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4MjgyNTQ0MXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Una de las principales fuentes económicas de Uruguay es el turismo. Este país a sur de América tiene varios destinos turísticos entre los que se destacan Punta del Este, Piriápolis, Montevideo, Colonia del Sacramento, Costa de Oro, Salto, Lavalleja, Rocha, Artigas, Rivera, entre…",
+      description: "Área de camping en un entorno natural cercano a Carmelo, con espacios arbolados y acceso al paisaje ribereño. Se visita para acampar y desarrollar actividades al aire libre.",
       descriptionEn: "Tourism in Uruguay is an important part of the nation's economy. Uruguay's tourist destinations include: Punta del Este, Piriápolis, Montevideo, Colonia del Sacramento, Salto, Lavalleja, Rocha, Artigas, Rivera, and others.",
     },
     {
@@ -111385,8 +111662,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Capilla_de_Narbona_detalle.jpg",
-      description: "Carmelo es una ciudad uruguaya del departamento de Colonia. Fue fundada por José Gervasio Artigas y es cabecera del municipio homónimo. Su población, según los datos del censo de 2023, es de 19.915 habitantes. Es la segunda ciudad del departamento por población.",
-      descriptionEn: "Estancia y Capilla Narbona is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Estancia rural asociada a la familia Narbona que incluye una capilla, cerca de Carmelo. Se visita por su valor histórico, arquitectónico y por el paisaje de campo de la zona.",
+      descriptionEn: "Rural estate associated with the Narbona family that includes a chapel, near Carmelo. It is visited for its historical and architectural value and the area's countryside landscape.",
     },
     {
       id: "carmelo_9",
@@ -111401,8 +111678,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/C.B.Libros.pdf/page1-960px-C.B.Libros.pdf.jpg",
-      description: "La \"Virgen del Carmen\" es la denominación común que suele recibir Santa María del Monte Carmelo, una de las diversas advocaciones de la Virgen María. Su denominación procede de su veneración en el monte Carmelo, en Tierra Santa, cerca de Haifa.",
+      description: "Reloj solar emplazado en Carmelo, un instrumento que indica la hora a partir de la posición del sol. Se visita por su interés patrimonial y científico dentro del recorrido urbano.",
       descriptionEn: "Guerra de ídolos is an American telenovela created by Mariano Calasso for Telemundo. It is the first musical telenovela of Telemundo. It was recorded in Mexico.",
+      lat: -33.99934,
+      lng: -58.28837,
     },
     {
       id: "carmelo_10",
@@ -111481,7 +111760,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f3/JuncalNASA.png",
-      description: "Punta Gorda es una barranca ubicada en el departamento de Colonia en Uruguay. Se encuentra entre las localidades de Nueva Palmira y Carmelo.",
+      description: "Monumento en forma de pirámide dedicado a Juan Díaz de Solís, navegante español que exploró el Río de la Plata. Se visita por su valor histórico y su vínculo con la exploración de la región.",
       descriptionEn: "The following are the results of the 1998 Philippine House of Representatives elections by legislative district.",
     },
   ],
@@ -111501,6 +111780,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766791520822-2e70c7bb8503?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxQYXJxdWUlMjBHcmFuJTIwQnJldGElQzMlQjFhJTIwUml2ZXJhJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyODI1NDQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Parque Gran Bretaña es un espacio verde abierto ubicado en Rivera, Urugauy .",
       descriptionEn: "Lagunón is a barrio (neighbourhood) at the northwest end of the city of Rivera in the Rivera Department of northeastern Uruguay.",
+      lat: -30.86991,
+      lng: -55.60392,
     },
     {
       id: "rivera_1",
@@ -111533,6 +111814,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Templo_de_Inmaculada_Concepci%C3%B3n.JPG/960px-Templo_de_Inmaculada_Concepci%C3%B3n.JPG",
       description: "La Iglesia de la Inmaculada Concepción, popularmente conocida como La Inmaculada, es una iglesia parroquial católica romana ubicada en Rivera, Uruguay.",
       descriptionEn: "The Church of the Immaculate Conception, popularly known as La Inmaculada, is a Roman Catholic parish church in Rivera, Uruguay.",
+      lat: -30.89942,
+      lng: -55.54026,
     },
     {
       id: "rivera_3",
@@ -111549,6 +111832,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1692584806424-1575a794dd29?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxBdXRvZHJvbW8lMjBFZHVhcmRvJTIwUC4lMjBDYWJyZXJhJTIwUml2ZXJhJTIwVXJ1Z3VheXxlbnwxfDB8fHwxNzgyODI1NTk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "El Autódromo Eduardo Prudêncio Cabrera es un circuito de carreras de 3,080 kilómetros (1.914 mi) ubicado en Rivera, Uruguay. Fue inaugurado en septiembre de 1951. Sin embargo, fue abandonado a finales de la década de 1990.",
       descriptionEn: "The Copa Truck is a Brazilian auto racing series, composed of trucks prepared for race. The category replaced the Fórmula Truck series in 2017.",
+      lat: -30.86288,
+      lng: -55.6066,
     },
     {
       id: "rivera_4",
@@ -111565,6 +111850,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/B._Bradshaw%27s_Dictionary_of_mineral_waters%2C_climatic_health_resorts%2C_sea_baths%2C_and_hydropathic_establishments_%28electronic_resource%29_%2C_giving_the_names_of_doctors_%28IA_b20385493%29.pdf/page1-500px-thumbnail.pdf.jpg",
       description: "El Casino Santa Fe es el único casino ubicado en la ciudad de Santa Fe, provincia de Santa Fe, Argentina. Fue inaugurado el 11 de agosto de 2008 y se encuentra ubicado en el Dique 1 del puerto de Santa Fe.",
       descriptionEn: "On New Year's Eve, December 31, 1986, three disgruntled employees of the Dupont Plaza Hotel in San Juan, Puerto Rico, intentionally set a fire. The employees were involved in a labor dispute with the owners. The fire killed between 96 and 98 people and injured 140 others.",
+      lat: -30.8953,
+      lng: -55.53888,
     },
   ],
   tacuarembo: [
@@ -111582,7 +111869,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Museo_de_Geociencias_de_Tacuaremb%C3%B3.jpg/960px-Museo_de_Geociencias_de_Tacuaremb%C3%B3.jpg",
       description: "El Museo de Geociencias es un museo uruguayo ubicado en la ciudad de Tacuarembó.",
-      descriptionEn: "Museo de Geociencias is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Tacuarembó Geosciences Museum gathers rocks, minerals and fossils to illustrate the region's geology. It is visited to learn about the geological heritage of northern Uruguay.",
+      lat: -31.71163,
+      lng: -55.98078,
     },
     {
       id: "tacuarembo_1",
@@ -111599,6 +111888,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/29/Museo_del_Indio_y_del_Gaucho.PNG",
       description: "El Museo del Indio y del Gaucho es un museo uruguayo ubicado en la ciudad de Tacuarembó, Uruguay.",
       descriptionEn: "Uruguay, officially the Oriental Republic of Uruguay, is a country in South America. It shares borders with Argentina to its west and southwest and Brazil to its north and northeast, while bordering the Río de la Plata to the south and the Atlantic Ocean to the southeast.",
+      lat: -31.71311,
+      lng: -55.97843,
     },
     {
       id: "tacuarembo_2",
@@ -111615,6 +111906,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Museo_de_Artes_Pl%C3%A1sticas.JPG/960px-Museo_de_Artes_Pl%C3%A1sticas.JPG",
       description: "El Museo de Artes Visuales de Tacuerembó es un museo uruguayo ubicado en la ciudad de Tacuarembó, Uruguay.",
       descriptionEn: "Gustavo Alamón Da Rosa was a Uruguayan painter, draftsman, educator and cultural administrator. Over a career spanning nearly six decades, he became known for a series of paintings depicting robots and androids, which became the defining motif of his work.",
+      lat: -31.71085,
+      lng: -55.97945,
     },
     {
       id: "tacuarembo_3",
@@ -111631,6 +111924,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/19/Tacuaremb%C3%B3_Catedral.jpg",
       description: "La catedral de San Fructuoso se levanta en la ciudad de Tacuarembó, Uruguay. Está situada en la intersección de las calles 18 de Julio y Joaquín Suárez.",
       descriptionEn: "Montevideo, is the capital and largest city of Uruguay. As of the 2023 census, the city proper has a population of 1,287,452, making up about 36.8% of the country's total population, in an area of 201 square kilometers (78 sq mi).",
+      lat: -31.7119,
+      lng: -55.97845,
     },
     {
       id: "tacuarembo_4",
@@ -111647,6 +111942,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Plaza_19_de_Abril_Tacuaremb%C3%B3.JPG/960px-Plaza_19_de_Abril_Tacuaremb%C3%B3.JPG",
       description: "La plaza 19 de Abril está ubicada en la ciudad de Tacuarembó, Uruguay situada en el centro de la ciudad, delimitada por sus calles principales, 18 de julio y 25 de mayo y por Joaquín Suarez y Luis Alberto de Herrera.",
       descriptionEn: "Tacuarembó is the capital city of the Tacuarembó Department in north-central Uruguay.",
+      lat: -31.71114,
+      lng: -55.97885,
     },
     {
       id: "tacuarembo_5",
@@ -111663,6 +111960,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Estadio_Parque_25.JPG/960px-Estadio_Parque_25.JPG",
       description: "El Parque 25 de Agosto se ubica a 1 km del centro de la ciudad de Tacuarembó, Uruguay, en el predio de la Laguna de las Lavanderas.",
       descriptionEn: "This is a list of any populated place in Uruguay by department, sortable by population or alphabetically. The population number may be followed by a letter indicating the official status of the place as follows:",
+      lat: -31.72417,
+      lng: -55.9825,
     },
     {
       id: "tacuarembo_6",
@@ -111695,6 +111994,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://images.unsplash.com/photo-1766791789963-8a4ba8a362b6?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxWYWxsZSUyMEVkJUMzJUE5biUyMFRhY3VhcmVtYiVDMyVCMyUyMFVydWd1YXl8ZW58MXwwfHx8MTc4MjgyNTc0Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       description: "Valle Edén es una localidad uruguaya del departamento de Tacuarembó, ubicada en el km 208 de la ruta 26, a unos 23 km de la ciudad de Tacuarembó.",
       descriptionEn: "Valle Edén is a hamlet in the valley of the same name in Tacuarembó Department, Uruguay.",
+      lat: -31.8233,
+      lng: -56.1772,
     },
     {
       id: "tacuarembo_8",
@@ -111709,8 +112010,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/Toma_4_sala_Museo_Carlos_Gardel_en_Tacuaremb%C3%B3_-_Sala_de_conferencias_y_proyecciones.JPG",
-      description: "Museo Carlos Gardel es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Carlos Gardel es un museo uruguayo dedicado a la vida y obra de Carlos Gardel, ubicado en Valle Edén, en el departamento de Tacuarembó, a veintiún kilómetros de la ciudad de Tacuarembó.",
       descriptionEn: "Carlos Gardel was a French-born Argentine singer, composer and actor, and the most prominent figure in the history of tango. He was one of the most influential interpreters of popular music in the first half of the 20th century.",
+      lat: -31.82362,
+      lng: -56.17695,
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_Carlos_Gardel",
     },
     {
       id: "tacuarembo_9",
@@ -111727,6 +112031,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Cerro_Batov%C3%AD_%2826055598336%29.jpg/1920px-Cerro_Batov%C3%AD_%2826055598336%29.jpg",
       description: "El Cerro Batoví es un cerro ubicado en la 2ª Sección de la ciudad de Tacuarembó, al norte del arroyo del mismo nombre, sobre la ruta 5, a 25 kilómetros de la ciudad, capital del departamento homónimo, de la República Oriental del Uruguay. Su altura es de 224 metros.",
       descriptionEn: "Tacuarembó is the largest department of Uruguay and it is part of its northern region. Its capital is Tacuarembó. It borders Rivera Department to its north and east, the departments of Salto, Paysandú and Río Negro to its west and has the river Río Negro flowing along its south…",
+      lat: -31.87583,
+      lng: -56.01139,
     },
     {
       id: "tacuarembo_10",
@@ -111741,8 +112047,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Valle_Eden_Station_Tacuarembo.jpg",
-      description: "Valle Edén es una localidad uruguaya del departamento de Tacuarembó, ubicada en el km 208 de la ruta 26, a unos 23 km de la ciudad de Tacuarembó.",
-      descriptionEn: "Las Marmitas is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Las Marmitas son pozas circulares talladas en la roca por la erosión del agua, un sitio natural en los alrededores de Tacuarembó. Se visitan para observar estas formaciones y el paisaje rural.",
+      descriptionEn: "Las Marmitas are circular pools carved into rock by water erosion, a natural site in the surroundings of Tacuarembó. They are visited to observe these formations and the rural landscape.",
+      lat: -31.84729,
+      lng: -56.12608,
     },
   ],
   minas: [
@@ -111759,8 +112067,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1766791789962-b783b221b4e4?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxDYXNjYWRhJTIwZGUlMjBBZ3VhJTIwZGVsJTIwUGVuaXRlbnRlJTIwTWluYXMlMjBVcnVndWF5fGVufDF8MHx8fDE3ODI4MjU3NDd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Una de las principales fuentes económicas de Uruguay es el turismo. Este país a sur de América tiene varios destinos turísticos entre los que se destacan Punta del Este, Piriápolis, Montevideo, Colonia del Sacramento, Costa de Oro, Salto, Lavalleja, Rocha, Artigas, Rivera, entre…",
-      descriptionEn: "Cascada de Agua del Penitente is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Cascada de Agua del Penitente es un salto de agua natural en las afueras de Minas, formado por un arroyo que corre entre rocas y vegetación. Se visita por su entorno natural y para caminar por la zona.",
+      descriptionEn: "The Agua del Penitente waterfall is a natural cascade on the outskirts of Minas, formed by a stream flowing among rocks and vegetation. It is visited for its natural surroundings and for walking in the area.",
     },
     {
       id: "minas_1",
@@ -111793,6 +112101,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Catedral_Minas_4.jpg/1920px-Catedral_Minas_4.jpg",
       description: "La Concatedral de la Inmaculada Concepción se levanta en la calle José Enrique Rodó, ciudad de Minas en Uruguay. Desde 1960 y hasta 2020 constituyó la sede de la hoy disuelta Diócesis de Minas.",
       descriptionEn: "The Cathedral of the Immaculate Conception is the main Roman Catholic church building of Minas, Uruguay. It was the see of the Roman Catholic Diocese of Minas from 1960 till 2020.",
+      lat: -34.3785,
+      lng: -55.23681,
     },
     {
       id: "minas_3",
@@ -111825,6 +112135,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fuente_del_Puma_-_Minas_-_Lavalleja.JPG/1920px-Fuente_del_Puma_-_Minas_-_Lavalleja.JPG",
       description: "La fuente del Puma es una fuente de agua mineral que se encuentra dentro de la reserva natural Salus en el departamento de Lavalleja, Uruguay.",
       descriptionEn: "The 2026 FIFA World Cup was an international football tournament held in Canada, Mexico, and the United States, from June 11 to July 19, 2026. The 48 national teams involved in the tournament were required to register a squad of up to 26 players, including three goalkeepers.",
+      lat: -34.42222,
+      lng: -55.31562,
     },
     {
       id: "minas_5",
@@ -111841,6 +112153,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Gruta_de_Arequita_-_Minas.tif/lossy-page1-1920px-Gruta_de_Arequita_-_Minas.tif.jpg",
       description: "El Cerro Arequita es un cerro ubicado en Uruguay, en el departamento de Lavalleja, 12 kilómetros al norte de la ciudad de Minas. Desde el 2024 forma parte del Parque nacional Arequita, creado para su conservación y preservación.",
       descriptionEn: "Cerro Arequita is a hill located in Lavalleja Department, Uruguay.",
+      lat: -34.2908,
+      lng: -55.2669,
     },
     {
       id: "minas_6",
@@ -111857,6 +112171,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cerro_del_Verd%C3%BAn.JPG/1920px-Cerro_del_Verd%C3%BAn.JPG",
       description: "El Cerro del Verdún es una elevación natural de unos 326 metros de altura ubicado sobre la ruta 12, a 4 km de la ciudad de Minas en Lavalleja, Uruguay.",
       descriptionEn: "Cerro del Verdún is a Roman Catholic pilgrimage site in Lavalleja Department, Uruguay.",
+      lat: -34.37404,
+      lng: -55.29053,
     },
     {
       id: "minas_7",
@@ -111872,7 +112188,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/W._F._Burnett%27s_1921_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Chile.pdf/page1-1280px-W._F._Burnett%27s_1921_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Chile.pdf.jpg",
       description: "Minas de Oro es un municipio del departamento de Comayagua en la República de Honduras.",
-      descriptionEn: "Cerro La Higuerita is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.35139,
+      lng: -55.28889,
     },
     {
       id: "minas_8",
@@ -111888,7 +112205,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Cuentos_de_navidad.pdf/page1-500px-Cuentos_de_navidad.pdf.jpg",
       description: "Parla es un municipio y localidad española de la Comunidad de Madrid, situada 20 km al sur de la capital del país. La superficie del término municipal es de 24,43 km² y su población de 137 471 habitantes.",
-      descriptionEn: "Cerro de Caperucita is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -34.3069,
+      lng: -55.2947,
     },
     {
       id: "minas_9",
@@ -111905,6 +112223,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Las_minas_del_Rey_Salom%C3%B3n_-_bdh0000252954.pdf/page1-1280px-Las_minas_del_Rey_Salom%C3%B3n_-_bdh0000252954.pdf.jpg",
       description: "El cerro de las Minas es un sitio arqueológico ubicado en el actual estado de Oaxaca, justo al norte de la ciudad de Huajuapan de León.",
       descriptionEn: "Cerro Negro Norte (CNN) is an open-pit iron mine in northern Chile about 30 km north of the city of Copiapó in inland Atacama Region. The ore of the mine is one of various iron oxide-apatite (IOA) ores that are part of the north–south Chilean Iron Belt.",
+      lat: -34.3494,
+      lng: -55.2768,
     },
     {
       id: "minas_10",
@@ -111921,6 +112241,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ricordiana%2C_1957.djvu/page1-1920px-Ricordiana%2C_1957.djvu.jpg",
       description: "Abel Carlevaro fue un destacado guitarrista ítalo-uruguayo,compositor y profesor, creador de una nueva escuela de guitarra clásica.",
       descriptionEn: "Eduardo Fabini was an Uruguayan composer and musician.",
+      lat: -34.37917,
+      lng: -55.2382,
     },
     {
       id: "minas_11",
@@ -111935,8 +112257,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/La_teor%C3%ADa_cient%C3%ADfica_de_la_historia_y_la_pol%C3%ADtica_argentina._Conferencia_dada_en_el_Ateneo_el_18_de_julio_de_1898.djvu/page1-1920px-La_teor%C3%ADa_cient%C3%ADfica_de_la_historia_y_la_pol%C3%ADtica_argentina._Conferencia_dada_en_el_Ateneo_el_18_de_julio_de_1898.djvu.jpg",
-      description: "Tandil es una ciudad argentina, cabecera del partido homónimo ubicada en el centro-este de la provincia de Buenos Aires. Se halla sobre las sierras del sistema de Tandilia.",
-      descriptionEn: "Museo Litico del Indio y del Gaucho is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Lítico del Indio y del Gaucho exhibe piezas de piedra de pueblos indígenas y objetos vinculados a la vida del gaucho en la región. Se visita para conocer ese patrimonio histórico y cultural.",
+      descriptionEn: "The Museo Lítico del Indio y del Gaucho displays stone artifacts from indigenous peoples and objects related to gaucho life in the region. It is visited to learn about this historical and cultural heritage.",
+      lat: -34.37921,
+      lng: -55.23814,
     },
     {
       id: "minas_12",
@@ -111950,9 +112274,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseo261922univ%29.pdf/page1-960px-Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseo261922univ%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Almad%C3%A9n_%28RPS_21-07-2012%29_Real_Hospital_de_Mineros_de_San_Rafael%2C_fachada.jpg",
       description: "Minas Gerais, también conocido simplemente como Minas y a veces llamado en español como Minas Generales, es uno de los veintiséis estados que, junto con el distrito federal, forman el Brasil. Su capital es Bello Horizonte.",
       descriptionEn: "Havana is the capital and largest city of Cuba. The heart of La Habana Province, Havana is the country's main port and commercial center. It is the most populous city, the largest by area, and the second-largest metropolitan area in the Caribbean region.",
+      lat: -34.37897,
+      lng: -55.23795,
     },
     {
       id: "minas_13",
@@ -111969,6 +112295,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/La_religi%C3%B3n_antigua_de_los_Filipinos_%28IA_ajf5020.0001.001.umich.edu%29.pdf/page1-500px-La_religi%C3%B3n_antigua_de_los_Filipinos_%28IA_ajf5020.0001.001.umich.edu%29.pdf.jpg",
       description: "Minas es la capital y ciudad más poblada del departamento de Lavalleja, Uruguay. Es la décima ciudad más poblada del país y el lugar de nacimiento del libertador Juan Antonio Lavalleja.",
       descriptionEn: "Treinta y Tres is a department of Uruguay. Its capital is Treinta y Tres. It is located in the east of the country, bordering the departments of Cerro Largo to the north; Durazno and Florida to the west; Lavalleja and Rocha to the south; while to its east is the lake Laguna…",
+      lat: -34.3672,
+      lng: -54.9314,
+      dayTrip: true,
     },
     {
       id: "minas_14",
@@ -111985,6 +112314,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Cerro_de_Artigas%2C_Minas%2C_Lavalleja.JPG/1920px-Cerro_de_Artigas%2C_Minas%2C_Lavalleja.JPG",
       description: "El cerro Artigas es una elevación natural de 280 metros de altura ubicado en la avenida de las Instrucciones en el barrio Peñarol, al noreste de la ciudad de Minas, en el departamento de Lavalleja, Uruguay.",
       descriptionEn: "Minas is the capital of the Lavalleja Department in Uruguay. As of the census of 2011, it is the twelfth-most populated city in the country.",
+      lat: -34.37508,
+      lng: -55.21643,
     },
   ],
   lapaz: [
@@ -112004,6 +112335,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Museo_Nacional_de_Historia_Natural_%283274192149%29.jpg/960px-Museo_Nacional_de_Historia_Natural_%283274192149%29.jpg",
       description: "El Museo Nacional de Historia Natural de Bolivia, creado en 1980 en el barrio Cota Cota de La Paz, alberga más de 635.000 especímenes en sus departamentos de Zoología, Botánica y Paleontología, exhibidos en salas dedicadas a la biodiversidad boliviana.",
       descriptionEn: "Bolivia's National Museum of Natural History, established in 1980 in La Paz's Cota Cota neighborhood, holds over 635,000 specimens across its Zoology, Botany, and Paleontology departments, displayed in halls dedicated to Bolivian biodiversity.",
+      lat: -16.53898,
+      lng: -68.07075,
     },
     {
       id: "lapaz_1",
@@ -112021,6 +112354,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/20/Jard%C3%ADn_bot%C3%A1nico_de_La_Paz.png",
       description: "El Jardín Botánico La Paz es una unidad del Instituto de Ecología- Carrera de Biología, Facultad de Ciencias Puras y Naturales de la Universidad Mayor de San Andrés.",
       descriptionEn: "The Jardín Botánico La Paz is a unit of the Institute of Ecology, part of the School of Biology at the Faculty of Pure and Natural Sciences of the Universidad Mayor de San Andrés.",
+      lat: -16.50357,
+      lng: -68.11615,
     },
     {
       id: "lapaz_2",
@@ -112038,6 +112373,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/Cota_cota.png",
       description: "Laguna de Cota Cota es el nombre de un importante parque urbano en la ciudad de La Paz. Su nombre oficial es Parque Laguna de Cota Cota Túpac Katari. El parque es uno de los pocos espacios públicos de la ciudad de La Paz que cuenta con una laguna, y cascadas artificiales.",
       descriptionEn: "Laguna de Cota Cota, officially Parque Laguna de Cota Cota Túpac Katari, is a major urban park in the city of La Paz. It is one of the few public spaces in La Paz with a lagoon and artificial waterfalls.",
+      lat: -16.54171,
+      lng: -68.06439,
     },
     {
       id: "lapaz_3",
@@ -112054,6 +112391,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Confucius%2C_fresco_from_a_Western_Han_tomb_of_Dongping_County%2C_Shandong_province%2C_China.jpg",
       description: "Plaza Confucio es un espacio público del centro de La Paz, en la provincia Pedro Domingo Murillo, que lleva el nombre del filósofo chino Confucio (551 a. C.-479 a. C.).",
       descriptionEn: "Plaza Confucio is a public square in central La Paz, in Pedro Domingo Murillo province, named after the Chinese philosopher Confucius (551–479 BCE).",
+      lat: -16.51624,
+      lng: -68.11874,
     },
     {
       id: "lapaz_4",
@@ -112071,6 +112410,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cholitas_fight_it_out_in_the_arena_%28February_2014%29_2014-02-16_19-28.jpg/960px-Cholitas_fight_it_out_in_the_arena_%28February_2014%29_2014-02-16_19-28.jpg",
       description: "La lucha libre de cholitas es una categoría femenina de lucha libre profesional en su versión boliviana protagonizadas por cholas paceñas en sus atuendos característicos.",
       descriptionEn: "Cholita wrestling is a Bolivian professional wrestling category featuring Aymara and Quechua women, known as cholitas, who compete in their traditional dress.",
+      lat: -16.50817,
+      lng: -68.15823,
     },
     {
       id: "lapaz_5",
@@ -112087,6 +112428,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sim%C3%B3n_Bol%C3%ADvar_by_Acevedo_Bernal%2C_1922.jpg",
       description: "Simón José Antonio de la Santísima Trinidad Bolívar Ponte y Palacios Blanco, conocido como el Libertador, fue un militar, estratega y político venezolano, líder fundamental de la independencia de lo que son hoy Venezuela, Colombia, Ecuador y Panamá.",
       descriptionEn: "Simón José Antonio de la Santísima Trinidad Bolívar Ponte y Palacios Blanco, known as the Liberator, was a Venezuelan military and political leader, a fundamental figure in the independence of what are today Venezuela, Colombia, Ecuador, and Panama.",
+      lat: -16.50059,
+      lng: -68.1337,
     },
     {
       id: "lapaz_6",
@@ -112103,6 +112446,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Busy_Bee_F-27_at_Basel_1982.jpg/960px-Busy_Bee_F-27_at_Basel_1982.jpg",
       description: "Este Fokker F-27 Friendship, que operó para TAM Bolivia y la Fuerza Aérea Boliviana, se exhibe en el Museo Aeroespacial de la Fuerza Aérea Boliviana en La Paz, como testimonio de la historia de la aviación militar y de transporte del país.",
       descriptionEn: "This Fokker F-27 Friendship, which flew for TAM Bolivia and the Bolivian Air Force, is displayed at the Museo Aeroespacial de la Fuerza Aérea Boliviana in La Paz, documenting the country's military and transport aviation history.",
+      lat: -16.50371,
+      lng: -68.17413,
     },
     {
       id: "lapaz_7",
@@ -112119,6 +112464,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/C-47_Dakota_-_Chino_Airshow_2014_%2815867578416%29.jpg/960px-C-47_Dakota_-_Chino_Airshow_2014_%2815867578416%29.jpg",
       description: "Este Douglas C-47, una versión militar del icónico DC-3 utilizada por fuerzas aéreas y aerolíneas de transporte en todo el mundo desde la Segunda Guerra Mundial, se exhibe en el Museo Aeroespacial de la Fuerza Aérea Boliviana en La Paz.",
       descriptionEn: "This Douglas C-47, a military version of the iconic DC-3 used by air forces and cargo airlines worldwide since World War II, is displayed at the Museo Aeroespacial de la Fuerza Aérea Boliviana in La Paz.",
+      lat: -16.50335,
+      lng: -68.17419,
     },
     {
       id: "lapaz_8",
@@ -112135,6 +112482,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cervantes_1.jpg/960px-Cervantes_1.jpg",
       description: "La Plaza España se encuentra en la ciudad de La Paz, Bolivia, en la zona de Sopocachi, al suroeste de Plaza Abaroa, al noreste del barrio de San Jorge y al sur del barrio de San Pedro. A una altitud de 3.607 m s. n. m..",
       descriptionEn: "Plaza España is located in the city of La Paz, Bolivia, in the Sopocachi zone, southwest of Plaza Abaroa, northeast of the San Jorge neighborhood, and south of the San Pedro neighborhood, at an altitude of 3,607 meters above sea level.",
+      lat: -16.51436,
+      lng: -68.12847,
     },
     {
       id: "lapaz_9",
@@ -112151,6 +112500,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Catedral_Metropolitana_de_La_Paz.JPG/960px-Catedral_Metropolitana_de_La_Paz.JPG",
       description: "La Catedral Metropolitana Nuestra Señora de La Paz es una basílica menor situada en la Plaza Murillo de la ciudad de La Paz, en Bolivia. Fue construida en el año 1835 con una arquitectura de estilo neoclásico con algunos elementos barrocos.",
       descriptionEn: "The Metropolitan Cathedral of Our Lady of La Paz is a minor basilica located on Plaza Murillo in the city of La Paz, Bolivia. It was built in 1835 in a neoclassical style with some baroque elements.",
+      lat: -16.49623,
+      lng: -68.13414,
     },
     {
       id: "lapaz_10",
@@ -112167,6 +112518,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Nuevo_Mercado_Lanza.jpg",
       description: "El Mercado Lanza es un centro de abastecimiento y de encuentro en el Centro Histórico de la ciudad de La Paz tiene cuatro accesos a través de importantes vías de la ciudad, uno de ellos es elevado y se realiza a través de la Pasarela Pérez Velasco, otro acceso permite el ingreso…",
       descriptionEn: "The Mercado Lanza is a supply and meeting hub in the historic center of La Paz, with four access points via major city streets, one of them an elevated walkway, the Pasarela Pérez Velasco.",
+      lat: -16.49472,
+      lng: -68.13742,
     },
     {
       id: "lapaz_11",
@@ -112183,6 +112536,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Mirador_Killi_Killi%2C_La_Paz.jpg/1920px-Mirador_Killi_Killi%2C_La_Paz.jpg",
       description: "El Mirador de Killi Killi es un parque mirador ubicado al noroeste de la ciudad de La Paz, Bolivia. El nombre proviene del nombre local del halcón falco sparverius,ave rapaz que habita la zona.",
       descriptionEn: "The Mirador Killi Killi is a viewpoint park located in the northwest of the city of La Paz, Bolivia. Its name comes from the local name for the American kestrel (Falco sparverius), a bird of prey found in the area.",
+      lat: -16.49506,
+      lng: -68.12744,
     },
     {
       id: "lapaz_12",
@@ -112199,6 +112554,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Plaza_del_Estudiante_La_Paz_Bolivia.jpg/960px-Plaza_del_Estudiante_La_Paz_Bolivia.jpg",
       description: "La Casa de la Cultura Franz Tamayo es una institución cultural de la ciudad de La Paz en Bolivia. Ubicada en el Centro Histórico y siendo parte del Casco Urbano Central, se constituye en un importante hito urbano.",
       descriptionEn: "The Casa de la Cultura Franz Tamayo is a cultural institution in the city of La Paz, Bolivia. Located in the historic center and part of the Central Urban Precinct, it is an important urban landmark.",
+      lat: -16.5042,
+      lng: -68.13115,
     },
     {
       id: "lapaz_13",
@@ -112215,6 +112572,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Iglesia_de_San_Francisco_La_Paz.JPG/960px-Iglesia_de_San_Francisco_La_Paz.JPG",
       description: "La Basílica Menor de San Francisco de la ciudad de La Paz, Bolivia, es un templo católico bajo la advocación de San Francisco de Asís. Está situado en el centro de la ciudad. Forma parte del conjunto conventual que da el nombre a la plaza adyacente Plaza Mayor de San Francisco.",
       descriptionEn: "The Basilica of San Francisco in the city of La Paz, Bolivia, is a Catholic church under the advocation of Francis of Assisi. It is located in the center of the city, in the square that bears its name, Plaza San Francisco.",
+      lat: -16.4965,
+      lng: -68.1373,
     },
     {
       id: "lapaz_14",
@@ -112231,6 +112590,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/BMA001.jpg/960px-BMA001.jpg",
       description: "La Basílica menor de María Auxiliadora es un templo católico situada en la ciudad de La Paz, Bolivia. Es considerada como una de las más importantes estructuras arquitectónicas en la ciudad de La Paz, debido a su estilo art déco dentro de la corriente modernista, en su diseño se…",
       descriptionEn: "The Minor Basilica of María Auxiliadora is a Catholic church located in the city of La Paz, Bolivia. It is considered one of the most important architectural structures in La Paz for its Art Deco, modernist-influenced design.",
+      lat: -16.50323,
+      lng: -68.13129,
     },
     {
       id: "lapaz_15",
@@ -112247,6 +112608,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Muela_del_diablo_02.jpg/960px-Muela_del_diablo_02.jpg",
       description: "La Muela del Diablo, conocido localmente como Auki Kollo, es una formación rocosa ubicada en el municipio de La Paz, Bolivia, a 3825 metros de altura. Se encuentra en la comunidad de Chiaraque, además de las zonas de Pedregal, Auquisamaña y Los Pinos.",
       descriptionEn: "The Muela del Diablo is an iconic feature of the La Paz landscape in Bolivia. The feature is a volcanic neck, which is the solidified core of an extinct volcano, the rest of which has eroded or washed away.",
+      lat: -16.5626,
+      lng: -68.05721,
     },
     {
       id: "lapaz_16",
@@ -112263,6 +112626,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Valle_de_las_%C3%A1nimas_La_Paz_Bolivia_%284%29.jpg",
       description: "El Valle de las Ánimas es un área protegida municipal, monumento natural departamental y formación geológica de la ciudad de La Paz, se encuentra a pocos kilómetros del área urbana a una altitud de 3965 m s. n. m.",
       descriptionEn: "Valle de las Ánimas is a municipal protected area, natural departmental monument and geological formation of the city of La Paz, Bolivia, found a few kilometers away from the metropolitan area, at a height of 3965 meters above sea level.",
+      lat: -16.5172,
+      lng: -68.0152,
     },
     {
       id: "lapaz_17",
@@ -112279,6 +112644,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Presentaci%C3%B3n_del_Libro._Las_cartas_de_Fernando_T%C3%BApac_Amaru.FIL_2025.jpg/1920px-Presentaci%C3%B3n_del_Libro._Las_cartas_de_Fernando_T%C3%BApac_Amaru.FIL_2025.jpg",
       description: "Este monumento cultural de La Paz rinde homenaje a Túpac Amaru II, el cacique indígena que lideró la mayor rebelión anticolonial del siglo XVIII contra el dominio español en los Andes, entre 1780 y 1781.",
       descriptionEn: "This cultural landmark in La Paz honors Túpac Amaru II, the indigenous leader who led the largest anti-colonial rebellion of the 18th century against Spanish rule in the Andes, between 1780 and 1781.",
+      lat: -16.49475,
+      lng: -68.17365,
     },
     {
       id: "lapaz_18",
@@ -112295,6 +112662,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cholitas_fight_it_out_in_the_arena_%28February_2014%29_2014-02-16_19-28.jpg/1920px-Cholitas_fight_it_out_in_the_arena_%28February_2014%29_2014-02-16_19-28.jpg",
       description: "La lucha libre de cholitas es una categoría femenina de lucha libre profesional en su versión boliviana protagonizadas por cholas paceñas en sus atuendos característicos.",
       descriptionEn: "Cholita wrestling is a Bolivian professional wrestling category featuring Aymara and Quechua women, known as cholitas, who compete in their traditional dress.",
+      lat: -16.4944,
+      lng: -68.18712,
     },
     {
       id: "lapaz_19",
@@ -112312,6 +112681,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/San-francisco_by_night_Bolivia.jpg/1920px-San-francisco_by_night_Bolivia.jpg",
       description: "El Museo San Francisco funciona en el antiguo convento franciscano contiguo a la Basílica de San Francisco, en el centro de La Paz. Exhibe arte religioso colonial y permite recorrer los claustros y azoteas del edificio, con vistas panorámicas de la ciudad.",
       descriptionEn: "The Museo San Francisco occupies the former Franciscan convent adjoining the Basílica de San Francisco in central La Paz. It displays colonial religious art and lets visitors tour the building's cloisters and rooftop, with panoramic views of the city.",
+      lat: -16.49622,
+      lng: -68.13728,
     },
     {
       id: "lapaz_20",
@@ -112329,6 +112700,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Museo_Nacional_de_Arte_de_Bolivia_29.jpg",
       description: "El Museo Nacional de Arte, Palacio Díez de Medina es un museo de la ciudad de La Paz, Bolivia. El mismo cuenta con una importante colección permanente de pintura colonial, lienzos de Melchor Pérez de Holguín, pintor del siglo XVII, y de Gregorio Gamarra, pintor peruano del siglo…",
       descriptionEn: "The Museo Nacional de Arte, housed in the Palacio Díez de Medina in La Paz, Bolivia, holds a major permanent collection of colonial painting, including canvases by 17th-century painter Melchor Pérez de Holguín and Peruvian painter Gregorio Gamarra.",
+      lat: -16.49589,
+      lng: -68.13434,
     },
     {
       id: "lapaz_21",
@@ -112346,6 +112719,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Museo_de_la_Coca.jpg/1920px-Museo_de_la_Coca.jpg",
       description: "El Museo de la Coca es un pequeño museo privado en el centro histórico de la ciudad de La Paz, Bolivia sobre la historia de la coca, autóctona de la región andina, y sobre el fármaco la cocaína.",
       descriptionEn: "Coca refers to any of the four cultivated plants in the family Erythroxylaceae, native to western South America. It is known worldwide for its psychoactive alkaloid, cocaine.",
+      lat: -16.4977,
+      lng: -68.13825,
     },
     {
       id: "lapaz_22",
@@ -112362,6 +112737,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.museodetextiles.org/",
       description: "El Museo de Textiles Andinos Bolivianos es una entidad cultural privada ubicada en la ciudad de La Paz, en Bolivia. El museo cuenta con ocho salas de exposición distribuidas en una vivienda de estilo neocolonial, ubicada en la zona de Miraflores, cerca al centro de la ciudad.",
       descriptionEn: "The Museo de Textiles Andinos Bolivianos is a private cultural institution located in the city of La Paz, Bolivia. The museum has eight exhibition halls spread across a neocolonial-style house in the Miraflores district, near the city center.",
+      lat: -16.49325,
+      lng: -68.12015,
     },
     {
       id: "lapaz_23",
@@ -112378,6 +112755,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Curtiss_C-46_CP-855_of_Frigorifico_Santa_Rita%2C_La_Paz_6.10.1975%2C_F115-14.jpg/1920px-Curtiss_C-46_CP-855_of_Frigorifico_Santa_Rita%2C_La_Paz_6.10.1975%2C_F115-14.jpg",
       description: "Este Curtiss C-46 Commando operó para Frigorífico Santa Rita, una aerolínea de carga boliviana que transportó carne congelada desde pistas remotas del oriente boliviano entre 1971 y comienzos de los años 2000. Hoy se exhibe como pieza histórica de la aviación de carga del país.",
       descriptionEn: "This Curtiss C-46 Commando flew for Frigorífico Santa Rita, a Bolivian cargo airline that transported frozen meat from remote airstrips in the country's eastern lowlands between 1971 and the early 2000s. It is now displayed as a historic piece of Bolivian cargo aviation.",
+      lat: -16.5104,
+      lng: -68.16928,
     },
     {
       id: "lapaz_24",
@@ -112394,6 +112773,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/La_conquista_de_M%C3%A9xico_efectuada_por_Hern%C3%A1n_Cort%C3%A9s%2C_seg%C3%BAn_el_C%C3%B3dice_jerogl%C3%ADfico_Troano-americano_%28IA_gri_33125014983817%29.pdf/page1-960px-La_conquista_de_M%C3%A9xico_efectuada_por_Hern%C3%A1n_Cort%C3%A9s%2C_seg%C3%BAn_el_C%C3%B3dice_jerogl%C3%ADfico_Troano-americano_%28IA_gri_33125014983817%29.pdf.jpg",
       description: "Acuario Nemo es una atracción de acuario ubicada en la ciudad de La Paz, Bolivia, con exhibiciones de peces y vida acuática pensadas especialmente para el público familiar.",
       descriptionEn: "Acuario Nemo is an aquarium attraction located in the city of La Paz, Bolivia, with fish and aquatic-life exhibits geared especially toward families.",
+      lat: -16.53804,
+      lng: -68.07639,
     },
     {
       id: "lapaz_25",
@@ -112444,6 +112825,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/7236/7180897776_fcb05e660a_b.jpg",
       description: "El valle de la Luna es un área protegida municipal y formación geológica de la ciudad de La Paz, sede de gobierno de Bolivia. Se encuentra a unos 10 kilómetros del centro urbano de la ciudad y administrativamente pertenece al Macro distrito de Mallasa.",
       descriptionEn: "Valle de la Luna, also called Killa Qhichwa, is a protected municipal area situated on 15 hectares of land, about 10 kilometers south of downtown La Paz, in Pedro Domingo Murillo Province, La Paz Department, Bolivia, between Mallasa and Aranjuez.",
+      lat: -16.5672,
+      lng: -68.0944,
     },
     {
       id: "lapaz_28",
@@ -112460,6 +112843,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/4355/36128910673_3546162f96_b.jpg",
       description: "El Mercado de las Brujas es un mercado callejero ubicado en La Paz, Bolivia. Se encuentra en la calle Linares, en el centro de la ciudad, en las cercanías de la Basílica de San Francisco.",
       descriptionEn: "The Mercado de las Brujas (Witches' Market) is a street market in La Paz, Bolivia. It is located on Linares Street, in the center of the city, near the Basílica de San Francisco.",
+      lat: -16.5,
+      lng: -68.149,
     },
     {
       id: "lapaz_29",
@@ -112476,6 +112861,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Audi_quattro-Cup_37.JPG/960px-Audi_quattro-Cup_37.JPG",
       description: "El Museo Regional de Arqueología de Tiwanaku es una institución cultural de Bolivia, ubicada en el municipio de Tiahuanaco de la provincia de Ingavi en el departamento de La Paz, cercano al complejo arqueológico de Tiahuanaco.",
       descriptionEn: "Tiwanaku is a village and municipality in the La Paz Department, Bolivia. Towards the south of the village, there is the pre-Columbian archaeological site of Tiwanaku.",
+      lat: -16.55472,
+      lng: -68.67333,
+      dayTrip: true,
     },
     {
       id: "lapaz_30",
@@ -112492,6 +112880,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/3335/3244760583_a678ebfb5a_b.jpg",
       description: "Chacaltaya es una montaña ubicada en la Cordillera de los Andes al oeste de Bolivia, con una altura de 5421 m s. n. m. Administrativamente se encuentra en el municipio de La Paz de la provincia de Murillo en el departamento de La Paz.",
       descriptionEn: "Chacaltaya is a mountain in the Andes mountain range west of Bolivia, with an elevation of 5,421 meters above sea level. Administratively it lies within the La Paz municipality of Murillo province, in the La Paz department.",
+      lat: -16.35356,
+      lng: -68.13169,
     },
   ],
   sucre: [
@@ -112511,6 +112901,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Casa_de_la_libertad.jpg/960px-Casa_de_la_libertad.jpg",
       description: "La Casa de la Libertad es un edificio de la ciudad de Sucre, conocido por ser el lugar en el que se firmó el Acta de la Independencia de Bolivia en 1825.",
       descriptionEn: "Antonio José de Sucre y Alcalá, known as the \"Gran Mariscal de Ayacucho\", was a Venezuelan general and politician who served as the president of Bolivia from 1825 to 1828.",
+      lat: -19.04747,
+      lng: -65.26038,
     },
     {
       id: "sucre_1",
@@ -112526,7 +112918,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://live.staticflickr.com/33/101159149_229cb7efec_b.jpg",
       description: "El Castillo de la Glorieta es un monumento nacional de Bolivia situado en las afueras de la ciudad de Sucre, la capital del país. Fue la sede del principado de la Glorieta, constituido por Clotilde Urioste y Francisco Argandoña Revilla, ambos príncipes de La Glorieta.",
-      descriptionEn: "Castillo de La Glorieta is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "La Glorieta Castle is an eclectic historicist building on the outskirts of Sucre, built for the Argandoña family. Visitors go for its architecture, gardens and value as historic heritage.",
+      lat: -19.08466,
+      lng: -65.26861,
     },
     {
       id: "sucre_2",
@@ -112543,6 +112937,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Church_in_Historic_Center_-_Sucre_-_Bolivia.jpg/960px-Church_in_Historic_Center_-_Sucre_-_Bolivia.jpg",
       description: "La Catedral de la Inmaculada Concepción, también conocida como Catedral metropolitana de Sucre - Primada de Bolivia, es una edificación religiosa ubicada en la Plaza 25 de Mayo de la ciudad de Sucre, capital de Bolivia.Fue declarada como parte del patrimonio cultural boliviano…",
       descriptionEn: "This is a complete list of basilicas of the Catholic Church. A basilica is a church with certain privileges conferred on it by the Pope.",
+      lat: -19.04854,
+      lng: -65.26021,
     },
     {
       id: "sucre_3",
@@ -112559,7 +112955,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.parquecretacicosucre.com/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Parque_Cret%C3%A1cico_Sucre_Bolivia.jpg",
       description: "El Parque Cretácico es un parque temático ubicado en la ciudad de Sucre, capital de Bolivia. Sus elementos más característicos son los modelos de dinosaurios del periodo cretácico y el mirador hacia el yacimiento paleontológico Cal Orcko el yacimiento paleontológico más grande…",
-      descriptionEn: "Parque Cretácico is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Cretaceous Park is a visitor center next to the Cal Orck'o cliff on the outskirts of Sucre. It displays dinosaur replicas and offers views of the footprint site.",
+      lat: -19.00667,
+      lng: -65.23611,
     },
     {
       id: "sucre_4",
@@ -112576,6 +112974,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/20170805_Bolivia_1164_Sucre_sRGB_%2837949354402%29.jpg/960px-20170805_Bolivia_1164_Sucre_sRGB_%2837949354402%29.jpg",
       description: "Antonio José Francisco de Sucre y Alcalá, conocido también como el Gran Mariscal de Ayacucho, fue un político, diplomático, libertador, y militar venezolano, prócer de la independencia de América del Sur.",
       descriptionEn: "Antonio José de Sucre y Alcalá, known as the \"Gran Mariscal de Ayacucho\", was a Venezuelan general and politician who served as the president of Bolivia from 1825 to 1828.",
+      lat: -19.0479,
+      lng: -65.25952,
     },
     {
       id: "sucre_5",
@@ -112592,6 +112992,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sim%C3%B3n_Bol%C3%ADvar_by_Acevedo_Bernal%2C_1922.jpg",
       description: "El Parque Simón Bolívar, antiguamente llamado Paseo del Prado, es un parque ubicado en Sucre, Bolivia.",
       descriptionEn: "Antonio José de Sucre y Alcalá, known as the \"Gran Mariscal de Ayacucho\", was a Venezuelan general and politician who served as the president of Bolivia from 1825 to 1828.",
+      lat: -19.04134,
+      lng: -65.26319,
     },
     {
       id: "sucre_6",
@@ -112607,7 +113009,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://live.staticflickr.com/7592/17042210319_578b750653.jpg",
       description: "El Parque Cretácico es un parque temático ubicado en la ciudad de Sucre, capital de Bolivia. Sus elementos más característicos son los modelos de dinosaurios del periodo cretácico y el mirador hacia el yacimiento paleontológico Cal Orcko el yacimiento paleontológico más grande…",
-      descriptionEn: "Tiranosaurio is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -19.00617,
+      lng: -65.23625,
     },
     {
       id: "sucre_7",
@@ -112622,8 +113025,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/Dinosaur_tracks_in_Bolivia_2.jpg",
-      description: "Cal Orcko o Cal'Orcko es un yacimiento paleontológico declarado Monumento Natural Paleontológico de Bolivia mediante Decreto Supremo 25211 del 30 de octubre de 1998.",
-      descriptionEn: "Huellas de Dinosaurio en Cal Orck'o is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Las huellas de dinosaurio de Cal Orck'o están en un farallón arcilloso cerca de Sucre. El sitio conserva miles de pisadas fósiles de dinosaurios del Cretácico y se observa desde miradores.",
+      descriptionEn: "The Cal Orck'o dinosaur footprints are on a clay cliff near Sucre. The site preserves thousands of fossil dinosaur tracks from the Cretaceous and is viewed from lookout points.",
+      lat: -19.00232,
+      lng: -65.23659,
     },
     {
       id: "sucre_8",
@@ -112640,6 +113045,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/5466/8925014162_18afe8b0bd_b.jpg",
       description: "Cal Orcko o Cal'Orcko es un yacimiento paleontológico declarado Monumento Natural Paleontológico de Bolivia mediante Decreto Supremo 25211 del 30 de octubre de 1998.",
       descriptionEn: "Cal Orck’o is a fossil bed in Bolivia. It is located in a quarry approximately 4.4 km northwest of Sucre in the Altiplano/Cordillera Oriental, in the El Molino Formation.",
+      lat: -19.00281,
+      lng: -65.23719,
     },
     {
       id: "sucre_9",
@@ -112656,7 +113063,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.asur.org.bo/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Ejemplo_de_tarjeta_postal_vendida_en_el_Museo_de_arte_ind%C3%ADgena_ASUR..jpg/1920px-Ejemplo_de_tarjeta_postal_vendida_en_el_Museo_de_arte_ind%C3%ADgena_ASUR..jpg",
       description: "El Museo de Arte Indígena de la Fundación ASUR es un centro cultural ubicado en Sucre, Bolivia, dedicado a la preservación, exhibición y promoción del arte y la cultura de las comunidades indígenas del país.",
-      descriptionEn: "Museo Arte Indigena (asur) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The ASUR Indigenous Art Museum in Sucre displays textiles and objects from regional Indigenous communities, particularly the Jalq'a and Tarabuco peoples. It is visited to learn about textile techniques and Andean cultural expressions.",
+      lat: -19.05385,
+      lng: -65.25379,
     },
     {
       id: "sucre_10",
@@ -112674,6 +113083,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/84/Museo_del_tesoro_Sucre.jpg",
       description: "Sucre es uno de los veintitrés Estados que, junto con el Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela. Su capital es Cumaná.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -19.04704,
+      lng: -65.25945,
     },
     {
       id: "sucre_11",
@@ -112691,6 +113102,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/W._F._Burnett%27s_1920_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Bolivia._%28IA_wfburnettsguiaof00burn%29.pdf/page1-1280px-W._F._Burnett%27s_1920_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Bolivia._%28IA_wfburnettsguiaof00burn%29.pdf.jpg",
       description: "El Museo Casa de Sucre o Museo de la Defensa “Casa de Sucre” es una institución de carácter cultural ubicada en la ciudad de Quito, capital de Ecuador.",
       descriptionEn: "Sucre, officially La Ilustre y Heroica Sucre is the de jure capital city of Bolivia, the capital of the Chuquisaca Department and the sixth most populous city in Bolivia.",
+      lat: -19.04748,
+      lng: -65.23987,
     },
     {
       id: "sucre_12",
@@ -112705,8 +113118,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Silleria_del_museo_convento_de_la_recoleta.jpg/1920px-Silleria_del_museo_convento_de_la_recoleta.jpg",
-      description: "El centro histórico de Sucre es el núcleo urbano de la ciudad de Sucre, capital de Bolivia. Cuenta con una superficie de 4,7 km², y es considerado el centro histórico mejor conservado de Bolivia, junto con el de Potosí.",
+      description: "El Museo de La Recoleta ocupa un convento franciscano en Sucre y reúne arte colonial, objetos religiosos y piezas históricas. Se visita por su colección y por la vista desde el mirador de la Recoleta.",
       descriptionEn: "Sucre, officially La Ilustre y Heroica Sucre is the de jure capital city of Bolivia, the capital of the Chuquisaca Department and the sixth most populous city in Bolivia.",
+      lat: -19.05475,
+      lng: -65.25367,
     },
     {
       id: "sucre_13",
@@ -112722,7 +113137,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Interior_del_Palacete_del_Guereo.jpg",
       description: "El palacete de Guereo es un inmueble del patrimonio cultural boliviano que alberga actividades culturales en la ciudad histórica de Sucre, capital de Bolivia y Patrimonio Mundial de Humanidad.",
-      descriptionEn: "Palacete del Guereo is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -19.05425,
+      lng: -65.25188,
     },
     {
       id: "sucre_14",
@@ -112739,6 +113155,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Palacete_de_la_Florida%2C_Sucre.jpg/1920px-Palacete_de_la_Florida%2C_Sucre.jpg",
       description: "El palacete de Guereo es un inmueble del patrimonio cultural boliviano que alberga actividades culturales en la ciudad histórica de Sucre, capital de Bolivia y Patrimonio Mundial de Humanidad.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: -19.07641,
+      lng: -65.26864,
     },
     {
       id: "sucre_15",
@@ -112753,8 +113171,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/06/Miraflores_Palace.png",
-      description: "FCG 9 es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "The Cabinet of Ministers of Venezuela is one of the bodies that make up the Venezuelan executive in that country's presidential system, alongside the Council of Ministers. The Cabinet is headed by the president of Venezuela, and his corresponding vice president.",
+      lat: -19.03963,
+      lng: -65.26563,
     },
     {
       id: "sucre_16",
@@ -112770,7 +113189,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Vista_de_parte_alta_de_la_Grita_desde_el_Hotel_Monta%C3%B1a.JPG",
       description: "La Grita es una ciudad venezolana, capital del Municipio Jáuregui, en el Estado Táchira. Cuenta con una población de 88 450 habitantes sobre una extensión de 454 km² del municipio.",
-      descriptionEn: "Parque Infantil de Dinosaurios is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -19.04192,
+      lng: -65.26298,
     },
     {
       id: "sucre_17",
@@ -112787,6 +113207,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Ex_Palacio_Nacional_en_Sucre%2C_Bolivia.jpg",
       description: "Sucre, oficialmente La Ilustre y Heroica Sucre, es la capital oficial de Bolivia. Es además la sede del Poder Judicial del país e igualmente es capital del departamento de Chuquisaca. La ciudad ha sido designada Patrimonio de la Humanidad por la Unesco en 1991.",
       descriptionEn: "The Escuela Superior Politécnica del Litoral (ESPOL) is a public university located in Guayaquil, Guayas Province in Ecuador. ESPOL has five faculties or schools, fifteen research centers, and several associated centers providing twenty-six undergraduate and ten master's degrees.",
+      lat: -19.03341,
+      lng: -65.26626,
     },
     {
       id: "sucre_18",
@@ -112801,8 +113223,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 180,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/GolfodeCariaco.jpg",
-      description: "Sucre es uno de los veintitrés Estados que, junto con el Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela. Su capital es Cumaná.",
+      description: "El centro histórico de Sucre es el núcleo urbano de la ciudad de Sucre, capital de Bolivia. Cuenta con una superficie de 4,7 km², y es considerado el centro histórico mejor conservado de Bolivia, junto con el de Potosí.",
       descriptionEn: "The Battle of Ayacucho was a decisive military encounter during the Peruvian War of Independence. This battle secured the independence of Peru and ensured independence for the rest of belligerent South American states.",
+      lat: -19.04793,
+      lng: -65.25963,
+      sourceUrl: "https://es.wikipedia.org/wiki/Centro_hist%C3%B3rico_de_Sucre",
     },
     {
       id: "sucre_19",
@@ -112819,6 +113244,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/62/20170805_Bolivia_1214_Sucre_sRGB_%2826204168039%29.jpg",
       description: "La Catedral de la Inmaculada Concepción, también conocida como Catedral metropolitana de Sucre - Primada de Bolivia, es una edificación religiosa ubicada en la Plaza 25 de Mayo de la ciudad de Sucre, capital de Bolivia.Fue declarada como parte del patrimonio cultural boliviano…",
       descriptionEn: "Catedral Metropolitana, or Metropolitan Cathedral, can refer to several cathedrals including:Guadalajara Cathedral Mexico City Metropolitan Cathedral Rio de Janeiro Cathedral Catedral Metropolitana de La Paz Catedral Metropolitana de Quito Catedral Metropolitana de San Salvador…",
+      lat: -19.0486,
+      lng: -65.2603,
     },
     {
       id: "sucre_20",
@@ -112835,7 +113262,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.parquecretacico.com/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/Huellas_de_dinosaurios_saur%C3%B3podos_en_Cal_Orcko%2C_Sucre.jpg",
       description: "Cal Orcko o Cal'Orcko es un yacimiento paleontológico declarado Monumento Natural Paleontológico de Bolivia mediante Decreto Supremo 25211 del 30 de octubre de 1998.",
-      descriptionEn: "Cal Orcko – Huellas de Dinosaurios is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Cal Orck'o is a dinosaur footprint site on a clay cliff near Sucre. The fossil tracks were exposed by erosion and can be observed from the Cretaceous Park.",
     },
   ],
   potosi: [
@@ -112854,6 +113281,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/4643/39425870292_6d0636eb12_b.jpg",
       description: "El cerro Rico, conocido también como cerro de Potosí, es una montaña de los Andes ubicada en la ciudad de Potosí, Bolivia, o antigua Villa Imperial de Potosí, con una altitud aproximada de unos 4800 m s. n. m..",
       descriptionEn: "Potosí, known as Villa Imperial de Potosí in the colonial period, is the capital city and a municipality of the Department of Potosí in Bolivia. It is one of the highest cities in the world at a nominal 4,067 m (13,343 ft).",
+      lat: -19.6189,
+      lng: -65.74969,
     },
     {
       id: "potosi_1",
@@ -112870,6 +113299,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Casa_de_la_Moneda_de_Potos%C3%AD_%28Bolivia%29.jpg",
       description: "La Casa Nacional de Moneda de Bolivia, conocida simplemente como la Casa Nacional de Moneda, es un museo y archivo histórico de Bolivia, ubicado en la ciudad de Potosí.",
       descriptionEn: "The Museo Casa de Moneda is a numismatics museum located in La Candelaria neighborhood of Bogotá, Colombia. It is managed by the Bank of the Republic of Colombia and used to display its numismatic collection that is composed by around 18,600 objects that include artwork,…",
+      lat: -19.58861,
+      lng: -65.75417,
     },
     {
       id: "potosi_2",
@@ -112903,6 +113334,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.casanacionaldemoneda.bo",
       description: "La Casa Nacional de Moneda de Bolivia, conocida simplemente como la Casa Nacional de Moneda, es un museo y archivo histórico de Bolivia, ubicado en la ciudad de Potosí.",
       descriptionEn: "Potosí, known as Villa Imperial de Potosí in the colonial period, is the capital city and a municipality of the Department of Potosí in Bolivia. It is one of the highest cities in the world at a nominal 4,067 m (13,343 ft).",
+      lat: -19.58824,
+      lng: -65.75415,
     },
     {
       id: "potosi_4",
@@ -112919,6 +113352,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/Puerta_de_la_Iglesia_San_Lorenzo_Potos%C3%AD_Bolivia.jpg",
       description: "San Lorenzo de Carangas es una iglesia ubicada en la ciudad boliviana de Potosí, en el departamento homónimo. La edificación es parte del Patrimonio cultural de Bolivia y tiene la categoría de Monumento.",
       descriptionEn: "Andean Baroque is an artistic movement that appeared in colonial Peru between 1680 and 1780. It is located geographically between Arequipa and Lake Titicaca in what is now Peru, where rules over the highlands and spreads over the entire altiplano.",
+      lat: -19.58675,
+      lng: -65.75482,
     },
     {
       id: "potosi_5",
@@ -112935,6 +113370,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Bolivia_-_Potos%C3%AD_-_Plaza_10_de_Noviembre_e_la_cattedrale.jpg/1920px-Bolivia_-_Potos%C3%AD_-_Plaza_10_de_Noviembre_e_la_cattedrale.jpg",
       description: "La Plaza 10 de Noviembre es una plaza ubicada en Potosí, Bolivia. Se encuentra catalogada como parte del Patrimonio Cultural Boliviano.",
       descriptionEn: "The Cathedral of Villa Imperial de Potosí or Cathedral of Potosí, the official name is Cathedral Basilica of Nuestra Señora de La Paz is a minor basilica and cathedral with baroque and neoclassical colonial influence.",
+      lat: -19.58917,
+      lng: -65.75361,
     },
     {
       id: "potosi_6",
@@ -112951,6 +113388,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Catedral_de_la_ciudad_de_Potos%C3%AD_%28Bolivia%29.jpg/1920px-Catedral_de_la_ciudad_de_Potos%C3%AD_%28Bolivia%29.jpg",
       description: "La Catedral de la Villa Imperial de Potosí es una basílica menor con estilo barroco virreinal e influencia neoclásica. Posee una fachada de piedra y está situada en la Plaza 10 de Noviembre, en el centro de esta ciudad.",
       descriptionEn: "Rioverde is a city and its surrounding municipality located in the south-central part of the state of San Luis Potosí, Mexico. It is the fifth-most populated city in the state, behind San Luis Potosí, Soledad de Graciano Sánchez, Ciudad Valles, and Matehuala.",
+      lat: -19.58846,
+      lng: -65.75269,
     },
     {
       id: "potosi_7",
@@ -112967,6 +113406,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Laguna_Chojllas.jpg/1920px-Laguna_Chojllas.jpg",
       description: "La Laguna Verde es una laguna de agua salada altoandina de Bolivia, ubicada en la Reserva Nacional de Fauna Andina Eduardo Abaroa, en el Altiplano.",
       descriptionEn: "Potosí is a department in southwestern Bolivia. Its area is 118,218 km2 and its population is 856,419. The capital is the city of Potosí.",
+      lat: -19.605,
+      lng: -65.71442,
     },
     {
       id: "potosi_8",
@@ -112983,6 +113424,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Almanaque_Peuser_1893_-_Leopoldo_Diaz.pdf/page1-960px-Almanaque_Peuser_1893_-_Leopoldo_Diaz.pdf.jpg",
       description: "Quetena Grande es una localidad de Bolivia, ubicada en las tierras altas del país. Administrativamente se encuentra en el municipio de San Pablo de Lípez de la provincia de Sud Lípez en el departamento de Potosí.",
       descriptionEn: "The Khari Khari Lakes are two closely connected artificial lakes, San Ildefonso and San Pablo situated in the Khari Khari mountain range of Bolivia.",
+      lat: -19.60207,
+      lng: -65.71871,
     },
     {
       id: "potosi_9",
@@ -112999,6 +113442,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Cerro_ricco.jpg",
       description: "El cerro Rico, conocido también como cerro de Potosí, es una montaña de los Andes ubicada en la ciudad de Potosí, Bolivia, o antigua Villa Imperial de Potosí, con una altitud aproximada de unos 4800 m s. n. m..",
       descriptionEn: "Cerro Rico, also known as Cerro Potosí or Sumaq Urqu ; is a mountain in the Andes near the Bolivian city of Potosí.",
+      lat: -19.6189,
+      lng: -65.74969,
     },
     {
       id: "potosi_10",
@@ -113015,6 +113460,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bf/VIA_BUSCARRIL.jpg",
       description: "Sacabamba es una localidad y municipio de Bolivia, ubicado en la provincia de Esteban Arze en el departamento de Cochabamba. Está ubicada a 85 kilómetros al sudeste de la ciudad de Cochabamba, está entre 2.900 y 3.100 metros sobre el nivel del mar.",
       descriptionEn: "Yana Qaqa is a mountain in the Bolivian Andes which reaches a height of approximately 4,180 m (13,710 ft). It is located in the Potosí Department, Tomás Frías Province, Potosí Municipality, north of the city of Potosí.",
+      lat: -19.51667,
+      lng: -65.76139,
     },
     {
       id: "potosi_11",
@@ -113031,6 +113478,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/97/Cordillera_Real_4.jpg",
       description: "La cordillera Real es una cadena montañosa en el altiplano de Bolivia. Esta cordillera de montañas de plegamiento, en su mayor parte de granito, se encuentra ubicada al sureste del Lago Titicaca, y al este de la ciudad de La Paz, mide 125 km de extensión y 20 km de ancho.",
       descriptionEn: "Wak'ani is a mountain in the Khari Khari mountain range in the Andes of Bolivia. It is situated in the Potosí Department, Tomás Frías Province, east of Potosí.",
+      lat: -19.6197,
+      lng: -65.6744,
     },
     {
       id: "potosi_12",
@@ -113045,8 +113494,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Monograf%C3%ADa_de_Bolivia_Tomo_1_-_Biblioteca_del_sesquicentenario_%28Libro%29.pdf/page1-960px-Monograf%C3%ADa_de_Bolivia_Tomo_1_-_Biblioteca_del_sesquicentenario_%28Libro%29.pdf.jpg",
-      description: "Gabriel Cuñado o bien Gabriel Cuñado Martín y nacido como Gabriel Cuñado-Aldeán y Martín era un médico castellano-español y funcionario argentino que llegó al Virreinato del Perú hacia 1807 y actuara como profesional de la sanidad del bando realista en la Guerra de Independencia…",
-      descriptionEn: "Museo Universitario Ricardo Bohórquez is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo universitario de Potosí, vinculado a la Universidad Autónoma Tomás Frías, que conserva y exhibe colecciones patrimoniales; se visita para conocer parte del acervo académico y regional.",
+      descriptionEn: "University museum in Potosí, linked to the Universidad Autónoma Tomás Frías, which preserves and displays heritage collections; it is visited to learn about part of the academic and regional heritage.",
     },
     {
       id: "potosi_13",
@@ -113063,6 +113512,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Potosi_D%C3%A9cembre_2007_-_Panorama_5.jpg/1920px-Potosi_D%C3%A9cembre_2007_-_Panorama_5.jpg",
       description: "La cordillera Real es una cadena montañosa en el altiplano de Bolivia. Esta cordillera de montañas de plegamiento, en su mayor parte de granito, se encuentra ubicada al sureste del Lago Titicaca, y al este de la ciudad de La Paz, mide 125 km de extensión y 20 km de ancho.",
       descriptionEn: "Huayna Potosí is a fold mountain located in western Bolivia, near the city of El Alto and approximately 25 km (16 mi) north of La Paz, the country's administrative capital.",
+      lat: -19.60106,
+      lng: -65.87072,
     },
   ],
   uyuni: [
@@ -113080,7 +113531,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 480,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Appearance_of_Fukushima_I_Nuclear_Power_Plant_Unit_3_after_the_explosion_20110315.jpg/960px-Appearance_of_Fukushima_I_Nuclear_Power_Plant_Unit_3_after_the_explosion_20110315.jpg",
       description: "El salar de Uyuni, a veces conocido como salar de Tunupa, es el mayor desierto de sal continuo y alto del mundo, con una superficie de 10 582 km². Está situado a unos 3650 m s. n. m.",
-      descriptionEn: "Salar de Uyuni is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Salar de Uyuni is the vast salt flat in the Bolivian altiplano near the town of Uyuni. Visitors come for its white landscapes, cactus-covered islands and salt formations that change with the light.",
+      lat: -20.1333,
+      lng: -66.8333,
+      dayTrip: true,
     },
     {
       id: "uyuni_1",
@@ -113111,7 +113565,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 480,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Bolivia_physical_map.svg/langes-960px-Bolivia_physical_map.svg.png",
-      description: "El salar de Uyuni, a veces conocido como salar de Tunupa, es el mayor desierto de sal continuo y alto del mundo, con una superficie de 10 582 km². Está situado a unos 3650 m s. n. m.",
+      description: "Las lagunas de colores son cuerpos de agua como la Laguna Colorada y la Laguna Verde, dentro de la Reserva Nacional de Fauna Andina Eduardo Avaroa. Se visitan en recorridos desde Uyuni por sus tonos minerales y su fauna altiplánica.",
       descriptionEn: "Tourism in Bolivia is one of the key economic sectors of the country. According to data from the National Institute of Statistics of Bolivia (INE), there were over 1.24 million tourists that visited the country in 2020, making Bolivia the ninth most visited country in South…",
     },
     {
@@ -113127,7 +113581,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 480,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Floridsdorf_-_Mautner-Schl%C3%B6ssl.JPG/960px-Floridsdorf_-_Mautner-Schl%C3%B6ssl.JPG",
-      description: "La cordillera Occidental de Bolivia es una cadena montañosa perteneciente a los Andes, ubicada al oeste del país. Tiene como principal característica la vulcanidad de sus cumbres, y está formada por numerosos conos y flujos de lavas de la edad Terciaria y Cuaternaria.",
+      description: "El Licancabur es un volcán cónico situado en la frontera entre Bolivia y Chile, cerca de la Laguna Verde. Se observa durante los recorridos por la Reserva Eduardo Avaroa y forma parte del paisaje volcánico del altiplano.",
       descriptionEn: "Salar de Atacama, located 55 km (34 mi) south of San Pedro de Atacama, is the largest salt flat in Chile. It is surrounded by mountains and lacks drainage outlets.",
     },
     {
@@ -113144,7 +113598,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Railways_in_Peru.svg/langes-960px-Railways_in_Peru.svg.png",
       description: "Los ferrocarriles en el Perú tienen una historia variada. El transporte ferroviario peruano nunca formó una red propiamente dicha, compuesto por líneas separadas que iban desde la costa hacia los Andes y que fueron construidas para transporte de carga antes que de pasajeros.",
-      descriptionEn: "Museo Abierto del Ferrocarril is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Open-Air Railway Museum, known as the Train Cemetery, gathers old abandoned locomotives and wagons on the outskirts of Uyuni. It is visited for its railway history and the industrial landscape of the site.",
+      lat: -20.48079,
+      lng: -66.83688,
     },
     {
       id: "uyuni_5",
@@ -113160,7 +113616,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/95/Rel%C3%B3gio_no_centro_de_Uyuni%2C_Bolivia_2.jpg",
       description: "Uyuni es un municipio y una ciudad intermedia al suroeste de Bolivia. Es capital de la provincia de Quijarro en el departamento de Potosí, y se encuentra al borde del Salar de Uyuni, el salar más grande del mundo. Cuenta con una población de 20 958 en 2012.",
-      descriptionEn: "Museo Ferrocarril y Centro de Interpretación de Uyuni is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -20.46406,
+      lng: -66.81998,
     },
     {
       id: "uyuni_6",
@@ -113176,7 +113633,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Reloj_p%C3%BAblico_de_Uyuni.jpg/1280px-Reloj_p%C3%BAblico_de_Uyuni.jpg",
       description: "Uyuni es un municipio y una ciudad intermedia al suroeste de Bolivia. Es capital de la provincia de Quijarro en el departamento de Potosí, y se encuentra al borde del Salar de Uyuni, el salar más grande del mundo. Cuenta con una población de 20 958 en 2012.",
-      descriptionEn: "Reloj Público de Uyuni is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -20.46277,
+      lng: -66.82399,
     },
     {
       id: "uyuni_7",
@@ -113191,8 +113649,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/5840_III_%2C_Okoruro%2C_1-50%2C000_%28PDF%29_-_PCL_Map_Collection_-_5840-iii-okoruro.pdf/page1-1920px-5840_III_%2C_Okoruro%2C_1-50%2C000_%28PDF%29_-_PCL_Map_Collection_-_5840-iii-okoruro.pdf.jpg",
-      description: "Jalsuri es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Jalsuri (Aymara) is a 5,006-metre-high (16,424 ft) mountain in the Andes in Bolivia north-east of Uyuni. It is situated in the Potosí Department, Antonio Quijarro Province, in the east of the Uyuni Municipality, at the border with the Tomave Municipality.",
+      lat: -20.2253,
+      lng: -66.6492,
+      dayTrip: true,
     },
     {
       id: "uyuni_8",
@@ -113208,7 +113668,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Uyuni%2C_Bolivia_-_panoramio_%286%29.jpg",
       description: "Colchani es una localidad del oeste de Bolivia, ubicada en el municipio de Uyuni de la provincia de Quijarro en el Departamento de Potosí. Se localiza a 20 km de la ciudad de Uyuni en la carretera que une esta localidad con Oruro, a una altitud de 3.674 m s. n. m.",
-      descriptionEn: "Museo de la Llama y de la Sal Colchani is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Llama and Salt Museum is in Colchani, a town near the Salar de Uyuni. It displays salt objects and crafts and presents aspects of llama herding in the altiplano.",
+      lat: -20.30185,
+      lng: -66.94088,
     },
     {
       id: "uyuni_9",
@@ -113223,8 +113685,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/W._F._Burnett%27s_1920_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Bolivia._%28IA_wfburnettsguiaof00burn%29.pdf/page1-1280px-W._F._Burnett%27s_1920_guia_oficial_del_Sud_America%3B_seccion_de_la_Republica_de_Bolivia._%28IA_wfburnettsguiaof00burn%29.pdf.jpg",
-      description: "Uyuni es un municipio y una ciudad intermedia al suroeste de Bolivia. Es capital de la provincia de Quijarro en el departamento de Potosí, y se encuentra al borde del Salar de Uyuni, el salar más grande del mundo. Cuenta con una población de 20 958 en 2012.",
-      descriptionEn: "Museo de Locomotoras Pulacayo is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de Locomotoras de Pulacayo se encuentra en el antiguo centro minero de Pulacayo, cerca de Uyuni. Conserva locomotoras y equipos ferroviarios vinculados a la historia minera y de transporte de la región.",
+      descriptionEn: "The Pulacayo Locomotive Museum is located in the old mining center of Pulacayo, near Uyuni. It preserves locomotives and railway equipment linked to the region's mining and transport history.",
+      lat: -20.39104,
+      lng: -66.70003,
     },
     {
       id: "uyuni_10",
@@ -113241,6 +113705,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/63/Logotipo_Azul_Minera_San_Cristobal_S.A.png",
       description: "Minera San Cristóbal S.A.",
       descriptionEn: "Bolivia, officially the Plurinational State of Bolivia, is a landlocked country located in central South America. Its geography primarily consists of an Andean region to the west and tropical lowlands to the east and north.",
+      lat: -20.38768,
+      lng: -66.69766,
     },
     {
       id: "uyuni_11",
@@ -113257,7 +113723,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Miguel_%C3%81ngel_Mu%C3%B1oz_Premios_Goya_2017_%28cropped%29.jpg",
       website: "https://palaciodesal.com.bo/es/suenosyleyendas/",
       description: "Miguel Ángel Muñoz Blanco es un actor español de cine y televisión. Se le conoce principalmente por sus papeles televisivos en Un paso adelante (2002-2005), como Roberto \"Rober\" Arenales, Mis adorables vecinos (2005-2006) El síndrome de Ulises, como Ulises Gaytán de Arzuaga, Sin…",
-      descriptionEn: "Sueños y Leyendas is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -20.30567,
+      lng: -66.97447,
     },
     {
       id: "uyuni_12",
@@ -113293,6 +113760,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://gmsantacruz.gob.bo/gestion/paseo-turistico.php?mostrar=monumento-cristo-redentor",
       description: "El Cristo Redentor es un monumento que se encuentra en el segundo anillo y avenida Cristo Redentor en la ciudad de Santa Cruz de la Sierra, en Bolivia.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: -17.77048,
+      lng: -63.18249,
     },
     {
       id: "santacruz_1",
@@ -113308,7 +113777,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Statue_of_Noel_Kempff_Mercado._Barks%2C_Kristoffer._5_July_2024._Municipal_Zoo_of_South_American_Fauna%2C_Santa_Cruz_de_la_Sierra.jpg/1920px-Statue_of_Noel_Kempff_Mercado._Barks%2C_Kristoffer._5_July_2024._Municipal_Zoo_of_South_American_Fauna%2C_Santa_Cruz_de_la_Sierra.jpg",
       description: "El Zoológico Municipal de Fauna Sudamericana Noel Kempff Mercado, se encuentra en la ciudad de Santa Cruz de la Sierra, Bolivia. Es el más importante en el país por la extensa biodiversidad de especies autóctonas, además, es una de las atracciones turísticas de la ciudad.",
-      descriptionEn: "Zoológico Municipal de Fauna Sudamericana Noel Kempff Mercado is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Municipal zoo in Santa Cruz de la Sierra focused on South American wildlife, with felines, primates, reptiles and regional birds. Visitors come to see native species and walk its shaded paths.",
+      lat: -17.75935,
+      lng: -63.18296,
     },
     {
       id: "santacruz_2",
@@ -113325,6 +113796,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Catedral_Bas%C3%ADlica_Menor_de_San_Lorenzo%2C_Santa_Cruz_de_la_Sierra.jpg/1920px-Catedral_Bas%C3%ADlica_Menor_de_San_Lorenzo%2C_Santa_Cruz_de_la_Sierra.jpg",
       description: "La Catedral basílica menor de San Lorenzo Mártir, conocida también como Catedral basílica de San Lorenzo o Catedral metropolitana de Santa Cruz de la Sierra, es el principal templo católico en la ciudad de Santa Cruz de la Sierra.",
       descriptionEn: "The Metropolitan Archdiocese of Madrid is a Latin archdiocese of the Catholic Church in Spain. It is one of Spain's fourteen metropolitan archbishoprics. Since 12 June 2023 the archbishop of Madrid has been José Cobo Cano.",
+      lat: -17.78422,
+      lng: -63.18172,
     },
     {
       id: "santacruz_3",
@@ -113341,7 +113814,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Catedral_de_Sevilla_fachada_este_2.jpg",
       website: "https://www.kioskogaleria.com/",
       description: "La Santa, Metropolitana y Patriarcal Iglesia Catedral de Santa María de la Sede y de la Asunción de Sevilla; más conocida como catedral de Sevilla, es una iglesia catedral de culto cristiano católico, sede de la archidiócesis de Sevilla.",
-      descriptionEn: "Nube Gallery is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.78144,
+      lng: -63.17828,
     },
     {
       id: "santacruz_4",
@@ -113357,8 +113831,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Chumbo_entre_jazmines_-_parodia_de_%22Lirio_entre_espinas%2C%22_vista_con_todos_los_respetos_debidos_a_Gregorio_Mart%C3%ADnez_Sierra_%28IA_chumboentrejazmi2367ruiz%29.pdf/page1-500px-Chumbo_entre_jazmines_-_parodia_de_%22Lirio_entre_espinas%2C%22_vista_con_todos_los_respetos_debidos_a_Gregorio_Mart%C3%ADnez_Sierra_%28IA_chumboentrejazmi2367ruiz%29.pdf.jpg",
       website: "http://www.manzanauno.org.bo",
-      description: "Santa Cruz de la Sierra, también conocida como Santa Cruz, es una ciudad de Bolivia, ubicada en los llanos orientales del país, en la cuenca del Amazonas, a orillas del río Piraí. Es también la capital del departamento de Santa Cruz.",
+      description: "Espacio cultural y de exposiciones en el centro de Santa Cruz de la Sierra, con salas de arte y actividades programadas. Se visita para ver muestras de artes visuales de artistas bolivianos e invitados.",
       descriptionEn: "Santa Cruz de la Sierra, commonly known as Santa Cruz, is the largest city in Bolivia and the capital of the Santa Cruz department.",
+      lat: -17.78413,
+      lng: -63.18248,
     },
     {
       id: "santacruz_5",
@@ -113392,6 +113868,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Memoria_le%C3%ADda_en_la_solemne_apertura_del_curso_acad%C3%A9mico_de_1861_a_1862%2C_del_Real_Colegio_de_San_Bartolom%C3%A9_y_Santiago_Instituto_de_Segunda_Ense%C3%B1anza_de_la_Provincia_de_Granadda_en_el_d%C3%ADa_16_de_%28IA_A11406907%29.pdf/page1-330px-thumbnail.pdf.jpg",
       description: "El edificio del Rectorado de la Universidad Autónoma Gabriel René Moreno, construido en 1940 en la esquina de las calles Junín y Libertad, es el centro administrativo histórico de la principal casa de estudios superiores de Santa Cruz de la Sierra, fundada en 1880.",
       descriptionEn: "The Rectorado building of the Gabriel René Moreno Autonomous University, built in 1940 at the corner of Junín and Libertad streets, is the historic administrative center of Santa Cruz de la Sierra's main institution of higher education, founded in 1880.",
+      lat: -17.69416,
+      lng: -63.15149,
     },
     {
       id: "santacruz_7",
@@ -113408,6 +113886,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Escudo_de_Santa_Cruz_de_la_Sierra.svg/1920px-Escudo_de_Santa_Cruz_de_la_Sierra.svg.png",
       description: "Santa Cruz de la Sierra es un municipio y localidad española de la provincia de Cáceres, en la comunidad autónoma de Extremadura. El término municipal tiene una población de 317 habitantes.",
       descriptionEn: "Santa Cruz de Tenerife, commonly abbreviated as Santa Cruz, is a city, the capital of the island of Tenerife, Province of Santa Cruz de Tenerife, and one of the capitals of the Canary Islands, along with Las Palmas.",
+      lat: -17.76186,
+      lng: -63.15105,
     },
     {
       id: "santacruz_8",
@@ -113424,6 +113904,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sierra_Madre_News_1910-08-05_%28IA_csie_000270%29.pdf/page1-1920px-Sierra_Madre_News_1910-08-05_%28IA_csie_000270%29.pdf.jpg",
       description: "Royal Leamington Spa, comúnmente conocido como Leamington Spa o Leamington, es una localidad balnearia situada en el condado de Warwickshire, Inglaterra.",
       descriptionEn: "Santa Cruz de Tenerife, commonly abbreviated as Santa Cruz, is a city, the capital of the island of Tenerife, Province of Santa Cruz de Tenerife, and one of the capitals of the Canary Islands, along with Las Palmas.",
+      lat: -17.74792,
+      lng: -63.18794,
     },
     {
       id: "santacruz_9",
@@ -113439,8 +113921,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Panoramica_Santa_Cruz_de_la_Sierra_Bolivia.jpg",
       website: "https://biocentroguembe.com/",
-      description: "Santa Cruz de la Sierra, también conocida como Santa Cruz, es una ciudad de Bolivia, ubicada en los llanos orientales del país, en la cuenca del Amazonas, a orillas del río Piraí. Es también la capital del departamento de Santa Cruz.",
-      descriptionEn: "Biocentro Güembé is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Complejo turístico y de conservación cerca de Santa Cruz de la Sierra, en Porongo, con mariposario, aviario, senderos y áreas de agua. Se visita para recorrer sus ambientes naturales y observar aves y mariposas.",
+      descriptionEn: "Tourism and conservation complex near Santa Cruz de la Sierra, in Porongo, with a butterfly house, aviary, trails and water areas. Visitors come to walk its natural settings and observe birds and butterflies.",
     },
     {
       id: "santacruz_10",
@@ -113456,7 +113938,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Amazon17_%285641020319%29.jpg/3840px-Amazon17_%285641020319%29.jpg",
       description: "La Amazonia, también denominada Amazonía y a veces llamada simplemente «el Amazonas», es una vasta región de la parte horizontal y septentrional de América del Sur que integra la selva tropical de la cuenca del río Amazonas.",
-      descriptionEn: "Acuario Amazonico is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "santacruz_11",
@@ -113473,6 +113954,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Jard%C3%ADn_bot%C3%A1nico_de_Santa_Cruz%2C_Bolivia.png/1920px-Jard%C3%ADn_bot%C3%A1nico_de_Santa_Cruz%2C_Bolivia.png",
       description: "El Jardín Botánico Municipal de Santa Cruz de la Sierra es un jardín botánico de 217 hectáreas de extensión en la ciudad de Santa Cruz de la Sierra, Bolivia.",
       descriptionEn: "Las Palmas, officially Las Palmas de Gran Canaria, is the capital and largest city of the autonomous community of the Canary Islands in Spain. With a population of 383,516 as of 2024, it is the ninth-largest city in Spain.",
+      lat: -17.77814,
+      lng: -63.06523,
     },
     {
       id: "santacruz_12",
@@ -113487,8 +113970,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/National_Anti-Slavery_Standard_%28IA_6e2ee76a-9e61-4284-ac8d-fcecd89a9301%29.pdf/page1-960px-National_Anti-Slavery_Standard_%28IA_6e2ee76a-9e61-4284-ac8d-fcecd89a9301%29.pdf.jpg",
-      description: "Science Corner CBA es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Córdoba is a province of Argentina, located in the center of the country. Its neighboring provinces are Santiago del Estero, Santa Fe, Buenos Aires, La Pampa, San Luis, La Rioja, and Catamarca.",
+      lat: -17.78358,
+      lng: -63.17768,
     },
     {
       id: "santacruz_13",
@@ -113503,8 +113987,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/La_gran_monta%C3%B1a_rusa_-_revista_c%C3%B3mico-l%C3%ADrica_en_un_acto_y_cuatro_cuadros%2C_en_verso_%28IA_lagranmontanarus3511vian%29.pdf/page1-500px-La_gran_monta%C3%B1a_rusa_-_revista_c%C3%B3mico-l%C3%ADrica_en_un_acto_y_cuatro_cuadros%2C_en_verso_%28IA_lagranmontanarus3511vian%29.pdf.jpg",
-      description: "Santa Cruz de la Sierra, también conocida como Santa Cruz, es una ciudad de Bolivia, ubicada en los llanos orientales del país, en la cuenca del Amazonas, a orillas del río Piraí. Es también la capital del departamento de Santa Cruz.",
-      descriptionEn: "Galería Kiosko is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Galería de arte contemporáneo en Santa Cruz de la Sierra que presenta exposiciones temporales de artistas bolivianos y latinoamericanos. Se visita para conocer la producción artística de la escena local.",
+      descriptionEn: "Contemporary art gallery in Santa Cruz de la Sierra hosting temporary exhibitions by Bolivian and Latin American artists. It is visited to see the work of the local art scene.",
+      lat: -17.78106,
+      lng: -63.17835,
     },
     {
       id: "santacruz_14",
@@ -113521,7 +114007,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Bolivia%2C_Ambor%C3%B3_National_Park%2C_2009.jpg",
       website: "https://sernap.gob.bo/amboro/",
       description: "El Parque nacional y área natural de manejo integrado Amboró, también escrito PN-ANMI Amboró, es un área protegida de Bolivia y una de las reservas a nivel mundial con mayor biodiversidad, ya que en sus superficie confluyen 3 diferentes ecosistemas.",
-      descriptionEn: "Parque Nacional Amboró is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "National park northwest of Santa Cruz de la Sierra, in the transition between the Andes and the Amazon, with cloud forest and a high diversity of birds. It is visited on one- or multi-day trips from the city.",
     },
   ],
   cochabamba: [
@@ -113538,9 +114024,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "http://museodorbigny.org/",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Exposici%C3%B3n_de_la_Rep%C3%BAblica_del_Per%C3%BA_presentada_al_excmo._govierno_argentino_en_el_juicio_de_l%C3%ADmites_con_la_rep%C3%BAblica_de_Bolivia_%28IA_republicaperu02barcrich%29.pdf/page1-500px-thumbnail.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Gasteroclupea_branisai.jpg",
       description: "El Museo de Historia Natural Alcide d'Orbigny es una entidad cultural de la ciudad de Cochabamba, en Bolivia.",
-      descriptionEn: "Museo de Historia Natural Alcide d'Orbigny is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Natural history museum in Cochabamba dedicated to Bolivian fauna, paleontology, and biodiversity. Its collections and exhibits present native species and fossils from the region.",
+      lat: -17.37381,
+      lng: -66.15371,
     },
     {
       id: "cochabamba_1",
@@ -113557,6 +114045,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Palacio_portales_perspectiva_exterior.jpg/960px-Palacio_portales_perspectiva_exterior.jpg",
       description: "El Palacio Portales es un edificio ubicado en la ciudad de Cochabamba, Bolivia.",
       descriptionEn: "Cochabamba is a city and municipality in central Bolivia in a valley in the Andes mountain range. It is the capital of the Cochabamba Department and the fourth largest city in Bolivia, with a population of 661,484 according to the 2024 Bolivian census.",
+      lat: -17.37492,
+      lng: -66.15339,
     },
     {
       id: "cochabamba_2",
@@ -113574,6 +114064,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Laguna_del_Parque_Nacional_Tunari%2C_Cochabamba%2C_Bolivia.jpg",
       description: "El Parque nacional Tunari es un área protegida de Bolivia, ubicado en el oeste del departamento de Cochabamba. Abarca las provincias de Ayopaya, Cercado, Quillacollo, Chapare y Tapacarí.",
       descriptionEn: "Villa Tunari or Tunari is a location in the department of Cochabamba, Bolivia. It is the seat of the Villa Tunari Municipality, the third municipal section of the Chapare Province.",
+      lat: -17.23283,
+      lng: -66.34594,
+      dayTrip: true,
     },
     {
       id: "cochabamba_3",
@@ -113590,6 +114083,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Cristo_de_la_Concordia_02.jpg/960px-Cristo_de_la_Concordia_02.jpg",
       description: "El Cristo de la Concordia es una estatua monumental de Jesucristo, ubicada sobre el cerro de San Pedro en la ciudad de Cochabamba, Bolivia, a una altura de 265 m sobre la ciudad. La estatua mide 34,20 m de altura, sobre un pedestal de 6,24 m, con una altura total de 40,44 m.",
       descriptionEn: "Cristo de la Concordia is a statue of Jesus Christ located atop San Pedro Hill, to the east of Cochabamba, Bolivia. It is accessible by cable car, or by climbing 2,000 steps.",
+      lat: -17.38425,
+      lng: -66.13496,
     },
     {
       id: "cochabamba_4",
@@ -113606,6 +114101,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5b/MONUMENTO_A_LAS_HERO%C3%8DNAS_DE_LA_CORONILLA.jpg",
       description: "Las Heroínas de la Coronilla fueron un grupo de mujeres que lucharon durante la guerra de independencia de la Real Audiencia de Charcas, el 27 de mayo de 1812, en la ciudad de Cochabamba enfrentándose al general realista José Manuel de Goyeneche (1760-1814) quien atacó la ciudad…",
       descriptionEn: "Sara Ugarte de Salamanca (1866-1925) was a Bolivian poet and wife of Daniel Salamanca Urey. She was from Cochabamba. She campaigned to have a monument built to the local heroines who had fought trained soldiers in 1812.",
+      lat: -17.40472,
+      lng: -66.16035,
     },
     {
       id: "cochabamba_5",
@@ -113622,6 +114119,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sim%C3%B3n_Bol%C3%ADvar_by_Acevedo_Bernal%2C_1922.jpg",
       description: "Bolívar es un pueblo y municipio de Bolivia, capital de la provincia de Bolívar en el departamento de Cochabamba. La localidad se encuentra a una altitud de 3.735 m s. n. m. en la cordillera de Azanaques, en la parte septentrional de la Cordillera Central.",
       descriptionEn: "Bolívar is a location in the Cochabamba Department, Bolivia. It is the seat of the Bolívar Province.",
+      lat: -17.39343,
+      lng: -66.23629,
     },
     {
       id: "cochabamba_6",
@@ -113638,6 +114137,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/CAPILLA_CEMENTERIO_Gral._COCHABAMBA.jpg",
       description: "El Cementerio General de Cochabamba es el espacio funerario público de la ciudad de Cochabamba ubicada al centro de Bolivia.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: -17.41039,
+      lng: -66.15953,
     },
     {
       id: "cochabamba_7",
@@ -113654,6 +114155,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Pope_John_Paul_II_smile.jpg",
       description: "Cochabamba es una ciudad de Bolivia, capital del departamento homónimo y de la provincia de Cercado. Está ubicada en el centro del país, en los valles centrales de la región subandina, entre el altiplano y los llanos orientales, a una altitud promedio de 2570 m s. n. m.",
       descriptionEn: "Juan Pablo Varillas Patiño-Samudio is a Peruvian professional tennis player. He has a career-high ATP singles ranking of world No. 60, achieved on 26 June 2023 and a best doubles ranking of No. 289, reached on 10 May 2021. He is currently the No. 3 singles player from Peru.",
+      lat: -17.47813,
+      lng: -66.09896,
     },
     {
       id: "cochabamba_8",
@@ -113670,6 +114173,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Fuente_de_plaza_14_de_septiembre.jpg/960px-Fuente_de_plaza_14_de_septiembre.jpg",
       description: "La Plaza 14 de Septiembre es una plaza ubicada en la ciudad de Cochabamba, Bolivia. Corresponde a la tipología de plaza mayor o de armas, espacios urbanos característicos de los trazados hispanoamericanos, se halla flanqueada por los edificios que representaban el poder estatal…",
       descriptionEn: "Cochabamba is a city and municipality in central Bolivia in a valley in the Andes mountain range. It is the capital of the Cochabamba Department and the fourth largest city in Bolivia, with a population of 661,484 according to the 2024 Bolivian census.",
+      lat: -17.3937,
+      lng: -66.157,
     },
     {
       id: "cochabamba_9",
@@ -113685,7 +114190,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Jard%C3%ADn_Bot%C3%A1nico_de_Cochabamba_Bolivia.jpg/960px-Jard%C3%ADn_Bot%C3%A1nico_de_Cochabamba_Bolivia.jpg",
       description: "El Jardín Botánico Martín Cárdenas es un jardín botánico en la ciudad de Cochabamba, es miembro de la Asociación de Jardines Botánicos de Latinoamérica y del Caribe, y presenta trabajos para la Agenda Internacional para la Conservación en los Jardines Botánicos, su código de…",
-      descriptionEn: "Jardín Botánico Martín Cárdenas is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Botanical garden in Cochabamba with collections of native and Andean plants, greenhouses, and conservation areas. Visitors come to learn about Bolivian flora and walk its paths.",
+      lat: -17.37722,
+      lng: -66.13967,
     },
     {
       id: "cochabamba_10",
@@ -113702,6 +114209,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Iglesia_de_la_compa%C3%B1ia_de_jesus_de_la_plaza_principal.jpg/960px-Iglesia_de_la_compa%C3%B1ia_de_jesus_de_la_plaza_principal.jpg",
       description: "San Ignacio de Moxos es una ciudad y municipio de Bolivia, capital y ciudad más poblada de la provincia de Moxos del departamento del Beni.",
       descriptionEn: "This list includes past and present buildings, facilities and institutions associated with the Society of Jesus. In each country, sites are listed in chronological order of start of the Jesuit association.",
+      lat: -17.39303,
+      lng: -66.15784,
     },
     {
       id: "cochabamba_11",
@@ -113716,8 +114225,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/62/Cochabamba-Plaza.jpg",
-      description: "Catedral Metropolitana de San Sebastián es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Catedral católica situada frente a la Plaza 14 de Septiembre, en el centro de Cochabamba. Su arquitectura colonial y su papel como sede metropolitana la vinculan con la historia de la ciudad.",
       descriptionEn: "The Metropolitan Cathedral of Saint Sebastian is the cathedral of the Roman Catholic Church in the Archdiocese of Cochabamba. It is located in the Plaza 14 de Septiembre in Cochabamba, Bolivia.",
+      lat: -17.39447,
+      lng: -66.15673,
     },
     {
       id: "cochabamba_12",
@@ -113732,8 +114243,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Cochabamba_-_Iglesia_de_la_Recoleta_-_20190929173631.jpg/960px-Cochabamba_-_Iglesia_de_la_Recoleta_-_20190929173631.jpg",
-      description: "Cochabamba es una ciudad de Bolivia, capital del departamento homónimo y de la provincia de Cercado. Está ubicada en el centro del país, en los valles centrales de la región subandina, entre el altiplano y los llanos orientales, a una altitud promedio de 2570 m s. n. m.",
-      descriptionEn: "Parroquia Nuestro Señor de Exaltación de la Recoleta is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Iglesia católica en el barrio de La Recoleta, en Cochabamba, asociada a la devoción al Señor de la Exaltación. Se visita por su arquitectura religiosa y su entorno histórico.",
+      descriptionEn: "Catholic church in the La Recoleta neighborhood of Cochabamba, associated with devotion to the Señor de la Exaltación. It is visited for its religious architecture and historic surroundings.",
+      lat: -17.3776,
+      lng: -66.15211,
     },
     {
       id: "cochabamba_13",
@@ -113750,6 +114263,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/204_-_Canyon_de_Colca_-_Condor_des_Andes_-_Juin_2010.JPG/960px-204_-_Canyon_de_Colca_-_Condor_des_Andes_-_Juin_2010.JPG",
       description: "El departamento de Cochabamba es uno de los nueve departamentos en que se divide Bolivia. Su capital es la ciudad de Cochabamba. Es el tercer departamento en importancia económica de Bolivia.",
       descriptionEn: "El Condor Airport was an airstrip 40 kilometres (25 mi) northeast of Yacuíba in the Tarija Department of Bolivia.",
+      lat: -17.39382,
+      lng: -66.15691,
     },
     {
       id: "cochabamba_14",
@@ -113765,7 +114280,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Totuma_con_chicha.png",
       description: "Mizque es un municipio y una pequeña ciudad de Bolivia, capital de la provincia de Mizque en el departamento de Cochabamba. La ciudad se ubica en el valle del río Mizque, uno de los principales afluentes del río Grande.",
-      descriptionEn: "Tutuma is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.40844,
+      lng: -66.14314,
     },
     {
       id: "cochabamba_15",
@@ -113782,6 +114298,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Hippocrates_rubens.jpg/960px-Hippocrates_rubens.jpg",
       description: "Hipócrates de Cos es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Hipócrates de Cos is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.38743,
+      lng: -66.14822,
     },
     {
       id: "cochabamba_16",
@@ -113798,6 +114316,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Brazo_izquierdo_del_Cristo_Redentor%2C_Laguna_Alalay_y_la_Ciudad_de_Cochabamba_Bolivia.jpg/960px-Brazo_izquierdo_del_Cristo_Redentor%2C_Laguna_Alalay_y_la_Ciudad_de_Cochabamba_Bolivia.jpg",
       description: "La laguna Alalay es una laguna de agua dulce subandina de Bolivia situada en el este de la ciudad de Cochabamba en el departamento homónimo. Tiene unas dimensiones de 2,1 km de largo por 1,2 km de ancho y una superficie de 240 hectáreas.",
       descriptionEn: "Laguna Alalay is a lake in the Cochabamba Department, Bolivia. At an elevation of 2570 m, its surface area is 2.4 km2. The lake has a flood control dam that regulates floods of the Rocha River. The lake perimeter features a bicycle path and jogging track called circuit Bolivia .",
+      lat: -17.40746,
+      lng: -66.13884,
     },
     {
       id: "cochabamba_17",
@@ -113813,8 +114333,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "https://www.museo.umss.edu.bo/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/07/Dick_Edgar_Ibarra_Grasso._Fotograf%C3%ADa_Jorge_Cappato_1980.jpg",
-      description: "Dick Edgar Ibarra Grasso fue un investigador argentino que exploró la posibilidad de colonización de las Américas por varios grupos étnicos antiguos.",
+      description: "Museo arqueológico y centro de investigación de la Universidad Mayor de San Simón, en Cochabamba. Reúne piezas sobre culturas prehispánicas y arqueología de la región.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: -17.39541,
+      lng: -66.15727,
     },
     {
       id: "cochabamba_18",
@@ -113830,7 +114352,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://live.staticflickr.com/4096/5610721712_fd4baef427_b.jpg",
       description: "Cochabamba es una ciudad de Bolivia, capital del departamento homónimo y de la provincia de Cercado. Está ubicada en el centro del país, en los valles centrales de la región subandina, entre el altiplano y los llanos orientales, a una altitud promedio de 2570 m s. n. m.",
-      descriptionEn: "Centro de Exposiciones is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.37496,
+      lng: -66.15291,
     },
     {
       id: "cochabamba_19",
@@ -113845,8 +114368,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/La_cer%C3%A1mica_chiriguana_%28IA_laceramicachirig00oute%29.pdf/page1-960px-La_cer%C3%A1mica_chiriguana_%28IA_laceramicachirig00oute%29.pdf.jpg",
-      description: "La Paz, oficialmente Nuestra Señora de La Paz, es la sede de gobierno de Bolivia y la capital del departamento de La Paz. En la ciudad se albergan los órganos ejecutivo, legislativo y electoral.",
+      description: "Museo de ciencias naturales y patrimonio regional en Cochabamba, asociado al colegio La Salle. Sus salas exhiben muestras de fauna, fósiles y objetos culturales.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: -17.38933,
+      lng: -66.16077,
     },
     {
       id: "cochabamba_20",
@@ -113861,7 +114386,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       description: "El 13 de enero es el 13.ᵉʳ (decimotercer) día del año en el calendario gregoriano. Quedan 352 días para finalizar el año.",
-      descriptionEn: "Galería Mario Unzueta is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.39184,
+      lng: -66.15574,
     },
     {
       id: "cochabamba_21",
@@ -113878,6 +114404,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gazeta_ministerial_del_gobierno_de_Buenos-Ayres_%28IA_gazetaministeria00unkn_89%29.pdf/page1-960px-Gazeta_ministerial_del_gobierno_de_Buenos-Ayres_%28IA_gazetaministeria00unkn_89%29.pdf.jpg",
       description: "Miss Bolivia 2015 fue la 36.ª edición de Miss Bolivia, correspondiente al año 2015. Se llevó a cabo el 25 de julio de 2015 en el Salón Sirionó en la ciudad de Santa Cruz de la Sierra.",
       descriptionEn: "Juan Manuel Sanabria Magole is a Uruguayan professional footballer who plays as a midfielder or left-back for Major League Soccer club Real Salt Lake and the Uruguay national team.",
+      lat: -17.38491,
+      lng: -66.14697,
     },
     {
       id: "cochabamba_22",
@@ -113894,6 +114422,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/37/Plazacobija.JPG",
       description: "Cochabamba es una ciudad de Bolivia, capital del departamento homónimo y de la provincia de Cercado. Está ubicada en el centro del país, en los valles centrales de la región subandina, entre el altiplano y los llanos orientales, a una altitud promedio de 2570 m s. n. m.",
       descriptionEn: "El Alto International Airport is an international airport serving La Paz, Bolivia. It is located in the city of El Alto, 13 kilometres (8 mi) west of La Paz.",
+      lat: -17.39057,
+      lng: -66.16301,
     },
     {
       id: "cochabamba_23",
@@ -113910,6 +114440,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Monograf%C3%ADa_de_Bolivia_Tomo_2_-_Biblioteca_del_sesquicentenario%28Libro%29.pdf/page1-960px-Monograf%C3%ADa_de_Bolivia_Tomo_2_-_Biblioteca_del_sesquicentenario%28Libro%29.pdf.jpg",
       description: "El Aeropuerto Adolfo Suárez Madrid-Barajas, llamado hasta 2014 Aeropuerto de Madrid-Barajas, es un aeropuerto español público propiedad de Aena, situado a 12 km del centro de Madrid dirección noreste.",
       descriptionEn: "The French president Charles de Gaulle made a series of state visits to South American countries between September 21 and October 16, 1964.",
+      lat: -17.3729,
+      lng: -66.15685,
     },
     {
       id: "cochabamba_24",
@@ -113925,7 +114457,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.facebook.com/parqsacaba/",
       description: "El Parque de los dinosaurios, conocido también con los nombres de Parque Cretácico o Parque prehistórico, es un parque temático ubicado en el municipio de Sacaba, del departamento de Cochabamba.",
-      descriptionEn: "Parque Prehistórico de Dinosaurios is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.396,
+      lng: -66.05157,
     },
     {
       id: "cochabamba_25",
@@ -113941,7 +114474,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/2009_Events_Collage_V2.png",
       description: "2009 fue un año común que comenzó en jueves según el calendario gregoriano. Fue también el número 2009 anno Dómini o de la designación de la Era Cristiana, además el noveno año del tercer milenio y del siglo XXI, y el último del decenio de los años 2000.",
-      descriptionEn: "Parque El Tobogán is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.39004,
+      lng: -66.16494,
     },
     {
       id: "cochabamba_26",
@@ -113956,7 +114490,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       description: "El proyecto hidroeléctrico Chepete - Bala es un proyecto de dos megarepresas seguidas en Bolivia, entre los territorios del Parque nacional y área natural de manejo integrado Madidi y la Reserva de la biosfera y tierra comunitaria de origen Pilón Lajas.",
-      descriptionEn: "Parque Ecoturístico Campamento Los Molinos is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.31793,
+      lng: -66.20982,
     },
     {
       id: "cochabamba_27",
@@ -113971,8 +114506,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/de/Cocha_Noche.jpg",
-      description: "Cochabamba es una ciudad de Bolivia, capital del departamento homónimo y de la provincia de Cercado. Está ubicada en el centro del país, en los valles centrales de la región subandina, entre el altiplano y los llanos orientales, a una altitud promedio de 2570 m s. n. m.",
-      descriptionEn: "Templo Antiguo de Santa Vera Cruz Tatala is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Templo católico en Tatala, en Cochabamba, centro de una devoción tradicional a la Santa Vera Cruz. Se visita por su valor religioso y por las festividades que reúnen a comunidades locales.",
+      descriptionEn: "Catholic temple in Tatala, Cochabamba, center of traditional devotion to the Santa Vera Cruz. It is visited for its religious value and for festivals that bring together local communities.",
+      lat: -17.46031,
+      lng: -66.12418,
     },
     {
       id: "cochabamba_28",
@@ -113986,9 +114523,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/La_cuesti%C3%B3n_del_Pac%C3%ADfico_-_ante_el_juicio_de_cien_escritores_extranjeros_%28IA_lacuestindelpacf00dimi%29.pdf/page1-1280px-La_cuesti%C3%B3n_del_Pac%C3%ADfico_-_ante_el_juicio_de_cien_escritores_extranjeros_%28IA_lacuestindelpacf00dimi%29.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Teatro_Ach%C3%A1_Cochabamba_4.jpg/1280px-Teatro_Ach%C3%A1_Cochabamba_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "José María Aguirre Achá fue un escritor y político boliviano. Es nieto del expresidente de Bolivia José María Achá.",
       descriptionEn: "This is a list of notable opera houses listed by continent, then by country with the name of the opera house and city. The opera company is sometimes named for clarity.",
+      lat: -17.39273,
+      lng: -66.15683,
     },
   ],
   copacabana_bo: [
@@ -114021,8 +114560,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 360,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Isla_del_Sol_y_de_La_Luna_Lago_Titicaca-La_Paz_Nolivia.jpg/1920px-Isla_del_Sol_y_de_La_Luna_Lago_Titicaca-La_Paz_Nolivia.jpg",
-      description: "Copacabana es una ciudad y municipio de Bolivia, capital de la provincia de Manco Kapac en el departamento de La Paz. Está situada al oeste de la península de Copacabana, a orillas del lago Titicaca, a unos 155 km de la ciudad de La Paz.",
+      description: "La isla del Sol o isla Titicaca es una isla boliviana situada en el lago Titicaca, dentro del municipio de Copacabana en la provincia de Manco Kapac del departamento de La Paz.",
       descriptionEn: "Copacabana is the main Bolivian town on the shore of Lake Titicaca. The town has a large 17th-century shrine, the Basilica of Our Lady of Copacabana, dedicated to Our Lady of Copacabana, the patron saint of Bolivia. The town is a tourism destination in Bolivia.",
+      lat: -16.02056,
+      lng: -69.17639,
+      sourceUrl: "https://es.wikipedia.org/wiki/Isla_del_Sol",
     },
     {
       id: "copacabana_bo_2",
@@ -114037,8 +114579,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.6,
       estimatedMinutes: 240,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Isla_de_la_Luna%2C_Copacabana%2C_Bolivia_cropped.jpg/1920px-Isla_de_la_Luna%2C_Copacabana%2C_Bolivia_cropped.jpg",
-      description: "Copacabana es una ciudad y municipio de Bolivia, capital de la provincia de Manco Kapac en el departamento de La Paz. Está situada al oeste de la península de Copacabana, a orillas del lago Titicaca, a unos 155 km de la ciudad de La Paz.",
+      description: "La isla de la Luna, también llamada isla Koati, es una isla de Bolivia que se encuentra en el lago Titicaca, junto a la isla del Sol, en la región del Altiplano. Es una isla pequeña y cuenta con una superficie de 105 hectáreas.",
       descriptionEn: "Lake Titicaca is a large lake in the Andes mountains on the border of Bolivia and Peru. It is often called the highest navigable lake in the world. It is often listed as a freshwater lake, though its waters are slightly brackish.",
+      lat: -16.0396,
+      lng: -69.0721,
+      sourceUrl: "https://es.wikipedia.org/wiki/Isla_de_la_Luna",
     },
     {
       id: "copacabana_bo_3",
@@ -114055,6 +114600,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Copacabana_Bolivia_desde_la_Horca_del_Inca.jpg/1920px-Copacabana_Bolivia_desde_la_Horca_del_Inca.jpg",
       description: "Pachataka, también conocida como la Horca del Inca, es un sitio arqueológico en Bolivia, situado en las cercanías del Lago Titicaca en el municipio de Copacabana, Provincia de Manco Kapac en el departamento de La Paz.",
       descriptionEn: "Pachataka, commonly known as the Inca Gallows, is an archaeological site in Bolivia, located near Lake Titicaca in the municipality of Copacabana, Manco Kapac Province, within the La Paz Department.",
+      lat: -16.1717,
+      lng: -69.0852,
     },
     {
       id: "copacabana_bo_4",
@@ -114069,8 +114616,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Historia_de_Copacabana_y_de_la_milagrosa_imagen_de_su_Virgen_%28IA_historiadecopaca1867ramo%29.pdf/page1-500px-Historia_de_Copacabana_y_de_la_milagrosa_imagen_de_su_Virgen_%28IA_historiadecopaca1867ramo%29.pdf.jpg",
-      description: "La isla de la Luna, también llamada isla Koati, es una isla de Bolivia que se encuentra en el lago Titicaca, junto a la isla del Sol, en la región del Altiplano. Es una isla pequeña y cuenta con una superficie de 105 hectáreas.",
-      descriptionEn: "Palacio de las Vírgenes del Sol is a recommended place to visit and one of the standout attractions in the area.",
+      description: "En la Isla de la Luna, a un paseo en lancha desde Copacabana, se encuentra este conjunto inca también llamado Iñak Uyu o Acllawasi. Se visita por sus muros, terrazas y su vínculo con el culto a las vírgenes del Sol.",
+      descriptionEn: "On the Island of the Moon, a boat trip from Copacabana, this Inca complex also known as Iñak Uyu or Acllawasi is linked to the cult of the Virgins of the Sun. It is visited for its walls, terraces and lake setting.",
     },
     {
       id: "copacabana_bo_5",
@@ -114103,6 +114650,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/41/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora_de_Copacabana%2C_1930.png",
       description: "La Basílica de la Virgen de la Candelaria de Copacabana, ubicada en la ciudad de Copacabana, Departamento de La Paz, Bolivia, es un edificio de estilo morisco, originalmente de estilo renacentista, que fue construido en 1550 y reconstruido entre los años 1610 y 1651, con parte…",
       descriptionEn: "The Basilica of Our Lady of Copacabana is a 17th-century Roman Catholic shrine and basilica located in the town of Copacabana, Bolivia. The Marian shrine is dedicated to the Blessed Virgin Mary under the title of Our Lady of the Candles of Copacabana, patroness of Bolivia.",
+      lat: -16.16636,
+      lng: -69.08543,
     },
     {
       id: "copacabana_bo_7",
@@ -114133,7 +114682,6 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/76/Copacabana%2C_Bolivia_bay_at_sunset.jpg",
-      description: "Asiru Phat'jata es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Asiru Phat'jata is a hill in Peru, situated at a height of about 3,895 metres (12,779 ft). It is located in the Puno Region, Yunguyo Province, Yunguyo District.",
     },
     {
@@ -114151,6 +114699,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Former_Senator_Burton%27s_trip_to_South_America_%28IA_formersenatorbur00scho%29.pdf/page1-500px-Former_Senator_Burton%27s_trip_to_South_America_%28IA_formersenatorbur00scho%29.pdf.jpg",
       description: "La cultura de Bolivia es producto de una gran diversidad de expresiones, como resultado de la variedad de escenarios geográficos que su actual territorio comprende, así como de la diversidad étnica que la caracteriza.",
       descriptionEn: "La Paz, officially Nuestra Señora de La Paz, is the seat of government of Bolivia. With 755,732 residents as of 2024, it is the third-most populous city in Bolivia.",
+      lat: -16.16492,
+      lng: -69.09019,
     },
     {
       id: "copacabana_bo_10",
@@ -114166,7 +114716,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Copacabana%2C_Bolivia_at_sunset.jpg/3840px-Copacabana%2C_Bolivia_at_sunset.jpg",
       description: "Copacabana es una ciudad y municipio de Bolivia, capital de la provincia de Manco Kapac en el departamento de La Paz. Está situada al oeste de la península de Copacabana, a orillas del lago Titicaca, a unos 155 km de la ciudad de La Paz.",
-      descriptionEn: "Asiento del Inca is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -16.16767,
+      lng: -69.08278,
     },
     {
       id: "copacabana_bo_11",
@@ -114183,6 +114734,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/15/Vista_de_la_Villa_Imperial_de_Potos%C3%AD.jpg",
       description: "Potosí, o Villa Imperial de Potosí, es una ciudad del suroeste de Bolivia, capital y ciudad más poblada del departamento homónimo y de la provincia de Frías. Fundada en 1545, fue uno de los centros mineros más importantes de la época colonial.",
       descriptionEn: "This page lists the city flags in South America. It is a part of the Lists of city flags, which is split into continents due to its size.",
+      lat: -16.15302,
+      lng: -69.06981,
     },
     {
       id: "copacabana_bo_12",
@@ -114199,6 +114752,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Boca_del_Sapo_en_Copacabana%2C_Bolivia.jpg/1920px-Boca_del_Sapo_en_Copacabana%2C_Bolivia.jpg",
       description: "Boca del Sapo es una formación rocosa y punto de peregrinación ubicado en el municipio de Copacabana, en el departamento de La Paz, Bolivia, a orillas del lago Titicaca.",
       descriptionEn: "The Amazing Race en Discovery Channel 2 is the second season of The Amazing Race en Discovery Channel, a Latin American version of the American reality television show The Amazing Race.",
+      lat: -16.16061,
+      lng: -69.09378,
     },
     {
       id: "copacabana_bo_13",
@@ -114215,6 +114770,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Bolivia_adm_location_map.svg/langes-1920px-Bolivia_adm_location_map.svg.png",
       description: "Kasani es una localidad fronteriza de Bolivia, ubicada en el municipio de Copacabana de la provincia Manco Capac, en el departamento de La Paz.",
       descriptionEn: "The Ligas Provinciales del Peru are the Peruvian football lower divisions. They are administered by the Local Federations. The level immediately above is the Ligas Departamentales.",
+      lat: -16.22553,
+      lng: -69.09572,
     },
     {
       id: "copacabana_bo_14",
@@ -114266,6 +114823,9 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://m.facebook.com/PescaR2inc",
       description: "PescaR2 Inc. es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "PescaR2 Inc. is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -14.54593,
+      lng: -67.31748,
+      dayTrip: true,
     },
     {
       id: "rurrenabaque_2",
@@ -114280,7 +114840,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Amanecer_de_verano.jpg",
-      description: "Museo Tacana es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Tacana es un pequeño museo en Rurrenabaque dedicado a la cultura del pueblo indígena Tacana, con piezas y objetos que ilustran su historia y vida tradicional en la Amazonía boliviana.",
       descriptionEn: "Beni, sometimes El Beni, is a northeastern department of Bolivia, in the lowlands region of the country. It is the second-largest department in the country, covering 213,564 square kilometers, and it was created by supreme decree on November 18, 1842, during the administration…",
     },
     {
@@ -114296,8 +114856,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/1/11/Comunidad_Inti_Wara_Yassi_%28logo%29.png",
-      description: "La Comunidad Inti Wara Yassi (CIWY) es una organización no gubernamental boliviana dedicada a la educación ambiental y al cuidado de la fauna silvestre enferma, maltratada y abandonada.",
+      description: "El Parque Jacj Cuisi es un área de conservación y santuario de fauna cerca de Rurrenabaque, donde se alojan animales silvestres rescatados del tráfico y se promueve su rehabilitación.",
       descriptionEn: "Comunidad Inti Wara Yassi (CIWY) is a Bolivian non-governmental organization dedicated to environmental education and the care of sick, mistreated and abandoned wildlife.",
+      lat: -14.26023,
+      lng: -67.75695,
+      dayTrip: true,
     },
     {
       id: "rurrenabaque_4",
@@ -114313,7 +114876,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Psyche_%28IA_psyche303119231924camb%29.pdf/page1-500px-Psyche_%28IA_psyche303119231924camb%29.pdf.jpg",
       description: "San José de Uchupiamonas es una localidad de Bolivia, ubicada en la región de la Amazonía boliviana, al oeste del país. Administrativamente forma parte del municipio de San Buenaventura de la provincia de Iturralde, en el departamento de La Paz.",
-      descriptionEn: "Cruz de Tumupasa is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "rurrenabaque_5",
@@ -114344,8 +114906,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 480,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Indigena_Tours_-_Tours_en_Rurrenabaque_Bolivia.jpg",
-      description: "Pampa Tour – Pampas del Yacuma es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Pampa Tour – Pampas del Yacuma is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Las Pampas del Yacuma son humedales y sabanas cercanas a Rurrenabaque que se visitan en excursiones para observar fauna como capibaras, caimanes y aves; los recorridos suelen incluir navegación por el río Yacuma.",
+      descriptionEn: "The Yacuma Pampas are wetlands and savannas near Rurrenabaque visited on excursions to observe wildlife such as capybaras, caimans and birds; tours usually include boat trips on the Yacuma River.",
     },
   ],
   oruro: [
@@ -114364,6 +114926,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Cerro_San_Felipe%2C_Oruro-Bolivia.jpg/1920px-Cerro_San_Felipe%2C_Oruro-Bolivia.jpg",
       description: "El Cerro San Felipe es un cerro de las tierras altas de Bolivia, en la parte oeste de la ciudad de Oruro. Administrativamente se encuentra ubicado en el municipio de Oruro de la provincia de Cercado en el departamento de Oruro, en la parte occidental del país.",
       descriptionEn: "This page lists the city flags in South America. It is a part of the Lists of city flags, which is split into continents due to its size.",
+      lat: -17.97041,
+      lng: -67.12847,
     },
     {
       id: "oruro_1",
@@ -114380,6 +114944,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Cerro_de_san_Pedro.jpg/1920px-Cerro_de_san_Pedro.jpg",
       description: "El Cerro San Pedro, originalmente Jampatucollu o Jampatukollu, es un cerro del Altiplano de Bolivia, ubicado en la parte oeste de la ciudad de Oruro.",
       descriptionEn: "Cerro is Spanish for \"hill\" or \"mountain\".",
+      lat: -17.93872,
+      lng: -67.12397,
     },
     {
       id: "oruro_2",
@@ -114396,6 +114962,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Iglesias_de_Oruro_-_Jose_de_Mesa_y_Teresa_Gisbert_%28Libro%29.pdf/page1-960px-Iglesias_de_Oruro_-_Jose_de_Mesa_y_Teresa_Gisbert_%28Libro%29.pdf.jpg",
       description: "La Virgen del Socavón es una advocación de la Virgen María que se venera en la ciudad de Oruro, Bolivia.",
       descriptionEn: "Oruro or Uru Uru is a city in Bolivia with a population of 264,683, about halfway between La Paz and Sucre in the Altiplano, approximately 3,709 meters (12,169 ft) above sea level.",
+      lat: -17.96725,
+      lng: -67.11885,
     },
     {
       id: "oruro_3",
@@ -114410,7 +114978,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/52/Oruro_Carnaval.jpg",
-      description: "El carnaval de Oruro es una festividad religiosa, folclórica y cultural que se celebra anualmente en la ciudad de Oruro, Bolivia, entre febrero y principios de marzo.",
+      description: "El Museo Nacional Antropológico Eduardo López R. es un museo de Oruro que reúne colecciones arqueológicas y etnográficas de las culturas andinas y de la historia regional. Se visita para conocer el patrimonio material y las tradiciones del altiplano boliviano.",
       descriptionEn: "This is a list of gomphothere fossils found in South America. Gomphotheres were elephant-like mammals that lived from the Middle Miocene to the Holocene.",
     },
     {
@@ -114428,6 +114996,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/1922-06-06%2C_El_Liberal%2C_Sim%C3%B3n_I._Pati%C3%B1o_%28cropped%29.jpg",
       description: "Simón I. Patiño fue un empresario boliviano, magnate de la minería del estaño. Desarrolló empresas de extracción de mineral en Bolivia y logró una importante integración vertical al ser inversionista en una fundición alemana y la británica Williams Harvey.",
       descriptionEn: "Oruro or Uru Uru is a city in Bolivia with a population of 264,683, about halfway between La Paz and Sucre in the Altiplano, approximately 3,709 meters (12,169 ft) above sea level.",
+      lat: -17.9676,
+      lng: -67.11231,
     },
     {
       id: "oruro_5",
@@ -114444,6 +115014,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Aeropuerto_de_Oruro_04.jpg/1920px-Aeropuerto_de_Oruro_04.jpg",
       description: "Antequera es una localidad y municipio de Bolivia, ubicado en la provincia de Poopó del departamento de Oruro.",
       descriptionEn: "The Carnival of Oruro is a religious and cultural festival in Oruro, Bolivia. Originally an indigenous festival, the celebration later was transformed to incorporate a Christian ritual around the Virgin of Socavón.",
+      lat: -17.96171,
+      lng: -67.12316,
     },
     {
       id: "oruro_6",
@@ -114460,6 +115032,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Parque_Zool%C3%B3gico%2C_Oruro.jpg/1920px-Parque_Zool%C3%B3gico%2C_Oruro.jpg",
       description: "El Bioparque Municipal Andino de Oruro, anteriormente conocido como Zoológico Municipal Andino de Oruro, es una institución ubicada en la ciudad de Oruro, Bolivia, dedicada a la custodia de fauna silvestre.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: -17.97957,
+      lng: -67.12306,
     },
     {
       id: "oruro_7",
@@ -114475,6 +115049,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Parque Recreacional Infantil Inti Raymi es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Parque Recreacional Infantil Inti Raymi is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.98511,
+      lng: -67.13385,
     },
     {
       id: "oruro_8",
@@ -114490,6 +115066,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Carousel es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Carousel is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.98568,
+      lng: -67.13411,
     },
     {
       id: "oruro_9",
@@ -114505,6 +115083,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Arenales Kochiraya es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Arenales Kochiraya is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.93272,
+      lng: -67.13646,
     },
     {
       id: "oruro_10",
@@ -114520,7 +115100,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sajama_National_Park.jpg",
       description: "El departamento de Oruro es uno de los nueve departamentos en que se divide Bolivia. Su capital y ciudad más poblada es la homónima Oruro.",
-      descriptionEn: "Balneario Capachos is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.89193,
+      lng: -67.04465,
     },
     {
       id: "oruro_11",
@@ -114553,6 +115134,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Oruro_y_sus_cumbres.jpg/1920px-Oruro_y_sus_cumbres.jpg",
       description: "El departamento de Oruro es uno de los nueve departamentos en que se divide Bolivia. Su capital y ciudad más poblada es la homónima Oruro.",
       descriptionEn: "Wurtzite is a zinc and iron sulfide mineral with the chemical formula (Zn,Fe)S, a less frequently encountered structural polymorph form of sphalerite. The iron content is variable up to eight percent. It is trimorphous with matraite and sphalerite.",
+      lat: -17.98576,
+      lng: -67.1342,
     },
     {
       id: "oruro_13",
@@ -114568,7 +115151,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/38/Julio_Mazziotti.jpg",
       description: "Julio Mazziotti es un pianista y compositor argentino.",
-      descriptionEn: "Tobogán is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -17.98517,
+      lng: -67.1339,
     },
   ],
   samaipata: [
@@ -114588,6 +115172,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Woodbine_NJ_Synagogue.JPG/960px-Woodbine_NJ_Synagogue.JPG",
       description: "El Parque nacional y área natural de manejo integrado Amboró, también escrito PN-ANMI Amboró, es un área protegida de Bolivia y una de las reservas a nivel mundial con mayor biodiversidad, ya que en sus superficie confluyen 3 diferentes ecosistemas.",
       descriptionEn: "Amboró National Park in central Bolivia is a nature reserve with over 912 species of birds, over 177 mammalian species including puma, ocelot, and the rare spectacled bear.",
+      lat: -17.78333,
+      lng: -63.98333,
+      dayTrip: true,
     },
     {
       id: "samaipata_1",
@@ -114604,6 +115191,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Fuerte03.jpg/960px-Fuerte03.jpg",
       description: "El Observatorio Astronómico de Samaipata, Centro Cósmico de Samaipata, o el Centro Ceremonial de Samaipata, conocido comúnmente como el Fuerte de Samaipata, o simplemente como \"El Fuerte\", es un sitio arqueológico precolombino y preincaico de origen chané de Bolivia, ubicado a…",
       descriptionEn: "El Fuerte de Samaipata or Fort Samaipata, also known simply as \"El Fuerte\", is a Pre-Columbian archaeological site and UNESCO World Heritage Site located in Florida Province, Santa Cruz Department, Bolivia.",
+      lat: -18.17836,
+      lng: -63.81899,
     },
     {
       id: "samaipata_2",
@@ -114618,8 +115207,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/13/Fuente_en_la_Plaza_26_de_Enero_de_Vallegrande_-_Bolivia.jpg",
-      description: "Jesús y Montes Claros de los Caballeros del Vallegrande, conocida simplemente como Vallegrande, es un municipio y una pequeña ciudad de Bolivia, capital de la provincia de Vallegrande en el departamento de Santa Cruz.",
+      description: "Museo en el centro de Samaipata que reúne piezas arqueológicas de la región y del sitio de El Fuerte. Su colección ayuda a contextualizar la historia prehispánica y colonial del valle.",
       descriptionEn: "The Inca Empire, officially known as the Realm of the Four Parts, was the largest empire in pre-Columbian America. The administrative, political, and military center of the empire was in the city of Cusco.",
+      lat: -18.17819,
+      lng: -63.87402,
     },
     {
       id: "samaipata_3",
@@ -114635,6 +115226,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Allkawasi es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Allkawasi is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -18.17993,
+      lng: -63.82105,
     },
     {
       id: "samaipata_4",
@@ -114651,6 +115244,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Americanos_c%C3%A9lebres%3B_glorias_del_Nuevo_mundo_%28IA_baronesadeam01wilsrich%29.pdf/page1-960px-Americanos_c%C3%A9lebres%3B_glorias_del_Nuevo_mundo_%28IA_baronesadeam01wilsrich%29.pdf.jpg",
       description: "El Observatorio Astronómico de Samaipata, Centro Cósmico de Samaipata, o el Centro Ceremonial de Samaipata, conocido comúnmente como el Fuerte de Samaipata, o simplemente como \"El Fuerte\", es un sitio arqueológico precolombino y preincaico de origen chané de Bolivia, ubicado a…",
       descriptionEn: "Rodrigo Paz Pereira is a Bolivian politician and diplomat who has served as the 68th president of Bolivia since 2025. The eldest son of former president Jaime Paz Zamora and great-nephew of president Víctor Paz Estenssoro, he served as a senator for Tarija from 2020 to 2025.",
+      lat: -18.17963,
+      lng: -63.81928,
     },
     {
       id: "samaipata_5",
@@ -114667,6 +115262,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f4/JscFuerteSamaipata1.jpg",
       description: "El Observatorio Astronómico de Samaipata, Centro Cósmico de Samaipata, o el Centro Ceremonial de Samaipata, conocido comúnmente como el Fuerte de Samaipata, o simplemente como \"El Fuerte\", es un sitio arqueológico precolombino y preincaico de origen chané de Bolivia, ubicado a…",
       descriptionEn: "This only includes newly recognized species and subspecies of living mammals whose formal description was first published during the period from 1 January 2020 to 31 December 2029. By default, the table is sorted by the publ-date and alphabetically by the scientific name.",
+      lat: -18.17843,
+      lng: -63.81941,
     },
     {
       id: "samaipata_6",
@@ -114681,8 +115278,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f4/JscFuerteSamaipata1.jpg",
-      description: "El Observatorio Astronómico de Samaipata, Centro Cósmico de Samaipata, o el Centro Ceremonial de Samaipata, conocido comúnmente como el Fuerte de Samaipata, o simplemente como \"El Fuerte\", es un sitio arqueológico precolombino y preincaico de origen chané de Bolivia, ubicado a…",
+      description: "Sector del sitio arqueológico de El Fuerte de Samaipata asociado a una construcción inca de planta rectangular conocida como kallanka. Forma parte del recorrido del conjunto prehispánico.",
       descriptionEn: "El Fuerte de Samaipata or Fort Samaipata, also known simply as \"El Fuerte\", is a Pre-Columbian archaeological site and UNESCO World Heritage Site located in Florida Province, Santa Cruz Department, Bolivia.",
+      lat: -18.18009,
+      lng: -63.82054,
     },
     {
       id: "samaipata_7",
@@ -114698,7 +115297,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Samaipata%2C_Bolivia%2C_March_2016.jpg/3840px-Samaipata%2C_Bolivia%2C_March_2016.jpg",
       description: "Samaipata es un municipio y una pequeña ciudad turística de Bolivia, capital de la provincia Florida en el oeste del departamento de Santa Cruz. La localidad se encuentra distante 119 km al suroeste de la ciudad de Santa Cruz de la Sierra, la capital departamental.",
-      descriptionEn: "Bosque de Helechos La Yunga is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "samaipata_8",
@@ -114714,7 +115312,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Tawantinsuyo.gif",
       description: "Después de la fundación del Curacazgo del Cuzco por parte de Manco Cápac y durante los siguientes cien años de expansión y consolidación del estado inca, se pueden observar tres fases: la consolidación y primera expansión, a cargo de los Sapas Incas: Sinchi Roca y Lloque…",
-      descriptionEn: "Entrada a Loma de Condores is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -18.34609,
+      lng: -63.83654,
     },
     {
       id: "samaipata_9",
@@ -114730,7 +115329,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Bosque_de_los_helechos_gigantes_-_Municipio_de_Samaipata%2C_Bolivia.jpg",
       description: "Samaipata es un municipio y una pequeña ciudad turística de Bolivia, capital de la provincia Florida en el oeste del departamento de Santa Cruz. La localidad se encuentra distante 119 km al suroeste de la ciudad de Santa Cruz de la Sierra, la capital departamental.",
-      descriptionEn: "Helecho Gigante is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -18.12377,
+      lng: -63.86456,
     },
     {
       id: "samaipata_10",
@@ -114746,7 +115346,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://live.staticflickr.com/7161/6590160471_cac292ebb6_b.jpg",
       description: "Samaipata es un municipio y una pequeña ciudad turística de Bolivia, capital de la provincia Florida en el oeste del departamento de Santa Cruz. La localidad se encuentra distante 119 km al suroeste de la ciudad de Santa Cruz de la Sierra, la capital departamental.",
-      descriptionEn: "Helechos Gigantes is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -18.12351,
+      lng: -63.86355,
     },
     {
       id: "samaipata_11",
@@ -114762,7 +115363,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/80/Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg",
       description: "Ernesto Guevara, conocido como \"El Che\", fue un médico, político, guerrillero, escritor, periodista y revolucionario comunista marxista argentino. Fue uno de los ideólogos y comandantes de la Revolución cubana.",
-      descriptionEn: "Pino Negro is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -18.12403,
+      lng: -63.86428,
     },
     {
       id: "samaipata_12",
@@ -114779,6 +115381,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://live.staticflickr.com/7032/6590151945_edf395f923_b.jpg",
       description: "El Observatorio Astronómico de Samaipata, Centro Cósmico de Samaipata, o el Centro Ceremonial de Samaipata, conocido comúnmente como el Fuerte de Samaipata, o simplemente como \"El Fuerte\", es un sitio arqueológico precolombino y preincaico de origen chané de Bolivia, ubicado a…",
       descriptionEn: "El Fuerte de Samaipata or Fort Samaipata, also known simply as \"El Fuerte\", is a Pre-Columbian archaeological site and UNESCO World Heritage Site located in Florida Province, Santa Cruz Department, Bolivia.",
+      lat: -18.17836,
+      lng: -63.81899,
     },
     {
       id: "samaipata_13",
@@ -114795,6 +115399,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Rio_Colorado_pr%C3%B3ximo_al_Parque_Nacional_Ambor%C3%B3.jpg",
       description: "El Parque nacional y área natural de manejo integrado Amboró, también escrito PN-ANMI Amboró, es un área protegida de Bolivia y una de las reservas a nivel mundial con mayor biodiversidad, ya que en sus superficie confluyen 3 diferentes ecosistemas.",
       descriptionEn: "Amboró National Park in central Bolivia is a nature reserve with over 912 species of birds, over 177 mammalian species including puma, ocelot, and the rare spectacled bear.",
+      lat: -17.78333,
+      lng: -63.98333,
+      dayTrip: true,
     },
   ],
   caracas: [
@@ -114812,7 +115419,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 300,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/98/NGC_6679_PanS.jpg",
       description: "El Teleférico de Caracas o Teleférico Warairarepano es un sistema de teleférico de la ciudad de Caracas, Venezuela, inaugurado el 11 de diciembre de 1955 y puesto en servicio el 19 de abril de 1956, por el entonces presidente de Venezuela, Marcos Pérez Jiménez.",
-      descriptionEn: "Parque Nacional El Ávila (Warairarepano) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "El Ávila National Park, also known as Warairarepano, is a protected mountain range north of Caracas. Visitors come for its hiking trails, biodiversity, and panoramic views of the city and the Caribbean Sea.",
     },
     {
       id: "caracas_1",
@@ -114845,6 +115452,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Installation_view_of_Honys_Torres%E2%80%99_work_Racism_without_Piety_at_the_II_Bienal_del_Sur_%282017%E2%80%932018%29%2C_Museo_de_Arte_Contempor%C3%A1neo_de_Caracas_07.jpg/1920px-Installation_view_of_Honys_Torres%E2%80%99_work_Racism_without_Piety_at_the_II_Bienal_del_Sur_%282017%E2%80%932018%29%2C_Museo_de_Arte_Contempor%C3%A1neo_de_Caracas_07.jpg",
       description: "El Museo de Arte Contemporáneo de Caracas Armando Reverón, anteriormente conocido como Museo de Arte Contemporáneo de Caracas Sofía Ímber, es un museo de arte moderno situado en el Complejo Urbanístico Parque Central de Caracas.",
       descriptionEn: "Caracas Museum of Contemporary Art Armando Reverón, also known simply as the Caracas Museum of Contemporary Art, is a museum of modern and contemporary art located in the Parque Central Complex in Caracas, Venezuela.",
+      lat: 10.49853,
+      lng: -66.89962,
     },
     {
       id: "caracas_3",
@@ -114861,6 +115470,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Casa_Natal_del_Libertador_Sim%C3%B3n_Bol%C3%ADvar_-.jpg",
       description: "La Casa Natal de Simón Bolívar o Casa Natal del Libertador es el lugar donde nació Simón Bolívar el 24 de julio de 1783. La casa está ubicada entre las esquinas de San Jacinto a Traposos en la Parroquia Catedral de Caracas.",
       descriptionEn: "The Birthplace of Simón Bolívar is a seventeenth-century house in the Venezuelan capital city Caracas where the hero of Venezuelan and Latin American independence, Simón Bolívar, was born.",
+      lat: 10.49528,
+      lng: -66.91694,
     },
     {
       id: "caracas_4",
@@ -114878,6 +115489,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "www.museocruzdiez.com",
       description: "El Museo de la Estampa y del Diseño Carlos Cruz Diez o simplemente Cruz Diez, es un museo de Caracas, Venezuela; ubicado en el Paseo Vargas de la avenida Bolívar, en el centro de esa ciudad. Lleva su nombre en honor al artista venezolano Carlos Cruz Diez.",
       descriptionEn: "Carlos Cruz-Diez was a Franco-Venezuelan artist recognized within the kinetic art movement. He lived and worked in Paris from 1960 until his death.",
+      lat: 10.50041,
+      lng: -66.90783,
     },
     {
       id: "caracas_5",
@@ -114895,6 +115508,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.caracas.gob.ve/alcaldiaDeCCS/submit-an-article/sitios-turisticos/casas/casa-natal-del-libertador",
       description: "El Panteón Nacional de Venezuela es el edificio donde se conservan los restos de personajes destacados de la historia de Venezuela.",
       descriptionEn: "The National Pantheon of Venezuela is a final resting place for national heroes. The Pantheon was created in the 1870s on the site of the ruined Santísima Trinidad church from 1744 on the northern edge of the old town of Caracas, Venezuela.",
+      lat: 10.51319,
+      lng: -66.91255,
     },
     {
       id: "caracas_6",
@@ -114912,6 +115527,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://fmn.gob.ve/museos/galeria-arte-nacional",
       description: "El Museo de Bellas Artes de Caracas es el museo de artes plásticas más antiguo y uno de los más importantes de Venezuela.",
       descriptionEn: "The Museum of Fine Arts is an art museum in Caracas, Venezuela. It was founded in 1917, and was originally housed in the building now known as the Palacio de las Academias.",
+      lat: 10.50064,
+      lng: -66.89697,
     },
     {
       id: "caracas_7",
@@ -114929,6 +115546,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://hugochavez.ve/cuartel-4f/",
       description: "El Cuartel de la Montaña 4F es un edificio multiusos que se localiza en el sector Monte Piedad, en la parroquia 23 de Enero del Municipio Libertador, en el Distrito Capital de Caracas, la capital de Venezuela.",
       descriptionEn: "The Cuartel de la Montaña, formerly known as the Military History Museum, is a multi-purpose building located in the Monte Piedad sector of the 23 de Enero parish of Libertador Municipality, in the Capital District of Caracas, the capital of Venezuela.",
+      lat: 10.50722,
+      lng: -66.92667,
     },
     {
       id: "caracas_8",
@@ -114946,6 +115565,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.caracas.gob.ve/alcaldiaDeCCS/submit-an-article/sitios-turisticos/casas/casa-natal-del-libertador",
       description: "La Casa Natal de Simón Bolívar o Casa Natal del Libertador es el lugar donde nació Simón Bolívar el 24 de julio de 1783. La casa está ubicada entre las esquinas de San Jacinto a Traposos en la Parroquia Catedral de Caracas.",
       descriptionEn: "The Birthplace of Simón Bolívar is a seventeenth-century house in the Venezuelan capital city Caracas where the hero of Venezuelan and Latin American independence, Simón Bolívar, was born.",
+      lat: 10.50468,
+      lng: -66.91353,
     },
     {
       id: "caracas_9",
@@ -114962,7 +115583,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Parque_zoologico_el_pinar_caracas_venezuela_zoo1.jpg",
       website: "http://elpinar.gdc.gob.ve/content/site/module/frontpage/format/html/",
       description: "El Parque Zoológico El Pinar es el primer jardín zoológico de Caracas, inaugurado el 13 de agosto de 1945 bajo la presidencia de Isaías Medina Angarita.",
-      descriptionEn: "Parque Zoológico El Pinar is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The El Pinar Zoo Also Zoological Park of El Pinar Is the first zoological garden of Caracas, Venezuela inaugurated 13 August 1945 under the presidency of Isaías Medina Angarita.",
+      lat: 10.47972,
+      lng: -66.93917,
     },
     {
       id: "caracas_10",
@@ -114980,6 +115603,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.caracas.gob.ve/alcaldiaDeCCS/submit-an-article/espacios-publicos/parques/parque-ezequiel-zamora",
       description: "El Parque Ezequiel Zamora también conocido a lo largo de su historia como Paseo Guzmán Blanco - Paseo Independencia - Parque El Calvario - El Calvario, es un espacio público de Caracas, Venezuela ubicado en el casco central de esa ciudad al oeste de la Reurbanización El…",
       descriptionEn: "The Great Venezuela Railway was a 179-kilometre (111 mi) 3 ft 6 in railway from Caracas to Valencia. It proved difficult to recoup the initial investment. Compensation due to the railway became a notable cause of the Venezuelan crisis of 1902–1903.",
+      lat: 10.50472,
+      lng: -66.92222,
     },
     {
       id: "caracas_11",
@@ -114997,6 +115622,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.infoinparques.com.ve/inparques/",
       description: "Parque Zoológico Caricuao es un zoológico de Caracas, Venezuela ubicado en la Parroquia Caricuao al suroeste de la capital.",
       descriptionEn: "Parque Zoológico Caricuao is a zoo in Caracas, Venezuela in the Parish of Caricuao located in the southwest region of the city. The park was created by Decree No. 1682, dated March 7, 1974, but only open to the public from July 31, 1977.",
+      lat: 10.43072,
+      lng: -66.96772,
     },
     {
       id: "caracas_12",
@@ -115014,6 +115641,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.quintadeanauco.org.ve/",
       description: "La Quinta de Anauco sirve de espacio físico para el Museo de Arte Colonial de Caracas, exhibe objetos y artículos de la época colonial, haciéndole conocer a los visitantes como vivían los venezolanos de fechas anteriores a la emancipación.",
       descriptionEn: "The Quinta de Anauco is a colonial house in Caracas, Venezuela, that since 1958 has housed the Caracas Museum of Colonial Art. The Quinta was built 1797, and hosted Simón Bolívar in 1827. In 1978 it was declared an Historic National Monument of Venezuela.",
+      lat: 10.51194,
+      lng: -66.89972,
     },
     {
       id: "caracas_13",
@@ -115031,6 +115660,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.churchofjesuschrist.org/temples/details/caracas-venezuela-temple",
       description: "El Templo de Caracas es uno de los templos construidos y operados por la Iglesia de Jesucristo de los Santos de los Últimos Días, el número 96 construido por la iglesia y el único de Venezuela.",
       descriptionEn: "The Caracas Venezuela Temple is a temple of the Church of Jesus Christ of Latter-day Saints located in Caracas, Venezuela. Announced on September 30, 1995, by church president Gordon B.",
+      lat: 10.47085,
+      lng: -66.83729,
     },
     {
       id: "caracas_14",
@@ -115048,6 +115679,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.caracas.gob.ve/alcaldiaDeCCS/submit-an-article/sitios-turisticos/casas/casa-guzman-blanco",
       description: "Antonio José Leocadio Ramón de La Trinidad y María Guzmán Blanco fue un caudillo, abogado, diplomático, político y dictador venezolano.",
       descriptionEn: "Antonio Leocadio Guzmán Blanco was a Venezuelan military leader, statesman, diplomat and politician. He was the president of Venezuela for three separate terms, from 1870 until 1877, from 1879 until 1884, and from 1886 until 1887 and General during the Venezuelan Federal War.",
+      lat: 10.46003,
+      lng: -66.98756,
     },
   ],
   merida: [
@@ -115065,7 +115698,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 300,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cabina_del_Sistema_Telef%C3%A9rico_de_M%C3%A9rida_Mukumbar%C3%AD.jpg",
       description: "El Teleférico de Mérida, oficialmente conocido como Sistema Teleférico Mukumbarí, está ubicado en Mérida, capital del estado Mérida en Venezuela, y es uno de los teleféricos más altos del mundo, con una altitud máxima de 4765 m s.n.m., y uno de los más largos, con una longitud…",
-      descriptionEn: "Teleférico de Mérida (Mukumbarí) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Mérida cable car, known as Mukumbarí, ascends from the city into the Sierra Nevada. Visitors ride it for views of mountains, páramo and the Andean landscape.",
     },
     {
       id: "merida_1",
@@ -115082,6 +115715,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Pico_Bol%C3%ADvar_desde_el_Pico_el_Toro.jpg/1920px-Pico_Bol%C3%ADvar_desde_el_Pico_el_Toro.jpg",
       description: "El pico Bolívar es el accidente geográfico más alto de Venezuela, con una altitud de 4978 m s. n. m. Forma parte de un conjunto de picos ubicados en Sierra Nevada, dentro del parque nacional homónimo en la cordillera de Mérida.",
       descriptionEn: "Pico Bolívar is the highest mountain in Venezuela, at 4,978 metres (16,332 ft). Located in Mérida State. It can be reached only by walking; the Mérida cable car, which was the highest and longest cable car in the world when it was built, only reaches Pico Espejo.",
+      lat: 8.54086,
+      lng: -71.0465,
     },
     {
       id: "merida_2",
@@ -115096,8 +115731,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 360,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Poblacion_de_Los_Nevados.jpg/1920px-Poblacion_de_Los_Nevados.jpg",
-      description: "La Sierra Nevada de Mérida es una cadena montañosa perteneciente a la Cordillera de los Andes, la cual atraviesa la parte occidental de Venezuela, específicamente entre Barinas y Mérida.",
+      description: "Los Nevados es un pueblo venezolano fundado en 1591, ubicado en el parque nacional Sierra Nevada, en el Estado Mérida, situado a 2.710 m s. n. m. y con una población aproximada de 2000 habitantes.",
       descriptionEn: "Los Nevados, is a town founded in 1591, located in the Sierra Nevada National Park in Mérida, Venezuela, located 2,710 meters above sea level and with a population of 2000 inhabitants.",
+      lat: 8.46139,
+      lng: -71.075,
+      sourceUrl: "https://es.wikipedia.org/wiki/Los_Nevados",
     },
     {
       id: "merida_3",
@@ -115114,6 +115752,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Neblina_en_Laguna_de_Mucubaj%C3%AD%2C_M%C3%A9rida%2C_Venezuela.JPG/1920px-Neblina_en_Laguna_de_Mucubaj%C3%AD%2C_M%C3%A9rida%2C_Venezuela.JPG",
       description: "La Laguna de Mucubají está situada entre 3625-3655 m s. n. m. en el Parque Sierra Nevada, en el estado Mérida de Venezuela. Es una de las más grandes de la región.",
       descriptionEn: "Kettle Mucubají is a glacial lake located in Sierra Nevada National Park, in the Mérida State of Venezuela. The lake is 3625–3655 metres above sea level.",
+      lat: 8.79711,
+      lng: -70.82864,
+      dayTrip: true,
     },
     {
       id: "merida_4",
@@ -115130,6 +115771,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bas%C3%ADlica_Menor_de_la_Inmaculada_Concepci%C3%B3n_M%C3%A9rida_Venezuela.jpg",
       description: "La Sacrosanta Basílica Catedral de la Inmaculada Concepción o Basílica Catedral Metropolitana de Mérida es un edificio religioso de la Iglesia católica localizado en la ciudad de Mérida al oeste de Venezuela, en el estado del mismo nombre, parte de la región andina de ese país…",
       descriptionEn: "The Roman Catholic Archdiocese of Mérida is a Latin Rite Metropolitan Archdiocese in western Venezuela.",
+      lat: 8.59708,
+      lng: -71.14383,
     },
     {
       id: "merida_5",
@@ -115146,6 +115789,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Parque_Nacional_La_Culata._Merida-Venezuela.jpg",
       description: "El Parque nacional Sierra La Culata, Dr Antonio José Uzcátegui Burguera, es un parque nacional de Venezuela que se encuentra localizado en el ramal nor-oriental de Los Andes venezolanos, en los estados Mérida y Trujillo. Fue decretado parque nacional el 7 de diciembre de 1989.",
       descriptionEn: "The Sierra La Culata National Park Also Sierra de la Culata National Park is a national park of Venezuela that is located in the northeastern branch of the Venezuelan Andes, in the states Mérida and Trujillo. It was decreed a national park on December 7, 1989.",
+      lat: 8.81587,
+      lng: -70.9744,
+      dayTrip: true,
     },
     {
       id: "merida_6",
@@ -115162,6 +115808,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Paisaje_del_Parque_Nacional_Sierra_Nevada_de_Merida.JPG/1920px-Paisaje_del_Parque_Nacional_Sierra_Nevada_de_Merida.JPG",
       description: "El Parque Nacional Sierra Nevada (PNSN) es un parque nacional de Venezuela ubicado entre los estados Mérida y Barinas en el occidente del país.",
       descriptionEn: "Sierra Nevada National Park may refer to:Sierra Nevada National Park (Spain) in the autonomous community of Andalusia Sierra Nevada National Park (Venezuela) in the states of Mérida and Barinas",
+      lat: 8.6325,
+      lng: -70.83278,
+      dayTrip: true,
     },
     {
       id: "merida_7",
@@ -115176,8 +115825,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/M%C3%BAsica_criolla_-_M%C3%A9rida%2C_Venezuela%2C_1912_%28IA_musicacriollamer00teje%29.pdf/page1-500px-M%C3%BAsica_criolla_-_M%C3%A9rida%2C_Venezuela%2C_1912_%28IA_musicacriollamer00teje%29.pdf.jpg",
-      description: "Cerro La Hechicera es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Mexicali Municipality is a municipality in the Mexican state of Baja California. Its municipal seat is located in the city of Mexicali. As of 2020, the municipality had a total population of 1,049,792. The municipality has an area of 13,700 km2 (5,300 sq mi).",
+      lat: 8.65083,
+      lng: -71.15556,
     },
     {
       id: "merida_8",
@@ -115193,7 +115843,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Catedral_de_San_Ildefonso_1.jpg/3840px-Catedral_de_San_Ildefonso_1.jpg",
       description: "Mérida es la capital y ciudad más poblada del estado mexicano de Yucatán, así como la cabecera del municipio homónimo.",
-      descriptionEn: "Cerro Las Flores is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 8.61833,
+      lng: -71.16333,
     },
     {
       id: "merida_9",
@@ -115210,6 +115861,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Defensa_del_pueblo%2C_Dios%2C_patria%2C_libertad%2C_La._1889._Vol._6%2C_No._421._Junio._0002008394ocr.pdf/page1-1280px-Defensa_del_pueblo%2C_Dios%2C_patria%2C_libertad%2C_La._1889._Vol._6%2C_No._421._Junio._0002008394ocr.pdf.jpg",
       description: "El Municipio Campo Elías conforma, junto con los Libertador y Santos Marquina, la mayor conglomeración urbana del estado. El municipio es el tercero del estado en cuanto a población, su capital es la ciudad de Ejido.",
       descriptionEn: "Barinas State is one of the 23 states of Venezuela. The state capital is Barinas.",
+      lat: 8.60417,
+      lng: -71.24028,
     },
     {
       id: "merida_10",
@@ -115226,6 +115879,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Railway_guide_of_the_republic_of_Mexico._Containing_all_the_postoffices_and_all_the_railroad_stations_.._%28IA_railwayguideofre00moor%29.pdf/page1-500px-Railway_guide_of_the_republic_of_Mexico._Containing_all_the_postoffices_and_all_the_railroad_stations_.._%28IA_railwayguideofre00moor%29.pdf.jpg",
       description: "Mérida es uno de los veintitrés estados que, junto con el Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela.",
       descriptionEn: "The State of Mérida commonly known simply as Mérida is one of the 23 states of Venezuela. The state capital is Mérida, in the Libertador Municipality.",
+      lat: 8.58417,
+      lng: -71.24083,
     },
     {
       id: "merida_11",
@@ -115242,6 +115897,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/M%C3%A9rida_Yucat%C3%A1n_Mexique_2022-03_-_Ateneo_Peninsular.jpg/1920px-M%C3%A9rida_Yucat%C3%A1n_Mexique_2022-03_-_Ateneo_Peninsular.jpg",
       description: "El Museo Fernando García Ponce - MACAY es un recinto museográfico dedicado al arte contemporáneo, pictórico y escultórico, ubicado en Mérida, Yucatán, México.",
       descriptionEn: "Mérida is the capital of the Mexican state of Yucatán, and the largest city in southern Mexico. The city is also the seat of the eponymous municipality.",
+      lat: 8.59842,
+      lng: -71.14257,
     },
     {
       id: "merida_12",
@@ -115258,6 +115915,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/Casa_de_los_Gobernadores_-_M%C3%A9rida.JPG",
       description: "El gobernador del estado Mérida en Venezuela es el jefe del ejecutivo del estadal y encabeza un gabinete de secretarios estadales nombrados por él mismo y de su confianza.",
       descriptionEn: "New Spain, officially the Viceroyalty of New Spain, originally the Kingdom of New Spain, was an integral territorial entity of the Spanish Empire, established by Habsburg Spain.",
+      lat: 8.59905,
+      lng: -71.14281,
     },
     {
       id: "merida_13",
@@ -115274,6 +115933,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Los_Aleros_merida_state_Venezuela3.jpg/1920px-Los_Aleros_merida_state_Venezuela3.jpg",
       description: "Los Aleros es un parque temático ubicado en el estado Mérida, Venezuela construido en 1984 para representar un típico pueblo de los Andes en la década de 1930.",
       descriptionEn: "Los Aleros is a theme park located near Mérida, Venezuela. It depicts a typical Andean town in the 1930s. It was created by Alexis Montilla in 1984; he subsequently created the nearby \"Venezuela de Antier\" and \"Montaña de los Sueños\" themeparks.",
+      lat: 8.66639,
+      lng: -71.02639,
     },
     {
       id: "merida_14",
@@ -115290,6 +115951,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Pico_Humboldt_Venezuela_cut.jpg/1920px-Pico_Humboldt_Venezuela_cut.jpg",
       description: "El pico Humboldt es el segundo pico más alto de Venezuela, con unos 4942 metros sobre el nivel del mar. Se encuentra ubicado en la Sierra Nevada de Mérida, en los Andes de Venezuela. Tiene un nivel de precipitación anual de 950 mm.",
       descriptionEn: "Pico Humboldt is a summit in Mérida, Venezuela. The peak is Venezuela's second highest peak, at 4,925 meters above sea level. It is located in the Sierra Nevada de Merida, in the Venezuelan Andes of.",
+      lat: 8.54966,
+      lng: -70.99614,
     },
   ],
   canaima: [
@@ -115325,6 +115988,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Albert_Anker_-_Die_Ziviltrauung_%281887%29.jpg/960px-Albert_Anker_-_Die_Ziviltrauung_%281887%29.jpg",
       description: "El parque nacional Canaima está situado en el sureste de Venezuela, en el estado Bolívar, e incluye la región de la Gran Sabana. Limita al sur con Brasil y al este con Guyana. Fue creado el 12 de junio de 1962 y declarado Patrimonio de la Humanidad por la Unesco en 1994.",
       descriptionEn: "Canaima National Park is a 30,000 km2 (12,000 sq mi) park in south-eastern Venezuela that roughly occupies the same area as the Gran Sabana region. It is located in Bolívar State, reaching the borders with Brazil and Guyana. The park was named a World Heritage Site by UNESCO.",
+      lat: 6.24115,
+      lng: -62.85508,
     },
     {
       id: "canaima_2",
@@ -115353,8 +116018,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Taraipá Tepuy es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Taraipá Tepuy is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Cerro La Luna is a small tepui in Bolívar state, Venezuela. It is situated off the northern flank of Auyán-tepui, just southeast of the similarly small Cerro El Sol, and forms part of the Auyán Massif.",
+      lat: 6.10286,
+      lng: -62.53497,
+      dayTrip: true,
     },
     {
       id: "canaima_4",
@@ -115371,6 +116038,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Wei_Tepuy.jpg",
       description: "Uei también escrito Uei-tepui y otra veces escrito como Wei -tepui, Cerro El Sol, Serra do Sol o Serra do Sol, es un tepui en la frontera entre los países sudamericanos de Brasil y Venezuela. Puede ser considerado el miembro más sureño de la cadena de Tepuyes del Este.",
       descriptionEn: "A tepui, or tepuy, is a member of a family of table-top mountains or mesas found in northern South America, especially in Venezuela, western Guyana, and northern Brazil.",
+      lat: 6.11363,
+      lng: -62.55048,
+      dayTrip: true,
     },
     {
       id: "canaima_5",
@@ -115386,7 +116056,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a6/RCTV_logo_2_000.png",
       description: "RCTV fue una empresa de medios audiovisuales que comenzó como un canal de televisión abierta fundado el 15 de noviembre de 1953 por el empresario y explorador William Phelps Tucker, siendo propiedad de Empresas 1BC.",
-      descriptionEn: "Cerro El Zumbador is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 6.2603,
+      lng: -63.2406,
+      dayTrip: true,
     },
     {
       id: "canaima_6",
@@ -115435,6 +116107,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Chondrites.JPG/960px-Chondrites.JPG",
       description: "Laguna de Canaima es un cuerpo de agua localizado en la Gran Sabana, en el parque nacional Canaima, del Estado Bolívar (Venezuela).",
       descriptionEn: "A rock formation is an isolated, scenic, or spectacular surface rock outcrop. Rock formations are usually the result of weathering and erosion sculpting the existing rock. The term rock formation can also refer to the process of formation of rocks.",
+      lat: 6.24669,
+      lng: -62.85072,
     },
     {
       id: "canaima_9",
@@ -115451,6 +116125,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Canaima-Venezuela05.JPG/1920px-Canaima-Venezuela05.JPG",
       description: "El parque nacional Canaima está situado en el sureste de Venezuela, en el estado Bolívar, e incluye la región de la Gran Sabana. Limita al sur con Brasil y al este con Guyana. Fue creado el 12 de junio de 1962 y declarado Patrimonio de la Humanidad por la Unesco en 1994.",
       descriptionEn: "Canaima National Park is a 30,000 km2 (12,000 sq mi) park in south-eastern Venezuela that roughly occupies the same area as the Gran Sabana region. It is located in Bolívar State, reaching the borders with Brazil and Guyana. The park was named a World Heritage Site by UNESCO.",
+      lat: 6.24115,
+      lng: -62.85508,
     },
     {
       id: "canaima_10",
@@ -115500,7 +116176,6 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/langes-960px-Flag_of_Venezuela.svg.png",
       website: "http://fmn.gob.ve/museos/galeria-arte-nacional",
       description: "Venezuela, oficialmente República Bolivariana de Venezuela, es un país soberano de América, situado en el extremo norte de América del Sur y en la región del Caribe.",
-      descriptionEn: "Museo de Bellas Artes de Caracas is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "canaima_13",
@@ -115517,7 +116192,6 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/La_Gran_Sabana.jpg",
       website: "https://hugochavez.ve/cuartel-4f/",
       description: "El turismo en Venezuela se desarrolló considerablemente en las últimas décadas, particularmente por su favorable posición geográfica, la variedad de paisajes, la riqueza de la flora y fauna, las manifestaciones artísticas y el privilegiado clima tropical del país, que permite…",
-      descriptionEn: "Museo Histórico Militar is a recommended place to visit and one of the standout attractions in the area.",
     },
   ],
   islamargarita: [
@@ -115534,8 +116208,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/VE-islamarg-asunc-cast-s-rosa.jpg/960px-VE-islamarg-asunc-cast-s-rosa.jpg",
-      description: "Pampatar es una ciudad en Venezuela, ubicada en el Caribe, capital del Municipio Maneiro en la Isla de Margarita en Nueva Esparta. Pampatar junto a Porlamar, es uno de los centros urbanos y económicos de la isla.",
+      description: "El Fuerte de Santa Rosa de La Eminencia, conocido popularmente como el Castillo de Santa Rosa y ubicado en la Ciudad de La Asunción, fue construido en el siglo XVII, después del desembarco de más de 500 piratas franceses que, al mando del Marqués de Maintenon, saquearon la…",
       descriptionEn: "La Asunción is a city in Venezuela. The capital of Nueva Esparta state, it lies on Margarita Island in the Caribbean Sea, off the South American mainland.",
+      lat: 11.02688,
+      lng: -63.86727,
+      sourceUrl: "https://es.wikipedia.org/wiki/Castillo_de_Santa_Rosa_(Venezuela)",
     },
     {
       id: "islamargarita_1",
@@ -115551,7 +116228,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "http://www.musipanelreino.com.ve/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/PlayaElAgua_%28Margarita-VEN%29.jpg",
-      description: "La Isla de Margarita es una isla caribeña que se encuentra al sureste del mar Caribe, en el noreste del territorio venezolano y al norte de la Península de Araya del estado Sucre.",
+      description: "El Reino de Musipán es un parque temático familiar en la isla de Margarita, ambientado como un reino de fantasía con atracciones y espectáculos. Se visita por sus áreas recreativas y su propuesta para niños.",
       descriptionEn: "Margarita Island is the largest island in the Venezuelan state of Nueva Esparta, situated off the north west coast of the country, in the Caribbean Sea. The capital city of Nueva Esparta, La Asunción, is located on the island.",
     },
     {
@@ -115568,7 +116245,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://waterlandmundomarino.com/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Turismo_en_Pampatar_4.jpg",
-      description: "Pampatar es una ciudad en Venezuela, ubicada en el Caribe, capital del Municipio Maneiro en la Isla de Margarita en Nueva Esparta. Pampatar junto a Porlamar, es uno de los centros urbanos y económicos de la isla.",
+      description: "Waterland es un parque acuático en Margarita con piscinas, toboganes y áreas de recreación familiar. Se visita para pasar el día en actividades acuáticas y de ocio.",
       descriptionEn: "The Nueva Esparta State is one of the 23 states of Venezuela. It comprises Margarita Island, Coche, and the lightly inhabited Cubagua.",
     },
     {
@@ -115584,8 +116261,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Castillo_San_Carlos_de_Borromeo_%282%29.jpg/960px-Castillo_San_Carlos_de_Borromeo_%282%29.jpg",
-      description: "Pampatar es una ciudad en Venezuela, ubicada en el Caribe, capital del Municipio Maneiro en la Isla de Margarita en Nueva Esparta. Pampatar junto a Porlamar, es uno de los centros urbanos y económicos de la isla.",
+      description: "El Castillo San Carlos de Borromeo es una construcción militar de la época del virreinato de Nueva Esparta, ubicado en la bahía de Pampatar, Isla de Margarita, Venezuela.",
       descriptionEn: "Pampatar is a city on Isla Margarita, Nueva Esparta State, Venezuela. It is located in the Maneiro Municipality.",
+      lat: 10.99751,
+      lng: -63.79848,
+      sourceUrl: "https://es.wikipedia.org/wiki/Castillo_San_Carlos_de_Borromeo",
     },
     {
       id: "islamargarita_4",
@@ -115601,8 +116281,12 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "http://www.inparques.gob.ve/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/LAS_TETAS_DE_MAR%C3%8DA_GUEVARA-MARGARITA.jpg/960px-LAS_TETAS_DE_MAR%C3%8DA_GUEVARA-MARGARITA.jpg",
-      description: "La Isla de Margarita es una isla caribeña que se encuentra al sureste del mar Caribe, en el noreste del territorio venezolano y al norte de la Península de Araya del estado Sucre.",
-      descriptionEn: "Monumento Natural Tetas de María Guevara is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Las Tetas de María Guevara son un monumento natural que está constituido por dos cerros gemelos ubicados en el medio de la isla de Margarita, cerca de la laguna La Restinga, en el municipio Tubores del estado Nueva Esparta, al noreste de Venezuela.",
+      descriptionEn: "Tetas de María Guevara are twin hills located near Laguna de la Restinga in central Isla Margarita, Venezuela.",
+      lat: 10.9575,
+      lng: -64.1208,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/Las_Tetas_de_Mar%C3%ADa_Guevara",
     },
     {
       id: "islamargarita_5",
@@ -115618,8 +116302,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "http://www.inparques.gob.ve/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/87/Vista_de_El_Tirano_y_el_Guayamur%C3%AD_desde_Cabo_Blanco._Isla_de_Margarita%2C_estado_Nueva_Esparta._Venezuela..jpg",
-      description: "La Isla de Margarita es una isla caribeña que se encuentra al sureste del mar Caribe, en el noreste del territorio venezolano y al norte de la Península de Araya del estado Sucre.",
-      descriptionEn: "Monumento Natural Cerros Guayamurí y Matasiete is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Cerro Matasiete es un cerro histórico que mide aproximadamente 660 metros de altura, ubicado en la Isla de Margarita, Estado Nueva Esparta, Venezuela.",
+      descriptionEn: "The Guayamurí and Matasiete Hills Natural Monument is a protected area in Nueva Esparta that preserves two hills with vegetation and trails. It is visited for its panoramic views and nature contact.",
+      lat: 11.06646,
+      lng: -63.83866,
+      sourceUrl: "https://es.wikipedia.org/wiki/Cerro_Matasiete",
     },
     {
       id: "islamargarita_6",
@@ -115635,8 +116322,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "http://www.inparques.gob.ve/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Laguna_de_las_Marites.jpg/960px-Laguna_de_las_Marites.jpg",
-      description: "La Isla de Margarita es una isla caribeña que se encuentra al sureste del mar Caribe, en el noreste del territorio venezolano y al norte de la Península de Araya del estado Sucre.",
-      descriptionEn: "Monumento Natural Laguna de Las Marites is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La laguna de las Marites, es un espacio natural ubicado en el litoral suroriental de la planicie costera de la isla de Margarita, Venezuela. Fue declarada monumento natural el 27 de febrero de 1974.",
+      descriptionEn: "The Laguna de las Marites Natural Monument, or Las Marites Lagoon Natural Monument, is a protected hypersaline lagoon with Natural Monument status located on the south-east coastal plain of Margarita Island, in Nueva Esparta state in the north-west of Venezuela.",
+      lat: 10.91494,
+      lng: -63.93223,
+      sourceUrl: "https://es.wikipedia.org/wiki/Monumento_natural_Laguna_de_Las_Marites",
     },
     {
       id: "islamargarita_7",
@@ -115651,8 +116341,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/87/Vista_de_El_Tirano_y_el_Guayamur%C3%AD_desde_Cabo_Blanco._Isla_de_Margarita%2C_estado_Nueva_Esparta._Venezuela..jpg",
-      description: "Pampatar es una ciudad en Venezuela, ubicada en el Caribe, capital del Municipio Maneiro en la Isla de Margarita en Nueva Esparta. Pampatar junto a Porlamar, es uno de los centros urbanos y económicos de la isla.",
-      descriptionEn: "Monumento a la Batalla de Matasiete is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Monumento a la Batalla de Matasiete conmemora el combate de 1817 en la guerra de independencia venezolana. Se visita como sitio histórico y mirador en las cercanías de La Asunción.",
+      descriptionEn: "The Battle of Matasiete Monument commemorates the 1817 battle in the Venezuelan War of Independence. It is visited as a historical site and viewpoint near La Asunción.",
     },
     {
       id: "islamargarita_8",
@@ -115684,7 +116374,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Laguna_de_la_Restinga.jpg/960px-Laguna_de_la_Restinga.jpg",
       description: "La playa La Restinga es una playa ubicada en la isla de Margarita, en el estado Nueva Esparta, Venezuela, siendo la playa de mayor extensión de la isla.",
-      descriptionEn: "Parque Nacional Laguna de La Restinga is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Laguna de la Restinga is a national park on the Isla Margarita, Nueva Esparta state, Venezuela. The main part of the park is a large salt lagoon, rich in fish and birdlife.",
+      lat: 10.98518,
+      lng: -64.14814,
+      dayTrip: true,
     },
     {
       id: "islamargarita_10",
@@ -115701,6 +116394,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/En_lo_alto_del_Copey.JPG/960px-En_lo_alto_del_Copey.JPG",
       description: "El Parque Nacional Cerro El Copey - Jóvito Villalba es un parque nacional ubicado en la parte oriental de la isla caribeña de Margarita, en la región montañosa más alta del Estado Nueva Esparta en Venezuela.",
       descriptionEn: "The Nueva Esparta State is one of the 23 states of Venezuela. It comprises Margarita Island, Coche, and the lightly inhabited Cubagua.",
+      lat: 11.00884,
+      lng: -63.88642,
     },
     {
       id: "islamargarita_11",
@@ -115717,6 +116412,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/IGVSB_Red_Geod%C3%A9sica_Municipal_-_Nueva_Esparta_-_Municipio_Garc%C3%ADa.pdf/page1-960px-IGVSB_Red_Geod%C3%A9sica_Municipal_-_Nueva_Esparta_-_Municipio_Garc%C3%ADa.pdf.jpg",
       description: "La tragedia aérea de Margarita se produjo en la aproximación de un avión de Aeropostal al Aeropuerto Luisa Cáceres de Arismendi de la ciudad de Porlamar en la isla de Margarita el 14 de agosto de 1974, matando a 47 personas a bordo y dejando como único superviviente al copiloto…",
       descriptionEn: "Margarita Island is the largest island in the Venezuelan state of Nueva Esparta, situated off the north west coast of the country, in the Caribbean Sea. The capital city of Nueva Esparta, La Asunción, is located on the island.",
+      lat: 11.14611,
+      lng: -63.88833,
     },
     {
       id: "islamargarita_12",
@@ -115731,8 +116428,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cristo_en_la_devoci%C3%B3n_reliigiosa_cat%C3%B3lica_neoespartana.pdf/page1-960px-Cristo_en_la_devoci%C3%B3n_reliigiosa_cat%C3%B3lica_neoespartana.pdf.jpg",
-      description: "La Isla de Margarita es una isla caribeña que se encuentra al sureste del mar Caribe, en el noreste del territorio venezolano y al norte de la Península de Araya del estado Sucre.",
+      description: "El Cerro La Galera es una elevación de Margarita que ofrece vistas de la costa y de poblaciones cercanas. Se visita por sus miradores y por el valor histórico de su entorno, donde se ubica el fortín.",
       descriptionEn: "The Nueva Esparta State is one of the 23 states of Venezuela. It comprises Margarita Island, Coche, and the lightly inhabited Cubagua.",
+      lat: 11.1023,
+      lng: -63.9783,
     },
     {
       id: "islamargarita_13",
@@ -115749,6 +116448,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Venezuela_%28IA_venezuela00daltrich%29.pdf/page1-500px-Venezuela_%28IA_venezuela00daltrich%29.pdf.jpg",
       description: "Nueva Esparta es uno de los veintitrés Estados Federales que junto con el Distrito Capital y las Dependencias Federales, forman Venezuela. Su capital es La Asunción y su ciudad más poblada es Porlamar.",
       descriptionEn: "Margarita Island is the largest island in the Venezuelan state of Nueva Esparta, situated off the north west coast of the country, in the Caribbean Sea. The capital city of Nueva Esparta, La Asunción, is located on the island.",
+      lat: 11.1126,
+      lng: -63.9346,
     },
     {
       id: "islamargarita_14",
@@ -115765,6 +116466,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bulletin_Of_The_Pan_American_Union_1923-01-_Vol_56_Iss_1_%28IA_sim_bulletin-of-the-pan-american-union_1923-01_56_1%29.pdf/page1-500px-Bulletin_Of_The_Pan_American_Union_1923-01-_Vol_56_Iss_1_%28IA_sim_bulletin-of-the-pan-american-union_1923-01_56_1%29.pdf.jpg",
       description: "Tacarigua es una población de la isla de Margarita, ubicada en la parroquia Guevara del municipio Gómez, estado Nueva Esparta, Venezuela.",
       descriptionEn: "Tacarigua is a town on Margarita Island, in the Guevara civil parish of Gómez Municipality, Nueva Esparta State, Venezuela.",
+      lat: 11.14111,
+      lng: -63.89194,
     },
     {
       id: "islamargarita_15",
@@ -115781,6 +116484,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/PlayaElAgua_%28Margarita-VEN%29.jpg",
       description: "La Isla de Margarita es una isla caribeña que se encuentra al sureste del mar Caribe, en el noreste del territorio venezolano y al norte de la Península de Araya del estado Sucre.",
       descriptionEn: "Margarita Island is the largest island in the Venezuelan state of Nueva Esparta, situated off the north west coast of the country, in the Caribbean Sea. The capital city of Nueva Esparta, La Asunción, is located on the island.",
+      lat: 11.108,
+      lng: -63.8863,
     },
     {
       id: "islamargarita_16",
@@ -115795,8 +116500,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Panoramic_of_Juan_Griego_45.jpg/3840px-Panoramic_of_Juan_Griego_45.jpg",
-      description: "Juan Griego es una ciudad en Venezuela, ubicada en la bahía noreste de la Isla de Margarita, capital del municipio Marcano en el estado Nueva Esparta. En 2011, la registró una población de 20 421 habitantes aproximadamente.",
-      descriptionEn: "Fortín de La Galera is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Fortín de La Galera, también conocido como El fortín de La Libertad, está ubicado en la Isla de Margarita, en la ciudad de Juan Griego y fue construido en el año 1811 por orden de la Junta Patriótica de Margarita, en su momento servía para vigilar la bahía allí presentes…",
+      descriptionEn: "Fortín de La Galera is an old fortification located on the hill of the same name in Juan Griego, Margarita. It is visited for its historical value and views of the sea and the bay.",
+      lat: 11.08814,
+      lng: -63.975,
+      sourceUrl: "https://es.wikipedia.org/wiki/Fort%C3%ADn_de_La_Galera",
     },
     {
       id: "islamargarita_17",
@@ -115811,8 +116519,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Turismo_en_Pampatar_4.jpg",
-      description: "Pampatar es una ciudad en Venezuela, ubicada en el Caribe, capital del Municipio Maneiro en la Isla de Margarita en Nueva Esparta. Pampatar junto a Porlamar, es uno de los centros urbanos y económicos de la isla.",
-      descriptionEn: "Fortín de España is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Fortín de España es una histórica fortificación militar de Margarita, vinculada a la defensa colonial de la isla. Se visita por su arquitectura y su valor patrimonial.",
+      descriptionEn: "Fortín de España is a historic military fortification on Margarita Island, linked to the island's colonial defense. It is visited for its architecture and heritage value.",
     },
     {
       id: "islamargarita_18",
@@ -115827,8 +116535,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg/3840px-Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg",
-      description: "Porlamar es una ciudad ubicada en Venezuela, capital del municipio Mariño en el estado Nueva Esparta. Es el principal centro urbano y económico de la Isla de Margarita.",
-      descriptionEn: "Museo del Hombre Insular is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo del Hombre Insular es un espacio museístico en Margarita dedicado a la historia y la cultura de los habitantes de la isla. Se visita para conocer piezas, documentos y testimonios sobre la vida insular.",
+      descriptionEn: "The Museo del Hombre Insular is a museum on Margarita Island dedicated to the history and culture of the island's inhabitants. It is visited to see objects, documents and testimonies about island life.",
     },
     {
       id: "islamargarita_19",
@@ -115844,7 +116552,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://www.parquediverland.com.ve/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pto_Viejo_atardecer.JPG/3840px-Pto_Viejo_atardecer.JPG",
-      description: "La Ciudad Deportiva, es el estadio oficial del equipo Margarita FC y a su misma vez es un proyecto que contempla el acondicionamiento de las instalaciones del antiguo Canódromo de Margarita para la práctica de diversas disciplinas deportivas.",
+      description: "Diverland es un parque recreativo y acuático en Margarita, con piscinas, toboganes y áreas para niños. Se visita para actividades de ocio familiar.",
       descriptionEn: "The Nueva Esparta State is one of the 23 states of Venezuela. It comprises Margarita Island, Coche, and the lightly inhabited Cubagua.",
     },
     {
@@ -115862,7 +116570,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://youtu.be/YOZgMFC59GI",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg/3840px-Modern_Architerture_in_Porlamar%2C_Margarita_Island.jpg",
       description: "Porlamar es una ciudad ubicada en Venezuela, capital del municipio Mariño en el estado Nueva Esparta. Es el principal centro urbano y económico de la Isla de Margarita.",
-      descriptionEn: "Museo Pueblos de Margarita is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Museo Pueblos de Margarita brings together representations and objects about the island's towns and traditions. It is visited to learn about the history and culture of Margarita's towns.",
     },
     {
       id: "islamargarita_21",
@@ -115895,6 +116603,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Entrada_principal_del_museo.jpg/1920px-Entrada_principal_del_museo.jpg",
       description: "Francisco José Narváez Rivera OL fue un artista plástico venezolano, considerado uno de los más importantes escultores de su país, creador entre muchas otras obras del conocido grupo escultórico «Las Toninas», que adorna la fuente de la Plaza O'Leary en Caracas.",
       descriptionEn: "The Nueva Esparta State is one of the 23 states of Venezuela. It comprises Margarita Island, Coche, and the lightly inhabited Cubagua.",
+      lat: 10.9572,
+      lng: -63.84743,
     },
     {
       id: "islamargarita_23",
@@ -115910,7 +116620,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/langes-960px-Flag_of_Venezuela.svg.png",
       description: "Venezuela, oficialmente República Bolivariana de Venezuela, es un país soberano de América, situado en el extremo norte de América del Sur y en la región del Caribe.",
-      descriptionEn: "Museo Vial de Margarita is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "islamargarita_24",
@@ -115926,7 +116635,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/40/Desde_chacopata.JPG",
       description: "La Comunidad de Chacopata está situada en el Municipio Cruz Salmerón Acosta del Estado Sucre en Venezuela, tiene una población de aproximadamente 2.189 habitantes y está a 6 metros de altitud. Sus coordenadas son: Latitud: 10.6667 Longitud: -63.8833",
-      descriptionEn: "Laguna Rosada is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Laguna Rosada is a saltwater lagoon on Margarita Island that can turn pink due to microorganisms. It is visited to observe the landscape and photograph the surroundings.",
     },
     {
       id: "islamargarita_25",
@@ -115975,7 +116684,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Hist%C3%B3rica...Ciudad_Bol%C3%ADvar.JPG/1920px-Hist%C3%B3rica...Ciudad_Bol%C3%ADvar.JPG",
-      description: "Ciudad Bolívar es la localidad número 19 del Distrito Capital de Bogotá, Colombia. Se encuentra ubicada en el sur de la ciudad y está conformada por más de 300 barrios. Es la tercera localidad con mayor extensión de la ciudad, luego del Sumapaz y Usme.",
+      description: "El centro histórico de Ciudad Bolívar conserva calles coloniales, casas de colores y edificios patrimoniales junto al Orinoco. Se recorre para conocer la arquitectura y la historia de la antigua Angostura.",
       descriptionEn: "The Archdiocese of Ciudad Bolívar is a Latin Church archdiocese of the Catholic Church located in the city of Ciudad Bolívar in Venezuela. Established on 20 May 1790, it became part of the ecclesiastical province of the Archdiocese of Caracas.",
     },
     {
@@ -115991,8 +116700,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/1973._Agosto_25._Inauguraci%C3%B3n_Museo_de_Arte_Moderno_Jes%C3%BAs_Soto_de_Ciudad_Bol%C3%ADvar.jpg/1920px-1973._Agosto_25._Inauguraci%C3%B3n_Museo_de_Arte_Moderno_Jes%C3%BAs_Soto_de_Ciudad_Bol%C3%ADvar.jpg",
-      description: "Museo de Arte Moderno Jesús Soto es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo de Arte Moderno Jesús Soto de Ciudad Bolívar, Venezuela, se encuentra ubicado en la avenida Germania entre la ciudad histórica y la ciudad nueva.",
       descriptionEn: "Jesús Rafael Soto was a Venezuelan kinetic and op artist, sculptor, and painter.",
+      lat: 8.1325,
+      lng: -63.53694,
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_Arte_Moderno_Jes%C3%BAs_Soto",
     },
     {
       id: "ciudadbolivar_3",
@@ -116007,8 +116719,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/97/Ciudad_Bol%C3%ADvar%2C_San_Isidro_%282004%29_02.jpg",
-      description: "Ciudad Bolívar es una ciudad venezolana, al sureste de Venezuela. Originalmente bautizada con el nombre de Santo Tomás de la Nueva Guayana en la Angostura del Orinoco el 22 de mayo de 1764, y sería renombrada en junio de 1846 como Ciudad Bolívar.",
+      description: "Casa histórica habilitada como museo en Ciudad Bolívar; conserva arquitectura y objetos vinculados al patrimonio local. Se visita para conocer una muestra de la historia y la vida doméstica de la ciudad.",
       descriptionEn: "Bosque el Olivar is a public park located in the neighbourhood of the same name in San Isidro District, Lima, Peru. Named after the olive trees located there since their introduction in 1560, it is part of the cultural heritage of Peru.",
+      lat: 8.13724,
+      lng: -63.54753,
     },
     {
       id: "ciudadbolivar_4",
@@ -116025,6 +116739,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Exhibici%C3%B3n_Museo_Ciudad_Autoconstruida_%28MCA%29_en_Ciudad_Bol%C3%ADvar._07.png/1920px-Exhibici%C3%B3n_Museo_Ciudad_Autoconstruida_%28MCA%29_en_Ciudad_Bol%C3%ADvar._07.png",
       description: "Ciudad Bolívar es la localidad número 19 del Distrito Capital de Bogotá, Colombia. Se encuentra ubicada en el sur de la ciudad y está conformada por más de 300 barrios. Es la tercera localidad con mayor extensión de la ciudad, luego del Sumapaz y Usme.",
       descriptionEn: "The Quinta de Bolívar is a colonial house in Bogotá, Colombia, that served as a residence to Simón Bolívar in the capital after the war of independence. It is now used as a museum dedicated to Bolívar's life and times.",
+      lat: 8.14535,
+      lng: -63.55274,
     },
     {
       id: "ciudadbolivar_5",
@@ -116040,7 +116756,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/79/MartiJohnManuel_K_TRestauration.jpg",
       description: "José Julián Martí Pérez fue un político, diplomático, poeta, ensayista, periodista y filósofo cubano, fundador del Partido Revolucionario Cubano y organizador de la guerra de Independencia de Cuba, durante la que murió en combate.",
-      descriptionEn: "Parque Mirador G/D José Antonio Anzoátegui is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "ciudadbolivar_6",
@@ -116057,6 +116772,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Bol%C3%ADvar_%28IA_bolvar00muoz%29.pdf/page1-500px-Bol%C3%ADvar_%28IA_bolvar00muoz%29.pdf.jpg",
       description: "Bolívar es uno de los treinta y dos departamentos que forman la República de Colombia. Está ubicado en la región Caribe, limitando al norte con el mar Caribe. Con unos 2 180 976 habitantes en 2018, es el séptimo departamento más poblado.",
       descriptionEn: "Simón José Antonio de la Santísima Trinidad Bolívar Palacios Ponte y Blanco was a Venezuelan military officer and statesman who led what are currently the countries of Bolivia, Colombia, Ecuador, Panama, Peru, and Venezuela to independence from the Spanish Empire.",
+      lat: 7.93306,
+      lng: -63.51917,
     },
     {
       id: "ciudadbolivar_7",
@@ -116073,6 +116790,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Ciudad_y_campo_%28IA_ciudadycampo00berr%29.pdf/page1-500px-Ciudad_y_campo_%28IA_ciudadycampo00berr%29.pdf.jpg",
       description: "La Candelaria es la localidad número 17 del Distrito Capital de Bogotá, capital de Colombia. Está ubicada en el centro-oriente de la metrópoli de Bogotá. En ella se fundó la ciudad por Gonzalo Jimenez de Quesada, el 6 de agosto de 1538, y se construyó la primera iglesia.",
       descriptionEn: "Cerro is Spanish for \"hill\" or \"mountain\".",
+      lat: 8.0919,
+      lng: -63.3918,
     },
     {
       id: "ciudadbolivar_8",
@@ -116089,6 +116808,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Recuerdos_hist%C3%B3ricos._San_Martin_y_Bolivar%3B_%28IA_agd9371.0001.001.umich.edu%29.pdf/page1-960px-Recuerdos_hist%C3%B3ricos._San_Martin_y_Bolivar%3B_%28IA_agd9371.0001.001.umich.edu%29.pdf.jpg",
       description: "Bolívar es uno de los treinta y dos departamentos que forman la República de Colombia. Está ubicado en la región Caribe, limitando al norte con el mar Caribe. Con unos 2 180 976 habitantes en 2018, es el séptimo departamento más poblado.",
       descriptionEn: "The Cerros de Mavicuri are three hills, located in eastern Colombia, 50 km (31 mi) south of the city of Inírida on the Inírida River. Geologically, the mountains are part of the Guiana Shield.",
+      lat: 7.6442,
+      lng: -63.5817,
+      dayTrip: true,
     },
     {
       id: "ciudadbolivar_9",
@@ -116121,6 +116843,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/El_Centro_del_Per%C3%BA_-_descripci%C3%B3n_pintoresca_del_Ferrocarril_Central_del_Per%C3%BA%2C_la_via_f%C3%A9rrea_m%C3%A1s_notable_del_mundo_%28IA_elcentrodelperde00ches%29.pdf/page1-1280px-El_Centro_del_Per%C3%BA_-_descripci%C3%B3n_pintoresca_del_Ferrocarril_Central_del_Per%C3%BA%2C_la_via_f%C3%A9rrea_m%C3%A1s_notable_del_mundo_%28IA_elcentrodelperde00ches%29.pdf.jpg",
       description: "Vélez es un municipio colombiano, capital de la provincia homónima, ubicado al sur del departamento Santander, distante unos 231 kilómetros de Bucaramanga, capital del departamento y aproximadamente a 200 kilómetros de Bogotá, y a solo 86 kilómetros de Tunja la capital más…",
       descriptionEn: "Latin America is the cultural region of the Americas where Romance languages are predominantly spoken, primarily Spanish and Portuguese.",
+      lat: 7.9472,
+      lng: -63.9295,
+      dayTrip: true,
     },
     {
       id: "ciudadbolivar_11",
@@ -116137,6 +116862,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bol%C3%ADvar_y_San_Mart%C3%ADn_-_an%C3%A1lisis_cr%C3%ADtico-hist%C3%B3rico_de_la_carta_del_Se%C3%B1or_Pedro_S._Lamas%2C_argentino%2C_al_ilustre_americano_general_Guzm%C3%A1n_Blanco_%28IA_bolvarysanmartna00cast%29.pdf/page1-500px-thumbnail.pdf.jpg",
       description: "Ciudad Bolívar es la localidad número 19 del Distrito Capital de Bogotá, Colombia. Se encuentra ubicada en el sur de la ciudad y está conformada por más de 300 barrios. Es la tercera localidad con mayor extensión de la ciudad, luego del Sumapaz y Usme.",
       descriptionEn: "Club Ciudad de Bolívar, also known as Ciudad de Bolívar or Ciudad Bolívar, is an Argentine sports club based in San Carlos de Bolívar, Buenos Aires Province.",
+      lat: 7.89306,
+      lng: -63.56306,
+      dayTrip: true,
     },
     {
       id: "ciudadbolivar_12",
@@ -116152,7 +116880,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dues_and_charges_on_shipping_in_foreign_and_colonial_ports%3B_a_manual_of_reference_for_the_use_of_shipowners%2C_shipbrokers%2C_and_shipmasters_%28IA_dueschargesonshi00urqurich%29.pdf/page1-500px-thumbnail.pdf.jpg",
       description: "La Quinta de Bolívar es una casa museo de estilo colonial situada cerca de la localidad de La Candelaria, que forma parte del Distrito Capital de Bogotá.",
-      descriptionEn: "Cerro Curtiembre is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 7.8825,
+      lng: -63.5995,
+      dayTrip: true,
     },
   ],
   losroques: [
@@ -116171,6 +116901,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Archipi%C3%A9lago_Los_Roques_-_Dos_Mosquises.jpg/1920px-Archipi%C3%A9lago_Los_Roques_-_Dos_Mosquises.jpg",
       description: "El archipiélago de Los Roques es una dependencia federal que agrupa un conjunto de islas y cayos en las Antillas Menores pertenecientes a Venezuela que poseen una superficie estimada en 40,61 km² y que están ubicados entre el archipiélago Las Aves y la isla La Orchila a 176 km…",
       descriptionEn: "The Los Roques Archipelago is a federal dependency of Venezuela consisting of approximately 350 islands, cays, and islets in a total area of 40.61 km2 (15.68 mi2). The archipelago is located 128 km (80 mi) directly north of the port of La Guaira, in the Caribbean Sea.",
+      lat: 11.8575,
+      lng: -66.7575,
     },
     {
       id: "losroques_1",
@@ -116185,7 +116917,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.8,
       estimatedMinutes: 240,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/LosRoquesLosFrancisqu%C3%AD.JPG",
-      description: "Cayos Francisquí, también conocidos como Cayos Franciskí, es el nombre de un grupo de cayos del mar Caribe que forman parte del parque nacional Archipiélago de Los Roques, al norte de Venezuela.",
+      description: "Gran Roque es la isla principal y única población del archipiélago Los Roques. Desde su puerto salen excursiones de snorkeling a cayos cercanos con aguas claras y arrecifes de coral.",
       descriptionEn: "The Los Roques Archipelago is a federal dependency of Venezuela consisting of approximately 350 islands, cays, and islets in a total area of 40.61 km2 (15.68 mi2). The archipelago is located 128 km (80 mi) directly north of the port of La Guaira, in the Caribbean Sea.",
     },
   ],
@@ -116205,6 +116937,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/France_1912.jpg",
       description: "El Parque nacional Morrocoy es un parque nacional ubicado en la Región Centroccidental en la costa noroccidental de Tucacas y Chichiriviche en el Estado Falcón en Venezuela y en el noroeste del Golfo Triste y los pueblos de Boca de Aroa, Sanare, Flamenco y Tocuyo de la Costa.",
       descriptionEn: "Morrocoy National Park lies on the east coast of Falcón State and the north-west side of Golfo Triste, on the west central Venezuelan coast, near the towns of Boca de Aroa, Tucacas, Sanare, Chichiriviche, and Tocuyo de la Costa. It was declared a national park on 26 May 1974.",
+      lat: 10.856,
+      lng: -68.306,
     },
     {
       id: "morrocoy_1",
@@ -116221,6 +116955,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Cayo_Sombrero%2C_Morrocoy_Edo_Falcon.jpg/1920px-Cayo_Sombrero%2C_Morrocoy_Edo_Falcon.jpg",
       description: "Cayo Sombrero es el nombre de una isla del mar Caribe que pertenece al parque nacional Morrocoy y está incluida en la parte más oriental del Municipio Monseñor Iturriza del estado Falcón, en el oeste de Venezuela.",
       descriptionEn: "Morrocoy National Park lies on the east coast of Falcón State and the north-west side of Golfo Triste, on the west central Venezuelan coast, near the towns of Boca de Aroa, Tucacas, Sanare, Chichiriviche, and Tocuyo de la Costa. It was declared a national park on 26 May 1974.",
+      lat: 10.88669,
+      lng: -68.20939,
     },
     {
       id: "morrocoy_2",
@@ -116236,7 +116972,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/67/Flamingos_en_cuare_-_panoramio.jpg",
       description: "El Refugio de fauna silvestre de Cuare es un área bajo régimen de administración especial ubicada en el municipio Monseñor Iturriza del estado Falcón en Venezuela, alberga cerca de trescientas especies de aves, además de reptiles y mamíferos en peligro de extinción.",
-      descriptionEn: "Refugio de Fauna Silvestre Cuare is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Cuare Wildlife Refuge protects mangroves, coastal lagoons and keys off Chichiriviche, Falcón. It is visited to observe waterbirds and seabird colonies, as well as the mangrove landscape.",
     },
     {
       id: "morrocoy_3",
@@ -116253,6 +116989,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Panor%C3%A1mica_Cayo_Mero%2C_Parque_Nacional_Morrocoy_-_Edo_Falc%C3%B3n.jpg",
       description: "El Parque nacional Morrocoy es un parque nacional ubicado en la Región Centroccidental en la costa noroccidental de Tucacas y Chichiriviche en el Estado Falcón en Venezuela y en el noroeste del Golfo Triste y los pueblos de Boca de Aroa, Sanare, Flamenco y Tocuyo de la Costa.",
       descriptionEn: "Falcón State is one of the 23 states of Venezuela. The state capital is Coro.",
+      lat: 10.86889,
+      lng: -68.33167,
     },
     {
       id: "morrocoy_4",
@@ -116267,8 +117005,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/25/KeikoFujimori-Declaraciones_%28cropped%29.jpg",
-      description: "La arquitectura de Venezuela es el arte edificado tanto en Venezuela, como por arquitectos venezolanos en otras partes del mundo.",
+      description: "El castillo San Felipe, también conocido como el Castillo Libertador, es una obra de ingeniería militar del siglo XVIII de origen novogranadino, también conocida como castillo Libertador, localizada en la base naval Agustín Armario de Puerto Cabello, Venezuela.",
       descriptionEn: "General elections were held in Peru from 12 to 13 April 2026 to elect the president, vice presidents, and the Congress of the Republic of Peru. As no presidential candidate achieved a majority of votes in the first round, a runoff election was held on 7 June.",
+      lat: 10.48406,
+      lng: -68.01059,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/Castillo_San_Felipe",
     },
     {
       id: "morrocoy_5",
@@ -116299,8 +117041,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Ermita_Nuestra_Se%C3%B1ora_del_Carmen._Barcelona%2C_Edo._Anzoategui_%289%29.jpg/3840px-Ermita_Nuestra_Se%C3%B1ora_del_Carmen._Barcelona%2C_Edo._Anzoategui_%289%29.jpg",
-      description: "Anzoátegui es uno de los veintitrés estados que, junto con el Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela. Su capital y ciudad más poblada es Barcelona.",
-      descriptionEn: "Catedral de San José is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Catedral de San José o Catedral de Puerto Cabello es el nombre que recibe un edificio religioso que pertenece a la Iglesia católica y se encuentra ubicado en la localidad de Puerto Cabello al norte del Estado Carabobo, en la región central del país sudamericano de Venezuela.",
+      descriptionEn: "St. Joseph's Cathedral, also Puerto Cabello Cathedral, is a Catholic cathedral located in the town of Puerto Cabello, Carabobo state, in northern Venezuela.",
+      lat: 10.4775,
+      lng: -68.0088,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/Catedral_de_San_Jos%C3%A9_(Puerto_Cabello)",
     },
     {
       id: "morrocoy_7",
@@ -116316,7 +117062,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/03/Ovejas-Sucre-Colombia.jpg",
       description: "Ovejas es un municipio del Caribe Colombiano ubicado en el departamento de Sucre, se sitúa a 154 km al sudeste de Cartagena de Indias y a 41 km de distancia de la capital departamental, Sincelejo. Este municipio se encuentra en el sistema orográfico de los Montes de María.",
-      descriptionEn: "Cerro Mamoncito is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 11.05361,
+      lng: -68.57611,
+      dayTrip: true,
     },
     {
       id: "morrocoy_8",
@@ -116333,6 +117081,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Descripci%C3%B3n_exacta_de_la_provincia_de_Benezuela_%28IA_benezuelaprov00cisnrich%29.pdf/page1-500px-Descripci%C3%B3n_exacta_de_la_provincia_de_Benezuela_%28IA_benezuelaprov00cisnrich%29.pdf.jpg",
       description: "Amazonas es uno de los veintitrés estados que, junto con el Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela. Su capital, Puerto Ayacucho, concentra el 63% de la población total.",
       descriptionEn: "Barinas State is one of the 23 states of Venezuela. The state capital is Barinas.",
+      lat: 11.06472,
+      lng: -68.54917,
+      dayTrip: true,
     },
     {
       id: "morrocoy_9",
@@ -116348,7 +117099,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Colombia_location_map.svg/langes-960px-Colombia_location_map.svg.png",
       description: "San Andrés de Sotavento es un municipio colombiano ubicado en el departamento de Córdoba. Está ubicado en la Costa Caribe del país. Su población es de más de 51 mil habitantes. También se lo conoce por la elaboración de sombreros vueltiaos.",
-      descriptionEn: "Cerro Mamón Grande is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 11.0625,
+      lng: -68.57861,
+      dayTrip: true,
     },
     {
       id: "morrocoy_10",
@@ -116365,6 +117118,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Cocotero_en_Cayo_Sombrero.jpg",
       description: "Cerro Capadare es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Cerro Capadare is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 11.1782,
+      lng: -68.6305,
+      dayTrip: true,
     },
   ],
   maracaibo: [
@@ -116383,6 +117139,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Fachada_catedral_maracaibo.JPG/960px-Fachada_catedral_maracaibo.JPG",
       description: "Catedral Metropolitana de los Bienaventurados Apóstoles San Pedro y San Pablo o simplemente Catedral de Maracaibo, es la Iglesia matriz de Maracaibo en el estado Zulia, Venezuela.",
       descriptionEn: "The Archdiocese of Maracaibo is an archdiocese in Venezuela. Since November 2000, its Archbishop has been Ubaldo Ramón Santana Sequera. The city of Maracaibo, the second largest in Venezuela, has a population of approximately 2,800,000.",
+      lat: 10.64153,
+      lng: -71.60697,
     },
     {
       id: "maracaibo_1",
@@ -116399,6 +117157,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora_de_Chiquinquir%C3%A1_II.JPG/960px-Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora_de_Chiquinquir%C3%A1_II.JPG",
       description: "La Basílica de Nuestra Señora de Chiquinquirá es el templo católico más concurrido del estado Zulia en Venezuela, ubicada en el centro de la ciudad de Maracaibo. Una construcción dedicada a la Virgen de Chiquinquirá, patrona del estado Zulia.",
       descriptionEn: "This is a complete list of basilicas of the Catholic Church. A basilica is a church with certain privileges conferred on it by the Pope.",
+      lat: 10.643,
+      lng: -71.61592,
     },
     {
       id: "maracaibo_2",
@@ -116415,6 +117175,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Parque_La_Marina_y_el_Mirador_del_Lago.jpg/1920px-Parque_La_Marina_y_el_Mirador_del_Lago.jpg",
       description: "Maracaibo es un municipio ubicado en el Noroeste del estado venezolano del Zulia. Con una superficie de 1393 km², es el cuarto municipio más pequeño del estado, y limita al norte con Mara, al sur con San Francisco, al este con el lago de Maracaibo, y al oeste con Lossada.",
       descriptionEn: "Like each of the 78 Municipalities of Puerto Rico, the capital of Puerto Rico, San Juan, Puerto Rico, is subdivided into barrios or in English wards, 18 in number, 8 of which are further subdivided into a total of 72 sub-barrios.",
+      lat: 10.68833,
+      lng: -71.59806,
     },
     {
       id: "maracaibo_3",
@@ -116429,8 +117191,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Aula_magna_uru.jpg",
-      description: "La Universidad Rafael Urdaneta (URU) es una universidad privada de Venezuela, ubicada en la Vereda del Lago, creada por la Fundación Universidad Rafael Urdaneta y por la Asociación Civil Universidad Rafael Urdaneta en 1973, en honor al ilustre Rafael Urdaneta, distinguido prócer…",
+      description: "El Aula Magna de la Universidad Rafael Urdaneta es el auditorio principal de esa universidad en Maracaibo. Acoge actos académicos, conferencias y actividades culturales de la institución.",
       descriptionEn: "Rafael Urdaneta University; URU is a private, non-profit university founded in 1973, located at La Vereda del Lago, by the Rafael Urdaneta foundation and the Rafael Urdaneta university civic association.",
+      lat: 10.64969,
+      lng: -71.59571,
     },
     {
       id: "maracaibo_4",
@@ -116447,6 +117211,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Palacio_de_Eventos.jpg/960px-Palacio_de_Eventos.jpg",
       description: "El Palacio de Eventos de Venezuela es el principal centro generador de conciertos y espectáculos de la Ciudad de Maracaibo. Se encuentra ubicado en la Circunvalación N.º 2.",
       descriptionEn: "This is a list of music venues in South America. Venues with a capacity of 1,000 or higher are included.",
+      lat: 10.60389,
+      lng: -71.65419,
     },
     {
       id: "maracaibo_5",
@@ -116463,6 +117229,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Teatro_Baralt_1883.jpg",
       description: "El Teatro Baralt es un espacio cultural dedicado a las representaciones teatrales, musicales, de danza y cine, entre otros. Está ubicado en la Avenida 5 con calle 95, diagonal a la Plaza Bolívar en la ciudad de Maracaibo, Venezuela.",
       descriptionEn: "The Baralt Theatre is a theatre in downtown Maracaibo, Venezuela, at the northwestern corner of the historic Plaza Bolívar.",
+      lat: 10.64222,
+      lng: -71.60806,
     },
     {
       id: "maracaibo_6",
@@ -116477,8 +117245,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Museo_Maczul_en_Maracaibo.JPG/1920px-Museo_Maczul_en_Maracaibo.JPG",
-      description: "El Hotel Kristoff Maracaibo es una instalación hotelera localizada en la ciudad de Maracaibo, la capital del Estado Zulia en el occidente del país sudamericano de Venezuela.",
+      description: "El MACZUL es el Museo de Arte Contemporáneo del Zulia, ubicado en Maracaibo. Reúne obras de arte moderno y contemporáneo venezolano e internacional en un edificio diseñado para exposiciones.",
       descriptionEn: "Maracaibo is a city and municipality in northwestern Venezuela, located on the western shore of the strait that connects Lake Maracaibo to the Gulf of Venezuela. It is the capital of Zulia and is the second-largest city proper in Venezuela, after the national capital, Caracas.",
+      lat: 10.67677,
+      lng: -71.63226,
     },
     {
       id: "maracaibo_7",
@@ -116495,6 +117265,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Teatro_Bellas_Artes_02.jpg/1920px-Teatro_Bellas_Artes_02.jpg",
       description: "Maracaibo es una ciudad venezolana capital del Estado Zulia ubicada en el noroeste de Venezuela. Fundada bajo representación de la familia Welser en 1529 por el alemán Ambrosio Alfinger como Nueva Núremberg en homenaje a la ciudad alemana Núremberg.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: 10.67461,
+      lng: -71.60481,
     },
     {
       id: "maracaibo_8",
@@ -116509,8 +117281,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Museo_Arquidiocesano_Obispo_Lasso.jpg/1920px-Museo_Arquidiocesano_Obispo_Lasso.jpg",
-      description: "La arquidiócesis de Mérida es una circunscripción eclesiástica de la Iglesia católica en Venezuela. Es una arquidiócesis metropolitana latina, de rito romano, sede de la provincia eclesiástica de Mérida, con sede en la ciudad de Mérida, capital del estado Mérida.",
-      descriptionEn: "Museo Arquidiocesano Obispo Lasso is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Arquidiocesano Obispo Lasso es un museo de arte y objetos religiosos en Maracaibo. Su colección se relaciona con la historia de la Arquidiócesis de Maracaibo y la Iglesia católica en el Zulia.",
+      descriptionEn: "The Museo Arquidiocesano Obispo Lasso is a museum of religious art and objects in Maracaibo. Its collection is related to the history of the Archdiocese of Maracaibo and the Catholic Church in Zulia.",
+      lat: 10.64289,
+      lng: -71.60703,
     },
     {
       id: "maracaibo_9",
@@ -116527,6 +117301,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Museo_Urdaneta_II.jpg/1920px-Museo_Urdaneta_II.jpg",
       description: "Rafael José Urdaneta Farías fue un militar, prócer, estratega y político venezolano, presidente de la Gran Colombia de facto entre el 4 de septiembre de 1830 y el 2 de mayo de 1831, con la promesa de propiciar el regreso de Simón Bolívar al poder.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: 10.64653,
+      lng: -71.60976,
     },
     {
       id: "maracaibo_10",
@@ -116541,8 +117317,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Puente_de_Maracaibo.jpg",
-      description: "Maracaibo es una ciudad venezolana capital del Estado Zulia ubicada en el noroeste de Venezuela. Fundada bajo representación de la familia Welser en 1529 por el alemán Ambrosio Alfinger como Nueva Núremberg en homenaje a la ciudad alemana Núremberg.",
-      descriptionEn: "Museo Conoce Tu Puente is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Conoce Tu Puente es un espacio dedicado al Puente General Rafael Urdaneta, que atraviesa el lago de Maracaibo. Presenta información sobre su construcción y su papel en la conexión de la región.",
+      descriptionEn: "The Museo Conoce Tu Puente is a space dedicated to the General Rafael Urdaneta Bridge, which crosses Lake Maracaibo. It presents information about its construction and its role in connecting the region.",
     },
     {
       id: "maracaibo_11",
@@ -116560,6 +117336,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Aquaventura_Park_%28Parque_Acu%C3%A1tico%29.jpg/1920px-Aquaventura_Park_%28Parque_Acu%C3%A1tico%29.jpg",
       description: "Vuelve en: Primera fila Tour fue la gira musical del cantante venezolano Franco de Vita, hecha para promover su cuarto álbum en vivo Vuelve en primera fila . La gira comenzó el 30 de enero de 2014 en San Luis Potosí, México.",
       descriptionEn: "The Entren Los Que Quieran Tour is an international tour by Puerto Rican group Calle 13 in support of the band's 2010 release, Entren Los Que Quieran.",
+      lat: 10.72902,
+      lng: -71.63039,
     },
     {
       id: "maracaibo_12",
@@ -116575,7 +117353,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Cuesti%C3%B3n_l%C3%ADmites%3B_el_derecho_de_M%C3%A9rida_a_la_costa_sur_del_lago_de_Maracaibo_%28IA_cuestinlmiteseld00febr%29.pdf/page1-500px-Cuesti%C3%B3n_l%C3%ADmites%3B_el_derecho_de_M%C3%A9rida_a_la_costa_sur_del_lago_de_Maracaibo_%28IA_cuestinlmiteseld00febr%29.pdf.jpg",
       description: "Kfar Saba es una ciudad del distrito Central de Israel.",
-      descriptionEn: "Invasión Abandonada is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 10.69848,
+      lng: -71.65065,
     },
     {
       id: "maracaibo_13",
@@ -116591,7 +117370,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Isla_de_los_Leprozos%2C_estado_Zulia%2C_Venezuela.jpg/3840px-Isla_de_los_Leprozos%2C_estado_Zulia%2C_Venezuela.jpg",
       description: "La Isla de Providencia es una isla perteneciente a Venezuela que se encuentra ubicada en el Noroeste de este país, dentro del lago de Maracaibo, en el municipio Santa Rita del Estado Zulia a 14 kilómetros de la ciudad de Maracaibo y a escasos dos minutos, en lancha, del…",
-      descriptionEn: "Antiguo Leprocomio de Venezuela is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "maracaibo_14",
@@ -116607,7 +117385,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f0/2010_wikiproject_image.png",
       description: "El decenio, conocido como años 2010, década de 2010 o años 10 es el periodo de tiempo que empieza 1 de enero de 2010 y termina el 31 de diciembre de 2019.",
-      descriptionEn: "Parque Mickey Mouse is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 10.6873,
+      lng: -71.59779,
     },
     {
       id: "maracaibo_15",
@@ -116642,6 +117421,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/Iglesia_divino_redentor.jpg",
       description: "La iglesia del Divino Redentor es un templo religioso bajo la advocación de Jesucristo, el Divino Redentor de la Unidad Vecinal en San Cristóbal, ciudad de San Cristóbal, estado Táchira, en Venezuela.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: 7.7545,
+      lng: -72.22248,
     },
     {
       id: "sancristo_1",
@@ -116674,6 +117455,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Catedral_de_San_Crist%C3%B3bal_de_La_Laguna%2C_Tenerife%2C_Espa%C3%B1a%2C_2022-01-07%2C_DD%2C_DD_85-87_HDR.jpg/1920px-Catedral_de_San_Crist%C3%B3bal_de_La_Laguna%2C_Tenerife%2C_Espa%C3%B1a%2C_2022-01-07%2C_DD%2C_DD_85-87_HDR.jpg",
       description: "La Catedral de San Cristóbal es un edificio religioso que pertenece a la Iglesia Católica y se encuentra ubicado en la calle 4 con carrera 3, a un lado de la Plaza Juan Maldonado de la localidad de San Cristóbal en el Municipio San Cristóbal del Estado Táchira en la región…",
       descriptionEn: "San Cristóbal de las Casas, also known by its native Tzotzil name, Jovel, is a town and municipality located in the Central Highlands region of the Mexican state of Chiapas. It was the capital of the state until 1892, and is still considered the cultural capital of Chiapas.",
+      lat: 7.76491,
+      lng: -72.23537,
     },
     {
       id: "sancristo_3",
@@ -116690,6 +117473,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Iglesia_de_la_Ermita.jpg/1920px-Iglesia_de_la_Ermita.jpg",
       description: "La parroquia de San Juan Bautista en San Cristóbal de La Laguna, isla de Tenerife, es una edificación de una sola nave, cubierta de madera, con capilla mayor. Modernamente se le añadió una capilla lateral del lado del Evangelio.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: 7.77317,
+      lng: -72.23331,
     },
     {
       id: "sancristo_4",
@@ -116706,6 +117491,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Iglesia_de_San_Jos%C3%A9%2C_Ponta_Delgada%2C_isla_de_San_Miguel%2C_Azores%2C_Portugal%2C_2020-07-30%2C_DD_55-57_HDR.jpg/1920px-Iglesia_de_San_Jos%C3%A9%2C_Ponta_Delgada%2C_isla_de_San_Miguel%2C_Azores%2C_Portugal%2C_2020-07-30%2C_DD_55-57_HDR.jpg",
       description: "La Iglesia o Templo Parroquial de San José, es un templo católico situado en el Centro urbano de la ciudad de San Cristóbal.",
       descriptionEn: "San Cristóbal is the capital city of the Venezuelan state of Táchira. It is located in a mountainous region of Western Venezuela.",
+      lat: 7.76719,
+      lng: -72.23038,
     },
     {
       id: "sancristo_5",
@@ -116722,6 +117509,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/San_Crist%C3%B3bal_-_bdh0000192398.pdf/page1-1280px-San_Crist%C3%B3bal_-_bdh0000192398.pdf.jpg",
       description: "La alcazaba, castillo y murallas del Cerro de San Cristóbal de la ciudad española de Almería es uno de los conjuntos monumentales y arqueológicos andaluces más importantes de la península ibérica.",
       descriptionEn: "Like all municipalities of Puerto Rico, Gurabo is subdivided into administrative units called barrios, which are, in contemporary times, roughly comparable to minor civil divisions,.",
+      lat: 7.7097,
+      lng: -72.2153,
     },
     {
       id: "sancristo_6",
@@ -116738,6 +117527,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/El_legitimo_bastardo_-_comedia_famosa_%28IA_A03930819607%29.pdf/page1-500px-El_legitimo_bastardo_-_comedia_famosa_%28IA_A03930819607%29.pdf.jpg",
       description: "Páramos-Valles es una comarca no oficial de la provincia de Palencia.",
       descriptionEn: "The Chorro El Indio National Park is a national park of Venezuela located to the east of San Cristóbal, Táchira State, in the mountain range the Maravillaz. It has access by the highway San Cristóbal - Macanillo - Potosí.",
+      lat: 7.805,
+      lng: -72.1388,
     },
     {
       id: "sancristo_7",
@@ -116754,6 +117545,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Cascada_Chorro_El_Indio..JPG",
       description: "El parque nacional Chorro el Indio o (PNCI) es un parque nacional de Venezuela ubicado al este de San Cristóbal, estado Táchira, en la sierra La Maravilla, tiene acceso por la carretera San Cristóbal - Macanillo - Potosí.",
       descriptionEn: "The Chorro El Indio National Park is a national park of Venezuela located to the east of San Cristóbal, Táchira State, in the mountain range the Maravillaz. It has access by the highway San Cristóbal - Macanillo - Potosí.",
+      lat: 7.7797,
+      lng: -72.1519,
     },
     {
       id: "sancristo_8",
@@ -116770,7 +117563,6 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/La_cola_del_diablo_-_zarzuela_c%C3%B3mica_en_dos_actos_%28IA_lacoladeldiabloz4001oudr%29.pdf/page1-500px-La_cola_del_diablo_-_zarzuela_c%C3%B3mica_en_dos_actos_%28IA_lacoladeldiabloz4001oudr%29.pdf.jpg",
       website: "https://www.bordes.com.ve/",
       description: "Ayacucho es un municipio que se localiza al noroeste del Estado Táchira, Venezuela. Debe su nombre a la Batalla de Ayacucho que fue dirigida por el militar venezolano Antonio José de Sucre.",
-      descriptionEn: "BORDES Galeria Café is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "sancristo_9",
@@ -116784,9 +117576,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Historia_del_Estado_Falc%C3%B3n_%28IA_historiadelestad01arca%29.pdf/page1-500px-Historia_del_Estado_Falc%C3%B3n_%28IA_historiadelestad01arca%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/50/Museo_del_T%C3%A1chira.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       description: "San Cristóbal es la ciudad capital del Estado Táchira y del Municipio San Cristóbal ubicada en la Región de los Andes al suroeste de Venezuela. Se encuentra ubicada a 57 kilómetros de la Frontera entre Colombia y Venezuela.",
       descriptionEn: "Cúcuta, officially San José de Cúcuta, is a Colombian municipality, capital of the department of Norte de Santander and nucleus of the Metropolitan Area of Cúcuta.",
+      lat: 7.79816,
+      lng: -72.20014,
     },
     {
       id: "sancristo_10",
@@ -116803,6 +117597,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/04/CollageSCB.jpg",
       description: "San Cristóbal es la ciudad capital del Estado Táchira y del Municipio San Cristóbal ubicada en la Región de los Andes al suroeste de Venezuela. Se encuentra ubicada a 57 kilómetros de la Frontera entre Colombia y Venezuela.",
       descriptionEn: "Colombia, officially the Republic of Colombia, is a country located in South America, with insular regions in North America.",
+      lat: 7.76524,
+      lng: -72.23332,
     },
     {
       id: "sancristo_11",
@@ -116819,6 +117615,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pret%C3%A9ritas_%28IA_pretritas00varg%29.pdf/page1-500px-Pret%C3%A9ritas_%28IA_pretritas00varg%29.pdf.jpg",
       description: "San Cristóbal es la ciudad capital del Estado Táchira y del Municipio San Cristóbal ubicada en la Región de los Andes al suroeste de Venezuela. Se encuentra ubicada a 57 kilómetros de la Frontera entre Colombia y Venezuela.",
       descriptionEn: "Táchira State is one of the 23 states of Venezuela. The state capital is San Cristóbal.",
+      lat: 7.76878,
+      lng: -72.23259,
     },
     {
       id: "sancristo_12",
@@ -116851,6 +117649,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Juanpp.jpg",
       description: "Juan Pablo Peñaloza fue un venezolano que llegó a ser líder de los montoneros en la refriega antigomecista de su época.",
       descriptionEn: "There are a number of places named after famous people. For more on the general etymology of place names see toponymy. For other lists of eponyms see eponym.",
+      lat: 7.98333,
+      lng: -71.95,
+      dayTrip: true,
     },
     {
       id: "sancristo_14",
@@ -116866,7 +117667,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Maja_vestida_%28Prado%29.jpg/3840px-Maja_vestida_%28Prado%29.jpg",
       description: "Indumentaria femenina en España es el conjunto, evolución y expresión del vestido de mujer a lo largo de la historia española.",
-      descriptionEn: "Cerro La Mantellina is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 7.86556,
+      lng: -72.23111,
     },
   ],
   puertolacru: [
@@ -116885,6 +117687,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Gaceta_Oficial_de_Venezuela_-_43199.pdf/page1-1280px-Gaceta_Oficial_de_Venezuela_-_43199.pdf.jpg",
       description: "Anzoátegui es uno de los veintitrés estados que, junto con el Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela. Su capital y ciudad más poblada es Barcelona.",
       descriptionEn: "Barcelona, originally called Nueva Barcelona, is the capital of Anzoátegui State in Venezuela. Together with Puerto La Cruz, Lechería and Guanta, Barcelona forms Barcelona-Puerto La Cruz with a population of approximately 950,000. It was founded in 1671.",
+      lat: 10.13375,
+      lng: -64.68394,
     },
     {
       id: "puertolacru_1",
@@ -116902,6 +117706,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Parque_Nacional_mochima.jpg/960px-Parque_Nacional_mochima.jpg",
       description: "El Parque Nacional Mochima es un parque nacional que se encuentra entre los estados Sucre y Anzoátegui en el oriente de Venezuela. Fue declarado como tal el 19 de diciembre de 1973. Las ciudades más cercanas, son el área metropolitana de Barcelona o la ciudad de Cumaná.",
       descriptionEn: "Mochima National Park is located in the Anzoátegui and Sucre states, on the northeastern coast of Venezuela. The park covers 94,935 hectares and is made up of an exclusively marine area in its western sector, a coastal marine area that includes the Gulf of Santa Fé and Mochima…",
+      lat: 10.34638,
+      lng: -64.34066,
+      dayTrip: true,
     },
     {
       id: "puertolacru_2",
@@ -116916,7 +117723,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Jardin_de_la_Casa_Fuerte.jpg/960px-Jardin_de_la_Casa_Fuerte.jpg",
-      description: "Puerto de la Cruz es una ciudad y municipio español perteneciente a la isla de Tenerife, en la provincia de Santa Cruz de Tenerife, comunidad autónoma de Canarias.",
+      description: "La Casa Fuerte de Barcelona es un monumento histórico ubicado en Barcelona, cerca de Puerto La Cruz. Conserva los restos de una casa fortificada vinculada a la guerra de independencia venezolana.",
       descriptionEn: "Puerto Williams is a city, port and naval base on Navarino Island in Chile. It faces the Beagle Channel. It is the capital of the Chilean Antarctic Province, one of four provinces in the Magellan and Chilean Antarctica Region, is the main city inside the Cape Horn Biosphere…",
     },
     {
@@ -116950,6 +117757,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/72/Guanta_2011_001.jpg",
       description: "El nombre de Iglesia de Santa Cruz o Iglesia de la Vera Cruz es el nombre de varias iglesias cristianas en honor a la Santa Cruz o Vera Cruz de Jesucristo.",
       descriptionEn: "Juana Inés de Asbaje y Ramírez de Santillana, better known as Sor Juana Inés de la Cruz, was a Hieronymite nun and a Novohispanic writer, philosopher, composer and poet of the Baroque period, nicknamed \"The Tenth Muse\", \"The Mexican Phoenix\", and \"The Phoenix of America\" by her…",
+      lat: 10.21884,
+      lng: -64.63963,
     },
     {
       id: "puertolacru_5",
@@ -116964,7 +117773,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/La_Eneida_-_Dalmacio_Velez_Sarsfield_y_Juan_de_la_Cruz_Varela.pdf/page1-500px-La_Eneida_-_Dalmacio_Velez_Sarsfield_y_Juan_de_la_Cruz_Varela.pdf.jpg",
-      description: "Puerto de la Cruz es una ciudad y municipio español perteneciente a la isla de Tenerife, en la provincia de Santa Cruz de Tenerife, comunidad autónoma de Canarias.",
+      description: "La Casa Fuerte de Barcelona es un monumento histórico ubicado en Barcelona, cerca de Puerto La Cruz. Conserva los restos de una casa fortificada vinculada a la guerra de independencia venezolana.",
       descriptionEn: "This is a list of landmarks in Puerto Rico. These are either tourist attractions, places of interest or famous landmarks located in Puerto Rico. The list is divided among the 78 municipalities of the island.",
     },
     {
@@ -116980,8 +117789,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/La_prostituci%C3%B3n%2C_sus_causas%2C_sus_males%2C_su_higiene_%28IA_laprostitucionsu00duqu%29.pdf/page1-960px-La_prostituci%C3%B3n%2C_sus_causas%2C_sus_males%2C_su_higiene_%28IA_laprostitucionsu00duqu%29.pdf.jpg",
-      description: "Sebastián Francisco de Miranda y Rodríguez Espinoza, conocido como Francisco de Miranda, fue un político, militar, diplomático, escritor, humanista e ideólogo venezolano, considerado como el precursor de la emancipación americana contra el Imperio español.",
+      description: "El teatro Juan Manuel Cajigal, también llamado teatro Cajigal, es un edificio histórico acondicionado para actividades teatrales que data del siglo XIX, construido en el estilo neoclásico.",
       descriptionEn: "The Spanish American wars of independence were a series of conflicts that took place across the Spanish Empire during the early 19th century.",
+      lat: 10.13639,
+      lng: -64.68361,
+      sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Cajigal",
     },
     {
       id: "puertolacru_7",
@@ -116996,8 +117808,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Poes%C3%ADas_escogidas_de_sor._Juana_In%C3%A9s_de_la_Cruz_%28IA_poesasescogida00juan%29.pdf/page1-960px-Poes%C3%ADas_escogidas_de_sor._Juana_In%C3%A9s_de_la_Cruz_%28IA_poesasescogida00juan%29.pdf.jpg",
-      description: "El puerto de Oberalp es el puerto de montaña más alto de los Alpes suizos conectando los cantones de los Grisones y Uri entre Disentis y Andermatt.",
+      description: "La fuente luminosa de Barcelona conocida como la Fuente Luminosa, es un obelisco ubicado en el centro de la ciudad de Barcelona (Venezuela).",
       descriptionEn: "Las Palmas, officially Las Palmas de Gran Canaria, is the capital and largest city of the autonomous community of the Canary Islands in Spain. With a population of 383,516 as of 2024, it is the ninth-largest city in Spain.",
+      sourceUrl: "https://es.wikipedia.org/wiki/Fuente_Luminosa_(Barcelona%2C_Venezuela)",
     },
     {
       id: "puertolacru_8",
@@ -117013,7 +117826,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/94/Parque_Nacional_Mochima_Puerto_La_cruz%2C_Edo_Anzoategui..JPG",
       description: "Puerto La Cruz es una ciudad venezolana, capital del municipio Sotillo en el estado Anzoátegui. La ciudad forma parte del área metropolitana de Barcelona, también conocida como Gran Barcelona. En 2023, Puerto La Cruz tenía una población de 380.855 habitantes aproximadamente.",
-      descriptionEn: "Cerro Vidoño is a recommended place to visit and one of the standout attractions in the area.",
+      lat: 10.175,
+      lng: -64.63333,
     },
     {
       id: "puertolacru_9",
@@ -117030,6 +117844,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Vista_del_Cerro_El_Mag%C3%BCey.jpg/1920px-Vista_del_Cerro_El_Mag%C3%BCey.jpg",
       description: "Cerro Magüey conocido popularmente como \"Cerro Sierra Maestra\" es el nombre que recibe una montaña en el noroeste del país sudamericano de Venezuela, administrativamente está incluido en la jurisdicción del estado Estado Anzoátegui en medio de la ciudad de Puerto La Cruz.",
       descriptionEn: "Oaxaca, officially the Free and Sovereign State of Oaxaca, is one of the 31 states of Mexico. It is divided into 570 municipalities, of which 418 are governed by the system of usos y costumbres with recognized local forms of self-governance. Its capital city is Oaxaca de Juárez.",
+      lat: 10.2008,
+      lng: -64.6422,
     },
     {
       id: "puertolacru_10",
@@ -117046,6 +117862,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Cerro_de_Monte_Cristo._Camino.JPG/1920px-Cerro_de_Monte_Cristo._Camino.JPG",
       description: "Cristo crucificado o en la cruz, o Jesús o Jesucristo crucificado o en la cruz, o simplemente Crucificado, son denominaciones convencionales para la representación pictórica o escultórica de la escena evangélica de la crucifixión de Jesús, especialmente cuando se limita a la…",
       descriptionEn: "Like all municipalities of Puerto Rico, Aguadilla is subdivided into administrative units called barrios, which are, in contemporary times, roughly comparable to minor civil divisions.",
+      lat: 10.195,
+      lng: -64.6225,
     },
     {
       id: "puertolacru_11",
@@ -117062,6 +117880,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/OJ_L_202500257_of_2025_-_EN_English.pdf/page1-960px-OJ_L_202500257_of_2025_-_EN_English.pdf.jpg",
       description: "Santibáñez de Vidriales es un municipio y localidad española de la provincia de Zamora, en la comunidad autónoma de Castilla y León. Tiene una población de 846 habitantes.",
       descriptionEn: "The castles in Spain were built mainly for the country's defense, particularly with respect to fortification. During the Middle Ages, northern Christian kingdoms had to secure their borders with their Muslim southern neighbours, thus forcing both Christian and Muslim kings to…",
+      lat: 10.1592,
+      lng: -64.6483,
     },
     {
       id: "puertolacru_12",
@@ -117078,6 +117898,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Diccionario_bot%C3%A1nico_de_los_nombres_vulgares_cubanos_y_puerto-rique%C3%B1os_-por_Manuel_G%C3%B3mez_de_la_Maza._%28IA_mobot31753000747722%29.pdf/page1-1920px-Diccionario_bot%C3%A1nico_de_los_nombres_vulgares_cubanos_y_puerto-rique%C3%B1os_-por_Manuel_G%C3%B3mez_de_la_Maza._%28IA_mobot31753000747722%29.pdf.jpg",
       description: "Santa Cruz es una de las veintitrés provincias que integran la República Argentina. A su vez, es uno de los veinticuatro estados autogobernados o jurisdicciones de primer orden y uno de los veinticuatro distritos electorales que conforman el país legislativos nacionales.",
       descriptionEn: "The Albuquerque–Santa Fe–Los Alamos combined statistical area is made up of eight counties in north central New Mexico.",
+      lat: 10.13694,
+      lng: -64.64806,
     },
     {
       id: "puertolacru_13",
@@ -117093,7 +117915,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Fachada_Museo_Dimitiros_Demu.jpg",
       description: "El Museo Dimitrios Demu es un museo ubicado en la ciudad de Lechería en el estado Anzoátegui de Venezuela. Inaugurado en 1999, su construcción fue financiada por el empresario Nicolás Demu, hermano de Dimitrios y diseñado por el arquitecto venezolano Fruto Vivas en honor al…",
-      descriptionEn: "Museo Dimitrius Demus is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "puertolacru_14",
@@ -117107,9 +117928,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseod81898muse%29.pdf/page1-500px-Revista_del_Museo_de_La_Plata_%28IA_revistadelmuseod81898muse%29.pdf.jpg",
-      description: "Puerto de la Cruz es una ciudad y municipio español perteneciente a la isla de Tenerife, en la provincia de Santa Cruz de Tenerife, comunidad autónoma de Canarias.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Museo_de_los_ni%C3%B1os_CCS.JPG/1280px-Museo_de_los_ni%C3%B1os_CCS.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      description: "El Museo de los Niños es una institución privada, sin fines de lucro ubicada en Caracas, Venezuela. Fundado por Alicia Pietri de Caldera.",
       descriptionEn: "Juana Inés de Asbaje y Ramírez de Santillana, better known as Sor Juana Inés de la Cruz, was a Hieronymite nun and a Novohispanic writer, philosopher, composer and poet of the Baroque period, nicknamed \"The Tenth Muse\", \"The Mexican Phoenix\", and \"The Phoenix of America\" by her…",
+      sourceUrl: "https://es.wikipedia.org/wiki/Museo_de_los_Ni%C3%B1os_(Caracas)",
     },
     {
       id: "puertolacru_15",
@@ -117124,7 +117946,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Directorio_comercial_%C3%A9_industrial_de_la_isla_de_Puerto-Rico_para_1894._Formado_con_relaciones_oficiales_remitidas_por_los_sres._alcaldes_municipales_de_cada_localidad_%28IA_directoriocomerc00blan%29.pdf/page1-500px-thumbnail.pdf.jpg",
-      description: "El Tigre es una ciudad de Venezuela ubicada en el Estado Anzoátegui. Es la capital del Municipio Simón Rodríguez, y está situada en el sur del estado Anzoátegui, equidistante al río Orinoco y al mar Caribe, en la Mesa de Guanipa, cruzada por el río Tigre, a una altitud de 265 m…",
+      description: "El Ateneo Miguel Otero Silva es un centro cultural de la zona de Puerto La Cruz dedicado a la promoción de las artes, la literatura y actividades comunitarias.",
       descriptionEn: "This is a list of notable people from Puerto Rico which includes people who were born in Puerto Rico (Borinquen) and people who are of full or partial Puerto Rican descent.",
     },
     {
@@ -117141,7 +117963,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Gaceta_Oficial_de_Venezuela_N%C2%BA_43384.pdf/page1-1280px-Gaceta_Oficial_de_Venezuela_N%C2%BA_43384.pdf.jpg",
       description: "Anzoátegui es uno de los veintitrés estados que, junto con el Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela. Su capital y ciudad más poblada es Barcelona.",
-      descriptionEn: "sede museo Anzoátegui is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Museo de Anzoátegui, based in Barcelona, brings together collections on the history, art and cultural heritage of Anzoátegui State.",
     },
     {
       id: "puertolacru_17",
@@ -117221,7 +118043,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Apuntes_para_la_fauna_Puerto-Rique%C3%B1a_%28IA_apuntesparalafau45gund%29.pdf/page1-500px-Apuntes_para_la_fauna_Puerto-Rique%C3%B1a_%28IA_apuntesparalafau45gund%29.pdf.jpg",
       description: "El Municipio Panamericano es uno de los veintinueve municipios que forman parte del Estado Táchira en Los Andes de Venezuela. Su capital es la población de Coloncito. Tiene una extensión de 776 km² y su población para el censo del 2011 es de 32 180 habitantes.",
-      descriptionEn: "La Pajita is a recommended place to visit and one of the standout attractions in the area.",
     },
   ],
   asuncion: [
@@ -117240,6 +118061,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Puerta_de_entrada_del_Museo_de_las_Memorias.jpg/960px-Puerta_de_entrada_del_Museo_de_las_Memorias.jpg",
       description: "El Museo Memoria de la Ciudad se encuentra ubicado en la Casa Viola, una de las nueve edificaciones que conforman el complejo arquitectónico Manzana de la Rivera, frente al Palacio de Gobierno, en la ciudad de Asunción, capital de Paraguay.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.28856,
+      lng: -57.63983,
     },
     {
       id: "asuncion_1",
@@ -117254,8 +118077,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Casa_de_la_Independencia_museum%2C_Asunci%C3%B3n.jpg/960px-Casa_de_la_Independencia_museum%2C_Asunci%C3%B3n.jpg",
-      description: "Los Andes es una ciudad y comuna chilena ubicada en la Región de Valparaíso, en la zona central de Chile. La comuna es capital de la provincia homónima y fue fundada como Santa Rosa de Los Andes el 31 de julio de 1791.",
-      descriptionEn: "Casa de la Independencia y Callejon Historico - Solar Martinez Saez is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Casa de la Independencia es una vivienda colonial de Asunción convertida en museo; allí se gestó la independencia paraguaya de 1811. El conjunto incluye el callejón histórico contiguo y se visita por sus salas patrimoniales.",
+      descriptionEn: "The Casa de la Independencia is a colonial house in Asunción turned into a museum; Paraguay's 1811 independence was planned there. The site includes the adjacent historic alley and is visited for its heritage rooms.",
+      lat: -25.28053,
+      lng: -57.63636,
     },
     {
       id: "asuncion_2",
@@ -117273,6 +118098,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Asuncion_Cathedral.JPG/960px-Asuncion_Cathedral.JPG",
       description: "Catedral de la Asunción o cualquiera de sus variantes puede hacer referencia a:",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.2816,
+      lng: -57.6324,
     },
     {
       id: "asuncion_3",
@@ -117289,6 +118116,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Centro_Cultural_de_la_Rep%C3%BAblica%2C_Asunci%C3%B3n.jpg",
       description: "El Centro Cultural de la República - El Cabildo en Asunción, Paraguay, emplazado en el edificio del Cabildo, tiene por principal objetivo el fortalecimiento de la conciencia y memoria histórica, potenciando su condición de edificio de valor monumental.",
       descriptionEn: "Latas vacías, also known as Empty Cans, is a 2014 Paraguayan drama film co-written and directed by Hérib Godoy in his directorial debut.",
+      lat: -25.27975,
+      lng: -57.63359,
     },
     {
       id: "asuncion_4",
@@ -117305,6 +118134,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fb/S3010099.JPG",
       description: "El Museo Nacional de Bellas Artes y Antigüedades (MNBAA), ubicado en la calle Eligio Ayala entre Pa'i Pérez y Curupayty en la ciudad de Asunción, exhibe más de 84 piezas de arte, entre pinturas, esculturas y cerámicas.",
       descriptionEn: "The National Museum of Fine Arts of Asunción, located on Mcal. Estigarribia and Iturbe St. in Asunción, the capital city of Paraguay, displays over 650 works of art, paintings, sculptures, ceramics, prints, photographs, Paraguayan and international artists.",
+      lat: -25.28864,
+      lng: -57.62114,
     },
     {
       id: "asuncion_5",
@@ -117321,6 +118152,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/00_3819_Asunci%C3%B3n_-_Paraguay_%28S%C3%BCdamerika%29.jpg/960px-00_3819_Asunci%C3%B3n_-_Paraguay_%28S%C3%BCdamerika%29.jpg",
       description: "El Palacio de López, llamado oficialmente Palacio de Gobierno, es la sede del despacho del presidente de la República del Paraguay y de las secretarías del Poder Ejecutivo, se encuentra ubicada en la capital, Asunción.",
       descriptionEn: "Palacio de los López, officially titled Palacio de Gobierno is a neoclassical manor in Asunción, Paraguay, that serves as a workplace for the President of Paraguay, and as the seat of the government of Paraguay.",
+      lat: -25.27764,
+      lng: -57.63757,
     },
     {
       id: "asuncion_6",
@@ -117337,6 +118170,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/%C3%91u_Guasu_003.jpg/960px-%C3%91u_Guasu_003.jpg",
       description: "El Parque Ñu Guasu es un área verde de 65 ha. aproximadamente, ubicada en Luque, ciudad del Departamento Central de Paraguay, próximo al Aeropuerto Internacional Silvio Pettirossi.",
       descriptionEn: "The Ñu Guasú Park is an urban park located in Luque, in the Greater Asuncion area, in Paraguay, near the Silvio Pettirossi International Airport. It was turned into a recreational park covering 25 hectares.",
+      lat: -25.26273,
+      lng: -57.54386,
     },
     {
       id: "asuncion_7",
@@ -117354,6 +118189,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Asuncion_zoo.jpg/960px-Asuncion_zoo.jpg",
       description: "El Jardín Botánico y Zoológico de Asunción es un jardín botánico y parque zoológico que se encuentra en Asunción, capital de la República del Paraguay.",
       descriptionEn: "The Botanical Garden and Zoo of Asunción is a botanical garden and zoo located in Asunción, capital of the Republic of Paraguay.",
+      lat: -25.24741,
+      lng: -57.57076,
     },
     {
       id: "asuncion_8",
@@ -117368,7 +118205,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       description: "Ñu Guazú, también escrito Ñu Guasú, es un barrio de la ciudad de Asunción, Paraguay, ubicado en la zona noreste de la capital, dentro del distrito de Santísima Trinidad.",
-      descriptionEn: "Parque Metropolitano Ñu Guasú is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Parque Metropolitano Ñu Guasú is a large green space in Luque, within the Asunción metropolitan area, with lagoons, trails and sports areas. It is visited for walking, exercise and enjoying nature.",
+      lat: -25.26741,
+      lng: -57.54152,
     },
     {
       id: "asuncion_9",
@@ -117386,6 +118225,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Asunci%C3%B3n_temple_by_Bwood720.jpeg/960px-Asunci%C3%B3n_temple_by_Bwood720.jpeg",
       description: "El Templo de Asunción, Paraguay, es uno de los templos construidos y operados por la Iglesia de Jesucristo de los Santos de los Últimos Días, el número 112 construido por la iglesia y el primero de Paraguay, ubicado en la Avda. España de la ciudad de Asunción.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.28165,
+      lng: -57.63236,
     },
     {
       id: "asuncion_10",
@@ -117402,6 +118243,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ASUNCION_PANTEON_NACIONAL_DE_LOS_H%C3%89ROES.jpg/960px-ASUNCION_PANTEON_NACIONAL_DE_LOS_H%C3%89ROES.jpg",
       description: "El Oratorio de Nuestra Señora de la Asunción y Panteón Nacional de los Héroes, conocido también como el Panteón Nacional o simplemente Panteón de los Héroes, es un edificio y monumento nacional de Paraguay, que se encuentra entre las calles Palma y Chile en pleno microcentro de…",
       descriptionEn: "The National Pantheon of the Heroes, whose full name National Pantheon of Heroes and Oratory of the Virgin of the Assumption is a building and landmark of Asunción, Paraguay, and a national monument of Paraguay.",
+      lat: -25.28227,
+      lng: -57.63509,
     },
     {
       id: "asuncion_11",
@@ -117418,6 +118261,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Rre.JPG/960px-Rre.JPG",
       description: "La Asunción de María o Asunción de la Virgen es la creencia, de acuerdo con la tradición y doctrina de las iglesias católica, ortodoxa, ortodoxas orientales y algunas otras denominaciones, de que María, la Madre de Jesucristo, al final de su vida terrenal, fue llevada en cuerpo…",
       descriptionEn: "The Church and Convent of La Merced is a Catholic church located in the city of Antigua Guatemala in Guatemala. The architect Juan de Dios Estrada was in charge of its construction from 1749. The church was dedicated in 1767.",
+      lat: -25.32413,
+      lng: -57.62845,
     },
     {
       id: "asuncion_12",
@@ -117433,7 +118278,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Teatro_Municipal_Ignacio_A._Pane.jpg/960px-Teatro_Municipal_Ignacio_A._Pane.jpg",
       description: "El Teatro Municipal Ignacio A. Pane es el Teatro más antiguo de Asunción en Paraguay, lleva esa denominación en homenaje a Ignacio Alberto Pane Ignacio A. Pane, sociólogo, docente, periodista, poeta y político paraguayo de la \"generación del 900\".",
-      descriptionEn: "Teatro Municipal de Asunción Ignacio Alberto Pane is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Teatro Municipal de Asunción Ignacio Alberto Pane is a historic theater in the city center, dedicated to opera, music and the performing arts. It is visited for its architecture and cultural programming.",
+      lat: -25.28103,
+      lng: -57.63479,
     },
     {
       id: "asuncion_13",
@@ -117450,6 +118297,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/85/Pecari_Collar_zoo.jpg",
       description: "El Jardín Botánico y Zoológico de Asunción es un jardín botánico y parque zoológico que se encuentra en Asunción, capital de la República del Paraguay.",
       descriptionEn: "The Botanical Garden and Zoo of Asunción is a botanical garden and zoo located in Asunción, capital of the Republic of Paraguay.",
+      lat: -25.2502,
+      lng: -57.57238,
     },
     {
       id: "asuncion_14",
@@ -117467,6 +118316,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Museo_Etnografico_Andres_Barbero_01.jpg",
       description: "El Museo Etnográfico Doctor Andrés Barbero, situado en la ciudad de Asunción, Paraguay, es un museo etnográfico y arqueológico paraguayo, inaugurado el 28 de noviembre de 1933.",
       descriptionEn: "This is a list of museums in Paraguay.",
+      lat: -25.28397,
+      lng: -57.62593,
     },
     {
       id: "asuncion_15",
@@ -117483,6 +118334,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/P%C3%A1ginas_sueltas_%28IA_paginassueltas00mosq%29.pdf/page1-500px-P%C3%A1ginas_sueltas_%28IA_paginassueltas00mosq%29.pdf.jpg",
       description: "Susana Gertopán es una escritora, novelista y cuentista paraguaya, ganadora del Premio Nacional de Literatura en 2021.",
       descriptionEn: "Adela Speratti (1865–1902) and Celsa Speratti (1868–1938) were Paraguayan sisters who were instrumental in developing the educational system of the country.",
+      lat: -25.25004,
+      lng: -57.63679,
     },
     {
       id: "asuncion_16",
@@ -117499,6 +118352,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/En_Favor_de_los_aliados_-_discursos_pronunciados_en_la_ocasi%C3%B3n_de_la_gran_demonstraci%C3%B3n_en_favor_de_los_aliados_realizada_en_Asunci%C3%B3n_%28Paraguay%29%2C_el_11_ed_julio_de_1917_%28IA_favoraliados00baez%29.pdf/page1-500px-thumbnail.pdf.jpg",
       description: "Asunción, oficialmente llamada Ciudad de la Asunción, es la capital y ciudad más poblada del Paraguay, ubicada en el centro-oeste de la Región Oriental. Es un municipio de primer orden administrado como distrito capital y no está integrado en ningún departamento.",
       descriptionEn: "The Armed Forces of Paraguay officially the Armed Forces of the Nation consist of the Paraguayan army, Paraguayan navy and air force.",
+      lat: -25.2561,
+      lng: -57.63995,
     },
     {
       id: "asuncion_17",
@@ -117515,6 +118370,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/M%C3%A9xico_pintoresco%2C_art%C3%ADstico_y_monumental_%28IA_gri_mexicopintor03rive%29.pdf/page1-500px-M%C3%A9xico_pintoresco%2C_art%C3%ADstico_y_monumental_%28IA_gri_mexicopintor03rive%29.pdf.jpg",
       description: "Los Laureles es un barrio de la ciudad de Asunción, Paraguay, ubicado en la zona sureste de la capital, dentro del distrito de La Recoleta. Tiene una superficie aproximada de 0,9 km2. Según el censo de 2022, tiene una población de 2900 habitantes.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.31158,
+      lng: -57.5854,
     },
     {
       id: "asuncion_18",
@@ -117532,6 +118389,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facundo_-_bdh0000096116.pdf/page1-1280px-Facundo_-_bdh0000096116.pdf.jpg",
       description: "El Municipio de Asunción Cuyotepeji es uno de los 570 municipios que forman al estado mexicano de Oaxaca, se encuentra integrado en la Región Mixteca y en el distrito de Huajuapan, se localiza en el extremo noroeste del estado y es cercano a los límites con el estado de Puebla,…",
       descriptionEn: "Jose Maria Marfori Asuncion, better known by his stage name Vic Vargas, was a Filipino film actor and judoka.",
+      lat: -25.25084,
+      lng: -57.57154,
     },
     {
       id: "asuncion_19",
@@ -117549,6 +118408,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Gato_Mont%C3%A9s_Sudamericano.JPG/1920px-Gato_Mont%C3%A9s_Sudamericano.JPG",
       description: "El Jardín Botánico y Zoológico de Asunción es un jardín botánico y parque zoológico que se encuentra en Asunción, capital de la República del Paraguay.",
       descriptionEn: "Aleixo Garcia, also known in Spanish as Alejo García, was a Portuguese explorer and conquistador in service to Spain. He was a castaway who lived in Brazil and explored Paraguay and Bolivia.",
+      lat: -25.2519,
+      lng: -57.57129,
     },
     {
       id: "asuncion_20",
@@ -117564,8 +118425,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       website: "https://upload.wikimedia.org/wikipedia/commons/7/75/Chah%C3%A3_Zoo.jpg",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/75/Chah%C3%A3_Zoo.jpg",
-      description: "Chahã es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Ypoá National Park, encompassing Lake Ypoá, is a protected area in Paraguay. It was established by Executive Decree No. 43,681 on 29 May 1992.",
+      lat: -25.25097,
+      lng: -57.57066,
     },
     {
       id: "asuncion_21",
@@ -117582,6 +118444,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f4/Costanera_Sur_Cerro_Lambar%C3%A9_2.png",
       description: "El Cerro Lambaré es una formación rocosa de origen volcánico que se encuentra situado a orillas del río Paraguay, dentro del radio urbano de la ciudad de Asunción, en el barrio Jukyty.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.34034,
+      lng: -57.64133,
     },
     {
       id: "asuncion_22",
@@ -117614,6 +118478,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Molen_De_Hoop_Sumar.jpg/960px-Molen_De_Hoop_Sumar.jpg",
       description: "La Catedral Metropolitana de Asunción es el principal templo católico de Asunción. Se encuentra en el Barrio Catedral, en pleno centro histórico de la capital del Paraguay. Fue la primera diócesis del Río de la Plata y pertenece a la arquidiócesis de Asunción.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.2816,
+      lng: -57.6324,
     },
     {
       id: "asuncion_24",
@@ -117630,6 +118496,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Casa_de_la_Independencia_museum%2C_Asunci%C3%B3n.jpg/1920px-Casa_de_la_Independencia_museum%2C_Asunci%C3%B3n.jpg",
       description: "El Museo Casa de la Independencia de Asunción, inaugurado el 14 de mayo de 1965, se encuentra en la intersección de las calles Presidente Franco y 14 de Mayo.",
       descriptionEn: "The Casa de la Independencia Museum is a history museum and historic house located in Asunción, Paraguay.",
+      lat: -25.28053,
+      lng: -57.63636,
     },
     {
       id: "asuncion_25",
@@ -117646,6 +118514,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/68/Asuncion_zoo.jpg",
       description: "El Jardín Botánico y Zoológico de Asunción es un jardín botánico y parque zoológico que se encuentra en Asunción, capital de la República del Paraguay.",
       descriptionEn: "The Botanical Garden and Zoo of Asunción is a botanical garden and zoo located in Asunción, capital of the Republic of Paraguay.",
+      lat: -25.24741,
+      lng: -57.57076,
     },
     {
       id: "asuncion_26",
@@ -117662,6 +118532,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mercado_privado_Calmay%2C_mercado_de_Abasto%2C_Asunci%C3%B3n%2C_Paraguay.jpg/1920px-Mercado_privado_Calmay%2C_mercado_de_Abasto%2C_Asunci%C3%B3n%2C_Paraguay.jpg",
       description: "El Mercado Municipal N° 4 es un populoso mercado de frutas, verduras y abarrotes, tiendas de ropa y cocinerías nacionales e internacionales ubicado en la ciudad de Asunción, Paraguay.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.32648,
+      lng: -57.5732,
     },
   ],
   encarnacion: [
@@ -117679,7 +118551,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       website: "http://www.isparm.edu.ar/servicios.php?pageid=museo",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Remedios_aqueduct_panorama.jpg/3840px-Remedios_aqueduct_panorama.jpg",
-      description: "El municipio de Naucalpan de Juárez es uno de los 125 municipios que integran el Estado de México, su cabecera es la localidad de Naucalpan de Juárez. Es el municipio más industrializado del estado, seguido por la capital, Toluca.",
+      description: "El Museo de Ciencias Naturales e Historia Antonio Ruiz de Montoya, en Posadas, reúne colecciones de fauna, geología y documentos sobre la historia regional. Se visita para conocer el patrimonio natural y cultural de Misiones.",
       descriptionEn: "The South American land mammal ages (SALMA) establish a geologic timescale for prehistoric South American fauna beginning 64.5 Ma during the Paleocene and continuing through to the Late Pleistocene.",
     },
     {
@@ -117695,8 +118567,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Museo_Municipal_de_Bellas_Artes_Lucas_Braulio_Areco.jpg/960px-Museo_Municipal_de_Bellas_Artes_Lucas_Braulio_Areco.jpg",
-      description: "Museo de Bellas Artes Lucas Braulio Areco es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museo de Bellas Artes Lucas Braulio Areco is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de Bellas Artes Lucas Braulio Areco, en Posadas, exhibe obras de artistas regionales y nacionales en distintas técnicas. Su colección permite recorrer la producción plástica de Misiones y del país.",
+      descriptionEn: "The Lucas Braulio Areco Museum of Fine Arts in Posadas exhibits works by regional and national artists in various media. Its collection traces the visual arts production of Misiones and Argentina.",
     },
     {
       id: "encarnacion_2",
@@ -117711,8 +118583,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Museo_Hist%C3%B3rico_y_Arqueol%C3%B3gico_Andr%C3%A9s_Guacurar%C3%AD.jpg/960px-Museo_Hist%C3%B3rico_y_Arqueol%C3%B3gico_Andr%C3%A9s_Guacurar%C3%AD.jpg",
-      description: "Posadas es una ciudad argentina, capital de la provincia de Misiones y cabecera del departamento Capital. Se ubica sobre la margen izquierda del río Paraná —que la separa de Paraguay—, al sudoeste de la provincia y en el norte del departamento Capital.",
-      descriptionEn: "Museo Histórico y Arqueológico Andrés Guacurarí is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Histórico y Arqueológico Andrés Guacurarí, en Posadas, conserva piezas arqueológicas y documentos sobre el pasado de la región. Su recorrido aborda la historia de Misiones y la presencia guaraní.",
+      descriptionEn: "The Andrés Guacurarí Historical and Archaeological Museum in Posadas preserves archaeological pieces and documents about the region's past. Its exhibits cover the history of Misiones and the Guaraní presence.",
     },
     {
       id: "encarnacion_3",
@@ -117727,8 +118599,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Museo_Hist%C3%B3rico_de_la_Polic%C3%ADa_de_Misiones_%28en_el_a%C3%B1o_2017%29.jpg/960px-Museo_Hist%C3%B3rico_de_la_Polic%C3%ADa_de_Misiones_%28en_el_a%C3%B1o_2017%29.jpg",
-      description: "Encarnación es una ciudad localizada al sur de la región oriental de la República del Paraguay. Es la capital del departamento de Itapúa y está situada a unos 370 km de la capital del país —Asunción—, conectada por la Ruta PY01.",
-      descriptionEn: "Museo Histórico de la Policía de Misiones is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Histórico de la Policía de Misiones, en Posadas, exhibe uniformes, equipos y documentos vinculados a la historia de la fuerza provincial. Su recorrido muestra la evolución institucional desde sus inicios.",
+      descriptionEn: "The Historical Museum of the Misiones Police in Posadas displays uniforms, equipment and documents related to the provincial force's history. Its exhibits show the institution's evolution since its beginnings.",
     },
     {
       id: "encarnacion_4",
@@ -117743,8 +118615,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Museo_Regional_An%C3%ADbal_Cambas_%282017_en_Posadas%2C_Misiones%29.jpg/960px-Museo_Regional_An%C3%ADbal_Cambas_%282017_en_Posadas%2C_Misiones%29.jpg",
-      description: "Posadas es una ciudad argentina, capital de la provincia de Misiones y cabecera del departamento Capital. Se ubica sobre la margen izquierda del río Paraná —que la separa de Paraguay—, al sudoeste de la provincia y en el norte del departamento Capital.",
-      descriptionEn: "Museo de Historia Regional Aníbal Cambas is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de Historia Regional Aníbal Cambas, en Posadas, reúne objetos y documentos sobre el poblamiento, las misiones jesuíticas y la vida rural de Misiones. Se visita para comprender la historia regional.",
+      descriptionEn: "The Aníbal Cambas Regional History Museum in Posadas gathers objects and documents on settlement, the Jesuit missions and rural life in Misiones. It is visited to understand regional history.",
     },
     {
       id: "encarnacion_5",
@@ -117776,7 +118648,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Obraz_Matki_Bo%C5%BCej_Cz%C4%99stochowskiej_bez_ram.jpg/960px-Obraz_Matki_Bo%C5%BCej_Cz%C4%99stochowskiej_bez_ram.jpg",
       description: "Erzulie es la loa del amor y de la belleza en la religión vudú haitiana.",
-      descriptionEn: "Virgen de Częstochowa is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "encarnacion_7",
@@ -117793,6 +118664,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Encarnaci%C3%B3n.jpg/960px-Encarnaci%C3%B3n.jpg",
       description: "Encarnación es una ciudad localizada al sur de la región oriental de la República del Paraguay. Es la capital del departamento de Itapúa y está situada a unos 370 km de la capital del país —Asunción—, conectada por la Ruta PY01.",
       descriptionEn: "San Ignacio, also known as San Ignacio Guazú, is a district and city of the Misiones Department of Paraguay, located 225 kilometres (140 mi) from Asunción. It is Misiones' most-populous and fastest growing city, with an estimated 38,489 residents in 2025.",
+      lat: -27.33908,
+      lng: -55.86635,
     },
     {
       id: "encarnacion_8",
@@ -117808,7 +118681,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cartel_Candelaria_%28Provincia_de_Misiones%2C_Argentina%29_Salida_a_Ruta_Nacional_12.jpg/960px-Cartel_Candelaria_%28Provincia_de_Misiones%2C_Argentina%29_Salida_a_Ruta_Nacional_12.jpg",
       description: "Las reducciones fundadas por la Compañía de Jesús entre los guaycurúes, guaraníes y pueblos afines en las regiones del Guayrá, Itatín, Tapé, Uruguay, Paraná y las áreas guaycurúes en el gran Chaco, fueron establecidas en el siglo XVII dentro de territorios pertenecientes al…",
-      descriptionEn: "Ruinas Jesuíticas de Nuestra Señora de la Candelaria is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Jesuit Ruins of Nuestra Señora de la Candelaria in Candelaria, Misiones, are the remains of a Jesuit reduction founded in the 17th century. Visitors can observe its walls and learn about the mission system.",
     },
     {
       id: "encarnacion_9",
@@ -117871,7 +118744,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Coronaci%C3%B3n_de_don_Eduardo_Blanco%2C_Caracas-_28_de_julio_de_1911_%28IA_coronaciondedone00unse%29.pdf/page1-500px-Coronaci%C3%B3n_de_don_Eduardo_Blanco%2C_Caracas-_28_de_julio_de_1911_%28IA_coronaciondedone00unse%29.pdf.jpg",
-      description: "Encarnación es una ciudad localizada al sur de la región oriental de la República del Paraguay. Es la capital del departamento de Itapúa y está situada a unos 370 km de la capital del país —Asunción—, conectada por la Ruta PY01.",
+      description: "La Plaza 9 de Julio es el espacio central de Posadas, rodeado por edificios públicos y comerciales. Es un punto de referencia urbana y sede de actos cívicos y actividades culturales.",
       descriptionEn: "Córdoba, or sometimes Cordova, is a city in Andalusia, Spain, and the capital of the province of Córdoba. With a population of 324,902 as of 2024, it is the 12th-largest city in Spain and the 3rd-largest in Andalusia.",
     },
     {
@@ -117890,6 +118763,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Catedral_de_Encarnaci%C3%B3n_-_panoramio.jpg/960px-Catedral_de_Encarnaci%C3%B3n_-_panoramio.jpg",
       description: "Los nombres de Catedral de la Encarnación o cualquiera de sus variantes, Catedral de Nuestra Señora de la Encarnación, Catedral de Santa María de la Encarnación o Catedral de la Virgen de la Encarnación, es el nombre de varios edificios cristianos:En Españala Catedral de la…",
       descriptionEn: "The Cathedral of the Americas, Cathedral of Santo Domingo, Cathedral Basilica of Santa María la Menor or Minor Basilica of Santa María de la Encarnación, officially known as the Minor Cathedral Basilica of Our Lady Saint Mary of the Incarnation or Annunciation, in the Colonial…",
+      lat: -27.339,
+      lng: -55.86692,
     },
     {
       id: "encarnacion_14",
@@ -117905,7 +118780,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Antigua_Estaci%C3%B3n_Miguel_Lan%C3%BAs_%28Posadas%29.jpg/960px-Antigua_Estaci%C3%B3n_Miguel_Lan%C3%BAs_%28Posadas%29.jpg",
       description: "Posadas era una estación de ferrocarril de la ciudad de Posadas, capital de la Provincia de Misiones, Argentina. En 2008 fue clausurada y sus instalaciones fueron transformadas en un centro cultural.",
-      descriptionEn: "Antigua Estación de Trenes Miguel Lanús is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Old Miguel Lanús Train Station in Miguel Lanús, near Posadas, is a preserved railway building that recalls the region's railway past. Its architecture and surroundings offer insight into local transport history.",
     },
     {
       id: "encarnacion_15",
@@ -117920,7 +118795,6 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       description: "La Copa de Campeones de la UFI o Campeonato Nacional de Clubes del Interior fue un torneo anual de Tercera División organizado por la Unión del Fútbol del Interior de Paraguay.",
-      descriptionEn: "Paseo del Mensú is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "encarnacion_16",
@@ -117951,8 +118825,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Encarnaci%C3%B3n%2C_novela_-_IA_encarnacinnovela00dice.pdf/page1-500px-Encarnaci%C3%B3n%2C_novela_-_IA_encarnacinnovela00dice.pdf.jpg",
-      description: "La Costanera Monseñor Kemerer es la avenida que bordea al río Paraná en la ciudad de Posadas, Misiones, en Argentina.",
-      descriptionEn: "Anfiteatro \"Manuel Antonio Ramírez\" is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Anfiteatro Manuel Antonio Ramírez es un espacio abierto de Posadas ubicado en la costanera, utilizado para espectáculos musicales, teatrales y actos comunitarios. Forma parte de la vida cultural de la ciudad.",
+      descriptionEn: "The Manuel Antonio Ramírez Amphitheater is an open-air venue in Posadas on the waterfront, used for music, theater and community events. It is part of the city's cultural life.",
     },
     {
       id: "encarnacion_18",
@@ -118048,7 +118922,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Iglesia%2C_Ruinas_Jesu%C3%ADticas_Sant%C3%ADsima_Trinidad_del_Paran%C3%A1%2C_Encarnaci%C3%B3n%2C_Paraguay_-_panoramio.jpg/1920px-Iglesia%2C_Ruinas_Jesu%C3%ADticas_Sant%C3%ADsima_Trinidad_del_Paran%C3%A1%2C_Encarnaci%C3%B3n%2C_Paraguay_-_panoramio.jpg",
       description: "La misión Jesuítica de Santísima Trinidad del Paraná es la reducción guaraní mejor conservada del Paraguay y la más extensa. Se encuentra ubicada en una colina a 28 kilómetros al noroeste de Encarnación, en el distrito de Trinidad en Itapúa; se accede a ella desde la ruta VI.",
-      descriptionEn: "Ruinas Jesuíticas de la Santísima Trinidad is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Jesuit Ruins of Santísima Trinidad, near Encarnación, are the remains of an 18th-century Jesuit reduction declared a UNESCO World Heritage Site. Visitors can explore its church, plaza and dwellings.",
     },
     {
       id: "encarnacion_24",
@@ -118115,7 +118989,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 300,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Santos_Dumont_en_las_cataratas.pdf/page1-500px-Santos_Dumont_en_las_cataratas.pdf.jpg",
       description: "Las cataratas del Iguazú son un conjunto de cataratas que se localizan en el río Iguazú, entre la ciudad de Puerto Iguazú, provincia de Misiones, Argentina, y Foz do Iguaçu, estado de Paraná, Brasil.",
-      descriptionEn: "Cataratas del Iguazú (lado brasileño) is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Iguazu Falls on the Brazilian side are part of Iguaçu National Park in Foz do Iguaçu, Brazil. They are visited for their walkways and panoramic views of the falls of the Iguazu River, on a day trip from Ciudad del Este.",
     },
     {
       id: "ciudaddeste_1",
@@ -118148,7 +119022,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Saltos_del_Monday_-_panoramio.jpg/1920px-Saltos_del_Monday_-_panoramio.jpg",
       description: "Las Cataratas del Monday son un conjunto de cataratas localizadas en el río Monday, distrito de Presidente Franco, departamento de Alto Paraná, Paraguay; a solo unos 10 km de Brasil y Argentina.",
-      descriptionEn: "Saltos del Monday is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Municipal Park Monday and its main attraction – approximately 45 m (148 ft) tall and 120 m (390 ft) wide waterfall named Saltos del Monday – are located in the Presidente Franco District, Alto Paraná Department, Paraguay, located around 25°33'40.6\"S latitude and…",
+      lat: -25.56194,
+      lng: -54.63139,
     },
     {
       id: "ciudaddeste_3",
@@ -118164,7 +119040,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Las_tribulaciones_de_un_chino_en_China_-_bdh0000065227.pdf/page1-960px-Las_tribulaciones_de_un_chino_en_China_-_bdh0000065227.pdf.jpg",
       description: "El tejado de gabletes de Asia Oriental se compone de una cubierta a cuatro aguas, a la que se integran los hastiales de un techo a dos aguas en dos lados opuestos.",
-      descriptionEn: "Templo Budista Chen Tien is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Chen Tien Buddhist Temple is a Buddhist temple in Ciudad del Este, known for its architecture and gardens. It is visited as a place of contemplation and to learn about the presence of the Chinese community in the area.",
     },
     {
       id: "ciudaddeste_4",
@@ -118179,8 +119055,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Krasnoyarsk_hydroelectric_station.jpg",
-      description: "Una central hidroeléctrica es una instalación que utiliza energía hidráulica para la generación de energía eléctrica. Es el resultado de la evolución de los antiguos molinos hidráulicos, que aprovechaban la corriente de los ríos para generar energía.",
-      descriptionEn: "Modelo Reducido de la Represa de Itaipú is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Modelo Reducido de la Represa de Itaipú es una maqueta a escala que representa la estructura y el funcionamiento de la represa. Se encuentra en el complejo de visitantes de Itaipú, cerca de Ciudad del Este, y se recorre en las visitas guiadas.",
+      descriptionEn: "The Reduced Model of the Itaipú Dam is a scale model that represents the dam's structure and operation. It is located in the Itaipú visitor complex, near Ciudad del Este, and is included in guided tours.",
     },
     {
       id: "ciudaddeste_5",
@@ -118195,7 +119071,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Downtown_Ciudad_del_Este_view_134135.jpg/3840px-Downtown_Ciudad_del_Este_view_134135.jpg",
-      description: "Ciudad del Este, anteriormente llamada Puerto Flor de Lis y luego Puerto Presidente Stroessner, es una ciudad localizada al extremo este de la Región Oriental de la República del Paraguay.",
+      description: "El Museo Tierra Guaraní, vinculado a Itaipú, exhibe piezas y contenidos sobre la cultura guaraní y la naturaleza de la región. Está en Hernandarias, cerca de Ciudad del Este, y se visita para conocer la historia y el patrimonio local.",
       descriptionEn: "The following is a timeline for Google Street View, a technology implemented in Google Maps and Google Earth that provides ground-level interactive panoramas of cities.",
     },
     {
@@ -118213,6 +119089,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Criminalogia_moderna_anno_3_n._19_giu._1900.pdf/page1-1280px-Criminalogia_moderna_anno_3_n._19_giu._1900.pdf.jpg",
       description: "Ramón Gumercindo Cidade Morel, más conocido como Ramón Ayala, fue un cantautor, escritor, poeta y pintor argentino.",
       descriptionEn: "The following is a list radio stations in Paraguay which can be sorted by their name, frequencies, city, or website, updated to date.",
+      lat: -25.51315,
+      lng: -54.61459,
     },
     {
       id: "ciudaddeste_7",
@@ -118226,7 +119104,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Vida_del_ahorcado.djvu/page1-1280px-Vida_del_ahorcado.djvu.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2a/18_a%C3%B1os._Quintana_Bar%2C_al_lado_de_Cerobit%2C_Pavel_Nu%C3%B1ez%2C_La_Junta._2007.jpg",
       description: "El Estanque de Betesda o de Betzatá es un antiguo conjunto de piscinas situado en Jerusalén conocido por ser el lugar donde Jesús de Nazaret sanó milagrosamente a un paralítico, según se relata en el Evangelio de Juan.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
     },
@@ -118244,7 +119122,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cat%C3%A1logo_del_Museo_de_Bellas_Artes_%28IA_catalogodelmuseo00muse_2%29.pdf/page1-500px-Cat%C3%A1logo_del_Museo_de_Bellas_Artes_%28IA_catalogodelmuseo00muse_2%29.pdf.jpg",
       description: "La Selva Negra es un macizo montañoso con una gran densidad forestal ubicado al suroeste de Alemania, en el estado federado de Baden-Wurtemberg. En esta región montañosa el pico más alto es el Feldberg, con 1.493 metros de altitud.",
-      descriptionEn: "Museo Imágenes de la selva is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "ciudaddeste_9",
@@ -118345,7 +119222,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Historia_de_la_conquista_de_Mexico_%28IA_historiadelaconq00sahaiala%29.pdf/page1-500px-Historia_de_la_conquista_de_Mexico_%28IA_historiadelaconq00sahaiala%29.pdf.jpg",
       description: "El convento de San Francisco, de Valladolid, España, fue fundado en el siglo XIII y situado extramuros de la ciudad, frente a la plaza del mercado. El convento fue protegido y patrocinado en ese siglo por doña Violante, esposa del rey Alfonso X el Sabio.",
-      descriptionEn: "Quinta Maravilla is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "sanbernardinopy_1",
@@ -118359,9 +119235,9 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Biblioteca_de_jesu%C3%ADtas_espa%C3%B1oles_que_escribieron_sobre_la_Inmaculada_Concepci%C3%B3n_de_Nuestra_Se%C3%B1ora_antes_de_la_definici%C3%B3n_dogm%C3%A1tica_de_este_misterio_%28IA_bibliotecadejesu00uria%29.pdf/page1-960px-thumbnail.pdf.jpg",
-      description: "Ecclesiæ catholicæ de Immaculata Conceptione es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Ecclesiæ catholicæ de Immaculata Conceptione is a recommended place to visit and one of the standout attractions in the area.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Retablo_de_la_Iglesia_de_la_Inmaculada_Concepci%C3%B3n%2C_Zufre.jpg/1280px-Retablo_de_la_Iglesia_de_la_Inmaculada_Concepci%C3%B3n%2C_Zufre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      description: "La Iglesia de la Inmaculada Concepción es un templo católico de San Bernardino dedicado a la Virgen bajo esa advocación. Se encuentra en la zona céntrica y es un punto de referencia religioso y arquitectónico de la ciudad.",
+      descriptionEn: "The Church of the Immaculate Conception is a Catholic temple in San Bernardino dedicated to the Virgin under that title. It is located in the central area and serves as a religious and architectural landmark in the city.",
     },
     {
       id: "sanbernardinopy_2",
@@ -118377,7 +119253,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Batalha_de_Campo_Grande_-_1871_b.jpg",
       description: "La batalla de Acosta Ñu fue un enfrentamiento que ocurrió durante la guerra de la Triple Alianza donde el 16 de agosto de 1869, 20 000 soldados y milicianos se enfrentaron como parte de la Guerra de la Triple Alianza.",
-      descriptionEn: "Monumento a los niños mártires de la batalla de Acosta Ñú is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "sanbernardinopy_3",
@@ -118392,7 +119267,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Antig%C3%BCedades_del_Convento_Casa_Grande_de_San_Agust%C3%ADn_de_Sevilla%2C_y_noticias_del_Santo_Crucifixo_que_en_%C3%A9l_se_venera_%28IA_ACarriazo0220%29.pdf/page1-330px-Antig%C3%BCedades_del_Convento_Casa_Grande_de_San_Agust%C3%ADn_de_Sevilla%2C_y_noticias_del_Santo_Crucifixo_que_en_%C3%A9l_se_venera_%28IA_ACarriazo0220%29.pdf.jpg",
-      description: "La iglesia de San Bernardino alle Ossa es un templo religioso ubicado en el centro de Milán, Italia, que se hizo conocido por su osario, en el que las paredes se encuentran decoradas con calaveras y huesos humanos.",
+      description: "El Cerro Arco es una elevación natural en los alrededores de San Bernardino, conocida por sus vistas hacia el lago Ypacaraí y el paisaje de la zona. Se visita para caminar y disfrutar del entorno natural.",
       descriptionEn: "This is an alphabetical list of the 7,918 Italian municipalities (comuni). These represent the fundamental municipal units of the local government system of the country.",
     },
     {
@@ -118410,6 +119285,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Lago_Ypacara%C3%AD%2C_visto_desde_San_Bernardino.jpg/1920px-Lago_Ypacara%C3%AD%2C_visto_desde_San_Bernardino.jpg",
       description: "El lago Ypacaraí es un cuerpo de agua situado en la región oriental de Paraguay, entre los departamentos Central y Cordillera. Se encuentra aproximadamente a 37 km de Asunción, la capital del país.",
       descriptionEn: "Ypacaraí Lake is a major body of water located in Paraguay, about 50 kilometres (31 mi) east of the capital, Asunción.",
+      lat: -25.3,
+      lng: -57.35,
+      dayTrip: true,
     },
     {
       id: "sanbernardinopy_5",
@@ -118490,7 +119368,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Il_Paese_-_organo_della_Democrazia_friulana_n._133_%281910%29_%28IA_IlPaese-133-1910%29.pdf/page1-1280px-Il_Paese_-_organo_della_Democrazia_friulana_n._133_%281910%29_%28IA_IlPaese-133-1910%29.pdf.jpg",
       website: "http://www.granjadonpapalo.com.py",
       description: "Valencia de Don Juan es un municipio y ciudad española de la provincia de León, en la comunidad autónoma de Castilla y León. Está situado entre la vega del río Esla y los Oteros y cuenta con una población de 5103 habitantes.",
-      descriptionEn: "Don Papalo is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.30165,
+      lng: -57.24125,
     },
     {
       id: "sanbernardinopy_10",
@@ -118506,7 +119385,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Candelaria_entre_guanches.jpg",
       description: "La Virgen de la Candelaria o Nuestra Señora de Candelaria es una advocación mariana de la religión católica que tiene su origen en Tenerife (España).",
-      descriptionEn: "Catedral de Areguá is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "sanbernardinopy_11",
@@ -118523,6 +119401,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Vida_de_argentinos_ilustres_-_Clemente_Leoncio_Fregeiro.pdf/page1-500px-Vida_de_argentinos_ilustres_-_Clemente_Leoncio_Fregeiro.pdf.jpg",
       description: "Bernardino González de Avellaneda y Delgadillo, I conde de Castrillo, fue un marino, político, mecenas y bibliófilo español, al servicio de los reyes Felipe II, Felipe III y Felipe IV.",
       descriptionEn: "La Recoleta Cemetery is a cemetery located in the Recoleta neighbourhood of Buenos Aires, Argentina. It contains the graves of notable people, including Eva Perón, presidents of Argentina, Nobel Prize winners, the founder of the Argentine Navy, and military commanders such as…",
+      lat: -25.31287,
+      lng: -57.29533,
+      dayTrip: true,
     },
     {
       id: "sanbernardinopy_12",
@@ -118538,7 +119419,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/93/Caba%C3%B1as_del_Itacua_-_panoramio_%281%29.jpg",
       description: "Cordillera es el tercero de los diecisiete departamentos que, junto con Asunción, distrito capital, forma la República del Paraguay. Su capital y ciudad más poblada es Caacupé.",
-      descriptionEn: "Club de aviación de Yvytu is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.35653,
+      lng: -57.25443,
     },
     {
       id: "sanbernardinopy_13",
@@ -118554,8 +119436,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/langes-1280px-Flag_of_Paraguay.svg.png",
       website: "https://www.disfrutandoparaguay.com/donde-ir/ciudades-monumentos/religiosos/basilica-de-caacupe",
-      description: "Paraguay, oficialmente República del Paraguay, es un país soberano situado en el centro de Sudamérica con grandes extensiones de bosques, cataratas y humedales. Está organizado como un estado unitario, compuesto por una capital y diecisiete departamentos.",
-      descriptionEn: "Basílica Menor Nuestra Señora de los Milagros de Caacupé is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Basílica Menor Nuestra Señora de los Milagros de Caacupé es un santuario católico de Paraguay dedicado a la Virgen de Caacupé. Está en la ciudad de Caacupé, cerca de San Bernardino, y recibe peregrinaciones.",
+      descriptionEn: "The Minor Basilica of Our Lady of Miracles of Caacupé is a Catholic sanctuary in Paraguay dedicated to the Virgin of Caacupé. It is located in the city of Caacupé, near San Bernardino, and receives pilgrimages.",
     },
     {
       id: "sanbernardinopy_14",
@@ -118590,6 +119472,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Museo_Cuartel_de_Villa_Real.jpg/1920px-Museo_Cuartel_de_Villa_Real.jpg",
       description: "Concepción es una ciudad de Paraguay, capital del departamento homónimo, situada a orillas del río Paraguay. Fue fundada en 1773 por Agustín Fernando de Pinedo en un momento expansivo del siglo XVIII con el nombre de Villa Real de la Concepción.",
       descriptionEn: "Madrid is the capital and most populous city of Spain. It had a population of over 3.4 million in the city proper in 2025, and a metropolitan area population of approximately 6.8 million.",
+      lat: -23.40877,
+      lng: -57.45084,
     },
     {
       id: "concepcionpy_1",
@@ -118606,6 +119490,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Vitoria_-_Catedra_Nueva_055.JPG",
       description: "El Museo Diocesano de Arte Sacro de Álava es un museo de Arte Sacro de la ciudad de Vitoria, Álava. Se ubica en el espacio de la girola de la Catedral de María Inmaculada.",
       descriptionEn: "This is a list of museums in Spain. According to the Ministry of Culture, there are about 1,500 museums in Spain.",
+      lat: -23.40902,
+      lng: -57.44868,
     },
     {
       id: "concepcionpy_2",
@@ -118621,7 +119507,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mansion_Otano_1.jpg/1920px-Mansion_Otano_1.jpg",
       description: "Vicente López es uno de los 135 partidos de la provincia argentina de Buenos Aires. Se encuentra inmediatamente al norte de la ciudad de Buenos Aires, y forma parte de la zona norte de su área metropolitana conocida como Gran Buenos Aires.",
-      descriptionEn: "Mansion Otaño is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -23.40861,
+      lng: -57.44596,
     },
   ],
   pilar: [
@@ -118654,8 +119541,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Exposici%C3%B3n_de_arte_religioso_mariano_-_Museo_Historico_Provincial_%28IA_exposiciondearte00muse%29.pdf/page1-500px-Exposici%C3%B3n_de_arte_religioso_mariano_-_Museo_Historico_Provincial_%28IA_exposiciondearte00muse%29.pdf.jpg",
-      description: "Pilar es una ciudad del noroeste de la provincia argentina de Buenos Aires, cabecera del partido homónimo. Forma parte del área metropolitana de Buenos Aires,y se encuentra a 54 km de la Ciudad Autónoma de Buenos Aires por el acceso norte ramal al Pilar, Ruta 8.",
+      description: "El Museo Cabildo de Pilar ocupa el antiguo edificio del cabildo de la ciudad y reúne objetos y documentos sobre la historia de Pilar y de Ñeembucú. Se visita para conocer el patrimonio histórico local.",
       descriptionEn: "Santa Cruz de Tenerife, commonly abbreviated as Santa Cruz, is a city, the capital of the island of Tenerife, Province of Santa Cruz de Tenerife, and one of the capitals of the Canary Islands, along with Las Palmas.",
+      lat: -26.85569,
+      lng: -58.30558,
     },
     {
       id: "pilar_2",
@@ -118671,7 +119560,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Bas%C3%ADlica_Nuestra_Se%C3%B1ora_del_Pilar_Paraguay.jpg",
       description: "Pilar es una ciudad del Paraguay y capital del departamento de Ñeembucú. Está situada a unos 230 km al sur de Asunción, sobre la margen izquierda del río Paraguay y en la confluencia con el arroyo Ñeembucú, en la frontera con la provincia de Formosa de la Argentina.",
-      descriptionEn: "Museo Paolo Alberzoni is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -26.85142,
+      lng: -58.31089,
     },
     {
       id: "pilar_3",
@@ -118686,8 +119576,9 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/En_el_pilar_y_en_la_cruz_-_drama_en_tres_actos_y_en_verso_%28IA_enelpilaryenlacr1522eche%29.pdf/page1-500px-En_el_pilar_y_en_la_cruz_-_drama_en_tres_actos_y_en_verso_%28IA_enelpilaryenlacr1522eche%29.pdf.jpg",
-      description: "Plaza Soldado desconocido es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "A list of films produced in Panama in year order.",
+      lat: -26.85454,
+      lng: -58.31178,
     },
     {
       id: "pilar_4",
@@ -118721,6 +119612,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "La casa embrujada es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "La casa embrujada is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.30663,
+      lng: -57.38012,
     },
     {
       id: "aregua_1",
@@ -118735,8 +119628,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
-      description: "Areguá es la capital del departamento Central. Es conocida como la ciudad de la artesanía en cerámica y de la frutilla. Se ubica a 22 km de Asunción, a orillas del lago Ypacaraí en la cuenca conformada por este y por el río Salado.",
+      description: "Espacio cultural de Areguá dedicado a exposiciones, talleres y actividades comunitarias, vinculado a la vida artística de la ciudad y a su entorno junto al lago Ypacaraí.",
       descriptionEn: "Julia Isídrez is a Paraguayan ceramist.",
+      lat: -25.31052,
+      lng: -57.38103,
     },
     {
       id: "aregua_2",
@@ -118752,6 +119647,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Centro Cultural Maqueda es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Centro Cultural Maqueda is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.30903,
+      lng: -57.38449,
     },
     {
       id: "aregua_3",
@@ -118767,7 +119664,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
       description: "Areguá es la capital del departamento Central. Es conocida como la ciudad de la artesanía en cerámica y de la frutilla. Se ubica a 22 km de Asunción, a orillas del lago Ypacaraí en la cuenca conformada por este y por el río Salado.",
-      descriptionEn: "La casa del turista is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.31056,
+      lng: -57.38271,
     },
     {
       id: "aregua_4",
@@ -118781,8 +119679,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Castillo Carlota Palmerola es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Castillo Carlota Palmerola is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Edificación de estilo castillo que integra el patrimonio arquitectónico de Areguá; se visita por su valor histórico y por su presencia en el paisaje urbano de la ciudad.",
+      descriptionEn: "Castle-style building that forms part of Areguá's architectural heritage; it is visited for its historical value and its presence in the city's urban landscape.",
+      lat: -25.30519,
+      lng: -57.38161,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Carlota_Palmerola_124.jpg/1280px-Carlota_Palmerola_124.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "aregua_5",
@@ -118797,8 +119698,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Descripci%C3%B3n_hist%C3%B3rica_de_la_antigua_provincia_del_Paraguay_%28IA_descripcionhisto00mola%29.pdf/page1-500px-Descripci%C3%B3n_hist%C3%B3rica_de_la_antigua_provincia_del_Paraguay_%28IA_descripcionhisto00mola%29.pdf.jpg",
-      description: "La diócesis de Carora es una circunscripción eclesiástica de la Iglesia católica en Venezuela. Es una diócesis latina, de rito romano, sufragánea de la arquidiócesis de Barquisimeto.",
+      description: "Templo principal de Areguá y punto de referencia del centro histórico, asociado a las celebraciones religiosas de la ciudad y a la devoción local.",
       descriptionEn: "The 2026 Copa Paraguay is the eighth edition of the Copa Paraguay, Paraguay's domestic football cup competition organized by the Paraguayan Football Association (APF). The competition began on 2 June and is scheduled to end in November 2026.",
+      lat: -25.31348,
+      lng: -57.38573,
     },
     {
       id: "aregua_6",
@@ -118814,7 +119717,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Giants_Causeway_d%C3%A9tail_de_la_chauss%C3%A9e.JPG",
       description: "Las columnas basálticas son formaciones regulares de pilares más o menos verticales con muchas curvas, con forma de prismas poligonales, que se forman por fractura progresiva de la roca durante el enfriamiento relativamente lento de lava basáltica en algunas coladas, en…",
-      descriptionEn: "Piedra Hexagonal is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.32369,
+      lng: -57.39796,
     },
     {
       id: "aregua_7",
@@ -118829,8 +119733,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Teatro_Municipal_Asuncion.jpg",
-      description: "La cultura de Paraguay se caracteriza por la fusión de culturas y tradiciones, que son la europea y la guaraní. Comparte las costumbres de los países de Iberoamérica. Aunque Paraguay posee una población heterogénea, es uno de los países más homogéneos en términos culturales.",
+      description: "Escalinata urbana del centro de Areguá que conecta distintos sectores de la ciudad y forma parte del recorrido por su casco histórico.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.31254,
+      lng: -57.38729,
     },
     {
       id: "aregua_8",
@@ -118846,6 +119752,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Arroyito Cassacia es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Arroyito Cassacia is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.30572,
+      lng: -57.38461,
     },
     {
       id: "aregua_9",
@@ -118862,6 +119770,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Barrio_ycua_sati_Asunci%C3%B3n.jpg",
       description: "Ycuá Satí, también escrito Ykuá Satí es un barrio de la ciudad de Asunción, Paraguay, ubicado en la zona sureste de la capital, dentro del distrito de La Recoleta. Es principalmente conocido por albergar el World Trade Center Asunción y el Paseo La Galería.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
+      lat: -25.31185,
+      lng: -57.38358,
     },
     {
       id: "aregua_10",
@@ -118877,7 +119787,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Palacio_de_Gobierno2.jpg",
       description: "Asunción, oficialmente llamada Ciudad de la Asunción, es la capital y ciudad más poblada del Paraguay, ubicada en el centro-oeste de la Región Oriental. Es un municipio de primer orden administrado como distrito capital y no está integrado en ningún departamento.",
-      descriptionEn: "El Bosque Escondido is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -25.308,
+      lng: -57.39157,
     },
     {
       id: "aregua_11",
@@ -118892,8 +119803,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/49/Aregu%C3%A1_Vista_a%C3%A9rea.JPG",
-      description: "Areguá es la capital del departamento Central. Es conocida como la ciudad de la artesanía en cerámica y de la frutilla. Se ubica a 22 km de Asunción, a orillas del lago Ypacaraí en la cuenca conformada por este y por el río Salado.",
-      descriptionEn: "Areguá – Pueblo de los Artesanos is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Areguá es conocida por su tradición artesanal, en especial la cerámica, y por reunir talleres y espacios donde artesanos locales exhiben y venden sus piezas.",
+      descriptionEn: "Areguá is known for its craft tradition, especially pottery, and for its workshops and spaces where local artisans display and sell their pieces.",
     },
     {
       id: "aregua_12",
@@ -118908,8 +119819,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Letras_de_la_ciudad_de_Capiat%C3%A1%2C_Paraguay%2C_ciclov%C3%ADa_municipal.jpg/3840px-Letras_de_la_ciudad_de_Capiat%C3%A1%2C_Paraguay%2C_ciclov%C3%ADa_municipal.jpg",
-      description: "Capiatá es una ciudad ubicada en el departamento Central del Paraguay. Se encuentra ubicada a 23 km de Asunción, la capital del país, en una posición estratégica entre la ruta departamental D027 y la ruta PY02, principales vías de comunicación y transporte terrestre de la zona.",
-      descriptionEn: "Museo Mitológico Ramón Elias is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Museo ubicado en San Antonio, Departamento Central, dedicado a la mitología paraguaya y a las figuras de seres míticos que forman parte de la tradición oral del país.",
+      descriptionEn: "The Mythical Museum Ramón Elías, called honoring its founder, is a mythology museum in Capiatá, Paraguay.",
     },
     {
       id: "aregua_13",
@@ -118940,7 +119851,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Lago1.jpg",
-      description: "El lago Ypacaraí es un cuerpo de agua situado en la región oriental de Paraguay, entre los departamentos Central y Cordillera. Se encuentra aproximadamente a 37 km de Asunción, la capital del país.",
+      description: "Parque urbano en Luque, Departamento Central, con amplias áreas verdes, senderos y espacios deportivos; se encuentra fuera de Areguá y puede visitarse como excursión.",
       descriptionEn: "Asunción is the capital and the largest city of Paraguay. The city lies on the eastern bank of the Paraguay River, immediately north northeast of the confluence where it is joined by the Pilcomayo River.",
     },
   ],
@@ -118958,8 +119869,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/31/Museo_Jakob_Unger_P8050117_filtered.jpg",
-      description: "Filadelfia es una ciudad paraguaya ubicada en el centro del Chaco paraguayo. Es la capital del departamento de Boquerón, situada en un territorio que abarca la parte nororiental del departamento, cubriendo un área de 13.879 km².",
-      descriptionEn: "Museo Jakob Unger is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Jakob Unger de Filadelfia reúne colecciones sobre la historia natural del Chaco, la cultura indígena y la colonización menonita. Se visita para conocer la biodiversidad y la memoria de la región.",
+      descriptionEn: "The Jakob Unger Museum in Filadelfia houses collections on the natural history of the Chaco, Indigenous cultures, and Mennonite settlement. It is visited to learn about the region's biodiversity and history.",
     },
     {
       id: "filadelfia_1",
@@ -118975,7 +119886,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Diario_VI_Regi%C3%B3n_-_N%C2%B0_7.123_-_22_de_febrero_de_2012.pdf/page1-1280px-Diario_VI_Regi%C3%B3n_-_N%C2%B0_7.123_-_22_de_febrero_de_2012.pdf.jpg",
       description: "El Gran Chaco es una región geográfica ubicada en el centro-sur de América del Sur que se extiende por parte de los actuales territorios de Argentina, Bolivia, Brasil y Paraguay.",
-      descriptionEn: "Flora y fauna del Chaco is a recommended place to visit and one of the standout attractions in the area.",
+      lat: -22.35311,
+      lng: -60.03559,
     },
     {
       id: "filadelfia_2",
@@ -118990,8 +119902,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Espelhos_%C3%A9tnicos_-_autorrepresenta%C3%A7%C3%B5es_nos_museus_gal%C3%AAs_e_menonita_na_Argentina_e_no_Paraguai%2C_Anais_do_Museu_Paulista.pdf/page1-960px-Espelhos_%C3%A9tnicos_-_autorrepresenta%C3%A7%C3%B5es_nos_museus_gal%C3%AAs_e_menonita_na_Argentina_e_no_Paraguai%2C_Anais_do_Museu_Paulista.pdf.jpg",
-      description: "Ernst Walter Mayr fue un biólogo evolutivo germano-estadounidense, uno de los más notables del siglo XX. Fue, además un renombrado taxónomo, explorador de los trópicos, ornitólogo, historiador de la ciencia y naturalista.",
-      descriptionEn: "Menno Museum is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo Menno, en Loma Plata, documenta la historia de la colonia menonita Menno y su asentamiento en el Chaco paraguayo. Se visita como excursión desde Filadelfia para conocer objetos, fotografías y relatos de los colonos.",
+      descriptionEn: "The Menno Museum in Loma Plata documents the history of the Menno Mennonite colony and its settlement in the Paraguayan Chaco. It is visited as a day trip from Filadelfia to see objects, photographs, and settlers' accounts.",
+      lat: -22.35278,
+      lng: -60.03563,
     },
     {
       id: "filadelfia_3",
@@ -119006,8 +119920,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/langes-1280px-Flag_of_Paraguay.svg.png",
-      description: "Paraguay, oficialmente República del Paraguay, es un país soberano situado en el centro de Sudamérica con grandes extensiones de bosques, cataratas y humedales. Está organizado como un estado unitario, compuesto por una capital y diecisiete departamentos.",
-      descriptionEn: "Centro de Interpretación del Gran Chaco Americano is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Centro de Interpretación del Gran Chaco Americano es un espacio en Filadelfia dedicado a explicar los ecosistemas, la historia y las culturas del Gran Chaco. Se visita para comprender la diversidad ambiental y social de la región.",
+      descriptionEn: "The Gran Chaco Americano Interpretation Center is a space in Filadelfia dedicated to explaining the ecosystems, history, and cultures of the Gran Chaco. It is visited to understand the region's environmental and social diversity.",
+      lat: -22.47619,
+      lng: -60.00935,
     },
     {
       id: "filadelfia_4",
@@ -119024,6 +119940,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Philadelphia_History_Museum_at_the_Atwater_Kent_from_south.jpg/1920px-Philadelphia_History_Museum_at_the_Atwater_Kent_from_south.jpg",
       description: "El Museo de Historia de Filadelfia fue un museo público ubicado en el Centro de Filadelfia desde 1938 hasta 2018. El museo ocupó la histórica estructura de estilo neogriego del arquitecto John Haviland, construida en 1824-1826 para el Franklin Institute.",
       descriptionEn: "Xalapa or Jalapa, officially Xalapa-Enríquez, is the capital city of the Mexican state of Veracruz and the name of the surrounding municipality.",
+      lat: -22.35281,
+      lng: -60.0353,
     },
     {
       id: "filadelfia_5",
@@ -119040,6 +119958,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Brown_Rat_%28Rattus_norvegicus%29_also_called_Norway_Rat_or_Common_Rat_-with_food_container_-_Mathias_Baldwin_Park%2C_Philadelphia%2C_Pennsylvania%2C_USA.jpg/1920px-Brown_Rat_%28Rattus_norvegicus%29_also_called_Norway_Rat_or_Common_Rat_-with_food_container_-_Mathias_Baldwin_Park%2C_Philadelphia%2C_Pennsylvania%2C_USA.jpg",
       description: "Filadelfia es la mayor ciudad del estado de Pensilvania, Estados Unidos. Está ubicada sobre la orilla occidental del río Delaware —poco antes de su desembocadura en la bahía de Delaware—, que la separa del estado de Nueva Jersey, y en un punto intermedio entre las importantes…",
       descriptionEn: "The World Trade Center Mexico City, commonly known by its former name, Hotel de México, is a building complex located in the wealthy neighborhood of Colonia Nápoles in central Mexico City.",
+      lat: -22.35347,
+      lng: -60.03504,
     },
     {
       id: "filadelfia_6",
@@ -119072,6 +119992,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Compendio_de_la_medicina_..._en_Nueva_Espa%C3%B1a_%28IA_63540830R.nlm.nih.gov%29.pdf/page1-500px-Compendio_de_la_medicina_..._en_Nueva_Espa%C3%B1a_%28IA_63540830R.nlm.nih.gov%29.pdf.jpg",
       description: "Margarita Kenny fue una mezzosoprano argentina con trayectoria internacional.",
       descriptionEn: "The World Trade Center Mexico City, commonly known by its former name, Hotel de México, is a building complex located in the wealthy neighborhood of Colonia Nápoles in central Mexico City.",
+      lat: -22.31855,
+      lng: -59.90418,
     },
     {
       id: "filadelfia_8",
@@ -119118,8 +120040,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Filadelfia_view.jpg",
-      description: "Boquerón es uno de los diecisiete departamentos que, junto con Asunción, distrito capital, forman la República del Paraguay. Su capital y ciudad más poblada es Filadelfia.",
-      descriptionEn: "Primera Locomotora del Chaco Paraguayo is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Primera Locomotora del Chaco Paraguayo es una locomotora a vapor histórica conservada como monumento en Filadelfia. Se visita por su valor patrimonial y su vínculo con los primeros ferrocarriles de la región chaqueña.",
+      descriptionEn: "The First Locomotive of the Paraguayan Chaco is a historic steam locomotive preserved as a monument in Filadelfia. It is visited for its heritage value and its connection to the early railways of the Chaco region.",
+      lat: -22.3518,
+      lng: -60.0148,
     },
     {
       id: "filadelfia_11",
@@ -119134,8 +120058,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Filadelfia_view.jpg",
-      description: "Boquerón es uno de los diecisiete departamentos que, junto con Asunción, distrito capital, forman la República del Paraguay. Su capital y ciudad más poblada es Filadelfia.",
+      description: "El Fortín Trébol es un antiguo fortín de la Guerra del Chaco, recordado por su papel en la contienda. Se visita desde Filadelfia como parte del patrimonio histórico chaqueño.",
       descriptionEn: "This is a list of football clubs in Paraguay which are affiliated with the Asociación Paraguaya de Fútbol. As of the 2016 season, clubs are listed in rank of the Paraguayan football league system.",
+      lat: -22.35076,
+      lng: -59.98494,
     },
     {
       id: "filadelfia_12",
@@ -119200,8 +120126,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Castellani_House.jpeg/960px-Castellani_House.jpeg",
-      description: "Castalaney House es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Castalaney House is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Casa Castalaney, conocida como Castellani House, es una casa histórica de Georgetown que funciona como Galería Nacional de Arte. Se visita por su arquitectura y su colección de arte guyanés.",
+      descriptionEn: "Casa Castalaney, known as Castellani House, is a historic house in Georgetown that serves as the National Art Gallery. Visitors come for its architecture and its collection of Guyanese art.",
     },
     {
       id: "georgetown_2",
@@ -119216,7 +120142,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1769442387034-0845bb5f5243?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUaGUlMjBDZW5vdGFwaCUyMEdlb3JnZSUyMFRvd24lMjAlMjhQZW5hbmclMjklMjBNYWxheXNpYXxlbnwxfDB8fHwxNzgzMDkxMDk0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El número total de bajas civiles y militares en la Primera Guerra Mundial fue de unos 40 millones: las estimaciones oscilan entre unos 15 y 22 millones de muertos y unos 21 millones de militares heridos, lo que la sitúa entre los conflictos más mortíferos de la historia de la…",
+      description: "El Cenotafio de Georgetown es un monumento conmemorativo de guerra dedicado a los guyaneses caídos en las dos guerras mundiales. Se encuentra en el centro de la ciudad y es un punto de actos cívicos.",
       descriptionEn: "The Georgetown Cenotaph is a war memorial in Georgetown, Guyana, located at the junction of Main and Church Streets.",
     },
     {
@@ -119248,7 +120174,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Water_fountain_in_Promenade_Gardens_Guyana.jpg/1920px-Water_fountain_in_Promenade_Gardens_Guyana.jpg",
-      description: "El chaguaramo, mapora o palma real es una especie de palmera originaria de las Antillas Menores, Venezuela y Colombia. Es una planta de gran porte, de hasta 40 m de altura y muy apreciada por su gran valor ornamental por lo cual ha sido cultivada en muchos países.",
+      description: "Los Jardines Promenade son un parque público en el centro de Georgetown, con áreas verdes, árboles y monumentos. Es un espacio para caminar y descansar en la ciudad.",
       descriptionEn: "Promenade Gardens is a garden in Georgetown, Guyana.",
     },
     {
@@ -119264,7 +120190,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Starboek_Market_%2823132264799%29.jpg/960px-Starboek_Market_%2823132264799%29.jpg",
-      description: "Stabroek Market es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Mercado de Stabroek es un gran mercado público de Georgetown, junto al río Demerara, reconocido por su estructura de hierro y su torre del reloj. Allí se venden alimentos, productos frescos y artículos variados.",
       descriptionEn: "Stabroek Market is the largest market of Georgetown, Guyana. Located in the centre of the capital city, the market is housed in an iron and steel structure with a prominent clock tower.",
     },
     {
@@ -119312,7 +120238,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Umana_Yana_by_Khirsah1.jpg/960px-Umana_Yana_by_Khirsah1.jpg",
-      description: "Guyana, oficialmente la República Cooperativa de Guyana, es un país ubicado en la costa norte de América del Sur y el Caribe, miembro de la Unasur, CELAC y miembro asociado del Mercosur. Georgetown es la capital de Guyana y también es la ciudad más grande del país.",
+      description: "La Umana Yana es una estructura cónica de techo de paja construida por comunidades indígenas de Guyana, usada para eventos culturales y oficiales. Está ubicada cerca del malecón de Georgetown.",
       descriptionEn: "The Umana Yana is a conical palm thatched hut (benab) erected for the Non-Aligned Foreign Ministers Conference in Georgetown, Guyana in August 1972 as a V.I.P. lounge and recreation centre.",
     },
     {
@@ -119328,7 +120254,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Archon_%28IA_archonmay1924118dumm%29.pdf/page1-1280px-Archon_%28IA_archonmay1924118dumm%29.pdf.jpg",
-      description: "George Walker Bush, también llamado coloquialmente en el mundo castellanoparlante Bush hijo, es un político y empresario estadounidense que ejerció como el 43.er presidente de los Estados Unidos entre el 20 de enero de 2001 y el 20 de enero de 2009.",
+      description: "El Campo Deportivo Eve Leary es un campo de deportes en Georgetown asociado a la base de la Fuerza de Defensa de Guyana. Se utiliza para cricket y otras actividades deportivas.",
       descriptionEn: "The foreign policy of the second Trump administration is an example of a realist \"America First\" foreign policy. It has been called imperialist, expansionist, and interventionist in respect to the Americas and Middle East, but also isolationist in respect to Europe and Africa.",
     },
     {
@@ -119360,7 +120286,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://images.unsplash.com/photo-1661260731039-8d4cbf5ecf79?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxRdWVlbnN0b3duJTIwTW9zcXVlJTIwR2VvcmdlJTIwVG93biUyMCUyOFBlbmFuZyUyOSUyME1hbGF5c2lhfGVufDF8MHx8fDE3ODMwOTE0NzJ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Queenstown Mosque es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Mezquita de Queenstown es un templo islámico situado en el barrio de Queenstown, en Georgetown. Es un lugar de culto de la comunidad musulmana local.",
       descriptionEn: "The Queenstown (Jama) Mosque or Queenstown (Jama) Masjid is a mosque in Georgetown, Guyana.",
     },
     {
@@ -119487,7 +120413,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1754103315887-d7bd214cff7b?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb3RhbmljYWwlMjBHYXJkZW5zJTIwb2YlMjBHZW9yZ2V0b3duJTIwR2VvcmdlJTIwVG93biUyMCUyOFBlbmFuZyUyOSUyME1hbGF5c2lhfGVufDF8MHx8fDE3ODMwOTIwMDF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Isabella Preston fue una horticultora y funcionaria pública ampliamente reconocida por sus logros en la hibridación de plantas y su extenso trabajo en el mejoramiento genético de plantas ornamentales. Es la primera criadora profesional de plantas de Canadá.",
+      description: "Los Jardines Botánicos de Georgetown son un extenso parque urbano con plantas tropicales, árboles y senderos. Incluyen áreas de vegetación y son un lugar frecuentado para caminar y recrearse.",
       descriptionEn: "Georgetown is the capital and largest city of Guyana. It is situated in Demerara-Mahaica, region 4, on the Atlantic Ocean coast, at the mouth of the Demerara River. It is nicknamed the \"Garden City of the Caribbean\".",
     },
     {
@@ -119519,7 +120445,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.3,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Reformed_Church_and_Stabroek_Market_-_Georgetown_%2822850460464%29.jpg/1920px-Reformed_Church_and_Stabroek_Market_-_Georgetown_%2822850460464%29.jpg",
-      description: "Stabroek Market es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Mercado de Stabroek es un gran mercado público de Georgetown, junto al río Demerara, reconocido por su estructura de hierro y su torre del reloj. Allí se venden alimentos, productos frescos y artículos variados.",
       descriptionEn: "Stabroek Market is the largest market of Georgetown, Guyana. Located in the centre of the capital city, the market is housed in an iron and steel structure with a prominent clock tower.",
     },
   ],
@@ -119537,8 +120463,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.9,
       estimatedMinutes: 300,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/SM_Baran%C3%B3w_%284%29_ID_651384.jpg/960px-SM_Baran%C3%B3w_%284%29_ID_651384.jpg",
-      description: "El Aeropuerto Internacional de Kaieteur es un aeropuerto en la región de Potaro-Siparuni que constituye una puerta de entrada al Parque nacional Kaieteur, así como un puesto de avanzada en la región.",
+      description: "Las cataratas Kaieteur o Salto Kaiteur es una gran cascada ubicada en la región nororiental de Sudamérica en el país de Guyana.",
       descriptionEn: "This list of waterfalls by flow rate includes all waterfalls which are known to have an average flow rate or discharge of at least 150 cubic metres per second (5,300 cu ft/s).",
+      lat: 5.17811,
+      lng: -59.48228,
+      sourceUrl: "https://es.wikipedia.org/wiki/Cataratas_Kaieteur",
     },
     {
       id: "kaieteur_1",
@@ -119555,6 +120484,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Jan_Proch%C3%A1zka_%28Orbis%2C_1961%29.png",
       description: "Parque nacional Kaieteur es un parque nacional ubicado en la Región de Potaro-Siparuni en el país suramericano de Guayana.",
       descriptionEn: "The Pacaraima or Pakaraima Mountains are a mountain range primarily in southwestern Guyana, and into northern Brazil and eastern Venezuela.",
+      lat: 5.21667,
+      lng: -59.41667,
     },
     {
       id: "kaieteur_2",
@@ -119571,6 +120502,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Kaieteur_Falls_Guyana_%282%29_2007.jpg/1920px-Kaieteur_Falls_Guyana_%282%29_2007.jpg",
       description: "Las cataratas Kaieteur o Salto Kaiteur es una gran cascada ubicada en la región nororiental de Sudamérica en el país de Guyana.",
       descriptionEn: "Kaieteur Falls is one of the most powerful single-drop waterfalls in the world. It is located on the Potaro River in Kaieteur National Park, central Essequibo Territory, Guyana.",
+      lat: 5.17811,
+      lng: -59.48228,
     },
   ],
   linden: [
@@ -119589,6 +120522,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Linden-Museum_Stuttgart_2013_02.jpg/1920px-Linden-Museum_Stuttgart_2013_02.jpg",
       description: "Unter den Linden en Berlín, Alemania, es el bulevar más tradicional y conocido de la ciudad. Desde sus principios hasta la Segunda Guerra Mundial fue el centro neurálgico de la vida cultural berlinesa y el punto de encuentro de muchos ciudadanos.",
       descriptionEn: "The Linden Museum is an ethnological museum located in Stuttgart, Germany. The museum features cultural artifacts from around the world, including South and Southeast Asia, Africa, the Islamic world from the Near East to Pakistan, China and Japan, as well as artifacts from North…",
+      lat: 6.00715,
+      lng: -58.30518,
     },
     {
       id: "linden_1",
@@ -119603,8 +120538,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Minneapolis_neighborhood_Linden_Hills_%2852196921515%29.jpg/1920px-Minneapolis_neighborhood_Linden_Hills_%2852196921515%29.jpg",
-      description: "El Metro de Chicago, conocido popularmente como el Chicago «L» —de elevated —, es un sistema de transporte rápido que presta servicio en el área metropolitana de Chicago.",
+      description: "El Lago Azul de Linden es un antiguo pozo de minería de bauxita que quedó inundado y es conocido por el tono azul de sus aguas. Se visita para recreación y para conocer el paisaje formado por la minería.",
       descriptionEn: "Linden is the second largest city in Guyana after Georgetown, and capital of the Upper Demerara-Berbice region, located at 6°0′0″N 58°18′0″W, altitude 48 m (160 ft). It was declared a town in 1970, and includes the communities of MacKenzie, Christianburg, and Wismar.",
+      lat: 6.00731,
+      lng: -58.27706,
     },
     {
       id: "linden_2",
@@ -119637,8 +120574,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Maurits_neem_de_schans_Sint-Andries_in%2C_1600%2C_BI-1958-935-241.jpg/1920px-Maurits_neem_de_schans_Sint-Andries_in%2C_1600%2C_BI-1958-935-241.jpg",
-      description: "Nueva Ámsterdam es una de las más grandes ciudades de Guyana. Se encuentra a 90 km al este de la capital, Georgetown, en la región de Berbice Oriental-Corentyne en la costa atlántica.",
+      description: "El Fuerte St. Andries fue una fortificación colonial holandesa en la desembocadura del río Berbice, vinculada al origen de New Amsterdam. Se visita por su valor histórico dentro del patrimonio colonial de Guyana.",
       descriptionEn: "Fort Orange was the first permanent Dutch settlement in New Netherland; the present-day city and state capital Albany, New York developed near this site.",
+      lat: 6.26667,
+      lng: -57.5167,
     },
   ],
   lethem: [
@@ -119655,8 +120594,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lethem_Guyana_Kunuku_Mountains.jpg/960px-Lethem_Guyana_Kunuku_Mountains.jpg",
-      description: "Kanuku Mountains es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "The Kanuku Mountains are a group of mountains in Guyana, located in the Upper Takutu-Upper Essequibo region. The name means 'forest' in the Wapishana language, a reference to the rich diversity of wildlife found there.",
+      lat: 3.2,
+      lng: -59.58333,
+      dayTrip: true,
     },
     {
       id: "lethem_1",
@@ -119671,7 +120612,6 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/57/Lethem.jpg",
-      description: "Cashew Grove Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Lethem is a town in Guyana’s south, located in the Upper Takutu-Upper Essequibo region. It is the regional capital of Upper Takutu-Upper Essequibo.",
     },
     {
@@ -119703,7 +120643,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 480,
       website: "https://www.iwokrama.org/",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_Guyana.svg/langes-1280px-Flag_of_Guyana.svg.png",
-      description: "Guyana, oficialmente la República Cooperativa de Guyana, es un país ubicado en la costa norte de América del Sur y el Caribe, miembro de la Unasur, CELAC y miembro asociado del Mercosur. Georgetown es la capital de Guyana y también es la ciudad más grande del país.",
+      description: "La Reserva Forestal de Iwokrama es un área protegida de selva tropical en el centro de Guyana, con bosques, ríos y una pasarela en el dosel. Se visita por su biodiversidad y por los programas de conservación y uso sostenible.",
       descriptionEn: "The Iwokrama Forest is a 3,716 square kilometres (1,435 sq mi) nature reserve of central Guyana located in the Guiana Shield, The area is 85 km (53 mi) at its widest point east to west and 80 km (50 mi) north to south. It is bisected by the Georgetown–Lethem Road.",
     },
     {
@@ -119719,7 +120659,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.7,
       estimatedMinutes: 480,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sex_ratio_effects_on_reproductive_strategies_in_humans.pdf/page1-960px-Sex_ratio_effects_on_reproductive_strategies_in_humans.pdf.jpg",
-      description: "Rupununi Savannah es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La Sabana de Rupununi es una amplia región de sabanas y humedales en el sur de Guyana, alrededor de Lethem. Se visita por su paisaje abierto, su fauna y las comunidades indígenas y ganaderas que la habitan.",
       descriptionEn: "The Rupununi savannah is a savanna plain in Guyana, in the Upper Takutu-Upper Essequibo region. It is part of the Guianan savanna ecoregion of the tropical and subtropical grasslands, savannas, and shrublands biome.",
     },
   ],
@@ -119739,6 +120679,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Historic_Inner_City_of_Paramaribo-113545.jpg/1920px-Historic_Inner_City_of_Paramaribo-113545.jpg",
       description: "El centro histórico de Paramaribo, se encuentra en la ciudad de Paramaribo que refleja una villa colonial neerlandesa de los siglos XVII y XVIII situada en la costa norte de América del Sur, es hoy la capital de Surinam.",
       descriptionEn: "This is a list of buildings that are examples of Art Deco in the Americas:",
+      lat: 5.826,
+      lng: -55.15387,
     },
     {
       id: "paramaribo_1",
@@ -119755,6 +120697,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg/1920px-Zicht_op_buitenmuur_aan_de_rivierzijde_met_zicht_op_bastion_-_Paramaribo_-_20377866_-_RCE.jpg",
       description: "El Fuerte Zeelandia es una fortaleza que se construyó alrededor de un puesto fronterizo de comercio por colonos ingleses a principios del siglo XVII en lo que hoy es Surinam.",
       descriptionEn: "This is a list of bastion forts.",
+      lat: 5.82528,
+      lng: -55.15,
     },
     {
       id: "paramaribo_2",
@@ -119771,6 +120715,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Palmentuin%2C_Paramaribo_%2830394425793%29.jpg/1920px-Palmentuin%2C_Paramaribo_%2830394425793%29.jpg",
       description: "Palmentuin es un parque público situado en la ciudad de Paramaribo, capital de Surinam. Su principal atractivo son las palmeras reales, plantadas durante la época colonial neerlandesa. Se ubica en la avenida Van Roseveltkade, detrás del Palacio Presidencial de Surinam.",
       descriptionEn: "Garden of Palms or Palmgardens is a palm tree landscape garden in Paramaribo, Suriname. In addition to tall royal palms, the grounds are home to tropical birds and a \"troop\" of capuchin monkeys.",
+      lat: 5.82806,
+      lng: -55.15,
     },
     {
       id: "paramaribo_3",
@@ -119799,8 +120745,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Sinagoga Neveh Shalom y Mezquita Keizerstraat es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Sinagoga Neveh Shalom y Mezquita Keizerstraat is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La sinagoga Neveh Shalom y la mezquita de Keizerstraat están una junto a otra en la calle Keizerstraat, en el centro de Paramaribo. El conjunto se visita por su convivencia arquitectónica y religiosa en la historia de la ciudad.",
+      descriptionEn: "The Neveh Shalom synagogue and the Keizerstraat mosque stand side by side on Keizerstraat in central Paramaribo. The site is visited for its architectural and religious coexistence in the city's history.",
     },
     {
       id: "paramaribo_5",
@@ -119816,8 +120762,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/04/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60005614_Het_Fort_Nieuw_Amsterdam_gelegen_waar.jpg",
       website: "https://www.fortnieuwamsterdam.com/",
-      description: "Commewijne es uno de los diez distritos en los que se encuentra dividida la república de Surinam. Delimita al norte con el océano Atlántico, al este con Marowijne, al sur con Para y al oeste con Paramaribo y Wanica separado de estos por el río Surinam.",
+      description: "Fuerte Nieuw-Amsterdam es una fortaleza colonial situada en la confluencia de los ríos Suriname y Commewijne, frente a Paramaribo. Hoy funciona como museo al aire libre y se visita por su historia y las vistas fluviales.",
       descriptionEn: "Fort Nieuw-Amsterdam is a fort in Suriname built from 1734 to 1747 at the confluence of the Suriname and Commewijne rivers. It is open to the public as an open-air museum.",
+      lat: 5.88806,
+      lng: -55.09167,
     },
     {
       id: "paramaribo_6",
@@ -119833,8 +120781,10 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Koto_Museum%2C_5.jpg/1920px-Koto_Museum%2C_5.jpg",
       website: "https://www.hetkotomuseum.org/",
-      description: "Koto Museum es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "El Museo Koto, en Paramaribo, exhibe trajes tradicionales koto y objetos relacionados con la cultura criolla surinamesa. Se visita para conocer la historia y los usos de esta vestimenta en la vida de las mujeres.",
       descriptionEn: "This is a list of museums in Suriname. Suriname is a small country on the north-eastern coast of South America, and a former Dutch colony.",
+      lat: 5.83333,
+      lng: -55.15,
     },
     {
       id: "paramaribo_7",
@@ -119867,6 +120817,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Fort_Zeelandia%2C_Paramaribo%2C_Suriname.jpg",
       description: "El Fuerte Zeelandia es una fortaleza que se construyó alrededor de un puesto fronterizo de comercio por colonos ingleses a principios del siglo XVII en lo que hoy es Surinam.",
       descriptionEn: "Fort Zeelandia is a fortress in Paramaribo, Suriname. In 1640 the French built a wooden fort on the spot which, during British colonial period, was reinforced and became Fort Willoughby. It was taken by the Dutch in 1667 and renamed Fort Zeelandia.",
+      lat: 5.82528,
+      lng: -55.15,
     },
     {
       id: "paramaribo_9",
@@ -119881,8 +120833,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/79/Sana_Budaya.jpg",
-      description: "Sana Budaya es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Sana Budaya is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Sana Budaya es un centro cultural y museo en Paramaribo dedicado a la cultura javanesa-surinamesa. Reúne objetos, instrumentos y expresiones artísticas que muestran la herencia javanesa en el país.",
+      descriptionEn: "Sana Budaya is a cultural center and museum in Paramaribo dedicated to Javanese-Surinamese culture. It brings together objects, instruments, and artistic expressions that show the country's Javanese heritage.",
+      lat: 5.85569,
+      lng: -55.14111,
     },
     {
       id: "paramaribo_10",
@@ -119900,6 +120854,8 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.kathedraalsuriname.org",
       description: "La Catedral-Basílica de San Pedro y San Pablo es el mayor templo cristiano de Surinam y se encuentra en el centro histórico de la ciudad de Paramaribo, que desde 2002 es considerado Patrimonio de la Humanidad por la Unesco. Es la catedral de la diócesis de Paramaribo.",
       descriptionEn: "The Cathedral-Basilica of Saint Peter and Paul, also called Saint Peter and Paul Cathedral, is a wooden Roman Catholic cathedral located in the centre of the capital city of Paramaribo, Suriname.",
+      lat: 5.82868,
+      lng: -55.15409,
     },
     {
       id: "paramaribo_11",
@@ -119914,8 +120870,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Paramaribo_-_Onafhankelijkheidsplein_-_standbeeld_Jagernath_Lachmon_20160922.jpg/1920px-Paramaribo_-_Onafhankelijkheidsplein_-_standbeeld_Jagernath_Lachmon_20160922.jpg",
-      description: "La Asamblea Nacional de la República de Surinam es el órgano unicameral encargado de ejercer el poder legislativo en Surinam.",
+      description: "La estatua de Jagernath Lachmon honra al político surinamés fundador del VHP y defensor de la cooperación entre comunidades. Se encuentra en Paramaribo como homenaje a su papel en la vida política del país.",
       descriptionEn: "Jagernath Lachmon, also Jaggernath Lachmon, was a Surinamese politician. He was one of the founders of the Progressive Reform Party (VHP), an Indo-Surinamese party founded in 1947 of which he served as president until his death.",
+      lat: 5.82624,
+      lng: -55.15201,
     },
     {
       id: "paramaribo_12",
@@ -119930,8 +120888,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Paramaribo_-_Knuffelsgracht_-_standbeeld_Gandhi_20160930.jpg/1920px-Paramaribo_-_Knuffelsgracht_-_standbeeld_Gandhi_20160930.jpg",
-      description: "La Conferencia Mundial de Hindi es una conferencia internacional sobre lengua hindi en la que participan académicos vinculados con la lengua hindi, escritores, y amantes del hindi en general de todas partes del mundo, con el objetivo de contribuir al desarrollo y expansión de…",
+      description: "La estatua de Mahatma Gandhi en Paramaribo rinde homenaje al líder indio y a su legado de no violencia. Forma parte de los monumentos públicos que reflejan la diversidad cultural de Suriname.",
       descriptionEn: "Marie Majoie Hajary was a Surinamese-born Dutch-French composer and pianist of contemporary classical music and jazz. She was also a translator and wrote several books for pianists.",
+      lat: 5.82568,
+      lng: -55.15697,
     },
     {
       id: "paramaribo_13",
@@ -119948,6 +120908,8 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Paramaribo_-_Kerkplein_-_buste_Simon_Bolivar_20160410.jpg/1920px-Paramaribo_-_Kerkplein_-_buste_Simon_Bolivar_20160410.jpg",
       description: "El Aeropuerto Internacional Simón Bolívar de Maiquetía es el principal aeropuerto que sirve a Caracas, Venezuela. Está ubicado en la parroquia Urimare de La Guaira y funciona como el principal punto de entrada y salida aérea internacional del país.",
       descriptionEn: "SS Simon Bolivar was a Dutch transatlantic passenger-cargo liner that was built in 1927. Her regular route was between Amsterdam and the Caribbean.",
+      lat: 5.82681,
+      lng: -55.15561,
     },
     {
       id: "paramaribo_14",
@@ -119962,8 +120924,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Paramaribo_-_Onafhankelijkheidsplein_-_standbeeld_Johan_Adolf_Pengel_20161004.jpg/1920px-Paramaribo_-_Onafhankelijkheidsplein_-_standbeeld_Johan_Adolf_Pengel_20161004.jpg",
-      description: "Johan Adolf Pengel Standbeeld es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "La estatua de Johan Adolf Pengel recuerda al ex primer ministro surinamés, una figura central de la política del siglo XX. Se visita como parte de los homenajes públicos a líderes históricos del país.",
       descriptionEn: "Johan Adolf \"Jopie\" Pengel was a Surinamese politician, and prime minister of Suriname from 30 June 1963 to 5 March 1969 for the National Party of Suriname (NPS).",
+      lat: 5.82652,
+      lng: -55.15204,
     },
   ],
   nieuwnikk: [
@@ -119980,8 +120944,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Vooraanzicht_en_zijaanzicht_gevels_-_Nieuw-Nickerie_-_20418045_-_RCE.jpg/1920px-Vooraanzicht_en_zijaanzicht_gevels_-_Nieuw-Nickerie_-_20418045_-_RCE.jpg",
-      description: "Volksplein es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Volksplein is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Volksplein es una plaza pública en el centro de Nieuw Nickerie, Suriname. Se visita como espacio abierto para caminar y observar la vida cotidiana de la ciudad.",
+      descriptionEn: "Volksplein is a public square in central Nieuw Nickerie, Suriname. It is visited as an open space for walking and observing everyday city life.",
+      lat: 5.94636,
+      lng: -56.99281,
     },
     {
       id: "nieuwnikk_1",
@@ -119996,7 +120962,6 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Rotterdamsche_courant_13-04-1857_%28IA_ddd_010397132_mpeg21%29.pdf/page1-1280px-Rotterdamsche_courant_13-04-1857_%28IA_ddd_010397132_mpeg21%29.pdf.jpg",
-      description: "No. 63 Beach es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
       descriptionEn: "Rotterdam is the second-largest city in the Netherlands by population and the largest by area (319.4 km2). It is in the province of South Holland, part of the North Sea mouth of the Rhine–Meuse–Scheldt delta, via the New Meuse inland shipping channel, dug to connect to the Meuse…",
     },
   ],
@@ -120014,8 +120979,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Leoval_op_de_brownsberg.jpg/960px-Leoval_op_de_brownsberg.jpg",
-      description: "Brownsberg Natuurpark es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Brownsberg Natuurpark is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Parque natural Brownsberg es un área protegida en Surinam ubicado en el distrito de Brokopondo. El parque es habitat del perezoso de tres dedos, caique de cabeza negra, mono maicero, ameiva gigante, gecko cola de nabo, corocoro rojo y otras especies.",
+      descriptionEn: "Brownsberg Nature Park is a nature park located in Suriname. The site measures 12,000 ha and is located in the district of Brokopondo around 130 km south from the capital city Paramaribo. The 500-meter high Brownsberg is the central point of the park.",
+      lat: 4.943,
+      lng: -55.176,
+      sourceUrl: "https://es.wikipedia.org/wiki/Parque_natural_Brownsberg",
     },
     {
       id: "brownsweg_1",
@@ -120030,8 +120998,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Brokopondo_reservoir.jpg",
-      description: "Berg en Dal es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      description: "Berg en Dal es un complejo turístico junto al río Suriname, cerca de Brownsweg. Se visita como base para excursiones por la zona del lago Brokopondo.",
       descriptionEn: "Brokopondo is a district of Suriname. Its capital city is Brokopondo; other towns include Brownsweg and Kwakoegron.",
+      lat: 5.13574,
+      lng: -55.06863,
     },
     {
       id: "brownsweg_2",
@@ -120121,8 +121091,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.8,
       estimatedMinutes: 480,
-      description: "Reserva Natural Central Surinam es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Reserva Natural Central Surinam is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Reserva Natural Central de Surinam es una gran área protegida de selva tropical en el centro de Surinam, declarada Patrimonio de la Humanidad por la UNESCO. Alberga rápidos, montañas y alta diversidad biológica.",
+      descriptionEn: "The Central Suriname Nature Reserve is a large protected rainforest area in central Suriname, designated a UNESCO World Heritage Site. It contains rapids, mountains and high biodiversity.",
     },
     {
       id: "brownsweg_8",
@@ -120138,7 +121108,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Trionfale_-_S._Pio_X_6.JPG/960px-Trionfale_-_S._Pio_X_6.JPG",
       description: "Brokopondo es uno de los distritos de la república de Surinam. La capital es la ciudad homónima. Tiene 14.215 habitantes, una extensión de 7.364 km² y una densidad de 1,9 Hab/km². El embalse Brokopondo se sitúa en el distrito.",
-      descriptionEn: "Lago Brokopondo is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Brokopondo Lake is an artificial reservoir formed by the Afobaka Dam on the Suriname River. It is visited for its flooded-forest landscapes, fishing and boat trips.",
     },
     {
       id: "brownsweg_9",
@@ -120152,9 +121122,13 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/960px-Flag_of_Suriname.svg.png",
-      description: "Jodensavanne es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Jodensavanne.jpg/1280px-Jodensavanne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      description: "Jodensavanne fue el nombre que se dio a un asentamiento judío en Surinam, el mismo se encuentra en el Distrito de Pará, a unos 50 km al sur de la capital Paramaribo, en la márgenes del río Surinam y fue declarado Patrimonio de la Humanidad por la Unesco en 2023.",
       descriptionEn: "Suriname, officially the Republic of Suriname, is a country in northern South America, also considered as part of the Caribbean and the West Indies.",
+      lat: 5.4312,
+      lng: -54.9823,
+      dayTrip: true,
+      sourceUrl: "https://es.wikipedia.org/wiki/Jodensavanne",
     },
   ],
   albina: [
@@ -120171,7 +121145,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Camp_de_la_Transportation-13.jpg/960px-Camp_de_la_Transportation-13.jpg",
-      description: "The Battery, antes conocido como Battery Park, es un parque público de 10 h ubicado en el extremo sur de la isla de Manhattan en Nueva York frente al puerto de Nueva York.",
+      description: "El Campo de la Transportación es el antiguo centro penitenciario de Saint-Laurent-du-Maroni, en la Guayana Francesa, y se visita para conocer la historia del sistema penal colonial.",
       descriptionEn: "Saint-Laurent-du-Maroni is a commune of French Guiana, an overseas region and department of France located in South America. Saint-Laurent-du-Maroni is one of the three sub-prefectures of French Guiana and the seat of the Arrondissement of Saint-Laurent-du-Maroni.",
     },
     {
@@ -120187,7 +121161,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/StLaurent-02.jpg/960px-StLaurent-02.jpg",
-      description: "Jean Marais, de nombre completo Jean Alfred Villain-Marais fue un actor francés, además de director de cine y teatro, escritor, pintor, escultor y ceramista.",
+      description: "La Iglesia de San Lorenzo es un templo católico situado en Saint-Laurent-du-Maroni, en la orilla francesa del río Marowijne, y forma parte del patrimonio histórico de la localidad.",
       descriptionEn: "The historical villas of Monaco represent a significant example of residential architecture. Originally seen as symbols of Belle Epoque luxury, they were once emblematic of the Principality itself.",
     },
     {
@@ -120265,8 +121239,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Débarcadère du bagne de Saint-Laurent-du-Maroni es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Débarcadère du bagne de Saint-Laurent-du-Maroni is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El embarcadero del penal de Saint-Laurent-du-Maroni es el muelle histórico asociado al antiguo sistema penitenciario, por donde llegaban y partían embarcaciones de la colonia penal.",
+      descriptionEn: "The Saint-Laurent-du-Maroni penal colony landing stage is the historic wharf linked to the former prison system, where vessels of the penal colony arrived and departed.",
     },
     {
       id: "albina_7",
@@ -120297,7 +121271,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 360,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/langes-960px-Flag_of_Suriname.svg.png",
       description: "Surinam o Suriname, oficialmente República de Surinam o República de Suriname, antiguamente conocida como Guayana Neerlandesa; es un país ubicado en el norte de América del Sur y el Caribe, que colinda con el océano Atlántico al norte, con el departamento de ultramar francés de…",
-      descriptionEn: "Reserva Natural Galibi is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "Galibi Nature Reserve lies on the northeastern coast of Suriname, near Albina, and protects sea turtle nesting beaches and mangrove areas.",
     },
     {
       id: "albina_9",
@@ -120313,7 +121287,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/langes-960px-Flag_of_Suriname.svg.png",
       description: "Surinam o Suriname, oficialmente República de Surinam o República de Suriname, antiguamente conocida como Guayana Neerlandesa; es un país ubicado en el norte de América del Sur y el Caribe, que colinda con el océano Atlántico al norte, con el departamento de ultramar francés de…",
-      descriptionEn: "Río Marowijne – Frontera con Francia is a recommended place to visit and one of the standout attractions in the area.",
+      descriptionEn: "The Marowijne River forms the border between Suriname and French Guiana; from Albina, its channel and the crossing to Saint-Laurent-du-Maroni can be seen.",
     },
     {
       id: "albina_10",
@@ -120329,7 +121303,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Catalogue_de_la_biblioth%C3%A8que_paroissiale_%28microforme%29_%28IA_cihm_47193%29.pdf/page1-960px-Catalogue_de_la_biblioth%C3%A8que_paroissiale_%28microforme%29_%28IA_cihm_47193%29.pdf.jpg",
       description: "Marie-Joseph Lagrange fue un teólogo francés de la orden de los dominicos, y fundador de la Escuela bíblica y arqueológica francesa de Jerusalén.",
-      descriptionEn: "Église Saint-Bernard is a recommended place to visit and one of the standout attractions in the area.",
     },
     {
       id: "albina_11",
