@@ -4218,7 +4218,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Centro de arte digital instalado en una antigua base de submarinos, donde proyecciones inmersivas de gran formato ocupan los muros y los diques de agua.",
       descriptionEn: "Digital art center housed in a former submarine base, where large-scale immersive projections cover the walls and water basins.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/71/Gustav_Klimt_-_d%27or_et_du_couleurs.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bordeaux_30",
@@ -9532,7 +9531,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.7,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Karte_Mittelrhein.png?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       description: "El Rin medio es uno de los tramos alemanes del río Rin, el que discurre entre las ciudades de Bingen y Bonn, en que el río fluye a través de la garganta del Rin.",
       descriptionEn: "The Rhine is one of the major rivers of Europe. The river begins in the Swiss canton of Graubünden in the southeastern Swiss Alps. It forms part of the Swiss–Liechtenstein border, then part of the Swiss–Austrian border.",
     },
@@ -55387,7 +55385,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Lichtenau_%28Baden%29_Heimatmuseum_Hans-Michels-Haus_2021%2C_360%C2%B0.jpg/3840px-Lichtenau_%28Baden%29_Heimatmuseum_Hans-Michels-Haus_2021%2C_360%C2%B0.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
       description: "Francesco Lojacono pintor italiano, paisajista del siglo XIX. Locajono se inició en la pintura con su padre Luigi.",
       descriptionEn: "The Museo Archeologico Regionale Paolo Orsi of Syracuse, Sicily is one of the principal archaeological museums of Europe.",
       lat: 37.29678,
@@ -57587,7 +57584,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Ioannes_XXIII%2C_by_De_Agostini%2C_1958%E2%80%931963.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       website: "https://www.saint-paul.paroisse84.fr/",
       description: "La Église Jean XXIII es una iglesia parroquial católica situada en Aviñón, Francia, dedicada al papa Juan XXIII.",
       descriptionEn: "The Église Jean XXIII is a Catholic parish church located in Avignon, France, dedicated to Pope John XXIII.",
@@ -79612,7 +79608,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d4/2014_08_20_007_Burg_Spangenberg.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       description: "Felsenburg (\"castillo de roca\") es el nombre dado a un castillo construido directamente sobre un afloramiento rocoso, un estilo de fortificación característico de la región de Turingia, Alemania.",
       descriptionEn: "Felsenburg (\"rock castle\") is the name given to a castle built directly atop a rocky outcrop, a fortification style characteristic of the Thuringia region of Germany.",
     },
@@ -150407,7 +150402,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Stamps_of_Uzbekistan%2C_2011-28.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       website: "https://shs-nancy.univ-lorraine.fr/le-musee-archeologique/",
       description: "El Centro de los monumentos nacionales es un establecimiento público francés de carácter administrativo que depende del ministerio de la Cultura y de la Comunicación.",
       descriptionEn: "The Musée d'Orsay is a museum in Paris, France, on the Left Bank of the Seine. It is housed in the former Gare d'Orsay, a Beaux-Arts railway station built from 1898 to 1900.",
@@ -151827,7 +151821,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A Hausmadonna is an image of the Virgin Mary placed on building corners or portals, as well as on churches and city gates. This one dates from between 1701 and 1715.",
       lat: 49.41172,
       lng: 8.7062,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/71/W%C3%BCrzburg_-_Blasiusgasse_9_Hausmadonna.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       sourceUrl: "https://de.wikipedia.org/wiki/Hausmadonna",
     },
     {
@@ -153945,7 +153938,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Quay Street es una calle histórica del centro de Galway, en el llamado Barrio Latino, con fachadas antiguas, pubs y comercios. Se recorre por su ambiente y su relación con la vida urbana tradicional.",
       descriptionEn: "Quay Street is a historic street in central Galway, in the Latin Quarter, with old facades, pubs and shops. It is walked for its atmosphere and its connection to traditional city life.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2b/O%27Connell_Street_from_Nelson%27s_Pillar_in_1964.jpg?utm_source=ga.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "galway_25",
@@ -156532,7 +156524,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Fishbourne_model.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       website: "https://www.mnha.lu/",
       description: "El Castillo de Vianden, ubicado en la comuna y villa de Vianden en el norte de Luxemburgo, es uno de los castillos más grandes del oeste del río Rin. Data del siglo IV y se usó originalmente como un puesto de avanzada romano.",
       descriptionEn: "organization",
@@ -163698,7 +163689,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "El casco antiguo de Berna conserva alrededor de once fuentes monumentales del siglo XVI, rematadas por columnas con figuras pintadas, muchas atribuidas al escultor Hans Gieng, que marcan plazas y esquinas.",
       descriptionEn: "Bern's old town preserves around eleven monumental 16th-century fountains topped with painted figure columns, many attributed to sculptor Hans Gieng, marking squares and street corners.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Fontaine_de_Saint_Georges_Fribourg_Geiler_01.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bern_42",
@@ -164187,7 +164177,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "Sendero de montaña sobre Zermatt que une Blauherd y Sunnegga pasando por cinco lagos alpinos: Stellisee, Grindjisee, Grünsee, Moosjisee y Leisee, con vistas al Matterhorn y al valle.",
       descriptionEn: "Mountain trail above Zermatt linking Blauherd and Sunnegga past five alpine lakes: Stellisee, Grindjisee, Grünsee, Moosjisee and Leisee, with views of the Matterhorn and the valley.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/17/Karte-186.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "zermatt_25",
@@ -168581,7 +168570,6 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://balireptilepark.id/",
       description: "El Parque de Reptiles de Bali es un parque en Singapadu, Gianyar, dedicado a reptiles y anfibios. Se visita para observar serpientes, cocodrilos, tortugas y otras especies en recintos y exhibiciones.",
       descriptionEn: "Badung Regency is a regency (kabupaten) of the province of Bali, Indonesia. Its regency seat is in the upland town of Mangupura. It covers districts to the west of the provincial capital of Denpasar, and it has a land area of 398.75 km2.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Komodo_Indonesian_Fauna_Museum.jpg?utm_source=id.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "denpasar_16",
@@ -170762,7 +170750,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "Las excursiones de isla en isla salen en lancha desde Langkawi y recorren islas cercanas como Dayang Bunting y Beras Basah, con paradas para nadar y observar el paisaje.",
       descriptionEn: "Island-hopping tours leave by boat from Langkawi and visit nearby islands such as Dayang Bunting and Beras Basah, with stops for swimming and viewing the landscape.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Perhentian_Kecil_from_far.JPG?utm_source=ms.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "langkawi_31",
@@ -174871,7 +174858,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Patong refers to the beach and town on Phuket's west coast. It is the main tourist resort on the island of Phuket, and is the centre of Phuket's nightlife and shopping. The beach became popular with Western tourists, especially Europeans, in the late-1980s.",
       lat: 7.89663,
       lng: 98.29543,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Beautiful_girls_at_Phuket_Bike_Week_2019%2C_Patong_beach%2C_Thailand_%2847780338252%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "phuket_22",
@@ -181392,7 +181378,6 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.wwfbhutan.org.bt/projects_/bhutan_biological_conservation_complex/jigme_dorji_national_park/",
       description: "En Bután hay, en 2025, 23 áreas protegidas que ocupan unos 19.974 km², el 51,63% del territorio. De estas, 5 son parques nacionales, 9 son corredores biológicos, 4 son santuarios de la naturaleza, 1 es una reserva estricta, 1 es un monumento natural y 3 son sitios Ramsar que…",
       descriptionEn: "The Motithang Takin Preserve in Thimphu is a forested enclosure that is home to the takin, Bhutan's national animal. Visitors come to watch this unusual bovid at close range from a paved path.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Densely_forested_mountains_of_Jigme_Dorji_NP_AJTJ_IMG_1394.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "punakha_1",
@@ -188800,7 +188785,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Ykylas Museum of Folk Musical Instruments preserves traditional Kazakh instruments and pieces from other cultures. Its collection documents folk music and the work of craftspeople and performers.",
       lat: 43.25948,
       lng: 76.95687,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Dombra1.jpg?utm_source=kk.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_7",
@@ -188854,7 +188838,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The following is a list of national founders of sovereign states who were credited with establishing a state. National founders are typically those who played an influential role in setting up the systems of governance,, of the country.",
       lat: 43.25281,
       lng: 76.94963,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/85/Dinmuhkamed_Konayev.png?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_10",
@@ -189180,7 +189163,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Presidential Archive of Kazakhstan is a state archive in Almaty that preserves documents from the presidency and the country's political history. Its interest is documentary and historical, mainly for researchers.",
       lat: 43.24008,
       lng: 76.95678,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/kk/7/75/%D0%9F%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82_%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D1%96_%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%D1%96.png?utm_source=kk.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_28",
@@ -191116,7 +191098,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The name Beirut Hippodrome refers to two racecourses in Lebanon: a historic one from the Roman era and a modern one built in the 19th century.",
       lat: 33.89721,
       lng: 35.49992,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Caesarea_Hippodrome_P1080584.JPG?utm_source=ar.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "beirut_11",
@@ -204670,7 +204651,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Templo de Adriano es un santuario parcialmente reconstruido en la antigua ciudad de Éfeso, en el oeste de la actual Turquía. Está situado en la calle de los Curetes en el suroeste de la ciudad.",
       descriptionEn: "Temple dedicated to Emperor Hadrian on Curetes Street in Ephesus; its facade with columns and reliefs, rebuilt in the 20th century, is a highlight.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/M%C3%BCnchen_SMAEK_2019-03-23n.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "ephesus_6",
@@ -204822,7 +204802,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "serie de manga y anime",
       descriptionEn: "Ephesus was an ancient Greek city on the coast of Ionia, in present-day Selçuk in İzmir Province, Turkey. It was built in the 10th century BC on the site of Apasa, a city-state that was also the capital of Arzawa, by Attic and Ionian Greek colonists.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Downtown_Phoenix_Aerial_Looking_Northeast.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "ephesus_15",
@@ -204930,7 +204909,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Gillis van den Vliete, conocido en Italia como Egìdio della Riviera fue un escultor flamenco, restaurador de esculturas antiguas y anticuario. Su carrera activa transcurrió en Italia, principalmente en Roma.",
       descriptionEn: "Lydia was an Indo-European Iron Age kingdom situated in western Anatolia, in modern-day Turkey. Later, it became an important province of the Achaemenid Empire and then the Roman Empire. Its capital was Sardis.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Fresh_grave.JPG?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "ephesus_22",
@@ -205633,7 +205611,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The National Music and Drama Theater of Turkmenistan named after Magtymguly is located on Görogly Street in Ashgabat.",
       lat: 37.93894,
       lng: 58.38405,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/62/Lenin_Statue_%285730564615%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "ashgabat_23",
@@ -206780,7 +206757,6 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.uzgeolcom.uz/ru/",
       description: "Museo de Taskent dedicado a la geología de Uzbekistán, con colecciones de minerales, rocas y fósiles que ilustran la historia geológica del país.",
       descriptionEn: "This is a list of natural history museums whose exhibits focus on the subject of natural history, including such topics as animals, plants, ecosystems, geology, paleontology, and climatology.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/Conglomerate_from_the_riverbed_of_Isfayramsoy_river.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_1",
@@ -206963,7 +206939,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is a list of General Motors factories that are being or have been used to produce automobiles and automobile components. The factories are occasionally idled for re-tooling.",
       lat: 41.30548,
       lng: 69.28042,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Vario_LF_3205_in_Tashkent.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_11",
@@ -207692,7 +207667,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Mezquita histórica de Bujará vinculada a un barrio tradicional de la ciudad. Su conjunto incluye una sala de oración y espacios comunitarios, y refleja la arquitectura religiosa local.",
       descriptionEn: "Historic mosque in Bukhara linked to a traditional neighborhood. Its complex includes a prayer hall and community spaces, reflecting local religious architecture.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/60/MosqueICO.png?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bukhara_8",
@@ -213033,7 +213007,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/74/Skatepark_Valencia_Spain.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       descriptionEn: "This is a list of notable people reported as having died either from coronavirus disease 2019 (COVID-19), as a result of infection by the virus SARS-CoV-2 during the COVID-19 pandemic, from its initial identification in January 2020 through the World Health Organization's…",
       lat: -18.89793,
       lng: 47.52383,
@@ -215168,7 +215141,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Maputo is the capital and largest city of Mozambique. Located near the southern end of the country, it is within 120 kilometres of the borders with Eswatini and South Africa. The city has a population of 1,088,449 distributed over a land area of 347.69 km2 (134.24 sq mi).",
       lat: -25.96671,
       lng: 32.57174,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Lisbonne_Mus%C3%A9e_du_Chiado.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "maputo_6",
@@ -217298,7 +217270,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/France-002009_-_Our_Lady_of_Lourdes_%2815774765182%29.jpg/3840px-France-002009_-_Our_Lady_of_Lourdes_%2815774765182%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
       description: "La iglesia católica Nuestra Señora de Lourdes y sus anexos forma parte del patrimonio religioso de Saint-Louis; se visita por su arquitectura y por su presencia en la vida parroquial local.",
       descriptionEn: "The University of Notre Dame was founded on November 26, 1842, by Father Edward Sorin, CSC, who was also its first president, as an all-male institution on land donated by the Bishop of Vincennes.",
     },
@@ -219758,7 +219729,6 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/URITHI_Tanga_Museum.jpg?utm_source=sw.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       website: "http://www.culturalheritage.co.tz",
       description: "El Museo Nacional de Tanzania es una institución museística nacional de Tanzania dedicada a la conservación, investigación y difusión del patrimonio cultural, histórico y natural del país.",
       descriptionEn: "Arusha is a city in Tanzania. The city is the capital of the Arusha Region. It has a population of 617,631 people.",
@@ -228633,7 +228603,6 @@ export const CURATED_ALL: CuratedMap = {
       lng: -78.9998,
       description: "Sitio arqueológico en Cuenca con restos de muros y estructuras de origen inca. Se visita para conocer el pasado prehispánico de la ciudad.",
       descriptionEn: "Archaeological site in Cuenca with remains of walls and structures of Inca origin. It is visited to learn about the city's pre-Hispanic past.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Cuenca_Houses_seen_from_Puente_de_Todos_Santos_to_the_northeast.jpg/1280px-Cuenca_Houses_seen_from_Puente_de_Todos_Santos_to_the_northeast.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "cuenca_27",
