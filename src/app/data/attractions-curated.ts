@@ -52404,7 +52404,6 @@ export const CURATED_ALL: CuratedMap = {
       lng: 21.0286,
       description: "Museo interactivo de ciencia a orillas del Vístula, con cientos de exhibiciones para tocar y experimentar, planetario y salas dedicadas a la robótica y la biología.",
       descriptionEn: "An interactive science museum on the bank of the Vistula, with hundreds of hands-on exhibits, a planetarium and galleries devoted to robotics and biology.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Centrum_Nauki_Kopernik_-_Mercedes-Benz_F015_%28prz%C3%B3d%29.jpg/1280px-Centrum_Nauki_Kopernik_-_Mercedes-Benz_F015_%28prz%C3%B3d%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "warsaw_22",
@@ -145136,7 +145135,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "La Grote Markt es la plaza principal de Brujas, Bélgica, situada en el centro de la ciudad y tiene una superficie de una hectárea. En la zona meridional de la plaza se encuentra el campanario de Brujas del siglo XIII, uno de los monumentos más célebres de la ciudad.",
       descriptionEn: "The Markt square is the historic center of Bruges, surrounded by guild houses and dominated by the Belfry. It is a meeting point and a starting point for exploring the old town.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9d/De_Markt_in_Brugge%2C_circa_1696%2C_Groeningemuseum%2C_0040233000.jpg?utm_source=nl.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bruges_2",
@@ -146278,7 +146276,6 @@ export const CURATED_ALL: CuratedMap = {
       lng: 3.72278,
       description: "El S.M.A.K. es el Museo Municipal de Arte Contemporáneo de Gante. Se ubica en el Parque de la Ciudadela y reúne obras de arte contemporáneo, con énfasis en colecciones belgas e internacionales.",
       descriptionEn: "S.M.A.K. is Ghent's Municipal Museum of Contemporary Art. It is located in the Citadel Park and holds contemporary artworks, with emphasis on Belgian and international collections.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Luc_Tuymans_Body_1990_Collection_S.M.A.K._Stedelijk_Museum_voor_Actuele_Kunst%2C_Ghent.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "ghent_39",
@@ -146368,7 +146365,6 @@ export const CURATED_ALL: CuratedMap = {
       lng: 3.71976,
       description: "El Design Museum Gent está dedicado al diseño y las artes decorativas. Ocupa un edificio histórico y una ampliación moderna, y presenta colecciones de mobiliario, objetos y diseño gráfico.",
       descriptionEn: "Design Museum Gent is devoted to design and decorative arts. It occupies a historic building and a modern extension, and presents collections of furniture, objects, and graphic design.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Wiki_Women_Design_edit-a-thon_Design_Museum_Gent_x_Flanders_DC_XII.jpg/1280px-Wiki_Women_Design_edit-a-thon_Design_Museum_Gent_x_Flanders_DC_XII.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "ghent_44",
@@ -154624,7 +154620,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "St Anne's Church in the Shandon district, north of Cork city centre, is known for its tower topped by a fish-shaped weathervane and for its bells, which visitors can ring; the tower gives views over the city.",
       lat: 51.90471,
       lng: -8.47615,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Aerial-View-Cork-City--Cathedral_of_St_Mary_%26_St_Anne%2C_Shandon.jpg/1280px-Aerial-View-Cork-City--Cathedral_of_St_Mary_%26_St_Anne%2C_Shandon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "cork_33",
@@ -163481,7 +163476,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Medieval tower in Bern with an astronomical clock and mechanical figures; it is a symbol of the Old Town and is visited to see its facade and mechanism.",
       lat: 46.94795,
       lng: 7.4478,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Bern%2C_Zytglogge%2C_offizielle_L%C3%A4ngenmasse_-_Erkl%C3%A4rungstafel.jpg/1280px-Bern%2C_Zytglogge%2C_offizielle_L%C3%A4ngenmasse_-_Erkl%C3%A4rungstafel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bern_31",
@@ -174122,7 +174116,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Jurong Lake Gardens are the three interconnected gardens located in and around Jurong Lake in western Singapore, they being the Chinese, Japanese, and Lakeside gardens.",
       lat: 1.34241,
       lng: 103.73255,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Chinese_Garden_Station_to_Exit_B_10-11-2023.jpg/1280px-Chinese_Garden_Station_to_Exit_B_10-11-2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "singaporecity_18",
@@ -183257,7 +183250,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "It is a street market in Stanley on the south side of Hong Kong Island, with stalls selling clothing, crafts and souvenirs; visitors go for its atmosphere and proximity to the coast.",
       lat: 22.21911,
       lng: 114.21311,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/3855_at_Stanley_Village_%2820181126103604%29.jpg/1280px-3855_at_Stanley_Village_%2820181126103604%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   kowloon: [
@@ -190021,7 +190013,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Scientific Center of Kuwait (TSCK) is an educational complex on the city's waterfront, known for housing one of the largest aquariums in the Middle East, along with an IMAX theater and a discovery place for children.",
       lat: 29.3497,
       lng: 48.08956,
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Hedgehog%2C_Kuwait_Scientific_Center.jpg/1280px-Hedgehog%2C_Kuwait_Scientific_Center.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kuwaitcity_8",
@@ -207598,7 +207589,6 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Mezquita del siglo XVI en un barrio histórico de Bujará, conocida por su sala de oración con columnas de madera tallada y techos decorados.",
       descriptionEn: "16th-century mosque in a historic neighborhood of Bukhara, known for its prayer hall with carved wooden columns and decorated ceilings.",
-      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Bibixonim_masjidi_kirish_qismi.jpg/3840px-Bibixonim_masjidi_kirish_qismi.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bukhara_4",
@@ -207844,7 +207834,6 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Afro–Puerto Ricans, most commonly known as Afroboricuas, but also occasionally referred to as Afroborinqueños, Afroborincanos, or Afropuertorros, are Puerto Ricans of full or partial sub-Saharan African origin, who are predominately the descendants of slaves, freedmen, and free…",
       lat: 39.77773,
       lng: 64.41032,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b6/A_small_statue_of_Skobelev_in_the_museum.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bukhara_18",
