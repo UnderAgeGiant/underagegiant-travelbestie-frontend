@@ -193551,6 +193551,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Republic Square, or Jumhooree Maidan, is an open public space in central Malé. Institutional buildings face the square, which is used for civic events.",
       lat: 4.17912,
       lng: 73.5111,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Republic_Square_of_the_Republic_of_the_Maldives.jpg/1280px-Republic_Square_of_the_Republic_of_the_Maldives.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "male_24",
@@ -193782,6 +193783,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The International Intellectual Museum is a museum in Bayanzürkh, Ulaanbaatar, Mongolia.",
       lat: 47.91745,
       lng: 106.94186,
+      description: "El Museo de la Inteligencia de Ulaanbaatar exhibe la historia de los servicios de inteligencia de Mongolia, con documentos, equipos y objetos relacionados con el espionaje y la seguridad del Estado.",
     },
     {
       id: "ulaanbaatar_7",
@@ -195077,6 +195079,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Global mangrove distributions have fluctuated throughout human and geological history. The area covered by mangroves is influenced by a complex interaction between land position, rainfall hydrology, sea level, sedimentation, subsidence, storms and pest-predator relationships).",
       lat: 23.61865,
       lng: 58.48722,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/%D9%85%D8%AA%D9%86%D8%B2%D9%87_%D8%A7%D9%84%D9%82%D8%B1%D9%85_%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%B9%D9%8A.jpg/3840px-%D9%85%D8%AA%D9%86%D8%B2%D9%87_%D8%A7%D9%84%D9%82%D8%B1%D9%85_%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%B9%D9%8A.jpg?utm_source=ar.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "muscat_8",
@@ -195926,6 +195929,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Model Town Society is a gated neighbourhood in Gulberg township of Lahore in Punjab, Pakistan.",
       lat: 31.48456,
       lng: 74.32615,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Model_Town_Park_3.jpg/1280px-Model_Town_Park_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "lahore_4",
@@ -196064,7 +196068,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Un haveli es una residencia urbana o mansión tradicional en India, Pakistán, Nepal y Bangladés, normalmente con cierta importancia histórica y arquitectónica.",
+      description: "El Templo de Krishna es un templo hindú en Lahore dedicado a Krishna. Se visita por su valor religioso y como parte del patrimonio hindú de la ciudad.",
       descriptionEn: "The Krishna Mandir is a Hindu temple (mandir) dedicated to the Hindu deity Krishna located in Ravi Road, opposite of Timber Market in Lahore, Punjab, Pakistan.",
       lat: 31.59957,
       lng: 74.29775,
@@ -196149,10 +196153,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Mezquita de los Mártires (Masjid-e-Shuhada) es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mezquita de los Mártires (Masjid-e-Shuhada) is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Mezquita de los Mártires (Masjid-e-Shuhada) es una mezquita de Lahore ubicada sobre Shahrah-e-Quaid-e-Azam, cerca de Regal Chowk. Se visita como lugar de culto y punto de referencia en esa zona.",
+      descriptionEn: "The Martyrs' Mosque (Masjid-e-Shuhada) is a mosque in Lahore located on Shahrah-e-Quaid-e-Azam, near Regal Chowk. It is visited as a place of worship and a local landmark in the area.",
       lat: 31.56112,
       lng: 74.31995,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Masjid-e-Shuhda_%28Martyr%27s_Mosque%29.JPG?utm_source=ur.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://ur.wikipedia.org/wiki/%D9%85%D8%B3%D8%AC%D8%AF_%D8%B4%DB%81%D8%AF%D8%A7%D8%A1",
     },
     {
       id: "lahore_17",
@@ -196187,6 +196193,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Sikh gurdwara in Lahore marking the birthplace of the fourth Guru, Ram Das. It is a pilgrimage site and an example of Sikh religious architecture in the city.",
       lat: 31.58491,
       lng: 74.32104,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Gurudwara_Arjun_Ram_%28WCLA%29.jpg?utm_source=ur.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "lahore_19",
@@ -196251,7 +196258,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Edwin Lord Weeks fue un ilustrador y pintor estadounidense nacido en Boston, Massachusetts.",
+      description: "El Museo de la Ciudad de Lahore es un museo dedicado a la historia y la cultura de Lahore. Se visita para conocer el patrimonio urbano y la evolución de la ciudad.",
       descriptionEn: "The Lahore Museum is a museum located in Lahore, Punjab, Pakistan. Founded in 1865 at a smaller location and opened in 1894 at its current location on The Mall in Lahore during the British colonial period, Lahore Museum is Pakistan's largest museum, as well as one of its most…",
       lat: 31.56812,
       lng: 74.30942,
@@ -196952,7 +196959,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Joseph Coutts es un cardenal católico paquistaní. Arzobispo de Karachi.",
+      description: "Monumento dedicado a Cristo Rey en Karachi. Se visita como punto de referencia religioso y por su valor simbólico para la comunidad cristiana local.",
       descriptionEn: "The Monument to Christ the King is a white marble structure in the grounds of Saint Patrick's Cathedral, Karachi, Pakistan.",
       lat: 24.86168,
       lng: 67.03451,
@@ -196969,8 +196976,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Templo Daryalal Sankat Mochan es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Templo Daryalal Sankat Mochan is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Templo hindú en Karachi dedicado a Darya Lal, una deidad venerada por la comunidad sindhi. Es un lugar de culto activo que se visita para conocer prácticas religiosas y arquitectura local.",
+      descriptionEn: "A Hindu temple in Karachi dedicated to Darya Lal, a deity venerated by the Sindhi community. It is an active place of worship visited to learn about local religious practices and architecture.",
       lat: 24.84916,
       lng: 66.99131,
     },
@@ -197003,8 +197010,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Martyrs of Karsaz Monument es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Martyrs of Karsaz Monument is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Monumento en Karachi dedicado a las víctimas del atentado de Karsaz de 2007. Se visita como espacio de memoria y homenaje a los fallecidos en ese ataque.",
+      descriptionEn: "A monument in Karachi dedicated to the victims of the 2007 Karsaz bombing. It is visited as a place of memory and tribute to those killed in the attack.",
       lat: 24.87429,
       lng: 67.09665,
     },
@@ -197161,6 +197168,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is a summary of notable incidents occurring at independently owned amusement parks, water parks or theme parks.",
       lat: 24.81043,
       lng: 67.02911,
+      description: "Parque de atracciones en Karachi con juegos mecánicos y espacios recreativos. Se visita para pasar tiempo en familia y usar sus atracciones.",
     },
     {
       id: "karachi_22",
@@ -198585,6 +198593,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       description: "Yedá o Yeda, a veces escrito Yida, es la segunda ciudad más grande de Arabia Saudita con unos 3,4 millones de habitantes. En 2014, la Unesco declaró el centro histórico de Yeda Patrimonio de la Humanidad.",
       descriptionEn: "Jeddah's historic core, inscribed as a UNESCO World Heritage Site in 2014, with multi-storey coral houses and wooden balconies. It is explored on foot through alleys, markets and old mosques.",
+      lat: 21.48434,
+      lng: 39.1867,
     },
     {
       id: "jeddah_18",
@@ -198706,6 +198716,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 39.18884,
       description: "La Casa Al-Matbouli es una vivienda histórica de estilo hijazí en Al-Balad, el centro antiguo de Jeddah. Se visita por su arquitectura de piedra coralina, balcones de madera y patios interiores.",
       descriptionEn: "Al-Matbouli House is a historic Hijazi-style house in Al-Balad, Jeddah's old town. It is visited for its coral-stone architecture, wooden balconies and inner courtyards.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Interior_of_al-Matbouli_House%2C_1613%2C_old_Jeddah%2C_Saudi_Arabia_%289%29_%2850702738368%29.jpg/1280px-Interior_of_al-Matbouli_House%2C_1613%2C_old_Jeddah%2C_Saudi_Arabia_%289%29_%2850702738368%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "jeddah_25",
@@ -199005,6 +199016,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/%D9%85%D8%AD%D9%84%D8%A8_%D8%A7%D9%84%D9%86%D8%A7%D9%82%D8%A9_%D9%81%D9%8A_%D9%85%D9%88%D9%82%D8%B9_%D8%A7%D9%84%D8%AE%D8%B1%D9%8A%D8%A8%D8%A9_%D9%81%D9%8A_%D8%A7%D9%84%D8%B9%D9%84%D8%A7.jpg/1920px-%D9%85%D8%AD%D9%84%D8%A8_%D8%A7%D9%84%D9%86%D8%A7%D9%82%D8%A9_%D9%81%D9%8A_%D9%85%D9%88%D9%82%D8%B9_%D8%A7%D9%84%D8%AE%D8%B1%D9%8A%D8%A8%D8%A9_%D9%81%D9%8A_%D8%A7%D9%84%D8%B9%D9%84%D8%A7.jpg",
       website: "https://madainproject.com/mahlab_al_naqa",
       descriptionEn: "The temple of Mahlab al-Naqa, also spelled Mahlib Annaqa, is a 6th-7th century BCE temple that was built by ancient (lihyanite), located in the Khuraybah area of al-Ula, Saudi Arabia.",
+      description: "Mahalab Al-Naqah, también conocido como al-Hallubah, es una cuenca de piedra tallada del siglo VI a. C. ubicada en el área de Khuraybah, en AlUla.",
     },
     {
       id: "alula_11",
@@ -199209,7 +199221,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://jwalksa.com/",
-      description: "Chin-Chun-Chan, zarzuela en un acto, en tres cuadros, fue escrita por José Francisco Elizondo Sagredo y por Rafael Medina en 1904 con música de Luis Gonzaga Jordá y presentada por primera vez en el Teatro de la Ciudad de México.",
+      description: "Complejo comercial y de ocio con tiendas, restaurantes y cafeterías, además de una fuente danzante, áreas verdes y una zona de juegos para niños. Se recorre como paseo de compras y entretenimiento familiar.",
       descriptionEn: "Medina, officially al-Madinah al-Munawwarah, also known as al-Madinah an-Nabawiyyah and Taybah, and known in pre-Islamic times as Yathrib, is the capital and administrative centre of Medina Province in the Hejaz region of western Saudi Arabia.",
       lat: 24.459,
       lng: 39.54475,
@@ -203640,6 +203652,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This section provides a list of the tallest buildings in the world by country, featuring the single highest building within each nation. The data includes only those buildings that are either completed or topped out.",
       lat: 38.57611,
       lng: 68.77861,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/5/5b/Dushanbe_Presidential_Palace_01.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "dushanbe_2",
@@ -203654,10 +203667,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "http://bogi-poitakht.tj/",
-      description: "Parque Omar Jayam es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Parque Omar Jayam is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Parque Omar Jayam, antes Parque Poytakht, es un parque cultural y recreativo para niños y adolescentes en el norte de Dushanbe. Se encuentra en la orilla derecha del río Varzob, frente al Parque Iram y cerca del Parque Luchob.",
+      descriptionEn: "Omar Jayam Park, formerly Poytakht Park, is a cultural and recreational park for children and teenagers in northern Dushanbe. It sits on the right bank of the Varzob River, opposite Iram Park and near Luchob Park.",
       lat: 38.599,
       lng: 68.772,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/%D0%9F%D0%B0%D1%80%D0%BA%D0%B8_%D0%B2_%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5.jpg/1920px-%D0%9F%D0%B0%D1%80%D0%BA%D0%B8_%D0%B2_%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5.jpg?utm_source=tg.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      sourceUrl: "https://tg.wikipedia.org/wiki/%D0%91%D0%BE%D2%93%D0%B8_%D0%A5%D0%B0%D0%B9%D1%91%D0%BC",
     },
     {
       id: "dushanbe_3",
@@ -203710,6 +203725,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Madrasa Mevlana Yaqub Charji is a recommended place to visit and one of the standout attractions in the area.",
       lat: 38.58782,
       lng: 68.78406,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/%D0%9C%D0%B0%D1%81%D2%B7%D0%B8%D0%B4%D0%B8_%D2%B7%D0%BE%D0%BC%D0%B5%D0%B8_%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%B7%D0%B8%D0%B8_%D1%88._%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5_%D0%B1%D0%B0_%D0%BD%D0%BE%D0%BC%D0%B8_%D2%B2%D0%BE%D2%B7%D3%A3_%D0%AF%D1%8A%D2%9B%D1%83%D0%B1_%283%29.jpg?utm_source=tg.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "dushanbe_6",
@@ -203745,6 +203761,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is a list of active herbaria, organized first by continent where the herbarium is located, then within each continent by size of the collection. The list is based on the Index Herbariorum, a global directory of herbaria and their associated staff.",
       lat: 38.60274,
       lng: 68.78061,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/View_of_dushanbe_from_the_botanical_gardens_-_panoramio.jpg/1280px-View_of_dushanbe_from_the_botanical_gardens_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "dushanbe_8",
@@ -203762,6 +203779,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This list of music museums offers a guide to museums worldwide that specialize in the domain of music. These institutions are dedicated to the preservation and exhibition of music-related history, including the lives and works of prominent musicians, the evolution and variety of…",
       lat: 38.56641,
       lng: 68.81672,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8e/%D0%A1%D0%B2%D1%8F%D1%82%D0%BE-%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80_%28%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%29_2.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "dushanbe_9",
@@ -203779,6 +203797,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Monument in Dushanbe dedicated to Ismail Samani, a historical figure of the Samanid Empire. The statue stands in a public space and serves as a civic landmark.",
       lat: 38.57394,
       lng: 68.78536,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Modern_Center_of_Dushanbe%2C_Tajikistan_%2843804970971%29.jpg?utm_source=tg.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "dushanbe_10",
@@ -203796,6 +203815,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Concert hall in Dushanbe that houses the Tajik State Philharmonic. It programs classical music and cultural performances from the country.",
       lat: 38.56358,
       lng: 68.7538,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/14-%D1%83%D0%BC_%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%2C_%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%2C_Tajikistan_-_panoramio.jpg?utm_source=tg.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "dushanbe_11",
@@ -203847,6 +203867,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Opera and ballet theater in Dushanbe named after Sadriddin Aini. It presents opera, ballet, and other performing arts.",
       lat: 38.56868,
       lng: 68.79479,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Ayni_Opera_Theatre_in_Dushanbe.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "dushanbe_14",
@@ -205282,6 +205303,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Church of St. Alexander Nevsky is a Russian Orthodox church in Ashgabat dedicated to the saint Prince Alexander Nevsky. It is one of the city's historic religious buildings and retains Russian-style architecture.",
       lat: 37.95974,
       lng: 58.34417,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/44/Church_Alexander_Nevsky_Ashkhabad79.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "ashgabat_4",
@@ -205312,9 +205334,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Turkmenistán, oficialmente República de Turkmenistán es un país situado en Asia Central que limita al noroeste con Kazajistán, al norte y noreste con Uzbekistán, al suroeste con Irán, al sureste con Afganistán y al oeste con el mar Caspio, aunque es considerado como un Estado…",
+      description: "Monumento dedicado al poeta y artista ucraniano Taras Shevchenko, ubicado en Ashgabat. Forma parte de los espacios conmemorativos de la ciudad y recuerda su legado literario.",
       lat: 37.93808,
       lng: 58.38485,
+      descriptionEn: "Monument dedicated to the Ukrainian poet and artist Taras Shevchenko, located in Ashgabat. It is part of the city's commemorative spaces and honors his literary legacy.",
     },
     {
       id: "ashgabat_6",
@@ -205401,6 +205424,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Old Nisa is a Parthian archaeological site near Ashgabat, with remains of fortresses, temples and walls. It was declared a UNESCO World Heritage Site and is visited to learn about the history of the Parthian Empire.",
       lat: 37.95133,
       lng: 58.21123,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Nisa%2C_Turkmenistan_%283134904880%29.jpg/1280px-Nisa%2C_Turkmenistan_%283134904880%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "ashgabat_11",
@@ -205470,6 +205494,8 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Ashgabat Park is among the oldest public parks at the center of Ashgabat in Turkmenistan. Located between the Kuliyev, Azadi streets and Mahgymguly, Saparmurat Turkmenbashi avenues. Today covers an area of 7 hectares.",
       lat: 37.9394,
       lng: 58.38458,
+      description: "Parque en el centro de Ashgabat, considerado el más antiguo de la ciudad y abierto a fines del siglo XIX. Se extiende entre las avenidas Kuliyev, Azadi, Mahtumkulu y Büyük Saparmurat Türkmenbaşı.",
+      sourceUrl: "https://tr.wikipedia.org/wiki/A%C5%9Fkabat_Park%C4%B1",
     },
     {
       id: "ashgabat_15",
@@ -205503,6 +205529,8 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Atatürk Square is a park named after Mustafa Kemal Atatürk, founder of the Turkish Republic located in the center of Ashgabat.",
       lat: 37.93603,
       lng: 58.38644,
+      description: "Plaza situada en el centro de Ashgabat que lleva el nombre de Mustafa Kemal Atatürk, fundador y primer presidente de la República de Turquía. Es un espacio urbano de referencia en la capital turcomana.",
+      sourceUrl: "https://tr.wikipedia.org/wiki/Atat%C3%BCrk_Meydan%C4%B1_(A%C5%9Fkabat)",
     },
     {
       id: "ashgabat_17",
@@ -205570,6 +205598,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "Asjabad, también conocida en español como As(h)gabat o As(h)gabad, es la capital y principal ciudad de Turkmenistán. Está ubicada en un oasis en el desierto de Karakum, junto a los montes Köpetdag, cerca de la frontera con Irán.",
       lat: 37.94318,
       lng: 58.38778,
+      descriptionEn: "Drama theater in Ashgabat founded in October 2005 and named after former president Saparmurat Türkmenbaşı. It is a venue dedicated to the performing arts in Turkmenistan's capital.",
     },
     {
       id: "ashgabat_21",
@@ -205583,8 +205612,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Mollanepes adyndaky Talyp Drama Teatry es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mollanepes adyndaky Talyp Drama Teatry is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Teatro estudiantil de Ashgabat que lleva el nombre del poeta turcomano Mollanepes y funciona desde 1958. Acoge montajes dramáticos y actividades escénicas.",
+      descriptionEn: "Student theater in Ashgabat named after the Turkmen poet Mollanepes and operating since 1958. It hosts dramatic productions and stage activities.",
       lat: 37.94237,
       lng: 58.38932,
     },
@@ -205604,6 +205633,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The National Music and Drama Theater of Turkmenistan named after Magtymguly is located on Görogly Street in Ashgabat.",
       lat: 37.93894,
       lng: 58.38405,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/62/Lenin_Statue_%285730564615%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "ashgabat_23",
@@ -205668,8 +205698,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Belent Art Gallery es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Belent Art Gallery is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Galería de arte en Ashgabat dedicada a pinturas y obras originales de artistas turcomanos. Es un espacio para conocer la producción artística local.",
+      descriptionEn: "Art gallery in Ashgabat focused on original paintings and works by Turkmen artists. It is a space to discover local artistic production.",
       lat: 37.91503,
       lng: 58.38437,
     },
@@ -205774,6 +205804,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Wedding palace and civil registry in Ashgabat, called Bagt Köşgi. It is a ceremonial building where marriages are held; its architecture is part of the capital's urban landscape.",
       lat: 37.92647,
       lng: 58.34146,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Banquet_Hall_at_the_Wedding_Palace_%2841474103905%29.jpg/1280px-Banquet_Hall_at_the_Wedding_Palace_%2841474103905%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   darvaza: [
@@ -205861,6 +205892,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Sheikh Zayed Grand Mosque is the largest mosque in the United Arab Emirates, located in Abu Dhabi, a key place of daily worship and one of the country's foremost architectural symbols.",
       lat: 24.41245,
       lng: 54.47427,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Sheikh_Zayed_Masjid%2C_Abu_Dubai_-_panoramio_%283%29.jpg/1280px-Sheikh_Zayed_Masjid%2C_Abu_Dubai_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "abudhabi_1",
@@ -206452,6 +206484,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Al Noor Mosque is a mosque in Sharjah located beside Khalid Lagoon, known for its Ottoman-inspired architecture, with domes and minarets. Its facade and surroundings are part of the city's corniche landscape.",
       lat: 25.33482,
       lng: 55.38715,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Noor_Island_with_Noor_Mosque_in_the_Foreground.jpg/1280px-Noor_Island_with_Noor_Mosque_in_the_Foreground.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "sharjah_4",
@@ -206556,6 +206589,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is a list of aquaria. For dolphinariums, see List of dolphinariums. For zoos, see List of zoos. For a list of defunct zoos and aquaria, see List of former zoos and aquariums.",
       lat: 25.33038,
       lng: 55.3583,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/80/Sharjah_Aquarium_Park_-_panoramio_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "sharjah_10",
@@ -206652,8 +206686,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Jazirah Sharjah Park es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Jazirah Sharjah Park is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Al Jazirah Park es un parque público urbano en Sharjah con áreas verdes, senderos y espacios de recreo. Se visita para caminar, descansar y pasar tiempo al aire libre con la familia.",
+      descriptionEn: "Al Jazirah Park is an urban public park in Sharjah with green areas, walkways and recreation spaces. It is visited for walking, relaxing and spending time outdoors with family.",
       lat: 25.34326,
       lng: 55.38018,
     },
@@ -206727,6 +206761,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Al Noor Mosque is a mosque in Sharjah located beside Khalid Lagoon, known for its Ottoman-inspired architecture, with domes and minarets. Its facade and surroundings are part of the city's corniche landscape.",
       lat: 25.33482,
       lng: 55.38715,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Noor_Island_with_Noor_Mosque_in_the_Foreground.jpg/1280px-Noor_Island_with_Noor_Mosque_in_the_Foreground.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   tashkent: [
@@ -206745,6 +206780,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.uzgeolcom.uz/ru/",
       description: "Museo de Taskent dedicado a la geología de Uzbekistán, con colecciones de minerales, rocas y fósiles que ilustran la historia geológica del país.",
       descriptionEn: "This is a list of natural history museums whose exhibits focus on the subject of natural history, including such topics as animals, plants, ecosystems, geology, paleontology, and climatology.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/Conglomerate_from_the_riverbed_of_Isfayramsoy_river.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_1",
@@ -206759,9 +206795,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       website: "https://politomuseum.uz/",
-      description: "Mijaíl Yevgenyevich Masson fue un arqueólogo soviético. Fue el fundador de la escuela de arqueología en Asia Central y profesor, doctor en ciencias históricas y arqueológicas y miembro de la Academia de Ciencias de Turkmenistán.",
+      description: "El Museo Politécnico de Taskent es un museo de la capital de Uzbekistán dedicado a la ciencia y la tecnología. Su perfil lo vincula con la divulgación del conocimiento técnico y con la tradición politécnica de la ciudad.",
       lat: 41.30733,
       lng: 69.27847,
+      descriptionEn: "The Tashkent Polytechnic Museum is a museum in the capital of Uzbekistan devoted to science and technology. Its profile links it to the dissemination of technical knowledge and to the city's polytechnic tradition.",
     },
     {
       id: "tashkent_2",
@@ -206799,6 +206836,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "An art museum in Tashkent with collections of Uzbek and European art, including painting, applied arts and works from different periods.",
       lat: 41.30282,
       lng: 69.27797,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Museum_of_Arts_of_Uzbekistan.jpg/3840px-Museum_of_Arts_of_Uzbekistan.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "tashkent_4",
@@ -206870,6 +206908,9 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "Monumento ecuestre dedicado a Amir Temur, situado en la plaza que lleva su nombre en el centro de Taskent, rodeado de jardines y fuentes.",
       descriptionEn: "Amir Temur Xiyoboni is a station of the Tashkent Metro on Chilonzor Line. It is a transfer station to Yunus Rajabiy, Yunusobod Line. The station is named for Amir Timur Square.",
+      lat: 41.03138,
+      lng: 68.93909,
+      dayTrip: true,
     },
     {
       id: "tashkent_8",
@@ -206905,6 +206946,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A monument in Tashkent dedicated to the Ukrainian poet Taras Shevchenko; the sculpture stands in a public space and commemorates his literary work.",
       lat: 41.30341,
       lng: 69.27545,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Taras_Shevchenko_Hakali.jpg/1280px-Taras_Shevchenko_Hakali.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "tashkent_10",
@@ -206921,6 +206963,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is a list of General Motors factories that are being or have been used to produce automobiles and automobile components. The factories are occasionally idled for re-tooling.",
       lat: 41.30548,
       lng: 69.28042,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Vario_LF_3205_in_Tashkent.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_11",
@@ -206937,6 +206980,8 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Svetlana Borisovna Lunina is an Uzbekistani archaeologist specialising in the study of ceramic material and painting techniques of Central Asian monuments. She was a professor at Tashkent State University.",
       lat: 41.25439,
       lng: 69.22133,
+      description: "Kugaittepa es un yacimiento arqueológico de Taskent, considerado patrimonio cultural de Uzbekistán y datado entre los siglos I y XII. Se localiza en el distrito de Sergeli, sobre la calle Sa'diy, y es propiedad estatal.",
+      sourceUrl: "https://uz.wikipedia.org/wiki/Kugaittepa",
     },
     {
       id: "tashkent_12",
@@ -206955,6 +207000,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A telecommunications tower in Tashkent used for television and radio broadcasting, and a visible landmark in the city's urban landscape.",
       lat: 41.34559,
       lng: 69.28475,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/4/44/Toshkent_teleminorasi.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_13",
@@ -206990,6 +207036,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A Catholic church in Tashkent dedicated to the Sacred Heart of Jesus, a place of worship for the local Catholic community and a religious building in the city.",
       lat: 41.30554,
       lng: 69.29596,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cathedral_of_the_Sacred_Heart_of_Jesus_Christ.jpg/1280px-Cathedral_of_the_Sacred_Heart_of_Jesus_Christ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "tashkent_15",
@@ -207007,6 +207054,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A Russian Orthodox church in Tashkent dedicated to Saint Vladimir, Grand Prince Equal to the Apostles, and a place of worship for the local Orthodox community.",
       lat: 41.2562,
       lng: 69.18346,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/36/St._Vladimir_Orthodox_church_in_Tashkent_11-52.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_16",
@@ -207024,6 +207072,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "An urban park in Tashkent named after the Belarusian poet Yakub Kolas, with green areas and paths for relaxation.",
       lat: 41.30184,
       lng: 69.27688,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/ru/thumb/f/f7/%D0%9F%D0%B0%D1%80%D0%BA_%D0%AF%D0%BA%D1%83%D0%B1%D0%B0_%D0%9A%D0%BE%D0%BB%D0%B0%D1%81%D0%B0.jpg/3840px-%D0%9F%D0%B0%D1%80%D0%BA_%D0%AF%D0%BA%D1%83%D0%B1%D0%B0_%D0%9A%D0%BE%D0%BB%D0%B0%D1%81%D0%B0.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "tashkent_17",
@@ -207094,6 +207143,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A Muslim religious complex in Tashkent dedicated to Khoja Ahrar Wali, with Islamic architecture and spaces for worship and remembrance.",
       lat: 41.32377,
       lng: 69.23712,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/14/Mosque_Khoja_Akhrar_12-13.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_21",
@@ -207146,6 +207196,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A memorial park in Tashkent dedicated to the victory in World War II, with monuments, exhibitions and commemorative spaces.",
       lat: 41.35357,
       lng: 69.22451,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/PR_L8910.jpg/3840px-PR_L8910.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "tashkent_24",
@@ -207181,6 +207232,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Monument in Tashkent commemorating the 1966 earthquake and the reconstruction of the city. It is visited for its historical value and the sculptural ensemble that remembers the victims.",
       lat: 41.3237,
       lng: 69.27245,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/9/94/Monument_of_Courage1.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "tashkent_26",
@@ -207226,9 +207278,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Vladímir Aleksandrovich Dzhanibekov es un excosmonauta que realizó cinco vuelos espaciales. Conocido por haber participado en la misión de rescate a la nave Saliut 7 y haberse percatado de una evidente manifestación del teorema del eje intermedio, denominándose efecto…",
+      description: "El Reloj de Taskent, conocido como Kuranty, es un reloj urbano instalado en 1947 que con el tiempo se convirtió en uno de los símbolos de la ciudad. Su instalación fue impulsada por Ishiya Aizenshtein, ciudadano honorario de Taskent.",
       lat: 41.30959,
       lng: 69.27985,
+      sourceUrl: "https://ru.wikipedia.org/wiki/%D0%90%D0%B9%D0%B7%D0%B5%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%2C_%D0%98%D1%88%D0%B8%D1%8F_%D0%90%D0%B1%D1%80%D0%B0%D0%BC%D0%BE%D0%B2%D0%B8%D1%87",
+      descriptionEn: "The Tashkent Clock, known as the Kuranty, is a public clock installed in 1947 that over time became one of the city's symbols. Its installation was promoted by Ishiya Aizenshtein, an honorary citizen of Tashkent.",
     },
     {
       id: "tashkent_29",
@@ -207264,6 +207318,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Religious complex in Tashkent that brings together mosques and madrasas, including the Tillya Sheikh Mosque. It is visited for its Islamic architecture and for housing an ancient copy of the Quran.",
       lat: 41.33731,
       lng: 69.24008,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Hazrati_Imam_complex_2024_September.jpg/1280px-Hazrati_Imam_complex_2024_September.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "tashkent_31",
@@ -207568,6 +207623,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Mezquita del siglo XVI en un barrio histórico de Bujará, conocida por su sala de oración con columnas de madera tallada y techos decorados.",
       descriptionEn: "16th-century mosque in a historic neighborhood of Bukhara, known for its prayer hall with carved wooden columns and decorated ceilings.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Bibixonim_masjidi_kirish_qismi.jpg/3840px-Bibixonim_masjidi_kirish_qismi.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bukhara_4",
@@ -207636,6 +207692,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "Mezquita histórica de Bujará vinculada a un barrio tradicional de la ciudad. Su conjunto incluye una sala de oración y espacios comunitarios, y refleja la arquitectura religiosa local.",
       descriptionEn: "Historic mosque in Bukhara linked to a traditional neighborhood. Its complex includes a prayer hall and community spaces, reflecting local religious architecture.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/60/MosqueICO.png?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bukhara_8",
@@ -207653,6 +207710,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Historic mosque in Bukhara that is part of a neighborhood religious complex. It is visited for its traditional architecture and its connection to community life in the old town.",
       lat: 39.77265,
       lng: 64.41566,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Khoja_Kalon_mosque.jpg/1280px-Khoja_Kalon_mosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bukhara_9",
@@ -207686,6 +207744,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Bukhara Mosque is a historical monument in Bukhara. It is one of the mosques built for praying during Eid festivals.",
       lat: 39.76168,
       lng: 64.41202,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Namozgoh_masjidi6.jpg/1280px-Namozgoh_masjidi6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bukhara_11",
@@ -207757,6 +207816,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Summer palace of the last emir of Bukhara, located outside the historic center. It combines traditional architecture with Russian influences and houses exhibitions on the court and the emir's life.",
       lat: 39.81288,
       lng: 64.44132,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Sitorai_Mohi_Xossa.jpg/3840px-Sitorai_Mohi_Xossa.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bukhara_15",
@@ -207774,6 +207834,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Theater in Bukhara named after the writer Sadriddin Aini. Its program includes plays and cultural activities that reflect the local stage tradition.",
       lat: 39.77672,
       lng: 64.40675,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Sadriddin_Ayniy_teatr.jpg/1280px-Sadriddin_Ayniy_teatr.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bukhara_16",
@@ -207809,6 +207870,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Afro–Puerto Ricans, most commonly known as Afroboricuas, but also occasionally referred to as Afroborinqueños, Afroborincanos, or Afropuertorros, are Puerto Ricans of full or partial sub-Saharan African origin, who are predominately the descendants of slaves, freedmen, and free…",
       lat: 39.77773,
       lng: 64.41032,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b6/A_small_statue_of_Skobelev_in_the_museum.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bukhara_18",
@@ -207839,6 +207901,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Casa museo en Bujará que perteneció al político Fayzulla Khojáyev. Exhibe el interior de una casa de comerciante del siglo XIX y documentos sobre su vida y la historia política regional.",
       descriptionEn: "House museum in Bukhara that belonged to the politician Fayzulla Khodjayev. It displays the interior of a 19th-century merchant house and documents about his life and regional political history.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Faizulla_Khojayev_house-museum_entrance_plaque.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bukhara_20",
@@ -207978,6 +208041,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Mozori Sharif Madrasa is an architectural monument in Khiva city of Khorezm region of the Republic of Uzbekistan. Currently, the madrasa is located in the Pahlavon Mahmud street, house 20.",
       lat: 41.37671,
       lng: 60.35986,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Otajonboy_Madrasah.jpg/1280px-Otajonboy_Madrasah.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "khiva_4",
@@ -208047,6 +208111,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       description: "La Mezquita Bogbonli es una pequeña mezquita histórica de Jiva, situada en el conjunto de Itchan Kala. Se visita por su arquitectura tradicional dentro del entramado urbano de la ciudad.",
       descriptionEn: "Bogbonli Mosque is a small historic mosque in Khiva, located within the Itchan Kala complex. It is visited for its traditional architecture within the city's urban fabric.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Bogbonli_mosque.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "khiva_8",
@@ -208100,6 +208165,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Sayid Sholikorboy Mosque is a historic mosque in Khiva, part of the city's collection of religious buildings. Its interest lies in its traditional architecture and its place in the urban layout.",
       lat: 41.37684,
       lng: 60.36257,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Said_Niyoz_Sholikorboy_Mosque.jpg/1280px-Said_Niyoz_Sholikorboy_Mosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "khiva_11",
@@ -208254,6 +208320,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Walled City of Itchan Kala is the historic core of Khiva, surrounded by an adobe wall. Inside are concentrated madrasas, mosques, mausoleums and palaces that testify to the Khanate of Khiva.",
       lat: 41.38066,
       lng: 60.35856,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6c/KhivaWalls.jpg?utm_source=uz.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
   ],
   oran: [
@@ -209046,7 +209113,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Selected_drawings_from_old_masters_in_the_University_Galleries_and_the_library_at_Christ_Church_%28IA_gri_33125015065598%29.pdf/page1-960px-Selected_drawings_from_old_masters_in_the_University_Galleries_and_the_library_at_Christ_Church_%28IA_gri_33125015065598%29.pdf.jpg",
       website: "https://thespacebotswana.com",
-      description: "El calentamiento global es el aumento a largo plazo de la temperatura media de en la troposfera debido a la intensificación del efecto invernadero.",
+      description: "The Space Botswana es un centro creativo y galería de arte en Maun que reúne a artistas africanos locales. Expone pintura, escultura y artesanía inspirada en el Delta del Okavango y la región de Ngamiland.",
       descriptionEn: "The River Idle is a river in Nottinghamshire, England, formed by the confluence of the River Maun and the River Meden near Markham Moor. It flows north from its source through Retford and Bawtry before joining the River Trent at West Stockwith.",
       lat: -19.94267,
       lng: 23.50537,
@@ -209918,7 +209985,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Haiti.svg/1280px-Flag_of_Haiti.svg.png",
-      description: "Las obras de arte perdidas son aquellas piezas de arte originales que alguna vez existieron, según fuentes creíbles, pero que actualmente no pueden ser localizadas en museos o colecciones privadas o de las que consta su destrucción, bien sea deliberadamente, accidentalmente o…",
+      description: "En Buea, a poca distancia de Limbe, este edificio colonial fue residencia de gobernadores alemanes y luego palacio presidencial; se visita por su arquitectura y su papel en la historia política de Camerún.",
       descriptionEn: "Haiti, officially the Republic of Haiti, is a country in the Caribbean on the island of Hispaniola in the Caribbean Sea, east of Cuba and Jamaica and south of The Bahamas. It occupies the western side of the island, which it shares with the Dominican Republic.",
     },
     {
@@ -209937,6 +210004,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "Las deidades de los Reinos Olvidados, uno de los escenarios de campaña del juego de rol de Dungeons & Dragons, constituyen sin duda una influencia de primer orden sobre el mundo de Toril, tanto por su actuación directa como por medio de sus iglesias y/o seguidores.",
       lat: 4.05383,
       lng: 9.06264,
+      descriptionEn: "Near Bakingili, on the slopes of Mount Cameroon, a solidified lava flow from a volcanic eruption is preserved; visitors come to see the volcanic rock landscape and its contrast with the vegetation.",
     },
     {
       id: "limbe_10",
@@ -211856,6 +211924,8 @@ export const CURATED_ALL: CuratedMap = {
       lat: 5.31756,
       lng: -4.38646,
       dayTrip: true,
+      description: "El Fuerte de Dabou, también llamado fuerte Faidherbe o fuerte Binger, es un fuerte histórico de la comuna de Dabou, en el distrito de Lagunas. Se visita como parte del patrimonio histórico local.",
+      sourceUrl: "https://fr.wikipedia.org/wiki/Fort_de_Dabou",
     },
     {
       id: "abidjan_3",
@@ -211909,6 +211979,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7d/800px-Grand-Bassam.jpg",
       descriptionEn: "Grand-Bassam is a town in southeastern Ivory Coast, lying east of Abidjan. It is a sub-prefecture of and the seat of Grand-Bassam Department; it is also a commune. During the late 19th century, Grand-Bassam was briefly the French colonial capital of Ivory Coast.",
+      description: "La Catedral del Sagrado Corazón de Grand-Bassam es la catedral de la diócesis de Grand-Bassam, erigida en 1982. Se encuentra en Grand-Bassam y es un punto de referencia religioso de la ciudad.",
+      sourceUrl: "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_du_Sacr%C3%A9-C%C5%93ur_de_Grand-Bassam",
     },
     {
       id: "abidjan_6",
@@ -211941,8 +212013,10 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg/langes-960px-Flag_of_C%C3%B4te_d%27Ivoire.svg.png",
-      description: "Costa de Marfil, oficialmente República de Costa de Marfil, es un país ubicado en África occidental. Limita con Liberia y Guinea al oeste, con Malí al noroeste, con Burkina Faso al noreste, con Ghana al este y posee costa en el golfo de Guinea por el sur.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Maison_Ganamet.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      description: "La Casa Ganamet es una casa histórica del barrio France de Grand-Bassam, construida en 1920. Se visita por su valor como ejemplo del patrimonio arquitectónico histórico de la ciudad.",
+      sourceUrl: "https://fr.wikipedia.org/wiki/Maison_Ganamet",
+      descriptionEn: "Maison Ganamet is a historic house in the France district of Grand-Bassam, built in 1920. It is visited for its value as an example of the city's historic architectural heritage.",
     },
     {
       id: "abidjan_8",
@@ -212091,8 +212165,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Haliat Parc es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Haliat Parc is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Parque Haliat es un parque urbano de Yamoussoukro; los datos cartográficos de la ciudad registran su fecha de inicio en septiembre de 2023.",
+      descriptionEn: "Parque Haliat is an urban park in Yamoussoukro; mapping data for the city records its start date as September 2023.",
       lat: 6.82909,
       lng: -5.25275,
     },
@@ -212945,6 +213019,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Vonjiniaina, is a contemporary Malagasy artist, gold medalist in sculpture at the fifth Jeux de la Francophonie in 2005.",
       lat: -18.91713,
       lng: 47.54077,
+      description: "Galería de arte en Antananarivo que expone obras de artistas malgaches contemporáneos. Se visita para conocer la producción artística local y la escena creativa de la capital.",
     },
     {
       id: "antananarivo_7",
@@ -212958,7 +213033,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/State_Magazine_2003-09-_Iss_471_%28IA_sim_state-magazine_2003-09_471%29.pdf/page1-960px-State_Magazine_2003-09-_Iss_471_%28IA_sim_state-magazine_2003-09_471%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/74/Skatepark_Valencia_Spain.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       descriptionEn: "This is a list of notable people reported as having died either from coronavirus disease 2019 (COVID-19), as a result of infection by the virus SARS-CoV-2 during the COVID-19 pandemic, from its initial identification in January 2020 through the World Health Organization's…",
       lat: -18.89793,
       lng: 47.52383,
@@ -212993,7 +213068,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Madagascar_et_le_roi_Radama_II_%28IA_madagascaretlero00regn_0%29.pdf/page1-500px-Madagascar_et_le_roi_Radama_II_%28IA_madagascaretlero00regn_0%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Rainiharo_tomb.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       description: "Mausoleo de piedra del siglo XIX erigido para Rainiharo, primer ministro de la reina Ranavalona I, cuyo diseño se atribuye al artesano francés Jean Laborde. Es uno de los monumentos históricos de Antananarivo y se visita por su arquitectura y su valor memorial.",
       descriptionEn: "A 19th-century stone mausoleum built for Rainiharo, prime minister under Queen Ranavalona I, with a design attributed to French craftsman Jean Laborde. It is one of Antananarivo's historic monuments, visited for its architecture and memorial significance.",
       lat: -18.90967,
@@ -213249,6 +213324,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 240,
       description: "La Estación Forestal Analamazaotra es un área protegida gestionada por la comunidad adyacente a la Reserva Analamazoatra y el parque nacional de Andasibe-Mantadia en centro-este de Madagascar, región de Alaotra-Mangoro.",
       descriptionEn: "Andasibe-Mantadia National Park is a 155 square kilometre protected area, located about 150 km east of Antananarivo, consisting principally of primary growth forest in the Alaotra-Mangoro Region in eastern Madagascar.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Diadem_sifaka_andasibe.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "andasibe_1",
@@ -213973,8 +214049,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1513414653395-3bb68df4b2b3?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxUb3VyZWxsZSUyMGR1JTIwVGFtYXJpbiUyMENoYW1hcmVsJTIwTWF1cml0aXVzfGVufDF8MHx8fDE3ODMyODc1MTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Tourelle du Tamarin es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Tourelle du Tamarin is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Torreta del Tamarin es una cumbre del suroeste de Mauricio, cerca del pueblo de Tamarin. Se visita por sus rutas de senderismo y las vistas de la costa y las montañas cercanas.",
+      descriptionEn: "The Tamarin Tower is a peak in southwestern Mauritius, near the village of Tamarin. It is visited for its hiking trails and views of the coast and nearby mountains.",
       lat: -20.345,
       lng: 57.36917,
     },
@@ -215092,6 +215168,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Maputo is the capital and largest city of Mozambique. Located near the southern end of the country, it is within 120 kilometres of the borders with Eswatini and South Africa. The city has a population of 1,088,449 distributed over a land area of 347.69 km2 (134.24 sq mi).",
       lat: -25.96671,
       lng: 32.57174,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Lisbonne_Mus%C3%A9e_du_Chiado.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "maputo_6",
@@ -215286,8 +215363,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 45,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/AFDCM-04-020.jpg/960px-AFDCM-04-020.jpg",
-      description: "Convento de São José de Lhanguene es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Convento de São José de Lhanguene is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Convento católico situado en el barrio de Lhanguene, en Maputo. Forma parte del patrimonio religioso de la ciudad y se visita por su valor histórico y arquitectónico.",
+      descriptionEn: "Catholic convent located in the Lhanguene neighborhood of Maputo. It is part of the city's religious heritage and is visited for its historical and architectural value.",
       lat: -25.94423,
       lng: 32.54686,
     },
@@ -215374,8 +215451,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.4,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1721011793681-abf40cebff04?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxGZWlyYSUyMGRlJTIwQXJ0ZXNhbmF0byUyMGRlJTIwTWFwdXRvJTIwTWFwdXRvJTIwTW96YW1iaXF1ZXxlbnwxfDB8fHwxNzgzMjg5NTUzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Feira de Artesanato de Maputo es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Feira de Artesanato de Maputo is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Feria de artesanía en Maputo donde artesanos locales exhiben y venden objetos hechos a mano. Es un espacio para conocer la producción artesanal de Mozambique.",
+      descriptionEn: "Craft fair in Maputo where local artisans display and sell handmade objects. It is a place to learn about Mozambique's craft production.",
     },
   ],
   vilanculos: [
@@ -215500,7 +215577,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Planta_da_fortaleza_da_ilha_de_Mo%C3%A7ambique%2C_Leonardo_de_Ferrari%2C_1655.jpg/1920px-Planta_da_fortaleza_da_ilha_de_Mo%C3%A7ambique%2C_Leonardo_de_Ferrari%2C_1655.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Fort_of_Sao_Sebastiao-2.jpg/1280px-Fort_of_Sao_Sebastiao-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "La fortaleza de San Sebastián es una construcción defensiva situada en la localidad de Isla de Mozambique, en la isla del mismo nombre, provincia de Nampula, Mozambique, ocupando su extremo norte, construida en el siglo XVI por los portugueses, y servía para proteger la isla que…",
       descriptionEn: "The Fort of São Sebastião lies at the northern end of Stone Town on the Island of Mozambique. It is the oldest complete fort still standing in sub-Saharan Africa. Construction by the Portuguese began in 1558, and it took about fifty years to complete.",
       lat: -15.02892,
@@ -215641,7 +215718,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Windhoek_christuskirche.jpg/1920px-Windhoek_christuskirche.jpg",
-      description: "Anna \"Kakurukaze\" Mungunda era una mujer namibia de ascendencia del pueblo herero. Fue la única mujer entre las víctimas del levantamiento de la Antigua ubicación, área segregada para los residentes negros de Windhoek el 10 de diciembre de 1959.",
+      description: "Old Location fue un área residencial segregada de Windhoek, demolida durante el apartheid y recordada por la resistencia de 1959 y el traslado forzoso de sus habitantes a Katutura. Hoy se visita por su valor histórico y memorial.",
       descriptionEn: "The Old Location was an area segregated for Black residents of Windhoek, the capital of Namibia. It was situated in the area between today's suburbs of Hochland Park and Pioneers Park.",
       lat: -22.57987,
       lng: 17.0628,
@@ -216075,6 +216152,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Bird_Island_%28Namibia%29_wide.jpg",
       descriptionEn: "Bird Island is a man-made platform off the coast of Namibia between Walvis Bay and Swakopmund. It serves as a breeding ground for birds and yields guano, which is collected and sold, as a highly effective fertilizer.",
+      description: "Plataforma de madera construida frente a la costa, en la zona de Walvis Bay, para que aniden los cormoranes del Cabo. Con los años el guano se acumula allí y se recolecta; la colonia de aves marinas es lo que se va a observar, generalmente en barco.",
     },
     {
       id: "swakopmund_13",
@@ -216094,6 +216172,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: -22.57492,
       lng: 14.75477,
       dayTrip: true,
+      description: "Insignias de regimientos sudafricanos formadas con piedras sobre el suelo del desierto, cerca de Swakopmund. Se asocian a las tropas que en mayo y junio de 1915 fueron destinadas a hacer guardia en la vía férrea de Otavi, reconstruida en ese tramo del litoral.",
     },
   ],
   sossusvlei: [
@@ -216460,6 +216539,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4f/SADF_2_SAI_emblem.jpg",
       website: "https://www.namibia-accommodation.com/listing/regimental-insignia-in-the-namib-desert",
       descriptionEn: "2 South African Infantry Battalion is a motorised infantry unit of the South African Army.",
+      description: "Las insignias regimentales del desierto de Namib son un registro histórico de la presencia militar sudafricana en 1915. Ese año, cientos de tropas fueron destinadas a custodiar el ferrocarril Otavi reconstruido desde Swakopmund.",
     },
   ],
   abuja: [
@@ -216783,6 +216863,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Anti-corruption monument of Rwanda, located at Kigali Convention Center (KCC) in Rwanda, is a 12-meter tall monument built in recognition of Rwanda's anti-corruption policies.",
       lat: -1.9558,
       lng: 30.09452,
+      description: "El Monumento contra la Corrupción de Ruanda fue un regalo de Sheikh Tamim Bin Hamad Al-Thani, de Catar, al pueblo ruandés, en reconocimiento a sus políticas anticorrupción.",
     },
     {
       id: "kigali_8",
