@@ -136355,8 +136355,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://images.unsplash.com/photo-1593881135370-702114a3448d?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxNdXNldW0lMjBvZiUyMEt1bmElMjBDdWx0dXJhJTIwU2FuJTIwQmxhcyUyMCUyOEd1bmElMjBZYWxhJTI5JTIwUGFuYW0lQzMlQTF8ZW58MXwwfHx8MTc4MjkyNTY2Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Museum of Kuna Cultura es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Museum of Kuna Cultura is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Museo de la Cultura Kuna, en la isla Ustupu de Guna Yala, exhibe molas, objetos ceremoniales y piezas sobre la historia del pueblo guna. Se visita para conocer las tradiciones de la comarca.",
+      descriptionEn: "The Museo de la Cultura Kuna, on Ustupu Island in Guna Yala, displays molas, ceremonial objects, and pieces on Guna history. Visitors go to learn about the traditions of the comarca.",
     },
     {
       id: "sanblas_2",
@@ -136827,6 +136827,9 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Edificio_La_Riviera_-_Flickr_-_jacf18.jpg/1920px-Edificio_La_Riviera_-_Flickr_-_jacf18.jpg",
       description: "Edificio histórico en el centro de Colón. Se visita por su arquitectura y por formar parte del patrimonio urbano de la ciudad.",
       descriptionEn: "This list of tallest buildings in Bolivia ranks the tallest skyscrapers and buildings in the country, either built or under construction.",
+      lat: 8.97684,
+      lng: -79.53165,
+      dayTrip: true,
     },
     {
       id: "colon_6",
@@ -137026,9 +137029,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Panam%C3%A1-Playa.JPG/3840px-Panam%C3%A1-Playa.JPG",
-      description: "Los Santos es una provincia panameña, situada al sureste de la península de Azuero. Las Tablas es su capital y localidad más poblada. Está compuesta por los distritos de Los Santos, Guararé, Las Tablas, Macaracas, Pedasí, Pocrí y Tonosí.",
+      description: "Museo ubicado en una casa tradicional de Pedasí que conserva objetos, fotografías y recuerdos de la familia Moscoso y de la vida local. Se visita para conocer la historia del pueblo y su arquitectura doméstica.",
       lat: 7.5298,
       lng: -80.02605,
+      descriptionEn: "Museum housed in a traditional Pedasí house that preserves objects, photographs and memories of the Moscoso family and local life. It is visited to learn about the town's history and domestic architecture.",
     },
     {
       id: "pedasi_2",
@@ -137044,6 +137048,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0c/CanalZone.png",
       descriptionEn: "Scarlett Martínez International Airport, also known as Río Hato Airport, is an international airport serving Río Hato, a town in the Coclé Province of Panama. The airport is 3 kilometres (2 mi) east of Río Hato.",
+      description: "Es una bomba de la Segunda Guerra Mundial exhibida en Pedasí como curiosidad histórica; forma parte del recorrido por el centro del pueblo.",
     },
     {
       id: "pedasi_3",
@@ -137081,6 +137086,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "La Casa del Almirante es una casona colonial ubicada en la ciudad del Cusco, Perú. Actualmente es propiedad de la Universidad Nacional de San Antonio Abad del Cusco y es local del Museo Inka.",
       lat: 8.42514,
       lng: -82.42414,
+      descriptionEn: "This private museum in David brings together antiques and objects linked to Chiriquí culture, with pieces that illustrate the region's traditions and daily life.",
     },
     {
       id: "daviddechiriqui_1",
@@ -140496,6 +140502,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 90,
       description: "Elupina Cordero conocida como la Señorita Elupina y venerada extracanónicamente como Santa Elupina, fue una religiosa católica solicitada por su servicio a los más necesitados y enfermos y que según su comunidad tenía el don de sanación.",
+      descriptionEn: "The Elupina Cordero Museum in Samaná is dedicated to the life and work of this local religious figure; it displays objects, documents, and memorabilia that illustrate her story and her ties to the community.",
     },
     {
       id: "samana_2",
@@ -140524,7 +140531,8 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       imageUrl: "https://images.unsplash.com/photo-1592174887344-02ff9373ca55?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxSdWluYXMlMjBkZWwlMjBDYW1wYW5hcmlvJTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMjQ4OHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "El municipio de Macuspana es un municipio del estado mexicano de Tabasco, localizado en la región del río Usumacinta y en la subregión pantanos. Su nombre proviene del vocablo náhuatl Macui-chapana, que significa \"lugar de las cinco barreduras o limpiezas\".",
+      description: "Las Ruinas del Campanario son los restos de una antigua torre de iglesia en Samaná; se visitan como vestigio histórico y para conocer parte del patrimonio local.",
+      descriptionEn: "The Ruinas del Campanario are the remains of an old church bell tower in Samaná; they are visited as a historical vestige and for a glimpse of local heritage.",
     },
     {
       id: "samana_4",
@@ -140570,7 +140578,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://images.unsplash.com/photo-1707232277837-cd7502534afe?ixid=M3w5ODE3MDl8MHwxfHNlYXJjaHwxfHxCb2NhJTIwZGVsJTIwRGlhYmxvJTIwU2FtYW4lQzMlQTElMjBSZXAlQzMlQkFibGljYSUyMERvbWluaWNhbmF8ZW58MXwwfHx8MTc4MjkzMjcxNXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
-      description: "Miranda es uno de los 23 estados que, junto al Distrito Capital y las Dependencias Federales, forman la República Bolivariana de Venezuela. Su capital es Los Teques. Está ubicado en el centro-norte del país en la Región Capital.",
+      description: "Boca del Diablo es una formación rocosa en la costa de Samaná donde el oleaje del Atlántico entra por una abertura y sale disparado hacia arriba; se visita por su paisaje y el espectáculo natural.",
       descriptionEn: "Miss República Dominicana 2015 was the 64th Miss Dominican Republic pageant, held at the Renaissance Auditorio de Festival del Hotel Jaragua in Santo Domingo, Dominican Republic, on August 30, 2015.",
       lat: 19.26953,
       lng: -69.1615,
@@ -140690,9 +140698,10 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/Llegadas-via-aerea-RepDom.jpeg",
-      description: "La República Dominicana es el principal destino turístico del Caribe y uno de los primeros 5 de América Latina, registrando la mayor cantidad de visitantes en la región en los últimos años.",
+      description: "Playa Cayacoa es una playa de arena en la bahía de Samaná, con vistas al agua y un entorno natural; es frecuentada por locales y visitantes.",
       lat: 19.19692,
       lng: -69.33653,
+      descriptionEn: "Playa Cayacoa is a sandy beach in Samaná Bay with views of the water and a natural setting; it is frequented by locals and visitors.",
     },
     {
       id: "samana_14",
@@ -140708,7 +140717,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Nicolae_Iorga_-_Istoria_Rom%C3%A2nilor_prin_c%C4%83l%C4%83tori._Volumul_3_-_De_la_1800_p%C3%A2n%C4%83_la_epoca_r%C4%83zboiului_Crimeii.pdf/page1-500px-Nicolae_Iorga_-_Istoria_Rom%C3%A2nilor_prin_c%C4%83l%C4%83tori._Volumul_3_-_De_la_1800_p%C3%A2n%C4%83_la_epoca_r%C4%83zboiului_Crimeii.pdf.jpg",
       website: "https://samanatreetopzipline.com/",
-      description: "Coamo es un municipio del Estado Libre Asociado de Puerto Rico. Fundado el 15 de julio de 1570 por Cristóbal y Blas de Illescas, marcándolo así como uno de los pueblos más antiguos de la Isla después de San Juan y San Germán, se convirtió en municipio autónomo en 1579.",
+      description: "La tirolesa de Samaná tiene 12 líneas y 13 estaciones; los participantes se deslizan al estilo Tarzán a unas 40 millas por hora y desde unos 350 pies de altura.",
       descriptionEn: "Blues is a music genre and musical form that originated among African Americans in the Deep South of the United States around the 1860s.",
     },
   ],
@@ -140775,7 +140784,8 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alcald%C3%ADa_de_Cabo_Rojo.jpg/3840px-Alcald%C3%ADa_de_Cabo_Rojo.jpg",
       website: "https://samanatreetopzipline.com/",
-      description: "Cabo Rojo es un municipio ubicado al extremo suroeste del Estado Libre Asociado de Puerto Rico. Fundado el 17 de diciembre de 1771, limita al sur con el mar Caribe, al oeste con el canal de la Mona, al norte con Mayagüez y Hormigueros, y al este con Lajas, Hormigueros y San…",
+      description: "La Tirolesa Samaná cuenta con 12 líneas y 13 estaciones; el recorrido permite volar al estilo Tarzán a unos 40 mph y a 350 pies de altura.",
+      descriptionEn: "Samana Zipline has 12 lines and 13 stations, with a ride that lets visitors fly Tarzan-style at about 40 mph and 350 feet high.",
     },
   ],
   jarabacoa: [
@@ -140807,7 +140817,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "La Reserva Científica Ébano Verde es un área protegida de protección estricta situada en el macizo oriental de la Cordillera Central de la República Dominicana, entre Jarabacoa, Constanza, Bonao y La Vega. Fue creada por el Decreto núm.",
+      description: "Loma La Golondrina es una elevación natural en los alrededores de Jarabacoa, República Dominicana. Figura como un sitio de interés natural dentro de la zona.",
       descriptionEn: "The Ebano Verde Scientific Reserve in the Dominican Republic was created on October 26, 1989 by Decree No. 417-89, Environment and Resources General Law 64-00, ratified by the Protected Areas Sectorial Law No. 202-04, ordered by then President Joaquin Balaguer.",
       lat: 19.0562,
       lng: -70.54647,
@@ -141779,7 +141789,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Through_Jamaica_with_a_Kodak_%28IA_gri_000033125010705800%29.pdf/page1-500px-Through_Jamaica_with_a_Kodak_%28IA_gri_000033125010705800%29.pdf.jpg",
-      description: "Maurice Tomlinson es un abogado, profesor de derecho y activista por los derechos de las personas homosexuales jamaiquino que reside actualmente en Toronto, Ontario, Canadá.",
+      description: "El Centro Cívico de Montego Bay es un edificio histórico en Sam Sharpe Square que alberga el Montego Bay Cultural Centre, con museo y galería. Se visita por su arquitectura y por su contenido sobre la historia local.",
       descriptionEn: "This is a complete list of National Heritage sites in Jamaica as published by the Jamaica National Heritage Trust.",
       lat: 18.47357,
       lng: -77.92354,
@@ -141896,6 +141906,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: 17.98255,
       lng: -76.78873,
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_de_los_H%C3%A9roes_Nacionales",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/National_Heroes_Park.jpg/330px-National_Heroes_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kingston_5",
@@ -142434,6 +142445,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Edward Philip George Seaga was a Jamaican politician and record producer. He was the fifth Prime Minister of Jamaica, from 1980 to 1989, and the leader of the Jamaica Labour Party from 1974 to 2005.",
       lat: 18.2806,
       lng: -78.34604,
+      description: "El Mercado de Artesanías de Negril reúne puestos de artesanos locales con tallas en madera, joyería y recuerdos hechos a mano. Los visitantes acuden para conocer el trabajo artesanal jamaiquino y comprar piezas de recuerdo.",
     },
     {
       id: "negril_3",
@@ -142483,6 +142495,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Negril is a small, widely dispersed beach resort and town located in Westmoreland and Hanover parishes at the far western part of Jamaica, 80.8 kilometres (50.2 mi) southwest from Sangster International Airport in Montego Bay.",
       lat: 18.24201,
       lng: -78.35644,
+      description: "Los Acantilados de Negril son la franja de acantilados de piedra caliza que bordea la costa oeste, con miradores sobre el mar Caribe y pequeñas calas para nadar. Se visitan por las vistas al atardecer y para recorrer bares y puntos de acceso al agua.",
     },
     {
       id: "negril_6",
@@ -143280,7 +143293,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Los crocodilios (Crocodilia) son un orden de grandes reptiles predadores semiacuáticos. El orden incluye a los cocodrilos, a los gaviales y a los aligátores y caimanes.",
+      description: "Este santuario de tortugas marinas permite observar nidos durante la temporada de anidación, que abarca de julio a septiembre.",
       descriptionEn: "Sea turtles, sometimes called marine turtles, are reptiles of the order Testudines and of the suborder Cryptodira. The seven existing species of sea turtles are the flatback, green, hawksbill, leatherback, loggerhead, Kemp's ridley, and olive ridley.",
     },
     {
@@ -156519,7 +156532,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Pagine_friulane_n._10_%281894%29_%28IA_Pagine_friulane_n_10_1894%29.pdf/page1-1280px-Pagine_friulane_n._10_%281894%29_%28IA_Pagine_friulane_n_10_1894%29.pdf.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Fishbourne_model.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       website: "https://www.mnha.lu/",
       description: "El Castillo de Vianden, ubicado en la comuna y villa de Vianden en el norte de Luxemburgo, es uno de los castillos más grandes del oeste del río Rin. Data del siglo IV y se usó originalmente como un puesto de avanzada romano.",
       descriptionEn: "organization",
@@ -156617,10 +156630,11 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Hist%C3%B2ria_de_Luxemburg.jpg",
       website: "https://www.mnha.lu/",
-      description: "Echternach es una comuna con estatus de ciudad en el Cantón de Echternach, que es parte del distrito Grevenmacher, localizado al este de Luxemburgo. Echternach se encuentra cerca de la frontera de Alemania, y es la población más antigua de Luxemburgo.",
+      description: "Restos de una villa romana, es decir, un dominio rural formado por un edificio residencial principal y una serie de construcciones secundarias de explotación. El sitio se presenta como museo y permite ver cómo se organizaba una propiedad agrícola de época romana.",
       descriptionEn: "A Roman villa was typically a farmhouse or country house in the territory of the Roman Republic and the Roman Empire, sometimes reaching extravagant proportions.",
       lat: 49.80382,
       lng: 6.41178,
+      sourceUrl: "https://fr.wikipedia.org/wiki/Villa_romaine",
     },
     {
       id: "echternach_3",
@@ -156634,7 +156648,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Publications_de_la_Section_historique_de_l%27Institut_royal_grand-ducal_de_Luxembourg_%28IA_bub_gb_fUgDAAAAYAAJ%29.pdf/page1-500px-Publications_de_la_Section_historique_de_l%27Institut_royal_grand-ducal_de_Luxembourg_%28IA_bub_gb_fUgDAAAAYAAJ%29.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Echternach_Abbey_R02.jpg/1280px-Echternach_Abbey_R02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       website: "http://museedelabbaye.lu/",
       description: "Instalado en los antiguos edificios de la abadía de Echternach, el museo reúne arte sacro, manuscritos y piezas arqueológicas vinculados al monasterio fundado por san Willibrord; la cripta de la basílica conserva su tumba.",
       descriptionEn: "museum in France",
@@ -172224,7 +172238,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.2,
       estimatedMinutes: 60,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/db/Malaca%C3%B1an_Palace_2013_stamp_of_the_Philippines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Palacio_de_Malaca%C3%B1%C3%A1n%2C_Manila%2C_Filipinas%2C_2023-08-27%2C_DD_26.jpg/1280px-Palacio_de_Malaca%C3%B1%C3%A1n%2C_Manila%2C_Filipinas%2C_2023-08-27%2C_DD_26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       lat: 14.59386,
       lng: 120.99452,
       description: "El Palacio de Malacañán es la residencia oficial del presidente de Filipinas. Está localizado en la orilla norte del río Pásig en el distrito de San Miguel, Manila. Aparece impreso al reverso del billete de 20 pesos.",
@@ -178315,6 +178329,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Hovhannes Shiraz Memorial House-Museum in Gyumri is dedicated to the Armenian poet. It displays manuscripts, books, photographs, and personal objects linked to his life and work.",
       lat: 40.78771,
       lng: 43.84297,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Hovhannes_Shiraz_museum.jpg/1280px-Hovhannes_Shiraz_museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "gyumri_6",
@@ -178349,6 +178364,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Armenian Catholic Cathedral of the Holy Martyrs is a church in Gyumri consecrated to the martyrs. Its modern construction incorporates elements of Armenian architectural tradition.",
       lat: 40.78177,
       lng: 43.84535,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Cathedral_of_the_Holy_Martyrs%2C_Gyumri.jpg/1280px-Cathedral_of_the_Holy_Martyrs%2C_Gyumri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "gyumri_8",
@@ -178379,8 +178395,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Monumento a Vahan Cheraz es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Monumento a Vahan Cheraz is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Monumento conmemorativo dedicado a Vahan Cheraz en Gyumri. Se visita como parte del recorrido por los monumentos públicos y la memoria local de la ciudad.",
+      descriptionEn: "Memorial monument dedicated to Vahan Cheraz in Gyumri. It is visited as part of the city's public monuments and local memory.",
       lat: 40.7844,
       lng: 43.84064,
     },
@@ -178400,6 +178416,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Church of the Holy Mother of God, known as Yot Verk, is an Armenian church in Gyumri. Its name translates as 'Seven Wounds' and it is one of the city's historic temples.",
       lat: 40.78619,
       lng: 43.84233,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Holy_Mother_of_God_Cathedral_in_Gyumri_2019-09-24.jpg/1280px-Holy_Mother_of_God_Cathedral_in_Gyumri_2019-09-24.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "gyumri_11",
@@ -178417,6 +178434,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Surb Nshan Church, or Church of the Holy Sign, is an Armenian temple in Gyumri. It is part of the historic churches of the city center and preserves features of local ecclesiastical architecture.",
       lat: 40.78865,
       lng: 43.84157,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9a/%D5%8D%D6%80%D5%A2_%D5%86%D5%B7%D5%A1%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB.jpg?utm_source=hy.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "gyumri_12",
@@ -178452,6 +178470,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is a list of municipalities in Italy which have standing links to local communities in other countries known as \"town twinning\" or \"sister cities\".",
       lat: 40.78407,
       lng: 43.84118,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Holy_Saviour%27s_Church.jpg/1280px-Holy_Saviour%27s_Church.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "gyumri_14",
@@ -178519,6 +178538,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Vardan Achemyan Drama Theatre is Gyumri's drama theater, named after actor and director Vardan Achemyan. It programs theatrical works and cultural activities in the city.",
       lat: 40.79068,
       lng: 43.84489,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Vardan_Ajemyan_Drama_Theater%2C_Gyumri%2C_July_2023.jpeg/1280px-Vardan_Ajemyan_Drama_Theater%2C_Gyumri%2C_July_2023.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "gyumri_18",
@@ -178596,6 +178616,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Hovhannes Shiraz was an Armenian poet.",
       lat: 40.78746,
       lng: 43.84567,
+      description: "Letrero urbano con la frase “I love Gyumri” que sirve como punto de fotografía para visitantes. Es una parada breve para llevarse una imagen de la ciudad.",
     },
     {
       id: "gyumri_23",
@@ -178628,6 +178649,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Vardanants Square is the central square of Gyumri and a landmark of the city. It is surrounded by buildings of interest and is visited to observe urban life and the architecture of the center.",
       lat: 40.78524,
       lng: 43.84158,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Gyumri_-_Vardanants_Square_2.jpg/1280px-Gyumri_-_Vardanants_Square_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   baku: [
@@ -178737,9 +178759,11 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "Bakú es la capital y ciudad más poblada de Azerbaiyán, del mar Caspio y del Cáucaso. Está situada en la costa sur de la península de Absheron, que se proyecta en el Caspio. La ciudad se compone de dos partes principales: el centro y la ciudad vieja interior.",
+      description: "El Museo de Educación Pública es un museo ubicado en Bakú que se centra en la educación. Es una institución cultural para conocer la historia educativa de la ciudad.",
       lat: 40.36349,
       lng: 49.83127,
+      sourceUrl: "https://az.wikipedia.org/wiki/Xalq_T%C9%99hsili_Muzeyi",
+      descriptionEn: "The Public Education Museum is a museum in Baku focused on education. It is a cultural institution for learning about the city's educational history.",
     },
     {
       id: "baku_6",
@@ -178757,6 +178781,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The main gate of Baku's old-city walls, known for its twin stone arches. It marks the passage between the walled city and the modern centre and is a common starting point for exploring Icherisheher.",
       lat: 40.36876,
       lng: 49.83629,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Qo%C5%9Fa_qala_qap%C4%B1lar%C4%B1.JPG/1280px-Qo%C5%9Fa_qala_qap%C4%B1lar%C4%B1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "baku_7",
@@ -178875,11 +178900,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "La segunda guerra del Alto Karabaj fue un conflicto armado entre las fuerzas armadas de Azerbaiyán contra Armenia y la República de Artsaj en la región del Alto Karabaj desarrollado entre el 27 de septiembre y el 10 de noviembre de 2020 tras un acuerdo de alto al fuego.",
+      description: "La Sinagoga Asquenazí de Bakú se ubica en la calle Dilara Aliyeva y es la más grande del país. El edificio actual data de 2003 y fue la primera sinagoga en funcionamiento en Bakú en más de cien años.",
       descriptionEn: "Synagogue of the Ashkenazi Jews in Baku is a synagogue, located at 171 Dilara Aliyeva Street, in Baku, Azerbaijan. The synagogue caters for Ashkenazi and Georgian Jews.",
       lat: 40.37563,
       lng: 49.83783,
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Sinagogue_of_Ashkenazi_Jews_in_Baku.jpg/1280px-Sinagogue_of_Ashkenazi_Jews_in_Baku.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://pl.wikipedia.org/wiki/Synagoga_w_Baku",
     },
     {
       id: "baku_14",
@@ -178953,6 +178979,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "YARAT Contemporary Art Space also referred to simply as YARAT, is a non-profit art organization based in Baku, Azerbaijan, founded by artist Aida Mahmudova in 2011.",
       lat: 40.33937,
       lng: 49.83751,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/YARAT_Contemporary_Art_Space.jpg/3840px-YARAT_Contemporary_Art_Space.jpg?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "baku_18",
@@ -178988,6 +179015,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A park in central Baku also known as Malakan or Molokan Garden, after the community that settled in the area. It is surrounded by historic buildings and cafés and is a usual strolling place for city residents.",
       lat: 40.37161,
       lng: 49.84033,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/%D0%A1%D0%B0%D0%B4_%D0%A5%D0%B0%D0%B3%D0%B0%D0%BD%D0%B8_14_%D1%81%D0%B5%D0%BD%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2024_2.jpg?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "baku_20",
@@ -179019,10 +179047,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Bakú es la capital y ciudad más poblada de Azerbaiyán, del mar Caspio y del Cáucaso. Está situada en la costa sur de la península de Absheron, que se proyecta en el Caspio. La ciudad se compone de dos partes principales: el centro y la ciudad vieja interior.",
+      description: "El Parque de Invierno es un parque urbano de Bakú situado entre las calles Fuzuli, Shamsi Badalbeyli y Mirza Agha Aliyev. Se inauguró el 10 de mayo de 2013 en el terreno que antes ocupaba el área residencial Basin.",
       lat: 40.37678,
       lng: 49.83762,
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Q%C4%B1%C5%9F_Bulvar%C4%B1_%282%29_-_panoramio.jpg/1280px-Q%C4%B1%C5%9F_Bulvar%C4%B1_%282%29_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://az.wikipedia.org/wiki/Q%C4%B1%C5%9F_bulvar%C4%B1_(Bak%C4%B1)",
+      descriptionEn: "Winter Park is an urban park in Baku located between Fuzuli, Shamsi Badalbeyli and Mirza Agha Aliyev streets. It opened on 10 May 2013 on the site of the former Basin residential area.",
     },
     {
       id: "baku_22",
@@ -179073,10 +179103,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Jardín Nababat / Jardín Botánico es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Jardín Nababat / Jardín Botánico is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Jardín Botánico Central de Bakú, o Jardín Nababat, es una institución pública dependiente de la autoridad ejecutiva de la ciudad. Es un espacio verde con colecciones de plantas.",
+      descriptionEn: "The Central Botanical Garden of Baku, or Nababat Garden, is a public institution under the city's executive authority. It is a green space with plant collections.",
       lat: 40.35772,
       lng: 49.81792,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/75/Baku_Botanical_Garden_19.jpg?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://az.wikipedia.org/wiki/M%C9%99rk%C9%99zi_N%C9%99batat_Ba%C4%9F%C4%B1",
     },
     {
       id: "baku_25",
@@ -179095,6 +179127,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A state theatre in Baku aimed at children and young audiences, with seasons of dramatic theatre and productions designed for school groups. It is one of the performing arts institutions of the Azerbaijani capital.",
       lat: 40.37401,
       lng: 49.84512,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Azerbaijan_State_Theatre_of_Young_Spectators.8.jpg?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "baku_26",
@@ -179168,6 +179201,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A concrete tower built in Baku in the 1930s for parachute training, part of the Soviet aeronautical tradition of the period. It is a vertical landmark visible in the city's urban landscape.",
       lat: 40.36857,
       lng: 49.844,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Baku_ParachuteTower_004_2041.jpg/3840px-Baku_ParachuteTower_004_2041.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "baku_30",
@@ -179202,6 +179236,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Pedro Sánchez Pérez-Castejón is a Spanish politician and a member of the Spanish Socialist Workers' Party (PSOE). He has been the Prime Minister of Spain since 2018.",
       lat: 40.36036,
       lng: 49.82635,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/On_Melting_Snow_-_Screening_at_Flame_Towers.jpg/1280px-On_Melting_Snow_-_Screening_at_Flame_Towers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "baku_32",
@@ -179257,6 +179292,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Shekikhanov House-Museum is a historic residence in Sheki that belonged to the Shekikhanov family and now displays interiors and objects from the domestic life of the local elite. It shows the city's traditional residential architecture.",
       lat: 41.20265,
       lng: 47.19031,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/House_of_Shakikhanovs.JPG/3840px-House_of_Shakikhanovs.JPG?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "sheki_1",
@@ -179326,6 +179362,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Mirza Fatali Akhundov House-Museum occupies a house in Sheki associated with the Azerbaijani writer and playwright born in the city in 1812. It displays objects and documents about his life and work.",
       lat: 41.20224,
       lng: 47.19914,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0f/House-museum_of_Mirza_Fatali_Akhundov2.JPG?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "sheki_5",
@@ -179433,6 +179470,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Sheki Friday Mosque is the city's historic congregational mosque, intended for Friday prayer. Its building is part of the local religious heritage.",
       lat: 41.20249,
       lng: 47.18122,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/10/Minaret_of_Friday_mosque_in_Shaki.JPG?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "sheki_11",
@@ -179464,9 +179502,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "El turismo en Azerbaiyán es uno de los sectores más importantes de su economía. Gracias a su diversidad geográfica, es posible encontrar 9 de los 11 climas existentes según la clasificación climática de Köppen, lo que permite que el país sea un destino atractivo tanto en verano…",
+      description: "La Galería Estatal de Arte de Sheki es una pinacoteca fundada en 1982 por el Ministerio de Cultura de la República Socialista Soviética de Azerbaiyán. Exhibe obras de arte y funciona como espacio cultural en la ciudad.",
       lat: 41.20339,
       lng: 47.19546,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/66/R%C9%99sm_qalereyas%C4%B1.JPG?utm_source=az.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://az.wikipedia.org/wiki/%C5%9E%C9%99ki_D%C3%B6vl%C9%99t_R%C9%99sm_Qalereyas%C4%B1",
+      descriptionEn: "The Sheki State Art Gallery is a picture gallery established in 1982 by the Ministry of Culture of the Azerbaijan SSR. It displays artworks and serves as a cultural venue in the city.",
     },
     {
       id: "sheki_13",
@@ -179890,8 +179931,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Fuerte Abu Mahar es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Fuerte Abu Mahar is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Fuerte Abu Mahar es una fortificación histórica de Bahréin situada cerca de Manama; se visita por su arquitectura defensiva tradicional y su valor como patrimonio local.",
+      descriptionEn: "Abu Mahar Fort is a historic fortification in Bahrain near Manama, visited for its traditional defensive architecture and local heritage value.",
     },
     {
       id: "manama_15",
@@ -180017,6 +180058,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Bahrain National Museum, in Manama, displays collections on the country's history, archaeology and culture, from ancient civilizations to the modern era.",
       lat: 26.24066,
       lng: 50.59772,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Land_of_Dilmun._Bahrain_National_Museum._Garaizabal._2024.jpg/1280px-Land_of_Dilmun._Bahrain_National_Museum._Garaizabal._2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "manama_23",
@@ -181229,6 +181271,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Tiger's Nest, or Taktsang, is a Buddhist monastery built on a cliff above the Paro Valley. It is a pilgrimage site associated with Guru Rinpoche and is reached by a hiking trail.",
       lat: 27.49193,
       lng: 89.36344,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Tiger%27s_Nest_or_Lair_-_Paro_Buddhist_Taktsang_Palphug_Monastery_sacred_site_in_the_upper_Paro_Valley_built_1692_-_panoramio.jpg/1280px-Tiger%27s_Nest_or_Lair_-_Paro_Buddhist_Taktsang_Palphug_Monastery_sacred_site_in_the_upper_Paro_Valley_built_1692_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "paro_6",
@@ -181349,6 +181392,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.wwfbhutan.org.bt/projects_/bhutan_biological_conservation_complex/jigme_dorji_national_park/",
       description: "En Bután hay, en 2025, 23 áreas protegidas que ocupan unos 19.974 km², el 51,63% del territorio. De estas, 5 son parques nacionales, 9 son corredores biológicos, 4 son santuarios de la naturaleza, 1 es una reserva estricta, 1 es un monumento natural y 3 son sitios Ramsar que…",
       descriptionEn: "The Motithang Takin Preserve in Thimphu is a forested enclosure that is home to the takin, Bhutan's national animal. Visitors come to watch this unusual bovid at close range from a paved path.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Densely_forested_mountains_of_Jigme_Dorji_NP_AJTJ_IMG_1394.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "punakha_1",
@@ -182765,6 +182809,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Park and holiday village in Shau Kei Wan, Hong Kong Island, with green areas, accommodation, and recreational facilities. It is a leisure space that preserves buildings from its institutional past.",
       lat: 22.27717,
       lng: 114.23363,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Lei_Yue_Mun_Park_and_Holiday_Village_2018.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_6",
@@ -182849,6 +182894,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.lcsd.gov.hk/tc/parks/jvp/index.html",
       description: "Transformers: La era de la extinción, o Transformers 4, es una película de acción y ciencia ficción estadounidense de 2014. Es la cuarta entrega de la saga Transformers, secuela de Transformers: El lado oscuro de la luna, y está protagonizada por Mark Wahlberg.",
       descriptionEn: "Puerto Rico, officially the Commonwealth of Puerto Rico, is a self-governing Caribbean archipelago and island organized as an unincorporated territory of the United States under the designation of commonwealth.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/07/Jordan_Valley_Park_Overview1_201308.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_11",
@@ -182865,6 +182911,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.cic.hk/eng/main/zcb/",
       description: "Una ciudad sin emisiones o ciudad neutra en carbono (zero-carbon city) es un objetivo de los urbanistas que supone reducir a cero las emisiones de gases de efecto invernadero (principalmente dióxido de carbono, CO2) de una ciudad.",
       descriptionEn: "Building in Kowloon Bay, Hong Kong, conceived as a demonstration center for low-carbon architecture and technologies. It is visited to learn about energy-efficiency solutions and sustainable design.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b1/CIC_Zero_Carbon_Building_Overview_201708.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_12",
@@ -182881,6 +182928,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.ctc.org.hk/en/directcontrol/temple17.asp",
       description: "Templo histórico en Kowloon City, dedicado a Hau Wong, figura venerada en la religión popular china. Se visita por su arquitectura tradicional, sus altares y su valor patrimonial en el barrio.",
       descriptionEn: "Historic temple in Kowloon City, dedicated to Hau Wong, a figure venerated in Chinese folk religion. It is visited for its traditional architecture, altars, and heritage value in the neighborhood.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/HK_HauWongTemple_Front.JPG?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_13",
@@ -182915,6 +182963,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://stmary.org.hk/",
       description: "Iglesia católica en Hung Hom, Kowloon, dedicada a Santa María. Se visita por su arquitectura religiosa y por ser un centro de culto y actividad comunitaria en la zona.",
       descriptionEn: "There are a number of places named after famous people. For more on the general etymology of place names see toponymy. For other lists of eponyms see eponym.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/St._Mary%27s_Church_%28Hong_Kong%29.jpg/3840px-St._Mary%27s_Church_%28Hong_Kong%29.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "hongkongisland_15",
@@ -182932,6 +182981,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Emilio Aguinaldo y Famy was a Filipino revolutionary, statesman, and military leader who was the first president of the Philippines from 1899 to 1901, and the first president of an Asian constitutional republic.",
       lat: 22.27695,
       lng: 114.12286,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Mount_Davis_Battery_1.jpg/1280px-Mount_Davis_Battery_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hongkongisland_16",
@@ -182950,6 +183000,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Observation wheel on the Central waterfront, Hong Kong Island. It offers views of Victoria Harbour and the urban skyline, and is visited as a recreational attraction.",
       lat: 22.28532,
       lng: 114.16177,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/HK_%E4%B8%AD%E7%92%B0_Central_night_%E6%B0%91%E5%85%89%E8%A1%97_Man_Kwong_Street_%E4%B8%AD%E7%92%B0%E6%B5%B7%E6%BF%B1_Central_Waterfront_Promenade_%E6%91%A9%E5%A4%A9%E8%BC%AA_big_eye_Hong_Kong_Observation_Wheel_October_2020_SS2_04.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_17",
@@ -183018,6 +183069,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Historic gun in Causeway Bay, Hong Kong Island, associated with Jardine Matheson. It has become a point of interest by the waterfront and retains local symbolic value.",
       lat: 22.2826,
       lng: 114.18382,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/73/The_Jardines_Noonday_Gun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_21",
@@ -183084,6 +183136,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.1881heritage.com/",
       description: "La inmigración china en los Estados Unidos constituye un grupo de chinos de ultramar que forma parte de la comunidad asiática-estadounidense.",
       descriptionEn: "Hong Kong Tramways (HKT) is a 3 ft 6 in narrow-gauge tram system in Hong Kong. Owned and operated by RATP Dev, the tramway runs on Hong Kong Island between Kennedy Town and Shau Kei Wan, with a branch circulating through Happy Valley.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/29/1881_Heritage_Overview_201108.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_25",
@@ -183101,6 +183154,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Doña Marcela Mariño de Agoncillo was a Filipina who was the principal seamstress of the first and official flag of the Philippines, gaining her the title of \"The Mother of the Philippine Flag.\"",
       lat: 22.27504,
       lng: 114.17367,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1f/New_Wan_Chai_Market_Outside_View.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_26",
@@ -183118,6 +183172,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "It is a wholesale fish market by Aberdeen harbour on the south side of Hong Kong Island; visitors go to watch the unloading and trade in seafood.",
       lat: 22.24804,
       lng: 114.15041,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/HK_%E5%8D%97%E5%8D%80_Southern_District_%E9%A6%99%E6%B8%AF%E4%BB%94%E6%B5%B7%E6%97%81%E9%81%93_Aberdeen_Praya_Road_Aberdeen_Wholesale_Fish_Market_March_2022_Px3_01.jpg/1280px-HK_%E5%8D%97%E5%8D%80_Southern_District_%E9%A6%99%E6%B8%AF%E4%BB%94%E6%B5%B7%E6%97%81%E9%81%93_Aberdeen_Praya_Road_Aberdeen_Wholesale_Fish_Market_March_2022_Px3_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hongkongisland_27",
@@ -183164,6 +183219,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.westkowloon.hk/tc/xiqu-centre",
       description: "Es un centro de artes escénicas en West Kowloon dedicado a la ópera cantonesa y otras formas de teatro chino; se visita por su arquitectura y su programación cultural.",
       descriptionEn: "It is a performing arts centre in West Kowloon dedicated to Cantonese opera and other forms of Chinese theatre; visitors go for its architecture and cultural programme.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/37/Xiqu_Centre_View_201812.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hongkongisland_30",
@@ -183216,6 +183272,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "It is a street market in Stanley on the south side of Hong Kong Island, with stalls selling clothing, crafts and souvenirs; visitors go for its atmosphere and proximity to the coast.",
       lat: 22.21911,
       lng: 114.21311,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/3855_at_Stanley_Village_%2820181126103604%29.jpg/1280px-3855_at_Stanley_Village_%2820181126103604%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   kowloon: [
@@ -183314,6 +183371,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.lcsd.gov.hk/camp/b5/p_lymp.php",
       description: "El Parque y Complejo Vacacional de Lei Yue Mun ocupa antiguas instalaciones militares británicas en Chai Wan. Hoy combina áreas verdes, alojamiento y edificios históricos, y conserva vestigios de su uso como cuartel.",
       descriptionEn: "Lei Yue Mun Park and Holiday Village occupies former British military facilities in Chai Wan. It now combines green areas, accommodation and historic buildings, and retains traces of its use as barracks.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Lei_Yue_Mun_Park_and_Holiday_Village_2018.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "kowloon_6",
@@ -183329,6 +183387,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Reducto de Shing Mun son las ruinas de una posición militar británica de la línea Gin Drinkers, construida antes de la Segunda Guerra Mundial. Incluye trincheras y túneles en la zona de Shing Mun, en los Nuevos Territorios.",
       descriptionEn: "The Shing Mun Redoubt is the ruin of a British military position on the Gin Drinkers Line, built before World War II. It includes trenches and tunnels in the Shing Mun area of the New Territories.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Shing_Mun_Redoubt_Tunnel_Regent_St_and_Shaftesbury_Ave_ph2.jpg/3840px-Shing_Mun_Redoubt_Tunnel_Regent_St_and_Shaftesbury_Ave_ph2.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "kowloon_7",
@@ -183366,6 +183425,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Nan Lian Garden is a Tang-style garden in Diamond Hill, Kowloon, designed with ponds, rocks and pavilions. It is explored along paths and offers views of the nearby Chi Lin Nunnery.",
       lat: 22.33935,
       lng: 114.20485,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/HK_WTS_%E9%91%BD%E7%9F%B3%E5%B1%B1_Diamond_Hill_%E5%8D%97%E8%93%AE%E5%9C%92%E6%B1%A0_Nan_Lian_Garden_December_2020_SS2_63.jpg/1280px-HK_WTS_%E9%91%BD%E7%9F%B3%E5%B1%B1_Diamond_Hill_%E5%8D%97%E8%93%AE%E5%9C%92%E6%B1%A0_Nan_Lian_Garden_December_2020_SS2_63.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kowloon_9",
@@ -183402,6 +183462,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Chi Lin Nunnery is a Buddhist complex in Diamond Hill, Kowloon, rebuilt with Tang-style wooden architecture. It contains worship halls, statues and gardens, and functions as a monastery and religious centre.",
       lat: 22.34067,
       lng: 114.20537,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/HK_WTS_%E9%91%BD%E7%9F%B3%E5%B1%B1_Diamond_Hill_%E5%BF%97%E8%93%AE%E5%87%88%E8%8B%91_Chi_Lin_Nunnery_December_2020_SS2_15.jpg/1280px-HK_WTS_%E9%91%BD%E7%9F%B3%E5%B1%B1_Diamond_Hill_%E5%BF%97%E8%93%AE%E5%87%88%E8%8B%91_Chi_Lin_Nunnery_December_2020_SS2_15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kowloon_11",
@@ -183420,6 +183481,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The following is a list of central business districts (CBDs).",
       lat: 22.32947,
       lng: 114.2207,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Jordan_Valley_Park%2C_Children%27s_Play_Area_%28Hong_Kong%29.jpg/1280px-Jordan_Valley_Park%2C_Children%27s_Play_Area_%28Hong_Kong%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kowloon_12",
@@ -183438,6 +183500,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Zero Carbon Building is in Kowloon Bay and serves as an exhibition and education centre on sustainable construction. It shows energy-efficiency technologies and low-carbon design, with spaces for visits and activities.",
       lat: 22.32112,
       lng: 114.20835,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b1/CIC_Zero_Carbon_Building_Overview_201708.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "kowloon_13",
@@ -183456,6 +183519,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Kowloon City Hau Wong Temple is dedicated to Hau Wong, a protective deity venerated in Hong Kong. The temple preserves altars, inscriptions and traditional architecture, and is associated with the area's local history.",
       lat: 22.33262,
       lng: 114.18751,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/HK_HauWongTemple_Front.JPG?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "kowloon_14",
@@ -183490,6 +183554,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "St Mary's Church in Hung Hom is a Catholic church in the Hung Hom area of Kowloon. Its community is part of the Diocese of Hong Kong, and the building is used for Masses and parish activities.",
       lat: 22.30754,
       lng: 114.18837,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/St._Mary%27s_Church_%28Hong_Kong%29.jpg/3840px-St._Mary%27s_Church_%28Hong_Kong%29.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "kowloon_16",
@@ -183506,6 +183571,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.lcsd.gov.hk/parks/twwp/b5/index.html",
       description: "El Parque Ribereño de Tsuen Wan se extiende junto a la costa de Tsuen Wan, en los Nuevos Territorios. Tiene paseos, áreas verdes y vistas al canal y a la bahía, y conecta con zonas residenciales del distrito.",
       descriptionEn: "Tsuen Wan Riviera Park runs along the Tsuen Wan waterfront in the New Territories. It has promenades, green areas and views of the channel and bay, and connects with residential areas of the district.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Tsuen_Wan_Riviera_Park_201408.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "kowloon_17",
@@ -183521,6 +183587,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Fuerte de Mount Davis es un antiguo conjunto militar británico en la cima del monte Davis, en la isla de Hong Kong. Conserva baterías, túneles y estructuras de defensa construidas para proteger el puerto.",
       descriptionEn: "Mount Davis Fort is a former British military complex on the summit of Mount Davis, on Hong Kong Island. It retains batteries, tunnels and defence structures built to protect the harbour.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Mount_Davis_Battery_6.jpg/3840px-Mount_Davis_Battery_6.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "kowloon_18",
@@ -183570,6 +183637,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Former Marine Police Headquarters is in Tsim Sha Tsui, Kowloon, and was the seat of the colonial marine police. The historic compound, known as 1881 Heritage, preserves buildings and courtyards and now houses shops and cultural spaces.",
       lat: 22.29535,
       lng: 114.16995,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Former_Marine_Police_Headquarters_Compound_Artillery_battery.jpg/1280px-Former_Marine_Police_Headquarters_Compound_Artillery_battery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kowloon_21",
@@ -183634,6 +183702,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "https://www.lcsd.gov.hk/ktt/",
       description: "Centro de artes escénicas en Kwai Chung, Nuevos Territorios, con salas para teatro, danza, música y espectáculos. Se visita según la programación para asistir a funciones y actividades culturales.",
       descriptionEn: "A performing arts centre in Kwai Chung, New Territories, with venues for theatre, dance, music and shows. Visitors attend performances and cultural activities according to the programme.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Kwai_Tsing_Theatre_%28full_view%29.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "kowloon_25",
@@ -183668,6 +183737,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Mercado tradicional en Wan Chai, en la isla de Hong Kong, con puestos de alimentos frescos y productos diarios. Se visita para observar el funcionamiento de un mercado húmedo urbano y su actividad cotidiana.",
       descriptionEn: "A traditional market in Wan Chai, on Hong Kong Island, with stalls for fresh food and daily goods. Visitors observe the operation of an urban wet market and its everyday activity.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1f/New_Wan_Chai_Market_Outside_View.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "kowloon_27",
@@ -183683,6 +183753,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Mercado mayorista de pescado en Aberdeen, en la zona sur de Hong Kong, vinculado a la flota pesquera y a la distribución de producto fresco. Se visita para observar la actividad portuaria y el comercio de pescado.",
       descriptionEn: "A wholesale fish market in Aberdeen, in southern Hong Kong, linked to the fishing fleet and the distribution of fresh seafood. Visitors observe the port activity and the fish trade.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b3/HK_Aberdeen_Praya_Road_FMO_Evening_1_Aberdeen_Fisheries_%26_Marine_Office.JPG?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "kowloon_28",
@@ -183751,6 +183822,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A Taoist temple in Wong Tai Sin, Kowloon, dedicated to Wong Tai Sin and featuring courtyards, pavilions and worship areas. Visitors learn about local religious practice and observe the temple architecture.",
       lat: 22.34282,
       lng: 114.19355,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/HK_WTS_%E9%BB%83%E5%A4%A7%E4%BB%99_Wong_Tai_Sin_%E9%BB%83%E5%A4%A7%E4%BB%99%E7%A5%A0_Temple_%E5%97%87%E8%89%B2%E5%9C%92_Sik_Sik_Yuen_tour_September_2021_SS2_028.jpg/1280px-HK_WTS_%E9%BB%83%E5%A4%A7%E4%BB%99_Wong_Tai_Sin_%E9%BB%83%E5%A4%A7%E4%BB%99%E7%A5%A0_Temple_%E5%97%87%E8%89%B2%E5%9C%92_Sik_Sik_Yuen_tour_September_2021_SS2_028.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kowloon_32",
@@ -183768,6 +183840,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A street night market in Yau Ma Tei and Jordan, Kowloon, with stalls selling clothing, souvenirs, food and miscellaneous goods. Visitors walk its lit streets and observe Hong Kong's nighttime commercial life.",
       lat: 22.3064,
       lng: 114.16997,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/HK_%E4%BD%90%E6%95%A6_Jordan_%E5%BB%9F%E8%A1%97_Temple_Street_%E5%A4%9C%E5%B8%82_market_food_stalls_night_December_2023_R12S_04.jpg/1280px-HK_%E4%BD%90%E6%95%A6_Jordan_%E5%BB%9F%E8%A1%97_Temple_Street_%E5%A4%9C%E5%B8%82_market_food_stalls_night_December_2023_R12S_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   lantauisland: [
@@ -188610,10 +188683,12 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://vernoye-almaty.kz/monum/poyavit.shtml",
-      description: "Almaty-1 es una estación de ferrocarril ubicada en la ciudad de Almaty, Kazajistán, y es una de las dos estaciones principales de la ciudad. Almaty-1 sirve como punto de partida principal para los pasajeros que viajan tanto dentro de Kazajistán como a nivel internacional.",
+      description: "La Fortaleza de Verny fue una construcción defensiva del Imperio ruso levantada en 1854-55 con el nombre de fortificación de Zailiskoye, y se le considera el punto de partida de la ciudad de Verny, después Almaty. En 1920 fue el centro del levantamiento de Verny.",
       descriptionEn: "The Amazing Race 13 is the thirteenth season of the American reality competition show The Amazing Race. Hosted by Phil Keoghan, it featured eleven teams of two, each with a pre-existing relationship, competing in a race around the world for US$1,000,000.",
       lat: 43.27492,
       lng: 76.96399,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/e/e4/%D0%92%D0%B5%D1%80%D0%BD%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D0%BA%D1%80%D0%B5%D0%BF%D0%BE%D1%81%D1%82%D1%8C.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://ru.wikipedia.org/wiki/%D0%92%D0%B5%D1%80%D0%BD%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D0%BA%D1%80%D0%B5%D0%BF%D0%BE%D1%81%D1%82%D1%8C",
     },
     {
       id: "almaty_1",
@@ -188632,6 +188707,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Dinmukhamed Kunayev Apartment Museum occupies the home where the Kazakh Soviet leader lived. It preserves personal belongings, furniture and documents illustrating his political career and the Soviet era in Kazakhstan.",
       lat: 43.25272,
       lng: 76.94846,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/ru/thumb/4/45/%D0%94%D0%BE%D0%BC-%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%9A%D1%83%D0%BD%D0%B0%D0%B5%D0%B2%D0%B0.jpeg/3840px-%D0%94%D0%BE%D0%BC-%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%9A%D1%83%D0%BD%D0%B0%D0%B5%D0%B2%D0%B0.jpeg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "almaty_2",
@@ -188650,6 +188726,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Central State Museum of the Republic of Kazakhstan holds collections on the country's archaeology, ethnography and history. Its halls display objects ranging from ancient artifacts to items from the Soviet and modern periods.",
       lat: 43.23591,
       lng: 76.95072,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/41/Central_State_Museum_of_the_Republic_of_Kazakhstan.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_3",
@@ -188668,6 +188745,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Kasteyev State Museum of Arts houses a broad collection of Kazakh, Russian and European art. It includes painting, graphic works and decorative arts, and is named after the artist Abilkhan Kasteyev.",
       lat: 43.23564,
       lng: 76.91949,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/kk/thumb/e/e2/%D3%98.%D2%9A%D0%B0%D1%81%D1%82%D0%B5%D0%B5%D0%B2_%D0%B0%D1%82%D1%8B%D0%BD%D0%B4%D0%B0%D2%93%D1%8B_%D3%A9%D0%BD%D0%B5%D1%80_%D0%BC%D2%B1%D1%80%D0%B0%D0%B6%D0%B0%D0%B9%D1%8B.jpg/3840px-%D3%98.%D2%9A%D0%B0%D1%81%D1%82%D0%B5%D0%B5%D0%B2_%D0%B0%D1%82%D1%8B%D0%BD%D0%B4%D0%B0%D2%93%D1%8B_%D3%A9%D0%BD%D0%B5%D1%80_%D0%BC%D2%B1%D1%80%D0%B0%D0%B6%D0%B0%D0%B9%D1%8B.jpg?utm_source=kk.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "almaty_4",
@@ -188685,6 +188763,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Central Museum of Railway Transport of Kazakhstan presents the history of railways in the country. It displays locomotives, carriages, equipment and documents related to the construction and operation of railway lines.",
       lat: 43.25181,
       lng: 76.9465,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/5/5c/%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9.jpeg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_5",
@@ -188721,6 +188800,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Ykylas Museum of Folk Musical Instruments preserves traditional Kazakh instruments and pieces from other cultures. Its collection documents folk music and the work of craftspeople and performers.",
       lat: 43.25948,
       lng: 76.95687,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Dombra1.jpg?utm_source=kk.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_7",
@@ -188774,6 +188854,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The following is a list of national founders of sovereign states who were credited with establishing a state. National founders are typically those who played an influential role in setting up the systems of governance,, of the country.",
       lat: 43.25281,
       lng: 76.94963,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/85/Dinmuhkamed_Konayev.png?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_10",
@@ -188808,6 +188889,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Kazakh–Dzungar Wars were a series of military conflicts between the Kazakh jüzes and the Dzungar Khanate lasting from the 17th to the mid-18th century.",
       lat: 43.27296,
       lng: 76.93918,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Abylai_Khan_Ave%2C_Almaty_%28P1180160%29.jpg/1280px-Abylai_Khan_Ave%2C_Almaty_%28P1180160%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "almaty_12",
@@ -188825,6 +188907,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Monument to Abai pays tribute to the Kazakh poet, writer and thinker Abai Qunanbaiuly. The statue is one of Almaty's main literary memorials and represents his cultural legacy.",
       lat: 43.24313,
       lng: 76.9575,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/0/05/Abay_Monument_Almaty.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_13",
@@ -188842,6 +188925,8 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The European Association of Zoos and Aquaria (EAZA) is an organisation for the European zoo and aquarium community that links over 340 member organisations in 41 countries. EAZA membership is open to all zoos and aquaria across Europe that comply with EAZA's standards.",
       lat: 43.2597,
       lng: 76.95431,
+      description: "El Teatro ARTiSHOCK es la primera compañía teatral independiente de Kazajistán, fundada en 2001 en Almaty. Produce y presenta espectáculos de artes escénicas en la ciudad.",
+      sourceUrl: "https://ru.wikipedia.org/wiki/ART%D0%B8%D0%A8%D0%9E%D0%9A",
     },
     {
       id: "almaty_14",
@@ -188895,6 +188980,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Lermontov Russian Drama Theatre is a drama theatre named after Russian poet and artist Mikhail Lermontov located in Almaty, Kazakhstan.",
       lat: 43.24304,
       lng: 76.94404,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Th%C3%A9%C3%A2tre_dramatique_russe_Lermontov%2C_Almaty_%282007%29.jpg/1280px-Th%C3%A9%C3%A2tre_dramatique_russe_Lermontov%2C_Almaty_%282007%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "almaty_17",
@@ -188913,6 +188999,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Natalia Sats Children's and Youth Theatre is a performing arts venue in Almaty dedicated to productions for children and young people. It is named after the theater director Natalia Sats and stages shows for young audiences.",
       lat: 43.22163,
       lng: 76.86784,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Natalia_Sats_Theatre.webp?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_18",
@@ -188930,6 +189017,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The 28 Panfilov Guardsmen Park is a park in Almaty that honors soldiers of the Panfilov Division. It includes a memorial and is located next to the Ascension Cathedral.",
       lat: 43.25883,
       lng: 76.95314,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Eternal_Flame_World_War_II_monument._Almaty%2C_Kazakhstan.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_19",
@@ -188997,10 +189085,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Catedral de Cristo Salvador es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Catedral de Cristo Salvador is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Catedral de la Natividad de Cristo: templo ortodoxo ruso de Almaty y sede de la eparquía de Astaná y Almaty. Es un edificio religioso en actividad, visitado por fieles y por interesados en la arquitectura ortodoxa de la ciudad.",
+      descriptionEn: "Cathedral of the Nativity of Christ: a Russian Orthodox church in Almaty and seat of the Astana and Almaty eparchy. It is an active religious building, visited by worshippers and by those interested in the city's Orthodox architecture.",
       lat: 43.24534,
       lng: 76.83203,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/ALAtempleChristtheSaviour.JPG/3840px-ALAtempleChristtheSaviour.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      sourceUrl: "https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D0%BE%D1%80_%D0%A0%D0%BE%D0%B6%D0%B4%D0%B5%D1%81%D1%82%D0%B2%D0%B0_%D0%A5%D1%80%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D0%B0_(%D0%90%D0%BB%D0%BC%D0%B0-%D0%90%D1%82%D0%B0)",
     },
     {
       id: "almaty_23",
@@ -189018,6 +189108,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This article is a list of gondola lifts around the world. A gondola lift has cabins suspended from a continuously circulating cable, whereas aerial trams simply shuttle back and forth on cables.",
       lat: 43.26959,
       lng: 76.95868,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d0/ALASofiyskiySobor.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_24",
@@ -189036,6 +189127,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Abai Kazakh National Opera and Ballet Theatre is a cultural institution in Almaty named after the poet Abai Kunanbayev. It stages operas and ballets and is known for its Soviet-era architecture.",
       lat: 43.24865,
       lng: 76.94579,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Abai_Kazakh_State_Academic_opera%2C_2014.jpg/1280px-Abai_Kazakh_State_Academic_opera%2C_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "almaty_25",
@@ -189053,6 +189145,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The following list shows the subnational entities and regions included in the Human Development Index report, sorted by their score. The HDI is a summary measure of human development that considers three dimensions: health, education, and standard of living.",
       lat: 43.26368,
       lng: 76.9552,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/65/2008_Green_bazaar_Almaty_meat_2471950021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_26",
@@ -189069,6 +189162,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "El parque nacional de los lagos Kolsai se encuentra en los distritos de Raiymbek y Talgar, ambos de la provincia de Almatý, Kazajistán. Fue creado el 7 de febrero de 2007 mediante el decreto N.º 88 del Gobierno de la República de Kazajistán.",
       lat: 43.23978,
       lng: 76.9009,
+      descriptionEn: "The Zazerkalie puppet theatre, whose Russian name means \"through the looking glass,\" is a children's puppet theatre in Almaty. It stages plays aimed at young audiences.",
     },
     {
       id: "almaty_27",
@@ -189086,6 +189180,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Presidential Archive of Kazakhstan is a state archive in Almaty that preserves documents from the presidency and the country's political history. Its interest is documentary and historical, mainly for researchers.",
       lat: 43.24008,
       lng: 76.95678,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/kk/7/75/%D0%9F%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82_%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D1%96_%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%D1%96.png?utm_source=kk.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_28",
@@ -189103,6 +189198,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The following is a list of notable deaths in March 2018.",
       lat: 43.26216,
       lng: 76.95192,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/5/5b/%D0%94%D0%BE%D0%BC_%D1%83%D1%87%D1%91%D0%BD%D1%8B%D1%85_%28%D0%90%D0%BB%D0%BC%D0%B0-%D0%90%D1%82%D0%B0%29.jpeg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "almaty_29",
@@ -189228,6 +189324,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Heydar Aliyev's cult of personality, also known as Heydarism, became a significant part of Azerbaijani politics and society after Heydar Aliyev came to power as President of Azerbaijan in 1993 and continued after his death in 2003, when his son Ilham Aliyev succeeded him.",
       lat: 51.10755,
       lng: 71.41709,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Botanical_garden%2C_Astana_%28P1190704%29.jpg/1280px-Botanical_garden%2C_Astana_%28P1190704%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "astana_3",
@@ -189245,6 +189342,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Atameken Ethno-Memorial Complex is an open-air museum in Astana featuring a miniature map of Kazakhstan. It includes replicas of monuments and landscapes from the country’s regions.",
       lat: 51.14929,
       lng: 71.4175,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Atameken_miniature_park_01.jpg/3840px-Atameken_miniature_park_01.jpg?utm_source=kk.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "astana_4",
@@ -189258,9 +189356,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Almaty, conocida como Verny (Верный) durante el periodo del Imperio ruso y hasta 1993 como Almá-Atá, es la ciudad más grande de Kazajistán.",
+      description: "El Parque Zhetysu es un parque del distrito Yesil de Astana, antes conocido como parque Aray. Fue reconstruido en 2018 y su nombre evoca Semirechye, una región histórica de Asia Central.",
       lat: 51.13599,
       lng: 71.43864,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/99/Improvisation_of_Charyn_Canyon_in_Jetisy_park.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://ru.wikipedia.org/wiki/%D0%96%D0%B5%D1%82%D1%8B%D1%81%D1%83_(%D0%BF%D0%B0%D1%80%D0%BA)",
+      descriptionEn: "Zhetysu Park is a park in Astana's Yesil district, formerly known as Aray Park. It was reconstructed in 2018, and its name refers to Semirechye, a historical region of Central Asia.",
     },
     {
       id: "astana_5",
@@ -189348,10 +189449,11 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 60,
       website: "https://qazaqconcert.kz/",
-      description: "Birzhan y Sara es una ópera kazaja compuesta en dos actos y cuatro escenas compuestas por el compositor Mukan Tulebaev basándose en el libreto de Khazim Dyumaliev.",
+      description: "El Centro de Conciertos Central Kazakhstan, en Astana, abrió en 2009. Acoge conciertos, actos oficiales, exposiciones y conferencias en espacios equipados con tecnología para eventos.",
       descriptionEn: "The Astana Cemetery is an ancient cemetery 37 kilometers (23 mi) southeast of Turpan, in Xinjiang, China, 6 kilometres (3.7 mi) from the ancient city of Gaochang.",
       lat: 51.12275,
       lng: 71.44197,
+      sourceUrl: "https://kk.wikipedia.org/wiki/%D2%9A%D0%B0%D0%B7%D0%B0%D2%9B%D1%81%D1%82%D0%B0%D0%BD_%D0%9E%D1%80%D1%82%D0%B0%D0%BB%D1%8B%D2%9B_%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D1%80%D1%82_%D0%B7%D0%B0%D0%BB%D1%8B",
     },
     {
       id: "astana_10",
@@ -189365,8 +189467,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 45,
-      description: "Mezquita Abu Nasr al-Farabi es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Mezquita Abu Nasr al-Farabi is a recommended place to visit and one of the standout attractions in the area.",
+      description: "La Mezquita Abu Nasr al-Farabi es un templo islámico de Astana dedicado al filósofo y científico nacido en el actual Kazajistán. Es un lugar de culto y una referencia religiosa en la ciudad.",
+      descriptionEn: "The Abu Nasr al-Farabi Mosque is an Islamic place of worship in Astana named after the philosopher and scientist born in present-day Kazakhstan. It serves as a religious landmark in the city.",
       lat: 51.12667,
       lng: 71.41557,
     },
@@ -189937,6 +190039,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Scientific Center of Kuwait (TSCK) is an educational complex on the city's waterfront, known for housing one of the largest aquariums in the Middle East, along with an IMAX theater and a discovery place for children.",
       lat: 29.3497,
       lng: 48.08956,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Hedgehog%2C_Kuwait_Scientific_Center.jpg/1280px-Hedgehog%2C_Kuwait_Scientific_Center.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "kuwaitcity_8",
@@ -190174,6 +190277,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "House museum in Bishkek dedicated to Mikhail Frunze, a Soviet military leader born in the city; it preserves personal objects, documents and the memorial house.",
       lat: 42.88049,
       lng: 74.60542,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7b/%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA._%D0%94%D0%BE%D0%BC_%D0%9C._%D0%92._%D0%A4%D1%80%D1%83%D0%BD%D0%B7%D0%B5.jpg?utm_source=ky.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bishkek_3",
@@ -190191,6 +190295,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "House museum in Bishkek dedicated to the Kyrgyz poet Alykul Osmonov; it gathers personal objects, manuscripts and documents about his life and literary work.",
       lat: 42.86764,
       lng: 74.57827,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/The_appearance_of_the_Alykul_Osmonov_house_museum.jpg/1280px-The_appearance_of_the_Alykul_Osmonov_house_museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bishkek_4",
@@ -190209,6 +190314,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Monumento a Naimanbái Manaschy is a recommended place to visit and one of the standout attractions in the area.",
       lat: 42.8772,
       lng: 74.58704,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Balik_uulu_Naymanbay.jpg/3840px-Balik_uulu_Naymanbay.jpg?utm_source=ky.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bishkek_5",
@@ -190256,8 +190362,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Jardín Botánico de la Universidad Nacional Zhusup Balasaguín es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Jardín Botánico de la Universidad Nacional Zhusup Balasaguín is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Jardín botánico vinculado a la Universidad Nacional Zhusup Balasaguín, en Bishkek. Es un espacio verde con colecciones de plantas que se visita para caminar y conocer la flora en un entorno universitario.",
+      descriptionEn: "Botanical garden linked to the Zhusup Balasaguín National University in Bishkek. It is a green space with plant collections visited for walking and learning about flora in a university setting.",
       lat: 42.88573,
       lng: 74.58866,
     },
@@ -190273,8 +190379,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Parque Kara-Zhygach es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Parque Kara-Zhygach is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Parque urbano de Bishkek cuya fecha de inicio se registra en 1881. Es un espacio verde histórico de la ciudad, utilizado para paseos y actividades al aire libre.",
+      descriptionEn: "Urban park in Bishkek whose start date is recorded as 1881. It is a historic green space in the city, used for walks and outdoor activities.",
       lat: 42.90319,
       lng: 74.62146,
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA%2C_%D0%9A%D0%B0%D1%80%D0%B0%D0%B3%D0%B0%D1%87%D1%91%D0%B2%D0%B0%D1%8F_%D1%80%D0%BE%D1%89%D0%B0%2C_%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%B0%D1%8F_%D1%87%D0%B0%D1%81%D1%82%D1%8C_%281%29.jpg/1280px-%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA%2C_%D0%9A%D0%B0%D1%80%D0%B0%D0%B3%D0%B0%D1%87%D1%91%D0%B2%D0%B0%D1%8F_%D1%80%D0%BE%D1%89%D0%B0%2C_%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%B0%D1%8F_%D1%87%D0%B0%D1%81%D1%82%D1%8C_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -190328,6 +190434,7 @@ export const CURATED_ALL: CuratedMap = {
       website: "http://www.botanica.kg",
       description: "Reserva dendrológica en Bishkek con colecciones de árboles y arbustos vinculada al legado del botánico E. Z. Gareev; se recorre para observar la flora.",
       descriptionEn: "Dendrological reserve in Bishkek with collections of trees and shrubs linked to the legacy of botanist E. Z. Gareev; it is visited to observe the flora.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Bishkek_03-2016_img24_Botanical_garden.jpg/3840px-Bishkek_03-2016_img24_Botanical_garden.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bishkek_12",
@@ -190346,6 +190453,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Botanical garden in Bishkek with collections of plants from Kyrgyzstan and other regions; it has paths and research areas focused on local flora.",
       lat: 42.82117,
       lng: 74.63916,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Bishkek_03-2016_img24_Botanical_garden.jpg/3840px-Bishkek_03-2016_img24_Botanical_garden.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "bishkek_13",
@@ -190377,6 +190485,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Total World Tour was the fifth concert tour by English recording artist Joss Stone. The tour lasted 6 years, with Stone expressing her intent to play in every country on Earth, and mostly succeeded in her goal, even reaching countries such as North Korea, Yemen, and Iraq.",
       lat: 42.87831,
       lng: 74.58758,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Kyrgyz_National_Philharmonic.jpg?utm_source=ky.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "bishkek_15",
@@ -190412,6 +190521,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "National fine arts museum in Bishkek with paintings, graphic art and decorative arts from Kyrgyzstan and other regions; it displays works by local and foreign artists.",
       lat: 42.87862,
       lng: 74.61069,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/National_Museum_of_Fine_Arts_Gapar_Aitiev_3.jpg/1280px-National_Museum_of_Fine_Arts_Gapar_Aitiev_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bishkek_17",
@@ -190443,7 +190553,7 @@ export const CURATED_ALL: CuratedMap = {
       rating: 4.5,
       estimatedMinutes: 120,
       website: "https://parkeurasia.com/",
-      description: "Biskek, también conocida como Bishkek es la capital y la ciudad más poblada de Kirguistán; también es el centro administrativo de la provincia de Chuy que rodea a la ciudad, a pesar de que no es parte de la provincia.",
+      description: "Parque de atracciones gratuito en Bishkek con más de 20 atracciones para toda la familia. El ingreso se gestiona con un código QR en la aplicación Eurasia Park.",
       descriptionEn: "As of 2025 there are around 260 cities or metropolitan areas where trolleybuses are operated, and more than 550 additional trolleybus systems have existed in the past.",
     },
     {
@@ -190601,6 +190711,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Sulaiman-Too Historical and Ethnographic Museum in Osh holds archaeological and ethnographic objects from the region. Its displays contextualize the history and traditions of the Fergana Valley.",
       lat: 40.52866,
       lng: 72.78373,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/National_Historical_and_Archaeological_Museum_Complex_Sulayman.jpg/3840px-National_Historical_and_Archaeological_Museum_Complex_Sulayman.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "osh_1",
@@ -190614,10 +190725,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 60,
-      description: "Monumento a Aikol Manas es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Monumento a Aikol Manas is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Monumento dedicado a Manas, el héroe de la epopeya kirguisa homónima. La obra conmemora las hazañas del guerrero que protagoniza uno de los relatos épicos más extensos de la tradición oral kirguisa.",
+      descriptionEn: "Monument dedicated to Manas, the hero of the Kyrgyz epic of the same name. It commemorates the deeds of the warrior who stars in one of the longest oral epic traditions of the Kyrgyz people.",
       lat: 40.56777,
       lng: 72.78481,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/ru/1/1f/Manas_Heykeli_%28yandan%29.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      sourceUrl: "https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BD%D0%B0%D1%81",
     },
     {
       id: "osh_2",
@@ -190635,6 +190748,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Zahiriddin Babur Uzbek Drama Theatre in Osh stages plays in the Uzbek language. It is named after the ruler and poet Zahiriddin Muhammad Babur.",
       lat: 40.53306,
       lng: 72.79675,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Uzbek_Academic_Theatre._Babur_-_panoramio.jpg/1280px-Uzbek_Academic_Theatre._Babur_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "osh_3",
@@ -190648,7 +190762,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.5,
       estimatedMinutes: 90,
-      description: "La montaña Sulaiman se encuentra en la ciudad de Osh y fue en tiempos un lugar principal de peregrinación preislámica e islámica.",
+      description: "Museo arqueológico de Osh dedicado a la historia antigua de la ciudad y su región. Su colección reúne piezas halladas en yacimientos locales.",
       descriptionEn: "The following is a timeline for Google Street View, a technology implemented in Google Maps and Google Earth that provides ground-level interactive panoramas of cities.",
       lat: 40.52964,
       lng: 72.79281,
@@ -190669,6 +190783,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: 40.52992,
       lng: 72.79373,
       imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/%D0%AE%D1%80%D1%82%D0%B0_%D0%B2_%D1%82%D1%80%D0%B8_%D1%8F%D1%80%D1%83%D1%81%D0%B0.jpg/1280px-%D0%AE%D1%80%D1%82%D0%B0_%D0%B2_%D1%82%D1%80%D0%B8_%D1%8F%D1%80%D1%83%D1%81%D0%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      description: "Museo dedicado a Alymbek Datka, líder kirguiso del siglo XIX y esposo de Kurmanjan Datka. Reúne materiales sobre su vida y el contexto histórico de la región.",
     },
     {
       id: "osh_5",
@@ -190686,6 +190801,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Turgunbai Sadykov Osh Regional Museum of Fine Arts displays painting, graphic art and decorative works by regional artists. Its collection offers a view of artistic production in Kyrgyzstan and Central Asia.",
       lat: 40.53195,
       lng: 72.79221,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Museum_of_Fine_Arts_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     },
     {
       id: "osh_6",
@@ -190718,6 +190834,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "There are a number of places named after famous people. For more on the general etymology of place names see toponymy. For other lists of eponyms see eponym.",
       lat: 40.53177,
       lng: 72.7929,
+      description: "Restos de una casa de baños pública de los siglos X-XII. La parte conservada tiene una superficie superior a los 450 metros cuadrados y se visita como testimonio de la vida urbana medieval en Osh.",
     },
     {
       id: "osh_8",
@@ -190782,8 +190899,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Monumento a Kurmanyán Dátka es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Monumento a Kurmanyán Dátka is a recommended place to visit and one of the standout attractions in the area.",
+      description: "Monumento a Kurmanjan Datka, líder kirguisa del siglo XIX conocida como la 'Reina de Alai'. La estatua honra su papel político en la historia de la región.",
+      descriptionEn: "Monument to Kurmanjan Datka, a 19th-century Kyrgyz leader known as the 'Queen of Alai'. The statue honors her political role in the history of the region.",
       lat: 40.52723,
       lng: 72.79487,
     },
@@ -190820,6 +190937,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Jalal-Abad is a region (oblus) of Kyrgyzstan. Its capital is Manas. It is surrounded by Talas Region, Chüy Region, Naryn Region, Osh Region, and Uzbekistan. Jalal-Abad Region was established on 21 November 1939.",
       lat: 40.53959,
       lng: 72.79621,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Jayma_Bazaar%2C_Osh.jpg/1280px-Jayma_Bazaar%2C_Osh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   beirut: [
@@ -190998,6 +191116,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The name Beirut Hippodrome refers to two racecourses in Lebanon: a historic one from the Roman era and a modern one built in the 19th century.",
       lat: 33.89721,
       lng: 35.49992,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Caesarea_Hippodrome_P1080584.JPG?utm_source=ar.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "beirut_11",
@@ -191099,6 +191218,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Martyrs' Square includes a statue unveiled in 1960, standing at the heart of downtown Beirut, Lebanon, next to the Mohammad Al-Amin Mosque.",
       lat: 33.89638,
       lng: 35.50715,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Martyrs_Statue_in_Beirut_%2836580499664%29.jpg/1280px-Martyrs_Statue_in_Beirut_%2836580499664%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "beirut_17",
@@ -191131,6 +191251,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Egg is an unfinished egg-shaped domed building, originally conceived as a cinema, that was damaged during the Lebanese Civil War. It is now a striking architectural landmark and a symbol of Beirut's urban memory, near Martyrs' Square.",
       lat: 33.8935,
       lng: 35.50604,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/66/The_Egg_cinema_in_Beirut_Lebanon.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "beirut_19",
@@ -191228,6 +191349,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Mohammad Al-Amin Mosque dominates downtown Beirut with its four minarets and blue dome, and is one of the largest and most visible mosques in Lebanon.",
       lat: 33.89531,
       lng: 35.50604,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Mohamad_al_amin_mosque_ceiling_-_panoramio.jpg/1280px-Mohamad_al_amin_mosque_ceiling_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "beirut_25",
@@ -191245,6 +191367,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Beirut Souks are the historic commercial and dining district of the city center, with shops, restaurants, and cafés blending Lebanese mercantile tradition with modern retail.",
       lat: 33.8986,
       lng: 35.50429,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Souks_in_the_Night_-_panoramio.jpg/1280px-Souks_in_the_Night_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "beirut_26",
@@ -191671,6 +191794,7 @@ export const CURATED_ALL: CuratedMap = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f1/San_Mar%C3%B3n_de_L%C3%ADbano.jpg",
       website: "https://saintcharbel.com/",
       descriptionEn: "Maron, also called Maroun or Maro, was a 4th-century Syriac Christian hermit monk in the Taurus Mountains whose followers, after his death, founded a religious Christian movement that became known as the Maronite Church which is presently in full communion with the Holy See and…",
+      description: "El Monasterio de San Marón está en Annaya y se relaciona con San Charbel. Después de la muerte de San Charbel se le atribuyeron numerosos milagros por su intercesión, lo que motivó cartas desde Líbano y países vecinos.",
     },
     {
       id: "byblos_8",
@@ -191897,8 +192021,8 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 4.5,
       estimatedMinutes: 120,
-      description: "Collado Topográfico es un lugar recomendado para visitar y forma parte de las atracciones destacadas de la zona.",
-      descriptionEn: "Collado Topográfico is a recommended place to visit and one of the standout attractions in the area.",
+      description: "El Collado Topográfico es la depresión que separa la Bekaa del sur de la Bekaa del norte, cerca de Baalbek. Se encuentra a unos 1.000 metros sobre el nivel del mar y marca el paso natural entre ambas zonas.",
+      descriptionEn: "The Topographic Saddle is the depression separating the southern Beqaa from the northern Beqaa, near Baalbek. It lies at about 1,000 meters above sea level and marks a natural pass between the two areas.",
       lat: 34.02257,
       lng: 36.09911,
     },
@@ -192081,6 +192205,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Handover Gifts Museum of Macao displays gifts presented by various Chinese provinces and regions to mark Macao's return to China in 1999. It is visited to see these commemorative objects and their symbolic significance.",
       lat: 22.19022,
       lng: 113.55401,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Wongwt_%E5%9B%9E%E6%AD%B8%E8%B3%80%E7%A6%AE%E9%99%B3%E5%88%97%E9%A4%A8_%2816664274014%29.jpg/3840px-Wongwt_%E5%9B%9E%E6%AD%B8%E8%B3%80%E7%A6%AE%E9%99%B3%E5%88%97%E9%A4%A8_%2816664274014%29.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "macau_3",
@@ -192099,6 +192224,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Historic Centre of Macao is a collection of over twenty locations that witness the unique assimilation and co-existence of Chinese and Portuguese cultures in Macau, a former Portuguese colony.",
       lat: 22.19032,
       lng: 113.54998,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Centro_UNESCO_de_Macau_2016.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "macau_4",
@@ -192154,6 +192280,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Baroque architecture is a highly decorative and theatrical style which appeared in Italy in the late 16th century and gradually spread across Europe.",
       lat: 22.19067,
       lng: 113.53676,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Igreja_de_S%C3%A3o_Louren%C3%A7o_%28Macau%29_20-10-2023%2811%29.jpg/1280px-Igreja_de_S%C3%A3o_Louren%C3%A7o_%28Macau%29_20-10-2023%2811%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "macau_7",
@@ -192208,6 +192335,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A city gate is a gate which is, or was, set within a city wall. It is a type of fortified gateway.",
       lat: 22.21546,
       lng: 113.54792,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1a/%E9%97%9C%E9%96%98macau.png?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "macau_10",
@@ -192298,6 +192426,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is an incomplete list of roads in Macau.",
       lat: 22.1936,
       lng: 113.5355,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/20251114_Pra%C3%A7a_de_Ponte_e_Horta.jpg/3840px-20251114_Pra%C3%A7a_de_Ponte_e_Horta.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "macau_15",
@@ -192315,6 +192444,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Parque das Nações, colloquially known as Expo, is a freguesia and typical quarter of Lisbon, the capital city of Portugal. Located in eastern Lisbon, Parque das Nações is to the east of Olivais, northeast of Marvila, and directly south of Lisbon's border with Loures.",
       lat: 22.19632,
       lng: 113.5465,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/%E8%8F%AF%E4%BB%95%E5%8F%A4%E9%81%94%E4%BC%BD%E7%91%AA%E5%83%8F_Vasco_da_Gama_-_panoramio.jpg/1280px-%E8%8F%AF%E4%BB%95%E5%8F%A4%E9%81%94%E4%BC%BD%E7%91%AA%E5%83%8F_Vasco_da_Gama_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "macau_16",
@@ -192332,6 +192462,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "This is a list of auto racing and moto racing circuits sorted by country.",
       lat: 22.19868,
       lng: 113.54873,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/20260723_Jardim_da_Vit%C3%B3ria.jpg/1280px-20260723_Jardim_da_Vit%C3%B3ria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "macau_17",
@@ -192406,6 +192537,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Basques are a Southwestern European ethnic group, characterised by the Basque language, a common culture, shared genetic ancestry to the ancient Vascones and Aquitanians, and are considered among the last remaining direct descendants of Neolithic European populations in Europe.",
       lat: 22.1971,
       lng: 113.54082,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/20260713_Largo_da_Companhia_de_Jesus.jpg/3840px-20260713_Largo_da_Companhia_de_Jesus.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     },
     {
       id: "macau_21",
@@ -192423,6 +192555,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The St. Dominic's Municipal Market Complex is a public market in Macao's historic centre, with stalls selling food and fresh produce. It is visited to observe daily life and the architecture of a traditional urban market.",
       lat: 22.19442,
       lng: 113.53978,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Complexo_Municipal_do_Mercado_de_S._Domingos_26-10-2023%287%29.jpg/1280px-Complexo_Municipal_do_Mercado_de_S._Domingos_26-10-2023%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "macau_22",
@@ -192519,9 +192652,12 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#FDE8F5",
       rating: 3.9,
       estimatedMinutes: 60,
-      description: "La propaganda en la República Popular China (RPC) es utilizada tanto por el Partido Comunista de China (PCCh), actualmente en el poder, como históricamente por el Kuomintang (KMT), para influir en la opinión pública nacional e internacional a favor de sus políticas.",
+      description: "El Abrazo es una escultura en Macao que forma parte de los monumentos de amistad sino-portuguesa creados por el gobierno portugués de Macao antes de la transferencia de soberanía a China en 1999. Se visita como uno de estos hitos urbanos conmemorativos.",
       lat: 22.20013,
       lng: 113.53938,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Abra%C3%A7o_%28Irene_Vilar%29%2C_2023_%2801%29.jpg/1280px-Abra%C3%A7o_%28Irene_Vilar%29%2C_2023_%2801%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      sourceUrl: "https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%91%A1%E5%8F%8B%E5%A5%BD%E7%B4%80%E5%BF%B5%E7%89%A9",
+      descriptionEn: "The Embrace is a sculpture in Macau that is part of the Sino-Portuguese friendship monuments created by the Portuguese Macau government before the handover of sovereignty to China in 1999. It is visited as one of these commemorative urban landmarks.",
     },
     {
       id: "macau_28",
@@ -192557,6 +192693,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Casa Garden is a Portuguese colonial mansion with a garden in Macao, now the headquarters of the Orient Foundation. It is visited for its architecture, garden and role as a cultural centre.",
       lat: 22.20005,
       lng: 113.53984,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Casa_Garden_28-10-2023%2813%29.jpg/1280px-Casa_Garden_28-10-2023%2813%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "macau_30",
