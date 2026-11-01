@@ -75,7 +75,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8FDE8",
       rating: 4.5,
       estimatedMinutes: 120,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/UNESCO_WORLD_HERITAGE_SITE_IN_INDIAN.pdf/page1-960px-UNESCO_WORLD_HERITAGE_SITE_IN_INDIAN.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Indian_cormorants_at_Keoladeo_national_park_%28Dec%2C_24%29.jpg/1280px-Indian_cormorants_at_Keoladeo_national_park_%28Dec%2C_24%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Parque Nacional Keoladeo o Parque Nacional de Keoladeo Ghana, anteriormente conocido como el Santuario de aves de Bharatpur, localizado en el estado de Rajastán, es un famoso santuario para la avifauna, donde habitan miles de especies de aves raras y en gran peligro de…",
       descriptionEn: "Keoladeo National Park, or Keoladeo Ghana National Park, is a national park in Rajasthan, India.",
       sourceUrl: "https://es.wikipedia.org/wiki/Parque_nacional_de_Keoladeo",
@@ -855,6 +855,7 @@ export const CURATED_ALL: CuratedMap = {
       lng: 35.93992,
       description: "El Odeón de Amán es un pequeño teatro romano del siglo II ubicado en el centro de la ciudad. Fue restaurado y conserva gradas y estructura, y se visita para conocer el patrimonio romano de Amán.",
       descriptionEn: "The Amman Odeon is a small 2nd-century Roman theater located in the city center. It was restored and preserves seating and structure, and it is visited to learn about Amman's Roman heritage.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Amman_Odeon_02.jpg/1280px-Amman_Odeon_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "amman_27",
@@ -9302,6 +9303,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "An active Taoist temple in western Chengdu, with halls rebuilt in the Qing period. Its courtyards hold shrines to Taoist deities, inscriptions and a teahouse frequented by local residents.",
       lat: 30.66307,
       lng: 104.03837,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4c/%E9%9D%92%E7%BE%8A%E5%AE%AB%E5%B1%B1%E9%97%A8_2024-10-17_02.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "chengdu_23",
@@ -9410,6 +9412,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "A pavilion by the confluence of the Fu and Nan rivers in eastern central Chengdu, rebuilt on an old site. It is a viewpoint over the water, close to Anshun Bridge, and popular around sunset.",
       lat: 30.64533,
       lng: 104.08119,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hejiang_Pavilion_and_Hejiang_Bridge_%2820250403192945%29.jpg/1280px-Hejiang_Pavilion_and_Hejiang_Bridge_%2820250403192945%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
   ],
   cologne: [
@@ -20737,7 +20740,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 4.3,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Tam_quoc_Nguyen_An_Cu_1928_-_16.pdf/page1-1920px-Tam_quoc_Nguyen_An_Cu_1928_-_16.pdf.jpg",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/H%E1%BB%99i_An%2C_Museum_of_Trade_Ceramics%2C_2020-01_CN-01.jpg/1280px-H%E1%BB%99i_An%2C_Museum_of_Trade_Ceramics%2C_2020-01_CN-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       description: "El Museo de Cerámica Comercial, en una casa tradicional de madera del casco antiguo de Hội An, exhibe cerámicas recuperadas de rutas comerciales y naufragios, testimonio del papel de la ciudad como puerto internacional entre los siglos XV y XVII.",
       descriptionEn: "The Museum of Trade Ceramics, housed in a traditional wooden house in Hội An's ancient town, displays ceramics recovered from trade routes and shipwrecks, evidence of the city's role as an international port between the 15th and 17th centuries.",
       lat: 15.87727,
@@ -20951,6 +20954,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "Aldea agrícola cerca de Hoi An dedicada al cultivo de hortalizas. Se visitan huertas y se explica el uso de técnicas tradicionales de cultivo y riego.",
       descriptionEn: "A farming village near Hoi An dedicated to vegetable growing. Visitors can see gardens and learn about traditional cultivation and irrigation techniques.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tra_Que_Village%2C_Hoi_An_%2845491719075%29.jpg?utm_source=vi.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hoian_26",
@@ -90907,7 +90911,7 @@ export const CURATED_ALL: CuratedMap = {
       bg: "#E8F0FD",
       rating: 3.9,
       estimatedMinutes: 90,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Logo_MUMAQ.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/34/CEGEP_Saint-Laurent_01.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       website: "https://www.mumaq.com/",
       description: "Museo del barrio de Saint-Laurent, en un antiguo templo, dedicado a las artes y oficios tradicionales de Quebec. Conserva esculturas, orfebrería y objetos religiosos de los siglos XVII al XX.",
       descriptionEn: "Areg Elibekyan is an Armenian painter.",
@@ -91974,6 +91978,7 @@ export const CURATED_ALL: CuratedMap = {
       description: "El Centro Cultural Biblioteca Pública Julio Mario Santo Domingo acoge a la Biblioteca y al complejo teatral conformado por el Teatro Mayor y el Teatro Estudio, gestionado y administrado gracias a una alianza entre el sector privado y la administración distrital, a través de la…",
       sourceUrl: "https://es.wikipedia.org/wiki/Teatro_Mayor_Julio_Mario_Santo_Domingo",
       descriptionEn: "The Teatro Mayor Julio Mario Santo Domingo is a cultural and performing arts center in northern Bogotá. It presents opera, music, dance and theater in a main hall and complementary spaces, and is part of the Julio Mario Santo Domingo Cultural Center.",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Biblioteca_Julio_Mario_Santodomingo_-_panoramio_%283%29.jpg/1280px-Biblioteca_Julio_Mario_Santodomingo_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "bogota_34",
@@ -176520,6 +176525,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Hindu temple in District 1 of Ho Chi Minh City, built by the Tamil community and dedicated to the goddess Mariamman. It stands out for its colorful ornamentation and religious rituals.",
       lat: 10.77229,
       lng: 106.69556,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/2023-12-10_Mariamman_Temple%2C_Ho_Chi_Minh_City_03.jpg/1280px-2023-12-10_Mariamman_Temple%2C_Ho_Chi_Minh_City_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hochiminh_18",
@@ -176826,6 +176832,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Cat Ba National Park covers much of Cat Ba Island, with forests, karst hills and trails. It protects wildlife such as the Cat Ba langur and has hiking routes that explore the island's interior.",
       lat: 20.80528,
       lng: 107.02,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Cat_Ba_national_park.JPG?utm_source=vi.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "halong_1",
@@ -176863,6 +176870,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Ti Top Island is a small island in Ha Long Bay with a sandy beach and a hilltop viewpoint. It is visited for panoramic views of the limestone formations and the water.",
       lat: 20.90844,
       lng: 107.06828,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/83/Halong_TitowIsland2.JPG?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "halong_3",
@@ -177003,6 +177011,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 90,
       description: "La Cueva Sung Sot se encuentra en la Bahía de Ha Long, en la isla Bo Hon. Es una cueva amplia con estalactitas, estalagmitas y pasarelas que permiten recorrer sus cámaras.",
       descriptionEn: "Sung Sot Cave is located in Ha Long Bay, on Bo Hon Island. It is a large cave with stalactites, stalagmites and walkways that allow visitors to move through its chambers.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Hang_S%E1%BB%ADng_S%E1%BB%91t_2.jpg?utm_source=vi.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "halong_12",
@@ -177198,6 +177207,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Tomb of Khải Định, officially Ứng Mausoleum is a tomb built for Khải Định, the twelfth Emperor of the Nguyễn dynasty of Vietnam. It features a blend of Vietnamese architecture with Western styles. The tomb was completed in 1931 after 11 years of construction.",
       lat: 16.39902,
       lng: 107.59034,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Grab_von_Kaiser_Khai_Dinh%2C_Hue_%2839513722502%29.jpg/1280px-Grab_von_Kaiser_Khai_Dinh%2C_Hue_%2839513722502%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_4",
@@ -177361,6 +177371,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Purple Forbidden City is the inner enclosure of Hue's Imperial City, where the Nguyen emperors and their court lived. Visitors see its gates, courtyards and restored buildings, examples of Vietnamese palace architecture.",
       lat: 16.46949,
       lng: 107.57776,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Purple_Forbidden_City.jpg/1280px-Purple_Forbidden_City.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "hue_14",
@@ -177522,6 +177533,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Duyet Thi Duong Royal Theater is a Nguyen court theater inside Hue's Imperial City. Its restored space hosts traditional Vietnamese music and dance performances.",
       lat: 16.4703,
       lng: 107.57848,
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/28/Duy%E1%BB%87t_Th%E1%BB%8B_%C4%90%C6%B0%E1%BB%9Dng_%28ho%C3%A0ng_th%C3%A0nh_Hu%E1%BA%BF%29.jpg?utm_source=vi.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hue_24",
@@ -177639,6 +177651,7 @@ export const CURATED_ALL: CuratedMap = {
       estimatedMinutes: 60,
       description: "El Puente Cubierto de Thanh Toan es un puente de madera con techo de tejas en una aldea cercana a Huế. Se visita por su estructura tradicional y su uso como espacio de reunión junto al canal.",
       descriptionEn: "Thanh Toan Covered Bridge is a wooden bridge with a tile roof in a village near Hue. It is visited for its traditional structure and its use as a meeting space beside the canal.",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/25/C%E1%BA%A7u_ng%C3%B3i_Thanh_To%C3%A0n1.jpg?utm_source=vi.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     },
     {
       id: "hue_31",
@@ -182255,6 +182268,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Gergeti Trinity Church is a 14th-century Georgian Orthodox church on a hill above Stepantsminda, with views over the valley and Mount Kazbek.",
       lat: 42.66239,
       lng: 44.62048,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Gergeti_Trinity_Church_Panorama.jpg/1280px-Gergeti_Trinity_Church_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "stepantsminda_15",
@@ -182388,6 +182402,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Jvari Pass is a mountain pass on the Georgian Military Highway between Gudauri and Stepantsminda. It is a stopping point and viewpoint over the valleys and peaks of the Caucasus.",
       lat: 42.5046,
       lng: 44.45369,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Jvari_Pass_-_Milestone_-_panoramio.jpg/1280px-Jvari_Pass_-_Milestone_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "stepantsminda_23",
@@ -184921,6 +184936,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Jaffa Flea Market (Shuk HaPishpeshim) is a famous market for antiques and secondhand goods in Old Jaffa, today also known for its trendy cafés and design shops.",
       lat: 32.05358,
       lng: 34.75627,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Jaffa_Flea_Market_079.jpg/1280px-Jaffa_Flea_Market_079.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_14",
@@ -185207,6 +185223,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Old Jaffa is one of the oldest ports in the world, now part of Tel Aviv-Yafo, known for its historic old town, artists' quarter, and views over the Mediterranean Sea.",
       lat: 32.05382,
       lng: 34.75333,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/View_of_Tel_Aviv_from_Jaffa%2C_Israel.JPG/1280px-View_of_Tel_Aviv_from_Jaffa%2C_Israel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "telaviv_31",
@@ -185924,6 +185941,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Ursula Malbin Sculpture Garden is a public space in Haifa dedicated to the artist's bronze sculptures. It is visited to walk among the works outdoors.",
       lat: 32.81608,
       lng: 34.98161,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Ursula_Malbin_sculpture_garden_in_Haifa_19.jpg/1280px-Ursula_Malbin_sculpture_garden_in_Haifa_19.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_19",
@@ -185956,6 +185974,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Shrine of the Báb is a Bahá'í shrine on Mount Carmel, with a golden dome that houses the remains of the Báb. It is visited for its architecture and the surrounding gardens.",
       lat: 32.81462,
       lng: 34.98716,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Shrine_of_the_B%C3%A1b_and_Bah%C3%A1%27%C3%AD_Gardens_35.JPG/1280px-Shrine_of_the_B%C3%A1b_and_Bah%C3%A1%27%C3%AD_Gardens_35.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_21",
@@ -186115,6 +186134,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "The Bahá'í Gardens in Haifa are terraced gardens on Mount Carmel that surround the Shrine of the Báb. They are visited to walk through the gardens and see views of the city and port.",
       lat: 32.8135,
       lng: 34.98567,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Baha%27i_gardens_in_Haifa_28.jpg/1280px-Baha%27i_gardens_in_Haifa_28.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "haifa_31",
@@ -186403,6 +186423,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Marine park on the Eilat coast with an underwater observatory, aquarium, and exhibits about the coral reef. It allows visitors to see corals and fish without diving.",
       lat: 29.5037,
       lng: 34.91783,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Eilat_UnderwaterObservatory_0001.JPG/1280px-Eilat_UnderwaterObservatory_0001.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "eilat_3",
@@ -186470,6 +186491,7 @@ export const CURATED_ALL: CuratedMap = {
       lat: 29.54939,
       lng: 34.95333,
       sourceUrl: "https://es.wikipedia.org/wiki/Bandera_de_tinta",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Eilat_InkFlag_E01.jpg/1280px-Eilat_InkFlag_E01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "eilat_7",
@@ -186751,6 +186773,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Nature reserve on the Eilat coast that protects a stretch of Red Sea coral reef. It has paths, platforms, and areas for observing corals and fish.",
       lat: 29.50721,
       lng: 34.92028,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Eilat_Coral_Reserve.jpg/1280px-Eilat_Coral_Reserve.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "eilat_25",
@@ -223084,6 +223107,7 @@ export const CURATED_ALL: CuratedMap = {
       descriptionEn: "Machu Picchu structure with three trapezoidal windows and finely worked stone walls. It is one of the ceremonial buildings in the sacred sector of the Inca sanctuary.",
       lat: -13.16362,
       lng: -72.54526,
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Temple_of_the_three_windows_0553-86.jpg/1280px-Temple_of_the_three_windows_0553-86.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     },
     {
       id: "aguascalientes_20",
