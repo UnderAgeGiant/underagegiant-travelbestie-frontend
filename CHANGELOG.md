@@ -4,6 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-11
+- chore(repo): ignore .env.smoke (#PRNUM)
 - feat(analytics): add Vercel Web Analytics (#181)
 - data(attractions): backfill round 2 + lower quality-gate counts (#180)
 
