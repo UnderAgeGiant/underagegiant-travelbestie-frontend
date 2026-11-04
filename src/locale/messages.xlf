@@ -2575,7 +2575,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy.s3.body" datatype="html">
-        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Token, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales. Nunca vendemos tu información personal a terceros.</source>
+        <source>Compartimos información limitada con proveedores externos estrictamente necesarios para operar el servicio: PayPal para procesar compras de Token, DeepSeek para generar sugerencias de viaje con inteligencia artificial (recibe únicamente tus preferencias de viaje, no tus datos de cuenta), Cloudflare Turnstile para verificar que no eres un robot al registrarte o iniciar sesión, y nuestro proveedor de correo saliente para enviarte notificaciones transaccionales, y Vercel Web Analytics para medir de forma agregada y sin cookies qué páginas se visitan. Nunca vendemos tu información personal a terceros.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/legal/privacy.component.ts</context>
           <context context-type="linenumber">30,31</context>

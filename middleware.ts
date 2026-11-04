@@ -33,7 +33,7 @@ import { citySlugFromPath, isCrawler, isKnownRoute, legacyShareTarget, pickLocal
 // here makes that impossible instead of relying on Vercel's rewrite semantics. (Covered by
 // src/edge/middleware-config.spec.ts.)
 export const config = {
-  matcher: ['/((?!api/|.*\\.[^/]+$).*)'],
+  matcher: ['/((?!api/|_vercel/|.*\\.[^/]+$).*)'],
 };
 
 const NO_STORE = 'private, no-store';

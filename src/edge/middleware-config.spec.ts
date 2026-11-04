@@ -23,3 +23,13 @@ describe('middleware matcher', () => {
     }
   });
 });
+
+describe('middleware matcher — Vercel internals', () => {
+  it('skips /_vercel/* (Web Analytics beacon is extensionless and must not be locale-rewritten)', () => {
+    expect(matches('/_vercel/insights/view')).toBe(false);
+  });
+
+  it('still runs on locale-prefixed app routes', () => {
+    expect(matches('/en-US/trips')).toBe(true);
+  });
+});
