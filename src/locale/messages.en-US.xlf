@@ -3763,6 +3763,14 @@
         <source>No se pudo despublicar el viaje</source>
         <target>Couldn't unpublish the trip</target>
       </trans-unit>
+      <trans-unit id="stayLength.days" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 día} other {<x id="INTERPOLATION"/> días}}</source>
+        <target>{VAR_PLURAL, plural, =1 {1 day} other {<x id="INTERPOLATION"/> days}}</target>
+      </trans-unit>
+      <trans-unit id="stayLength.nights" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 noche} other {<x id="INTERPOLATION"/> noches}}</source>
+        <target>{VAR_PLURAL, plural, =1 {1 night} other {<x id="INTERPOLATION"/> nights}}</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

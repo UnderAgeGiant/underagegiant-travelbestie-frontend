@@ -1,3 +1,4 @@
+import { StayLengthComponent } from '../../shared/stay-length/stay-length.component';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { GameAssetsService } from '../../core/game/game-assets.service';
 import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
@@ -61,7 +62,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent, CostSettingsComponent],
+    imports: [StayLengthComponent, AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent, CostSettingsComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -402,7 +403,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
             }
 
             <div class="ai-plan-result-header">
-              <div class="ai-plan-result-title">{{ generatedTrip()!.title }}</div>
+              <div class="ai-plan-result-title">{{ generatedTrip()!.title }} <tb-stay-length [stops]="generatedTrip()!.stops" /></div>
               <div class="ai-plan-result-stops">
                 @for (stop of generatedTrip()!.stops; track stop.cityId) {
                   @let city = cityFor(stop.cityId);
