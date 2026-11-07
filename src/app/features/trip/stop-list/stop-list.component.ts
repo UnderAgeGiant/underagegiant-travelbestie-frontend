@@ -1,3 +1,4 @@
+import { StayLengthComponent } from '../../../shared/stay-length/stay-length.component';
 import { AttractionNamePipe } from '../../../shared/pipes/attraction-name.pipe';
 import { Component, inject, signal, computed, effect, linkedSignal, input, output, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { TripService } from '../trip.service';
@@ -39,7 +40,7 @@ import { environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent, TripCostCardComponent, ToastComponent, NgTemplateOutlet],
+    imports: [StayLengthComponent, DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent, TripCostCardComponent, ToastComponent, NgTemplateOutlet],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -170,6 +171,7 @@ import { environment } from '../../../../environments/environment';
                   <div class="stop-info">
                     <div class="stop-name">
                       {{ city.name }}
+                      <tb-stay-length [stops]="[stop]" />
                       <app-city-weather-chip [stop]="stop" />
                     </div>
                     <div class="stop-country">{{ city.country }}</div>

@@ -1,5 +1,6 @@
 import {
   parseDMY,
+  stayLength,
   isDateInRange,
   formatEventChip,
   formatEventLong,
@@ -108,5 +109,34 @@ describe('iterateDMYRange', () => {
     expect(iterateDMYRange('', '04/06/2026')).toEqual([]);
     expect(iterateDMYRange('01/06/2026', '')).toEqual([]);
     expect(iterateDMYRange(null, undefined)).toEqual([]);
+  });
+});
+
+describe('stayLength', () => {
+  const s = (checkIn: string, checkOut: string) => ({ checkIn, checkOut });
+
+  it('counts nights as the calendar-day diff and days as nights + 1', () => {
+    expect(stayLength([s('01/06/2026', '04/06/2026')])).toEqual({ days: 4, nights: 3 });
+  });
+
+  it('spans first checkIn → last checkOut, not the sum of stops', () => {
+    expect(stayLength([s('01/06/2026', '03/06/2026'), s('03/06/2026', '05/06/2026')]))
+      .toEqual({ days: 5, nights: 4 });
+  });
+
+  it('crosses a DST switch without drifting', () => {
+    expect(stayLength([s('01/03/2026', '01/05/2026')])).toEqual({ days: 62, nights: 61 });
+  });
+
+  it('returns 1 day / 0 nights for a same-day stop', () => {
+    expect(stayLength([s('01/06/2026', '01/06/2026')])).toEqual({ days: 1, nights: 0 });
+  });
+
+  it('returns null for missing, malformed or inverted dates', () => {
+    expect(stayLength([])).toBeNull();
+    expect(stayLength(null)).toBeNull();
+    expect(stayLength([s('', '04/06/2026')])).toBeNull();
+    expect(stayLength([s('xx', '04/06/2026')])).toBeNull();
+    expect(stayLength([s('05/06/2026', '01/06/2026')])).toBeNull();
   });
 });

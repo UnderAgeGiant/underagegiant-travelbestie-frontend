@@ -70,3 +70,19 @@ export function iterateDMYRange(
   }
   return dates;
 }
+
+/**
+ * Stay length from the first stop's checkIn to the last stop's checkOut (not the sum of
+ * stops — shared transfer days would double-count). nights = calendar-day diff, days = nights + 1.
+ * Null when there are no stops, a date is missing/malformed, or checkOut is before checkIn.
+ */
+export function stayLength(
+  stops: readonly { checkIn?: string | null; checkOut?: string | null }[] | null | undefined,
+): { days: number; nights: number } | null {
+  if (!stops?.length) return null;
+  const from = parseDMY(stops[0].checkIn);
+  const to = parseDMY(stops[stops.length - 1].checkOut);
+  if (!from || !to) return null;
+  const nights = Math.round((to.getTime() - from.getTime()) / 86_400_000); // round: DST-safe
+  return nights < 0 ? null : { days: nights + 1, nights };
+}

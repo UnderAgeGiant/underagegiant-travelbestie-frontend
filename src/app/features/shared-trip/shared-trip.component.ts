@@ -1,3 +1,4 @@
+import { StayLengthComponent } from '../../shared/stay-length/stay-length.component';
 import { previewCardPosition, previewCardTapPosition } from './attraction-preview-position.util';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { Component, HostListener, inject, input, computed, signal, effect, ChangeDetectionStrategy, DestroyRef, ElementRef } from '@angular/core';
@@ -51,7 +52,7 @@ import { TripCostCardComponent } from '../../shared/trip-cost-card/trip-cost-car
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent, TripCostCardComponent],
+    imports: [StayLengthComponent, AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent, TripCostCardComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -87,7 +88,7 @@ import { TripCostCardComponent } from '../../shared/trip-cost-card/trip-cost-car
 
         <!-- Trip header -->
         <div class="shared-header">
-          <div class="shared-header-name">{{ trip()!.tripName }}</div>
+          <div class="shared-header-name">{{ trip()!.tripName }} <tb-stay-length [stops]="trip()!.stops" /></div>
           <div class="shared-header-owner"><ng-container i18n="@@sharedTrip.tripByPrefix">Viaje de</ng-container>&ngsp;<tb-user-link [name]="trip()!.ownerName" [username]="trip()!.ownerUsername" />
             @if (trip()!.ownerUsername && auth.currentUser()?.username !== trip()!.ownerUsername) {
               <tb-follow-button [username]="trip()!.ownerUsername!" />

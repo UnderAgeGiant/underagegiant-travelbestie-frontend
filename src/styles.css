@@ -152,7 +152,7 @@ app-nav { display: block; }
 .stop-row { display: flex; align-items: center; gap: 10px; padding-right: 32px; }
 .stop-flag { font-size: 22px; line-height: 1; flex-shrink: 0; }
 .stop-info { flex: 1; min-width: 0; }
-.stop-name { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stop-name { font-weight: 600; font-size: 14px; overflow-wrap: anywhere; }
 .stop-country { font-size: 11px; color: var(--t3); margin-top: 1px; }
 .stop-visa-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; color: var(--t2); background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; margin-top: 4px; }
 .stop-visa-badge.stop-visa-cta { color: var(--t3); font-style: italic; cursor: pointer; }
