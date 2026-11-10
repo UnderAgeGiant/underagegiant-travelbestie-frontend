@@ -671,7 +671,6 @@ export class MyTripsComponent implements AfterViewInit {
     if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
-
   private exportBody(stops: TripStop[]): ItineraryExportBody {
     return buildItineraryExportBody(stops, this.locale.current(), {
       homeIso2: this.auth.currentUser()?.countryOfResidence ?? null,
@@ -680,6 +679,7 @@ export class MyTripsComponent implements AfterViewInit {
       info: this.travelInfo,
     });
   }
+
   downloadItinerary(plan: SavedPlan): void {
     if (environment.useMocks) {
       if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {

@@ -19,7 +19,7 @@ export interface ItineraryExportDeps {
 }
 
 // Backend zod limits (manager src/schemas/itinerary.schemas.ts) — a body over them is a 400.
-const MAX_TEXT = 200, MAX_FACT = 300, MAX_DESCRIPTION = 1000, MAX_URL = 500, MAX_DETAILS = 400;
+const MAX_TEXT = 200, MAX_DESCRIPTION = 1000, MAX_URL = 500, MAX_DETAILS = 400;
 const DAYS: WeekDay[] = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const HHMM = /^\d{2}:\d{2}$/;
 
@@ -85,14 +85,8 @@ export function buildItineraryExportBody(stops: TripStop[], locale: AppLocale, d
   const personalLabels: Record<string, string> = {};
   for (const m of getPersonalActivityMetas()) if (personalTypes.has(m.type)) personalLabels[m.type] = clip(m.label)!;
 
-  const destinations = buildDestinationFacts(stops, deps.homeIso2, deps.visa, deps.info, locale).slice(0, 30).map(d => ({
-    ...d,
-    country: clip(d.country)!,
-    visa: clip(d.visa, MAX_FACT),
-    currency: clip(d.currency, MAX_FACT),
-    plug: clip(d.plug, MAX_FACT),
-    cities: d.cities.slice(0, 60).map(c => ({ ...c, name: clip(c.name)!, timeDiff: clip(c.timeDiff) })),
-  }));
+  // Static-dataset labels, all well under the backend's 200/300-char caps.
+  const destinations = buildDestinationFacts(stops, deps.homeIso2, deps.visa, deps.info, locale).slice(0, 30);
 
   // The viewer's currency from their country (the backend converts with its own FX; unknown rate → USD only).
   const code = deps.homeIso2 ? deps.info.currencyInfo(deps.homeIso2)?.code : undefined;
