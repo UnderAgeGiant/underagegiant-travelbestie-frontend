@@ -8,7 +8,7 @@ import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
-import { FavoritedTrip, Collaborator } from '../../core/models/trip.model';
+import { FavoritedTrip, Collaborator, TripStop } from '../../core/models/trip.model';
 import { AiPlanHistoryItem, AiPlanViewPayload } from '../../core/models/ai.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
@@ -23,7 +23,10 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
-import { buildItineraryExportMaps } from '../../core/utils/itinerary-export.util';
+import { buildItineraryExportBody } from '../../core/utils/itinerary-export.util';
+import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
+import { TravelInfoService } from '../../core/travel-info/travel-info.service';
+import { ItineraryExportBody } from '../../core/models/itinerary-export.model';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 
@@ -456,6 +459,8 @@ export class MyTripsComponent implements AfterViewInit {
   protected readonly autoSave  = inject(AutoSaveService);
   private readonly facade      = inject(NavFacadeService);
   private readonly locale      = inject(LocaleService);
+  private readonly visaRequirement = inject(VisaRequirementService);
+  private readonly travelInfo  = inject(TravelInfoService);
 
   close          = output<void>();
   openAiPlanning = output<void>();
@@ -666,6 +671,15 @@ export class MyTripsComponent implements AfterViewInit {
     if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
+
+  private exportBody(stops: TripStop[]): ItineraryExportBody {
+    return buildItineraryExportBody(stops, this.locale.current(), {
+      homeIso2: this.auth.currentUser()?.countryOfResidence ?? null,
+      siteUrl: environment.siteUrl,
+      visa: this.visaRequirement,
+      info: this.travelInfo,
+    });
+  }
   downloadItinerary(plan: SavedPlan): void {
     if (environment.useMocks) {
       if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {
@@ -681,10 +695,8 @@ export class MyTripsComponent implements AfterViewInit {
       return;
     }
 
-    const { cityNames, attractionNames, ticketRequiredIds } = buildItineraryExportMaps(plan.stops, this.locale.current());
-
     this.exportingPlanId.set(plan.id);
-    this.api.exportItinerary(plan.id, cityNames, attractionNames, ticketRequiredIds).subscribe({
+    this.api.exportItinerary(plan.id, this.exportBody(plan.stops)).subscribe({
       next: (blob) => {
         const slug = plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         const url = URL.createObjectURL(blob);

@@ -10,6 +10,9 @@ import { TouchDragService } from '../../../core/utils/touch-drag.service';
 import { NEW_ATTRACTION_MIME } from '../../../core/utils/day-timeline-drag.util';
 import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
 import { activityMeta } from '../../../core/models/personal-activity.model';
+import { ApiService } from '../../../core/api/api.service';
+import { NEVER } from 'rxjs';
+import { LocaleService } from '../../../core/i18n/locale.service';
 
 const PARIS: City  = { id: 'paris',  name: 'Paris',  country: 'France', flag: '🇫🇷', region: 'europe' };
 const LONDON: City = { id: 'london', name: 'London', country: 'United Kingdom', flag: '🇬🇧', region: 'europe' };
@@ -326,6 +329,22 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(texts[2]).toContain('Exportar a Excel');
     expect(texts[3]).toContain('Presentación del plan');
     expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
+  });
+
+  it('exports with the full F78 body (locale, planned-only names, destinations)', () => {
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
+      selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' }],
+    }] as any);
+    (trip as any)._loadedPlanId.set('plan-1');
+    const api = TestBed.inject(ApiService);
+    const spy = jest.spyOn(api, 'exportItinerary').mockReturnValue(NEVER);
+    (component as any).exportItinerary();
+    const [id, body] = spy.mock.calls[0];
+    expect(id).toBe('plan-1');
+    expect(body.locale).toBe(TestBed.inject(LocaleService).current());
+    expect(Object.keys(body.attractionNames!)).toEqual(['paris_0']);
+    expect(body.destinations![0].cities[0].name).toBe('Paris');
   });
 
   it('renders the plan presentation pill and opens the slideshow (T5)', () => {

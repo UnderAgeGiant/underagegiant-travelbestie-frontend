@@ -21,7 +21,12 @@ import { PlanSlideshowComponent } from '../../../shared/plan-slideshow/plan-slid
 import { buildPlanSlideshowItems } from '../../../shared/plan-slideshow/plan-slideshow.util';
 import { PlanPresentationPillComponent } from '../../../shared/plan-presentation-pill/plan-presentation-pill.component';
 import { FlagIconComponent } from '../../../shared/flag-icon/flag-icon.component';
-import { buildItineraryExportMaps } from '../../../core/utils/itinerary-export.util';
+import { buildItineraryExportBody } from '../../../core/utils/itinerary-export.util';
+import { VisaRequirementService } from '../../../core/visa/visa-requirement.service';
+import { TravelInfoService } from '../../../core/travel-info/travel-info.service';
+import { ItineraryExportBody } from '../../../core/models/itinerary-export.model';
+import { AuthService } from '../../../core/auth/auth.service';
+import { environment } from '../../../../environments/environment';
 import { plannedDurationMinutes } from '../../../core/utils/planned-duration.util';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { localizedDescription } from '../../../core/utils/attraction-description.util';
@@ -346,6 +351,9 @@ export class DayTimelineComponent {
   private  readonly api     = inject(ApiService);
   private  readonly karmaModal = inject(KarmaModalService);
   private  readonly locale     = inject(LocaleService);
+  private  readonly auth       = inject(AuthService);
+  private  readonly visaRequirement = inject(VisaRequirementService);
+  private  readonly travelInfo = inject(TravelInfoService);
   private  readonly weather    = inject(WeatherService);
   private  readonly personalModal = inject(PersonalActivityModalService);
   protected readonly exporting = signal(false);
@@ -813,12 +821,20 @@ export class DayTimelineComponent {
     return WORLD_CITIES.find(c => c.id === cityId)?.name ?? cityId;
   }
 
+  private exportBody(stops: TripStop[]): ItineraryExportBody {
+    return buildItineraryExportBody(stops, this.locale.current(), {
+      homeIso2: this.auth.currentUser()?.countryOfResidence ?? null,
+      siteUrl: environment.siteUrl,
+      visa: this.visaRequirement,
+      info: this.travelInfo,
+    });
+  }
+
   protected exportItinerary(): void {
     const planId = this.trip.loadedPlanId();
     if (!planId) return;
-    const { cityNames, attractionNames, ticketRequiredIds } = buildItineraryExportMaps(this.trip.stops(), this.locale.current());
     this.exporting.set(true);
-    this.api.exportItinerary(planId, cityNames, attractionNames, ticketRequiredIds).subscribe({
+    this.api.exportItinerary(planId, this.exportBody(this.trip.stops())).subscribe({
       next: blob => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');

@@ -1,4 +1,5 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
+import { ItineraryExportBody } from '../models/itinerary-export.model';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable, from, of, timer, throwError } from 'rxjs';
 import { switchMap, tap, first, map, catchError, shareReplay } from 'rxjs/operators';
@@ -123,18 +124,9 @@ export class ApiService {
     return this.http.get<FxRates>(`${this.base}/fx/rates`);
   }
 
-  exportItinerary(
-    id: string,
-    cityNames: Record<string, string>,
-    attractionNames: Record<string, string>,
-    ticketRequiredIds: string[],
-  ): Observable<Blob> {
+  exportItinerary(id: string, body: ItineraryExportBody): Observable<Blob> {
     if (this.useMocks) return of(new Blob());
-    return this.http.post(
-      `${this.base}/trips/${id}/itinerary`,
-      { cityNames, attractionNames, ticketRequiredIds },
-      { responseType: 'blob' },
-    );
+    return this.http.post(`${this.base}/trips/${id}/itinerary`, body, { responseType: 'blob' });
   }
 
   // Mock only — karma mutations happen server-side in real mode as a side effect
