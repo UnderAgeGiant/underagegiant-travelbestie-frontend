@@ -4,10 +4,8 @@ import {
 } from '@angular/core';
 import { City } from '../../core/models/city.model';
 import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
-import { getVisaRequirementMeta } from '../../core/models/visa-requirement.model';
 import { TravelInfoService } from '../../core/travel-info/travel-info.service';
-import { formatCurrencyLabel, formatPlugLabel } from '../../core/models/travel-info-badge.model';
-import { countryCodeFromFlagEmoji } from '../flag-icon/flag-emoji.util';
+import { cityFacts } from '../../core/utils/destination-facts.util';
 
 /**
  * Combines the visa/currency/plug info that used to be three always-visible badges
@@ -101,38 +99,11 @@ export class CityInfoBadgeComponent implements OnDestroy {
 
   readonly ctaClick = output<void>();
 
-  protected readonly setCountryCta = $localize`:@@cityInfo.setCountryCta:Agrega tu país de residencia en Configuración de cuenta para ver info de visa`;
+  private readonly facts = computed(() => cityFacts(this.city(), this.homeIso2(), this.visaRequirement, this.travelInfo));
 
-  private readonly destIso2 = computed(() => countryCodeFromFlagEmoji(this.city().flag));
-
-  protected readonly visaItem = computed(() => {
-    if (!this.isLoggedIn()) return null;
-    const home = this.homeIso2();
-    if (!home) return { cta: true, icon: '🛂', label: this.setCountryCta };
-    const dest = this.destIso2();
-    if (!dest) return null;
-    const result = this.visaRequirement.requirement(home, dest);
-    if (!result) return null;
-    const meta = getVisaRequirementMeta(result.category, result.days);
-    return { cta: false, icon: meta.icon, label: meta.label };
-  });
-
-  protected readonly currencyItem = computed(() => {
-    const dest = this.destIso2();
-    if (!dest) return null;
-    const currency = this.travelInfo.currencyInfo(dest);
-    if (!currency) return null;
-    return { icon: '🪙', label: formatCurrencyLabel(currency.name, currency.symbol) };
-  });
-
-  protected readonly plugItem = computed(() => {
-    const dest = this.destIso2();
-    if (!dest) return null;
-    const plug = this.travelInfo.plugInfo(dest, this.homeIso2());
-    if (!plug) return null;
-    const icon = plug.adapterNeeded === true ? '🔌⚠️' : '🔌';
-    return { icon, label: formatPlugLabel(plug.plugTypes, plug.voltages, plug.adapterNeeded) };
-  });
+  protected readonly visaItem = computed(() => (this.isLoggedIn() ? this.facts().visa : null));
+  protected readonly currencyItem = computed(() => this.facts().currency);
+  protected readonly plugItem = computed(() => this.facts().plug);
 
   protected readonly hasInfo = computed(() => !!(this.visaItem() || this.currencyItem() || this.plugItem()));
 
