@@ -23,6 +23,12 @@ describe('destination facts', () => {
     expect(facts[0].cities[0].timeDiff).toMatch(/Chile/); // both are guide cities with a timeZone
   });
 
+  it('measures the time difference against Chile, not the device timezone', () => {
+    // 1 Dec 2026: Santiago UTC-3 (DST), Lima UTC-5 → 2 h behind, whatever TZ the test machine runs in.
+    const facts = buildDestinationFacts([stop('lima')], 'CL', visa, info, 'es-CL', new Date('2026-12-01T12:00:00Z'));
+    expect(facts[0].cities[0].timeDiff).toBe('2 h menos que en Chile');
+  });
+
   it('uses the set-country CTA as visa when home is unknown', () => {
     expect(buildDestinationFacts([stop('lima')], null, visa, info)[0].visa).toBe(SET_COUNTRY_CTA);
     expect(cityFacts(LIMA, null, visa, info).visa).toEqual({ cta: true, icon: '🛂', label: SET_COUNTRY_CTA });

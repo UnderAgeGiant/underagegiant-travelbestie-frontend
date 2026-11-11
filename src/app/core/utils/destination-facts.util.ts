@@ -8,7 +8,7 @@ import { TravelInfoService } from '../travel-info/travel-info.service';
 import { AppLocale } from '../i18n/locale.util';
 import { countryCodeFromFlagEmoji } from '../../shared/flag-icon/flag-emoji.util';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { guideByCityId } from '../../data/city-guides.data';
+import { guideByCityId, HOME_TIME_ZONE } from '../../data/city-guides.data';
 import { hoursAheadOf, timeDifferenceLabel } from '../../features/city-guide/time-difference.util';
 
 export const SET_COUNTRY_CTA = $localize`:@@cityInfo.setCountryCta:Agrega tu país de residencia en Configuración de cuenta para ver info de visa`;
@@ -53,16 +53,11 @@ function countryDisplayName(city: City, locale: AppLocale): string {
   }
 }
 
-/**
- * One DestinationFacts per distinct destination country, in stop order.
- * ponytail: the device timezone stands in for "home" (no home timezone is stored),
- * and the label says "que en Chile" like the city guides do.
- */
+/** One DestinationFacts per distinct destination country, in stop order. Time difference vs Chile, like the city guides. */
 export function buildDestinationFacts(
   stops: TripStop[], homeIso2: string | null, visa: VisaRequirementService, info: TravelInfoService,
   locale: AppLocale = 'es-CL', now = new Date(),
 ): DestinationFacts[] {
-  const homeTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const byCountry = new Map<string, DestinationFacts>();
   for (const stop of stops) {
     const city = WORLD_CITIES.find(c => c.id === stop.cityId);
@@ -79,7 +74,7 @@ export function buildDestinationFacts(
     }
     if (entry.cities.some(c => c.name === city.name)) continue;
     const tz = guideByCityId(city.id)?.timeZone;
-    entry.cities.push(tz ? { name: city.name, timeDiff: timeDifferenceLabel(hoursAheadOf(homeTz, tz, now)) } : { name: city.name });
+    entry.cities.push(tz ? { name: city.name, timeDiff: timeDifferenceLabel(hoursAheadOf(HOME_TIME_ZONE, tz, now)) } : { name: city.name });
   }
   return [...byCountry.values()];
 }
