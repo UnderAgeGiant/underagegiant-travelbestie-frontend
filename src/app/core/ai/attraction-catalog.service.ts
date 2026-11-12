@@ -26,6 +26,8 @@ export class AttractionCatalogService {
       import('../../data/attractions.data'),
     ]);
     await loadCityAttractions(cityIds);
+    // A city whose file failed would go out as an empty list and still cost a Token; reject before /ai/plan is sent.
+    if (cityIds.some(id => attractionsStatus(id) === 'error')) throw new Error('No pudimos cargar las atracciones.');
 
     const catalog: CityCatalog = {};
     for (const city of WORLD_CITIES.filter(c => cityIds.includes(c.id))) {

@@ -48,6 +48,14 @@ describe('on-demand attraction store', () => {
     expect(findCuratedAttraction('paris', 'paris_1')?.active).toBe(false);
   });
 
+  it('attractionsStatus alone starts the city load, exactly once', async () => {
+    expect(attractionsStatus('paris')).toBe('loading');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    await loadCityAttractions(['paris']);
+    expect(attractionsStatus('paris')).toBe('ready');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
   it('marks a failed city as error and does not refetch until retry', async () => {
     fetchMock.mockImplementation(() => Promise.reject(new Error('network down')));
     await loadCityAttractions(['paris']);

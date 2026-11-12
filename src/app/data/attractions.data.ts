@@ -73,6 +73,7 @@ export function findCuratedAttraction(cityId: string, attractionId: string): Att
 
 export function attractionsStatus(cityId: string): Status {
   if (testSource || !KNOWN_IDS.has(cityId)) return 'ready';
+  ensureLoad(cityId); // a status-only caller still starts the fetch (no signal write here)
   return status()[cityId] ?? 'loading';
 }
 

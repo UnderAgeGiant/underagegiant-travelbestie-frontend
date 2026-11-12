@@ -48,4 +48,11 @@ describe('AttractionCatalogService — city files on demand', () => {
     const catalog = await TestBed.inject(AttractionCatalogService).getCityCatalog(['paris']);
     expect(catalog['paris']).toEqual(expect.arrayContaining([{ id: 'paris_0', name: 'Torre' }]));
   });
+
+  it('getCityCatalog rejects when a requested city file failed, so no /ai/plan request is sent', async () => {
+    __setAttractionSourceForTests(null);
+    globalThis.fetch = jest.fn().mockRejectedValue(new Error('network down')) as unknown as typeof fetch;
+    TestBed.configureTestingModule({ providers: [AttractionCatalogService] });
+    await expect(TestBed.inject(AttractionCatalogService).getCityCatalog(['paris'])).rejects.toThrow();
+  });
 });

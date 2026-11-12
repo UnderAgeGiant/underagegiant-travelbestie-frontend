@@ -704,13 +704,12 @@ export class DayTimelineComponent {
     const day  = this.selectedDay();
     if (!stop || !day) return [];
 
-    const attractions = this.attractionsFor(stop.cityId);
-
     const attBlocks: TimeBlock[] = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime)
       .map((a: PlannedAttraction) => {
         const personal = isPersonal(a);
-        const att      = personal ? personalAttraction(a) : (attractions.find(x => x.id === a.attractionId) ?? null);
+        // Resolved per entry, not from the active-only list, so an inactive planned attraction keeps its name.
+        const att      = personal ? personalAttraction(a) : resolvePlannedAttraction(stop.cityId, a);
         const startMin = hmToMin(a.startTime!);
         const endMin   = startMin + plannedDurationMinutes(a, att);
         const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
@@ -741,11 +740,6 @@ export class DayTimelineComponent {
   // family's explicit request (Task 9).
   private isRescheduleLocked(a: PlannedAttraction): boolean {
     return a.category === 'freetour' || (a.category === 'event_party' && !!a.date);
-  }
-
-  private attractionsFor(cityId: string) {
-    const city = WORLD_CITIES.find(c => c.id === cityId);
-    return city ? getAttractions(city) : [];
   }
 
   private attractionsForDay(atts: PlannedAttraction[], dayKey: string): PlannedAttraction[] {
@@ -920,7 +914,7 @@ export class DayTimelineComponent {
       const { entryId } = payload;
       const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
       if (original && !this.isRescheduleLocked(original)) {
-        const att = isPersonal(original) ? personalAttraction(original) : (this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null);
+        const att = isPersonal(original) ? personalAttraction(original) : resolvePlannedAttraction(stop.cityId, original);
         const durationMin = plannedDurationMinutes(original, att);
         this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
       }

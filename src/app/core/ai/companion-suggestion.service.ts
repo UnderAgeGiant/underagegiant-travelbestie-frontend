@@ -105,7 +105,8 @@ export class CompanionSuggestionService {
       .filter(t => t.fromCityId === stop.cityId && t.segments.length > 0)
       .map(t => ({ date: t.segments[0].departureDate, time: t.segments[0].departureTime }));
 
-    const catalogMap  = await this.catalog.getCityCatalog([stop.cityId]);
+    const catalogMap = await this.catalog.getCityCatalog([stop.cityId]).catch(() => null);
+    if (!catalogMap) return; // city file failed: no mascot suggestion this time
     const cityCatalog = catalogMap[stop.cityId] ?? [];
 
     return new Promise<void>(resolve => {

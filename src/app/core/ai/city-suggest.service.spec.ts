@@ -5,6 +5,7 @@ import { CitySuggestService } from './city-suggest.service';
 import { KarmaModalService } from '../karma/karma-modal.service';
 import { TripService } from '../../features/trip/trip.service';
 import { City } from '../models/city.model';
+import { __setAttractionSourceForTests } from '../../data/attractions.data';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -71,7 +72,7 @@ describe('CitySuggestService', () => {
       ],
     });
 
-    service.addAll(stop.stopId, 'paris', ['paris_0']);
+    await service.addAll(stop.stopId, 'paris', ['paris_0']);
 
     const updatedStop = trip.stops()[0];
     expect(updatedStop.selectedAttractions.length).toBe(1);
@@ -166,5 +167,41 @@ describe('CitySuggestService', () => {
     expect(service.openForStopId()).toBeNull();
     expect(service.suggestions().length).toBe(0);
     expect(service.error()).toBeNull();
+  });
+});
+
+describe('CitySuggestService — city file failed', () => {
+  const realFetch = globalThis.fetch;
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    __setAttractionSourceForTests((globalThis as any).__tbJestAttractionSource);
+  });
+
+  it('addAll adds nothing when the stop city file failed to load', async () => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(withXhr()), provideHttpClientTesting(),
+        { provide: 'ENV', useValue: { useMocks: false, apiUrl: 'http://localhost:3000' } },
+      ],
+    });
+    const service = TestBed.inject(CitySuggestService);
+    const trip = TestBed.inject(TripService);
+    const http = TestBed.inject(HttpTestingController);
+    trip.addStop(PARIS, '01/07/2026', '05/07/2026');
+    const stop = trip.stops()[0];
+
+    service.request(stop);
+    await flushAsync();
+    http.expectOne(r => r.url.includes('/ai/suggest-attractions')).flush({
+      suggestions: [{ attractionId: 'paris_0', date: '02/07/2026', startTime: '10:00', endTime: '11:00', reason: 'x' }],
+    });
+
+    __setAttractionSourceForTests(null);
+    globalThis.fetch = jest.fn().mockRejectedValue(new Error('network down')) as unknown as typeof fetch;
+    await service.addAll(stop.stopId, 'paris', ['paris_0']);
+
+    expect(trip.stops()[0].selectedAttractions.length).toBe(0);
+    http.verify();
   });
 });

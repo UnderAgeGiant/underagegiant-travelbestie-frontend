@@ -192,7 +192,7 @@ import { photoCreditUrl } from './photo-credit.util';
         </main>
       } @else if (loadError()) {
         <main class="cg-main">
-          <p class="cg-intro" i18n="@@attractions.loadError">No pudimos cargar las atracciones.</p>
+          <p class="cg-intro" role="status" i18n="@@attractions.loadError">No pudimos cargar las atracciones.</p>
           <button type="button" class="btn-pill" (click)="retry()" i18n="@@attractions.retry">Reintentar</button>
         </main>
       }
@@ -208,16 +208,18 @@ export class CityGuideComponent {
   private readonly travelInfo = inject(TravelInfoService);
 
   readonly plans = signal<SeoCityPlan[]>([]);
+  // The visa matrix is a lazy chunk. Gate the model on it so the SEO effect runs once, not again when the matrix lands.
+  private readonly visaSettled = signal(false);
 
   private readonly slug = toSignal(this.route.paramMap.pipe(map(p => p.get('slug') ?? '')), { initialValue: '' });
 
-  // Null until the city file is in: the SEO effect must not apply a thin, noindex head first.
+  // Null until the city file AND the visa matrix are in: the SEO effect must not apply a thin, noindex head first.
   readonly model = computed(() => {
     const entry = guideBySlug(this.slug());
     const city = entry && WORLD_CITIES.find(c => c.id === entry.cityId);
     if (!entry || !city) return null;
     const attractions = getAttractions(city); // starts the load on first read
-    if (attractionsStatus(city.id) !== 'ready') return null;
+    if (attractionsStatus(city.id) !== 'ready' || !this.visaSettled()) return null;
     const facts = computeGuideFacts(city, entry, new Date(), { visa: this.visa, travelInfo: this.travelInfo });
     return buildCityGuide(entry, city, attractions, facts);
   });
@@ -228,6 +230,8 @@ export class CityGuideComponent {
   });
 
   constructor() {
+    // load() never rejects, so a failed chunk import still settles and the guide renders without a visa fact.
+    void this.visa.load().then(() => this.visaSettled.set(true));
     effect(() => {
       const m = this.model();
       if (!m) return;

@@ -48,10 +48,10 @@ import { AttractionsListComponent } from '../attractions-list/attractions-list.c
         <div class="att-sheet-body" (scroll)="onScroll($event)">
           @switch (loadStatus()) {
             @case ('loading') {
-              <div class="badge" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)" i18n="@@attractions.loading">Cargando atracciones…</div>
+              <div class="badge" role="status" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)" i18n="@@attractions.loading">Cargando atracciones…</div>
             }
             @case ('error') {
-              <div class="badge" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
+              <div class="badge" role="status" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
                 <span i18n="@@attractions.loadError">No pudimos cargar las atracciones.</span>
                 <button type="button" class="btn-pill" (click)="retry()" i18n="@@attractions.retry">Reintentar</button>
               </div>
