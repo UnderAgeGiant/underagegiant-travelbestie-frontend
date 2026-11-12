@@ -1,5 +1,5 @@
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { attractionsStatus, getAttractions } from '../../data/attractions.data';
 import { isGuideAttraction } from '../seo/city-guide-seo.util';
 
 /** /preferences backdrop and the fallback when the planned cities have no curated photos. */
@@ -20,7 +20,9 @@ function cityImages(cityId: string): string[] {
 
 /** Top-rated photos per city, interleaved across cities (so 3 cities don't show 2 Paris shots in a row). */
 export function backdropImages(cityIds: string[], max = 6): string[] {
-  const perCity = cityIds.map(cityImages).filter(l => l.length);
+  const perCity = cityIds.map(cityImages).filter(l => l.length); // reading starts each city's file load
+  // Never fall back to the iconic list while a requested city's file is still in flight — it would flash the wrong photos.
+  if (cityIds.some(id => attractionsStatus(id) === 'loading')) return [];
   if (!perCity.length) return cityIds === ICONIC_BACKDROP_CITIES ? [] : backdropImages(ICONIC_BACKDROP_CITIES, max);
   const out: string[] = [];
   for (let i = 0; out.length < max && perCity.some(l => i < l.length); i++)

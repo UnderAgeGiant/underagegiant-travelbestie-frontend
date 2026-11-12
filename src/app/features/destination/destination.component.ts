@@ -2,17 +2,18 @@ import { Component, inject, computed, effect, ChangeDetectionStrategy } from '@a
 import { TripService } from '../trip/trip.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { REGION_LABELS } from '../../core/models/city.model';
-import { getAttractions } from '../../data/attractions.data';
+import { attractionsStatus, getAttractions } from '../../data/attractions.data';
 import { sortMustSeeFirst } from '../../core/utils/must-see.util';
 import { Comment } from '../../core/models/comment.model';
 import { CityCommentsService } from '../../core/comments/city-comments.service';
 import { DeviceService } from '../../core/device/device.service';
 import { AttractionsListComponent } from './attractions-list/attractions-list.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 
 @Component({
     selector: 'app-destination',
-    imports: [AttractionsListComponent, FlagIconComponent],
+    imports: [AttractionsListComponent, FlagIconComponent, AttractionsLoadErrorComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="dest-view">
@@ -26,14 +27,16 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
               <span class="badge" [style.background]="regionBg()" [style.color]="regionColor()">
                 {{ regionLabel() }}
               </span>
-              <span class="badge" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
-                {{ attractions().length }}
-                @if (attractions().length === 1) {
-                  <ng-container i18n="@@dest.oneAttraction">atracción</ng-container>
-                } @else {
-                  <ng-container i18n="@@dest.manyAttractions">atracciones</ng-container>
-                }
-              </span>
+              @if (loadStatus() === 'ready') {
+                <span class="badge" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
+                  {{ attractions().length }}
+                  @if (attractions().length === 1) {
+                    <ng-container i18n="@@dest.oneAttraction">atracción</ng-container>
+                  } @else {
+                    <ng-container i18n="@@dest.manyAttractions">atracciones</ng-container>
+                  }
+                </span>
+              }
 
               @if (activeStop()?.checkIn && activeStop()?.checkOut) {
                 <span class="badge" style="background:var(--cream);color:var(--t3);border:1px solid var(--border);font-size:10px">
@@ -44,12 +47,22 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
           </div>
         </div>
 
-        <app-attractions-list
-          [city]="city()!"
-          [attractions]="attractions()"
-          [stopId]="activeStop()!.stopId"
-          [comments]="allComments()"
-          (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
+        @switch (loadStatus()) {
+          @case ('loading') {
+            <div class="badge" role="status" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)" i18n="@@attractions.loading">Cargando atracciones…</div>
+          }
+          @case ('error') {
+            <tb-attractions-load-error [cityIds]="[city()!.id]" />
+          }
+          @default {
+            <app-attractions-list
+              [city]="city()!"
+              [attractions]="attractions()"
+              [stopId]="activeStop()!.stopId"
+              [comments]="allComments()"
+              (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
+          }
+        }
       }
     </div>
   `
@@ -71,6 +84,7 @@ export class DestinationComponent {
 
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? sortMustSeeFirst(getAttractions(this.city()!)) : []);
+  readonly loadStatus = computed(() => this.city() ? attractionsStatus(this.city()!.id) : 'ready');
 
   constructor() {
     effect(() => {

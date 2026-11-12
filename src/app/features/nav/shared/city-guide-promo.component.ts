@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../../shared/attraction-img/attraction-img.directive';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CITY_GUIDES, CityGuideEntry } from '../../../data/city-guides.data';
@@ -16,14 +17,14 @@ interface PromoItem { guide: CityGuideEntry; imageUrl: string | undefined; }
  */
 @Component({
   selector: 'app-city-guide-promo',
-  imports: [RouterLink],
+  imports: [AttractionImgDirective, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (activeGuide(); as g) {
       <a class="nav-guide-promo" [routerLink]="['/ciudad', g.slug]" [attr.aria-label]="promoLabel + ' ' + g.displayName">
         @for (item of items; track item.guide.slug; let i = $index) {
           <span class="nav-guide-promo-slide" [class.active]="i === activeIndex()">
-            @if (item.imageUrl) { <img [src]="item.imageUrl" [alt]="item.guide.displayName" loading="lazy" /> }
+            @if (item.imageUrl) { <img [tbAttImg]="item.imageUrl" [tbAttImgWidth]="500" [alt]="item.guide.displayName" loading="lazy" /> }
           </span>
         }
         <span class="nav-guide-promo-scrim"></span>

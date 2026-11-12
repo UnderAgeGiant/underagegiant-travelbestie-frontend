@@ -9,6 +9,7 @@ import { AuthService } from '../../core/auth/auth.service';
 import { ApiService } from '../../core/api/api.service';
 import { AiPlanHistoryItem } from '../../core/models/ai.model';
 import { SCROLL_SETTLE_FALLBACK_MS } from '../../core/routing/focus-item.util';
+import { __setAttractionSourceForTests } from '../../data/attractions.data';
 
 // MyTripsComponent now renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -601,5 +602,70 @@ describe('MyTripsComponent — "Dejar de publicar" (F74 feedback F3)', () => {
 
     expect(shareIdOf('published')).toBe('sh-1');
     expect(component.toast()).toBe('No se pudo despublicar el viaje');
+  });
+});
+
+describe('MyTripsComponent — itinerary export waits for city files', () => {
+  const realFetch = globalThis.fetch;
+  const paris = {
+    id: 'p1', name: 'Paris', savedAt: '2026-07-01T00:00:00Z',
+    stops: [{ stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '05/06/2026',
+      selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', date: '01/06/2026', startTime: '10:00', endTime: '11:00' }] }],
+  } as any;
+  let component: MyTripsComponent;
+  let api: ApiService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    __setAttractionSourceForTests(null);
+    (URL as any).createObjectURL = jest.fn(() => 'blob:x');
+    (URL as any).revokeObjectURL = jest.fn();
+    jest.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {});
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    api = TestBed.inject(ApiService);
+    jest.spyOn(api, 'exportItinerary').mockReturnValue(of(new Blob()));
+    component = TestBed.createComponent(MyTripsComponent).componentInstance;
+  });
+
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    __setAttractionSourceForTests((globalThis as any).__tbJestAttractionSource);
+    jest.restoreAllMocks();
+  });
+
+  it('sends the planned attraction details for a city that was never loaded', async () => {
+    globalThis.fetch = jest.fn().mockResolvedValue({
+      ok: true, status: 200,
+      json: async () => [{ id: 'paris_0', name: 'Torre Eiffel', type: 'Monumento', category: 'poi', active: true, icon: '🗼', bg: '#fff', rating: 4.7, estimatedMinutes: 90 }],
+    }) as unknown as typeof fetch;
+
+    await component.downloadItinerary(paris);
+
+    const body = (api.exportItinerary as jest.Mock).mock.calls[0][1];
+    expect(body.attractionDetails).toEqual(expect.objectContaining({ paris_0: expect.anything() }));
+  });
+
+  it('does not call the export API when a city file fails, and shows the existing error toast', async () => {
+    globalThis.fetch = jest.fn().mockRejectedValue(new Error('network down')) as unknown as typeof fetch;
+
+    await component.downloadItinerary(paris);
+
+    expect(api.exportItinerary).not.toHaveBeenCalled();
+    expect(component.toast()).toBe('Error al descargar el itinerario');
+  });
+
+  it('a second export retries a city file that failed the first time', async () => {
+    globalThis.fetch = jest.fn()
+      .mockRejectedValueOnce(new Error('network down'))
+      .mockResolvedValue({ ok: true, status: 200, json: async () => [] }) as unknown as typeof fetch;
+
+    await component.downloadItinerary(paris);
+    expect(api.exportItinerary).not.toHaveBeenCalled();
+
+    await component.downloadItinerary(paris);
+    expect(api.exportItinerary).toHaveBeenCalledTimes(1);
   });
 });

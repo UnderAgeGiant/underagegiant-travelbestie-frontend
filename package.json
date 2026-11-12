@@ -3,16 +3,23 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "data": "node scripts/build-attraction-data.mjs",
+    "postinstall": "npm run data",
+    "prestart": "npm run data",
     "start": "ng serve",
+    "predev": "npm run data",
     "dev": "node scripts/start-dev.mjs",
+    "predev:en": "npm run data",
     "dev:en": "node scripts/start-dev.mjs --configuration=en-US",
+    "prebuild": "npm run data",
     "build": "ng build",
-    "build:vercel": "node scripts/patch-env.mjs && ng build --configuration production && node scripts/post-build.mjs",
+    "build:vercel": "npm run data && node scripts/patch-env.mjs && ng build --configuration production && node scripts/post-build.mjs",
+    "prewatch": "npm run data",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:scripts": "node --test scripts/seo-head.node-test.mjs scripts/city-pages.node-test.mjs scripts/env-example.node-test.mjs"
+    "test:scripts": "node --test scripts/seo-head.node-test.mjs scripts/city-pages.node-test.mjs scripts/env-example.node-test.mjs scripts/build-attraction-data.node-test.mjs"
   },
   "private": true,
   "engines": {

@@ -1,9 +1,11 @@
+import { AttractionImgDirective } from '../../shared/attraction-img/attraction-img.directive';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 import { ApiService } from '../../core/api/api.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { pickTopSights, isGuideAttraction } from '../../core/seo/city-guide-seo.util';
@@ -12,7 +14,7 @@ import { TravelInfoService } from '../../core/travel-info/travel-info.service';
 import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
 import type { SeoCityPlan } from '../../core/models/seo-city-plan.model';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { attractionsStatus, getAttractions } from '../../data/attractions.data';
 import { guideBySlug } from '../../data/city-guides.data';
 import { environment } from '../../../environments/environment';
 import { buildCityGuide } from './city-guide.model';
@@ -22,7 +24,7 @@ import { photoCreditUrl } from './photo-credit.util';
 
 @Component({
   selector: 'app-city-guide',
-  imports: [NavShellComponent, RouterLink, FlagIconComponent],
+  imports: [AttractionImgDirective, NavShellComponent, RouterLink, FlagIconComponent, AttractionsLoadErrorComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cg-page">
@@ -64,7 +66,7 @@ import { photoCreditUrl } from './photo-credit.util';
             <div class="cg-grid">
               @for (a of m.mustSee; track a.id) {
                 <article class="cg-card">
-                  @if (a.imageUrl) { <img [src]="a.imageUrl" [alt]="a.name" loading="lazy" width="640" height="420" /> }
+                  @if (a.imageUrl) { <img [tbAttImg]="a.imageUrl" [tbAttImgWidth]="960" [alt]="a.name" loading="lazy" width="640" height="420" /> }
                   <div class="cg-card-body">
                     @if (a.dayTrip) { <span class="cg-chip-daytrip" i18n="@@cityGuide.dayTripChip">Excursión</span> }
                     <h3>{{ a.name }}</h3>
@@ -189,6 +191,10 @@ import { photoCreditUrl } from './photo-credit.util';
             Las descripciones de los lugares provienen de Wikipedia y se publican bajo licencia CC BY-SA 4.0; las fotos, de Wikimedia Commons, con la licencia indicada en cada archivo.
           </footer>
         </main>
+      } @else if (loadError()) {
+        <main class="cg-main">
+          <tb-attractions-load-error [cityIds]="[guideCityId()]" />
+        </main>
       }
     </div>
   `,
@@ -202,18 +208,32 @@ export class CityGuideComponent {
   private readonly travelInfo = inject(TravelInfoService);
 
   readonly plans = signal<SeoCityPlan[]>([]);
+  // The visa matrix is a lazy chunk. Gate the model on it so the SEO effect runs once, not again when the matrix lands.
+  private readonly visaSettled = signal(false);
 
   private readonly slug = toSignal(this.route.paramMap.pipe(map(p => p.get('slug') ?? '')), { initialValue: '' });
 
+  // Null until the city file AND the visa matrix are in: the SEO effect must not apply a thin, noindex head first.
   readonly model = computed(() => {
     const entry = guideBySlug(this.slug());
     const city = entry && WORLD_CITIES.find(c => c.id === entry.cityId);
     if (!entry || !city) return null;
+    const attractions = getAttractions(city); // starts the load on first read
+    if (attractionsStatus(city.id) !== 'ready' || !this.visaSettled()) return null;
     const facts = computeGuideFacts(city, entry, new Date(), { visa: this.visa, travelInfo: this.travelInfo });
-    return buildCityGuide(entry, city, getAttractions(city), facts);
+    return buildCityGuide(entry, city, attractions, facts);
+  });
+
+  readonly guideCityId = computed(() => guideBySlug(this.slug())?.cityId ?? '');
+
+  readonly loadError = computed(() => {
+    const entry = guideBySlug(this.slug());
+    return !!entry && attractionsStatus(entry.cityId) === 'error';
   });
 
   constructor() {
+    // load() never rejects, so a failed chunk import still settles and the guide renders without a visa fact.
+    void this.visa.load().then(() => this.visaSettled.set(true));
     effect(() => {
       const m = this.model();
       if (!m) return;

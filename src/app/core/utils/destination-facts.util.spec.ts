@@ -11,6 +11,8 @@ const stop = (cityId: string): TripStop =>
 const LIMA = WORLD_CITIES.find(c => c.id === 'lima')!;
 
 describe('destination facts', () => {
+  beforeAll(() => visa.load());
+
   it('groups Lima + Cusco into one Peru entry with the badge labels', () => {
     const facts = buildDestinationFacts([stop('lima'), stop('cusco'), stop('lima')], 'CL', visa, info);
     const badge = cityFacts(LIMA, 'CL', visa, info);

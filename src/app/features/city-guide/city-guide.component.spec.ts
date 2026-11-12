@@ -8,6 +8,7 @@ import { PreferencesComponent } from '../preferences/preferences.component';
 import { ApiService } from '../../core/api/api.service';
 import { SeoService } from '../../core/seo/seo.service';
 import type { Attraction } from '../../core/models/comment.model';
+import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
 
 const att = (i: number, o: Partial<Attraction> = {}): Attraction => ({
   id: `madrid_${i}`, name: `Sitio ${i}`, type: 'Museo', category: 'poi', active: true, icon: '🖼️', bg: '#fff',
@@ -20,7 +21,18 @@ const mockData = [...Array.from({ length: 40 }, (_, i) => att(i)), att(99, { nam
 // without leaking into other tests — reset to `mockData` in beforeEach below.
 let activeData: Attraction[] = mockData;
 
-jest.mock('../../data/attractions.data', () => ({ getAttractions: () => activeData }));
+// Load status is a real signal so tests can flip loading → ready and the component's computed re-runs.
+jest.mock('../../data/attractions.data', () => {
+  const { signal } = jest.requireActual('@angular/core');
+  const status = signal('ready');
+  return {
+    getAttractions: () => activeData,
+    attractionsStatus: () => status(),
+    retryCityAttractions: jest.fn(),
+    __status: status,
+  };
+});
+const attractionsMock = () => jest.requireMock('../../data/attractions.data') as { __status: { set(v: string): void } };
 
 // Fixed madrid manifest entry — independent of the real one's current `reviewed` flag (which
 // changes as guides get approved) so this spec's "unreviewed → noindex" assertion stays stable.
@@ -68,60 +80,104 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     return f;
   }
 
-  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; mockDomestic = false; mockPinned = undefined; });
+  // The visa matrix is a lazy import: settle it before asserting on a rendered guide.
+  async function createSettled(plans: any[] = []) {
+    const f = create(plans);
+    await TestBed.inject(VisaRequirementService).load();
+    f.detectChanges();
+    TestBed.flushEffects();
+    return f;
+  }
 
-  it('domestic guides hide the "Viajando desde Chile" facts box and drop "desde Chile" from the SEO title', () => {
+  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; mockDomestic = false; mockPinned = undefined; attractionsMock().__status.set('ready'); });
+
+  it('waits for the city file AND the visa matrix, then applies SEO and fetches plans exactly once', async () => {
+    attractionsMock().__status.set('loading');
+    const f = create();
+    expect(seo.apply).not.toHaveBeenCalled();
+    expect(api.getSeoCityPlans).not.toHaveBeenCalled();
+    expect(f.nativeElement.querySelector('.cg-h2')).toBeNull();
+
+    attractionsMock().__status.set('ready');
+    f.detectChanges();
+    TestBed.flushEffects();
+    // The city file is in but the visa chunk is still importing: no apply yet.
+    expect(seo.apply).not.toHaveBeenCalled();
+    expect(api.getSeoCityPlans).not.toHaveBeenCalled();
+
+    await TestBed.inject(VisaRequirementService).load();
+    f.detectChanges();
+    TestBed.flushEffects();
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(api.getSeoCityPlans).toHaveBeenCalledTimes(1);
+
+    // A later change pass must not re-apply the head or refetch the plans.
+    f.detectChanges();
+    TestBed.flushEffects();
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(api.getSeoCityPlans).toHaveBeenCalledTimes(1);
+  });
+
+  it('shows the attraction error block (and no SEO) when the city file fails', async () => {
+    attractionsMock().__status.set('error');
+    const f = await createSettled();
+    expect(seo.apply).not.toHaveBeenCalled();
+    expect(f.nativeElement.textContent).toContain('No pudimos cargar las atracciones.');
+    expect(f.nativeElement.querySelector('.btn-pill')?.textContent).toContain('Reintentar');
+  });
+
+  it('domestic guides hide the "Viajando desde Chile" facts box and drop "desde Chile" from the SEO title', async () => {
     mockDomestic = true;
-    const el: HTMLElement = create().nativeElement;
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelector('.cg-facts')).toBeNull();
     expect(el.textContent).not.toContain('Viajando desde Chile');
     expect(seo.apply.mock.calls[0][0].title).not.toContain('desde Chile');
   });
 
-  it('renders the h1, the Chile facts block and the editorial sections', () => {
-    const el: HTMLElement = create().nativeElement;
+  it('renders the h1, the Chile facts block and the editorial sections', async () => {
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelector('h1')?.textContent).toContain('Madrid');
     expect(el.querySelector('.cg-facts')).not.toBeNull();
     expect(el.querySelectorAll('.cg-faq details').length).toBeGreaterThanOrEqual(3);
   });
 
-  it('shows must-see cards with a Wikipedia attribution link, and separates day trips', () => {
-    const el: HTMLElement = create().nativeElement;
+  it('shows must-see cards with a Wikipedia attribution link, and separates day trips', async () => {
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelector('.cg-must .cg-card a[href^="https://es.wikipedia.org/"]')).not.toBeNull();
     expect(el.querySelector('.cg-daytrips')?.textContent).toContain('Toledo');
     expect(el.querySelector('.cg-must')?.textContent).not.toContain('Toledo');
   });
 
-  it('credits Commons photos', () => {
-    const el: HTMLElement = create().nativeElement;
+  it('credits Commons photos', async () => {
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelector('a[href^="https://commons.wikimedia.org/wiki/File:"]')).not.toBeNull();
   });
 
-  it('applies the guide SEO head (noindex while unreviewed) and loads real plans by city id', () => {
-    create();
+  it('applies the guide SEO head (noindex while unreviewed) and loads real plans by city id', async () => {
+    await createSettled();
     const page = seo.apply.mock.calls[0][0];
     expect(page.path).toBe('/ciudad/madrid');
     expect(page.noindex).toBe(true);
     expect(api.getSeoCityPlans).toHaveBeenCalledWith('madrid');
   });
 
-  it('renders real plans as crawlable links, and hides the block when there are none', () => {
-    const withPlans: HTMLElement = create([{ id: 'abc', tripName: 'Europa', cities: ['Madrid', 'Rome'], attractionCount: 9, favoriteCount: 3 }]).nativeElement;
+  it('renders real plans as crawlable links, and hides the block when there are none', async () => {
+    const withPlans: HTMLElement = (await createSettled([{ id: 'abc', tripName: 'Europa', cities: ['Madrid', 'Rome'], attractionCount: 9, favoriteCount: 3 }])).nativeElement;
     expect(withPlans.querySelector('.cg-plans a[href="/shared/abc"]')).not.toBeNull();
     TestBed.resetTestingModule();
-    const none: HTMLElement = create([]).nativeElement;
+    const none: HTMLElement = (await createSettled([])).nativeElement;
     expect(none.querySelector('.cg-plans')).toBeNull();
   });
 
-  it('the CTA sends the visitor to the planner with the city pre-selected', () => {
-    const f = create();
+  it('the CTA sends the visitor to the planner with the city pre-selected', async () => {
+    const f = await createSettled();
     const nav = jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
     (f.nativeElement.querySelector('.cg-cta') as HTMLButtonElement).click();
     expect(nav).toHaveBeenCalledWith(['/'], { queryParams: { addCity: 'madrid' } });
   });
 
-  it('repeats the plan CTA at the end of the guide, after the FAQ', () => {
-    const el: HTMLElement = create().nativeElement;
+  it('repeats the plan CTA at the end of the guide, after the FAQ', async () => {
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelectorAll('.cg-cta').length).toBe(2);
     const endCta = el.querySelector('.cg-cta-end .cg-cta');
     const faq = el.querySelector('.cg-faq');
@@ -130,27 +186,27 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     expect(faq!.compareDocumentPosition(endCta!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
-  it('renders the country flag via app-flag-icon instead of a raw emoji in the eyebrow', () => {
-    const el: HTMLElement = create().nativeElement;
+  it('renders the country flag via app-flag-icon instead of a raw emoji in the eyebrow', async () => {
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelector('.cg-eyebrow app-flag-icon')).not.toBeNull();
     expect(el.querySelector('.cg-eyebrow')?.textContent).toContain('Guía de viaje');
   });
 
-  it('titles the best-time-to-go block "Cuándo es mejor ir"', () => {
-    const el: HTMLElement = create().nativeElement;
+  it('titles the best-time-to-go block "Cuándo es mejor ir"', async () => {
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelector('.cg-practical')?.textContent).toContain('Cuándo es mejor ir');
   });
 
-  it('boxes the day-trips list once it exceeds 6 items, matching the category-list treatment', () => {
+  it('boxes the day-trips list once it exceeds 6 items, matching the category-list treatment', async () => {
     activeData = [...Array.from({ length: 40 }, (_, i) => att(i)), ...Array.from({ length: 8 }, (_, i) => att(200 + i, { name: `Excursión ${i}`, dayTrip: true }))];
-    const el: HTMLElement = create().nativeElement;
+    const el: HTMLElement = (await createSettled()).nativeElement;
     expect(el.querySelector('.cg-daytrips .cg-scroll-box')).not.toBeNull();
     expect(el.querySelector('.cg-daytrips .cg-scroll-hint')).not.toBeNull();
   });
 
-  it('pins mustSeeDayTrips first in Imperdibles with an "Excursión" chip, out of the day-trips list and into the JSON-LD', () => {
+  it('pins mustSeeDayTrips first in Imperdibles with an "Excursión" chip, out of the day-trips list and into the JSON-LD', async () => {
     mockPinned = ['madrid_99', 'bogus'];
-    const el: HTMLElement = create().nativeElement;
+    const el: HTMLElement = (await createSettled()).nativeElement;
     const cards = el.querySelectorAll('.cg-must .cg-card');
     expect(cards[0].querySelector('h3')!.textContent).toContain('Toledo');
     expect(cards[0].querySelector('.cg-chip-daytrip')!.textContent).toContain('Excursión');

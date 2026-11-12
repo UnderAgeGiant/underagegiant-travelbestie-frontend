@@ -13,6 +13,7 @@ import { activityMeta } from '../../../core/models/personal-activity.model';
 import { ApiService } from '../../../core/api/api.service';
 import { NEVER } from 'rxjs';
 import { LocaleService } from '../../../core/i18n/locale.service';
+import { __setAttractionSourceForTests } from '../../../data/attractions.data';
 
 const PARIS: City  = { id: 'paris',  name: 'Paris',  country: 'France', flag: '🇫🇷', region: 'europe' };
 const LONDON: City = { id: 'london', name: 'London', country: 'United Kingdom', flag: '🇬🇧', region: 'europe' };
@@ -331,7 +332,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
   });
 
-  it('exports with the full F78 body (locale, planned-only names, destinations)', () => {
+  it('exports with the full F78 body (locale, planned-only names, destinations)', async () => {
     trip.restoreStops([{
       stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
       selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' }],
@@ -339,7 +340,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     (trip as any)._loadedPlanId.set('plan-1');
     const api = TestBed.inject(ApiService);
     const spy = jest.spyOn(api, 'exportItinerary').mockReturnValue(NEVER);
-    (component as any).exportItinerary();
+    await (component as any).exportItinerary();
     const [id, body] = spy.mock.calls[0];
     expect(id).toBe('plan-1');
     expect(body.locale).toBe(TestBed.inject(LocaleService).current());
@@ -1275,5 +1276,36 @@ describe('DayTimelineComponent — personal activities (Feature 71)', () => {
     expect(item).toMatchObject({ icon: '🍽️', description: null, imageUrl: '/personal/lunch.webp', contain: true, bg: '#FDEFE8' });
     const catalog = (component as any).daySlideItems().find((i: any) => i.id === 'att:e1');
     expect(catalog.contain).toBeUndefined();
+  });
+});
+
+describe('DayTimelineComponent — inactive planned attraction keeps its name', () => {
+  afterEach(() => {
+    __setAttractionSourceForTests((globalThis as any).__tbJestAttractionSource);
+  });
+
+  it('renders the name of a planned attraction that is no longer active', () => {
+    __setAttractionSourceForTests((cityId: string) => cityId === 'paris'
+      ? [{ id: 'paris_x', name: 'Museo Cerrado', type: 'Histórico', category: 'poi', active: false, icon: '🏛️', bg: '#fff', rating: 4.5, estimatedMinutes: 60 } as any]
+      : []);
+    installMatchMediaMock(false);
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [DayTimelineComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    trip.restoreStops([{
+      stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '02/06/2026',
+      selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_x', startTime: '10:00', endTime: '11:00', date: '01/06/2026' }],
+    }] as any, null, [] as any);
+    trip.setActive(trip.stops()[0].stopId);
+    const fixture = TestBed.createComponent(DayTimelineComponent);
+    fixture.detectChanges();
+    (fixture.componentInstance as any).selectedDay.set('01/06');
+    fixture.detectChanges();
+
+    const names = [...fixture.nativeElement.querySelectorAll('.tl-block-name')].map((e: Element) => e.textContent);
+    expect(names).toContain('Museo Cerrado');
   });
 });

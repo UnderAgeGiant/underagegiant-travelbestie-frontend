@@ -15,6 +15,7 @@ import { Place } from '../../../core/models/trip.model';
 import { of, throwError } from 'rxjs';
 import { ApiService } from '../../../core/api/api.service';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
+import { __setAttractionSourceForTests, loadCityAttractions } from '../../../data/attractions.data';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -849,6 +850,28 @@ describe('StopListComponent — full plan toggle (2026-10-25)', () => {
     btn = el.querySelector('.tfp-view-btn')!;
     expect(btn.classList).toContain('btn-primary');
     expect(btn.getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('Reintentar in an errored city keeps that city selected (desktop, allowDeselect)', async () => {
+    const realFetch = globalThis.fetch;
+    __setAttractionSourceForTests(null);
+    globalThis.fetch = jest.fn(() => Promise.reject(new Error('network down'))) as unknown as typeof fetch;
+    try {
+      await loadCityAttractions(['paris']);
+      const { fixture, el, card } = setup(false, true);
+      card(0).click();
+      trip.addAttraction(trip.activeStop()!.stopId, 'paris_0', '09:00');
+      fixture.detectChanges();
+      [...card(0).querySelectorAll<HTMLButtonElement>('button')].find(b => b.textContent!.includes('Planificado'))!.click();
+      fixture.detectChanges();
+      const retry = el.querySelector('tb-attractions-load-error button') as HTMLButtonElement;
+      expect(retry).not.toBeNull();
+      retry.click();
+      expect(trip.activeStop()?.cityId).toBe('paris');
+    } finally {
+      globalThis.fetch = realFetch;
+      __setAttractionSourceForTests((globalThis as any).__tbJestAttractionSource);
+    }
   });
 
   it('"Ver plan completo" click calls clearActive()', () => {

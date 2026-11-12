@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../attraction-img/attraction-img.directive';
 import {
   ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit, computed, input, output, signal,
 } from '@angular/core';
@@ -9,7 +10,7 @@ const SWIPE_THRESHOLD_PX = 50;
 
 @Component({
   selector: 'app-plan-slideshow',
-  imports: [NgClass],
+  imports: [AttractionImgDirective, NgClass],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
 <div class="ps-overlay-root" data-testid="slideshow-root" (click)="$event.stopPropagation()">
@@ -17,7 +18,7 @@ const SWIPE_THRESHOLD_PX = 50;
     <div [ngClass]="['ps-slide', activeIdx() === i ? 'active' : '']"
          [class.ps-slide--contain]="item.contain" [style.background]="item.bg ?? null">
       @if (item.imageUrl) {
-        <img class="ps-slide-img" [src]="item.imageUrl" [alt]="item.name" />
+        <img class="ps-slide-img" [tbAttImg]="item.imageUrl" [tbAttImgWidth]="960" [alt]="item.name" />
       } @else {
         <div class="ps-slide-fallback"><span class="ps-slide-fallback-icon">{{ item.icon }}</span></div>
       }

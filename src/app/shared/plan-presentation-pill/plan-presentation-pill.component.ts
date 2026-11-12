@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../attraction-img/attraction-img.directive';
 import { ChangeDetectionStrategy, Component, DestroyRef, computed, effect, inject, input, output, signal } from '@angular/core';
 import { TripStop } from '../../core/models/trip.model';
 import { isPersonal, resolvePlannedAttraction } from '../../core/utils/personal-activity.util';
@@ -27,6 +28,7 @@ const ROTATE_MS = 5000;
 /** T5 (designer feedback 2026-10-08): "🎞️ Presentación del plan" as a rotating photo pill, modeled on CityGuidePromoComponent. */
 @Component({
   selector: 'tb-plan-presentation-pill',
+  imports: [AttractionImgDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (items().length > 0) {
@@ -34,7 +36,7 @@ const ROTATE_MS = 5000;
               i18n-aria-label="@@planPill.aria" aria-label="Presentación del plan">
         @for (item of items(); track item.id; let i = $index) {
           <span class="pp-slide" [class.active]="i === active()">
-            @if (near(i)) { <img [src]="item.imageUrl" alt="" /> }
+            @if (near(i)) { <img [tbAttImg]="item.imageUrl" [tbAttImgWidth]="960" alt="" /> }
           </span>
         }
         <span class="pp-scrim"></span>

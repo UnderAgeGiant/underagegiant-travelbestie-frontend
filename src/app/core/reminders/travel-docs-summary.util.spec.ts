@@ -19,6 +19,7 @@ const STOPS: TripStop[] = [
 describe('buildTravelDocsSummary', () => {
   const visaService = new VisaRequirementService();
   const travelInfo = new TravelInfoService();
+  beforeAll(() => visaService.load());
 
   it('lists only the stops that actually need visa action (CL -> FR visa-free, CL -> DZ needs visa)', () => {
     const summary = buildTravelDocsSummary(STOPS, 'CL', cityLookup, visaService, travelInfo);

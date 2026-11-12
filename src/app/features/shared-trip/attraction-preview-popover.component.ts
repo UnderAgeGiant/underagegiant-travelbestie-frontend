@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../shared/attraction-img/attraction-img.directive';
 import { Component, input, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction } from '../../core/models/comment.model';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
@@ -8,7 +9,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
 
 @Component({
     selector: 'app-attraction-preview-popover',
-    imports: [DurationPipe, AttractionNamePipe, AttractionNativePipe],
+    imports: [AttractionImgDirective, DurationPipe, AttractionNamePipe, AttractionNativePipe],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="att-preview-card"
@@ -19,7 +20,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
       @if (attraction().imageUrl) {
         <div class="att-preview-img-wrap">
           <img class="att-preview-img"
-               [src]="attraction().imageUrl"
+               [tbAttImg]="attraction().imageUrl" [tbAttImgWidth]="500"
                [alt]="attraction() | attName"
                loading="lazy" />
         </div>

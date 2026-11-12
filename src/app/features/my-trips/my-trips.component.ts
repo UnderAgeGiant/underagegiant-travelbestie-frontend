@@ -9,6 +9,7 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { FavoritedTrip, Collaborator, TripStop } from '../../core/models/trip.model';
+import { attractionsStatus, loadCityAttractions } from '../../data/attractions.data';
 import { AiPlanHistoryItem, AiPlanViewPayload } from '../../core/models/ai.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
@@ -29,13 +30,14 @@ import { TravelInfoService } from '../../core/travel-info/travel-info.service';
 import { ItineraryExportBody } from '../../core/models/itinerary-export.model';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
+import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 
 type MyTripsTab = 'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans';
 const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations', 'invites', 'aiplans'];
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent, RouterLink, NavShellComponent, DatePipe, TripMapComponent],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink, NavShellComponent, DatePipe, TripMapComponent, AttractionsLoadErrorComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
@@ -245,6 +247,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
 
                     @if (selectedPlanId() === plan.id) {
                       <div class="saved-plan-itin">
+                        <tb-attractions-load-error [cityIds]="planCityIds(plan)" />
                         <app-trip-itinerary [stops]="plan.stops" [transits]="plan.transits ?? []" />
                       </div>
                     }
@@ -680,7 +683,7 @@ export class MyTripsComponent implements AfterViewInit {
     });
   }
 
-  downloadItinerary(plan: SavedPlan): void {
+  async downloadItinerary(plan: SavedPlan): Promise<void> {
     if (environment.useMocks) {
       if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {
         this.karmaModal.openInsufficient(1, this.karma.karma() ?? 0);
@@ -696,6 +699,14 @@ export class MyTripsComponent implements AfterViewInit {
     }
 
     this.exportingPlanId.set(plan.id);
+    await loadCityAttractions(plan.stops.map(s => s.cityId));
+    await this.visaRequirement.load();
+    // Body needs the curated details of every stop; if a city failed to load, stop before the call so no Token is spent.
+    if (plan.stops.some(s => attractionsStatus(s.cityId) === 'error')) {
+      this.exportingPlanId.set(null);
+      this.toast.set($localize`:@@myTrips.itineraryDownloadError:Error al descargar el itinerario`);
+      return;
+    }
     this.api.exportItinerary(plan.id, this.exportBody(plan.stops)).subscribe({
       next: (blob) => {
         const slug = plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -831,6 +842,10 @@ export class MyTripsComponent implements AfterViewInit {
     try {
       return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
     } catch { return iso; }
+  }
+
+  protected planCityIds(plan: SavedPlan): string[] {
+    return plan.stops.map((s) => s.cityId);
   }
 
   protected planMapCities(plan: SavedPlan): TripMapCity[] {

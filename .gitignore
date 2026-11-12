@@ -56,3 +56,6 @@ Thumbs.db
 
 # Local agent architecture notes (keep local only)
 ARCHITECTURE.MD
+
+# Generated per-city attraction JSON (npm run data)
+/public/data/attractions/

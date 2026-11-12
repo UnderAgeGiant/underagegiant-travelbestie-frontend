@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../../shared/attraction-img/attraction-img.directive';
 import { Component, input, output, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { Attraction, Comment } from '../../../core/models/comment.model';
 import { DurationPipe } from '../../../shared/pipes/duration.pipe';
@@ -21,7 +22,7 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
 
 @Component({
     selector: 'app-attraction-card',
-    imports: [DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe],
+    imports: [AttractionImgDirective, DurationPipe, AttractionDetailModalComponent, PlanTimeModalComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe],
     styles: [`
     .att-card {
       padding: 0 !important;
@@ -182,10 +183,10 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
       <div class="card-visual" [style.background-color]="attraction().bg">
         @if (attraction().imageUrl && !imgError()) {
           <img class="card-img"
-               [src]="attraction().imageUrl"
+               [tbAttImg]="attraction().imageUrl" [tbAttImgWidth]="500"
                [alt]="attraction() | attName"
                loading="lazy"
-               (error)="imgError.set(true)">
+               (tbAttImgFailed)="imgError.set(true)">
         } @else {
           <div class="card-fallback-icon">{{ attraction().icon }}</div>
         }

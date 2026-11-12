@@ -5,7 +5,7 @@ import { KarmaModalService } from '../karma/karma-modal.service';
 import { TripService } from '../../features/trip/trip.service';
 import { TripStop } from '../models/trip.model';
 import { CityAttractionSuggestion } from '../models/ai.model';
-import { findCuratedAttraction } from '../../data/attractions.data';
+import { attractionsStatus, findCuratedAttraction, loadCityAttractions } from '../../data/attractions.data';
 
 @Injectable({ providedIn: 'root' })
 export class CitySuggestService {
@@ -49,7 +49,13 @@ export class CitySuggestService {
     this._error.set(null);
     this._suggestions.set([]);
 
-    const catalogMap  = await this.catalog.getCityCatalog([stop.cityId]);
+    // A city whose file failed rejects here; surface it as the cloud's error instead of spinning forever.
+    const catalogMap = await this.catalog.getCityCatalog([stop.cityId]).catch(() => null);
+    if (!catalogMap) {
+      this._loading.set(false);
+      this._error.set('No pudimos generar sugerencias. Intenta de nuevo.');
+      return;
+    }
     const cityCatalog = catalogMap[stop.cityId] ?? [];
 
     const existingSchedule = stop.selectedAttractions.flatMap(a =>
@@ -79,7 +85,10 @@ export class CitySuggestService {
   }
 
   /** Adds only the selected suggestions to the stop via the existing TripService.addAttraction, then closes. */
-  addAll(stopId: string, cityId: string, selectedAttractionIds: string[]): void {
+  async addAll(stopId: string, cityId: string, selectedAttractionIds: string[]): Promise<void> {
+    // Entries take category and duration from the curated city file; if it failed to load, add nothing.
+    await loadCityAttractions([cityId]);
+    if (attractionsStatus(cityId) === 'error') return;
     for (const s of this._suggestions()) {
       if (!selectedAttractionIds.includes(s.attractionId)) continue;
       const attraction = findCuratedAttraction(cityId, s.attractionId);

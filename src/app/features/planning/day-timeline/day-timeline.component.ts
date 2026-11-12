@@ -12,7 +12,7 @@ import { Attraction } from '../../../core/models/comment.model';
 import { AttractionPreviewPopoverComponent } from '../../shared-trip/attraction-preview-popover.component';
 import { previewCardPosition, previewCardTapPosition } from '../../shared-trip/attraction-preview-position.util';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { attractionsStatus, getAttractions, loadCityAttractions } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../core/maps/google-maps-url.util';
@@ -37,6 +37,7 @@ import { isPersonal, personalAttraction, resolvePlannedAttraction } from '../../
 import { activityMeta } from '../../../core/models/personal-activity.model';
 import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
 import { getWeatherCodeMeta } from '../../../core/models/weather.model';
+import { AttractionsLoadErrorComponent } from '../../../shared/attractions-load-error/attractions-load-error.component';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -128,7 +129,7 @@ function transitLabel(mode: TransitMode): string {
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, AttractionPreviewPopoverComponent],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, AttractionPreviewPopoverComponent, AttractionsLoadErrorComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -215,6 +216,9 @@ function transitLabel(mode: TransitMode): string {
         </div>
       }
 
+      @if (!readOnly()) {
+        <tb-attractions-load-error [cityIds]="activeCityIds()" />
+      }
       <!-- Hour grid -->
       <div class="tl-grid-wrap" #tlGridWrap>
         <div class="tl-grid" #tlGridEl [ngStyle]="{ height: gridHeight() + 'px' }"
@@ -420,6 +424,11 @@ export class DayTimelineComponent {
   private tripStopsFallback(): TripStop[] {
     return this.readOnly() ? [] : this.trip.stops();
   }
+
+  protected readonly activeCityIds = computed(() => {
+    const stop = this.activeStop();
+    return stop ? [stop.cityId] : [];
+  });
 
   private activeStop(): TripStop | null {
     return this.stop() ?? this.tripActiveStopFallback();
@@ -704,13 +713,12 @@ export class DayTimelineComponent {
     const day  = this.selectedDay();
     if (!stop || !day) return [];
 
-    const attractions = this.attractionsFor(stop.cityId);
-
     const attBlocks: TimeBlock[] = this.attractionsForDay(stop.selectedAttractions, day)
       .filter((a: PlannedAttraction) => !!a.startTime)
       .map((a: PlannedAttraction) => {
         const personal = isPersonal(a);
-        const att      = personal ? personalAttraction(a) : (attractions.find(x => x.id === a.attractionId) ?? null);
+        // Resolved per entry, not from the active-only list, so an inactive planned attraction keeps its name.
+        const att      = personal ? personalAttraction(a) : resolvePlannedAttraction(stop.cityId, a);
         const startMin = hmToMin(a.startTime!);
         const endMin   = startMin + plannedDurationMinutes(a, att);
         const top      = Math.max(0, (startMin - TL_H0 * 60) / 60 * TL_RH);
@@ -719,7 +727,7 @@ export class DayTimelineComponent {
         return {
           top, height, bg, fg,
           icon: personal ? activityMeta(a.activityType).icon : typeIcon(att?.type ?? ''),
-          name: att ? attractionName(att, this.locale.current()) : (a.attractionId ?? ''),
+          name: att ? attractionName(att, this.locale.current()) : '', // no raw id while the city file loads
           time: `${a.startTime}–${minToHm(endMin)}`,
           kind: 'attraction' as const,
           entryId: a.entryId,
@@ -741,11 +749,6 @@ export class DayTimelineComponent {
   // family's explicit request (Task 9).
   private isRescheduleLocked(a: PlannedAttraction): boolean {
     return a.category === 'freetour' || (a.category === 'event_party' && !!a.date);
-  }
-
-  private attractionsFor(cityId: string) {
-    const city = WORLD_CITIES.find(c => c.id === cityId);
-    return city ? getAttractions(city) : [];
   }
 
   private attractionsForDay(atts: PlannedAttraction[], dayKey: string): PlannedAttraction[] {
@@ -830,11 +833,16 @@ export class DayTimelineComponent {
     });
   }
 
-  protected exportItinerary(): void {
+  protected async exportItinerary(): Promise<void> {
     const planId = this.trip.loadedPlanId();
     if (!planId) return;
     this.exporting.set(true);
-    this.api.exportItinerary(planId, this.exportBody(this.trip.stops())).subscribe({
+    const stops = this.trip.stops();
+    await loadCityAttractions(stops.map(s => s.cityId));
+    await this.visaRequirement.load();
+    // Body needs the curated details of every stop; a city that failed to load stops here, before any Token is spent.
+    if (stops.some(s => attractionsStatus(s.cityId) === 'error')) { this.exporting.set(false); return; }
+    this.api.exportItinerary(planId, this.exportBody(stops)).subscribe({
       next: blob => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -915,7 +923,7 @@ export class DayTimelineComponent {
       const { entryId } = payload;
       const original = this.trip.selectedAttractionsFor(stop.stopId).find(a => a.entryId === entryId);
       if (original && !this.isRescheduleLocked(original)) {
-        const att = isPersonal(original) ? personalAttraction(original) : (this.attractionsFor(stop.cityId).find(x => x.id === original.attractionId) ?? null);
+        const att = isPersonal(original) ? personalAttraction(original) : resolvePlannedAttraction(stop.cityId, original);
         const durationMin = plannedDurationMinutes(original, att);
         this.trip.updateStartTime(stop.stopId, entryId, startTime, undefined, durationMin);
       }
@@ -1141,7 +1149,7 @@ export class DayTimelineComponent {
         const date     = a.date ?? dateStr;
         return {
           id:          `att:${a.entryId}`,
-          name:        att ? attractionName(att, this.locale.current()) : (a.attractionId ?? ''),
+          name:        att ? attractionName(att, this.locale.current()) : '', // no raw id while the city file loads
           type:        att?.type ?? '',
           icon:        personal ? activityMeta(a.activityType).icon : typeIcon(att?.type ?? ''),
           imageUrl:    att?.imageUrl ?? null,

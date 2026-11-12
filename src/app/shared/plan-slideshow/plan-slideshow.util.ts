@@ -48,7 +48,7 @@ function attractionSlideItem(stop: TripStop, planned: PlannedAttraction, locale:
 
   return {
     id:          `att:${planned.entryId}`,
-    name:        att ? attractionName(att, locale) : (planned.attractionId ?? ''),
+    name:        att ? attractionName(att, locale) : '', // no raw id while the city file loads
     type:        att?.type ?? '',
     icon:        personal ? activityMeta(planned.activityType).icon : typeIcon(att?.type ?? ''),
     imageUrl:    att?.imageUrl ?? null,

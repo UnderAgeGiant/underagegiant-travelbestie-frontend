@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../shared/attraction-img/attraction-img.directive';
 import {
   ChangeDetectionStrategy, Component, inject, signal, OnInit, OnDestroy,
 } from '@angular/core';
@@ -8,13 +9,13 @@ import { ApiService } from '../../core/api/api.service';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { attractionName } from '../../core/utils/attraction-name.util';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { attractionsStatus, getAttractions } from '../../data/attractions.data';
 import { CITY_COVER_PHOTOS } from './city-cover-photos.data';
 
 @Component({
     selector: 'tb-featured-slideshow',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass],
+    imports: [AttractionImgDirective, NgClass],
     host: {
         '[style.display]': 'hostDisplay',
         '[class.landing-snap-child]': 'isVisible',
@@ -23,7 +24,9 @@ import { CITY_COVER_PHOTOS } from './city-cover-photos.data';
     template: `
 @for (trip of trips(); track trip.id; let i = $index) {
   <div [ngClass]="['s2-slide', activeIdx() === i ? 'active' : '']">
-    <img [src]="coverUrl(trip)" [alt]="trip.tripName" />
+    @if (coverUrl(trip); as cover) {
+      <img [tbAttImg]="cover" [tbAttImgWidth]="960" [alt]="trip.tripName" />
+    }
     <div class="s2-overlay"></div>
     <div class="s2-featured-badge" i18n="@@landing.featuredBadge">✨ ¡Plan destacado!</div>
     <div class="s2-content">
@@ -114,6 +117,8 @@ export class FeaturedSlideshowComponent implements OnInit, OnDestroy {
     const cityId = trip.stops[0]?.cityId ?? '';
     const city   = WORLD_CITIES.find(c => c.id === cityId);
     if (!city) return CITY_COVER_PHOTOS[cityId] ?? '';
+    // Wait for the city file: a fallback cover now would be swapped for the attraction photo a moment later (two downloads).
+    if (attractionsStatus(city.id) === 'loading') return '';
     const attrs  = getAttractions(city);
     const attrId = trip.stops[0]?.selectedAttractions.find(a => a.attractionId)?.attractionId;
     return attrs.find(a => a.id === attrId)?.imageUrl
