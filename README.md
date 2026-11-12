@@ -1,13 +1,15 @@
 # TravelingBestie — Frontend
 
-Angular 22 standalone SPA for planning multi-destination trips. Users build an itinerary, explore curated attractions per city, and leave comments on every stop. Connects to the [travelbestie-manager](https://github.com/UnderAgeGiant/underagegiant-travelbestie-manager) REST API via JWT auth.
+Angular 22 standalone SPA for planning multi-destination trips. Users build an itinerary, explore curated attractions per city, and leave comments on every stop. Live at [tripilove.com](https://tripilove.com). Connects to the [travelbestie-manager](https://github.com/UnderAgeGiant/underagegiant-travelbestie-manager) REST API via JWT auth.
 
 ## Features
 
 - Multi-destination itinerary planning with per-city curated attractions
 - AI-assisted trip suggestions and full-plan generation
-- Karma economy — earn Karma by commenting on shared trips, spend it on AI planning, itinerary exports, and cloning
+- Token economy — earn Tokens by commenting on shared trips, spend them on AI planning, itinerary exports, and cloning (the code and API call them `karma`)
 - Share a trip publicly and let others clone it into their own account
+- City guides (`/ciudad/:slug`), public profiles and following, trophies, weekly rankings
+- Trip cost estimate and a bilingual Excel itinerary export
 - **Trip co-editing** — invite another registered user to collaborate on a trip as a full editor; the owner keeps sole control over deleting, re-sharing, cloning, and exporting it
 
 ## Tech stack
@@ -15,7 +17,8 @@ Angular 22 standalone SPA for planning multi-destination trips. Users build an i
 - Angular 22 · standalone components · Signal-based state
 - `@angular/localize` for i18n (es-CL default, en-US supported)
 - Angular HttpClient + JWT interceptor
-- Deployed on Vercel (static output)
+- Deployed on Vercel (static output + edge middleware and functions for SEO)
+- Node ≥ 22.22.3
 
 ## Development server
 
@@ -24,7 +27,9 @@ npm run dev     # Spanish — http://localhost:4200 (default), patches env vars 
 npm run dev:en  # English — http://localhost:4200
 ```
 
-`npm run dev` is the normal entry point — it reads `local.env` and injects backend URL/keys into `environment.ts` before launching `ng serve`, restoring the file on exit. Use raw `ng serve` only if you don't need those env vars patched in. The app reloads automatically on file changes.
+`npm run dev` is the normal entry point — it reads `local.env` and injects backend URL/keys into `environment.ts` before launching `ng serve`, restoring the file on exit. Use `npm start` (raw `ng serve`) only if you don't need those env vars patched in. The app reloads automatically on file changes.
+
+Attraction data is not bundled: `npm run data` writes one JSON file per city to `public/data/attractions/` (gitignored). It runs automatically on `npm install` and before every dev/build command.
 
 ## Environment variables
 
@@ -37,7 +42,7 @@ Copy `local.env.example` to `local.env` at the repo root (`cp local.env.example 
 | `BACKEND_RSA_PUBLIC_KEY` | `npm run dev` | a working key baked into `environment.ts` | Public half of the RSA key pair the backend uses to decrypt login/register payloads. Only override if your local backend was set up with a different key pair. |
 | `TURNSTILE_SITE_KEY` | `npm run dev` | `1x00000000000000000000AA` (Cloudflare's official always-passes test key) | Cloudflare Turnstile site key rendered in the login/register modal. |
 | `AUTOSAVE_INTERVAL_MS` | `npm run dev` | `600000` (10 min) | How often the co-editing auto-save tick runs. Lower this locally (e.g. `10000`) to test auto-save/reminder-banner behavior without waiting 10 minutes. |
-| `PAYPAL_CLIENT_ID` | `npm run build:vercel` only (not `npm run dev`) | empty — PayPal button is skipped | Needed for a real production build with a working Buy Karma → PayPal flow. Irrelevant in mock mode. |
+| `PAYPAL_CLIENT_ID` | `npm run build:vercel` only (not `npm run dev`) | empty — PayPal button is skipped | Needed for a real production build with a working Buy Tokens → PayPal flow. Irrelevant in mock mode. |
 
 To exercise the full app locally (real login, saved trips, karma, co-editing), you need a running `underagegiant-travelbestie-manager` backend reachable at `BACKEND_API_URL` — see that repo's README for its own required env vars (`JWT_SECRET`, database connection, etc.). Otherwise, set `BACKEND_USE_MOCKS=true` and skip the backend entirely.
 
@@ -45,8 +50,8 @@ To exercise the full app locally (real login, saved trips, karma, co-editing), y
 
 | Locale | Language | Command |
 |--------|----------|---------|
-| `es-CL` | Spanish (Chile) — **default** | `ng serve` |
-| `en-US` | English (US) | `ng serve --configuration=en-US` |
+| `es-CL` | Spanish (Chile) — **default** | `npm run dev` |
+| `en-US` | English (US) | `npm run dev:en` |
 
 Translatable strings are marked with `i18n="@@id"` in templates and `$localize` in TypeScript. English translations live in `src/locale/messages.en-US.xlf`.
 
@@ -63,8 +68,8 @@ Date format for es-CL is `dd/MM/yyyy` (e.g. `25/04/2026`).
 ## Build
 
 ```bash
-ng build --configuration=es-CL  # Spanish production build → dist/
-ng build --configuration=en-US  # English production build → dist/
+npm run build:vercel   # what Vercel runs: data → env patch → production build (both locales) → post-build (SEO pages, sitemap)
+npm run build          # plain ng build
 ```
 
 ## Tests
@@ -72,6 +77,7 @@ ng build --configuration=en-US  # English production build → dist/
 ```bash
 npm test              # Jest — all tests
 npm run test:coverage # Jest with coverage
+npm run test:scripts  # node tests for the build scripts
 npx jest --watch      # watch mode
 ```
 
@@ -90,11 +96,14 @@ ng generate service core/<name>/<name>
 src/
 ├── app/
 │   ├── core/                 # Injectable, providedIn:'root' services — auth, api, karma,
-│   │                         #   saved-plans, favorites, shared-trips, device, ai, models
+│   │                         #   saved-plans, favorites, shared-trips, device, ai, models,
+│   │                         #   seo, social, trophies, rankings, game, weather, trip-cost…
 │   ├── data/
 │   │   ├── cities.data.ts          # World cities catalog
-│   │   ├── attractions-curated.ts  # UNESCO-sourced curated attractions per city
-│   │   └── freetours-curated.ts    # Civitatis free-tour listings
+│   │   ├── attractions-curated.ts  # Curated attractions, build input only (never imported by app code)
+│   │   ├── attractions.data.ts     # Runtime lookup: loads public/data/attractions/<cityId>.json on demand
+│   │   ├── freetours-curated.ts    # Free-tour listings
+│   │   └── city-guides.data.ts     # City guide pages
 │   ├── shared/                # Reusable presentational components/directives/pipes
 │   ├── features/
 │   │   ├── nav/                # app-nav shell — device-split desktop/mobile bars
@@ -105,15 +114,19 @@ src/
 │   │   ├── ai-planning/        # AI-assisted suggest + full-plan flow
 │   │   ├── destination/        # DestinationView, AttractionCard, comments
 │   │   ├── my-trips/           # Saved/favorited/collaborated trips, invites
-│   │   ├── profile/            # Account settings, companion boost
-│   │   ├── shared-trip/        # Read-only public share view (?share=<id>)
-│   │   ├── karma/              # Buy-Karma modal, karma overlays
+│   │   ├── preferences/        # Account settings, trophies, companion boost (/preferences)
+│   │   ├── public-profile/     # /u/:username
+│   │   ├── city-guide/         # /ciudad/:slug guides and the /guides index
+│   │   ├── karma-history/      # Token history page
+│   │   ├── shared-trip/        # Read-only public share view (/shared/:id)
+│   │   ├── karma/              # Buy-Tokens modal, karma overlays
 │   │   ├── comments/           # Attraction/step comment modals
 │   │   ├── landing/            # Scroll-snap landing sections (slideshow, about, footer)
-│   │   └── about/
+│   │   └── about/, legal/, not-found/, too-many-requests/
 │   ├── app.component.ts
 │   ├── app.config.ts          # Locale registration (es-CL, en-US)
 │   └── app.routes.ts
+├── edge/                      # Framework-free routing/SEO logic shared by middleware.ts and api/
 └── locale/
     └── messages.en-US.xlf     # English translations
 ```
