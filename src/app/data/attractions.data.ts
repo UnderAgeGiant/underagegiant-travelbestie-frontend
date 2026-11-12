@@ -78,7 +78,8 @@ export function attractionsStatus(cityId: string): Status {
 }
 
 export async function loadCityAttractions(cityIds: readonly string[]): Promise<void> {
-  cityIds.forEach(id => ensureLoad(id));
+  // One-shot user actions (export, AI, companion) get a fresh attempt for errored cities; reads never do.
+  cityIds.forEach(id => retryCityAttractions(id));
   await Promise.all(cityIds.map(id => inFlight.get(id)));
 }
 

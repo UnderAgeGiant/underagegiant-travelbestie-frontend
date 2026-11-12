@@ -69,6 +69,16 @@ describe('on-demand attraction store', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
+  it('an explicit loader gives an errored city a fresh attempt', async () => {
+    fetchMock.mockImplementationOnce(() => Promise.reject(new Error('network down')));
+    await loadCityAttractions(['paris']);
+    expect(attractionsStatus('paris')).toBe('error');
+
+    await loadCityAttractions(['paris']);
+    expect(attractionsStatus('paris')).toBe('ready');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it('treats a non-array body as error', async () => {
     fetchMock.mockImplementation(() => okJson({ not: 'an array' }));
     await loadCityAttractions(['paris']);

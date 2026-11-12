@@ -656,4 +656,16 @@ describe('MyTripsComponent — itinerary export waits for city files', () => {
     expect(api.exportItinerary).not.toHaveBeenCalled();
     expect(component.toast()).toBe('Error al descargar el itinerario');
   });
+
+  it('a second export retries a city file that failed the first time', async () => {
+    globalThis.fetch = jest.fn()
+      .mockRejectedValueOnce(new Error('network down'))
+      .mockResolvedValue({ ok: true, status: 200, json: async () => [] }) as unknown as typeof fetch;
+
+    await component.downloadItinerary(paris);
+    expect(api.exportItinerary).not.toHaveBeenCalled();
+
+    await component.downloadItinerary(paris);
+    expect(api.exportItinerary).toHaveBeenCalledTimes(1);
+  });
 });
