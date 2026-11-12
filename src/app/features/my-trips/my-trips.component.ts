@@ -698,6 +698,7 @@ export class MyTripsComponent implements AfterViewInit {
 
     this.exportingPlanId.set(plan.id);
     await loadCityAttractions(plan.stops.map(s => s.cityId));
+    await this.visaRequirement.load();
     // Body needs the curated details of every stop; if a city failed to load, stop before the call so no Token is spent.
     if (plan.stops.some(s => attractionsStatus(s.cityId) === 'error')) {
       this.exportingPlanId.set(null);

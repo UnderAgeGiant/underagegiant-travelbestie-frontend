@@ -4,9 +4,10 @@ import { VisaRequirementService } from '../visa/visa-requirement.service';
 import { TravelInfoService } from '../travel-info/travel-info.service';
 import * as attractionsData from '../../data/attractions.data';
 
+const visa = new VisaRequirementService();
 const deps: ItineraryExportDeps = {
   homeIso2: 'CL', siteUrl: 'https://tripilove.com',
-  visa: new VisaRequirementService(), info: new TravelInfoService(),
+  visa, info: new TravelInfoService(),
 };
 const planned = (p: Partial<PlannedAttraction>): PlannedAttraction =>
   ({ entryId: Math.random().toString(), startTime: null, endTime: null, ...p });
@@ -19,6 +20,7 @@ const lima = () => stop('lima', [
 ]);
 
 describe('buildItineraryExportBody', () => {
+  beforeAll(() => visa.load());
   afterEach(() => jest.restoreAllMocks());
 
   it('covers planned catalog attractions only, with details, personal labels and destinations', () => {

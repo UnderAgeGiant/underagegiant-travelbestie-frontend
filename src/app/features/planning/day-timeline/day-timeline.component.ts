@@ -836,6 +836,7 @@ export class DayTimelineComponent {
     this.exporting.set(true);
     const stops = this.trip.stops();
     await loadCityAttractions(stops.map(s => s.cityId));
+    await this.visaRequirement.load();
     // Body needs the curated details of every stop; a city that failed to load stops here, before any Token is spent.
     if (stops.some(s => attractionsStatus(s.cityId) === 'error')) { this.exporting.set(false); return; }
     this.api.exportItinerary(planId, this.exportBody(stops)).subscribe({
