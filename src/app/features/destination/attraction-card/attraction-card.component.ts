@@ -186,7 +186,7 @@ import { findScrollableAncestor } from '../../../core/utils/scroll-passthrough.u
                [tbAttImg]="attraction().imageUrl" [tbAttImgWidth]="500"
                [alt]="attraction() | attName"
                loading="lazy"
-               (error)="imgError.set(true)">
+               (tbAttImgFailed)="imgError.set(true)">
         } @else {
           <div class="card-fallback-icon">{{ attraction().icon }}</div>
         }

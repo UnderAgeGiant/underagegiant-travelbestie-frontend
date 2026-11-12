@@ -162,7 +162,7 @@ import { UserLinkComponent } from '../../../shared/user-link/user-link.component
         <div class="detail-hero" [style.background-color]="attraction().bg">
           @if (images()[heroIdx()] && !imgError()) {
             <img class="hero-img" [tbAttImg]="images()[heroIdx()]" [tbAttImgWidth]="960" [alt]="attraction() | attName"
-                 loading="lazy" (error)="imgError.set(true)" (click)="openLightbox()">
+                 loading="lazy" (tbAttImgFailed)="imgError.set(true)" (click)="openLightbox()">
           } @else {
             <div class="hero-fallback-icon">{{ attraction().icon }}</div>
           }
