@@ -264,7 +264,7 @@ import { AttractionsLoadErrorComponent } from '../../../shared/attractions-load-
                     </button>
 
                     @if (isScheduledOpen(stop.stopId)) {
-                      <tb-attractions-load-error [cityIds]="[stop.cityId]" />
+                      <tb-attractions-load-error [cityIds]="[stop.cityId]" (click)="$event.stopPropagation()" />
                       @for (planned of plannedSorted(stop); track planned.entryId) {
                         @let att = entryAttraction(stop.cityId, planned);
                         @if (att) {
