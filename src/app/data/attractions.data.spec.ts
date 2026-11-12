@@ -2,6 +2,7 @@ import { getAttractions, findCuratedAttraction, stripInsecureImages } from './at
 import { CURATED_ALL } from './attractions-curated';
 import { City } from '../core/models/city.model';
 import { Attraction } from '../core/models/comment.model';
+import { WORLD_CITIES } from './cities.data';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 const UNKNOWN: City = { id: 'oz', name: 'Emerald City', country: 'Oz', flag: '🌈', region: 'europe' };
@@ -14,19 +15,12 @@ describe('getAttractions', () => {
     expect(attractions.some(a => a.name === 'Torre Eiffel')).toBe(true);
   });
 
-  it('returns 5 template attractions for unknown city', () => {
-    const attractions = getAttractions(UNKNOWN);
-    expect(attractions.length).toBe(5);
-    expect(attractions[0].id).toBe('oz_0');
-    expect(attractions[0].name).toContain('Emerald City');
+  it('returns no attractions for a city outside the catalog (no template fallback)', () => {
+    expect(getAttractions(UNKNOWN)).toEqual([]);
   });
 
-  it('all template attractions have rating between 4.0 and 5.0', () => {
-    const attractions = getAttractions(UNKNOWN);
-    for (const a of attractions) {
-      expect(a.rating).toBeGreaterThanOrEqual(4.0);
-      expect(a.rating).toBeLessThanOrEqual(5.0);
-    }
+  it('every world city has a curated catalog entry', () => {
+    expect(Object.keys(CURATED_ALL).sort()).toEqual(WORLD_CITIES.map(c => c.id).sort());
   });
 });
 

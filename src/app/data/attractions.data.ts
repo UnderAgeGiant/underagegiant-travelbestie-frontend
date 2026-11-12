@@ -1,53 +1,42 @@
+import { signal } from '@angular/core';
 import { Attraction } from '../core/models/comment.model';
 import { City } from '../core/models/city.model';
-import { AttractionCategory } from '../core/models/attraction-category';
-import { CURATED_ALL } from './attractions-curated';
+import { WORLD_CITIES } from './cities.data';
 import { FREETOURS_CURATED } from './freetours-curated';
 import { EVENTS_CURATED } from './events-curated';
 
-type RegionTemplate = { n: (c: City) => string; t: string; c: AttractionCategory; i: string; bg: string; e: number }[];
-const REGION_TMPL: Record<string, RegionTemplate> = {
-  europe: [
-    { n: c => `${c.name} Casco Antiguo`, c: 'poi',    t: 'Histórico',  i: '🏰', bg: '#FDF5E8', e: 90  },
-    { n: _ => 'Catedral Nacional',        c: 'poi',    t: 'Histórico',  i: '⛪', bg: '#E8F0FD', e: 60  },
-    { n: _ => 'Museo Nacional',           c: 'poi',    t: 'Museo',      i: '🏛️', bg: '#EEE8FD', e: 120 },
-    { n: c => `Mercado de ${c.name}`,     c: 'foodie', t: 'Foodie',     i: '🥐', bg: '#FDF5E8', e: 90  },
-    { n: c => `Parque de ${c.name}`,      c: 'poi',    t: 'Parque',     i: '🌳', bg: '#E8FDE8', e: 75  },
-  ],
-  asia: [
-    { n: c => `Templo de ${c.name}`,    c: 'poi',    t: 'Templo',   i: '⛩️', bg: '#FDE8E8', e: 60  },
-    { n: _ => 'Mercado Nocturno',        c: 'foodie', t: 'Foodie',   i: '🏮', bg: '#FDF5E8', e: 90  },
-    { n: _ => 'Jardín Botánico',         c: 'poi',    t: 'Jardín',   i: '🌸', bg: '#FDE8F5', e: 90  },
-    { n: _ => 'Museo del Patrimonio',    c: 'poi',    t: 'Museo',    i: '🏛️', bg: '#E8F0FD', e: 120 },
-    { n: c => `Malecón de ${c.name}`,   c: 'poi',    t: 'Mirador',  i: '🌊', bg: '#E8F5FD', e: 60  },
-  ],
-  americas: [
-    { n: c => `Centro Histórico de ${c.name}`, c: 'poi',    t: 'Histórico', i: '🏛️', bg: '#E8F0FD', e: 90  },
-    { n: _ => 'Museo de Arte',                  c: 'poi',    t: 'Museo',     i: '🖼️', bg: '#EEE8FD', e: 120 },
-    { n: c => `Parque de ${c.name}`,            c: 'poi',    t: 'Parque',    i: '🌳', bg: '#E8FDE8', e: 75  },
-    { n: c => `Mercado de ${c.name}`,           c: 'foodie', t: 'Foodie',    i: '🌮', bg: '#FDF5E8', e: 90  },
-    { n: _ => 'Paseo Costero',                  c: 'poi',    t: 'Mirador',   i: '🌅', bg: '#FDF5E8', e: 60  },
-  ],
-  africa: [
-    { n: _ => 'Medina Antigua',         c: 'poi',    t: 'Histórico', i: '🕌', bg: '#FDF5E8', e: 90  },
-    { n: _ => 'Museo Nacional',          c: 'poi',    t: 'Museo',     i: '🏛️', bg: '#E8F0FD', e: 120 },
-    { n: c => `Mercado de ${c.name}`,   c: 'foodie', t: 'Foodie',    i: '🧺', bg: '#FDF5E8', e: 90  },
-    { n: _ => 'Jardín Botánico',         c: 'poi',    t: 'Jardín',    i: '🌴', bg: '#E8FDE8', e: 75  },
-    { n: _ => 'Centro Cultural',         c: 'poi',    t: 'Cultura',   i: '🎭', bg: '#EEE8FD', e: 90  },
-  ],
-  oceania: [
-    { n: c => `Puerto de ${c.name}`,  c: 'poi',  t: 'Malecón', i: '⛵', bg: '#E8F5FD', e: 60  },
-    { n: _ => 'Jardín Botánico',       c: 'poi',  t: 'Jardín',  i: '🌿', bg: '#E8FDE8', e: 90  },
-    { n: _ => 'Galería de Arte',        c: 'poi',  t: 'Museo',   i: '🖼️', bg: '#EEE8FD', e: 90  },
-    { n: c => `Playa de ${c.name}`,   c: 'poi',  t: 'Playa',   i: '🏄', bg: '#FDE8F5', e: 120 },
-    { n: _ => 'Museo Nacional',         c: 'poi',  t: 'Museo',   i: '🏛️', bg: '#FDF5E8', e: 120 },
-  ],
-};
+type Status = 'loading' | 'ready' | 'error';
+type Source = (cityId: string) => Attraction[] | undefined;
 
-function hashRating(cityId: string, index: number): number {
-  let h = 0;
-  for (const ch of cityId) h = ((h << 5) - h) + ch.charCodeAt(0);
-  return Math.abs(h + index * 31) % 10;
+const KNOWN_IDS = new Set(WORLD_CITIES.map(c => c.id));
+// Signals are written only in promise callbacks or event handlers, never during a read (reads may run inside computed()).
+const status = signal<Record<string, Status>>({});
+const cache = new Map<string, Attraction[]>();
+const inFlight = new Map<string, Promise<void>>();
+let testSource: Source | null = null;
+
+function ensureLoad(id: string): void {
+  if (!KNOWN_IDS.has(id) || cache.has(id) || inFlight.has(id) || status()[id] === 'error') return;
+  const req = new Promise<Response>(resolve => resolve(fetch(`/data/attractions/${id}.json`)))
+    .then(async res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const body: unknown = await res.json();
+      if (!Array.isArray(body)) throw new Error('not an array');
+      cache.set(id, body as Attraction[]);
+      status.update(s => ({ ...s, [id]: 'ready' }));
+    })
+    .catch(() => status.update(s => ({ ...s, [id]: 'error' })))
+    .finally(() => inFlight.delete(id));
+  inFlight.set(id, req);
+}
+
+/** Raw curated entries (active and inactive) for a city, or undefined while it loads. Starts the load on a miss. */
+function curatedFor(cityId: string): Attraction[] | undefined {
+  if (!KNOWN_IDS.has(cityId)) return undefined;
+  if (testSource) return testSource(cityId) ?? [];
+  status(); // tracked so computed() re-runs when the file arrives
+  ensureLoad(cityId);
+  return cache.get(cityId);
 }
 
 /** Drops any non-https photo URL (mixed-content safety — production is HTTPS-only). */
@@ -60,26 +49,10 @@ export function stripInsecureImages(a: Attraction): Attraction {
 }
 
 export function getAttractions(city: City): Attraction[] {
-  let base: Attraction[];
+  const curated = curatedFor(city.id);
+  if (!curated) return [];
 
-  if (CURATED_ALL[city.id]) {
-    base = CURATED_ALL[city.id]
-      .filter(a => a.active)
-      .map(stripInsecureImages);
-  } else {
-    const tmpl = REGION_TMPL[city.region] ?? REGION_TMPL['europe'];
-    base = tmpl.map((x, i) => ({
-      id: `${city.id}_${i}`,
-      name: x.n(city),
-      type: x.t,
-      category: x.c,
-      active: true,
-      icon: x.i,
-      bg: x.bg,
-      rating: parseFloat((4.0 + hashRating(city.id, i) / 10).toFixed(1)),
-      estimatedMinutes: x.e,
-    }));
-  }
+  let base = curated.filter(a => a.active).map(stripInsecureImages);
 
   const freetours = FREETOURS_CURATED[city.id];
   if (freetours?.length) base = [...base, ...freetours];
@@ -92,7 +65,35 @@ export function getAttractions(city: City): Attraction[] {
 
 /** Returns an attraction by id regardless of its active flag — use when rendering existing trip stops. */
 export function findCuratedAttraction(cityId: string, attractionId: string): Attraction | undefined {
-  return CURATED_ALL[cityId]?.find(a => a.id === attractionId)
+  if (!KNOWN_IDS.has(cityId)) return undefined;
+  return curatedFor(cityId)?.find(a => a.id === attractionId)
     ?? FREETOURS_CURATED[cityId]?.find(a => a.id === attractionId)
     ?? EVENTS_CURATED[cityId]?.find(a => a.id === attractionId);
+}
+
+export function attractionsStatus(cityId: string): Status {
+  if (testSource || !KNOWN_IDS.has(cityId)) return 'ready';
+  return status()[cityId] ?? 'loading';
+}
+
+export async function loadCityAttractions(cityIds: readonly string[]): Promise<void> {
+  cityIds.forEach(id => ensureLoad(id));
+  await Promise.all(cityIds.map(id => inFlight.get(id)));
+}
+
+export function retryCityAttractions(cityId: string): void {
+  status.update(s => {
+    if (s[cityId] !== 'error') return s;
+    const { [cityId]: _failed, ...rest } = s;
+    return rest;
+  });
+  ensureLoad(cityId);
+}
+
+/** Test hook: a sync source replaces fetching. Passing null restores real loading and clears all store state. */
+export function __setAttractionSourceForTests(source: Source | null): void {
+  testSource = source;
+  status.set({});
+  cache.clear();
+  inFlight.clear();
 }
