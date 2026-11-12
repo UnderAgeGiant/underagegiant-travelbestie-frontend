@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { TripFullPlanComponent } from './trip-full-plan.component';
 import { TransitLeg, TripStop } from '../../core/models/trip.model';
-import { findCuratedAttraction } from '../../data/attractions.data';
+import { __setAttractionSourceForTests, findCuratedAttraction, loadCityAttractions } from '../../data/attractions.data';
 import { AttractionNamePipe } from '../pipes/attraction-name.pipe';
 
 const seg = { mode: 'flight' as const, departureDate: '', departureTime: '', arrivalDate: '', arrivalTime: '', notes: '', durationMinutes: 60 };
@@ -91,5 +91,23 @@ describe('TripFullPlanComponent', () => {
   it('renders no presentation pill and no result header', () => {
     render();
     expect(el.querySelector('tb-plan-presentation-pill, .ai-plan-result-header')).toBeNull();
+  });
+
+  it('shows the load error for a failed city with planned entries and no lodging', async () => {
+    const realFetch = globalThis.fetch;
+    __setAttractionSourceForTests(null);
+    globalThis.fetch = jest.fn(() => Promise.reject(new Error('network down'))) as unknown as typeof fetch;
+    try {
+      await loadCityAttractions(['paris']);
+      const f = TestBed.createComponent(HostComponent);
+      f.componentInstance.stops = [{ ...PARIS, lodging: undefined, selectedAttractions: PARIS.selectedAttractions.filter(a => !a.activityType) } as TripStop, TOKYO];
+      f.detectChanges();
+      const cities = f.nativeElement.querySelectorAll('.itin-city');
+      expect(cities[0].querySelector('[role="status"]')).not.toBeNull();
+      expect(cities[1].querySelector('[role="status"]')).toBeNull();
+    } finally {
+      globalThis.fetch = realFetch;
+      __setAttractionSourceForTests((globalThis as any).__tbJestAttractionSource);
+    }
   });
 });

@@ -59,7 +59,7 @@ interface PlanRow { planned: PlannedAttraction; att: Attraction; date: string; m
               </div>
 
               @let rows = rowsFor(stop);
-              @if (stop.lodging || rows.length > 0) {
+              @if (stop.lodging || stop.selectedAttractions.length > 0) {
                 <div class="itin-items">
                   @if (stop.lodging) {
                     <div class="itin-item itin-item-lodging">
