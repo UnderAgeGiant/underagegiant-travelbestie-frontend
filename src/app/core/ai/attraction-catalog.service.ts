@@ -21,17 +21,20 @@ export class AttractionCatalogService {
    *  city IDs — used by /ai/plan so the payload only covers the trip's own
    *  cities instead of every WORLD_CITIES city. Per-city lists are memoized. */
   async getCityCatalog(cityIds: string[]): Promise<CityCatalog> {
-    const [{ WORLD_CITIES }, { getAttractions }] = await Promise.all([
+    const [{ WORLD_CITIES }, { getAttractions, attractionsStatus, loadCityAttractions }] = await Promise.all([
       import('../../data/cities.data'),
       import('../../data/attractions.data'),
     ]);
+    await loadCityAttractions(cityIds);
 
     const catalog: CityCatalog = {};
     for (const city of WORLD_CITIES.filter(c => cityIds.includes(c.id))) {
-      if (!this.attractionCache.has(city.id)) {
-        this.attractionCache.set(city.id, getAttractions(city).map(a => ({ id: a.id, name: a.name })));
-      }
-      catalog[city.id] = this.attractionCache.get(city.id)!;
+      const cached = this.attractionCache.get(city.id);
+      if (cached) { catalog[city.id] = cached; continue; }
+      const list = getAttractions(city).map(a => ({ id: a.id, name: a.name }));
+      // A city that failed to load (or is still loading) is not memoized, so a later call can retry it.
+      if (attractionsStatus(city.id) === 'ready') this.attractionCache.set(city.id, list);
+      catalog[city.id] = list;
     }
     return catalog;
   }

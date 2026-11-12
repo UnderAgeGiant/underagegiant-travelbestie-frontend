@@ -20,7 +20,18 @@ const mockData = [...Array.from({ length: 40 }, (_, i) => att(i)), att(99, { nam
 // without leaking into other tests — reset to `mockData` in beforeEach below.
 let activeData: Attraction[] = mockData;
 
-jest.mock('../../data/attractions.data', () => ({ getAttractions: () => activeData }));
+// Load status is a real signal so tests can flip loading → ready and the component's computed re-runs.
+jest.mock('../../data/attractions.data', () => {
+  const { signal } = jest.requireActual('@angular/core');
+  const status = signal('ready');
+  return {
+    getAttractions: () => activeData,
+    attractionsStatus: () => status(),
+    retryCityAttractions: jest.fn(),
+    __status: status,
+  };
+});
+const attractionsMock = () => jest.requireMock('../../data/attractions.data') as { __status: { set(v: string): void } };
 
 // Fixed madrid manifest entry — independent of the real one's current `reviewed` flag (which
 // changes as guides get approved) so this spec's "unreviewed → noindex" assertion stays stable.
@@ -68,7 +79,30 @@ describe('CityGuideComponent (/ciudad/madrid)', () => {
     return f;
   }
 
-  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; mockDomestic = false; mockPinned = undefined; });
+  beforeEach(() => { jest.clearAllMocks(); TestBed.resetTestingModule(); activeData = mockData; mockDomestic = false; mockPinned = undefined; attractionsMock().__status.set('ready'); });
+
+  it('waits for the city file: no SEO apply or plans fetch while loading, one of each once it arrives', () => {
+    attractionsMock().__status.set('loading');
+    const f = create();
+    expect(seo.apply).not.toHaveBeenCalled();
+    expect(api.getSeoCityPlans).not.toHaveBeenCalled();
+    expect(f.nativeElement.querySelector('.cg-h2')).toBeNull();
+
+    attractionsMock().__status.set('ready');
+    f.detectChanges();
+    TestBed.flushEffects();
+    expect(seo.apply).toHaveBeenCalledTimes(1);
+    expect(api.getSeoCityPlans).toHaveBeenCalledTimes(1);
+  });
+
+  it('shows the attraction error block (and no SEO) when the city file fails', () => {
+    attractionsMock().__status.set('error');
+    const f = create();
+    f.detectChanges();
+    expect(seo.apply).not.toHaveBeenCalled();
+    expect(f.nativeElement.textContent).toContain('No pudimos cargar las atracciones.');
+    expect(f.nativeElement.querySelector('.btn-pill')?.textContent).toContain('Reintentar');
+  });
 
   it('domestic guides hide the "Viajando desde Chile" facts box and drop "desde Chile" from the SEO title', () => {
     mockDomestic = true;

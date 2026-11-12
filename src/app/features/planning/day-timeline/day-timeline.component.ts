@@ -12,7 +12,7 @@ import { Attraction } from '../../../core/models/comment.model';
 import { AttractionPreviewPopoverComponent } from '../../shared-trip/attraction-preview-popover.component';
 import { previewCardPosition, previewCardTapPosition } from '../../shared-trip/attraction-preview-position.util';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { attractionsStatus, getAttractions, loadCityAttractions } from '../../../data/attractions.data';
 import { ApiService } from '../../../core/api/api.service';
 import { KarmaModalService } from '../../../core/karma/karma-modal.service';
 import { dayRouteUrl as buildDayRouteUrl, transitTerminalName } from '../../../core/maps/google-maps-url.util';
@@ -719,7 +719,7 @@ export class DayTimelineComponent {
         return {
           top, height, bg, fg,
           icon: personal ? activityMeta(a.activityType).icon : typeIcon(att?.type ?? ''),
-          name: att ? attractionName(att, this.locale.current()) : (a.attractionId ?? ''),
+          name: att ? attractionName(att, this.locale.current()) : '', // no raw id while the city file loads
           time: `${a.startTime}–${minToHm(endMin)}`,
           kind: 'attraction' as const,
           entryId: a.entryId,
@@ -830,11 +830,15 @@ export class DayTimelineComponent {
     });
   }
 
-  protected exportItinerary(): void {
+  protected async exportItinerary(): Promise<void> {
     const planId = this.trip.loadedPlanId();
     if (!planId) return;
     this.exporting.set(true);
-    this.api.exportItinerary(planId, this.exportBody(this.trip.stops())).subscribe({
+    const stops = this.trip.stops();
+    await loadCityAttractions(stops.map(s => s.cityId));
+    // Body needs the curated details of every stop; a city that failed to load stops here, before any Token is spent.
+    if (stops.some(s => attractionsStatus(s.cityId) === 'error')) { this.exporting.set(false); return; }
+    this.api.exportItinerary(planId, this.exportBody(stops)).subscribe({
       next: blob => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -1141,7 +1145,7 @@ export class DayTimelineComponent {
         const date     = a.date ?? dateStr;
         return {
           id:          `att:${a.entryId}`,
-          name:        att ? attractionName(att, this.locale.current()) : (a.attractionId ?? ''),
+          name:        att ? attractionName(att, this.locale.current()) : '', // no raw id while the city file loads
           type:        att?.type ?? '',
           icon:        personal ? activityMeta(a.activityType).icon : typeIcon(att?.type ?? ''),
           imageUrl:    att?.imageUrl ?? null,

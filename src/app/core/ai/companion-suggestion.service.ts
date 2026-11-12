@@ -8,7 +8,7 @@ import { TripService } from '../../features/trip/trip.service';
 import { attractionName } from '../utils/attraction-name.util';
 import { LocaleService } from '../i18n/locale.service';
 import { CompanionSuggestion } from '../models/ai.model';
-import { findCuratedAttraction } from '../../data/attractions.data';
+import { findCuratedAttraction, loadCityAttractions } from '../../data/attractions.data';
 
 export type CompanionState = 'idle' | 'sniffing' | 'suggesting';
 
@@ -94,6 +94,7 @@ export class CompanionSuggestionService {
     if (!stop) return;
 
     const entry = stop.selectedAttractions.find(a => a.attractionId === attractionId);
+    await loadCityAttractions([stop.cityId]);
     const attraction = findCuratedAttraction(stop.cityId, attractionId);
 
     const existingAttractionIds = stop.selectedAttractions.flatMap(a => a.attractionId ? [a.attractionId] : []);

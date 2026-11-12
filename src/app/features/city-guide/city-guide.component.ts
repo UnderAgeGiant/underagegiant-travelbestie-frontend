@@ -12,7 +12,7 @@ import { TravelInfoService } from '../../core/travel-info/travel-info.service';
 import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
 import type { SeoCityPlan } from '../../core/models/seo-city-plan.model';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { getAttractions } from '../../data/attractions.data';
+import { attractionsStatus, getAttractions, retryCityAttractions } from '../../data/attractions.data';
 import { guideBySlug } from '../../data/city-guides.data';
 import { environment } from '../../../environments/environment';
 import { buildCityGuide } from './city-guide.model';
@@ -189,6 +189,11 @@ import { photoCreditUrl } from './photo-credit.util';
             Las descripciones de los lugares provienen de Wikipedia y se publican bajo licencia CC BY-SA 4.0; las fotos, de Wikimedia Commons, con la licencia indicada en cada archivo.
           </footer>
         </main>
+      } @else if (loadError()) {
+        <main class="cg-main">
+          <p class="cg-intro" i18n="@@attractions.loadError">No pudimos cargar las atracciones.</p>
+          <button type="button" class="btn-pill" (click)="retry()" i18n="@@attractions.retry">Reintentar</button>
+        </main>
       }
     </div>
   `,
@@ -205,12 +210,20 @@ export class CityGuideComponent {
 
   private readonly slug = toSignal(this.route.paramMap.pipe(map(p => p.get('slug') ?? '')), { initialValue: '' });
 
+  // Null until the city file is in: the SEO effect must not apply a thin, noindex head first.
   readonly model = computed(() => {
     const entry = guideBySlug(this.slug());
     const city = entry && WORLD_CITIES.find(c => c.id === entry.cityId);
     if (!entry || !city) return null;
+    const attractions = getAttractions(city); // starts the load on first read
+    if (attractionsStatus(city.id) !== 'ready') return null;
     const facts = computeGuideFacts(city, entry, new Date(), { visa: this.visa, travelInfo: this.travelInfo });
-    return buildCityGuide(entry, city, getAttractions(city), facts);
+    return buildCityGuide(entry, city, attractions, facts);
+  });
+
+  readonly loadError = computed(() => {
+    const entry = guideBySlug(this.slug());
+    return !!entry && attractionsStatus(entry.cityId) === 'error';
   });
 
   constructor() {
@@ -235,4 +248,8 @@ export class CityGuideComponent {
     if (m) void this.router.navigate(['/'], { queryParams: { addCity: m.entry.cityId } });
   }
   protected goHome(): void { void this.router.navigate(['/']); }
+  protected retry(): void {
+    const entry = guideBySlug(this.slug());
+    if (entry) retryCityAttractions(entry.cityId);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, inject, signal, computed, effect, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../../trip/trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { getAttractions } from '../../../data/attractions.data';
+import { attractionsStatus, getAttractions, retryCityAttractions } from '../../../data/attractions.data';
 import { sortMustSeeFirst } from '../../../core/utils/must-see.util';
 import { Comment } from '../../../core/models/comment.model';
 import { CityCommentsService } from '../../../core/comments/city-comments.service';
@@ -46,12 +46,25 @@ import { AttractionsListComponent } from '../attractions-list/attractions-list.c
         <button class="att-modal-close" (click)="modal.close()"
                 i18n-aria-label="@@dest.addAttractionsClose" aria-label="Cerrar">✕</button>
         <div class="att-sheet-body" (scroll)="onScroll($event)">
-          <app-attractions-list
-            [city]="city()!"
-            [attractions]="attractions()"
-            [stopId]="activeStop()!.stopId"
-            [comments]="allComments()"
-            (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
+          @switch (loadStatus()) {
+            @case ('loading') {
+              <div class="badge" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)" i18n="@@attractions.loading">Cargando atracciones…</div>
+            }
+            @case ('error') {
+              <div class="badge" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
+                <span i18n="@@attractions.loadError">No pudimos cargar las atracciones.</span>
+                <button type="button" class="btn-pill" (click)="retry()" i18n="@@attractions.retry">Reintentar</button>
+              </div>
+            }
+            @default {
+              <app-attractions-list
+                [city]="city()!"
+                [attractions]="attractions()"
+                [stopId]="activeStop()!.stopId"
+                [comments]="allComments()"
+                (commentAdded)="onCommentAdded($event.attractionId, $event.comment)" />
+            }
+          }
           @if (scrolled()) {
             <button class="scroll-top-fab" (click)="scrollTop()" type="button"
                     i18n-aria-label="@@plan.scrollToTop" aria-label="Ir arriba">↑</button>
@@ -74,6 +87,11 @@ export class MobileAttractionsModalComponent {
 
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? sortMustSeeFirst(getAttractions(this.city()!)) : []);
+  readonly loadStatus = computed(() => this.city() ? attractionsStatus(this.city()!.id) : 'ready');
+
+  protected retry(): void {
+    if (this.city()) retryCityAttractions(this.city()!.id);
+  }
 
   protected readonly allComments = computed(() => {
     const city = this.city();

@@ -9,6 +9,7 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { FavoritedTrip, Collaborator, TripStop } from '../../core/models/trip.model';
+import { attractionsStatus, loadCityAttractions } from '../../data/attractions.data';
 import { AiPlanHistoryItem, AiPlanViewPayload } from '../../core/models/ai.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
 import { KarmaService } from '../../core/karma/karma.service';
@@ -680,7 +681,7 @@ export class MyTripsComponent implements AfterViewInit {
     });
   }
 
-  downloadItinerary(plan: SavedPlan): void {
+  async downloadItinerary(plan: SavedPlan): Promise<void> {
     if (environment.useMocks) {
       if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {
         this.karmaModal.openInsufficient(1, this.karma.karma() ?? 0);
@@ -696,6 +697,13 @@ export class MyTripsComponent implements AfterViewInit {
     }
 
     this.exportingPlanId.set(plan.id);
+    await loadCityAttractions(plan.stops.map(s => s.cityId));
+    // Body needs the curated details of every stop; if a city failed to load, stop before the call so no Token is spent.
+    if (plan.stops.some(s => attractionsStatus(s.cityId) === 'error')) {
+      this.exportingPlanId.set(null);
+      this.toast.set($localize`:@@myTrips.itineraryDownloadError:Error al descargar el itinerario`);
+      return;
+    }
     this.api.exportItinerary(plan.id, this.exportBody(plan.stops)).subscribe({
       next: (blob) => {
         const slug = plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');

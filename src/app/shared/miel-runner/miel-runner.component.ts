@@ -78,7 +78,9 @@ export class MielRunnerComponent implements AfterViewInit, OnDestroy {
 
   readonly runEnded = output<{ score: number; newRecord: boolean }>();
   /** Faded photos behind the canvas (curated https URLs). Default: the iconic list; the AI card passes the planned cities. */
-  readonly backdrop = input<string[]>(backdropImages([]));
+  readonly backdropInput = input<string[] | null>(null, { alias: 'backdrop' });
+  // Computed, not an input default: the iconic list depends on attraction files that may still be loading.
+  readonly backdrop = computed(() => this.backdropInput() ?? backdropImages([]));
   readonly bgIndex = signal(0);
   /**
    * Two fixed slots (never more in the DOM), tracked by index so no node is ever moved or removed — a moved node

@@ -3771,6 +3771,18 @@
         <source>{VAR_PLURAL, plural, =1 {1 noche} other {<x id="INTERPOLATION"/> noches}}</source>
         <target>{VAR_PLURAL, plural, =1 {1 night} other {<x id="INTERPOLATION"/> nights}}</target>
       </trans-unit>
-    </body>
+      <trans-unit id="attractions.loading" datatype="html">
+        <source>Cargando atracciones…</source>
+        <target>Loading attractions…</target>
+      </trans-unit>
+      <trans-unit id="attractions.loadError" datatype="html">
+        <source>No pudimos cargar las atracciones.</source>
+        <target>We couldn't load the attractions.</target>
+      </trans-unit>
+      <trans-unit id="attractions.retry" datatype="html">
+        <source>Reintentar</source>
+        <target>Retry</target>
+      </trans-unit>
+</body>
   </file>
 </xliff>

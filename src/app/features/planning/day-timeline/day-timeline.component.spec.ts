@@ -331,7 +331,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     expect(fixture.nativeElement.querySelectorAll('.tl-head-actions-group').length).toBe(2);
   });
 
-  it('exports with the full F78 body (locale, planned-only names, destinations)', () => {
+  it('exports with the full F78 body (locale, planned-only names, destinations)', async () => {
     trip.restoreStops([{
       stopId: 's1', cityId: 'paris', checkIn: '01/06/2026', checkOut: '03/06/2026',
       selectedAttractions: [{ entryId: 'e1', attractionId: 'paris_0', startTime: '10:00', endTime: null, date: '01/06/2026' }],
@@ -339,7 +339,7 @@ describe('DayTimelineComponent — header actions row (aligned, sorted by scope)
     (trip as any)._loadedPlanId.set('plan-1');
     const api = TestBed.inject(ApiService);
     const spy = jest.spyOn(api, 'exportItinerary').mockReturnValue(NEVER);
-    (component as any).exportItinerary();
+    await (component as any).exportItinerary();
     const [id, body] = spy.mock.calls[0];
     expect(id).toBe('plan-1');
     expect(body.locale).toBe(TestBed.inject(LocaleService).current());
