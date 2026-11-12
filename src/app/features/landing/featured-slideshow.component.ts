@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../shared/attraction-img/attraction-img.directive';
 import {
   ChangeDetectionStrategy, Component, inject, signal, OnInit, OnDestroy,
 } from '@angular/core';
@@ -14,7 +15,7 @@ import { CITY_COVER_PHOTOS } from './city-cover-photos.data';
 @Component({
     selector: 'tb-featured-slideshow',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass],
+    imports: [AttractionImgDirective, NgClass],
     host: {
         '[style.display]': 'hostDisplay',
         '[class.landing-snap-child]': 'isVisible',
@@ -23,7 +24,7 @@ import { CITY_COVER_PHOTOS } from './city-cover-photos.data';
     template: `
 @for (trip of trips(); track trip.id; let i = $index) {
   <div [ngClass]="['s2-slide', activeIdx() === i ? 'active' : '']">
-    <img [src]="coverUrl(trip)" [alt]="trip.tripName" />
+    <img [tbAttImg]="coverUrl(trip)" [tbAttImgWidth]="960" [alt]="trip.tripName" />
     <div class="s2-overlay"></div>
     <div class="s2-featured-badge" i18n="@@landing.featuredBadge">✨ ¡Plan destacado!</div>
     <div class="s2-content">

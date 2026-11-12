@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../../shared/attraction-img/attraction-img.directive';
 import { Component, computed, inject, input, output, signal, ChangeDetectionStrategy } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Attraction, Comment } from '../../../core/models/comment.model';
@@ -27,7 +28,7 @@ import { UserLinkComponent } from '../../../shared/user-link/user-link.component
 
 @Component({
     selector: 'app-attraction-detail-modal',
-    imports: [DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe, UserLinkComponent],
+    imports: [AttractionImgDirective, DurationPipe, PlanTimeModalComponent, CommentModalComponent, CommentSimilarModalComponent, AttractionImageLightboxComponent, MapsPinIconComponent, AttractionNamePipe, AttractionNativePipe, UserLinkComponent],
     styles: [`
     .detail-modal {
       background: #fff;
@@ -160,7 +161,7 @@ import { UserLinkComponent } from '../../../shared/user-link/user-link.component
         <!-- Hero image carousel -->
         <div class="detail-hero" [style.background-color]="attraction().bg">
           @if (images()[heroIdx()] && !imgError()) {
-            <img class="hero-img" [src]="images()[heroIdx()]" [alt]="attraction() | attName"
+            <img class="hero-img" [tbAttImg]="images()[heroIdx()]" [tbAttImgWidth]="960" [alt]="attraction() | attName"
                  loading="lazy" (error)="imgError.set(true)" (click)="openLightbox()">
           } @else {
             <div class="hero-fallback-icon">{{ attraction().icon }}</div>

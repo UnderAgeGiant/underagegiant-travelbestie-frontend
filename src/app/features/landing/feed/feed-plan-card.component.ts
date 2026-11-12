@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../../shared/attraction-img/attraction-img.directive';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TripMapComponent, TripMapCity } from '../../../shared/trip-map/trip-map.component';
@@ -23,7 +24,7 @@ function prefersReducedMotion(): boolean {
 
 @Component({
   selector: 'tb-feed-plan-card',
-  imports: [TripMapComponent, RouterLink, UserLinkComponent],
+  imports: [AttractionImgDirective, TripMapComponent, RouterLink, UserLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
 <article class="feed-card"
@@ -45,7 +46,7 @@ function prefersReducedMotion(): boolean {
          [class.feed-pane--contain]="slide.contain" [style.background]="slide.bg ?? null"
          [attr.aria-hidden]="pageIdx() !== i + 1">
       @if (near(i + 1) && slide.imageUrl) {
-        <img class="feed-photo" [src]="slide.imageUrl" [alt]="slide.name" loading="lazy" decoding="async" />
+        <img class="feed-photo" [tbAttImg]="slide.imageUrl" [tbAttImgWidth]="960" [alt]="slide.name" loading="lazy" decoding="async" />
       } @else if (!slide.imageUrl) {
         <div class="feed-fallback" aria-hidden="true">{{ slide.icon }}</div>
       }

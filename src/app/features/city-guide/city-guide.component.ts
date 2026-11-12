@@ -1,3 +1,4 @@
+import { AttractionImgDirective } from '../../shared/attraction-img/attraction-img.directive';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -22,7 +23,7 @@ import { photoCreditUrl } from './photo-credit.util';
 
 @Component({
   selector: 'app-city-guide',
-  imports: [NavShellComponent, RouterLink, FlagIconComponent],
+  imports: [AttractionImgDirective, NavShellComponent, RouterLink, FlagIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cg-page">
@@ -64,7 +65,7 @@ import { photoCreditUrl } from './photo-credit.util';
             <div class="cg-grid">
               @for (a of m.mustSee; track a.id) {
                 <article class="cg-card">
-                  @if (a.imageUrl) { <img [src]="a.imageUrl" [alt]="a.name" loading="lazy" width="640" height="420" /> }
+                  @if (a.imageUrl) { <img [tbAttImg]="a.imageUrl" [tbAttImgWidth]="960" [alt]="a.name" loading="lazy" width="640" height="420" /> }
                   <div class="cg-card-body">
                     @if (a.dayTrip) { <span class="cg-chip-daytrip" i18n="@@cityGuide.dayTripChip">Excursión</span> }
                     <h3>{{ a.name }}</h3>
