@@ -9,6 +9,7 @@ import { formatDuration, formatSegment, legMinutes } from '../../core/utils/tran
 import { AttractionNamePipe } from '../pipes/attraction-name.pipe';
 import { DurationPipe } from '../pipes/duration.pipe';
 import { FlagIconComponent } from '../flag-icon/flag-icon.component';
+import { AttractionsLoadErrorComponent } from '../attractions-load-error/attractions-load-error.component';
 
 interface PlanRow { planned: PlannedAttraction; att: Attraction; date: string; minutes: number }
 
@@ -19,7 +20,7 @@ interface PlanRow { planned: PlannedAttraction; att: Attraction; date: string; m
  */
 @Component({
   selector: 'tb-trip-full-plan',
-  imports: [AttractionNamePipe, DurationPipe, FlagIconComponent],
+  imports: [AttractionNamePipe, DurationPipe, FlagIconComponent, AttractionsLoadErrorComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="tfp">
@@ -69,6 +70,7 @@ interface PlanRow { planned: PlannedAttraction; att: Attraction; date: string; m
                       }
                     </div>
                   }
+                  <tb-attractions-load-error [cityIds]="[stop.cityId]" />
                   @for (row of rows; track row.planned.entryId) {
                     <div class="itin-item">
                       <span class="itin-item-icon">{{ row.att.icon }}</span>

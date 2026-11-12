@@ -37,10 +37,11 @@ import { SharedTripsService } from '../../../core/shared-trips/shared-trips.serv
 import { ToastComponent } from '../../../shared/toast/toast.component';
 import { NgTemplateOutlet } from '@angular/common';
 import { environment } from '../../../../environments/environment';
+import { AttractionsLoadErrorComponent } from '../../../shared/attractions-load-error/attractions-load-error.component';
 
 @Component({
     selector: 'app-stop-list',
-    imports: [StayLengthComponent, DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent, TripCostCardComponent, ToastComponent, NgTemplateOutlet],
+    imports: [StayLengthComponent, DurationPipe, DateRangeComponent, TransitConnectorComponent, LodgingComponent, DayTimelineComponent, CitySuggestCloudComponent, FlagIconComponent, TimePickerComponent, CityInfoBadgeComponent, CityWeatherChipComponent, TripMapComponent, AttractionNamePipe, CostSettingsComponent, TripCostCardComponent, ToastComponent, NgTemplateOutlet, AttractionsLoadErrorComponent],
     styles: [`
     .att-plan-row {
       display: flex; align-items: center; gap: 6px;
@@ -263,6 +264,7 @@ import { environment } from '../../../../environments/environment';
                     </button>
 
                     @if (isScheduledOpen(stop.stopId)) {
+                      <tb-attractions-load-error [cityIds]="[stop.cityId]" />
                       @for (planned of plannedSorted(stop); track planned.entryId) {
                         @let att = entryAttraction(stop.cityId, planned);
                         @if (att) {

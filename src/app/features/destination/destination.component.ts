@@ -2,17 +2,18 @@ import { Component, inject, computed, effect, ChangeDetectionStrategy } from '@a
 import { TripService } from '../trip/trip.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { REGION_LABELS } from '../../core/models/city.model';
-import { attractionsStatus, getAttractions, retryCityAttractions } from '../../data/attractions.data';
+import { attractionsStatus, getAttractions } from '../../data/attractions.data';
 import { sortMustSeeFirst } from '../../core/utils/must-see.util';
 import { Comment } from '../../core/models/comment.model';
 import { CityCommentsService } from '../../core/comments/city-comments.service';
 import { DeviceService } from '../../core/device/device.service';
 import { AttractionsListComponent } from './attractions-list/attractions-list.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 
 @Component({
     selector: 'app-destination',
-    imports: [AttractionsListComponent, FlagIconComponent],
+    imports: [AttractionsListComponent, FlagIconComponent, AttractionsLoadErrorComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="dest-view">
@@ -51,10 +52,7 @@ import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
             <div class="badge" role="status" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)" i18n="@@attractions.loading">Cargando atracciones…</div>
           }
           @case ('error') {
-            <div class="badge" role="status" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
-              <span i18n="@@attractions.loadError">No pudimos cargar las atracciones.</span>
-              <button type="button" class="btn-pill" (click)="retry()" i18n="@@attractions.retry">Reintentar</button>
-            </div>
+            <tb-attractions-load-error [cityIds]="[city()!.id]" />
           }
           @default {
             <app-attractions-list
@@ -87,10 +85,6 @@ export class DestinationComponent {
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? sortMustSeeFirst(getAttractions(this.city()!)) : []);
   readonly loadStatus = computed(() => this.city() ? attractionsStatus(this.city()!.id) : 'ready');
-
-  protected retry(): void {
-    if (this.city()) retryCityAttractions(this.city()!.id);
-  }
 
   constructor() {
     effect(() => {

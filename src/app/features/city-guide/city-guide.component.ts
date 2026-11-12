@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
+import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 import { ApiService } from '../../core/api/api.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { pickTopSights, isGuideAttraction } from '../../core/seo/city-guide-seo.util';
@@ -13,7 +14,7 @@ import { TravelInfoService } from '../../core/travel-info/travel-info.service';
 import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
 import type { SeoCityPlan } from '../../core/models/seo-city-plan.model';
 import { WORLD_CITIES } from '../../data/cities.data';
-import { attractionsStatus, getAttractions, retryCityAttractions } from '../../data/attractions.data';
+import { attractionsStatus, getAttractions } from '../../data/attractions.data';
 import { guideBySlug } from '../../data/city-guides.data';
 import { environment } from '../../../environments/environment';
 import { buildCityGuide } from './city-guide.model';
@@ -23,7 +24,7 @@ import { photoCreditUrl } from './photo-credit.util';
 
 @Component({
   selector: 'app-city-guide',
-  imports: [AttractionImgDirective, NavShellComponent, RouterLink, FlagIconComponent],
+  imports: [AttractionImgDirective, NavShellComponent, RouterLink, FlagIconComponent, AttractionsLoadErrorComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cg-page">
@@ -192,8 +193,7 @@ import { photoCreditUrl } from './photo-credit.util';
         </main>
       } @else if (loadError()) {
         <main class="cg-main">
-          <p class="cg-intro" role="status" i18n="@@attractions.loadError">No pudimos cargar las atracciones.</p>
-          <button type="button" class="btn-pill" (click)="retry()" i18n="@@attractions.retry">Reintentar</button>
+          <tb-attractions-load-error [cityIds]="[guideCityId()]" />
         </main>
       }
     </div>
@@ -224,6 +224,8 @@ export class CityGuideComponent {
     return buildCityGuide(entry, city, attractions, facts);
   });
 
+  readonly guideCityId = computed(() => guideBySlug(this.slug())?.cityId ?? '');
+
   readonly loadError = computed(() => {
     const entry = guideBySlug(this.slug());
     return !!entry && attractionsStatus(entry.cityId) === 'error';
@@ -253,8 +255,4 @@ export class CityGuideComponent {
     if (m) void this.router.navigate(['/'], { queryParams: { addCity: m.entry.cityId } });
   }
   protected goHome(): void { void this.router.navigate(['/']); }
-  protected retry(): void {
-    const entry = guideBySlug(this.slug());
-    if (entry) retryCityAttractions(entry.cityId);
-  }
 }

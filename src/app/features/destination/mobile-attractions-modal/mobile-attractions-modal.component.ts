@@ -1,13 +1,14 @@
 import { Component, inject, signal, computed, effect, ChangeDetectionStrategy } from '@angular/core';
 import { TripService } from '../../trip/trip.service';
 import { WORLD_CITIES } from '../../../data/cities.data';
-import { attractionsStatus, getAttractions, retryCityAttractions } from '../../../data/attractions.data';
+import { attractionsStatus, getAttractions } from '../../../data/attractions.data';
 import { sortMustSeeFirst } from '../../../core/utils/must-see.util';
 import { Comment } from '../../../core/models/comment.model';
 import { CityCommentsService } from '../../../core/comments/city-comments.service';
 import { DeviceService } from '../../../core/device/device.service';
 import { DestinationModalService } from '../destination-modal.service';
 import { AttractionsListComponent } from '../attractions-list/attractions-list.component';
+import { AttractionsLoadErrorComponent } from '../../../shared/attractions-load-error/attractions-load-error.component';
 
 /**
  * Rendered as a top-level sibling of <app-nav> (see ShellComponent), NOT nested inside
@@ -34,7 +35,7 @@ import { AttractionsListComponent } from '../attractions-list/attractions-list.c
  */
 @Component({
   selector: 'app-mobile-attractions-modal',
-  imports: [AttractionsListComponent],
+  imports: [AttractionsListComponent, AttractionsLoadErrorComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     @if (device.isMobile() && modal.isOpen() && city()) {
@@ -51,10 +52,7 @@ import { AttractionsListComponent } from '../attractions-list/attractions-list.c
               <div class="badge" role="status" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)" i18n="@@attractions.loading">Cargando atracciones…</div>
             }
             @case ('error') {
-              <div class="badge" role="status" style="background:var(--cream);color:var(--t2);border:1px solid var(--border)">
-                <span i18n="@@attractions.loadError">No pudimos cargar las atracciones.</span>
-                <button type="button" class="btn-pill" (click)="retry()" i18n="@@attractions.retry">Reintentar</button>
-              </div>
+              <tb-attractions-load-error [cityIds]="[city()!.id]" />
             }
             @default {
               <app-attractions-list
@@ -88,10 +86,6 @@ export class MobileAttractionsModalComponent {
   readonly activeStop = computed(() => this.trip.activeStop());
   readonly attractions = computed(() => this.city() ? sortMustSeeFirst(getAttractions(this.city()!)) : []);
   readonly loadStatus = computed(() => this.city() ? attractionsStatus(this.city()!.id) : 'ready');
-
-  protected retry(): void {
-    if (this.city()) retryCityAttractions(this.city()!.id);
-  }
 
   protected readonly allComments = computed(() => {
     const city = this.city();

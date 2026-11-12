@@ -49,10 +49,11 @@ import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.co
 import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-weather-chip.component';
 import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-badge.component';
 import { TripCostCardComponent } from '../../shared/trip-cost-card/trip-cost-card.component';
+import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 
 @Component({
     selector: 'app-shared-trip',
-    imports: [StayLengthComponent, AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent, TripCostCardComponent],
+    imports: [StayLengthComponent, AttractionNamePipe, CityWeatherChipComponent, CityInfoBadgeComponent, StepCommentsComponent, CommentSimilarModalComponent, DurationPipe, NavShellComponent, DayTimelineComponent, AttractionPreviewPopoverComponent, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, MapsPinIconComponent, TripMapComponent, RouterLink, UserLinkComponent, FollowButtonComponent, TripCostCardComponent, AttractionsLoadErrorComponent],
     styles: [`
     .step-comments-toggle {
       display: inline-flex; align-items: center; gap: 3px;
@@ -228,6 +229,7 @@ import { TripCostCardComponent } from '../../shared/trip-cost-card/trip-cost-car
                    [class.itin-city-selected]="selectedShareStop()?.cityId === stop.cityId"
                    (click)="selectShareStop(stop)"
                    style="cursor:pointer">
+                <tb-attractions-load-error [cityIds]="[stop.cityId]" />
                 <div class="itin-city-head">
                   <span class="itin-city-flag"><app-flag-icon [flag]="city.flag" [alt]="city.name" [size]="24" /></span>
                   <div>

@@ -30,13 +30,14 @@ import { TravelInfoService } from '../../core/travel-info/travel-info.service';
 import { ItineraryExportBody } from '../../core/models/itinerary-export.model';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
+import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 
 type MyTripsTab = 'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans';
 const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations', 'invites', 'aiplans'];
 
 @Component({
   selector: 'app-my-trips',
-  imports: [TripItineraryComponent, ToastComponent, RouterLink, NavShellComponent, DatePipe, TripMapComponent],
+  imports: [TripItineraryComponent, ToastComponent, RouterLink, NavShellComponent, DatePipe, TripMapComponent, AttractionsLoadErrorComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="profile-page">
@@ -246,6 +247,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
 
                     @if (selectedPlanId() === plan.id) {
                       <div class="saved-plan-itin">
+                        <tb-attractions-load-error [cityIds]="planCityIds(plan)" />
                         <app-trip-itinerary [stops]="plan.stops" [transits]="plan.transits ?? []" />
                       </div>
                     }
@@ -840,6 +842,10 @@ export class MyTripsComponent implements AfterViewInit {
     try {
       return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
     } catch { return iso; }
+  }
+
+  protected planCityIds(plan: SavedPlan): string[] {
+    return plan.stops.map((s) => s.cityId);
   }
 
   protected planMapCities(plan: SavedPlan): TripMapCity[] {

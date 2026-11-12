@@ -37,6 +37,7 @@ import { isPersonal, personalAttraction, resolvePlannedAttraction } from '../../
 import { activityMeta } from '../../../core/models/personal-activity.model';
 import { PersonalActivityModalService } from '../../destination/personal-activity/personal-activity-modal.service';
 import { getWeatherCodeMeta } from '../../../core/models/weather.model';
+import { AttractionsLoadErrorComponent } from '../../../shared/attractions-load-error/attractions-load-error.component';
 
 // ── Grid constants (from landing-preview.html) ──────────────────────────────
 const TL_H0 = 0;   // first hour rendered (00:00 — full day, user feedback 09-07-2026)
@@ -128,7 +129,7 @@ function transitLabel(mode: TransitMode): string {
 @Component({
     selector: 'tb-day-timeline',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, NgStyle, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, AttractionPreviewPopoverComponent],
+    imports: [NgClass, NgStyle, PlanSlideshowComponent, PlanPresentationPillComponent, FlagIconComponent, AttractionPreviewPopoverComponent, AttractionsLoadErrorComponent],
     template: `
 @if (visible()) {
   <div class="timeline-panel timeline-accent" [class.collapsed]="collapsed()" [class.timeline-inline]="inline()">
@@ -215,6 +216,9 @@ function transitLabel(mode: TransitMode): string {
         </div>
       }
 
+      @if (!readOnly()) {
+        <tb-attractions-load-error [cityIds]="activeCityIds()" />
+      }
       <!-- Hour grid -->
       <div class="tl-grid-wrap" #tlGridWrap>
         <div class="tl-grid" #tlGridEl [ngStyle]="{ height: gridHeight() + 'px' }"
@@ -420,6 +424,11 @@ export class DayTimelineComponent {
   private tripStopsFallback(): TripStop[] {
     return this.readOnly() ? [] : this.trip.stops();
   }
+
+  protected readonly activeCityIds = computed(() => {
+    const stop = this.activeStop();
+    return stop ? [stop.cityId] : [];
+  });
 
   private activeStop(): TripStop | null {
     return this.stop() ?? this.tripActiveStopFallback();
