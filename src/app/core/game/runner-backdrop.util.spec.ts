@@ -24,15 +24,25 @@ describe('backdropImages while a city file loads', () => {
     __setAttractionSourceForTests((globalThis as any).__tbJestAttractionSource);
   });
 
-  it('is [] while Paris is loading, then returns Paris photos once its file arrives', async () => {
+  it('is [] while a requested city is in flight, even when the iconic fallback is ready', async () => {
     __setAttractionSourceForTests(null);
-    const sight = { id: 'paris_0', name: 'Louvre', type: 'Museo', category: 'poi', active: true, icon: '🏛️', bg: '#fff',
+    // Lima is not an iconic city, so it can be loading while the iconic fallback is already ready.
+    const photo = (cityId: string) => [{ id: `${cityId}_0`, name: cityId, type: 'Museo', category: 'poi', active: true, icon: '🏛️', bg: '#fff',
       rating: 4.7, estimatedMinutes: 90, description: 'Descripción suficientemente larga para pasar el umbral de sesenta caracteres.',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Louvre.jpg' };
-    globalThis.fetch = jest.fn().mockResolvedValue({ ok: true, status: 200, json: async () => [sight] }) as unknown as typeof fetch;
+      imageUrl: `https://upload.wikimedia.org/wikipedia/commons/${cityId}.jpg` }];
+    let releaseLima!: (r: Response) => void;
+    globalThis.fetch = jest.fn((url: string) => {
+      const cityId = url.match(/\/([^/]+)\.json$/)![1];
+      if (cityId === 'lima') return new Promise<Response>(res => { releaseLima = res; });
+      return Promise.resolve({ ok: true, status: 200, json: async () => photo(cityId) } as Response);
+    }) as unknown as typeof fetch;
 
-    expect(backdropImages(['paris'])).toEqual([]);
-    await loadCityAttractions(['paris']);
-    expect(backdropImages(['paris'])).toEqual([sight.imageUrl]);
+    await loadCityAttractions(ICONIC_BACKDROP_CITIES);
+    expect(backdropImages(ICONIC_BACKDROP_CITIES).length).toBeGreaterThan(0); // the fallback itself has photos
+    expect(backdropImages(['lima'])).toEqual([]); // guard: lima in flight, must not fall back to iconic
+
+    releaseLima({ ok: true, status: 200, json: async () => photo('lima') } as Response);
+    await loadCityAttractions(['lima']);
+    expect(backdropImages(['lima'])).toEqual(['https://upload.wikimedia.org/wikipedia/commons/lima.jpg']);
   });
 });
