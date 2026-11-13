@@ -790,11 +790,11 @@ app-nav { display: block; }
 .ai-first-saved-check { font-size: 14px; font-weight: 600; color: var(--mint-d); }
 .ai-first-balance { padding: 4px 10px; border-radius: 99px; background: #fff; color: var(--t1); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
 /* F79 /first-plan — ready-made plans */
-.fp-wrap { width: 100%; max-width: 640px; margin: 0 auto; padding: 8px 0 40px; }
+.fp-wrap { width: 100%; max-width: 640px; margin: 8px auto 40px; padding: 24px; background: #fff; border: 1.5px solid var(--border); border-radius: 18px; }
 .fp-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--t1); margin: 0 0 6px; text-wrap: balance; }
 .fp-sub { font-size: 14px; color: var(--t2); margin: 0 0 20px; }
 .fp-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-.fp-card { display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #fff; border: 1.5px solid var(--border); border-radius: 18px; animation: fadeUp .3s cubic-bezier(.34,1.2,.64,1) both; }
+.fp-card { display: flex; flex-direction: column; gap: 8px; padding: 16px; background: var(--cream); border: 1.5px solid var(--border); border-radius: 14px; animation: fadeUp .3s cubic-bezier(.34,1.2,.64,1) both; }
 .fp-card-flags { display: flex; gap: 6px; }
 .fp-card-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--t1); margin: 0; }
 .fp-card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 4px; font-size: 12px; font-weight: 600; color: var(--t2); font-variant-numeric: tabular-nums; }
@@ -803,7 +803,7 @@ app-nav { display: block; }
 .fp-scratch { padding: 6px 10px; border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--lav-d); text-decoration: underline; text-underline-offset: 3px; }
 .fp-scratch:hover { background: var(--lav); }
 .fp-scratch:focus-visible, .fp-ai:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
-@media (max-width: 768px) { .fp-wrap { padding: 4px 16px 32px; } .fp-title { font-size: 26px; } }
+@media (max-width: 768px) { .fp-wrap { padding: 20px 16px; margin-bottom: 24px; } .fp-title { font-size: 26px; } }
 @media (prefers-reduced-motion: reduce) { .fp-card { animation: none; } }
 .ai-plan-row { display: flex; gap: 12px; }
 .ai-plan-row .ai-plan-field { flex: 1; }

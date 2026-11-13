@@ -96,7 +96,8 @@ export class FirstPlanStartComponent implements OnInit {
       days: stayLength(f.stops)?.days ?? 0,
       cities: cityIds.length,
       places: f.stops.reduce((n, s) => n + s.selectedAttractions.length, 0),
-      flags: cityIds.slice(0, 4).map(id => WORLD_CITIES.find(c => c.id === id)).filter(c => !!c).map(c => ({ flag: c!.flag, name: c!.name })),
+      // One flag per country, up to 4.
+      flags: [...new Map(cityIds.map(id => WORLD_CITIES.find(c => c.id === id)).filter(c => !!c).map(c => [c!.flag, { flag: c!.flag, name: c!.country }])).values()].slice(0, 4),
     };
   }));
 

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, computed, inject, input, model, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Injector, afterNextRender, computed, inject, input, model, signal, viewChild } from '@angular/core';
 import { City, Continent, CONTINENT_LABELS, continentOf } from '../../core/models/city.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { CITY_IDS_WITH_ATTRACTIONS } from '../../data/cities-with-attractions.data';
@@ -85,6 +85,7 @@ const BY_ID = new Map(WORLD_CITIES.map(c => [c.id, c]));
 export class CityMultiPickerComponent {
   private readonly locale = inject(LocaleService);
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly injector = inject(Injector);
   private readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
 
   /** Two-way: `[(selected)]` or `[selected]` + `(selectedChange)`. */
@@ -132,7 +133,12 @@ export class CityMultiPickerComponent {
   toggle(): void {
     if (this.open()) { this.close(); return; }
     this.open.set(true);
-    setTimeout(() => this.searchInput()?.nativeElement.focus(), 0);
+    afterNextRender(() => {
+      const search = this.searchInput()?.nativeElement;
+      search?.focus({ preventScroll: true });
+      // On a short screen the open panel can end below the fold; bring "Listo" into view once.
+      search?.closest('.cmp-dropdown')?.scrollIntoView?.({ block: 'nearest' });
+    }, { injector: this.injector });
   }
 
   close(): void {
