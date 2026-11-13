@@ -4,6 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-11
+- feat(first-plan): free first plan, multi-city picker, cities mode (#PR)
 - docs(readme): refresh README to match the current app (#186)
 - perf(data): per-city attraction files, sized photos, lazy visa matrix (#185)
 - feat(itinerary): richer bilingual itinerary export (#184)
