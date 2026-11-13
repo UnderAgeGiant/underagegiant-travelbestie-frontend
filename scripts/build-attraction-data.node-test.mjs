@@ -3,7 +3,21 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, readFileSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { writeCityFiles, guideTopPhotos } from './build-attraction-data.mjs';
+import { writeCityFiles, guideTopPhotos, citiesWithAttractions, writeCityIdsModule } from './build-attraction-data.mjs';
+import { pathToFileURL } from 'node:url';
+
+test('citiesWithAttractions keeps cities with at least one active attraction, sorted', () => {
+  const curated = { rome: [{ id: 'rome_0' }], paris: [{ id: 'paris_0', active: false }, { id: 'paris_1', active: true }], oslo: [{ id: 'oslo_0', active: false }], lima: [] };
+  assert.deepEqual(citiesWithAttractions(curated), ['paris', 'rome']);
+});
+
+test('writeCityIdsModule writes an importable set file', async () => {
+  const file = join(mkdtempSync(join(tmpdir(), 'cwa-')), 'cities-with-attractions.data.ts');
+  writeCityIdsModule(['paris', 'rome'], file);
+  const mod = await import(pathToFileURL(file).href);
+  assert.ok(mod.CITY_IDS_WITH_ATTRACTIONS.has('paris'));
+  assert.equal(mod.CITY_IDS_WITH_ATTRACTIONS.size, 2);
+});
 
 test('writeCityFiles writes one file per city and clears stale files', () => {
   const dir = mkdtempSync(join(tmpdir(), 'att-'));
