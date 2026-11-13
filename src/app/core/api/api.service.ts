@@ -1,13 +1,13 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
 import { ItineraryExportBody } from '../models/itinerary-export.model';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { Observable, from, of, timer, throwError } from 'rxjs';
+import { Observable, from, of, timer, throwError, delay } from 'rxjs';
 import { switchMap, tap, first, map, catchError, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite, CostEstimate, FxRates, DEFAULT_COST_SETTINGS } from '../models/trip.model';
 import { Comment, StepComment, StepCommentAddResult } from '../models/comment.model';
 import { WeatherDay } from '../models/weather.model';
-import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData } from '../models/ai.model';
+import { PlanTripRequest, PlanTripResponse, SuggestTripsResponse, CityCatalog, CatalogEntry, SuggestCityAttractionsResponse, SuggestionScheduleEntry, SuggestionDeparture, CompanionSuggestion, CompanionStatusResponse, AiPlanKickoffResponse, AiPlanStatusResponse, AiPlanHistoryItem, AiPlanResultData, FirstPlanRequest, FirstPlanResult } from '../models/ai.model';
 import { KarmaPackage, CreateOrderResponse, CaptureOrderResponse, CreateMpPreferenceResponse, MpPurchaseStatusResponse } from '../models/karma-purchase.model';
 import { KarmaEvent, KarmaEventsPage } from '../models/karma-event.model';
 import { SharedTrip, SharedTripsService } from '../shared-trips/shared-trips.service';
@@ -153,7 +153,8 @@ export class ApiService {
     return this.http.get<KarmaEventsPage>(`${this.base}/karma/events`, { params });
   }
 
-  suggestTrips(preferences: string, duration?: number, budget?: string, planSessionId?: string): Observable<SuggestTripsResponse> {
+  /** `cityIds` = cities mode (F79): only those cities go in cityIndex (ADR 0010) and the server builds the destination text. */
+  suggestTrips(preferences: string, duration?: number, budget?: string, planSessionId?: string, cityIds?: string[]): Observable<SuggestTripsResponse> {
     if (this.useMocks) {
       return of({
         options: [
@@ -162,8 +163,36 @@ export class ApiService {
         ],
       });
     }
+    const citiesMode = !!cityIds?.length;
     return from(this.catalog.getCityIndex()).pipe(
-      switchMap(cityIndex => this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, { preferences, duration, budget, cityIndex, planSessionId })),
+      switchMap(index => {
+        const cityIndex = citiesMode ? index.filter(c => cityIds!.includes(c.id)) : index;
+        return this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, {
+          preferences, duration, budget, cityIndex, planSessionId, ...(citiesMode ? { cityIds } : {}),
+        });
+      }),
+    );
+  }
+
+  /** POST /ai/first-plan (contracts §5.5): free one-step first run; the backend job saves the trip, polled like /ai/plan. */
+  firstPlan(req: FirstPlanRequest): Observable<FirstPlanResult> {
+    if (this.useMocks) {
+      const city = req.cities[0];
+      return of({
+        title:    `Viaje a ${req.cities.map(c => c.name).join(', ')}`,
+        stops:    [{ stopId: `mock-first-stop-${city.id}`, cityId: city.id, checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [{ entryId: `mock-first-${city.id}-0`, attractionId: `${city.id}_0`, startTime: '09:00' }] }],
+        transits: [],
+        tripId:   'mock-first-trip',
+      }).pipe(delay(300));
+    }
+    const ids = req.cities.map(c => c.id);
+    return from(this.catalog.getCityCatalog(ids)).pipe(
+      switchMap(cityCatalog => this.http.post<AiPlanKickoffResponse>(`${this.base}/ai/first-plan`, { ...req, cityCatalog })),
+      switchMap(({ requestId }) => this.pollAiPlanStatus(requestId)),
+      map(r => {
+        if (!r.tripId) throw { error: { error: 'first_plan_not_saved' } };
+        return r as FirstPlanResult;
+      }),
     );
   }
 
@@ -246,7 +275,7 @@ export class ApiService {
    * (AiPlanningComponent) layers its own "taking long" (AI_PLAN_LONG_WAIT_MS) UI timer on top of
    * the subscription; this method only knows about polling, not about UX timing.
    */
-  private pollAiPlanStatus(requestId: string): Observable<PlanTripResponse> {
+  private pollAiPlanStatus(requestId: string): Observable<PlanTripResponse & { tripId?: string }> {
     return timer(0, ApiService.AI_PLAN_POLL_INTERVAL_MS).pipe(
       switchMap(() => this.http.get<AiPlanStatusResponse>(`${this.base}/ai/plan/${requestId}/status`)),
       first(r => r.status !== 'pending'),
@@ -254,7 +283,8 @@ export class ApiService {
         if (r.status === 'failed') {
           throw { error: { error: r.error ?? 'Error al generar el plan' } };
         }
-        return { ...(r.result as AiPlanResultData), changeInfo: r.changeInfo, requestId } as PlanTripResponse;
+        // tripId only for first-run rows (§5.2.1); kept off normal plans so it never leaks into a generated Trip.
+        return { ...(r.result as AiPlanResultData), changeInfo: r.changeInfo, requestId, ...(r.tripId ? { tripId: r.tripId } : {}) } as PlanTripResponse;
       }),
     );
   }
@@ -374,7 +404,8 @@ export class ApiService {
     return this.http.get<MpPurchaseStatusResponse>(`${this.base}/karma/purchase/mp/status/${purchaseRef}`);
   }
 
-  cloneSharedTrip(shareId: string): Observable<Trip> {
+  /** `source: 'featured'` only labels the backend's first-plan analytics event (contracts §2.7). */
+  cloneSharedTrip(shareId: string, source?: 'featured' | 'shared'): Observable<Trip> {
     if (this.useMocks) {
       return of({
         id: crypto.randomUUID(), title: 'Copy of Mock Trip',
@@ -382,7 +413,8 @@ export class ApiService {
         createdAt: new Date().toISOString(),
       } as Trip);
     }
-    return this.http.post<Trip>(`${this.base}/shared/${shareId}/clone`, {});
+    const query = source === 'featured' ? '?source=featured' : '';
+    return this.http.post<Trip>(`${this.base}/shared/${shareId}/clone${query}`, {});
   }
 
   cloneOwnTrip(tripId: string): Observable<Trip> {
