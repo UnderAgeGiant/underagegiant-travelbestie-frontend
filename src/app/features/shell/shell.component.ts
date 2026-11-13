@@ -196,9 +196,9 @@ export class ShellComponent {
 
     // Logged-in users without a public username get a one-time nudge (seen is permanent).
     effect(() => {
-      if (shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username)) {
+      if (shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username, this.auth.firstPlanAvailable())) {
         this.highlightTour.start('public_profile_intro', {
-          shouldStillShow: () => shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username),
+          shouldStillShow: () => shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username, this.auth.firstPlanAvailable()),
         });
       }
     });

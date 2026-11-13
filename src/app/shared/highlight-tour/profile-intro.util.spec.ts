@@ -8,6 +8,10 @@ describe('public_profile_intro', () => {
     expect(shouldShowProfileIntro(true, 'ana')).toBe(false);
     expect(shouldShowProfileIntro(false, null)).toBe(false);
   });
+  it('is false while the free first plan is still available (F79)', () => {
+    expect(shouldShowProfileIntro(true, null, true)).toBe(false);
+    expect(shouldShowProfileIntro(true, null, false)).toBe(true);
+  });
   it('has one bilingual step on the user menu', () => {
     expect(HIGHLIGHT_TOURS.public_profile_intro).toEqual([
       { targetId: 'user-menu-btn', text: { 'es-CL': expect.stringContaining('nombre de usuario'), 'en-US': expect.stringContaining('username') } },

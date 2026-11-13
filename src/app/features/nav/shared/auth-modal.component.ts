@@ -7,6 +7,7 @@ import { KarmaService } from '../../../core/karma/karma.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
 import { environment } from '../../../../environments/environment';
 import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../../core/utils/password-strength.util';
 
@@ -363,6 +364,7 @@ export class AuthModalComponent {
   private readonly savedPlans = inject(SavedPlansService);
   private readonly favorites  = inject(FavoritesService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
+  private readonly firstPlan  = inject(FirstPlanService);
 
   // auth form signals
   loginMode     = signal<'login' | 'register' | 'reset'>('login');
@@ -651,6 +653,7 @@ export class AuthModalComponent {
 
   dismissRegisterSuccess(): void {
     this.registerSuccessOpen.set(false);
+    this.firstPlan.afterLogin(); // F79: carry the sign-up intent / open the free first run
   }
 
   doAuth(): void {
@@ -680,6 +683,7 @@ export class AuthModalComponent {
           this.loginPassword.set('');
           this.loginConfirmPassword.set('');
           this.authModal.executePostLogin();
+          this.firstPlan.afterLogin();
         },
         error: (err: unknown) => {
           this.loginLoading.set(false);

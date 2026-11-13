@@ -10,6 +10,7 @@ import { SharedTrip, SharedTripsService } from '../../core/shared-trips/shared-t
 import { ApiService } from '../../core/api/api.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthModalService } from '../../core/auth/auth-modal.service';
+import { FirstPlanService } from '../../core/first-plan/first-plan.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
@@ -525,6 +526,7 @@ export class SharedTripComponent {
   private readonly svc        = inject(SharedTripsService);
   readonly auth                = inject(AuthService);
   private readonly authModal   = inject(AuthModalService);
+  private readonly firstPlan   = inject(FirstPlanService);
   private readonly favorites   = inject(FavoritesService);
   private readonly karma       = inject(KarmaService);
   private readonly karmaModal  = inject(KarmaModalService);
@@ -726,7 +728,9 @@ export class SharedTripComponent {
 
   cloneTrip(): void {
     if (!this.auth.isLoggedIn()) {
-      this.authModal.openLogin(() => this.executeClone());
+      // F79: a new account gets this copy free through FirstPlanService.afterLogin(); only a returning one clones here.
+      this.firstPlan.setSignupIntent({ kind: 'shared', shareId: this.tripId() });
+      this.authModal.openLogin(() => { if (!this.auth.firstPlanAvailable()) this.executeClone(); });
       return;
     }
     this.executeClone();

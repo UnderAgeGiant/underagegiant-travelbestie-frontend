@@ -15,6 +15,7 @@ import { Place } from '../../../core/models/trip.model';
 import { of, throwError } from 'rxjs';
 import { ApiService } from '../../../core/api/api.service';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
 import { __setAttractionSourceForTests, loadCityAttractions } from '../../../data/attractions.data';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
@@ -890,5 +891,26 @@ describe('StopListComponent — full plan toggle (2026-10-25)', () => {
     (window as any).scrollTo = scrollTo;
     (fixture.componentInstance as any).scrollToActiveCity();
     expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+  });
+});
+
+describe('StopListComponent — F79 free first plan', () => {
+  it('doBook with the gift never opens the −1 Token form and saves through FirstPlanService', () => {
+    localStorage.clear();
+    installMatchMediaMock(false);
+    TestBed.configureTestingModule({
+      imports: [StopListComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
+    });
+    const trip = TestBed.inject(TripService);
+    TestBed.inject(AuthService).setTokens('t', { name: 'Ana', email: 'ana@test.com', firstPlanAvailable: true });
+    const save = jest.spyOn(TestBed.inject(FirstPlanService), 'saveFirstManualPlan').mockReturnValue(of('p1'));
+    trip.addStop(PARIS, '01/06/2026', '05/06/2026');
+    const fixture = TestBed.createComponent(StopListComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.panel-footer .karma-cost')).toBeNull();
+    fixture.componentInstance.doBook();
+    expect(save).toHaveBeenCalled();
+    expect(fixture.componentInstance.bookOpen()).toBe(false);
   });
 });

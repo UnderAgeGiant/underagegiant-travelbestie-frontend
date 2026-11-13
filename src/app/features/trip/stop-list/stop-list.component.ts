@@ -25,6 +25,7 @@ import { TripStop, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from
 import { CostSettingsComponent } from '../../../shared/cost-settings/cost-settings.component';
 import { TripCostCardComponent } from '../../../shared/trip-cost-card/trip-cost-card.component';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
 import { TimePickerComponent } from '../../../shared/time-picker/time-picker.component';
 import { City } from '../../../core/models/city.model';
 import { CityInfoBadgeComponent } from '../../../shared/city-info-badge/city-info-badge.component';
@@ -355,7 +356,7 @@ import { AttractionsLoadErrorComponent } from '../../../shared/attractions-load-
                     [disabled]="bookSaving()"
                     (click)="doBook()"
                     i18n="@@stopList.bookBtn">Guardar viaje 🎉
-              @if (!trip.loadedPlanId()) {
+              @if (!trip.loadedPlanId() && !auth.firstPlanAvailable()) {
                 <span class="karma-cost">−1 ✨ token</span>
               }
             </button>
@@ -458,6 +459,7 @@ export class StopListComponent {
   protected readonly personalModal = inject(PersonalActivityModalService);
   private readonly api         = inject(ApiService);
   private readonly sharedTrips = inject(SharedTripsService);
+  private readonly firstPlan   = inject(FirstPlanService);
   addDestination = output<void>();
   openPreferences = output<void>();
   stopSelected = output<void>();   // landing → editor (Feature 68)
@@ -658,6 +660,10 @@ export class StopListComponent {
   doBook(): void {
     if (!this.auth.isLoggedIn()) {
       this.authModal.openLogin(() => this.doBook());
+      return;
+    }
+    if (this.auth.firstPlanAvailable() && !this.trip.loadedPlanId()) {
+      this.firstPlan.saveFirstManualPlan().subscribe({ error: () => {} }); // F79: free, named "Mi primer viaje"
       return;
     }
     const existingName = this.activeTripName();

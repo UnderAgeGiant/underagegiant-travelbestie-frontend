@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { AddStopModalComponent } from './add-stop-modal.component';
 import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
+import { AuthService } from '../../../core/auth/auth.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
+import { of } from 'rxjs';
 
 const PARIS: City  = { id: 'paris',  name: 'Paris',  country: 'France', flag: '🇫🇷', region: 'europe' };
 const LONDON: City = { id: 'london', name: 'London', country: 'United Kingdom', flag: '🇬🇧', region: 'europe' };
@@ -145,5 +148,32 @@ describe('AddStopModalComponent — add() navigation (Feature 68)', () => {
     component.add();
 
     expect(nav).toHaveBeenCalledWith('/plan');
+  });
+});
+
+describe('AddStopModalComponent — F79 free first plan', () => {
+  function setup(firstPlanAvailable: boolean) {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AddStopModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    TestBed.inject(AuthService).setTokens('t', { name: 'Ana', email: 'ana@test.com', firstPlanAvailable });
+    const save = jest.spyOn(TestBed.inject(FirstPlanService), 'saveFirstManualPlan').mockReturnValue(of('p1'));
+    const component = TestBed.createComponent(AddStopModalComponent).componentInstance;
+    component.selectedCity.set(PARIS);
+    component.checkIn.set('01/06/2026');
+    component.checkOut.set('05/06/2026');
+    component.add();
+    return save;
+  }
+
+  it('saves the first city when the gift is available', () => {
+    expect(setup(true)).toHaveBeenCalled();
+  });
+
+  it("keeps today's browser-only draft once the gift is used", () => {
+    expect(setup(false)).not.toHaveBeenCalled();
   });
 });
