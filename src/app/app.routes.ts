@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/auth/auth.guard';
-import { aboutSeo, aiPlanningSeo, guidesSeo, karmaHistorySeo, myTripsSeo, notFoundSeo, planSeo, privacySeo, preferencesSeo, publicProfileSeo, sharedPendingSeo, termsSeo, tooManyRequestsSeo } from './core/seo/seo-pages';
+import { aboutSeo, aiPlanningSeo, firstPlanSeo, guidesSeo, karmaHistorySeo, myTripsSeo, notFoundSeo, planSeo, privacySeo, preferencesSeo, publicProfileSeo, sharedPendingSeo, termsSeo, tooManyRequestsSeo } from './core/seo/seo-pages';
 import { cityGuideSlugGuard } from './features/city-guide/city-guide.guard';
 import { landingGuard } from './features/shell/landing.guard';
 
@@ -56,6 +56,12 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: { seo: myTripsSeo },
     loadComponent: () => import('./features/my-trips/my-trips-page.component').then(m => m.MyTripsPageComponent),
+  },
+  {
+    path: 'first-plan',
+    canActivate: [authGuard],
+    data: { seo: firstPlanSeo },
+    loadComponent: () => import('./features/first-plan/first-plan-start.component').then(m => m.FirstPlanStartComponent),
   },
   {
     path: 'ai-planning',

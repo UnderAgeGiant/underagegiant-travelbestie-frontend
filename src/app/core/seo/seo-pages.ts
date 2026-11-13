@@ -43,6 +43,11 @@ export const myTripsSeo: RouteSeo = () => ({
   noindex: true,
 });
 
+export const firstPlanSeo: RouteSeo = () => ({
+  title: $localize`:@@seo.firstPlan.title:Tu primer plan | Tripilove`,
+  noindex: true,
+});
+
 export const aiPlanningSeo: RouteSeo = () => ({
   title: $localize`:@@seo.aiPlanning.title:Planificar con IA | Tripilove`,
   noindex: true,

@@ -32,7 +32,7 @@ export function shouldSearchSharedTrips(query: string): boolean {
 }
 
 /** Routes behind authGuard — kept in sync with app.routes.ts (Feature 68). */
-const PRIVATE_PATHS = ['/preferences', '/my-trips', '/karma-history'];
+const PRIVATE_PATHS = ['/preferences', '/my-trips', '/karma-history', '/first-plan'];
 
 @Injectable({ providedIn: 'root' })
 export class NavFacadeService {
