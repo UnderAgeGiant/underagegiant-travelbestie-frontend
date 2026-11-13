@@ -1,7 +1,9 @@
 import { StayLengthComponent } from '../../shared/stay-length/stay-length.component';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { GameAssetsService } from '../../core/game/game-assets.service';
-import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy, OnInit } from '@angular/core';
+import { ToastService } from '../../core/ui/toast.service';
+import { KarmaService } from '../../core/karma/karma.service';
 import { Subscription } from 'rxjs';
 import { AttractionCategory, getCategoryMeta, getAllCategories } from '../../core/models/attraction-category';
 import { ApiService } from '../../core/api/api.service';
@@ -10,7 +12,7 @@ import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload } from '../../core/models/ai.model';
-import { Trip, TransitLeg, TransitSegment, TransitMode, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
+import { Trip, TripStop, TransitLeg, TransitSegment, TransitMode, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
 import { CostSettingsComponent } from '../../shared/cost-settings/cost-settings.component';
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
@@ -107,11 +109,14 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
             <div class="shared-header">
               <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
               <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
-              <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 tokens ⭐ en total</div>
+              @if (!firstRunView()) {
+                <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 tokens ⭐ en total</div>
+              }
             </div>
           </div>
 
-          <!-- Step indicator -->
+          <!-- Step indicator (the free first run has no options step) -->
+          @if (!firstRunView()) {
           <div class="ai-plan-steps">
             <div class="ai-plan-step" [class.active]="step() === 'preferences'" [class.done]="step() !== 'preferences'">
               <span class="ai-plan-step-n">1</span>
@@ -128,6 +133,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
               <span i18n="@@aiplan.step3">Tu plan</span>
             </div>
           </div>
+          }
 
           @if (error()) {
             <div class="ai-plan-error">⚠️ {{ error() }}</div>
@@ -216,8 +222,56 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
             </div>
           }
 
+          <!-- ── F79 first run: one step, free, saved by the server ── -->
+          @if (step() === 'preferences' && firstRun()) {
+            <div class="ai-plan-card ai-first-card">
+              <p class="ai-first-banner" i18n="@@firstplan.banner">Tu primer plan es un regalo 🎁 No gasta Tokens: tus 10 Tokens siguen intactos.</p>
+
+              <div class="ai-plan-field">
+                <span class="ai-plan-label" i18n="@@aiplan.citiesLabel">¿A qué ciudades quieres ir?</span>
+                <app-city-multi-picker [max]="MAX_CITIES_FIRST_RUN" [(selected)]="cities" [limitNote]="firstRunLimitNote" />
+              </div>
+
+              <div class="ai-plan-field">
+                <label class="ai-plan-label" for="aiFirstDays" i18n="@@firstplan.daysTotal">Días en total (todas las ciudades)</label>
+                <input id="aiFirstDays" class="form-input" type="number" min="1" max="60"
+                       [value]="duration() ?? ''" (input)="setDuration($any($event.target).value)"
+                       i18n-placeholder="@@aiplan.durationPlaceholder" placeholder="Ej: 14" />
+                @if (citiesDaysNote(); as note) {
+                  <p class="ai-plan-days-note" role="status">{{ note }}</p>
+                }
+              </div>
+
+              <div class="ai-plan-field">
+                <label class="ai-plan-label" i18n="@@aiplan.startDateLabel">Fecha de inicio</label>
+                <app-date-picker [initialDate]="startDate()" (dateChange)="startDate.set($event)" />
+              </div>
+
+              <div class="ai-plan-field">
+                <label class="ai-plan-label" i18n="@@aiplan.categoriesLabel">Tipos de experiencia (opcional)</label>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+                  @for (cat of allCategoryMeta; track cat.code) {
+                    <button type="button" class="att-filter-chip"
+                            [class.active]="selectedCategories().includes(cat.code)"
+                            [style.--chip-bg]="cat.bg" (click)="toggleCategory(cat.code)">
+                      {{ cat.icon }} {{ cat.label }}
+                    </button>
+                  }
+                </div>
+              </div>
+
+              <button class="btn-pill btn-primary ai-plan-submit ai-first-submit" type="button"
+                      [disabled]="firstPlanLoading() || !canSuggest()" (click)="startFirstPlan()">
+                @if (firstPlanLoading()) { ⏳ } @else { 🎁 }
+                <span i18n="@@firstplan.cta">Crear mi plan gratis</span>
+              </button>
+              <button type="button" class="ai-first-link" (click)="viewFeaturedTrips.emit()"
+                      i18n="@@firstplan.seeReady">Ver planes listos para copiar</button>
+            </div>
+          }
+
           <!-- ── Step 1: Preferences form ── -->
-          @if (step() === 'preferences') {
+          @if (step() === 'preferences' && !firstRun()) {
             <div class="ai-plan-card">
               <div class="ai-plan-card-title" i18n="@@aiplan.prefTitle">¿Qué tipo de viaje buscas?</div>
 
@@ -427,6 +481,12 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
           <!-- ── Step 3: View & save result ── -->
           @if (step() === 'result' && generatedTrip()) {
+            @if (firstPlanTripId()) {
+              <div class="ai-first-saved" role="status">
+                <span class="ai-first-saved-check" i18n="@@firstplan.saved">Guardado en tu cuenta ✓</span>
+                <span class="ai-first-balance" i18n="@@firstplan.balance">Tus Tokens: {{ karma.karma() }} ⭐</span>
+              </div>
+            }
             @if (planSlideItems().length > 0) {
               <tb-plan-presentation-pill class="pp-banner" [stops]="generatedTrip()!.stops" [attention]="presentationAttention()" (open)="openPresentation()" />
             }
@@ -548,6 +608,12 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
               }
             </div>
 
+            @if (firstPlanTripId()) {
+              <div class="ai-plan-actions" style="margin-top:20px">
+                <button class="btn-pill btn-primary ai-save-cta" type="button" (click)="planSaved.emit()"
+                        i18n="@@firstplan.openEditor">Abrir mi plan</button>
+              </div>
+            } @else {
             <div style="margin-top:24px">
               <app-cost-settings [settings]="costSettings()" (settingsChange)="costSettings.set($event)" />
             </div>
@@ -564,6 +630,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                       type="button"
                       i18n="@@aiplan.saveBtn">💾 Guardar plan</button>
             </div>
+            }
           }
 
           </div>
@@ -649,7 +716,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
     </div>
   `
 })
-export class AiPlanningComponent implements OnDestroy {
+export class AiPlanningComponent implements OnInit, OnDestroy {
   protected readonly visibleHighlights = visibleHighlights;
   close     = output<void>();
   planSaved = output<void>();
@@ -661,6 +728,8 @@ export class AiPlanningComponent implements OnDestroy {
    * the same experience as just having waited for a fresh /ai/plan response.
    */
   initialResult = input<AiPlanViewPayload | null>(null);
+  /** Cities to pre-tick (`/ai-planning?city=paris,rome`, e.g. a visitor who signed up from a city guide). */
+  initialCityIds = input<string[]>([]);
 
   readonly auth = inject(AuthService);
   /** Cost estimate inputs for the saved plan; origin starts at the user's profile city. */
@@ -679,6 +748,18 @@ export class AiPlanningComponent implements OnDestroy {
   private readonly savedPlans = inject(SavedPlansService);
   private readonly karmaModal = inject(KarmaModalService);
   private readonly locale     = inject(LocaleService);
+  private readonly toast      = inject(ToastService);
+  protected readonly karma    = inject(KarmaService);
+
+  // ── F79 free first run. Display state only: the backend claims the gift and rejects a used one with 409. ──
+  /** An undefined flag (backend predates F79) is false, so the screen behaves as before. */
+  readonly firstRun = computed(() => this.auth.firstPlanAvailable());
+  readonly firstPlanLoading = signal(false);
+  /** Trip the server job saved; drives the first-run result view (the flag is already false by then). */
+  readonly firstPlanTripId = signal<string | null>(null);
+  readonly firstRunView = computed(() => this.firstRun() || this.firstPlanTripId() !== null);
+  protected readonly MAX_CITIES_FIRST_RUN = 3;
+  protected readonly firstRunLimitNote = $localize`:@@firstplan.limit3:Tres ciudades es el máximo para el primer plan gratis.`;
 
   step            = signal<Step>('preferences');
   loading         = signal(false);
@@ -731,16 +812,17 @@ export class AiPlanningComponent implements OnDestroy {
   readonly aiMode = signal<AiMode>(readStoredMode());
   readonly cities = signal<string[]>([]);
   /** What the detector compares and the API receives for the active mode. */
-  private readonly activePreferences = computed(() => (this.aiMode() === 'cities' ? '' : this.preferences()));
-  private readonly activeCityIds = computed(() => (this.aiMode() === 'cities' ? [...this.cities()].sort() : []));
+  private readonly citiesActive = computed(() => this.firstRun() || this.aiMode() === 'cities');
+  private readonly activePreferences = computed(() => (this.citiesActive() ? '' : this.preferences()));
+  private readonly activeCityIds = computed(() => (this.citiesActive() ? [...this.cities()].sort() : []));
   readonly citiesDaysNote = computed(() => {
     const n = this.cities().length, d = this.duration();
-    return this.aiMode() === 'cities' && d != null && d < n
+    return this.citiesActive() && d != null && d < n
       ? $localize`:@@aiplan.citiesDaysNote:Con ${n}:count: ciudades necesitas al menos ${n}:count: días`
       : null;
   });
   readonly canSuggest = computed(() => {
-    if (this.aiMode() === 'text') return !!this.preferences().trim();
+    if (!this.citiesActive()) return !!this.preferences().trim();
     const n = this.cities().length, d = this.duration();
     return n > 0 && d != null && d >= n;
   });
@@ -792,6 +874,64 @@ export class AiPlanningComponent implements OnDestroy {
         }
       }
     }, { allowSignalWrites: true });
+  }
+
+  ngOnInit(): void {
+    const ids = this.initialCityIds();
+    if (ids.length) this.cities.set(ids.slice(0, this.firstRun() ? this.MAX_CITIES_FIRST_RUN : this.MAX_CITIES_REGULAR));
+  }
+
+  /** "Crear mi plan gratis": POST /ai/first-plan; the job saves the trip, so success means it is already in the account. */
+  startFirstPlan(): void {
+    const duration = this.duration();
+    if (this.firstPlanLoading() || !this.canSuggest() || duration == null) return;
+    new Image().src = '/ai-plan-ready.gif';
+    void this.gameAssets.preload();
+    this.error.set(null);
+    this.firstPlanLoading.set(true);
+    this.loadingMessage.set($localize`:@@aiplan.loadingPlan:Creando tu plan de viaje 🗺️`);
+    this.loading.set(true);
+    this.clearPlanTakingLongTimer();
+    this.planTakingLongTimer = setTimeout(() => this.planTakingLong.set(true), AiPlanningComponent.AI_PLAN_LONG_WAIT_MS);
+
+    this.planSub = this.api.firstPlan({
+      cities:      this.cities().map(id => ({ id, name: this.cityFor(id)?.name ?? id })),
+      duration,
+      startDate:   this.startDate() || undefined,
+      preferences: this.buildPreferences() || undefined,
+    }).subscribe({
+      next: ({ tripId, title, stops, transits }) => {
+        this.endFirstPlanWait();
+        this.savedPlans.register({ id: tripId, name: title, savedAt: new Date().toISOString(), stops: stops as TripStop[], transits: transits as TransitLeg[] });
+        this.tripSvc.restoreStops(stops as TripStop[], tripId, transits as TransitLeg[]);
+        this.auth.setFirstPlanAvailable(false);
+        this.generatedTrip.set({ title, stops, transits } as Trip);
+        this.firstPlanTripId.set(tripId);
+        this.step.set('result');
+        if (this.gameOpen()) this.planReadyWhileGaming.set(true);
+        else this.triggerPlanReadyCelebration();
+      },
+      error: err => {
+        this.endFirstPlanWait();
+        this.gameOpen.set(false);
+        this.planReadyWhileGaming.set(false);
+        if (err?.status === 409 && err?.error?.error === 'first_plan_used') {
+          this.auth.setFirstPlanAvailable(false);
+          this.toast.show($localize`:@@firstplan.alreadySaved:Tu primer plan ya está guardado en Mis viajes`);
+          return;
+        }
+        // A failed run returns the gift on the server; mirror that so "Crear mi plan gratis" works as the retry.
+        this.auth.setFirstPlanAvailable(true);
+        this.error.set(err?.error?.error ?? $localize`:@@firstplan.failed:No pudimos crear tu plan. Inténtalo de nuevo.`);
+      },
+    });
+  }
+
+  private endFirstPlanWait(): void {
+    this.clearPlanTakingLongTimer();
+    this.planTakingLong.set(false);
+    this.loading.set(false);
+    this.firstPlanLoading.set(false);
   }
 
   toggleCategory(code: AttractionCategory): void {
@@ -1122,6 +1262,11 @@ export class AiPlanningComponent implements OnDestroy {
    * outright — confirmNotify() (the "Ok" button) is what actually closes it.
    */
   notifyMeInstead(): void {
+    // A first run keeps going on the server, which holds the gift: stop offering it here (the next auth refresh corrects it).
+    if (this.firstPlanLoading()) {
+      this.firstPlanLoading.set(false);
+      this.auth.setFirstPlanAvailable(false);
+    }
     this.planSub?.unsubscribe();
     this.planSub = null;
     this.clearPlanTakingLongTimer();

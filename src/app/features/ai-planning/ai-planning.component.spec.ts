@@ -2,7 +2,10 @@ import { TestBed, fakeAsync, tick, ComponentFixture } from '@angular/core/testin
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { Subject, of } from 'rxjs';
+import { Subject, of, throwError } from 'rxjs';
+import { ApiService } from '../../core/api/api.service';
+import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
+import { ToastService } from '../../core/ui/toast.service';
 import { AiPlanningComponent, visibleHighlights, MAX_VISIBLE_HIGHLIGHTS, MAX_PREFERENCES_CHARS, MAX_PLAN_TITLE_CHARS } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
 import { backdropImages } from '../../core/game/runner-backdrop.util';
@@ -1034,5 +1037,97 @@ describe('AiPlanningComponent — F79 cities / free-text mode in step 1', () => 
     create();
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('input[type="number"]').getAttribute('max')).toBe('60');
+  });
+});
+
+describe('AiPlanningComponent — F79 free first run', () => {
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let api: ApiService;
+  const RESULT = { title: 'Viaje a Paris', stops: [TRIP.stops[0]], transits: [], tripId: 'trip-1' };
+
+  function create(firstPlanAvailable: boolean | undefined): HTMLElement {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    api = TestBed.inject(ApiService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    auth.setTokens('t', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable });
+    fixture.detectChanges();
+    return fixture.nativeElement;
+  }
+  function ready(): void {
+    component.cities.set(['paris']);
+    component.duration.set(3);
+  }
+
+  it('undefined flag is not first-run (no banner, regular card)', () => {
+    const el = create(undefined);
+    expect(component.firstRun()).toBe(false);
+    expect(el.querySelector('.ai-first-banner')).toBeNull();
+    expect(el.querySelector('.ai-mode-switch')).not.toBeNull();
+  });
+
+  it('first-run card hides textarea, budget, the change stats and the Token price', () => {
+    const el = create(true);
+    expect(el.querySelector('.ai-first-banner')).not.toBeNull();
+    expect(el.querySelector('textarea')).toBeNull();
+    expect(el.querySelector('input[placeholder="Ej: 500-1000 USD"]')).toBeNull();
+    expect(el.querySelector('.ai-change-stats')).toBeNull();
+    expect(el.querySelector('.ai-plan-karma-note')).toBeNull();
+    expect(el.querySelector('.ai-plan-steps')).toBeNull();
+  });
+
+  it('button disabled until a city and days are set', () => {
+    const el = create(true);
+    const btn = () => el.querySelector('.ai-first-submit') as HTMLButtonElement;
+    expect(btn().disabled).toBe(true);
+    component.cities.set(['paris']);
+    fixture.detectChanges();
+    expect(btn().disabled).toBe(true);
+    component.duration.set(2);
+    fixture.detectChanges();
+    expect(btn().disabled).toBe(false);
+  });
+
+  it('startFirstPlan registers the saved plan, marks it loaded and clears the flag', () => {
+    create(true);
+    ready();
+    const spy = jest.spyOn(api, 'firstPlan').mockReturnValue(of(RESULT));
+    const register = jest.spyOn(TestBed.inject(SavedPlansService), 'register');
+    component.startFirstPlan();
+    expect(spy).toHaveBeenCalledWith(expect.objectContaining({ cities: [{ id: 'paris', name: 'Paris' }], duration: 3 }));
+    expect(register).toHaveBeenCalledWith(expect.objectContaining({ id: 'trip-1', name: 'Viaje a Paris' }));
+    expect(TestBed.inject(TripService).loadedPlanId()).toBe('trip-1');
+    expect(auth.firstPlanAvailable()).toBe(false);
+    expect(component.firstPlanTripId()).toBe('trip-1');
+    expect(component.step()).toBe('result');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.ai-first-saved').textContent).toContain('Guardado en tu cuenta');
+  });
+
+  it('a failed first run restores the flag and shows the error', () => {
+    create(true);
+    ready();
+    jest.spyOn(api, 'firstPlan').mockReturnValue(throwError(() => ({ status: 500, error: { error: 'boom' } })));
+    auth.setFirstPlanAvailable(false);
+    component.startFirstPlan();
+    expect(auth.firstPlanAvailable()).toBe(true);
+    expect(component.error()).toBe('boom');
+    expect(component.firstPlanLoading()).toBe(false);
+  });
+
+  it('409 clears the flag and shows the toast', () => {
+    create(true);
+    ready();
+    jest.spyOn(api, 'firstPlan').mockReturnValue(throwError(() => ({ status: 409, error: { error: 'first_plan_used' } })));
+    component.startFirstPlan();
+    expect(auth.firstPlanAvailable()).toBe(false);
+    expect(TestBed.inject(ToastService).message()).toContain('Tu primer plan ya está guardado');
   });
 });

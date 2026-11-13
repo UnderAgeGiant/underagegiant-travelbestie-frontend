@@ -781,6 +781,14 @@ app-nav { display: block; }
 .ai-mode-switch { display: inline-flex; gap: 6px; padding: 4px; margin-bottom: 16px; border-radius: 99px; background: var(--cream); border: 1.5px solid var(--border); }
 .ai-mode-switch .btn-pill:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
 .ai-plan-days-note { margin: 6px 0 0; font-size: 12px; font-weight: 600; color: var(--peach-d); }
+/* F79 free first run */
+.ai-first-banner { margin: 0 0 18px; padding: 12px 16px; border-radius: 14px; background: var(--lav); color: var(--lav-d); font-size: 13px; font-weight: 600; line-height: 1.45; }
+.ai-first-link { display: block; margin: 12px auto 0; padding: 6px 10px; border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--lav-d); text-decoration: underline; text-underline-offset: 3px; }
+.ai-first-link:hover { background: var(--lav); }
+.ai-first-link:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
+.ai-first-saved { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 14px; padding: 12px 16px; border-radius: 14px; background: var(--mint); border: 1.5px solid var(--border); }
+.ai-first-saved-check { font-size: 14px; font-weight: 600; color: var(--mint-d); }
+.ai-first-balance { padding: 4px 10px; border-radius: 99px; background: #fff; color: var(--t1); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .ai-plan-row { display: flex; gap: 12px; }
 .ai-plan-row .ai-plan-field { flex: 1; }
 .ai-plan-submit { width: 100%; justify-content: center; padding: 12px; font-size: 14px; margin-top: 4px; }
