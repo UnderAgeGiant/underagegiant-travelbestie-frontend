@@ -111,6 +111,12 @@ describe('cityIds (F79 cities mode)', () => {
     expect(s.endsWith(',"cityIds":["paris","rome"]}')).toBe(true);
   });
 
+  it('matches the backend serializeOptions byte for byte (fixture from manager repo B3)', () => {
+    expect(serializeOptions({ ...baseOpts, cityIds: ['rome', 'paris'] })).toBe(
+      '{"title":"clásicos de europa","summary":"parís, roma y barcelona en un viaje lleno de arte.","highlights":["barcelona, españa","parís, francia","roma, italia"],"preferences":"viaje romántico con gastronomía","duration":14,"budget":"1000 usd","startDate":"15/07/2026","cityIds":["paris","rome"]}',
+    );
+  });
+
   it('swapping one of five cities is a minor change', () => {
     const swapped = { ...cityOpts, cityIds: ['paris', 'rome', 'barcelona', 'lisbon', 'porto'] };
     expect(computeChangeRatio(cityOpts, swapped)).toBeLessThanOrEqual(CHANGE_THRESHOLD);
