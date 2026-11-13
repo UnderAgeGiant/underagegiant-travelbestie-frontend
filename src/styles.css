@@ -448,7 +448,8 @@ app-nav { display: block; }
 .cmp-option:focus-visible, .cmp-continent:focus-visible { outline: 2px solid var(--lav-d); outline-offset: -2px; }
 .cmp-footer { display: flex; justify-content: flex-end; padding: 10px 12px; border-top: 1.5px solid var(--border); background: #fff; }
 @media (max-width: 768px) {
-  .cmp-list { max-height: 60vh; }
+  /* Short enough that search + list + "Listo" fit in one viewport even under 3–4 rows of chips. */
+  .cmp-list { max-height: 45vh; max-height: 45dvh; }
   .cmp-footer .cmp-done { width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {

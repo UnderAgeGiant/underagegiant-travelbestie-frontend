@@ -73,6 +73,18 @@ describe('CityMultiPickerComponent', () => {
     expect(el.querySelector('.cmp-limit')!.textContent).toContain('Tres ciudades');
   });
 
+  it('ticking a city scrolls the open panel back into view (chips can push it down)', () => {
+    const spy = jest.fn();
+    Element.prototype.scrollIntoView = spy;
+    fixture.componentInstance.toggle();
+    fixture.detectChanges();
+    spy.mockClear();
+    (fixture.nativeElement.querySelector('.cmp-option') as HTMLButtonElement).click();
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalledWith({ block: 'nearest' });
+    delete (Element.prototype as { scrollIntoView?: unknown }).scrollIntoView;
+  });
+
   it('✕ on a chip emits selectedChange without that id', () => {
     fixture.componentRef.setInput('selected', ['paris', 'rome']);
     fixture.detectChanges();

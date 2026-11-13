@@ -133,11 +133,14 @@ export class CityMultiPickerComponent {
   toggle(): void {
     if (this.open()) { this.close(); return; }
     this.open.set(true);
+    afterNextRender(() => this.searchInput()?.nativeElement.focus({ preventScroll: true }), { injector: this.injector });
+    this.revealPanel();
+  }
+
+  /** On a short screen the panel can end below the fold, and wrapping chips push it further down: keep "Listo" in view. */
+  private revealPanel(): void {
     afterNextRender(() => {
-      const search = this.searchInput()?.nativeElement;
-      search?.focus({ preventScroll: true });
-      // On a short screen the open panel can end below the fold; bring "Listo" into view once.
-      search?.closest('.cmp-dropdown')?.scrollIntoView?.({ block: 'nearest' });
+      this.host.nativeElement.querySelector('.cmp-dropdown')?.scrollIntoView?.({ block: 'nearest' });
     }, { injector: this.injector });
   }
 
@@ -163,6 +166,7 @@ export class CityMultiPickerComponent {
   toggleCity(id: string): void {
     if (this.isSelected(id)) this.selected.set(this.selected().filter(x => x !== id));
     else if (!this.atLimit()) this.selected.set([...this.selected(), id]);
+    this.revealPanel();
   }
 
   remove(id: string, e: Event): void {
