@@ -28,8 +28,16 @@ import { backdropImages } from '../../core/game/runner-backdrop.util';
 import { buildPlanSlideshowItems } from '../../shared/plan-slideshow/plan-slideshow.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { LocaleService } from '../../core/i18n/locale.service';
+import { CityMultiPickerComponent } from '../../shared/city-multi-picker/city-multi-picker.component';
 
 type Step = 'preferences' | 'options' | 'result';
+type AiMode = 'cities' | 'text';
+
+/** Step 1's last-used mode (F79). localStorage, not session: it should survive closing the tab. */
+const AI_MODE_KEY = 'tb_ai_mode';
+function readStoredMode(): AiMode {
+  try { return localStorage.getItem(AI_MODE_KEY) === 'text' ? 'text' : 'cities'; } catch { return 'cities'; }
+}
 
 const AI_PLAN_CELEBRATE_MS = 2600;
 
@@ -62,7 +70,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
 @Component({
     selector: 'app-ai-planning',
-    imports: [StayLengthComponent, AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent, CostSettingsComponent],
+    imports: [StayLengthComponent, AttractionNamePipe, DurationPipe, NavShellComponent, DatePickerComponent, FlagIconComponent, PlanSlideshowComponent, PlanPresentationPillComponent, MielRunnerComponent, CostSettingsComponent, CityMultiPickerComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="ai-plan-page">
@@ -213,6 +221,23 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
             <div class="ai-plan-card">
               <div class="ai-plan-card-title" i18n="@@aiplan.prefTitle">¿Qué tipo de viaje buscas?</div>
 
+              <div class="ai-mode-switch" role="tablist" i18n-aria-label="@@aiplan.modeLabel" aria-label="Cómo quieres planificar">
+                <button type="button" role="tab" class="btn-pill"
+                        [class.btn-primary]="aiMode() === 'cities'" [class.btn-ghost]="aiMode() !== 'cities'"
+                        [attr.aria-selected]="aiMode() === 'cities'" (click)="setMode('cities')"
+                        i18n="@@aiplan.modeCities">Ciudades</button>
+                <button type="button" role="tab" class="btn-pill"
+                        [class.btn-primary]="aiMode() === 'text'" [class.btn-ghost]="aiMode() !== 'text'"
+                        [attr.aria-selected]="aiMode() === 'text'" (click)="setMode('text')"
+                        i18n="@@aiplan.modeText">Texto libre</button>
+              </div>
+
+              @if (aiMode() === 'cities') {
+              <div class="ai-plan-field">
+                <span class="ai-plan-label" i18n="@@aiplan.citiesLabel">¿A qué ciudades quieres ir?</span>
+                <app-city-multi-picker [max]="MAX_CITIES_REGULAR" [(selected)]="cities" [limitNote]="citiesLimitNote" />
+              </div>
+              } @else {
               <div class="ai-plan-field">
                 <label class="ai-plan-label" for="aiPlanPrefs" i18n="@@aiplan.prefLabel">Describe tu viaje ideal</label>
                 <textarea id="aiPlanPrefs" class="ai-plan-textarea"
@@ -228,16 +253,20 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                      [class.ai-plan-count-warn]="preferencesNearLimit()"
                      i18n="@@aiplan.prefCount">{{ preferences().length }} / {{ maxPreferencesChars }}</div>
               </div>
+              }
 
               <div class="ai-plan-row">
                 <div class="ai-plan-field">
                   <label class="ai-plan-label" i18n="@@aiplan.durationLabel">Duración (días)</label>
                   <input class="form-input"
-                         type="number" min="1" max="90"
+                         type="number" min="1" max="60"
                          [value]="duration() ?? ''"
                          (input)="setDuration($any($event.target).value)"
                          i18n-placeholder="@@aiplan.durationPlaceholder"
                          placeholder="Ej: 14" />
+                  @if (citiesDaysNote(); as note) {
+                    <p class="ai-plan-days-note" role="status">{{ note }}</p>
+                  }
                 </div>
                 <div class="ai-plan-field">
                   <label class="ai-plan-label" i18n="@@aiplan.budgetLabel">Presupuesto estimado para todo el viaje</label>
@@ -316,7 +345,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
               }
 
               <button class="btn-pill btn-primary ai-plan-submit"
-                      [disabled]="loading() || !preferences().trim()"
+                      [disabled]="loading() || !canSuggest()"
                       (click)="suggest()"
                       type="button">
                 @if (loading()) { ⏳ } @else { ✨ }
@@ -696,6 +725,31 @@ export class AiPlanningComponent implements OnDestroy {
   readonly selectedCategories = signal<AttractionCategory[]>([]);
   readonly allCategoryMeta = getAllCategories();
 
+  // ── Step 1 mode (F79): cities picker or free text. Both inputs survive a switch; only the active one is sent. ──
+  protected readonly MAX_CITIES_REGULAR = 10;
+  protected readonly citiesLimitNote = $localize`:@@aiplan.citiesLimit:Puedes elegir hasta 10 ciudades.`;
+  readonly aiMode = signal<AiMode>(readStoredMode());
+  readonly cities = signal<string[]>([]);
+  /** What the detector compares and the API receives for the active mode. */
+  private readonly activePreferences = computed(() => (this.aiMode() === 'cities' ? '' : this.preferences()));
+  private readonly activeCityIds = computed(() => (this.aiMode() === 'cities' ? [...this.cities()].sort() : []));
+  readonly citiesDaysNote = computed(() => {
+    const n = this.cities().length, d = this.duration();
+    return this.aiMode() === 'cities' && d != null && d < n
+      ? $localize`:@@aiplan.citiesDaysNote:Con ${n}:count: ciudades necesitas al menos ${n}:count: días`
+      : null;
+  });
+  readonly canSuggest = computed(() => {
+    if (this.aiMode() === 'text') return !!this.preferences().trim();
+    const n = this.cities().length, d = this.duration();
+    return n > 0 && d != null && d >= n;
+  });
+
+  setMode(mode: AiMode): void {
+    this.aiMode.set(mode);
+    try { localStorage.setItem(AI_MODE_KEY, mode); } catch { /* storage unavailable */ }
+  }
+
   /**
    * Guards the constructor effect below so it only ever applies `initialResult`
    * once. A plain instance flag rather than a signal read: the effect used to
@@ -731,6 +785,10 @@ export class AiPlanningComponent implements OnDestroy {
           this.duration.set(params.duration);
           this.budget.set(params.budget ?? '');
           this.startDate.set(params.startDate ?? '');
+          if (params.cityIds?.length) {
+            this.cities.set(params.cityIds);
+            this.aiMode.set('cities');
+          }
         }
       }
     }, { allowSignalWrites: true });
@@ -742,8 +800,9 @@ export class AiPlanningComponent implements OnDestroy {
     );
   }
 
+  /** Cities mode sends only the interests sentence (the server writes the destinations itself). */
   private buildPreferences(): string {
-    const base = this.preferences().trim();
+    const base = this.activePreferences().trim();
     const cats = this.selectedCategories();
     if (cats.length === 0) return base;
     const labels = cats.map(c => getCategoryMeta()[c].label).join(', ');
@@ -804,11 +863,11 @@ export class AiPlanningComponent implements OnDestroy {
       selectedOptionTitle:      original.selectedOptionTitle,
       selectedOptionSummary:    original.selectedOptionSummary,
       selectedOptionHighlights: original.selectedOptionHighlights,
-      preferences:              this.preferences(),
+      preferences:              this.activePreferences(),
       duration:                 this.duration() ?? 0,
       budget:                   this.budget(),
       startDate:                this.startDate(),
-      cityIds:                  [],
+      cityIds:                  this.activeCityIds(),
     };
     const ratio = Math.round(computeChangeRatio(original, cur) * 100);
     let preview: 'free' | 'major_change' | 'limit_reached';
@@ -850,7 +909,7 @@ export class AiPlanningComponent implements OnDestroy {
    * On a completely fresh start a new planSessionId is generated.
    */
   suggest(): void {
-    if (!this.preferences().trim()) return;
+    if (!this.canSuggest()) return;
 
     const hasBaseline = !!(this.originalPlanOptions() ?? this.suggestBaseline());
     if (hasBaseline) {
@@ -886,7 +945,8 @@ export class AiPlanningComponent implements OnDestroy {
     this.loadingMessage.set($localize`:@@aiplan.loadingSuggest:Generando sugerencias ✨`);
     this.loading.set(true);
     this.error.set(null);
-    this.api.suggestTrips(this.buildPreferences(), this.duration(), this.budget() || undefined, this.planSessionId() ?? undefined)
+    const cityIds = this.aiMode() === 'cities' ? this.cities() : undefined;
+    this.api.suggestTrips(this.buildPreferences(), this.duration(), this.budget() || undefined, this.planSessionId() ?? undefined, cityIds)
       .subscribe({
         next: res => {
           this.suggestions.set(res);
@@ -903,11 +963,11 @@ export class AiPlanningComponent implements OnDestroy {
               selectedOptionTitle:      firstOpt.title,
               selectedOptionSummary:    firstOpt.summary,
               selectedOptionHighlights: firstOpt.highlights,
-              preferences:              this.preferences(),
+              preferences:              this.activePreferences(),
               duration:                 this.duration() ?? 0,
               budget:                   this.budget(),
               startDate:                this.startDate(),
-              cityIds:                  [],
+              cityIds:                  this.activeCityIds(),
             });
           }
           // Update free-change counter
@@ -942,10 +1002,11 @@ export class AiPlanningComponent implements OnDestroy {
     if (originalOpts) {
       const currentOpts = toSessionOptions({
         selectedOption: opt,
-        preferences:    this.preferences(),
+        preferences:    this.activePreferences(),
         duration:       this.duration(),
         budget:         this.budget() || undefined,
         startDate:      this.startDate() || undefined,
+        cityIds:        this.activeCityIds(),
       });
 
       const minor = isMinorChange(originalOpts, currentOpts);
@@ -998,6 +1059,7 @@ export class AiPlanningComponent implements OnDestroy {
       budget:         this.budget() || undefined,
       startDate:      this.startDate() || undefined,
       planSessionId:  this.planSessionId() ?? undefined,
+      ...(this.aiMode() === 'cities' ? { cityIds: this.cities() } : {}),
     }).subscribe({
       next: response => {
         this.clearPlanTakingLongTimer();
@@ -1109,10 +1171,11 @@ export class AiPlanningComponent implements OnDestroy {
       if (currentOpt) {
         this.originalPlanOptions.set(toSessionOptions({
           selectedOption: currentOpt,
-          preferences:    this.preferences(),
+          preferences:    this.activePreferences(),
           duration:       this.duration(),
           budget:         this.budget() || undefined,
           startDate:      this.startDate() || undefined,
+          cityIds:        this.activeCityIds(),
         }));
       }
       this.freeChangesUsed.set(0);
@@ -1220,6 +1283,7 @@ export class AiPlanningComponent implements OnDestroy {
     this.budget.set('');
     this.startDate.set('');
     this.selectedCategories.set([]);
+    this.cities.set([]);
   }
 
   /**

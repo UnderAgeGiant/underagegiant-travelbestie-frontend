@@ -777,6 +777,10 @@ app-nav { display: block; }
 .ai-plan-textarea:focus { border-color: var(--lav-d); }
 .ai-plan-count { margin-top: 4px; text-align: right; font-size: 11px; color: var(--t3); font-variant-numeric: tabular-nums; transition: color .2s; }
 .ai-plan-count-warn { color: var(--peach-d); font-weight: 600; }
+/* F79 step 1 mode switch + cities-vs-days note */
+.ai-mode-switch { display: inline-flex; gap: 6px; padding: 4px; margin-bottom: 16px; border-radius: 99px; background: var(--cream); border: 1.5px solid var(--border); }
+.ai-mode-switch .btn-pill:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
+.ai-plan-days-note { margin: 6px 0 0; font-size: 12px; font-weight: 600; color: var(--peach-d); }
 .ai-plan-row { display: flex; gap: 12px; }
 .ai-plan-row .ai-plan-field { flex: 1; }
 .ai-plan-submit { width: 100%; justify-content: center; padding: 12px; font-size: 14px; margin-top: 4px; }

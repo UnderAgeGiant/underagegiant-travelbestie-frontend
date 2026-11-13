@@ -168,7 +168,8 @@ export class ApiService {
       switchMap(index => {
         const cityIndex = citiesMode ? index.filter(c => cityIds!.includes(c.id)) : index;
         return this.http.post<SuggestTripsResponse>(`${this.base}/ai/suggest`, {
-          preferences, duration, budget, cityIndex, planSessionId, ...(citiesMode ? { cityIds } : {}),
+          // Cities mode with no interest chips has no preferences text: omit it (optional there, §5.1).
+          preferences: preferences || undefined, duration, budget, cityIndex, planSessionId, ...(citiesMode ? { cityIds } : {}),
         });
       }),
     );

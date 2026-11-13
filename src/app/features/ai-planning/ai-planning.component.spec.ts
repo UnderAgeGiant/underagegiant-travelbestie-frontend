@@ -664,6 +664,7 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    component.aiMode.set('text'); // these cases exercise the free-text step 1
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
@@ -835,6 +836,7 @@ describe('AiPlanningComponent — input length limits (mirror backend zod caps)'
 
   function renderStep1(): ComponentFixture<AiPlanningComponent> {
     const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.componentInstance.aiMode.set('text'); // the textarea only exists in free-text mode (F79)
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.detectChanges();
     return fixture;
@@ -934,5 +936,103 @@ describe('AiPlanningComponent — F1: Free-change note on Step 2', () => {
     expect(text(rightKids[0])).toContain('Generar nuevas opciones');
     expect(rightKids[1].classList).toContain('ai-regen-note');
     expect(text(rightKids[2])).toContain('Generar plan completo');
+  });
+});
+
+describe('AiPlanningComponent — F79 cities / free-text mode in step 1', () => {
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let http: HttpTestingController;
+
+  const OPTIONS = { options: [{ id: 1, title: 'Opción A', summary: 'Resumen A', highlights: ['a1'], cityIds: ['paris'] }] };
+
+  function create(): void {
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    http = TestBed.inject(HttpTestingController);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable: false });
+  }
+
+  // Rendering pulls in <app-nav> (notifications poll), so no blanket http.verify() here.
+  beforeEach(() => localStorage.clear());
+
+  it('default mode is cities when localStorage is empty', () => {
+    create();
+    expect(component.aiMode()).toBe('cities');
+  });
+
+  it('remembers the last mode', () => {
+    localStorage.setItem('tb_ai_mode', 'text');
+    create();
+    expect(component.aiMode()).toBe('text');
+    component.setMode('cities');
+    expect(localStorage.getItem('tb_ai_mode')).toBe('cities');
+  });
+
+  it('cities mode with 4 cities and 3 days shows the note and disables the button', () => {
+    create();
+    component.cities.set(['paris', 'rome', 'madrid', 'lisbon']);
+    component.duration.set(3);
+    fixture.detectChanges();
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('.ai-plan-days-note')!.textContent).toContain('Con 4 ciudades necesitas al menos 4 días');
+    expect((el.querySelector('.ai-plan-submit') as HTMLButtonElement).disabled).toBe(true);
+    expect(el.querySelector('textarea')).toBeNull();
+    component.duration.set(4);
+    fixture.detectChanges();
+    expect(el.querySelector('.ai-plan-days-note')).toBeNull();
+    expect((el.querySelector('.ai-plan-submit') as HTMLButtonElement).disabled).toBe(false);
+  });
+
+  it('switching mode keeps both inputs', () => {
+    create();
+    component.cities.set(['paris']);
+    component.setMode('text');
+    component.preferences.set('museos');
+    component.setMode('cities');
+    expect(component.cities()).toEqual(['paris']);
+    expect(component.preferences()).toBe('museos');
+  });
+
+  it('suggest in cities mode calls api.suggestTrips with cityIds and an interests-only preferences string', fakeAsync(() => {
+    create();
+    component.preferences.set('texto que no se envía');
+    component.cities.set(['rome', 'paris']);
+    component.duration.set(5);
+    component.toggleCategory('foodie');
+    component.suggest();
+    tick(0);
+    const req = http.expectOne(r => r.url.includes('/ai/suggest'));
+    expect(req.request.body.cityIds).toEqual(['rome', 'paris']);
+    expect(req.request.body.preferences).toMatch(/^Tipos de experiencia preferidos: /);
+    expect(req.request.body.preferences).not.toContain('texto que no se envía');
+    req.flush(OPTIONS);
+    expect(component.suggestBaseline()!.cityIds).toEqual(['paris', 'rome']);
+    expect(component.suggestBaseline()!.preferences).toBe('');
+  }));
+
+  it('switching mode after a baseline exists shows the major_change preview', fakeAsync(() => {
+    create();
+    component.cities.set(['paris']);
+    component.duration.set(3);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+    expect(component.planChangeAnalysis().preview).toBe('free');
+    component.setMode('text');
+    component.preferences.set('museos');
+    expect(component.planChangeAnalysis().preview).toBe('major_change');
+  }));
+
+  it('days input caps at 60', () => {
+    create();
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('input[type="number"]').getAttribute('max')).toBe('60');
   });
 });
