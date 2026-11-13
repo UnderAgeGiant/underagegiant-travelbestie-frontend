@@ -47,7 +47,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                  : 'linear-gradient(135deg,var(--lav),var(--peach))'">
             <button type="button"
                     style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:16px;line-height:1;padding:5px 8px;border-radius:8px;cursor:pointer;transition:background .12s"
-                    (click)="authModal.close()">✕</button>
+                    (click)="cancel()">✕</button>
             @if (loginMode() === 'reset') {
               <div class="modal-title" i18n="@@nav.resetTitle">Recuperar contraseña 🔑</div>
               <div class="modal-sub" i18n="@@nav.resetSubtitle">Te enviaremos un código a tu correo</div>
@@ -250,7 +250,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               }
             </div>
             <div style="display:flex;gap:8px;width:100%">
-              <button class="btn-pill btn-outline" (click)="authModal.close()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
+              <button class="btn-pill btn-outline" (click)="cancel()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
               @if (loginMode() === 'reset') {
                 @if (resetStep() === 'request') {
                   <button class="btn-pill btn-primary" (click)="requestReset()"
@@ -649,6 +649,12 @@ export class AuthModalComponent {
     if (digits.length === 6) {
       this.doAuth();
     }
+  }
+
+  /** ✕ / Cancelar: a visitor who gives up on signing in drops the F79 sign-up intent, so a later login elsewhere never acts on it. */
+  cancel(): void {
+    this.authModal.close();
+    this.firstPlan.takeSignupIntent();
   }
 
   dismissRegisterSuccess(): void {

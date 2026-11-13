@@ -289,3 +289,22 @@ describe('AuthModalComponent — accept Terms of Service before registering (202
     expect(sendOtpBtn().disabled).toBe(true);
   });
 });
+
+describe('AuthModalComponent — F79 sign-up intent', () => {
+  it('Cancelar drops a stored sign-up intent so a later login never acts on it', () => {
+    sessionStorage.clear();
+    (window as any).turnstile = { render: () => 'widget-1', remove: () => {}, reset: () => {} };
+    TestBed.configureTestingModule({
+      imports: [AuthModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    sessionStorage.setItem('tb_signup_intent', JSON.stringify({ kind: 'shared', shareId: 's1' }));
+    const authModal = TestBed.inject(AuthModalService);
+    const fixture = TestBed.createComponent(AuthModalComponent);
+    authModal.openLogin();
+    fixture.detectChanges();
+    fixture.componentInstance.cancel();
+    expect(authModal.isOpen()).toBe(false);
+    expect(sessionStorage.getItem('tb_signup_intent')).toBeNull();
+  });
+});
