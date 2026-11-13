@@ -33,7 +33,7 @@ export interface PlanChangeInfo {
 
 export interface PlanTripRequest {
   selectedOption: TripSuggestion;
-  preferences:    string;
+  preferences?:   string;   // omitted in cities mode without interest chips (optional there, §5.2)
   duration?:      number;
   budget?:        string;
   startDate?:     string;
@@ -133,7 +133,7 @@ export interface AiPlanHistoryItem {
   status:        'completed' | 'failed';
   requestParams: {
     selectedOption: TripSuggestion;
-    preferences:    string;
+    preferences?:   string;
     duration?:      number;
     budget?:        string;
     startDate?:     string;
@@ -160,7 +160,7 @@ export interface AiPlanViewPayload {
    */
   requestParams?: {
     selectedOption: TripSuggestion;
-    preferences:    string;
+    preferences?:   string;
     duration?:      number;
     budget?:        string;
     startDate?:     string;
