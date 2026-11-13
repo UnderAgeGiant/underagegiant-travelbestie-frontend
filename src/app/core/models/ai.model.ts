@@ -21,6 +21,7 @@ export interface PlanSessionOptions {
   duration:                 number;  // 0 when not specified
   budget:                   string;  // '' when not specified
   startDate:                string;  // '' when not specified
+  cityIds:                  string[]; // [] in free-text mode (F79 cities mode); sorted when serialized
 }
 
 export interface PlanChangeInfo {
@@ -38,7 +39,20 @@ export interface PlanTripRequest {
   startDate?:     string;
   cityCatalog?:   CityCatalog;
   planSessionId?: string;   // ← ties multiple /ai/plan calls into one session
+  cityIds?:       string[]; // cities mode (F79): the ticked destinations, echoed from /ai/suggest
 }
+
+/** Input to ApiService.firstPlan() — the free one-step first run (POST /ai/first-plan, contracts §5.5). */
+export interface FirstPlanRequest {
+  cities:       CatalogEntry[];
+  duration:     number;
+  startDate?:   string;
+  preferences?: string;
+  cityCatalog?: CityCatalog;
+}
+
+/** A finished first-run plan; the backend job already saved it as trip `tripId`. */
+export type FirstPlanResult = PlanTripResponse & { tripId: string };
 
 /** Shape of the /ai/plan HTTP response (plan data + optional change info). */
 export interface PlanTripResponse {
@@ -109,6 +123,8 @@ export interface AiPlanStatusResponse {
   result?:     AiPlanResultData;
   changeInfo?: PlanChangeInfo;
   error?:      string;
+  /** Trip the job saved for a first-run request (§5.5); null for every normal run. */
+  tripId?:     string | null;
 }
 
 /** One row from GET /ai/plan/history — a past AI-generated plan the user can revisit read-only. */
@@ -121,6 +137,8 @@ export interface AiPlanHistoryItem {
     duration?:      number;
     budget?:        string;
     startDate?:     string;
+    cityIds?:       string[];
+    firstRun?:      boolean;
   };
   result?:       AiPlanResultData;
   error?:        string;
@@ -146,5 +164,7 @@ export interface AiPlanViewPayload {
     duration?:      number;
     budget?:        string;
     startDate?:     string;
+    cityIds?:       string[];
+    firstRun?:      boolean;
   };
 }

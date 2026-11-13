@@ -808,6 +808,7 @@ export class AiPlanningComponent implements OnDestroy {
       duration:                 this.duration() ?? 0,
       budget:                   this.budget(),
       startDate:                this.startDate(),
+      cityIds:                  [],
     };
     const ratio = Math.round(computeChangeRatio(original, cur) * 100);
     let preview: 'free' | 'major_change' | 'limit_reached';
@@ -906,6 +907,7 @@ export class AiPlanningComponent implements OnDestroy {
               duration:                 this.duration() ?? 0,
               budget:                   this.budget(),
               startDate:                this.startDate(),
+              cityIds:                  [],
             });
           }
           // Update free-change counter

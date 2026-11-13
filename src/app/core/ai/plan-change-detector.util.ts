@@ -29,6 +29,7 @@ export function serializeOptions(opts: PlanSessionOptions): string {
     duration:   opts.duration,
     budget:     opts.budget.trim().toLowerCase(),
     startDate:  opts.startDate.trim(),
+    cityIds:    [...(opts.cityIds ?? [])].sort(),
   });
 }
 
@@ -44,11 +45,19 @@ export function computeChangeRatio(
   return levenshtein(a, b) / maxLen;
 }
 
-/** Returns true when change ratio ≤ 20%. */
+/** Returns true when change ratio ≤ 20%. Switching between cities mode and free-text mode is always major. */
 export function isMinorChange(
   oldOpts: PlanSessionOptions,
   newOpts: PlanSessionOptions,
 ): boolean {
+  const a = oldOpts.cityIds ?? [], b = newOpts.cityIds ?? [];
+  if ((a.length > 0) !== (b.length > 0)) return false;
+  if (a.length > 0) {
+    // City ids are a tiny share of the serialized string, so they get their own share-changed check.
+    const size = Math.max(a.length, b.length);
+    const kept = b.filter(id => a.includes(id)).length;
+    if ((size - kept) / size > CHANGE_THRESHOLD) return false;
+  }
   return computeChangeRatio(oldOpts, newOpts) <= CHANGE_THRESHOLD;
 }
 
@@ -59,6 +68,7 @@ export function toSessionOptions(req: {
   duration?:      number;
   budget?:        string;
   startDate?:     string;
+  cityIds?:       string[];
 }): PlanSessionOptions {
   return {
     selectedOptionTitle:      req.selectedOption.title,
@@ -68,5 +78,6 @@ export function toSessionOptions(req: {
     duration:                 req.duration ?? 0,
     budget:                   req.budget ?? '',
     startDate:                req.startDate ?? '',
+    cityIds:                  req.cityIds ?? [],
   };
 }
