@@ -1038,6 +1038,45 @@ describe('AiPlanningComponent — F79 cities / free-text mode in step 1', () => 
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('input[type="number"]').getAttribute('max')).toBe('60');
   });
+
+  it('61 days shows a localized note and disables the button (cities and text mode)', () => {
+    create();
+    component.cities.set(['paris', 'rome']);
+    component.duration.set(61);
+    fixture.detectChanges();
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('.ai-plan-days-note')!.textContent).toContain('Puedes planear hasta 60 días');
+    expect((el.querySelector('.ai-plan-submit') as HTMLButtonElement).disabled).toBe(true);
+    component.setMode('text');
+    component.preferences.set('museos');
+    expect(component.canSuggest()).toBe(false);
+    component.duration.set(60);
+    expect(component.canSuggest()).toBe(true);
+  });
+
+  it('cities mode without chips omits preferences from the plan request', () => {
+    create();
+    const planTrip = jest.fn().mockReturnValue(new Subject().asObservable());
+    (component as any).api.planTrip = planTrip;
+    component.cities.set(['paris', 'rome']);
+    component.duration.set(5);
+    component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
+    component.executePlan();
+    expect(planTrip.mock.calls[0][0].preferences).toBeUndefined();
+    expect(planTrip.mock.calls[0][0].cityIds).toEqual(['paris', 'rome']);
+  });
+
+  it('a mode switch shows a change percentage over the threshold, matching the verdict', fakeAsync(() => {
+    create();
+    component.cities.set(['paris']);
+    component.duration.set(3);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+    component.setMode('text');
+    component.preferences.set('museos');
+    expect(component.planChangeAnalysis().ratio).toBe(100);
+  }));
 });
 
 describe('AiPlanningComponent — F79 free first run', () => {
@@ -1118,7 +1157,7 @@ describe('AiPlanningComponent — F79 free first run', () => {
     auth.setFirstPlanAvailable(false);
     component.startFirstPlan();
     expect(auth.firstPlanAvailable()).toBe(true);
-    expect(component.error()).toBe('boom');
+    expect(component.error()).toBe('No pudimos crear tu plan. Inténtalo de nuevo.');
     expect(component.firstPlanLoading()).toBe(false);
   });
 

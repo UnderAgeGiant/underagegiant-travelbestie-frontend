@@ -15,7 +15,7 @@ import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOption
 import { Trip, TripStop, TransitLeg, TransitSegment, TransitMode, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
 import { CostSettingsComponent } from '../../shared/cost-settings/cost-settings.component';
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
-import { isMinorChange, toSessionOptions, computeChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
+import { isMinorChange, toSessionOptions, planChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
 import { Attraction } from '../../core/models/comment.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
@@ -815,15 +815,20 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
   private readonly citiesActive = computed(() => this.firstRun() || this.aiMode() === 'cities');
   private readonly activePreferences = computed(() => (this.citiesActive() ? '' : this.preferences()));
   private readonly activeCityIds = computed(() => (this.citiesActive() ? [...this.cities()].sort() : []));
+  /** The backend rejects more than 60 days (§5.1, §5.5); block it here with a localized note instead. */
+  protected readonly MAX_DAYS = 60;
   readonly citiesDaysNote = computed(() => {
     const n = this.cities().length, d = this.duration();
+    if (d != null && d > this.MAX_DAYS) return $localize`:@@aiplan.daysMax:Puedes planear hasta 60 días`;
     return this.citiesActive() && d != null && d < n
       ? $localize`:@@aiplan.citiesDaysNote:Con ${n}:count: ciudades necesitas al menos ${n}:count: días`
       : null;
   });
   readonly canSuggest = computed(() => {
+    const d = this.duration();
+    if (d != null && (d < 1 || d > this.MAX_DAYS)) return false;
     if (!this.citiesActive()) return !!this.preferences().trim();
-    const n = this.cities().length, d = this.duration();
+    const n = this.cities().length;
     return n > 0 && d != null && d >= n;
   });
 
@@ -863,7 +868,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
         // to keep unless we seed it here first.
         const params = initial.requestParams;
         if (params) {
-          this.preferences.set(params.preferences);
+          this.preferences.set(params.preferences ?? '');
           this.duration.set(params.duration);
           this.budget.set(params.budget ?? '');
           this.startDate.set(params.startDate ?? '');
@@ -922,7 +927,8 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
         }
         // A failed run returns the gift on the server; mirror that so "Crear mi plan gratis" works as the retry.
         this.auth.setFirstPlanAvailable(true);
-        this.error.set(err?.error?.error ?? $localize`:@@firstplan.failed:No pudimos crear tu plan. Inténtalo de nuevo.`);
+        // Always the localized message: the job's error text is internal and English.
+        this.error.set($localize`:@@firstplan.failed:No pudimos crear tu plan. Inténtalo de nuevo.`);
       },
     });
   }
@@ -1009,7 +1015,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
       startDate:                this.startDate(),
       cityIds:                  this.activeCityIds(),
     };
-    const ratio = Math.round(computeChangeRatio(original, cur) * 100);
+    const ratio = Math.round(planChangeRatio(original, cur) * 100);
     let preview: 'free' | 'major_change' | 'limit_reached';
     if (!isMinorChange(original, cur))                    preview = 'major_change';
     else if (this.freeChangesUsed() >= FREE_CHANGE_LIMIT) preview = 'limit_reached';
@@ -1194,7 +1200,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
 
     this.planSub = this.api.planTrip({
       selectedOption: opt,
-      preferences:    this.buildPreferences(),
+      preferences:    this.buildPreferences() || undefined,
       duration:       this.duration(),
       budget:         this.budget() || undefined,
       startDate:      this.startDate() || undefined,

@@ -45,20 +45,30 @@ export function computeChangeRatio(
   return levenshtein(a, b) / maxLen;
 }
 
-/** Returns true when change ratio ≤ 20%. Switching between cities mode and free-text mode is always major. */
+/**
+ * The ratio the free/charged verdict uses: 1 for a switch between cities mode and free-text mode,
+ * else the larger of the share of cities changed and the text ratio. Shown in the change bar.
+ */
+export function planChangeRatio(
+  oldOpts: PlanSessionOptions,
+  newOpts: PlanSessionOptions,
+): number {
+  const a = oldOpts.cityIds ?? [], b = newOpts.cityIds ?? [];
+  if ((a.length > 0) !== (b.length > 0)) return 1;
+  const text = computeChangeRatio(oldOpts, newOpts);
+  if (a.length === 0) return text;
+  // City ids are a tiny share of the serialized string, so they get their own share-changed check.
+  const size = Math.max(a.length, b.length);
+  const kept = b.filter(id => a.includes(id)).length;
+  return Math.max((size - kept) / size, text);
+}
+
+/** Returns true when change ratio ≤ 20% (mirrored with the backend's isMinorChange). */
 export function isMinorChange(
   oldOpts: PlanSessionOptions,
   newOpts: PlanSessionOptions,
 ): boolean {
-  const a = oldOpts.cityIds ?? [], b = newOpts.cityIds ?? [];
-  if ((a.length > 0) !== (b.length > 0)) return false;
-  if (a.length > 0) {
-    // City ids are a tiny share of the serialized string, so they get their own share-changed check.
-    const size = Math.max(a.length, b.length);
-    const kept = b.filter(id => a.includes(id)).length;
-    if ((size - kept) / size > CHANGE_THRESHOLD) return false;
-  }
-  return computeChangeRatio(oldOpts, newOpts) <= CHANGE_THRESHOLD;
+  return planChangeRatio(oldOpts, newOpts) <= CHANGE_THRESHOLD;
 }
 
 /** Extracts PlanSessionOptions from a plan request. */

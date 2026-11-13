@@ -3939,6 +3939,10 @@
         <source>Quitar <x id="city" equiv-text="name"/></source>
         <target>Remove <x id="city" equiv-text="name"/></target>
       </trans-unit>
+      <trans-unit id="aiplan.daysMax" datatype="html">
+        <source>Puedes planear hasta 60 días</source>
+        <target>You can plan up to 60 days</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

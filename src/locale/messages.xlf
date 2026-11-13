@@ -1437,43 +1437,50 @@
           <context context-type="linenumber">811</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="aiplan.daysMax" datatype="html">
+        <source>Puedes planear hasta 60 días</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
+          <context context-type="linenumber">822</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="aiplan.citiesDaysNote" datatype="html">
         <source>Con <x id="count" equiv-text="n"/> ciudades necesitas al menos <x id="count" equiv-text="n"/> días</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">821</context>
+          <context context-type="linenumber">824</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.loadingPlan" datatype="html">
         <source>Creando tu plan de viaje 🗺️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">892</context>
+          <context context-type="linenumber">897</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">1185</context>
+          <context context-type="linenumber">1191</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.alreadySaved" datatype="html">
         <source>Tu primer plan ya está guardado en Mis viajes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">920</context>
+          <context context-type="linenumber">925</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.failed" datatype="html">
         <source>No pudimos crear tu plan. Inténtalo de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">925</context>
+          <context context-type="linenumber">931</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.loadingSuggest" datatype="html">
         <source>Generando sugerencias ✨</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">1085</context>
+          <context context-type="linenumber">1091</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.eyebrow" datatype="html">
@@ -2170,7 +2177,7 @@
         <source>No pudimos copiar el plan. Inténtalo de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/first-plan/first-plan-start.component.ts</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.title" datatype="html">
@@ -6107,7 +6114,7 @@
         <source>Quitar <x id="city" equiv-text="name"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/city-multi-picker/city-multi-picker.component.ts</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityWeather.forecastTag" datatype="html">

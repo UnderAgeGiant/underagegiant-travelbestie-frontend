@@ -2,6 +2,7 @@ import {
   serializeOptions,
   computeChangeRatio,
   isMinorChange,
+  planChangeRatio,
   toSessionOptions,
   CHANGE_THRESHOLD,
 } from './plan-change-detector.util';
@@ -126,6 +127,13 @@ describe('cityIds (F79 cities mode)', () => {
   it('replacing four of five cities is a major change', () => {
     const replaced = { ...cityOpts, cityIds: ['paris', 'tokyo', 'kyoto', 'seoul', 'bangkok'] };
     expect(isMinorChange(cityOpts, replaced)).toBe(false);
+  });
+
+  it('planChangeRatio is the ratio the verdict uses: city share, and 1 for a mode switch', () => {
+    const replaced = { ...cityOpts, cityIds: ['paris', 'tokyo', 'kyoto', 'seoul', 'bangkok'] };
+    expect(planChangeRatio(cityOpts, replaced)).toBeCloseTo(0.8);
+    expect(planChangeRatio(cityOpts, { ...cityOpts, preferences: 'museos', cityIds: [] })).toBe(1);
+    expect(planChangeRatio(baseOpts, { ...baseOpts })).toBe(0);
   });
 
   it('swapping one of two cities is a major change, adding a sixth to five is minor', () => {
