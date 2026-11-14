@@ -28,6 +28,7 @@ import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-
 import { HighlightTourComponent } from '../../shared/highlight-tour/highlight-tour.component';
 import { HighlightTourService } from '../../shared/highlight-tour/highlight-tour.service';
 import { shouldShowProfileIntro } from '../../shared/highlight-tour/profile-intro.util';
+import { isGiftSession } from '../../core/first-plan/first-plan-session';
 import { TripFullPlanComponent } from '../../shared/trip-full-plan/trip-full-plan.component';
 import { DeviceService } from '../../core/device/device.service';
 
@@ -196,9 +197,11 @@ export class ShellComponent {
 
     // Logged-in users without a public username get a one-time nudge (seen is permanent).
     effect(() => {
-      if (shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username, this.auth.firstPlanAvailable())) {
+      // F79: not in the session that had the gift (it would cover the fresh first plan), only a later one.
+      const waitForGift = () => this.auth.firstPlanAvailable() || isGiftSession();
+      if (shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username, waitForGift())) {
         this.highlightTour.start('public_profile_intro', {
-          shouldStillShow: () => shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username, this.auth.firstPlanAvailable()),
+          shouldStillShow: () => shouldShowProfileIntro(this.auth.isLoggedIn(), this.auth.currentUser()?.username, waitForGift()),
         });
       }
     });

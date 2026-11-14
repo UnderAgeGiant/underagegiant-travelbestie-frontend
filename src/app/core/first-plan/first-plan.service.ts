@@ -13,8 +13,7 @@ import { NavFacadeService } from '../../features/nav/nav-facade.service';
 /** What a visitor was looking at when they started signing up (survives the auth modal + OTP in the same tab). */
 export type SignupIntent = { kind: 'city'; cityId: string } | { kind: 'shared'; shareId: string };
 
-const INTENT_KEY = 'tb_signup_intent';
-const AUTO_OPENED_KEY = 'tb_first_plan_auto_opened';
+import { AUTO_OPENED_KEY, SIGNUP_INTENT_KEY as INTENT_KEY } from './first-plan-session';
 
 /**
  * F79 free first plan, client side: carries the sign-up intent, opens the first-run screen once per

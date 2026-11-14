@@ -25,6 +25,7 @@ import { LocaleService } from '../../core/i18n/locale.service';
 import { AppLocale } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { AiPlanViewPayload } from '../../core/models/ai.model';
+import { clearFirstPlanSession } from '../../core/first-plan/first-plan-session';
 
 /** One-letter queries match almost everything and cost a request each; wait for two. */
 export function shouldSearchSharedTrips(query: string): boolean {
@@ -433,6 +434,7 @@ export class NavFacadeService {
     this.trophyCelebration.clear();
     this.companionSuggest.clear();
     this.landingFeed.reset();   // feedback F2 — never leave a previous session's feed loaded
+    clearFirstPlanSession();    // F79: a second sign-up in this tab gets its own first run
     this.router.navigate(['/']);
   }
 }

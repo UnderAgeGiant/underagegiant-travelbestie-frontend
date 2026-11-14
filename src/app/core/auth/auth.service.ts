@@ -4,6 +4,7 @@ import { Observable, of, throwError, from } from 'rxjs';
 import { tap, switchMap, catchError, map, finalize, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
+import { markGiftSession } from '../first-plan/first-plan-session';
 import type { Place } from '../models/trip.model';
 
 export interface AuthUser {
@@ -197,6 +198,7 @@ export class AuthService {
   }
 
   setTokens(token: string, user: AuthUser): void {
+    if (user.firstPlanAvailable) markGiftSession();
     this._token.set(token);
     this._user.set(user);
     localStorage.setItem(SESSION_KEY, JSON.stringify(user));
@@ -207,6 +209,7 @@ export class AuthService {
   setFirstPlanAvailable(value: boolean): void {
     const user = this._user();
     if (!user) return;
+    if (value) markGiftSession();
     const updated = { ...user, firstPlanAvailable: value };
     this._user.set(updated);
     try { localStorage.setItem(SESSION_KEY, JSON.stringify(updated)); } catch { /* storage unavailable */ }

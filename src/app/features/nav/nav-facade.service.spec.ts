@@ -159,6 +159,15 @@ describe('NavFacadeService — shared trips + logo', () => {
     expect(nav).toHaveBeenCalledWith(['/']);
   });
 
+  it('doLogout clears the F79 first-run session keys, so a second sign-up in this tab gets its own first run', () => {
+    jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
+    sessionStorage.setItem('tb_first_plan_auto_opened', '1');
+    sessionStorage.setItem('tb_first_plan_gift_session', '1');
+    facade.doLogout();
+    expect(sessionStorage.getItem('tb_first_plan_auto_opened')).toBeNull();
+    expect(sessionStorage.getItem('tb_first_plan_gift_session')).toBeNull();
+  });
+
   it('autoSaveCurrentTrip() (invoked by onLogoClick) passes { background: true } to upsert() (Finding 4 fix)', () => {
     const trip = TestBed.inject(TripService);
     const auth = TestBed.inject(AuthService);
