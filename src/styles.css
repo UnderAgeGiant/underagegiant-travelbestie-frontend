@@ -900,6 +900,8 @@ app-nav { display: block; }
 .ai-change-charged-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: oklch(48% .16 50); }
 .ai-change-charged-body { font-size: 13px; color: var(--t2); line-height: 1.5; }
 .ai-confirm-charge-card { background: oklch(97% .04 290); border: 1.5px solid oklch(78% .1 290); border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 16px; text-align: center; animation: scaleIn .2s ease; }
+.ai-confirm-charge-card:focus { outline: none; }
+.ai-confirm-charge-card:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
 .ai-confirm-charge-icon { font-size: 34px; }
 .ai-confirm-charge-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--lav-d); }
 .ai-confirm-charge-body { font-size: 13px; color: var(--t2); line-height: 1.6; max-width: 320px; }

@@ -3955,6 +3955,10 @@
         <source> Cambiaste tus datos: &quot;Generar opciones&quot; crea opciones nuevas y cuesta 8 Tokens ⭐. Los cambios gratuitos de arriba son para regenerar el plan. </source>
         <target>You changed your details: "Generate options" creates new options and costs 8 Tokens ⭐. The free changes above are for regenerating the plan.</target>
       </trans-unit>
+      <trans-unit id="aiplan.suggestFailed" datatype="html">
+        <source>No pudimos generar las opciones. Inténtalo de nuevo.</source>
+        <target>We couldn't generate the options. Please try again.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

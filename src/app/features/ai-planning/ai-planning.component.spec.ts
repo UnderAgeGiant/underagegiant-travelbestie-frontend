@@ -1110,6 +1110,32 @@ describe('AiPlanningComponent — F79 cities / free-text mode in step 1', () => 
     expect(component.suggestCharged()).toBe(false);
   }));
 
+  it('the new-batch confirmation is scrolled into view and focused when it opens (mobile: it renders above the viewport)', fakeAsync(() => {
+    create();
+    suggestOnce();
+    component.step.set('preferences');
+    component.duration.set(6);
+    const scroll = jest.fn();
+    Element.prototype.scrollIntoView = scroll;
+    component.suggest();
+    fixture.detectChanges();
+    const card = fixture.nativeElement.querySelector('.ai-confirm-charge-card') as HTMLElement;
+    expect(card.getAttribute('role')).toBe('alertdialog');
+    expect(scroll).toHaveBeenCalledWith({ block: 'center' });
+    expect(document.activeElement).toBe(card);
+    delete (Element.prototype as { scrollIntoView?: unknown }).scrollIntoView;
+  }));
+
+  it('a failed suggest shows a localized message, never the server text', fakeAsync(() => {
+    create();
+    component.cities.set(['paris']);
+    component.duration.set(3);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush({ error: 'Internal server error' }, { status: 500, statusText: 'Server Error' });
+    expect(component.error()).toBe('No pudimos generar las opciones. Inténtalo de nuevo.');
+  }));
+
   it('a mode switch shows a change percentage over the threshold, matching the verdict', fakeAsync(() => {
     create();
     component.cities.set(['paris']);

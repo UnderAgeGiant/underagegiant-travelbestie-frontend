@@ -356,6 +356,15 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     req.flush({ options: [] });
   });
 
+  it('a failed suggestTrips still reports a balance change (the server refunds the 8 Tokens)', async () => {
+    const charged = jest.fn();
+    service.karmaCharged$.subscribe(charged);
+    service.suggestTrips('historia y arte').subscribe({ error: () => {} });
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush({ error: 'Internal server error' }, { status: 500, statusText: 'Server Error' });
+    expect(charged).toHaveBeenCalledTimes(1);
+  });
+
   it('suggestTrips sends planSessionId when provided', async () => {
     service.suggestTrips('romantic trip', 10, '1000 USD', 'session-abc').subscribe();
     await new Promise(resolve => setTimeout(resolve, 0));

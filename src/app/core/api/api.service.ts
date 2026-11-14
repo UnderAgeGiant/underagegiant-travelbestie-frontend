@@ -60,7 +60,8 @@ export class ApiService {
   private get base(): string { return this.env.apiUrl; }
 
   /**
-   * Emits after a call that may have charged Tokens succeeds (/ai/suggest, the /ai/plan kickoff, POST /trips).
+   * Emits after a call that may have changed the Token balance: /ai/suggest (success, or failure: the server
+   * refunds it), the /ai/plan kickoff, POST /trips.
    * KarmaService re-fetches the balance on it, so the header updates without a reload.
    */
   readonly karmaCharged$ = new Subject<void>();
@@ -178,7 +179,7 @@ export class ApiService {
           preferences: preferences || undefined, duration, budget, cityIndex, planSessionId, ...(citiesMode ? { cityIds } : {}),
         });
       }),
-      tap(() => this.karmaCharged$.next()),
+      tap({ next: () => this.karmaCharged$.next(), error: () => this.karmaCharged$.next() }),
     );
   }
 

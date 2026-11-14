@@ -1,7 +1,7 @@
 import { StayLengthComponent } from '../../shared/stay-length/stay-length.component';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { GameAssetsService } from '../../core/game/game-assets.service';
-import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy, OnInit, ElementRef, Injector, afterNextRender } from '@angular/core';
 import { ToastService } from '../../core/ui/toast.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { Subscription } from 'rxjs';
@@ -174,9 +174,9 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
           <!-- ── Pre-call change confirmation (plan) ── -->
           @if (planConfirmPending()) {
-            <div class="ai-confirm-charge-card">
+            <div class="ai-confirm-charge-card" role="alertdialog" tabindex="-1" aria-labelledby="aiPlanConfirmTitle">
               <div class="ai-confirm-charge-icon">💸</div>
-              <div class="ai-confirm-charge-title">
+              <div class="ai-confirm-charge-title" id="aiPlanConfirmTitle">
                 @if (planConfirmPending()!.reason === 'major_change') {
                   <span i18n="@@aiplan.confirmMajorTitle">Cambio mayor al 20% detectado</span>
                 } @else {
@@ -199,9 +199,9 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
 
           <!-- ── Pre-suggest change confirmation ── -->
           @if (suggestConfirmPending()) {
-            <div class="ai-confirm-charge-card">
+            <div class="ai-confirm-charge-card" role="alertdialog" tabindex="-1" aria-labelledby="aiSuggestConfirmTitle">
               <div class="ai-confirm-charge-icon">💸</div>
-              <div class="ai-confirm-charge-title">
+              <div class="ai-confirm-charge-title" id="aiSuggestConfirmTitle">
                 @if (suggestConfirmPending()!.reason === 'major_change') {
                   <span i18n="@@aiplan.confirmMajorTitle">Cambio mayor al 20% detectado</span>
                 } @else if (suggestConfirmPending()!.reason === 'limit_reached') {
@@ -766,6 +766,18 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
   private readonly karmaModal = inject(KarmaModalService);
   private readonly locale     = inject(LocaleService);
   private readonly toast      = inject(ToastService);
+  private readonly host       = inject(ElementRef<HTMLElement>);
+  private readonly injector   = inject(Injector);
+
+  /** A confirmation renders at the top of the card; on a phone that is above the viewport. Bring it in and focus it. */
+  private readonly revealConfirm = effect(() => {
+    if (!this.suggestConfirmPending() && !this.planConfirmPending()) return;
+    afterNextRender(() => {
+      const card = this.host.nativeElement.querySelector('.ai-confirm-charge-card') as HTMLElement | null;
+      card?.scrollIntoView?.({ block: 'center' });
+      card?.focus({ preventScroll: true });
+    }, { injector: this.injector });
+  });
   protected readonly karma    = inject(KarmaService);
 
   // ── F79 free first run. Display state only: the backend claims the gift and rejects a used one with 409. ──
@@ -1155,7 +1167,8 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
         error: err => {
           this.loading.set(false);
           if (!this.karmaModal.handleKarmaError(err)) {
-            this.error.set(err?.error?.error ?? 'Error al generar sugerencias');
+            // Never the server's raw text (a 500 says "Internal server error"); the balance refresh shows any refund.
+            this.error.set($localize`:@@aiplan.suggestFailed:No pudimos generar las opciones. Inténtalo de nuevo.`);
           }
         },
       });
