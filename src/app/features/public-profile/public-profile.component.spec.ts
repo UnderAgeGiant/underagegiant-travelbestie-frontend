@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router, ActivatedRoute, convertToParamMap } from '@angular/router';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { of, throwError, BehaviorSubject } from 'rxjs';
+import { of, throwError, BehaviorSubject, Subject } from 'rxjs';
 import { signal } from '@angular/core';
 import { PublicProfileComponent } from './public-profile.component';
 import { ApiService } from '../../core/api/api.service';
@@ -13,7 +13,7 @@ function setup(api: Partial<ApiService>, me: string | null = null) {
     imports: [PublicProfileComponent],
     providers: [
       provideRouter([]),
-      { provide: ApiService, useValue: api },
+      { provide: ApiService, useValue: { karmaCharged$: new Subject<void>(), ...api } },
       { provide: AuthService, useValue: { isLoggedIn: signal(!!me), currentUser: signal(me ? { name: 'Me', email: '', username: me } : null) } },
       { provide: ActivatedRoute, useValue: { paramMap: new BehaviorSubject(convertToParamMap({ username: 'ana' })), queryParamMap: of(convertToParamMap({})) } },
     ],
@@ -61,7 +61,7 @@ describe('PublicProfileComponent', () => {
       imports: [PublicProfileComponent],
       providers: [
         provideRouter([]),
-        { provide: ApiService, useValue: { getPublicProfile: () => throwError(() => new HttpErrorResponse({ status: 429, headers: new HttpHeaders({ 'Retry-After': '42' }) })) } },
+        { provide: ApiService, useValue: { karmaCharged$: new Subject<void>(), getPublicProfile: () => throwError(() => new HttpErrorResponse({ status: 429, headers: new HttpHeaders({ 'Retry-After': '42' }) })) } },
         { provide: AuthService, useValue: { isLoggedIn: signal(false), currentUser: signal(null) } },
         { provide: ActivatedRoute, useValue: { paramMap: new BehaviorSubject(convertToParamMap({ username: 'ana' })), queryParamMap: of(convertToParamMap({})) } },
       ],
@@ -82,6 +82,7 @@ describe("PublicProfileComponent — route reuse after an error", () => {
       providers: [
         provideRouter([]),
         { provide: ApiService, useValue: {
+          karmaCharged$: new Subject<void>(),
           getPublicProfile: (u: string) => u === "ghost"
             ? throwError(() => new HttpErrorResponse({ status: 404 }))
             : of(mockPublicProfile(u)),

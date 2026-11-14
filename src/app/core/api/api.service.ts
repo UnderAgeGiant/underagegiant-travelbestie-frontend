@@ -1,7 +1,7 @@
 import { Injectable, inject, Inject, Optional } from '@angular/core';
 import { ItineraryExportBody } from '../models/itinerary-export.model';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { Observable, from, of, timer, throwError, delay } from 'rxjs';
+import { Observable, Subject, from, of, timer, throwError, delay } from 'rxjs';
 import { switchMap, tap, first, map, catchError, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Trip, FavoritedTrip, Collaborator, PendingCollaboratorInvite, CostEstimate, FxRates, DEFAULT_COST_SETTINGS } from '../models/trip.model';
@@ -59,6 +59,12 @@ export class ApiService {
   private get useMocks(): boolean { return this.env.useMocks; }
   private get base(): string { return this.env.apiUrl; }
 
+  /**
+   * Emits after a call that may have charged Tokens succeeds (/ai/suggest, the /ai/plan kickoff, POST /trips).
+   * KarmaService re-fetches the balance on it, so the header updates without a reload.
+   */
+  readonly karmaCharged$ = new Subject<void>();
+
   getTrips(): Observable<Trip[]> {
     if (this.useMocks) return of([...MOCK_TRIPS]);
     return this.http.get<Trip[]>(`${this.base}/trips`);
@@ -66,7 +72,7 @@ export class ApiService {
 
   saveTrip(trip: Omit<Trip, 'id'>): Observable<Trip> {
     if (this.useMocks) return of({ id: `mock-${Date.now()}`, ...trip });
-    return this.http.post<Trip>(`${this.base}/trips`, trip);
+    return this.http.post<Trip>(`${this.base}/trips`, trip).pipe(tap(() => this.karmaCharged$.next()));
   }
 
   updateTrip(id: string, trip: Partial<Trip>): Observable<Trip> {
@@ -172,6 +178,7 @@ export class ApiService {
           preferences: preferences || undefined, duration, budget, cityIndex, planSessionId, ...(citiesMode ? { cityIds } : {}),
         });
       }),
+      tap(() => this.karmaCharged$.next()),
     );
   }
 
@@ -265,6 +272,7 @@ export class ApiService {
         `${this.base}/ai/plan`,
         { ...req, cityCatalog },
       )),
+      tap(() => this.karmaCharged$.next()), // charged at kickoff, not when the job finishes
       switchMap(({ requestId }) => this.pollAiPlanStatus(requestId)),
     );
   }

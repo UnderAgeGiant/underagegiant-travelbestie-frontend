@@ -131,6 +131,16 @@ describe('ApiService — planTrip (async kickoff + poll)', () => {
 
   afterEach(() => httpMock.verify());
 
+  it('reports the charge at kickoff, before the job finishes', fakeAsync(() => {
+    const charged = jest.fn();
+    svc.karmaCharged$.subscribe(charged);
+    svc.planTrip(req).subscribe({ error: () => {} });
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan`).flush({ requestId: 'req-1' });
+    expect(charged).toHaveBeenCalledTimes(1);
+    tick(0);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({ status: 'failed', error: 'x' });
+  }));
+
   it('kicks off, polls, and resolves with the plan once status flips to completed', fakeAsync(() => {
     let result: any;
     svc.planTrip(req).subscribe(r => (result = r));
@@ -207,6 +217,15 @@ describe('ApiService (useMocks=false via spy)', () => {
     service.saveTrip({ title: 'My Trip', stops: [] }).subscribe();
     const req = http.expectOne(r => r.url.includes('/trips') && r.method === 'POST');
     req.flush({ id: '1', title: 'My Trip', stops: [] });
+  });
+
+  it('saveTrip reports a possible charge so the header balance refreshes', () => {
+    const charged = jest.fn();
+    service.karmaCharged$.subscribe(charged);
+    service.saveTrip({ title: 'My Trip', stops: [] }).subscribe();
+    expect(charged).not.toHaveBeenCalled();
+    http.expectOne(r => r.url.includes('/trips') && r.method === 'POST').flush({ id: '1', title: 'My Trip', stops: [] });
+    expect(charged).toHaveBeenCalledTimes(1);
   });
 
   it('addComment calls POST /comments/:attractionId', () => {
