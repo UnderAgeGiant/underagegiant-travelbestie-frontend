@@ -8,6 +8,7 @@ import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { ApiService } from '../../core/api/api.service';
 import { AiPlanHistoryItem } from '../../core/models/ai.model';
+import { TripCardService } from '../trip-card/trip-card.service';
 import { SCROLL_SETTLE_FALLBACK_MS } from '../../core/routing/focus-item.util';
 import { __setAttractionSourceForTests } from '../../data/attractions.data';
 
@@ -667,5 +668,63 @@ describe('MyTripsComponent — itinerary export waits for city files', () => {
 
     await component.downloadItinerary(paris);
     expect(api.exportItinerary).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('MyTripsComponent — trip card (F80)', () => {
+  let fixture: ComponentFixture<MyTripsComponent>;
+  let component: MyTripsComponent;
+  let api: ApiService;
+  let savedPlans: SavedPlansService;
+  let openCard: jest.SpyInstance;
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    TestBed.inject(AuthService).setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    api = TestBed.inject(ApiService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    savedPlans.register({ id: 'published', name: 'Published trip', savedAt: '2026-07-01T00:00:00Z', stops: [], shareId: 'sh-1' });
+    savedPlans.register({ id: 'draft', name: 'Draft trip', savedAt: '2026-07-02T00:00:00Z', stops: [] });
+    openCard = jest.spyOn(TestBed.inject(TripCardService), 'open');
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText: jest.fn(async () => {}) }, configurable: true });
+    fixture = TestBed.createComponent(MyTripsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+  const cardBtn = () => fixture.nativeElement.querySelector('.trip-card-btn') as HTMLButtonElement | null;
+  const plan = (id: string) => savedPlans.plans().find(p => p.id === id)!;
+
+  it('published plan: the card button opens the card without celebrate', () => {
+    component.togglePlan('published');
+    fixture.detectChanges();
+    cardBtn()!.click();
+    expect(openCard).toHaveBeenCalledWith('sh-1');
+  });
+
+  it('unpublished plan: no card button', () => {
+    component.togglePlan('draft');
+    fixture.detectChanges();
+    expect(cardBtn()).toBeNull();
+  });
+
+  it('publishing an unpublished plan opens the card with celebrate', () => {
+    jest.spyOn(api, 'shareTrip').mockReturnValue(of({ shareId: 'sh-new' }));
+    component.sharePlan(plan('draft'));
+    expect(openCard).toHaveBeenCalledWith('sh-new', { celebrate: true });
+  });
+
+  it('Publicar on an already published plan: no card', () => {
+    component.sharePlan(plan('published'));
+    expect(openCard).not.toHaveBeenCalled();
+  });
+
+  it('shareTrip error: no card', () => {
+    jest.spyOn(api, 'shareTrip').mockReturnValue(throwError(() => ({ status: 500 })));
+    component.sharePlan(plan('draft'));
+    expect(openCard).not.toHaveBeenCalled();
   });
 });

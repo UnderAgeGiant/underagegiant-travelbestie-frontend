@@ -39,6 +39,7 @@ import { ToastComponent } from '../../../shared/toast/toast.component';
 import { NgTemplateOutlet } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { AttractionsLoadErrorComponent } from '../../../shared/attractions-load-error/attractions-load-error.component';
+import { TripCardService } from '../../trip-card/trip-card.service';
 
 @Component({
     selector: 'app-stop-list',
@@ -458,6 +459,7 @@ export class StopListComponent {
   protected readonly autoSave = inject(AutoSaveService);
   protected readonly personalModal = inject(PersonalActivityModalService);
   private readonly api         = inject(ApiService);
+  private readonly tripCard = inject(TripCardService);
   private readonly sharedTrips = inject(SharedTripsService);
   private readonly firstPlan   = inject(FirstPlanService);
   addDestination = output<void>();
@@ -724,6 +726,7 @@ export class StopListComponent {
     const done = (shareId: string) => {
       this.savedPlans.setShareId(email, id, shareId);
       this.toast.set($localize`:@@stopList.publishedToast:Viaje publicado`);
+      this.tripCard.open(shareId, { celebrate: true });
     };
     if (environment.useMocks) {
       done(this.sharedTrips.createShare({

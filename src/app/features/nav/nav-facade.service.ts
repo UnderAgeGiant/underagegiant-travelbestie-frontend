@@ -26,6 +26,7 @@ import { AppLocale } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { AiPlanViewPayload } from '../../core/models/ai.model';
 import { clearFirstPlanSession } from '../../core/first-plan/first-plan-session';
+import { TripCardService } from '../trip-card/trip-card.service';
 
 /** One-letter queries match almost everything and cost a request each; wait for two. */
 export function shouldSearchSharedTrips(query: string): boolean {
@@ -46,6 +47,7 @@ export class NavFacadeService {
   readonly cooldown     = inject(CommentCooldownService);
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
+  private readonly tripCard = inject(TripCardService);
   readonly favorites            = inject(FavoritesService);
   readonly trophies              = inject(TrophyService);
   private readonly trophyCelebration = inject(TrophyCelebrationService);
@@ -407,11 +409,13 @@ export class NavFacadeService {
       });
       this.savedPlans.setShareId(user.email, plan.id, shareId);
       this.goToSharedTrip(shareId);
+      this.tripCard.open(shareId, { celebrate: true });
     } else {
       this.api.shareTrip(plan.id).subscribe({
         next: ({ shareId }) => {
           this.savedPlans.setShareId(user.email, plan.id, shareId);
           this.goToSharedTrip(shareId);
+          this.tripCard.open(shareId, { celebrate: true });
         },
         error: err => { this.karmaModal.handleKarmaError(err); },
       });

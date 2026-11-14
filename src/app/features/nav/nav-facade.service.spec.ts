@@ -10,7 +10,10 @@ import { AuthService } from '../../core/auth/auth.service';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
 import { RankingService } from '../../core/rankings/ranking.service';
 import { City } from '../../core/models/city.model';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
+import { ApiService } from '../../core/api/api.service';
+import { SavedPlan } from '../../core/saved-plans/saved-plans.service';
+import { TripCardService } from '../trip-card/trip-card.service';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
 
@@ -413,5 +416,44 @@ describe('NavFacadeService — doSavePlan() cost settings (I2)', () => {
     facade.doSavePlan();
 
     expect(upsert).toHaveBeenCalledWith('ana@test.com', 'trip-1', 'Renombrado', expect.any(Array), expect.any(Array), undefined);
+  });
+});
+
+describe('NavFacadeService — sharePlan() opens the trip card after a fresh publish (F80)', () => {
+  let facade: NavFacadeService;
+  let api: ApiService;
+  let openCard: jest.SpyInstance;
+  const plan = (extra: Partial<SavedPlan> = {}): SavedPlan =>
+    ({ id: 'p1', name: 'Mi viaje', savedAt: '2026-07-01T00:00:00Z', stops: [], ...extra });
+
+  beforeEach(() => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+    api = TestBed.inject(ApiService);
+    TestBed.inject(AuthService).setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: null });
+    openCard = jest.spyOn(TestBed.inject(TripCardService), 'open');
+    jest.spyOn(facade, 'goToSharedTrip').mockImplementation(() => {});
+  });
+
+  it('unpublished plan: opens the card with celebrate after shareTrip succeeds', () => {
+    jest.spyOn(api, 'shareTrip').mockReturnValue(of({ shareId: 'sh-new' }));
+    facade.sharePlan(plan());
+    expect(openCard).toHaveBeenCalledWith('sh-new', { celebrate: true });
+  });
+
+  it('already published plan: no card', () => {
+    const share = jest.spyOn(api, 'shareTrip');
+    facade.sharePlan(plan({ shareId: 'sh-old' }));
+    expect(share).not.toHaveBeenCalled();
+    expect(openCard).not.toHaveBeenCalled();
+  });
+
+  it('shareTrip error: no card', () => {
+    jest.spyOn(api, 'shareTrip').mockReturnValue(throwError(() => ({ status: 500 })));
+    facade.sharePlan(plan());
+    expect(openCard).not.toHaveBeenCalled();
   });
 });
