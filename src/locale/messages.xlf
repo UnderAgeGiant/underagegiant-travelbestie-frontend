@@ -161,84 +161,91 @@
         <source>Viaje creado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.itineraryExported" datatype="html">
         <source>Itinerario exportado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.tripShared" datatype="html">
         <source>Viaje compartido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.collaboratorInvite" datatype="html">
         <source>Invitación a colaborador</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiSuggest" datatype="html">
         <source>Sugerencias de IA para creación de plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiPlan" datatype="html">
         <source>Plan de IA generado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiPlanRefund" datatype="html">
         <source>Reembolso de plan de IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiSuggestRefund" datatype="html">
+        <source>Reembolso de sugerencias de IA</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.aiCitySuggest" datatype="html">
         <source>Sugerencias de IA para la ciudad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.companionBoost" datatype="html">
         <source>Impulso de Asistente Miel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.karmaPurchased" datatype="html">
         <source>Compra de token</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.attractionComment" datatype="html">
         <source>Primer comentario en una atracción</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="karmaHistory.reason.stepComment" datatype="html">
         <source>Comentario en un viaje compartido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/models/karma-event.model.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="personal.breakfast" datatype="html">

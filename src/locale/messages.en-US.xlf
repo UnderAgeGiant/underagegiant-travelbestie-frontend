@@ -3959,6 +3959,10 @@
         <source>No pudimos generar las opciones. Inténtalo de nuevo.</source>
         <target>We couldn't generate the options. Please try again.</target>
       </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiSuggestRefund" datatype="html">
+        <source>Reembolso de sugerencias de IA</source>
+        <target>AI suggestions refund</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

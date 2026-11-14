@@ -10,7 +10,8 @@ export type KarmaEventReason =
   | 'karma_purchased'
   | 'step_comment'
   | 'collaborator_invite'
-  | 'ai_plan_refund';
+  | 'ai_plan_refund'
+  | 'ai_suggest_refund';
 
 export interface KarmaEventTarget {
   type: 'trip' | 'ai_plan_request';
@@ -54,6 +55,7 @@ export function karmaReasonLabel(reason: string): string {
     case 'ai_suggest':                return $localize`:@@karmaHistory.reason.aiSuggest:Sugerencias de IA para creación de plan`;
     case 'ai_plan':                   return $localize`:@@karmaHistory.reason.aiPlan:Plan de IA generado`;
     case 'ai_plan_refund':            return $localize`:@@karmaHistory.reason.aiPlanRefund:Reembolso de plan de IA`;
+    case 'ai_suggest_refund':         return $localize`:@@karmaHistory.reason.aiSuggestRefund:Reembolso de sugerencias de IA`;
     case 'ai_city_suggest':           return $localize`:@@karmaHistory.reason.aiCitySuggest:Sugerencias de IA para la ciudad`;
     case 'companion_boost':           return $localize`:@@karmaHistory.reason.companionBoost:Impulso de Asistente Miel`;
     case 'karma_purchased':           return $localize`:@@karmaHistory.reason.karmaPurchased:Compra de token`;
