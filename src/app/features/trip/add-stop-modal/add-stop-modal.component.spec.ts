@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { AddStopModalComponent } from './add-stop-modal.component';
 import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
+import { AuthService } from '../../../core/auth/auth.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
+import { of } from 'rxjs';
 
 const PARIS: City  = { id: 'paris',  name: 'Paris',  country: 'France', flag: '🇫🇷', region: 'europe' };
 const LONDON: City = { id: 'london', name: 'London', country: 'United Kingdom', flag: '🇬🇧', region: 'europe' };
@@ -55,6 +58,40 @@ describe('AddStopModalComponent — presetCityId (city guide "plan this city" pr
     fixture.componentRef.setInput('presetCityId', 'madrid');
     fixture.detectChanges();
     expect(fixture.componentInstance.selectedCity()?.id).toBe('madrid');
+  });
+
+  const dmy = (d: Date) => `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+
+  it('prefills Entrada = today and Salida = today + 3 (shown in the inputs), so "Agregar al viaje" is enabled at once', () => {
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.componentRef.setInput('presetCityId', 'madrid');
+    fixture.detectChanges();
+    const today = new Date(), out = new Date();
+    out.setDate(out.getDate() + 3);
+    const c = fixture.componentInstance;
+    expect(c.checkIn()).toBe(dmy(today));
+    expect(c.checkOut()).toBe(dmy(out));
+    const inputs = fixture.nativeElement.querySelectorAll('app-date-range input') as NodeListOf<HTMLInputElement>;
+    expect(inputs[0].value).toBe(dmy(today));
+    expect(inputs[1].value).toBe(dmy(out));
+    const addBtn = Array.from(fixture.nativeElement.querySelectorAll('button') as NodeListOf<HTMLButtonElement>).find(b => b.textContent!.includes('Agregar'))!;
+    expect(addBtn.disabled).toBe(false);
+  });
+
+  it('chains after the last stop when the trip already has stops', () => {
+    TestBed.inject(TripService).addStop(PARIS, '01/06/2026', '05/06/2026');
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.componentRef.setInput('presetCityId', 'madrid');
+    fixture.detectChanges();
+    expect(fixture.componentInstance.checkIn()).toBe('05/06/2026');
+    expect(fixture.componentInstance.checkOut()).toBe('08/06/2026');
+  });
+
+  it('opened normally (no preset) the dates stay empty', () => {
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.detectChanges();
+    expect(fixture.componentInstance.checkIn()).toBe('');
+    expect(fixture.componentInstance.checkOut()).toBe('');
   });
 
   it('leaves selectedCity null for an unknown id', () => {
@@ -145,5 +182,32 @@ describe('AddStopModalComponent — add() navigation (Feature 68)', () => {
     component.add();
 
     expect(nav).toHaveBeenCalledWith('/plan');
+  });
+});
+
+describe('AddStopModalComponent — F79 free first plan', () => {
+  function setup(firstPlanAvailable: boolean) {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AddStopModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    TestBed.inject(AuthService).setTokens('t', { name: 'Ana', email: 'ana@test.com', firstPlanAvailable });
+    const save = jest.spyOn(TestBed.inject(FirstPlanService), 'saveFirstManualPlan').mockReturnValue(of('p1'));
+    const component = TestBed.createComponent(AddStopModalComponent).componentInstance;
+    component.selectedCity.set(PARIS);
+    component.checkIn.set('01/06/2026');
+    component.checkOut.set('05/06/2026');
+    component.add();
+    return save;
+  }
+
+  it('saves the first city when the gift is available', () => {
+    expect(setup(true)).toHaveBeenCalled();
+  });
+
+  it("keeps today's browser-only draft once the gift is used", () => {
+    expect(setup(false)).not.toHaveBeenCalled();
   });
 });

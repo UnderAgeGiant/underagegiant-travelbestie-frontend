@@ -29,6 +29,7 @@ export function serializeOptions(opts: PlanSessionOptions): string {
     duration:   opts.duration,
     budget:     opts.budget.trim().toLowerCase(),
     startDate:  opts.startDate.trim(),
+    cityIds:    [...(opts.cityIds ?? [])].sort(),
   });
 }
 
@@ -44,12 +45,30 @@ export function computeChangeRatio(
   return levenshtein(a, b) / maxLen;
 }
 
-/** Returns true when change ratio ≤ 20%. */
+/**
+ * The ratio the free/charged verdict uses: 1 for a switch between cities mode and free-text mode,
+ * else the larger of the share of cities changed and the text ratio. Shown in the change bar.
+ */
+export function planChangeRatio(
+  oldOpts: PlanSessionOptions,
+  newOpts: PlanSessionOptions,
+): number {
+  const a = oldOpts.cityIds ?? [], b = newOpts.cityIds ?? [];
+  if ((a.length > 0) !== (b.length > 0)) return 1;
+  const text = computeChangeRatio(oldOpts, newOpts);
+  if (a.length === 0) return text;
+  // City ids are a tiny share of the serialized string, so they get their own share-changed check.
+  const size = Math.max(a.length, b.length);
+  const kept = b.filter(id => a.includes(id)).length;
+  return Math.max((size - kept) / size, text);
+}
+
+/** Returns true when change ratio ≤ 20% (mirrored with the backend's isMinorChange). */
 export function isMinorChange(
   oldOpts: PlanSessionOptions,
   newOpts: PlanSessionOptions,
 ): boolean {
-  return computeChangeRatio(oldOpts, newOpts) <= CHANGE_THRESHOLD;
+  return planChangeRatio(oldOpts, newOpts) <= CHANGE_THRESHOLD;
 }
 
 /** Extracts PlanSessionOptions from a plan request. */
@@ -59,6 +78,7 @@ export function toSessionOptions(req: {
   duration?:      number;
   budget?:        string;
   startDate?:     string;
+  cityIds?:       string[];
 }): PlanSessionOptions {
   return {
     selectedOptionTitle:      req.selectedOption.title,
@@ -68,5 +88,6 @@ export function toSessionOptions(req: {
     duration:                 req.duration ?? 0,
     budget:                   req.budget ?? '',
     startDate:                req.startDate ?? '',
+    cityIds:                  req.cityIds ?? [],
   };
 }

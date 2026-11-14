@@ -32,7 +32,7 @@ describe('app routes', () => {
     expect(typeof wildcard?.data?.['seo']).toBe('function');
   });
 
-  it.each(['plan', 'preferences', 'my-trips', 'ai-planning'])('has a lazy, noindex /%s route (English path)', path => {
+  it.each(['plan', 'preferences', 'my-trips', 'ai-planning', 'first-plan'])('has a lazy, noindex /%s route (English path)', path => {
     const route = routes.find(r => r.path === path);
     expect(typeof route?.loadComponent).toBe('function');
     expect(route?.data?.['seo']().noindex).toBe(true);
@@ -55,6 +55,7 @@ describe('app routes', () => {
   it('guards /preferences and /my-trips; /plan and /ai-planning stay open to anonymous visitors', () => {
     expect(routes.find(r => r.path === 'preferences')?.canActivate).toEqual([authGuard]);
     expect(routes.find(r => r.path === 'my-trips')?.canActivate).toEqual([authGuard]);
+    expect(routes.find(r => r.path === 'first-plan')?.canActivate).toEqual([authGuard]);
     expect(routes.find(r => r.path === 'plan')?.canActivate).toBeUndefined();
     expect(routes.find(r => r.path === 'ai-planning')?.canActivate).toBeUndefined();
   });

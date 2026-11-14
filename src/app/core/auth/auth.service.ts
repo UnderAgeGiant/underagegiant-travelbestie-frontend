@@ -4,6 +4,7 @@ import { Observable, of, throwError, from } from 'rxjs';
 import { tap, switchMap, catchError, map, finalize, shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
+import { markGiftSession } from '../first-plan/first-plan-session';
 import type { Place } from '../models/trip.model';
 
 export interface AuthUser {
@@ -13,6 +14,8 @@ export interface AuthUser {
   /** Home city (Feature 74). null = cleared; undefined = not sent by the backend yet. */
   homePlace?: Place | null;
   username?: string | null;
+  /** F79 free first plan. undefined = backend predates F79 → treated as false (no first-run mode). */
+  firstPlanAvailable?: boolean;
 }
 
 const SESSION_KEY = 'tb_session_user';
@@ -29,6 +32,8 @@ export class AuthService {
   readonly token       = this._token.asReadonly();
   readonly currentUser = this._user.asReadonly();
   readonly isLoggedIn  = computed(() => this._token() !== null);
+  /** Display state only — the backend decides every waiver and refreshes this on the next auth response. */
+  readonly firstPlanAvailable = computed(() => this._user()?.firstPlanAvailable === true);
 
   private _proactiveTimer: ReturnType<typeof setTimeout> | null = null;
   private _refreshInFlight: Observable<boolean> | null = null;
@@ -193,10 +198,21 @@ export class AuthService {
   }
 
   setTokens(token: string, user: AuthUser): void {
+    if (user.firstPlanAvailable) markGiftSession();
     this._token.set(token);
     this._user.set(user);
     localStorage.setItem(SESSION_KEY, JSON.stringify(user));
     this.scheduleProactiveRefresh(token);
+  }
+
+  /** Patches the gift flag after a path used it (or a failed first run returned it). */
+  setFirstPlanAvailable(value: boolean): void {
+    const user = this._user();
+    if (!user) return;
+    if (value) markGiftSession();
+    const updated = { ...user, firstPlanAvailable: value };
+    this._user.set(updated);
+    try { localStorage.setItem(SESSION_KEY, JSON.stringify(updated)); } catch { /* storage unavailable */ }
   }
 
   clearTokens(): void {
@@ -230,7 +246,7 @@ export class AuthService {
 
   private mockSession(name: string, email: string): { token: string; user: AuthUser } {
     const token = `mock_${Date.now()}`;
-    const user: AuthUser = { name, email, countryOfResidence: null };
+    const user: AuthUser = { name, email, countryOfResidence: null, firstPlanAvailable: true };
     this.setTokens(token, user);
     return { token, user };
   }

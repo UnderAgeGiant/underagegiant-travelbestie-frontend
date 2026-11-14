@@ -2,6 +2,8 @@ import { AttractionImgDirective } from '../../shared/attraction-img/attraction-i
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../core/auth/auth.service';
+import { FirstPlanService } from '../../core/first-plan/first-plan.service';
 import { map } from 'rxjs';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { FlagIconComponent } from '../../shared/flag-icon/flag-icon.component';
@@ -202,6 +204,8 @@ import { photoCreditUrl } from './photo-credit.util';
 export class CityGuideComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly auth = inject(AuthService);
+  private readonly firstPlan = inject(FirstPlanService);
   private readonly seo = inject(SeoService);
   private readonly api = inject(ApiService);
   private readonly visa = inject(VisaRequirementService);
@@ -252,7 +256,10 @@ export class CityGuideComponent {
   protected categoryIcon(category: AttractionCategory): string { return getCategoryMeta()[category].icon; }
   protected startPlan(): void {
     const m = this.model();
-    if (m) void this.router.navigate(['/'], { queryParams: { addCity: m.entry.cityId } });
+    if (!m) return;
+    // F79: a visitor who signs up from here lands on the free first run with this city ticked.
+    if (!this.auth.isLoggedIn()) this.firstPlan.setSignupIntent({ kind: 'city', cityId: m.entry.cityId });
+    void this.router.navigate(['/'], { queryParams: { addCity: m.entry.cityId } });
   }
   protected goHome(): void { void this.router.navigate(['/']); }
 }

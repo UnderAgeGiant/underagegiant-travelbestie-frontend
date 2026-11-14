@@ -2,13 +2,23 @@ import { TestBed, fakeAsync, tick, ComponentFixture } from '@angular/core/testin
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { Subject, of } from 'rxjs';
+import { Subject, of, throwError } from 'rxjs';
+import { ApiService } from '../../core/api/api.service';
+import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
+import { ToastService } from '../../core/ui/toast.service';
 import { AiPlanningComponent, visibleHighlights, MAX_VISIBLE_HIGHLIGHTS, MAX_PREFERENCES_CHARS, MAX_PLAN_TITLE_CHARS } from './ai-planning.component';
 import { AuthService } from '../../core/auth/auth.service';
 import { backdropImages } from '../../core/game/runner-backdrop.util';
 import { TripService } from '../trip/trip.service';
 import { Trip } from '../../core/models/trip.model';
 import { TripSuggestion, PlanTripResponse } from '../../core/models/ai.model';
+
+/** Successful AI calls refresh the header balance (GET /karma); flush it, then fail on anything else. */
+function verifyHttp(http: HttpTestingController): void {
+  http.match(r => r.url.endsWith('/karma')).forEach(r => r.flush({ karma: 0 }));
+  http.verify();
+}
+
 
 // AiPlanningComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -47,7 +57,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   describe('plan ready (F3)', () => {
     afterEach(() => jest.useRealTimers());
@@ -169,7 +179,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
   });
 
   // A successful explicit save fires the fire-and-forget cost estimate (F74); answer it so verify() stays strict.
-  afterEach(() => { http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({})); http.verify(); });
+  afterEach(() => { http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({})); verifyHttp(http); });
 
   it('leaves no city selected and records the server-assigned trip id after saving', () => {
     let saved = false;
@@ -234,7 +244,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     tripReq.flush({ id: 'trip-42', ...TRIP });
 
     http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({}));
-    http.verify();   // fails if any unexpected (e.g. DELETE) request was made
+    verifyHttp(http);   // fails if any unexpected (e.g. DELETE) request was made
   });
 
   it('sets saving to true while the request is in flight, guarding against a double-click', () => {
@@ -511,7 +521,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   it('does not delete the previously-tracked row when executePlan() completes again — just starts tracking the new one', fakeAsync(() => {
     component.currentAiPlanRequestId.set('req-old');
@@ -524,7 +534,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     tick(2600);
 
     expect(component.currentAiPlanRequestId()).toBe('req-new');
-    http.verify();   // fails if a DELETE (or any other unexpected request) was made — the "req-old" row must survive
+    verifyHttp(http);   // fails if a DELETE (or any other unexpected request) was made — the "req-old" row must survive
   }));
 
   it('does not call DELETE on the first successful generation when nothing was previously tracked', fakeAsync(() => {
@@ -536,7 +546,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
     tick(2600);
 
-    http.verify();   // fails if a DELETE (or any other unexpected request) was made
+    verifyHttp(http);   // fails if a DELETE (or any other unexpected request) was made
   }));
 
   it('does not delete the tracked row when reset() is called — it just stops tracking it', () => {
@@ -545,7 +555,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     component.reset();
 
     expect(component.currentAiPlanRequestId()).toBeNull();
-    http.verify();   // fails if a DELETE (or any other unexpected request) was made — the row must survive in Planes IA Pendientes
+    verifyHttp(http);   // fails if a DELETE (or any other unexpected request) was made — the row must survive in Planes IA Pendientes
   });
 
   it('does not call DELETE from reset() when currentAiPlanRequestId is null', () => {
@@ -553,7 +563,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
 
     component.reset();
 
-    http.verify();   // fails if any unexpected (e.g. DELETE) request was made
+    verifyHttp(http);   // fails if any unexpected (e.g. DELETE) request was made
   });
 });
 
@@ -574,7 +584,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   it('returns to Step 1 without clearing the form fields', fakeAsync(() => {
     component.preferences.set('playa y museos');
@@ -623,7 +633,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     expect(component.currentAiPlanRequestId()).toBeNull();
     expect(component.suggestions()).toBeNull();
     expect(component.selectedOption()).toBeNull();
-    http.verify();   // no DELETE fired — the abandoned row survives in Planes IA Pendientes
+    verifyHttp(http);   // no DELETE fired — the abandoned row survives in Planes IA Pendientes
   }));
 
   it('reset() (unlike restart()) blanks the form fields back to empty', () => {
@@ -664,10 +674,11 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
+    component.aiMode.set('text'); // these cases exercise the free-text step 1
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   it('selects options[0] as soon as suggestions arrive, so "Generar plan completo" is enabled without a click', fakeAsync(() => {
     component.preferences.set('playa y museos');
@@ -835,6 +846,7 @@ describe('AiPlanningComponent — input length limits (mirror backend zod caps)'
 
   function renderStep1(): ComponentFixture<AiPlanningComponent> {
     const fixture = TestBed.createComponent(AiPlanningComponent);
+    fixture.componentInstance.aiMode.set('text'); // the textarea only exists in free-text mode (F79)
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.detectChanges();
     return fixture;
@@ -934,5 +946,330 @@ describe('AiPlanningComponent — F1: Free-change note on Step 2', () => {
     expect(text(rightKids[0])).toContain('Generar nuevas opciones');
     expect(rightKids[1].classList).toContain('ai-regen-note');
     expect(text(rightKids[2])).toContain('Generar plan completo');
+  });
+});
+
+describe('AiPlanningComponent — F79 cities / free-text mode in step 1', () => {
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let http: HttpTestingController;
+
+  const OPTIONS = { options: [{ id: 1, title: 'Opción A', summary: 'Resumen A', highlights: ['a1'], cityIds: ['paris'] }] };
+
+  function create(): void {
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    http = TestBed.inject(HttpTestingController);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable: false });
+  }
+
+  // Rendering pulls in <app-nav> (notifications poll), so no blanket http.verify() here.
+  beforeEach(() => localStorage.clear());
+
+  it('default mode is cities when localStorage is empty', () => {
+    create();
+    expect(component.aiMode()).toBe('cities');
+  });
+
+  it('remembers the last mode', () => {
+    localStorage.setItem('tb_ai_mode', 'text');
+    create();
+    expect(component.aiMode()).toBe('text');
+    component.setMode('cities');
+    expect(localStorage.getItem('tb_ai_mode')).toBe('cities');
+  });
+
+  it('cities mode with 4 cities and 3 days shows the note and disables the button', () => {
+    create();
+    component.cities.set(['paris', 'rome', 'madrid', 'lisbon']);
+    component.duration.set(3);
+    fixture.detectChanges();
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('.ai-plan-days-note')!.textContent).toContain('Con 4 ciudades necesitas al menos 4 días');
+    expect((el.querySelector('.ai-plan-submit') as HTMLButtonElement).disabled).toBe(true);
+    expect(el.querySelector('textarea')).toBeNull();
+    component.duration.set(4);
+    fixture.detectChanges();
+    expect(el.querySelector('.ai-plan-days-note')).toBeNull();
+    expect((el.querySelector('.ai-plan-submit') as HTMLButtonElement).disabled).toBe(false);
+  });
+
+  it('switching mode keeps both inputs', () => {
+    create();
+    component.cities.set(['paris']);
+    component.setMode('text');
+    component.preferences.set('museos');
+    component.setMode('cities');
+    expect(component.cities()).toEqual(['paris']);
+    expect(component.preferences()).toBe('museos');
+  });
+
+  it('suggest in cities mode calls api.suggestTrips with cityIds and an interests-only preferences string', fakeAsync(() => {
+    create();
+    component.preferences.set('texto que no se envía');
+    component.cities.set(['rome', 'paris']);
+    component.duration.set(5);
+    component.toggleCategory('foodie');
+    component.suggest();
+    tick(0);
+    const req = http.expectOne(r => r.url.includes('/ai/suggest'));
+    expect(req.request.body.cityIds).toEqual(['rome', 'paris']);
+    expect(req.request.body.preferences).toMatch(/^Tipos de experiencia preferidos: /);
+    expect(req.request.body.preferences).not.toContain('texto que no se envía');
+    req.flush(OPTIONS);
+    expect(component.suggestBaseline()!.cityIds).toEqual(['paris', 'rome']);
+    expect(component.suggestBaseline()!.preferences).toBe('');
+  }));
+
+  it('switching mode after a baseline exists shows the major_change preview', fakeAsync(() => {
+    create();
+    component.cities.set(['paris']);
+    component.duration.set(3);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+    expect(component.planChangeAnalysis().preview).toBe('free');
+    component.setMode('text');
+    component.preferences.set('museos');
+    expect(component.planChangeAnalysis().preview).toBe('major_change');
+  }));
+
+  it('days input caps at 60', () => {
+    create();
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('input[type="number"]').getAttribute('max')).toBe('60');
+  });
+
+  it('61 days shows a localized note and disables the button (cities and text mode)', () => {
+    create();
+    component.cities.set(['paris', 'rome']);
+    component.duration.set(61);
+    fixture.detectChanges();
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('.ai-plan-days-note')!.textContent).toContain('Puedes planear hasta 60 días');
+    expect((el.querySelector('.ai-plan-submit') as HTMLButtonElement).disabled).toBe(true);
+    component.setMode('text');
+    component.preferences.set('museos');
+    expect(component.canSuggest()).toBe(false);
+    component.duration.set(60);
+    expect(component.canSuggest()).toBe(true);
+  });
+
+  it('cities mode without chips omits preferences from the plan request', () => {
+    create();
+    const planTrip = jest.fn().mockReturnValue(new Subject().asObservable());
+    (component as any).api.planTrip = planTrip;
+    component.cities.set(['paris', 'rome']);
+    component.duration.set(5);
+    component.selectedOption.set({ id: 1, title: 't', summary: 's', highlights: [] });
+    component.executePlan();
+    expect(planTrip.mock.calls[0][0].preferences).toBeUndefined();
+    expect(planTrip.mock.calls[0][0].cityIds).toEqual(['paris', 'rome']);
+  });
+
+  function suggestOnce(): void {
+    component.cities.set(['paris', 'rome']);
+    component.duration.set(5);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+  }
+
+  it('re-suggesting with unchanged inputs is free: no 8-Token note, no confirmation', fakeAsync(() => {
+    create();
+    suggestOnce();
+    expect(component.suggestCharged()).toBe(false);
+    component.suggest();
+    expect(component.suggestConfirmPending()).toBeNull();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+  }));
+
+  it('re-suggesting with changed inputs states the 8-Token price and asks first', fakeAsync(() => {
+    create();
+    suggestOnce();
+    component.step.set('preferences');
+    component.duration.set(6);
+    fixture.detectChanges();
+    expect(component.suggestCharged()).toBe(true);
+    expect(fixture.nativeElement.querySelector('.ai-suggest-cost-note').textContent).toContain('8 Tokens');
+    component.suggest();
+    expect(component.suggestConfirmPending()).toEqual({ reason: 'new_batch' });
+    http.expectNone(r => r.url.includes('/ai/suggest'));
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.ai-confirm-charge-card').textContent).toContain('cuesta 8 Tokens');
+    component.confirmSuggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+    expect(component.suggestCharged()).toBe(false);
+  }));
+
+  it('the new-batch confirmation is scrolled into view and focused when it opens (mobile: it renders above the viewport)', fakeAsync(() => {
+    create();
+    suggestOnce();
+    component.step.set('preferences');
+    component.duration.set(6);
+    const scroll = jest.fn();
+    Element.prototype.scrollIntoView = scroll;
+    component.suggest();
+    fixture.detectChanges();
+    const card = fixture.nativeElement.querySelector('.ai-confirm-charge-card') as HTMLElement;
+    expect(card.getAttribute('role')).toBe('alertdialog');
+    expect(scroll).toHaveBeenCalledWith({ block: 'center' });
+    expect(document.activeElement).toBe(card);
+    delete (Element.prototype as { scrollIntoView?: unknown }).scrollIntoView;
+  }));
+
+  it('a failed suggest shows a localized message, never the server text', fakeAsync(() => {
+    create();
+    component.cities.set(['paris']);
+    component.duration.set(3);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush({ error: 'Internal server error' }, { status: 500, statusText: 'Server Error' });
+    expect(component.error()).toBe('No pudimos generar las opciones. Inténtalo de nuevo.');
+  }));
+
+  it('a mode switch shows a change percentage over the threshold, matching the verdict', fakeAsync(() => {
+    create();
+    component.cities.set(['paris']);
+    component.duration.set(3);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+    component.setMode('text');
+    component.preferences.set('museos');
+    expect(component.planChangeAnalysis().ratio).toBe(100);
+  }));
+});
+
+describe('AiPlanningComponent — F79 free first run', () => {
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let api: ApiService;
+  const RESULT = { title: 'Viaje a Paris', stops: [TRIP.stops[0]], transits: [], tripId: 'trip-1' };
+
+  function create(firstPlanAvailable: boolean | undefined, cityIds: string[] = []): HTMLElement {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    api = TestBed.inject(ApiService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    auth.setTokens('t', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable });
+    fixture.componentRef.setInput('initialCityIds', cityIds);
+    fixture.detectChanges();
+    return fixture.nativeElement;
+  }
+  function ready(): void {
+    component.cities.set(['paris']);
+    component.duration.set(3);
+  }
+
+  it('undefined flag is not first-run (no banner, regular card)', () => {
+    const el = create(undefined);
+    expect(component.firstRun()).toBe(false);
+    expect(el.querySelector('.ai-first-banner')).toBeNull();
+    expect(el.querySelector('.ai-mode-switch')).not.toBeNull();
+  });
+
+  it('first-run card hides textarea, budget, the change stats and the Token price', () => {
+    const el = create(true);
+    expect(el.querySelector('.ai-first-banner')).not.toBeNull();
+    expect(el.querySelector('textarea')).toBeNull();
+    expect(el.querySelector('input[placeholder="Ej: 500-1000 USD"]')).toBeNull();
+    expect(el.querySelector('.ai-change-stats')).toBeNull();
+    expect(el.querySelector('.ai-plan-karma-note')).toBeNull();
+    expect(el.querySelector('.ai-plan-steps')).toBeNull();
+  });
+
+  it('a city-guide sign-up (?city=) starts today for 3 days, so "Crear mi plan gratis" is enabled at once', () => {
+    const el = create(true, ['paris']);
+    const d = new Date();
+    const today = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+    expect(component.cities()).toEqual(['paris']);
+    expect(component.duration()).toBe(3);
+    expect(component.startDate()).toBe(today);
+    expect((el.querySelector('.ai-first-submit') as HTMLButtonElement).disabled).toBe(false);
+  });
+
+  it('the city prefill still applies when the gift flag arrives after init (session marker without the flag)', () => {
+    const el = create(undefined, ['paris']);
+    expect(component.firstRun()).toBe(false);
+    expect(component.duration()).toBeUndefined();
+    auth.setFirstPlanAvailable(true);
+    fixture.detectChanges();
+    expect(component.duration()).toBe(3);
+    expect(component.startDate()).not.toBe('');
+    expect((el.querySelector('.ai-first-submit') as HTMLButtonElement).disabled).toBe(false);
+    expect((el.querySelector('.ai-first-card app-date-picker input, app-date-picker input') as HTMLInputElement).value).toBe(component.startDate());
+  });
+
+  it('a plain first run (no ?city=) leaves days and date empty', () => {
+    create(true);
+    expect(component.duration()).toBeUndefined();
+    expect(component.startDate()).toBe('');
+  });
+
+  it('the ready-made plans link carries the star', () => {
+    expect(create(true).querySelector('.ai-first-link')!.textContent).toContain('⭐ Ver planes listos para copiar');
+  });
+
+  it('button disabled until a city and days are set', () => {
+    const el = create(true);
+    const btn = () => el.querySelector('.ai-first-submit') as HTMLButtonElement;
+    expect(btn().disabled).toBe(true);
+    component.cities.set(['paris']);
+    fixture.detectChanges();
+    expect(btn().disabled).toBe(true);
+    component.duration.set(2);
+    fixture.detectChanges();
+    expect(btn().disabled).toBe(false);
+  });
+
+  it('startFirstPlan registers the saved plan, marks it loaded and clears the flag', () => {
+    create(true);
+    ready();
+    const spy = jest.spyOn(api, 'firstPlan').mockReturnValue(of(RESULT));
+    const register = jest.spyOn(TestBed.inject(SavedPlansService), 'register');
+    component.startFirstPlan();
+    expect(spy).toHaveBeenCalledWith(expect.objectContaining({ cities: [{ id: 'paris', name: 'Paris' }], duration: 3 }));
+    expect(register).toHaveBeenCalledWith(expect.objectContaining({ id: 'trip-1', name: 'Viaje a Paris' }));
+    expect(TestBed.inject(TripService).loadedPlanId()).toBe('trip-1');
+    expect(auth.firstPlanAvailable()).toBe(false);
+    expect(component.firstPlanTripId()).toBe('trip-1');
+    expect(component.step()).toBe('result');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.ai-first-saved').textContent).toContain('Guardado en tu cuenta');
+  });
+
+  it('a failed first run restores the flag and shows the error', () => {
+    create(true);
+    ready();
+    jest.spyOn(api, 'firstPlan').mockReturnValue(throwError(() => ({ status: 500, error: { error: 'boom' } })));
+    auth.setFirstPlanAvailable(false);
+    component.startFirstPlan();
+    expect(auth.firstPlanAvailable()).toBe(true);
+    expect(component.error()).toBe('No pudimos crear tu plan. Inténtalo de nuevo.');
+    expect(component.firstPlanLoading()).toBe(false);
+  });
+
+  it('409 clears the flag and shows the toast', () => {
+    create(true);
+    ready();
+    jest.spyOn(api, 'firstPlan').mockReturnValue(throwError(() => ({ status: 409, error: { error: 'first_plan_used' } })));
+    component.startFirstPlan();
+    expect(auth.firstPlanAvailable()).toBe(false);
+    expect(TestBed.inject(ToastService).message()).toContain('Tu primer plan ya está guardado');
   });
 });

@@ -7,6 +7,7 @@ import { KarmaService } from '../../../core/karma/karma.service';
 import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
 import { environment } from '../../../../environments/environment';
 import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../../core/utils/password-strength.util';
 
@@ -14,6 +15,17 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
   selector: 'app-auth-modal',
   imports: [RouterLink],
   template: `
+    @if (firstPlan.cloningShared()) {
+      <!-- F79: the shared plan the visitor tapped "Clonar" on is being copied free; not dismissable while it runs. -->
+      <div class="modal-backdrop fp-cloning-backdrop">
+        <div class="modal fp-cloning" role="dialog" aria-modal="true" aria-labelledby="fpCloningTitle" aria-describedby="fpCloningLine">
+          <img class="fp-cloning-dog" src="/Dog-waiting-1.png" alt="" width="56" height="102" />
+          <div class="modal-title" id="fpCloningTitle" i18n="@@firstplan.cloningTitle">Estamos copiando este plan para ti ✨</div>
+          <p id="fpCloningLine" aria-live="polite" i18n="@@firstplan.cloningLine">En un momento lo tendrás en tu cuenta, listo para editar.</p>
+          <span class="fp-cloning-spinner" aria-hidden="true"></span>
+        </div>
+      </div>
+    }
     @if (registerSuccessOpen()) {
       <div style="position:fixed;inset:0;z-index:1000;background:rgba(15,10,30,0.72);display:flex;align-items:center;justify-content:center;padding:16px">
         <div style="background:#fff;border-radius:24px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.28)">
@@ -46,7 +58,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                  : 'linear-gradient(135deg,var(--lav),var(--peach))'">
             <button type="button"
                     style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:16px;line-height:1;padding:5px 8px;border-radius:8px;cursor:pointer;transition:background .12s"
-                    (click)="authModal.close()">✕</button>
+                    (click)="cancel()">✕</button>
             @if (loginMode() === 'reset') {
               <div class="modal-title" i18n="@@nav.resetTitle">Recuperar contraseña 🔑</div>
               <div class="modal-sub" i18n="@@nav.resetSubtitle">Te enviaremos un código a tu correo</div>
@@ -249,7 +261,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               }
             </div>
             <div style="display:flex;gap:8px;width:100%">
-              <button class="btn-pill btn-outline" (click)="authModal.close()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
+              <button class="btn-pill btn-outline" (click)="cancel()" style="flex:1" i18n="@@nav.cancelBtn">Cancelar</button>
               @if (loginMode() === 'reset') {
                 @if (resetStep() === 'request') {
                   <button class="btn-pill btn-primary" (click)="requestReset()"
@@ -342,7 +354,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               }
             } @else if (loginMode() === 'login') {
               <div class="auth-toggle">
-                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>Regístrate gratis</span></span>
+                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>⭐ Regístrate gratis</span></span>
               </div>
             } @else {
               <div class="auth-toggle">
@@ -363,6 +375,7 @@ export class AuthModalComponent {
   private readonly savedPlans = inject(SavedPlansService);
   private readonly favorites  = inject(FavoritesService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
+  protected readonly firstPlan  = inject(FirstPlanService);
 
   // auth form signals
   loginMode     = signal<'login' | 'register' | 'reset'>('login');
@@ -649,8 +662,15 @@ export class AuthModalComponent {
     }
   }
 
+  /** ✕ / Cancelar: a visitor who gives up on signing in drops the F79 sign-up intent, so a later login elsewhere never acts on it. */
+  cancel(): void {
+    this.authModal.close();
+    this.firstPlan.takeSignupIntent();
+  }
+
   dismissRegisterSuccess(): void {
     this.registerSuccessOpen.set(false);
+    this.firstPlan.afterLogin(); // F79: carry the sign-up intent / open the free first run
   }
 
   doAuth(): void {
@@ -680,6 +700,7 @@ export class AuthModalComponent {
           this.loginPassword.set('');
           this.loginConfirmPassword.set('');
           this.authModal.executePostLogin();
+          this.firstPlan.afterLogin();
         },
         error: (err: unknown) => {
           this.loginLoading.set(false);

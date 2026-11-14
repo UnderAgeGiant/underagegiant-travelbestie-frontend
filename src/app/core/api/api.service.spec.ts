@@ -131,6 +131,16 @@ describe('ApiService — planTrip (async kickoff + poll)', () => {
 
   afterEach(() => httpMock.verify());
 
+  it('reports the charge at kickoff, before the job finishes', fakeAsync(() => {
+    const charged = jest.fn();
+    svc.karmaCharged$.subscribe(charged);
+    svc.planTrip(req).subscribe({ error: () => {} });
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan`).flush({ requestId: 'req-1' });
+    expect(charged).toHaveBeenCalledTimes(1);
+    tick(0);
+    httpMock.expectOne(`${environment.apiUrl}/ai/plan/req-1/status`).flush({ status: 'failed', error: 'x' });
+  }));
+
   it('kicks off, polls, and resolves with the plan once status flips to completed', fakeAsync(() => {
     let result: any;
     svc.planTrip(req).subscribe(r => (result = r));
@@ -207,6 +217,15 @@ describe('ApiService (useMocks=false via spy)', () => {
     service.saveTrip({ title: 'My Trip', stops: [] }).subscribe();
     const req = http.expectOne(r => r.url.includes('/trips') && r.method === 'POST');
     req.flush({ id: '1', title: 'My Trip', stops: [] });
+  });
+
+  it('saveTrip reports a possible charge so the header balance refreshes', () => {
+    const charged = jest.fn();
+    service.karmaCharged$.subscribe(charged);
+    service.saveTrip({ title: 'My Trip', stops: [] }).subscribe();
+    expect(charged).not.toHaveBeenCalled();
+    http.expectOne(r => r.url.includes('/trips') && r.method === 'POST').flush({ id: '1', title: 'My Trip', stops: [] });
+    expect(charged).toHaveBeenCalledTimes(1);
   });
 
   it('addComment calls POST /comments/:attractionId', () => {
@@ -337,12 +356,63 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     req.flush({ options: [] });
   });
 
+  it('a failed suggestTrips still reports a balance change (the server refunds the 8 Tokens)', async () => {
+    const charged = jest.fn();
+    service.karmaCharged$.subscribe(charged);
+    service.suggestTrips('historia y arte').subscribe({ error: () => {} });
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush({ error: 'Internal server error' }, { status: 500, statusText: 'Server Error' });
+    expect(charged).toHaveBeenCalledTimes(1);
+  });
+
   it('suggestTrips sends planSessionId when provided', async () => {
     service.suggestTrips('romantic trip', 10, '1000 USD', 'session-abc').subscribe();
     await new Promise(resolve => setTimeout(resolve, 0));
     const req = http.expectOne(r => r.url.includes('/ai/suggest') && r.method === 'POST');
     expect(req.request.body.planSessionId).toBe('session-abc');
     req.flush({ options: [] });
+  });
+
+  it('suggestTrips with cityIds sends only those cities in cityIndex', async () => {
+    service.suggestTrips('Tipos de experiencia preferidos: Museos', 5, undefined, 's-1', ['rome', 'paris']).subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.includes('/ai/suggest') && r.method === 'POST');
+    expect(req.request.body.cityIds).toEqual(['rome', 'paris']);
+    expect(req.request.body.cityIndex.map((c: { id: string }) => c.id).sort()).toEqual(['paris', 'rome']);
+    req.flush({ options: [] });
+  });
+
+  it('firstPlan posts to /ai/first-plan then polls status and resolves tripId', async () => {
+    let result: any;
+    service.firstPlan({ cities: [{ id: 'paris', name: 'Paris' }], duration: 3, preferences: 'Museos' }).subscribe(r => (result = r));
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.endsWith('/ai/first-plan') && r.method === 'POST');
+    expect(req.request.body.cities).toEqual([{ id: 'paris', name: 'Paris' }]);
+    expect(Object.keys(req.request.body.cityCatalog)).toEqual(['paris']);
+    req.flush({ requestId: 'fp-1' });
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.includes('/ai/plan/fp-1/status')).flush({
+      status: 'completed', result: { title: 'Viaje a Paris', stops: [], transits: [] }, tripId: 'trip-9',
+    });
+    expect(result.tripId).toBe('trip-9');
+    expect(result.title).toBe('Viaje a Paris');
+  });
+
+  it('firstPlan errors with first_plan_not_saved when completed without a tripId', async () => {
+    let error: any;
+    service.firstPlan({ cities: [{ id: 'paris', name: 'Paris' }], duration: 3 }).subscribe({ error: e => (error = e) });
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.endsWith('/ai/first-plan')).flush({ requestId: 'fp-2' });
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.includes('/ai/plan/fp-2/status')).flush({ status: 'completed', result: { title: 'T', stops: [], transits: [] }, tripId: null });
+    expect(error?.error?.error).toBe('first_plan_not_saved');
+  });
+
+  it('cloneSharedTrip(x, featured) hits /shared/x/clone?source=featured; shared sends no query', () => {
+    service.cloneSharedTrip('x', 'featured').subscribe();
+    http.expectOne(r => r.urlWithParams.endsWith('/shared/x/clone?source=featured') && r.method === 'POST').flush({});
+    service.cloneSharedTrip('y', 'shared').subscribe();
+    http.expectOne(r => r.urlWithParams.endsWith('/shared/y/clone')).flush({});
   });
 
   it('suggestTrips omits planSessionId when not provided', async () => {

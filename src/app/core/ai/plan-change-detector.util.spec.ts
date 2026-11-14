@@ -2,6 +2,7 @@ import {
   serializeOptions,
   computeChangeRatio,
   isMinorChange,
+  planChangeRatio,
   toSessionOptions,
   CHANGE_THRESHOLD,
 } from './plan-change-detector.util';
@@ -15,6 +16,7 @@ const baseOpts: PlanSessionOptions = {
   duration:                 14,
   budget:                   '1000 USD',
   startDate:                '15/07/2026',
+  cityIds:                  [],
 };
 
 describe('serializeOptions', () => {
@@ -45,6 +47,7 @@ describe('computeChangeRatio', () => {
       duration:                 10,
       budget:                   '500 USD',
       startDate:                '01/03/2027',
+      cityIds:                  [],
     };
     expect(computeChangeRatio(baseOpts, other)).toBeGreaterThan(CHANGE_THRESHOLD);
   });
@@ -97,5 +100,64 @@ describe('toSessionOptions', () => {
     expect(result.duration).toBe(0);
     expect(result.budget).toBe('');
     expect(result.startDate).toBe('');
+  });
+});
+
+describe('cityIds (F79 cities mode)', () => {
+  const five = ['paris', 'rome', 'barcelona', 'lisbon', 'madrid'];
+  const cityOpts: PlanSessionOptions = { ...baseOpts, preferences: '', cityIds: five };
+
+  it('serializes cityIds sorted as the last key (byte-identical to the backend)', () => {
+    const s = serializeOptions({ ...cityOpts, cityIds: ['rome', 'paris'] });
+    expect(s.endsWith(',"cityIds":["paris","rome"]}')).toBe(true);
+  });
+
+  it('matches the backend serializeOptions byte for byte (fixture from manager repo B3)', () => {
+    expect(serializeOptions({ ...baseOpts, cityIds: ['rome', 'paris'] })).toBe(
+      '{"title":"clásicos de europa","summary":"parís, roma y barcelona en un viaje lleno de arte.","highlights":["barcelona, españa","parís, francia","roma, italia"],"preferences":"viaje romántico con gastronomía","duration":14,"budget":"1000 usd","startDate":"15/07/2026","cityIds":["paris","rome"]}',
+    );
+  });
+
+  it('swapping one of five cities is a minor change', () => {
+    const swapped = { ...cityOpts, cityIds: ['paris', 'rome', 'barcelona', 'lisbon', 'porto'] };
+    expect(computeChangeRatio(cityOpts, swapped)).toBeLessThanOrEqual(CHANGE_THRESHOLD);
+    expect(isMinorChange(cityOpts, swapped)).toBe(true);
+  });
+
+  it('replacing four of five cities is a major change', () => {
+    const replaced = { ...cityOpts, cityIds: ['paris', 'tokyo', 'kyoto', 'seoul', 'bangkok'] };
+    expect(isMinorChange(cityOpts, replaced)).toBe(false);
+  });
+
+  it('planChangeRatio is the ratio the verdict uses: city share, and 1 for a mode switch', () => {
+    const replaced = { ...cityOpts, cityIds: ['paris', 'tokyo', 'kyoto', 'seoul', 'bangkok'] };
+    expect(planChangeRatio(cityOpts, replaced)).toBeCloseTo(0.8);
+    expect(planChangeRatio(cityOpts, { ...cityOpts, preferences: 'museos', cityIds: [] })).toBe(1);
+    expect(planChangeRatio(baseOpts, { ...baseOpts })).toBe(0);
+  });
+
+  it('swapping one of two cities is a major change, adding a sixth to five is minor', () => {
+    expect(isMinorChange({ ...cityOpts, cityIds: ['paris', 'rome'] }, { ...cityOpts, cityIds: ['paris', 'tokyo'] })).toBe(false);
+    expect(isMinorChange(cityOpts, { ...cityOpts, cityIds: [...five, 'porto'] })).toBe(true);
+  });
+
+  it('switching from cities mode to free text is always major', () => {
+    const oldOpts = { ...baseOpts, preferences: '', cityIds: ['paris'] };
+    const newOpts = { ...baseOpts, preferences: 'museos', cityIds: [] };
+    expect(isMinorChange(oldOpts, newOpts)).toBe(false);
+    expect(isMinorChange(newOpts, oldOpts)).toBe(false);
+  });
+
+  it('treats a missing cityIds as empty', () => {
+    const legacy = { ...baseOpts, cityIds: undefined as unknown as string[] };
+    expect(() => isMinorChange(legacy, { ...baseOpts, cityIds: [] })).not.toThrow();
+    expect(isMinorChange(legacy, { ...baseOpts, cityIds: [] })).toBe(true);
+    expect(serializeOptions(legacy)).toBe(serializeOptions({ ...baseOpts, cityIds: [] }));
+  });
+
+  it('toSessionOptions reads cityIds ?? []', () => {
+    const sel: TripSuggestion = { id: 1, title: 't', summary: 's', highlights: [] };
+    expect(toSessionOptions({ selectedOption: sel, preferences: '' }).cityIds).toEqual([]);
+    expect(toSessionOptions({ selectedOption: sel, preferences: '', cityIds: ['rome', 'paris'] }).cityIds).toEqual(['rome', 'paris']);
   });
 });

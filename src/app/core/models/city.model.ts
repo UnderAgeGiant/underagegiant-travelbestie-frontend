@@ -30,3 +30,24 @@ export const REGION_LABELS: Record<Region, string> = {
   africa: $localize`:@@region.africa:África`,
   oceania: $localize`:@@region.oceania:Oceanía`,
 };
+
+/** Continent grouping for the multi-city picker (F79): every Asian sub-region folds into asia. */
+export type Continent = 'europe' | 'asia' | 'americas' | 'africa' | 'oceania';
+
+export function continentOf(region: Region): Continent {
+  switch (region) {
+    case 'europe':   return 'europe';
+    case 'americas': return 'americas';
+    case 'africa':   return 'africa';
+    case 'oceania':  return 'oceania';
+    default:         return 'asia';
+  }
+}
+
+export const CONTINENT_LABELS: Record<Continent, string> = {
+  europe:   $localize`:@@continent.europe:Europa`,
+  asia:     $localize`:@@continent.asia:Asia`,
+  americas: $localize`:@@continent.americas:América`,
+  africa:   $localize`:@@continent.africa:África`,
+  oceania:  $localize`:@@continent.oceania:Oceanía`,
+};

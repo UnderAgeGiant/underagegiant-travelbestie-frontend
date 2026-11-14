@@ -351,8 +351,8 @@
         <target>Incorrect or expired code. We sent you a new one — check your email.</target>
       </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
-        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
-        <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>⭐ Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>⭐ Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
       </trans-unit>
       <trans-unit id="nav.authToggleRegister" datatype="html">
         <source>¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span"/>Inicia sesión<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
@@ -3782,6 +3782,194 @@
       <trans-unit id="attractions.retry" datatype="html">
         <source>Reintentar</source>
         <target>Retry</target>
+      </trans-unit>
+      <trans-unit id="firstplan.defaultName" datatype="html">
+        <source>Mi primer viaje</source>
+        <target>My first trip</target>
+      </trans-unit>
+      <trans-unit id="firstplan.savedToast" datatype="html">
+        <source>Guardado en tu cuenta ✓</source>
+        <target>Saved to your account ✓</target>
+      </trans-unit>
+      <trans-unit id="continent.europe" datatype="html">
+        <source>Europa</source>
+        <target>Europe</target>
+      </trans-unit>
+      <trans-unit id="continent.asia" datatype="html">
+        <source>Asia</source>
+        <target>Asia</target>
+      </trans-unit>
+      <trans-unit id="continent.americas" datatype="html">
+        <source>América</source>
+        <target>Americas</target>
+      </trans-unit>
+      <trans-unit id="continent.africa" datatype="html">
+        <source>África</source>
+        <target>Africa</target>
+      </trans-unit>
+      <trans-unit id="continent.oceania" datatype="html">
+        <source>Oceanía</source>
+        <target>Oceania</target>
+      </trans-unit>
+      <trans-unit id="seo.firstPlan.title" datatype="html">
+        <source>Tu primer plan | Tripilove</source>
+        <target>Your first plan | Tripilove</target>
+      </trans-unit>
+      <trans-unit id="firstplan.banner" datatype="html">
+        <source>Tu primer plan es un regalo 🎁 No gasta Tokens: tus 10 Tokens siguen intactos.</source>
+        <target>Your first plan is a gift 🎁 It costs no Tokens: your 10 Tokens stay untouched.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.citiesLabel" datatype="html">
+        <source>¿A qué ciudades quieres ir?</source>
+        <target>Which cities do you want to visit?</target>
+      </trans-unit>
+      <trans-unit id="firstplan.daysTotal" datatype="html">
+        <source>Días en total (todas las ciudades)</source>
+        <target>Total days (all cities)</target>
+      </trans-unit>
+      <trans-unit id="firstplan.cta" datatype="html">
+        <source>Crear mi plan gratis</source>
+        <target>Create my free plan</target>
+      </trans-unit>
+      <trans-unit id="firstplan.seeReady" datatype="html">
+        <source>⭐ Ver planes listos para copiar</source>
+        <target>⭐ See ready-made plans to copy</target>
+      </trans-unit>
+      <trans-unit id="aiplan.modeLabel" datatype="html">
+        <source>Cómo quieres planificar</source>
+        <target>How do you want to plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.modeCities" datatype="html">
+        <source>Ciudades</source>
+        <target>Cities</target>
+      </trans-unit>
+      <trans-unit id="aiplan.modeText" datatype="html">
+        <source>Texto libre</source>
+        <target>Free text</target>
+      </trans-unit>
+      <trans-unit id="firstplan.saved" datatype="html">
+        <source>Guardado en tu cuenta ✓</source>
+        <target>Saved to your account ✓</target>
+      </trans-unit>
+      <trans-unit id="firstplan.balance" datatype="html">
+        <source>Tus Tokens: <x id="INTERPOLATION" equiv-text="{{ karma.karma() }}"/> ⭐</source>
+        <target>Your Tokens: <x id="INTERPOLATION" equiv-text="{{ karma.karma() }}"/> ⭐</target>
+      </trans-unit>
+      <trans-unit id="firstplan.openEditor" datatype="html">
+        <source>Abrir mi plan</source>
+        <target>Open my plan</target>
+      </trans-unit>
+      <trans-unit id="firstplan.limit3" datatype="html">
+        <source>Tres ciudades es el máximo para el primer plan gratis.</source>
+        <target>Three cities is the limit for the free first plan.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.citiesLimit" datatype="html">
+        <source>Puedes elegir hasta 10 ciudades.</source>
+        <target>You can pick up to 10 cities.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.citiesDaysNote" datatype="html">
+        <source>Con <x id="count" equiv-text="n"/> ciudades necesitas al menos <x id="count" equiv-text="n"/> días</source>
+        <target><x id="count" equiv-text="n"/> cities need at least <x id="count" equiv-text="n"/> days</target>
+      </trans-unit>
+      <trans-unit id="firstplan.alreadySaved" datatype="html">
+        <source>Tu primer plan ya está guardado en Mis viajes</source>
+        <target>Your first plan is already saved in My trips</target>
+      </trans-unit>
+      <trans-unit id="firstplan.failed" datatype="html">
+        <source>No pudimos crear tu plan. Inténtalo de nuevo.</source>
+        <target>We couldn't create your plan. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="firstplan.readyTitle" datatype="html">
+        <source>Empieza con un plan ya hecho</source>
+        <target>Start from a ready-made plan</target>
+      </trans-unit>
+      <trans-unit id="firstplan.readySub" datatype="html">
+        <source>Cópialo gratis y cámbialo a tu gusto.</source>
+        <target>Copy it for free and make it your own.</target>
+      </trans-unit>
+      <trans-unit id="firstplan.metaDays" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 día} other {<x id="INTERPOLATION"/> días}}</source>
+        <target>{VAR_PLURAL, plural, =1 {1 day} other {<x id="INTERPOLATION"/> days}}</target>
+      </trans-unit>
+      <trans-unit id="firstplan.metaCities" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 ciudad} other {<x id="INTERPOLATION"/> ciudades}}</source>
+        <target>{VAR_PLURAL, plural, =1 {1 city} other {<x id="INTERPOLATION"/> cities}}</target>
+      </trans-unit>
+      <trans-unit id="firstplan.metaPlaces" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 lugar} other {<x id="INTERPOLATION"/> lugares}}</source>
+        <target>{VAR_PLURAL, plural, =1 {1 place} other {<x id="INTERPOLATION"/> places}}</target>
+      </trans-unit>
+      <trans-unit id="firstplan.useFree" datatype="html">
+        <source>Usar gratis</source>
+        <target>Use for free</target>
+      </trans-unit>
+      <trans-unit id="firstplan.backToAi" datatype="html">
+        <source>Crear mi plan gratis con IA</source>
+        <target>Create my free plan with AI</target>
+      </trans-unit>
+      <trans-unit id="firstplan.fromScratch" datatype="html">
+        <source>Prefiero empezar desde cero</source>
+        <target>I'd rather start from scratch</target>
+      </trans-unit>
+      <trans-unit id="firstplan.copyFailed" datatype="html">
+        <source>No pudimos copiar el plan. Inténtalo de nuevo.</source>
+        <target>We couldn't copy the plan. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="cmp.fieldLabel" datatype="html">
+        <source>Ciudades de destino</source>
+        <target>Destination cities</target>
+      </trans-unit>
+      <trans-unit id="cmp.placeholder" datatype="html">
+        <source>Elige ciudades…</source>
+        <target>Pick cities…</target>
+      </trans-unit>
+      <trans-unit id="cmp.search" datatype="html">
+        <source>Busca una ciudad o un país…</source>
+        <target>Search a city or a country…</target>
+      </trans-unit>
+      <trans-unit id="cmp.done" datatype="html">
+        <source>Listo · <x id="ICU" equiv-text="{selected().length, plural, =1 {1 ciudad} other {{{selected().length}} ciudades}}" xid="2207262635633108854"/></source>
+        <target>Done · <x id="ICU" equiv-text="{selected().length, plural, =1 {1 ciudad} other {{{selected().length}} ciudades}}" xid="2207262635633108854"/></target>
+      </trans-unit>
+      <trans-unit id="8318809674044787163" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 ciudad} other {<x id="INTERPOLATION"/> ciudades}}</source>
+        <target>{VAR_PLURAL, plural, =1 {1 city} other {<x id="INTERPOLATION"/> cities}}</target>
+      </trans-unit>
+      <trans-unit id="cmp.remove" datatype="html">
+        <source>Quitar <x id="city" equiv-text="name"/></source>
+        <target>Remove <x id="city" equiv-text="name"/></target>
+      </trans-unit>
+      <trans-unit id="aiplan.daysMax" datatype="html">
+        <source>Puedes planear hasta 60 días</source>
+        <target>You can plan up to 60 days</target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmNewBatchTitle" datatype="html">
+        <source>Cambiaste tus datos</source>
+        <target>You changed your details</target>
+      </trans-unit>
+      <trans-unit id="aiplan.suggestNewBatchBody" datatype="html">
+        <source> Con estos datos la IA crea opciones nuevas: generarlas cuesta 8 Tokens ⭐. </source>
+        <target>With these details the AI creates new options: generating them costs 8 Tokens ⭐.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.previewNewBatchBody" datatype="html">
+        <source> Cambiaste tus datos: &quot;Generar opciones&quot; crea opciones nuevas y cuesta 8 Tokens ⭐. Los cambios gratuitos de arriba son para regenerar el plan. </source>
+        <target>You changed your details: "Generate options" creates new options and costs 8 Tokens ⭐. The free changes above are for regenerating the plan.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.suggestFailed" datatype="html">
+        <source>No pudimos generar las opciones. Inténtalo de nuevo.</source>
+        <target>We couldn't generate the options. Please try again.</target>
+      </trans-unit>
+      <trans-unit id="karmaHistory.reason.aiSuggestRefund" datatype="html">
+        <source>Reembolso de sugerencias de IA</source>
+        <target>AI suggestions refund</target>
+      </trans-unit>
+      <trans-unit id="firstplan.cloningTitle" datatype="html">
+        <source>Estamos copiando este plan para ti ✨</source>
+        <target>We're copying this plan for you ✨</target>
+      </trans-unit>
+      <trans-unit id="firstplan.cloningLine" datatype="html">
+        <source>En un momento lo tendrás en tu cuenta, listo para editar.</source>
+        <target>It'll be in your account in a moment, ready to edit.</target>
       </trans-unit>
     </body>
   </file>

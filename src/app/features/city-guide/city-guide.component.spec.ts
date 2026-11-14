@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute, Router, convertToParamMap, provideRouter } from '@angular/router';
-import { of } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { CityGuideComponent } from './city-guide.component';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { PreferencesComponent } from '../preferences/preferences.component';
@@ -58,7 +58,7 @@ jest.mock('../../data/city-guides.data', () => {
 
 describe('CityGuideComponent (/ciudad/madrid)', () => {
   const seo = { apply: jest.fn(), reset: jest.fn() };
-  const api = { getSeoCityPlans: jest.fn() };
+  const api = { getSeoCityPlans: jest.fn(), karmaCharged$: new Subject<void>() };
 
   function create(plans: any[] = []) {
     api.getSeoCityPlans.mockReturnValue(of({ items: plans }));

@@ -15,6 +15,11 @@ export class KarmaService {
   constructor() {
     const user = this.auth.currentUser();
     if (user?.email) this.loadForUser(user.email);
+    // Root singleton: lives as long as ApiService, so no unsubscribe.
+    this.api.karmaCharged$.subscribe(() => {
+      const email = this.auth.currentUser()?.email;
+      if (email) this.loadForUser(email);
+    });
   }
 
   loadForUser(email: string): void {

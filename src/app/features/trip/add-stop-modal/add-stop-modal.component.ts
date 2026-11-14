@@ -1,10 +1,13 @@
 import { Component, output, signal, inject, computed, effect, input, untracked, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../core/auth/auth.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
 import { CityComboboxComponent } from '../../../shared/city-combobox/city-combobox.component';
 import { DateRangeComponent } from '../../../shared/date-range/date-range.component';
 import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
+import { formatDMY, parseDMY } from '../../../core/utils/event-datetime.util';
 
 @Component({
     selector: 'app-add-stop-modal',
@@ -26,7 +29,8 @@ import { WORLD_CITIES } from '../../../data/cities.data';
           </div>
           @if (selectedCity()) {
             <app-date-range
-              [initialCheckIn]="defaultCheckIn()"
+              [initialCheckIn]="checkIn() || defaultCheckIn()"
+              [initialCheckOut]="checkOut()"
               (checkIn)="checkIn.set($event)"
               (checkOut)="checkOut.set($event)" />
           }
@@ -57,6 +61,8 @@ import { WORLD_CITIES } from '../../../data/cities.data';
 export class AddStopModalComponent {
   readonly trip = inject(TripService);
   private readonly router = inject(Router);
+  private readonly auth = inject(AuthService);
+  private readonly firstPlan = inject(FirstPlanService);
   close = output<void>();
 
   /** City id to pre-select on open — e.g. from a city guide page's "Planificar mi viaje" CTA (`?addCity=`). */
@@ -71,7 +77,16 @@ export class AddStopModalComponent {
       const id = this.presetCityId();
       if (!id) return;
       const city = WORLD_CITIES.find(c => c.id === id);
-      if (city) untracked(() => this.selectedCity.set(city));
+      if (!city) return;
+      untracked(() => {
+        this.selectedCity.set(city);
+        // City-guide CTA: dates ready (today, or after the last stop, for 3 nights) so "Agregar al viaje" works at once.
+        const start = this.defaultCheckIn() || formatDMY(new Date());
+        const out = parseDMY(start)!;
+        out.setDate(out.getDate() + 3);
+        this.checkIn.set(start);
+        this.checkOut.set(formatDMY(out));
+      });
     });
   }
 
@@ -130,6 +145,8 @@ export class AddStopModalComponent {
     const city = this.selectedCity();
     if (!city) return;
     this.trip.addStop(city, this.checkIn(), this.checkOut());
+    // F79: the first city of a user with the gift saves the plan to the account, free (Path 3).
+    if (this.auth.firstPlanAvailable() && !this.trip.loadedPlanId()) this.firstPlan.saveFirstManualPlan().subscribe({ error: () => {} });
     this.close.emit();
     void this.router.navigateByUrl('/plan');   // no-op when already in the editor (Feature 68)
   }

@@ -8,6 +8,7 @@ describe('karmaReasonLabel', () => {
   it('returns a distinct label for ai_plan vs ai_plan_refund', () => {
     expect(karmaReasonLabel('ai_plan')).toBe('Plan de IA generado');
     expect(karmaReasonLabel('ai_plan_refund')).toBe('Reembolso de plan de IA');
+    expect(karmaReasonLabel('ai_suggest_refund')).toBe('Reembolso de sugerencias de IA');
   });
 
   it('falls back to the raw string for an unrecognized reason', () => {
@@ -31,6 +32,7 @@ describe('isPlanLinkedReason', () => {
     expect(isPlanLinkedReason('attraction_comment_first')).toBe(false);
     expect(isPlanLinkedReason('step_comment')).toBe(false);
     expect(isPlanLinkedReason('ai_plan_refund')).toBe(false);
+    expect(isPlanLinkedReason('ai_suggest_refund')).toBe(false); // target always null (contracts §5.1)
     // ai_suggest's null target is the common "never saved a trip" case, not a deletion — see karma-event.model.ts
     expect(isPlanLinkedReason('ai_suggest')).toBe(false);
   });

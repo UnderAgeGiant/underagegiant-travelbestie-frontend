@@ -69,6 +69,20 @@ describe('AuthService', () => {
     http.expectOne(r => r.url.endsWith('/auth/profile')).flush({ error: 'USERNAME_TAKEN' }, { status: 409, statusText: 'Conflict' });
   });
 
+  it('firstPlanAvailable() is false when the backend omits the field', () => {
+    service.setTokens('t', { name: 'Test', email: 'test@test.com' });
+    expect(service.firstPlanAvailable()).toBe(false);
+    service.setTokens('t', { name: 'Test', email: 'test@test.com', firstPlanAvailable: true });
+    expect(service.firstPlanAvailable()).toBe(true);
+  });
+
+  it('setFirstPlanAvailable(false) flips the computed and the localStorage marker', () => {
+    service.setTokens('t', { name: 'Test', email: 'test@test.com', firstPlanAvailable: true });
+    service.setFirstPlanAvailable(false);
+    expect(service.firstPlanAvailable()).toBe(false);
+    expect(JSON.parse(localStorage.getItem('tb_session_user')!).firstPlanAvailable).toBe(false);
+  });
+
   it('isLoggedIn returns false when no token', () => {
     expect(service.isLoggedIn()).toBe(false);
   });
