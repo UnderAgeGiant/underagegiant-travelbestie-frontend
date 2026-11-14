@@ -60,6 +60,40 @@ describe('AddStopModalComponent — presetCityId (city guide "plan this city" pr
     expect(fixture.componentInstance.selectedCity()?.id).toBe('madrid');
   });
 
+  const dmy = (d: Date) => `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+
+  it('prefills Entrada = today and Salida = today + 3 (shown in the inputs), so "Agregar al viaje" is enabled at once', () => {
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.componentRef.setInput('presetCityId', 'madrid');
+    fixture.detectChanges();
+    const today = new Date(), out = new Date();
+    out.setDate(out.getDate() + 3);
+    const c = fixture.componentInstance;
+    expect(c.checkIn()).toBe(dmy(today));
+    expect(c.checkOut()).toBe(dmy(out));
+    const inputs = fixture.nativeElement.querySelectorAll('app-date-range input') as NodeListOf<HTMLInputElement>;
+    expect(inputs[0].value).toBe(dmy(today));
+    expect(inputs[1].value).toBe(dmy(out));
+    const addBtn = Array.from(fixture.nativeElement.querySelectorAll('button') as NodeListOf<HTMLButtonElement>).find(b => b.textContent!.includes('Agregar'))!;
+    expect(addBtn.disabled).toBe(false);
+  });
+
+  it('chains after the last stop when the trip already has stops', () => {
+    TestBed.inject(TripService).addStop(PARIS, '01/06/2026', '05/06/2026');
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.componentRef.setInput('presetCityId', 'madrid');
+    fixture.detectChanges();
+    expect(fixture.componentInstance.checkIn()).toBe('05/06/2026');
+    expect(fixture.componentInstance.checkOut()).toBe('08/06/2026');
+  });
+
+  it('opened normally (no preset) the dates stay empty', () => {
+    const fixture = TestBed.createComponent(AddStopModalComponent);
+    fixture.detectChanges();
+    expect(fixture.componentInstance.checkIn()).toBe('');
+    expect(fixture.componentInstance.checkOut()).toBe('');
+  });
+
   it('leaves selectedCity null for an unknown id', () => {
     const fixture = TestBed.createComponent(AddStopModalComponent);
     fixture.componentRef.setInput('presetCityId', 'atlantis');

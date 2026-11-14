@@ -7,6 +7,7 @@ import { DateRangeComponent } from '../../../shared/date-range/date-range.compon
 import { TripService } from '../trip.service';
 import { City } from '../../../core/models/city.model';
 import { WORLD_CITIES } from '../../../data/cities.data';
+import { formatDMY, parseDMY } from '../../../core/utils/event-datetime.util';
 
 @Component({
     selector: 'app-add-stop-modal',
@@ -28,7 +29,8 @@ import { WORLD_CITIES } from '../../../data/cities.data';
           </div>
           @if (selectedCity()) {
             <app-date-range
-              [initialCheckIn]="defaultCheckIn()"
+              [initialCheckIn]="checkIn() || defaultCheckIn()"
+              [initialCheckOut]="checkOut()"
               (checkIn)="checkIn.set($event)"
               (checkOut)="checkOut.set($event)" />
           }
@@ -75,7 +77,16 @@ export class AddStopModalComponent {
       const id = this.presetCityId();
       if (!id) return;
       const city = WORLD_CITIES.find(c => c.id === id);
-      if (city) untracked(() => this.selectedCity.set(city));
+      if (!city) return;
+      untracked(() => {
+        this.selectedCity.set(city);
+        // City-guide CTA: dates ready (today, or after the last stop, for 3 nights) so "Agregar al viaje" works at once.
+        const start = this.defaultCheckIn() || formatDMY(new Date());
+        const out = parseDMY(start)!;
+        out.setDate(out.getDate() + 3);
+        this.checkIn.set(start);
+        this.checkOut.set(formatDMY(out));
+      });
     });
   }
 
