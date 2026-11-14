@@ -1203,6 +1203,18 @@ describe('AiPlanningComponent — F79 free first run', () => {
     expect((el.querySelector('.ai-first-submit') as HTMLButtonElement).disabled).toBe(false);
   });
 
+  it('the city prefill still applies when the gift flag arrives after init (session marker without the flag)', () => {
+    const el = create(undefined, ['paris']);
+    expect(component.firstRun()).toBe(false);
+    expect(component.duration()).toBeUndefined();
+    auth.setFirstPlanAvailable(true);
+    fixture.detectChanges();
+    expect(component.duration()).toBe(3);
+    expect(component.startDate()).not.toBe('');
+    expect((el.querySelector('.ai-first-submit') as HTMLButtonElement).disabled).toBe(false);
+    expect((el.querySelector('.ai-first-card app-date-picker input, app-date-picker input') as HTMLInputElement).value).toBe(component.startDate());
+  });
+
   it('a plain first run (no ?city=) leaves days and date empty', () => {
     create(true);
     expect(component.duration()).toBeUndefined();

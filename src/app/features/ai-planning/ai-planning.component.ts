@@ -1,7 +1,7 @@
 import { StayLengthComponent } from '../../shared/stay-length/stay-length.component';
 import { AttractionNamePipe } from '../../shared/pipes/attraction-name.pipe';
 import { GameAssetsService } from '../../core/game/game-assets.service';
-import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy, OnInit, ElementRef, Injector, afterNextRender } from '@angular/core';
+import { Component, inject, signal, computed, input, effect, output, linkedSignal, ChangeDetectionStrategy, OnDestroy, OnInit, ElementRef, Injector, afterNextRender, untracked } from '@angular/core';
 import { ToastService } from '../../core/ui/toast.service';
 import { KarmaService } from '../../core/karma/karma.service';
 import { Subscription } from 'rxjs';
@@ -922,14 +922,24 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const ids = this.initialCityIds();
-    if (!ids.length) return;
-    this.cities.set(ids.slice(0, this.firstRun() ? this.MAX_CITIES_FIRST_RUN : this.MAX_CITIES_REGULAR));
-    // F79 city-guide sign-up: start today for 3 days, so "Crear mi plan gratis" works with one tap (both stay editable).
-    if (this.firstRun()) {
-      this.startDate.set(formatDMY(new Date()));
-      this.duration.set(3);
-    }
+    if (ids.length) this.cities.set(ids.slice(0, this.firstRun() ? this.MAX_CITIES_FIRST_RUN : this.MAX_CITIES_REGULAR));
   }
+
+  /**
+   * F79 city-guide sign-up (?city=): start today for 3 days, so "Crear mi plan gratis" works with one tap (both
+   * stay editable). An effect, not ngOnInit: the gift flag can arrive after init (a session marker written before
+   * F79 has no flag until the boot refresh lands). Runs once, before the first-run card renders its date picker.
+   */
+  private cityPrefillDone = false;
+  private readonly cityPrefill = effect(() => {
+    if (this.cityPrefillDone || !this.firstRun() || !this.initialCityIds().length) return;
+    this.cityPrefillDone = true;
+    untracked(() => {
+      this.cities.set(this.initialCityIds().slice(0, this.MAX_CITIES_FIRST_RUN));
+      if (this.duration() == null) this.duration.set(3);
+      if (!this.startDate()) this.startDate.set(formatDMY(new Date()));
+    });
+  });
 
   /** "Crear mi plan gratis": POST /ai/first-plan; the job saves the trip, so success means it is already in the account. */
   startFirstPlan(): void {
