@@ -13,6 +13,13 @@ import { TripService } from '../trip/trip.service';
 import { Trip } from '../../core/models/trip.model';
 import { TripSuggestion, PlanTripResponse } from '../../core/models/ai.model';
 
+/** Successful AI calls refresh the header balance (GET /karma); flush it, then fail on anything else. */
+function verifyHttp(http: HttpTestingController): void {
+  http.match(r => r.url.endsWith('/karma')).forEach(r => r.flush({ karma: 0 }));
+  http.verify();
+}
+
+
 // AiPlanningComponent renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
   matches: false, media: '', addEventListener: () => {}, removeEventListener: () => {},
@@ -50,7 +57,7 @@ describe('AiPlanningComponent — auto-opened plan presentation', () => {
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   describe('plan ready (F3)', () => {
     afterEach(() => jest.useRealTimers());
@@ -172,7 +179,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
   });
 
   // A successful explicit save fires the fire-and-forget cost estimate (F74); answer it so verify() stays strict.
-  afterEach(() => { http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({})); http.verify(); });
+  afterEach(() => { http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({})); verifyHttp(http); });
 
   it('leaves no city selected and records the server-assigned trip id after saving', () => {
     let saved = false;
@@ -237,7 +244,7 @@ describe('AiPlanningComponent — save() marks the plan as loaded', () => {
     tripReq.flush({ id: 'trip-42', ...TRIP });
 
     http.match(r => r.url.endsWith('/estimate')).forEach(r => r.flush({}));
-    http.verify();   // fails if any unexpected (e.g. DELETE) request was made
+    verifyHttp(http);   // fails if any unexpected (e.g. DELETE) request was made
   });
 
   it('sets saving to true while the request is in flight, guarding against a double-click', () => {
@@ -514,7 +521,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   it('does not delete the previously-tracked row when executePlan() completes again — just starts tracking the new one', fakeAsync(() => {
     component.currentAiPlanRequestId.set('req-old');
@@ -527,7 +534,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     tick(2600);
 
     expect(component.currentAiPlanRequestId()).toBe('req-new');
-    http.verify();   // fails if a DELETE (or any other unexpected request) was made — the "req-old" row must survive
+    verifyHttp(http);   // fails if a DELETE (or any other unexpected request) was made — the "req-old" row must survive
   }));
 
   it('does not call DELETE on the first successful generation when nothing was previously tracked', fakeAsync(() => {
@@ -539,7 +546,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     http.expectOne(r => r.url.includes('/ai/plan/req-1/status')).flush({ status: 'completed', result: TRIP });
     tick(2600);
 
-    http.verify();   // fails if a DELETE (or any other unexpected request) was made
+    verifyHttp(http);   // fails if a DELETE (or any other unexpected request) was made
   }));
 
   it('does not delete the tracked row when reset() is called — it just stops tracking it', () => {
@@ -548,7 +555,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
     component.reset();
 
     expect(component.currentAiPlanRequestId()).toBeNull();
-    http.verify();   // fails if a DELETE (or any other unexpected request) was made — the row must survive in Planes IA Pendientes
+    verifyHttp(http);   // fails if a DELETE (or any other unexpected request) was made — the row must survive in Planes IA Pendientes
   });
 
   it('does not call DELETE from reset() when currentAiPlanRequestId is null', () => {
@@ -556,7 +563,7 @@ describe('AiPlanningComponent — never deletes ai_plan_requests rows except via
 
     component.reset();
 
-    http.verify();   // fails if any unexpected (e.g. DELETE) request was made
+    verifyHttp(http);   // fails if any unexpected (e.g. DELETE) request was made
   });
 });
 
@@ -577,7 +584,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   it('returns to Step 1 without clearing the form fields', fakeAsync(() => {
     component.preferences.set('playa y museos');
@@ -626,7 +633,7 @@ describe('AiPlanningComponent — restart() (↩ Volver a empezar) keeps the Ste
     expect(component.currentAiPlanRequestId()).toBeNull();
     expect(component.suggestions()).toBeNull();
     expect(component.selectedOption()).toBeNull();
-    http.verify();   // no DELETE fired — the abandoned row survives in Planes IA Pendientes
+    verifyHttp(http);   // no DELETE fired — the abandoned row survives in Planes IA Pendientes
   }));
 
   it('reset() (unlike restart()) blanks the form fields back to empty', () => {
@@ -671,7 +678,7 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
-  afterEach(() => http.verify());
+  afterEach(() => verifyHttp(http));
 
   it('selects options[0] as soon as suggestions arrive, so "Generar plan completo" is enabled without a click', fakeAsync(() => {
     component.preferences.set('playa y museos');
@@ -1065,6 +1072,43 @@ describe('AiPlanningComponent — F79 cities / free-text mode in step 1', () => 
     expect(planTrip.mock.calls[0][0].preferences).toBeUndefined();
     expect(planTrip.mock.calls[0][0].cityIds).toEqual(['paris', 'rome']);
   });
+
+  function suggestOnce(): void {
+    component.cities.set(['paris', 'rome']);
+    component.duration.set(5);
+    component.suggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+  }
+
+  it('re-suggesting with unchanged inputs is free: no 8-Token note, no confirmation', fakeAsync(() => {
+    create();
+    suggestOnce();
+    expect(component.suggestCharged()).toBe(false);
+    component.suggest();
+    expect(component.suggestConfirmPending()).toBeNull();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+  }));
+
+  it('re-suggesting with changed inputs states the 8-Token price and asks first', fakeAsync(() => {
+    create();
+    suggestOnce();
+    component.step.set('preferences');
+    component.duration.set(6);
+    fixture.detectChanges();
+    expect(component.suggestCharged()).toBe(true);
+    expect(fixture.nativeElement.querySelector('.ai-suggest-cost-note').textContent).toContain('8 Tokens');
+    component.suggest();
+    expect(component.suggestConfirmPending()).toEqual({ reason: 'new_batch' });
+    http.expectNone(r => r.url.includes('/ai/suggest'));
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.ai-confirm-charge-card').textContent).toContain('cuesta 8 Tokens');
+    component.confirmSuggest();
+    tick(0);
+    http.expectOne(r => r.url.includes('/ai/suggest')).flush(OPTIONS);
+    expect(component.suggestCharged()).toBe(false);
+  }));
 
   it('a mode switch shows a change percentage over the threshold, matching the verdict', fakeAsync(() => {
     create();

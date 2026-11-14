@@ -204,13 +204,22 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
               <div class="ai-confirm-charge-title">
                 @if (suggestConfirmPending()!.reason === 'major_change') {
                   <span i18n="@@aiplan.confirmMajorTitle">Cambio mayor al 20% detectado</span>
-                } @else {
+                } @else if (suggestConfirmPending()!.reason === 'limit_reached') {
                   <span i18n="@@aiplan.confirmLimitTitle">Has usado tus 3 cambios gratuitos</span>
+                } @else {
+                  <span i18n="@@aiplan.confirmNewBatchTitle">Cambiaste tus datos</span>
                 }
               </div>
-              <div class="ai-confirm-charge-body" i18n="@@aiplan.suggestConfirmBody">
-                Si regeneras las opciones con este ajuste, el plan resultante costará 1 token ⭐. ¿Quieres continuar?
-              </div>
+              @if (suggestCharged()) {
+                <div class="ai-confirm-charge-body" i18n="@@aiplan.suggestNewBatchBody">
+                  Con estos datos la IA crea opciones nuevas: generarlas cuesta 8 Tokens ⭐.
+                </div>
+              }
+              @if (suggestConfirmPending()!.reason !== 'new_batch') {
+                <div class="ai-confirm-charge-body" i18n="@@aiplan.suggestConfirmBody">
+                  Si regeneras las opciones con este ajuste, el plan resultante costará 1 token ⭐. ¿Quieres continuar?
+                </div>
+              }
               <div class="ai-plan-actions">
                 <button class="btn-pill btn-outline"
                         (click)="suggestConfirmPending.set(null)" type="button"
@@ -394,6 +403,14 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   </div>
                   <div class="ai-change-charged-body" i18n="@@aiplan.previewChargedBody">
                     El plan se generará como nueva sesión y costará 1 token ⭐.
+                  </div>
+                </div>
+              }
+              @if (suggestCharged()) {
+                <div class="ai-change-charged-card ai-suggest-cost-note" role="status" style="margin-bottom:4px">
+                  <div class="ai-change-charged-icon">✨</div>
+                  <div class="ai-change-charged-body" i18n="@@aiplan.previewNewBatchBody">
+                    Cambiaste tus datos: "Generar opciones" crea opciones nuevas y cuesta 8 Tokens ⭐. Los cambios gratuitos de arriba son para regenerar el plan.
                   </div>
                 </div>
               }
@@ -824,6 +841,15 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
       ? $localize`:@@aiplan.citiesDaysNote:Con ${n}:count: ciudades necesitas al menos ${n}:count: días`
       : null;
   });
+  /**
+   * What the backend hashes into the suggest queue's inputsHash (§5.1 "Queue hit"). Unchanged since the last
+   * suggest → "Generar opciones" serves the queued options for free; changed → a new batch at 8 Tokens.
+   */
+  private readonly suggestInputsKey = computed(() =>
+    JSON.stringify([this.buildPreferences(), this.duration() ?? null, this.budget(), this.citiesActive() ? this.activeCityIds() : []]));
+  private readonly lastSuggestKey = signal<string | null>(null);
+  readonly suggestCharged = computed(() => this.lastSuggestKey() !== null && this.lastSuggestKey() !== this.suggestInputsKey());
+
   readonly canSuggest = computed(() => {
     const d = this.duration();
     if (d != null && (d < 1 || d > this.MAX_DAYS)) return false;
@@ -975,7 +1001,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
   /** Pending confirmation: user must confirm a charged re-plan. */
   planConfirmPending = signal<{ reason: 'major_change' | 'limit_reached' } | null>(null);
   /** Pending confirmation: user must confirm re-suggest when plan will be charged. */
-  suggestConfirmPending = signal<{ reason: 'major_change' | 'limit_reached' } | null>(null);
+  suggestConfirmPending = signal<{ reason: 'major_change' | 'limit_reached' | 'new_batch' } | null>(null);
 
   // ── Step 1 live change preview ────────────────────────────────────────────
   /** Expose constant to template. */
@@ -1069,6 +1095,10 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
         this.suggestConfirmPending.set({ reason: 'limit_reached' });
         return;
       }
+      if (this.suggestCharged()) {
+        this.suggestConfirmPending.set({ reason: 'new_batch' });
+        return;
+      }
       // Minor change within free limit — proceed without confirmation
       this.executeSuggest('free');
     } else {
@@ -1092,6 +1122,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
     this.loading.set(true);
     this.error.set(null);
     const cityIds = this.aiMode() === 'cities' ? this.cities() : undefined;
+    const inputsKey = this.suggestInputsKey();
     this.api.suggestTrips(this.buildPreferences(), this.duration(), this.budget() || undefined, this.planSessionId() ?? undefined, cityIds)
       .subscribe({
         next: res => {
@@ -1100,6 +1131,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
           // already highlighted (and "Generar plan completo" enabled) — the
           // user can still switch to the second option before continuing.
           this.selectedOption.set(res.options[0] ?? null);
+          this.lastSuggestKey.set(inputsKey);
           this.loading.set(false);
           this.step.set('options');
           // Update suggest baseline so bar is reactive when user adjusts for re-suggest
@@ -1131,7 +1163,8 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
 
   /** Called from the suggest confirm dialog — user accepted a charged re-suggest. */
   confirmSuggest(): void {
-    this.executeSuggest('charged');
+    // new_batch: the options cost 8 Tokens, but the plan change is still a free one.
+    this.executeSuggest(this.suggestConfirmPending()?.reason === 'new_batch' ? 'free' : 'charged');
   }
 
   /**
@@ -1418,6 +1451,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
     this.error.set(null);
     this.planSessionId.set(null);
     this.suggestBaseline.set(null);
+    this.lastSuggestKey.set(null);
     this.originalPlanOptions.set(null);
     this.freeChangesUsed.set(0);
     this.changeWarning.set(null);

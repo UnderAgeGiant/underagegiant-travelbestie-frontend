@@ -3943,6 +3943,18 @@
         <source>Puedes planear hasta 60 días</source>
         <target>You can plan up to 60 days</target>
       </trans-unit>
+      <trans-unit id="aiplan.confirmNewBatchTitle" datatype="html">
+        <source>Cambiaste tus datos</source>
+        <target>You changed your details</target>
+      </trans-unit>
+      <trans-unit id="aiplan.suggestNewBatchBody" datatype="html">
+        <source> Con estos datos la IA crea opciones nuevas: generarlas cuesta 8 Tokens ⭐. </source>
+        <target>With these details the AI creates new options: generating them costs 8 Tokens ⭐.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.previewNewBatchBody" datatype="html">
+        <source> Cambiaste tus datos: &quot;Generar opciones&quot; crea opciones nuevas y cuesta 8 Tokens ⭐. Los cambios gratuitos de arriba son para regenerar el plan. </source>
+        <target>You changed your details: "Generate options" creates new options and costs 8 Tokens ⭐. The free changes above are for regenerating the plan.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
