@@ -308,3 +308,19 @@ describe('AuthModalComponent — F79 sign-up intent', () => {
     expect(sessionStorage.getItem('tb_signup_intent')).toBeNull();
   });
 });
+
+describe('AuthModalComponent — register link', () => {
+  it('shows a star right before "Regístrate gratis", inside the clickable element', () => {
+    (window as any).turnstile = { render: () => 'widget-1', remove: () => {}, reset: () => {} };
+    TestBed.configureTestingModule({
+      imports: [AuthModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    TestBed.inject(AuthModalService).openLogin();
+    const fixture = TestBed.createComponent(AuthModalComponent);
+    fixture.detectChanges();
+    const link = fixture.nativeElement.querySelector('.auth-toggle > span') as HTMLElement;
+    expect(link.textContent!.trim()).toBe('¿Sin cuenta? ⭐ Regístrate gratis');
+    expect(link.querySelector('span')!.textContent).toBe('⭐ Regístrate gratis');
+  });
+});

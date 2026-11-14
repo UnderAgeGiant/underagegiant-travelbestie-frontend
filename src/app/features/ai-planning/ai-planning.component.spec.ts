@@ -1156,7 +1156,7 @@ describe('AiPlanningComponent — F79 free first run', () => {
   let api: ApiService;
   const RESULT = { title: 'Viaje a Paris', stops: [TRIP.stops[0]], transits: [], tripId: 'trip-1' };
 
-  function create(firstPlanAvailable: boolean | undefined): HTMLElement {
+  function create(firstPlanAvailable: boolean | undefined, cityIds: string[] = []): HTMLElement {
     localStorage.clear();
     TestBed.configureTestingModule({
       imports: [AiPlanningComponent],
@@ -1167,6 +1167,7 @@ describe('AiPlanningComponent — F79 free first run', () => {
     fixture = TestBed.createComponent(AiPlanningComponent);
     component = fixture.componentInstance;
     auth.setTokens('t', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable });
+    fixture.componentRef.setInput('initialCityIds', cityIds);
     fixture.detectChanges();
     return fixture.nativeElement;
   }
@@ -1190,6 +1191,26 @@ describe('AiPlanningComponent — F79 free first run', () => {
     expect(el.querySelector('.ai-change-stats')).toBeNull();
     expect(el.querySelector('.ai-plan-karma-note')).toBeNull();
     expect(el.querySelector('.ai-plan-steps')).toBeNull();
+  });
+
+  it('a city-guide sign-up (?city=) starts today for 3 days, so "Crear mi plan gratis" is enabled at once', () => {
+    const el = create(true, ['paris']);
+    const d = new Date();
+    const today = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+    expect(component.cities()).toEqual(['paris']);
+    expect(component.duration()).toBe(3);
+    expect(component.startDate()).toBe(today);
+    expect((el.querySelector('.ai-first-submit') as HTMLButtonElement).disabled).toBe(false);
+  });
+
+  it('a plain first run (no ?city=) leaves days and date empty', () => {
+    create(true);
+    expect(component.duration()).toBeUndefined();
+    expect(component.startDate()).toBe('');
+  });
+
+  it('the ready-made plans link carries the star', () => {
+    expect(create(true).querySelector('.ai-first-link')!.textContent).toContain('⭐ Ver planes listos para copiar');
   });
 
   it('button disabled until a city and days are set', () => {

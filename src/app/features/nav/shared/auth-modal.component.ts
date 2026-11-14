@@ -343,7 +343,7 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
               }
             } @else if (loginMode() === 'login') {
               <div class="auth-toggle">
-                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>Regístrate gratis</span></span>
+                <span style="cursor:pointer" (click)="switchToRegister()" i18n="@@nav.authToggleLogin">¿Sin cuenta? <span>⭐ Regístrate gratis</span></span>
               </div>
             } @else {
               <div class="auth-toggle">

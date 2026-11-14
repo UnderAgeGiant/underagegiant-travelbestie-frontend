@@ -16,6 +16,7 @@ import { Trip, TripStop, TransitLeg, TransitSegment, TransitMode, PlannedAttract
 import { CostSettingsComponent } from '../../shared/cost-settings/cost-settings.component';
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
 import { isMinorChange, toSessionOptions, planChangeRatio, CHANGE_THRESHOLD, FREE_CHANGE_LIMIT } from '../../core/ai/plan-change-detector.util';
+import { formatDMY } from '../../core/utils/event-datetime.util';
 import { Attraction } from '../../core/models/comment.model';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { getAttractions, findCuratedAttraction } from '../../data/attractions.data';
@@ -275,7 +276,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                 <span i18n="@@firstplan.cta">Crear mi plan gratis</span>
               </button>
               <button type="button" class="ai-first-link" (click)="viewFeaturedTrips.emit()"
-                      i18n="@@firstplan.seeReady">Ver planes listos para copiar</button>
+                      i18n="@@firstplan.seeReady">⭐ Ver planes listos para copiar</button>
             </div>
           }
 
@@ -921,7 +922,13 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const ids = this.initialCityIds();
-    if (ids.length) this.cities.set(ids.slice(0, this.firstRun() ? this.MAX_CITIES_FIRST_RUN : this.MAX_CITIES_REGULAR));
+    if (!ids.length) return;
+    this.cities.set(ids.slice(0, this.firstRun() ? this.MAX_CITIES_FIRST_RUN : this.MAX_CITIES_REGULAR));
+    // F79 city-guide sign-up: start today for 3 days, so "Crear mi plan gratis" works with one tap (both stay editable).
+    if (this.firstRun()) {
+      this.startDate.set(formatDMY(new Date()));
+      this.duration.set(3);
+    }
   }
 
   /** "Crear mi plan gratis": POST /ai/first-plan; the job saves the trip, so success means it is already in the account. */

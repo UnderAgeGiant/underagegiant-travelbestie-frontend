@@ -351,8 +351,8 @@
         <target>Incorrect or expired code. We sent you a new one — check your email.</target>
       </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
-        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
-        <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span"/>⭐ Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target>No account? <x id="START_TAG_SPAN" ctype="x-span"/>⭐ Sign up free<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
       </trans-unit>
       <trans-unit id="nav.authToggleRegister" datatype="html">
         <source>¿Ya tienes una? <x id="START_TAG_SPAN" ctype="x-span"/>Inicia sesión<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
@@ -3832,8 +3832,8 @@
         <target>Create my free plan</target>
       </trans-unit>
       <trans-unit id="firstplan.seeReady" datatype="html">
-        <source>Ver planes listos para copiar</source>
-        <target>See ready-made plans to copy</target>
+        <source>⭐ Ver planes listos para copiar</source>
+        <target>⭐ See ready-made plans to copy</target>
       </trans-unit>
       <trans-unit id="aiplan.modeLabel" datatype="html">
         <source>Cómo quieres planificar</source>

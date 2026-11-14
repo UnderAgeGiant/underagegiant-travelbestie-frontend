@@ -889,463 +889,463 @@
         <source>Cargando…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">89,90</context>
+          <context context-type="linenumber">90,91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.authTitle" datatype="html">
         <source>Inicia sesión para continuar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">95,96</context>
+          <context context-type="linenumber">96,97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.authDesc" datatype="html">
         <source>Debes iniciar sesión para usar el planificador IA.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">97,100</context>
+          <context context-type="linenumber">98,101</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.title" datatype="html">
         <source>Tu próximo viaje, diseñado por IA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">110,111</context>
+          <context context-type="linenumber">111,112</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.subtitle" datatype="html">
         <source>Cuéntanos qué buscas y generamos opciones personalizadas para ti</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">111,112</context>
+          <context context-type="linenumber">112,113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.karmaCost" datatype="html">
         <source>Esta acción cuesta 10 tokens ⭐ en total</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">113,115</context>
+          <context context-type="linenumber">114,116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.step1" datatype="html">
         <source>Preferencias</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">123,124</context>
+          <context context-type="linenumber">124,126</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.step2" datatype="html">
         <source>Elige opción</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">128,129</context>
+          <context context-type="linenumber">129,131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.step3" datatype="html">
         <source>Tu plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">133,134</context>
+          <context context-type="linenumber">134,136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.minorChangeTitle" datatype="html">
         <source>Cambio menor detectado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">146,147</context>
+          <context context-type="linenumber">147,148</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.minorChangeBody" datatype="html">
         <source>Esta modificación es ≤20% del plan original.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">148,149</context>
+          <context context-type="linenumber">149,150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.minorChangeFreeLeft" datatype="html">
         <source>cambios gratuitos restantes.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">150,152</context>
+          <context context-type="linenumber">151,153</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.changeWarnDismiss" datatype="html">
         <source>Entendido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">154,156</context>
+          <context context-type="linenumber">155,157</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.majorChangeTitle" datatype="html">
         <source>Cambio significativo (&gt;20%)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">163,165</context>
+          <context context-type="linenumber">164,166</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">399,400</context>
+          <context context-type="linenumber">400,402</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.limitReachedTitle" datatype="html">
         <source>Límite de cambios gratuitos alcanzado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">165,167</context>
+          <context context-type="linenumber">166,168</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">401,403</context>
+          <context context-type="linenumber">402,404</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.changeChargedBody" datatype="html">
         <source>Se descontó 1 token ⭐ por este cambio.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">168,169</context>
+          <context context-type="linenumber">169,170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.changeChargedDismiss" datatype="html">
         <source>Entendido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">171,173</context>
+          <context context-type="linenumber">172,176</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.confirmMajorTitle" datatype="html">
         <source>Cambio mayor al 20% detectado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">181,183</context>
+          <context context-type="linenumber">182,184</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">206,207</context>
+          <context context-type="linenumber">207,208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.confirmLimitTitle" datatype="html">
         <source>Has usado tus 3 cambios gratuitos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">183,185</context>
+          <context context-type="linenumber">184,186</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">208,210</context>
+          <context context-type="linenumber">209,211</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.confirmChargeBody" datatype="html">
         <source> Esta acción costará 1 token ⭐. ¿Deseas continuar? </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">187,188</context>
+          <context context-type="linenumber">188,190</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.confirmCancel" datatype="html">
         <source>Cancelar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">192,193</context>
+          <context context-type="linenumber">193,194</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">226,227</context>
+          <context context-type="linenumber">227,228</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.confirmProceed" datatype="html">
         <source>Sí, continuar (−1 token)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">195,197</context>
+          <context context-type="linenumber">196,198</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.confirmNewBatchTitle" datatype="html">
         <source>Cambiaste tus datos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">210,212</context>
+          <context context-type="linenumber">211,213</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.suggestNewBatchBody" datatype="html">
         <source> Con estos datos la IA crea opciones nuevas: generarlas cuesta 8 Tokens ⭐. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">215,216</context>
+          <context context-type="linenumber">216,218</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.suggestConfirmBody" datatype="html">
         <source> Si regeneras las opciones con este ajuste, el plan resultante costará 1 token ⭐. ¿Quieres continuar? </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">220,221</context>
+          <context context-type="linenumber">221,222</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.suggestConfirmProceed" datatype="html">
         <source>Sí, regenerar opciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">229,231</context>
+          <context context-type="linenumber">230,232</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.banner" datatype="html">
         <source>Tu primer plan es un regalo 🎁 No gasta Tokens: tus 10 Tokens siguen intactos.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">237,239</context>
+          <context context-type="linenumber">238,240</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.citiesLabel" datatype="html">
         <source>¿A qué ciudades quieres ir?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">240,241</context>
+          <context context-type="linenumber">241,242</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">300,301</context>
+          <context context-type="linenumber">301,302</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.daysTotal" datatype="html">
         <source>Días en total (todas las ciudades)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">245,246</context>
+          <context context-type="linenumber">246,247</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.durationPlaceholder" datatype="html">
         <source>Ej: 14</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">248,249</context>
+          <context context-type="linenumber">249,250</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">329,330</context>
+          <context context-type="linenumber">330,331</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.startDateLabel" datatype="html">
         <source>Fecha de inicio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">255,256</context>
+          <context context-type="linenumber">256,257</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">346,347</context>
+          <context context-type="linenumber">347,348</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.categoriesLabel" datatype="html">
         <source>Tipos de experiencia (opcional)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">260,261</context>
+          <context context-type="linenumber">261,262</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">352,353</context>
+          <context context-type="linenumber">353,354</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.cta" datatype="html">
         <source>Crear mi plan gratis</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">275,276</context>
+          <context context-type="linenumber">276,277</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.seeReady" datatype="html">
-        <source>Ver planes listos para copiar</source>
+        <source>⭐ Ver planes listos para copiar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">278,280</context>
+          <context context-type="linenumber">279,281</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.prefTitle" datatype="html">
         <source>¿Qué tipo de viaje buscas?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">285,287</context>
+          <context context-type="linenumber">286,288</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.modeLabel" datatype="html">
         <source>Cómo quieres planificar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">287,288</context>
+          <context context-type="linenumber">288,289</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.modeCities" datatype="html">
         <source>Ciudades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">291,292</context>
+          <context context-type="linenumber">292,293</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.modeText" datatype="html">
         <source>Texto libre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">295,296</context>
+          <context context-type="linenumber">296,297</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.prefLabel" datatype="html">
         <source>Describe tu viaje ideal</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">305,306</context>
+          <context context-type="linenumber">306,307</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.prefPlaceholder" datatype="html">
         <source>Ej: quiero un viaje romántico con mi pareja, priorizando gastronomía y museos, sin demasiado transporte…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">313,314</context>
+          <context context-type="linenumber">314,315</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.prefCount" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ preferences().length }}"/> / <x id="INTERPOLATION_1" equiv-text="{{ maxPreferencesChars }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">317,318</context>
+          <context context-type="linenumber">318,319</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.durationLabel" datatype="html">
         <source>Duración (días)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">323,324</context>
+          <context context-type="linenumber">324,325</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.budgetLabel" datatype="html">
         <source>Presupuesto estimado para todo el viaje</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">335,336</context>
+          <context context-type="linenumber">336,337</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.budgetPlaceholder" datatype="html">
         <source>Ej: 500-1000 USD</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">341,343</context>
+          <context context-type="linenumber">342,344</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.statsFreeLabel" datatype="html">
         <source>Cambios gratuitos:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">371,372</context>
+          <context context-type="linenumber">372,373</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.statsChangeLabel" datatype="html">
         <source>Cambio actual:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">377,378</context>
+          <context context-type="linenumber">378,379</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.statsThreshold" datatype="html">
         <source> / <x id="INTERPOLATION" equiv-text="{{ CHANGE_THRESHOLD_PCT }}"/>% libre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">381,382</context>
+          <context context-type="linenumber">382,383</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.previewChargedBody" datatype="html">
         <source> El plan se generará como nueva sesión y costará 1 token ⭐. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">405,406</context>
+          <context context-type="linenumber">406,407</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.previewNewBatchBody" datatype="html">
         <source> Cambiaste tus datos: &quot;Generar opciones&quot; crea opciones nuevas y cuesta 8 Tokens ⭐. Los cambios gratuitos de arriba son para regenerar el plan. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">413,414</context>
+          <context context-type="linenumber">414,415</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.suggestBtn" datatype="html">
         <source>Generar opciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">423,424</context>
+          <context context-type="linenumber">424,426</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.optTitle" datatype="html">
         <source>Elige una opción</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">431,432</context>
+          <context context-type="linenumber">432,433</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.planNameLabel" datatype="html">
         <source>Nombre del plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">450,451</context>
+          <context context-type="linenumber">451,452</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.adjustBtn" datatype="html">
         <source>✏️ Ajustar opciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">463,464</context>
+          <context context-type="linenumber">464,465</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.backBtn" datatype="html">
         <source>← Volver</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">467,468</context>
+          <context context-type="linenumber">468,469</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.regenerateBtn" datatype="html">
         <source>Generar nuevas opciones</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">475,476</context>
+          <context context-type="linenumber">476,477</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.regenCostBadge" datatype="html">
         <source>-1 token</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">480,482</context>
+          <context context-type="linenumber">481,483</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.regenFreeNote" datatype="html">
         <source>* Cambios gratis restantes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">485,487</context>
+          <context context-type="linenumber">486,488</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.planBtn" datatype="html">
         <source>Generar plan completo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">492,493</context>
+          <context context-type="linenumber">493,494</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.saved" datatype="html">
         <source>Guardado en tu cuenta ✓</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">503,504</context>
+          <context context-type="linenumber">504,505</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.balance" datatype="html">
         <source>Tus Tokens: <x id="INTERPOLATION" equiv-text="{{ karma.karma() }}"/> ⭐</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">504,505</context>
+          <context context-type="linenumber">505,506</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.departure" datatype="html">
         <source>Salida 🏠</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">529,530</context>
+          <context context-type="linenumber">530,531</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-full-plan/trip-full-plan.component.ts</context>
@@ -1356,7 +1356,7 @@
         <source>Sin transporte definido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">601,602</context>
+          <context context-type="linenumber">602,603</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-full-plan/trip-full-plan.component.ts</context>
@@ -1367,7 +1367,7 @@
         <source>Vuelta 🏠</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">613,614</context>
+          <context context-type="linenumber">614,615</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/trip-full-plan/trip-full-plan.component.ts</context>
@@ -1378,144 +1378,144 @@
         <source>Abrir mi plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">631,633</context>
+          <context context-type="linenumber">632,634</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.restartBtn" datatype="html">
         <source>↩ Volver a empezar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">642,643</context>
+          <context context-type="linenumber">643,644</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.saveBtn" datatype="html">
         <source>💾 Guardar plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">648,649</context>
+          <context context-type="linenumber">649,651</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.celebrationMessage" datatype="html">
         <source> ¡Tu plan hecho por IA está terminado! Estos son los lugares que visitarás </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">672,674</context>
+          <context context-type="linenumber">673,675</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.loadingSub" datatype="html">
         <source>Esto puede tardar unos segundos…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">687,690</context>
+          <context context-type="linenumber">688,691</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.takingLongIntro" datatype="html">
         <source> Me estoy demorando en encontrar las atracciones correctas. Si quieres puedes esperar o te puedo avisar mediante las notificaciones cuando el plan ya esté listo. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">695,696</context>
+          <context context-type="linenumber">696,697</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.takingLongPlay" datatype="html">
         <source>🐾 Jugar con Miel mientras espero</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">699,700</context>
+          <context context-type="linenumber">700,701</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.takingLongNotify" datatype="html">
         <source>Notificarme</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">701,703</context>
+          <context context-type="linenumber">702,704</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.gameReady" datatype="html">
         <source>✨ ¡Tu plan está listo! Ver plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">710,712</context>
+          <context context-type="linenumber">711,713</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.notifyConfirmText" datatype="html">
         <source> ¡Excelente! Puedes revisar los planes más visitados por otros usuarios mientras esperas. ¡Yo te llevo! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">720,721</context>
+          <context context-type="linenumber">721,722</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.notifyConfirmOk" datatype="html">
         <source>Ok</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">724,726</context>
+          <context context-type="linenumber">725,727</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.limit3" datatype="html">
         <source>Tres ciudades es el máximo para el primer plan gratis.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">791</context>
+          <context context-type="linenumber">792</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.citiesLimit" datatype="html">
         <source>Puedes elegir hasta 10 ciudades.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">840</context>
+          <context context-type="linenumber">841</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.daysMax" datatype="html">
         <source>Puedes planear hasta 60 días</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">851</context>
+          <context context-type="linenumber">852</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.citiesDaysNote" datatype="html">
         <source>Con <x id="count" equiv-text="n"/> ciudades necesitas al menos <x id="count" equiv-text="n"/> días</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">853</context>
+          <context context-type="linenumber">854</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.loadingPlan" datatype="html">
         <source>Creando tu plan de viaje 🗺️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">935</context>
+          <context context-type="linenumber">942</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">1237</context>
+          <context context-type="linenumber">1244</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.alreadySaved" datatype="html">
         <source>Tu primer plan ya está guardado en Mis viajes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">963</context>
+          <context context-type="linenumber">970</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstplan.failed" datatype="html">
         <source>No pudimos crear tu plan. Inténtalo de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">969</context>
+          <context context-type="linenumber">976</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.loadingSuggest" datatype="html">
         <source>Generando sugerencias ✨</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">1133</context>
+          <context context-type="linenumber">1140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aiplan.suggestFailed" datatype="html">
         <source>No pudimos generar las opciones. Inténtalo de nuevo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/ai-planning/ai-planning.component.ts</context>
-          <context context-type="linenumber">1171</context>
+          <context context-type="linenumber">1178</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityGuide.eyebrow" datatype="html">
@@ -4350,7 +4350,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="nav.authToggleLogin" datatype="html">
-        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <source>¿Sin cuenta? <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>⭐ Regístrate gratis<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/shared/auth-modal.component.ts</context>
           <context context-type="linenumber">346,347</context>
