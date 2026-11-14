@@ -462,6 +462,16 @@ app-nav { display: block; }
 .modal-head { padding: 20px 24px 16px; background: linear-gradient(135deg, var(--lav), var(--peach)); border-bottom: 1px solid var(--border); }
 .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; letter-spacing: -.5px; }
 .modal-sub { font-size: 12px; color: var(--t2); margin-top: 3px; }
+/* F79 shared-plan clone waiting popup (auth modal) */
+.fp-cloning-backdrop { z-index: 1000; }
+.fp-cloning { max-width: 360px; padding: 28px 24px 26px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.fp-cloning .modal-title { line-height: 1.15; }
+.fp-cloning p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--t2); }
+.fp-cloning-spinner { width: 28px; height: 28px; margin-top: 6px; border: 3px solid var(--lav); border-top-color: var(--lav-d); border-radius: 50%; animation: spin .75s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .fp-cloning-backdrop, .fp-cloning { animation: none; }
+  .fp-cloning-spinner { animation-duration: 2.4s; }
+}
 .modal-body { padding: 18px 24px; }
 .modal-foot { padding: 12px 24px 20px; display: flex; gap: 8px; }
 .star-row { display: flex; gap: 5px; }

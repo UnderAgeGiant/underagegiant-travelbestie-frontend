@@ -1,6 +1,6 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { EMPTY, Observable, finalize, of, shareReplay, tap } from 'rxjs';
+import { EMPTY, Observable, finalize, forkJoin, of, shareReplay, tap, timer } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../api/api.service';
 import { SavedPlansService } from '../saved-plans/saved-plans.service';
@@ -32,6 +32,11 @@ export class FirstPlanService {
   private readonly router = inject(Router);
   private readonly facade = inject(NavFacadeService);
 
+  /** True while the sign-up shared-plan clone runs: the auth modal shows a waiting popup. */
+  readonly cloningShared = signal(false);
+  /** The popup stays at least this long so it doesn't flash. */
+  static readonly CLONING_MIN_MS = 800;
+
   /** The in-flight hand-built save, shared so a second caller never POSTs twice. */
   private saving$: Observable<string> | null = null;
 
@@ -53,8 +58,12 @@ export class FirstPlanService {
     if (!this.auth.firstPlanAvailable()) return;
 
     if (intent?.kind === 'shared') {
-      this.api.cloneSharedTrip(intent.shareId, 'shared').subscribe({
-        next: copy => {
+      this.cloningShared.set(true);
+      // Error closes at once (forkJoin errors without waiting for the timer); success after ≥ CLONING_MIN_MS.
+      forkJoin([this.api.cloneSharedTrip(intent.shareId, 'shared'), timer(FirstPlanService.CLONING_MIN_MS)]).pipe(
+        finalize(() => this.cloningShared.set(false)),
+      ).subscribe({
+        next: ([copy]) => {
           this.savedPlans.register({ id: copy.id!, name: copy.title, savedAt: new Date().toISOString(), stops: copy.stops, transits: copy.transits ?? [] });
           this.trip.restoreStops(copy.stops, copy.id!, copy.transits ?? []);
           this.auth.setFirstPlanAvailable(false);

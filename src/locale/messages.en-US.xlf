@@ -3963,6 +3963,14 @@
         <source>Reembolso de sugerencias de IA</source>
         <target>AI suggestions refund</target>
       </trans-unit>
+      <trans-unit id="firstplan.cloningTitle" datatype="html">
+        <source>Estamos copiando este plan para ti ✨</source>
+        <target>We're copying this plan for you ✨</target>
+      </trans-unit>
+      <trans-unit id="firstplan.cloningLine" datatype="html">
+        <source>En un momento lo tendrás en tu cuenta, listo para editar.</source>
+        <target>It'll be in your account in a moment, ready to edit.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

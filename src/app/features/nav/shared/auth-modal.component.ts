@@ -15,6 +15,17 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
   selector: 'app-auth-modal',
   imports: [RouterLink],
   template: `
+    @if (firstPlan.cloningShared()) {
+      <!-- F79: the shared plan the visitor tapped "Clonar" on is being copied free; not dismissable while it runs. -->
+      <div class="modal-backdrop fp-cloning-backdrop">
+        <div class="modal fp-cloning" role="dialog" aria-modal="true" aria-labelledby="fpCloningTitle" aria-describedby="fpCloningLine">
+          <img class="fp-cloning-dog" src="/Dog-waiting-1.png" alt="" width="56" height="102" />
+          <div class="modal-title" id="fpCloningTitle" i18n="@@firstplan.cloningTitle">Estamos copiando este plan para ti ✨</div>
+          <p id="fpCloningLine" aria-live="polite" i18n="@@firstplan.cloningLine">En un momento lo tendrás en tu cuenta, listo para editar.</p>
+          <span class="fp-cloning-spinner" aria-hidden="true"></span>
+        </div>
+      </div>
+    }
     @if (registerSuccessOpen()) {
       <div style="position:fixed;inset:0;z-index:1000;background:rgba(15,10,30,0.72);display:flex;align-items:center;justify-content:center;padding:16px">
         <div style="background:#fff;border-radius:24px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.28)">
@@ -364,7 +375,7 @@ export class AuthModalComponent {
   private readonly savedPlans = inject(SavedPlansService);
   private readonly favorites  = inject(FavoritesService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
-  private readonly firstPlan  = inject(FirstPlanService);
+  protected readonly firstPlan  = inject(FirstPlanService);
 
   // auth form signals
   loginMode     = signal<'login' | 'register' | 'reset'>('login');

@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Subject, of, throwError } from 'rxjs';
 import { signal } from '@angular/core';
@@ -61,16 +61,50 @@ describe('FirstPlanService', () => {
     expect(svc.takeSignupIntent()).toBeNull();
   });
 
-  it('shared intent clones for free and opens the editor', () => {
+  it('shared intent clones for free and opens the editor', fakeAsync(() => {
     api.cloneSharedTrip.mockReturnValue(of({ id: 'c1', title: 'Copia', stops: [{ cityId: 'rome' }], transits: [] }));
     svc.setSignupIntent({ kind: 'shared', shareId: 's1' });
     svc.afterLogin();
+    tick(FirstPlanService.CLONING_MIN_MS);
     expect(api.cloneSharedTrip).toHaveBeenCalledWith('s1', 'shared');
     expect(savedPlans.register).toHaveBeenCalledWith(expect.objectContaining({ id: 'c1', name: 'Copia' }));
     expect(trip.restoreStops).toHaveBeenCalledWith([{ cityId: 'rome' }], 'c1', []);
     expect(gift()).toBe(false);
     expect(facade.openEditor).toHaveBeenCalled();
     expect(router.navigate).not.toHaveBeenCalled();
+  }));
+
+  it('the waiting popup is up while the shared clone runs, for at least CLONING_MIN_MS, and closes as the editor opens', fakeAsync(() => {
+    const clone$ = new Subject<unknown>();
+    api.cloneSharedTrip.mockReturnValue(clone$);
+    svc.setSignupIntent({ kind: 'shared', shareId: 's1' });
+    svc.afterLogin();
+    expect(svc.cloningShared()).toBe(true);
+    clone$.next({ id: 'c1', title: 'Copia', stops: [], transits: [] });
+    clone$.complete();
+    tick(FirstPlanService.CLONING_MIN_MS - 1);
+    expect(svc.cloningShared()).toBe(true);
+    expect(facade.openEditor).not.toHaveBeenCalled();
+    tick(1);
+    expect(facade.openEditor).toHaveBeenCalled();
+    expect(svc.cloningShared()).toBe(false);
+  }));
+
+  it('a failed shared clone closes the popup at once and falls back to the AI screen', fakeAsync(() => {
+    const clone$ = new Subject<unknown>();
+    api.cloneSharedTrip.mockReturnValue(clone$);
+    svc.setSignupIntent({ kind: 'shared', shareId: 'gone' });
+    svc.afterLogin();
+    clone$.error({ status: 404 });
+    expect(svc.cloningShared()).toBe(false);
+    expect(router.navigate).toHaveBeenCalledWith(['/ai-planning'], { queryParams: {} });
+    tick(FirstPlanService.CLONING_MIN_MS);
+  }));
+
+  it('no popup without a shared intent', () => {
+    svc.setSignupIntent({ kind: 'city', cityId: 'paris' });
+    svc.afterLogin();
+    expect(svc.cloningShared()).toBe(false);
   });
 
   it('shared intent 404 falls back to the AI screen', () => {

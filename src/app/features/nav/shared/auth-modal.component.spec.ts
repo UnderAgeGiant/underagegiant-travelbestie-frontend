@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { AuthModalComponent } from './auth-modal.component';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { AuthService } from '../../../core/auth/auth.service';
+import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
 
 describe('AuthModalComponent — sign-in button loading state', () => {
   let fixture: ComponentFixture<AuthModalComponent>;
@@ -322,5 +323,28 @@ describe('AuthModalComponent — register link', () => {
     const link = fixture.nativeElement.querySelector('.auth-toggle > span') as HTMLElement;
     expect(link.textContent!.trim()).toBe('¿Sin cuenta? ⭐ Regístrate gratis');
     expect(link.querySelector('span')!.textContent).toBe('⭐ Regístrate gratis');
+  });
+});
+
+describe('AuthModalComponent — F79 shared-plan clone popup', () => {
+  it('renders a non-dismissable dialog with the copy while FirstPlanService.cloningShared is true', () => {
+    (window as any).turnstile = { render: () => 'widget-1', remove: () => {}, reset: () => {} };
+    TestBed.configureTestingModule({
+      imports: [AuthModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    const firstPlan = TestBed.inject(FirstPlanService);
+    const fixture = TestBed.createComponent(AuthModalComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.fp-cloning')).toBeNull();
+    firstPlan.cloningShared.set(true);
+    fixture.detectChanges();
+    const dialog = fixture.nativeElement.querySelector('.fp-cloning') as HTMLElement;
+    expect(dialog.getAttribute('role')).toBe('dialog');
+    expect(dialog.textContent).toContain('Estamos copiando este plan para ti');
+    expect(dialog.querySelector('button')).toBeNull();
+    firstPlan.cloningShared.set(false);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.fp-cloning')).toBeNull();
   });
 });
