@@ -69,6 +69,13 @@ function loadImage(src: string): Promise<HTMLImageElement | null> {
   });
 }
 
+/** qrcode is CommonJS: the optimized build exposes it only as `default`, the dev server and Jest as named exports. */
+export async function qrCanvas(text: string, width: number): Promise<HTMLCanvasElement> {
+  const mod = await import('qrcode');
+  const QR = (mod as unknown as { default?: typeof mod }).default ?? mod;
+  return QR.toCanvas(text, { errorCorrectionLevel: 'M', margin: 4, width, color: { dark: '#000000', light: '#ffffff' } });
+}
+
 function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number): void {
   ctx.beginPath();
   ctx.roundRect(x, y, w, h, r);
@@ -91,12 +98,10 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
     document.fonts.load(`600 36px ${SANS}`), document.fonts.load(`500 36px ${SANS}`),
   ]);
   const flagCodes = data.cities.map(x => countryCodeFromFlagEmoji(x.flag));
-  const [logo, mielImg, qrCanvas, ...flags] = await Promise.all([
+  const [logo, mielImg, qr, ...flags] = await Promise.all([
     loadImage('/favicon.svg'),
     loadImage(miel.src),
-    import('qrcode').then(QR => QR.toCanvas(data.link, {
-      errorCorrectionLevel: 'M', margin: 4, width: QR_TILE - 24, color: { dark: '#000000', light: '#ffffff' },
-    })),
+    qrCanvas(data.link, QR_TILE - 24),
     ...flagCodes.map(cc => cc ? loadImage(`https://flagcdn.com/w80/${cc}.png`) : Promise.resolve(null)),
   ]);
 
@@ -230,7 +235,7 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   roundRect(ctx, tileX, tileY, QR_TILE, QR_TILE, 42);
   ctx.fillStyle = '#ffffff'; ctx.fill();
   ctx.restore();
-  ctx.drawImage(qrCanvas, tileX + 12, tileY + 12, QR_TILE - 24, QR_TILE - 24);
+  ctx.drawImage(qr, tileX + 12, tileY + 12, QR_TILE - 24, QR_TILE - 24);
 
   if (mielImg) {
     const mw = 276, mh = mw * (mielImg.naturalHeight / mielImg.naturalWidth);
