@@ -16,6 +16,7 @@ import { of, throwError } from 'rxjs';
 import { ApiService } from '../../../core/api/api.service';
 import { AutoSaveService } from '../../../core/saved-plans/auto-save.service';
 import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
+import { TripCardService } from '../../trip-card/trip-card.service';
 import { __setAttractionSourceForTests, loadCityAttractions } from '../../../data/attractions.data';
 
 const PARIS: City = { id: 'paris', name: 'Paris', country: 'France', flag: '🇫🇷', region: 'europe' };
@@ -681,7 +682,9 @@ describe('StopListComponent — "Publicar viaje" on save (F74 feedback F2)', () 
     jest.spyOn(auth, 'isLoggedIn').mockReturnValue(true);
     jest.spyOn(auth, 'currentUser').mockReturnValue({ name: 'Ana', email: 'ana@test.com', countryOfResidence: null, homePlace: null } as any);
     shareTrip = jest.spyOn(api, 'shareTrip').mockReturnValue(of({ shareId: 'share-1' }));
+    openCard = jest.spyOn(TestBed.inject(TripCardService), 'open');
   });
+  let openCard: jest.SpyInstance;
 
   function render(plan?: Partial<SavedPlan>): void {
     if (plan) {
@@ -712,6 +715,7 @@ describe('StopListComponent — "Publicar viaje" on save (F74 feedback F2)', () 
     expect(shareTrip).toHaveBeenCalledWith('new-id');
     expect(setShareId).toHaveBeenCalledWith('ana@test.com', 'new-id', 'share-1');
     expect(cmp.toast()).toBe('Viaje publicado');
+    expect(openCard).toHaveBeenCalledWith('share-1', { celebrate: true });
   });
 
   it('new plan: unchecking the box saves without publishing', () => {
@@ -727,6 +731,7 @@ describe('StopListComponent — "Publicar viaje" on save (F74 feedback F2)', () 
     cmp.doBookSave();
 
     expect(shareTrip).not.toHaveBeenCalled();
+    expect(openCard).not.toHaveBeenCalled();
   });
 
   it('saved unpublished plan: the box starts unchecked and saving does not publish', () => {
@@ -749,6 +754,15 @@ describe('StopListComponent — "Publicar viaje" on save (F74 feedback F2)', () 
     cmp.doBook();
 
     expect(shareTrip).toHaveBeenCalledWith('plan-1');
+    expect(openCard).toHaveBeenCalledWith('share-1', { celebrate: true });
+  });
+
+  it('saving an already-published plan opens no card', () => {
+    render({ shareId: 'share-0' });
+    jest.spyOn(savedPlans, 'upsert').mockReturnValue(of('plan-1'));
+    cmp.doBook();
+    expect(shareTrip).not.toHaveBeenCalled();
+    expect(openCard).not.toHaveBeenCalled();
   });
 
   it('published plan: shows "Publicado ✓" instead of the box', () => {
@@ -787,6 +801,7 @@ describe('StopListComponent — "Publicar viaje" on save (F74 feedback F2)', () 
     expect(trip.loadedPlanId()).toBe('new-id');
     expect(cmp.bookOpen()).toBe(false);
     expect(cmp.toast()).toBe('No se pudo publicar el viaje');
+    expect(openCard).not.toHaveBeenCalled();
   });
 });
 

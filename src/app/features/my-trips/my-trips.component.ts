@@ -31,6 +31,7 @@ import { ItineraryExportBody } from '../../core/models/itinerary-export.model';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
+import { TripCardService } from '../trip-card/trip-card.service';
 
 type MyTripsTab = 'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans';
 const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations', 'invites', 'aiplans'];
@@ -187,6 +188,10 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                                   style="justify-content:center;gap:6px"
                                   (click)="shareNative(plan)" type="button"
                                   i18n="@@share.shareBtn">📤 Compartir</button>
+                          <button class="btn-pill btn-outline trip-card-btn"
+                                  style="justify-content:center;gap:6px"
+                                  (click)="openCard(plan)" type="button"
+                                  i18n="@@tripCard.open">🖼️ Tarjeta</button>
                         } @else {
                           <button class="btn-pill btn-outline"
                                   style="justify-content:center;gap:6px"
@@ -455,6 +460,7 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly karmaModal  = inject(KarmaModalService);
   private readonly trophies    = inject(TrophyService);
   private readonly api         = inject(ApiService);
+  private readonly tripCard = inject(TripCardService);
   private readonly router      = inject(Router);
   private readonly route       = inject(ActivatedRoute);
   private readonly host        = inject(ElementRef<HTMLElement>);
@@ -638,11 +644,13 @@ export class MyTripsComponent implements AfterViewInit {
       });
       this.savedPlans.setShareId(user.email, plan.id, shareId);
       this.copyLink(shareId, plan.id);
+      this.tripCard.open(shareId, { celebrate: true });
     } else {
       this.api.shareTrip(plan.id).subscribe({
         next: ({ shareId }) => {
           this.savedPlans.setShareId(user.email, plan.id, shareId);
           this.copyLink(shareId, plan.id);
+          this.tripCard.open(shareId, { celebrate: true });
         },
         error: err => { this.karmaModal.handleKarmaError(err); },
       });
@@ -667,6 +675,11 @@ export class MyTripsComponent implements AfterViewInit {
         this.toast.set($localize`:@@myTrips.unpublishError:No se pudo despublicar el viaje`);
       },
     });
+  }
+
+  openCard(plan: SavedPlan): void {
+    const sid = this.planShareId(plan);
+    if (sid) this.tripCard.open(sid);
   }
 
   shareNative(plan: SavedPlan): void {

@@ -51,6 +51,7 @@ import { CityWeatherChipComponent } from '../../shared/city-weather-chip/city-we
 import { CityInfoBadgeComponent } from '../../shared/city-info-badge/city-info-badge.component';
 import { TripCostCardComponent } from '../../shared/trip-cost-card/trip-cost-card.component';
 import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
+import { TripCardService } from '../trip-card/trip-card.service';
 
 @Component({
     selector: 'app-shared-trip',
@@ -138,6 +139,10 @@ import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-err
                   style="margin-top:12px;margin-left:8px;gap:6px"
                   (click)="shareNative()" type="button"
                   i18n="@@share.shareBtn">📤 Compartir</button>
+          <button class="btn-pill btn-outline trip-card-btn"
+                  style="margin-top:12px;margin-left:8px;gap:6px"
+                  (click)="openCard()" type="button"
+                  i18n="@@tripCard.open">🖼️ Tarjeta</button>
 
           <!-- Trip map -->
           @if (tripMapCities().length > 0) {
@@ -523,6 +528,7 @@ export class SharedTripComponent {
   private readonly host = inject(ElementRef<HTMLElement>);
 
   private readonly api        = inject(ApiService);
+  private readonly tripCard = inject(TripCardService);
   private readonly svc        = inject(SharedTripsService);
   readonly auth                = inject(AuthService);
   private readonly authModal   = inject(AuthModalService);
@@ -748,6 +754,10 @@ export class SharedTripComponent {
         this.karmaModal.handleKarmaError(err);
       },
     });
+  }
+
+  openCard(): void {
+    this.tripCard.open(this.tripId());
   }
 
   shareNative(): void {

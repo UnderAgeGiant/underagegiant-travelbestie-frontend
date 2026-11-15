@@ -8,6 +8,7 @@ import { SharedTripComponent } from './shared-trip.component';
 import { SeoService } from '../../core/seo/seo.service';
 import { sharedPendingSeo } from '../../core/seo/seo-pages';
 import { focusWhenPresent } from '../../core/routing/focus-item.util';
+import { TripCardService } from '../trip-card/trip-card.service';
 
 jest.mock('../../core/routing/focus-item.util', () => ({ focusWhenPresent: jest.fn(() => () => {}) }));
 
@@ -397,6 +398,15 @@ describe('SharedTripComponent — trip map', () => {
     btn.click();
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('app-trip-map')).not.toBeNull();
+  });
+
+  it('F80: "🖼️ Tarjeta" opens the trip card for any visitor, without celebrate', () => {
+    const open = jest.spyOn(TestBed.inject(TripCardService), 'open');
+    loadTwoStopTrip();
+    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.trip-card-btn');
+    expect(btn.textContent).toContain('Tarjeta');
+    btn.click();
+    expect(open).toHaveBeenCalledWith('trip-a');
   });
 
   it('a pin click selects that stop, closes the modal, and scrolls to its city card', () => {

@@ -2,10 +2,7 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { InViewDirective } from '../../shared/directives/in-view.directive';
 import { ABOUT_TEAM, AboutTeamMember } from './about-team.data';
 import { getInitials } from './about-initials.util';
-
-const FORWARD_PATH = 'M60,20 C 220,20 260,100 400,100 S 560,20 590,20';
-const REVERSE_PATH = 'M590,20 C 430,20 390,100 250,100 S 90,20 60,20';
-const PLANE_ICON_PATH = 'M2.01 21L23 12 2.01 3 2 10l15 2-15 2z';
+import { FORWARD_PATH, PLANE_ICON_PATH, REVERSE_PATH } from './about-paths';
 
 interface AboutConnector {
   path: string;
