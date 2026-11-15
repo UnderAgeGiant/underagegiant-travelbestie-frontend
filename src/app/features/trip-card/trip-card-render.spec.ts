@@ -1,4 +1,4 @@
-import { MIEL_SET, fitTitle, pickMiel, planeLayout, staysLabel, statsLine } from './trip-card-render';
+import { MIEL_SET, fitTitle, PLANE_SLOTS, pickMiel, planeEnd, staysLabel, statsLine } from './trip-card-render';
 
 describe('trip card render helpers', () => {
   it('pickMiel covers both images and both sides', () => {
@@ -43,32 +43,23 @@ describe('trip card render helpers', () => {
     expect(staysLabel(null, null)).toBe('');
   });
 
-  describe('planeLayout', () => {
-    it('no band or a band under 200 px → no planes', () => {
-      expect(planeLayout(900, 900)).toEqual([]);
-      expect(planeLayout(900, 1090)).toEqual([]);
-      expect(planeLayout(900, 800)).toEqual([]);
+  describe('PLANE_SLOTS (card background)', () => {
+    it('is one fixed set of 3, the same for every trip length', () => {
+      expect(PLANE_SLOTS.map(p => p.curve)).toEqual(['forward', 'reverse', 'forward']);
+      expect(PLANE_SLOTS.map(p => p.color)).toEqual(['lavD', 'peachD', 'mintD']);
     });
-    it('a small band gets 1 plane, a big one 3, never more', () => {
-      expect(planeLayout(900, 1150)).toHaveLength(1);
-      expect(planeLayout(800, 1100)).toHaveLength(2); // 2-city card
-      expect(planeLayout(800, 1230)).toHaveLength(3); // 1-city card
-      expect(planeLayout(500, 1150)).toHaveLength(3);
-      expect(planeLayout(0, 1900)).toHaveLength(3);
-    });
-    it('every path and its plane stay inside the band, in order, alternating like About Us', () => {
-      const slots = planeLayout(500, 1150);
-      expect(slots.map(s => s.curve)).toEqual(['forward', 'reverse', 'forward']);
-      expect(slots.map(s => s.color)).toEqual(['lavD', 'peachD', 'mintD']);
-      let prev = 500;
-      for (const s of slots) {
-        expect(s.y - 22).toBeGreaterThanOrEqual(prev); // the plane sits on the path's top edge
-        expect(s.h).toBeGreaterThan(0);
-        prev = s.y + s.h;
+    it('spans the middle of the card, above the QR tile (top ≥ 1288 on every card)', () => {
+      for (const p of PLANE_SLOTS) {
+        expect(p.y - 22).toBeGreaterThanOrEqual(700);
+        expect(p.y + p.h).toBeLessThanOrEqual(1260);
       }
-      expect(prev).toBeLessThanOrEqual(1150);
     });
-    it('is fixed: the same band gives the same layout', () =>
-      expect(planeLayout(500, 1150)).toEqual(planeLayout(500, 1150)));
+    it('keeps every plane icon inside the 90 px side margins (N12)', () => {
+      for (const p of PLANE_SLOTS) {
+        const { x } = planeEnd(p);
+        expect(x - 22).toBeGreaterThanOrEqual(90);
+        expect(x + 22).toBeLessThanOrEqual(990 + 1e-9);
+      }
+    });
   });
 });

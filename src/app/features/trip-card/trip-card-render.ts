@@ -58,44 +58,53 @@ export function staysLabel(d: number | null, n: number | null): string {
   return parts.join(' · ');
 }
 
-export type PlaneSlot = { curve: 'forward' | 'reverse'; color: 'lavD' | 'peachD' | 'mintD'; y: number; h: number };
-
-/** Paper planes for the free band between the city list and the QR: none under 200 px, then one per 140 px, at most 3; fixed (no randomness). */
-export function planeLayout(top: number, bottom: number): PlaneSlot[] {
-  const n = bottom - top < 200 ? 0 : Math.min(3, Math.floor((bottom - top) / 140));
-  if (n <= 0) return [];
-  const slot = (bottom - top) / n, h = Math.min(160, slot - 60); // ≥30 px per side for the 44 px plane
-  const curves = ['forward', 'reverse', 'forward'] as const, colors = ['lavD', 'peachD', 'mintD'] as const;
-  return Array.from({ length: n }, (_, i) => ({ curve: curves[i], color: colors[i], y: top + i * slot + (slot - h) / 2, h }));
-}
-
 // ---- canvas drawing (checked in the browser; jsdom has no canvas) ----
 
 const W = 1080, H = 1920, PAD = 90, INNER = W - PAD * 2;
 const SERIF = '"Cormorant Garamond", serif';
 const SANS = '"DM Sans", sans-serif';
 const QR_TILE = 420;
+// ---- background paper planes ----
+
+export type PlaneSlot = { curve: 'forward' | 'reverse'; color: 'lavD' | 'peachD' | 'mintD'; y: number; h: number };
+
+/** One fixed set behind every card, from under the pill (≤ y 705) to above the QR tile (≥ y 1288): never depends on the trip. */
+export const PLANE_SLOTS: readonly PlaneSlot[] = (['forward', 'reverse', 'forward'] as const).map((curve, i) => ({
+  curve, color: (['lavD', 'peachD', 'mintD'] as const)[i], y: 830 + i * 140, h: 90, // clears a 1-city panel with a 2-line title
+}));
+
 // About Us paths live in a 640×120 box: x 60–590, y 20–100. End point and last control point give the plane's heading.
 const CURVES = {
   forward: { d: FORWARD_PATH, end: [590, 20], c2: [560, 20] },
   reverse: { d: REVERSE_PATH, end: [60, 20], c2: [90, 20] },
 } as const;
+const PLANE = 44;
 
-function drawPlanes(ctx: CanvasRenderingContext2D, slots: PlaneSlot[], colors: Record<PlaneSlot['color'], string>): void {
-  const sx = INNER / 530, tx = PAD - 60 * sx;
-  for (const slot of slots) {
-    const { d, end, c2 } = CURVES[slot.curve];
-    const sy = slot.h / 80, ty = slot.y - 20 * sy;
+/** Maps a slot's About Us path into the card; the path ends half a plane inside the margins, so the icon never overhangs them. */
+function slotMatrix(slot: PlaneSlot): [number, number, number, number] {
+  const sx = (INNER - PLANE) / 530, sy = slot.h / 80;
+  return [sx, sy, PAD + PLANE / 2 - 60 * sx, slot.y - 20 * sy];
+}
+
+export function planeEnd(slot: PlaneSlot): { x: number; y: number; angle: number } {
+  const [sx, sy, tx, ty] = slotMatrix(slot);
+  const { end, c2 } = CURVES[slot.curve];
+  return { x: end[0] * sx + tx, y: end[1] * sy + ty, angle: Math.atan2((end[1] - c2[1]) * sy, (end[0] - c2[0]) * sx) };
+}
+
+function drawPlanes(ctx: CanvasRenderingContext2D, colors: Record<PlaneSlot['color'], string>): void {
+  for (const slot of PLANE_SLOTS) {
+    const [sx, sy, tx, ty] = slotMatrix(slot);
     const path = new Path2D();
-    path.addPath(new Path2D(d), new DOMMatrix([sx, 0, 0, sy, tx, ty])); // scaled path, unscaled line width
+    path.addPath(new Path2D(CURVES[slot.curve].d), new DOMMatrix([sx, 0, 0, sy, tx, ty])); // scaled path, unscaled line width
     ctx.save();
     ctx.globalAlpha = 0.45; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.setLineDash([2, 12]);
     ctx.strokeStyle = colors[slot.color]; ctx.stroke(path);
     ctx.restore();
+    const { x, y, angle } = planeEnd(slot);
     ctx.save();
-    ctx.translate(end[0] * sx + tx, end[1] * sy + ty);
-    ctx.rotate(Math.atan2((end[1] - c2[1]) * sy, (end[0] - c2[0]) * sx));
-    ctx.scale(44 / 24, 44 / 24); ctx.translate(-12, -12);
+    ctx.translate(x, y); ctx.rotate(angle);
+    ctx.scale(PLANE / 24, PLANE / 24); ctx.translate(-12, -12);
     ctx.shadowColor = 'rgba(0,0,0,.18)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 4;
     ctx.fillStyle = colors[slot.color]; ctx.fill(new Path2D(PLANE_ICON_PATH));
     ctx.restore();
@@ -158,6 +167,7 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   g.addColorStop(0, c.lav); g.addColorStop(0.52, c.cream); g.addColorStop(1, c.peach);
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, W, H);
+  drawPlanes(ctx, c); // background layer: the city panel and the QR tile sit on top
 
   // 1. Brand header: round TL logo + "Tripilove".
   let y = PAD;
@@ -271,9 +281,6 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   const tileY = phraseBase - size - 36 - QR_TILE, tileX = (W - QR_TILE) / 2;
   const mw = 276, mh = mielImg ? mw * (mielImg.naturalHeight / mielImg.naturalWidth) : 0;
   const mielY = tileY + QR_TILE + 18 - mh;
-
-  // Background planes in the free band, ≥40 px clear of the content above and the QR/Miel below.
-  drawPlanes(ctx, planeLayout(y + 40, Math.min(tileY, mielY) - 40), c);
 
   ctx.textAlign = 'center';
   ctx.font = `600 33px ${SANS}`; ctx.fillStyle = c.t2;
