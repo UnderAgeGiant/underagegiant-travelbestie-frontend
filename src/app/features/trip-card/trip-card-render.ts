@@ -191,12 +191,16 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
         ctx.textAlign = 'center'; ctx.font = `40px ${SANS}`;
         ctx.fillText(city.flag, fx + 33, ry + 40);
       }
-      ctx.textAlign = 'left'; ctx.font = `600 42px ${SANS}`; ctx.fillStyle = c.t1;
-      ctx.fillText(city.name, fx + 66 + 27, ry + 39);
+      const nameX = fx + 66 + 27, daysX = W - PAD - PX;
+      let nameEnd = daysX;
       if (city.days) {
         ctx.textAlign = 'right'; ctx.font = `600 33px ${SANS}`; ctx.fillStyle = c.t3;
-        ctx.fillText(daysLabel(city.days), W - PAD - PX, ry + 37);
+        const label = daysLabel(city.days);
+        ctx.fillText(label, daysX, ry + 37);
+        nameEnd -= ctx.measureText(label).width + 24;
       }
+      ctx.textAlign = 'left'; ctx.font = `600 42px ${SANS}`; ctx.fillStyle = c.t1;
+      ctx.fillText(fitTitle(city.name, s => ctx.measureText(s).width, nameEnd - nameX, 1)[0] ?? '', nameX, ry + 39);
       ry += ROW + GAP;
     });
     if (data.moreCities) {

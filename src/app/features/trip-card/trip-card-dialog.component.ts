@@ -162,7 +162,7 @@ export class TripCardDialogComponent {
     this.sharing.set(true);
     this.shareError.set(false);
     try {
-      await this.copyLink();
+      void this.copyLink(); // not awaited: share() must run inside the tap's user activation (iOS Safari)
       await navigator.share({ files: [this.file], text: this.data.link });
       if (shareId) this.trophies.reportShare(shareId);
     } catch (err) {

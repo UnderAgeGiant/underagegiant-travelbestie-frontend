@@ -100,6 +100,13 @@ describe('TripCardDialogComponent', () => {
     expect(trophies.reportShare).toHaveBeenCalledWith('s1');
   });
 
+  it('share opens in the same tap: navigator.share is not held behind the clipboard write', async () => {
+    (nav['clipboard'] as { writeText: jest.Mock }).writeText.mockReturnValue(new Promise(() => { /* never settles */ }));
+    const f = await openDialog();
+    btn(f, /Compartir/)!.click();
+    expect(nav['share']).toHaveBeenCalled();
+  });
+
   it('clipboard rejected → shows the "Copiar link" button, not "Link copiado"', async () => {
     (nav['clipboard'] as { writeText: jest.Mock }).writeText.mockImplementation(async () => { throw new Error('denied'); }); // native promise, like the real API
     const f = await openDialog();
@@ -111,7 +118,7 @@ describe('TripCardDialogComponent', () => {
   });
 
   it('share cancelled (AbortError) → dialog stays open, no error shown', async () => {
-    (nav['share'] as jest.Mock).mockRejectedValue(new DOMException('cancel', 'AbortError'));
+    (nav['share'] as jest.Mock).mockImplementation(async () => { throw new DOMException('cancel', 'AbortError'); }); // native promise, like the real API
     const f = await openDialog();
     btn(f, /Compartir/)!.click();
     await flush(); await flush();

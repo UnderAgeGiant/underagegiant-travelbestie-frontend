@@ -22,6 +22,13 @@ describe('trip card render helpers', () => {
     lines.forEach(l => expect(l.length * 10).toBeLessThanOrEqual(300));
   });
 
+  it('fitTitle with maxLines 1 ellipsizes a long city name to the width', () => {
+    const [line, ...rest] = fitTitle('San Cristóbal de las Casas', s => s.length * 10, 150, 1);
+    expect(rest).toEqual([]);
+    expect(line.endsWith('…')).toBe(true);
+    expect(line.length * 10).toBeLessThanOrEqual(150);
+  });
+
   it('statsLine uses singulars and drops zero/unknown parts', () => {
     expect(statsLine({ cities: 1, places: 0, days: 1 })).toBe('1 ciudad · 1 día');
     expect(statsLine({ cities: 8, places: 61, days: null })).toBe('8 ciudades · 61 lugares');
