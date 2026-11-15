@@ -162,7 +162,7 @@ export class TripCardDialogComponent {
     this.sharing.set(true);
     this.shareError.set(false);
     try {
-      await this.writeLink();
+      await this.copyLink();
       await navigator.share({ files: [this.file], text: this.data.link });
       if (shareId) this.trophies.reportShare(shareId);
     } catch (err) {
@@ -170,10 +170,6 @@ export class TripCardDialogComponent {
     } finally {
       this.sharing.set(false);
     }
-  }
-
-  async copyLink(): Promise<void> {
-    await this.writeLink();
   }
 
   download(): void {
@@ -185,7 +181,7 @@ export class TripCardDialogComponent {
     a.click();
   }
 
-  private async writeLink(): Promise<void> {
+  async copyLink(): Promise<void> {
     try {
       await navigator.clipboard.writeText(this.data!.link);
       this.copyState.set('copied');
