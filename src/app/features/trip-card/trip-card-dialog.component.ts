@@ -90,6 +90,7 @@ function toDataUrl(blob: Blob): Promise<string> {
     .tcd-backdrop { overflow: hidden; }
     .tcd { position: relative; z-index: 1; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 12px;
       max-height: calc(100dvh - 40px); overflow-y: auto; }
+    .tcd:focus { outline: none; } /* focus is moved to the container on open; its buttons keep their rings */
     .tcd-head { display: flex; align-items: center; gap: 12px; }
     .tcd-title { flex: 1; margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: var(--t1); }
     .tcd-x { width: 32px; height: 32px; border-radius: 50%; color: var(--t3); font-size: 14px; }

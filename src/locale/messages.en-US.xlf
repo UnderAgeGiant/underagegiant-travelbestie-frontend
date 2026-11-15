@@ -3971,6 +3971,102 @@
         <source>En un momento lo tendrás en tu cuenta, listo para editar.</source>
         <target>It'll be in your account in a moment, ready to edit.</target>
       </trans-unit>
+      <trans-unit id="tripCard.open" datatype="html">
+        <source>🖼️ Tarjeta</source>
+        <target>🖼️ Card</target>
+      </trans-unit>
+      <trans-unit id="tripCard.celebrateTitle" datatype="html">
+        <source>¡Tu viaje está publicado! 🎉</source>
+        <target>Your trip is published! 🎉</target>
+      </trans-unit>
+      <trans-unit id="tripCard.dialogTitle" datatype="html">
+        <source>Tarjeta para compartir</source>
+        <target>Card to share</target>
+      </trans-unit>
+      <trans-unit id="tripCard.closeAria" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="tripCard.loadError" datatype="html">
+        <source>No pudimos crear la tarjeta. Inténtalo de nuevo más tarde.</source>
+        <target>We couldn't create the card. Please try again later.</target>
+      </trans-unit>
+      <trans-unit id="tripCard.close" datatype="html">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </trans-unit>
+      <trans-unit id="tripCard.previewAlt" datatype="html">
+        <source>Tarjeta del viaje para historias</source>
+        <target>Trip card for stories</target>
+      </trans-unit>
+      <trans-unit id="tripCard.loading" datatype="html">
+        <source>Creando tu tarjeta…</source>
+        <target>Creating your card…</target>
+      </trans-unit>
+      <trans-unit id="tripCard.linkHint" datatype="html">
+        <source>Link copiado 🔗 En Instagram, pégalo con el sticker de enlace</source>
+        <target>Link copied 🔗 On Instagram, paste it with the link sticker</target>
+      </trans-unit>
+      <trans-unit id="tripCard.copyLink" datatype="html">
+        <source>Copiar link</source>
+        <target>Copy link</target>
+      </trans-unit>
+      <trans-unit id="tripCard.shareError" datatype="html">
+        <source>No se pudo compartir. Usa Descargar.</source>
+        <target>Couldn't share. Use Download.</target>
+      </trans-unit>
+      <trans-unit id="tripCard.share" datatype="html">
+        <source>Compartir</source>
+        <target>Share</target>
+      </trans-unit>
+      <trans-unit id="tripCard.download" datatype="html">
+        <source>Descargar</source>
+        <target>Download</target>
+      </trans-unit>
+      <trans-unit id="tripCard.notNow" datatype="html">
+        <source>Ahora no</source>
+        <target>Not now</target>
+      </trans-unit>
+      <trans-unit id="tripCard.city" datatype="html">
+        <source><x id="n" equiv-text="c"/> ciudad</source>
+        <target><x id="n" equiv-text="c"/> city</target>
+      </trans-unit>
+      <trans-unit id="tripCard.cities" datatype="html">
+        <source><x id="n" equiv-text="c"/> ciudades</source>
+        <target><x id="n" equiv-text="c"/> cities</target>
+      </trans-unit>
+      <trans-unit id="tripCard.place" datatype="html">
+        <source><x id="n" equiv-text="p"/> lugar</source>
+        <target><x id="n" equiv-text="p"/> place</target>
+      </trans-unit>
+      <trans-unit id="tripCard.places" datatype="html">
+        <source><x id="n" equiv-text="p"/> lugares</source>
+        <target><x id="n" equiv-text="p"/> places</target>
+      </trans-unit>
+      <trans-unit id="tripCard.day" datatype="html">
+        <source><x id="n" equiv-text="d"/> día</source>
+        <target><x id="n" equiv-text="d"/> day</target>
+      </trans-unit>
+      <trans-unit id="tripCard.days" datatype="html">
+        <source><x id="n" equiv-text="d"/> días</source>
+        <target><x id="n" equiv-text="d"/> days</target>
+      </trans-unit>
+      <trans-unit id="tripCard.author" datatype="html">
+        <source>El viaje de <x id="author" equiv-text="data.author"/></source>
+        <target><x id="author" equiv-text="data.author"/>'s trip</target>
+      </trans-unit>
+      <trans-unit id="tripCard.moreCity" datatype="html">
+        <source>y 1 ciudad más</source>
+        <target>and 1 more city</target>
+      </trans-unit>
+      <trans-unit id="tripCard.moreCities" datatype="html">
+        <source>y <x id="n" equiv-text="n"/> ciudades más</source>
+        <target>and <x id="n" equiv-text="n"/> more cities</target>
+      </trans-unit>
+      <trans-unit id="tripCard.phrase" datatype="html">
+        <source>Crea tu cuenta y llévate este viaje gratis</source>
+        <target>Sign up and get this trip for free</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
