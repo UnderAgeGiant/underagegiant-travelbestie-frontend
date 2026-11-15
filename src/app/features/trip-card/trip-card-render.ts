@@ -92,11 +92,26 @@ export function planeEnd(slot: PlaneSlot): { x: number; y: number; angle: number
   return { x: end[0] * sx + tx, y: end[1] * sy + ty, angle: Math.atan2((end[1] - c2[1]) * sy, (end[0] - c2[0]) * sx) };
 }
 
-/** Plane icons that sit clear of the city panel (top/bottom, null = no panel); a solid icon next to row text reads like a glyph (review M1). */
-export function planeIconsClearOf(top: number | null, bottom: number | null): readonly PlaneSlot[] {
-  if (top === null || bottom === null) return PLANE_SLOTS;
+export type PlaneTip = { slot: PlaneSlot; x: number; y: number; angle: number; extended: boolean };
+
+/**
+ * Where each plane is drawn. A plane that would land behind the city panel (it reads like a glyph after a row label)
+ * flies on: its path continues along the end tangent (horizontal) past the panel's side edge, 16 px clear of it
+ * and 30 px from the card edge. Planes already in clear space stay at their path end.
+ */
+export function planeTips(panelTop: number | null, panelBottom: number | null): PlaneTip[] {
   const reach = PLANE / 2 + 16; // half the icon plus room for its shadow
-  return PLANE_SLOTS.filter(p => p.y + reach < top || p.y - reach > bottom);
+  return PLANE_SLOTS.map(slot => {
+    const end = planeEnd(slot);
+    const blocked = panelTop !== null && panelBottom !== null && end.y + reach > panelTop && end.y - reach < panelBottom;
+    if (!blocked) return { slot, ...end, extended: false };
+    const right = Math.cos(end.angle) > 0;
+    return { slot, ...end, x: right ? W - PAD + reach : PAD - reach, extended: true };
+  });
+}
+
+function dotted(ctx: CanvasRenderingContext2D, color: string): void {
+  ctx.globalAlpha = 0.45; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.setLineDash([2, 12]); ctx.strokeStyle = color;
 }
 
 /** Background layer: the dotted paths, on every card, under the panel and the QR tile. */
@@ -106,20 +121,26 @@ function drawPlanePaths(ctx: CanvasRenderingContext2D, colors: Record<PlaneSlot[
     const path = new Path2D();
     path.addPath(new Path2D(CURVES[slot.curve].d), new DOMMatrix([sx, 0, 0, sy, tx, ty])); // scaled path, unscaled line width
     ctx.save();
-    ctx.globalAlpha = 0.45; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.setLineDash([2, 12]);
-    ctx.strokeStyle = colors[slot.color]; ctx.stroke(path);
+    dotted(ctx, colors[slot.color]); ctx.stroke(path);
     ctx.restore();
   }
 }
 
-function drawPlaneIcons(ctx: CanvasRenderingContext2D, slots: readonly PlaneSlot[], colors: Record<PlaneSlot['color'], string>): void {
-  for (const slot of slots) {
-    const { x, y, angle } = planeEnd(slot);
+function drawPlaneIcons(ctx: CanvasRenderingContext2D, tips: PlaneTip[], colors: Record<PlaneSlot['color'], string>): void {
+  for (const { slot, x, y, angle, extended } of tips) {
+    const color = colors[slot.color];
+    if (extended) { // the path's straight continuation, from its end to the plane
+      const from = planeEnd(slot);
+      ctx.save();
+      dotted(ctx, color);
+      ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(x, y); ctx.stroke();
+      ctx.restore();
+    }
     ctx.save();
     ctx.translate(x, y); ctx.rotate(angle);
     ctx.scale(PLANE / 24, PLANE / 24); ctx.translate(-12, -12);
     ctx.shadowColor = 'rgba(0,0,0,.18)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 4;
-    ctx.fillStyle = colors[slot.color]; ctx.fill(new Path2D(PLANE_ICON_PATH));
+    ctx.fillStyle = color; ctx.fill(new Path2D(PLANE_ICON_PATH));
     ctx.restore();
   }
 }
@@ -286,7 +307,7 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
     }
     y += bh;
   }
-  drawPlaneIcons(ctx, planeIconsClearOf(panelTop, panelBottom), c); // only in the empty space, never next to row text or flags
+  drawPlaneIcons(ctx, planeTips(panelTop, panelBottom), c); // after the panel, always in clear space
 
   // 8. Site address, 7. phrase, 6. QR tile + Miel — anchored to the bottom.
   const urlBase = H - 78, phraseBase = urlBase - 33 - 21;

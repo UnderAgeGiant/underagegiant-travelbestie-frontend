@@ -1,4 +1,4 @@
-import { MIEL_SET, fitTitle, PLANE_SLOTS, pickMiel, planeEnd, planeIconsClearOf, staysLabel, statsLine } from './trip-card-render';
+import { MIEL_SET, fitTitle, PLANE_SLOTS, pickMiel, planeEnd, planeTips, staysLabel, statsLine } from './trip-card-render';
 
 describe('trip card render helpers', () => {
   it('pickMiel covers both images and both sides', () => {
@@ -54,12 +54,24 @@ describe('trip card render helpers', () => {
         expect(p.y + p.h).toBeLessThanOrEqual(1260);
       }
     });
-    it('drops a plane icon that would touch the city panel, never its path (M1)', () => {
-      expect(planeIconsClearOf(655, 775)).toEqual(PLANE_SLOTS); // 1-city panel: all clear
-      expect(planeIconsClearOf(760, 1150)).toEqual([]); // 5-row panel covers every icon
-      expect(planeIconsClearOf(550, 900)).toEqual([PLANE_SLOTS[1], PLANE_SLOTS[2]]);
-      expect(planeIconsClearOf(null, null)).toEqual(PLANE_SLOTS); // no panel
+    it('every path ends with a plane outside the city panel (1, 4 and 5+ rows, 3-line title)', () => {
+      const panels: [number, number][] = [[655, 775], [760, 1086], [760, 1154], [865, 1317]];
+      for (const [top, bottom] of panels) {
+        const tips = planeTips(top, bottom);
+        expect(tips.map(t => t.slot)).toEqual(PLANE_SLOTS);
+        for (const t of tips) {
+          const clearOfPanel = t.y + 22 + 16 <= top || t.y - 22 - 16 >= bottom || t.x - 22 - 16 >= 990 || t.x + 22 + 16 <= 90;
+          expect(clearOfPanel).toBe(true);
+          expect(t.x - 22).toBeGreaterThanOrEqual(24);
+          expect(t.x + 22).toBeLessThanOrEqual(1080 - 24);
+          expect(t.y + 22 + 16).toBeLessThanOrEqual(1288); // above the QR tile
+        }
+      }
     });
+    it('a plane already in clear space stays at its path end (1-city card unchanged)', () =>
+      expect(planeTips(655, 775)).toEqual(PLANE_SLOTS.map(slot => ({ slot, ...planeEnd(slot), extended: false }))));
+    it('no panel → every plane at its path end', () =>
+      expect(planeTips(null, null).every(t => !t.extended)).toBe(true));
     it('keeps every plane icon inside the 90 px side margins (N12)', () => {
       for (const p of PLANE_SLOTS) {
         const { x } = planeEnd(p);
