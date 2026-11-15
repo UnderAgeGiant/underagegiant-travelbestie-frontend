@@ -92,7 +92,15 @@ export function planeEnd(slot: PlaneSlot): { x: number; y: number; angle: number
   return { x: end[0] * sx + tx, y: end[1] * sy + ty, angle: Math.atan2((end[1] - c2[1]) * sy, (end[0] - c2[0]) * sx) };
 }
 
-function drawPlanes(ctx: CanvasRenderingContext2D, colors: Record<PlaneSlot['color'], string>): void {
+/** Plane icons that sit clear of the city panel (top/bottom, null = no panel); a solid icon next to row text reads like a glyph (review M1). */
+export function planeIconsClearOf(top: number | null, bottom: number | null): readonly PlaneSlot[] {
+  if (top === null || bottom === null) return PLANE_SLOTS;
+  const reach = PLANE / 2 + 16; // half the icon plus room for its shadow
+  return PLANE_SLOTS.filter(p => p.y + reach < top || p.y - reach > bottom);
+}
+
+/** Background layer: the dotted paths, on every card, under the panel and the QR tile. */
+function drawPlanePaths(ctx: CanvasRenderingContext2D, colors: Record<PlaneSlot['color'], string>): void {
   for (const slot of PLANE_SLOTS) {
     const [sx, sy, tx, ty] = slotMatrix(slot);
     const path = new Path2D();
@@ -101,6 +109,11 @@ function drawPlanes(ctx: CanvasRenderingContext2D, colors: Record<PlaneSlot['col
     ctx.globalAlpha = 0.45; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.setLineDash([2, 12]);
     ctx.strokeStyle = colors[slot.color]; ctx.stroke(path);
     ctx.restore();
+  }
+}
+
+function drawPlaneIcons(ctx: CanvasRenderingContext2D, slots: readonly PlaneSlot[], colors: Record<PlaneSlot['color'], string>): void {
+  for (const slot of slots) {
     const { x, y, angle } = planeEnd(slot);
     ctx.save();
     ctx.translate(x, y); ctx.rotate(angle);
@@ -167,7 +180,7 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   g.addColorStop(0, c.lav); g.addColorStop(0.52, c.cream); g.addColorStop(1, c.peach);
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, W, H);
-  drawPlanes(ctx, c); // background layer: the city panel and the QR tile sit on top
+  drawPlanePaths(ctx, c); // background layer: the city panel and the QR tile sit on top
 
   // 1. Brand header: round TL logo + "Tripilove".
   let y = PAD;
@@ -230,11 +243,13 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   }
 
   // 5. City rows (≤5) + "y N ciudades más".
+  let panelTop: number | null = null, panelBottom: number | null = null;
   if (data.cities.length) {
     y += 54;
     const ROW = 50, GAP = 18, PY = 36, PX = 42;
     const moreH = data.moreCities ? GAP + 40 : 0;
     const bh = PY * 2 + data.cities.length * ROW + (data.cities.length - 1) * GAP + moreH;
+    panelTop = y; panelBottom = y + bh;
     roundRect(ctx, PAD, y, INNER, bh, 54);
     ctx.fillStyle = 'rgba(255,255,255,.62)'; ctx.fill();
     ctx.lineWidth = 4.5; ctx.strokeStyle = c.border; ctx.stroke();
@@ -271,6 +286,7 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
     }
     y += bh;
   }
+  drawPlaneIcons(ctx, planeIconsClearOf(panelTop, panelBottom), c); // only in the empty space, never next to row text or flags
 
   // 8. Site address, 7. phrase, 6. QR tile + Miel — anchored to the bottom.
   const urlBase = H - 78, phraseBase = urlBase - 33 - 21;

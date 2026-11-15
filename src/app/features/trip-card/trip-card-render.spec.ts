@@ -1,4 +1,4 @@
-import { MIEL_SET, fitTitle, PLANE_SLOTS, pickMiel, planeEnd, staysLabel, statsLine } from './trip-card-render';
+import { MIEL_SET, fitTitle, PLANE_SLOTS, pickMiel, planeEnd, planeIconsClearOf, staysLabel, statsLine } from './trip-card-render';
 
 describe('trip card render helpers', () => {
   it('pickMiel covers both images and both sides', () => {
@@ -53,6 +53,12 @@ describe('trip card render helpers', () => {
         expect(p.y - 22).toBeGreaterThanOrEqual(700);
         expect(p.y + p.h).toBeLessThanOrEqual(1260);
       }
+    });
+    it('drops a plane icon that would touch the city panel, never its path (M1)', () => {
+      expect(planeIconsClearOf(655, 775)).toEqual(PLANE_SLOTS); // 1-city panel: all clear
+      expect(planeIconsClearOf(760, 1150)).toEqual([]); // 5-row panel covers every icon
+      expect(planeIconsClearOf(550, 900)).toEqual([PLANE_SLOTS[1], PLANE_SLOTS[2]]);
+      expect(planeIconsClearOf(null, null)).toEqual(PLANE_SLOTS); // no panel
     });
     it('keeps every plane icon inside the 90 px side margins (N12)', () => {
       for (const p of PLANE_SLOTS) {
