@@ -1,5 +1,6 @@
 import { TripCardData } from './trip-card-data.util';
 import { countryCodeFromFlagEmoji } from '../../shared/flag-icon/flag-emoji.util';
+import { FORWARD_PATH, PLANE_ICON_PATH, REVERSE_PATH } from '../about/about-paths';
 
 export type MielPick = { src: string; side: 'left' | 'right' };
 
@@ -41,15 +42,31 @@ export function fitTitle(text: string, measure: (s: string) => number, maxWidth:
 
 export function statsLine(stats: TripCardData['stats']): string {
   const parts: string[] = [];
-  const { cities: c, places: p, days: d } = stats;
+  const { cities: c, places: p, days: d, nights: n } = stats;
   if (c) parts.push(c === 1 ? $localize`:@@tripCard.city:${c}:n: ciudad` : $localize`:@@tripCard.cities:${c}:n: ciudades`);
   if (p) parts.push(p === 1 ? $localize`:@@tripCard.place:${p}:n: lugar` : $localize`:@@tripCard.places:${p}:n: lugares`);
-  if (d) parts.push(daysLabel(d));
+  const stays = staysLabel(d, n);
+  if (stays) parts.push(stays);
   return parts.join(' · ');
 }
 
-function daysLabel(d: number): string {
-  return d === 1 ? $localize`:@@tripCard.day:${d}:n: día` : $localize`:@@tripCard.days:${d}:n: días`;
+/** "4 días · 3 noches"; a 0 or unknown part is left out. */
+export function staysLabel(d: number | null, n: number | null): string {
+  const parts: string[] = [];
+  if (d) parts.push(d === 1 ? $localize`:@@tripCard.day:${d}:n: día` : $localize`:@@tripCard.days:${d}:n: días`);
+  if (n) parts.push(n === 1 ? $localize`:@@tripCard.night:${n}:n: noche` : $localize`:@@tripCard.nights:${n}:n: noches`);
+  return parts.join(' · ');
+}
+
+export type PlaneSlot = { curve: 'forward' | 'reverse'; color: 'lavD' | 'peachD' | 'mintD'; y: number; h: number };
+
+/** Paper planes for the free band between the city list and the QR: none under 200 px, then one per 140 px, at most 3; fixed (no randomness). */
+export function planeLayout(top: number, bottom: number): PlaneSlot[] {
+  const n = bottom - top < 200 ? 0 : Math.min(3, Math.floor((bottom - top) / 140));
+  if (n <= 0) return [];
+  const slot = (bottom - top) / n, h = Math.min(160, slot - 60); // ≥30 px per side for the 44 px plane
+  const curves = ['forward', 'reverse', 'forward'] as const, colors = ['lavD', 'peachD', 'mintD'] as const;
+  return Array.from({ length: n }, (_, i) => ({ curve: curves[i], color: colors[i], y: top + i * slot + (slot - h) / 2, h }));
 }
 
 // ---- canvas drawing (checked in the browser; jsdom has no canvas) ----
@@ -58,6 +75,32 @@ const W = 1080, H = 1920, PAD = 90, INNER = W - PAD * 2;
 const SERIF = '"Cormorant Garamond", serif';
 const SANS = '"DM Sans", sans-serif';
 const QR_TILE = 420;
+// About Us paths live in a 640×120 box: x 60–590, y 20–100. End point and last control point give the plane's heading.
+const CURVES = {
+  forward: { d: FORWARD_PATH, end: [590, 20], c2: [560, 20] },
+  reverse: { d: REVERSE_PATH, end: [60, 20], c2: [90, 20] },
+} as const;
+
+function drawPlanes(ctx: CanvasRenderingContext2D, slots: PlaneSlot[], colors: Record<PlaneSlot['color'], string>): void {
+  const sx = INNER / 530, tx = PAD - 60 * sx;
+  for (const slot of slots) {
+    const { d, end, c2 } = CURVES[slot.curve];
+    const sy = slot.h / 80, ty = slot.y - 20 * sy;
+    const path = new Path2D();
+    path.addPath(new Path2D(d), new DOMMatrix([sx, 0, 0, sy, tx, ty])); // scaled path, unscaled line width
+    ctx.save();
+    ctx.globalAlpha = 0.45; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.setLineDash([2, 12]);
+    ctx.strokeStyle = colors[slot.color]; ctx.stroke(path);
+    ctx.restore();
+    ctx.save();
+    ctx.translate(end[0] * sx + tx, end[1] * sy + ty);
+    ctx.rotate(Math.atan2((end[1] - c2[1]) * sy, (end[0] - c2[0]) * sx));
+    ctx.scale(44 / 24, 44 / 24); ctx.translate(-12, -12);
+    ctx.shadowColor = 'rgba(0,0,0,.18)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 4;
+    ctx.fillStyle = colors[slot.color]; ctx.fill(new Path2D(PLANE_ICON_PATH));
+    ctx.restore();
+  }
+}
 
 function loadImage(src: string): Promise<HTMLImageElement | null> {
   return new Promise(resolve => {
@@ -87,7 +130,7 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   const c = {
     lav: tok('--lav', 'oklch(88% .06 290)'), lavD: tok('--lav-d', 'oklch(55% .16 290)'),
     cream: tok('--cream', 'oklch(98% .01 80)'), peach: tok('--peach', 'oklch(91% .07 50)'),
-    peachD: tok('--peach-d', 'oklch(62% .15 50)'), t1: tok('--t1', 'oklch(18% .02 270)'),
+    peachD: tok('--peach-d', 'oklch(62% .15 50)'), mintD: tok('--mint-d', 'oklch(57% .13 160)'), t1: tok('--t1', 'oklch(18% .02 270)'),
     t2: tok('--t2', 'oklch(42% .03 270)'), t3: tok('--t3', 'oklch(65% .02 270)'),
     border: tok('--border', 'oklch(88% .015 270)'),
   };
@@ -164,13 +207,15 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   const stats = statsLine(data.stats);
   if (stats) {
     y += 36;
-    ctx.font = `600 36px ${SANS}`;
+    let fs = 36;
+    ctx.font = `600 ${fs}px ${SANS}`;
+    while (fs > 24 && ctx.measureText(stats).width + 84 > INNER) ctx.font = `600 ${--fs}px ${SANS}`; // one line inside the margins
     const pw = ctx.measureText(stats).width + 84, ph = 78;
     roundRect(ctx, (W - pw) / 2, y, pw, ph, ph / 2);
     ctx.fillStyle = '#ffffff'; ctx.fill();
     ctx.lineWidth = 4.5; ctx.strokeStyle = c.border; ctx.stroke();
     ctx.fillStyle = c.lavD;
-    ctx.fillText(stats, W / 2, y + ph / 2 + 13);
+    ctx.fillText(stats, W / 2, y + ph / 2 + fs * 0.36);
     y += ph;
   }
 
@@ -198,9 +243,9 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
       }
       const nameX = fx + 66 + 27, daysX = W - PAD - PX;
       let nameEnd = daysX;
-      if (city.days) {
+      const label = staysLabel(city.days, city.nights);
+      if (label) {
         ctx.textAlign = 'right'; ctx.font = `600 33px ${SANS}`; ctx.fillStyle = c.t3;
-        const label = daysLabel(city.days);
         ctx.fillText(label, daysX, ry + 37);
         nameEnd -= ctx.measureText(label).width + 24;
       }
@@ -214,22 +259,28 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
       ctx.fillText(n === 1 ? $localize`:@@tripCard.moreCity:y 1 ciudad más`
                            : $localize`:@@tripCard.moreCities:y ${n}:n: ciudades más`, PAD + PX + 93, ry + 22);
     }
+    y += bh;
   }
 
   // 8. Site address, 7. phrase, 6. QR tile + Miel — anchored to the bottom.
-  ctx.textAlign = 'center';
-  const urlBase = H - 78;
-  ctx.font = `600 33px ${SANS}`; ctx.fillStyle = c.t2;
-  ctx.fillText(data.siteLabel, W / 2, urlBase);
+  const urlBase = H - 78, phraseBase = urlBase - 33 - 21;
   const phrase = $localize`:@@tripCard.phrase:Crea tu cuenta y llévate este viaje gratis`;
   let size = 45;
   ctx.font = `600 ${size}px ${SANS}`;
   while (size > 30 && ctx.measureText(phrase).width > INNER) ctx.font = `600 ${--size}px ${SANS}`;
-  const phraseBase = urlBase - 33 - 21;
-  ctx.fillStyle = c.t1;
+  const tileY = phraseBase - size - 36 - QR_TILE, tileX = (W - QR_TILE) / 2;
+  const mw = 276, mh = mielImg ? mw * (mielImg.naturalHeight / mielImg.naturalWidth) : 0;
+  const mielY = tileY + QR_TILE + 18 - mh;
+
+  // Background planes in the free band, ≥40 px clear of the content above and the QR/Miel below.
+  drawPlanes(ctx, planeLayout(y + 40, Math.min(tileY, mielY) - 40), c);
+
+  ctx.textAlign = 'center';
+  ctx.font = `600 33px ${SANS}`; ctx.fillStyle = c.t2;
+  ctx.fillText(data.siteLabel, W / 2, urlBase);
+  ctx.font = `600 ${size}px ${SANS}`; ctx.fillStyle = c.t1;
   ctx.fillText(phrase, W / 2, phraseBase);
 
-  const tileY = phraseBase - size - 36 - QR_TILE, tileX = (W - QR_TILE) / 2;
   ctx.save();
   ctx.shadowColor = 'rgba(0,0,0,.07)'; ctx.shadowBlur = 48; ctx.shadowOffsetY = 6;
   roundRect(ctx, tileX, tileY, QR_TILE, QR_TILE, 42);
@@ -238,11 +289,10 @@ export async function renderTripCard(data: TripCardData, miel: MielPick): Promis
   ctx.drawImage(qr, tileX + 12, tileY + 12, QR_TILE - 24, QR_TILE - 24);
 
   if (mielImg) {
-    const mw = 276, mh = mw * (mielImg.naturalHeight / mielImg.naturalWidth);
     const mx = miel.side === 'left' ? tileX - 12 - mw : tileX + QR_TILE + 12; // never over the tile
     ctx.save();
     if (miel.side === 'right') { ctx.translate(mx + mw, 0); ctx.scale(-1, 1); } // face the QR
-    ctx.drawImage(mielImg, miel.side === 'right' ? 0 : mx, tileY + QR_TILE + 18 - mh, mw, mh);
+    ctx.drawImage(mielImg, miel.side === 'right' ? 0 : mx, mielY, mw, mh);
     ctx.restore();
   }
 

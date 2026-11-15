@@ -770,63 +770,63 @@
         <source>Sobre nosotros</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">34,35</context>
+          <context context-type="linenumber">31,32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.hero.title" datatype="html">
         <source>Las <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>besties<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> detrás<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>del viaje</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">35,36</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.hero.sub" datatype="html">
         <source>Cuatro personas, una idea: planificar un viaje debería sentirse como una aventura, no como una planilla de cálculo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">36,39</context>
+          <context context-type="linenumber">33,36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.journey.label" datatype="html">
         <source>Nuestra historia, una parada a la vez</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">41,42</context>
+          <context context-type="linenumber">38,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.journey.sub" datatype="html">
         <source>Sigue la ruta de vuelo — cada parada presenta a alguien que ayudó a construir Tripilove.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">42,45</context>
+          <context context-type="linenumber">39,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.closing.title" datatype="html">
         <source>¿Listo para planificar tu próximo viaje?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">81,82</context>
+          <context context-type="linenumber">78,79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.closing.sub" datatype="html">
         <source>Únete a miles de besties que arman itinerarios juntos, un destino a la vez.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">82,83</context>
+          <context context-type="linenumber">79,80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.closing.cta" datatype="html">
         <source>Comenzar a planificar ✈️</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">83,86</context>
+          <context context-type="linenumber">80,83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.credits.geonames" datatype="html">
         <source>Ciudades: <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.geonames.org&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>GeoNames<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (CC BY 4.0)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/about/about-content.component.ts</context>
-          <context context-type="linenumber">87,89</context>
+          <context context-type="linenumber">84,86</context>
         </context-group>
       </trans-unit>
       <trans-unit id="about.team.yoli.role" datatype="html">
@@ -5557,70 +5557,84 @@
         <source><x id="n" equiv-text="c"/> ciudad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.cities" datatype="html">
         <source><x id="n" equiv-text="c"/> ciudades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.place" datatype="html">
         <source><x id="n" equiv-text="p"/> lugar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.places" datatype="html">
         <source><x id="n" equiv-text="p"/> lugares</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.day" datatype="html">
         <source><x id="n" equiv-text="d"/> día</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.days" datatype="html">
         <source><x id="n" equiv-text="d"/> días</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCard.night" datatype="html">
+        <source><x id="n" equiv-text="n"/> noche</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCard.nights" datatype="html">
+        <source><x id="n" equiv-text="n"/> noches</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.author" datatype="html">
         <source>El viaje de <x id="author" equiv-text="data.author"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">134</context>
+          <context context-type="linenumber">182</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.moreCity" datatype="html">
         <source>y 1 ciudad más</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">205</context>
+          <context context-type="linenumber">259</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.moreCities" datatype="html">
         <source>y <x id="n" equiv-text="n"/> ciudades más</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">206</context>
+          <context context-type="linenumber">260</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tripCard.phrase" datatype="html">
         <source>Crea tu cuenta y llévate este viaje gratis</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trip-card/trip-card-render.ts</context>
-          <context context-type="linenumber">215</context>
+          <context context-type="linenumber">267</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addStop.title" datatype="html">

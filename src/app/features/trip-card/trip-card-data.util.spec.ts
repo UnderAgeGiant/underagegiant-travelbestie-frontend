@@ -38,20 +38,25 @@ describe('buildTripCardData', () => {
   const d = buildTripCardData(trip, 's1', SITE);
 
   it('counts distinct cities, all planned places and trip days', () =>
-    expect(d.stats).toEqual({ cities: 6, places: 61, days: 21 }));
+    expect(d.stats).toEqual({ cities: 6, places: 61, days: 21, nights: 20 }));
   it('lists 5 stops in trip order, then the rest as moreCities', () => {
     expect(d.cities.map(c => c.name)).toEqual(['Paris', 'Rome', 'Lisbon', 'Madrid', 'Vienna']);
     expect(d.moreCities).toBe(2);
   });
   it('per-city days: nights for every stop but the last, so the travel day goes to the next city', () => {
     const x = buildTripCardData({ ...trip, stops: [stop('lima', '01/06/2027', '05/06/2027', 1), stop('cusco', '05/06/2027', '09/06/2027', 1)] }, 'x', SITE);
-    expect(x.cities.map(c => c.days)).toEqual([4, 5]);
-    expect(x.stats.days).toBe(9);
+    expect(x.cities.map(c => [c.days, c.nights])).toEqual([[4, 4], [5, 4]]);
+    expect([x.stats.days, x.stats.nights]).toEqual([9, 8]);
     expect(d.cities[0].days).toBe(2);
+  });
+  it('a single-day trip has 1 day and no nights', () => {
+    const x = buildTripCardData({ ...trip, stops: [stop('lima', '01/06/2027', '01/06/2027', 1)] }, 'x', SITE);
+    expect(x.cities[0]).toMatchObject({ days: 1, nights: null });
+    expect(x.stats).toMatchObject({ days: 1, nights: null });
   });
   it('a same-day stop shows no days', () => {
     const x = buildTripCardData({ ...trip, stops: [stop('lima', '01/06/2027', '01/06/2027', 1), stop('cusco', '01/06/2027', '03/06/2027', 1)] }, 'x', SITE);
-    expect(x.cities.map(c => c.days)).toEqual([null, 3]);
+    expect(x.cities.map(c => [c.days, c.nights])).toEqual([[null, null], [3, 2]]);
   });
   it('carries the flag emoji', () => expect(d.cities[0].flag).toBe('🇫🇷'));
   it('author is @username, null without one', () => {
@@ -63,11 +68,13 @@ describe('buildTripCardData', () => {
   it('missing dates → days null, no NaN', () => {
     const x = buildTripCardData({ ...trip, stops: [{ ...trip.stops[0], checkIn: '', checkOut: '' }] }, 'x', SITE);
     expect(x.stats.days).toBeNull();
+    expect(x.stats.nights).toBeNull();
     expect(x.cities[0].days).toBeNull();
+    expect(x.cities[0].nights).toBeNull();
   });
   it('unknown cityId → 📍 and an empty name, never the raw id', () => {
     const x = buildTripCardData({ ...trip, stops: [stop('zz-nowhere', '01/06/2027', '02/06/2027', 1)] }, 'x', SITE);
-    expect(x.cities[0]).toEqual({ flag: '📍', name: '', days: 2 });
+    expect(x.cities[0]).toEqual({ flag: '📍', name: '', days: 2, nights: 1 });
     expect(JSON.stringify(x)).not.toContain('zz-nowhere');
   });
   it('siteLabel drops the scheme', () => expect(d.siteLabel).toBe('tripilove.com'));

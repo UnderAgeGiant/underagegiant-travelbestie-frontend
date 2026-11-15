@@ -4051,6 +4051,14 @@
         <source><x id="n" equiv-text="d"/> días</source>
         <target><x id="n" equiv-text="d"/> days</target>
       </trans-unit>
+      <trans-unit id="tripCard.night" datatype="html">
+        <source><x id="n" equiv-text="n"/> noche</source>
+        <target><x id="n" equiv-text="n"/> night</target>
+      </trans-unit>
+      <trans-unit id="tripCard.nights" datatype="html">
+        <source><x id="n" equiv-text="n"/> noches</source>
+        <target><x id="n" equiv-text="n"/> nights</target>
+      </trans-unit>
       <trans-unit id="tripCard.author" datatype="html">
         <source>El viaje de <x id="author" equiv-text="data.author"/></source>
         <target><x id="author" equiv-text="data.author"/>'s trip</target>
