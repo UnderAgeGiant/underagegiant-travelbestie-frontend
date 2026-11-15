@@ -31,9 +31,12 @@ export function tripCardLink(shareId: string, siteUrl: string = environment.site
 
 export function buildTripCardData(trip: SharedTrip, shareId: string, siteUrl: string = environment.siteUrl): TripCardData {
   const stops = trip.stops ?? [];
-  const cities = stops.map(s => {
+  // The travel day counts for the next city, so the rows add up to the trip total.
+  const cities = stops.map((s, i) => {
     const city = WORLD_CITIES.find(c => c.id === s.cityId);
-    return { flag: city?.flag ?? '📍', name: city?.name ?? '', days: stayLength([s])?.days ?? null };
+    const len = stayLength([s]);
+    const days = (i < stops.length - 1 ? len?.nights : len?.days) || null;
+    return { flag: city?.flag ?? '📍', name: city?.name ?? '', days };
   });
   return {
     author: trip.ownerUsername ? `@${trip.ownerUsername}` : null,

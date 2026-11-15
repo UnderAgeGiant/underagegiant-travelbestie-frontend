@@ -43,7 +43,16 @@ describe('buildTripCardData', () => {
     expect(d.cities.map(c => c.name)).toEqual(['Paris', 'Rome', 'Lisbon', 'Madrid', 'Vienna']);
     expect(d.moreCities).toBe(2);
   });
-  it('per-city days come from stayLength of that stop', () => expect(d.cities[0].days).toBe(3));
+  it('per-city days: nights for every stop but the last, so the travel day goes to the next city', () => {
+    const x = buildTripCardData({ ...trip, stops: [stop('lima', '01/06/2027', '05/06/2027', 1), stop('cusco', '05/06/2027', '09/06/2027', 1)] }, 'x', SITE);
+    expect(x.cities.map(c => c.days)).toEqual([4, 5]);
+    expect(x.stats.days).toBe(9);
+    expect(d.cities[0].days).toBe(2);
+  });
+  it('a same-day stop shows no days', () => {
+    const x = buildTripCardData({ ...trip, stops: [stop('lima', '01/06/2027', '01/06/2027', 1), stop('cusco', '01/06/2027', '03/06/2027', 1)] }, 'x', SITE);
+    expect(x.cities.map(c => c.days)).toEqual([null, 3]);
+  });
   it('carries the flag emoji', () => expect(d.cities[0].flag).toBe('🇫🇷'));
   it('author is @username, null without one', () => {
     expect(d.author).toBe('@ana');
