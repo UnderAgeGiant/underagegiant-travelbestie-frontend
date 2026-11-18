@@ -697,20 +697,22 @@ describe('MyTripsComponent — trip card (F80)', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  const cardBtn = () => fixture.nativeElement.querySelector('.trip-card-btn') as HTMLButtonElement | null;
+  const compartirBtn = () => Array.from(fixture.nativeElement.querySelectorAll('button') as NodeListOf<HTMLButtonElement>)
+    .find(b => b.textContent?.includes('Compartir')) ?? null;
   const plan = (id: string) => savedPlans.plans().find(p => p.id === id)!;
 
-  it('published plan: the card button opens the card without celebrate', () => {
+  it('published plan: Compartir opens the card without celebrate, and no Tarjeta button is left', () => {
     component.togglePlan('published');
     fixture.detectChanges();
-    cardBtn()!.click();
+    expect(fixture.nativeElement.textContent).not.toContain('Tarjeta');
+    compartirBtn()!.click();
     expect(openCard).toHaveBeenCalledWith('sh-1');
   });
 
-  it('unpublished plan: no card button', () => {
+  it('unpublished plan: no Compartir button', () => {
     component.togglePlan('draft');
     fixture.detectChanges();
-    expect(cardBtn()).toBeNull();
+    expect(compartirBtn()).toBeNull();
   });
 
   it('publishing an unpublished plan opens the card with celebrate', () => {

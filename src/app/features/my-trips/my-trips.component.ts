@@ -18,7 +18,7 @@ import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { TripItineraryComponent } from '../preferences/trip-itinerary.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
-import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
+import { buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { NavShellComponent } from '../nav/nav-shell.component';
@@ -171,7 +171,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                                 i18n="@@myTrips.modifyPlanBtn">
                           ✏️ Modificar mi plan
                         </button>
-                        @if (planShareId(plan)) {
+                        @if (planShareId(plan); as sid) {
                           <button class="btn-pill btn-ghost"
                                   style="justify-content:center;gap:7px"
                                   (click)="sharePlan(plan)" type="button"
@@ -180,12 +180,8 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
                           </button>
                           <button class="btn-pill btn-outline"
                                   style="justify-content:center;gap:6px"
-                                  (click)="shareNative(plan)" type="button"
+                                  (click)="tripCard.open(sid)" type="button"
                                   i18n="@@share.shareBtn">📤 Compartir</button>
-                          <button class="btn-pill btn-outline trip-card-btn"
-                                  style="justify-content:center;gap:6px"
-                                  (click)="openCard(plan)" type="button"
-                                  i18n="@@tripCard.open">🖼️ Tarjeta</button>
                         } @else {
                           <button class="btn-pill btn-outline"
                                   style="justify-content:center;gap:6px"
@@ -453,7 +449,7 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly karmaModal  = inject(KarmaModalService);
   private readonly trophies    = inject(TrophyService);
   private readonly api         = inject(ApiService);
-  private readonly tripCard = inject(TripCardService);
+  readonly tripCard = inject(TripCardService);
   private readonly planActions = inject(PlanActionsService);
   private readonly injector = inject(Injector);
   private readonly router      = inject(Router);
@@ -662,16 +658,6 @@ export class MyTripsComponent implements AfterViewInit {
 
   unpublish(plan: SavedPlan): void {
     this.planActions.unpublish(plan).subscribe(() => this.confirmUnpublishId.set(null));
-  }
-
-  openCard(plan: SavedPlan): void {
-    const sid = this.planShareId(plan);
-    if (sid) this.tripCard.open(sid);
-  }
-
-  shareNative(plan: SavedPlan): void {
-    const sid = this.planShareId(plan);
-    if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
   downloadItinerary(plan: SavedPlan): Promise<void> {

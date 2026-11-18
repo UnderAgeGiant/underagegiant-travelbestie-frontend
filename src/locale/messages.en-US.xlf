@@ -148,11 +148,7 @@
         <source>Buscar favorito…</source>
         <target>Search favorites…</target>
       </trans-unit>
-      <trans-unit id="nav.searchSharedTripsPlaceholder" datatype="html">
-        <source>Buscar viaje compartido…</source>
-        <target>Search shared trips…</target>
-      </trans-unit>
-      <trans-unit id="nav.updatePlan" datatype="html">
+            <trans-unit id="nav.updatePlan" datatype="html">
         <source>Actualizar viaje</source>
         <target>Update trip</target>
       </trans-unit>
@@ -1496,11 +1492,7 @@
         <source>Expandir o contraer</source>
         <target>Expand or collapse</target>
       </trans-unit>
-      <trans-unit id="nav.sharePlan" datatype="html">
-        <source>Publicar</source>
-        <target>Publish</target>
-      </trans-unit>
-      <trans-unit id="myTrips.publishedFilter" datatype="html">
+            <trans-unit id="myTrips.publishedFilter" datatype="html">
         <source>Viaje publicado</source>
         <target>Published trip</target>
       </trans-unit>
@@ -1647,11 +1639,7 @@
         <source>📈 Historial de token</source>
         <target>📈 Token History</target>
       </trans-unit>
-      <trans-unit id="nav.mySharedTrips" datatype="html">
-        <source>Mis viajes publicados</source>
-        <target>My published trips</target>
-      </trans-unit>
-      <trans-unit id="share.shareBtn" datatype="html">
+            <trans-unit id="share.shareBtn" datatype="html">
         <source>📤 Compartir</source>
         <target>📤 Share</target>
       </trans-unit>
@@ -3971,17 +3959,13 @@
         <source>En un momento lo tendrás en tu cuenta, listo para editar.</source>
         <target>It'll be in your account in a moment, ready to edit.</target>
       </trans-unit>
-      <trans-unit id="tripCard.open" datatype="html">
-        <source>🖼️ Tarjeta</source>
-        <target>🖼️ Card</target>
-      </trans-unit>
-      <trans-unit id="tripCard.celebrateTitle" datatype="html">
+            <trans-unit id="tripCard.celebrateTitle" datatype="html">
         <source>¡Tu viaje está publicado! 🎉</source>
         <target>Your trip is published! 🎉</target>
       </trans-unit>
       <trans-unit id="tripCard.dialogTitle" datatype="html">
-        <source>Tarjeta para compartir</source>
-        <target>Card to share</target>
+        <source>Compartir tu viaje</source>
+        <target>Share your trip</target>
       </trans-unit>
       <trans-unit id="tripCard.closeAria" datatype="html">
         <source>Cerrar</source>
@@ -4189,6 +4173,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
           <context context-type="linenumber">43,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCard.whatsapp" datatype="html">
+        <source>WhatsApp</source>
+        <target>WhatsApp</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip-card/trip-card-dialog.component.ts</context>
+          <context context-type="linenumber">80,82</context>
         </context-group>
       </trans-unit>
     </body>

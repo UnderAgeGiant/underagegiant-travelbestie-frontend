@@ -14,6 +14,9 @@ export function buildShareLink(shareId: string, origin: string = window.location
 const ownMessage   = () => $localize`:@@share.message:✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳`;
 const otherMessage = () => $localize`:@@share.messageOther:✨ ¡Mira este viaje en Tripilove! 🌍✈️🧳`;
 
+/** The share text: the owner’s own trip, or someone else’s shared trip (no authorship claim). */
+export const shareMessage = (own: boolean): string => (own ? ownMessage() : otherMessage());
+
 export function buildWhatsappUrl(tripName: string, shareId: string, origin: string = window.location.origin, prefix?: string): string {
   const link = buildShareLink(shareId, origin);
   const intro = prefix ?? ownMessage();
@@ -21,35 +24,4 @@ export function buildWhatsappUrl(tripName: string, shareId: string, origin: stri
   const msg = `${intro}\n\n📍 ${tripName}\n\n${link}`;
   // api.whatsapp.com/send, not wa.me: wa.me's redirect re-encodes the text and turns every emoji into U+FFFD (QA 2026-10-09).
   return `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
-}
-
-/**
- * Share a trip through the native OS share sheet (WhatsApp, Telegram, Messages,
- * Mail, Copy…). The link is passed as the structured `url` field so it stays a
- * real clickable link and the emoji in `text` render natively — unlike the
- * `api.whatsapp.com/send?text=` form, which URL-encodes everything into one blob.
- *
- * Falls back to the WhatsApp web link when the Web Share API is unavailable
- * (e.g. some desktop browsers).
- *
- * Resolves true when the share completed (sheet resolved or WhatsApp fallback opened),
- * false when the user cancelled.
- */
-export async function shareTrip(tripName: string, shareId: string, origin: string = window.location.origin, own = true): Promise<boolean> {
-  const url = buildShareLink(shareId, origin);
-  const text = own ? ownMessage() : otherMessage();
-
-  if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
-    try {
-      await navigator.share({ title: tripName, text, url });
-      return true;
-    } catch (err) {
-      // User dismissed the share sheet — nothing more to do.
-      if ((err as DOMException)?.name === 'AbortError') return false;
-      // Any other failure falls through to the WhatsApp fallback below.
-    }
-  }
-
-  window.open(buildWhatsappUrl(tripName, shareId, origin, text), '_blank', 'noopener,noreferrer');
-  return true;
 }

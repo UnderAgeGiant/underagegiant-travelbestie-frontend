@@ -4,6 +4,7 @@ import { TrophyService } from '../../core/trophies/trophy.service';
 import { TripCardService } from './trip-card.service';
 import { TripCardData, buildTripCardData, tripCardFileName } from './trip-card-data.util';
 import { pickMiel, renderTripCard } from './trip-card-render';
+import { buildWhatsappUrl, shareMessage } from '../../core/share/share-url.util';
 
 const STREAMER_COLORS = ['#F4B740', '#E8506A', '#4A7BE0', '#7CC4A4', '#B48CF2'];
 
@@ -39,7 +40,7 @@ function toDataUrl(blob: Blob): Promise<string> {
             @if (req.celebrate) {
               <h2 id="tcd-title" class="tcd-title" i18n="@@tripCard.celebrateTitle">¡Tu viaje está publicado! 🎉</h2>
             } @else {
-              <h2 id="tcd-title" class="tcd-title" i18n="@@tripCard.dialogTitle">Tarjeta para compartir</h2>
+              <h2 id="tcd-title" class="tcd-title" i18n="@@tripCard.dialogTitle">Compartir tu viaje</h2>
             }
             <button class="tcd-x" type="button" (click)="close()"
                     i18n-aria-label="@@tripCard.closeAria" aria-label="Cerrar">✕</button>
@@ -74,8 +75,11 @@ function toDataUrl(blob: Blob): Promise<string> {
               @if (canShareFiles()) {
                 <button class="btn-pill btn-primary" type="button" (click)="share()"
                         [disabled]="!preview() || sharing()" [attr.aria-busy]="sharing()" i18n="@@tripCard.share">Compartir</button>
+              } @else {
+                <button class="btn-pill btn-primary" type="button" (click)="shareWhatsapp()"
+                        [disabled]="!preview()" i18n="@@tripCard.whatsapp">WhatsApp</button>
               }
-              <button class="btn-pill" type="button" [class.btn-primary]="!canShareFiles()" [class.btn-outline]="canShareFiles()"
+              <button class="btn-pill btn-outline" type="button"
                       (click)="download()" [disabled]="!preview() || sharing()" i18n="@@tripCard.download">Descargar</button>
               @if (req.celebrate) {
                 <button class="btn-pill tcd-later" type="button" (click)="close()" i18n="@@tripCard.notNow">Ahora no</button>
@@ -133,12 +137,13 @@ export class TripCardDialogComponent {
   streamers: { left: number; color: string; delay: number; rot: number }[] = [];
   private data: TripCardData | null = null;
   private file: File | null = null;
+  private own = true;
   private loadId = 0;
 
   constructor() {
     effect(() => {
       const req = this.cards.request();
-      untracked(() => (req ? this.load(req.shareId, req.celebrate) : this.reset()));
+      untracked(() => (req ? this.load(req.shareId, req.celebrate, req.own) : this.reset()));
     });
   }
 
@@ -172,6 +177,14 @@ export class TripCardDialogComponent {
     }
   }
 
+  /** Desktop path: WhatsApp Web with the share text and the trip link (the image can't be attached there). */
+  shareWhatsapp(): void {
+    const shareId = this.cards.request()?.shareId;
+    if (!shareId || !this.data) return;
+    window.open(buildWhatsappUrl(this.data.title, shareId, undefined, shareMessage(this.own)), '_blank', 'noopener,noreferrer');
+    this.trophies.reportShare(shareId);
+  }
+
   download(): void {
     const src = this.preview();
     if (!src || !this.file) return;
@@ -190,8 +203,9 @@ export class TripCardDialogComponent {
     }
   }
 
-  private load(shareId: string, celebrate: boolean): void {
+  private load(shareId: string, celebrate: boolean, own: boolean): void {
     this.reset();
+    this.own = own;
     const id = ++this.loadId;
     this.streamers = celebrate
       ? Array.from({ length: 28 }, (_, i) => ({
@@ -214,6 +228,7 @@ export class TripCardDialogComponent {
             this.file = new File([blob], tripCardFileName(data.title), { type: 'image/png' });
             this.canShareFiles.set(typeof navigator.canShare === 'function' && navigator.canShare({ files: [this.file] }));
             this.preview.set(url);
+            void this.copyLink(); // the dialog copies the link when it opens (desktop: the "Copiar link" button if this is denied)
           })
           .catch(() => { if (id === this.loadId) this.failed.set(true); });
       },

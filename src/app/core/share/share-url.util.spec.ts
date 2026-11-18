@@ -1,4 +1,4 @@
-import { buildShareLink, buildWhatsappUrl, shareTrip } from './share-url.util';
+import { buildShareLink, buildWhatsappUrl, shareMessage } from './share-url.util';
 
 describe('share url helpers', () => {
   it('builds the public share link from a shareId', () => {
@@ -15,61 +15,9 @@ describe('share url helpers', () => {
     expect(text).toContain('https://tripilove.app/shared/abc');
   });
 
-  it('shareTrip(own=false) uses wording that does not claim authorship', async () => {
-    const share = jest.fn().mockResolvedValue(undefined);
-    (navigator as any).share = share;
-    await shareTrip('Plan Ajeno', 'abc', 'https://tripilove.app', false);
-    const text: string = share.mock.calls[0][0].text;
-    expect(text).not.toContain('armé');
-    expect(text).toContain('Mira este viaje');
-    delete (navigator as any).share;
-  });
-
-  it('shareTrip defaults to the own-trip wording', async () => {
-    const share = jest.fn().mockResolvedValue(undefined);
-    (navigator as any).share = share;
-    await shareTrip('Mi Viaje', 'abc', 'https://tripilove.app');
-    expect(share.mock.calls[0][0].text).toContain('armé');
-    delete (navigator as any).share;
-  });
-
-  it('shareTrip uses the Web Share API with a structured url field when available', async () => {
-    const share = jest.fn().mockResolvedValue(undefined);
-    (navigator as any).share = share;
-    await shareTrip('Mi Viaje', 'abc', 'https://tripilove.app');
-    expect(share).toHaveBeenCalledWith(expect.objectContaining({
-      title: 'Mi Viaje',
-      url: 'https://tripilove.app/shared/abc',
-    }));
-    delete (navigator as any).share;
-  });
-
-  it('shareTrip falls back to the WhatsApp web link when Web Share is unavailable', async () => {
-    delete (navigator as any).share;
-    const open = jest.spyOn(window, 'open').mockImplementation(() => null);
-    await shareTrip('Mi Viaje', 'abc', 'https://tripilove.app');
-    expect(open).toHaveBeenCalledWith(
-      expect.stringContaining('https://api.whatsapp.com/send?text='),
-      '_blank',
-      'noopener,noreferrer',
-    );
-    open.mockRestore();
-  });
-
-  it('shareTrip resolves true when the native share completes', async () => {
-    Object.assign(navigator, { share: jest.fn().mockResolvedValue(undefined) });
-    await expect(shareTrip('Roma', 'abc', 'https://x')).resolves.toBe(true);
-  });
-
-  it('shareTrip resolves false when the user cancels the share sheet', async () => {
-    Object.assign(navigator, { share: jest.fn().mockRejectedValue(Object.assign(new Error('x'), { name: 'AbortError' })) });
-    await expect(shareTrip('Roma', 'abc', 'https://x')).resolves.toBe(false);
-  });
-
-  it('shareTrip resolves true when it falls back to WhatsApp', async () => {
-    Object.assign(navigator, { share: undefined });
-    const open = jest.spyOn(window, 'open').mockReturnValue(null);
-    await expect(shareTrip('Roma', 'abc', 'https://x')).resolves.toBe(true);
-    expect(open).toHaveBeenCalled();
+  it('shareMessage: own trip claims authorship, someone else’s does not', () => {
+    expect(shareMessage(true)).toContain('armé');
+    expect(shareMessage(false)).not.toContain('armé');
+    expect(shareMessage(false)).toContain('Mira este viaje');
   });
 });
