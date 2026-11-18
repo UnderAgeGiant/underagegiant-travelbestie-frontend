@@ -43,7 +43,8 @@ const MENU_WIDTH = 224;
     </div>
   `,
   styles: [`
-    .up-plan-menu {
+    /* Layout only while open: an unconditional display would override the UA's [popover]:not(:popover-open){display:none}. */
+    .up-plan-menu:popover-open {
       inset: auto; margin: 0; padding: 6px; box-sizing: border-box; width: ${MENU_WIDTH}px;
       background: #fff; border: 1.5px solid var(--border); border-radius: 14px; box-shadow: var(--sh-lg);
       display: flex; flex-direction: column; gap: 1px;
