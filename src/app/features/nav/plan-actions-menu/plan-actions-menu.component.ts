@@ -17,7 +17,7 @@ const MENU_WIDTH = 224;
   template: `
     <button #trigger type="button" class="up-plan-more" aria-haspopup="menu"
             i18n-aria-label="@@planMenu.trigger" aria-label="Acciones del viaje"
-            [attr.aria-expanded]="open()" (click)="toggle()">⋯ ▾</button>
+            [attr.aria-expanded]="open()" (click)="toggle()"><span class="up-plan-more-dots">⋯</span><svg class="up-plan-more-chev" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
     <div #menu popover="auto" role="menu" class="up-plan-menu" (toggle)="onNativeToggle($event)">
       <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('modify')"><span class="ic" aria-hidden="true">✏️</span><span i18n="@@planMenu.modify">Modificar</span></button>
       @if (published()) {
