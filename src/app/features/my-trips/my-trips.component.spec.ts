@@ -11,6 +11,7 @@ import { AiPlanHistoryItem } from '../../core/models/ai.model';
 import { TripCardService } from '../trip-card/trip-card.service';
 import { SCROLL_SETTLE_FALLBACK_MS } from '../../core/routing/focus-item.util';
 import { __setAttractionSourceForTests } from '../../data/attractions.data';
+import { ToastService } from '../../core/ui/toast.service';
 
 // MyTripsComponent now renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -602,7 +603,7 @@ describe('MyTripsComponent — "Dejar de publicar" (F74 feedback F3)', () => {
     btn('Sí, dejar de publicar')!.click();
 
     expect(shareIdOf('published')).toBe('sh-1');
-    expect(component.toast()).toBe('No se pudo despublicar el viaje');
+    expect(TestBed.inject(ToastService).message()).toBe('No se pudo despublicar el viaje');
   });
 });
 
@@ -655,7 +656,7 @@ describe('MyTripsComponent — itinerary export waits for city files', () => {
     await component.downloadItinerary(paris);
 
     expect(api.exportItinerary).not.toHaveBeenCalled();
-    expect(component.toast()).toBe('Error al descargar el itinerario');
+    expect(TestBed.inject(ToastService).message()).toBe('Error al descargar el itinerario');
   });
 
   it('a second export retries a city file that failed the first time', async () => {

@@ -8,30 +8,24 @@ import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService, SavedPlan } from '../../core/saved-plans/saved-plans.service';
 import { FavoritesService } from '../../core/favorites/favorites.service';
-import { FavoritedTrip, Collaborator, TripStop } from '../../core/models/trip.model';
-import { attractionsStatus, loadCityAttractions } from '../../data/attractions.data';
+import { FavoritedTrip, Collaborator } from '../../core/models/trip.model';
 import { AiPlanHistoryItem, AiPlanViewPayload } from '../../core/models/ai.model';
 import { SharedTripsService } from '../../core/shared-trips/shared-trips.service';
-import { KarmaService } from '../../core/karma/karma.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { TrophyService } from '../../core/trophies/trophy.service';
 import { ApiService } from '../../core/api/api.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
-import { LocaleService } from '../../core/i18n/locale.service';
 import { TripItineraryComponent } from '../preferences/trip-itinerary.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { shareTrip, buildShareLink } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
-import { buildItineraryExportBody } from '../../core/utils/itinerary-export.util';
-import { VisaRequirementService } from '../../core/visa/visa-requirement.service';
-import { TravelInfoService } from '../../core/travel-info/travel-info.service';
-import { ItineraryExportBody } from '../../core/models/itinerary-export.model';
 import { NavShellComponent } from '../nav/nav-shell.component';
 import { TripMapComponent, TripMapCity } from '../../shared/trip-map/trip-map.component';
 import { AttractionsLoadErrorComponent } from '../../shared/attractions-load-error/attractions-load-error.component';
 import { TripCardService } from '../trip-card/trip-card.service';
+import { PlanActionsService } from '../../core/saved-plans/plan-actions.service';
 
 type MyTripsTab = 'trips' | 'favorites' | 'collaborations' | 'invites' | 'aiplans';
 const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations', 'invites', 'aiplans'];
@@ -456,20 +450,17 @@ export class MyTripsComponent implements AfterViewInit {
   readonly savedPlans = inject(SavedPlansService);
   readonly favorites  = inject(FavoritesService);
   private readonly sharedTrips = inject(SharedTripsService);
-  private readonly karma       = inject(KarmaService);
   private readonly karmaModal  = inject(KarmaModalService);
   private readonly trophies    = inject(TrophyService);
   private readonly api         = inject(ApiService);
   private readonly tripCard = inject(TripCardService);
+  private readonly planActions = inject(PlanActionsService);
   private readonly router      = inject(Router);
   private readonly route       = inject(ActivatedRoute);
   private readonly host        = inject(ElementRef<HTMLElement>);
   private readonly focusParam = toSignal(this.route.queryParamMap.pipe(map(p => p.get('focus'))), { initialValue: null });
   protected readonly autoSave  = inject(AutoSaveService);
   private readonly facade      = inject(NavFacadeService);
-  private readonly locale      = inject(LocaleService);
-  private readonly visaRequirement = inject(VisaRequirementService);
-  private readonly travelInfo  = inject(TravelInfoService);
 
   close          = output<void>();
   openAiPlanning = output<void>();
@@ -601,12 +592,12 @@ export class MyTripsComponent implements AfterViewInit {
   planSearch      = signal('');
   publishedOnly   = signal(false);
   shareError      = signal<string | null>(null);
-  exportingPlanId = signal<string | null>(null);
+  readonly exportingPlanId = this.planActions.exportingPlanId;
+  readonly unpublishing    = computed(() => this.planActions.unpublishingPlanId() !== null);
   toast           = signal<string | null>(null);
   confirmCloneId  = signal<string | null>(null);
   confirmDeleteId = signal<string | null>(null);
   confirmUnpublishId = signal<string | null>(null);
-  unpublishing    = signal(false);
   cloningId       = signal<string | null>(null);
 
   inviteEmailByPlan = signal<Record<string, string>>({});
@@ -625,10 +616,7 @@ export class MyTripsComponent implements AfterViewInit {
   readonly collaborationPlans = computed(() => this.savedPlans.plans().filter(p => p.isCollaborator));
 
   planShareId(plan: SavedPlan): string | undefined {
-    if (plan.shareId) return plan.shareId;
-    const email = this.auth.currentUser()?.email;
-    if (!email) return undefined;
-    return this.sharedTrips.getMyTrips(email).find(t => t.planId === plan.id)?.id;
+    return this.planActions.shareIdOf(plan);
   }
 
   sharePlan(plan: SavedPlan): void {
@@ -658,23 +646,7 @@ export class MyTripsComponent implements AfterViewInit {
   }
 
   unpublish(plan: SavedPlan): void {
-    const email = this.auth.currentUser()?.email;
-    if (!email || this.unpublishing()) return;
-    const sid = this.planShareId(plan);
-    this.unpublishing.set(true);
-    this.api.unshareTrip(plan.id).subscribe({
-      next: () => {
-        if (environment.useMocks && sid) this.sharedTrips.removeShare(sid);
-        this.savedPlans.clearShareId(email, plan.id);
-        this.unpublishing.set(false);
-        this.confirmUnpublishId.set(null);
-      },
-      error: () => {
-        this.unpublishing.set(false);
-        this.confirmUnpublishId.set(null);
-        this.toast.set($localize`:@@myTrips.unpublishError:No se pudo despublicar el viaje`);
-      },
-    });
+    this.planActions.unpublish(plan).subscribe(() => this.confirmUnpublishId.set(null));
   }
 
   openCard(plan: SavedPlan): void {
@@ -687,58 +659,8 @@ export class MyTripsComponent implements AfterViewInit {
     if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
-  private exportBody(stops: TripStop[]): ItineraryExportBody {
-    return buildItineraryExportBody(stops, this.locale.current(), {
-      homeIso2: this.auth.currentUser()?.countryOfResidence ?? null,
-      siteUrl: environment.siteUrl,
-      visa: this.visaRequirement,
-      info: this.travelInfo,
-    });
-  }
-
-  async downloadItinerary(plan: SavedPlan): Promise<void> {
-    if (environment.useMocks) {
-      if (!plan.exportedAt && (this.karma.karma() ?? 0) < 1) {
-        this.karmaModal.openInsufficient(1, this.karma.karma() ?? 0);
-        return;
-      }
-      const user = this.auth.currentUser();
-      if (!plan.exportedAt && user) {
-        this.karma.spend('itinerary_exported', plan.id);
-        this.savedPlans.markExported(user.email, plan.id);
-      }
-      this.toast.set($localize`:@@myTrips.excelNeedsBackend:La exportación Excel requiere el backend activo`);
-      return;
-    }
-
-    this.exportingPlanId.set(plan.id);
-    await loadCityAttractions(plan.stops.map(s => s.cityId));
-    await this.visaRequirement.load();
-    // Body needs the curated details of every stop; if a city failed to load, stop before the call so no Token is spent.
-    if (plan.stops.some(s => attractionsStatus(s.cityId) === 'error')) {
-      this.exportingPlanId.set(null);
-      this.toast.set($localize`:@@myTrips.itineraryDownloadError:Error al descargar el itinerario`);
-      return;
-    }
-    this.api.exportItinerary(plan.id, this.exportBody(plan.stops)).subscribe({
-      next: (blob) => {
-        const slug = plan.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = `itinerario-${slug}.xlsx`; a.click();
-        URL.revokeObjectURL(url);
-        this.exportingPlanId.set(null);
-        this.toast.set($localize`:@@myTrips.itineraryDownloaded:Itinerario descargado`);
-        if (!plan.exportedAt) {
-          const user = this.auth.currentUser();
-          if (user) { this.karma.spend('itinerary_exported', plan.id); this.savedPlans.markExported(user.email, plan.id); }
-        }
-      },
-      error: (err) => {
-        this.exportingPlanId.set(null);
-        if (!this.karmaModal.handleKarmaError(err)) this.toast.set($localize`:@@myTrips.itineraryDownloadError:Error al descargar el itinerario`);
-      },
-    });
+  downloadItinerary(plan: SavedPlan): Promise<void> {
+    return this.planActions.exportItinerary(plan);
   }
 
   private copyLink(shareId: string, _planId: string): void {

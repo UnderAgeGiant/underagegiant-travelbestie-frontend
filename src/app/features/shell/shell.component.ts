@@ -12,7 +12,6 @@ import { DestinationComponent } from '../destination/destination.component';
 import { AddStopModalComponent } from '../trip/add-stop-modal/add-stop-modal.component';
 import { MobileAttractionsModalComponent } from '../destination/mobile-attractions-modal/mobile-attractions-modal.component';
 import { PersonalActivityModalHostComponent } from '../destination/personal-activity/personal-activity-modal-host.component';
-import { ToastComponent } from '../../shared/toast/toast.component';
 import { FeaturedSlideshowComponent } from '../landing/featured-slideshow.component';
 import { LandingFeedComponent } from '../landing/feed/landing-feed.component';
 import { LandingFeedService } from '../landing/feed/landing-feed.service';
@@ -22,7 +21,6 @@ import { AboutContentComponent } from '../about/about-content.component';
 import { DayTimelineComponent } from '../planning/day-timeline/day-timeline.component';
 import { CompanionMascotComponent } from '../../shared/companion-mascot/companion-mascot.component';
 import { TravelDocsReminderComponent } from '../../shared/travel-docs-reminder/travel-docs-reminder.component';
-import { ToastService } from '../../core/ui/toast.service';
 import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { AutosaveReminderBannerComponent } from '../../shared/autosave-reminder-banner/autosave-reminder-banner.component';
 import { HighlightTourComponent } from '../../shared/highlight-tour/highlight-tour.component';
@@ -42,7 +40,6 @@ import { DeviceService } from '../../core/device/device.service';
         DestinationComponent,
         AddStopModalComponent,
         MobileAttractionsModalComponent,
-        ToastComponent,
         FeaturedSlideshowComponent,
         LandingRankingComponent,
         LandingFeedComponent,
@@ -136,10 +133,6 @@ import { DeviceService } from '../../core/device/device.service';
 
     <app-highlight-tour />
 
-    @if (toastService.message()) {
-      <app-toast [message]="toastService.message()!" (done)="toastService.clear()" />
-    }
-
     @if (autoSave.reminderVisible()) {
       <app-autosave-reminder-banner (dismiss)="autoSave.dismissReminder()" />
     }
@@ -147,7 +140,6 @@ import { DeviceService } from '../../core/device/device.service';
 })
 export class ShellComponent {
   readonly trip  = inject(TripService);
-  readonly toastService = inject(ToastService);
   readonly autoSave = inject(AutoSaveService);
   readonly facade = inject(NavFacadeService);
   /** '' → landing, 'plan' → editor (Feature 68). Defaults to landing for tests/hosts without route data. */
