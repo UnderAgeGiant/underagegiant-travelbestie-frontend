@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Component, computed, inject, signal, output, ChangeDetectionStrategy, effect, ElementRef, ViewChild, AfterViewInit, HostListener, Injector, afterNextRender, untracked } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
@@ -455,6 +455,7 @@ export class MyTripsComponent implements AfterViewInit {
   private readonly api         = inject(ApiService);
   private readonly tripCard = inject(TripCardService);
   private readonly planActions = inject(PlanActionsService);
+  private readonly injector = inject(Injector);
   private readonly router      = inject(Router);
   private readonly route       = inject(ActivatedRoute);
   private readonly host        = inject(ElementRef<HTMLElement>);
@@ -507,6 +508,20 @@ export class MyTripsComponent implements AfterViewInit {
       this.favTab.set(pendingTab);
       this.facade.pendingMyTripsTab.set(null);
       if (pendingTab === 'aiplans') this.loadAiPlanHistory();
+    });
+
+    // The actions menu's "Invitar colaborador": expand that trip and put the cursor in its invite field.
+    effect(() => {
+      const id = this.facade.pendingInvitePlanId();
+      if (!id) return;
+      untracked(() => {
+        this.facade.pendingInvitePlanId.set(null);
+        this.favTab.set('trips');
+        if (this.selectedPlanId() !== id) this.togglePlan(id);
+        afterNextRender(() => {
+          (this.host.nativeElement as HTMLElement).querySelector<HTMLInputElement>(`[data-focus-id="${id}"] [data-testid="invite-email-input"]`)?.focus();
+        }, { injector: this.injector });
+      });
     });
 
     // The "Invitaciones pendientes" tab is the one tab whose presence isn't

@@ -2453,6 +2453,14 @@ tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; ma
   transition: color .12s, background .12s;
 }
 .up-plan-del:hover { color: oklch(48% 0.18 25); background: oklch(97% 0.03 25); }
+/* ⋯ ▾ actions-menu trigger (tb-plan-actions-menu): same slot as .up-plan-del, lavender while its menu is open */
+.up-plan-more {
+  background: none; border: none; border-left: 1px solid var(--border);
+  padding: 0 11px; font-size: 11px; color: var(--t3);
+  cursor: pointer; flex-shrink: 0;
+  transition: color .12s, background .12s;
+}
+.up-plan-more:hover, .up-plan-more[aria-expanded="true"] { color: var(--lav-d); background: var(--lav); }
 .up-plan-confirm {
   display: flex; align-items: center; gap: 8px;
   width: 100%; padding: 8px 12px;
@@ -2502,7 +2510,6 @@ tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; ma
 .up-shared-trip-row:hover { background: var(--lav); }
 .up-shared-trip-name { font-size: 12px; font-weight: 700; color: var(--t1); }
 .up-shared-trip-meta { font-size: 10px; color: var(--t3); margin-top: 2px; }
-.up-shared-trip-cmts { color: var(--lav-d); font-weight: 600; }
 .up-plans-search {
   padding: 6px 8px; border-bottom: 1px solid var(--border);
 }

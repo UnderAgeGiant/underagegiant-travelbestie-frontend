@@ -4,10 +4,11 @@ import { NavFacadeService } from '../nav-facade.service';
 import { NotificationBellComponent } from '../shared/notification-bell.component';
 import { CityGuidePromoComponent } from '../shared/city-guide-promo.component';
 import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
+import { PlanActionsMenuComponent } from '../plan-actions-menu/plan-actions-menu.component';
 
 @Component({
   selector: 'app-nav-desktop',
-  imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
+  imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective, PlanActionsMenuComponent],
   template: `
     <nav class="nav">
       <div class="nav-logo" tbHighlightTarget="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -203,26 +204,20 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                                         (click)="facade.confirmClonePlan(plan)" type="button">Sí</button>
                                 <button class="up-plan-confirm-no" (click)="facade.cloningConfirmPlanId.set(null)" type="button">No</button>
                               </div>
+                            } @else if (facade.unpublishConfirmPlanId() === plan.id) {
+                              <div class="up-plan-confirm">
+                                <span class="up-plan-confirm-text" i18n="@@nav.unpublishConfirm">¿Dejar de publicar? El enlace dejará de funcionar.</span>
+                                <button class="up-plan-confirm-yes" (click)="facade.confirmUnpublish(plan)" type="button"
+                                        i18n="@@nav.unpublishYes">Sí</button>
+                                <button class="up-plan-confirm-no" (click)="facade.unpublishConfirmPlanId.set(null)" type="button"
+                                        i18n="@@nav.deletePlanNo">No</button>
+                              </div>
                             } @else {
                               <button class="up-plan-load" (click)="facade.doLoadPlan(plan)" type="button">
                                 <div class="up-plan-name">{{ plan.name }}</div>
                                 <div class="up-plan-date">{{ facade.planDate(plan.savedAt) }}</div>
                               </button>
-                              <button class="up-plan-del" (click)="facade.sharePlan(plan)" type="button"
-                                      i18n-title="@@nav.sharePlan" title="Publicar">🔗</button>
-                              @if (plan.shareId) {
-                                <button class="up-plan-del" (click)="facade.shareNative(plan)" type="button"
-                                        i18n-title="@@share.shareBtn" title="📤 Compartir">📤</button>
-                              }
-                              <button class="up-plan-del"
-                                      [disabled]="facade.cloningPlanId() === plan.id"
-                                      (click)="facade.cloningConfirmPlanId.set(plan.id)"
-                                      type="button"
-                                      title="Duplicar">
-                                {{ facade.cloningPlanId() === plan.id ? '…' : facade.clonedPlanId() === plan.id ? '✓' : '⿻' }}
-                              </button>
-                              <button class="up-plan-del" (click)="facade.doDeletePlan(plan.id)" type="button"
-                                      title="Eliminar">✕</button>
+                              <tb-plan-actions-menu [plan]="plan" [busy]="facade.planBusy(plan)" (action)="facade.runPlanAction(plan, $event)" />
                             }
                           </div>
                         }
@@ -317,44 +312,6 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
                         </div>
                       }
                     </div>
-                  }
-
-                  <!-- My shared trips -->
-                  @if (facade.mySharedTrips().length > 0) {
-                    <button class="up-plans-btn" (click)="facade.toggleMyTrips()" type="button">
-                      <span>🔗</span>
-                      <span i18n="@@nav.mySharedTrips">Mis viajes publicados</span>
-                      <span class="up-plans-badge">{{ facade.mySharedTrips().length }}</span>
-                      <span style="margin-left:auto;font-size:10px;opacity:.6">{{ facade.myTripsOpen() ? '▴' : '▾' }}</span>
-                    </button>
-                    @if (facade.myTripsOpen()) {
-                      <div class="up-plans-panel">
-                        <div class="up-plans-search">
-                          <input class="up-plans-search-input"
-                                 type="search"
-                                 i18n-placeholder="@@nav.searchSharedTripsPlaceholder" placeholder="Buscar viaje compartido…"
-                                 [value]="facade.sharedTripsSearch()"
-                                 (input)="facade.sharedTripsSearch.set($any($event.target).value)" />
-                        </div>
-                        <div class="up-plans-list">
-                          @for (t of facade.filteredSharedTrips(); track t.id) {
-                            @let cmts = facade.commentCount(t.id);
-                            <button class="up-shared-trip-row" (click)="facade.goToSharedTrip(t.id)" type="button">
-                              <div class="up-shared-trip-name">{{ t.tripName }}</div>
-                              <div class="up-shared-trip-meta">
-                                {{ t.stops.length }} ciudad{{ t.stops.length !== 1 ? 'es' : '' }}
-                                @if (cmts > 0) {
-                                  · <span class="up-shared-trip-cmts">{{ cmts }} comentario{{ cmts !== 1 ? 's' : '' }}</span>
-                                }
-                              </div>
-                            </button>
-                          }
-                          @if (facade.filteredSharedTrips().length === 0) {
-                            <div class="up-plans-empty">Sin resultados 🔍</div>
-                          }
-                        </div>
-                      </div>
-                    }
                   }
 
                   <button class="up-legal-link" type="button" (click)="openGuides()" i18n="@@nav.legalGuides">Legales y Guías</button>

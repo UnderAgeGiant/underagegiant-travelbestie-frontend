@@ -12,6 +12,7 @@ import { TripCardService } from '../trip-card/trip-card.service';
 import { SCROLL_SETTLE_FALLBACK_MS } from '../../core/routing/focus-item.util';
 import { __setAttractionSourceForTests } from '../../data/attractions.data';
 import { ToastService } from '../../core/ui/toast.service';
+import { NavFacadeService } from '../nav/nav-facade.service';
 
 // MyTripsComponent now renders <app-nav>, whose DeviceService reads window.matchMedia.
 (window as any).matchMedia = (window as any).matchMedia ?? (() => ({
@@ -727,5 +728,30 @@ describe('MyTripsComponent — trip card (F80)', () => {
     jest.spyOn(api, 'shareTrip').mockReturnValue(throwError(() => ({ status: 500 })));
     component.sharePlan(plan('draft'));
     expect(openCard).not.toHaveBeenCalled();
+  });
+});
+
+describe('MyTripsComponent — invite hand-off from the actions menu', () => {
+  it('pendingInvitePlanId opens that trip on the trips tab, focuses its invite field, and clears the signal', async () => {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [MyTripsComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    TestBed.inject(AuthService).setTokens('fake-jwt', { name: 'Test User', email: 'test@example.com' });
+    TestBed.inject(SavedPlansService).register({ id: 'p1', name: 'Paris', savedAt: '2026-07-01T00:00:00Z', stops: [] });
+    const fixture = TestBed.createComponent(MyTripsComponent);
+    const component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    TestBed.inject(NavFacadeService).pendingInvitePlanId.set('p1');
+    fixture.detectChanges();
+    fixture.detectChanges();
+
+    expect(TestBed.inject(NavFacadeService).pendingInvitePlanId()).toBeNull();
+    expect(component.favTab()).toBe('trips');
+    expect(component.selectedPlanId()).toBe('p1');
+    expect(document.activeElement).toBe(fixture.nativeElement.querySelector('[data-focus-id="p1"] [data-testid="invite-email-input"]'));
+    fixture.destroy();
   });
 });
