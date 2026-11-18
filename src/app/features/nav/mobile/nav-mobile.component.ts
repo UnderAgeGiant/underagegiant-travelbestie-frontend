@@ -5,8 +5,7 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
 import { CityGuidePromoComponent } from '../shared/city-guide-promo.component';
 import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
 import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
-import { PlanActionsMenuComponent } from '../plan-actions-menu/plan-actions-menu.component';
-import { PlanMenuAction } from '../plan-actions-menu/plan-actions-menu.component';
+import { PlanActionsMenuComponent, PlanMenuAction } from '../plan-actions-menu/plan-actions-menu.component';
 
 @Component({
   selector: 'app-nav-mobile',

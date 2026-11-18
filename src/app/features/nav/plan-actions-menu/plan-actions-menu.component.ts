@@ -19,12 +19,11 @@ const MENU_WIDTH = 224;
             i18n-aria-label="@@planMenu.trigger" aria-label="Acciones del viaje"
             [attr.aria-expanded]="open()" (click)="toggle()">⋯ ▾</button>
     <div #menu popover="auto" role="menu" class="up-plan-menu" (toggle)="onNativeToggle($event)">
+      <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('modify')" i18n="@@planMenu.modify">Modificar</button>
       @if (published()) {
-        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('modify')" i18n="@@planMenu.modify">Modificar</button>
         <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('view')" i18n="@@planMenu.view">Ver viaje publicado</button>
         <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('share')" i18n="@@planMenu.share">Compartir</button>
       } @else {
-        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('modify')" i18n="@@planMenu.modify">Modificar</button>
         <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('publish')" i18n="@@planMenu.publish">Publicar</button>
       }
       <div class="up-plan-menu-sep" role="separator"></div>
