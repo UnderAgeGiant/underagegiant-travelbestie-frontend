@@ -1,7 +1,6 @@
 import { Injectable, inject, signal, computed, effect } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
-import { shareTrip } from '../../core/share/share-url.util';
 import { toObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -27,6 +26,8 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { AiPlanViewPayload } from '../../core/models/ai.model';
 import { clearFirstPlanSession } from '../../core/first-plan/first-plan-session';
 import { TripCardService } from '../trip-card/trip-card.service';
+import { PlanActionsService } from '../../core/saved-plans/plan-actions.service';
+import { PlanMenuAction } from './plan-actions-menu/plan-actions-menu.component';
 
 /** One-letter queries match almost everything and cost a request each; wait for two. */
 export function shouldSearchSharedTrips(query: string): boolean {
@@ -48,6 +49,7 @@ export class NavFacadeService {
   private readonly sharedTrips  = inject(SharedTripsService);
   private readonly api          = inject(ApiService);
   private readonly tripCard = inject(TripCardService);
+  readonly planActions = inject(PlanActionsService);
   readonly favorites            = inject(FavoritesService);
   readonly trophies              = inject(TrophyService);
   private readonly trophyCelebration = inject(TrophyCelebrationService);
@@ -78,10 +80,11 @@ export class NavFacadeService {
   cloningConfirmPlanId = signal<string | null>(null);
   cloningPlanId        = signal<string | null>(null);
   clonedPlanId         = signal<string | null>(null);
-  myTripsOpen     = signal(false);
+  unpublishConfirmPlanId = signal<string | null>(null);
+  /** Set by the actions menu's Invitar colaborador; MyTripsComponent expands that trip and focuses its invite field. */
+  pendingInvitePlanId = signal<string | null>(null);
   favoritesOpen   = signal(false);
   favoritesSearch = signal('');
-  sharedTripsSearch = signal('');
 
   // ── karma pill / success overlay state ──
   readonly buyKarmaOpen = this.karmaModal.buyOpen;
@@ -118,12 +121,6 @@ export class NavFacadeService {
     });
   }
 
-  readonly mySharedTrips = computed(() => {
-    return this.savedPlans.plans()
-      .filter((p): p is SavedPlan & { shareId: string } => !!p.shareId)
-      .map(p => ({ id: p.shareId, tripName: p.name, stops: p.stops }));
-  });
-
   readonly filteredPlans = computed(() => {
     const q = normalizeSearch(this.planSearch().trim());
     if (!q) return this.savedPlans.plans();
@@ -134,12 +131,6 @@ export class NavFacadeService {
     const q = normalizeSearch(this.favoritesSearch().trim());
     if (!q) return this.favorites.favoritedTrips();
     return this.favorites.favoritedTrips().filter(t => normalizeSearch(t.tripName).includes(q));
-  });
-
-  readonly filteredSharedTrips = computed(() => {
-    const q = normalizeSearch(this.sharedTripsSearch().trim());
-    if (!q) return this.mySharedTrips();
-    return this.mySharedTrips().filter(t => normalizeSearch(t.tripName).includes(q));
   });
 
   readonly initials = computed(() => {
@@ -274,16 +265,11 @@ export class NavFacadeService {
     }, 20);
   }
 
-  toggleMyTrips(): void {
-    this.myTripsOpen.update(v => !v);
-    if (!this.myTripsOpen()) this.sharedTripsSearch.set('');
-  }
   // Router navigation (not window.location.href) keeps the in-memory access
   // token alive — a full reload would blank it until the silent cookie
   // refresh resolves, flashing the "signed out" nav state.
   openSharedTrip(id: string): void { this.router.navigate(['/shared', id]); }
   goToSharedTrip(id: string): void { this.router.navigate(['/shared', id]); }
-  commentCount(tripId: string): number { return this.sharedTrips.getCommentCount(tripId); }
 
   switchLocale(target: AppLocale): void {
     this.langOpen.set(false);
@@ -422,9 +408,35 @@ export class NavFacadeService {
     }
   }
 
-  shareNative(plan: SavedPlan): void {
-    const sid = plan.shareId;
-    if (sid) void shareTrip(plan.name, sid).then(ok => { if (ok) this.trophies.reportShare(sid); });
+  /** One saved-trip row action (the user panel's ⋯ menu). Confirms open in-row; only one at a time. */
+  runPlanAction(plan: SavedPlan, action: PlanMenuAction): void {
+    const sid = this.planActions.shareIdOf(plan);
+    switch (action) {
+      case 'modify': this.doLoadPlan(plan); break;
+      case 'publish': this.sharePlan(plan); break;
+      case 'view': if (sid) this.goToSharedTrip(sid); break;
+      case 'share': if (sid) this.tripCard.open(sid); break;
+      case 'export': void this.planActions.exportItinerary(plan); break;
+      case 'invite': this.pendingInvitePlanId.set(plan.id); this.openMyTrips('trips'); break;
+      case 'duplicate': this.setConfirm('clone', plan.id); break;
+      case 'unpublish': this.setConfirm('unpublish', plan.id); break;
+      case 'delete': this.setConfirm('delete', plan.id); break;
+    }
+  }
+
+  /** Only one in-row confirm is open at a time. */
+  private setConfirm(which: 'delete' | 'clone' | 'unpublish', id: string | null): void {
+    this.deletingPlanId.set(which === 'delete' ? id : null);
+    this.cloningConfirmPlanId.set(which === 'clone' ? id : null);
+    this.unpublishConfirmPlanId.set(which === 'unpublish' ? id : null);
+  }
+
+  confirmUnpublish(plan: SavedPlan): void {
+    this.planActions.unpublish(plan).subscribe(() => this.unpublishConfirmPlanId.set(null));
+  }
+
+  planBusy(plan: SavedPlan): boolean {
+    return this.planActions.exportingPlanId() === plan.id;
   }
 
   doLogout(): void {

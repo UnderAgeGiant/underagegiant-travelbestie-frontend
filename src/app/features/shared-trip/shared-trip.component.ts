@@ -32,7 +32,6 @@ import { WORLD_CITIES } from '../../data/cities.data';
 import { resolvePlannedAttraction } from '../../core/utils/personal-activity.util';
 import { isGoogleMapsUrl } from '../../core/maps/maps-url-validate.util';
 import { AttractionPreviewPopoverComponent } from './attraction-preview-popover.component';
-import { shareTrip } from '../../core/share/share-url.util';
 import { attractionMapsUrl } from '../../core/maps/google-maps-url.util';
 import { SlideshowItem } from '../../core/models/plan-slideshow.model';
 import { PlanSlideshowComponent } from '../../shared/plan-slideshow/plan-slideshow.component';
@@ -134,15 +133,11 @@ import { TripCardService } from '../trip-card/trip-card.service';
             </button>
           }
 
-          <!-- Native share (WhatsApp, Telegram, Messages, Mail…) -->
+          <!-- Compartir opens the trip card (image + link; WhatsApp on desktop) -->
           <button class="btn-pill btn-outline"
                   style="margin-top:12px;margin-left:8px;gap:6px"
-                  (click)="shareNative()" type="button"
+                  (click)="tripCard.open(tripId(), { own: false })" type="button"
                   i18n="@@share.shareBtn">📤 Compartir</button>
-          <button class="btn-pill btn-outline trip-card-btn"
-                  style="margin-top:12px;margin-left:8px;gap:6px"
-                  (click)="openCard()" type="button"
-                  i18n="@@tripCard.open">🖼️ Tarjeta</button>
 
           <!-- Trip map -->
           @if (tripMapCities().length > 0) {
@@ -528,7 +523,7 @@ export class SharedTripComponent {
   private readonly host = inject(ElementRef<HTMLElement>);
 
   private readonly api        = inject(ApiService);
-  private readonly tripCard = inject(TripCardService);
+  readonly tripCard = inject(TripCardService);
   private readonly svc        = inject(SharedTripsService);
   readonly auth                = inject(AuthService);
   private readonly authModal   = inject(AuthModalService);
@@ -754,16 +749,6 @@ export class SharedTripComponent {
         this.karmaModal.handleKarmaError(err);
       },
     });
-  }
-
-  openCard(): void {
-    this.tripCard.open(this.tripId());
-  }
-
-  shareNative(): void {
-    const trip = this.trip();
-    const sid = this.tripId();
-    if (trip) void shareTrip(trip.tripName, sid, undefined, false).then(ok => { if (ok) this.trophies.reportShare(sid); });
   }
 
   openCloneInEditor(): void {

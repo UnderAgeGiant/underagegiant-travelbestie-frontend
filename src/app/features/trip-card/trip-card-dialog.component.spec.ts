@@ -190,4 +190,48 @@ describe('TripCardDialogComponent', () => {
     expect(q(f, '[role="dialog"]')).toBeNull();
     expect(f.componentInstance.preview()).toBeNull();
   });
+
+  it('title says "Compartir tu viaje" outside celebrate mode', async () => {
+    const f = await openDialog();
+    expect(q(f, '#tcd-title')?.textContent).toContain('Compartir tu viaje');
+  });
+
+  it('without file sharing, shows WhatsApp and Descargar, not Compartir', async () => {
+    (nav['canShare'] as jest.Mock).mockReturnValue(false);
+    const f = await openDialog();
+    expect(btn(f, /WhatsApp/)).toBeDefined();
+    expect(btn(f, /Descargar/)).toBeDefined();
+    expect(btn(f, /Compartir/)).toBeUndefined();
+  });
+
+  it('with file sharing, shows Compartir and no WhatsApp button', async () => {
+    const f = await openDialog();
+    expect(btn(f, /Compartir/)).toBeDefined();
+    expect(btn(f, /WhatsApp/)).toBeUndefined();
+  });
+
+  it('WhatsApp opens api.whatsapp.com with the trip link and reports the share once', async () => {
+    (nav['canShare'] as jest.Mock).mockReturnValue(false);
+    const open = jest.spyOn(window, 'open').mockImplementation(() => null);
+    const f = await openDialog();
+    btn(f, /WhatsApp/)!.click();
+    expect(open).toHaveBeenCalledTimes(1);
+    const [url, target, features] = open.mock.calls[0];
+    expect(String(url).startsWith('https://api.whatsapp.com/send?text=')).toBe(true);
+    expect(String(url)).toContain(encodeURIComponent('/shared/s1'));
+    expect(target).toBe('_blank');
+    expect(features).toBe('noopener,noreferrer');
+    expect(trophies.reportShare).toHaveBeenCalledTimes(1);
+    expect(trophies.reportShare).toHaveBeenCalledWith('s1');
+    open.mockRestore();
+  });
+
+  it('clipboard denied on a desktop: both "Copiar link" and WhatsApp show', async () => {
+    (nav['canShare'] as jest.Mock).mockReturnValue(false);
+    (nav['clipboard'] as { writeText: jest.Mock }).writeText.mockImplementation(async () => { throw new Error('denied'); });
+    const f = await openDialog();
+    await flush(); f.detectChanges();
+    expect(btn(f, /Copiar link/)).toBeDefined();
+    expect(btn(f, /WhatsApp/)).toBeDefined();
+  });
 });

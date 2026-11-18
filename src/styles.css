@@ -2453,6 +2453,20 @@ tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; ma
   transition: color .12s, background .12s;
 }
 .up-plan-del:hover { color: oklch(48% 0.18 25); background: oklch(97% 0.03 25); }
+/* ⋯ ▾ actions-menu trigger (tb-plan-actions-menu): same slot as .up-plan-del, lavender while its menu is open */
+.up-plan-more {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: none; border: none; border-left: 1px solid var(--border);
+  padding: 0 11px; color: var(--lav-d);
+  cursor: pointer; flex-shrink: 0;
+  transition: background .12s;
+}
+.up-plan-more:hover, .up-plan-more:focus-visible, .up-plan-more[aria-expanded="true"] { background: var(--lav); border-radius: 8px; }
+.up-plan-more-dots { font-size: 16px; font-weight: 700; line-height: 1; }
+.up-plan-more-chev { flex-shrink: 0; transition: transform .15s; }
+.up-plan-more[aria-expanded="true"] .up-plan-more-chev { transform: rotate(180deg); }
+@media (max-width: 768px) { .up-plan-more { min-height: 36px; } }
+@media (prefers-reduced-motion: reduce) { .up-plan-more, .up-plan-more-chev { transition: none; } }
 .up-plan-confirm {
   display: flex; align-items: center; gap: 8px;
   width: 100%; padding: 8px 12px;
@@ -2502,7 +2516,6 @@ tb-plan-presentation-pill.tl-head-action { display: inline-block; padding: 0; ma
 .up-shared-trip-row:hover { background: var(--lav); }
 .up-shared-trip-name { font-size: 12px; font-weight: 700; color: var(--t1); }
 .up-shared-trip-meta { font-size: 10px; color: var(--t3); margin-top: 2px; }
-.up-shared-trip-cmts { color: var(--lav-d); font-weight: 600; }
 .up-plans-search {
   padding: 6px 8px; border-bottom: 1px solid var(--border);
 }

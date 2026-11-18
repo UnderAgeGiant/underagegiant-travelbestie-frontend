@@ -400,13 +400,14 @@ describe('SharedTripComponent — trip map', () => {
     expect(fixture.nativeElement.querySelector('app-trip-map')).not.toBeNull();
   });
 
-  it('F80: "🖼️ Tarjeta" opens the trip card for any visitor, without celebrate', () => {
+  it('F80: Compartir opens the trip card for any visitor (share wording), and no Tarjeta button is left', () => {
     const open = jest.spyOn(TestBed.inject(TripCardService), 'open');
     loadTwoStopTrip();
-    const btn: HTMLButtonElement = fixture.nativeElement.querySelector('.trip-card-btn');
-    expect(btn.textContent).toContain('Tarjeta');
+    expect(fixture.nativeElement.textContent).not.toContain('Tarjeta');
+    const btn = (Array.from(fixture.nativeElement.querySelectorAll('button')) as HTMLButtonElement[])
+      .find(b => b.textContent?.includes('Compartir'))!;
     btn.click();
-    expect(open).toHaveBeenCalledWith('trip-a');
+    expect(open).toHaveBeenCalledWith('trip-a', { own: false });
   });
 
   it('a pin click selects that stop, closes the modal, and scrolls to its city card', () => {

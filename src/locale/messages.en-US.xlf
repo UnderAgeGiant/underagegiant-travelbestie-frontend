@@ -148,11 +148,7 @@
         <source>Buscar favorito…</source>
         <target>Search favorites…</target>
       </trans-unit>
-      <trans-unit id="nav.searchSharedTripsPlaceholder" datatype="html">
-        <source>Buscar viaje compartido…</source>
-        <target>Search shared trips…</target>
-      </trans-unit>
-      <trans-unit id="nav.updatePlan" datatype="html">
+            <trans-unit id="nav.updatePlan" datatype="html">
         <source>Actualizar viaje</source>
         <target>Update trip</target>
       </trans-unit>
@@ -1496,11 +1492,7 @@
         <source>Expandir o contraer</source>
         <target>Expand or collapse</target>
       </trans-unit>
-      <trans-unit id="nav.sharePlan" datatype="html">
-        <source>Publicar</source>
-        <target>Publish</target>
-      </trans-unit>
-      <trans-unit id="myTrips.publishedFilter" datatype="html">
+            <trans-unit id="myTrips.publishedFilter" datatype="html">
         <source>Viaje publicado</source>
         <target>Published trip</target>
       </trans-unit>
@@ -1647,11 +1639,7 @@
         <source>📈 Historial de token</source>
         <target>📈 Token History</target>
       </trans-unit>
-      <trans-unit id="nav.mySharedTrips" datatype="html">
-        <source>Mis viajes publicados</source>
-        <target>My published trips</target>
-      </trans-unit>
-      <trans-unit id="share.shareBtn" datatype="html">
+            <trans-unit id="share.shareBtn" datatype="html">
         <source>📤 Compartir</source>
         <target>📤 Share</target>
       </trans-unit>
@@ -3971,17 +3959,13 @@
         <source>En un momento lo tendrás en tu cuenta, listo para editar.</source>
         <target>It'll be in your account in a moment, ready to edit.</target>
       </trans-unit>
-      <trans-unit id="tripCard.open" datatype="html">
-        <source>🖼️ Tarjeta</source>
-        <target>🖼️ Card</target>
-      </trans-unit>
-      <trans-unit id="tripCard.celebrateTitle" datatype="html">
+            <trans-unit id="tripCard.celebrateTitle" datatype="html">
         <source>¡Tu viaje está publicado! 🎉</source>
         <target>Your trip is published! 🎉</target>
       </trans-unit>
       <trans-unit id="tripCard.dialogTitle" datatype="html">
-        <source>Tarjeta para compartir</source>
-        <target>Card to share</target>
+        <source>Compartir tu viaje</source>
+        <target>Share your trip</target>
       </trans-unit>
       <trans-unit id="tripCard.closeAria" datatype="html">
         <source>Cerrar</source>
@@ -4074,6 +4058,130 @@
       <trans-unit id="tripCard.phrase" datatype="html">
         <source>Crea tu cuenta y llévate este viaje gratis</source>
         <target>Sign up and get this trip for free</target>
+      </trans-unit>
+      <trans-unit id="nav.unpublishConfirm" datatype="html">
+        <source>¿Dejar de publicar? El enlace dejará de funcionar.</source>
+        <target>Unpublish? The link will stop working.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/desktop/nav-desktop.component.ts</context>
+          <context context-type="linenumber">209,210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/mobile/nav-mobile.component.ts</context>
+          <context context-type="linenumber">130,131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.unpublishYes" datatype="html">
+        <source>Sí</source>
+        <target>Yes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/desktop/nav-desktop.component.ts</context>
+          <context context-type="linenumber">211,212</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/mobile/nav-mobile.component.ts</context>
+          <context context-type="linenumber">132,133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.trigger" datatype="html">
+        <source>Acciones del viaje</source>
+        <target>Trip actions</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.modify" datatype="html">
+        <source>Modificar</source>
+        <target>Edit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.view" datatype="html">
+        <source>Ver viaje publicado</source>
+        <target>View published trip</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.share" datatype="html">
+        <source>Compartir</source>
+        <target>Share</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.publish" datatype="html">
+        <source>Publicar</source>
+        <target>Publish</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.export" datatype="html">
+        <source>Exportar a Excel</source>
+        <target>Export to Excel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.costHint" datatype="html">
+        <source> −1 ✨</source>
+        <target>−1 ✨</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">33,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.invite" datatype="html">
+        <source>Invitar colaborador</source>
+        <target>Invite collaborator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.duplicate" datatype="html">
+        <source>Duplicar</source>
+        <target>Duplicate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.unpublish" datatype="html">
+        <source>Dejar de publicar</source>
+        <target>Unpublish</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="planMenu.delete" datatype="html">
+        <source>Eliminar</source>
+        <target>Delete</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/nav/plan-actions-menu/plan-actions-menu.component.ts</context>
+          <context context-type="linenumber">43,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tripCard.whatsapp" datatype="html">
+        <source>WhatsApp</source>
+        <target>WhatsApp</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trip-card/trip-card-dialog.component.ts</context>
+          <context context-type="linenumber">80,82</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

@@ -5,10 +5,11 @@ import { NotificationBellComponent } from '../shared/notification-bell.component
 import { CityGuidePromoComponent } from '../shared/city-guide-promo.component';
 import { SavedPlan } from '../../../core/saved-plans/saved-plans.service';
 import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlight-target.directive';
+import { PlanActionsMenuComponent, PlanMenuAction } from '../plan-actions-menu/plan-actions-menu.component';
 
 @Component({
   selector: 'app-nav-mobile',
-  imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective],
+  imports: [NotificationBellComponent, CityGuidePromoComponent, HighlightTargetDirective, PlanActionsMenuComponent],
   template: `
     <nav class="nav-m-bar">
       <div class="nav-logo" tbHighlightTarget="nav-logo" (click)="onLogo()">Tripi<em>love</em></div>
@@ -108,15 +109,35 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
           <div class="up-plans-panel">
             @for (plan of facade.filteredPlans(); track plan.id) {
               <div class="up-plan-row">
-                <button class="up-plan-load" (click)="onLoadPlan(plan)">
-                  <div class="up-plan-name">{{ plan.name }}</div>
-                  <div class="up-plan-date">{{ facade.planDate(plan.savedAt) }}</div>
-                </button>
-                <button class="up-plan-del" (click)="facade.sharePlan(plan)" type="button"
-                        i18n-title="@@nav.sharePlan" title="Publicar">🔗</button>
-                @if (plan.shareId) {
-                  <button class="up-plan-del" (click)="facade.shareNative(plan)" type="button"
-                          i18n-title="@@share.shareBtn" title="📤 Compartir">📤</button>
+                @if (facade.deletingPlanId() === plan.id) {
+                  <div class="up-plan-confirm">
+                    <span class="up-plan-confirm-text" i18n="@@nav.deletePlanConfirm">¿Eliminar viaje?</span>
+                    <button class="up-plan-confirm-yes" (click)="facade.confirmDeletePlan(plan.id)" type="button"
+                            i18n="@@nav.deletePlanYes">Sí</button>
+                    <button class="up-plan-confirm-no" (click)="facade.deletingPlanId.set(null)" type="button"
+                            i18n="@@nav.deletePlanNo">No</button>
+                  </div>
+                } @else if (facade.cloningConfirmPlanId() === plan.id) {
+                  <div class="up-plan-confirm" style="background:var(--lav)">
+                    <span class="up-plan-confirm-text" style="color:var(--lav-d)">⿻ ¿Duplicar viaje? −1 ✨ token</span>
+                    <button class="up-plan-confirm-yes" style="background:var(--lav-d)"
+                            (click)="facade.confirmClonePlan(plan)" type="button">Sí</button>
+                    <button class="up-plan-confirm-no" (click)="facade.cloningConfirmPlanId.set(null)" type="button">No</button>
+                  </div>
+                } @else if (facade.unpublishConfirmPlanId() === plan.id) {
+                  <div class="up-plan-confirm">
+                    <span class="up-plan-confirm-text" i18n="@@nav.unpublishConfirm">¿Dejar de publicar? El enlace dejará de funcionar.</span>
+                    <button class="up-plan-confirm-yes" (click)="facade.confirmUnpublish(plan)" type="button"
+                            i18n="@@nav.unpublishYes">Sí</button>
+                    <button class="up-plan-confirm-no" (click)="facade.unpublishConfirmPlanId.set(null)" type="button"
+                            i18n="@@nav.deletePlanNo">No</button>
+                  </div>
+                } @else {
+                  <button class="up-plan-load" (click)="onLoadPlan(plan)">
+                    <div class="up-plan-name">{{ plan.name }}</div>
+                    <div class="up-plan-date">{{ facade.planDate(plan.savedAt) }}</div>
+                  </button>
+                  <tb-plan-actions-menu [plan]="plan" [busy]="facade.planBusy(plan)" (action)="onPlanAction(plan, $event)" />
                 }
               </div>
             }
@@ -146,24 +167,6 @@ import { HighlightTargetDirective } from '../../../shared/highlight-tour/highlig
               <div class="up-plans-empty" i18n="@@nav.noFavorites">Sin favoritos aún ❤️</div>
             }
           </div>
-        }
-
-        <!-- Shared trips -->
-        @if (facade.mySharedTrips().length > 0) {
-          <button class="up-plans-btn" (click)="facade.toggleMyTrips()">
-            <span>🔗</span><span i18n="@@nav.mySharedTrips">Mis viajes publicados</span>
-            <span class="up-plans-badge">{{ facade.mySharedTrips().length }}</span>
-            <span style="margin-left:auto">{{ facade.myTripsOpen() ? '▴' : '▾' }}</span>
-          </button>
-          @if (facade.myTripsOpen()) {
-            <div class="up-plans-panel">
-              @for (t of facade.filteredSharedTrips(); track t.id) {
-                <button class="up-shared-trip-row" (click)="onGoToShared(t.id)">
-                  <div class="up-shared-trip-name">{{ t.tripName }}</div>
-                </button>
-              }
-            </div>
-          }
         }
 
         <button class="up-legal-link" type="button" (click)="onGuides()" i18n="@@nav.legalGuides">Legales y Guías</button>
@@ -204,6 +207,13 @@ export class NavMobileComponent {
   // shared trip from the drawer left the drawer covering the trip that just loaded).
   onOpenSharedTrip(id: string): void { this.drawerOpen.set(false); this.facade.openSharedTrip(id); }
   onGoToShared(id: string): void { this.drawerOpen.set(false); this.facade.goToSharedTrip(id); }
+
+  /** Every action except these navigates or opens a modal, so it closes the drawer itself first. */
+  onPlanAction(plan: SavedPlan, action: PlanMenuAction): void {
+    const staysInDrawer = action === 'duplicate' || action === 'unpublish' || action === 'delete' || action === 'export';
+    if (!staysInDrawer) this.drawerOpen.set(false);
+    this.facade.runPlanAction(plan, action);
+  }
 
   onLoadPlan(plan: SavedPlan): void {
     this.facade.doLoadPlan(plan);

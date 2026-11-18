@@ -275,3 +275,42 @@ describe('NavMobileComponent — city guide promo strip', () => {
     expect(fixture.nativeElement.querySelector('.nav-m-guide-promo')).toBeNull();
   });
 });
+
+describe('NavMobileComponent — plan actions menu in the drawer', () => {
+  let fixture: ComponentFixture<NavMobileComponent>;
+  let facade: NavFacadeService;
+  const plan = () => TestBed.inject(SavedPlansService).plans()[0];
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [NavMobileComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    TestBed.inject(SavedPlansService).register({ id: 'p1', name: 'Euro trip', savedAt: '2026-07-01T00:00:00Z', stops: [], shareId: 'sh-1' });
+    facade = TestBed.inject(NavFacadeService);
+    fixture = TestBed.createComponent(NavMobileComponent);
+    fixture.componentInstance.drawerOpen.set(true);
+    facade.plansOpen.set(true);
+    fixture.detectChanges();
+  });
+
+  afterEach(() => TestBed.inject(HttpTestingController).verify());
+
+  it('the view action closes the drawer', () => {
+    fixture.componentInstance.onPlanAction(plan(), 'view');
+    expect(fixture.componentInstance.drawerOpen()).toBe(false);
+  });
+
+  it('the delete action keeps the drawer open and shows the in-row confirm', () => {
+    fixture.componentInstance.onPlanAction(plan(), 'delete');
+    fixture.detectChanges();
+    expect(fixture.componentInstance.drawerOpen()).toBe(true);
+    expect(fixture.nativeElement.querySelector('.up-plan-confirm-text')?.textContent).toContain('Eliminar viaje?');
+  });
+
+  it('has no "Mis viajes publicados" button', () => {
+    expect(fixture.nativeElement.textContent).not.toContain('Mis viajes publicados');
+  });
+});

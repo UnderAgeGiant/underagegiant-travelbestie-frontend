@@ -4,6 +4,7 @@ One line per PR merged to `main` (which Vercel deploys to production), newest fi
 **Every PR adds its own line** under the current month's heading (create the heading if it is missing), in the form `- <PR title> (#<number>)`.
 
 ## 2026-11
+- feat(nav): plan actions menu, Compartir opens the trip card (#189)
 - feat(trip-card): shareable story card with QR (#188)
 - feat(first-plan): free first plan, multi-city picker, cities mode (#187)
 - docs(readme): refresh README to match the current app (#186)

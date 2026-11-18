@@ -93,21 +93,6 @@ describe('NavFacadeService — shared trips + logo', () => {
 
   afterEach(() => http.verify());
 
-  it('lists only saved plans that have a shareId', () => {
-    savedPlans.register({ id: '1', name: 'Paris Trip', savedAt: '2026-01-01', stops: [], shareId: 'share-1' });
-    savedPlans.register({ id: '2', name: 'Tokyo Trip', savedAt: '2026-01-02', stops: [] });
-    expect(facade.mySharedTrips().length).toBe(1);
-    expect(facade.mySharedTrips()[0].id).toBe('share-1');
-  });
-
-  it('filters shared trips by name via the search box', () => {
-    savedPlans.register({ id: '1', name: 'Paris Trip', savedAt: '2026-01-01', stops: [], shareId: 'share-1' });
-    savedPlans.register({ id: '2', name: 'Tokyo Trip', savedAt: '2026-01-02', stops: [], shareId: 'share-2' });
-    expect(facade.filteredSharedTrips().length).toBe(2);
-    facade.sharedTripsSearch.set('tokyo');
-    expect(facade.filteredSharedTrips().length).toBe(1);
-  });
-
   it('onLogoClick clears stops, closes menus, and navigates to the landing', () => {
     const trip = TestBed.inject(TripService);
     const nav = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
@@ -455,5 +440,53 @@ describe('NavFacadeService — sharePlan() opens the trip card after a fresh pub
     jest.spyOn(api, 'shareTrip').mockReturnValue(throwError(() => ({ status: 500 })));
     facade.sharePlan(plan());
     expect(openCard).not.toHaveBeenCalled();
+  });
+});
+
+describe('NavFacadeService — runPlanAction (user panel actions menu)', () => {
+  let facade: NavFacadeService;
+  let savedPlans: SavedPlansService;
+
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+    });
+    facade = TestBed.inject(NavFacadeService);
+    savedPlans = TestBed.inject(SavedPlansService);
+    savedPlans.register({ id: '1', name: 'Paris Trip', savedAt: '2026-01-01', stops: [], shareId: 'share-1' });
+  });
+
+  const plan = (): SavedPlan => savedPlans.plans().find(p => p.id === '1')!;
+
+  it("'share' opens the card with the plan's shareId", () => {
+    const open = jest.spyOn(TestBed.inject(TripCardService), 'open');
+    facade.runPlanAction(plan(), 'share');
+    expect(open).toHaveBeenCalledWith('share-1');
+  });
+
+  it("'invite' sets pendingInvitePlanId and navigates to /my-trips", () => {
+    const navigate = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    facade.runPlanAction(plan(), 'invite');
+    expect(facade.pendingInvitePlanId()).toBe('1');
+    expect(navigate).toHaveBeenCalledWith('/my-trips');
+  });
+
+  it("'unpublish' opens its confirm and clears the delete and duplicate confirms", () => {
+    facade.deletingPlanId.set('1');
+    facade.cloningConfirmPlanId.set('1');
+    facade.runPlanAction(plan(), 'unpublish');
+    expect(facade.unpublishConfirmPlanId()).toBe('1');
+    expect(facade.deletingPlanId()).toBeNull();
+    expect(facade.cloningConfirmPlanId()).toBeNull();
+  });
+
+  it('confirmUnpublish calls PlanActionsService.unpublish and clears the confirm', () => {
+    const unpublish = jest.spyOn(facade.planActions, 'unpublish').mockReturnValue(of(true));
+    facade.unpublishConfirmPlanId.set('1');
+    facade.confirmUnpublish(plan());
+    expect(unpublish).toHaveBeenCalledWith(plan());
+    expect(facade.unpublishConfirmPlanId()).toBeNull();
   });
 });
