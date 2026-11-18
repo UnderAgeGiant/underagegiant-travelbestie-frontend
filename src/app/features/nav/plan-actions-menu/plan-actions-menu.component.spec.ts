@@ -14,7 +14,10 @@ describe('PlanActionsMenuComponent', () => {
   const base = { id: 'p1', name: 'Paris', savedAt: '2026-07-01T00:00:00Z', stops: [] } as SavedPlan;
   const el = () => fixture.nativeElement as HTMLElement;
   const items = () => Array.from(el().querySelectorAll<HTMLButtonElement>('[role="menuitem"]'));
-  const labels = () => items().map(b => b.textContent!.replace(/\s+/g, ' ').trim());
+  // The emoji sits in an aria-hidden .ic span; the labels are everything else.
+  const labels = () => items().map(b => Array.from(b.childNodes)
+    .filter(n => n.nodeType !== Node.COMMENT_NODE && !(n as HTMLElement).classList?.contains('ic'))
+    .map(n => n.textContent).join('').replace(/\s+/g, ' ').trim());
 
   function render(plan: SavedPlan, busy = false): void {
     fixture = TestBed.createComponent(PlanActionsMenuComponent);

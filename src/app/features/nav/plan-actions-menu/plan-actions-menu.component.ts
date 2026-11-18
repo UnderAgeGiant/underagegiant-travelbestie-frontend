@@ -19,27 +19,27 @@ const MENU_WIDTH = 224;
             i18n-aria-label="@@planMenu.trigger" aria-label="Acciones del viaje"
             [attr.aria-expanded]="open()" (click)="toggle()">⋯ ▾</button>
     <div #menu popover="auto" role="menu" class="up-plan-menu" (toggle)="onNativeToggle($event)">
-      <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('modify')" i18n="@@planMenu.modify">Modificar</button>
+      <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('modify')"><span class="ic" aria-hidden="true">✏️</span><span i18n="@@planMenu.modify">Modificar</span></button>
       @if (published()) {
-        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('view')" i18n="@@planMenu.view">Ver viaje publicado</button>
-        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('share')" i18n="@@planMenu.share">Compartir</button>
+        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('view')"><span class="ic" aria-hidden="true">🔗</span><span i18n="@@planMenu.view">Ver viaje publicado</span></button>
+        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('share')"><span class="ic" aria-hidden="true">📤</span><span i18n="@@planMenu.share">Compartir</span></button>
       } @else {
-        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('publish')" i18n="@@planMenu.publish">Publicar</button>
+        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('publish')"><span class="ic" aria-hidden="true">📤</span><span i18n="@@planMenu.publish">Publicar</span></button>
       }
       <div class="up-plan-menu-sep" role="separator"></div>
       <button type="button" role="menuitem" class="up-plan-menu-item" [disabled]="busy()" (click)="pick('export')">
-        <span i18n="@@planMenu.export">Exportar a Excel</span>
+        <span class="ic" aria-hidden="true">📥</span><span i18n="@@planMenu.export">Exportar a Excel</span>
         @if (!plan().exportedAt) { <span class="up-plan-menu-cost" i18n="@@planMenu.costHint"> −1 ✨</span> }
       </button>
-      <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('invite')" i18n="@@planMenu.invite">Invitar colaborador</button>
+      <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('invite')"><span class="ic" aria-hidden="true">🤝</span><span i18n="@@planMenu.invite">Invitar colaborador</span></button>
       <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('duplicate')">
-        <span i18n="@@planMenu.duplicate">Duplicar</span><span class="up-plan-menu-cost"> −1 ✨</span>
+        <span class="ic" aria-hidden="true">📋</span><span i18n="@@planMenu.duplicate">Duplicar</span><span class="up-plan-menu-cost"> −1 ✨</span>
       </button>
       <div class="up-plan-menu-sep" role="separator"></div>
       @if (published()) {
-        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('unpublish')" i18n="@@planMenu.unpublish">Dejar de publicar</button>
+        <button type="button" role="menuitem" class="up-plan-menu-item" (click)="pick('unpublish')"><span class="ic" aria-hidden="true">🚫</span><span i18n="@@planMenu.unpublish">Dejar de publicar</span></button>
       }
-      <button type="button" role="menuitem" class="up-plan-menu-item up-plan-menu-danger" (click)="pick('delete')" i18n="@@planMenu.delete">Eliminar</button>
+      <button type="button" role="menuitem" class="up-plan-menu-item up-plan-menu-danger" (click)="pick('delete')"><span class="ic" aria-hidden="true">🗑️</span><span i18n="@@planMenu.delete">Eliminar</span></button>
     </div>
   `,
   styles: [`
@@ -55,6 +55,7 @@ const MENU_WIDTH = 224;
     }
     .up-plan-menu-item:hover:not(:disabled), .up-plan-menu-item:focus-visible { background: var(--lav); color: var(--lav-d); outline: none; }
     .up-plan-menu-item:disabled { opacity: .5; cursor: default; }
+    .ic { display: inline-block; width: 18px; text-align: center; flex-shrink: 0; }
     .up-plan-menu-cost { margin-left: auto; font-size: 11px; color: var(--t3); }
     .up-plan-menu-danger { color: oklch(45% 0.18 25); }
     .up-plan-menu-sep { height: 1px; background: var(--border); margin: 4px 2px; }
