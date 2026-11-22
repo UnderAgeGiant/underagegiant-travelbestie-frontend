@@ -5,6 +5,7 @@ import { tap, switchMap, catchError, map, finalize, shareReplay } from 'rxjs/ope
 import { environment } from '../../../environments/environment';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 import { markGiftSession } from '../first-plan/first-plan-session';
+import { clearPendingReferral, readPendingReferral } from '../referral/pending-referral';
 import type { Place } from '../models/trip.model';
 
 export interface AuthUser {
@@ -84,14 +85,18 @@ export class AuthService {
 
   register(name: string, email: string, password: string, otp: string): Observable<{ token: string; user: AuthUser }> {
     if (environment.useMocks) {
+      clearPendingReferral();
       return of(this.mockSession(name, email));
     }
+    // F81: the referral travels next to the ciphertext, not inside it (contract §1.2).
+    const ref = readPendingReferral();
+    const referral = ref ? { referralCode: ref.code, referralChannel: ref.channel } : {};
     return from(this.encryptPayload({ name, email, password, otp })).pipe(
       switchMap(body => this.http.post<{ token: string; user: AuthUser }>(
-        `${environment.apiUrl}/auth/register`, body,
+        `${environment.apiUrl}/auth/register`, { ...body, ...referral },
         { withCredentials: true, headers: this.anonymousIdHeaders() },
       )),
-      tap(res => this.setTokens(res.token, res.user)),
+      tap(res => { this.setTokens(res.token, res.user); clearPendingReferral(); }),
       catchError((err: unknown) => {
         const code = this.classifyHttpStatus(err);
         return throwError(() => Object.assign(new Error(code), { code }));
@@ -169,7 +174,7 @@ export class AuthService {
     }
 
     this._refreshInFlight = this.http.post<{ token: string; user: AuthUser }>(
-      `${environment.apiUrl}/auth/refresh`, {}, { withCredentials: true },
+      `${environment.apiUrl}/auth/refresh`, {}, { withCredentials: true, headers: this.anonymousIdHeaders() },
     ).pipe(
       tap(res => this.setTokens(res.token, res.user)),
       map(() => true),

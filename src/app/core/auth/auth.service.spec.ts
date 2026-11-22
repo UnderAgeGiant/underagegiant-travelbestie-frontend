@@ -63,6 +63,40 @@ describe('AuthService', () => {
     req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
   });
 
+  it('register sends the pending referral next to encryptedPayload and clears it on 201', () => {
+    localStorage.setItem('tb_referral', JSON.stringify({ code: 'ana7k2xq', channel: 'card', at: Date.now() }));
+    jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
+    service.register('Test', 'test@test.com', 'pass', '123456').subscribe();
+
+    const req = http.expectOne(r => r.url.includes('/auth/register'));
+    expect(req.request.body).toEqual({ encryptedPayload: 'fake', referralCode: 'ana7k2xq', referralChannel: 'card' });
+    req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
+    expect(localStorage.getItem('tb_referral')).toBeNull();
+  });
+
+  it('register keeps the pending referral when it fails', () => {
+    localStorage.setItem('tb_referral', JSON.stringify({ code: 'ana7k2xq', channel: 'link', at: Date.now() }));
+    jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
+    service.register('Test', 'test@test.com', 'pass', '123456').subscribe({ error: () => {} });
+    http.expectOne(r => r.url.includes('/auth/register')).flush({}, { status: 400, statusText: 'Bad Request' });
+    expect(localStorage.getItem('tb_referral')).not.toBeNull();
+  });
+
+  it('register without a pending referral sends only encryptedPayload', () => {
+    jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
+    service.register('Test', 'test@test.com', 'pass', '123456').subscribe();
+    const req = http.expectOne(r => r.url.includes('/auth/register'));
+    expect(req.request.body).toEqual({ encryptedPayload: 'fake' });
+    req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
+  });
+
+  it('refresh sends X-Anonymous-Id', () => {
+    service.refreshAccessToken().subscribe();
+    const req = http.expectOne(r => r.url.includes('/auth/refresh'));
+    expect(req.request.headers.get('X-Anonymous-Id')).toMatch(/^[0-9a-f-]{36}$/i);
+    req.flush({ token: 'fake.jwt.token', user: { name: 'Test', email: 'test@test.com' } });
+  });
+
   it('maps HTTP 409 on updateProfile to code CONFLICT', done => {
     jest.spyOn(service as any, 'encryptPayload').mockReturnValue(of({ encryptedPayload: 'fake' }));
     service.updateProfile({ username: 'ana' }).subscribe({ error: (e: { code: string }) => { expect(e.code).toBe('CONFLICT'); done(); } });

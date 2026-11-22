@@ -3,6 +3,7 @@ import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter, Router } from '@angular/router';
+import { ReferralService } from '../../core/referral/referral.service';
 import { NavFacadeService, shouldSearchSharedTrips } from './nav-facade.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { TripService } from '../trip/trip.service';
@@ -161,6 +162,13 @@ describe('NavFacadeService — shared trips + logo', () => {
     localStorage.setItem('tb_ai_last_inputs:ana@test.com', '{"cities":["rome"]}');
     facade.doLogout();
     expect(localStorage.getItem('tb_ai_last_inputs:ana@test.com')).toBeNull();
+  });
+
+  it('doLogout resets the referral summary so the next account loads its own code (F81)', () => {
+    jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
+    const reset = jest.spyOn(TestBed.inject(ReferralService), 'reset');
+    facade.doLogout();
+    expect(reset).toHaveBeenCalled();
   });
 
   it('autoSaveCurrentTrip() (invoked by onLogoClick) passes { background: true } to upsert() (Finding 4 fix)', () => {

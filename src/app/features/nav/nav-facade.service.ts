@@ -26,6 +26,7 @@ import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { AiPlanViewPayload } from '../../core/models/ai.model';
 import { clearFirstPlanSession } from '../../core/first-plan/first-plan-session';
 import { clearAiLastInputs } from '../../core/ai/ai-last-inputs';
+import { ReferralService } from '../../core/referral/referral.service';
 import { TripCardService } from '../trip-card/trip-card.service';
 import { PlanActionsService } from '../../core/saved-plans/plan-actions.service';
 import { PlanMenuAction } from './plan-actions-menu/plan-actions-menu.component';
@@ -57,6 +58,7 @@ export class NavFacadeService {
   private readonly rankings             = inject(RankingService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
   private readonly landingFeed  = inject(LandingFeedService);
+  private readonly referral     = inject(ReferralService);
   private readonly router       = inject(Router);
   readonly locale = inject(LocaleService);
 
@@ -453,6 +455,7 @@ export class NavFacadeService {
     this.landingFeed.reset();   // feedback F2 — never leave a previous session's feed loaded
     clearFirstPlanSession();    // F79: a second sign-up in this tab gets its own first run
     clearAiLastInputs();        // F84: the next account on this browser starts with an empty AI form
+    this.referral.reset();      // F81: the next account loads its own referral code
     this.router.navigate(['/']);
   }
 }

@@ -29,6 +29,7 @@ import { mockMyRankings, mockWeeklyRankings } from '../rankings/rankings.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
 import { citiesPlanOption } from '../ai/cities-plan-option.util';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
+import { Inviter, ReferralSummary } from '../models/referral.model';
 
 const MOCK_KARMA_PACKAGES: KarmaPackage[] = [
   { id: 'karma_10',  karma: 10,  price: '0.99', currency: 'USD', label: '10 Karma',  prices: { USD: '0.99', CLP: '900'  } },
@@ -546,6 +547,23 @@ export class ApiService {
   getFavorites(): Observable<FavoritedTrip[]> {
     if (this.useMocks) return of([]);
     return this.http.get<FavoritedTrip[]>(`${this.base}/favorites`);
+  }
+
+  /** F81 §19.1: the user's referral code (created on first call) and counts. */
+  getMyReferrals(): Observable<ReferralSummary> {
+    if (this.useMocks) {
+      const d = new Date();
+      const next = new Date(d.getFullYear(), d.getMonth() + 1, 1);
+      const capResetsOn = `${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, '0')}-01`;
+      return of({ code: 'ana7k2xq', invitedCount: 3, monthTokens: 30, rewardTokens: 10, monthCap: 100, capResetsOn });
+    }
+    return this.http.get<ReferralSummary>(`${this.base}/referrals/me`);
+  }
+
+  /** F81 §19.2: who owns a referral code, for the sign-up line. 404 for unknown or malformed codes. */
+  getInviter(code: string): Observable<Inviter> {
+    if (this.useMocks) return of({ username: 'ana', firstName: 'Ana' });
+    return this.http.get<Inviter>(`${this.base}/referrals/${encodeURIComponent(code)}`);
   }
 
   getHighlightStatus(type: HighlightType): Observable<HighlightStatus> {
