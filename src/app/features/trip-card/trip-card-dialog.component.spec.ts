@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
+import { ReferralService } from '../../core/referral/referral.service';
 import { TripCardDialogComponent } from './trip-card-dialog.component';
 import { TripCardService } from './trip-card.service';
 import { ApiService } from '../../core/api/api.service';
@@ -75,6 +76,13 @@ describe('TripCardDialogComponent', () => {
     expect((renderTripCard as jest.Mock).mock.calls[0][0].link).toBe(LINK);
     expect(q(f, '[role="dialog"]')?.getAttribute('aria-modal')).toBe('true');
     expect(q(f, '.tcd-preview img')?.getAttribute('src')).toMatch(/^data:image\/png/);
+  });
+
+  it('a logged-in sharer: the card QR link carries their referral code (F81)', async () => {
+    jest.spyOn(TestBed.inject(ReferralService), 'loadSummary').mockResolvedValue(
+      { code: 'ana7k2xq', invitedCount: 0, monthTokens: 0, rewardTokens: 10, monthCap: 100, capResetsOn: '2026-12-01' });
+    await openDialog();
+    expect((renderTripCard as jest.Mock).mock.calls[0][0].link).toBe(`${LINK}&ref=ana7k2xq&via=card`);
   });
 
   it('shows Compartir only when navigator.canShare({ files }) is true', async () => {

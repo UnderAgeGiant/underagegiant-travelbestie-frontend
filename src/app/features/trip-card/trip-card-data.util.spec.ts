@@ -30,6 +30,10 @@ describe('tripCardLink', () => {
     expect(tripCardLink('abc', 'https://tripilove.com')).toBe('https://tripilove.com/shared/abc?utm_source=card'));
   it('strips a trailing slash', () =>
     expect(tripCardLink('abc', 'https://tripilove.com/')).toBe('https://tripilove.com/shared/abc?utm_source=card'));
+  it('a logged-in sharer: keeps utm_source=card and adds ref and via=card', () =>
+    expect(tripCardLink('abc', 'https://x', 'ana7k2xq')).toBe('https://x/shared/abc?utm_source=card&ref=ana7k2xq&via=card'));
+  it('no code: same link as before F81', () =>
+    expect(tripCardLink('abc', 'https://x', null)).toBe('https://x/shared/abc?utm_source=card'));
   it('a localhost siteUrl (dev build) still points at production', () =>
     expect(tripCardLink('abc', 'http://localhost:4200')).toBe('https://tripilove.com/shared/abc?utm_source=card'));
 });

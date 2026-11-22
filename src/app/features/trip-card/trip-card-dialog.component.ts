@@ -5,6 +5,7 @@ import { TripCardService } from './trip-card.service';
 import { TripCardData, buildTripCardData, tripCardFileName } from './trip-card-data.util';
 import { pickMiel, renderTripCard } from './trip-card-render';
 import { buildWhatsappUrl, shareMessage } from '../../core/share/share-url.util';
+import { ReferralService } from '../../core/referral/referral.service';
 
 const STREAMER_COLORS = ['#F4B740', '#E8506A', '#4A7BE0', '#7CC4A4', '#B48CF2'];
 
@@ -123,6 +124,7 @@ function toDataUrl(blob: Blob): Promise<string> {
 export class TripCardDialogComponent {
   readonly cards = inject(TripCardService);
   private readonly api = inject(ApiService);
+  private readonly referral = inject(ReferralService);
   private readonly trophies = inject(TrophyService);
   private readonly host = inject(ElementRef<HTMLElement>);
 
@@ -181,7 +183,7 @@ export class TripCardDialogComponent {
   shareWhatsapp(): void {
     const shareId = this.cards.request()?.shareId;
     if (!shareId || !this.data) return;
-    window.open(buildWhatsappUrl(this.data.title, shareId, undefined, shareMessage(this.own)), '_blank', 'noopener,noreferrer');
+    window.open(buildWhatsappUrl(this.data.title, shareId, undefined, shareMessage(this.own), this.referral.code()), '_blank', 'noopener,noreferrer');
     this.trophies.reportShare(shareId);
   }
 
@@ -216,10 +218,13 @@ export class TripCardDialogComponent {
     const miel = pickMiel(); // once per open: preview, share and download are the same image
     setTimeout(() => this.host.nativeElement.querySelector('[role="dialog"]')?.focus());
 
+    // F81: the QR carries the sharer's code, so wait for it (already loaded at login in most cases).
+    const refCode = this.referral.loadSummary().then(s => s?.code ?? null);
     this.api.getSharedTrip(shareId).subscribe({
-      next: trip => {
+      next: async trip => {
+        const ref = await refCode;
         if (id !== this.loadId) return;
-        const data = buildTripCardData(trip, shareId);
+        const data = buildTripCardData(trip, shareId, undefined, ref);
         renderTripCard(data, miel)
           .then(async blob => {
             const url = await toDataUrl(blob);
