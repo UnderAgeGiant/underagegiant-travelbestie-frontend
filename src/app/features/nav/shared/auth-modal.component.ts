@@ -103,9 +103,9 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
                   <div class="ref-invited-by">
                     <div class="ref-av" aria-hidden="true">{{ (inv.username || inv.firstName).charAt(0).toUpperCase() }}</div>
                     @if (inv.username) {
-                      <div i18n="@@referral.invitedBy"><b>&#64;{{ inv.username }}</b> te invitó a TravelingBestie</div>
+                      <div i18n="@@referral.invitedBy"><b>&#64;{{ inv.username }}</b> te invitó a Tripilove</div>
                     } @else {
-                      <div i18n="@@referral.invitedByName"><b>{{ inv.firstName }}</b> te invitó a TravelingBestie</div>
+                      <div i18n="@@referral.invitedByName"><b>{{ inv.firstName }}</b> te invitó a Tripilove</div>
                     }
                   </div>
                 }

@@ -375,16 +375,16 @@ describe('AuthModalComponent — "te invitó" line (F81)', () => {
   }
   afterEach(() => { delete (window as any).turnstile; localStorage.clear(); });
 
-  it('shows "@ana te invitó a TravelingBestie" with the username', () => {
+  it('shows "@ana te invitó a Tripilove" with the username', () => {
     const el = open({ username: 'ana', firstName: 'Ana' });
     expect(getInviter).toHaveBeenCalledWith('ana7k2xq');
     expect(el.querySelector('.ref-av')?.textContent).toBe('A');
-    expect(el.querySelector('.ref-invited-by > div:last-child')?.textContent?.trim()).toBe('@ana te invitó a TravelingBestie');
+    expect(el.querySelector('.ref-invited-by > div:last-child')?.textContent?.trim()).toBe('@ana te invitó a Tripilove');
   });
 
   it('falls back to the first name when the inviter has no username', () => {
     const el = open({ username: null, firstName: 'Ana' });
-    expect(el.querySelector('.ref-invited-by')?.textContent).toContain('Ana te invitó a TravelingBestie');
+    expect(el.querySelector('.ref-invited-by')?.textContent).toContain('Ana te invitó a Tripilove');
     expect(el.querySelector('.ref-invited-by')?.textContent).not.toContain('@');
   });
 
