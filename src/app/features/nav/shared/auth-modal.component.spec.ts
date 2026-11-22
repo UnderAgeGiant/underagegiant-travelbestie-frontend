@@ -2,7 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
+import { ApiService } from '../../../core/api/api.service';
+import type { Inviter } from '../../../core/models/referral.model';
 import { AuthModalComponent } from './auth-modal.component';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
 import { AuthService } from '../../../core/auth/auth.service';
@@ -346,5 +348,61 @@ describe('AuthModalComponent — F79 shared-plan clone popup', () => {
     firstPlan.cloningShared.set(false);
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.fp-cloning')).toBeNull();
+  });
+});
+
+describe('AuthModalComponent — "te invitó" line (F81)', () => {
+  let fixture: ComponentFixture<AuthModalComponent>;
+  let getInviter: jest.SpyInstance;
+
+  function open(inviter: unknown, pending = true): HTMLElement {
+    localStorage.clear();
+    if (pending) localStorage.setItem('tb_referral', JSON.stringify({ code: 'ana7k2xq', channel: 'link', at: Date.now() }));
+    (window as any).turnstile = { render: () => 'w', remove: () => {}, reset: () => {} };
+    TestBed.configureTestingModule({
+      imports: [AuthModalComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    getInviter = jest.spyOn(TestBed.inject(ApiService), 'getInviter').mockReturnValue(
+      inviter instanceof Error ? throwError(() => inviter) : of(inviter as Inviter));
+    fixture = TestBed.createComponent(AuthModalComponent);
+    TestBed.inject(AuthModalService).openLogin();
+    fixture.detectChanges();
+    fixture.componentInstance.switchToRegister();
+    fixture.detectChanges();
+    fixture.detectChanges();
+    return fixture.nativeElement as HTMLElement;
+  }
+  afterEach(() => { delete (window as any).turnstile; localStorage.clear(); });
+
+  it('shows "@ana te invitó a TravelingBestie" with the username', () => {
+    const el = open({ username: 'ana', firstName: 'Ana' });
+    expect(getInviter).toHaveBeenCalledWith('ana7k2xq');
+    expect(el.querySelector('.ref-av')?.textContent).toBe('A');
+    expect(el.querySelector('.ref-invited-by > div:last-child')?.textContent?.trim()).toBe('@ana te invitó a TravelingBestie');
+  });
+
+  it('falls back to the first name when the inviter has no username', () => {
+    const el = open({ username: null, firstName: 'Ana' });
+    expect(el.querySelector('.ref-invited-by')?.textContent).toContain('Ana te invitó a TravelingBestie');
+    expect(el.querySelector('.ref-invited-by')?.textContent).not.toContain('@');
+  });
+
+  it('shows no line when the lookup fails', () => {
+    const el = open(new Error('404'));
+    expect(el.querySelector('.ref-invited-by')).toBeNull();
+  });
+
+  it('does not look anything up without a pending referral', () => {
+    const el = open({ username: 'ana', firstName: 'Ana' }, false);
+    expect(getInviter).not.toHaveBeenCalled();
+    expect(el.querySelector('.ref-invited-by')).toBeNull();
+  });
+
+  it('is not shown in login mode', () => {
+    const el = open({ username: 'ana', firstName: 'Ana' });
+    fixture.componentInstance.switchToLogin();
+    fixture.detectChanges();
+    expect(el.querySelector('.ref-invited-by')).toBeNull();
   });
 });
