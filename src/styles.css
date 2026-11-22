@@ -809,9 +809,11 @@ app-nav { display: block; }
 .ai-simple-free-note strong { color: var(--mint-d); }
 .ai-simple-submit { white-space: normal; }
 /* Breadcrumb step 2 in Simple: not reachable, says why on its own line (no hover tooltips on touch). */
-.ai-plan-step.disabled { flex-wrap: wrap; justify-content: center; row-gap: 2px; color: var(--t3); cursor: default; }
+.ai-plan-step.disabled { position: relative; color: var(--t3); cursor: default; }
 .ai-plan-step.disabled .ai-plan-step-n { background: var(--border); color: var(--t3); }
-.ai-plan-step-hint { flex-basis: 100%; text-align: center; font-size: 10px; font-weight: 600; color: var(--t3); }
+/* Under the step, out of the flow: the three steps keep their widths on a phone. */
+.ai-plan-step-hint { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 3px; white-space: nowrap; font-size: 10px; font-weight: 600; color: var(--t3); }
+.ai-plan-steps:has(.ai-plan-step-hint) { margin-bottom: 34px; }
 @media (pointer: coarse) { .ai-flow-switch { min-height: 44px; } }
 @media (max-width: 480px) {
   .ai-flow-switch-label--long { display: none; }
