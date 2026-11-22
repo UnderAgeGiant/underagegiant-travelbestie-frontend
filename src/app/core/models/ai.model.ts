@@ -32,7 +32,9 @@ export interface PlanChangeInfo {
 }
 
 export interface PlanTripRequest {
-  selectedOption: TripSuggestion;
+  selectedOption?: TripSuggestion; // advanced only; the simple flow (F84) sends cities and the server synthesizes it
+  flow?:          'simple' | 'advanced';
+  cities?:        CatalogEntry[];   // simple flow: the picked cities, in order
   preferences?:   string;   // omitted in cities mode without interest chips (optional there, §5.2)
   duration?:      number;
   budget?:        string;
@@ -139,6 +141,8 @@ export interface AiPlanHistoryItem {
     startDate?:     string;
     cityIds?:       string[];
     firstRun?:      boolean;
+    flow?:          'simple' | 'advanced'; // F84: a simple-flow row reopens in Simple
+    cities?:        CatalogEntry[];
   };
   result?:       AiPlanResultData;
   error?:        string;
@@ -166,5 +170,7 @@ export interface AiPlanViewPayload {
     startDate?:     string;
     cityIds?:       string[];
     firstRun?:      boolean;
+    flow?:          'simple' | 'advanced'; // F84: a simple-flow row reopens in Simple
+    cities?:        CatalogEntry[];
   };
 }

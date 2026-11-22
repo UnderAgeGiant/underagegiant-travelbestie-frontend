@@ -156,6 +156,13 @@ describe('NavFacadeService — shared trips + logo', () => {
     expect(sessionStorage.getItem('tb_first_plan_gift_session')).toBeNull();
   });
 
+  it('doLogout removes every stored AI planning input, so the next account on this browser starts empty (F84)', () => {
+    jest.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
+    localStorage.setItem('tb_ai_last_inputs:ana@test.com', '{"cities":["rome"]}');
+    facade.doLogout();
+    expect(localStorage.getItem('tb_ai_last_inputs:ana@test.com')).toBeNull();
+  });
+
   it('autoSaveCurrentTrip() (invoked by onLogoClick) passes { background: true } to upsert() (Finding 4 fix)', () => {
     const trip = TestBed.inject(TripService);
     const auth = TestBed.inject(AuthService);

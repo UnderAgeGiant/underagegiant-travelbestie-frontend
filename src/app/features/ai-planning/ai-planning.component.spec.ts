@@ -674,7 +674,7 @@ describe('AiPlanningComponent — executeSuggest() preselects the first option',
     auth = TestBed.inject(AuthService);
     http = TestBed.inject(HttpTestingController);
     component = TestBed.createComponent(AiPlanningComponent).componentInstance;
-    component.aiMode.set('text'); // these cases exercise the free-text step 1
+    component.setFlow('advanced'); // these cases exercise the free-text step 1 (Avanzado opens on Texto libre)
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
   });
 
@@ -846,7 +846,7 @@ describe('AiPlanningComponent — input length limits (mirror backend zod caps)'
 
   function renderStep1(): ComponentFixture<AiPlanningComponent> {
     const fixture = TestBed.createComponent(AiPlanningComponent);
-    fixture.componentInstance.aiMode.set('text'); // the textarea only exists in free-text mode (F79)
+    fixture.componentInstance.setFlow('advanced'); // the textarea only exists in Avanzado's free-text mode
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null });
     fixture.detectChanges();
     return fixture;
@@ -967,23 +967,12 @@ describe('AiPlanningComponent — F79 cities / free-text mode in step 1', () => 
     fixture = TestBed.createComponent(AiPlanningComponent);
     component = fixture.componentInstance;
     auth.setTokens('fake-token', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable: false });
+    component.setFlow('advanced'); // F84: these cases exercise Avanzado's cities mode
+    component.setMode('cities');
   }
 
   // Rendering pulls in <app-nav> (notifications poll), so no blanket http.verify() here.
   beforeEach(() => localStorage.clear());
-
-  it('default mode is cities when localStorage is empty', () => {
-    create();
-    expect(component.aiMode()).toBe('cities');
-  });
-
-  it('remembers the last mode', () => {
-    localStorage.setItem('tb_ai_mode', 'text');
-    create();
-    expect(component.aiMode()).toBe('text');
-    component.setMode('cities');
-    expect(localStorage.getItem('tb_ai_mode')).toBe('cities');
-  });
 
   it('cities mode with 4 cities and 3 days shows the note and disables the button', () => {
     create();
@@ -1180,7 +1169,7 @@ describe('AiPlanningComponent — F79 free first run', () => {
     const el = create(undefined);
     expect(component.firstRun()).toBe(false);
     expect(el.querySelector('.ai-first-banner')).toBeNull();
-    expect(el.querySelector('.ai-mode-switch')).not.toBeNull();
+    expect(el.querySelector('[role="switch"]')).not.toBeNull();
   });
 
   it('first-run card hides textarea, budget, the change stats and the Token price', () => {
@@ -1271,5 +1260,271 @@ describe('AiPlanningComponent — F79 free first run', () => {
     component.startFirstPlan();
     expect(auth.firstPlanAvailable()).toBe(false);
     expect(TestBed.inject(ToastService).message()).toContain('Tu primer plan ya está guardado');
+  });
+});
+
+describe('AiPlanningComponent — F84 Simple / Avanzado', () => {
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let api: ApiService;
+  let el: HTMLElement;
+
+  const PLAN_RESULT = (type: 'new_session' | 'free_change' | 'charged_change', used = 0): PlanTripResponse => ({
+    title: 'Viaje a Rome, Florence', stops: [TRIP.stops[0]], transits: [], requestId: 'req-s',
+    changeInfo: { type, freeChangesUsed: used, freeChangesRemaining: 3 - used },
+  });
+
+  function create(opts: { firstPlanAvailable?: boolean; initial?: any } = {}): void {
+    localStorage.clear();
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    api = TestBed.inject(ApiService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    if (opts.initial) fixture.componentRef.setInput('initialResult', opts.initial);
+    auth.setTokens('t', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable: opts.firstPlanAvailable ?? false });
+    fixture.detectChanges();
+    el = fixture.nativeElement;
+  }
+  const sw = () => el.querySelector('[role="switch"]') as HTMLButtonElement | null;
+  const submit = () => el.querySelector('.ai-plan-submit') as HTMLButtonElement;
+  function pick(): void {
+    component.cities.set(['rome', 'florence']);
+    component.duration.set(5);
+    component.startDate.set('01/07/2026');
+    fixture.detectChanges();
+  }
+  /** Runs one simple plan to the result step with the given server verdict. */
+  function runSimple(result: PlanTripResponse): jest.SpyInstance {
+    const spy = jest.spyOn(api, 'planTrip');
+    spy.mockClear().mockReturnValue(of(result));
+    component.planSimple();
+    fixture.detectChanges();
+    return spy;
+  }
+
+  it('logged-in user without the gift lands on Simple: switch role=switch aria-checked=false, no textarea/budget/chips, step 2 aria-disabled with "Solo en modo avanzado"', () => {
+    create();
+    expect(component.aiFlow()).toBe('simple');
+    expect(sw()).not.toBeNull();
+    expect(sw()!.getAttribute('aria-checked')).toBe('false');
+    expect(sw()!.textContent).toContain('Modo avanzado');
+    expect(el.querySelector('textarea')).toBeNull();
+    expect(el.querySelector('input[placeholder="Ej: 500-1000 USD"]')).toBeNull();
+    expect(el.querySelector('.att-filter-chip')).toBeNull();
+    expect(el.querySelector('.ai-change-stats')).toBeNull();
+    expect(el.querySelector('app-city-multi-picker')).not.toBeNull();
+    expect(el.querySelector('.ai-plan-card-title')!.textContent).toContain('¿A dónde quieres ir?');
+    const step2 = el.querySelectorAll('.ai-plan-step')[1] as HTMLElement;
+    expect(step2.classList).toContain('disabled');
+    expect(step2.getAttribute('aria-disabled')).toBe('true');
+    expect(step2.textContent).toContain('Solo en modo avanzado');
+    expect(submit().textContent).toContain('Crear mi plan · 9 Tokens');
+  });
+
+  it('gift user sees the first-run card and no switch', () => {
+    create({ firstPlanAvailable: true });
+    expect(el.querySelector('.ai-first-banner')).not.toBeNull();
+    expect(sw()).toBeNull();
+  });
+
+  it('turning the switch on shows Avanzado with Texto libre selected and keeps the picked cities', () => {
+    create();
+    pick();
+    sw()!.click();
+    fixture.detectChanges();
+    expect(component.aiFlow()).toBe('advanced');
+    expect(component.aiMode()).toBe('text');
+    expect(sw()!.getAttribute('aria-checked')).toBe('true');
+    expect(el.querySelector('textarea')).not.toBeNull();
+    expect(el.querySelector('[role="tab"][aria-selected="true"]')!.textContent).toContain('Texto libre');
+    expect((el.querySelectorAll('.ai-plan-step')[1] as HTMLElement).classList).not.toContain('disabled');
+    component.setMode('cities');
+    expect(component.cities()).toEqual(['rome', 'florence']);
+  });
+
+  it('Crear mi plan POSTs flow simple with cities, duration, startDate and no selectedOption; button enabled only with ≥1 city and days ≥ cities', () => {
+    create();
+    expect(submit().disabled).toBe(true);
+    component.cities.set(['rome', 'florence']);
+    component.duration.set(1);
+    fixture.detectChanges();
+    expect(submit().disabled).toBe(true);
+    pick();
+    expect(submit().disabled).toBe(false);
+    const spy = jest.spyOn(api, 'planTrip').mockReturnValue(new Subject<PlanTripResponse>());
+    submit().click();
+    expect(spy).toHaveBeenCalledTimes(1);
+    const req = spy.mock.calls[0][0];
+    expect(req.flow).toBe('simple');
+    expect(req.cities).toEqual([{ id: 'rome', name: expect.any(String) }, { id: 'florence', name: expect.any(String) }]);
+    expect(req.duration).toBe(5);
+    expect(req.startDate).toBe('01/07/2026');
+    expect(req.planSessionId).toEqual(expect.any(String));
+    expect(req.selectedOption).toBeUndefined();
+    expect(req.preferences).toBeUndefined();
+  });
+
+  it('after a plan, 5→6 days shows "gratis" and runs without a confirm; swapping 1 of 2 cities shows 9 Tokens and opens the confirm card', () => {
+    create();
+    pick();
+    runSimple(PLAN_RESULT('new_session'));
+    component.adjustOptions();
+    component.duration.set(6);
+    fixture.detectChanges();
+    expect(submit().textContent).toContain('Volver a crear mi plan · gratis');
+    expect(el.querySelector('.ai-simple-free-note')!.textContent).toContain('Cambios gratis 3/3');
+    const spy = runSimple(PLAN_RESULT('free_change', 1));
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(component.planConfirmPending()).toBeNull();
+
+    component.adjustOptions();
+    component.cities.set(['rome', 'venice']);
+    fixture.detectChanges();
+    expect(submit().textContent).toContain('Volver a crear mi plan · 9 Tokens');
+    spy.mockClear();
+    component.planSimple();
+    fixture.detectChanges();
+    expect(spy).not.toHaveBeenCalled();
+    expect(component.planConfirmPending()).not.toBeNull();
+    expect(el.querySelector('.ai-confirm-charge-card')!.textContent).toContain('9 Tokens');
+  });
+
+  it('switch is disabled once planSessionId is set and re-enabled by restart()', () => {
+    create();
+    pick();
+    runSimple(PLAN_RESULT('new_session'));
+    component.adjustOptions();
+    fixture.detectChanges();
+    expect(component.flowLocked()).toBe(true);
+    expect(sw()!.getAttribute('aria-disabled')).toBe('true');
+    expect(el.textContent).toContain('Para cambiar de modo, empieza de nuevo.');
+    sw()!.click();
+    expect(component.aiFlow()).toBe('simple');
+    component.restart();
+    fixture.detectChanges();
+    expect(component.flowLocked()).toBe(false);
+    expect(component.aiFlow()).toBe('simple');
+    expect(component.cities()).toEqual(['rome', 'florence']);
+    expect(sw()!.getAttribute('aria-disabled')).not.toBe('true');
+  });
+
+  it('step 3 in Simple has Ajustar, which returns to the form with the same planSessionId', () => {
+    create();
+    pick();
+    runSimple(PLAN_RESULT('new_session'));
+    const session = component.planSessionId();
+    const adjust = [...el.querySelectorAll('button')].find(b => b.textContent!.includes('✏️ Ajustar')) as HTMLButtonElement;
+    expect(adjust).toBeDefined();
+    adjust.click();
+    expect(component.step()).toBe('preferences');
+    expect(component.planSessionId()).toBe(session);
+  });
+
+  it('a revisited plan with requestParams.flow simple opens in Simple with its cities', () => {
+    create({ initial: {
+      result: TRIP, requestId: 'r-1',
+      requestParams: { selectedOption: OPTION, flow: 'simple', cities: [{ id: 'rome', name: 'Rome' }], cityIds: ['rome'], duration: 3 },
+    } });
+    expect(component.step()).toBe('result');
+    expect(component.aiFlow()).toBe('simple');
+    expect(component.cities()).toEqual(['rome']);
+  });
+
+  it('a revisited advanced plan (no flow) opens in Avanzado', () => {
+    create({ initial: { result: TRIP, requestId: 'r-2', requestParams: { selectedOption: OPTION, preferences: 'museos' } } });
+    expect(component.aiFlow()).toBe('advanced');
+    expect(component.aiMode()).toBe('text');
+  });
+
+  it('no localStorage tb_ai_mode read or write', () => {
+    const get = jest.spyOn(Storage.prototype, 'getItem');
+    const set = jest.spyOn(Storage.prototype, 'setItem');
+    create();
+    component.setFlow('advanced');
+    component.setMode('cities');
+    expect(get.mock.calls.some(c => c[0] === 'tb_ai_mode')).toBe(false);
+    expect(set.mock.calls.some(c => c[0] === 'tb_ai_mode')).toBe(false);
+    get.mockRestore();
+    set.mockRestore();
+  });
+});
+
+describe('AiPlanningComponent — F84 last typed inputs', () => {
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let api: ApiService;
+  const KEY = 'tb_ai_last_inputs:ana@test.com';
+
+  function create(opts: { firstPlanAvailable?: boolean; initial?: any } = {}): void {
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    api = TestBed.inject(ApiService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    if (opts.initial) fixture.componentRef.setInput('initialResult', opts.initial);
+    auth.setTokens('t', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable: opts.firstPlanAvailable ?? false });
+    fixture.detectChanges();
+  }
+  const future = () => {
+    const d = new Date(); d.setDate(d.getDate() + 10);
+    return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+  };
+
+  beforeEach(() => localStorage.clear());
+
+  it('prefills from stored inputs on open (no initialResult, no gift) while staying on Simple', () => {
+    const date = future();
+    localStorage.setItem(KEY, JSON.stringify({ cities: ['rome', 'florence'], duration: 5, startDate: date, preferences: 'museos', budget: '900', categories: ['foodie'] }));
+    create();
+    expect(component.aiFlow()).toBe('simple');
+    expect(component.cities()).toEqual(['rome', 'florence']);
+    expect(component.duration()).toBe(5);
+    expect(component.startDate()).toBe(date);
+    expect(component.preferences()).toBe('museos');
+    expect(component.budget()).toBe('900');
+    expect(component.selectedCategories()).toEqual(['foodie']);
+  });
+
+  it('does not prefill for a gift user or a revisited plan', () => {
+    localStorage.setItem(KEY, JSON.stringify({ cities: ['rome'], duration: 5 }));
+    create({ firstPlanAvailable: true });
+    expect(component.cities()).toEqual([]);
+    TestBed.resetTestingModule();
+    create({ initial: { result: TRIP, requestId: 'r', requestParams: { selectedOption: OPTION, duration: 2 } } });
+    expect(component.duration()).toBe(2);
+    expect(component.cities()).toEqual([]);
+  });
+
+  it('writes after a successful simple kickoff', () => {
+    create();
+    component.cities.set(['rome']);
+    component.duration.set(3);
+    jest.spyOn(api, 'planTrip').mockReturnValue(new Subject<PlanTripResponse>());
+    component.planSimple();
+    expect(JSON.parse(localStorage.getItem(KEY)!)).toEqual(expect.objectContaining({ cities: ['rome'], duration: 3 }));
+  });
+
+  it('writes after a successful suggest, not after a failed one', () => {
+    create();
+    component.setFlow('advanced');
+    component.preferences.set('playa');
+    component.duration.set(4);
+    component.budget.set('500');
+    const spy = jest.spyOn(api, 'suggestTrips').mockReturnValue(throwError(() => ({ status: 500 })));
+    component.suggest();
+    expect(localStorage.getItem(KEY)).toBeNull();
+    spy.mockReturnValue(of({ options: [OPTION, OPTION] } as any));
+    component.planSessionId.set(null);
+    component.suggest();
+    expect(JSON.parse(localStorage.getItem(KEY)!)).toEqual(expect.objectContaining({ preferences: 'playa', duration: 4, budget: '500' }));
   });
 });

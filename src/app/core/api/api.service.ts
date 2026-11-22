@@ -27,6 +27,7 @@ import { mockFeedPage } from './feed.mock';
 import { mockPublicProfile } from './public-profile.mock';
 import { mockMyRankings, mockWeeklyRankings } from '../rankings/rankings.mock';
 import { AttractionCatalogService } from '../ai/attraction-catalog.service';
+import { citiesPlanOption } from '../ai/cities-plan-option.util';
 import { AnonymousIdService } from '../anonymous-id/anonymous-id.service';
 
 const MOCK_KARMA_PACKAGES: KarmaPackage[] = [
@@ -254,7 +255,7 @@ export class ApiService {
   planTrip(req: PlanTripRequest): Observable<PlanTripResponse> {
     if (this.useMocks) {
       return of({
-        title:    req.selectedOption.title,
+        title:    req.selectedOption?.title ?? citiesPlanOption(req.cities!, req.duration!).title,
         stops:    [{ stopId: 'mock-ai-stop-paris', cityId: 'paris', checkIn: '01/07/2026', checkOut: '05/07/2026', selectedAttractions: [{ entryId: 'mock-ai-paris-att-0', attractionId: 'paris_0', startTime: '09:00' }] }],
         transits: [],
         // No changeInfo in mock mode — component handles undefined gracefully
@@ -263,7 +264,7 @@ export class ApiService {
     // Only the selected option's own cities are sent — not the whole WORLD_CITIES
     // catalog. Missing cityIds (older session, or the model omitted them) degrade
     // to no catalog at all; the backend's own "unlisted city" fallback covers it.
-    const cityIds = req.selectedOption.cityIds;
+    const cityIds = req.flow === 'simple' ? req.cities?.map(c => c.id) : req.selectedOption?.cityIds;
     const catalog$: Observable<CityCatalog | undefined> = cityIds && cityIds.length > 0
       ? from(this.catalog.getCityCatalog(cityIds))
       : of(undefined);

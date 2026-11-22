@@ -791,6 +791,35 @@ app-nav { display: block; }
 /* F79 step 1 mode switch + cities-vs-days note */
 .ai-mode-switch { display: inline-flex; gap: 6px; padding: 4px; margin-bottom: 16px; border-radius: 99px; background: var(--cream); border: 1.5px solid var(--border); }
 .ai-mode-switch .btn-pill:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 2px; }
+/* F84 mode switch (Simple ↔ Avanzado): card title on the left, switch in the corner. */
+.ai-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.ai-card-head .ai-plan-card-title { margin-bottom: 0; }
+.ai-flow-switch { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; padding: 0; border: 0; background: none; font: inherit; font-size: 12px; font-weight: 600; color: var(--t2); cursor: pointer; border-radius: 99px; }
+.ai-flow-switch[aria-checked="true"] { color: var(--lav-d); }
+.ai-flow-switch:focus-visible { outline: 2px solid var(--lav-d); outline-offset: 3px; }
+.ai-flow-switch-label--short { display: none; }
+.ai-flow-switch-track { position: relative; width: 34px; height: 20px; border-radius: 99px; background: var(--border); transition: background .15s; }
+.ai-flow-switch-knob { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px oklch(0% 0 0 / .2); transition: transform .15s; }
+.ai-flow-switch[aria-checked="true"] .ai-flow-switch-track { background: var(--lav-d); }
+.ai-flow-switch[aria-checked="true"] .ai-flow-switch-knob { transform: translateX(14px); }
+.ai-flow-switch[aria-disabled="true"] { color: var(--t3); cursor: not-allowed; }
+.ai-flow-switch[aria-disabled="true"] .ai-flow-switch-track { opacity: .5; }
+.ai-flow-locked { margin: -10px 0 14px; font-size: 11px; color: var(--t3); }
+.ai-simple-free-note { margin: 4px 0 8px; text-align: center; font-size: 12px; color: var(--t2); }
+.ai-simple-free-note strong { color: var(--mint-d); }
+.ai-simple-submit { white-space: normal; }
+/* Breadcrumb step 2 in Simple: not reachable, says why on its own line (no hover tooltips on touch). */
+.ai-plan-step.disabled { position: relative; color: var(--t3); cursor: default; }
+.ai-plan-step.disabled .ai-plan-step-n { background: var(--border); color: var(--t3); }
+/* Under the step, out of the flow: the three steps keep their widths on a phone. */
+.ai-plan-step-hint { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 3px; white-space: nowrap; font-size: 10px; font-weight: 600; color: var(--t3); }
+.ai-plan-steps:has(.ai-plan-step-hint) { margin-bottom: 34px; }
+@media (pointer: coarse) { .ai-flow-switch { min-height: 44px; } }
+@media (max-width: 480px) {
+  .ai-flow-switch-label--long { display: none; }
+  .ai-flow-switch-label--short { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) { .ai-flow-switch-track, .ai-flow-switch-knob { transition: none; } }
 .ai-plan-days-note { margin: 6px 0 0; font-size: 12px; font-weight: 600; color: var(--peach-d); }
 /* F79 free first run */
 .ai-first-banner { margin: 0 0 18px; padding: 12px 16px; border-radius: 14px; background: var(--lav); color: var(--lav-d); font-size: 13px; font-weight: 600; line-height: 1.45; }

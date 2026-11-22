@@ -11,7 +11,9 @@ import { AuthService } from '../../core/auth/auth.service';
 import { TripService } from '../trip/trip.service';
 import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
-import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload } from '../../core/models/ai.model';
+import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload, PlanTripRequest } from '../../core/models/ai.model';
+import { citiesPlanOption } from '../../core/ai/cities-plan-option.util';
+import { readAiLastInputs, writeAiLastInputs } from '../../core/ai/ai-last-inputs';
 import { Trip, TripStop, TransitLeg, TransitSegment, TransitMode, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
 import { CostSettingsComponent } from '../../shared/cost-settings/cost-settings.component';
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
@@ -35,12 +37,7 @@ import { CityMultiPickerComponent } from '../../shared/city-multi-picker/city-mu
 
 type Step = 'preferences' | 'options' | 'result';
 type AiMode = 'cities' | 'text';
-
-/** Step 1's last-used mode (F79). localStorage, not session: it should survive closing the tab. */
-const AI_MODE_KEY = 'tb_ai_mode';
-function readStoredMode(): AiMode {
-  try { return localStorage.getItem(AI_MODE_KEY) === 'text' ? 'text' : 'cities'; } catch { return 'cities'; }
-}
+type AiFlow = 'simple' | 'advanced';
 
 const AI_PLAN_CELEBRATE_MS = 2600;
 
@@ -109,7 +106,11 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
             </div>
             <div class="shared-header">
               <div class="shared-header-name" i18n="@@aiplan.title">Tu próximo viaje, diseñado por IA</div>
-              <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
+              @if (simpleView()) {
+                <div class="shared-header-owner" i18n="@@aiplan.subtitleSimple">Elige tus ciudades y te armamos el plan completo</div>
+              } @else {
+                <div class="shared-header-owner" i18n="@@aiplan.subtitle">Cuéntanos qué buscas y generamos opciones personalizadas para ti</div>
+              }
               @if (!firstRunView()) {
                 <div class="ai-plan-karma-note" i18n="@@aiplan.karmaCost">Esta acción cuesta 10 tokens ⭐ en total</div>
               }
@@ -124,10 +125,18 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
               <span i18n="@@aiplan.step1">Preferencias</span>
             </div>
             <div class="ai-plan-step-line"></div>
-            <div class="ai-plan-step" [class.active]="step() === 'options'" [class.done]="step() === 'result'">
-              <span class="ai-plan-step-n">2</span>
-              <span i18n="@@aiplan.step2">Elige opción</span>
-            </div>
+            @if (simpleView()) {
+              <div class="ai-plan-step disabled" aria-disabled="true">
+                <span class="ai-plan-step-n">2</span>
+                <span i18n="@@aiplan.step2">Elige opción</span>
+                <span class="ai-plan-step-hint" i18n="@@aiplan.step2AdvancedOnly">Solo en modo avanzado</span>
+              </div>
+            } @else {
+              <div class="ai-plan-step" [class.active]="step() === 'options'" [class.done]="step() === 'result'">
+                <span class="ai-plan-step-n">2</span>
+                <span i18n="@@aiplan.step2">Elige opción</span>
+              </div>
+            }
             <div class="ai-plan-step-line"></div>
             <div class="ai-plan-step" [class.active]="step() === 'result'">
               <span class="ai-plan-step-n">3</span>
@@ -166,7 +175,11 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   <span i18n="@@aiplan.limitReachedTitle">Límite de cambios gratuitos alcanzado</span>
                 }
               </div>
-              <div class="ai-change-charged-body" i18n="@@aiplan.changeChargedBody">Se descontó 1 token ⭐ por este cambio.</div>
+              @if (simpleView()) {
+                <div class="ai-change-charged-body" i18n="@@aiplan.changeChargedBodySimple">Se descontaron 9 Tokens ⭐ por este cambio.</div>
+              } @else {
+                <div class="ai-change-charged-body" i18n="@@aiplan.changeChargedBody">Se descontó 1 token ⭐ por este cambio.</div>
+              }
               <button class="btn-pill btn-outline" style="margin-top:8px"
                       (click)="changeCharged.set(null)" type="button"
                       i18n="@@aiplan.changeChargedDismiss">Entendido</button>
@@ -184,16 +197,28 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                   <span i18n="@@aiplan.confirmLimitTitle">Has usado tus 3 cambios gratuitos</span>
                 }
               </div>
-              <div class="ai-confirm-charge-body" i18n="@@aiplan.confirmChargeBody">
-                Esta acción costará 1 token ⭐. ¿Deseas continuar?
-              </div>
+              @if (simpleView()) {
+                <div class="ai-confirm-charge-body" i18n="@@aiplan.confirmChargeSimple">
+                  Esta acción costará 9 Tokens ⭐. ¿Deseas continuar?
+                </div>
+              } @else {
+                <div class="ai-confirm-charge-body" i18n="@@aiplan.confirmChargeBody">
+                  Esta acción costará 1 token ⭐. ¿Deseas continuar?
+                </div>
+              }
               <div class="ai-plan-actions">
                 <button class="btn-pill btn-outline"
                         (click)="planConfirmPending.set(null)" type="button"
                         i18n="@@aiplan.confirmCancel">Cancelar</button>
-                <button class="btn-pill btn-primary"
-                        (click)="executePlan()" type="button"
-                        i18n="@@aiplan.confirmProceed">Sí, continuar (−1 token)</button>
+                @if (simpleView()) {
+                  <button class="btn-pill btn-primary"
+                          (click)="executePlan()" type="button"
+                          i18n="@@aiplan.confirmProceedSimple">Sí, continuar (−9 Tokens)</button>
+                } @else {
+                  <button class="btn-pill btn-primary"
+                          (click)="executePlan()" type="button"
+                          i18n="@@aiplan.confirmProceed">Sí, continuar (−1 token)</button>
+                }
               </div>
             </div>
           }
@@ -283,7 +308,66 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
           <!-- ── Step 1: Preferences form ── -->
           @if (step() === 'preferences' && !firstRun()) {
             <div class="ai-plan-card">
-              <div class="ai-plan-card-title" i18n="@@aiplan.prefTitle">¿Qué tipo de viaje buscas?</div>
+              <div class="ai-card-head">
+                @if (aiFlow() === 'simple') {
+                  <div class="ai-plan-card-title" i18n="@@aiplan.simpleTitle">¿A dónde quieres ir?</div>
+                } @else {
+                  <div class="ai-plan-card-title" i18n="@@aiplan.prefTitle">¿Qué tipo de viaje buscas?</div>
+                }
+                <button type="button" role="switch" class="ai-flow-switch"
+                        [attr.aria-checked]="aiFlow() === 'advanced'"
+                        [attr.aria-disabled]="flowLocked() ? 'true' : null"
+                        [attr.aria-describedby]="flowLocked() ? 'aiFlowLocked' : null"
+                        (click)="toggleFlow()">
+                  <span class="ai-flow-switch-label ai-flow-switch-label--long" i18n="@@aiplan.flowSwitch">Modo avanzado</span>
+                  <span class="ai-flow-switch-label ai-flow-switch-label--short" i18n="@@aiplan.flowSwitchShort">Avanzado</span>
+                  <span class="ai-flow-switch-track" aria-hidden="true"><span class="ai-flow-switch-knob"></span></span>
+                </button>
+              </div>
+              @if (flowLocked()) {
+                <p class="ai-flow-locked" id="aiFlowLocked" i18n="@@aiplan.flowLocked">Para cambiar de modo, empieza de nuevo.</p>
+              }
+
+              @if (aiFlow() === 'simple') {
+              <div class="ai-plan-field">
+                <span class="ai-plan-label" i18n="@@aiplan.citiesLabel">¿A qué ciudades quieres ir?</span>
+                <app-city-multi-picker [max]="MAX_CITIES_REGULAR" [(selected)]="cities" [limitNote]="citiesLimitNote" />
+              </div>
+
+              <div class="ai-plan-row">
+                <div class="ai-plan-field">
+                  <label class="ai-plan-label" for="aiSimpleDays" i18n="@@firstplan.daysTotal">Días en total (todas las ciudades)</label>
+                  <input id="aiSimpleDays" class="form-input" type="number" min="1" max="60"
+                         [value]="duration() ?? ''" (input)="setDuration($any($event.target).value)"
+                         i18n-placeholder="@@aiplan.durationPlaceholder" placeholder="Ej: 14" />
+                  @if (citiesDaysNote(); as note) {
+                    <p class="ai-plan-days-note" role="status">{{ note }}</p>
+                  }
+                </div>
+                <div class="ai-plan-field">
+                  <label class="ai-plan-label" i18n="@@aiplan.startDateLabel">Fecha de inicio</label>
+                  <app-date-picker [initialDate]="startDate()" (dateChange)="startDate.set($event)" />
+                </div>
+              </div>
+
+              @let simpleAnalysis = planChangeAnalysis();
+              @if (simpleRerun() && simpleAnalysis.preview === 'free') {
+                <p class="ai-simple-free-note" role="status" i18n="@@aiplan.simpleFreeNote">Cambio pequeño: <strong>gratis</strong> · Cambios gratis {{ simpleAnalysis.freeRemaining }}/{{ FREE_CHANGE_LIMIT }}</p>
+              }
+              <button class="btn-pill btn-primary ai-plan-submit ai-simple-submit"
+                      [disabled]="loading() || !canSuggest()"
+                      (click)="planSimple()"
+                      type="button">
+                @if (loading()) { ⏳ } @else { ✨ }
+                @if (!simpleRerun()) {
+                  <span i18n="@@aiplan.simpleCta">Crear mi plan · 9 Tokens</span>
+                } @else if (simpleAnalysis.preview === 'free') {
+                  <span i18n="@@aiplan.simpleRerunFree">Volver a crear mi plan · gratis</span>
+                } @else {
+                  <span i18n="@@aiplan.simpleRerunPaid">Volver a crear mi plan · 9 Tokens</span>
+                }
+              </button>
+              } @else {
 
               <div class="ai-mode-switch" role="tablist" i18n-aria-label="@@aiplan.modeLabel" aria-label="Cómo quieres planificar">
                 <button type="button" role="tab" class="btn-pill"
@@ -423,6 +507,7 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
                 @if (loading()) { ⏳ } @else { ✨ }
                 <span i18n="@@aiplan.suggestBtn">Generar opciones</span>
               </button>
+              }
             </div>
           }
 
@@ -637,6 +722,10 @@ export function visibleHighlights(highlights: readonly string[] | null | undefin
             </div>
 
             <div class="ai-plan-actions" style="margin-top:16px">
+              @if (simpleView()) {
+                <button class="btn-pill btn-outline" (click)="adjustOptions()" type="button"
+                        i18n="@@aiplan.adjustSimpleBtn">✏️ Ajustar</button>
+              }
               <button class="btn-pill btn-outline"
                       (click)="restart()"
                       type="button"
@@ -839,10 +928,46 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
   // ── Step 1 mode (F79): cities picker or free text. Both inputs survive a switch; only the active one is sent. ──
   protected readonly MAX_CITIES_REGULAR = 10;
   protected readonly citiesLimitNote = $localize`:@@aiplan.citiesLimit:Puedes elegir hasta 10 ciudades.`;
-  readonly aiMode = signal<AiMode>(readStoredMode());
+  /** Avanzado always opens on Texto libre (F84); nothing is stored. */
+  readonly aiMode = signal<AiMode>('text');
   readonly cities = signal<string[]>([]);
+
+  // ── F84: Simple (one step, 9 Tokens) or Avanzado (options flow). Every visit opens on Simple. ──
+  readonly aiFlow = signal<AiFlow>('simple');
+  /** Simple form shown (the first run keeps its own card). */
+  readonly simpleView = computed(() => !this.firstRunView() && this.aiFlow() === 'simple');
+  /** One free-change session per flow: switching is locked once the session has spent. */
+  readonly flowLocked = computed(() => this.planSessionId() !== null);
+  /** Picked cities as the `{ id, name }` pairs the first-run and simple requests send. */
+  private readonly namedCities = computed(() => this.cities().map(id => ({ id, name: this.cityFor(id)?.name ?? id })));
+  /** The option the server will synthesize for the current Simple inputs (mirrored helper). */
+  private readonly simpleOption = computed(() => citiesPlanOption(this.namedCities(), this.duration() ?? 0));
+  /** A plan already ran in this session, so the Simple button shows the price of the next run. */
+  readonly simpleRerun = computed(() => this.originalPlanOptions() !== null);
+
+  setFlow(flow: AiFlow): void {
+    if (this.flowLocked()) return;
+    this.aiFlow.set(flow);
+    if (flow === 'advanced') this.aiMode.set('text');
+  }
+
+  toggleFlow(): void {
+    this.setFlow(this.aiFlow() === 'simple' ? 'advanced' : 'simple');
+  }
+
+  /** "Crear mi plan": synthesize the option, start a session if needed, then the usual plan() checks. */
+  planSimple(): void {
+    if (!this.canSuggest() || this.loading()) return;
+    this.selectedOption.set(this.simpleOption());
+    if (this.planSessionId() === null) {
+      this.planSessionId.set(crypto.randomUUID());
+      this.freeChangesUsed.set(0);
+    }
+    this.plan();
+  }
+
   /** What the detector compares and the API receives for the active mode. */
-  private readonly citiesActive = computed(() => this.firstRun() || this.aiMode() === 'cities');
+  private readonly citiesActive = computed(() => this.firstRun() || this.aiFlow() === 'simple' || this.aiMode() === 'cities');
   private readonly activePreferences = computed(() => (this.citiesActive() ? '' : this.preferences()));
   private readonly activeCityIds = computed(() => (this.citiesActive() ? [...this.cities()].sort() : []));
   /** The backend rejects more than 60 days (§5.1, §5.5); block it here with a localized note instead. */
@@ -873,7 +998,6 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
 
   setMode(mode: AiMode): void {
     this.aiMode.set(mode);
-    try { localStorage.setItem(AI_MODE_KEY, mode); } catch { /* storage unavailable */ }
   }
 
   /**
@@ -911,9 +1035,12 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
           this.duration.set(params.duration);
           this.budget.set(params.budget ?? '');
           this.startDate.set(params.startDate ?? '');
-          if (params.cityIds?.length) {
-            this.cities.set(params.cityIds);
-            this.aiMode.set('cities');
+          // F84: a simple-flow row reopens in Simple; older and advanced rows (no flow) in Avanzado.
+          this.aiFlow.set(params.flow === 'simple' ? 'simple' : 'advanced');
+          const ids = params.cities?.map(c => c.id) ?? params.cityIds;
+          if (ids?.length) {
+            this.cities.set(ids);
+            if (params.flow !== 'simple') this.aiMode.set('cities');
           }
         }
       }
@@ -923,6 +1050,42 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const ids = this.initialCityIds();
     if (ids.length) this.cities.set(ids.slice(0, this.firstRun() ? this.MAX_CITIES_FIRST_RUN : this.MAX_CITIES_REGULAR));
+  }
+
+  /**
+   * F84: refill the form with this user's last inputs (the mode still resets to Simple). An effect, not ngOnInit:
+   * on a refresh the user arrives after init. Not for the first run, a revisited plan, or over ?city= ids.
+   */
+  private lastInputsDone = false;
+  private readonly lastInputsPrefill = effect(() => {
+    if (this.lastInputsDone || !this.auth.isLoggedIn()) return;
+    this.lastInputsDone = true;
+    untracked(() => {
+      const email = this.auth.currentUser()?.email;
+      // A started session already owns the fields: never overwrite them.
+      if (!email || this.firstRun() || this.initialResult() || this.planSessionId() !== null) return;
+      const v = readAiLastInputs(email);
+      if (!v) return;
+      if (!this.initialCityIds().length) this.cities.set(v.cities.slice(0, this.MAX_CITIES_REGULAR));
+      this.duration.set(v.duration);
+      this.startDate.set(v.startDate ?? '');
+      this.preferences.set(v.preferences ?? '');
+      this.budget.set(v.budget ?? '');
+      this.selectedCategories.set((v.categories ?? []) as AttractionCategory[]);
+    });
+  });
+
+  private saveLastInputs(): void {
+    const email = this.auth.currentUser()?.email;
+    if (!email) return;
+    writeAiLastInputs(email, {
+      cities:      this.cities(),
+      duration:    this.duration(),
+      startDate:   this.startDate() || undefined,
+      preferences: this.preferences() || undefined,
+      budget:      this.budget() || undefined,
+      categories:  this.selectedCategories(),
+    });
   }
 
   /**
@@ -955,7 +1118,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
     this.planTakingLongTimer = setTimeout(() => this.planTakingLong.set(true), AiPlanningComponent.AI_PLAN_LONG_WAIT_MS);
 
     this.planSub = this.api.firstPlan({
-      cities:      this.cities().map(id => ({ id, name: this.cityFor(id)?.name ?? id })),
+      cities:      this.namedCities(),
       duration,
       startDate:   this.startDate() || undefined,
       preferences: this.buildPreferences() || undefined,
@@ -1060,10 +1223,12 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
       // No suggest yet — fresh state, 0% change, all slots available
       return { ratio: 0, freeRemaining, preview: 'free' };
     }
+    // Simple: the server re-synthesizes the option from the new cities/days, so compare that one (F84).
+    const opt = this.simpleView() ? this.simpleOption() : null;
     const cur: PlanSessionOptions = {
-      selectedOptionTitle:      original.selectedOptionTitle,
-      selectedOptionSummary:    original.selectedOptionSummary,
-      selectedOptionHighlights: original.selectedOptionHighlights,
+      selectedOptionTitle:      opt?.title ?? original.selectedOptionTitle,
+      selectedOptionSummary:    opt?.summary ?? original.selectedOptionSummary,
+      selectedOptionHighlights: opt?.highlights ?? original.selectedOptionHighlights,
       preferences:              this.activePreferences(),
       duration:                 this.duration() ?? 0,
       budget:                   this.budget(),
@@ -1161,6 +1326,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
           // user can still switch to the second option before continuing.
           this.selectedOption.set(res.options[0] ?? null);
           this.lastSuggestKey.set(inputsKey);
+          this.saveLastInputs();
           this.loading.set(false);
           this.step.set('options');
           // Update suggest baseline so bar is reactive when user adjusts for re-suggest
@@ -1261,15 +1427,26 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
       AiPlanningComponent.AI_PLAN_LONG_WAIT_MS,
     );
 
-    this.planSub = this.api.planTrip({
-      selectedOption: opt,
-      preferences:    this.buildPreferences() || undefined,
-      duration:       this.duration(),
-      budget:         this.budget() || undefined,
-      startDate:      this.startDate() || undefined,
-      planSessionId:  this.planSessionId() ?? undefined,
-      ...(this.aiMode() === 'cities' ? { cityIds: this.cities() } : {}),
-    }).subscribe({
+    const request: PlanTripRequest = this.simpleView()
+      ? {
+          flow:          'simple',
+          cities:        this.namedCities(),
+          duration:      this.duration(),
+          startDate:     this.startDate() || undefined,
+          planSessionId: this.planSessionId() ?? undefined,
+        }
+      : {
+          selectedOption: opt,
+          preferences:    this.buildPreferences() || undefined,
+          duration:       this.duration(),
+          budget:         this.budget() || undefined,
+          startDate:      this.startDate() || undefined,
+          planSessionId:  this.planSessionId() ?? undefined,
+          ...(this.aiMode() === 'cities' ? { cityIds: this.cities() } : {}),
+        };
+    // Saved as the run starts: "Notificarme" drops the poll, and those users are who need the inputs back.
+    if (request.flow === 'simple') this.saveLastInputs();
+    this.planSub = this.api.planTrip(request).subscribe({
       next: response => {
         this.clearPlanTakingLongTimer();
         this.planTakingLong.set(false);

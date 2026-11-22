@@ -25,6 +25,7 @@ import { AppLocale } from '../../core/i18n/locale.util';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { AiPlanViewPayload } from '../../core/models/ai.model';
 import { clearFirstPlanSession } from '../../core/first-plan/first-plan-session';
+import { clearAiLastInputs } from '../../core/ai/ai-last-inputs';
 import { TripCardService } from '../trip-card/trip-card.service';
 import { PlanActionsService } from '../../core/saved-plans/plan-actions.service';
 import { PlanMenuAction } from './plan-actions-menu/plan-actions-menu.component';
@@ -451,6 +452,7 @@ export class NavFacadeService {
     this.companionSuggest.clear();
     this.landingFeed.reset();   // feedback F2 — never leave a previous session's feed loaded
     clearFirstPlanSession();    // F79: a second sign-up in this tab gets its own first run
+    clearAiLastInputs();        // F84: the next account on this browser starts with an empty AI form
     this.router.navigate(['/']);
   }
 }

@@ -445,6 +445,28 @@ describe('ApiService AI planning — city-scoped payloads', () => {
     });
   });
 
+  it('planTrip simple flow sends flow, cities and their catalog, and no selectedOption/preferences/budget/cityIds', async () => {
+    service.planTrip({
+      flow: 'simple', cities: [{ id: 'rome', name: 'Rome' }, { id: 'florence', name: 'Florence' }],
+      duration: 5, startDate: '01/07/2026', planSessionId: 's-1',
+    }).subscribe();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const req = http.expectOne(r => r.url.endsWith('/ai/plan') && r.method === 'POST');
+    const body = req.request.body;
+    expect(body.flow).toBe('simple');
+    expect(body.cities).toEqual([{ id: 'rome', name: 'Rome' }, { id: 'florence', name: 'Florence' }]);
+    expect(body.duration).toBe(5);
+    expect(body.startDate).toBe('01/07/2026');
+    expect(body.planSessionId).toBe('s-1');
+    expect(Object.keys(body.cityCatalog).sort()).toEqual(['florence', 'rome']);
+    for (const k of ['selectedOption', 'preferences', 'budget', 'cityIds']) expect(k in body).toBe(false);
+    req.flush({ requestId: 'req-s' });
+    await new Promise(resolve => setTimeout(resolve, 0));
+    http.expectOne(r => r.url.includes('/ai/plan/req-s/status')).flush({
+      status: 'completed', result: { title: 'Viaje a Rome, Florence', stops: [], transits: [] },
+    });
+  });
+
   it('planTrip sends no cityCatalog when the selected option has no cityIds', fakeAsync(() => {
     service.planTrip({
       selectedOption: { id: 1, title: 'T', summary: 'S', highlights: [] },
