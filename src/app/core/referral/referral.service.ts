@@ -33,7 +33,7 @@ export class ReferralService {
 
   pending(): PendingReferral | null { return readPendingReferral(); }
 
-  /** One `GET /referrals/me` per login; resolves null when logged out or on error. */
+  /** One `GET /referrals/me` per login (a failed one is retried on the next call); resolves null when logged out or on error. */
   loadSummary(): Promise<ReferralSummary | null> {
     return untracked(() => {
       const email = this.auth.currentUser()?.email;
@@ -42,7 +42,12 @@ export class ReferralService {
       this.loadError.set(false);
       const promise = firstValueFrom(this.api.getMyReferrals()).then(
         s => { this._summary.set(s); return s; },
-        () => { this.loadError.set(true); return null; },
+        () => {
+          // Forget the failed request so the next call retries (a 5xx or 429 must not stick for the session).
+          if (this.inflight?.promise === promise) this.inflight = null;
+          this.loadError.set(true);
+          return null;
+        },
       );
       this.inflight = { email, promise };
       return promise;

@@ -92,6 +92,16 @@ describe('ReferralService', () => {
     expect(service.loadError()).toBe(true);
   });
 
+  it('loadSummary retries after a failure', async () => {
+    user = { name: 'A', email: 'a@x.cl' }; loggedIn = true;
+    api.getMyReferrals.mockReturnValueOnce(throwError(() => new Error('429')));
+    expect(await service.loadSummary()).toBeNull();
+    expect(await service.loadSummary()).toEqual(SUMMARY);
+    expect(api.getMyReferrals).toHaveBeenCalledTimes(2);
+    expect(service.loadError()).toBe(false);
+    expect(service.code()).toBe(SUMMARY.code);
+  });
+
   it('code() is null and loads nothing when logged out', async () => {
     expect(service.code()).toBeNull();
     await Promise.resolve();
