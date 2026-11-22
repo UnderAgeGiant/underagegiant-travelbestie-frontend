@@ -3831,6 +3831,62 @@
         <source>Ciudades</source>
         <target>Cities</target>
       </trans-unit>
+      <trans-unit id="aiplan.subtitleSimple" datatype="html">
+        <source>Elige tus ciudades y te armamos el plan completo</source>
+        <target>Pick your cities and we build the whole plan</target>
+      </trans-unit>
+      <trans-unit id="aiplan.step2AdvancedOnly" datatype="html">
+        <source>Solo en modo avanzado</source>
+        <target>Advanced mode only</target>
+      </trans-unit>
+      <trans-unit id="aiplan.changeChargedBodySimple" datatype="html">
+        <source>Se descontaron 9 Tokens ⭐ por este cambio.</source>
+        <target>9 Tokens ⭐ were deducted for this change.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmChargeSimple" datatype="html">
+        <source> Esta acción costará 9 Tokens ⭐. ¿Deseas continuar? </source>
+        <target> This will cost 9 Tokens ⭐. Continue? </target>
+      </trans-unit>
+      <trans-unit id="aiplan.confirmProceedSimple" datatype="html">
+        <source>Sí, continuar (−9 Tokens)</source>
+        <target>Yes, continue (−9 Tokens)</target>
+      </trans-unit>
+      <trans-unit id="aiplan.simpleTitle" datatype="html">
+        <source>¿A dónde quieres ir?</source>
+        <target>Where do you want to go?</target>
+      </trans-unit>
+      <trans-unit id="aiplan.flowSwitch" datatype="html">
+        <source>Modo avanzado</source>
+        <target>Advanced mode</target>
+      </trans-unit>
+      <trans-unit id="aiplan.flowSwitchShort" datatype="html">
+        <source>Avanzado</source>
+        <target>Advanced</target>
+      </trans-unit>
+      <trans-unit id="aiplan.flowLocked" datatype="html">
+        <source>Para cambiar de modo, empieza de nuevo.</source>
+        <target>To switch modes, start over.</target>
+      </trans-unit>
+      <trans-unit id="aiplan.simpleFreeNote" datatype="html">
+        <source>Cambio pequeño: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>gratis<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> · Cambios gratis <x id="INTERPOLATION" equiv-text="{{ simpleAnalysis.freeRemaining }}"/>/<x id="INTERPOLATION_1" equiv-text="{{ FREE_CHANGE_LIMIT }}"/></source>
+        <target>Small change: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>free<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> · Free changes <x id="INTERPOLATION" equiv-text="{{ simpleAnalysis.freeRemaining }}"/>/<x id="INTERPOLATION_1" equiv-text="{{ FREE_CHANGE_LIMIT }}"/></target>
+      </trans-unit>
+      <trans-unit id="aiplan.simpleCta" datatype="html">
+        <source>Crear mi plan · 9 Tokens</source>
+        <target>Create my plan · 9 Tokens</target>
+      </trans-unit>
+      <trans-unit id="aiplan.simpleRerunFree" datatype="html">
+        <source>Volver a crear mi plan · gratis</source>
+        <target>Create my plan again · free</target>
+      </trans-unit>
+      <trans-unit id="aiplan.simpleRerunPaid" datatype="html">
+        <source>Volver a crear mi plan · 9 Tokens</source>
+        <target>Create my plan again · 9 Tokens</target>
+      </trans-unit>
+      <trans-unit id="aiplan.adjustSimpleBtn" datatype="html">
+        <source>✏️ Ajustar</source>
+        <target>✏️ Adjust</target>
+      </trans-unit>
       <trans-unit id="aiplan.modeText" datatype="html">
         <source>Texto libre</source>
         <target>Free text</target>
