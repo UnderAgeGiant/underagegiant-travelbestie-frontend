@@ -3,7 +3,7 @@ import { firstValueFrom } from 'rxjs';
 import { ApiService } from '../api/api.service';
 import { AuthService } from '../auth/auth.service';
 import type { PendingReferral, ReferralChannel, ReferralSummary } from '../models/referral.model';
-import { REFERRAL_CODE_RE, clearPendingReferral, readPendingReferral, writePendingReferral } from './pending-referral';
+import { REFERRAL_CODE_RE, readPendingReferral, writePendingReferral } from './pending-referral';
 
 /** F81: remembers the first `?ref` code a logged-out browser sees, and loads the user's own code and counts. */
 @Injectable({ providedIn: 'root' })
@@ -32,7 +32,6 @@ export class ReferralService {
   }
 
   pending(): PendingReferral | null { return readPendingReferral(); }
-  clearPending(): void { clearPendingReferral(); }
 
   /** One `GET /referrals/me` per login; resolves null when logged out or on error. */
   loadSummary(): Promise<ReferralSummary | null> {
