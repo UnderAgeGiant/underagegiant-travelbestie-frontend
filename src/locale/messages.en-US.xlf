@@ -4239,6 +4239,86 @@
           <context context-type="linenumber">80,82</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="karmaHistory.reason.referralReward" datatype="html">
+        <source>Invitación a un amigo</source>
+        <target>Friend invitation</target>
+      </trans-unit>
+      <trans-unit id="referral.invitedBy" datatype="html">
+        <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>@<x id="INTERPOLATION" equiv-text="{{ inv.username }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> te invitó a Tripilove</source>
+        <target><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>@<x id="INTERPOLATION" equiv-text="{{ inv.username }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> invited you to Tripilove</target>
+      </trans-unit>
+      <trans-unit id="referral.invitedByName" datatype="html">
+        <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{ inv.firstName }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> te invitó a Tripilove</source>
+        <target><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{ inv.firstName }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> invited you to Tripilove</target>
+      </trans-unit>
+      <trans-unit id="referral.title" datatype="html">
+        <source>Invita a tus amigos 💌</source>
+        <target>Invite your friends 💌</target>
+      </trans-unit>
+      <trans-unit id="referral.helpLabel" datatype="html">
+        <source>Cómo funciona</source>
+        <target>How it works</target>
+      </trans-unit>
+      <trans-unit id="referral.rulesTitle" datatype="html">
+        <source>Cómo funciona</source>
+        <target>How it works</target>
+      </trans-unit>
+      <trans-unit id="referral.rule1" datatype="html">
+        <source>Ganas <x id="INTERPOLATION" equiv-text="{{ s.rewardTokens }}"/> Tokens cuando alguien se registra con tu link, verifica su correo y guarda su primer plan.</source>
+        <target>You earn <x id="INTERPOLATION" equiv-text="{{ s.rewardTokens }}"/> Tokens when someone signs up with your link, verifies their email and saves their first plan.</target>
+      </trans-unit>
+      <trans-unit id="referral.rule2" datatype="html">
+        <source>Máximo <x id="INTERPOLATION" equiv-text="{{ s.monthCap }}"/> Tokens al mes. Se reinicia el día 1 (hora de Chile).</source>
+        <target>Up to <x id="INTERPOLATION" equiv-text="{{ s.monthCap }}"/> Tokens a month. It resets on the 1st (Chile time).</target>
+      </trans-unit>
+      <trans-unit id="referral.rule3" datatype="html">
+        <source>Solo cuentan cuentas nuevas. Si alguien abrió antes el link de otra persona, la invitación es de quien lo invitó primero (vale 30 días).</source>
+        <target>Only new accounts count. If someone opened another person's link first, the invitation belongs to whoever invited them first (valid for 30 days).</target>
+      </trans-unit>
+      <trans-unit id="referral.rule4" datatype="html">
+        <source>Las cuentas creadas desde tu mismo navegador no suman Tokens.</source>
+        <target>Accounts created from your own browser don't earn Tokens.</target>
+      </trans-unit>
+      <trans-unit id="referral.rule5" datatype="html">
+        <source>Tú no ves los nombres ni correos de las personas que invitas.</source>
+        <target>You don't see the names or emails of the people you invite.</target>
+      </trans-unit>
+      <trans-unit id="referral.lead" datatype="html">
+        <source>Gana <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{ s.rewardTokens }}"/> Tokens<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> por cada persona que se una con tu link y cree su primer plan. Hasta <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION_1" equiv-text="{{ s.monthCap }}"/> Tokens al mes<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>.</source>
+        <target>Earn <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{ s.rewardTokens }}"/> Tokens<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> for each person who joins with your link and creates their first plan. Up to <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION_1" equiv-text="{{ s.monthCap }}"/> Tokens a month<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>.</target>
+      </trans-unit>
+      <trans-unit id="referral.linkLabel" datatype="html">
+        <source>Tu link de invitación</source>
+        <target>Your invite link</target>
+      </trans-unit>
+      <trans-unit id="referral.copied" datatype="html">
+        <source>✓ Copiado</source>
+        <target>✓ Copied</target>
+      </trans-unit>
+      <trans-unit id="referral.copy" datatype="html">
+        <source>📋 Copiar</source>
+        <target>📋 Copy</target>
+      </trans-unit>
+      <trans-unit id="referral.share" datatype="html">
+        <source>↗ Compartir</source>
+        <target>↗ Share</target>
+      </trans-unit>
+      <trans-unit id="referral.invited" datatype="html">
+        <source>Personas invitadas</source>
+        <target>People invited</target>
+      </trans-unit>
+      <trans-unit id="referral.thisMonth" datatype="html">
+        <source>Este mes</source>
+        <target>This month</target>
+      </trans-unit>
+      <trans-unit id="referral.monthOf" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ s.monthTokens }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>de <x id="INTERPOLATION_1" equiv-text="{{ s.monthCap }}"/> Tokens<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target><x id="INTERPOLATION" equiv-text="{{ s.monthTokens }}"/> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>of <x id="INTERPOLATION_1" equiv-text="{{ s.monthCap }}"/> Tokens<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="referral.capNote" datatype="html">
+        <source>🎉 Llegaste al máximo de este mes. Tus invitaciones siguen contando, y vuelves a sumar Tokens el <x id="INTERPOLATION" equiv-text="{{ resetDate() }}"/>.</source>
+        <target>🎉 You've reached this month's limit. Your invitations still count, and you start earning Tokens again on <x id="INTERPOLATION" equiv-text="{{ resetDate() }}"/>.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
