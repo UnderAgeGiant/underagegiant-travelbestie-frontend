@@ -938,9 +938,10 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
   readonly simpleView = computed(() => !this.firstRunView() && this.aiFlow() === 'simple');
   /** One free-change session per flow: switching is locked once the session has spent. */
   readonly flowLocked = computed(() => this.planSessionId() !== null);
+  /** Picked cities as the `{ id, name }` pairs the first-run and simple requests send. */
+  private readonly namedCities = computed(() => this.cities().map(id => ({ id, name: this.cityFor(id)?.name ?? id })));
   /** The option the server will synthesize for the current Simple inputs (mirrored helper). */
-  private readonly simpleOption = computed(() =>
-    citiesPlanOption(this.cities().map(id => ({ id, name: this.cityFor(id)?.name ?? id })), this.duration() ?? 0));
+  private readonly simpleOption = computed(() => citiesPlanOption(this.namedCities(), this.duration() ?? 0));
   /** A plan already ran in this session, so the Simple button shows the price of the next run. */
   readonly simpleRerun = computed(() => this.originalPlanOptions() !== null);
 
@@ -1117,7 +1118,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
     this.planTakingLongTimer = setTimeout(() => this.planTakingLong.set(true), AiPlanningComponent.AI_PLAN_LONG_WAIT_MS);
 
     this.planSub = this.api.firstPlan({
-      cities:      this.cities().map(id => ({ id, name: this.cityFor(id)?.name ?? id })),
+      cities:      this.namedCities(),
       duration,
       startDate:   this.startDate() || undefined,
       preferences: this.buildPreferences() || undefined,
@@ -1429,7 +1430,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
     const request: PlanTripRequest = this.simpleView()
       ? {
           flow:          'simple',
-          cities:        this.cities().map(id => ({ id, name: this.cityFor(id)?.name ?? id })),
+          cities:        this.namedCities(),
           duration:      this.duration(),
           startDate:     this.startDate() || undefined,
           planSessionId: this.planSessionId() ?? undefined,
