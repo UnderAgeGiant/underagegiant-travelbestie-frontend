@@ -13,6 +13,7 @@ import { SavedPlansService } from '../../core/saved-plans/saved-plans.service';
 import { KarmaModalService } from '../../core/karma/karma-modal.service';
 import { TripSuggestion, SuggestTripsResponse, PlanChangeInfo, PlanSessionOptions, AiPlanViewPayload, PlanTripRequest } from '../../core/models/ai.model';
 import { citiesPlanOption } from '../../core/ai/cities-plan-option.util';
+import { readAiLastInputs, writeAiLastInputs } from '../../core/ai/ai-last-inputs';
 import { Trip, TripStop, TransitLeg, TransitSegment, TransitMode, PlannedAttraction, CostSettings, DEFAULT_COST_SETTINGS } from '../../core/models/trip.model';
 import { CostSettingsComponent } from '../../shared/cost-settings/cost-settings.component';
 import { plannedDurationMinutes } from '../../core/utils/planned-duration.util';
@@ -1051,6 +1052,42 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * F84: refill the form with this user's last inputs (the mode still resets to Simple). An effect, not ngOnInit:
+   * on a refresh the user arrives after init. Not for the first run, a revisited plan, or over ?city= ids.
+   */
+  private lastInputsDone = false;
+  private readonly lastInputsPrefill = effect(() => {
+    if (this.lastInputsDone || !this.auth.isLoggedIn()) return;
+    this.lastInputsDone = true;
+    untracked(() => {
+      const email = this.auth.currentUser()?.email;
+      // A started session already owns the fields: never overwrite them.
+      if (!email || this.firstRun() || this.initialResult() || this.planSessionId() !== null) return;
+      const v = readAiLastInputs(email);
+      if (!v) return;
+      if (!this.initialCityIds().length) this.cities.set(v.cities.slice(0, this.MAX_CITIES_REGULAR));
+      this.duration.set(v.duration);
+      this.startDate.set(v.startDate ?? '');
+      this.preferences.set(v.preferences ?? '');
+      this.budget.set(v.budget ?? '');
+      this.selectedCategories.set((v.categories ?? []) as AttractionCategory[]);
+    });
+  });
+
+  private saveLastInputs(): void {
+    const email = this.auth.currentUser()?.email;
+    if (!email) return;
+    writeAiLastInputs(email, {
+      cities:      this.cities(),
+      duration:    this.duration(),
+      startDate:   this.startDate() || undefined,
+      preferences: this.preferences() || undefined,
+      budget:      this.budget() || undefined,
+      categories:  this.selectedCategories(),
+    });
+  }
+
+  /**
    * F79 city-guide sign-up (?city=): start today for 3 days, so "Crear mi plan gratis" works with one tap (both
    * stay editable). An effect, not ngOnInit: the gift flag can arrive after init (a session marker written before
    * F79 has no flag until the boot refresh lands). Runs once, before the first-run card renders its date picker.
@@ -1288,6 +1325,7 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
           // user can still switch to the second option before continuing.
           this.selectedOption.set(res.options[0] ?? null);
           this.lastSuggestKey.set(inputsKey);
+          this.saveLastInputs();
           this.loading.set(false);
           this.step.set('options');
           // Update suggest baseline so bar is reactive when user adjusts for re-suggest
@@ -1405,6 +1443,8 @@ export class AiPlanningComponent implements OnInit, OnDestroy {
           planSessionId:  this.planSessionId() ?? undefined,
           ...(this.aiMode() === 'cities' ? { cityIds: this.cities() } : {}),
         };
+    // Saved as the run starts: "Notificarme" drops the poll, and those users are who need the inputs back.
+    if (request.flow === 'simple') this.saveLastInputs();
     this.planSub = this.api.planTrip(request).subscribe({
       next: response => {
         this.clearPlanTakingLongTimer();

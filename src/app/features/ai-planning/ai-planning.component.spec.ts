@@ -1453,3 +1453,78 @@ describe('AiPlanningComponent — F84 Simple / Avanzado', () => {
     set.mockRestore();
   });
 });
+
+describe('AiPlanningComponent — F84 last typed inputs', () => {
+  let fixture: ComponentFixture<AiPlanningComponent>;
+  let component: AiPlanningComponent;
+  let auth: AuthService;
+  let api: ApiService;
+  const KEY = 'tb_ai_last_inputs:ana@test.com';
+
+  function create(opts: { firstPlanAvailable?: boolean; initial?: any } = {}): void {
+    TestBed.configureTestingModule({
+      imports: [AiPlanningComponent],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    });
+    auth = TestBed.inject(AuthService);
+    api = TestBed.inject(ApiService);
+    fixture = TestBed.createComponent(AiPlanningComponent);
+    component = fixture.componentInstance;
+    if (opts.initial) fixture.componentRef.setInput('initialResult', opts.initial);
+    auth.setTokens('t', { name: 'Ana', email: 'ana@test.com', countryOfResidence: null, firstPlanAvailable: opts.firstPlanAvailable ?? false });
+    fixture.detectChanges();
+  }
+  const future = () => {
+    const d = new Date(); d.setDate(d.getDate() + 10);
+    return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+  };
+
+  beforeEach(() => localStorage.clear());
+
+  it('prefills from stored inputs on open (no initialResult, no gift) while staying on Simple', () => {
+    const date = future();
+    localStorage.setItem(KEY, JSON.stringify({ cities: ['rome', 'florence'], duration: 5, startDate: date, preferences: 'museos', budget: '900', categories: ['foodie'] }));
+    create();
+    expect(component.aiFlow()).toBe('simple');
+    expect(component.cities()).toEqual(['rome', 'florence']);
+    expect(component.duration()).toBe(5);
+    expect(component.startDate()).toBe(date);
+    expect(component.preferences()).toBe('museos');
+    expect(component.budget()).toBe('900');
+    expect(component.selectedCategories()).toEqual(['foodie']);
+  });
+
+  it('does not prefill for a gift user or a revisited plan', () => {
+    localStorage.setItem(KEY, JSON.stringify({ cities: ['rome'], duration: 5 }));
+    create({ firstPlanAvailable: true });
+    expect(component.cities()).toEqual([]);
+    TestBed.resetTestingModule();
+    create({ initial: { result: TRIP, requestId: 'r', requestParams: { selectedOption: OPTION, duration: 2 } } });
+    expect(component.duration()).toBe(2);
+    expect(component.cities()).toEqual([]);
+  });
+
+  it('writes after a successful simple kickoff', () => {
+    create();
+    component.cities.set(['rome']);
+    component.duration.set(3);
+    jest.spyOn(api, 'planTrip').mockReturnValue(new Subject<PlanTripResponse>());
+    component.planSimple();
+    expect(JSON.parse(localStorage.getItem(KEY)!)).toEqual(expect.objectContaining({ cities: ['rome'], duration: 3 }));
+  });
+
+  it('writes after a successful suggest, not after a failed one', () => {
+    create();
+    component.setFlow('advanced');
+    component.preferences.set('playa');
+    component.duration.set(4);
+    component.budget.set('500');
+    const spy = jest.spyOn(api, 'suggestTrips').mockReturnValue(throwError(() => ({ status: 500 })));
+    component.suggest();
+    expect(localStorage.getItem(KEY)).toBeNull();
+    spy.mockReturnValue(of({ options: [OPTION, OPTION] } as any));
+    component.planSessionId.set(null);
+    component.suggest();
+    expect(JSON.parse(localStorage.getItem(KEY)!)).toEqual(expect.objectContaining({ preferences: 'playa', duration: 4, budget: '500' }));
+  });
+});
