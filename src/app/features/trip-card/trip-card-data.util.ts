@@ -1,7 +1,7 @@
 import { SharedTrip } from '../../core/shared-trips/shared-trips.service';
 import { WORLD_CITIES } from '../../data/cities.data';
 import { stayLength } from '../../core/utils/event-datetime.util';
-import { buildShareLink } from '../../core/share/share-url.util';
+import { buildShareLink, withReferral } from '../../core/share/share-url.util';
 import { environment } from '../../../environments/environment';
 
 export interface TripCardCity { flag: string; name: string; days: number | null; nights: number | null }
@@ -24,12 +24,12 @@ function cardSite(siteUrl: string): string {
   return /\/\/(localhost|127\.0\.0\.1)(:|$)/.test(site) ? PROD_SITE : site;
 }
 
-/** The only place the card URL is assembled (F81 adds the referral code here). */
-export function tripCardLink(shareId: string, siteUrl: string = environment.siteUrl): string {
-  return `${buildShareLink(shareId, cardSite(siteUrl))}?utm_source=card`;
+/** The only place the card URL is assembled; a logged-in sharer's code rides along (F81). */
+export function tripCardLink(shareId: string, siteUrl: string = environment.siteUrl, refCode: string | null = null): string {
+  return withReferral(`${buildShareLink(shareId, cardSite(siteUrl))}?utm_source=card`, refCode, 'card');
 }
 
-export function buildTripCardData(trip: SharedTrip, shareId: string, siteUrl: string = environment.siteUrl): TripCardData {
+export function buildTripCardData(trip: SharedTrip, shareId: string, siteUrl: string = environment.siteUrl, refCode: string | null = null): TripCardData {
   const stops = trip.stops ?? [];
   // The travel day counts for the next city, so the rows add up to the trip total.
   const cities = stops.map((s, i) => {
@@ -49,7 +49,7 @@ export function buildTripCardData(trip: SharedTrip, shareId: string, siteUrl: st
     },
     cities: cities.slice(0, MAX_ROWS),
     moreCities: Math.max(0, cities.length - MAX_ROWS),
-    link: tripCardLink(shareId, siteUrl),
+    link: tripCardLink(shareId, siteUrl, refCode),
     siteLabel: cardSite(siteUrl).replace(/^https?:\/\//, ''),
   };
 }

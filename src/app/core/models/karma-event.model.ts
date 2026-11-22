@@ -11,7 +11,8 @@ export type KarmaEventReason =
   | 'step_comment'
   | 'collaborator_invite'
   | 'ai_plan_refund'
-  | 'ai_suggest_refund';
+  | 'ai_suggest_refund'
+  | 'referral_reward';
 
 export interface KarmaEventTarget {
   type: 'trip' | 'ai_plan_request';
@@ -61,6 +62,7 @@ export function karmaReasonLabel(reason: string): string {
     case 'karma_purchased':           return $localize`:@@karmaHistory.reason.karmaPurchased:Compra de token`;
     case 'attraction_comment_first':  return $localize`:@@karmaHistory.reason.attractionComment:Primer comentario en una atracción`;
     case 'step_comment':              return $localize`:@@karmaHistory.reason.stepComment:Comentario en un viaje compartido`;
+    case 'referral_reward':           return $localize`:@@karmaHistory.reason.referralReward:Invitación a un amigo`;
     default:                          return reason;
   }
 }

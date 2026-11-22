@@ -11,6 +11,10 @@ describe('karmaReasonLabel', () => {
     expect(karmaReasonLabel('ai_suggest_refund')).toBe('Reembolso de sugerencias de IA');
   });
 
+  it('labels the F81 referral reward', () => {
+    expect(karmaReasonLabel('referral_reward')).toBe('Invitación a un amigo');
+  });
+
   it('falls back to the raw string for an unrecognized reason', () => {
     expect(karmaReasonLabel('some_future_reason')).toBe('some_future_reason');
   });

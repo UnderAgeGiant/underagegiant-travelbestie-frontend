@@ -18,7 +18,8 @@ import { AutoSaveService } from '../../core/saved-plans/auto-save.service';
 import { NavFacadeService } from '../nav/nav-facade.service';
 import { TripItineraryComponent } from '../preferences/trip-itinerary.component';
 import { ToastComponent } from '../../shared/toast/toast.component';
-import { buildShareLink } from '../../core/share/share-url.util';
+import { buildShareLink, withReferral } from '../../core/share/share-url.util';
+import { ReferralService } from '../../core/referral/referral.service';
 import { environment } from '../../../environments/environment';
 import { normalizeSearch } from '../../core/utils/normalize-search.util';
 import { NavShellComponent } from '../nav/nav-shell.component';
@@ -442,6 +443,7 @@ const MY_TRIPS_TABS: readonly string[] = ['trips', 'favorites', 'collaborations'
 })
 export class MyTripsComponent implements AfterViewInit {
   readonly auth       = inject(AuthService);
+  private readonly referral = inject(ReferralService);
   readonly trip       = inject(TripService);
   readonly savedPlans = inject(SavedPlansService);
   readonly favorites  = inject(FavoritesService);
@@ -668,7 +670,7 @@ export class MyTripsComponent implements AfterViewInit {
     // Clipboard needs a real absolute URL (it leaves the app); the follow-up
     // "view it" navigation stays in-app via the Router so the in-memory
     // access token survives instead of a full reload blanking it.
-    navigator.clipboard.writeText(buildShareLink(shareId)).catch(() => {});
+    navigator.clipboard.writeText(withReferral(buildShareLink(shareId), this.referral.code(), 'shared_plan')).catch(() => {});
     this.router.navigate(['/shared', shareId]);
   }
 

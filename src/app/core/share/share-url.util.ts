@@ -11,14 +11,23 @@ export function buildShareLink(shareId: string, origin: string = window.location
   return `${origin}/shared/${shareId}`;
 }
 
+/** F81: a logged-in sharer's links carry their referral code (`ref`) and the channel (`via`); null leaves the link as is. */
+export function withReferral(url: string, code: string | null, via: 'shared_plan' | 'card'): string {
+  if (!code) return url;
+  const u = new URL(url);
+  u.searchParams.set('ref', code);
+  u.searchParams.set('via', via);
+  return u.toString();
+}
+
 const ownMessage   = () => $localize`:@@share.message:✨ ¡Mira el viaje que armé en Tripilove! 🌍✈️🧳`;
 const otherMessage = () => $localize`:@@share.messageOther:✨ ¡Mira este viaje en Tripilove! 🌍✈️🧳`;
 
 /** The share text: the owner’s own trip, or someone else’s shared trip (no authorship claim). */
 export const shareMessage = (own: boolean): string => (own ? ownMessage() : otherMessage());
 
-export function buildWhatsappUrl(tripName: string, shareId: string, origin: string = window.location.origin, prefix?: string): string {
-  const link = buildShareLink(shareId, origin);
+export function buildWhatsappUrl(tripName: string, shareId: string, origin: string = window.location.origin, prefix?: string, refCode: string | null = null): string {
+  const link = withReferral(buildShareLink(shareId, origin), refCode, 'shared_plan');
   const intro = prefix ?? ownMessage();
   // Link sits alone on its own line so WhatsApp auto-detects it as a clickable URL.
   const msg = `${intro}\n\n📍 ${tripName}\n\n${link}`;

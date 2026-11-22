@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, effect } from '@angular/core';
+import { Component, inject, signal, computed, effect, untracked } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/auth/auth.service';
 import { AuthModalService } from '../../../core/auth/auth-modal.service';
@@ -8,6 +8,9 @@ import { SavedPlansService } from '../../../core/saved-plans/saved-plans.service
 import { FavoritesService } from '../../../core/favorites/favorites.service';
 import { CompanionSuggestionService } from '../../../core/ai/companion-suggestion.service';
 import { FirstPlanService } from '../../../core/first-plan/first-plan.service';
+import { ApiService } from '../../../core/api/api.service';
+import { ReferralService } from '../../../core/referral/referral.service';
+import type { Inviter } from '../../../core/models/referral.model';
 import { environment } from '../../../../environments/environment';
 import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../../core/utils/password-strength.util';
 
@@ -96,6 +99,16 @@ import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarAc
             }
             @if (loginMode() === 'register') {
               @if (!otpStep()) {
+                @if (inviter(); as inv) {
+                  <div class="ref-invited-by">
+                    <div class="ref-av" aria-hidden="true">{{ (inv.username || inv.firstName).charAt(0).toUpperCase() }}</div>
+                    @if (inv.username) {
+                      <div i18n="@@referral.invitedBy"><b>&#64;{{ inv.username }}</b> te invitó a Tripilove</div>
+                    } @else {
+                      <div i18n="@@referral.invitedByName"><b>{{ inv.firstName }}</b> te invitó a Tripilove</div>
+                    }
+                  </div>
+                }
                 <div class="form-group">
                   <label class="form-label" i18n="@@nav.nameLabel">Tu nombre</label>
                   <input class="form-input"
@@ -376,6 +389,11 @@ export class AuthModalComponent {
   private readonly favorites  = inject(FavoritesService);
   private readonly companionSuggest = inject(CompanionSuggestionService);
   protected readonly firstPlan  = inject(FirstPlanService);
+  private readonly api        = inject(ApiService);
+  private readonly referral   = inject(ReferralService);
+  /** F81: who invited this visitor (looked up once, when the register form first opens with a pending code). */
+  readonly inviter = signal<Inviter | null>(null);
+  private inviterRequested = false;
 
   // auth form signals
   loginMode     = signal<'login' | 'register' | 'reset'>('login');
@@ -435,6 +453,9 @@ export class AuthModalComponent {
   }
 
   constructor() {
+    effect(() => {
+      if (this.authModal.isOpen() && this.loginMode() === 'register') untracked(() => this.loadInviter());
+    });
     effect(() => {
       if (this.authModal.isOpen()) {
         this.initAttempts = 0;
@@ -501,6 +522,14 @@ export class AuthModalComponent {
   private resetTurnstile(): void {
     this.destroyTurnstile();
     setTimeout(() => this.renderTurnstile(), 0);
+  }
+
+  private loadInviter(): void {
+    const pending = this.referral.pending();
+    if (this.inviterRequested || !pending) return;
+    this.inviterRequested = true;
+    // 404 (unknown code) or any error: no line, sign-up unchanged.
+    this.api.getInviter(pending.code).subscribe({ next: i => this.inviter.set(i), error: () => {} });
   }
 
   switchToRegister(): void {
