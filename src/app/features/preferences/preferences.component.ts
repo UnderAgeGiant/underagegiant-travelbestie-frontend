@@ -18,10 +18,11 @@ import { NavShellComponent } from '../nav/nav-shell.component';
 import { UsernameEditComponent } from './username-edit/username-edit.component';
 import { computePasswordStrength, passwordStrengthColor, isPasswordStrengthBarActive } from '../../core/utils/password-strength.util';
 import { GameAssetsService } from '../../core/game/game-assets.service';
+import { ReferralCardComponent } from './referral-card/referral-card.component';
 
 @Component({
     selector: 'app-preferences',
-    imports: [FlagIconComponent, CountryComboboxComponent, PlaceComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, FollowingFeedComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent, MielRunnerComponent],
+    imports: [FlagIconComponent, CountryComboboxComponent, PlaceComboboxComponent, CompanionBoostCardComponent, TrophyShelfComponent, FollowingFeedComponent, AutosaveReminderBannerComponent, NavShellComponent, UsernameEditComponent, MielRunnerComponent, ReferralCardComponent],
     changeDetection: ChangeDetectionStrategy.Eager,
     template: `
     <div class="profile-page">
@@ -50,6 +51,11 @@ import { GameAssetsService } from '../../core/game/game-assets.service';
             <div class="pref-email">{{ auth.currentUser()?.email }}</div>
           </div>
         </div>
+
+        <!-- Invite friends (F81) -->
+        @if (auth.isLoggedIn()) {
+          <tb-referral-card />
+        }
 
         <!-- Edit account accordion -->
         <section>
